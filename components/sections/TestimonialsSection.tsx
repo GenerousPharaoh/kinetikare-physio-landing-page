@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { ArrowLeftIcon, ArrowRightIcon, StarIcon } from '@heroicons/react/24/solid'; 
-import { ChatBubbleLeftRightIcon } from '@heroicons/react/24/outline';
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -16,7 +15,7 @@ type Testimonial = {
   avatar?: string; // Optional avatar image
 };
 
-// Testimonial data (Content preserved)
+// Testimonial data
 const testimonials: Testimonial[] = [
   {
     id: 1,
@@ -24,7 +23,7 @@ const testimonials: Testimonial[] = [
     role: "Parent of Patient",
     stars: 5,
     text: "Highly recommend Movement Solutions Physiotherapy. In particular, Kareem has been truly exceptional! Can't express my gratitude for the remarkable care and guidance he has provided during my son's recovery from a knee injury. His expertise, genuine concern, and unwavering support has made a significant difference in my son's recovery these past 4 months.",
-    avatar: "/images/avatars/avatar-1.png" // Replace with actual image paths if available
+    avatar: "/images/avatars/avatar-1.png" 
   },
   {
     id: 2,
@@ -62,104 +61,64 @@ const testimonials: Testimonial[] = [
 
 export default function TestimonialsSection() {
   const { ref, isVisible } = useScrollAnimation();
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const [touchStartX, setTouchStartX] = useState(0);
-  const [direction, setDirection] = useState<'left' | 'right' | null>(null);
-  const [isPaused, setIsPaused] = useState(false);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
-  
-  // Get previous and next indices for the card stack effect
-  const prevIndex = currentIndex === 0 ? testimonials.length - 1 : currentIndex - 1;
-  const nextIndex = currentIndex === testimonials.length - 1 ? 0 : currentIndex + 1;
-  
-  // Handle next testimonial with animation (wrapped in useCallback)
-  const nextTestimonial = useCallback(() => {
-    if (isTransitioning) return;
-    setDirection('right');
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setCurrentIndex((prevIndex) => (prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1));
-      setTimeout(() => { 
-        setIsTransitioning(false); 
-        setDirection(null); 
-      }, 50);
-    }, 450);
-  }, [isTransitioning]); // Dependency: isTransitioning
-  
-  // Handle previous testimonial with animation (wrapped in useCallback)
-  const prevTestimonial = useCallback(() => {
-    if (isTransitioning) return;
-    setDirection('left');
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setCurrentIndex((prevIndex) => (prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1));
-      setTimeout(() => { 
-        setIsTransitioning(false); 
-        setDirection(null); 
-      }, 50);
-    }, 450);
-  }, [isTransitioning]); // Dependency: isTransitioning
-  
-  // Fix for auto-cycling - initialize without delays and add a forced trigger
-  useEffect(() => {
-    // Function to start or restart the interval
-    const startInterval = () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-      
-      // Create a new interval that calls nextTestimonial every 5 seconds
-      intervalRef.current = setInterval(() => {
-        nextTestimonial();
-      }, 5000); // Reduced from 7000 for more frequent cycling
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [direction, setDirection] = useState(0); // -1 for left, 1 for right
+  const [paused, setPaused] = useState(false);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Get indices for card positions
+  const getCardIndices = () => {
+    const numTestimonials = testimonials.length;
+    return {
+      current: activeIndex,
+      prev: activeIndex === 0 ? numTestimonials - 1 : activeIndex - 1,
+      prevPrev: activeIndex <= 1 ? numTestimonials - (2 - activeIndex) : activeIndex - 2,
+      next: activeIndex === numTestimonials - 1 ? 0 : activeIndex + 1,
+      nextNext: activeIndex >= numTestimonials - 2 ? activeIndex + 2 - numTestimonials : activeIndex + 2
     };
+  };
+
+  const { current, prev, next, prevPrev, nextNext } = getCardIndices();
+
+  // Auto-cycle function
+  const startAutoSlide = useCallback(() => {
+    clearTimeout(timerRef.current!);
     
-    // Initial interval start
-    if (!isPaused) {
-      startInterval();
-    }
-    
-    // Clear interval on component unmount
+    timerRef.current = setTimeout(() => {
+      if (!paused) {
+        // Move to next card
+        setDirection(1);
+        setActiveIndex(prev => (prev + 1) % testimonials.length);
+      }
+      // Restart timer
+      startAutoSlide();
+    }, 5000);
+  }, [paused]);
+
+  // Start the auto-cycle on mount
+  useEffect(() => {
+    startAutoSlide();
     return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
+      if (timerRef.current) clearTimeout(timerRef.current);
     };
-  }, [isPaused, nextTestimonial]);
-  
-  // Additional effect to trigger initial animation after a short delay
-  useEffect(() => {
-    // Trigger first auto-cycle after 2 seconds to ensure it starts working
-    const initialTimer = setTimeout(() => {
-      if (!isPaused && !isTransitioning) {
-        nextTestimonial();
-      }
-    }, 2000);
-    
-    return () => clearTimeout(initialTimer);
-  }, [isPaused, isTransitioning, nextTestimonial]);
-  
-  // Touch handlers for mobile swiping
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setTouchStartX(e.touches[0].clientX);
-    setIsPaused(true); // Pause the rotation when user interacts
+  }, [startAutoSlide]);
+
+  // Handle previous/next clicks
+  const handlePrevious = () => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+    setDirection(-1);
+    setActiveIndex(prev => prev === 0 ? testimonials.length - 1 : prev - 1);
+    startAutoSlide();
   };
-  
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    const touchEndX = e.changedTouches[0].clientX;
-    const diff = touchStartX - touchEndX;
-    
-    // Swipe threshold of 50px
-    if (Math.abs(diff) > 50) {
-      if (diff > 0) {
-        nextTestimonial(); // Swipe left = next
-      } else {
-        prevTestimonial(); // Swipe right = previous
-      }
-    }
-    
-    // Resume auto-rotation after a delay
-    setTimeout(() => setIsPaused(false), 5000);
+
+  const handleNext = () => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+    setDirection(1);
+    setActiveIndex(prev => (prev + 1) % testimonials.length);
+    startAutoSlide();
   };
-  
-  // Generate star rating with new accent color
+
+  // Generate star rating
   const renderStars = (count: number) => {
     return Array(5).fill(0).map((_, i) => (
       <StarIcon 
@@ -169,80 +128,19 @@ export default function TestimonialsSection() {
     ));
   };
 
-  // Create a testimonial card component for reuse
-  const TestimonialCard = ({ testimonial, position }: { testimonial: Testimonial, position: 'current' | 'previous' | 'next' }) => {
-    // Set styling based on position
-    const positionStyles = {
-      current: "z-30 scale-100 opacity-100 shadow-2xl",
-      previous: "z-20 scale-95 opacity-60 -translate-x-[5%] rotate-[-2deg] shadow-xl pointer-events-none",
-      next: "z-20 scale-95 opacity-60 translate-x-[5%] rotate-[2deg] shadow-xl pointer-events-none"
-    };
-    
-    return (
-      <motion.div 
-        className={`absolute inset-0 rounded-xl bg-gradient-to-br from-primary-800 to-primary-800/60 backdrop-blur-md border border-white/5 transition-all duration-500 ease-out ${positionStyles[position]}`}
-        initial={false}
-        animate={{ 
-          scale: position === 'current' ? 1 : 0.95,
-          opacity: position === 'current' ? 1 : 0.6,
-          x: position === 'previous' ? '-5%' : position === 'next' ? '5%' : 0,
-          rotate: position === 'previous' ? -2 : position === 'next' ? 2 : 0,
-        }}
-        transition={{ duration: 0.5 }}
-      >
-        {/* Decorative elements */}
-        <div className="absolute top-0 left-12 right-12 h-[2px] bg-gradient-to-r from-transparent via-accent to-transparent" aria-hidden="true"></div>
-        <div className="absolute top-4 left-4 text-6xl md:text-7xl text-accent/10 font-serif leading-none" aria-label="Decorative opening quote mark" aria-hidden="true">&quot;</div>
-        <div className="absolute bottom-4 right-4 text-6xl md:text-7xl text-accent/10 font-serif leading-none rotate-180" aria-label="Decorative closing quote mark" aria-hidden="true">&quot;</div>
-        
-        {/* Card content */}
-        <div className="px-8 py-10 md:p-12 lg:p-16">
-          {/* Stars at top */}
-          <div className="flex justify-center mb-8">
-            {renderStars(testimonial.stars)}
-          </div>
-          
-          {/* Testimonial text */}
-          <p className="text-lg md:text-xl leading-relaxed text-neutral-200 font-light text-center mb-10 max-w-3xl mx-auto">
-            {testimonial.text}
-          </p>
-          
-          {/* Client info with stylized initial */}
-          <div className="flex flex-col items-center mt-8">
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary-700 to-accent/20 flex items-center justify-center shadow-lg mb-4 border border-white/10">
-              <span className="text-white font-heading text-2xl">
-                {testimonial.name[0]}
-              </span>
-            </div>
-            
-            <div className="text-center">
-              <div className="font-heading font-semibold text-white text-xl md:text-2xl">
-                {testimonial.name}
-              </div>
-              <div className="text-accent/80 text-sm mt-1">
-                {testimonial.role}
-              </div>
-            </div>
-          </div>
-        </div>
-      </motion.div>
-    );
-  };
-
   return (
     <section id="testimonials" className="py-20 md:py-32 bg-primary-900 relative overflow-hidden border-t border-primary-700">
-      {/* Premium Decorative Elements */}
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-        <div className="absolute -top-20 -left-20 w-80 h-80 rounded-full bg-accent/[0.04] blur-3xl" aria-hidden="true"></div>
-        <div className="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-accent/[0.04] blur-3xl" aria-hidden="true"></div>
-        <div className="absolute top-24 left-10 text-9xl text-accent/[0.05] font-serif" aria-label="Decorative opening quote mark" aria-hidden="true">&quot;</div>
-        <div className="absolute bottom-24 right-10 text-9xl text-accent/[0.05] font-serif" aria-label="Decorative closing quote mark" aria-hidden="true">&quot;</div>
-        <div className="absolute inset-0 bg-pattern opacity-[0.01]" aria-hidden="true"></div>
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute -top-20 -left-20 w-80 h-80 rounded-full bg-accent/[0.03] blur-3xl" aria-hidden="true"></div>
+        <div className="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-accent/[0.03] blur-3xl" aria-hidden="true"></div>
+        <div className="absolute top-10 left-10 text-9xl text-accent/[0.05] font-serif leading-none" aria-hidden="true">"</div>
+        <div className="absolute bottom-10 right-10 text-9xl text-accent/[0.05] font-serif leading-none" aria-hidden="true">"</div>
       </div>
       
       {/* Content container */}
       <div className="container mx-auto px-4 relative z-10">
-        {/* Section Header - Reduce animation delay threshold */}
+        {/* Section Header */}
         <div 
           ref={ref}
           className={`text-center mb-16 md:mb-20 transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
@@ -257,138 +155,161 @@ export default function TestimonialsSection() {
           </p>
         </div>
         
-        {/* Premium Testimonial Carousel with Card Deck Effect */}
-        <div 
-          className={`max-w-5xl mx-auto transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-          style={{ transitionDelay: '100ms' }}
-        >
+        {/* Card Deck Carousel */}
+        <div className={`max-w-5xl mx-auto transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div 
-            className="relative h-full"
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
+            className="relative min-h-[520px] md:min-h-[480px]"
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
+            onTouchStart={() => setPaused(true)}
+            onTouchEnd={() => setTimeout(() => setPaused(false), 4000)}
           >
-            {/* Navigation Arrows - Improved positioning and style */}
-            <div className="absolute top-1/2 -left-5 md:-left-12 -translate-y-1/2 z-40">
-              <motion.button 
-                onClick={prevTestimonial}
-                className="w-12 h-12 rounded-full bg-primary-800/90 backdrop-blur-sm hover:bg-primary-700 border border-white/10 flex items-center justify-center text-neutral-200 hover:text-white transition-all duration-200 shadow-lg disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-accent/50"
-                aria-label="Previous testimonial"
-                disabled={isTransitioning}
-                whileHover={{ x: -5, scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+            {/* Card Stack with 3D effect */}
+            <div className="relative w-full h-full" style={{ perspective: '1500px' }}>
+              <div 
+                className="relative w-full h-full"
+                style={{ 
+                  transformStyle: 'preserve-3d',
+                  transition: 'transform 0.6s ease'
+                }}
               >
-                <ArrowLeftIcon className="h-5 w-5" />
-              </motion.button>
-            </div>
-            
-            <div className="absolute top-1/2 -right-5 md:-right-12 -translate-y-1/2 z-40">
-              <motion.button 
-                onClick={nextTestimonial}
-                className="w-12 h-12 rounded-full bg-primary-800/90 backdrop-blur-sm hover:bg-primary-700 border border-white/10 flex items-center justify-center text-neutral-200 hover:text-white transition-all duration-200 shadow-lg disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-accent/50"
-                aria-label="Next testimonial"
-                disabled={isTransitioning}
-                whileHover={{ x: 5, scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <ArrowRightIcon className="h-5 w-5" />
-              </motion.button>
-            </div>
-            
-            {/* Testimonial Card Stack - 3D Effect */}
-            <div className="relative h-full aspect-auto">
-              <div className="relative w-full h-full px-10 py-10 md:py-16 md:px-16">
-                {/* Perspective container to create 3D space */}
-                <div className="relative w-full h-full" style={{ perspective: '1200px' }}>
-                  
-                  {/* Cards Container */}
-                  <div 
-                    className="relative w-full"
-                    style={{ 
-                      transformStyle: 'preserve-3d',
-                      minHeight: '500px' 
-                    }}
-                  >
-                    {/* Previous card (behind current) */}
-                    <TestimonialCard 
-                      testimonial={testimonials[prevIndex]} 
-                      position="previous"
-                    />
+                <AnimatePresence>
+                  {/* Card Stack */}
+                  {[prevPrev, prev, current, next, nextNext].map((index, i) => {
+                    // Determine card position type
+                    let position: 'center' | 'left1' | 'left2' | 'right1' | 'right2';
+                    switch (i) {
+                      case 0: position = 'left2'; break;
+                      case 1: position = 'left1'; break;
+                      case 2: position = 'center'; break;
+                      case 3: position = 'right1'; break;
+                      case 4: position = 'right2'; break;
+                      default: position = 'center';
+                    }
                     
-                    {/* Next card (behind current) */}
-                    <TestimonialCard 
-                      testimonial={testimonials[nextIndex]} 
-                      position="next"
-                    />
+                    // Position styles
+                    const getPositionStyles = () => {
+                      switch (position) {
+                        case 'center':
+                          return 'z-30 translate-y-0 scale-100 opacity-100 shadow-xl';
+                        case 'left1':
+                          return 'z-20 -translate-x-[15%] translate-y-[4%] scale-[0.92] opacity-70 rotate-[-3deg] shadow-lg';
+                        case 'left2':
+                          return 'z-10 -translate-x-[25%] translate-y-[8%] scale-[0.84] opacity-40 rotate-[-6deg] shadow-md';
+                        case 'right1':
+                          return 'z-20 translate-x-[15%] translate-y-[4%] scale-[0.92] opacity-70 rotate-[3deg] shadow-lg';
+                        case 'right2':
+                          return 'z-10 translate-x-[25%] translate-y-[8%] scale-[0.84] opacity-40 rotate-[6deg] shadow-md';
+                      }
+                    };
                     
-                    {/* Current card */}
-                    <TestimonialCard 
-                      testimonial={testimonials[currentIndex]} 
-                      position="current"
-                    />
-                  </div>
-                </div>
+                    return (
+                      <motion.div
+                        key={index}
+                        className={`absolute inset-0 p-8 bg-gradient-to-br from-primary-800 to-primary-900 backdrop-blur-md border border-white/10 rounded-xl transition-all duration-500 ease-out ${getPositionStyles()}`}
+                        initial={{ 
+                          opacity: 0, 
+                          x: direction > 0 ? 200 : -200,
+                          scale: 0.8,
+                          rotateY: direction > 0 ? 45 : -45
+                        }}
+                        animate={{ 
+                          opacity: position === 'center' ? 1 : position.includes('1') ? 0.7 : 0.4,
+                          x: position === 'center' ? 0 : position === 'left1' ? '-15%' : position === 'left2' ? '-25%' : position === 'right1' ? '15%' : '25%',
+                          y: position === 'center' ? 0 : position.includes('1') ? '4%' : '8%',
+                          scale: position === 'center' ? 1 : position.includes('1') ? 0.92 : 0.84,
+                          rotate: position === 'center' ? 0 : position === 'left1' ? -3 : position === 'left2' ? -6 : position === 'right1' ? 3 : 6,
+                          rotateY: 0
+                        }}
+                        transition={{ 
+                          duration: 0.6, 
+                          ease: [0.23, 1, 0.32, 1] 
+                        }}
+                      >
+                        {/* Card Content */}
+                        <div className="h-full flex flex-col justify-between p-2 md:p-6">
+                          {/* Rating Stars */}
+                          <div className="flex justify-center mb-6">
+                            {renderStars(testimonials[index].stars)}
+                          </div>
+                          
+                          {/* Quote content */}
+                          <div className="relative flex-grow overflow-hidden">
+                            <div className="absolute top-0 left-0 text-4xl text-accent/10" aria-hidden="true">"</div>
+                            <div className="absolute bottom-0 right-0 text-4xl text-accent/10" aria-hidden="true">"</div>
+                            <p className="text-base md:text-lg text-neutral-200 text-center my-6 md:my-8 px-4 leading-relaxed">
+                              {testimonials[index].text}
+                            </p>
+                          </div>
+                          
+                          {/* Customer Info */}
+                          <div className="flex flex-col items-center mt-auto">
+                            <div className="w-12 h-12 flex items-center justify-center bg-primary-700 rounded-full mb-3">
+                              <span className="text-white text-xl font-semibold">
+                                {testimonials[index].name[0]}
+                              </span>
+                            </div>
+                            <h4 className="text-white font-medium text-lg">{testimonials[index].name}</h4>
+                            <p className="text-neutral-400 text-sm">{testimonials[index].role}</p>
+                          </div>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </AnimatePresence>
               </div>
             </div>
             
-            {/* Progress indicator */}
-            <div className="flex justify-center mt-8 space-x-2">
+            {/* Navigation Controls */}
+            <div className="absolute top-1/2 -left-5 md:-left-12 transform -translate-y-1/2 z-40">
+              <button 
+                onClick={handlePrevious}
+                className="w-12 h-12 rounded-full bg-primary-800/90 backdrop-blur-sm hover:bg-primary-700 border border-white/10 flex items-center justify-center text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-accent/50 transition-transform duration-300 hover:-translate-x-1"
+                aria-label="Previous testimonial"
+              >
+                <ArrowLeftIcon className="h-5 w-5" />
+              </button>
+            </div>
+            
+            <div className="absolute top-1/2 -right-5 md:-right-12 transform -translate-y-1/2 z-40">
+              <button 
+                onClick={handleNext}
+                className="w-12 h-12 rounded-full bg-primary-800/90 backdrop-blur-sm hover:bg-primary-700 border border-white/10 flex items-center justify-center text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-accent/50 transition-transform duration-300 hover:translate-x-1"
+                aria-label="Next testimonial"
+              >
+                <ArrowRightIcon className="h-5 w-5" />
+              </button>
+            </div>
+            
+            {/* Indicator dots */}
+            <div className="absolute bottom-0 left-0 right-0 flex justify-center space-x-2 pb-6">
               {testimonials.map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => {
-                    if (idx === currentIndex || isTransitioning) return;
-                    setDirection(idx > currentIndex ? 'right' : 'left');
-                    setIsTransitioning(true);
-                    setIsPaused(true); // Pause auto-cycling when user interacts
-                    setTimeout(() => {
-                      setCurrentIndex(idx);
-                      setTimeout(() => {
-                        setIsTransitioning(false);
-                        setDirection(null);
-                        
-                        // Resume auto-rotation after user interaction
-                        setTimeout(() => setIsPaused(false), 3000);
-                      }, 50);
-                    }, 450);
+                    if (timerRef.current) clearTimeout(timerRef.current);
+                    setDirection(idx > activeIndex ? 1 : -1);
+                    setActiveIndex(idx);
+                    setPaused(true);
+                    setTimeout(() => setPaused(false), 4000);
+                    startAutoSlide();
                   }}
                   className="group focus:outline-none"
                   aria-label={`Go to testimonial ${idx + 1}`}
                 >
-                  <motion.div 
-                    className={`h-2 rounded-full transition-all duration-300 ${ 
-                      idx === currentIndex ? 'bg-accent w-10' : 'bg-primary-700 w-5 group-hover:bg-primary-600'
+                  <div
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      idx === activeIndex
+                        ? 'w-6 bg-accent'
+                        : 'bg-neutral-500 hover:bg-neutral-400'
                     }`}
-                    whileHover={{ scale: 1.2 }}
-                    animate={{ 
-                      width: idx === currentIndex ? 40 : 20,
-                      backgroundColor: idx === currentIndex ? 'rgb(216, 180, 88)' : 'rgb(30, 58, 66)'
-                    }}
-                  ></motion.div>
+                  />
                 </button>
               ))}
-            </div>
-            
-            {/* Current index indicator */}
-            <div className="mt-6 text-center text-neutral-400 text-sm">
-              <span className="text-accent font-medium">{currentIndex + 1}</span> / {testimonials.length}
             </div>
           </div>
         </div>
       </div>
-      
-      {/* Background pattern style */}
-      <style jsx>{`
-        .bg-pattern {
-          background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FFFFFF' fill-opacity='0.01'%3E
-            <path d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E
-          </C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-      `}</style>
-
-      {/* Subtle Bottom Divider */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-primary-700"></div>
     </section>
   );
 }

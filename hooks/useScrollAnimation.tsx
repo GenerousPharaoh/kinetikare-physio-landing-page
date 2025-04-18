@@ -1,52 +1,36 @@
-import { useState, useEffect, useRef, RefObject } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
-interface ScrollAnimationOptions {
-  threshold?: number;
-  triggerOnce?: boolean;
-  rootMargin?: string;
-}
-
-export function useScrollAnimation({
-  threshold = 0.1,
-  triggerOnce = true,
-  rootMargin = '0px',
-}: ScrollAnimationOptions = {}) {
+export function useScrollAnimation(threshold = 0.1, rootMargin = '0px 0px -10% 0px') {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  const enteredOnce = useRef(false);
 
   useEffect(() => {
-    const currentRef = ref.current;
-    
-    if (!currentRef) return;
-
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // If we've already seen it and triggerOnce is true, don't update
-        if (triggerOnce && enteredOnce.current) return;
-        
-        // Update visibility state based on intersection
-        setIsVisible(entry.isIntersecting);
-        
-        // Mark that we've seen this element
+        // Update visibility state when intersection changes
         if (entry.isIntersecting) {
-          enteredOnce.current = true;
+          setIsVisible(true);
+          // Once element is visible, no need to observe anymore
+          if (ref.current) observer.unobserve(ref.current);
         }
       },
       {
-        threshold,
-        rootMargin,
+        threshold, // Lower threshold for earlier triggering
+        rootMargin  // Show elements before they fully enter viewport
       }
     );
 
-    observer.observe(currentRef);
+    const currentRef = ref.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
 
     return () => {
       if (currentRef) {
         observer.unobserve(currentRef);
       }
     };
-  }, [threshold, triggerOnce, rootMargin]);
+  }, [threshold, rootMargin]);
 
   return { ref, isVisible };
 } 

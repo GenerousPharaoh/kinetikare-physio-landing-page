@@ -17,7 +17,7 @@ export default function LoadingScreen() {
       setTimeout(() => {
         setShouldRender(false);
       }, 800);
-    }, 2400); // Shorter total loading time
+    }, 2000); // Shorter total loading time
     
     return () => {
       clearTimeout(loadingTimer);
@@ -39,7 +39,7 @@ export default function LoadingScreen() {
     exit: {
       opacity: 0,
       transition: {
-        duration: 0.8,
+        duration: 0.6,
         ease: [0.22, 1, 0.36, 1],
       }
     }
@@ -60,8 +60,8 @@ export default function LoadingScreen() {
   const pulseVariants = {
     hidden: { scale: 0.8, opacity: 0 },
     visible: {
-      scale: [0.8, 1.2, 0.8],
-      opacity: [0.3, 0.7, 0.3],
+      scale: [0.8, 1.1, 0.8],
+      opacity: [0.3, 0.5, 0.3],
       transition: {
         duration: 2,
         repeat: Infinity,
@@ -70,14 +70,14 @@ export default function LoadingScreen() {
     }
   };
 
-  const textVariants = {
-    hidden: { opacity: 0, y: 10 },
-    visible: {
+  const lineVariants = {
+    hidden: { scaleX: 0, opacity: 0 },
+    visible: { 
+      scaleX: 1, 
       opacity: 1,
-      y: 0,
       transition: {
         duration: 0.5,
-        delay: 0.2
+        delay: 0.3
       }
     }
   };
@@ -92,74 +92,70 @@ export default function LoadingScreen() {
           animate="visible"
           exit="exit"
         >
-          {/* Background elements */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute top-[10%] right-[20%] w-48 h-48 rounded-full bg-primary-600/10 blur-xl" />
-            <div className="absolute bottom-[20%] left-[15%] w-64 h-64 rounded-full bg-accent/10 blur-xl" />
-          </div>
+          {/* Subtle gradient background */}
+          <div className="absolute inset-0 bg-gradient-radial from-primary-800/40 to-primary-900/90" />
           
           <div className="relative z-10 flex flex-col items-center justify-center">
             {/* Logo with Pulse Effect */}
             <div className="relative">
               <motion.div 
-                className="absolute inset-0 bg-accent/20 rounded-full blur-xl"
+                className="absolute inset-0 bg-accent/10 rounded-full blur-xl"
                 variants={pulseVariants}
                 initial="hidden"
                 animate="visible"
               />
               
               <motion.div
-                className="relative z-10 bg-primary-800 p-5 rounded-full shadow-lg"
+                className="relative z-10 bg-gradient-to-br from-primary-800 to-primary-700 p-5 rounded-full shadow-lg border border-primary-700/50"
                 variants={logoVariants}
                 initial="hidden"
                 animate="visible"
               >
-                <div className="flex items-center justify-center w-24 h-24 text-5xl font-bold text-white">
+                <div className="flex items-center justify-center w-16 h-16 md:w-20 md:h-20 text-4xl md:text-5xl font-bold text-white">
                   KH
                 </div>
               </motion.div>
             </div>
             
-            {/* Animated Lines */}
-            <div className="mt-10 relative flex gap-3">
-              {[...Array(3)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="w-6 h-1 rounded-full bg-accent"
-                  initial={{ opacity: 0, scaleX: 0 }}
-                  animate={{ 
-                    opacity: [0, 1, 0],
-                    scaleX: [0, 1, 0]
-                  }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                    repeatType: "loop",
-                    delay: i * 0.2,
+            {/* Progress line */}
+            <div className="mt-10 w-48 h-[2px] bg-gray-700/50 rounded-full overflow-hidden">
+              <motion.div 
+                className="h-full bg-accent/80 origin-left"
+                initial={{ scaleX: 0 }}
+                animate={{ 
+                  scaleX: [0, 0.5, 0.8, 1],
+                  transition: { 
+                    times: [0, 0.4, 0.8, 1], 
+                    duration: 2,
                     ease: "easeInOut"
-                  }}
-                />
-              ))}
+                  }
+                }}
+              />
             </div>
             
-            {/* Tagline */}
+            {/* Minimalist tagline */}
             <motion.div
-              className="mt-8 text-center"
-              variants={textVariants}
+              className="mt-6 overflow-hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
             >
-              <p className="text-white font-medium text-lg tracking-wide">
-                Modern Rehabilitation
+              <p className="text-white/80 font-light tracking-widest text-sm uppercase">
+                Restore · Strengthen · Move
               </p>
             </motion.div>
           </div>
           
-          {/* Noise texture */}
-          <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none" />
+          {/* Subtle noise texture */}
+          <div className="absolute inset-0 bg-noise opacity-[0.02] pointer-events-none" />
         </motion.div>
       )}
       <style jsx global>{`
         .bg-noise {
           background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+        .bg-gradient-radial {
+          background-image: radial-gradient(var(--tw-gradient-stops));
         }
       `}</style>
     </AnimatePresence>

@@ -1,190 +1,97 @@
-import React, { ReactNode } from 'react';
-import { cn } from '@/lib/utils';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import React from 'react';
 import { motion } from 'framer-motion';
 
 interface GlassCardProps {
-  children: ReactNode;
+  children: React.ReactNode;
   className?: string;
+  backgroundOpacity?: number;
+  blurStrength?: 'sm' | 'md' | 'lg';
+  borderStyle?: 'light' | 'dark' | 'accent' | 'none';
   hoverEffect?: boolean;
-  animated?: boolean;
-  backgroundOpacity?: 'light' | 'medium' | 'heavy' | number;
-  blurStrength?: 'sm' | 'md' | 'lg' | 'xl' | number;
-  borderStyle?: 'none' | 'light' | 'medium' | 'accent';
-  onClick?: () => void;
   animate?: boolean;
-  delay?: number;
-  duration?: number;
+  onClick?: () => void;
 }
 
-const GlassCard = ({
+export default function GlassCard({
   children,
   className = '',
-  hoverEffect = true,
-  animated = true,
-  backgroundOpacity = 'medium',
+  backgroundOpacity = 0.1,
   blurStrength = 'md',
   borderStyle = 'light',
-  onClick,
+  hoverEffect = false,
   animate = true,
-  delay = 0,
-  duration = 0.5,
-}: GlassCardProps) => {
-  const { ref, isVisible } = useScrollAnimation({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
-  // Base classes for the glass effect
-  const baseClasses = 'rounded-xl backdrop-blur transition-all duration-300 overflow-hidden';
-
-  // Determine background opacity
-  let bgOpacityClass = '';
-  if (typeof backgroundOpacity === 'number') {
-    bgOpacityClass = `bg-white/[${backgroundOpacity}]`;
-  } else {
-    switch (backgroundOpacity) {
-      case 'light':
-        bgOpacityClass = 'bg-white/[0.15]';
-        break;
-      case 'medium':
-        bgOpacityClass = 'bg-white/[0.25]';
-        break;
-      case 'heavy':
-        bgOpacityClass = 'bg-white/[0.40]';
-        break;
-      default:
-        bgOpacityClass = 'bg-white/[0.25]';
-    }
-  }
-
-  // Determine blur strength
-  let blurClass = '';
-  if (typeof blurStrength === 'number') {
-    blurClass = `backdrop-blur-[${blurStrength}px]`;
-  } else {
-    switch (blurStrength) {
-      case 'sm':
-        blurClass = 'backdrop-blur-sm';
-        break;
-      case 'md':
-        blurClass = 'backdrop-blur-md';
-        break;
-      case 'lg':
-        blurClass = 'backdrop-blur-lg';
-        break;
-      case 'xl':
-        blurClass = 'backdrop-blur-xl';
-        break;
-      default:
-        blurClass = 'backdrop-blur-md';
-    }
-  }
-
-  // Determine border style
-  let borderClass = '';
-  switch (borderStyle) {
-    case 'none':
-      borderClass = '';
-      break;
-    case 'light':
-      borderClass = 'border border-white/20';
-      break;
-    case 'medium':
-      borderClass = 'border-2 border-white/30';
-      break;
-    case 'accent':
-      borderClass = 'border border-accent/30';
-      break;
-    default:
-      borderClass = 'border border-white/20';
-  }
-
-  // Hover effect classes - improved with subtle enhancement rather than white background
-  const hoverClasses = hoverEffect
-    ? 'hover:shadow-lg hover:-translate-y-1 hover:border-accent/30 hover:bg-primary-800/50 cursor-pointer'
+  onClick
+}: GlassCardProps) {
+  // Map blur strength values
+  const blurMap = {
+    sm: 'backdrop-blur-sm',
+    md: 'backdrop-blur-md',
+    lg: 'backdrop-blur-lg'
+  };
+  
+  // Map border styles
+  const borderMap = {
+    light: 'border border-white/10',
+    dark: 'border border-primary-700/80',
+    accent: 'border border-accent/20',
+    none: ''
+  };
+  
+  // Generate hover classes - improved to avoid harsh white background
+  const hoverClasses = hoverEffect 
+    ? 'transition-all duration-300 hover:shadow-lg hover:shadow-accent/5 hover:border-accent/30 hover:bg-primary-800/30' 
     : '';
-
-  // Set animation variants
+  
+  // Base card classes
+  const baseClasses = `
+    relative rounded-xl overflow-hidden shadow-sm
+    ${blurMap[blurStrength]}
+    ${borderMap[borderStyle]}
+    ${hoverClasses}
+    ${className}
+  `;
+  
+  // Animation variants
   const variants = {
     hidden: { opacity: 0, y: 20 },
     visible: { 
       opacity: 1, 
       y: 0,
       transition: { 
-        duration: duration,
-        delay: delay,
+        duration: 0.4,
         ease: [0.25, 0.1, 0.25, 1.0]
       }
     }
   };
-
-  // Combine all classes
-  const combinedClasses = cn(
-    baseClasses,
-    bgOpacityClass,
-    blurClass,
-    borderClass,
-    hoverClasses,
-    'shadow-lg',
-    className
-  );
-
-  // Use Framer Motion for animations
+  
+  // Conditionally wrap with motion
   if (animate) {
     return (
       <motion.div
-        ref={animated ? ref : undefined}
-        className={combinedClasses}
+        className={baseClasses}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-10% 0px" }}
+        variants={variants}
+        style={{ backgroundColor: `rgba(16, 24, 39, ${backgroundOpacity})` }}
         onClick={onClick}
         role={onClick ? 'button' : undefined}
         tabIndex={onClick ? 0 : undefined}
-        onKeyDown={
-          onClick
-            ? (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  onClick();
-                }
-              }
-            : undefined
-        }
-        initial="hidden"
-        animate={isVisible ? "visible" : "hidden"}
-        variants={variants}
       >
         {children}
       </motion.div>
     );
   }
-
-  // Standard render without Framer Motion
+  
   return (
     <div
-      ref={animated ? ref : undefined}
-      className={cn(
-        combinedClasses,
-        animated && (isVisible
-          ? 'opacity-100 translate-y-0'
-          : 'opacity-0 translate-y-8')
-      )}
+      className={baseClasses}
+      style={{ backgroundColor: `rgba(16, 24, 39, ${backgroundOpacity})` }}
       onClick={onClick}
       role={onClick ? 'button' : undefined}
       tabIndex={onClick ? 0 : undefined}
-      onKeyDown={
-        onClick
-          ? (e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                onClick();
-              }
-            }
-          : undefined
-      }
     >
       {children}
     </div>
   );
-};
-
-export default GlassCard; 
+} 

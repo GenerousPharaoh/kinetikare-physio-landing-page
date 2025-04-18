@@ -85,15 +85,20 @@ export default function AboutSection() {
                 
                 {/* Main profile image */}
                 <div className="relative rounded-lg overflow-hidden shadow-xl w-full max-w-sm mx-auto lg:max-w-md"> 
-                  <Image
-                    src="/images/kareem-profile.png"
-                    alt="Kareem Hassanein, Registered Physiotherapist"
-                    width={500} 
-                    height={625} 
-                    sizes="(max-width: 640px) 90vw, (max-width: 1024px) 40vw, 400px" 
-                    className="object-cover object-center w-full h-auto" 
-                    priority
-                  />
+                  <div className="rounded-xl overflow-hidden shadow-lg">
+                    <Image
+                      src="/images/kareem-profile.png"
+                      alt="Kareem Hassanein - Professional Physiotherapist"
+                      width={400}
+                      height={500}
+                      sizes="(max-width: 640px) 90vw, (max-width: 768px) 40vw, 400px"
+                      className="w-full h-auto object-cover"
+                      quality={85}
+                      loading="lazy"
+                      placeholder="blur"
+                      blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN0YPh/HwAEJgJmXaiXvwAAAABJRU5ErkJggg=="
+                    />
+                  </div>
                 </div>
               </div>
             </div>

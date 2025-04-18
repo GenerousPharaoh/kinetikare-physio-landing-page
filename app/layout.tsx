@@ -4,6 +4,7 @@ import { Inter, Playfair_Display, Montserrat } from 'next/font/google';
 import './globals.css';
 import LoadingScreen from '@/components/LoadingScreen';
 import FloatingButtons from '@/components/FloatingButtons';
+import FloatingCTA from '@/components/FloatingCTA';
 import Script from 'next/script';
 import { PageTransition } from '@/components/PageTransition';
 import React from 'react';
@@ -141,6 +142,7 @@ export default function RootLayout({
           <main id="main-content" className="min-h-screen flex flex-col">{children}</main>
         </PageTransition>
         <FloatingButtons />
+        <FloatingCTA />
         <MobileBottomNav />
         
         {/* Structured data for SEO */}

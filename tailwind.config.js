@@ -23,6 +23,15 @@ module.exports = {
         '2xl': '1440px',
       },
     },
+    screens: {
+      'xs': '370px',
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1440px',
+      '3xl': '1600px',
+    },
     extend: {
       colors: {
         // Updated Refined Color Palette
@@ -114,9 +123,9 @@ module.exports = {
       
       fontFamily: {
         // Updated premium typography system
-        'sans': ['Montserrat', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', '"Noto Sans"', 'sans-serif'],
-        'heading': ['"Playfair Display"', 'ui-serif', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
-        'body': ['Montserrat', 'ui-sans-serif', 'system-ui']
+        'sans': ['var(--font-montserrat)', 'Montserrat', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', '"Noto Sans"', 'sans-serif'],
+        'heading': ['var(--font-playfair)', '"Playfair Display"', 'ui-serif', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
+        'body': ['var(--font-montserrat)', 'Montserrat', 'ui-sans-serif', 'system-ui']
       },
       
       boxShadow: {
@@ -129,6 +138,7 @@ module.exports = {
         'elevation-2': '0 4px 8px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.1)',
         'elevation-3': '0 12px 24px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.1)',
         'focus': '0 0 0 3px rgba(216, 180, 88, 0.35)', // Based on new accent gold
+        'glow': '0 0 20px rgba(216, 180, 88, 0.2)', // Subtle glow effect
       },
       
       borderRadius: {
@@ -162,16 +172,17 @@ module.exports = {
       
       fontSize: {
         // Further refined font sizes for better balance
+        'xxs': ['0.6875rem', { lineHeight: '1rem' }], // 11px
         'xs': ['0.75rem', { lineHeight: '1.125rem' }], // 12px
         'sm': ['0.875rem', { lineHeight: '1.375rem' }], // 14px
-        'base': ['1.0625rem', { lineHeight: '1.625rem' }], // 17px
-        'lg': ['1.1875rem', { lineHeight: '1.75rem' }], // 19px
-        'xl': ['1.375rem', { lineHeight: '2rem' }],   // 22px
-        '2xl': ['1.625rem', { lineHeight: '2.25rem' }], // 26px
-        '3xl': ['2rem', { lineHeight: '2.5rem' }],     // 32px
-        '4xl': ['2.5rem', { lineHeight: '1.2' }],    // 40px
-        '5xl': ['3.125rem', { lineHeight: '1.1' }],   // 50px
-        '6xl': ['3.75rem', { lineHeight: '1.1' }],    // 60px
+        'base': ['1rem', { lineHeight: '1.5rem' }], // 16px, adjusted for better scaling
+        'lg': ['1.125rem', { lineHeight: '1.75rem' }], // 18px, adjusted for better scaling
+        'xl': ['1.25rem', { lineHeight: '1.875rem' }], // 20px, adjusted for better scaling
+        '2xl': ['1.5rem', { lineHeight: '2rem' }], // 24px
+        '3xl': ['1.875rem', { lineHeight: '2.25rem' }], // 30px
+        '4xl': ['2.25rem', { lineHeight: '2.5rem' }], // 36px
+        '5xl': ['3rem', { lineHeight: '1.1' }], // 48px
+        '6xl': ['3.75rem', { lineHeight: '1.1' }], // 60px
       },
       
       maxWidth: {
@@ -194,6 +205,8 @@ module.exports = {
         'pulse-subtle': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards',
         'fade-in': 'fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+        'slide-in-right': 'slideInRight 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards',
+        'slide-in-left': 'slideInLeft 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards',
       },
       
       keyframes: {
@@ -212,6 +225,14 @@ module.exports = {
         fadeIn: {
           'from': { opacity: 0 },
           'to': { opacity: 1 },
+        },
+        slideInRight: {
+          'from': { transform: 'translateX(20px)', opacity: 0 },
+          'to': { transform: 'translateX(0)', opacity: 1 },
+        },
+        slideInLeft: {
+          'from': { transform: 'translateX(-20px)', opacity: 0 },
+          'to': { transform: 'translateX(0)', opacity: 1 },
         },
       },
     },

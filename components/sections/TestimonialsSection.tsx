@@ -22,7 +22,7 @@ const testimonials: Testimonial[] = [
     name: "Kathy",
     role: "Parent of Patient",
     stars: 5,
-    text: "Highly recommend Movement Solutions Physiotherapy. In particular, Kareem has been truly exceptional! Can't express my gratitude for the remarkable care and guidance he has provided during my son's recovery from a knee injury. His expertise, genuine concern, and unwavering support has made a significant difference in my son's recovery these past 4 months.",
+    text: "Highly recommend! In particular, Kareem has been truly exceptional! Can't express my gratitude for the remarkable care and guidance he has provided during my son's recovery from a knee injury. His expertise, genuine concern, and unwavering support has made a significant difference in my son's recovery these past 4 months.",
     avatar: "/images/avatars/avatar-1.png" 
   },
   {
@@ -54,7 +54,7 @@ const testimonials: Testimonial[] = [
     name: "Thanula",
     role: "Patient",
     stars: 5,
-    text: "Highly recommend Movement Solutions Physiotherapy. The clinic is well managed. Everybody go ask for Kareem. He is the best physiotherapist ever. He's kind, funny and encouraging. I've been seeing him for my ankle injury, and it has been such a positive experience. He communicates clearly and patiently explains each step of the treatment process.",
+    text: "Highly recommend! The clinic is well managed. Everybody go ask for Kareem. He is the best physiotherapist ever. He's kind, funny and encouraging. I've been seeing him for my ankle injury, and it has been such a positive experience. He communicates clearly and patiently explains each step of the treatment process.",
     avatar: "/images/avatars/avatar-5.png"
   },
 ];

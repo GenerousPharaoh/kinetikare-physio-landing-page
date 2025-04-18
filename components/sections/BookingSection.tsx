@@ -16,13 +16,16 @@ export default function BookingSection({ onNavLinkClick }: BookingSectionProps) 
   // Simplified handler for contact link
   const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    if (onNavLinkClick) {
-      onNavLinkClick('#contact'); // Use the passed handler if available
-    } else {
-      const contactSection = document.getElementById('contact');
-      if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
-      }
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      const headerOffset = document.querySelector('header')?.offsetHeight || 80;
+      const elementPosition = contactSection.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   };
 
@@ -42,7 +45,7 @@ export default function BookingSection({ onNavLinkClick }: BookingSectionProps) 
             href="https://endorphinshealth.janeapp.com/#/staff_member/6"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-lg btn-primary"
+            className="inline-flex items-center justify-center bg-accent hover:bg-accent-dark text-white font-medium px-6 py-3 rounded-lg transition-colors duration-300 text-center shadow-md hover:shadow-lg"
           >
             <CalendarDaysIcon className="w-5 h-5 mr-2" />
             Book Online Now
@@ -52,7 +55,7 @@ export default function BookingSection({ onNavLinkClick }: BookingSectionProps) 
           <Link 
             href="/#contact" 
             onClick={handleContactClick}
-            className="btn btn-lg bg-primary-800/40 border border-primary-700/30 text-neutral-200 hover:bg-primary-800/70 hover:border-accent/30 transition-colors duration-200"
+            className="inline-flex items-center justify-center bg-primary-800/40 border border-primary-700/30 text-neutral-200 hover:bg-primary-800/70 hover:border-accent/30 px-6 py-3 rounded-lg transition-colors duration-300 text-center"
           >
              <PhoneIcon className="w-5 h-5 mr-2" />
              Contact Clinic

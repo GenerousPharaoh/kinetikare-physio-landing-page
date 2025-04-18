@@ -52,7 +52,7 @@ export default function BookingSection({ onNavLinkClick }: BookingSectionProps) 
           <Link 
             href="/#contact" 
             onClick={handleContactClick}
-            className="btn btn-lg bg-white/5 border border-transparent text-neutral-200 hover:bg-white/10 hover:text-white transition-colors duration-200"
+            className="btn btn-lg bg-primary-800/40 border border-primary-700/30 text-neutral-200 hover:bg-primary-800/70 hover:border-accent/30 transition-colors duration-200"
           >
              <PhoneIcon className="w-5 h-5 mr-2" />
              Contact Clinic

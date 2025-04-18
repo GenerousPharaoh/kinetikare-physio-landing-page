@@ -96,358 +96,180 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-primary-900 text-white overflow-hidden">
-      {/* Enhanced decorative elements with animations */}
-      <motion.div 
-        className="absolute top-0 right-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl"
-        animate={{ 
-          scale: [1, 1.2, 1],
-          opacity: [0.05, 0.08, 0.05],
-        }}
-        transition={{ 
-          duration: 12,
-          repeat: Infinity,
-          repeatType: "reverse"
-        }}
-        aria-hidden="true"
-      ></motion.div>
-      <motion.div 
-        className="absolute bottom-0 left-0 w-96 h-96 bg-primary-600/5 rounded-full blur-3xl"
-        animate={{ 
-          scale: [1, 1.3, 1],
-          opacity: [0.05, 0.1, 0.05],
-        }}
-        transition={{ 
-          duration: 15,
-          repeat: Infinity,
-          repeatType: "reverse",
-          delay: 2
-        }}
-        aria-hidden="true"
-      ></motion.div>
-      
-      {/* Top accent bar with gradient animation */}
-      <motion.div 
-        className="h-1.5 bg-gradient-to-r from-primary-800 via-accent to-primary-800 bg-[length:200%_auto]"
-        animate={{ 
-          backgroundPosition: ["0% center", "100% center", "0% center"],
-        }}
-        transition={{ 
-          duration: 15,
-          repeat: Infinity,
-          ease: "linear"
-        }}
-      ></motion.div>
+    <footer className="relative bg-primary-900 text-white overflow-hidden border-t border-primary-800/50">
+      {/* Subtle top accent line */}
+      <div className="h-px w-full bg-gradient-to-r from-primary-800 via-accent/30 to-primary-800"></div>
       
       {/* Main content */}
-      <motion.div 
-        className="container mx-auto px-4 pt-20 pb-12 relative z-10"
-        initial="hidden"
-        animate="visible"
-        variants={containerVariants}
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-16">
-          {/* Logo and Description */}
-          <motion.div 
-            className="lg:col-span-5"
-            variants={itemVariants}
-          >
+      <div className="container mx-auto px-6 py-16 md:py-20 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
+          {/* Logo and Description - simplified */}
+          <div className="md:col-span-5">
             <div className="mb-8">
-              <Link href="/" className="inline-flex items-baseline mb-4 hover:opacity-90 transition-opacity">
-                <motion.span 
-                  className="font-heading font-bold text-2xl md:text-3xl text-white"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                >
-                  KH
-                </motion.span>
-                <motion.span 
-                  className="font-heading font-medium italic text-2xl md:text-3xl text-accent ml-1"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                >
-                  Physiotherapy
-                </motion.span>
+              <Link href="/" className="inline-flex items-baseline mb-5 hover:opacity-90 transition-opacity">
+                <span className="font-heading font-bold text-2xl md:text-3xl text-white">KH</span>
+                <span className="font-heading text-2xl md:text-3xl text-accent ml-1">Physiotherapy</span>
               </Link>
               
-              {/* Mission statement with glassmorphism */}
-              <GlassCard
-                className="inline-block py-2 px-4 mb-6"
-                backgroundOpacity={0.1}
-                blurStrength="sm"
-                borderStyle="none"
-                animate={false}
-              >
-                <p className="text-lg md:text-xl font-heading text-accent/90 italic">
-                  &quot;Personalized care for optimal recovery&quot;
-                </p>
-              </GlassCard>
+              <p className="text-lg italic text-accent/90 mb-6 font-light">
+                "Personalized care for optimal recovery"
+              </p>
               
-              {/* Description text */}
-              <motion.p 
-                className="text-neutral-100 text-base md:text-lg leading-relaxed mb-8 max-w-lg"
-                variants={itemVariants}
-              >
+              <p className="text-neutral-300 text-base leading-relaxed mb-8 max-w-lg">
                 Providing expert physiotherapy care in Burlington and Waterdown. My approach focuses on individualized treatment plans to help you achieve your health and performance goals.
-              </motion.p>
+              </p>
               
-              {/* Credentials/Associations with enhanced glassmorphism */}
-              <motion.div 
-                className="flex flex-wrap gap-3 mb-8"
-                variants={itemVariants}
-              >
-                <GlassCard
-                  className="px-3 py-1.5 text-sm font-medium"
-                  backgroundOpacity={0.08}
-                  blurStrength="sm"
-                  borderStyle="light"
-                  animate={false}
-                >
-                  <span>Registered Physiotherapist</span>
-                </GlassCard>
-                
-                <GlassCard
-                  className="px-3 py-1.5 text-sm font-medium"
-                  backgroundOpacity={0.08}
-                  blurStrength="sm"
-                  borderStyle="light"
-                  animate={false}
-                >
-                  <span>Sports Rehabilitation</span>
-                </GlassCard>
-                
-                <GlassCard
-                  className="px-3 py-1.5 text-sm font-medium"
-                  backgroundOpacity={0.08}
-                  blurStrength="sm"
-                  borderStyle="light"
-                  animate={false}
-                >
-                  <span>Manual Therapy</span>
-                </GlassCard>
-              </motion.div>
+              {/* Credentials/Associations */}
+              <div className="flex flex-wrap gap-3 mb-8">
+                <span className="px-3 py-1.5 bg-primary-800/60 rounded-md text-sm font-medium text-white border border-primary-700/50">
+                  Registered Physiotherapist
+                </span>
+                <span className="px-3 py-1.5 bg-primary-800/60 rounded-md text-sm font-medium text-white border border-primary-700/50">
+                  Sports Rehabilitation
+                </span>
+                <span className="px-3 py-1.5 bg-primary-800/60 rounded-md text-sm font-medium text-white border border-primary-700/50">
+                  Manual Therapy
+                </span>
+              </div>
               
-              {/* Social Links with animations */}
-              <motion.div 
-                className="flex space-x-4"
-                variants={itemVariants}
-              >
+              {/* Social Links */}
+              <div className="flex space-x-4">
                 {socialLinks.map((social) => (
-                  <motion.a 
+                  <a 
                     key={social.name} 
                     href={social.href}
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center w-10 h-10 text-white bg-primary-800/60 backdrop-blur-sm border border-primary-700 rounded-full transition-all duration-300"
+                    className="flex items-center justify-center w-10 h-10 text-white bg-primary-800 border border-primary-700/50 rounded-full hover:bg-accent/20 hover:border-accent/50 transition-all duration-300"
                     aria-label={social.name}
-                    whileHover={{ 
-                      scale: 1.15, 
-                      backgroundColor: "rgba(216, 180, 88, 0.4)",
-                      borderColor: "rgba(216, 180, 88, 0.6)"
-                    }}
-                    whileTap={{ scale: 0.95 }}
                   >
                     {social.icon}
-                  </motion.a>
-                ))}
-              </motion.div>
-            </div>
-          </motion.div>
-
-          {/* Navigation Links */}
-          <motion.div 
-            className="lg:col-span-3"
-            variants={itemVariants}
-          >
-            <GlassCard
-              className="p-6 h-full"
-              backgroundOpacity={0.05}
-              blurStrength="sm"
-              borderStyle="light"
-              animate={false}
-            >
-              <h3 className="font-bold text-xl text-white mb-6 pb-3 border-b border-primary-700/50">
-                Navigation
-              </h3>
-              <div className="grid grid-cols-1 gap-8">
-                {footerLinks.map((section) => (
-                  <div key={section.title} className="mb-6">
-                    <h4 className="font-semibold text-accent text-lg mb-4">{section.title}</h4>
-                    <ul className="space-y-3">
-                      {section.links.map((link) => (
-                        <motion.li 
-                          key={link.name}
-                          whileHover={{ x: 3 }}
-                          transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                        >
-                          <Link 
-                            href={link.href} 
-                            className="text-neutral-200 hover:text-white transition-all duration-200 text-base flex items-center group"
-                          >
-                            <motion.span 
-                              className="w-1.5 h-1.5 bg-accent rounded-full mr-2.5 transition-all duration-200"
-                              whileHover={{ width: 8, height: 8 }}
-                            ></motion.span>
-                            {link.name}
-                          </Link>
-                        </motion.li>
-                      ))}
-                    </ul>
-                  </div>
+                  </a>
                 ))}
               </div>
-            </GlassCard>
-          </motion.div>
+            </div>
+          </div>
 
-          {/* Contact Info */}
-          <motion.div 
-            className="lg:col-span-4"
-            variants={itemVariants}
-          >
-            <GlassCard
-              className="p-6 h-full"
-              backgroundOpacity={0.05}
-              blurStrength="sm"
-              borderStyle="light"
-              animate={false}
-            >
-              <h3 className="font-bold text-xl text-white mb-6 pb-3 border-b border-primary-700/50">
-                Contact Information
-              </h3>
-              <ul className="space-y-6">
-                {contactInfo.map((item, index) => (
-                  <motion.li 
-                    key={index} 
-                    className="flex items-start text-base group"
-                    whileHover={{ x: 3 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                  >
-                    <motion.span 
-                      className="mt-0.5 mr-4 p-2.5 bg-primary-800/40 backdrop-blur-sm border border-primary-700/50 rounded-xl text-accent"
-                      whileHover={{ 
-                        scale: 1.1, 
-                        backgroundColor: "rgba(216, 180, 88, 0.15)",
-                        borderColor: "rgba(216, 180, 88, 0.4)"
-                      }}
-                    >
-                      {item.icon}
-                    </motion.span>
-                    <div>
-                      {item.href ? (
-                        <a 
-                          href={item.href} 
-                          target="_blank" 
-                          rel="noopener noreferrer" 
-                          className="text-neutral-200 hover:text-white transition-colors duration-200"
+          {/* Navigation Links - simplified */}
+          <div className="md:col-span-3">
+            <h3 className="font-semibold text-xl text-white mb-6">
+              Navigation
+            </h3>
+            
+            <div className="space-y-6">
+              {footerLinks.map((section) => (
+                <div key={section.title} className="mb-6">
+                  <h4 className="font-medium text-accent text-lg mb-4">{section.title}</h4>
+                  <ul className="space-y-3">
+                    {section.links.map((link) => (
+                      <li key={link.name}>
+                        <Link 
+                          href={link.href} 
+                          className="text-neutral-300 hover:text-white transition-all duration-200 flex items-center group"
                         >
-                          {item.text}
-                        </a>
-                      ) : (
-                        <span className="text-neutral-200">{item.text}</span>
-                      )}
-                    </div>
-                  </motion.li>
-                ))}
-              </ul>
-              
-              {/* Book now button with animation */}
-              <motion.div 
-                className="mt-8"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <a 
-                  href="https://endorphinshealth.janeapp.com/#/staff_member/6"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center bg-accent hover:bg-accent-dark text-white font-medium px-6 py-3.5 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden group"
-                >
-                  <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-accent/0 via-accent-light/30 to-accent/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></span>
-                  <svg className="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                  Book Appointment
-                </a>
-              </motion.div>
-              
-              {/* Google Maps Embed */}
-              <motion.div 
-                className="mt-8"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <h4 className="font-semibold text-lg text-white mb-4">Find Us</h4>
-                <GlassCard
-                  className="p-2 overflow-hidden rounded-lg"
-                  backgroundOpacity={0.05}
-                  blurStrength="sm"
-                  borderStyle="light"
-                  animate={false}
-                >
-                  <div className="aspect-video w-full overflow-hidden rounded-lg">
-                    <iframe 
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2898.518670972593!2d-79.82630139999999!3d43.4079889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b61568c54cbff%3A0x433767b454bd4446!2sEndorphins%20Health%20and%20Wellness%20Centre!5e0!3m2!1sen!2sca!4v1744926379014!5m2!1sen!2sca" 
-                      width="100%" 
-                      height="100%" 
-                      style={{ border: 0 }} 
-                      allowFullScreen 
-                      loading="lazy" 
-                      referrerPolicy="no-referrer-when-downgrade"
-                      title="Endorphins Health and Wellness Centre Location"
-                      className="rounded-lg"
-                    ></iframe>
+                          <span className="w-1.5 h-1.5 bg-accent rounded-full mr-2.5 transition-all duration-200 group-hover:w-2 group-hover:h-2"></span>
+                          {link.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Contact Info - simplified */}
+          <div className="md:col-span-4">
+            <h3 className="font-semibold text-xl text-white mb-6">
+              Contact Information
+            </h3>
+            
+            <ul className="space-y-5">
+              {contactInfo.map((item, index) => (
+                <li key={index} className="flex items-start text-base">
+                  <span className="mt-0.5 mr-4 p-2 bg-primary-800/60 rounded-lg text-accent border border-primary-700/50">
+                    {item.icon}
+                  </span>
+                  <div className="pt-1">
+                    {item.href ? (
+                      <a 
+                        href={item.href} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="text-neutral-300 hover:text-white transition-colors duration-200"
+                      >
+                        {item.text}
+                      </a>
+                    ) : (
+                      <span className="text-neutral-300">{item.text}</span>
+                    )}
                   </div>
-                </GlassCard>
-              </motion.div>
-            </GlassCard>
-          </motion.div>
+                </li>
+              ))}
+            </ul>
+            
+            {/* Book now button */}
+            <div className="mt-8">
+              <a 
+                href="https://endorphinshealth.janeapp.com/#/staff_member/6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center bg-accent hover:bg-accent-dark text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 shadow-lg"
+              >
+                <svg className="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                Book Appointment
+              </a>
+            </div>
+            
+            {/* Google Maps Embed */}
+            <div className="mt-8">
+              <h4 className="font-medium text-lg text-white mb-4">Find Us</h4>
+              <div className="overflow-hidden rounded-lg border border-primary-800">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2898.518670972593!2d-79.82630139999999!3d43.4079889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b61568c54cbff%3A0x433767b454bd4446!2sEndorphins%20Health%20and%20Wellness%20Centre!5e0!3m2!1sen!2sca!4v1744926379014!5m2!1sen!2sca" 
+                  width="100%" 
+                  height="200"
+                  style={{ border: 0 }} 
+                  allowFullScreen 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Endorphins Health and Wellness Centre Location"
+                  className="rounded-lg"
+                ></iframe>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Bottom Bar with glassmorphism */}
-        <GlassCard
-          className="py-6 px-4 mt-8"
-          backgroundOpacity={0.03}
-          blurStrength="sm"
-          borderStyle="none"
-          animate={false}
-        >
+        {/* Bottom Bar - simplified */}
+        <div className="pt-12 mt-12 border-t border-primary-800/30">
           <div className="md:flex md:justify-between md:items-center text-sm">
-            <div className="text-neutral-300 mb-4 md:mb-0">
+            <div className="text-neutral-400 mb-4 md:mb-0">
               &copy; {currentYear} KH Physiotherapy. All Rights Reserved.
             </div>
-            <div className="text-neutral-400 flex flex-col md:flex-row md:items-center gap-2 md:gap-8">
-              <span>Made with dedication to personalized care</span>
+            <div className="flex items-center gap-4">
               <a 
                 href="#" 
                 onClick={(e) => { e.preventDefault(); scrollToTop(); }}
-                className="text-accent hover:text-accent-light transition-colors duration-200 inline-flex items-center group"
+                className="text-accent hover:text-accent-light transition-colors duration-200 inline-flex items-center"
               >
                 <span>Back to top</span>
-                <motion.svg 
+                <svg 
                   xmlns="http://www.w3.org/2000/svg" 
                   className="h-4 w-4 ml-1" 
                   fill="none" 
                   viewBox="0 0 24 24" 
                   stroke="currentColor"
-                  initial={{ y: 0 }}
-                  animate={{ y: [0, -4, 0] }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                    repeatType: "loop",
-                    ease: "easeInOut"
-                  }}
-                  aria-hidden="true"
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
-                </motion.svg>
+                </svg>
               </a>
             </div>
           </div>
-        </GlassCard>
-      </motion.div>
+        </div>
+      </div>
     </footer>
   );
 } 

@@ -100,9 +100,9 @@ const GlassCard = ({
       borderClass = 'border border-white/20';
   }
 
-  // Hover effect classes
+  // Hover effect classes - improved with subtle enhancement rather than white background
   const hoverClasses = hoverEffect
-    ? 'hover:shadow-xl hover:-translate-y-1 hover:bg-white/[0.35] hover:border-white/40 cursor-pointer'
+    ? 'hover:shadow-lg hover:-translate-y-1 hover:border-accent/30 hover:bg-primary-800/50 cursor-pointer'
     : '';
 
   // Set animation variants

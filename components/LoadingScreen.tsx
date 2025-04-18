@@ -148,7 +148,7 @@ export default function LoadingScreen() {
               variants={textVariants}
             >
               <p className="text-white font-medium text-lg tracking-wide">
-                Physiotherapy Excellence
+                Modern Rehabilitation
               </p>
             </motion.div>
           </div>

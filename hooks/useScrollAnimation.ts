@@ -5,7 +5,7 @@ import { useState, useEffect, useRef, RefObject } from 'react';
 interface ScrollAnimationOptions {
   /**
    * Number between 0 and 1 indicating the percentage of the element that needs to be visible
-   * before triggering the animation (default: 0.1 or 10%)
+   * before triggering the animation (default: 0.05 or 5%)
    */
   threshold?: number;
   
@@ -25,6 +25,11 @@ interface ScrollAnimationOptions {
    * Disable the hook completely for SSR or when animations should be conditionally disabled
    */
   disabled?: boolean;
+  
+  /**
+   * Animation duration in milliseconds
+   */
+  duration?: number;
 }
 
 /**
@@ -35,14 +40,16 @@ interface ScrollAnimationOptions {
  * @returns Object containing ref to attach to the element and whether it's visible
  */
 export function useScrollAnimation<T extends HTMLElement = HTMLDivElement>({
-  threshold = 0.1,
+  threshold = 0.05,
   triggerOnce = true,
-  rootMargin = '0px',
+  rootMargin = '0px 0px -100px 0px',
   disabled = false,
+  duration = 500,
 }: ScrollAnimationOptions = {}): {
   ref: RefObject<T>;
   isVisible: boolean;
   hasBeenVisible: boolean;
+  duration: number;
 } {
   const [isVisible, setIsVisible] = useState(false);
   const [hasBeenVisible, setHasBeenVisible] = useState(false);
@@ -95,14 +102,16 @@ export function useScrollAnimation<T extends HTMLElement = HTMLDivElement>({
   return { 
     ref: ref as RefObject<T>, 
     isVisible, 
-    hasBeenVisible 
+    hasBeenVisible,
+    duration
   };
 }
 
 // Helper hook specifically for sections
 export function useSectionAnimation(options?: Omit<ScrollAnimationOptions, 'rootMargin'>) {
   return useScrollAnimation({
-    rootMargin: '0px 0px -100px 0px', // Trigger a bit earlier for sections
+    rootMargin: '0px 0px -150px 0px',
+    threshold: 0.01,
     ...options,
   });
 } 

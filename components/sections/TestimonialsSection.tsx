@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { ArrowLeftIcon, ArrowRightIcon, StarIcon } from '@heroicons/react/24/solid'; 
 import { ChatBubbleLeftRightIcon } from '@heroicons/react/24/outline';
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { motion, AnimatePresence } from 'framer-motion';
 
 // Define a type for testimonial data
 type Testimonial = {
@@ -68,6 +69,10 @@ export default function TestimonialsSection() {
   const [isPaused, setIsPaused] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   
+  // Get previous and next indices for the card stack effect
+  const prevIndex = currentIndex === 0 ? testimonials.length - 1 : currentIndex - 1;
+  const nextIndex = currentIndex === testimonials.length - 1 ? 0 : currentIndex + 1;
+  
   // Handle next testimonial with animation (wrapped in useCallback)
   const nextTestimonial = useCallback(() => {
     if (isTransitioning) return;
@@ -96,25 +101,40 @@ export default function TestimonialsSection() {
     }, 450);
   }, [isTransitioning]); // Dependency: isTransitioning
   
-  // Auto-cycling effect - uses nextTestimonial from useCallback
+  // Fix for auto-cycling - initialize without delays and add a forced trigger
   useEffect(() => {
+    // Function to start or restart the interval
     const startInterval = () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
+      
+      // Create a new interval that calls nextTestimonial every 5 seconds
       intervalRef.current = setInterval(() => {
-        nextTestimonial(); // Now using the stable useCallback version
-      }, 7000);
+        nextTestimonial();
+      }, 5000); // Reduced from 7000 for more frequent cycling
     };
     
+    // Initial interval start
     if (!isPaused) {
       startInterval();
-    } else if (intervalRef.current) {
-      clearInterval(intervalRef.current);
     }
     
+    // Clear interval on component unmount
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [isPaused, nextTestimonial]); // Added nextTestimonial dependency
+  }, [isPaused, nextTestimonial]);
+  
+  // Additional effect to trigger initial animation after a short delay
+  useEffect(() => {
+    // Trigger first auto-cycle after 2 seconds to ensure it starts working
+    const initialTimer = setTimeout(() => {
+      if (!isPaused && !isTransitioning) {
+        nextTestimonial();
+      }
+    }, 2000);
+    
+    return () => clearTimeout(initialTimer);
+  }, [isPaused, isTransitioning, nextTestimonial]);
   
   // Touch handlers for mobile swiping
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -149,6 +169,66 @@ export default function TestimonialsSection() {
     ));
   };
 
+  // Create a testimonial card component for reuse
+  const TestimonialCard = ({ testimonial, position }: { testimonial: Testimonial, position: 'current' | 'previous' | 'next' }) => {
+    // Set styling based on position
+    const positionStyles = {
+      current: "z-30 scale-100 opacity-100 shadow-2xl",
+      previous: "z-20 scale-95 opacity-60 -translate-x-[5%] rotate-[-2deg] shadow-xl pointer-events-none",
+      next: "z-20 scale-95 opacity-60 translate-x-[5%] rotate-[2deg] shadow-xl pointer-events-none"
+    };
+    
+    return (
+      <motion.div 
+        className={`absolute inset-0 rounded-xl bg-gradient-to-br from-primary-800 to-primary-800/60 backdrop-blur-md border border-white/5 transition-all duration-500 ease-out ${positionStyles[position]}`}
+        initial={false}
+        animate={{ 
+          scale: position === 'current' ? 1 : 0.95,
+          opacity: position === 'current' ? 1 : 0.6,
+          x: position === 'previous' ? '-5%' : position === 'next' ? '5%' : 0,
+          rotate: position === 'previous' ? -2 : position === 'next' ? 2 : 0,
+        }}
+        transition={{ duration: 0.5 }}
+      >
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-12 right-12 h-[2px] bg-gradient-to-r from-transparent via-accent to-transparent" aria-hidden="true"></div>
+        <div className="absolute top-4 left-4 text-6xl md:text-7xl text-accent/10 font-serif leading-none" aria-label="Decorative opening quote mark" aria-hidden="true">&quot;</div>
+        <div className="absolute bottom-4 right-4 text-6xl md:text-7xl text-accent/10 font-serif leading-none rotate-180" aria-label="Decorative closing quote mark" aria-hidden="true">&quot;</div>
+        
+        {/* Card content */}
+        <div className="px-8 py-10 md:p-12 lg:p-16">
+          {/* Stars at top */}
+          <div className="flex justify-center mb-8">
+            {renderStars(testimonial.stars)}
+          </div>
+          
+          {/* Testimonial text */}
+          <p className="text-lg md:text-xl leading-relaxed text-neutral-200 font-light text-center mb-10 max-w-3xl mx-auto">
+            {testimonial.text}
+          </p>
+          
+          {/* Client info with stylized initial */}
+          <div className="flex flex-col items-center mt-8">
+            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary-700 to-accent/20 flex items-center justify-center shadow-lg mb-4 border border-white/10">
+              <span className="text-white font-heading text-2xl">
+                {testimonial.name[0]}
+              </span>
+            </div>
+            
+            <div className="text-center">
+              <div className="font-heading font-semibold text-white text-xl md:text-2xl">
+                {testimonial.name}
+              </div>
+              <div className="text-accent/80 text-sm mt-1">
+                {testimonial.role}
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+    );
+  };
+
   return (
     <section id="testimonials" className="py-20 md:py-32 bg-primary-900 relative overflow-hidden border-t border-primary-700">
       {/* Premium Decorative Elements */}
@@ -162,10 +242,10 @@ export default function TestimonialsSection() {
       
       {/* Content container */}
       <div className="container mx-auto px-4 relative z-10">
-        {/* Section Header */}
+        {/* Section Header - Reduce animation delay threshold */}
         <div 
           ref={ref}
-          className={`text-center mb-16 md:mb-20 transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+          className={`text-center mb-16 md:mb-20 transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
         >
           <span className="inline-block py-1 px-3 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">Voices of Recovery</span>
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">
@@ -177,87 +257,76 @@ export default function TestimonialsSection() {
           </p>
         </div>
         
-        {/* Premium Testimonial Carousel */}
+        {/* Premium Testimonial Carousel with Card Deck Effect */}
         <div 
-          className={`max-w-5xl mx-auto transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-          style={{ transitionDelay: '200ms' }}
+          className={`max-w-5xl mx-auto transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+          style={{ transitionDelay: '100ms' }}
         >
           <div 
-            className="relative"
+            className="relative h-full"
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
-            {/* Navigation Arrows */}
-            <div className="absolute top-1/2 -left-5 md:-left-8 -translate-y-1/2 z-20">
-              <button 
+            {/* Navigation Arrows - Improved positioning and style */}
+            <div className="absolute top-1/2 -left-5 md:-left-12 -translate-y-1/2 z-40">
+              <motion.button 
                 onClick={prevTestimonial}
-                className="w-10 h-10 rounded-full bg-primary-800/90 backdrop-blur-sm hover:bg-primary-700 border border-white/10 flex items-center justify-center text-neutral-200 hover:text-white transition-all duration-200 shadow-lg transform hover:-translate-x-1 disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-accent/50"
+                className="w-12 h-12 rounded-full bg-primary-800/90 backdrop-blur-sm hover:bg-primary-700 border border-white/10 flex items-center justify-center text-neutral-200 hover:text-white transition-all duration-200 shadow-lg disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-accent/50"
                 aria-label="Previous testimonial"
                 disabled={isTransitioning}
+                whileHover={{ x: -5, scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <ArrowLeftIcon className="h-4 w-4" />
-              </button>
+                <ArrowLeftIcon className="h-5 w-5" />
+              </motion.button>
             </div>
             
-            <div className="absolute top-1/2 -right-5 md:-right-8 -translate-y-1/2 z-20">
-              <button 
+            <div className="absolute top-1/2 -right-5 md:-right-12 -translate-y-1/2 z-40">
+              <motion.button 
                 onClick={nextTestimonial}
-                className="w-10 h-10 rounded-full bg-primary-800/90 backdrop-blur-sm hover:bg-primary-700 border border-white/10 flex items-center justify-center text-neutral-200 hover:text-white transition-all duration-200 shadow-lg transform hover:translate-x-1 disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-accent/50"
+                className="w-12 h-12 rounded-full bg-primary-800/90 backdrop-blur-sm hover:bg-primary-700 border border-white/10 flex items-center justify-center text-neutral-200 hover:text-white transition-all duration-200 shadow-lg disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-accent/50"
                 aria-label="Next testimonial"
                 disabled={isTransitioning}
+                whileHover={{ x: 5, scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <ArrowRightIcon className="h-4 w-4" />
-              </button>
+                <ArrowRightIcon className="h-5 w-5" />
+              </motion.button>
             </div>
             
-            {/* Testimonial Card */}
-            <div 
-              className={`relative overflow-hidden rounded-xl bg-gradient-to-br from-primary-800 to-primary-800/60 backdrop-blur-md shadow-2xl border border-white/5`}
-            >
-              {/* Decorative elements */}
-              <div className="absolute top-0 left-12 right-12 h-[2px] bg-gradient-to-r from-transparent via-accent to-transparent" aria-hidden="true"></div>
-              <div className="absolute top-4 left-4 text-6xl md:text-7xl text-accent/10 font-serif leading-none" aria-label="Decorative opening quote mark" aria-hidden="true">&quot;</div>
-              <div className="absolute bottom-4 right-4 text-6xl md:text-7xl text-accent/10 font-serif leading-none rotate-180" aria-label="Decorative closing quote mark" aria-hidden="true">&quot;</div>
-              
-              {/* Card content */}
-              <div className="relative">
-                <div 
-                  className={`transform transition-all duration-500 ease-out ${
-                    direction === 'left' ? 'animate-slide-left' : 
-                    direction === 'right' ? 'animate-slide-right' : ''
-                  }`}
-                >
-                  {/* Current testimonial */}
-                  <div className="px-8 py-10 md:p-12 lg:p-16">
-                    {/* Stars at top */}
-                    <div className="flex justify-center mb-8">
-                      {renderStars(testimonials[currentIndex].stars)}
-                    </div>
+            {/* Testimonial Card Stack - 3D Effect */}
+            <div className="relative h-full aspect-auto">
+              <div className="relative w-full h-full px-10 py-10 md:py-16 md:px-16">
+                {/* Perspective container to create 3D space */}
+                <div className="relative w-full h-full" style={{ perspective: '1200px' }}>
+                  
+                  {/* Cards Container */}
+                  <div 
+                    className="relative w-full"
+                    style={{ 
+                      transformStyle: 'preserve-3d',
+                      minHeight: '500px' 
+                    }}
+                  >
+                    {/* Previous card (behind current) */}
+                    <TestimonialCard 
+                      testimonial={testimonials[prevIndex]} 
+                      position="previous"
+                    />
                     
-                    {/* Testimonial text */}
-                    <p className="text-lg md:text-xl leading-relaxed text-neutral-200 font-light text-center mb-10 max-w-3xl mx-auto">
-                      {testimonials[currentIndex].text}
-                    </p>
+                    {/* Next card (behind current) */}
+                    <TestimonialCard 
+                      testimonial={testimonials[nextIndex]} 
+                      position="next"
+                    />
                     
-                    {/* Client info with stylized initial */}
-                    <div className="flex flex-col items-center mt-8">
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary-700 to-accent/20 flex items-center justify-center shadow-lg mb-4 border border-white/10">
-                        <span className="text-white font-heading text-2xl">
-                          {testimonials[currentIndex].name[0]}
-                        </span>
-                      </div>
-                      
-                      <div className="text-center">
-                        <div className="font-heading font-semibold text-white text-xl md:text-2xl">
-                          {testimonials[currentIndex].name}
-                        </div>
-                        <div className="text-accent/80 text-sm mt-1">
-                          {testimonials[currentIndex].role}
-                        </div>
-                      </div>
-                    </div>
+                    {/* Current card */}
+                    <TestimonialCard 
+                      testimonial={testimonials[currentIndex]} 
+                      position="current"
+                    />
                   </div>
                 </div>
               </div>
@@ -272,22 +341,31 @@ export default function TestimonialsSection() {
                     if (idx === currentIndex || isTransitioning) return;
                     setDirection(idx > currentIndex ? 'right' : 'left');
                     setIsTransitioning(true);
+                    setIsPaused(true); // Pause auto-cycling when user interacts
                     setTimeout(() => {
                       setCurrentIndex(idx);
                       setTimeout(() => {
                         setIsTransitioning(false);
                         setDirection(null);
+                        
+                        // Resume auto-rotation after user interaction
+                        setTimeout(() => setIsPaused(false), 3000);
                       }, 50);
                     }, 450);
                   }}
                   className="group focus:outline-none"
                   aria-label={`Go to testimonial ${idx + 1}`}
                 >
-                  <div 
-                    className={`h-1.5 rounded-full transition-all duration-300 ${ 
-                      idx === currentIndex ? 'bg-accent w-8' : 'bg-primary-700 w-4 group-hover:bg-primary-600'
+                  <motion.div 
+                    className={`h-2 rounded-full transition-all duration-300 ${ 
+                      idx === currentIndex ? 'bg-accent w-10' : 'bg-primary-700 w-5 group-hover:bg-primary-600'
                     }`}
-                  ></div>
+                    whileHover={{ scale: 1.2 }}
+                    animate={{ 
+                      width: idx === currentIndex ? 40 : 20,
+                      backgroundColor: idx === currentIndex ? 'rgb(216, 180, 88)' : 'rgb(30, 58, 66)'
+                    }}
+                  ></motion.div>
                 </button>
               ))}
             </div>

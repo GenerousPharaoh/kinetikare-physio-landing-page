@@ -1,96 +1,78 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { twMerge } from 'tailwind-merge';
 
 interface GlassCardProps {
   children: React.ReactNode;
   className?: string;
   backgroundOpacity?: number;
   blurStrength?: 'sm' | 'md' | 'lg';
-  borderStyle?: 'light' | 'dark' | 'accent' | 'none';
+  borderStyle?: 'light' | 'accent' | 'none';
   hoverEffect?: boolean;
   animate?: boolean;
-  onClick?: () => void;
+  tabIndex?: number;
 }
 
 export default function GlassCard({
   children,
   className = '',
-  backgroundOpacity = 0.1,
+  backgroundOpacity = 0.05,
   blurStrength = 'md',
   borderStyle = 'light',
   hoverEffect = false,
   animate = true,
-  onClick
+  tabIndex,
 }: GlassCardProps) {
-  // Map blur strength values
-  const blurMap = {
-    sm: 'backdrop-blur-sm',
-    md: 'backdrop-blur-md',
-    lg: 'backdrop-blur-lg'
-  };
-  
-  // Map border styles
-  const borderMap = {
-    light: 'border border-white/10',
-    dark: 'border border-primary-700/80',
-    accent: 'border border-accent/20',
-    none: ''
-  };
-  
-  // Generate hover classes - improved to avoid harsh white background
-  const hoverClasses = hoverEffect 
-    ? 'transition-all duration-300 hover:shadow-lg hover:shadow-accent/5 hover:border-accent/30 hover:bg-primary-800/30' 
-    : '';
-  
-  // Base card classes
-  const baseClasses = `
-    relative rounded-xl overflow-hidden shadow-sm
-    ${blurMap[blurStrength]}
-    ${borderMap[borderStyle]}
-    ${hoverClasses}
-    ${className}
-  `;
-  
-  // Animation variants
-  const variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { 
-        duration: 0.4,
-        ease: [0.25, 0.1, 0.25, 1.0]
-      }
+  // Get blur strength class
+  const getBlurClass = () => {
+    switch (blurStrength) {
+      case 'sm': return 'backdrop-blur-sm';
+      case 'lg': return 'backdrop-blur-lg';
+      case 'md':
+      default: return 'backdrop-blur-md';
     }
   };
   
-  // Conditionally wrap with motion
-  if (animate) {
-    return (
-      <motion.div
-        className={baseClasses}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-10% 0px" }}
-        variants={variants}
-        style={{ backgroundColor: `rgba(16, 24, 39, ${backgroundOpacity})` }}
-        onClick={onClick}
-        role={onClick ? 'button' : undefined}
-        tabIndex={onClick ? 0 : undefined}
-      >
-        {children}
-      </motion.div>
-    );
-  }
+  // Get border style class
+  const getBorderClass = () => {
+    switch (borderStyle) {
+      case 'accent': return 'border border-accent/30';
+      case 'none': return '';
+      case 'light':
+      default: return 'border border-white/10';
+    }
+  };
   
-  return (
-    <div
+  // Base classes
+  const baseClasses = twMerge(
+    'rounded-xl bg-white/[var(--bg-opacity)] relative transition-all duration-300',
+    getBlurClass(),
+    getBorderClass(),
+    hoverEffect ? 'hover:bg-white/[calc(var(--bg-opacity)+0.02)] hover:shadow-lg' : '',
+    className,
+    // Add focus visible styling for keyboard navigation
+    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-opacity-60'
+  );
+  
+  // Set CSS variable for background opacity
+  const style = {
+    '--bg-opacity': backgroundOpacity.toString(),
+  } as React.CSSProperties;
+
+  return animate ? (
+    <motion.div
       className={baseClasses}
-      style={{ backgroundColor: `rgba(16, 24, 39, ${backgroundOpacity})` }}
-      onClick={onClick}
-      role={onClick ? 'button' : undefined}
-      tabIndex={onClick ? 0 : undefined}
+      style={style}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      tabIndex={tabIndex}
     >
+      {children}
+    </motion.div>
+  ) : (
+    <div className={baseClasses} style={style} tabIndex={tabIndex}>
       {children}
     </div>
   );

@@ -33,17 +33,20 @@ export default function Footer() {
     {
       icon: <MapPinIcon className="w-5 h-5 text-accent flex-shrink-0" />,
       text: '4631 Palladium Way, Unit 6, Burlington, ON L7M 0W9',
-      href: 'https://www.google.com/maps/place/Endorphins+Health+and+Wellness+Centre/@43.4079928,-79.8288817,17z'
+      href: 'https://www.google.com/maps/place/Endorphins+Health+and+Wellness+Centre/@43.4079928,-79.8288817,17z',
+      ariaLabel: 'View our location on Google Maps'
     },
     {
       icon: <PhoneIcon className="w-5 h-5 text-accent flex-shrink-0" />,
       text: '(905) 634-6000',
-      href: 'tel:+19056346000'
+      href: 'tel:+19056346000',
+      ariaLabel: 'Call our office'
     },
     {
       icon: <EnvelopeIcon className="w-5 h-5 text-accent flex-shrink-0" />,
       text: 'info@khphysiotherapy.com',
-      href: 'mailto:info@khphysiotherapy.com'
+      href: 'mailto:info@khphysiotherapy.com',
+      ariaLabel: 'Email us'
     },
     {
       icon: <ClockIcon className="w-5 h-5 text-accent flex-shrink-0" />,
@@ -89,12 +92,12 @@ export default function Footer() {
               </div>
               
               {/* Tagline */}
-              <p className="text-lg italic text-accent/90 mb-5 font-light">
+              <p className="text-lg italic text-accent mb-5 font-light">
                 "Personalized care for optimal recovery"
               </p>
               
               {/* Description */}
-              <p className="text-neutral-300 leading-relaxed mb-6">
+              <p className="text-white leading-relaxed mb-6">
                 Providing expert physiotherapy care in Burlington and Waterdown. My approach focuses on individualized treatment plans to help you achieve your health and performance goals.
               </p>
               
@@ -119,7 +122,7 @@ export default function Footer() {
                     href={social.href}
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center w-10 h-10 text-white bg-primary-800/80 backdrop-blur-sm border border-primary-700/50 rounded-full hover:bg-accent/20 hover:border-accent/30 transition-all duration-300"
+                    className="flex items-center justify-center w-10 h-10 text-white bg-primary-800/80 backdrop-blur-sm border border-primary-700/50 rounded-full hover:bg-accent/20 hover:border-accent/30 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900 focus-visible:outline-none"
                     aria-label={social.name}
                   >
                     {social.icon}
@@ -144,7 +147,7 @@ export default function Footer() {
                       <li key={link.name}>
                         <Link 
                           href={link.href} 
-                          className="text-neutral-300 hover:text-white transition-all duration-200 flex items-center gap-2 group"
+                          className="text-white hover:text-accent transition-all duration-200 flex items-center gap-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900 rounded-sm px-1"
                         >
                           <span className="w-1.5 h-1.5 bg-accent/70 rounded-full transition-all duration-200 group-hover:w-2 group-hover:h-2 flex-shrink-0"></span>
                           <span>{link.name}</span>
@@ -175,12 +178,13 @@ export default function Footer() {
                         href={item.href} 
                         target="_blank" 
                         rel="noopener noreferrer" 
-                        className="text-neutral-300 hover:text-white transition-colors duration-200"
+                        className="text-white hover:text-accent transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900 rounded-sm px-1"
+                        aria-label={item.ariaLabel || item.text}
                       >
                         {item.text}
                       </a>
                     ) : (
-                      <span className="text-neutral-300">{item.text}</span>
+                      <span className="text-white">{item.text}</span>
                     )}
                   </div>
                 </li>
@@ -192,9 +196,10 @@ export default function Footer() {
               href="https://endorphinshealth.janeapp.com/#/staff_member/6"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center bg-accent hover:bg-accent-dark text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-accent/5 mb-8"
+              className="inline-flex items-center bg-accent hover:bg-accent-dark text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-accent/5 mb-8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900"
+              aria-label="Book an appointment online"
             >
-              <svg className="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
               Book Appointment
@@ -214,6 +219,7 @@ export default function Footer() {
                   referrerPolicy="no-referrer-when-downgrade"
                   title="Endorphins Health and Wellness Centre Location"
                   className="rounded-lg"
+                  aria-label="Google Map showing our clinic location"
                 ></iframe>
               </div>
             </div>
@@ -223,14 +229,14 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-16 pt-6 border-t border-primary-800/30">
           <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
-            <div className="text-neutral-400 text-sm">
+            <div className="text-white text-sm">
               &copy; {currentYear} KH Physiotherapy. All Rights Reserved.
             </div>
             <div className="flex items-center text-sm">
-              <span className="text-neutral-400 mr-4">Made with dedication to personalized care</span>
+              <span className="text-white mr-4">Made with dedication to personalized care</span>
               <button 
                 onClick={scrollToTop}
-                className="inline-flex items-center justify-center p-2 rounded-full bg-primary-800/80 text-accent hover:text-white hover:bg-accent/30 transition-colors duration-300"
+                className="inline-flex items-center justify-center p-2 rounded-full bg-primary-800/80 text-accent hover:text-white hover:bg-accent/30 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900"
                 aria-label="Back to top"
               >
                 <ArrowUpIcon className="h-5 w-5" />

@@ -5,7 +5,7 @@ import Link from 'next/link';
 // import { Menu, X, Phone, Calendar } from 'lucide-react';
 import { Bars3Icon, XMarkIcon, PhoneIcon, CalendarDaysIcon } from '@heroicons/react/24/outline'; // Using outline for header icons
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface HeaderProps {
   onNavLinkClick?: (href: string) => void;
@@ -14,6 +14,7 @@ interface HeaderProps {
 const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkClick }, ref) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,6 +24,17 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    const handleEscKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && mobileMenuOpen) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleEscKey);
+    return () => window.removeEventListener('keydown', handleEscKey);
+  }, [mobileMenuOpen]);
 
   const navItems = [
     { name: 'Home', href: '/#home' },
@@ -133,14 +145,14 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
           {/* Mobile Menu Button */}
           <div className="flex md:hidden">
             <button
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               type="button"
               className={`p-2 rounded-lg ${scrolled ? 'text-primary-600 hover:bg-gray-100/50' : 'text-white hover:bg-white/10'} focus:outline-none transition-colors duration-200`}
               aria-controls="mobile-menu"
-              aria-expanded={isOpen}
+              aria-expanded={mobileMenuOpen}
             >
               <span className="sr-only">Open main menu</span>
-              {isOpen ? (
+              {mobileMenuOpen ? (
                 <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
               ) : (
                 <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
@@ -151,52 +163,46 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
       </div>
 
       {/* Mobile Menu */}
-      <motion.div
-        initial={false}
-        animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
-        transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
-        className="overflow-hidden md:hidden backdrop-blur-md bg-white/95 shadow-md border-t border-neutral-200/20"
-        id="mobile-menu"
-      >
-        <div className="px-5 pt-2 pb-3 space-y-1 flex flex-col">
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              onClick={(e) => {
-                if (item.href.startsWith('/#') && onNavLinkClick) {
-                  e.preventDefault();
-                  handleNavClick(item.href);
-                } else {
-                  setIsOpen(false);
-                }
-              }}
-              className="block w-full px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-gray-100/80 hover:text-primary transition-all duration-200"
-            >
-              {item.name}
-            </Link>
-          ))}
-        </div>
-        <div className="mt-4 pt-4 border-t border-neutral-200/50 px-5 flex flex-col gap-3 pb-5">
-          <Link
-            href="tel:+19056346000"
-            onClick={() => setIsOpen(false)}
-            className="flex items-center justify-center w-full px-4 py-3 rounded-lg text-base font-medium text-primary-600 hover:bg-primary-50 transition-colors duration-200"
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            id="mobile-menu"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="md:hidden bg-white/95 backdrop-blur-md shadow-lg"
           >
-            <PhoneIcon className="h-5 w-5 mr-2.5 text-green-600" /> (905) 634-6000
-          </Link>
-
-          <Link
-            href="https://endorphinshealth.janeapp.com/#/staff_member/6"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setIsOpen(false)}
-            className="bg-accent hover:bg-accent-dark text-white font-medium flex items-center justify-center w-full px-4 py-3 rounded-lg transition-all duration-300 shadow-md"
-          >
-            <CalendarDaysIcon className="h-5 w-5 mr-2.5" /> Book Online
-          </Link>
-        </div>
-      </motion.div>
+            <div className="px-4 py-3 space-y-1">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={(e) => {
+                    if (item.href.startsWith('/#') && onNavLinkClick) {
+                      e.preventDefault();
+                      handleNavClick(item.href);
+                    } else {
+                      setMobileMenuOpen(false);
+                    }
+                  }}
+                  className="block px-3 py-2.5 rounded-md text-base font-medium text-primary-800 hover:text-primary-900 hover:bg-primary-50/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-opacity-50"
+                >
+                  {item.name}
+                </Link>
+              ))}
+              <Link
+                href="https://endorphinshealth.janeapp.com/#/staff_member/6"
+                target="_blank"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block mt-3 px-3 py-2.5 bg-primary text-white rounded-md text-base font-medium hover:bg-primary-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-opacity-50"
+              >
+                Book Online
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 });

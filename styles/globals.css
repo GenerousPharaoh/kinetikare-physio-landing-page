@@ -1,0 +1,262 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+}
+
+@layer base {
+  html {
+    @apply font-sans;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading text-text;
+    letter-spacing: -0.01em;
+  }
+  
+  body {
+    @apply bg-background text-text text-base;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  /* Subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-text-light rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-text-secondary;
+  }
+
+  /* Hide scrollbar utility */
+  .no-scrollbar::-webkit-scrollbar {
+      display: none;
+  }
+  .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+  }
+
+  /* Refined typography */
+  h1 {
+    @apply font-bold leading-tight mb-4;
+  }
+
+  h2 {
+    @apply font-bold mb-3;
+  }
+  
+  h3 {
+    @apply font-semibold mb-3;
+  }
+
+  h4, h5, h6 {
+    @apply font-semibold mb-2;
+  }
+
+  p {
+    @apply text-text-secondary leading-relaxed mb-4 max-w-prose;
+  }
+}
+
+@layer components {
+  /* Elegant Button Styles */
+  .btn {
+    @apply inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium 
+           transition-all duration-300 rounded-md
+           relative overflow-hidden;
+    letter-spacing: 0.01em;
+  }
+  
+  .btn:hover {
+    @apply transform -translate-y-0.5 shadow-sm;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white 
+           hover:bg-primary-dark;
+  }
+  
+  .btn-secondary {
+    @apply bg-accent text-white hover:opacity-90;
+  }
+  
+  .btn-outline {
+    @apply bg-transparent border border-primary text-primary hover:bg-primary hover:text-white;
+  }
+
+  .btn-outline-light {
+    @apply bg-transparent border border-white text-white 
+           hover:bg-white hover:text-primary;
+  }
+
+  /* Button sizes */
+  .btn-sm {
+    @apply px-3.5 py-1.5 text-xs;
+  }
+  
+  .btn-lg {
+    @apply px-7 py-3 text-base;
+  }
+  
+  /* Subtle Card Design */
+  .card {
+    @apply relative overflow-hidden rounded-lg border border-border-color transition-all duration-300 bg-white shadow-subtle;
+  }
+  
+  .card:hover {
+    @apply shadow-medium -translate-y-1;
+  }
+  
+  /* Refined separator */
+  .separator {
+    @apply w-16 h-px bg-accent my-6;
+  }
+  
+  /* Section styling */
+  .section-title {
+    @apply font-heading font-bold mb-2 text-text;
+  }
+  
+  .section-subtitle {
+    @apply text-lg text-text-secondary max-w-2xl mt-1 mb-10;
+  }
+
+  /* Subtle animations */
+  .fade-in {
+    opacity: 0;
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  }
+  
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Animation start positions */
+  .from-bottom { transform: translateY(20px); }
+  .from-right { transform: translateX(20px); }
+  .from-left { transform: translateX(-20px); }
+  
+  /* Hover effects */
+  .hover-lift {
+    @apply transition-all duration-300 shadow-subtle;
+  }
+  
+  .hover-lift:hover {
+    @apply transform -translate-y-1 shadow-medium;
+  }
+
+  /* Subtle underline animation */
+  .animate-underline {
+    position: relative;
+    display: inline-block;
+  }
+
+  .animate-underline::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: -3px;
+    left: 0;
+    @apply bg-accent;
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+  }
+
+  .animate-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  
+  /* Modern navigation */
+  .site-header {
+    @apply bg-white border-b border-border-color shadow-subtle;
+  }
+  
+  /* Text logo */
+  .logo-text { 
+     @apply font-heading text-lg md:text-xl font-semibold tracking-normal text-primary;
+  }
+  
+  /* Image container */
+  .image-container {
+    @apply overflow-hidden relative rounded-lg shadow-subtle;
+  }
+  
+  /* Feature card */
+  .feature-card {
+    @apply p-6 rounded-lg bg-white border border-border-color transition-all duration-300 hover:shadow-medium hover:-translate-y-1;
+  }
+  
+  /* Icon container */
+  .icon-box {
+    @apply flex items-center justify-center w-12 h-12 rounded-full bg-accent-light text-primary mb-4;
+  }
+  
+  /* Section styling */
+  .section {
+    @apply py-16 md:py-24;
+  }
+  
+  .section-alt {
+    @apply py-16 md:py-24 bg-background;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Subtle float animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 5s ease-in-out 1s infinite;
+}
+
+/* Removed Parallax - simplify */
+/* .parallax { ... } */
+/* .parallax-layer { ... } */
+
+/* Simplified Elevation/Shadows - rely on Tailwind defaults or simple custom shadows */
+/* Remove custom elevation classes unless specifically needed later */
+/* .elevation-1 { ... } */
+/* .elevation-2 { ... } */
+/* .elevation-3 { ... } */
+/* .elevation-4 { ... } */
+/* .elevation-5 { ... } */ 

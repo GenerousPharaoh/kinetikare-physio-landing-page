@@ -159,7 +159,7 @@ export default function HeroSection() {
               transition={{ delay: 0.8, duration: 0.6 }}
             >
               <p className="text-primary-800 font-medium text-sm">
-                <span className="gradient-text font-bold">10+ years</span> of experience
+                <span className="gradient-text font-bold">5 years</span> of experience
               </p>
             </motion.div>
           </motion.div>

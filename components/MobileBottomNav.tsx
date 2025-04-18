@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation';
 const navItems = [
   { href: '/#home', label: 'Home', icon: HomeIcon },
   { href: '/#services', label: 'Services', icon: WrenchScrewdriverIcon },
-  { href: 'https://endorphinshealth.janeapp.com/#/staff_member/6', label: 'Book', icon: CalendarDaysIcon, external: true },
+  { href: 'https://khphysiotherapy.janeapp.com/', label: 'Book', icon: CalendarDaysIcon, external: true },
   { href: '/#contact', label: 'Contact', icon: PhoneIcon },
   // { href: '/#about', label: 'About', icon: UserIcon }, // Optional: Add if needed
 ];

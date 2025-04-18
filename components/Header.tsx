@@ -94,10 +94,10 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
           ? 'py-3 backdrop-blur-xl bg-white/80 border-b border-neutral-200/20 shadow-md' 
           : 'py-5 bg-transparent'}`}
     >
-      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+      <div className="container mx-auto px-0 sm:px-2 max-w-7xl">
         <div className="flex justify-between items-center">
           {/* Logo Container with subtle animation */}
-          <Link href="/" aria-label="KH Physiotherapy Homepage" className="flex items-center group">
+          <Link href="/" aria-label="KH Physiotherapy Homepage" className="flex items-center group pl-4">
             <div className="flex items-center">
               <div className={`${scrolled 
                   ? 'bg-primary-700 shadow-md' 
@@ -145,7 +145,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
           </nav>
 
           {/* Desktop Call-to-Action with improved button styling */}
-          <div className="hidden md:flex items-center gap-3 lg:gap-4">
+          <div className="hidden md:flex items-center gap-3 lg:gap-4 pr-4">
             <Link
               href="tel:+19056346000"
               className={`flex items-center text-sm lg:text-base font-medium transition-all duration-300 py-1.5 px-2 rounded-md 
@@ -157,7 +157,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
             >
               <PhoneIcon className={`h-4 w-4 lg:h-5 lg:w-5 ${scrolled ? 'text-primary-600' : 'text-accent'} 
                 mr-2 animate-pulse`} />
-              <span className="hidden lg:inline">(905) 634-6000</span>
+              <span className="lg:inline whitespace-nowrap">(905) 634-6000</span>
             </Link>
 
             <Link

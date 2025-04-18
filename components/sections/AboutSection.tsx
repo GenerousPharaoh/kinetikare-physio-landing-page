@@ -115,7 +115,7 @@ export default function AboutSection() {
               {/* Paragraph text color already neutral-200 */}
               <div className="space-y-4 text-neutral-200 leading-relaxed">
                 <p>
-                  With over a decade of experience as a physiotherapist, I bring advanced manual therapy skills, 
+                  As a physiotherapist, I bring advanced manual therapy skills, 
                   evidence-based practice, and a personalized approach to every treatment session.
                 </p>
                 <p>

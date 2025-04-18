@@ -328,7 +328,6 @@ export default function ServicesSection({ onBookLinkClick }: ServiceProps) {
                       animate={false}
                     >
                       <p className="text-white/90 text-sm">
-                        State-of-the-art treatment facilities
                       </p>
                     </GlassCard>
                   </div>

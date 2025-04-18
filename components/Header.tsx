@@ -96,29 +96,30 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     >
       <div className="container mx-auto px-0 sm:px-2 max-w-7xl">
         <div className="flex justify-between items-center">
-          {/* Logo Container with subtle animation */}
+          {/* Logo Container with refined animation */}
           <Link href="/" aria-label="KH Physiotherapy Homepage" className="flex items-center group pl-4">
             <div className="flex items-center">
               <div className={`${scrolled 
                   ? 'bg-primary-700 shadow-md' 
                   : 'bg-primary-700 shadow-lg'} 
-                rounded-lg py-1.5 px-2.5 transition-all duration-500 group-hover:shadow-accent/10 
-                group-hover:translate-y-[-2px] hover:scale-105 ease-out relative overflow-hidden`}>
+                rounded-lg py-1.5 px-2.5 transition-all duration-500 group-hover:shadow-accent/20 
+                group-hover:translate-y-[-2px] ease-out relative overflow-hidden`}>
                 <span className="font-heading font-bold text-xl text-white tracking-tight relative z-10">KH</span>
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary-800 to-primary-600 opacity-70"></div>
-                <div className="absolute inset-0 opacity-30 texture-noise"></div>
+                {/* Subtle background pattern */}
+                <div className="absolute inset-0 bg-dots opacity-20"></div>
               </div>
               <div className="ml-3 transition-all duration-300">
                 <span className={`font-sans font-medium text-lg md:text-xl 
                   ${scrolled ? 'text-primary-700' : 'text-white'} 
                   tracking-wide transition-colors duration-500`}>
-                  <span className={scrolled ? 'gradient-text' : ''}>Physiotherapy</span>
+                  <span className={scrolled ? 'heading-gradient' : ''}>Physiotherapy</span>
                 </span>
               </div>
             </div>
           </Link>
 
-          {/* Desktop Navigation with hover effects */}
+          {/* Desktop Navigation with elegant hover effects */}
           <nav className="hidden md:flex items-center gap-1 lg:gap-2">
             {navItems.map((item, i) => (
               <motion.div 
@@ -131,20 +132,18 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
                   className={`text-sm lg:text-base font-medium px-3 py-2 rounded-md transition-all duration-300
-                      relative overflow-hidden group
+                      animated-link
                       ${scrolled 
                         ? 'text-gray-700 hover:text-primary-600' 
                         : 'text-white hover:text-accent'}`}
                 >
                   {item.name}
-                  <span className={`absolute bottom-0 left-0 w-0 h-0.5 ${scrolled ? 'bg-primary-600' : 'bg-accent'} 
-                    transition-all duration-300 group-hover:w-full`}></span>
                 </Link>
               </motion.div>
             ))}
           </nav>
 
-          {/* Desktop Call-to-Action with improved button styling */}
+          {/* Desktop Call-to-Action with refined button styling */}
           <div className="hidden md:flex items-center gap-3 lg:gap-4 pr-4">
             <Link
               href="tel:+19056346000"
@@ -164,7 +163,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               href="https://khphysiotherapy.janeapp.com/" 
               target="_blank"
               rel="noopener noreferrer"
-              className={`button-3d font-medium px-4 py-2 rounded-lg transition-all duration-300 
+              className={`button-refined font-medium px-5 py-2.5 rounded-lg transition-all duration-300 
                 shadow-lg flex items-center gap-1.5
                 ${scrolled 
                   ? 'bg-accent hover:bg-accent-dark text-white' 

@@ -93,7 +93,7 @@ export default function Footer() {
               
               {/* Tagline */}
               <p className="text-lg italic text-accent mb-5 font-light">
-                "Personalized care for optimal recovery"
+                &quot;Personalized care for optimal recovery&quot;
               </p>
               
               {/* Description */}

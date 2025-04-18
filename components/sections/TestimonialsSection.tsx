@@ -134,8 +134,8 @@ export default function TestimonialsSection() {
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute -top-20 -left-20 w-80 h-80 rounded-full bg-accent/[0.03] blur-3xl" aria-hidden="true"></div>
         <div className="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-accent/[0.03] blur-3xl" aria-hidden="true"></div>
-        <div className="absolute top-10 left-10 text-9xl text-accent/[0.05] font-serif leading-none" aria-hidden="true">"</div>
-        <div className="absolute bottom-10 right-10 text-9xl text-accent/[0.05] font-serif leading-none" aria-hidden="true">"</div>
+        <div className="absolute top-10 left-10 text-9xl text-accent/[0.05] font-serif leading-none" aria-hidden="true">&quot;</div>
+        <div className="absolute bottom-10 right-10 text-9xl text-accent/[0.05] font-serif leading-none" aria-hidden="true">&quot;</div>
       </div>
       
       {/* Content container */}
@@ -235,8 +235,8 @@ export default function TestimonialsSection() {
                           
                           {/* Quote content */}
                           <div className="relative flex-grow overflow-hidden">
-                            <div className="absolute top-0 left-0 text-4xl text-accent/10" aria-hidden="true">"</div>
-                            <div className="absolute bottom-0 right-0 text-4xl text-accent/10" aria-hidden="true">"</div>
+                            <div className="absolute top-0 left-0 text-4xl text-accent/10" aria-hidden="true">&quot;</div>
+                            <div className="absolute bottom-0 right-0 text-4xl text-accent/10" aria-hidden="true">&quot;</div>
                             <p className="text-base md:text-lg text-neutral-200 text-center my-6 md:my-8 px-4 leading-relaxed">
                               {testimonials[index].text}
                             </p>

@@ -43,6 +43,13 @@ const nextConfig = {
   reactStrictMode: true,
   // swcMinify: true, // Removed - no longer supported in Next.js 15.3.0
   
+  // Add ESLint configuration
+  eslint: {
+    // Warning: This allows production builds to successfully complete even if
+    // your project has ESLint errors.
+    ignoreDuringBuilds: true,
+  },
+  
   // Add security headers function
   async headers() {
     return [

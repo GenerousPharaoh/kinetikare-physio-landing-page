@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useEffect, useRef } from 'react';
 import { motion, useAnimation, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -7,90 +5,48 @@ import { useInView } from 'react-intersection-observer';
 type SplitTextProps = {
   children: string;
   className?: string;
-  type?: 'words' | 'chars' | 'lines';
-  duration?: number;
-  staggerChildren?: number;
   delay?: number;
-  ease?: number[];
-  animation?: 'fadeUp' | 'fadeIn' | 'scale' | 'rotateIn' | 'slideIn';
+  duration?: number;
+  as?: React.ElementType;
+  animation?: 'fadeUp' | 'fadeIn' | 'staggered';
   once?: boolean;
   threshold?: number;
 };
 
-/**
- * An elegant text animation component that splits text into individual 
- * characters, words, or lines and animates them with precision.
- * 
- * @example
- * <SplitText type="chars" animation="fadeUp">
- *   Animate each character
- * </SplitText>
- */
 const SplitText: React.FC<SplitTextProps> = ({
   children,
   className = '',
-  type = 'chars',
-  duration = 0.6,
-  staggerChildren = 0.03,
-  delay = 0.1,
-  ease = [0.19, 1, 0.22, 1], // Elegant exponential ease
+  delay = 0,
+  duration = 0.5,
+  as: Component = 'span',
   animation = 'fadeUp',
   once = true,
-  threshold = 0.2,
+  threshold = 0.1,
 }) => {
   const controls = useAnimation();
   const [ref, inView] = useInView({
     triggerOnce: once,
     threshold,
   });
-  
-  // Basic animation variants collection
-  const animations = {
-    fadeUp: {
-      hidden: { opacity: 0, y: 20 },
-      visible: { opacity: 1, y: 0 },
+
+  // Define animation variants
+  const letterVariants: Variants = {
+    hidden: {
+      opacity: 0,
+      y: animation === 'fadeUp' ? 20 : 0,
     },
-    fadeIn: {
-      hidden: { opacity: 0 },
-      visible: { opacity: 1 },
-    },
-    scale: {
-      hidden: { opacity: 0, scale: 0.8 },
-      visible: { opacity: 1, scale: 1 },
-    },
-    rotateIn: {
-      hidden: { opacity: 0, rotateY: 90 },
-      visible: { opacity: 1, rotateY: 0 },
-    },
-    slideIn: {
-      hidden: { opacity: 0, x: -20 },
-      visible: { opacity: 1, x: 0 },
-    },
-  };
-  
-  // Animation container variants
-  const containerVariants: Variants = {
-    hidden: {},
-    visible: {
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
       transition: {
-        staggerChildren,
-        delayChildren: delay,
-      },
-    },
-  };
-  
-  // Child element variants
-  const childVariants: Variants = {
-    hidden: animations[animation].hidden,
-    visible: {
-      ...animations[animation].visible,
-      transition: {
+        delay: delay + (i * 0.04),
         duration,
-        ease,
+        ease: [0.22, 1, 0.36, 1],
       },
-    },
+    }),
   };
-  
+
+  // Start animation when in view
   useEffect(() => {
     if (inView) {
       controls.start('visible');
@@ -98,72 +54,31 @@ const SplitText: React.FC<SplitTextProps> = ({
       controls.start('hidden');
     }
   }, [controls, inView, once]);
-  
-  const renderContent = () => {
-    const text = children.toString();
-    
-    if (type === 'words') {
-      return text.split(' ').map((word, i) => (
-        <motion.span
-          key={`word-${i}`}
-          className="inline-block overflow-hidden"
-          variants={containerVariants}
-          style={{ display: 'inline-block', whiteSpace: 'nowrap' }}
-        >
-          <motion.span 
-            className="inline-block"
-            variants={childVariants}
-          >
-            {word}
-          </motion.span>
-          {i !== text.split(' ').length - 1 && ' '}
-        </motion.span>
-      ));
-    }
-    
-    if (type === 'chars') {
-      return text.split('').map((char, i) => (
-        <motion.span
-          key={`char-${i}`}
-          className="inline-block"
-          variants={childVariants}
-          style={{ display: 'inline-block' }}
-        >
-          {char === ' ' ? '\u00A0' : char}
-        </motion.span>
-      ));
-    }
-    
-    if (type === 'lines') {
-      return text.split('\n').map((line, i) => (
-        <React.Fragment key={`line-${i}`}>
-          <div className="overflow-hidden">
-            <motion.div 
-              className="inline-block"
-              variants={childVariants}
-            >
-              {line}
-            </motion.div>
-          </div>
-          {i !== text.split('\n').length - 1 && <br />}
-        </React.Fragment>
-      ));
-    }
-    
-    return text;
-  };
-  
+
+  // Split text into characters
+  const words = children.split(' ');
+
   return (
-    <motion.span
-      ref={ref}
-      className={className}
-      initial="hidden"
-      animate={controls}
-      variants={containerVariants}
-      aria-label={children.toString()}
-    >
-      {renderContent()}
-    </motion.span>
+    <Component className={`inline-block ${className}`} ref={ref}>
+      {words.map((word, wordIndex) => (
+        <span key={`word-${wordIndex}`} className="inline-block">
+          {Array.from(word).map((char, charIndex) => (
+            <motion.span
+              key={`char-${wordIndex}-${charIndex}`}
+              className="inline-block"
+              initial="hidden"
+              animate={controls}
+              variants={letterVariants}
+              custom={wordIndex * 3 + charIndex}
+              aria-hidden="true"
+            >
+              {char}
+            </motion.span>
+          ))}
+          {wordIndex !== words.length - 1 && <span className="inline-block">&nbsp;</span>}
+        </span>
+      ))}
+    </Component>
   );
 };
 

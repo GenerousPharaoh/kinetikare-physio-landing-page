@@ -88,7 +88,7 @@ export default function HeroSection() {
                 onClick={handleServicesClick}
                 className="bg-primary-800 hover:bg-primary-700 text-white border border-primary-700/50 font-medium px-5 py-3 rounded-lg transition-colors duration-300 text-center flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30 focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900"
               >
-                <span>Our Services</span>
+                <span>My Services</span>
                 <ArrowRightIcon className="h-4 w-4" aria-hidden="true" />
               </Link>
             </div>

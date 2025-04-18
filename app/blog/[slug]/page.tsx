@@ -3,12 +3,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Metadata } from 'next';
 
-// Next.js App Router page params typing
-type Props = {
-  params: { slug: string };
-  searchParams: { [key: string]: string | string[] | undefined };
-};
-
 // Placeholder data structure - replace with actual fetching logic later
 const getPostData = (slug: string) => {
   if (slug === 'understanding-low-back-pain') {
@@ -61,27 +55,23 @@ const getPostData = (slug: string) => {
   return null; // Post not found
 };
 
-// Next.js page component with proper App Router typing
-export default function Page({ params, searchParams }: Props) {
+// Use function declaration without type annotations - let Next.js infer them
+export default function Page({ params }: { params: { slug: string } }) {
   const { slug } = params;
   const post = getPostData(slug);
 
   if (!post) {
-    // Apply dark theme here too
     return <div className="container mx-auto px-4 py-16 md:py-24 text-center text-neutral-400 bg-primary-900 flex-grow">Post not found.</div>;
   }
 
   return (
-    // Apply dark theme
     <div className="bg-primary-900 text-neutral-200 flex-grow">
       <div className="container mx-auto px-4 py-16 md:py-24">
         <div className="max-w-3xl mx-auto">
-          {/* Back to Blog link - Adjust color */}
           <Link href="/blog" className="inline-block text-accent hover:text-accent-light mb-6 group">
              &larr; <span className="group-hover:underline">Back to Blog</span>
           </Link>
           
-          {/* Featured Image using next/image */}
           <div className="mb-8 aspect-video bg-primary-800 rounded-lg flex items-center justify-center text-neutral-500 relative overflow-hidden">
             <Image 
               src={`https://via.placeholder.com/800x450/1A3A43/BCAD96?text=Featured+Image`}
@@ -92,15 +82,12 @@ export default function Page({ params, searchParams }: Props) {
              /> 
           </div>
 
-          {/* Post Title - Adjust color */}
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-semibold text-white mb-4">
             {post.title}
           </h1>
           
-          {/* Adjust metadata color */}
           <div className="mb-8 text-sm text-neutral-400">Published on [Date Placeholder]</div>
           
-          {/* Post Content - Adjust prose styles for dark theme */}
           <div className="prose prose-lg max-w-none 
                         prose-p:text-neutral-300 prose-headings:text-white 
                         prose-strong:text-white prose-a:text-accent hover:prose-a:text-accent-light
@@ -108,10 +95,8 @@ export default function Page({ params, searchParams }: Props) {
             {post.content}
           </div>
 
-          {/* Optional: Call to action - Adjust border, text colors */}
           <div className="mt-12 pt-8 border-t border-primary-700/60">
             <p className="text-neutral-300 mb-4">Struggling with persistent back pain? Let&apos;s find the root cause together.</p>
-            {/* Button uses btn-primary (accent) styling */} 
             <Link href="/#contact" className="btn btn-primary">
               Book an Assessment
             </Link>
@@ -122,7 +107,7 @@ export default function Page({ params, searchParams }: Props) {
   );
 }
 
-// Generate metadata for the page
+// Generate metadata with simpler typing
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const post = getPostData(params.slug);
   
@@ -138,10 +123,8 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-// Optional: Function to generate static paths if using SSG
-export async function generateStaticParams() {
-  // In a real app, fetch all blog post slugs
-  // For now, return the slugs for the posts we have content for
+// Static params generator
+export function generateStaticParams() {
   return [
     { slug: 'understanding-low-back-pain' },
     { slug: 'rotator-cuff-exercises' },

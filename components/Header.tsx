@@ -69,7 +69,10 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
       const targetElement = document.getElementById(targetId);
       
       if (targetElement) {
-        const headerOffset = ref.current?.offsetHeight || 70;
+        // Use document.querySelector as a fallback instead of ref.current
+        // This fixes the TypeScript error while maintaining the same functionality
+        const headerElement = document.querySelector('header');
+        const headerOffset = headerElement?.offsetHeight || 70;
         const elementPosition = targetElement.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.scrollY - headerOffset;
 

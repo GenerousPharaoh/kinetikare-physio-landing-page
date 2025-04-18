@@ -2,9 +2,10 @@ import React from 'react';
 import Link from 'next/link'; // Import Link
 import Image from 'next/image'; // Import next/image
 
-interface BlogPostPageProps {
-  params: { slug: string };
-}
+// Remove the incorrect interface and use a type alias instead
+type Params = {
+  slug: string;
+};
 
 // Placeholder data structure - replace with actual fetching logic later
 const getPostData = (slug: string) => {
@@ -58,7 +59,8 @@ const getPostData = (slug: string) => {
   return null; // Post not found
 };
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
+// Update the component prop type to match Next.js App Router expectations
+export default function BlogPostPage({ params }: { params: Params }) {
   const { slug } = params;
   const post = getPostData(slug);
 

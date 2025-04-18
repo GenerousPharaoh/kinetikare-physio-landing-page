@@ -1,13 +1,17 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, forwardRef } from 'react';
 import Link from 'next/link';
 // import { Menu, X, Phone, Calendar } from 'lucide-react';
 import { Bars3Icon, XMarkIcon, PhoneIcon, CalendarDaysIcon } from '@heroicons/react/24/outline'; // Using outline for header icons
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-export default function Header() {
+interface HeaderProps {
+  onNavLinkClick?: (href: string) => void;
+}
+
+const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkClick }, ref) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -45,8 +49,17 @@ export default function Header() {
     })
   };
 
+  // Handle navigation click with smooth scroll for local links
+  const handleNavClick = (href: string) => {
+    if (href.startsWith('/#') && onNavLinkClick) {
+      onNavLinkClick(href);
+    }
+    setIsOpen(false);
+  };
+
   return (
     <header
+      ref={ref}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500
         ${scrolled 
           ? 'py-2 backdrop-blur-md bg-white/80 shadow-lg' 
@@ -88,6 +101,12 @@ export default function Header() {
               >
                 <Link
                   href={item.href}
+                  onClick={(e) => {
+                    if (item.href.startsWith('/#') && onNavLinkClick) {
+                      e.preventDefault();
+                      handleNavClick(item.href);
+                    }
+                  }}
                   className={`text-base lg:text-base font-medium px-1 py-2 
                       ${scrolled ? 'text-text-secondary/90' : 'text-text-secondary'} 
                       hover:text-primary relative group transition-colors duration-200 
@@ -168,7 +187,14 @@ export default function Header() {
             <Link
               key={item.name}
               href={item.href}
-              onClick={() => setIsOpen(false)}
+              onClick={(e) => {
+                if (item.href.startsWith('/#') && onNavLinkClick) {
+                  e.preventDefault();
+                  handleNavClick(item.href);
+                } else {
+                  setIsOpen(false);
+                }
+              }}
               className="block w-full px-4 py-3 rounded-lg text-lg font-medium text-text-secondary hover:text-primary hover:bg-neutral-100/80 transition-all duration-200"
               style={{
                 transitionDelay: `${i * 50}ms`,
@@ -212,4 +238,6 @@ export default function Header() {
       </div>
     </header>
   );
-}
+});
+
+export default Header;

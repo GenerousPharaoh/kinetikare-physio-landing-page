@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { ArrowLeftIcon, ArrowRightIcon, StarIcon, QuoteIcon } from '@heroicons/react/24/solid'; 
+import { ArrowLeftIcon, ArrowRightIcon, StarIcon } from '@heroicons/react/24/solid'; 
 import { ChatBubbleLeftRightIcon } from '@heroicons/react/24/outline';
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 

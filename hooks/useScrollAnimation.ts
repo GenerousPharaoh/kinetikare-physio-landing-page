@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, MutableRefObject } from 'react';
+import { useState, useEffect, useRef, RefObject } from 'react';
 
 interface ScrollAnimationOptions {
   /**
@@ -34,19 +34,19 @@ interface ScrollAnimationOptions {
  * @param options - Configuration options for the scroll animation
  * @returns Object containing ref to attach to the element and whether it's visible
  */
-export function useScrollAnimation({
+export function useScrollAnimation<T extends HTMLElement = HTMLDivElement>({
   threshold = 0.1,
   triggerOnce = true,
   rootMargin = '0px',
   disabled = false,
 }: ScrollAnimationOptions = {}): {
-  ref: MutableRefObject<HTMLElement | null>;
+  ref: RefObject<T>;
   isVisible: boolean;
   hasBeenVisible: boolean;
 } {
   const [isVisible, setIsVisible] = useState(false);
   const [hasBeenVisible, setHasBeenVisible] = useState(false);
-  const ref = useRef<HTMLElement | null>(null);
+  const ref = useRef<T>(null);
   
   useEffect(() => {
     // Skip setup if disabled or during SSR
@@ -90,7 +90,13 @@ export function useScrollAnimation({
     };
   }, [threshold, triggerOnce, rootMargin, disabled]);
   
-  return { ref, isVisible, hasBeenVisible };
+  // Since TypeScript complains about type incompatibility, we need to explicitly cast
+  // the ref as RefObject<T> to match the return type
+  return { 
+    ref: ref as RefObject<T>, 
+    isVisible, 
+    hasBeenVisible 
+  };
 }
 
 // Helper hook specifically for sections

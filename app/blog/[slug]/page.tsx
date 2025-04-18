@@ -55,9 +55,12 @@ const getPostData = (slug: string) => {
   return null; // Post not found
 };
 
-// Use function declaration without type annotations - let Next.js infer them
-export default function Page({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+// Force static generation for better performance
+export const dynamic = 'force-static';
+
+// In Next.js 15, use plain functions without explicit type annotations
+export default function Page(props: any) {
+  const slug = props.params.slug;
   const post = getPostData(slug);
 
   if (!post) {
@@ -107,9 +110,9 @@ export default function Page({ params }: { params: { slug: string } }) {
   );
 }
 
-// Generate metadata with simpler typing
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const post = getPostData(params.slug);
+// Use simple typing for metadata functions as well
+export function generateMetadata(props: any): Metadata {
+  const post = getPostData(props.params.slug);
   
   if (!post) {
     return {

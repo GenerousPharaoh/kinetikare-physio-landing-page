@@ -66,20 +66,6 @@ export default function TestimonialsSection() {
   const [paused, setPaused] = useState(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Get indices for card positions
-  const getCardIndices = () => {
-    const numTestimonials = testimonials.length;
-    return {
-      current: activeIndex,
-      prev: activeIndex === 0 ? numTestimonials - 1 : activeIndex - 1,
-      prevPrev: activeIndex <= 1 ? numTestimonials - (2 - activeIndex) : activeIndex - 2,
-      next: activeIndex === numTestimonials - 1 ? 0 : activeIndex + 1,
-      nextNext: activeIndex >= numTestimonials - 2 ? activeIndex + 2 - numTestimonials : activeIndex + 2
-    };
-  };
-
-  const { current, prev, next, prevPrev, nextNext } = getCardIndices();
-
   // Auto-cycle function
   const startAutoSlide = useCallback(() => {
     clearTimeout(timerRef.current!);
@@ -155,158 +141,99 @@ export default function TestimonialsSection() {
           </p>
         </div>
         
-        {/* Card Deck Carousel */}
-        <div className={`max-w-5xl mx-auto transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        {/* Testimonial Carousel - Simplified and More Reliable Design */}
+        <div className="max-w-4xl mx-auto">
           <div 
-            className="relative min-h-[520px] md:min-h-[480px]"
+            className="relative overflow-hidden min-h-[400px] md:min-h-[350px]"
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
-            onTouchStart={() => setPaused(true)}
-            onTouchEnd={() => setTimeout(() => setPaused(false), 4000)}
           >
-            {/* Card Stack with 3D effect */}
-            <div className="relative w-full h-full" style={{ perspective: '1500px' }}>
-              <div 
-                className="relative w-full h-full"
-                style={{ 
-                  transformStyle: 'preserve-3d',
-                  transition: 'transform 0.6s ease'
-                }}
-              >
-                <AnimatePresence>
-                  {/* Card Stack */}
-                  {[prevPrev, prev, current, next, nextNext].map((index, i) => {
-                    // Determine card position type
-                    let position: 'center' | 'left1' | 'left2' | 'right1' | 'right2';
-                    switch (i) {
-                      case 0: position = 'left2'; break;
-                      case 1: position = 'left1'; break;
-                      case 2: position = 'center'; break;
-                      case 3: position = 'right1'; break;
-                      case 4: position = 'right2'; break;
-                      default: position = 'center';
-                    }
-                    
-                    // Position styles
-                    const getPositionStyles = () => {
-                      switch (position) {
-                        case 'center':
-                          return 'z-30 translate-y-0 scale-100 opacity-100 shadow-xl';
-                        case 'left1':
-                          return 'z-20 -translate-x-[15%] translate-y-[4%] scale-[0.92] opacity-70 rotate-[-3deg] shadow-lg';
-                        case 'left2':
-                          return 'z-10 -translate-x-[25%] translate-y-[8%] scale-[0.84] opacity-40 rotate-[-6deg] shadow-md';
-                        case 'right1':
-                          return 'z-20 translate-x-[15%] translate-y-[4%] scale-[0.92] opacity-70 rotate-[3deg] shadow-lg';
-                        case 'right2':
-                          return 'z-10 translate-x-[25%] translate-y-[8%] scale-[0.84] opacity-40 rotate-[6deg] shadow-md';
-                      }
-                    };
-                    
-                    return (
-                      <motion.div
-                        key={index}
-                        className={`absolute inset-0 p-8 bg-gradient-to-br from-primary-800 to-primary-900 backdrop-blur-md border border-white/10 rounded-xl transition-all duration-500 ease-out ${getPositionStyles()}`}
-                        initial={{ 
-                          opacity: 0, 
-                          x: direction > 0 ? 200 : -200,
-                          scale: 0.8,
-                          rotateY: direction > 0 ? 45 : -45
-                        }}
-                        animate={{ 
-                          opacity: position === 'center' ? 1 : position.includes('1') ? 0.7 : 0.4,
-                          x: position === 'center' ? 0 : position === 'left1' ? '-15%' : position === 'left2' ? '-25%' : position === 'right1' ? '15%' : '25%',
-                          y: position === 'center' ? 0 : position.includes('1') ? '4%' : '8%',
-                          scale: position === 'center' ? 1 : position.includes('1') ? 0.92 : 0.84,
-                          rotate: position === 'center' ? 0 : position === 'left1' ? -3 : position === 'left2' ? -6 : position === 'right1' ? 3 : 6,
-                          rotateY: 0
-                        }}
-                        transition={{ 
-                          duration: 0.6, 
-                          ease: [0.23, 1, 0.32, 1] 
-                        }}
-                      >
-                        {/* Card Content */}
-                        <div className="h-full flex flex-col justify-between p-2 md:p-6">
-                          {/* Rating Stars */}
-                          <div className="flex justify-center mb-6">
-                            {renderStars(testimonials[index].stars)}
-                          </div>
-                          
-                          {/* Quote content */}
-                          <div className="relative flex-grow overflow-hidden">
-                            <div className="absolute top-0 left-0 text-4xl text-accent/10" aria-hidden="true">&quot;</div>
-                            <div className="absolute bottom-0 right-0 text-4xl text-accent/10" aria-hidden="true">&quot;</div>
-                            <p className="text-base md:text-lg text-neutral-200 text-center my-6 md:my-8 px-4 leading-relaxed">
-                              {testimonials[index].text}
-                            </p>
-                          </div>
-                          
-                          {/* Customer Info */}
-                          <div className="flex flex-col items-center mt-auto">
-                            <div className="w-12 h-12 flex items-center justify-center bg-primary-700 rounded-full mb-3">
-                              <span className="text-white text-xl font-semibold">
-                                {testimonials[index].name[0]}
-                              </span>
-                            </div>
-                            <h4 className="text-white font-medium text-lg">{testimonials[index].name}</h4>
-                            <p className="text-neutral-400 text-sm">{testimonials[index].role}</p>
-                          </div>
-                        </div>
-                      </motion.div>
-                    );
-                  })}
-                </AnimatePresence>
-              </div>
+            {/* Main Testimonial Card */}
+            <div className="relative">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeIndex}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  className="bg-primary-800 border border-primary-700/50 rounded-xl p-8 shadow-xl overflow-hidden"
+                >
+                  {/* Rating Stars */}
+                  <div className="flex justify-center mb-6">
+                    {renderStars(testimonials[activeIndex].stars)}
+                  </div>
+                  
+                  {/* Quote content */}
+                  <div className="relative mb-8">
+                    <div className="absolute top-0 left-0 text-4xl text-accent/20" aria-hidden="true">&quot;</div>
+                    <div className="absolute bottom-0 right-0 text-4xl text-accent/20" aria-hidden="true">&quot;</div>
+                    <p className="text-base md:text-lg text-neutral-100 text-center px-6 md:px-10 py-2 leading-relaxed">
+                      {testimonials[activeIndex].text}
+                    </p>
+                  </div>
+                  
+                  {/* Customer Info */}
+                  <div className="flex flex-col items-center">
+                    <div className="w-12 h-12 flex items-center justify-center bg-primary-700 rounded-full mb-3">
+                      <span className="text-white text-xl font-semibold">
+                        {testimonials[activeIndex].name[0]}
+                      </span>
+                    </div>
+                    <h4 className="text-white font-medium text-lg">{testimonials[activeIndex].name}</h4>
+                    <p className="text-neutral-300 text-sm">{testimonials[activeIndex].role}</p>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
             </div>
             
             {/* Navigation Controls */}
-            <div className="absolute top-1/2 -left-5 md:-left-12 transform -translate-y-1/2 z-40">
+            <div className="absolute top-1/2 -left-3 md:-left-5 transform -translate-y-1/2 z-10">
               <button 
                 onClick={handlePrevious}
-                className="w-12 h-12 rounded-full bg-primary-800/90 backdrop-blur-sm hover:bg-primary-700 border border-white/10 flex items-center justify-center text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-accent/50 transition-transform duration-300 hover:-translate-x-1"
+                className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary-800/90 backdrop-blur-sm hover:bg-primary-700 border border-white/10 flex items-center justify-center text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-accent/50 transition-transform duration-300 hover:-translate-x-1"
                 aria-label="Previous testimonial"
               >
                 <ArrowLeftIcon className="h-5 w-5" />
               </button>
             </div>
             
-            <div className="absolute top-1/2 -right-5 md:-right-12 transform -translate-y-1/2 z-40">
+            <div className="absolute top-1/2 -right-3 md:-right-5 transform -translate-y-1/2 z-10">
               <button 
                 onClick={handleNext}
-                className="w-12 h-12 rounded-full bg-primary-800/90 backdrop-blur-sm hover:bg-primary-700 border border-white/10 flex items-center justify-center text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-accent/50 transition-transform duration-300 hover:translate-x-1"
+                className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary-800/90 backdrop-blur-sm hover:bg-primary-700 border border-white/10 flex items-center justify-center text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-accent/50 transition-transform duration-300 hover:translate-x-1"
                 aria-label="Next testimonial"
               >
                 <ArrowRightIcon className="h-5 w-5" />
               </button>
             </div>
-            
-            {/* Indicator dots */}
-            <div className="absolute bottom-0 left-0 right-0 flex justify-center space-x-2 pb-6">
-              {testimonials.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => {
-                    if (timerRef.current) clearTimeout(timerRef.current);
-                    setDirection(idx > activeIndex ? 1 : -1);
-                    setActiveIndex(idx);
-                    setPaused(true);
-                    setTimeout(() => setPaused(false), 4000);
-                    startAutoSlide();
-                  }}
-                  className="group focus:outline-none"
-                  aria-label={`Go to testimonial ${idx + 1}`}
-                >
-                  <div
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      idx === activeIndex
-                        ? 'w-6 bg-accent'
-                        : 'bg-neutral-500 hover:bg-neutral-400'
-                    }`}
-                  />
-                </button>
-              ))}
-            </div>
+          </div>
+          
+          {/* Indicator dots */}
+          <div className="flex justify-center space-x-2 mt-8">
+            {testimonials.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => {
+                  if (timerRef.current) clearTimeout(timerRef.current);
+                  setDirection(idx > activeIndex ? 1 : -1);
+                  setActiveIndex(idx);
+                  setPaused(true);
+                  setTimeout(() => setPaused(false), 4000);
+                  startAutoSlide();
+                }}
+                className="group focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2 focus:ring-offset-primary-900 rounded-full"
+                aria-label={`Go to testimonial ${idx + 1}`}
+              >
+                <div
+                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                    idx === activeIndex
+                      ? 'w-8 bg-accent'
+                      : 'bg-neutral-500 hover:bg-neutral-400'
+                  }`}
+                />
+              </button>
+            ))}
           </div>
         </div>
       </div>

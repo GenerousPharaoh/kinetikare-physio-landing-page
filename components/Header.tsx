@@ -74,7 +74,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
       ref={ref}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300
         ${scrolled 
-          ? 'py-3 backdrop-blur-md bg-white/85 shadow-sm border-b border-neutral-200/20' 
+          ? 'py-3 backdrop-blur-lg bg-white/90 shadow-sm border-b border-neutral-200/20' 
           : 'py-4 bg-transparent'}`}
     >
       <div className="container mx-auto px-4 sm:px-6">
@@ -84,7 +84,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
             <div className="flex items-center">
               <div className={`${scrolled 
                   ? 'bg-primary-700 shadow-sm' 
-                  : 'bg-primary-800 shadow-md'} 
+                  : 'bg-primary-700 shadow-md'} 
                 rounded-lg py-1.5 px-2.5 transition-all duration-300 group-hover:shadow-accent/10`}>
                 <span className="font-heading font-bold text-xl text-white tracking-tight">KH</span>
               </div>
@@ -108,9 +108,10 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                       handleNavClick(item.href);
                     }
                   }}
-                  className={`text-sm lg:text-base font-medium px-3 py-2 rounded-md
-                      ${scrolled ? 'text-gray-700 hover:bg-gray-100/50' : 'text-white hover:bg-white/10'} 
-                      hover:text-primary-600 relative transition-all duration-200`}
+                  className={`text-sm lg:text-base font-medium px-3 py-2 rounded-md transition-all duration-200
+                      ${scrolled 
+                        ? 'text-gray-700 hover:bg-gray-100/70 hover:text-primary-600' 
+                        : 'text-white hover:bg-white/10 hover:text-accent'}`}
                 >
                   {item.name}
                 </Link>
@@ -122,10 +123,13 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
           <div className="hidden md:flex items-center gap-3 lg:gap-4">
             <Link
               href="tel:+19056346000"
-              className={`flex items-center text-sm lg:text-base font-medium ${scrolled ? 'text-primary-600 hover:text-primary-700' : 'text-white hover:text-accent-light'} transition-colors duration-200 py-1.5 px-2 rounded-md hover:bg-white/5`}
+              className={`flex items-center text-sm lg:text-base font-medium transition-colors duration-200 py-1.5 px-2 rounded-md 
+                ${scrolled 
+                  ? 'text-primary-600 hover:text-primary-700 hover:bg-primary-50/70' 
+                  : 'text-white hover:text-accent hover:bg-white/10'}`}
               aria-label="Call Now"
             >
-              <PhoneIcon className={`h-4 w-4 lg:h-5 lg:w-5 ${scrolled ? 'text-green-600' : 'text-accent'}`} />
+              <PhoneIcon className={`h-4 w-4 lg:h-5 lg:w-5 ${scrolled ? 'text-primary-600' : 'text-accent'}`} />
               <span className="ml-2 hidden lg:inline">(905) 634-6000</span>
             </Link>
 
@@ -133,12 +137,13 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               href="https://endorphinshealth.janeapp.com/#/staff_member/6"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-accent hover:bg-accent-dark text-white font-medium px-4 py-2 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-accent/10"
+              className={`font-medium px-4 py-2 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-1.5
+                ${scrolled 
+                  ? 'bg-accent hover:bg-accent-dark text-white hover:shadow-accent/10' 
+                  : 'bg-accent hover:bg-accent-dark text-white hover:shadow-accent/10'}`}
             >
-              <span className="flex items-center gap-1.5">
-                <CalendarDaysIcon className="h-4 w-4" /> 
-                <span>Book Online</span>
-              </span>
+              <CalendarDaysIcon className="h-4 w-4" /> 
+              <span>Book Online</span>
             </Link>
           </div>
 
@@ -147,7 +152,10 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               type="button"
-              className={`p-2 rounded-lg ${scrolled ? 'text-primary-600 hover:bg-gray-100/50' : 'text-white hover:bg-white/10'} focus:outline-none transition-colors duration-200`}
+              className={`p-2 rounded-lg focus:outline-none transition-colors duration-200
+                ${scrolled 
+                  ? 'text-primary-600 hover:bg-gray-100' 
+                  : 'text-white hover:bg-white/10'}`}
               aria-controls="mobile-menu"
               aria-expanded={mobileMenuOpen}
             >
@@ -171,7 +179,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden bg-white/95 backdrop-blur-md shadow-lg"
+            className="md:hidden bg-white/95 backdrop-blur-lg shadow-lg border-b border-neutral-200/20"
           >
             <div className="px-4 py-3 space-y-1">
               {navItems.map((item) => (
@@ -195,7 +203,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 href="https://endorphinshealth.janeapp.com/#/staff_member/6"
                 target="_blank"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block mt-3 px-3 py-2.5 bg-primary text-white rounded-md text-base font-medium hover:bg-primary-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-opacity-50"
+                className="block mt-3 px-3 py-2.5 bg-accent text-white rounded-md text-base font-medium hover:bg-accent-dark transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-opacity-50"
               >
                 Book Online
               </Link>

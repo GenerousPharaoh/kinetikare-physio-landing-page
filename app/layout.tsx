@@ -131,7 +131,7 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
         <link rel="manifest" href="/favicon/site.webmanifest" />
       </head>
-      <body className="antialiased pb-16 md:pb-0">
+      <body className="antialiased pb-16 md:pb-0 overflow-x-hidden">
         {/* Skip to content link for accessibility */}
         <a href="#main-content" className="skip-to-content">
           Skip to main content
@@ -139,7 +139,7 @@ export default function RootLayout({
         
         <LoadingScreen />
         <PageTransition>
-          <main id="main-content" className="min-h-screen flex flex-col">{children}</main>
+          <main id="main-content" className="min-h-screen flex flex-col overflow-x-hidden">{children}</main>
         </PageTransition>
         <FloatingButtons />
         <FloatingCTA />

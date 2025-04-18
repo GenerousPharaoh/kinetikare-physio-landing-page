@@ -89,7 +89,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
   return (
     <header
       ref={ref}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 overflow-hidden
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 overflow-x-hidden
         ${scrolled 
           ? 'py-3 backdrop-blur-lg bg-white/90 shadow-sm border-b border-neutral-200/20' 
           : 'py-4 bg-transparent'}`}

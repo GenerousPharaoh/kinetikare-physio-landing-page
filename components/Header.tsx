@@ -95,7 +95,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
           : 'py-4 bg-transparent'}`}
     >
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center h-12">
           {/* Logo - shifted left and simplified */}
           <div className="flex-shrink-0 mr-8">
             <Link href="/" aria-label="KH Physiotherapy Homepage" className="flex items-center gap-3 group">
@@ -127,6 +127,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 * i, duration: 0.5 }}
+                  className="flex items-center h-12"
                 >
                   <Link
                     href={item.href}
@@ -147,11 +148,11 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
           </nav>
 
           {/* Desktop Call-to-Action - right aligned and unified */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-4 h-12">
             <Link
               href="tel:+19056346000"
               className={`flex items-center text-base font-medium transition-all duration-300 py-2 px-3 
-                rounded-lg hover:scale-105
+                rounded-lg hover:scale-105 h-10
                 ${scrolled 
                   ? 'text-primary-600 bg-primary-50/50 hover:bg-primary-50' 
                   : 'text-white bg-white/10 hover:bg-white/20'}`}
@@ -162,11 +163,11 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
             </Link>
 
             <Link
-              href="https://khphysiotherapy.janeapp.com/" 
+              href="https://endorphinshealth.janeapp.com/#/staff_member/42" 
               target="_blank"
               rel="noopener noreferrer"
               className={`button-3d font-medium px-4 py-2 rounded-lg transition-all duration-300 
-                shadow-lg flex items-center gap-1.5
+                shadow-lg flex items-center gap-1.5 h-10
                 ${scrolled 
                   ? 'bg-accent hover:bg-accent-dark text-white' 
                   : 'bg-accent hover:bg-accent-dark text-white'}`}
@@ -177,7 +178,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex md:hidden">
+          <div className="flex md:hidden ml-auto">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               type="button"
@@ -230,7 +231,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   <span>Call Now</span>
                 </Link>
                 <Link
-                  href="https://khphysiotherapy.janeapp.com/"
+                  href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
                   onClick={() => setMobileMenuOpen(false)}
                   className="flex-1 flex items-center justify-center gap-2 px-3 py-2.5 bg-accent text-white rounded-md text-base font-medium hover:bg-accent-dark"

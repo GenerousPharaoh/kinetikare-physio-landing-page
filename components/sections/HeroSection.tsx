@@ -101,12 +101,6 @@ export default function HeroSection() {
                 className="button-3d bg-accent hover:bg-accent-dark text-white font-medium px-5 py-3 rounded-lg transition-all duration-300 text-center flex items-center justify-center gap-2 shadow-xl hover:shadow-accent/20 group"
                 aria-label="Book an appointment online"
               >
-                <motion.span 
-                  className="absolute inset-0 bg-accent-dark rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  initial={{ scale: 0.85 }}
-                  whileHover={{ scale: 1 }}
-                  transition={{ duration: 0.3 }}
-                ></motion.span>
                 <CalendarDaysIcon className="h-5 w-5 relative z-10" aria-hidden="true" />
                 <span className="relative z-10">Book an Appointment</span>
               </Link>
@@ -150,18 +144,6 @@ export default function HeroSection() {
                 <div className="absolute -left-3 -top-3 w-16 h-16 border border-white/30 rounded-lg"></div>
               </div>
             </div>
-            
-            {/* Floating badge */}
-            <motion.div 
-              className="absolute -right-4 -bottom-8 md:right-8 md:bottom-8 depth-card px-4 py-3 rounded-lg shadow-lg bg-white/90 backdrop-blur-md z-20"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.6 }}
-            >
-              <p className="text-primary-800 font-medium text-sm">
-                <span className="gradient-text font-bold">5 years</span> of experience
-              </p>
-            </motion.div>
           </motion.div>
         </div>
       </div>

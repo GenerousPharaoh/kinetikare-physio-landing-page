@@ -4,7 +4,7 @@ A modern, responsive physiotherapy website built with Next.js 15.
 
 ## Deployment Status
 
-Latest build deployed on: `$(date)`
+Latest build deployed on: May 30, 2024
 
 ## Features
 

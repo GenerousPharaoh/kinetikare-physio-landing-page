@@ -89,12 +89,12 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
   return (
     <header
       ref={ref}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 overflow-hidden
         ${scrolled 
           ? 'py-3 backdrop-blur-lg bg-white/90 shadow-sm border-b border-neutral-200/20' 
           : 'py-4 bg-transparent'}`}
     >
-      <div className="container mx-auto px-4 sm:px-6">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         <div className="flex justify-between items-center">
           {/* Logo Container */}
           <Link href="/" aria-label="KH Physiotherapy Homepage" className="flex items-center group">

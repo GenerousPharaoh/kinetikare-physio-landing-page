@@ -1,10 +1,12 @@
 import React from 'react';
-import Link from 'next/link'; // Import Link
-import Image from 'next/image'; // Import next/image
+import Link from 'next/link';
+import Image from 'next/image';
+import { Metadata } from 'next';
 
-// Remove the incorrect interface and use a type alias instead
-type Params = {
-  slug: string;
+// Next.js App Router page params typing
+type Props = {
+  params: { slug: string };
+  searchParams: { [key: string]: string | string[] | undefined };
 };
 
 // Placeholder data structure - replace with actual fetching logic later
@@ -59,8 +61,8 @@ const getPostData = (slug: string) => {
   return null; // Post not found
 };
 
-// Update the component prop type to match Next.js App Router expectations
-export default function BlogPostPage({ params }: { params: Params }) {
+// Next.js page component with proper App Router typing
+export default function Page({ params, searchParams }: Props) {
   const { slug } = params;
   const post = getPostData(slug);
 
@@ -80,13 +82,13 @@ export default function BlogPostPage({ params }: { params: Params }) {
           </Link>
           
           {/* Featured Image using next/image */}
-          <div className="mb-8 aspect-video bg-primary-800 rounded-lg flex items-center justify-center text-neutral-500 relative overflow-hidden"> {/* Added relative & overflow-hidden */} 
+          <div className="mb-8 aspect-video bg-primary-800 rounded-lg flex items-center justify-center text-neutral-500 relative overflow-hidden">
             <Image 
-              src={`https://via.placeholder.com/800x450/1A3A43/BCAD96?text=Featured+Image`} // Darker placeholder 
+              src={`https://via.placeholder.com/800x450/1A3A43/BCAD96?text=Featured+Image`}
               alt={`${post.title} - Featured Image Placeholder`} 
-              fill // Use fill to cover the container
-              style={{ objectFit: 'cover' }} // Ensure image covers area
-              priority // Load image eagerly if above the fold
+              fill
+              style={{ objectFit: 'cover' }}
+              priority
              /> 
           </div>
 
@@ -118,6 +120,22 @@ export default function BlogPostPage({ params }: { params: Params }) {
       </div>
     </div>
   );
+}
+
+// Generate metadata for the page
+export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+  const post = getPostData(params.slug);
+  
+  if (!post) {
+    return {
+      title: 'Post Not Found - Kareem Hassanein Physiotherapy'
+    };
+  }
+  
+  return {
+    title: `${post.title} - Kareem Hassanein Physiotherapy`,
+    description: `Read more about ${post.title} and get expert physiotherapy insights.`
+  };
 }
 
 // Optional: Function to generate static paths if using SSG

@@ -62,11 +62,25 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
   };
 
   // Handle navigation click with smooth scroll for local links
-  const handleNavClick = (href: string) => {
-    if (href.startsWith('/#') && onNavLinkClick) {
-      onNavLinkClick(href);
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('/#')) {
+      e.preventDefault();
+      const targetId = href.substring(2); // Remove /# part
+      const targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        const headerOffset = ref.current?.offsetHeight || 70;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }
     }
     setIsOpen(false);
+    setMobileMenuOpen(false);
   };
 
   return (
@@ -102,12 +116,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               <div key={item.name}>
                 <Link
                   href={item.href}
-                  onClick={(e) => {
-                    if (item.href.startsWith('/#') && onNavLinkClick) {
-                      e.preventDefault();
-                      handleNavClick(item.href);
-                    }
-                  }}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className={`text-sm lg:text-base font-medium px-3 py-2 rounded-md transition-all duration-200
                       ${scrolled 
                         ? 'text-gray-700 hover:bg-gray-100/70 hover:text-primary-600' 
@@ -186,14 +195,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 <Link
                   key={item.name}
                   href={item.href}
-                  onClick={(e) => {
-                    if (item.href.startsWith('/#') && onNavLinkClick) {
-                      e.preventDefault();
-                      handleNavClick(item.href);
-                    } else {
-                      setMobileMenuOpen(false);
-                    }
-                  }}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className="block px-3 py-2.5 rounded-md text-base font-medium text-primary-800 hover:text-primary-900 hover:bg-primary-50/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-opacity-50"
                 >
                   {item.name}

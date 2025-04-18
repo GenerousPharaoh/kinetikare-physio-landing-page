@@ -13,6 +13,22 @@ export default function HeroSection() {
     setIsVisible(true);
   }, []);
 
+  // Handle scroll to services
+  const handleServicesClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const servicesSection = document.getElementById('services');
+    if (servicesSection) {
+      const headerOffset = document.querySelector('header')?.offsetHeight || 80;
+      const elementPosition = servicesSection.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   // Framer Motion variants for staggered animations
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -69,6 +85,7 @@ export default function HeroSection() {
               </Link>
               <Link 
                 href="/services" 
+                onClick={handleServicesClick}
                 className="bg-primary-800 hover:bg-primary-700 text-white border border-primary-700/50 font-medium px-5 py-3 rounded-lg transition-colors duration-300 text-center flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30 focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900"
               >
                 <span>Our Services</span>

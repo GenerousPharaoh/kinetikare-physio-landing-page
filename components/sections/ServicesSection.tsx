@@ -67,14 +67,17 @@ export default function ServicesSection({ onBookLinkClick }: ServiceProps) {
   // Handle click for booking link (scroll)
   const handleBookClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    if (onBookLinkClick) {
-      onBookLinkClick("#booking");
-    } else {
-      // Fallback if handler not passed (e.g., direct navigation)
-      const bookingSection = document.getElementById('booking');
-      if (bookingSection) {
-        bookingSection.scrollIntoView({ behavior: 'smooth' });
-      }
+    // Reliable scroll code that works without props
+    const bookingSection = document.getElementById('booking');
+    if (bookingSection) {
+      const headerOffset = document.querySelector('header')?.offsetHeight || 80;
+      const elementPosition = bookingSection.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   };
 
@@ -289,7 +292,7 @@ export default function ServicesSection({ onBookLinkClick }: ServiceProps) {
                     <Link 
                       href="#booking" 
                       onClick={handleBookClick}
-                      className="btn btn-primary relative overflow-hidden group" 
+                      className="inline-flex items-center justify-center bg-accent hover:bg-accent-dark text-white font-medium px-5 py-3 rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg relative overflow-hidden group" 
                     >
                       <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-accent/0 via-accent/20 to-accent/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></span>
                       Book Your Dedicated Session

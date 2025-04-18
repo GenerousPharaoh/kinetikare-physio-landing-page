@@ -1,16 +1,17 @@
-# Physiotherapy Next.js Website
+# Physiotherapy Next
 
-A modern, responsive physiotherapy website built with Next.js, TypeScript, and Tailwind CSS.
+A modern, responsive physiotherapy website built with Next.js 15.
+
+## Deployment Status
+
+Latest build deployed on: `$(date)`
 
 ## Features
 
-- Modern React components with Next.js 14+
-- Fully responsive design
-- Type-safe development with TypeScript
-- Styled with Tailwind CSS
-- Fast image loading with next/image
-- SEO optimized
-- Easy deployment with Vercel
+- Dark mode design with professional color scheme
+- Responsive layouts for all device sizes
+- Performance optimized with modern Next.js features
+- TypeScript for code quality and developer experience
 
 ## Getting Started
 

@@ -63,7 +63,7 @@ export default function Services() {
                 <li>Prevent recurrence of injuries</li>
               </ul>
               <p className="text-cool-gray italic">
-                "Manual therapy provides immediate relief while creating the foundation for long-term recovery."
+                &quot;Manual therapy provides immediate relief while creating the foundation for long-term recovery.&quot;
               </p>
             </div>
           </div>
@@ -92,7 +92,7 @@ export default function Services() {
                 Sports Injuries
               </h2>
               <p className="text-cool-gray mb-4">
-                Whether you're a weekend warrior or competitive athlete, my approach to sports injury management focuses on both rehabilitation and performance enhancement.
+                Whether you&apos;re a weekend warrior or competitive athlete, my approach to sports injury management focuses on both rehabilitation and performance enhancement.
               </p>
               <p className="text-cool-gray mb-4">
                 I develop personalized treatment plans to address:
@@ -106,7 +106,7 @@ export default function Services() {
                 <li>Injury prevention strategies</li>
               </ul>
               <p className="text-cool-gray italic">
-                "My goal is not just to get you back to your sport, but to help you perform better than before your injury."
+                &quot;My goal is not just to get you back to your sport, but to help you perform better than before your injury.&quot;
               </p>
             </div>
           </div>
@@ -149,7 +149,7 @@ export default function Services() {
                 <li>Sports performance enhancement</li>
               </ul>
               <p className="text-cool-gray italic">
-                "Dry needling often provides immediate improvement in areas that have been problematic for months or even years."
+                &quot;Dry needling often provides immediate improvement in areas that have been problematic for months or even years.&quot;
               </p>
             </div>
           </div>
@@ -192,7 +192,7 @@ export default function Services() {
                 <li>Home exercise programs with digital follow-up</li>
               </ul>
               <p className="text-cool-gray italic">
-                "The right exercises, performed correctly and consistently, are the key to sustainable recovery and optimal physical performance."
+                &quot;The right exercises, performed correctly and consistently, are the key to sustainable recovery and optimal physical performance.&quot;
               </p>
             </div>
           </div>

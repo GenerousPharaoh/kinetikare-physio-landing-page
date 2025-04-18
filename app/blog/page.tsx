@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 // Placeholder data - replace with actual data fetching later
 const posts = [
@@ -39,12 +40,14 @@ export default function BlogListPage() {
           {posts.length > 0 ? (
             posts.map((post) => (
               <div key={post.slug} className="p-6 border border-primary-700/60 rounded-lg bg-primary-800 shadow-md hover:bg-primary-700/70 transition-colors duration-200 flex flex-col sm:flex-row gap-6 items-start">
-                {/* Placeholder Image on the Left - Adjust bg */}
-                <div className="w-full sm:w-1/3 flex-shrink-0 aspect-video bg-primary-700 rounded-md flex items-center justify-center text-neutral-500 text-xs">
-                  <img 
+                {/* Placeholder Image on the Left using next/image */}
+                <div className="w-full sm:w-1/3 flex-shrink-0 aspect-video bg-primary-700 rounded-md flex items-center justify-center text-neutral-500 text-xs relative overflow-hidden">
+                  <Image 
                      src={`https://via.placeholder.com/300x169/1A3A43/BCAD96?text=Image+Coming+Soon`} // Darker placeholder with lighter text
                      alt={`${post.title} - Placeholder Image`} 
-                     className="w-full h-full object-cover rounded-md"
+                     fill
+                     style={{ objectFit: 'cover' }}
+                     sizes="(max-width: 640px) 80vw, 33vw"
                     />
                 </div>
                 {/* Text Content on the Right - Adjust text colors */}

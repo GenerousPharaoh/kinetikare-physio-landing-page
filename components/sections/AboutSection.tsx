@@ -122,8 +122,8 @@ export default function AboutSection() {
                   addressing the pain. This comprehensive approach leads to more effective and lasting results.
                 </p>
                 <p>
-                  Whether you're recovering from an injury, managing chronic pain, or seeking to optimize 
-                  your physical performance, I'm committed to helping you achieve your health goals through 
+                  Whether you&apos;re recovering from an injury, managing chronic pain, or seeking to optimize 
+                  your physical performance, I&apos;m committed to helping you achieve your health goals through 
                   dedicated one-on-one care.
                 </p>
               </div>

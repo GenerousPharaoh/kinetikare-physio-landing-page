@@ -208,7 +208,7 @@ export default function About() {
               Ready to Work Together?
             </h2>
             <p className="text-neutral-300 text-lg mb-8">
-              Book your appointment today and let's start your journey to better movement and pain-free living.
+              Book your appointment today and let&apos;s start your journey to better movement and pain-free living.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link

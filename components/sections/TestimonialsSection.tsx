@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { ArrowLeftIcon, ArrowRightIcon, StarIcon, QuoteIcon } from '@heroicons/react/24/solid'; 
 import { ChatBubbleLeftRightIcon } from '@heroicons/react/24/outline';
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -68,33 +68,8 @@ export default function TestimonialsSection() {
   const [isPaused, setIsPaused] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   
-  // Auto-cycling effect - exactly 7 seconds as requested
-  useEffect(() => {
-    const startInterval = () => {
-      // Clear any existing interval
-      if (intervalRef.current) clearInterval(intervalRef.current);
-      
-      // Set new interval - cycle every 7 seconds as requested
-      intervalRef.current = setInterval(() => {
-        nextTestimonial();
-      }, 7000);
-    };
-    
-    // Start or pause interval based on state
-    if (!isPaused) {
-      startInterval();
-    } else if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
-    
-    // Cleanup on unmount
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
-  }, [currentIndex, isPaused]);
-  
-  // Handle next testimonial with animation
-  const nextTestimonial = () => {
+  // Handle next testimonial with animation (wrapped in useCallback)
+  const nextTestimonial = useCallback(() => {
     if (isTransitioning) return;
     setDirection('right');
     setIsTransitioning(true);
@@ -105,10 +80,10 @@ export default function TestimonialsSection() {
         setDirection(null); 
       }, 50);
     }, 450);
-  };
+  }, [isTransitioning]); // Dependency: isTransitioning
   
-  // Handle previous testimonial with animation
-  const prevTestimonial = () => {
+  // Handle previous testimonial with animation (wrapped in useCallback)
+  const prevTestimonial = useCallback(() => {
     if (isTransitioning) return;
     setDirection('left');
     setIsTransitioning(true);
@@ -119,7 +94,27 @@ export default function TestimonialsSection() {
         setDirection(null); 
       }, 50);
     }, 450);
-  };
+  }, [isTransitioning]); // Dependency: isTransitioning
+  
+  // Auto-cycling effect - uses nextTestimonial from useCallback
+  useEffect(() => {
+    const startInterval = () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+      intervalRef.current = setInterval(() => {
+        nextTestimonial(); // Now using the stable useCallback version
+      }, 7000);
+    };
+    
+    if (!isPaused) {
+      startInterval();
+    } else if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+    
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [isPaused, nextTestimonial]); // Added nextTestimonial dependency
   
   // Touch handlers for mobile swiping
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -158,11 +153,11 @@ export default function TestimonialsSection() {
     <section id="testimonials" className="py-20 md:py-32 bg-primary-900 relative overflow-hidden border-t border-primary-700">
       {/* Premium Decorative Elements */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-        <div className="absolute -top-20 -left-20 w-80 h-80 rounded-full bg-accent/[0.04] blur-3xl"></div>
-        <div className="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-accent/[0.04] blur-3xl"></div>
-        <div className="absolute top-24 left-10 text-9xl text-accent/[0.05] font-serif">"</div>
-        <div className="absolute bottom-24 right-10 text-9xl text-accent/[0.05] font-serif">"</div>
-        <div className="absolute inset-0 bg-pattern opacity-[0.01]"></div>
+        <div className="absolute -top-20 -left-20 w-80 h-80 rounded-full bg-accent/[0.04] blur-3xl" aria-hidden="true"></div>
+        <div className="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-accent/[0.04] blur-3xl" aria-hidden="true"></div>
+        <div className="absolute top-24 left-10 text-9xl text-accent/[0.05] font-serif" aria-label="Decorative opening quote mark" aria-hidden="true">&quot;</div>
+        <div className="absolute bottom-24 right-10 text-9xl text-accent/[0.05] font-serif" aria-label="Decorative closing quote mark" aria-hidden="true">&quot;</div>
+        <div className="absolute inset-0 bg-pattern opacity-[0.01]" aria-hidden="true"></div>
       </div>
       
       {/* Content container */}
@@ -222,9 +217,9 @@ export default function TestimonialsSection() {
               className={`relative overflow-hidden rounded-xl bg-gradient-to-br from-primary-800 to-primary-800/60 backdrop-blur-md shadow-2xl border border-white/5`}
             >
               {/* Decorative elements */}
-              <div className="absolute top-0 left-12 right-12 h-[2px] bg-gradient-to-r from-transparent via-accent to-transparent"></div>
-              <div className="absolute top-4 left-4 text-6xl md:text-7xl text-accent/10 font-serif leading-none">"</div>
-              <div className="absolute bottom-4 right-4 text-6xl md:text-7xl text-accent/10 font-serif leading-none rotate-180">"</div>
+              <div className="absolute top-0 left-12 right-12 h-[2px] bg-gradient-to-r from-transparent via-accent to-transparent" aria-hidden="true"></div>
+              <div className="absolute top-4 left-4 text-6xl md:text-7xl text-accent/10 font-serif leading-none" aria-label="Decorative opening quote mark" aria-hidden="true">&quot;</div>
+              <div className="absolute bottom-4 right-4 text-6xl md:text-7xl text-accent/10 font-serif leading-none rotate-180" aria-label="Decorative closing quote mark" aria-hidden="true">&quot;</div>
               
               {/* Card content */}
               <div className="relative">

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 
 interface VideoBackgroundProps {
   src: string;
@@ -97,9 +98,12 @@ export default function VideoBackground({
       
       {/* Fallback image that shows until video loads */}
       {fallbackImage && !isLoaded && (
-        <img 
+        <Image 
           src={fallbackImage} 
           alt="Background" 
+          fill
+          style={{ objectFit: 'cover' }}
+          priority
           className="absolute inset-0 w-full h-full object-cover"
         />
       )}

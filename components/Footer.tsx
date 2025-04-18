@@ -109,6 +109,7 @@ export default function Footer() {
           repeat: Infinity,
           repeatType: "reverse"
         }}
+        aria-hidden="true"
       ></motion.div>
       <motion.div 
         className="absolute bottom-0 left-0 w-96 h-96 bg-primary-600/5 rounded-full blur-3xl"
@@ -122,6 +123,7 @@ export default function Footer() {
           repeatType: "reverse",
           delay: 2
         }}
+        aria-hidden="true"
       ></motion.div>
       
       {/* Top accent bar with gradient animation */}
@@ -177,7 +179,7 @@ export default function Footer() {
                 animate={false}
               >
                 <p className="text-lg md:text-xl font-heading text-accent/90 italic">
-                  "Personalized care for optimal recovery"
+                  &quot;Personalized care for optimal recovery&quot;
                 </p>
               </GlassCard>
               
@@ -437,6 +439,7 @@ export default function Footer() {
                     repeatType: "loop",
                     ease: "easeInOut"
                   }}
+                  aria-hidden="true"
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
                 </motion.svg>

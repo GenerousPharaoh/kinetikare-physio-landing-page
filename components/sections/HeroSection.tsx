@@ -54,22 +54,22 @@ export default function HeroSection() {
     <section className="relative bg-gradient-to-b from-primary-900 to-primary-800 text-white py-24 md:py-32 lg:py-40 border-b border-primary-800/50 overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Subtle background grid */}
-        <div className="absolute inset-0 bg-grid opacity-20"></div>
+        {/* Gradient mesh */}
+        <div className="gradient-mesh"></div>
         
         {/* Texture overlay */}
-        <div className="absolute inset-0 opacity-10 bg-dots"></div>
+        <div className="absolute inset-0 opacity-20 texture-noise"></div>
         
-        {/* Subtle animated background elements */}
-        <div className="absolute top-20 right-[10%] w-[300px] h-[300px] rounded-full bg-accent/[0.03] blur-[80px] subtle-float" style={{ animationDelay: '0.5s' }}></div>
-        <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full bg-primary-800/20 blur-[100px] subtle-float" style={{ animationDelay: '0s' }}></div>
-        <div className="absolute top-[40%] left-[15%] w-[200px] h-[200px] rounded-full bg-accent/[0.04] blur-[60px] subtle-float" style={{ animationDelay: '1.5s' }}></div>
+        {/* Animated circles */}
+        <div className="absolute top-20 right-[10%] w-[300px] h-[300px] rounded-full bg-accent/[0.03] blur-[80px] float-animation" style={{ animationDelay: '0.5s' }}></div>
+        <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full bg-primary-800/20 blur-[100px] float-animation" style={{ animationDelay: '0s' }}></div>
+        <div className="absolute top-[40%] left-[15%] w-[200px] h-[200px] rounded-full bg-accent/[0.04] blur-[60px] float-animation" style={{ animationDelay: '1.5s' }}></div>
         
-        {/* Refined decorative lines */}
-        <svg className="absolute top-0 right-0 h-full w-1/2 opacity-3" viewBox="0 0 100 100" preserveAspectRatio="none">
-          <line x1="0" y1="0" x2="100" y2="100" stroke="white" strokeWidth="0.3" />
-          <line x1="20" y1="0" x2="100" y2="80" stroke="white" strokeWidth="0.2" />
-          <line x1="40" y1="0" x2="100" y2="60" stroke="white" strokeWidth="0.1" />
+        {/* Decorative lines */}
+        <svg className="absolute top-0 right-0 h-full w-1/2 opacity-5" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <line x1="0" y1="0" x2="100" y2="100" stroke="white" strokeWidth="0.5" />
+          <line x1="20" y1="0" x2="100" y2="80" stroke="white" strokeWidth="0.3" />
+          <line x1="40" y1="0" x2="100" y2="60" stroke="white" strokeWidth="0.2" />
         </svg>
       </div>
       
@@ -82,13 +82,13 @@ export default function HeroSection() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight leading-tight">
-              Physical Therapy Tailored to <span className="accent-heading">Your Needs</span>
+              Physical Therapy Tailored to <span className="accent-gradient-text">Your Needs</span>
             </h1>
             <p className="text-base md:text-lg text-neutral-300 mb-8 max-w-xl leading-relaxed relative">
               Expert physiotherapy services to help you move better, 
               feel better, and live better.
               <motion.span 
-                className="absolute -left-6 top-0 bottom-0 w-0.5 bg-accent/50"
+                className="absolute -left-6 top-0 bottom-0 w-1 bg-accent/50"
                 initial={{ height: 0 }}
                 animate={{ height: '100%' }}
                 transition={{ delay: 0.6, duration: 0.8 }}
@@ -98,19 +98,25 @@ export default function HeroSection() {
               <Link 
                 href="https://khphysiotherapy.janeapp.com/" 
                 target="_blank"
-                className="button-refined bg-accent hover:bg-accent-dark text-white font-medium px-5 py-3 rounded-lg transition-all duration-300 text-center flex items-center justify-center gap-2 shadow-xl hover:shadow-accent/20 group"
+                className="button-3d bg-accent hover:bg-accent-dark text-white font-medium px-5 py-3 rounded-lg transition-all duration-300 text-center flex items-center justify-center gap-2 shadow-xl hover:shadow-accent/20 group"
                 aria-label="Book an appointment online"
               >
+                <motion.span 
+                  className="absolute inset-0 bg-accent-dark rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  initial={{ scale: 0.85 }}
+                  whileHover={{ scale: 1 }}
+                  transition={{ duration: 0.3 }}
+                ></motion.span>
                 <CalendarDaysIcon className="h-5 w-5 relative z-10" aria-hidden="true" />
                 <span className="relative z-10">Book an Appointment</span>
               </Link>
               <Link 
                 href="/services" 
                 onClick={handleServicesClick}
-                className="relative bg-transparent hover:bg-primary-700/30 text-white border border-primary-700/50 font-medium px-5 py-3 rounded-lg transition-all duration-300 text-center flex items-center justify-center gap-2 overflow-hidden group"
+                className="relative bg-transparent hover:bg-primary-700/50 text-white border border-primary-700/50 font-medium px-5 py-3 rounded-lg transition-all duration-300 text-center flex items-center justify-center gap-2 overflow-hidden group"
               >
                 <motion.span 
-                  className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent 
+                  className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent 
                   translate-x-[-100%] group-hover:translate-x-[100%] transition-all duration-1000 ease-in-out"
                 ></motion.span>
                 <span className="relative z-10">My Services</span>
@@ -125,7 +131,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl transform card-interaction">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl transform perspective-1000 rotate-y-[-3deg] hover:rotate-y-0 transition-transform duration-700">
               <Image
                 src="/images/physiotherapist.jpg"
                 alt="Physiotherapy treatment session showing a therapist working with a patient"
@@ -140,12 +146,12 @@ export default function HeroSection() {
               
               {/* Decorative elements over the image */}
               <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-                <div className="absolute right-4 bottom-4 w-20 h-20 border border-white/20 rounded-xl"></div>
-                <div className="absolute left-4 top-4 w-12 h-12 border border-white/10 rounded-lg"></div>
+                <div className="absolute -right-4 -bottom-4 w-24 h-24 border-2 border-accent/40 rounded-xl"></div>
+                <div className="absolute -left-3 -top-3 w-16 h-16 border border-white/30 rounded-lg"></div>
               </div>
             </div>
             
-            {/* Experience badge */}
+            {/* Floating badge */}
             <motion.div 
               className="absolute -right-4 -bottom-8 md:right-8 md:bottom-8 depth-card px-4 py-3 rounded-lg shadow-lg bg-white/90 backdrop-blur-md z-20"
               initial={{ opacity: 0, y: 20 }}
@@ -153,7 +159,7 @@ export default function HeroSection() {
               transition={{ delay: 0.8, duration: 0.6 }}
             >
               <p className="text-primary-800 font-medium text-sm">
-                <span className="heading-gradient font-bold">5 years</span> of experience
+                <span className="gradient-text font-bold">5 years</span> of experience
               </p>
             </motion.div>
           </motion.div>

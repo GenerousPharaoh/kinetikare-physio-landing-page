@@ -257,30 +257,24 @@ export default function ServicesSection({ onBookLinkClick }: ServiceProps) {
                     Unlike clinics that book multiple patients per hour, I dedicate my full attention to you during your entire appointment. This allows for deeper assessment, more hands-on treatment time, and better outcomes.
                   </motion.p>
                   <motion.ul 
-                    className="space-y-3 mb-8"
+                    className="space-y-2 mt-4"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.4 }}
                   >
-                    {[
-                      'Personalized 1:1 treatment for the full session',
-                      'No assistants or overlapping appointments',
-                      'Focused attention on your specific needs',
-                      'Comprehensive approach addressing the root cause'
-                    ].map((item, i) => (
-                      <motion.li 
-                        key={i} 
-                        className="flex items-center text-neutral-300"
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.4, delay: 0.5 + (i * 0.1) }}
-                      >
-                        <CheckCircle weight="duotone" className="w-5 h-5 mr-2.5 text-accent flex-shrink-0" aria-hidden="true" />
-                        {item}
-                      </motion.li>
-                    ))}
+                    <li className="flex items-start gap-2">
+                      <CheckCircle weight="duotone" className="h-5 w-5 text-accent shrink-0 mt-0.5" />
+                      <span>Personalized care plans</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle weight="duotone" className="h-5 w-5 text-accent shrink-0 mt-0.5" />
+                      <span>Evidence-based treatment</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle weight="duotone" className="h-5 w-5 text-accent shrink-0 mt-0.5" />
+                      <span>Modern facilities in convenient locations</span>
+                    </li>
                   </motion.ul>
                   
                   <motion.div
@@ -328,6 +322,7 @@ export default function ServicesSection({ onBookLinkClick }: ServiceProps) {
                       animate={false}
                     >
                       <p className="text-white/90 text-sm">
+                        State-of-the-art treatment facilities
                       </p>
                     </GlassCard>
                   </div>

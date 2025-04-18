@@ -37,7 +37,7 @@ export default function AboutSection() {
       icon: HeartIcon,
       title: 'Experience',
       items: [
-        '10+ years of clinical experience',
+        '5 years of clinical experience',
         'Worked with professional athletes',
         'Specialized in complex injury rehabilitation'
       ]
@@ -53,6 +53,15 @@ export default function AboutSection() {
         'Canadian Academy of Manipulative Physiotherapy'
       ]
     }
+  ];
+
+  const listItems = [
+    'Manual therapy & joint mobilization',
+    'Soft tissue release techniques',
+    'Exercise prescription & rehabilitation',
+    'Pain management strategies',
+    '5 years of clinical experience',
+    'Personalized treatment plans'
   ];
 
   return (
@@ -115,8 +124,7 @@ export default function AboutSection() {
               {/* Paragraph text color already neutral-200 */}
               <div className="space-y-4 text-neutral-200 leading-relaxed">
                 <p>
-                  As a physiotherapist, I bring advanced manual therapy skills, 
-                  evidence-based practice, and a personalized approach to every treatment session.
+                  I bring advanced manual therapy skills, evidence-based treatment approaches, and a passion for helping people overcome pain and movement limitations. My approach focuses on identifying the root cause of your issues, not just treating symptoms.
                 </p>
                 <p>
                   Building on extensive experience, including several years dedicatedly serving the Waterdown community, 

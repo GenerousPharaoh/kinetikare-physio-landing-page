@@ -141,10 +141,10 @@ export default function TestimonialsSection() {
           </p>
         </div>
         
-        {/* Testimonial Carousel - Simplified and More Reliable Design */}
+        {/* Testimonial Carousel - Redesigned for Elegance */}
         <div className="max-w-4xl mx-auto">
           <div 
-            className="relative overflow-hidden min-h-[400px] md:min-h-[350px]"
+            className="relative overflow-hidden mb-12"
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
           >
@@ -157,51 +157,59 @@ export default function TestimonialsSection() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.5, ease: "easeInOut" }}
-                  className="bg-primary-800 border border-primary-700/50 rounded-xl p-8 shadow-xl overflow-hidden"
+                  className="bg-gradient-to-br from-primary-800 to-primary-900/95 border border-white/10 rounded-xl p-10 md:p-12 shadow-xl overflow-hidden"
                 >
-                  {/* Rating Stars */}
-                  <div className="flex justify-center mb-6">
-                    {renderStars(testimonials[activeIndex].stars)}
-                  </div>
-                  
-                  {/* Quote content */}
-                  <div className="relative mb-8">
-                    <div className="absolute top-0 left-0 text-4xl text-accent/20" aria-hidden="true">&quot;</div>
-                    <div className="absolute bottom-0 right-0 text-4xl text-accent/20" aria-hidden="true">&quot;</div>
-                    <p className="text-base md:text-lg text-neutral-100 text-center px-6 md:px-10 py-2 leading-relaxed">
-                      {testimonials[activeIndex].text}
-                    </p>
-                  </div>
-                  
-                  {/* Customer Info */}
-                  <div className="flex flex-col items-center">
-                    <div className="w-12 h-12 flex items-center justify-center bg-primary-700 rounded-full mb-3">
-                      <span className="text-white text-xl font-semibold">
-                        {testimonials[activeIndex].name[0]}
-                      </span>
+                  {/* Central Positioning of Content */}
+                  <div className="max-w-2xl mx-auto">
+                    {/* Rating Stars with larger size */}
+                    <div className="flex justify-center mb-8">
+                      {Array(5).fill(0).map((_, i) => (
+                        <StarIcon 
+                          key={i} 
+                          className="h-6 w-6 text-accent mx-0.5" 
+                        />
+                      ))}
                     </div>
-                    <h4 className="text-white font-medium text-lg">{testimonials[activeIndex].name}</h4>
-                    <p className="text-neutral-300 text-sm">{testimonials[activeIndex].role}</p>
+                    
+                    {/* Quote content with improved typography */}
+                    <div className="relative mb-10">
+                      <div className="absolute -top-6 -left-2 text-5xl text-accent/20 transform -translate-x-full" aria-hidden="true">&quot;</div>
+                      <p className="text-lg md:text-xl text-white text-center font-light leading-relaxed">
+                        {testimonials[activeIndex].text}
+                      </p>
+                      <div className="absolute -bottom-6 -right-2 text-5xl text-accent/20 transform translate-x-full" aria-hidden="true">&quot;</div>
+                    </div>
+                    
+                    {/* Customer Info with improved spacing */}
+                    <div className="flex flex-col items-center mt-12 pt-6 border-t border-white/10">
+                      <div className="w-16 h-16 flex items-center justify-center bg-accent/20 text-accent rounded-full mb-4 shadow-lg shadow-accent/5">
+                        <span className="text-white text-2xl font-bold">
+                          {testimonials[activeIndex].name[0]}
+                        </span>
+                      </div>
+                      <h4 className="text-white font-medium text-xl mb-1">{testimonials[activeIndex].name}</h4>
+                      <p className="text-accent text-sm font-medium">{testimonials[activeIndex].role}</p>
+                    </div>
                   </div>
                 </motion.div>
               </AnimatePresence>
             </div>
             
-            {/* Navigation Controls */}
-            <div className="absolute top-1/2 -left-3 md:-left-5 transform -translate-y-1/2 z-10">
+            {/* Navigation Controls - Enhanced and repositioned */}
+            <div className="absolute top-1/2 left-2 md:left-4 transform -translate-y-1/2 z-10">
               <button 
                 onClick={handlePrevious}
-                className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary-800/90 backdrop-blur-sm hover:bg-primary-700 border border-white/10 flex items-center justify-center text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-accent/50 transition-transform duration-300 hover:-translate-x-1"
+                className="w-12 h-12 rounded-full bg-primary-800 hover:bg-accent border border-white/10 flex items-center justify-center text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all duration-300 hover:-translate-x-1"
                 aria-label="Previous testimonial"
               >
                 <ArrowLeftIcon className="h-5 w-5" />
               </button>
             </div>
             
-            <div className="absolute top-1/2 -right-3 md:-right-5 transform -translate-y-1/2 z-10">
+            <div className="absolute top-1/2 right-2 md:right-4 transform -translate-y-1/2 z-10">
               <button 
                 onClick={handleNext}
-                className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary-800/90 backdrop-blur-sm hover:bg-primary-700 border border-white/10 flex items-center justify-center text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-accent/50 transition-transform duration-300 hover:translate-x-1"
+                className="w-12 h-12 rounded-full bg-primary-800 hover:bg-accent border border-white/10 flex items-center justify-center text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all duration-300 hover:translate-x-1"
                 aria-label="Next testimonial"
               >
                 <ArrowRightIcon className="h-5 w-5" />
@@ -209,8 +217,8 @@ export default function TestimonialsSection() {
             </div>
           </div>
           
-          {/* Indicator dots */}
-          <div className="flex justify-center space-x-2 mt-8">
+          {/* Improved Indicator dots */}
+          <div className="flex justify-center space-x-3 mt-4">
             {testimonials.map((_, idx) => (
               <button
                 key={idx}
@@ -226,10 +234,10 @@ export default function TestimonialsSection() {
                 aria-label={`Go to testimonial ${idx + 1}`}
               >
                 <div
-                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                  className={`h-3 rounded-full transition-all duration-300 ${
                     idx === activeIndex
-                      ? 'w-8 bg-accent'
-                      : 'bg-neutral-500 hover:bg-neutral-400'
+                      ? 'w-10 bg-accent'
+                      : 'w-3 bg-white/20 hover:bg-white/40'
                   }`}
                 />
               </button>

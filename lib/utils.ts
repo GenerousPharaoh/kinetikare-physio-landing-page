@@ -80,6 +80,8 @@ export function getInitials(name: string): string {
  * Check if element is in viewport
  */
 export function isElementInViewport(el: Element): boolean {
+  if (typeof window === 'undefined') return false;
+  
   const rect = el.getBoundingClientRect();
   
   return (

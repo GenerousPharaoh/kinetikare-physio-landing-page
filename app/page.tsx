@@ -5,27 +5,6 @@ import dynamic from 'next/dynamic'; // Import dynamic
 import HeroSection from '@/components/sections/HeroSection';
 import { motion } from 'framer-motion';
 
-// Define the RequestIdleCallback interface for TypeScript
-interface RequestIdleCallbackOptions {
-  timeout: number;
-}
-
-interface RequestIdleCallbackDeadline {
-  didTimeout: boolean;
-  timeRemaining: () => number;
-}
-
-// Extend the Window interface to include requestIdleCallback
-declare global {
-  interface Window {
-    requestIdleCallback: (
-      callback: (deadline: RequestIdleCallbackDeadline) => void,
-      opts?: RequestIdleCallbackOptions
-    ) => number;
-    cancelIdleCallback: (handle: number) => void;
-  }
-}
-
 // Dynamically import sections below the fold with loading priority
 const ServicesSection = dynamic(() => import('@/components/sections/ServicesSection'), { 
   ssr: true,
@@ -197,6 +176,7 @@ export default function Home() {
     // Use requestIdleCallback for less critical sections if available
     if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
       // Store the callback id so we can cancel it if needed
+      // @ts-ignore - TypeScript might not recognize requestIdleCallback in all environments
       const idleCallbackId = window.requestIdleCallback(() => {
         preloadOtherSections();
       }, { timeout: 5000 }); // 5 second timeout maximum
@@ -204,6 +184,7 @@ export default function Home() {
       // Clean up the idle callback if component unmounts before it fires
       return () => {
         if (typeof window !== 'undefined' && 'cancelIdleCallback' in window) {
+          // @ts-ignore - TypeScript might not recognize cancelIdleCallback in all environments
           window.cancelIdleCallback(idleCallbackId);
         }
       };

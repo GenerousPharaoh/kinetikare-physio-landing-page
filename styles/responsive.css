@@ -1,0 +1,381 @@
+/* Responsive Utilities CSS */
+
+/* Mobile-first approach */
+:root {
+  /* Mobile-specific variables */
+  --mobile-header-height: 60px;
+  --mobile-footer-height: 16px;
+  --mobile-nav-height: 64px;
+  --mobile-padding: 16px;
+  --mobile-content-width: 100%;
+  --mobile-section-padding: 3rem 1rem;
+
+  /* Tablet-specific variables */
+  --tablet-header-height: 70px;
+  --tablet-footer-height: 40px;
+  --tablet-padding: 24px;
+  --tablet-content-width: 90%;
+  --tablet-section-padding: 4rem 1.5rem;
+
+  /* Desktop-specific variables */
+  --desktop-header-height: 80px;
+  --desktop-footer-height: 60px;
+  --desktop-padding: 32px;
+  --desktop-content-width: 1200px;
+  --desktop-section-padding: 5rem 2rem;
+}
+
+/* Safe area insets for notched devices */
+@supports(padding: max(0px)) {
+  .has-safe-area-inset {
+    padding-left: env(safe-area-inset-left, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
+
+/* Fix for iOS 100vh issue */
+@supports (-webkit-touch-callout: none) {
+  .full-screen {
+    height: -webkit-fill-available;
+  }
+}
+
+/* Responsive typography */
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 640px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* Responsive font sizes */
+.responsive-text-xs {
+  font-size: 0.75rem;
+}
+
+.responsive-text-sm {
+  font-size: 0.875rem;
+}
+
+.responsive-text-base {
+  font-size: 1rem;
+}
+
+.responsive-text-lg {
+  font-size: 1.125rem;
+}
+
+.responsive-text-xl {
+  font-size: 1.25rem;
+}
+
+.responsive-text-2xl {
+  font-size: 1.5rem;
+}
+
+.responsive-text-3xl {
+  font-size: 1.875rem;
+}
+
+/* Better tap targets for mobile */
+@media (max-width: 640px) {
+  button:not(.small-button),
+  a.button:not(.small-button),
+  input[type="submit"]:not(.small-button) {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 8px 16px;
+  }
+  
+  label {
+    padding: 8px 0;
+  }
+}
+
+/* Responsive container */
+.responsive-container {
+  width: var(--mobile-content-width);
+  padding-left: var(--mobile-padding);
+  padding-right: var(--mobile-padding);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 640px) {
+  .responsive-container {
+    width: var(--tablet-content-width);
+    padding-left: var(--tablet-padding);
+    padding-right: var(--tablet-padding);
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-container {
+    width: var(--desktop-content-width);
+    padding-left: var(--desktop-padding);
+    padding-right: var(--desktop-padding);
+  }
+}
+
+/* Responsive section padding */
+.responsive-section {
+  padding: var(--mobile-section-padding);
+}
+
+@media (min-width: 640px) {
+  .responsive-section {
+    padding: var(--tablet-section-padding);
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-section {
+    padding: var(--desktop-section-padding);
+  }
+}
+
+/* Responsive grid layouts */
+.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .responsive-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Responsive spacing */
+.responsive-mt {
+  margin-top: 1.5rem;
+}
+
+.responsive-mb {
+  margin-bottom: 1.5rem;
+}
+
+.responsive-my {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.responsive-mx {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.responsive-pt {
+  padding-top: 1.5rem;
+}
+
+.responsive-pb {
+  padding-bottom: 1.5rem;
+}
+
+.responsive-py {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.responsive-px {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .responsive-mt {
+    margin-top: 2rem;
+  }
+  
+  .responsive-mb {
+    margin-bottom: 2rem;
+  }
+  
+  .responsive-my {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .responsive-mx {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+  
+  .responsive-pt {
+    padding-top: 2rem;
+  }
+  
+  .responsive-pb {
+    padding-bottom: 2rem;
+  }
+  
+  .responsive-py {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  .responsive-px {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-mt {
+    margin-top: 3rem;
+  }
+  
+  .responsive-mb {
+    margin-bottom: 3rem;
+  }
+  
+  .responsive-my {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+  
+  .responsive-mx {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+  
+  .responsive-pt {
+    padding-top: 3rem;
+  }
+  
+  .responsive-pb {
+    padding-bottom: 3rem;
+  }
+  
+  .responsive-py {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  .responsive-px {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Responsive aspect ratios for images */
+.responsive-aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+.responsive-aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+.responsive-aspect-portrait {
+  aspect-ratio: 3 / 4;
+}
+
+/* Hide & show elements based on screen size */
+.mobile-only {
+  display: block;
+}
+
+.tablet-up {
+  display: none;
+}
+
+.desktop-only {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .mobile-only {
+    display: none;
+  }
+  
+  .tablet-up {
+    display: block;
+  }
+  
+  .desktop-only {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .desktop-only {
+    display: block;
+  }
+}
+
+/* Responsive image handling */
+.responsive-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.responsive-image-contain {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Bottom spacing for fixed bottom navigation */
+.has-bottom-nav {
+  padding-bottom: calc(var(--mobile-nav-height) + env(safe-area-inset-bottom, 0px));
+}
+
+@media (min-width: 768px) {
+  .has-bottom-nav {
+    padding-bottom: 0;
+  }
+}
+
+/* Print media query for better print layouts */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    color: #000;
+    background: #fff;
+  }
+  
+  a {
+    text-decoration: underline;
+    color: #000;
+  }
+  
+  img {
+    max-width: 100% !important;
+  }
+  
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  
+  h2, h3 {
+    page-break-after: avoid;
+  }
+} 

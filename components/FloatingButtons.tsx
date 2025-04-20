@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export default function FloatingButtons() {
   const [isVisible, setIsVisible] = useState(false);
+  const [showTooltip, setShowTooltip] = useState<string | null>(null);
 
   useEffect(() => {
     const toggleVisibility = () => {
@@ -62,8 +63,8 @@ export default function FloatingButtons() {
       }
     },
     hover: {
-      scale: 1.1,
-      boxShadow: "0 10px 20px rgba(0, 0, 0, 0.2)"
+      scale: 1.05,
+      boxShadow: "0 10px 25px rgba(0, 0, 0, 0.15)"
     },
     tap: {
       scale: 0.95
@@ -71,8 +72,19 @@ export default function FloatingButtons() {
   };
 
   const tooltipVariants = {
-    hidden: { opacity: 0, x: 10 },
-    visible: { opacity: 1, x: 0 }
+    hidden: { opacity: 0, x: 10, scale: 0.9 },
+    visible: { 
+      opacity: 1, 
+      x: 0, 
+      scale: 1,
+      transition: { duration: 0.2, ease: "easeOut" }
+    },
+    exit: { 
+      opacity: 0, 
+      x: 10, 
+      scale: 0.9,
+      transition: { duration: 0.2, ease: "easeIn" }
+    }
   };
 
   return (
@@ -87,8 +99,9 @@ export default function FloatingButtons() {
         href="https://endorphinshealth.janeapp.com/#/staff_member/6"
         target="_blank"
         rel="noopener noreferrer"
-        onClick={handleBookClick}
-        className="group flex items-center justify-center w-14 h-14 bg-primary/90 backdrop-blur-md border border-primary-600/30 text-white rounded-full shadow-lg transition-colors duration-300 hover:bg-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+        onMouseEnter={() => setShowTooltip('book')}
+        onMouseLeave={() => setShowTooltip(null)}
+        className="group flex items-center justify-center w-14 h-14 bg-primary-600/90 backdrop-blur-md border border-primary-500/50 text-white rounded-full shadow-lg transition-colors duration-300 hover:bg-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
         aria-label="Book an appointment"
         title="Book an appointment"
         variants={buttonVariants}
@@ -96,22 +109,27 @@ export default function FloatingButtons() {
         whileTap="tap"
       >
         <CalendarDaysIcon className="h-6 w-6" />
-        <motion.span 
-          className="absolute right-full mr-4 top-1/2 transform -translate-y-1/2 px-3 py-1.5 bg-primary/90 backdrop-blur-md border border-primary-600/30 text-white text-xs font-medium rounded-md shadow-md whitespace-nowrap pointer-events-none"
-          initial="hidden"
-          whileHover="visible"
-          variants={tooltipVariants}
-          animate="hidden"
-        >
-          Book Now
-        </motion.span>
+        <AnimatePresence>
+          {showTooltip === 'book' && (
+            <motion.span 
+              className="absolute right-full mr-4 top-1/2 transform -translate-y-1/2 px-3 py-1.5 bg-primary-600/90 backdrop-blur-md border border-primary-500/50 text-white text-xs font-medium rounded-md shadow-md whitespace-nowrap pointer-events-none"
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              variants={tooltipVariants}
+            >
+              Book Now
+            </motion.span>
+          )}
+        </AnimatePresence>
       </motion.a>
       
       {/* Call Button */}
       <motion.a
         href="tel:+19056346000"
-        onClick={handleCallClick}
-        className="group flex items-center justify-center w-14 h-14 bg-green-600/90 backdrop-blur-md border border-green-500/30 text-white rounded-full shadow-lg transition-colors duration-300 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-background"
+        onMouseEnter={() => setShowTooltip('call')}
+        onMouseLeave={() => setShowTooltip(null)}
+        className="group flex items-center justify-center w-14 h-14 bg-green-600/90 backdrop-blur-md border border-green-500/50 text-white rounded-full shadow-lg transition-colors duration-300 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-background"
         aria-label="Call us"
         title="Call us"
         variants={buttonVariants}
@@ -119,23 +137,29 @@ export default function FloatingButtons() {
         whileTap="tap"
       >
         <PhoneIcon className="h-6 w-6" />
-        <motion.span 
-          className="absolute right-full mr-4 top-1/2 transform -translate-y-1/2 px-3 py-1.5 bg-green-600/90 backdrop-blur-md border border-green-500/30 text-white text-xs font-medium rounded-md shadow-md whitespace-nowrap pointer-events-none"
-          initial="hidden"
-          whileHover="visible"
-          variants={tooltipVariants}
-          animate="hidden"
-        >
-          Call Us
-        </motion.span>
+        <AnimatePresence>
+          {showTooltip === 'call' && (
+            <motion.span 
+              className="absolute right-full mr-4 top-1/2 transform -translate-y-1/2 px-3 py-1.5 bg-green-600/90 backdrop-blur-md border border-green-500/50 text-white text-xs font-medium rounded-md shadow-md whitespace-nowrap pointer-events-none"
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              variants={tooltipVariants}
+            >
+              Call Us
+            </motion.span>
+          )}
+        </AnimatePresence>
       </motion.a>
       
       {/* Scroll to Top Button */}
-      <AnimatePresence>
+      <AnimatePresence mode="sync">
         {isVisible && (
           <motion.button
             onClick={scrollToTop}
-            className="group flex items-center justify-center w-14 h-14 bg-accent/90 backdrop-blur-md border border-accent/30 text-white rounded-full shadow-lg transition-colors duration-300 hover:bg-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background"
+            onMouseEnter={() => setShowTooltip('top')}
+            onMouseLeave={() => setShowTooltip(null)}
+            className="group flex items-center justify-center w-14 h-14 bg-accent/90 backdrop-blur-md border border-accent/50 text-white rounded-full shadow-lg transition-colors duration-300 hover:bg-accent-dark focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background"
             aria-label="Scroll to top"
             title="Scroll to top"
             variants={buttonVariants}
@@ -146,15 +170,19 @@ export default function FloatingButtons() {
             whileTap="tap"
           >
             <ArrowUpIcon className="h-6 w-6" />
-            <motion.span 
-              className="absolute right-full mr-4 top-1/2 transform -translate-y-1/2 px-3 py-1.5 bg-accent/90 backdrop-blur-md border border-accent/30 text-white text-xs font-medium rounded-md shadow-md whitespace-nowrap pointer-events-none"
-              initial="hidden"
-              whileHover="visible"
-              variants={tooltipVariants}
-              animate="hidden"
-            >
-              Back to Top
-            </motion.span>
+            <AnimatePresence>
+              {showTooltip === 'top' && (
+                <motion.span 
+                  className="absolute right-full mr-4 top-1/2 transform -translate-y-1/2 px-3 py-1.5 bg-accent/90 backdrop-blur-md border border-accent/50 text-white text-xs font-medium rounded-md shadow-md whitespace-nowrap pointer-events-none"
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  variants={tooltipVariants}
+                >
+                  Back to Top
+                </motion.span>
+              )}
+            </AnimatePresence>
           </motion.button>
         )}
       </AnimatePresence>

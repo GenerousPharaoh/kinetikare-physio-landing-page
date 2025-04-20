@@ -1,147 +1,217 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRightIcon, CalendarDaysIcon } from '@heroicons/react/24/outline';
+import { CalendarDaysIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 
-export default function HeroSection() {
+const HeroSection = memo(function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
   
   useEffect(() => {
     setIsVisible(true);
   }, []);
 
-  // Handle scroll to services
-  const handleServicesClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    const servicesSection = document.getElementById('services');
-    if (servicesSection) {
-      const headerOffset = document.querySelector('header')?.offsetHeight || 80;
-      const elementPosition = servicesSection.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.scrollY - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
-
-  // Framer Motion variants for staggered animations
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1,
-      transition: { 
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  };
-  
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1.0] }
-    }
-  };
-
   return (
-    <section className="relative bg-gradient-to-b from-primary-900 to-primary-800 text-white py-24 md:py-32 lg:py-40 border-b border-primary-800/50 overflow-hidden">
-      {/* Decorative elements */}
+    <section className="relative py-24 md:py-32 lg:py-40 xl:py-48 overflow-hidden min-h-screen flex items-center">
+      {/* Enhanced backdrop image with subtle parallax */}
+      <div className="absolute inset-0 z-0">
+        <motion.div 
+          className="h-full w-full overflow-hidden"
+          initial={{ scale: 1.05 }}
+          animate={{ 
+            y: ["0%", "-2%", "0%"],
+            scale: 1.05 
+          }}
+          transition={{ 
+            y: { 
+              duration: 20, 
+              repeat: Infinity, 
+              ease: "easeInOut" 
+            },
+            scale: { duration: 0.8 }
+          }}
+        >
+          <Image
+            src="/images/clinic-pic-updated.jpg"
+            alt="Physiotherapy treatment room"
+            fill
+            className="object-cover object-center"
+            priority={true}
+            quality={85}
+            style={{
+              filter: 'brightness(0.65) contrast(1.1) saturate(1.05)', // Enhanced professional look
+            }}
+          />
+        </motion.div>
+
+        {/* Enhanced gradient overlay with better depth */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-900/80 via-primary-900/50 to-primary-900/70"></div>
+        
+        {/* Refined vignette effect */}
+        <div className="absolute inset-0 bg-radial-gradient opacity-60 mix-blend-multiply"></div>
+      </div>
+
+      {/* Refined decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Gradient mesh */}
-        <div className="gradient-mesh"></div>
-        
-        {/* Texture overlay */}
-        <div className="absolute inset-0 opacity-20 texture-noise"></div>
-        
-        {/* Animated circles */}
-        <div className="absolute top-20 right-[10%] w-[300px] h-[300px] rounded-full bg-accent/[0.03] blur-[80px] float-animation" style={{ animationDelay: '0.5s' }}></div>
-        <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full bg-primary-800/20 blur-[100px] float-animation" style={{ animationDelay: '0s' }}></div>
-        <div className="absolute top-[40%] left-[15%] w-[200px] h-[200px] rounded-full bg-accent/[0.04] blur-[60px] float-animation" style={{ animationDelay: '1.5s' }}></div>
-        
-        {/* Decorative lines */}
-        <svg className="absolute top-0 right-0 h-full w-1/2 opacity-5" viewBox="0 0 100 100" preserveAspectRatio="none">
-          <line x1="0" y1="0" x2="100" y2="100" stroke="white" strokeWidth="0.5" />
-          <line x1="20" y1="0" x2="100" y2="80" stroke="white" strokeWidth="0.3" />
-          <line x1="40" y1="0" x2="100" y2="60" stroke="white" strokeWidth="0.2" />
-        </svg>
+        <div className="absolute inset-0 bg-pattern opacity-[0.03]"></div>
+        {/* Subtle accent glow */}
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-accent/5 blur-[100px]"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] rounded-full bg-primary-500/5 blur-[80px]"></div>
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col md:flex-row items-center justify-between">
+        <div className="grid lg:grid-cols-12 gap-12 items-center">
+          {/* Left side content - Enhanced text and CTA */}
+          <div className="lg:col-span-7 text-left">
+            <motion.div 
+              className="max-w-3xl"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+            >
+              <motion.span 
+                className="inline-block px-5 py-1.5 text-sm font-medium bg-primary-700/40 text-white rounded-full backdrop-blur-md mb-6 border border-white/10 shadow-lg"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                Experience Expert Care in Burlington
+              </motion.span>
+              
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 tracking-tight leading-tight">
+                The Science of 
+                <span className="relative inline-block ml-3">
+                  <span className="relative z-10">Recovery</span>
+                  <span className="absolute bottom-2 left-0 w-full h-3 bg-accent/20 rounded-lg -z-0"></span>
+                </span>
+                <span className="block mt-1 text-transparent bg-clip-text bg-gradient-to-r from-accent via-accent-light to-accent">The Art of Care</span>
+              </h1>
+              
+              <motion.p 
+                className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                Revealing the subtle patterns in your movement to design targeted interventions that restore function, 
+                minimize pain, and help you reclaim the activities that matter most.
+              </motion.p>
+              
+              <div className="flex flex-wrap gap-5 mt-8">
+                <Link 
+                  href="https://khphysiotherapy.janeapp.com/" 
+                  target="_blank"
+                  className="bg-gradient-to-br from-accent to-accent-dark text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 text-center flex items-center justify-center gap-2 shadow-2xl shadow-accent/20 hover:shadow-accent/40 hover:-translate-y-1 hover:scale-105"
+                  aria-label="Book an appointment online"
+                >
+                  <CalendarDaysIcon className="h-5 w-5" aria-hidden="true" />
+                  <span>Book an Appointment</span>
+                </Link>
+                
+                <Link 
+                  href="#services" 
+                  className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white font-medium px-8 py-4 rounded-xl transition-all duration-300 text-center border border-white/20 hover:border-white/40 flex items-center justify-center hover:scale-105"
+                  aria-label="Explore our services"
+                >
+                  Explore Our Services
+                </Link>
+              </div>
+              
+              {/* Enhanced testimonial preview */}
+              <motion.div 
+                className="mt-14 bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 max-w-md shadow-xl relative overflow-hidden"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                {/* Decorative element */}
+                <div className="absolute -bottom-10 -right-10 w-40 h-40 rounded-full bg-accent/10 blur-[30px]"></div>
+                
+                <div className="flex items-center gap-4 mb-3 relative z-10">
+                  <div className="flex -space-x-3">
+                    <div className="w-11 h-11 rounded-full bg-accent/40 flex items-center justify-center text-white font-bold ring-2 ring-white/10">K</div>
+                    <div className="w-11 h-11 rounded-full bg-primary-500/40 flex items-center justify-center text-white font-bold ring-2 ring-white/10">M</div>
+                    <div className="w-11 h-11 rounded-full bg-primary-700/40 flex items-center justify-center text-white font-bold ring-2 ring-white/10">J</div>
+                  </div>
+                  <div className="text-amber-200 tracking-wider">★★★★★</div>
+                </div>
+                <p className="text-sm font-medium text-white/90 italic leading-relaxed relative z-10">
+                  "The treatment I received for my shoulder issue was excellent. Professional, thorough, and effective."
+                </p>
+              </motion.div>
+            </motion.div>
+          </div>
+          
+          {/* Right side - Enhanced decorative element with glass morphism */}
           <motion.div 
-            className="md:w-1/2 lg:w-5/12 md:pr-8 lg:pr-12 mb-10 md:mb-0"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            className="lg:col-span-5 hidden lg:block"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight leading-tight">
-              Physical Therapy Tailored to <span className="accent-gradient-text">Your Needs</span>
-            </h1>
-            <p className="text-base md:text-lg text-neutral-300 mb-8 max-w-xl leading-relaxed relative">
-              Expert physiotherapy services to help you move better, 
-              feel better, and live better.
-              <motion.span 
-                className="absolute -left-6 top-0 bottom-0 w-1 bg-accent/50"
-                initial={{ height: 0 }}
-                animate={{ height: '100%' }}
-                transition={{ delay: 0.6, duration: 0.8 }}
-              ></motion.span>
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link 
-                href="https://khphysiotherapy.janeapp.com/" 
-                target="_blank"
-                className="button-3d bg-accent hover:bg-accent-dark text-white font-medium px-5 py-3 rounded-lg transition-all duration-300 text-center flex items-center justify-center gap-2 shadow-xl hover:shadow-accent/20 group"
-                aria-label="Book an appointment online"
-              >
-                <CalendarDaysIcon className="h-5 w-5 relative z-10" aria-hidden="true" />
-                <span className="relative z-10">Book an Appointment</span>
-              </Link>
-              <Link 
-                href="/services" 
-                onClick={handleServicesClick}
-                className="relative bg-transparent hover:bg-primary-700/50 text-white border border-primary-700/50 font-medium px-5 py-3 rounded-lg transition-all duration-300 text-center flex items-center justify-center gap-2 overflow-hidden group"
-              >
-                <motion.span 
-                  className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent 
-                  translate-x-[-100%] group-hover:translate-x-[100%] transition-all duration-1000 ease-in-out"
-                ></motion.span>
-                <span className="relative z-10">My Services</span>
-                <ArrowRightIcon className="h-4 w-4 relative z-10 group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
-              </Link>
-            </div>
-          </motion.div>
-          
-          <motion.div 
-            className="md:w-1/2 lg:w-7/12 relative"
-            initial={{ opacity: 0, scale: 0.95, x: 30 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl transform perspective-1000 rotate-y-[-3deg] hover:rotate-y-0 transition-transform duration-700">
-              <Image
-                src="/images/physiotherapist.jpg"
-                alt="Physiotherapy treatment session showing a therapist working with a patient"
-                width={700}
-                height={500}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 700px"
-                className="w-full h-auto rounded-2xl"
-                priority={true}
-                quality={90}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary-900/70 via-primary-900/20 to-transparent rounded-2xl"></div>
-              
-              {/* Decorative elements over the image */}
-              <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-                <div className="absolute -right-4 -bottom-4 w-24 h-24 border-2 border-accent/40 rounded-xl"></div>
-                <div className="absolute -left-3 -top-3 w-16 h-16 border border-white/30 rounded-lg"></div>
+            <div className="relative h-[580px] w-full">
+              <div className="absolute inset-0 rounded-3xl backdrop-blur-xl bg-gradient-to-br from-white/10 to-white/5 border border-white/20 shadow-2xl overflow-hidden">
+                {/* Enhanced background glow effects */}
+                <div className="absolute -bottom-20 -right-20 w-[400px] h-[400px] rounded-full bg-accent/10 blur-[100px]"></div>
+                <div className="absolute -top-20 -left-20 w-[300px] h-[300px] rounded-full bg-primary-500/10 blur-[80px]"></div>
+                
+                <div className="p-10 h-full flex flex-col justify-center">
+                  {/* Enhanced professional credentials */}
+                  <div className="mb-10 flex flex-col gap-5">
+                    <motion.div 
+                      className="flex items-center gap-4 bg-white/10 backdrop-blur-sm rounded-xl px-5 py-4 border border-white/10 shadow-lg"
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.5, delay: 0.3 }}
+                    >
+                      <div className="w-12 h-12 rounded-full bg-primary-700/50 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="text-white font-semibold text-lg">Registered Physiotherapist</p>
+                        <p className="text-xs text-white/70">Ontario College of Physiotherapists</p>
+                      </div>
+                    </motion.div>
+                    
+                    <motion.div 
+                      className="flex items-center gap-4 bg-white/10 backdrop-blur-sm rounded-xl px-5 py-4 border border-white/10 shadow-lg"
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.5, delay: 0.5 }}
+                    >
+                      <div className="w-12 h-12 rounded-full bg-primary-700/50 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" viewBox="0 0 20 20" fill="currentColor">
+                          <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="text-white font-semibold text-lg">5+ Years Experience</p>
+                        <p className="text-xs text-white/70">Registered Physiotherapist</p>
+                      </div>
+                    </motion.div>
+                  </div>
+                  
+                  {/* Enhanced specialties section */}
+                  <motion.div 
+                    className="mt-auto"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.7 }}
+                  >
+                    <p className="text-white/90 text-base mb-4 font-medium">Specialized Treatment For:</p>
+                    <div className="flex flex-wrap gap-2.5">
+                      <span className="text-sm bg-accent/20 text-white px-4 py-1.5 rounded-full border border-accent/30 shadow-sm hover:bg-accent/30 transition-colors">Sports Injuries</span>
+                      <span className="text-sm bg-accent/20 text-white px-4 py-1.5 rounded-full border border-accent/30 shadow-sm hover:bg-accent/30 transition-colors">Back Pain</span>
+                      <span className="text-sm bg-accent/20 text-white px-4 py-1.5 rounded-full border border-accent/30 shadow-sm hover:bg-accent/30 transition-colors">Post-Surgery</span>
+                      <span className="text-sm bg-accent/20 text-white px-4 py-1.5 rounded-full border border-accent/30 shadow-sm hover:bg-accent/30 transition-colors">Chronic Pain</span>
+                      <span className="text-sm bg-accent/20 text-white px-4 py-1.5 rounded-full border border-accent/30 shadow-sm hover:bg-accent/30 transition-colors">Joint Mobility</span>
+                    </div>
+                  </motion.div>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -149,4 +219,6 @@ export default function HeroSection() {
       </div>
     </section>
   );
-}
+});
+
+export default HeroSection;

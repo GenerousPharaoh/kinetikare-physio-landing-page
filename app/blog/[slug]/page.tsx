@@ -64,20 +64,20 @@ export default function Page(props: any) {
   const post = getPostData(slug);
 
   if (!post) {
-    return <div className="container mx-auto px-4 py-16 md:py-24 text-center text-neutral-400 bg-primary-900 flex-grow">Post not found.</div>;
+    return <div className="container mx-auto px-4 py-16 md:py-24 text-center text-primary-500 bg-neutral-50 flex-grow">Post not found.</div>;
   }
 
   return (
-    <div className="bg-primary-900 text-neutral-200 flex-grow">
+    <div className="bg-neutral-50 text-primary-700 flex-grow">
       <div className="container mx-auto px-4 py-16 md:py-24">
         <div className="max-w-3xl mx-auto">
-          <Link href="/blog" className="inline-block text-accent hover:text-accent-light mb-6 group">
+          <Link href="/blog" className="inline-block text-accent hover:text-accent-dark mb-6 group">
              &larr; <span className="group-hover:underline">Back to Blog</span>
           </Link>
           
-          <div className="mb-8 aspect-video bg-primary-800 rounded-lg flex items-center justify-center text-neutral-500 relative overflow-hidden">
+          <div className="mb-8 aspect-video bg-primary-100 rounded-lg flex items-center justify-center text-primary-400 relative overflow-hidden">
             <Image 
-              src={`https://via.placeholder.com/800x450/1A3A43/BCAD96?text=Featured+Image`}
+              src={`https://via.placeholder.com/800x450/F5F7F9/4A87A0?text=Featured+Image`}
               alt={`${post.title} - Featured Image Placeholder`} 
               fill
               style={{ objectFit: 'cover' }}
@@ -85,21 +85,21 @@ export default function Page(props: any) {
              /> 
           </div>
 
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-semibold text-white mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-semibold text-primary-700 mb-4">
             {post.title}
           </h1>
           
-          <div className="mb-8 text-sm text-neutral-400">Published on [Date Placeholder]</div>
+          <div className="mb-8 text-sm text-primary-500">Published on [Date Placeholder]</div>
           
           <div className="prose prose-lg max-w-none 
-                        prose-p:text-neutral-300 prose-headings:text-white 
-                        prose-strong:text-white prose-a:text-accent hover:prose-a:text-accent-light
-                        prose-li:text-neutral-300 prose-ul:list-disc prose-ul:marker:text-accent">
+                        prose-p:text-primary-700 prose-headings:text-primary-700 
+                        prose-strong:text-primary-800 prose-a:text-accent hover:prose-a:text-accent-dark
+                        prose-li:text-primary-700 prose-ul:list-disc prose-ul:marker:text-accent">
             {post.content}
           </div>
 
-          <div className="mt-12 pt-8 border-t border-primary-700/60">
-            <p className="text-neutral-300 mb-4">Struggling with persistent back pain? Let&apos;s find the root cause together.</p>
+          <div className="mt-12 pt-8 border-t border-primary-200">
+            <p className="text-primary-600 mb-4">Struggling with persistent back pain? Let&apos;s find the root cause together.</p>
             <Link href="/#contact" className="btn btn-primary">
               Book an Assessment
             </Link>

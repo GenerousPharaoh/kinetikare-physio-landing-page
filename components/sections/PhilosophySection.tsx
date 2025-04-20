@@ -2,13 +2,13 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaLeaf, FaUserMd, FaChartLine, FaHeartbeat } from 'react-icons/fa';
+import { FaUserMd, FaLeaf, FaChartLine, FaHeartbeat } from 'react-icons/fa';
 
 const PhilosophySection = () => {
   // Animation variants
-  const container = {
+  const containerVariants = {
     hidden: { opacity: 0 },
-    show: {
+    visible: {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
@@ -17,75 +17,96 @@ const PhilosophySection = () => {
     }
   };
 
-  const item = {
+  const itemVariants = {
     hidden: { y: 20, opacity: 0 },
-    show: { y: 0, opacity: 1, transition: { duration: 0.5 } }
+    visible: { 
+      y: 0, 
+      opacity: 1, 
+      transition: { 
+        duration: 0.6,
+        ease: [0.22, 1, 0.36, 1] 
+      } 
+    }
   };
 
   const philosophyPoints = [
     {
-      icon: <FaUserMd className="text-4xl text-accent-400" />,
+      icon: <FaUserMd />,
       title: "Patient-Centered Care",
       description: "Your needs and goals are at the center of every treatment plan. I listen carefully to understand your unique situation and tailor my approach accordingly."
     },
     {
-      icon: <FaLeaf className="text-4xl text-accent-400" />,
+      icon: <FaLeaf />,
       title: "Holistic Approach",
       description: "I consider all aspects of your health, lifestyle, and environment to address not just symptoms but underlying causes for long-term recovery and wellness."
     },
     {
-      icon: <FaChartLine className="text-4xl text-accent-400" />,
+      icon: <FaChartLine />,
       title: "Evidence-Based Practice",
       description: "My treatments combine the latest research with clinical expertise, ensuring you receive the most effective and scientifically-supported interventions."
     },
     {
-      icon: <FaHeartbeat className="text-4xl text-accent-400" />,
+      icon: <FaHeartbeat />,
       title: "Active Rehabilitation",
       description: "I believe in empowering you with the knowledge and tools to take an active role in your recovery, focusing on sustainable health improvements."
     }
   ];
 
   return (
-    <section id="philosophy" className="py-20 bg-white relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute top-0 right-0 w-1/4 h-full bg-primary-50/50 -skew-x-12 transform origin-top-right" aria-hidden="true"></div>
-      <div className="absolute bottom-0 left-0 w-1/3 h-2/3 bg-primary-50/30 -skew-x-12 transform origin-bottom-left" aria-hidden="true"></div>
+    <section id="philosophy" className="py-24 bg-background relative overflow-hidden">
+      {/* Subtle background elements */}
+      <div className="absolute inset-0 opacity-5 pattern-dots" aria-hidden="true"></div>
+      <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-white/40 to-transparent" aria-hidden="true"></div>
+      <div className="absolute left-0 right-0 bottom-0 h-32 bg-gradient-to-t from-white/40 to-transparent" aria-hidden="true"></div>
+      
+      {/* Decorative elements */}
+      <div className="absolute bottom-0 right-0 w-1/3 h-full bg-primary-50/30 -skew-x-12 transform origin-bottom-right" aria-hidden="true"></div>
+      <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-accent/5 blur-[80px]" aria-hidden="true"></div>
+      <div className="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full bg-primary-100/10 blur-[100px]" aria-hidden="true"></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-primary-900 mb-4">Treatment Philosophy</h2>
-          <p className="text-lg text-primary-600 max-w-2xl mx-auto">
-            My approach combines evidence-based techniques with personalized care to help you achieve optimal physical health and wellbeing.
-          </p>
-        </motion.div>
+        <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6">Treatment Philosophy</h2>
+            <div className="w-20 h-px bg-accent mx-auto mb-8"></div>
+            <p className="text-lg md:text-xl text-text-secondary max-w-3xl mx-auto">
+              My approach combines evidence-based techniques with personalized care to 
+              help you achieve optimal physical health and wellbeing.
+            </p>
+          </motion.div>
+        </div>
 
         <motion.div 
-          variants={container}
+          variants={containerVariants}
           initial="hidden"
-          whileInView="show"
+          whileInView="visible"
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16"
         >
           {philosophyPoints.map((point, index) => {
-            // Clone the icon element to add aria-hidden attribute
-            const IconWithHidden = React.cloneElement(point.icon, { "aria-hidden": "true" });
             return (
               <motion.div
                 key={index}
-                variants={item}
-                className="bg-white rounded-lg p-6 shadow-lg border border-primary-100 hover:shadow-xl transition-all duration-300"
+                variants={itemVariants}
+                className="themed-card p-8 transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-start">
-                  <div className="mr-4 mt-1">{IconWithHidden}</div>
+                  <div className="mr-5 flex-shrink-0">
+                    <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+                      {React.cloneElement(point.icon, { 
+                        className: "w-7 h-7",
+                        "aria-hidden": "true"
+                      })}
+                    </div>
+                  </div>
                   <div>
-                    <h3 className="text-xl font-bold text-primary-900 mb-2">{point.title}</h3>
-                    <p className="text-primary-700">{point.description}</p>
+                    <h3 className="text-xl font-bold text-primary mb-3">{point.title}</h3>
+                    <p className="text-text-secondary leading-relaxed">{point.description}</p>
                   </div>
                 </div>
               </motion.div>
@@ -97,22 +118,21 @@ const PhilosophySection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="bg-primary-900 text-white rounded-xl p-8 shadow-xl"
+          transition={{ duration: 0.7, delay: 0.4 }}
+          className="bg-gradient-to-br from-primary-100 to-primary-200 text-primary-800 rounded-xl p-10 md:p-12 shadow-xl relative overflow-hidden"
         >
-          <div className="max-w-3xl mx-auto">
-            <h3 className="text-2xl font-bold mb-4 text-center">My Commitment to You</h3>
-            <p className="mb-6 text-primary-100">
-              As your physiotherapist, I am committed to providing the highest standard of care with integrity and compassion. I continuously update my skills and knowledge to offer you the most effective treatment options available. My goal is to help you not just recover from injury, but to thrive and achieve your full physical potential.
+          {/* Subtle texture overlay */}
+          <div className="absolute inset-0 opacity-10 texture-noise"></div>
+          
+          <div className="max-w-3xl mx-auto relative z-10">
+            <h3 className="text-2xl md:text-3xl font-heading font-bold mb-6 text-center">My Commitment to You</h3>
+            <div className="w-16 h-px bg-accent/60 mx-auto mb-8"></div>
+            <p className="mb-6 text-primary-700 leading-relaxed">
+              As your physiotherapist, I am committed to providing the highest standard of care with integrity and compassion. I continuously update my skills and knowledge to offer you the most effective treatment options available.
             </p>
-            <div className="flex justify-center">
-              <a 
-                href="/about" 
-                className="inline-block bg-white text-primary-900 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-primary-50 transition-all duration-300 transform hover:-translate-y-1"
-              >
-                Learn More About Me
-              </a>
-            </div>
+            <p className="text-primary-700 leading-relaxed">
+              My goal is to help you not just recover from injury, but to thrive and achieve your full physical potential.
+            </p>
           </div>
         </motion.div>
       </div>

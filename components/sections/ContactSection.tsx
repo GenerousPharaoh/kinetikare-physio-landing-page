@@ -64,13 +64,13 @@ export default function ContactSection() {
     {
       icon: EnvelopeIcon,
       title: 'Email Address',
-      lines: ['info@khphysiotherapy.com'],
-      href: 'mailto:info@khphysiotherapy.com'
+      lines: ['kareem.hassanein@gmail.com'],
+      href: 'mailto:kareem.hassanein@gmail.com'
     },
     {
       icon: ClockIcon,
       title: 'Clinic Hours',
-      lines: ['Mon-Thurs: 9am - 8pm', 'Fri: 9am - 5pm']
+      lines: ['Mon-Fri: 2pm - 8pm']
     }
   ];
 
@@ -129,14 +129,14 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="section bg-primary-900 text-neutral-200 overflow-hidden">
+    <section id="contact" className="section bg-neutral-50 text-primary-700 overflow-hidden">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16 lg:mb-20">
-          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-4">
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-primary-700 mb-4">
             Get In Touch
           </h2>
-          <p className="section-subtitle text-lg text-neutral-300 mx-auto max-w-3xl">
+          <p className="section-subtitle text-lg text-primary-600 mx-auto max-w-3xl">
             Have questions or ready to start your recovery journey? Reach out today.
           </p>
           <div className="w-20 h-px bg-accent mx-auto"></div>
@@ -153,9 +153,9 @@ export default function ContactSection() {
                     <Icon className="w-5 h-5 text-accent" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-white mb-1">{item.title}</h4>
+                    <h4 className="text-lg font-semibold text-primary-700 mb-1">{item.title}</h4>
                     {item.lines.map((line, i) => (
-                      <p key={i} className="text-neutral-300">
+                      <p key={i} className="text-primary-600">
                         {item.href && i === 0 ? (
                           <a href={item.href} target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors duration-200 underline underline-offset-2">
                             {line}
@@ -171,12 +171,12 @@ export default function ContactSection() {
 
           {/* Contact Form Column */}
           <div>
-            <h3 className="text-2xl font-semibold text-white mb-6">Send a Message</h3>
+            <h3 className="text-2xl font-semibold text-primary-700 mb-6">Send a Message</h3>
             <form ref={formRef} onSubmit={handleSubmit} noValidate className="space-y-5">
               {/* Form Fields */}
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-neutral-300 mb-1">Name *</label>
+                  <label htmlFor="name" className="block text-sm font-medium text-primary-600 mb-1">Name *</label>
                   <input 
                     type="text" 
                     name="name" 
@@ -184,14 +184,14 @@ export default function ContactSection() {
                     value={formData.name}
                     onChange={handleChange}
                     required 
-                    className={`form-input ${errors.name ? 'border-red-500' : 'border-primary-700'}`}
+                    className={`form-input ${errors.name ? 'border-red-500' : 'border-primary-200'}`}
                     aria-invalid={!!errors.name}
                     aria-describedby={errors.name ? "name-error" : undefined}
                   />
-                  {errors.name && <p id="name-error" className="text-red-400 text-xs mt-1">{errors.name}</p>}
+                  {errors.name && <p id="name-error" className="text-red-500 text-xs mt-1">{errors.name}</p>}
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-neutral-300 mb-1">Email *</label>
+                  <label htmlFor="email" className="block text-sm font-medium text-primary-600 mb-1">Email *</label>
                   <input 
                     type="email" 
                     name="email" 
@@ -199,26 +199,26 @@ export default function ContactSection() {
                     value={formData.email}
                     onChange={handleChange}
                     required 
-                    className={`form-input ${errors.email ? 'border-red-500' : 'border-primary-700'}`}
+                    className={`form-input ${errors.email ? 'border-red-500' : 'border-primary-200'}`}
                     aria-invalid={!!errors.email}
                     aria-describedby={errors.email ? "email-error" : undefined}
                   />
-                  {errors.email && <p id="email-error" className="text-red-400 text-xs mt-1">{errors.email}</p>}
+                  {errors.email && <p id="email-error" className="text-red-500 text-xs mt-1">{errors.email}</p>}
                 </div>
               </div>
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-neutral-300 mb-1">Phone (Optional)</label>
+                <label htmlFor="phone" className="block text-sm font-medium text-primary-600 mb-1">Phone (Optional)</label>
                 <input 
                   type="tel" 
                   name="phone" 
                   id="phone" 
                   value={formData.phone}
                   onChange={handleChange}
-                  className="form-input border-primary-700"
+                  className="form-input border-primary-200"
                 />
               </div>
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-neutral-300 mb-1">Subject *</label>
+                <label htmlFor="subject" className="block text-sm font-medium text-primary-600 mb-1">Subject *</label>
                 <input 
                   type="text" 
                   name="subject" 
@@ -226,14 +226,14 @@ export default function ContactSection() {
                   value={formData.subject}
                   onChange={handleChange}
                   required 
-                  className={`form-input ${errors.subject ? 'border-red-500' : 'border-primary-700'}`}
+                  className={`form-input ${errors.subject ? 'border-red-500' : 'border-primary-200'}`}
                   aria-invalid={!!errors.subject}
                   aria-describedby={errors.subject ? "subject-error" : undefined}
                 />
-                 {errors.subject && <p id="subject-error" className="text-red-400 text-xs mt-1">{errors.subject}</p>}
+                 {errors.subject && <p id="subject-error" className="text-red-500 text-xs mt-1">{errors.subject}</p>}
              </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-neutral-300 mb-1">Message *</label>
+                <label htmlFor="message" className="block text-sm font-medium text-primary-600 mb-1">Message *</label>
                 <textarea 
                   name="message" 
                   id="message" 
@@ -241,11 +241,11 @@ export default function ContactSection() {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  className={`form-textarea ${errors.message ? 'border-red-500' : 'border-primary-700'}`}
+                  className={`form-textarea ${errors.message ? 'border-red-500' : 'border-primary-200'}`}
                   aria-invalid={!!errors.message}
                   aria-describedby={errors.message ? "message-error" : undefined}
                 ></textarea>
-                {errors.message && <p id="message-error" className="text-red-400 text-xs mt-1">{errors.message}</p>}
+                {errors.message && <p id="message-error" className="text-red-500 text-xs mt-1">{errors.message}</p>}
               </div>
               
               {/* Submission Button */}
@@ -278,13 +278,13 @@ export default function ContactSection() {
                   role="alert"
                   className={`mt-4 p-4 rounded-md text-sm flex items-start 
                     ${status.success 
-                      ? 'bg-green-900/50 border border-green-700 text-green-200' 
-                      : 'bg-red-900/50 border border-red-700 text-red-200'}`
+                      ? 'bg-green-100 border border-green-400 text-green-800' 
+                      : 'bg-red-100 border border-red-400 text-red-800'}`
                   }
                 >
                   {status.success ? 
-                    <CheckCircleIcon className="w-5 h-5 mr-2 flex-shrink-0 text-green-400" /> : 
-                    <ExclamationCircleIcon className="w-5 h-5 mr-2 flex-shrink-0 text-red-400" />
+                    <CheckCircleIcon className="w-5 h-5 mr-2 flex-shrink-0 text-green-600" /> : 
+                    <ExclamationCircleIcon className="w-5 h-5 mr-2 flex-shrink-0 text-red-600" />
                   }
                   <span>{status.message}</span>
                 </div>
@@ -293,12 +293,12 @@ export default function ContactSection() {
           </div>
         </div>
       </div>
-      {/* Update local styles for dark form inputs */}
+      {/* Update local styles for light form inputs */}
       <style jsx>{`
         .form-input,
         .form-textarea {
-          @apply block w-full px-4 py-2 rounded-md border bg-primary-800 text-neutral-200 shadow-sm 
-                 border-primary-700 placeholder-neutral-500 
+          @apply block w-full px-4 py-2 rounded-md border bg-white text-primary-700 shadow-sm 
+                 border-primary-200 placeholder-primary-400 
                  focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none
                  transition duration-150 ease-in-out sm:text-sm;
         }
@@ -308,8 +308,8 @@ export default function ContactSection() {
         .form-textarea:-webkit-autofill,
         .form-textarea:-webkit-autofill:hover,
         .form-textarea:-webkit-autofill:focus {
-          -webkit-text-fill-color: #e5e5e5; /* Light text color */
-          -webkit-box-shadow: 0 0 0px 1000px #1A3A43 inset; /* primary-800 approx */
+          -webkit-text-fill-color: #2A5060; /* primary-800 approx */
+          -webkit-box-shadow: 0 0 0px 1000px #FFFFFF inset; /* white background */
           transition: background-color 5000s ease-in-out 0s;
         }
         .form-textarea {

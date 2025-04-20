@@ -1,6 +1,4 @@
 import PlaceholderImage from '@/components/PlaceholderImage';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 
 // Success stories data
 const successStories = [
@@ -53,8 +51,6 @@ const successStories = [
 export default function SuccessStories() {
   return (
     <main className="min-h-screen flex flex-col">
-      <Header />
-      
       {/* Hero Section */}
       <section className="bg-navy-deep text-white py-16 relative">
         <div className="absolute inset-0 bg-gradient-to-r from-navy-deep via-navy-deep to-navy-light opacity-90"></div>
@@ -199,8 +195,6 @@ export default function SuccessStories() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </main>
   );
 } 

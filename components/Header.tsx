@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Bars3Icon, XMarkIcon, PhoneIcon, CalendarDaysIcon } from '@heroicons/react/24/outline'; // Using outline for header icons
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 
 interface HeaderProps {
   onNavLinkClick?: (href: string) => void;
@@ -15,6 +16,9 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const [activeItem, setActiveItem] = useState<string | null>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,10 +40,22 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     return () => window.removeEventListener('keydown', handleEscKey);
   }, [mobileMenuOpen]);
 
+  // Close mobile menu when the window is resized to desktop size
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768 && mobileMenuOpen) {
+        setMobileMenuOpen(false);
+      }
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [mobileMenuOpen]);
+
   const navItems = [
-    { name: 'Home', href: '/#home' },
-    { name: 'About', href: '/#about' },
+    { name: 'Home', href: '/' },
     { name: 'Services', href: '/#services' },
+    { name: 'About', href: '/#about' },
     { name: 'Conditions', href: '/#conditions' },
     { name: 'Testimonials', href: '/#testimonials' },
     { name: 'Blog', href: '/blog' },
@@ -61,131 +77,227 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     })
   };
 
-  // Handle navigation click with smooth scroll for local links
+  // Handle navigation click with consistent behavior for all navigation items
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href.startsWith('/#')) {
-      e.preventDefault();
-      const targetId = href.substring(2); // Remove /# part
-      const targetElement = document.getElementById(targetId);
-      
-      if (targetElement) {
-        // Use document.querySelector as a fallback instead of ref.current
-        // This fixes the TypeScript error while maintaining the same functionality
-        const headerElement = document.querySelector('header');
-        const headerOffset = headerElement?.offsetHeight || 70;
-        const elementPosition = targetElement.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.scrollY - headerOffset;
+    // For both hash and non-hash links
+    if ((href === '/' || href.includes('#')) && pathname === '/') {
+      // Only handle hash navigation on the home page
+      if (href.includes('#')) {
+        e.preventDefault();
+        const targetId = href.substring(2); // Remove /# part
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          const headerElement = document.querySelector('header');
+          const headerOffset = headerElement?.offsetHeight || 70;
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.scrollY - headerOffset;
 
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth"
-        });
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          });
+        }
       }
     }
+    
+    // Always close mobile menu regardless of link type
     setIsOpen(false);
     setMobileMenuOpen(false);
+    
+    // Call onNavLinkClick if provided (for the parent component to react)
+    if (onNavLinkClick) {
+      onNavLinkClick(href);
+    }
+  };
+
+  // Determine if current location matches the nav item - consistent for all items
+  const isCurrentPath = (href: string) => {
+    // Exact match for pages like home, blog, faq
+    if (href === pathname) {
+      return true;
+    }
+    
+    // For hash links on home page
+    if (href.includes('#') && pathname === '/') {
+      return false; // Don't mark as active unless it's the exact hash we're on
+    }
+    
+    // For non-hash pages
+    if (!href.includes('#') && href !== '/') {
+      return pathname.startsWith(href);
+    }
+    
+    // Default case
+    return false;
+  };
+
+  // Determine header opacity based on scroll position and hover state
+  const getHeaderOpacity = () => {
+    if (isHovered) {
+      return 'bg-white/98'; // Almost fully opaque when hovered
+    }
+    if (scrolled) {
+      return 'bg-white/95'; // More opaque when scrolled for better readability
+    }
+    return 'bg-white/90'; // Default opacity
   };
 
   return (
-    <header
+    <motion.header
       ref={ref}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 overflow-x-hidden
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      className={`fixed w-full top-0 z-[100] transition-all duration-300 ease-in-out
         ${scrolled 
-          ? 'py-3 backdrop-blur-xl bg-white/80 border-b border-neutral-200/20 shadow-md' 
-          : 'py-4 bg-transparent'}`}
+          ? 'shadow-xl py-1 xs:py-2' 
+          : 'py-2 xs:py-3'}
+        ${getHeaderOpacity()} backdrop-blur-lg`}
+      style={{ 
+        transform: 'translateZ(0)',
+        backfaceVisibility: 'hidden',
+        willChange: 'transform, background-color, box-shadow, padding',
+        borderBottom: scrolled ? '1px solid rgba(231, 169, 49, 0.15)' : 'none',
+        background: scrolled 
+          ? 'linear-gradient(to right, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.95))' 
+          : 'linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9))'
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-        <div className="flex items-center h-12">
-          {/* Logo - shifted left and simplified */}
-          <div className="flex-shrink-0 mr-8">
-            <Link href="/" aria-label="KH Physiotherapy Homepage" className="flex items-center gap-3 group">
-              <div className={`${scrolled 
-                  ? 'bg-primary-700 shadow-md' 
-                  : 'bg-primary-700 shadow-lg'} 
-                rounded-lg py-1.5 px-2.5 transition-all duration-500 group-hover:shadow-accent/10 
-                group-hover:translate-y-[-2px] hover:scale-105 ease-out relative overflow-hidden`}>
-                <span className="font-heading font-bold text-xl text-white tracking-tight relative z-10">KH</span>
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary-800 to-primary-600 opacity-70"></div>
-                <div className="absolute inset-0 opacity-30 texture-noise"></div>
-              </div>
-              <div className="transition-all duration-300">
-                <span className={`font-sans font-medium text-base md:text-lg 
-                  ${scrolled ? 'text-primary-700' : 'text-white'} 
-                  tracking-wide transition-colors duration-500`}>
-                  <span className={scrolled ? 'gradient-text' : ''}>Physiotherapy</span>
-                </span>
-              </div>
-            </Link>
-          </div>
+      {/* Premium header accent line */}
+      <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-accent/40 to-transparent"></div>
+      
+      {/* Enhanced subtle glass effect overlay */}
+      <div className="absolute inset-0 bg-white/40 backdrop-blur-xl -z-10"></div>
+      
+      {/* Force GPU acceleration for smoother transitions */}
+      <div className="container mx-auto px-3 xs:px-4 md:px-6 relative">
+        {/* Top subtle accent line */}
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[80%] h-[1px] bg-gradient-to-r from-transparent via-accent/30 to-transparent"></div>
+        
+        <div className="flex justify-between items-center">
+          <Link href="/" className="flex items-center z-10 group">
+            <motion.div 
+              className="font-heading font-bold text-base xs:text-xl md:text-2xl flex items-center relative"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <span className="text-primary-700 group-hover:text-primary-800 transition-colors duration-500">KH</span>
+              <span className="text-accent group-hover:text-accent-dark transition-colors duration-500 ml-1">Physiotherapy</span>
+              
+              {/* Enhanced animated underline */}
+              <motion.span 
+                className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary-500/80 via-accent/80 to-primary-500/80"
+                initial={{ width: 0 }}
+                whileHover={{ width: '100%' }}
+                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              ></motion.span>
+            </motion.div>
+          </Link>
 
-          {/* Desktop Navigation - centered */}
+          {/* Desktop Navigation - enhanced with glass morphism */}
           <nav className="hidden md:flex items-center justify-center flex-1">
-            <div className="flex items-center space-x-1 lg:space-x-2">
+            <div className="flex items-center space-x-0.5 lg:space-x-2 bg-white/30 backdrop-blur-sm rounded-full px-1 py-1 border border-white/50 shadow-sm">
               {navItems.map((item, i) => (
                 <motion.div 
                   key={item.name}
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 * i, duration: 0.5 }}
-                  className="flex items-center h-12"
+                  className="flex items-center"
+                  onHoverStart={() => setActiveItem(item.name)}
+                  onHoverEnd={() => setActiveItem(null)}
                 >
                   <Link
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href)}
-                    className={`text-sm lg:text-base font-medium px-2 lg:px-3 py-2 rounded-md transition-all duration-300
-                        relative overflow-hidden group
-                        ${scrolled 
-                          ? 'text-gray-700 hover:text-primary-600' 
-                          : 'text-white hover:text-accent'}`}
+                    className={`relative px-2 lg:px-4 py-2 rounded-full transition-all duration-300 
+                        text-sm lg:text-base font-medium 
+                        ${isCurrentPath(item.href) 
+                          ? 'text-accent-600 font-semibold' 
+                          : 'text-primary-700 hover:text-accent-500'}`}
                   >
-                    {item.name}
-                    <span className={`absolute bottom-0 left-0 w-0 h-0.5 ${scrolled ? 'bg-primary-600' : 'bg-accent'} 
-                      transition-all duration-300 group-hover:w-full`}></span>
+                    <span className="relative z-10">{item.name}</span>
+                    
+                    {/* Animated background on hover and active states */}
+                    {(isCurrentPath(item.href) || activeItem === item.name) && (
+                      <motion.span 
+                        className="absolute inset-0 bg-accent/10 rounded-full -z-0"
+                        layoutId="navBackground"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    )}
+                    
+                    {/* Underline indicator for current page */}
+                    {isCurrentPath(item.href) && (
+                      <motion.span 
+                        className="absolute bottom-1 left-3 right-3 h-0.5 bg-accent rounded-full"
+                        layoutId="activeIndicator"
+                      />
+                    )}
                   </Link>
                 </motion.div>
               ))}
             </div>
           </nav>
 
-          {/* Desktop Call-to-Action - right aligned and unified */}
-          <div className="hidden md:flex items-center gap-4 h-12">
-            <Link
-              href="tel:+19056346000"
-              className={`flex items-center text-base font-medium transition-all duration-300 py-2 px-3 
-                rounded-lg hover:scale-105 h-10
-                ${scrolled 
-                  ? 'text-primary-600 bg-primary-50/50 hover:bg-primary-50' 
-                  : 'text-white bg-white/10 hover:bg-white/20'}`}
-              aria-label="Call Now"
+          {/* Desktop Call-to-Action - enhanced with depth and glow effects */}
+          <div className="hidden md:flex items-center gap-3 lg:gap-4 h-12">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
             >
-              <PhoneIcon className={`h-4 w-4 ${scrolled ? 'text-primary-600' : 'text-accent'} mr-2`} />
-              <span>905-634-6000</span>
-            </Link>
+              <Link
+                href="tel:+19056346000"
+                className="flex items-center text-sm font-medium transition-all duration-300 py-2 px-3 lg:px-4 
+                  rounded-full hover:scale-105 h-10 whitespace-nowrap
+                  text-primary-700 bg-white border border-neutral-200 hover:shadow-md
+                  hover:border-accent/30"
+                aria-label="Call Now"
+              >
+                <div className="premium-icon-badge premium-icon-badge-sm premium-icon-badge-circle header-badge mr-2 bg-primary-50">
+                  <PhoneIcon className="h-3.5 w-3.5 text-primary-700" />
+                </div>
+                <span className="hidden lg:inline">905-634-6000</span>
+                <span className="lg:hidden">Call</span>
+              </Link>
+            </motion.div>
 
-            <Link
-              href="https://endorphinshealth.janeapp.com/#/staff_member/42" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`button-3d font-medium px-4 py-2 rounded-lg transition-all duration-300 
-                shadow-lg flex items-center gap-1.5 h-10
-                ${scrolled 
-                  ? 'bg-accent hover:bg-accent-dark text-white' 
-                  : 'bg-accent hover:bg-accent-dark text-white'}`}
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ duration: 0.3 }}
             >
-              <CalendarDaysIcon className="h-4 w-4" /> 
-              <span>Book Online</span>
-            </Link>
+              <Link
+                href="https://khphysiotherapy.janeapp.com/" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gradient-to-r from-accent to-accent-dark text-white text-sm font-medium px-3 lg:px-4 py-2 rounded-full 
+                  shadow-md hover:shadow-lg transition-all duration-300 
+                  flex items-center gap-1.5 h-10 whitespace-nowrap border border-accent/50"
+              >
+                <div className="premium-icon-badge premium-icon-badge-sm premium-icon-badge-circle header-badge bg-white/20">
+                  <CalendarDaysIcon className="h-3.5 w-3.5" />
+                </div>
+                <span>Book Online</span>
+              </Link>
+            </motion.div>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - enhanced */}
           <div className="flex md:hidden ml-auto">
-            <button
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               type="button"
-              className={`p-2 rounded-lg focus:outline-none transition-colors duration-200
-                ${scrolled 
-                  ? 'text-primary-600 hover:bg-gray-100' 
-                  : 'text-white hover:bg-white/10'}`}
+              className="p-2 rounded-full focus:outline-none transition-colors duration-200
+                bg-white/80 border border-neutral-200 shadow-sm 
+                text-primary-700 hover:text-accent"
               aria-controls="mobile-menu"
               aria-expanded={mobileMenuOpen}
             >
@@ -195,12 +307,12 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               ) : (
                 <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
               )}
-            </button>
+            </motion.button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - enhanced with animation and glass morphism */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -209,42 +321,64 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden bg-white/95 backdrop-blur-lg shadow-lg border-b border-neutral-200/20"
+            className="md:hidden overflow-hidden"
           >
-            <div className="px-4 py-3 space-y-1">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  onClick={(e) => handleNavClick(e, item.href)}
-                  className="block px-3 py-2.5 rounded-md text-base font-medium text-primary-800 hover:text-primary-900 hover:bg-primary-50/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-opacity-50"
-                >
-                  {item.name}
-                </Link>
-              ))}
-              <div className="flex items-center gap-3 mt-4 py-2">
+            <motion.div 
+              className="backdrop-blur-xl bg-white/95 shadow-lg border-b border-neutral-200/30 px-4 py-3"
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
+            >
+              <div className="space-y-1">
+                {navItems.map((item, i) => (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.05 * i, duration: 0.3 }}
+                  >
+                    <Link
+                      href={item.href}
+                      onClick={(e) => handleNavClick(e, item.href)}
+                      className={`flex items-center px-4 py-3 rounded-lg text-base font-medium 
+                        hover:bg-accent/10 transition-all duration-200
+                        ${isCurrentPath(item.href) 
+                          ? 'text-accent-600 font-semibold bg-accent/5 border-l-2 border-accent' 
+                          : 'text-primary-700 hover:text-accent-500'}`}
+                    >
+                      {item.name}
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+              
+              <div className="flex items-center gap-3 mt-5 py-2">
                 <Link
                   href="tel:+19056346000"
-                  className="flex-1 flex items-center justify-center gap-2 px-3 py-2.5 bg-primary-50 text-primary-700 rounded-md text-base font-medium hover:bg-primary-100"
+                  className="flex-1 flex items-center justify-center gap-2 px-3 py-3 bg-white text-primary-700 rounded-lg text-base font-medium border border-neutral-200 hover:border-accent/30 hover:shadow-md transition-all duration-200"
                 >
-                  <PhoneIcon className="h-5 w-5" />
+                  <div className="premium-icon-badge premium-icon-badge-sm premium-icon-badge-circle header-badge bg-primary-50">
+                    <PhoneIcon className="h-4 w-4 text-primary-700" />
+                  </div>
                   <span>Call Now</span>
                 </Link>
                 <Link
-                  href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                  href="https://khphysiotherapy.janeapp.com/"
                   target="_blank"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex-1 flex items-center justify-center gap-2 px-3 py-2.5 bg-accent text-white rounded-md text-base font-medium hover:bg-accent-dark"
+                  className="flex-1 flex items-center justify-center gap-2 px-3 py-3 bg-gradient-to-r from-accent to-accent-dark text-white rounded-lg text-base font-medium border border-accent/50 shadow-md hover:shadow-lg transition-all duration-200"
                 >
-                  <CalendarDaysIcon className="h-5 w-5" />
+                  <div className="premium-icon-badge premium-icon-badge-sm premium-icon-badge-circle header-badge bg-white/20">
+                    <CalendarDaysIcon className="h-4 w-4" />
+                  </div>
                   <span>Book</span>
                 </Link>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </motion.header>
   );
 });
 

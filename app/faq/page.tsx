@@ -2,40 +2,43 @@
 
 import React, { useState } from 'react';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
+import Link from 'next/link';
+import { ChevronRightIcon } from '@heroicons/react/24/outline';
+import FAQAccordion from '@/components/FAQAccordion';
 
 interface FaqItemProps {
   question: string;
   answer: string;
 }
 
-// Accordion Item Component - Adjusted for dark theme
+// Accordion Item Component - Adjusted for light theme
 const FaqItem: React.FC<FaqItemProps> = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    // Darker border
-    <div className="border-b border-primary-700/60">
+    // Light border
+    <div className="border-b border-primary-200">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex justify-between items-center w-full py-4 text-left focus:outline-none focus-visible:ring focus-visible:ring-accent/50 focus-visible:rounded-sm"
         aria-expanded={isOpen}
       >
-        {/* Light text, white hover */}
-        <span className="text-lg font-medium text-neutral-100 hover:text-white transition-colors duration-200">
+        {/* Darker text for better visibility */}
+        <span className="text-lg font-medium text-primary-800 hover:text-primary-900 transition-colors duration-200">
           {question}
         </span>
         {/* Accent icon color */}
         {isOpen ? (
           <ChevronUpIcon className="w-5 h-5 text-accent flex-shrink-0" />
         ) : (
-          <ChevronDownIcon className="w-5 h-5 text-neutral-400 flex-shrink-0" />
+          <ChevronDownIcon className="w-5 h-5 text-primary-600 flex-shrink-0" />
         )}
       </button>
       <div 
         className={`overflow-hidden transition-max-height duration-300 ease-in-out ${isOpen ? 'max-h-screen' : 'max-h-0'}`}
       >
-        {/* Lighter answer text */}
-        <div className="pt-1 pb-4 text-neutral-300 text-base leading-relaxed">
+        {/* Darker answer text for better contrast */}
+        <div className="pt-1 pb-4 text-primary-700 text-base leading-relaxed">
           {/* Use dangerouslySetInnerHTML if answer contains HTML, otherwise just render */} 
           {/* For simplicity now, assuming plain text */} 
           {answer}
@@ -45,80 +48,143 @@ const FaqItem: React.FC<FaqItemProps> = ({ question, answer }) => {
   );
 };
 
-export default function FaqPage() {
-  // Organize FAQs into sections
-  const faqSections = {
-    "Getting Started": [
-      { q: "Do I need a doctor's referral to see a physiotherapist in Ontario?", a: "No, you do not need a doctor's referral to see a registered physiotherapist in Ontario. You can book an appointment directly. However, some extended health insurance plans may require a referral for reimbursement, so it's best to check with your provider." },
-      { q: "What should I expect during my first physiotherapy appointment?", a: "Your first appointment involves a detailed discussion about your health history, current condition, and goals. This is followed by a physical assessment to diagnose the issue. Based on the findings, we'll discuss a personalized treatment plan and often begin initial treatment and education." },
-      { q: "What should I wear to my appointment?", a: "Wear comfortable clothing that allows easy access to the area being treated (e.g., shorts for knee/hip issues, tank top for shoulder issues)." },
-      { q: "How many sessions will I need?", a: "That depends on your condition, goals, and how your body responds to treatment. After the initial assessment, I'll lay out a clear plan with realistic expectations. No vague timelines. No pressure. Just a focused, evidence-based strategy that respects your time and gets you moving in the right direction." },
-      { q: "Do you offer direct billing?", a: "Yes—direct billing is available for most major insurance providers. Just bring your insurance information to your first session and we'll take care of the rest. If you have questions about what's covered, our reception team is happy to help." },
-      { q: "Can I bring someone with me to the session?", a: "Yes. If having a partner, friend, or family member with you helps you feel more comfortable or supported, you're welcome to bring them. Just let us know when booking." },
-      { q: "What's your cancellation policy?", a: "We ask for 24 hours' notice if you need to cancel or reschedule—this allows us to offer that time to someone else. That said, I fully understand that life happens. If something comes up last minute, just let us know. As long as it's not a recurring pattern, I always aim to give patients grace and flexibility. We're human too." },
-      { q: "What should I expect during my first visit?", a: "Your first session is a mix of listening, problem-solving, and planning. We'll start with a detailed conversation about your symptoms, history, daily life, and goals. Then I'll assess how you move—looking at range, strength, joint mobility, and control. That said, the first visit can feel like a lot. To make it easier, I'll send you a written summary afterward outlining your assessment findings and our plan. We'll also revisit the key points over time, and you'll always have space to ask questions and clarify anything you're unsure about." },
-      { q: "Will I receive treatment during my first session, or just an assessment?", a: "In most cases, yes—you'll receive treatment on day one. But we won't rush it. If we need more time to understand complex issues, we'll start with what's most important. Assessment is part of treatment when done right—it ensures what comes next is safe, specific, and effective." },
-      { q: "What if I have multiple areas of pain or overlapping issues?", a: "That's common. I'll prioritize the most pressing issue and assess how different areas may be connected. Pain in one spot is often a symptom of something broader. We'll look at the full picture and structure your plan accordingly." },
-      { q: "I'm not sure if physiotherapy is right for me. Can I just ask a few questions first?", a: "Of course. If you're unsure whether physio—or working with me specifically—is the right step, feel free to reach out. I'm happy to answer a few questions before you book. No pressure, just clarity." },
-    ],
-    "Your Treatment Experience": [
-      { q: "What is manual therapy, and will it be part of my treatment?", a: "Manual therapy includes techniques like joint mobilizations and soft tissue work to reduce pain and improve movement. I use it when it makes sense—but it's always part of a broader plan that includes movement, exercise, and education." },
-      { q: "Will I be treated by you directly, or by someone else?", a: "You'll work with me directly every step of the way. I don't pass care off to assistants or leave patients hooked to machines. Your session time is yours, and it's used intentionally." },
-      { q: "I've tried physiotherapy before and didn't find it helpful. How is this different?", a: "Many people tell me that. My approach is rooted in figuring out why something's happening—not just treating symptoms. You won't get a generic program. We'll build something specific, useful, and grounded in what actually matters to you." },
-      { q: "Do you give exercises? What if I'm not great at keeping up with them?", a: "Yes—but I keep it simple. I'd rather you do two meaningful movements well than forget a list of twelve. If something doesn't fit into your life, we'll adjust it. The plan should work for you, not add more stress." },
-      { q: "Is physiotherapy painful?", a: "Some techniques can feel intense, but pain is never the goal. I'll explain everything ahead of time, check in with you, and make sure we adapt the approach to keep things safe and manageable." },
-      { q: "What if things aren't improving?", a: "We don't rely only on pain to measure progress. We'll track strength, range, control, and function. If you've followed the plan and things still aren't moving, I'll reassess, revise the approach, and collaborate with other healthcare providers if needed. I advocate for you—always." },
-      { q: "How do you decide which treatments to use?", a: "Everything is based on what I find during your assessment, how you respond, and what your goals are. We make decisions together. No guesswork, no cookie-cutter care." },
-      { q: "What if I've been told something different by another provider?", a: "That's totally okay. I'm not here to contradict anyone—I'm here to help you make sense of what's going on now. We'll work with what's useful and let go of what isn't. There's no ego—just clarity." },
-      { q: "What kind of environment do you try to create for your patients?", a: "I aim to create a space where you feel heard, respected, and safe. Having experienced dismissive care myself, I know how important that is. You won't be rushed. I'll take time to listen, explain, and make sure you always know what we're doing and why." },
-      { q: "What makes your assessments different?", a: "I don't just chase symptoms. I assess how you move under load, across regions, and over time. You'll understand not just what hurts, but why it's happening—and what we're doing about it." },
-      { q: "Will I understand what's going on with my body?", a: "Yes—this is central to my approach. I explain things clearly, without jargon, and make sure you understand your plan and your progress. Knowledge gives you control. You deserve that." },
-      { q: "Can I be involved in shaping my treatment plan?", a: "Absolutely. This is a collaboration. I'll guide you clinically, but we'll shape the process together—based on your goals, lifestyle, and values." },
-    ],
-    "Long-Term Health & Performance": [
-      { q: "Can I come for maintenance, tune-ups, or performance—even if I'm not injured?", a: "Yes—and that's often when physio is most valuable. I help people stay ahead of injury by identifying subtle movement issues and building long-term strength and resilience. Whether you're an athlete, weekend warrior, or just want to feel better moving through life—this is absolutely within scope." },
-      { q: "Is strength training part of physiotherapy?", a: "It should be. Strength is one of the best tools we have to protect joints, reduce injury, and maintain bone density and balance as we age. I integrate strength work tailored to your level and goals—whether that means squatting safely, learning to deadlift, or just keeping up with life." },
-    ]
-  };
+export default function FAQPage() {
+  // FAQ categories with their questions
+  const faqCategories = [
+    {
+      title: "Initial Visits",
+      questions: [
+        {
+          question: "What should I expect during my first appointment?",
+          answer: "Your initial appointment will typically last 45-60 minutes and includes a comprehensive assessment. I'll discuss your health history, current concerns, and goals. After a physical examination, I'll explain my findings, discuss your treatment plan, and begin initial treatment if appropriate."
+        },
+        {
+          question: "What should I wear to my appointment?",
+          answer: "Please wear comfortable, loose-fitting clothing that allows movement and access to the area(s) requiring treatment. For lower body issues, shorts are ideal. For upper body concerns, a tank top or t-shirt works well."
+        },
+        {
+          question: "Should I bring anything to my first appointment?",
+          answer: "Please bring any relevant medical documentation (imaging reports, specialist letters), a list of medications, your health insurance information if applicable, and comfortable clothing. If you've been using aids like braces or orthotics, bring those as well."
+        }
+      ]
+    },
+    {
+      title: "Treatment & Services",
+      questions: [
+        {
+          question: "How many sessions will I need?",
+          answer: "The number of sessions varies based on your condition, its severity, and how your body responds to treatment. After your initial assessment, I'll provide an estimate of the recommended treatment duration and frequency. Most patients see improvement within 4-6 sessions, though complex conditions may require longer care."
+        },
+        {
+          question: "Do you offer virtual physiotherapy sessions?",
+          answer: "Yes, I offer secure virtual physiotherapy sessions for follow-ups, exercise progression, and conditions suitable for remote management. These sessions are effective for ongoing care and situations where in-person visits aren't possible."
+        },
+        {
+          question: "What physiotherapy techniques do you use?",
+          answer: "I utilize a wide range of evidence-based techniques including manual therapy, therapeutic exercise, movement retraining, instrument assisted soft tissue mobilization, dry needling, and education for self-management. Your treatment plan will be customized to your specific needs and may incorporate various approaches."
+        }
+      ]
+    },
+    {
+      title: "Insurance & Payment",
+      questions: [
+        {
+          question: "Is physiotherapy covered by insurance?",
+          answer: "Most extended health insurance plans cover physiotherapy services. The coverage amount and requirements vary between providers. I recommend checking your specific plan details regarding physiotherapy coverage, referral requirements, and claiming procedures before your first appointment."
+        },
+        {
+          question: "Do I need a doctor's referral for physiotherapy?",
+          answer: "No, you do not need a doctor's referral to see a physiotherapist in Ontario. Physiotherapists are primary care providers whom you can access directly. However, some insurance plans may require a referral for coverage, so check your policy details."
+        },
+        {
+          question: "What payment methods do you accept?",
+          answer: "We accept debit cards, credit cards (Visa, Mastercard, American Express), and e-transfer. Payment is required at the time of service. If your insurance covers direct billing, we can submit claims on your behalf where possible."
+        }
+      ]
+    },
+    {
+      title: "Specialized Care",
+      questions: [
+        {
+          question: "Do you treat sports injuries?",
+          answer: "Yes, I specialize in treating a wide range of sports injuries. Whether you're a weekend warrior, competitive athlete, or fitness enthusiast, I can help with injury assessment, treatment, and return-to-sport planning. I emphasize both recovery and injury prevention strategies."
+        },
+        {
+          question: "Can physiotherapy help with dizziness or vertigo?",
+          answer: "Yes, physiotherapy is effective for many types of dizziness and vertigo, particularly Benign Paroxysmal Positional Vertigo (BPPV). After a thorough assessment, I can provide appropriate vestibular rehabilitation exercises and maneuvers to address your specific condition."
+        },
+        {
+          question: "Do you treat work-related injuries and motor vehicle accidents?",
+          answer: "Yes, I treat injuries from workplace incidents and motor vehicle accidents. I work with WSIB and motor vehicle insurance claims, providing necessary documentation and progress reports. Please inform us of your claim details when booking your appointment."
+        }
+      ]
+    }
+  ];
 
   return (
-    // Apply dark theme to main container
-    <div className="bg-primary-900 text-neutral-200 flex-grow">
-      <div className="container mx-auto px-4 py-16 md:py-24">
-        {/* Adjust heading colors */}
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-semibold text-white mb-8 text-center">
+    <div className="bg-neutral-50 min-h-screen">
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white border-b border-neutral-200">
+        <div className="container mx-auto px-4 py-3">
+          <nav className="flex text-sm">
+            <Link href="/" className="text-primary-600 hover:text-accent">Home</Link>
+            <ChevronRightIcon className="w-4 h-4 mx-2 text-gray-400 self-center" />
+            <span className="text-primary-800 font-medium">FAQ</span>
+          </nav>
+        </div>
+      </div>
+      
+      {/* Main Content */}
+      <main className="container mx-auto px-4 py-12 md:py-16">
+        {/* Header Section */}
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <h1 className="text-4xl md:text-5xl font-heading font-semibold text-primary-800 mb-4">
           Frequently Asked Questions
         </h1>
-        <div className="max-w-3xl mx-auto text-center mb-12">
-          {/* Adjust subtitle color */}
-          <p className="text-lg text-neutral-300">
-            Find answers to common questions about physiotherapy, appointments, and insurance.
+          <p className="text-lg text-primary-700">
+            Find answers to common questions about physiotherapy services, treatment approaches, and what to expect during your care.
           </p>
         </div>
 
-        {/* FAQ Accordion Sections - Adjust section title color/border */}
-        <div className="max-w-3xl mx-auto space-y-10">
-          {Object.entries(faqSections).map(([sectionTitle, items]) => (
-            <div key={sectionTitle}>
-              <h2 className="text-2xl font-semibold text-white mb-5 border-b border-primary-700/60 pb-2">
-                {sectionTitle}
+        {/* FAQ Categories */}
+        <div className="max-w-4xl mx-auto">
+          {faqCategories.map((category, idx) => (
+            <div key={idx} className="mb-10">
+              <h2 className="text-2xl font-heading font-semibold text-primary-800 mb-6 pb-2 border-b border-neutral-200">
+                {category.title}
               </h2>
-              <div className="space-y-1">
-                {items.map((item, index) => (
-                  <FaqItem key={index} question={item.q} answer={item.a} />
-                ))}
-              </div>
+              <FAQAccordion items={category.questions} />
             </div>
           ))}
         </div>
         
-        {/* Add CSS for max-height transition */}
-        <style jsx>{`
-          .transition-max-height {
-            transition: max-height 0.3s ease-in-out;
-          }
-        `}</style>
+        {/* Additional Questions CTA */}
+        <div className="mt-16 max-w-3xl mx-auto text-center">
+          <div className="bg-white border border-neutral-200 rounded-xl p-8 shadow-sm">
+            <h2 className="text-2xl font-heading font-semibold text-primary-800 mb-3">
+              Still Have Questions?
+            </h2>
+            <p className="text-primary-700 mb-6">
+              Can't find the answer you're looking for? Feel free to contact me directly for personalized assistance.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link 
+                href="/contact" 
+                className="inline-block px-6 py-3 bg-accent hover:bg-accent/90 text-white rounded-md font-medium transition"
+              >
+                Contact Us
+              </Link>
+              <Link 
+                href="https://endorphinshealth.janeapp.com/#/staff_member/42" 
+                target="_blank"
+                className="inline-block px-6 py-3 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-md font-medium transition"
+              >
+                Book an Appointment
+              </Link>
+            </div>
+          </div>
       </div>
+      </main>
     </div>
   );
 } 

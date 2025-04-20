@@ -34,39 +34,41 @@ module.exports = {
     },
     extend: {
       colors: {
-        // Updated Refined Color Palette
-        'background': '#F9F8F6', // Warm ivory/off-white background
+        // More vibrant color palette
+        'background': '#F9F8F6', // Keep existing warm ivory/off-white background
         'primary': {
-          DEFAULT: '#1D4552', // Deeper, more sophisticated teal
-          dark: '#102A33', 
-          '50': '#E4EBEE',
-          '100': '#C2D2D8',
-          '200': '#A0BBC2',
-          '300': '#7EA3AC',
-          '400': '#4F8396',
-          '500': '#2F6273',
-          '600': '#1D4552', // Same as DEFAULT
-          '700': '#183944',
-          '800': '#122C35',
-          '900': '#0D2027'
+          // New Primary: Professional Dark Blue
+          DEFAULT: '#2C3E50',
+          dark: '#1B2631',
+          '50': '#EAECEE',
+          '100': '#D5DBDB',
+          '200': '#ABB2B9',
+          '300': '#808B96',
+          '400': '#566573',
+          '500': '#2C3E50', // Same as DEFAULT
+          '600': '#212F3D',
+          '700': '#1B2631', // Same as dark
+          '800': '#151D25',
+          '900': '#0E141A'
         },
         'accent': {
-          DEFAULT: '#D8B458', // Refined gold accent
-          light: '#E6CB81',
-          dark: '#B69639',
-          '50': '#FAF6E9',
-          '100': '#F2E9CB',
-          '200': '#EDDAAD',
-          '300': '#E6CB81',
-          '400': '#D8B458', // Same as DEFAULT
-          '500': '#C9A43A',
-          '600': '#B69639',
-          '700': '#95792F',
-          '800': '#745E25',
-          '900': '#53431B'
+          // New Accent: Richer Gold
+          DEFAULT: '#D4AF37', 
+          light: '#E6C66A',
+          dark: '#B8860B',
+          '50': '#FDF8E1',
+          '100': '#FBF0C4',
+          '200': '#F7E8A7',
+          '300': '#F3DF8A',
+          '400': '#E6C66A', // Same as light
+          '500': '#D4AF37', // Same as DEFAULT
+          '600': '#B8860B', // Same as dark
+          '700': '#9C6F09',
+          '800': '#7F5807',
+          '900': '#624105'
         },
         'neutral': {
-          DEFAULT: '#E6DED1', // Warm sand as requested
+          DEFAULT: '#E6DED1', // Keep existing warm sand
           light: '#F3EFE8',
           dark: '#BCAD96',
           '50': '#FAF8F5',
@@ -81,16 +83,16 @@ module.exports = {
           '900': '#4E4538'
         },
         'text': {
-          DEFAULT: '#1D2023', // Richer black for better contrast
-          secondary: '#3E4045', // Darker charcoal for better readability
-          light: '#656871' // Refined medium gray for tertiary text
+          DEFAULT: '#1A202C', // Darker text for better contrast
+          secondary: '#3D4A59', // Darker secondary text
+          light: '#5A6A7F' // Darker tertiary text for better readability
         },
         'border-color': '#E8E1D4', // Subtle neutral border
         'white': '#ffffff',
         'black': '#000000',
         'transparent': 'transparent',
-        'error': '#B13A3A', // Refined error red
-        'success': '#376A4C', // Elegant success green
+        'error': '#C93535', // More vibrant error red
+        'success': '#2E855A', // More vibrant success green
         
         // For compatibility - using new color system
         'secondary': {
@@ -107,17 +109,17 @@ module.exports = {
         
         // For backward compatibility - map to new primary
         'teal': {
-          '400': '#1D4552', // primary DEFAULT
-          '500': '#183944', // primary-700
-          '600': '#122C35'  // primary-800
+          '400': '#2C3E50', // new primary DEFAULT
+          '500': '#212F3D', // new primary-600
+          '600': '#1B2631'  // new primary-700
         },
         
         // For backward compatibility - map to text
         'charcoal': {
-          '400': '#656871', // text-light
-          '600': '#3E4045', // text-secondary
+          '400': '#5A6A7F', // text-light
+          '600': '#3D4A59', // text-secondary
           '700': '#4E4538', // neutral-900
-          '800': '#1D2023'  // text DEFAULT
+          '800': '#1A202C'  // text DEFAULT
         },
       },
       
@@ -129,16 +131,16 @@ module.exports = {
       },
       
       boxShadow: {
-        // Refined luxury shadow system
-        'subtle': '0 2px 5px rgba(0, 0, 0, 0.04)',
-        'medium': '0 4px 10px rgba(0, 0, 0, 0.07)',
-        'large': '0 12px 24px rgba(0, 0, 0, 0.09)',
-        'card': '0 6px 16px rgba(0, 0, 0, 0.06)',
-        'elevation-1': '0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.15)',
-        'elevation-2': '0 4px 8px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.1)',
-        'elevation-3': '0 12px 24px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.1)',
-        'focus': '0 0 0 3px rgba(216, 180, 88, 0.35)', // Based on new accent gold
-        'glow': '0 0 20px rgba(216, 180, 88, 0.2)', // Subtle glow effect
+        // Enhanced luxury shadow system with more depth
+        'subtle': '0 2px 5px rgba(0, 0, 0, 0.05)',
+        'medium': '0 4px 12px rgba(0, 0, 0, 0.08)',
+        'large': '0 15px 30px rgba(0, 0, 0, 0.12)',
+        'card': '0 8px 20px rgba(0, 0, 0, 0.08)',
+        'elevation-1': '0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.18)',
+        'elevation-2': '0 4px 8px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.12)',
+        'elevation-3': '0 15px 30px rgba(0, 0, 0, 0.18), 0 6px 10px rgba(0, 0, 0, 0.12)',
+        'focus': '0 0 0 3px rgba(231, 169, 49, 0.35)', // Based on new accent gold
+        'glow': '0 0 25px rgba(231, 169, 49, 0.25)', // Enhanced glow effect
       },
       
       borderRadius: {

@@ -1,12 +1,8 @@
 import PlaceholderImage from '@/components/PlaceholderImage';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 
 export default function Services() {
   return (
     <main className="min-h-screen flex flex-col">
-      <Header />
-      
       {/* Hero Section */}
       <section className="bg-navy-deep text-white py-16 relative">
         <div className="absolute inset-0 bg-gradient-to-r from-navy-deep via-navy-deep to-navy-light opacity-90"></div>
@@ -234,8 +230,6 @@ export default function Services() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </main>
   );
 } 

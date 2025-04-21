@@ -204,13 +204,24 @@ export default function RootLayout({
           
           /* Fix for flashing content by applying a hardware-accelerated fade transition */
           .main-content-wrapper {
-            opacity: 1;
+            opacity: 0;
             transform: translateZ(0);
             backface-visibility: hidden;
             will-change: opacity;
             transition: opacity 0.3s ease-in-out;
             background-color: var(--background-color, #F9F8F6);
             min-height: 100vh;
+          }
+          
+          /* Show content when ready */
+          .main-content-wrapper.content-ready {
+            opacity: 1;
+          }
+          
+          /* Content visible class */
+          html.content-visible .main-content-wrapper {
+            opacity: 1;
+            visibility: visible;
           }
           
           /* Performance optimization styles */
@@ -281,6 +292,16 @@ export default function RootLayout({
           html:not(.loading-init):not(.content-visible) .main-content-wrapper {
             opacity: 0;
             visibility: hidden;
+          }
+          
+          /* Transition active class to help with smoother transitions */
+          body.transition-active {
+            pointer-events: none;
+          }
+          
+          /* Make sure loading screen transitions smoothly */
+          .loading-screen {
+            background-color: var(--background-color, #F9F8F6);
           }
         `}} />
       </head>

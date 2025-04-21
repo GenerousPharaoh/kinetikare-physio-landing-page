@@ -38,6 +38,7 @@ const montserrat = Montserrat({
   weight: ['300', '400', '500', '600', '700'],
   display: 'swap',
   variable: '--font-montserrat',
+  preload: true
 });
 
 // Performance optimization script
@@ -66,6 +67,17 @@ function PerformanceOptimization() {
           el.style.transform = 'translateZ(0)';
         }
       });
+
+      // Preload Remix Icon CSS to prevent render blocking
+      const preloadRemixIcon = () => {
+        const remixIconLink = document.createElement('link');
+        remixIconLink.rel = 'stylesheet';
+        remixIconLink.href = 'https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css';
+        document.head.appendChild(remixIconLink);
+      };
+
+      // Preload after 100ms to not block initial render
+      setTimeout(preloadRemixIcon, 100);
     }
   }, []);
 
@@ -127,6 +139,34 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="Physio" />
         <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
         
+        {/* Font preloading to prevent FOUT (Flash of Unstyled Text) */}
+        <link
+          rel="preconnect"
+          href="https://fonts.googleapis.com"
+          crossOrigin="anonymous"
+        />
+        <link 
+          rel="preconnect" 
+          href="https://fonts.gstatic.com" 
+          crossOrigin="anonymous"
+        />
+        
+        {/* Preload Remix icons with non-render-blocking strategy */}
+        <link 
+          rel="preload" 
+          href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" 
+          as="style" 
+        />
+        <noscript>
+          <link 
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+          />
+        </noscript>
+        
+        {/* Preload critical images to improve load time */}
+        <link rel="preload" as="image" href="/images/kareem-profile.png" data-critical="true" />
+        
         {/* Critical loading and transition styles */}
         <style dangerouslySetInnerHTML={{ __html: `
           /* Override body background */
@@ -159,7 +199,16 @@ export default function RootLayout({
           html:not(.loading-init) footer {
             opacity: 1;
             visibility: visible;
-            transition: opacity 0.2s ease-in-out;
+            transition: opacity 0.3s ease-in-out;
+          }
+          
+          /* Fix for flashing content by applying a hardware-accelerated fade transition */
+          .main-content-wrapper {
+            opacity: 1;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            will-change: opacity;
+            transition: opacity 0.3s ease-in-out;
           }
           
           /* Performance optimization styles */
@@ -167,6 +216,14 @@ export default function RootLayout({
             transform: translateZ(0);
             will-change: transform;
             backface-visibility: hidden;
+          }
+          
+          /* Load Remix Icon CSS with JS fallback */
+          @media screen {
+            .ri {
+              display: inline-block;
+              font-style: normal;
+            }
           }
           
           /* Reduce motion animation if user prefers reduced motion */
@@ -218,12 +275,6 @@ export default function RootLayout({
             }
           }
         `}} />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://khphysiotherapy.janeapp.com" />
-        
-        {/* Preload critical images to improve load time */}
-        <link rel="preload" as="image" href="/images/kareem-profile.png" />
       </head>
       <body className="antialiased pb-16 md:pb-0 overflow-x-hidden">
         {/* Performance optimization component */}
@@ -308,6 +359,15 @@ export default function RootLayout({
               // Run on load and resize
               updateImagesForScreenSize();
               window.addEventListener('resize', updateImagesForScreenSize);
+              
+              // Add Remix Icon CSS with JavaScript
+              const loadRemixIcon = () => {
+                const link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = 'https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css';
+                document.head.appendChild(link);
+              };
+              loadRemixIcon();
             });
           `}
         </Script>

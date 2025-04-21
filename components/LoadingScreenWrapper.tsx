@@ -41,29 +41,60 @@ const LoadingScreenWrapper: React.FC<LoadingScreenWrapperProps> = ({ children })
     
     // Function to ensure the main content is ready before fading out loader
     const prepareForTransition = () => {
-      // First make the content visible but with opacity 0
-      setContentVisible(true);
-      
-      // Delayed start of the fade-out transition (give content a moment to render)
-      setTimeout(() => {
-        // Start fade out transition
-        setIsFadingOut(true);
+      // First preload critical resources and make content ready but invisible
+      const preloadResources = async () => {
+        // Make sure all important images and resources are loaded
+        const criticalImages = document.querySelectorAll('img[data-critical="true"]');
         
-        // After fade out is complete, remove loader completely
-        fadeTimeoutId = setTimeout(() => {
-          // Set state to remove loading component
-          setIsLoading(false);
+        // Wait for all critical images to load or max 500ms
+        if (criticalImages.length > 0) {
+          const promises = Array.from(criticalImages).map(img => {
+            if (img instanceof HTMLImageElement && !img.complete) {
+              return new Promise(resolve => {
+                img.onload = resolve;
+                img.onerror = resolve; // Resolve anyway to avoid blocking
+              });
+            }
+            return Promise.resolve();
+          });
           
-          // Add a class to trigger main content fade-in
-          document.documentElement.classList.add('content-visible');
+          try {
+            await Promise.race([
+              Promise.all(promises),
+              new Promise(resolve => setTimeout(resolve, 500))
+            ]);
+          } catch (e) {
+            console.log('Image preloading had errors, continuing anyway');
+          }
+        }
+        
+        // First make the content ready but with opacity 0
+        setContentVisible(true);
+        
+        // Short timeout to ensure DOM update before starting transition
+        setTimeout(() => {
+          // Start fade out transition with proper timing
+          setIsFadingOut(true);
           
-          // Cleanup classes and allow scrolling again - delayed slightly
-          contentFadeInTimeoutId = setTimeout(() => {
-            document.documentElement.classList.remove('loading-init');
-            document.body.style.overflow = '';
-          }, 300); // Short delay after loader removal
-        }, reducedMotion || isLowPoweredDevice ? 600 : 1000); // Increased fade-out time for smoother transition
-      }, 100);
+          // After fade out is complete, remove loader completely
+          fadeTimeoutId = setTimeout(() => {
+            // Set state to remove loading component
+            setIsLoading(false);
+            
+            // Add a class to trigger main content fade-in
+            document.documentElement.classList.add('content-visible');
+            
+            // Wait until main content is fully visible before allowing scroll
+            contentFadeInTimeoutId = setTimeout(() => {
+              document.documentElement.classList.remove('loading-init');
+              document.body.style.overflow = '';
+            }, 300); // Short delay after loader removal
+          }, reducedMotion || isLowPoweredDevice ? 600 : 1000); // Increased fade-out time for smoother transition
+        }, 100);
+      };
+      
+      // Start the preload and transition process
+      preloadResources();
     };
     
     // Set a maximum wait time regardless of page load status
@@ -111,13 +142,14 @@ const LoadingScreenWrapper: React.FC<LoadingScreenWrapperProps> = ({ children })
 
   return (
     <>
-      {/* Main content with fade-in animation controlled by CSS */}
+      {/* Main content with improved fade-in animation for smoother transition */}
       <div 
-        className={`transition-opacity duration-1000 ease-in-out
+        className={`transition-opacity ease-in-out
           ${contentVisible ? 'opacity-100' : 'opacity-0'}`}
         style={{ 
           opacity: contentVisible ? 1 : 0,
-          transition: 'opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1)'
+          visibility: contentVisible ? 'visible' : 'hidden',
+          transition: 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0s',
         }}
       >
         {children}

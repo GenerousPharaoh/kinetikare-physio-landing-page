@@ -20,6 +20,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import GlassCard from '@/components/GlassCard';
 import { Button } from '@/components/ui/Button';
+import { UserIcon, BeakerIcon, BuildingOffice2Icon } from '@heroicons/react/24/outline';
 
 // Create a custom Acupuncture icon component
 const AcupunctureIcon = ({ className, size, ...props }: { className?: string; size?: number } & React.SVGProps<SVGSVGElement>) => {
@@ -436,23 +437,23 @@ export default function ServicesSection({ onBookLinkClick }: ServicesSectionProp
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.5, staggerChildren: 0.1 }}
                   >
-                    <motion.li variants={itemVariants} className="flex items-start gap-2 md:gap-3">
-                      <div className="flex-shrink-0 premium-icon-badge premium-icon-badge-sm premium-icon-badge-circle premium-icon-badge-accent">
-                        <CheckCircle2Icon className="h-4 w-4 md:h-5 md:w-5" />
-                      </div>
-                      <span className="text-primary-700 text-xs md:text-base pt-1">Personalized care plans designed for your specific needs</span>
+                    <motion.li variants={itemVariants} className="flex items-center gap-3 md:gap-4">
+                      <span className="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full bg-accent/10 border border-accent/20 text-accent flex items-center justify-center">
+                        <UserIcon className="h-4 w-4 md:h-5 md:w-5" />
+                      </span>
+                      <span className="text-primary-700 text-sm md:text-base">Personalized care plans designed for your specific needs</span>
                     </motion.li>
                     <motion.li variants={itemVariants} className="flex items-start gap-2 md:gap-3">
                       <div className="flex-shrink-0 premium-icon-badge premium-icon-badge-sm premium-icon-badge-circle premium-icon-badge-accent">
-                        <CheckCircle2Icon className="h-4 w-4 md:h-5 md:w-5" />
+                        <BeakerIcon className="h-4 w-4 md:h-5 md:w-5" />
                       </div>
-                      <span className="text-primary-700 text-xs md:text-base pt-1">Evidence-based treatment with proven results</span>
+                      <span className="text-primary-700 text-sm md:text-base">Evidence-based treatment with proven results</span>
                     </motion.li>
                     <motion.li variants={itemVariants} className="flex items-start gap-2 md:gap-3">
                       <div className="flex-shrink-0 premium-icon-badge premium-icon-badge-sm premium-icon-badge-circle premium-icon-badge-accent">
-                        <CheckCircle2Icon className="h-4 w-4 md:h-5 md:w-5" />
+                        <BuildingOffice2Icon className="h-4 w-4 md:h-5 md:w-5" />
                       </div>
-                      <span className="text-primary-700 text-xs md:text-base pt-1">Modern facilities in convenient locations</span>
+                      <span className="text-primary-700 text-sm md:text-base">Modern facilities in convenient locations</span>
                     </motion.li>
                   </motion.ul>
                   

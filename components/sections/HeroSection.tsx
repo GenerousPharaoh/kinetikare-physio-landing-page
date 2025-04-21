@@ -41,13 +41,13 @@ const HeroSection = memo(function HeroSection() {
             priority={true}
             quality={85}
             style={{
-              filter: 'brightness(0.65) contrast(1.1) saturate(1.05)', // Enhanced professional look
+              filter: 'brightness(0.6) saturate(1.0)', // Slightly darker, less contrast/saturation
             }}
           />
         </motion.div>
 
         {/* Enhanced gradient overlay with better depth */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-900/80 via-primary-900/50 to-primary-900/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-900/70 via-primary-900/40 to-primary-900/60"></div>
         
         {/* Refined vignette effect */}
         <div className="absolute inset-0 bg-radial-gradient opacity-60 mix-blend-multiply"></div>
@@ -161,7 +161,7 @@ const HeroSection = memo(function HeroSection() {
                   {/* Enhanced professional credentials */}
                   <div className="mb-10 flex flex-col gap-5 stagger-fade-in">
                     <motion.div 
-                      className="flex items-center gap-4 bg-white/10 backdrop-blur-sm rounded-xl px-5 py-4 border border-white/10 shadow-lg"
+                      className="flex items-center gap-4 bg-white/15 backdrop-blur-md rounded-xl px-5 py-4 border border-white/15 shadow-lg shadow-black/10 ring-1 ring-inset ring-white/10"
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : 20 }}
                       transition={{ duration: 0.5, delay: 0.3 }}
@@ -178,7 +178,7 @@ const HeroSection = memo(function HeroSection() {
                     </motion.div>
                     
                     <motion.div 
-                      className="flex items-center gap-4 bg-white/10 backdrop-blur-sm rounded-xl px-5 py-4 border border-white/10 shadow-lg"
+                      className="flex items-center gap-4 bg-white/15 backdrop-blur-md rounded-xl px-5 py-4 border border-white/15 shadow-lg shadow-black/10 ring-1 ring-inset ring-white/10"
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : 20 }}
                       transition={{ duration: 0.5, delay: 0.5 }}
@@ -204,11 +204,11 @@ const HeroSection = memo(function HeroSection() {
                   >
                     <p className="text-white/90 text-base mb-4 font-medium">Specialized Treatment For:</p>
                     <div className="flex flex-wrap gap-2.5">
-                      <span className="text-sm bg-accent/20 text-white px-4 py-1.5 rounded-full border border-accent/30 shadow-sm hover:bg-accent/30 transition-colors">Sports Injuries</span>
-                      <span className="text-sm bg-accent/20 text-white px-4 py-1.5 rounded-full border border-accent/30 shadow-sm hover:bg-accent/30 transition-colors">Back Pain</span>
-                      <span className="text-sm bg-accent/20 text-white px-4 py-1.5 rounded-full border border-accent/30 shadow-sm hover:bg-accent/30 transition-colors">Post-Surgery</span>
-                      <span className="text-sm bg-accent/20 text-white px-4 py-1.5 rounded-full border border-accent/30 shadow-sm hover:bg-accent/30 transition-colors">Chronic Pain</span>
-                      <span className="text-sm bg-accent/20 text-white px-4 py-1.5 rounded-full border border-accent/30 shadow-sm hover:bg-accent/30 transition-colors">Joint Mobility</span>
+                      <span className="text-sm bg-white/15 text-white px-4 py-1.5 rounded-full border border-white/20 shadow-sm hover:bg-white/25 transition-colors">Sports Injuries</span>
+                      <span className="text-sm bg-white/15 text-white px-4 py-1.5 rounded-full border border-white/20 shadow-sm hover:bg-white/25 transition-colors">Back Pain</span>
+                      <span className="text-sm bg-white/15 text-white px-4 py-1.5 rounded-full border border-white/20 shadow-sm hover:bg-white/25 transition-colors">Post-Surgery</span>
+                      <span className="text-sm bg-white/15 text-white px-4 py-1.5 rounded-full border border-white/20 shadow-sm hover:bg-white/25 transition-colors">Chronic Pain</span>
+                      <span className="text-sm bg-white/15 text-white px-4 py-1.5 rounded-full border border-white/20 shadow-sm hover:bg-white/25 transition-colors">Joint Mobility</span>
                     </div>
                   </motion.div>
                 </div>

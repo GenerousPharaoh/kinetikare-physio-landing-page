@@ -37,11 +37,10 @@ export default function LoadingScreen({ isFadingOut = false }: LoadingScreenProp
   return (
     <motion.div
       key="loading-screen"
-      className="fixed inset-0 flex items-center justify-center z-[9999] bg-black"
+      className="fixed inset-0 flex items-center justify-center z-[9999]"
       initial={{ opacity: 1 }}
       animate={{ 
         opacity: isComplete ? 0 : 1,
-        backgroundColor: isComplete ? 'rgba(0, 0, 0, 0)' : 'rgba(0, 0, 0, 1)',
       }}
       exit={{ opacity: 0 }}
       transition={{ 
@@ -50,36 +49,21 @@ export default function LoadingScreen({ isFadingOut = false }: LoadingScreenProp
       }}
       style={{ 
         pointerEvents: isComplete ? 'none' : 'auto',
+        background: 'linear-gradient(to bottom, #0a0f1c, #111827)',
       }}
     >
-      {/* Premium background with subtle texture and lighting */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Background image with enhanced blur and lighting */}
-        <div className="absolute inset-0 opacity-25 mix-blend-overlay">
-          <Image
-            src="/images/clinic-pic-updated.jpg"
-            alt=""
-            fill
-            className="object-cover object-center"
-            priority={true}
-            style={{ filter: 'blur(6px) brightness(0.5) contrast(1.3)' }}
-          />
-        </div>
-        
-        {/* Premium texture overlay */}
-        <div 
-          className="absolute inset-0 opacity-[0.07]" 
-          style={{ 
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FFFFFF' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundSize: '60px 60px'
-          }}
-        />
-        
-        {/* Enhanced premium lighting effects */}
-        <div className="absolute top-1/4 left-1/4 w-[650px] h-[650px] bg-accent/15 rounded-full blur-[150px] animate-pulse-slow" />
-        <div className="absolute bottom-1/3 right-1/4 w-[600px] h-[600px] bg-primary-500/20 rounded-full blur-[130px] animate-pulse-slower" />
-        <div className="absolute top-1/3 right-1/3 w-[400px] h-[400px] bg-[#e6c86e]/10 rounded-full blur-[100px] animate-pulse-slow" />
-      </div>
+      {/* Simple subtle pattern overlay */}
+      <div 
+        className="absolute inset-0 opacity-[0.03]" 
+        style={{ 
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FFFFFF' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundSize: '60px 60px'
+        }}
+      />
+      
+      {/* Simple gradient accents */}
+      <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[120px]" />
+      <div className="absolute bottom-1/3 right-1/4 w-[350px] h-[350px] bg-primary-500/5 rounded-full blur-[100px]" />
       
       <div className="relative z-10 flex flex-col items-center justify-center">
         {/* Container for premium pyramid */}
@@ -301,7 +285,7 @@ export default function LoadingScreen({ isFadingOut = false }: LoadingScreenProp
           }}
         >
           <div className="relative mx-auto inline-flex justify-center w-full">
-            <div className="px-10 py-4 rounded-full relative bg-gradient-to-r from-primary-900/50 to-primary-800/50 backdrop-blur-xl border border-primary-500/30 shadow-2xl text-center inline-block">
+            <div className="px-10 py-4 rounded-full relative bg-black/50 backdrop-blur-xl border border-primary-700/30 shadow-2xl text-center inline-block">
               <p className="text-white text-xl font-medium tracking-wider whitespace-nowrap">
                 <motion.span 
                   className="text-accent font-heading font-semibold"
@@ -358,11 +342,6 @@ export default function LoadingScreen({ isFadingOut = false }: LoadingScreenProp
                 <span className="relative z-10">of Care</span>
               </p>
             </div>
-            
-            {/* Enhanced premium glow behind the glass container */}
-            <div 
-              className="absolute inset-0 rounded-full bg-accent/15 blur-2xl -z-10 animate-pulse-slow"
-            />
           </div>
         </motion.div>
       </div>

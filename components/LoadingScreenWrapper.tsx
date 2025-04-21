@@ -46,11 +46,11 @@ const LoadingScreenWrapper: React.FC = () => {
         // Cleanup classes and allow scrolling again
         document.documentElement.classList.remove('loading-init');
         document.body.style.overflow = '';
-      }, reducedMotion || isLowPoweredDevice ? 200 : 400); // Even faster fade-out for better performance
+      }, reducedMotion || isLowPoweredDevice ? 400 : 800); // Increased fade-out time for better visibility
     };
     
-    // Set a maximum wait time regardless of page load status
-    const maxWaitTime = reducedMotion || isLowPoweredDevice ? 1200 : 2000;
+    // Set a maximum wait time regardless of page load status - increased for better visibility
+    const maxWaitTime = reducedMotion || isLowPoweredDevice ? 3000 : 5000;
     
     // Maximum time to wait before transitioning, regardless of document ready state
     maxWaitTimeoutId = setTimeout(() => {
@@ -62,18 +62,18 @@ const LoadingScreenWrapper: React.FC = () => {
       // Clear the max wait timeout since the page has loaded
       clearTimeout(maxWaitTimeoutId);
       
-      // Wait a short time after load to allow the browser to settle
+      // Wait a short time after load to allow the browser to settle - increased for better visibility
       loadTimeoutId = setTimeout(() => {
         prepareForTransition();
-      }, reducedMotion || isLowPoweredDevice ? 100 : 300);
+      }, reducedMotion || isLowPoweredDevice ? 1500 : 2500);
     };
     
     // Check document.readyState and set up appropriate handlers
     if (document.readyState === 'complete') {
-      // If already complete, schedule transition soon
+      // If already complete, schedule transition soon - increased for better visibility
       loadTimeoutId = setTimeout(() => {
         prepareForTransition();
-      }, reducedMotion ? 300 : 600);
+      }, reducedMotion ? 1500 : 2500);
     } else {
       // Listen for load event if not already complete
       window.addEventListener('load', handleLoad, { once: true });

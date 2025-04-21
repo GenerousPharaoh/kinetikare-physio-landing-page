@@ -15,13 +15,15 @@ const HeroSection = memo(function HeroSection() {
 
   return (
     <section className="relative py-24 md:py-32 lg:py-40 xl:py-48 overflow-hidden min-h-screen flex items-center hero-fade-in">
-      {/* Enhanced backdrop image - Simplified effect */}
+      {/* Enhanced backdrop image with subtle parallax */}
       <div className="absolute inset-0 z-0">
         <motion.div 
           className="h-full w-full overflow-hidden image-fade-in"
-          initial={{ scale: 1.0 }}
-          animate={{ scale: 1.0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          initial={{ scale: 1.05 }}
+          animate={{ scale: 1.05 }}
+          transition={{
+            scale: { duration: 1.5, ease: "easeOut" }
+          }}
         >
           <Image
             src="/images/clinic-pic-updated.jpg"
@@ -31,7 +33,7 @@ const HeroSection = memo(function HeroSection() {
             priority={true}
             quality={85}
             style={{
-              filter: 'brightness(0.75)',
+              filter: 'brightness(0.7) contrast(1.05) saturate(1.1)',
             }}
           />
         </motion.div>
@@ -111,7 +113,7 @@ const HeroSection = memo(function HeroSection() {
               
               {/* Enhanced testimonial preview */}
               <motion.div 
-                className="mt-14 bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 max-w-md shadow-xl relative overflow-hidden"
+                className="mt-14 bg-white/15 backdrop-blur-xl rounded-2xl p-6 border border-white/15 max-w-md shadow-xl relative overflow-hidden"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
@@ -142,8 +144,7 @@ const HeroSection = memo(function HeroSection() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <div className="relative h-[580px] w-full">
-              {/* Refined glass effect: more blur, subtler gradient, thinner border */}
-              <div className="absolute inset-0 rounded-3xl backdrop-blur-2xl bg-gradient-to-br from-white/12 to-white/5 border border-white/10 shadow-2xl overflow-hidden">
+              <div className="absolute inset-0 rounded-3xl backdrop-blur-2xl bg-gradient-to-br from-white/15 to-white/10 border border-white/15 shadow-2xl overflow-hidden">
                 {/* Enhanced background glow effects */}
                 <div className="absolute -bottom-20 -right-20 w-[400px] h-[400px] rounded-full bg-accent/10 blur-[100px]"></div>
                 <div className="absolute -top-20 -left-20 w-[300px] h-[300px] rounded-full bg-primary-500/10 blur-[80px]"></div>
@@ -152,7 +153,7 @@ const HeroSection = memo(function HeroSection() {
                   {/* Enhanced professional credentials */}
                   <div className="mb-10 flex flex-col gap-5 stagger-fade-in">
                     <motion.div 
-                      className="flex items-center gap-4 bg-white/8 backdrop-blur-md rounded-xl px-5 py-4 border border-white/15 shadow-lg"
+                      className="flex items-center gap-4 bg-white/10 backdrop-blur-sm rounded-xl px-5 py-4 border border-white/10 shadow-lg"
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : 20 }}
                       transition={{ duration: 0.5, delay: 0.3 }}
@@ -169,7 +170,7 @@ const HeroSection = memo(function HeroSection() {
                     </motion.div>
                     
                     <motion.div 
-                      className="flex items-center gap-4 bg-white/8 backdrop-blur-md rounded-xl px-5 py-4 border border-white/15 shadow-lg"
+                      className="flex items-center gap-4 bg-white/10 backdrop-blur-sm rounded-xl px-5 py-4 border border-white/10 shadow-lg"
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : 20 }}
                       transition={{ duration: 0.5, delay: 0.5 }}
@@ -195,11 +196,11 @@ const HeroSection = memo(function HeroSection() {
                   >
                     <p className="text-white/90 text-base mb-4 font-medium">Specialized Treatment For:</p>
                     <div className="flex flex-wrap gap-2.5">
-                      <span className="text-sm bg-accent/15 text-white px-4 py-1 rounded-full border border-accent/25 shadow-sm hover:bg-accent/25 transition-colors">Sports Injuries</span>
-                      <span className="text-sm bg-accent/15 text-white px-4 py-1 rounded-full border border-accent/25 shadow-sm hover:bg-accent/25 transition-colors">Back Pain</span>
-                      <span className="text-sm bg-accent/15 text-white px-4 py-1 rounded-full border border-accent/25 shadow-sm hover:bg-accent/25 transition-colors">Post-Surgery</span>
-                      <span className="text-sm bg-accent/15 text-white px-4 py-1 rounded-full border border-accent/25 shadow-sm hover:bg-accent/25 transition-colors">Chronic Pain</span>
-                      <span className="text-sm bg-accent/15 text-white px-4 py-1 rounded-full border border-accent/25 shadow-sm hover:bg-accent/25 transition-colors">Joint Mobility</span>
+                      <span className="text-sm bg-accent/20 text-white px-4 py-1.5 rounded-full border border-accent/30 shadow-sm hover:bg-accent/30 transition-colors">Sports Injuries</span>
+                      <span className="text-sm bg-accent/20 text-white px-4 py-1.5 rounded-full border border-accent/30 shadow-sm hover:bg-accent/30 transition-colors">Back Pain</span>
+                      <span className="text-sm bg-accent/20 text-white px-4 py-1.5 rounded-full border border-accent/30 shadow-sm hover:bg-accent/30 transition-colors">Post-Surgery</span>
+                      <span className="text-sm bg-accent/20 text-white px-4 py-1.5 rounded-full border border-accent/30 shadow-sm hover:bg-accent/30 transition-colors">Chronic Pain</span>
+                      <span className="text-sm bg-accent/20 text-white px-4 py-1.5 rounded-full border border-accent/30 shadow-sm hover:bg-accent/30 transition-colors">Joint Mobility</span>
                     </div>
                   </motion.div>
                 </div>

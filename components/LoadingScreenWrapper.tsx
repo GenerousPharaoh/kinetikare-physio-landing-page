@@ -62,8 +62,8 @@ const LoadingScreenWrapper: React.FC<LoadingScreenWrapperProps> = ({ children })
             document.documentElement.classList.remove('loading-init');
             document.body.style.overflow = '';
           }, 300); // Short delay after loader removal
-        }, reducedMotion || isLowPoweredDevice ? 700 : 1200); // Slightly longer fade-out time for loading screen
-      }, 50); // Start fade out sooner
+        }, reducedMotion || isLowPoweredDevice ? 600 : 1000); // Increased fade-out time for smoother transition
+      }, 100);
     };
     
     // Set a maximum wait time regardless of page load status
@@ -117,7 +117,7 @@ const LoadingScreenWrapper: React.FC<LoadingScreenWrapperProps> = ({ children })
           ${contentVisible ? 'opacity-100' : 'opacity-0'}`}
         style={{ 
           opacity: contentVisible ? 1 : 0,
-          transition: 'opacity 1.8s cubic-bezier(0.16, 1, 0.3, 1)'
+          transition: 'opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1)'
         }}
       >
         {children}

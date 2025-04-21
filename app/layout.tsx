@@ -140,7 +140,7 @@ export default function RootLayout({
           /* Loading state styles */
           html.loading-init body {
             overflow: hidden !important;
-            background-color: #000;
+            background-color: var(--background-color, #F9F8F6); /* Use site background for smoother transition */
           }
           
           /* Hide main content during loading */

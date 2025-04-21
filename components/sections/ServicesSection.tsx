@@ -8,10 +8,7 @@ import {
   HandIcon, 
   HeartPulseIcon,
   BrainCircuitIcon,
-  CheckCircle2Icon,
-  UserIcon,
-  BookOpenCheckIcon,
-  BuildingIcon
+  CheckCircle2Icon
 } from "lucide-react"; 
 // Complementary icons from React Icons
 import { IoIosFitness, IoMdMedical } from "react-icons/io";
@@ -439,23 +436,26 @@ export default function ServicesSection({ onBookLinkClick }: ServicesSectionProp
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.5, staggerChildren: 0.1 }}
                   >
-                    <motion.li variants={itemVariants} className="flex items-start gap-2 md:gap-3">
-                      <div className="flex-shrink-0 w-6 h-6 md:w-7 md:h-7 flex items-center justify-center rounded-full bg-accent/10 border border-accent/20 text-accent">
-                        <UserIcon className="h-3 w-3 md:h-4 md:w-4" />
+                    <motion.li variants={itemVariants} className="flex items-start gap-3 md:gap-4">
+                      {/* Directly apply Tailwind styles for the badge */}
+                      <div className="flex-shrink-0 w-6 h-6 md:w-7 md:h-7 rounded-full bg-accent/10 flex items-center justify-center mt-0.5 md:mt-0">
+                        <CheckCircle2Icon className="w-4 h-4 md:w-5 md:w-5 text-accent" />
                       </div>
-                      <span className="text-primary-700 text-xs md:text-base pt-1">Personalized care plans designed for your specific needs</span>
+                      <span className="text-primary-700 text-sm md:text-base">Personalized care plans designed for your specific needs</span>
                     </motion.li>
-                    <motion.li variants={itemVariants} className="flex items-start gap-2 md:gap-3">
-                      <div className="flex-shrink-0 w-6 h-6 md:w-7 md:h-7 flex items-center justify-center rounded-full bg-accent/10 border border-accent/20 text-accent">
-                        <BookOpenCheckIcon className="h-3 w-3 md:h-4 md:w-4" />
+                    <motion.li variants={itemVariants} className="flex items-start gap-3 md:gap-4">
+                      {/* Directly apply Tailwind styles for the badge */}
+                      <div className="flex-shrink-0 w-6 h-6 md:w-7 md:h-7 rounded-full bg-accent/10 flex items-center justify-center mt-0.5 md:mt-0">
+                        <CheckCircle2Icon className="w-4 h-4 md:w-5 md:w-5 text-accent" />
                       </div>
-                      <span className="text-primary-700 text-xs md:text-base pt-1">Evidence-based treatment with proven results</span>
+                      <span className="text-primary-700 text-sm md:text-base">Evidence-based treatment with proven results</span>
                     </motion.li>
-                    <motion.li variants={itemVariants} className="flex items-start gap-2 md:gap-3">
-                      <div className="flex-shrink-0 w-6 h-6 md:w-7 md:h-7 flex items-center justify-center rounded-full bg-accent/10 border border-accent/20 text-accent">
-                        <BuildingIcon className="h-3 w-3 md:h-4 md:w-4" />
+                    <motion.li variants={itemVariants} className="flex items-start gap-3 md:gap-4">
+                      {/* Directly apply Tailwind styles for the badge */}
+                      <div className="flex-shrink-0 w-6 h-6 md:w-7 md:h-7 rounded-full bg-accent/10 flex items-center justify-center mt-0.5 md:mt-0">
+                        <CheckCircle2Icon className="w-4 h-4 md:h-5 md:w-5 text-accent" />
                       </div>
-                      <span className="text-primary-700 text-xs md:text-base pt-1">Modern facilities in convenient locations</span>
+                      <span className="text-primary-700 text-sm md:text-base">Modern facilities in convenient locations</span>
                     </motion.li>
                   </motion.ul>
                   

@@ -1213,77 +1213,86 @@ html.loading-init body {
 /* Import responsive utilities CSS */
 @import '../styles/responsive.css';
 
-/* Loading screen transitions */
-.transition-content {
-  transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), 
-              filter 1.5s cubic-bezier(0.22, 1, 0.36, 1), 
-              transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, filter, transform;
-}
-
-/* Enhanced loading init styles for smoother transitions */
+/* Improved loading transitions and page entry animations */
+/* These styles improve the transition from loading screen to page content */
 html.loading-init {
   overflow: hidden;
 }
 
-html.loading-init body {
-  overflow: hidden !important;
-  background-color: #000;
+/* Main content wrapper transitions */
+.main-content-wrapper {
+  opacity: 0;
+  transition: opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Fade in content with staggered timing for elements */
-.fade-in-content {
-  animation: fadeInContent 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+html.content-visible .main-content-wrapper {
+  opacity: 1;
 }
 
-@keyframes fadeInContent {
+/* Staggered element fade-in */
+.stagger-fade-in > * {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.7s ease-out, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html.content-visible .stagger-fade-in > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Apply sequential delays to children */
+html.content-visible .stagger-fade-in > *:nth-child(1) { transition-delay: 0.1s; }
+html.content-visible .stagger-fade-in > *:nth-child(2) { transition-delay: 0.2s; }
+html.content-visible .stagger-fade-in > *:nth-child(3) { transition-delay: 0.3s; }
+html.content-visible .stagger-fade-in > *:nth-child(4) { transition-delay: 0.4s; }
+html.content-visible .stagger-fade-in > *:nth-child(5) { transition-delay: 0.5s; }
+html.content-visible .stagger-fade-in > *:nth-child(6) { transition-delay: 0.6s; }
+
+/* Hero section specific transitions */
+.hero-fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.2s ease-out, transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: 0.3s;
+}
+
+html.content-visible .hero-fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Enhanced image loading transition */
+.image-fade-in {
+  opacity: 0;
+  filter: blur(10px);
+  transform: scale(1.05);
+  transition: opacity 1s ease-out, filter 1.5s ease-out, transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: 0.2s;
+}
+
+html.content-visible .image-fade-in {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1);
+}
+
+/* Loading complete animation for critical above-the-fold content */
+@keyframes fadeSlideUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
-    filter: blur(5px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
-    filter: blur(0);
   }
 }
 
-.fade-in-delay-1 {
-  animation-delay: 0.15s;
-}
-
-.fade-in-delay-2 {
-  animation-delay: 0.3s;
-}
-
-.fade-in-delay-3 {
-  animation-delay: 0.45s;
-}
-
-/* Enhance loading transitions with 3D transforms */
-.transform-3d {
-  transform-style: preserve-3d;
-  perspective: 1000px;
-}
-
-.transform-gpu {
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  will-change: transform, opacity, filter;
-}
-
-/* Create smooth page transitions */
-.page-exit {
+.above-fold-content {
   opacity: 0;
-  filter: blur(5px);
-  transform: scale(0.98);
-  transition: all 0.5s ease-in-out;
 }
 
-.page-enter {
-  opacity: 1;
-  filter: blur(0);
-  transform: scale(1);
-  transition: all 0.5s ease-in-out;
+html.content-visible .above-fold-content {
+  animation: fadeSlideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 } 

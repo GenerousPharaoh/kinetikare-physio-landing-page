@@ -6,29 +6,31 @@ import Image from 'next/image';
 
 interface LoadingScreenProps {
   isFadingOut?: boolean;
-  shouldRevealContent?: boolean;
 }
 
-export default function LoadingScreen({ 
-  isFadingOut = false,
-  shouldRevealContent = false 
-}: LoadingScreenProps) {
+export default function LoadingScreen({ isFadingOut = false }: LoadingScreenProps) {
   const [isComplete, setIsComplete] = useState(false);
   const [shouldRender, setShouldRender] = useState(true);
   const [pyramidFormed, setPyramidFormed] = useState(false);
+  const [revealElements, setRevealElements] = useState(false);
   
   useEffect(() => {
-    // Set the pyramid as formed after the animation completes - faster now
+    // Set the pyramid as formed after the animation completes
     const pyramidTimer = setTimeout(() => {
       setPyramidFormed(true);
-    }, 800); // Reduced from 1500ms to 800ms
+      
+      // Reveal additional elements with staggered timing
+      setTimeout(() => {
+        setRevealElements(true);
+      }, 200);
+    }, 800);
     
     // Handle external fade out signal
     if (isFadingOut) {
       setIsComplete(true);
       setTimeout(() => {
         setShouldRender(false);
-      }, 800);
+      }, 1200); // Extended fade-out duration
     }
     
     return () => {
@@ -45,23 +47,17 @@ export default function LoadingScreen({
       initial={{ opacity: 1 }}
       animate={{ 
         opacity: isComplete ? 0 : 1,
-        clipPath: shouldRevealContent 
-          ? ['inset(0% 0% 0% 0%)', 'inset(0% 0% 0% 0%)', 'inset(0% 0% 100% 0%)'] 
-          : 'inset(0% 0% 0% 0%)'
+        scale: isComplete ? 1.025 : 1, // Subtle scaling on exit
       }}
       exit={{ opacity: 0 }}
       transition={{ 
-        duration: 1.5,
-        ease: "easeInOut",
-        clipPath: {
-          duration: 1.8,
-          ease: [0.77, 0, 0.175, 1], // Custom easing for reveal animation
-          times: [0, 0.4, 1]
-        }
+        duration: isComplete ? 1.5 : 1,
+        ease: isComplete ? [0.22, 1, 0.36, 1] : "easeInOut" // Custom bezier curve for smoother exit
       }}
       style={{ 
         pointerEvents: isComplete ? 'none' : 'auto',
         background: 'linear-gradient(135deg, #060606 0%, #0a0a0a 25%, #111111 50%, #0a0a0a 75%, #060606 100%)',
+        backdropFilter: isComplete ? 'blur(0px)' : 'blur(5px)', // Reduces blur as it fades out
       }}
     >
       {/* More elegant subtle pattern overlay with reduced opacity */}
@@ -73,32 +69,89 @@ export default function LoadingScreen({
         }}
       />
       
-      {/* Improved elegant gradient accents */}
-      <div className="absolute top-1/3 left-1/3 w-[500px] h-[500px] bg-accent/3 rounded-full blur-[150px] opacity-70" />
-      <div className="absolute bottom-1/3 right-1/3 w-[450px] h-[450px] bg-primary-500/3 rounded-full blur-[130px] opacity-60" />
-      <div className="absolute top-2/3 left-1/4 w-[400px] h-[400px] bg-accent/2 rounded-full blur-[100px] opacity-50" />
+      {/* Improved elegant gradient accents with animation on exit */}
+      <motion.div 
+        className="absolute top-1/3 left-1/3 w-[500px] h-[500px] bg-accent/3 rounded-full blur-[150px] opacity-70"
+        animate={{ 
+          opacity: isComplete ? 0 : 0.7,
+          scale: isComplete ? 1.5 : 1,
+          x: isComplete ? 50 : 0,
+        }}
+        transition={{ duration: 1.8, ease: "easeOut" }}
+      />
+      <motion.div 
+        className="absolute bottom-1/3 right-1/3 w-[450px] h-[450px] bg-primary-500/3 rounded-full blur-[130px] opacity-60" 
+        animate={{ 
+          opacity: isComplete ? 0 : 0.6,
+          scale: isComplete ? 1.5 : 1,
+          x: isComplete ? -50 : 0,
+        }}
+        transition={{ duration: 1.8, ease: "easeOut" }}
+      />
+      <motion.div 
+        className="absolute top-2/3 left-1/4 w-[400px] h-[400px] bg-accent/2 rounded-full blur-[100px] opacity-50"
+        animate={{ 
+          opacity: isComplete ? 0 : 0.5,
+          scale: isComplete ? 1.8 : 1,
+          y: isComplete ? -50 : 0,
+        }}
+        transition={{ duration: 1.8, ease: "easeOut" }}
+      />
+      
+      {/* Transition dots - appear at the bottom during fade-out to blend with main content loading */}
+      {isComplete && (
+        <motion.div 
+          className="absolute bottom-8 left-0 right-0 flex justify-center items-center gap-3"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.8 }}
+          transition={{ duration: 0.8, ease: "easeIn" }}
+        >
+          <motion.div 
+            className="w-2 h-2 bg-accent rounded-full"
+            animate={{ scale: [0.8, 1.2, 0.8] }}
+            transition={{ duration: 1, repeat: Infinity, delay: 0 }}
+          />
+          <motion.div 
+            className="w-2 h-2 bg-accent rounded-full"
+            animate={{ scale: [0.8, 1.2, 0.8] }}
+            transition={{ duration: 1, repeat: Infinity, delay: 0.2 }}
+          />
+          <motion.div 
+            className="w-2 h-2 bg-accent rounded-full"
+            animate={{ scale: [0.8, 1.2, 0.8] }}
+            transition={{ duration: 1, repeat: Infinity, delay: 0.4 }}
+          />
+        </motion.div>
+      )}
       
       <div className="relative z-10 flex flex-col items-center justify-center">
-        {/* Container for premium pyramid */}
-        <div className="relative" style={{ width: "320px", height: "200px" }}>
+        {/* Container for premium pyramid with transition effect */}
+        <motion.div 
+          className="relative" 
+          style={{ width: "320px", height: "200px" }}
+          animate={{ 
+            y: isComplete ? -20 : 0,
+            opacity: isComplete ? 0 : 1,
+          }}
+          transition={{ 
+            duration: 1, 
+            ease: [0.22, 1, 0.36, 1] 
+          }}
+        >
           <motion.div
             className="absolute inset-0 flex items-center justify-center"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ 
               opacity: isComplete ? 0 : 1, 
               scale: isComplete ? 0.8 : 1,
-              y: shouldRevealContent ? -50 : 0,
+              y: isComplete ? -30 : 0, // Floating upward during exit
               transition: { 
-                duration: isComplete ? 0.8 : 0.6, // Faster animation
-                ease: "easeOut",
-                y: {
-                  duration: 1.2,
-                  ease: [0.22, 1, 0.36, 1]
-                }
+                duration: isComplete ? 0.8 : 0.6,
+                ease: "easeOut" 
               }
             }}
           >
-            {/* NEW PREMIUM SINGLE-STROKE TRIANGLE - Faster animation */}
+            {/* Premium single-stroke triangle */}
             <svg
               width="320"
               height="320"
@@ -109,7 +162,7 @@ export default function LoadingScreen({
               style={{ top: "-40px", left: "0" }}
               overflow="visible"
             >
-              {/* Single-stroke triangle with enhanced premium gold gradient - faster animation */}
+              {/* Single-stroke triangle with enhanced premium gold gradient */}
               <motion.path
                 d="M160,80 L30,220 L290,220 Z"
                 fill="none"
@@ -119,12 +172,12 @@ export default function LoadingScreen({
                 strokeLinejoin="round"
                 initial={{ pathLength: 0, opacity: 0.5 }}
                 animate={{ 
-                  pathLength: 1,
+                  pathLength: isComplete ? 0.7 : 1, // Begins to un-draw during exit
                   opacity: isComplete ? 0 : 1,
                   filter: "drop-shadow(0 0 6px rgba(229, 199, 107, 0.4))",
                   transition: { 
-                    duration: isComplete ? 0.6 : 1.2, // Reduced from 2.0s to 1.2s
-                    ease: "easeOut" 
+                    duration: isComplete ? 1.2 : 1.2,
+                    ease: isComplete ? [0.22, 1, 0.36, 1] : "easeOut" 
                   }
                 }}
                 style={{ 
@@ -152,7 +205,7 @@ export default function LoadingScreen({
               </defs>
             </svg>
 
-            {/* More elegant glimmer effects - more subtle and refined */}
+            {/* Elegant glimmer effects */}
             {pyramidFormed && !isComplete && (
               <svg
                 width="320"
@@ -164,7 +217,7 @@ export default function LoadingScreen({
                 style={{ top: "-40px", left: "0" }}
                 overflow="visible"
               >
-                {/* Top corner glimmer - more elegant */}
+                {/* Top corner glimmer */}
                 <motion.circle
                   cx="160" 
                   cy="80" 
@@ -186,7 +239,7 @@ export default function LoadingScreen({
                   style={{ filter: "blur(1px) drop-shadow(0 0 8px rgba(255, 255, 255, 0.9))" }}
                 />
                 
-                {/* Bottom left corner glimmer - more elegant */}
+                {/* Bottom left corner glimmer */}
                 <motion.circle
                   cx="30" 
                   cy="220" 
@@ -209,7 +262,7 @@ export default function LoadingScreen({
                   style={{ filter: "blur(1px) drop-shadow(0 0 8px rgba(255, 255, 255, 0.9))" }}
                 />
                 
-                {/* Bottom right corner glimmer - more elegant */}
+                {/* Bottom right corner glimmer */}
                 <motion.circle
                   cx="290" 
                   cy="220" 
@@ -257,19 +310,20 @@ export default function LoadingScreen({
               </svg>
             )}
           </motion.div>
-        </div>
+        </motion.div>
         
-        {/* KINETIKARE text - appears earlier with improved animation */}
+        {/* KINETIKARE text with enhanced exit animation */}
         <motion.div
           className="mt-2 text-center"
           initial={{ opacity: 0, y: -10 }}
           animate={{ 
             opacity: isComplete ? 0 : 1,
-            y: isComplete || shouldRevealContent ? -15 : 0,
+            y: isComplete ? -30 : 0, // Floats up during exit
+            scale: isComplete ? 0.95 : 1,
             transition: { 
-              duration: isComplete ? 0.6 : 0.8, 
-              delay: isComplete ? 0 : 0.8, // Reduced from 1.7s to 0.8s
-              ease: "easeOut" 
+              duration: isComplete ? 1.2 : 0.8, 
+              delay: isComplete ? 0 : 0.8,
+              ease: isComplete ? [0.22, 1, 0.36, 1] : "easeOut"
             }
           }}
         >
@@ -291,17 +345,17 @@ export default function LoadingScreen({
           </motion.h1>
         </motion.div>
 
-        {/* Slogan with improved animation and earlier appearance */}
+        {/* Slogan with enhanced exit animation */}
         <motion.div
           className="mt-4 text-center w-full max-w-xl"
           initial={{ opacity: 0, y: 10 }}
           animate={{ 
             opacity: isComplete ? 0 : 1, 
-            y: isComplete || shouldRevealContent ? 15 : 0,
+            y: isComplete ? 30 : 0, // Floats down during exit
             transition: { 
-              duration: isComplete ? 0.6 : 0.7, 
-              delay: isComplete ? 0 : 1.0, // Reduced from 2.0s to 1.0s
-              ease: "easeOut" 
+              duration: isComplete ? 1.2 : 0.7, 
+              delay: isComplete ? 0 : 1.0,
+              ease: isComplete ? [0.22, 1, 0.36, 1] : "easeOut"
             }
           }}
         >

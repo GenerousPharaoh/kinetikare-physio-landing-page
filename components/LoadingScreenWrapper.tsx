@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect, ReactNode } from 'react';
 import LoadingScreen from './LoadingScreen';
-import { motion, AnimatePresence } from 'framer-motion';
 
 // Check if reduced motion is preferred by the user
 const prefersReducedMotion = () => {
@@ -17,8 +16,7 @@ interface LoadingScreenWrapperProps {
 const LoadingScreenWrapper: React.FC<LoadingScreenWrapperProps> = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [isFadingOut, setIsFadingOut] = useState(false);
-  const [showMainContent, setShowMainContent] = useState(false);
-  const [contentOpacity, setContentOpacity] = useState(0);
+  const [contentVisible, setContentVisible] = useState(false);
   
   useEffect(() => {
     // Safety check for SSR
@@ -34,54 +32,49 @@ const LoadingScreenWrapper: React.FC<LoadingScreenWrapperProps> = ({ children })
     let fadeTimeoutId: NodeJS.Timeout;
     let loadTimeoutId: NodeJS.Timeout;
     let maxWaitTimeoutId: NodeJS.Timeout;
-    let contentFadeInId: NodeJS.Timeout;
+    let contentFadeInTimeoutId: NodeJS.Timeout;
     
     // Check for reduced motion preference and device capabilities
     const reducedMotion = prefersReducedMotion();
     const isMobile = window.innerWidth < 768;
     const isLowPoweredDevice = isMobile || (navigator.hardwareConcurrency !== undefined && navigator.hardwareConcurrency <= 4);
     
-    // Set page transition timing
-    const fadeOutTime = reducedMotion || isLowPoweredDevice ? 800 : 1500;
-    const contentTransitionDelay = reducedMotion || isLowPoweredDevice ? 400 : 800;
-    
-    // Enhanced function to ensure a smooth transition from loading screen to content
+    // Function to ensure the main content is ready before fading out loader
     const prepareForTransition = () => {
-      // First, start fade out transition of the loading screen
-      setIsFadingOut(true);
+      // First make the content visible but with opacity 0
+      setContentVisible(true);
       
-      // Start rendering the content behind the loading screen
-      setShowMainContent(true);
-      
-      // Begin fading in the main content while the loading screen is still visible but fading
+      // Delayed start of the fade-out transition (give content a moment to render)
       setTimeout(() => {
-        setContentOpacity(1);
-      }, contentTransitionDelay / 2);
-      
-      // After the loading screen completes its transition, remove it
-      fadeTimeoutId = setTimeout(() => {
-        // Remove loading component completely
-        setIsLoading(false);
+        // Start fade out transition
+        setIsFadingOut(true);
         
-        // Cleanup classes
-        document.documentElement.classList.remove('loading-init');
-        
-        // Re-enable scrolling after a brief delay to ensure smooth transition
-        contentFadeInId = setTimeout(() => {
-          document.body.style.overflow = '';
-        }, 300);
-      }, fadeOutTime);
+        // After fade out is complete, remove loader completely
+        fadeTimeoutId = setTimeout(() => {
+          // Set state to remove loading component
+          setIsLoading(false);
+          
+          // Add a class to trigger main content fade-in
+          document.documentElement.classList.add('content-visible');
+          
+          // Cleanup classes and allow scrolling again - delayed slightly
+          contentFadeInTimeoutId = setTimeout(() => {
+            document.documentElement.classList.remove('loading-init');
+            document.body.style.overflow = '';
+          }, 300); // Short delay after loader removal
+        }, reducedMotion || isLowPoweredDevice ? 600 : 1000); // Increased fade-out time for smoother transition
+      }, 100);
     };
     
     // Set a maximum wait time regardless of page load status
     const maxWaitTime = reducedMotion || isLowPoweredDevice ? 3000 : 4000;
     
-    // Maximum time to wait before transitioning
+    // Maximum time to wait before transitioning, regardless of document ready state
     maxWaitTimeoutId = setTimeout(() => {
       prepareForTransition();
     }, maxWaitTime);
     
-    // Add load event handler
+    // Add load event handler as a safety to catch normal page load events
     const handleLoad = () => {
       // Clear the max wait timeout since the page has loaded
       clearTimeout(maxWaitTimeoutId);
@@ -108,43 +101,30 @@ const LoadingScreenWrapper: React.FC<LoadingScreenWrapperProps> = ({ children })
       clearTimeout(fadeTimeoutId);
       clearTimeout(loadTimeoutId);
       clearTimeout(maxWaitTimeoutId);
-      clearTimeout(contentFadeInId);
+      clearTimeout(contentFadeInTimeoutId);
       window.removeEventListener('load', handleLoad);
       document.documentElement.classList.remove('loading-init');
+      document.documentElement.classList.remove('content-visible');
       document.body.style.overflow = '';
     };
   }, []); // Run only once on mount
 
-  // Enhanced wrapper with animated content transition
   return (
     <>
-      {/* Animated main content container - conditionally render and animate */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ 
-          opacity: contentOpacity,
-          filter: showMainContent ? 'none' : 'blur(10px)',
-          scale: showMainContent ? 1 : 0.98
+      {/* Main content with fade-in animation controlled by CSS */}
+      <div 
+        className={`transition-opacity duration-1000 ease-in-out
+          ${contentVisible ? 'opacity-100' : 'opacity-0'}`}
+        style={{ 
+          opacity: contentVisible ? 1 : 0,
+          transition: 'opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1)'
         }}
-        transition={{ 
-          duration: 1.2,
-          ease: [0.22, 1, 0.36, 1]
-        }}
-        className="transition-all duration-1000 ease-in-out"
-        style={{ willChange: 'opacity, filter, transform' }}
       >
         {children}
-      </motion.div>
+      </div>
       
-      {/* Loading screen with improved transition */}
-      <AnimatePresence mode="wait">
-        {isLoading && (
-          <LoadingScreen 
-            isFadingOut={isFadingOut} 
-            shouldRevealContent={showMainContent}
-          />
-        )}
-      </AnimatePresence>
+      {/* Loading screen - removed from DOM when loading complete */}
+      {isLoading && <LoadingScreen isFadingOut={isFadingOut} />}
     </>
   );
 };

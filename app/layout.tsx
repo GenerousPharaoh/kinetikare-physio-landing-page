@@ -13,6 +13,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { optimizeScrollPerformance } from '@/lib/performance';
 import PerformanceOptimizer from '@/components/PerformanceOptimizer';
+import AccessibilityChecker from '@/components/AccessibilityChecker';
 
 // Keep Inter as defined for --font-inter (matches tailwind config)
 const inter = Inter({ 
@@ -118,6 +119,14 @@ export default function RootLayout({
         {/* Ensure proper viewport settings for responsive design */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
         
+        {/* PWA support - manifest and meta tags */}
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#4f46e5" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="Physio" />
+        <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+        
         {/* Critical loading and transition styles */}
         <style dangerouslySetInnerHTML={{ __html: `
           /* Override body background */
@@ -216,7 +225,7 @@ export default function RootLayout({
         {/* Preload critical images to improve load time */}
         <link rel="preload" as="image" href="/images/kareem-profile.png" />
       </head>
-      <body className="antialiased pb-16 md:pb-0 overflow-x-hidden transform-gpu">
+      <body className="antialiased pb-16 md:pb-0 overflow-x-hidden">
         {/* Performance optimization component */}
         <PerformanceOptimization />
         
@@ -227,33 +236,28 @@ export default function RootLayout({
         
         <LoadingScreenWrapper>
           {/* Header */}
-          <div className="transition-content transform-3d">
-            <Header />
-          </div>
+          <Header />
           
-          {/* Main content */}
-          <main id="main-content" className="min-h-screen flex flex-col overflow-x-hidden pt-16 xs:pt-20 transition-content">
-            {children}
-          </main>
-          
-          {/* Footer */}
-          <div className="transition-content">
+          {/* Main content with transition wrapper */}
+          <div className="main-content-wrapper">
+            <main id="main-content" className="min-h-screen flex flex-col overflow-x-hidden pt-16 xs:pt-20">
+              {children}
+            </main>
+            
+            {/* Footer */}
             <Footer />
           </div>
           
           {/* UI Components */}
-          <div className="transition-content fade-in-delay-1">
-            <FloatingCTA />
-          </div>
-          <div className="transition-content fade-in-delay-2">
-            <FloatingButtons />
-          </div>
-          <div className="transition-content fade-in-delay-1">
-            <MobileBottomNav />
-          </div>
+          <FloatingCTA />
+          <FloatingButtons />
+          <MobileBottomNav />
           
           {/* Performance optimizer */}
           <PerformanceOptimizer />
+          
+          {/* Accessibility Checker - only active in development */}
+          <AccessibilityChecker />
         </LoadingScreenWrapper>
         
         {/* Structured data for SEO */}
@@ -267,21 +271,12 @@ export default function RootLayout({
           {`
             // Optimize initial load performance
             document.addEventListener('DOMContentLoaded', function() {
-              // Add class to body after content is loaded for transition effects
-              setTimeout(() => {
-                document.body.classList.add('content-loaded');
-              }, 500);
-              
               // Add intersection observer for lazy-loaded content
               if ('IntersectionObserver' in window) {
                 const lazyLoadObserver = new IntersectionObserver((entries) => {
                   entries.forEach(entry => {
                     if (entry.isIntersecting) {
                       const element = entry.target;
-                      
-                      // Add animation class for revealed elements
-                      element.classList.add('fade-in-content');
-                      
                       if (element.dataset.src) {
                         element.src = element.dataset.src;
                         delete element.dataset.src;
@@ -293,11 +288,6 @@ export default function RootLayout({
                 
                 // Observe all elements with data-src attribute
                 document.querySelectorAll('[data-src]').forEach(el => {
-                  lazyLoadObserver.observe(el);
-                });
-                
-                // Observe elements that should animate on scroll
-                document.querySelectorAll('.animate-on-view').forEach(el => {
                   lazyLoadObserver.observe(el);
                 });
               }
@@ -319,6 +309,24 @@ export default function RootLayout({
               updateImagesForScreenSize();
               window.addEventListener('resize', updateImagesForScreenSize);
             });
+          `}
+        </Script>
+        
+        {/* Service Worker Registration for PWA */}
+        <Script id="register-service-worker" strategy="afterInteractive">
+          {`
+            if ('serviceWorker' in navigator) {
+              window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js').then(
+                  function(registration) {
+                    console.log('Service Worker registration successful with scope: ', registration.scope);
+                  },
+                  function(err) {
+                    console.log('Service Worker registration failed: ', err);
+                  }
+                );
+              });
+            }
           `}
         </Script>
       </body>

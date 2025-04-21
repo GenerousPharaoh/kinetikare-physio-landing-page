@@ -14,11 +14,11 @@ const HeroSection = memo(function HeroSection() {
   }, []);
 
   return (
-    <section className="relative py-24 md:py-32 lg:py-40 xl:py-48 overflow-hidden min-h-screen flex items-center">
+    <section className="relative py-24 md:py-32 lg:py-40 xl:py-48 overflow-hidden min-h-screen flex items-center hero-fade-in">
       {/* Enhanced backdrop image with subtle parallax */}
       <div className="absolute inset-0 z-0">
         <motion.div 
-          className="h-full w-full overflow-hidden"
+          className="h-full w-full overflow-hidden image-fade-in"
           initial={{ scale: 1.05 }}
           animate={{ 
             y: ["0%", "-2%", "0%"],
@@ -61,20 +61,20 @@ const HeroSection = memo(function HeroSection() {
         <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] rounded-full bg-primary-500/5 blur-[80px]"></div>
       </div>
       
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-12 items-center">
+      <div className="container mx-auto px-4 relative z-10 above-fold-content">
+        <div className="grid lg:grid-cols-12 gap-12 items-center stagger-fade-in">
           {/* Left side content - Enhanced text and CTA */}
           <div className="lg:col-span-7 text-left">
             <motion.div 
               className="max-w-3xl"
               initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
+              animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
             >
               <motion.span 
                 className="inline-block px-5 py-1.5 text-sm font-medium bg-primary-700/40 text-white rounded-full backdrop-blur-md mb-6 border border-white/10 shadow-lg"
                 initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
+                animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : -20 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
                 Experience Expert Care in Burlington
@@ -92,7 +92,7 @@ const HeroSection = memo(function HeroSection() {
               <motion.p 
                 className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl"
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                animate={{ opacity: isVisible ? 1 : 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
                 Revealing the subtle patterns in your movement to design targeted interventions that restore function, 
@@ -123,7 +123,7 @@ const HeroSection = memo(function HeroSection() {
               <motion.div 
                 className="mt-14 bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 max-w-md shadow-xl relative overflow-hidden"
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
                 {/* Decorative element */}
@@ -146,9 +146,9 @@ const HeroSection = memo(function HeroSection() {
           
           {/* Right side - Enhanced decorative element with glass morphism */}
           <motion.div 
-            className="lg:col-span-5 hidden lg:block"
+            className="lg:col-span-5 hidden lg:block image-fade-in"
             initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
+            animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.95 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <div className="relative h-[580px] w-full">
@@ -159,11 +159,11 @@ const HeroSection = memo(function HeroSection() {
                 
                 <div className="p-10 h-full flex flex-col justify-center">
                   {/* Enhanced professional credentials */}
-                  <div className="mb-10 flex flex-col gap-5">
+                  <div className="mb-10 flex flex-col gap-5 stagger-fade-in">
                     <motion.div 
                       className="flex items-center gap-4 bg-white/10 backdrop-blur-sm rounded-xl px-5 py-4 border border-white/10 shadow-lg"
                       initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
+                      animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : 20 }}
                       transition={{ duration: 0.5, delay: 0.3 }}
                     >
                       <div className="w-12 h-12 rounded-full bg-primary-700/50 flex items-center justify-center">
@@ -180,7 +180,7 @@ const HeroSection = memo(function HeroSection() {
                     <motion.div 
                       className="flex items-center gap-4 bg-white/10 backdrop-blur-sm rounded-xl px-5 py-4 border border-white/10 shadow-lg"
                       initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
+                      animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : 20 }}
                       transition={{ duration: 0.5, delay: 0.5 }}
                     >
                       <div className="w-12 h-12 rounded-full bg-primary-700/50 flex items-center justify-center">
@@ -199,7 +199,7 @@ const HeroSection = memo(function HeroSection() {
                   <motion.div 
                     className="mt-auto"
                     initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
                     transition={{ duration: 0.5, delay: 0.7 }}
                   >
                     <p className="text-white/90 text-base mb-4 font-medium">Specialized Treatment For:</p>

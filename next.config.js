@@ -16,11 +16,14 @@ const securityHeaders = [
     key: 'Referrer-Policy',
     value: 'origin-when-cross-origin'
   },
-  // // Enable HSTS (uncomment and configure ONLY if your site fully supports HTTPS)
-  // {
-  //   key: 'Strict-Transport-Security',
-  //   value: 'max-age=63072000; includeSubDomains; preload'
-  // },
+  // IMPORTANT: Ensure your site is fully configured for HTTPS before enabling HSTS.
+  {
+    key: 'Strict-Transport-Security',
+    // Use a smaller max-age initially (e.g., 1 day = 86400) for testing, then increase.
+    // The value 63072000 is 2 years. includeSubDomains applies this to subdomains.
+    // 'preload' allows submission to browser HSTS preload lists (permanent).
+    value: 'max-age=86400; includeSubDomains' // Start with 1 day max-age for safety
+  },
   // // Basic Content Security Policy (CSP) - **NEEDS CAREFUL CONFIGURATION** - COMMENTED OUT FOR NOW
   // {
   //   key: 'Content-Security-Policy',
@@ -47,7 +50,7 @@ const nextConfig = {
   eslint: {
     // Warning: This allows production builds to successfully complete even if
     // your project has ESLint errors.
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: false, // Enforce ESLint checks during production builds
   },
   
   // Add security headers function

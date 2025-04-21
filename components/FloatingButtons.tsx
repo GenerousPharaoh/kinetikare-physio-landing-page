@@ -101,7 +101,7 @@ export default function FloatingButtons() {
         rel="noopener noreferrer"
         onMouseEnter={() => setShowTooltip('book')}
         onMouseLeave={() => setShowTooltip(null)}
-        className="group flex items-center justify-center w-14 h-14 bg-primary-600/90 backdrop-blur-md border border-primary-500/50 text-white rounded-full shadow-lg transition-colors duration-300 hover:bg-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+        className="group relative flex items-center justify-center w-14 h-14 bg-primary-600/90 backdrop-blur-md border border-primary-500/50 text-white rounded-full shadow-lg transition-colors duration-300 hover:bg-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
         aria-label="Book an appointment"
         title="Book an appointment"
         variants={buttonVariants}
@@ -111,15 +111,17 @@ export default function FloatingButtons() {
         <CalendarDaysIcon className="h-6 w-6" />
         <AnimatePresence>
           {showTooltip === 'book' && (
-            <motion.span 
-              className="absolute right-full mr-4 top-1/2 transform -translate-y-1/2 px-3 py-1.5 bg-primary-600/90 backdrop-blur-md border border-primary-500/50 text-white text-xs font-medium rounded-md shadow-md whitespace-nowrap pointer-events-none"
+            <motion.div 
+              className="absolute right-[calc(100%+0.5rem)] top-1/2 transform -translate-y-1/2 w-max"
               initial="hidden"
               animate="visible"
               exit="exit"
               variants={tooltipVariants}
             >
-              Book Now
-            </motion.span>
+              <span className="block px-3 py-1.5 bg-primary-600/90 backdrop-blur-md border border-primary-500/50 text-white text-xs font-medium rounded-md shadow-md whitespace-nowrap">
+                Book Now
+              </span>
+            </motion.div>
           )}
         </AnimatePresence>
       </motion.a>
@@ -129,7 +131,7 @@ export default function FloatingButtons() {
         href="tel:+19056346000"
         onMouseEnter={() => setShowTooltip('call')}
         onMouseLeave={() => setShowTooltip(null)}
-        className="group flex items-center justify-center w-14 h-14 bg-green-600/90 backdrop-blur-md border border-green-500/50 text-white rounded-full shadow-lg transition-colors duration-300 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-background"
+        className="group relative flex items-center justify-center w-14 h-14 bg-green-600/90 backdrop-blur-md border border-green-500/50 text-white rounded-full shadow-lg transition-colors duration-300 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-background"
         aria-label="Call us"
         title="Call us"
         variants={buttonVariants}
@@ -139,15 +141,17 @@ export default function FloatingButtons() {
         <PhoneIcon className="h-6 w-6" />
         <AnimatePresence>
           {showTooltip === 'call' && (
-            <motion.span 
-              className="absolute right-full mr-4 top-1/2 transform -translate-y-1/2 px-3 py-1.5 bg-green-600/90 backdrop-blur-md border border-green-500/50 text-white text-xs font-medium rounded-md shadow-md whitespace-nowrap pointer-events-none"
+            <motion.div 
+              className="absolute right-[calc(100%+0.5rem)] top-1/2 transform -translate-y-1/2 w-max"
               initial="hidden"
               animate="visible"
               exit="exit"
               variants={tooltipVariants}
             >
-              Call Us
-            </motion.span>
+              <span className="block px-3 py-1.5 bg-green-600/90 backdrop-blur-md border border-green-500/50 text-white text-xs font-medium rounded-md shadow-md whitespace-nowrap">
+                Call Us
+              </span>
+            </motion.div>
           )}
         </AnimatePresence>
       </motion.a>
@@ -159,7 +163,7 @@ export default function FloatingButtons() {
             onClick={scrollToTop}
             onMouseEnter={() => setShowTooltip('top')}
             onMouseLeave={() => setShowTooltip(null)}
-            className="group flex items-center justify-center w-14 h-14 bg-accent/90 backdrop-blur-md border border-accent/50 text-white rounded-full shadow-lg transition-colors duration-300 hover:bg-accent-dark focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background"
+            className="group relative flex items-center justify-center w-14 h-14 bg-accent/90 backdrop-blur-md border border-accent/50 text-white rounded-full shadow-lg transition-colors duration-300 hover:bg-accent-dark focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background"
             aria-label="Scroll to top"
             title="Scroll to top"
             variants={buttonVariants}
@@ -172,15 +176,17 @@ export default function FloatingButtons() {
             <ArrowUpIcon className="h-6 w-6" />
             <AnimatePresence>
               {showTooltip === 'top' && (
-                <motion.span 
-                  className="absolute right-full mr-4 top-1/2 transform -translate-y-1/2 px-3 py-1.5 bg-accent/90 backdrop-blur-md border border-accent/50 text-white text-xs font-medium rounded-md shadow-md whitespace-nowrap pointer-events-none"
+                <motion.div 
+                  className="absolute right-[calc(100%+0.5rem)] top-1/2 transform -translate-y-1/2 w-max"
                   initial="hidden"
                   animate="visible"
                   exit="exit"
                   variants={tooltipVariants}
                 >
-                  Back to Top
-                </motion.span>
+                  <span className="block px-3 py-1.5 bg-accent/90 backdrop-blur-md border border-accent/50 text-white text-xs font-medium rounded-md shadow-md whitespace-nowrap">
+                    Back to Top
+                  </span>
+                </motion.div>
               )}
             </AnimatePresence>
           </motion.button>

@@ -276,7 +276,7 @@ export default function ServicesSection({ onBookLinkClick }: ServicesSectionProp
               className="inline-block mb-4"
             >
               <div className="premium-icon-badge premium-icon-badge-circle premium-icon-badge-accent">
-                <HeartPulseIcon className="w-8 h-8" />
+                <FaHandsHelping className="w-8 h-8" />
               </div>
             </motion.div>
             

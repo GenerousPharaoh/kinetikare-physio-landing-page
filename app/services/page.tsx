@@ -7,7 +7,7 @@ export default function Services() {
       <section className="bg-navy-deep text-white py-16 relative">
         <div className="absolute inset-0 bg-gradient-to-r from-navy-deep via-navy-deep to-navy-light opacity-90"></div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center animate-fade-in">
+          <div className="max-w-4xl mx-auto text-center animate-fade-in" style={{ willChange: 'opacity', transform: 'translateZ(0)' }}>
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">
               Our <span className="text-gold-accent">Services</span>
             </h1>
@@ -23,7 +23,7 @@ export default function Services() {
         <div className="container mx-auto px-4">
         
           {/* Service 1 */}
-          <div id="manual-therapy" className="flex flex-col md:flex-row items-center gap-12 mb-20 animate-fade-in">
+          <div id="manual-therapy" className="flex flex-col md:flex-row items-center gap-12 mb-20 animate-fade-in" style={{ willChange: 'opacity, transform', transform: 'translateZ(0)' }}>
             <div className="md:w-1/2">
               <div className="relative w-full h-80 md:h-[400px] rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500">
                 <PlaceholderImage
@@ -33,6 +33,8 @@ export default function Services() {
                   style={{ objectFit: 'cover' }}
                   className="transform hover:scale-105 transition-transform duration-700"
                   category="Manual Therapy"
+                  priority={true}
+                  data-critical="true"
                 />
               </div>
             </div>
@@ -65,7 +67,7 @@ export default function Services() {
           </div>
           
           {/* Service 2 */}
-          <div id="sports-injuries" className="flex flex-col md:flex-row-reverse items-center gap-12 mb-20 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+          <div id="sports-injuries" className="flex flex-col md:flex-row-reverse items-center gap-12 mb-20 animate-fade-in" style={{ animationDelay: "0.1s", willChange: 'opacity, transform', transform: 'translateZ(0)' }}>
             <div className="md:w-1/2">
               <div className="relative w-full h-80 md:h-[400px] rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500">
                 <PlaceholderImage
@@ -75,6 +77,7 @@ export default function Services() {
                   style={{ objectFit: 'cover' }}
                   className="transform hover:scale-105 transition-transform duration-700"
                   category="Sports Rehabilitation"
+                  priority={true}
                 />
               </div>
             </div>
@@ -108,7 +111,7 @@ export default function Services() {
           </div>
           
           {/* Service 3 */}
-          <div id="dry-needling" className="flex flex-col md:flex-row items-center gap-12 mb-20 animate-fade-in" style={{ animationDelay: "0.4s" }}>
+          <div id="dry-needling" className="flex flex-col md:flex-row items-center gap-12 mb-20 animate-fade-in" style={{ animationDelay: "0.2s", willChange: 'opacity, transform', transform: 'translateZ(0)' }}>
             <div className="md:w-1/2">
               <div className="relative w-full h-80 md:h-[400px] rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500">
                 <PlaceholderImage
@@ -151,7 +154,7 @@ export default function Services() {
           </div>
           
           {/* Service 4 */}
-          <div id="exercise-prescription" className="flex flex-col md:flex-row-reverse items-center gap-12 animate-fade-in" style={{ animationDelay: "0.6s" }}>
+          <div id="exercise-prescription" className="flex flex-col md:flex-row-reverse items-center gap-12 animate-fade-in" style={{ animationDelay: "0.3s", willChange: 'opacity, transform', transform: 'translateZ(0)' }}>
             <div className="md:w-1/2">
               <div className="relative w-full h-80 md:h-[400px] rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500">
                 <PlaceholderImage
@@ -198,7 +201,7 @@ export default function Services() {
       {/* CTA Section */}
       <section className="py-16 bg-navy-deep text-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center animate-fade-in">
+          <div className="max-w-3xl mx-auto text-center animate-fade-in" style={{ willChange: 'opacity', transform: 'translateZ(0)' }}>
             <h2 className="text-3xl font-heading font-bold mb-4">
               Ready to Start Your <span className="text-gold-accent">Recovery Journey</span>?
             </h2>

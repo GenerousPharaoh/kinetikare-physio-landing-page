@@ -281,27 +281,31 @@ body {
     @apply w-5 h-5 text-lg border border-neutral-300 rounded focus:outline-none focus:ring-2 focus:ring-accent/60 focus:border-transparent bg-white;
   }
   
-  /* Animation classes */
+  /* Animation classes - Optimized for better performance */
   .animated-fade-up {
-    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: fastFadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: opacity, transform;
+    transform: translateZ(0);
   }
 
-  @keyframes fadeInUp {
+  @keyframes fastFadeInUp {
     from {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(20px) translateZ(0);
     }
     to {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0) translateZ(0);
     }
   }
 
   .animated-fade {
-    animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: fastFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: opacity;
+    transform: translateZ(0);
   }
 
-  @keyframes fadeIn {
+  @keyframes fastFadeIn {
     from {
       opacity: 0;
     }
@@ -310,34 +314,57 @@ body {
     }
   }
 
-  /* Slide animations for testimonials */
+  /* Optimized slide animations for better performance */
   .animate-slide-left {
-    animation: slideLeft 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: fastSlideLeft 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: opacity, transform;
+    transform: translateZ(0);
   }
 
   .animate-slide-right {
-    animation: slideRight 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: fastSlideRight 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: opacity, transform;
+    transform: translateZ(0);
   }
 
-  @keyframes slideLeft {
+  @keyframes fastSlideLeft {
     from {
       opacity: 0;
-      transform: translateX(30px);
+      transform: translateX(20px) translateZ(0);
     }
     to {
       opacity: 1;
-      transform: translateX(0);
+      transform: translateX(0) translateZ(0);
     }
   }
 
-  @keyframes slideRight {
+  @keyframes fastSlideRight {
     from {
       opacity: 0;
-      transform: translateX(-30px);
+      transform: translateX(-20px) translateZ(0);
     }
     to {
       opacity: 1;
-      transform: translateX(0);
+      transform: translateX(0) translateZ(0);
+    }
+  }
+
+  /* Improved fade-in animations for the Services page */
+  .animate-fade-in {
+    opacity: 0;
+    animation: optimizedFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: opacity, transform;
+    transform: translateZ(0);
+  }
+
+  @keyframes optimizedFadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(10px) translateZ(0);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) translateZ(0);
     }
   }
 

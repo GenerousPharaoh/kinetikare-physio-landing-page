@@ -138,7 +138,7 @@ const HeroSection = memo(function HeroSection() {
                   <div className="text-amber-200 tracking-wider">★★★★★</div>
                 </div>
                 <p className="text-sm font-medium text-white/90 italic leading-relaxed relative z-10">
-                  "The treatment I received for my shoulder issue was excellent. Professional, thorough, and effective."
+                  &quot;The treatment I received for my shoulder issue was excellent. Professional, thorough, and effective.&quot;
                 </p>
               </motion.div>
             </motion.div>

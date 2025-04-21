@@ -84,9 +84,11 @@ const nextConfig = {
   experimental: {
     optimizeCss: true, // Optimize CSS
     scrollRestoration: true, // Improve scroll restoration
-    serverComponentsExternalPackages: ['sharp'], // Optimize image processing
     webVitalsAttribution: ['CLS', 'LCP', 'FID', 'INP'], // Track Web Vitals
   },
+  
+  // Moved from experimental
+  serverExternalPackages: ['sharp'],
   
   // Enable static compression
   compress: true,
@@ -154,12 +156,9 @@ const nextConfig = {
     return config;
   },
 
-  // Optimize font loading
-  optimizeFonts: true,
-
   // Limit number of simultaneous image optimizations in development
   devIndicators: {
-    buildActivityPosition: 'bottom-right',
+    position: 'bottom-right', // Renamed from buildActivityPosition
   },
 
   // Enable production source maps for better debugging

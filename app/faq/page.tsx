@@ -165,7 +165,7 @@ export default function FAQPage() {
               Still Have Questions?
             </h2>
             <p className="text-primary-700 mb-6">
-              Can't find the answer you're looking for? Feel free to contact me directly for personalized assistance.
+              Can&apos;t find the answer you&apos;re looking for? Feel free to contact me directly for personalized assistance.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 

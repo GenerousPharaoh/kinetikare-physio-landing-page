@@ -129,7 +129,7 @@ const ReviewsSection = () => {
               />
             </h2>
             <p className="text-lg text-primary-600 max-w-3xl mx-auto mt-6">
-              Don't just take our word for it. Hear what our patients have to say about their experience and results.
+              Don&apos;t just take our word for it. Hear what our patients have to say about their experience and results.
             </p>
           </motion.div>
 
@@ -166,7 +166,7 @@ const ReviewsSection = () => {
                 <blockquote className="text-lg md:text-xl text-primary-700 text-center mb-6 relative">
                   <QuoteIcon className="absolute -top-6 -left-4 w-12 h-12 text-primary-200 opacity-70" aria-hidden="true" />
                   <p className="relative z-10">
-                    "As someone who's tried many physiotherapists over the years for my chronic back pain, I can confidently say that the care I received here was exceptional. Their approach is thorough, personalized, and effective. For the first time in years, I'm able to enjoy activities I thought were behind me."
+                    &quot;As someone who&apos;s tried many physiotherapists over the years for my chronic back pain, I can confidently say that the care I received here was exceptional. Their approach is thorough, personalized, and effective. For the first time in years, I&apos;m able to enjoy activities I thought were behind me.&quot;
                   </p>
                 </blockquote>
                 

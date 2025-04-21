@@ -133,7 +133,7 @@ export default function AboutSection() {
             >
               {/* Tagline */}
               <p className="text-xl italic text-accent mb-5 font-light">
-                "Personalized care for optimal recovery"
+                &quot;Personalized care for optimal recovery&quot;
               </p>
               
               {/* Heading with primary color text */}

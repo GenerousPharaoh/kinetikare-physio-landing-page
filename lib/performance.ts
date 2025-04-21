@@ -146,7 +146,8 @@ export const optimizeScrollPerformance = (): void => {
   optimizeImages();
 };
 
-export default {
+// Assign the object to a variable before exporting
+const performanceUtils = {
   prefersReducedMotion,
   isMobileDevice,
   isLowPoweredDevice,
@@ -158,3 +159,5 @@ export default {
   isElementInViewport,
   optimizeScrollPerformance,
 }; 
+
+export default performanceUtils; 

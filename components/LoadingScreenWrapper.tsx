@@ -17,6 +17,7 @@ const LoadingScreenWrapper: React.FC<LoadingScreenWrapperProps> = ({ children })
   const [isLoading, setIsLoading] = useState(true);
   const [isFadingOut, setIsFadingOut] = useState(false);
   const [contentVisible, setContentVisible] = useState(false);
+  const [contentReady, setContentReady] = useState(false);
   
   useEffect(() => {
     // Safety check for SSR
@@ -33,6 +34,7 @@ const LoadingScreenWrapper: React.FC<LoadingScreenWrapperProps> = ({ children })
     let loadTimeoutId: NodeJS.Timeout;
     let maxWaitTimeoutId: NodeJS.Timeout;
     let contentFadeInTimeoutId: NodeJS.Timeout;
+    let contentReadyTimeoutId: NodeJS.Timeout;
     
     // Check for reduced motion preference and device capabilities
     const reducedMotion = prefersReducedMotion();
@@ -43,6 +45,9 @@ const LoadingScreenWrapper: React.FC<LoadingScreenWrapperProps> = ({ children })
     const prepareForTransition = () => {
       // First preload critical resources and make content ready but invisible
       const preloadResources = async () => {
+        // Begin preparing content in the background while loader is still visible
+        setContentReady(true);
+        
         // Make sure all important images and resources are loaded
         const criticalImages = document.querySelectorAll('img[data-critical="true"]');
         
@@ -68,28 +73,32 @@ const LoadingScreenWrapper: React.FC<LoadingScreenWrapperProps> = ({ children })
           }
         }
         
-        // First make the content ready but with opacity 0
-        setContentVisible(true);
-        
-        // Short timeout to ensure DOM update before starting transition
-        setTimeout(() => {
-          // Start fade out transition with proper timing
-          setIsFadingOut(true);
+        // Set content ready first but still invisible
+        contentReadyTimeoutId = setTimeout(() => {
+          // Make content ready in the DOM first, but still with opacity 0
+          setContentVisible(true);
           
-          // After fade out is complete, remove loader completely
-          fadeTimeoutId = setTimeout(() => {
-            // Set state to remove loading component
-            setIsLoading(false);
+          // Give the browser a moment to paint the content (still invisible)
+          setTimeout(() => {
+            // Now start fading out the loading screen
+            setIsFadingOut(true);
             
-            // Add a class to trigger main content fade-in
-            document.documentElement.classList.add('content-visible');
-            
-            // Wait until main content is fully visible before allowing scroll
-            contentFadeInTimeoutId = setTimeout(() => {
-              document.documentElement.classList.remove('loading-init');
-              document.body.style.overflow = '';
-            }, 300); // Short delay after loader removal
-          }, reducedMotion || isLowPoweredDevice ? 600 : 1000); // Increased fade-out time for smoother transition
+            // After loading screen starts fading out, remove it completely 
+            // and make content visible in a coordinated way
+            fadeTimeoutId = setTimeout(() => {
+              // Now remove the loading component once it's faded away
+              setIsLoading(false);
+              
+              // At this point, add the class that makes content fully visible
+              document.documentElement.classList.add('content-visible');
+              
+              // Wait for content transition before allowing scrolling
+              contentFadeInTimeoutId = setTimeout(() => {
+                document.documentElement.classList.remove('loading-init');
+                document.body.style.overflow = '';
+              }, 300);
+            }, reducedMotion || isLowPoweredDevice ? 600 : 900);
+          }, 100);
         }, 100);
       };
       
@@ -133,6 +142,7 @@ const LoadingScreenWrapper: React.FC<LoadingScreenWrapperProps> = ({ children })
       clearTimeout(loadTimeoutId);
       clearTimeout(maxWaitTimeoutId);
       clearTimeout(contentFadeInTimeoutId);
+      clearTimeout(contentReadyTimeoutId);
       window.removeEventListener('load', handleLoad);
       document.documentElement.classList.remove('loading-init');
       document.documentElement.classList.remove('content-visible');
@@ -142,14 +152,15 @@ const LoadingScreenWrapper: React.FC<LoadingScreenWrapperProps> = ({ children })
 
   return (
     <>
-      {/* Main content with improved fade-in animation for smoother transition */}
+      {/* Render children in the DOM but keep them hidden until needed */}
       <div 
-        className={`transition-opacity ease-in-out
-          ${contentVisible ? 'opacity-100' : 'opacity-0'}`}
+        className={`main-content-wrapper ${contentReady ? 'ready' : ''} ${contentVisible ? 'visible' : ''}`}
         style={{ 
           opacity: contentVisible ? 1 : 0,
-          visibility: contentVisible ? 'visible' : 'hidden',
+          visibility: contentReady ? 'visible' : 'hidden',
           transition: 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0s',
+          transform: 'translateZ(0)',
+          willChange: 'opacity'
         }}
       >
         {children}

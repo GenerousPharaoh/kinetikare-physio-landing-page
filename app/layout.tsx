@@ -209,6 +209,8 @@ export default function RootLayout({
             backface-visibility: hidden;
             will-change: opacity;
             transition: opacity 0.3s ease-in-out;
+            background-color: var(--background-color, #F9F8F6);
+            min-height: 100vh;
           }
           
           /* Performance optimization styles */
@@ -273,6 +275,12 @@ export default function RootLayout({
               min-height: 44px;
               min-width: 44px;
             }
+          }
+          
+          /* Prevent flash of unstyled content */
+          html:not(.loading-init):not(.content-visible) .main-content-wrapper {
+            opacity: 0;
+            visibility: hidden;
           }
         `}} />
       </head>

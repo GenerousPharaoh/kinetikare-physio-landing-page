@@ -1246,14 +1246,36 @@ html.loading-init {
   overflow: hidden;
 }
 
-/* Main content wrapper transitions */
+/* Main content wrapper transitions - improved to prevent flash */
 .main-content-wrapper {
   opacity: 0;
-  transition: opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  visibility: hidden;
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  background-color: var(--background-color, #F9F8F6);
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: opacity, transform;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0.8s;
+}
+
+/* Content is in DOM but not visible yet */
+.main-content-wrapper.ready {
+  visibility: visible;
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0s;
+}
+
+/* Content is now visible */
+.main-content-wrapper.visible {
+  opacity: 1;
+  visibility: visible;
 }
 
 html.content-visible .main-content-wrapper {
   opacity: 1;
+  visibility: visible;
 }
 
 /* Staggered element fade-in */

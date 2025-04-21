@@ -30,7 +30,7 @@ export default function LoadingScreen({ isFadingOut = false }: LoadingScreenProp
       setIsComplete(true);
       setTimeout(() => {
         setShouldRender(false);
-      }, 1200); // Extended fade-out duration
+      }, 1400); // Extended fade-out duration for smoother transition
     }
     
     return () => {
@@ -47,12 +47,12 @@ export default function LoadingScreen({ isFadingOut = false }: LoadingScreenProp
       initial={{ opacity: 1 }}
       animate={{ 
         opacity: isComplete ? 0 : 1,
-        scale: isComplete ? 1.025 : 1, // Subtle scaling on exit
+        scale: isComplete ? 1.02 : 1, // Subtle scaling on exit
       }}
       exit={{ opacity: 0 }}
       transition={{ 
-        duration: isComplete ? 1.5 : 1,
-        ease: isComplete ? [0.22, 1, 0.36, 1] : "easeInOut" // Custom bezier curve for smoother exit
+        duration: isComplete ? 1.2 : 1,
+        ease: isComplete ? [0.16, 1, 0.3, 1] : "easeInOut" // Match main content timing 
       }}
       style={{ 
         pointerEvents: isComplete ? 'none' : 'auto',

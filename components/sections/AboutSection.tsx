@@ -198,14 +198,54 @@ export default function AboutSection() {
                       </div>
                       <h4 className="font-semibold text-primary-700 text-lg">{qual.title}</h4>
                     </div>
-                    <ul className="space-y-2 text-sm text-primary-600 pl-1">
-                      {qual.items.map((item, i) => (
-                        <li key={i} className="flex items-start">
-                          <span className="text-accent mr-2.5 mt-1 inline-block w-1.5 h-1.5 rounded-full bg-current flex-shrink-0" aria-hidden="true"></span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    {/* Conditional rendering for Affiliations */}
+                    {qual.id === 'affiliations' ? (
+                      <div className="flex flex-col sm:flex-row gap-4 items-center mt-3 space-y-4 sm:space-y-0 sm:space-x-4">
+                        {/* CPA Logo */}
+                        <a 
+                          href="https://physiotherapy.ca/" 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="block hover:opacity-80 transition-opacity duration-200"
+                          aria-label="Visit Canadian Physiotherapy Association website"
+                        >
+                          <Image
+                            src="/images/canadian-physio-association-logo.png"
+                            alt="Canadian Physiotherapy Association Logo"
+                            width={180} // Adjust size as needed
+                            height={50} // Adjust size based on aspect ratio
+                            style={{ height: 'auto' }} // Maintain aspect ratio
+                            className="max-h-12 object-contain"
+                          />
+                        </a>
+                        {/* CPO Logo */}
+                        <a 
+                          href="https://collegept.org/" 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="block hover:opacity-80 transition-opacity duration-200"
+                          aria-label="Visit College of Physiotherapists of Ontario website"
+                        >
+                          <Image
+                            src="/images/college-of-physiotherapists-of-ontario-logo.webp"
+                            alt="College of Physiotherapists of Ontario Logo"
+                            width={150} // Adjust size as needed
+                            height={50} // Adjust size based on aspect ratio
+                            style={{ height: 'auto' }} // Maintain aspect ratio
+                            className="max-h-12 object-contain"
+                          />
+                        </a>
+                      </div>
+                    ) : (
+                      <ul className="space-y-2 text-sm text-primary-600 pl-1">
+                        {qual.items.map((item, i) => (
+                          <li key={i} className="flex items-start">
+                            <span className="text-accent mr-2.5 mt-1 inline-block w-1.5 h-1.5 rounded-full bg-current flex-shrink-0" aria-hidden="true"></span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </motion.div>
                 );
               })}

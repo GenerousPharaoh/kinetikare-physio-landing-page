@@ -126,10 +126,11 @@ export default function TestimonialsSection() {
       
       {/* Content container */}
       <div className="container mx-auto px-4 relative z-10">
-        {/* Section Header */}
+        {/* Section Header - Using standard CSS transitions for better performance */}
         <div 
           ref={ref}
           className={`text-center mb-16 md:mb-20 transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+          style={{ willChange: 'opacity, transform' }}
         >
           <span className="inline-block py-1 px-3 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">Voices of Recovery</span>
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-primary-700">
@@ -141,7 +142,7 @@ export default function TestimonialsSection() {
           </p>
         </div>
         
-        {/* Testimonial Carousel - Redesigned for Elegance */}
+        {/* Testimonial Carousel - Optimized for performance */}
         <div className="max-w-4xl mx-auto">
           <div 
             className="relative overflow-hidden mb-12"
@@ -157,10 +158,11 @@ export default function TestimonialsSection() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.98 }}
                   transition={{ 
-                    duration: 0.65, 
+                    duration: 0.5, 
                     ease: [0.32, 0.72, 0, 1] // Custom easing for smooth transitions
                   }}
                   className="bg-white backdrop-blur-sm border border-primary-100 rounded-xl p-10 md:p-12 shadow-lg overflow-hidden"
+                  style={{ willChange: 'transform, opacity' }}
                 >
                   {/* Premium gradient accent */}
                   <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent/50 via-accent to-accent/50"></div>
@@ -195,18 +197,8 @@ export default function TestimonialsSection() {
                     {/* Customer Info with improved spacing */}
                     <div className="flex flex-col items-center mt-12 pt-6 border-t border-primary-100/50">
                       <div className="w-16 h-16 flex items-center justify-center bg-accent/20 text-accent rounded-full mb-4 shadow-lg relative overflow-hidden">
-                        {/* Subtle animated background for avatar circle */}
-                        <motion.div 
-                          className="absolute inset-0 bg-gradient-to-br from-accent/10 to-accent/30"
-                          animate={{
-                            rotate: [0, 360],
-                          }}
-                          transition={{
-                            duration: 20,
-                            ease: "linear",
-                            repeat: Infinity,
-                          }}
-                        />
+                        {/* Simpler static background for better performance */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-accent/30"></div>
                         <span className="text-primary-700 text-2xl font-bold relative">
                           {testimonials[activeIndex].name[0]}
                         </span>
@@ -219,14 +211,15 @@ export default function TestimonialsSection() {
               </AnimatePresence>
             </div>
             
-            {/* Navigation Controls - Enhanced and repositioned */}
+            {/* Navigation Controls - Simplified animations */}
             <div className="absolute top-1/2 left-0 md:left-2 transform -translate-y-1/2 z-10">
               <motion.button 
                 onClick={handlePrevious}
                 className="w-12 h-12 rounded-full bg-white hover:bg-accent border border-primary-200 flex items-center justify-center text-primary-700 hover:text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all duration-300"
                 aria-label="Previous testimonial"
-                whileHover={{ x: -5, scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ x: -2, scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                style={{ willChange: 'transform' }}
               >
                 <ArrowLeftIcon className="h-5 w-5" />
               </motion.button>
@@ -237,18 +230,19 @@ export default function TestimonialsSection() {
                 onClick={handleNext}
                 className="w-12 h-12 rounded-full bg-white hover:bg-accent border border-primary-200 flex items-center justify-center text-primary-700 hover:text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all duration-300"
                 aria-label="Next testimonial"
-                whileHover={{ x: 5, scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ x: 2, scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                style={{ willChange: 'transform' }}
               >
                 <ArrowRightIcon className="h-5 w-5" />
               </motion.button>
             </div>
           </div>
           
-          {/* Improved Indicator dots */}
+          {/* Simplified Indicator dots */}
           <div className="flex justify-center space-x-3 mt-6">
             {testimonials.map((_, idx) => (
-              <motion.button
+              <button
                 key={idx}
                 onClick={() => {
                   if (timerRef.current) clearTimeout(timerRef.current);
@@ -258,10 +252,10 @@ export default function TestimonialsSection() {
                   setTimeout(() => setPaused(false), 4000);
                   startAutoSlide();
                 }}
-                className="group focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2 focus:ring-offset-neutral-50 rounded-full"
+                className={`group focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2 focus:ring-offset-neutral-50 rounded-full transition-transform duration-200 hover:scale-110 ${
+                  idx === activeIndex ? 'scale-105' : 'scale-100'
+                }`}
                 aria-label={`Go to testimonial ${idx + 1}`}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
               >
                 <div
                   className={`h-3 rounded-full transition-all duration-300 ${
@@ -270,7 +264,7 @@ export default function TestimonialsSection() {
                       : 'w-3 bg-primary-200 hover:bg-primary-300'
                   }`}
                 />
-              </motion.button>
+              </button>
             ))}
           </div>
         </div>

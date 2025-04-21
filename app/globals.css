@@ -1211,4 +1211,79 @@ html.loading-init body {
 }
 
 /* Import responsive utilities CSS */
-@import '../styles/responsive.css'; 
+@import '../styles/responsive.css';
+
+/* Loading screen transitions */
+.transition-content {
+  transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), 
+              filter 1.5s cubic-bezier(0.22, 1, 0.36, 1), 
+              transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, filter, transform;
+}
+
+/* Enhanced loading init styles for smoother transitions */
+html.loading-init {
+  overflow: hidden;
+}
+
+html.loading-init body {
+  overflow: hidden !important;
+  background-color: #000;
+}
+
+/* Fade in content with staggered timing for elements */
+.fade-in-content {
+  animation: fadeInContent 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes fadeInContent {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.fade-in-delay-1 {
+  animation-delay: 0.15s;
+}
+
+.fade-in-delay-2 {
+  animation-delay: 0.3s;
+}
+
+.fade-in-delay-3 {
+  animation-delay: 0.45s;
+}
+
+/* Enhance loading transitions with 3D transforms */
+.transform-3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.transform-gpu {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform, opacity, filter;
+}
+
+/* Create smooth page transitions */
+.page-exit {
+  opacity: 0;
+  filter: blur(5px);
+  transform: scale(0.98);
+  transition: all 0.5s ease-in-out;
+}
+
+.page-enter {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1);
+  transition: all 0.5s ease-in-out;
+} 

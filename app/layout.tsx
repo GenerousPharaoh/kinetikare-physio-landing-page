@@ -12,6 +12,7 @@ import MobileBottomNav from '@/components/MobileBottomNav';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { optimizeScrollPerformance } from '@/lib/performance';
+import PerformanceOptimizer from '@/components/PerformanceOptimizer';
 
 // Keep Inter as defined for --font-inter (matches tailwind config)
 const inter = Inter({ 
@@ -70,13 +71,48 @@ function PerformanceOptimization() {
   return null;
 }
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "PhysicalTherapy",
+  "name": "Kareem Hassanein Physiotherapy",
+  "image": "https://physiotherapy-next.vercel.app/images/kareem-profile.png",
+  "url": "https://physiotherapy-next.vercel.app",
+  "telephone": "+19056346000",
+  "email": "kareem.hassanein@gmail.com",
+  "hasMap": "https://www.google.com/maps/place/Endorphins+Health+and+Wellness+Centre/@43.4079928,-79.8288817,17z/data=!3m1!4b1!4m6!3m5!1s0x882b61568c54cbff:0x433767b454bd4446!8m2!3d43.4079889!4d-79.8263068!16s%2Fg%2F11bzs6k2vj?entry=ttu",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "4631 Palladium Way, Unit 6",
+    "addressLocality": "Burlington",
+    "addressRegion": "ON",
+    "postalCode": "L7M 0W9",
+    "addressCountry": "CA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 43.4079889,
+    "longitude": -79.8263068
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"], "opens": "09:00", "closes": "20:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "09:00", "closes": "17:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "description": "Afternoons available upon request", "opens": "00:00", "closes": "00:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "00:00", "closes": "00:00" }
+  ],
+  "priceRange": "Contact for details",
+  "founder": {
+    "@type": "Person",
+    "name": "Kareem Hassanein",
+    "jobTitle": "Registered Physiotherapist"
+  }
+};
+
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    // Apply only the required font variables
     <html lang="en" className={`${inter.variable} ${playfair.variable} ${montserrat.variable}`}>
       <head>
         {/* Ensure proper viewport settings for responsive design */}
@@ -180,7 +216,7 @@ export default function RootLayout({
         {/* Preload critical images to improve load time */}
         <link rel="preload" as="image" href="/images/kareem-profile.png" />
       </head>
-      <body className="antialiased pb-16 md:pb-0 overflow-x-hidden">
+      <body className="antialiased pb-16 md:pb-0 overflow-x-hidden transform-gpu">
         {/* Performance optimization component */}
         <PerformanceOptimization />
         
@@ -189,64 +225,41 @@ export default function RootLayout({
           Skip to main content
         </a>
         
-        {/* Single loading screen wrapper */}
-        <LoadingScreenWrapper />
-        
-        {/* Header */}
-        <Header />
-        
-        {/* Main content */}
-        <main id="main-content" className="min-h-screen flex flex-col overflow-x-hidden pt-16 xs:pt-20">
-          {children}
-        </main>
-        
-        {/* Footer */}
-        <Footer />
-        
-        {/* UI Components */}
-        <FloatingButtons />
-        <FloatingCTA />
-        <MobileBottomNav />
+        <LoadingScreenWrapper>
+          {/* Header */}
+          <div className="transition-content transform-3d">
+            <Header />
+          </div>
+          
+          {/* Main content */}
+          <main id="main-content" className="min-h-screen flex flex-col overflow-x-hidden pt-16 xs:pt-20 transition-content">
+            {children}
+          </main>
+          
+          {/* Footer */}
+          <div className="transition-content">
+            <Footer />
+          </div>
+          
+          {/* UI Components */}
+          <div className="transition-content fade-in-delay-1">
+            <FloatingCTA />
+          </div>
+          <div className="transition-content fade-in-delay-2">
+            <FloatingButtons />
+          </div>
+          <div className="transition-content fade-in-delay-1">
+            <MobileBottomNav />
+          </div>
+          
+          {/* Performance optimizer */}
+          <PerformanceOptimizer />
+        </LoadingScreenWrapper>
         
         {/* Structured data for SEO */}
-        <Script id="structured-data" type="application/ld+json" 
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "PhysicalTherapy",
-              "name": "Kareem Hassanein Physiotherapy",
-              "image": "https://physiotherapy-next.vercel.app/images/kareem-profile.png",
-              "url": "https://physiotherapy-next.vercel.app",
-              "telephone": "+19056346000",
-              "email": "kareem.hassanein@gmail.com",
-              "hasMap": "https://www.google.com/maps/place/Endorphins+Health+and+Wellness+Centre/@43.4079928,-79.8288817,17z/data=!3m1!4b1!4m6!3m5!1s0x882b61568c54cbff:0x433767b454bd4446!8m2!3d43.4079889!4d-79.8263068!16s%2Fg%2F11bzs6k2vj?entry=ttu",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "4631 Palladium Way, Unit 6",
-                "addressLocality": "Burlington",
-                "addressRegion": "ON",
-                "postalCode": "L7M 0W9",
-                "addressCountry": "CA"
-              },
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": 43.4079889,
-                "longitude": -79.8263068
-              },
-              "openingHoursSpecification": [
-                { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"], "opens": "09:00", "closes": "20:00" },
-                { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "09:00", "closes": "17:00" },
-                { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "description": "Afternoons available upon request", "opens": "00:00", "closes": "00:00" },
-                { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "00:00", "closes": "00:00" }
-              ],
-              "priceRange": "Contact for details",
-              "founder": {
-                "@type": "Person",
-                "name": "Kareem Hassanein",
-                "jobTitle": "Registered Physiotherapist"
-              }
-            })
-          }}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
         
         {/* Deferred script for additional performance optimizations */}
@@ -254,12 +267,21 @@ export default function RootLayout({
           {`
             // Optimize initial load performance
             document.addEventListener('DOMContentLoaded', function() {
+              // Add class to body after content is loaded for transition effects
+              setTimeout(() => {
+                document.body.classList.add('content-loaded');
+              }, 500);
+              
               // Add intersection observer for lazy-loaded content
               if ('IntersectionObserver' in window) {
                 const lazyLoadObserver = new IntersectionObserver((entries) => {
                   entries.forEach(entry => {
                     if (entry.isIntersecting) {
                       const element = entry.target;
+                      
+                      // Add animation class for revealed elements
+                      element.classList.add('fade-in-content');
+                      
                       if (element.dataset.src) {
                         element.src = element.dataset.src;
                         delete element.dataset.src;
@@ -271,6 +293,11 @@ export default function RootLayout({
                 
                 // Observe all elements with data-src attribute
                 document.querySelectorAll('[data-src]').forEach(el => {
+                  lazyLoadObserver.observe(el);
+                });
+                
+                // Observe elements that should animate on scroll
+                document.querySelectorAll('.animate-on-view').forEach(el => {
                   lazyLoadObserver.observe(el);
                 });
               }

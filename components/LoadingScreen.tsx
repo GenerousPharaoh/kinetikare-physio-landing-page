@@ -6,9 +6,13 @@ import Image from 'next/image';
 
 interface LoadingScreenProps {
   isFadingOut?: boolean;
+  shouldRevealContent?: boolean;
 }
 
-export default function LoadingScreen({ isFadingOut = false }: LoadingScreenProps) {
+export default function LoadingScreen({ 
+  isFadingOut = false,
+  shouldRevealContent = false 
+}: LoadingScreenProps) {
   const [isComplete, setIsComplete] = useState(false);
   const [shouldRender, setShouldRender] = useState(true);
   const [pyramidFormed, setPyramidFormed] = useState(false);
@@ -41,11 +45,19 @@ export default function LoadingScreen({ isFadingOut = false }: LoadingScreenProp
       initial={{ opacity: 1 }}
       animate={{ 
         opacity: isComplete ? 0 : 1,
+        clipPath: shouldRevealContent 
+          ? ['inset(0% 0% 0% 0%)', 'inset(0% 0% 0% 0%)', 'inset(0% 0% 100% 0%)'] 
+          : 'inset(0% 0% 0% 0%)'
       }}
       exit={{ opacity: 0 }}
       transition={{ 
         duration: 1.5,
-        ease: "easeInOut" 
+        ease: "easeInOut",
+        clipPath: {
+          duration: 1.8,
+          ease: [0.77, 0, 0.175, 1], // Custom easing for reveal animation
+          times: [0, 0.4, 1]
+        }
       }}
       style={{ 
         pointerEvents: isComplete ? 'none' : 'auto',
@@ -75,9 +87,14 @@ export default function LoadingScreen({ isFadingOut = false }: LoadingScreenProp
             animate={{ 
               opacity: isComplete ? 0 : 1, 
               scale: isComplete ? 0.8 : 1,
+              y: shouldRevealContent ? -50 : 0,
               transition: { 
                 duration: isComplete ? 0.8 : 0.6, // Faster animation
-                ease: "easeOut" 
+                ease: "easeOut",
+                y: {
+                  duration: 1.2,
+                  ease: [0.22, 1, 0.36, 1]
+                }
               }
             }}
           >
@@ -248,7 +265,7 @@ export default function LoadingScreen({ isFadingOut = false }: LoadingScreenProp
           initial={{ opacity: 0, y: -10 }}
           animate={{ 
             opacity: isComplete ? 0 : 1,
-            y: isComplete ? -5 : 0,
+            y: isComplete || shouldRevealContent ? -15 : 0,
             transition: { 
               duration: isComplete ? 0.6 : 0.8, 
               delay: isComplete ? 0 : 0.8, // Reduced from 1.7s to 0.8s
@@ -280,7 +297,7 @@ export default function LoadingScreen({ isFadingOut = false }: LoadingScreenProp
           initial={{ opacity: 0, y: 10 }}
           animate={{ 
             opacity: isComplete ? 0 : 1, 
-            y: isComplete ? 5 : 0,
+            y: isComplete || shouldRevealContent ? 15 : 0,
             transition: { 
               duration: isComplete ? 0.6 : 0.7, 
               delay: isComplete ? 0 : 1.0, // Reduced from 2.0s to 1.0s

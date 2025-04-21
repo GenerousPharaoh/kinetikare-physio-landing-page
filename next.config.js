@@ -73,13 +73,16 @@ const nextConfig = {
     ],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    minimumCacheTTL: 60, // Cache optimized images for 60 seconds
+    minimumCacheTTL: 60 * 60 * 24, // Cache optimized images for 24 hours
+    dangerouslyAllowSVG: true, // Enable SVG support
   },
   
   // Performance optimizations
   experimental: {
     optimizeCss: true, // Optimize CSS
     scrollRestoration: true, // Improve scroll restoration
+    serverComponentsExternalPackages: ['sharp'], // Optimize image processing
+    webVitalsAttribution: ['CLS', 'LCP', 'FID', 'INP'], // Track Web Vitals
   },
   
   // Enable static compression
@@ -123,12 +126,52 @@ const nextConfig = {
             minChunks: 1,
             reuseExistingChunk: true,
           },
+          animations: {
+            test: /[\\/]node_modules[\\/](framer-motion)[\\/]/,
+            name: 'animations',
+            chunks: 'all',
+            priority: 30,
+          },
         },
       };
+      
+      // Add bundle analyzer in analyze mode
+      if (process.env.ANALYZE === 'true') {
+        const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+        config.plugins.push(
+          new BundleAnalyzerPlugin({
+            analyzerMode: 'server',
+            analyzerPort: 8888,
+            openAnalyzer: true,
+          })
+        );
+      }
     }
     
     return config;
   },
+
+  // Optimize font loading
+  optimizeFonts: true,
+
+  // Limit number of simultaneous image optimizations in development
+  devIndicators: {
+    buildActivityPosition: 'bottom-right',
+  },
+
+  // Enable production source maps for better debugging
+  productionBrowserSourceMaps: false, // Set to true for debugging production issues
+  
+  // Configure the build output
+  output: 'standalone',
+
+  // Disable image optimization during development for faster startup
+  ...(process.env.NODE_ENV === 'development' ? {
+    typescript: {
+      // Faster typescript checking in development
+      ignoreBuildErrors: true,
+    },
+  } : {}),
 };
 
 module.exports = nextConfig; 

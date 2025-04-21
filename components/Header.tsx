@@ -2,8 +2,7 @@
 
 import React, { useState, useEffect, forwardRef } from 'react';
 import Link from 'next/link';
-// import { Menu, X, Phone, Calendar } from 'lucide-react';
-import { Bars3Icon, XMarkIcon, PhoneIcon, CalendarDaysIcon } from '@heroicons/react/24/outline'; // Using outline for header icons
+import { Bars3Icon, XMarkIcon, PhoneIcon, CalendarDaysIcon, ChevronDownIcon, HomeIcon, NewspaperIcon, QuestionMarkCircleIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
@@ -12,12 +11,21 @@ interface HeaderProps {
   onNavLinkClick?: (href: string) => void;
 }
 
+// Group navigation items by type for better organization
+interface NavItem {
+  name: string;
+  href: string;
+  icon?: React.ReactNode;
+  type: 'standalone' | 'section'; // Differentiate between standalone pages and home sections
+}
+
 const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkClick }, ref) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [activeItem, setActiveItem] = useState<string | null>(null);
+  const [homeDropdownOpen, setHomeDropdownOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -31,8 +39,9 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
 
   useEffect(() => {
     const handleEscKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && mobileMenuOpen) {
+      if (e.key === 'Escape') {
         setMobileMenuOpen(false);
+        setHomeDropdownOpen(false);
       }
     };
 
@@ -52,16 +61,21 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     return () => window.removeEventListener('resize', handleResize);
   }, [mobileMenuOpen]);
 
-  const navItems = [
-    { name: 'Home', href: '/' },
-    { name: 'Services', href: '/#services' },
-    { name: 'About', href: '/#about' },
-    { name: 'Conditions', href: '/#conditions' },
-    { name: 'Testimonials', href: '/#testimonials' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'FAQ', href: '/faq' },
-    { name: 'Contact', href: '/#contact' },
+  // Reorganized navigation structure with clear type indicators
+  const navItems: NavItem[] = [
+    { name: 'Home', href: '/', type: 'standalone', icon: <HomeIcon className="w-4 h-4" /> },
+    { name: 'Services', href: '/#services', type: 'section' },
+    { name: 'About', href: '/#about', type: 'section' },
+    { name: 'Conditions', href: '/#conditions', type: 'section' },
+    { name: 'Testimonials', href: '/#testimonials', type: 'section' },
+    { name: 'Blog', href: '/blog', type: 'standalone', icon: <NewspaperIcon className="w-4 h-4" /> },
+    { name: 'FAQ', href: '/faq', type: 'standalone', icon: <QuestionMarkCircleIcon className="w-4 h-4" /> },
+    { name: 'Contact', href: '/#contact', type: 'section' },
   ];
+
+  // Filter for standalone pages and home page sections
+  const standalonePages = navItems.filter(item => item.type === 'standalone');
+  const homeSections = navItems.filter(item => item.type === 'section');
 
   // Animation variants
   const navItemVariants = {
@@ -75,6 +89,27 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
         ease: "easeOut"
       }
     })
+  };
+
+  const dropdownVariants = {
+    hidden: { opacity: 0, y: -5, height: 0 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      height: 'auto', 
+      transition: { 
+        duration: 0.3,
+        ease: "easeOut"
+      }
+    },
+    exit: {
+      opacity: 0,
+      y: -5,
+      height: 0,
+      transition: {
+        duration: 0.2
+      }
+    }
   };
 
   // Handle navigation click with consistent behavior for all navigation items
@@ -101,9 +136,10 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
       }
     }
     
-    // Always close mobile menu regardless of link type
+    // Always close menus
     setIsOpen(false);
     setMobileMenuOpen(false);
+    setHomeDropdownOpen(false);
     
     // Call onNavLinkClick if provided (for the parent component to react)
     if (onNavLinkClick) {
@@ -164,7 +200,10 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
           : 'linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9))'
       }}
       onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseLeave={() => {
+        setIsHovered(false);
+        setHomeDropdownOpen(false); // Close dropdown when leaving header
+      }}
     >
       {/* Premium header accent line */}
       <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-accent/40 to-transparent"></div>
@@ -197,10 +236,11 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
             </motion.div>
           </Link>
 
-          {/* Desktop Navigation - enhanced with glass morphism */}
+          {/* Desktop Navigation - Enhanced with primary/secondary navigation structure */}
           <nav className="hidden md:flex items-center justify-center flex-1">
-            <div className="flex items-center space-x-0.5 lg:space-x-2 bg-white/30 backdrop-blur-sm rounded-full px-1 py-1 border border-white/50 shadow-sm">
-              {navItems.map((item, i) => (
+            <div className="flex items-center space-x-2 lg:space-x-3 bg-white/30 backdrop-blur-sm rounded-full px-2 py-1 border border-white/50 shadow-sm">
+              {/* Main pages */}
+              {standalonePages.map((item, i) => (
                 <motion.div 
                   key={item.name}
                   initial={{ opacity: 0, y: -10 }}
@@ -213,19 +253,20 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   <Link
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href)}
-                    className={`relative px-2 lg:px-4 py-2 rounded-full transition-all duration-300 
-                        text-sm lg:text-base font-medium 
+                    className={`relative px-3 lg:px-4 py-2 rounded-full transition-all duration-300 
+                        text-sm lg:text-base font-medium flex items-center gap-1.5
                         ${isCurrentPath(item.href) 
                           ? 'text-accent-600 font-semibold' 
                           : 'text-primary-700 hover:text-accent-500'}`}
                   >
+                    {item.icon && <span className="text-accent/70">{item.icon}</span>}
                     <span className="relative z-10">{item.name}</span>
                     
                     {/* Animated background on hover and active states */}
                     {(isCurrentPath(item.href) || activeItem === item.name) && (
                       <motion.span 
                         className="absolute inset-0 bg-accent/10 rounded-full -z-0"
-                        layoutId="navBackground"
+                        layoutId={`navBackground-${item.name}`}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.3 }}
@@ -236,16 +277,91 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                     {isCurrentPath(item.href) && (
                       <motion.span 
                         className="absolute bottom-1 left-3 right-3 h-0.5 bg-accent rounded-full"
-                        layoutId="activeIndicator"
+                        layoutId={`activeIndicator-${item.type}`}
                       />
                     )}
                   </Link>
                 </motion.div>
               ))}
+
+              {/* Home sections dropdown */}
+              <motion.div 
+                className="relative"
+                onHoverStart={() => setHomeDropdownOpen(true)}
+                onHoverEnd={() => setHomeDropdownOpen(false)}
+              >
+                <motion.button
+                  className={`relative px-3 lg:px-4 py-2 rounded-full transition-all duration-300 
+                    text-sm lg:text-base font-medium flex items-center gap-1.5
+                    ${pathname === '/' && !isCurrentPath('/blog') && !isCurrentPath('/faq')
+                      ? 'text-accent-600 font-semibold' 
+                      : 'text-primary-700 hover:text-accent-500'}`}
+                  onClick={() => setHomeDropdownOpen(!homeDropdownOpen)}
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <span className="relative z-10">Explore</span>
+                  <ChevronDownIcon 
+                    className={`h-4 w-4 transition-transform duration-300 ${homeDropdownOpen ? 'rotate-180' : ''}`} 
+                  />
+                  
+                  {/* Animated background on hover */}
+                  {(homeDropdownOpen || pathname === '/' && !isCurrentPath('/blog') && !isCurrentPath('/faq')) && (
+                    <motion.span 
+                      className="absolute inset-0 bg-accent/10 rounded-full -z-0"
+                      layoutId="navBackground-Explore"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  )}
+                  
+                  {/* Underline indicator for current page */}
+                  {pathname === '/' && !isCurrentPath('/blog') && !isCurrentPath('/faq') && (
+                    <motion.span 
+                      className="absolute bottom-1 left-3 right-3 h-0.5 bg-accent rounded-full"
+                      layoutId="activeIndicator-dropdown"
+                    />
+                  )}
+                </motion.button>
+                
+                {/* Dropdown menu */}
+                <AnimatePresence>
+                  {homeDropdownOpen && (
+                    <motion.div
+                      className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 py-2 px-1 bg-white rounded-xl shadow-lg border border-neutral-200/70 min-w-[180px] z-50 overflow-hidden"
+                      variants={dropdownVariants}
+                      initial="hidden"
+                      animate="visible"
+                      exit="exit"
+                      style={{ originY: "top" }}
+                    >
+                      <div className="space-y-0.5">
+                        {homeSections.map((section, i) => (
+                          <motion.div
+                            key={section.name}
+                            initial={{ opacity: 0, x: -5 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.05 * i, duration: 0.2 }}
+                          >
+                            <Link
+                              href={section.href}
+                              onClick={(e) => handleNavClick(e, section.href)}
+                              className="block px-4 py-2 text-sm text-primary-700 hover:bg-accent/10 hover:text-accent rounded-lg transition-colors duration-200 font-medium"
+                            >
+                              {section.name}
+                            </Link>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
             </div>
           </nav>
 
-          {/* Desktop Call-to-Action - enhanced with depth and glow effects */}
+          {/* Desktop Call-to-Action */}
           <div className="hidden md:flex items-center gap-3 lg:gap-4 h-12">
             <motion.div
               whileHover={{ scale: 1.05 }}
@@ -288,7 +404,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
             </motion.div>
           </div>
 
-          {/* Mobile Menu Button - enhanced */}
+          {/* Mobile Menu Button */}
           <div className="flex md:hidden ml-auto">
             <motion.button
               whileHover={{ scale: 1.1 }}
@@ -312,7 +428,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
         </div>
       </div>
 
-      {/* Mobile Menu - enhanced with animation and glass morphism */}
+      {/* Mobile Menu - Reorganized with section grouping */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -329,28 +445,60 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.3, delay: 0.1 }}
             >
-              <div className="space-y-1">
-                {navItems.map((item, i) => (
-                  <motion.div
-                    key={item.name}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.05 * i, duration: 0.3 }}
-                  >
-                    <Link
-                      href={item.href}
-                      onClick={(e) => handleNavClick(e, item.href)}
-                      className={`flex items-center px-4 py-3 rounded-lg text-base font-medium 
-                        hover:bg-accent/10 transition-all duration-200
-                        ${isCurrentPath(item.href) 
-                          ? 'text-accent-600 font-semibold bg-accent/5 border-l-2 border-accent' 
-                          : 'text-primary-700 hover:text-accent-500'}`}
+              {/* Primary Pages */}
+              <div className="pb-2 mb-3 border-b border-neutral-100">
+                <h3 className="text-xs uppercase tracking-wider text-primary-500 font-semibold mb-2 px-4">Main Pages</h3>
+                <div className="space-y-1">
+                  {standalonePages.map((item, i) => (
+                    <motion.div
+                      key={item.name}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.05 * i, duration: 0.3 }}
                     >
-                      {item.name}
-                    </Link>
-                  </motion.div>
-                ))}
+                      <Link
+                        href={item.href}
+                        onClick={(e) => handleNavClick(e, item.href)}
+                        className={`flex items-center px-4 py-3 rounded-lg text-base font-medium 
+                          hover:bg-accent/10 transition-all duration-200 gap-3
+                          ${isCurrentPath(item.href) 
+                            ? 'text-accent-600 font-semibold bg-accent/5 border-l-2 border-accent' 
+                            : 'text-primary-700 hover:text-accent-500'}`}
+                      >
+                        {item.icon && <span className="text-accent/70">{item.icon}</span>}
+                        {item.name}
+                      </Link>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
+              
+              {/* Home Sections */}
+              {pathname === '/' && (
+                <div className="pb-2 mb-3">
+                  <h3 className="text-xs uppercase tracking-wider text-primary-500 font-semibold mb-2 px-4">On This Page</h3>
+                  <div className="space-y-1 bg-accent/5 py-2 px-1 rounded-lg">
+                    {homeSections.map((item, i) => (
+                      <motion.div
+                        key={item.name}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.1 + (0.05 * i), duration: 0.3 }}
+                      >
+                        <Link
+                          href={item.href}
+                          onClick={(e) => handleNavClick(e, item.href)}
+                          className="flex items-center px-4 py-2 rounded-lg text-base font-medium 
+                            hover:bg-accent/10 transition-all duration-200
+                            text-primary-700 hover:text-accent-500"
+                        >
+                          {item.name}
+                        </Link>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              )}
               
               <div className="flex items-center gap-3 mt-5 py-2">
                 <Link

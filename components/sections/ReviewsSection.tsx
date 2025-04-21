@@ -19,14 +19,23 @@ const QuoteIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
+// Simplified variants with fewer properties for better performance
 const containerVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { 
+      duration: 0.4, 
+      staggerChildren: 0.1,
+      delayChildren: 0.1
+    } 
+  }
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, scale: 0.9 },
-  visible: { opacity: 1, scale: 1 }
+  hidden: { opacity: 0, y: 10 },
+  visible: { opacity: 1, y: 0 }
 };
 
 // Testimonials data
@@ -83,35 +92,14 @@ const ReviewsSection = () => {
 
   return (
     <section id="reviews" className="bg-neutral-50 text-primary-700 py-20 sm:py-24 md:py-28 relative border-t border-neutral-200">
-      {/* Improved decorative background elements */}
-      <motion.div 
-        className="absolute right-0 top-0 w-1/3 h-1/2 bg-primary-100/40 blur-3xl rounded-full"
-        initial={{ opacity: 0.1 }}
-        animate={{
-          opacity: [0.1, 0.2, 0.1],
-          scale: [1, 1.1, 1],
-        }}
-        transition={{
-          duration: 15,
-          repeat: Infinity,
-          repeatType: "reverse",
-        }}
+      {/* Static decorative elements instead of animated for better performance */}
+      <div 
+        className="absolute right-0 top-0 w-1/3 h-1/2 bg-primary-100/40 blur-3xl rounded-full opacity-20"
         aria-hidden="true"
       />
       
-      <motion.div 
-        className="absolute left-0 bottom-0 w-1/3 h-1/2 bg-accent/10 blur-3xl rounded-full"
-        initial={{ opacity: 0.05 }}
-        animate={{
-          opacity: [0.05, 0.15, 0.05],
-          scale: [1, 1.2, 1],
-        }}
-        transition={{
-          duration: 12,
-          repeat: Infinity,
-          repeatType: "reverse",
-          delay: 2
-        }}
+      <div 
+        className="absolute left-0 bottom-0 w-1/3 h-1/2 bg-accent/10 blur-3xl rounded-full opacity-10"
         aria-hidden="true"
       />
 
@@ -127,26 +115,17 @@ const ReviewsSection = () => {
             className="text-center mb-16"
             variants={itemVariants}
           >
-            {/* Enhanced section header with animations */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="inline-block mb-4"
-            >
+            {/* Simplified section header with fewer animations */}
+            <div className="inline-block mb-4">
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-200 to-primary-100 flex items-center justify-center mx-auto shadow-lg border border-primary-300/50">
                 <Star className="w-8 h-8 text-accent" />
               </div>
-            </motion.div>
+            </div>
 
             <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-primary-700 mb-4">
               Patient Testimonials
-              <motion.span 
+              <span 
                 className="block mx-auto mt-3 w-20 h-1.5 bg-accent rounded-full"
-                initial={{ width: 0, opacity: 0 }}
-                whileInView={{ width: 80, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.5 }}
               />
             </h2>
             <p className="text-lg text-primary-600 max-w-3xl mx-auto mt-6">
@@ -165,24 +144,15 @@ const ReviewsSection = () => {
             >
               <div className="flex flex-col items-center">
                 <div className="mb-6 relative">
-                  <motion.div 
-                    className="absolute -inset-1 rounded-full bg-accent/20 blur-md"
-                    animate={{
-                      scale: [1, 1.1, 1],
-                      opacity: [0.3, 0.5, 0.3],
-                    }}
-                    transition={{
-                      duration: 4,
-                      repeat: Infinity,
-                      repeatType: "reverse",
-                    }}
-                  />
                   <div className="relative w-20 h-20 rounded-full overflow-hidden border-4 border-white shadow-lg">
                     <Image 
                       src="/images/testimonials/emma-j.jpg" 
                       alt="Emma J." 
                       fill
                       className="object-cover"
+                      sizes="80px"
+                      loading="eager"
+                      priority
                     />
                   </div>
                 </div>
@@ -208,16 +178,16 @@ const ReviewsSection = () => {
             </GlassCard>
           </motion.div>
 
-          {/* Grid of testimonials */}
-          <motion.div 
+          {/* Grid of testimonials with optimized rendering */}
+          <div 
             className="grid grid-cols-1 md:grid-cols-2 gap-8"
-            variants={containerVariants}
           >
             {testimonials.map((testimonial, index) => (
               <motion.div 
                 key={testimonial.id}
                 variants={itemVariants}
                 custom={index}
+                style={{ willChange: 'opacity, transform' }}
               >
                 <GlassCard
                   className="h-full p-6 md:p-8 rounded-xl bg-white border border-primary-100 flex flex-col"
@@ -231,6 +201,8 @@ const ReviewsSection = () => {
                           alt={testimonial.name} 
                           fill
                           className="object-cover"
+                          sizes="48px"
+                          loading={index < 2 ? "eager" : "lazy"}
                         />
                       </div>
                     </div>
@@ -256,9 +228,9 @@ const ReviewsSection = () => {
                 </GlassCard>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
 
-          {/* Interactive call to action */}
+          {/* Interactive call to action with simpler animation */}
           <motion.div 
             className="mt-16 text-center"
             variants={itemVariants}
@@ -269,9 +241,8 @@ const ReviewsSection = () => {
             <Link 
               href="#booking" 
               onClick={handleBookClick}
-              className="inline-flex items-center justify-center bg-accent hover:bg-accent-dark text-white font-medium px-6 py-3.5 rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg relative overflow-hidden group" 
+              className="inline-flex items-center justify-center bg-accent hover:bg-accent-dark text-white font-medium px-6 py-3.5 rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg relative overflow-hidden" 
             >
-              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-accent/0 via-accent/30 to-accent/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></span>
               Schedule Your Consultation
             </Link>
           </motion.div>

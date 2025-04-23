@@ -1,135 +1,157 @@
 'use client';
 
-import React, { useState, useEffect, useCallback } from "react";
-import { useReducedMotion } from "framer-motion";
-import LoadingScreen from "./LoadingScreen";
+import React, { useState, useEffect, ReactNode } from 'react';
+import LoadingScreen from './LoadingScreen';
 
-interface LoadingScreenWrapperProps {
-  children: React.ReactNode;
-  className?: string;
-  minLoadingTime?: number; // Minimum time in ms to show loading screen
-}
+// Custom hook for device and preference checks
+const useDevicePreferences = () => {
+  const [preferences, setPreferences] = useState({
+    reducedMotion: false,
+    isLowPoweredDevice: false
+  });
 
-const LoadingScreenWrapper: React.FC<LoadingScreenWrapperProps> = ({
-  children,
-  className = "",
-  minLoadingTime = 1500
-}) => {
-  const prefersReducedMotion = useReducedMotion();
-  
-  const [isLoading, setIsLoading] = useState(true);
-  const [contentReady, setContentReady] = useState(false);
-  const [loadStartTime] = useState(() => Date.now());
-  
-  // Calculate how much time is left to meet minimum loading time
-  const calculateRemainingLoadTime = useCallback(() => {
-    const elapsedTime = Date.now() - loadStartTime;
-    return Math.max(0, minLoadingTime - elapsedTime);
-  }, [loadStartTime, minLoadingTime]);
-
-  // Add loading classes to HTML element
   useEffect(() => {
-    const htmlElement = document.documentElement;
-    htmlElement.classList.add('loading-init');
+    if (typeof window === 'undefined') return;
     
-    return () => {
-      htmlElement.classList.remove('loading-init');
-    };
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isMobile = window.innerWidth < 768;
+    const isLowPoweredDevice = isMobile || 
+      (navigator.hardwareConcurrency !== undefined && navigator.hardwareConcurrency <= 4);
+    
+    setPreferences({ reducedMotion, isLowPoweredDevice });
   }, []);
 
-  // Handle loading state changes
+  return preferences;
+};
+
+interface LoadingScreenWrapperProps {
+  children?: ReactNode;
+}
+
+const LoadingScreenWrapper: React.FC<LoadingScreenWrapperProps> = ({ children }) => {
+  // Single state object for loading states
+  const [loadingState, setLoadingState] = useState({
+    isLoading: true,
+    isFadingOut: false,
+    contentVisible: false
+  });
+  
+  const { reducedMotion, isLowPoweredDevice } = useDevicePreferences();
+  
   useEffect(() => {
-    let timer: NodeJS.Timeout;
+    if (typeof window === 'undefined') return;
 
-    // Start preloading critical images
-    const preloadCriticalImages = () => {
-      const imagesToPreload = document.querySelectorAll('img[data-critical="true"]');
-      let loadedCount = 0;
-      
-      if (imagesToPreload.length === 0) {
-        // If no critical images, continue with loading
-        return true;
-      }
-      
-      imagesToPreload.forEach((img) => {
-        const imgElement = img as HTMLImageElement;
-        if (imgElement.complete) {
-          loadedCount++;
-        } else {
-          imgElement.onload = () => {
-            loadedCount++;
-            if (loadedCount === imagesToPreload.length) {
-              return true;
-            }
-          };
-          imgElement.onerror = () => {
-            loadedCount++;
-            if (loadedCount === imagesToPreload.length) {
-              return true;
-            }
-          };
-        }
-      });
-      
-      return loadedCount === imagesToPreload.length;
-    };
-
-    // Wait for both minimum loading time and critical images to load
-    const remainingTime = calculateRemainingLoadTime();
-    const imagesPreloaded = preloadCriticalImages();
-    
-    timer = setTimeout(() => {
-      setIsLoading(false);
-      
-      // Add transition class to body
-      document.body.classList.add('transition-active');
-      
-      // Use requestAnimationFrame to ensure smooth transition
-      requestAnimationFrame(() => {
-        // Add a small delay before showing content to prevent flashing
-        setTimeout(() => {
-          setContentReady(true);
-          document.documentElement.classList.add('content-visible');
-          document.body.classList.remove('transition-active');
-        }, prefersReducedMotion ? 50 : 200);
-      });
-    }, remainingTime);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [calculateRemainingLoadTime, prefersReducedMotion]);
-
-  // Update body class for scroll locking
-  useEffect(() => {
-    if (isLoading) {
-      document.body.classList.add('loading');
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.classList.remove('loading');
+    // Immediately display content in development mode for faster reloads
+    if (process.env.NODE_ENV === 'development') {
+      // Skip loading animation in development
+      setLoadingState({ isLoading: false, isFadingOut: false, contentVisible: true });
+      document.documentElement.classList.remove('loading-init');
+      document.documentElement.classList.add('content-visible');
       document.body.style.overflow = '';
+      document.documentElement.style.backgroundColor = '';
+      return;
     }
+
+    // Add loading classes once
+    document.documentElement.classList.add('loading-init');
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.backgroundColor = '#0F2E4F';
     
+    // Store timeouts for cleanup
+    const timeouts: NodeJS.Timeout[] = [];
+    
+    // Define transition function
+    const startTransition = () => {
+      // First make content visible
+      setLoadingState(prev => ({ ...prev, contentVisible: true }));
+      
+      // After a short delay, start fade out
+      const fadeOutDelay = setTimeout(() => {
+        setLoadingState(prev => ({ ...prev, isFadingOut: true }));
+        
+        // Complete transition after fade out animation
+        const transitionTime = reducedMotion || isLowPoweredDevice ? 600 : 1000;
+        const completeDelay = setTimeout(() => {
+          setLoadingState({ isLoading: false, isFadingOut: false, contentVisible: true });
+          
+          // Clean up DOM classes after components are updated
+          const cleanupDelay = setTimeout(() => {
+            document.documentElement.classList.remove('loading-init');
+            document.documentElement.classList.add('content-visible');
+            document.body.style.overflow = '';
+            document.documentElement.style.transition = 'background-color 0.5s ease-out';
+            document.documentElement.style.backgroundColor = '';
+          }, 300);
+          
+          timeouts.push(cleanupDelay);
+        }, transitionTime);
+        
+        timeouts.push(completeDelay);
+      }, 100);
+      
+      timeouts.push(fadeOutDelay);
+    };
+    
+    // Determine maximum wait time - shorter for better UX
+    const maxWaitTime = reducedMotion || isLowPoweredDevice ? 2000 : 3000;
+    
+    // Set maximum wait time failsafe
+    const maxWaitTimeoutId = setTimeout(startTransition, maxWaitTime);
+    timeouts.push(maxWaitTimeoutId);
+    
+    // Handle load event if document isn't already loaded
+    const handleLoad = () => {
+      clearTimeout(maxWaitTimeoutId);
+      const loadDelay = setTimeout(startTransition, 
+        reducedMotion || isLowPoweredDevice ? 500 : 800);
+      timeouts.push(loadDelay);
+    };
+    
+    if (document.readyState === 'complete') {
+      const initialDelay = setTimeout(handleLoad, reducedMotion ? 400 : 600);
+      timeouts.push(initialDelay);
+    } else {
+      window.addEventListener('load', handleLoad, { once: true });
+    }
+
+    // Super aggressive failsafe - always show content after 5 seconds no matter what
+    const emergencyFailsafe = setTimeout(() => {
+      console.log('Emergency failsafe triggered - forcing content to display');
+      setLoadingState({ isLoading: false, isFadingOut: false, contentVisible: true });
+      document.documentElement.classList.remove('loading-init');
+      document.documentElement.classList.add('content-visible');
+      document.body.style.overflow = '';
+      document.documentElement.style.backgroundColor = '';
+    }, 5000);
+    timeouts.push(emergencyFailsafe);
+
+    // Cleanup function
     return () => {
-      document.body.classList.remove('loading');
+      timeouts.forEach(clearTimeout);
+      window.removeEventListener('load', handleLoad);
+      document.documentElement.classList.remove('loading-init');
+      document.documentElement.classList.remove('content-visible');
       document.body.style.overflow = '';
     };
-  }, [isLoading]);
+  }, [reducedMotion, isLowPoweredDevice]);
+
+  const { isLoading, isFadingOut, contentVisible } = loadingState;
 
   return (
     <>
-      {isLoading && <LoadingScreen />}
-      
+      {/* Main content - Always render with at least minimal opacity to ensure content is accessible */}
       <div 
-        className={`main-content-wrapper ${contentReady ? 'content-ready' : ''} ${className}`}
-        style={{
-          opacity: contentReady ? 1 : 0,
-          visibility: contentReady ? 'visible' : 'hidden',
-          transition: `opacity ${prefersReducedMotion ? '0.3s' : '0.7s'} ease-out, visibility ${prefersReducedMotion ? '0.3s' : '0.7s'} ease-out`,
+        className="transition-opacity"
+        style={{ 
+          opacity: contentVisible ? 1 : 0.01, // Set minimum opacity so content is technically present
+          transition: 'opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1)'
         }}
       >
         {children}
       </div>
+      
+      {/* Loading screen - only show if explicitly in loading state */}
+      {isLoading && <LoadingScreen isFadingOut={isFadingOut} />}
     </>
   );
 };

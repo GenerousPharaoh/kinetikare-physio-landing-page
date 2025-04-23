@@ -127,7 +127,6 @@ export default function ServiceAreasSection() {
               transform: 'scale(1.01)',
             }}
             priority={true}
-            loading="lazy"
           />
           
           {/* Enhanced overlay gradient for better text visibility */}
@@ -278,14 +277,14 @@ export default function ServiceAreasSection() {
                   ))}
                 </div>
                 
-                <Link
-                  href="https://khphysiotherapy.janeapp.com/"
+                <a
+                  className="mx-auto text-center mt-8 inline-flex items-center rounded-full bg-accent px-5 py-3 text-base font-medium text-white shadow-md hover:bg-accent-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent/50 transition-colors duration-300"
+                  href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
-                  className="inline-flex items-center justify-center text-white bg-accent hover:bg-accent-dark px-4 py-2.5 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg text-sm font-medium w-full mt-3"
-                  style={{ boxShadow: '0 4px 14px rgba(231, 169, 49, 0.2)' }}
+                  rel="noopener noreferrer"
                 >
                   <FaCalendarAlt className="mr-2 h-3 w-3" /> Book Your Appointment
-                </Link>
+                </a>
               </div>
             </motion.div>
           </div>

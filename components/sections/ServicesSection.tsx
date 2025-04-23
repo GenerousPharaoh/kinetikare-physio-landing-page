@@ -3,46 +3,22 @@
 import React from 'react';
 import Link from 'next/link';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-// Import better looking icons
+// Replace with Phosphor Icons for consistency
 import { 
-  HandIcon, 
-  HeartPulseIcon,
-  BrainCircuitIcon,
-  CheckCircle2Icon
-} from "lucide-react"; 
-// Complementary icons from React Icons
-import { IoIosFitness, IoMdMedical } from "react-icons/io";
-import { FaRunning, FaHandsHelping, FaDumbbell, FaWalking } from "react-icons/fa";
-import { GiMuscleUp } from "react-icons/gi";
-import { MdOutlineBiotech, MdSchool, MdSportsGymnastics } from "react-icons/md";
-import { RiSurgicalMaskLine, RiMentalHealthLine } from "react-icons/ri";
+  HandPalm, 
+  HeartStraight,
+  Brain,
+  CheckCircle,
+  ArrowRight,
+  PersonArmsSpread,
+  Barbell,
+  Gauge,
+  Person
+} from "@phosphor-icons/react";
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import GlassCard from '@/components/GlassCard';
 import { Button } from '@/components/ui/Button';
-
-// Create a custom Acupuncture icon component
-const AcupunctureIcon = ({ className, size, ...props }: { className?: string; size?: number } & React.SVGProps<SVGSVGElement>) => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width={size || 24}
-      height={size || 24}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-      {...props}
-    >
-      <path d="M12 3v8l5 5" />
-      <path d="M8 21l4-4" />
-      <path d="M21 8l-4 4" />
-    </svg>
-  );
-};
 
 type ServiceProps = {
   id: string;
@@ -79,480 +55,135 @@ const Service = ({ id, title, icon: IconComponent, description, onBookLinkClick 
   );
 };
 
-export default function ServicesSection({ onBookLinkClick }: ServicesSectionProps) {
-  const { ref, isVisible } = useScrollAnimation();
-
-  // Services data with better icons
-  const services: ServiceProps[] = [
-    {
-      id: 'manual-therapy',
-      title: 'Manual Therapy',
-      icon: FaHandsHelping,
-      description: 'Hands-on techniques including joint mobilization, manipulation, and soft tissue release to restore movement and reduce pain.'
-    },
-    {
-      id: 'dry-needling',
-      title: 'Dry Needling',
-      icon: AcupunctureIcon,
-      description: 'Utilizing fine needles to target trigger points, alleviate muscle tension, and promote healing processes.'
-    },
-    {
-      id: 'exercise-prescription',
-      title: 'Exercise Prescription',
-      icon: FaDumbbell,
-      description: 'Customized exercise programs designed to improve strength, flexibility, and function, tailored to your specific needs.'
-    },
-    {
-      id: 'sports-rehab',
-      title: 'Sports Rehabilitation',
-      icon: MdSportsGymnastics,
-      description: 'Specialized care for athletes of all levels, focusing on injury recovery, performance enhancement, and prevention.'
-    },
-    {
-      id: 'post-operative',
-      title: 'Post-Operative Care',
-      icon: FaWalking,
-      description: 'Structured rehabilitation programs following surgery to ensure optimal recovery and return to function.'
-    },
-    {
-      id: 'patient-education',
-      title: 'Patient Education',
-      icon: MdSchool,
-      description: 'Empowering you with knowledge about your condition and self-management strategies for long-term health.'
-    }
-  ];
-
-  // Handle click for booking link (scroll)
-  const handleBookClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    // Reliable scroll code that works without props
-    const bookingSection = document.getElementById('booking');
-    if (bookingSection) {
-      const headerOffset = document.querySelector('header')?.offsetHeight || 80;
-      const elementPosition = bookingSection.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.scrollY - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
-
+const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookLinkClick }) => {
+  const prefersReducedMotion = useReducedMotion();
+  
   // Animation variants
-  const containerVariants = {
+  const sectionVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2
+        duration: 0.5,
+        staggerChildren: prefersReducedMotion ? 0.1 : 0.2
       }
     }
   };
   
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+  const cardVariants = {
+    hidden: { opacity: 0, y: prefersReducedMotion ? 0 : 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: [0.23, 1, 0.32, 1] }
-    }
-  };
-
-  // New, enhanced icon animation variants
-  const iconVariants = {
-    initial: { scale: 1 },
-    hover: { 
-      scale: 1.12,
-      rotate: 0,
-      y: -5,
-      transition: { 
-        type: "spring", 
-        stiffness: 500, 
-        damping: 15 
+      transition: {
+        duration: prefersReducedMotion ? 0.3 : 0.6,
+        ease: [0.25, 0.1, 0.25, 1.0] // Custom easing for smoother animation
       }
     }
   };
 
-  // Subtle background pulse animation
-  const bgPulseVariants = {
-    initial: { 
-      opacity: 0.7,
-      boxShadow: "0 0 0 rgba(222, 184, 135, 0)" 
+  const services = [
+    {
+      title: 'Manual Therapy',
+      description: 'Hands-on techniques to reduce pain, decrease muscle tension, and restore mobility to joints and soft tissues.',
+      icon: HandPalm,
+      color: 'from-blue-500/20 to-cyan-400/20'
     },
-    hover: { 
-      opacity: 1,
-      boxShadow: "0 0 15px rgba(222, 184, 135, 0.5)",
-      transition: { 
-        duration: 0.5,
-        repeat: Infinity,
-        repeatType: "mirror" as const
-      }
+    {
+      title: 'Movement Assessment',
+      description: 'Detailed evaluation of your movement patterns to identify imbalances, compensations and limitations.',
+      icon: PersonArmsSpread,
+      color: 'from-emerald-500/20 to-teal-400/20'
+    },
+    {
+      title: 'Therapeutic Exercise',
+      description: 'Customized exercise programs to improve mobility, strength, and function specific to your needs and goals.',
+      icon: Barbell,
+      color: 'from-indigo-500/20 to-purple-400/20'
+    },
+    {
+      title: 'Neuromuscular Integration',
+      description: 'Advanced techniques to improve the connection between your nervous system and muscles.',
+      icon: Brain,
+      color: 'from-amber-500/20 to-yellow-400/20'
+    },
+    {
+      title: 'Return to Sport',
+      description: 'Specialized rehabilitation to help athletes safely return to their sport following injury.',
+      icon: Person,
+      color: 'from-red-500/20 to-rose-400/20'
+    },
+    {
+      title: 'Pain Management',
+      description: 'Strategies to understand, control and reduce chronic pain through evidence-based approaches.',
+      icon: Gauge,
+      color: 'from-violet-500/20 to-fuchsia-400/20'
+    }
+  ];
+
+  // Handle booking link click
+  const handleBookClick = () => {
+    if (onBookLinkClick) {
+      onBookLinkClick('booking');
     }
   };
 
   return (
-    <section 
-      id="services" 
-      className="section bg-neutral-50 text-primary-700 relative border-t border-neutral-200 pt-20 md:pt-28 pb-24"
-    >
-      {/* Background Image with gradient overlay */}
-      <div className="absolute inset-0 z-0 opacity-[0.07] pointer-events-none"> 
-        <Image
-          src="/images/about-physio.jpg" 
-          alt="Clinic background"
-          fill
-          className="object-cover"
-        />
-        {/* Enhanced gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-neutral-50/95 via-neutral-50/85 to-neutral-50/95 backdrop-blur-sm"></div>
-      </div>
-
-      {/* Improved decorative elements */}
-      <motion.div 
-        className="absolute top-1/4 right-[-5%] w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl"
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.05, 0.09, 0.05],
-        }}
-        transition={{
-          duration: 12,
-          repeat: Infinity,
-          repeatType: "reverse"
-        }}
-        aria-hidden="true"
-      />
+    <section id="services" className="py-24 md:py-28 lg:py-32 bg-neutral-50 relative overflow-hidden">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 pattern-dots opacity-[0.07] text-gray-900 pointer-events-none"></div>
       
       <motion.div 
-        className="absolute bottom-1/4 left-[-5%] w-[700px] h-[700px] bg-primary-500/5 rounded-full blur-3xl"
-        animate={{
-          scale: [1, 1.3, 1],
-          opacity: [0.05, 0.1, 0.05],
-        }}
-        transition={{
-          duration: 15,
-          repeat: Infinity,
-          repeatType: "reverse",
-          delay: 3
-        }}
-        aria-hidden="true"
-      />
-      
-      {/* Additional decorative elements */}
-      <motion.div 
-        className="absolute top-[60%] left-[50%] w-[300px] h-[300px] bg-accent/3 rounded-full blur-2xl"
-        animate={{
-          scale: [1, 1.5, 1],
-          opacity: [0.03, 0.06, 0.03],
-        }}
-        transition={{
-          duration: 18,
-          repeat: Infinity,
-          repeatType: "reverse",
-          delay: 1.5
-        }}
-        aria-hidden="true"
-      />
-
-      {/* Content Container */}
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div 
-          ref={ref as React.RefObject<HTMLDivElement>}
-          initial="hidden"
-          animate={isVisible ? "visible" : "hidden"}
-          variants={containerVariants}
-          className="max-w-6xl mx-auto"
-        >
-          {/* Enhanced section header with motion */}
-          <motion.div 
-            className="text-center mb-20"
-            variants={itemVariants}
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="inline-block mb-4"
+        className="container mx-auto px-4 relative z-10"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={sectionVariants}
+      >
+        <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
+          <span className="inline-block mb-2 text-sm font-medium tracking-wider text-accent uppercase">Our Services</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-playfair font-semibold text-gray-900 tracking-tight mb-6">
+            Specialized Physiotherapy Services
+          </h2>
+          <p className="text-lg text-gray-700 leading-relaxed">
+            Comprehensive treatments designed to restore function, reduce pain, and enhance your quality of life.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-10">
+          {services.map((service, index) => (
+            <motion.div 
+              key={`service-${index}`}
+              variants={cardVariants}
+              className="bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 p-8 group border border-neutral-100 hover:border-neutral-200 hover:-translate-y-1"
             >
-              <div className="premium-icon-badge premium-icon-badge-circle premium-icon-badge-accent">
-                <FaHandsHelping className="w-8 h-8" />
+              <div className="mb-5 inline-flex items-center justify-center w-16 h-16 rounded-xl bg-accent/10 text-accent">
+                <service.icon weight="regular" size={28} className="text-accent" />
               </div>
-            </motion.div>
-            
-            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-primary-700 mb-4 relative">
-              Physiotherapy Services
-              <motion.span 
-                className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-20 h-1.5 bg-accent rounded-full"
-                initial={{ width: 0, opacity: 0 }}
-                whileInView={{ width: 80, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-              />
-            </h2>
-            <p className="section-subtitle text-lg text-primary-600 mx-auto max-w-3xl mt-6">
-              Comprehensive physiotherapy solutions tailored to your individual needs,
-              delivered with expertise and compassion.
-            </p>
-          </motion.div>
-
-          {/* Reimagined Services Grid with enhanced GlassCards */}
-          <motion.div 
-            className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto"
-            variants={containerVariants}
-          >
-            {services.map((service, index) => {
-              const IconComponent = service.icon;
-              const delay = index * 0.1;
-              
-              return (
-                <motion.div
-                  key={service.id}
-                  variants={itemVariants}
-                  custom={index}
-                  whileHover={{ y: -5, transition: { duration: 0.3 } }}
-                  className="h-full"
-                >
-                  <GlassCard
-                    className="p-5 sm:p-8 h-full flex flex-col bg-white border border-primary-100"
-                    animate={false}
-                  >
-                    {/* Enhanced Premium Icon Badge */}
-                    <motion.div 
-                      className="mb-4 md:mb-6 relative"
-                      initial="initial"
-                      whileHover="hover"
-                    >
-                      <motion.div 
-                        className="premium-icon-badge premium-icon-badge-hexagon premium-icon-badge-pattern"
-                        variants={{
-                          initial: { scale: 1 },
-                          hover: { 
-                            scale: 1.05,
-                            y: -4,
-                            transition: { 
-                              type: "spring", 
-                              stiffness: 500, 
-                              damping: 15 
-                            }
-                          }
-                        }}
-                      >
-                        {IconComponent && (
-                          React.isValidElement(IconComponent) ? (
-                            <div className="w-6 h-6 md:w-7 md:h-7">{IconComponent}</div>
-                          ) : typeof IconComponent === 'function' ? (
-                            <IconComponent size={window?.innerWidth < 768 ? 24 : 28} aria-hidden="true" />
-                          ) : (
-                            <span className="w-6 h-6 md:w-7 md:h-7"></span>
-                          )
-                        )}
-                      </motion.div>
-                    </motion.div>
-
-                    {/* Content with improved typography */}
-                    <div className="flex-1 flex flex-col">
-                      <h3 className="text-xl sm:text-2xl font-semibold text-primary-700 mb-2 md:mb-4 font-heading">
-                        {service.title}
-                      </h3>
-                      <p className="text-sm md:text-base text-primary-600 leading-relaxed flex-1">
-                        {service.description}
-                      </p>
-                      
-                      {/* Added subtle animated indicator */}
-                      <motion.div 
-                        className="mt-4 md:mt-6 flex items-center text-accent text-xs sm:text-sm font-medium"
-                        initial={{ opacity: 0.7 }}
-                        whileHover={{ opacity: 1 }}
-                      >
-                        <span>Learn more</span>
-                        <motion.span 
-                          initial={{ x: 0 }}
-                          whileHover={{ x: 5 }}
-                          transition={{ type: "spring", stiffness: 300 }}
-                          className="ml-2"
-                        >
-                          →
-                        </motion.span>
-                      </motion.div>
-                    </div>
-                  </GlassCard>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-
-          {/* Featured section with improved styling */}
-          <motion.div 
-            className="mt-20 md:mt-32 mb-10"
-            variants={itemVariants}
-          >
-            <GlassCard
-              className="p-6 sm:p-10 md:p-16 max-w-6xl mx-auto rounded-xl md:rounded-2xl bg-white border border-primary-100"
-              animate={false}
-            >
-              <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-                {/* Text content with enhancements */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{ duration: 0.6, delay: 0.1 }}
-                >
-                  <motion.div 
-                    className="inline-block rounded-full px-3 md:px-4 py-1 bg-accent/10 text-accent text-xs md:text-sm font-medium mb-4 md:mb-6 border border-accent/20 shadow-sm"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                  >
-                    Featured
-                  </motion.div>
-                  
-                  <motion.h3 
-                    className="font-heading text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-primary-700 mb-3 md:mb-5"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
-                  >
-                    One-on-One Dedicated Care
-                  </motion.h3>
-                  <motion.p 
-                    className="text-primary-600 mb-4 md:mb-6 leading-relaxed text-sm md:text-lg"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
-                  >
-                    Unlike clinics that book multiple patients per hour, I dedicate my full attention to you during your entire appointment. This allows for deeper assessment, more hands-on treatment time, and better outcomes.
-                  </motion.p>
-                  
-                  {/* Redesigned bullet points with premium badges */}
-                  <motion.ul 
-                    className="space-y-3 md:space-y-5 mt-6 md:mt-8"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.5, staggerChildren: 0.1 }}
-                  >
-                    <motion.li variants={itemVariants} className="flex items-start gap-3 md:gap-4">
-                      {/* Directly apply Tailwind styles for the badge */}
-                      <div className="flex-shrink-0 w-6 h-6 md:w-7 md:h-7 rounded-full bg-accent/10 flex items-center justify-center mt-0.5 md:mt-0">
-                        <CheckCircle2Icon className="w-4 h-4 md:w-5 md:w-5 text-accent" />
-                      </div>
-                      <span className="text-primary-700 text-sm md:text-base">Personalized care plans designed for your specific needs</span>
-                    </motion.li>
-                    <motion.li variants={itemVariants} className="flex items-start gap-3 md:gap-4">
-                      {/* Directly apply Tailwind styles for the badge */}
-                      <div className="flex-shrink-0 w-6 h-6 md:w-7 md:h-7 rounded-full bg-accent/10 flex items-center justify-center mt-0.5 md:mt-0">
-                        <CheckCircle2Icon className="w-4 h-4 md:w-5 md:w-5 text-accent" />
-                      </div>
-                      <span className="text-primary-700 text-sm md:text-base">Evidence-based treatment with proven results</span>
-                    </motion.li>
-                    <motion.li variants={itemVariants} className="flex items-start gap-3 md:gap-4">
-                      {/* Directly apply Tailwind styles for the badge */}
-                      <div className="flex-shrink-0 w-6 h-6 md:w-7 md:h-7 rounded-full bg-accent/10 flex items-center justify-center mt-0.5 md:mt-0">
-                        <CheckCircle2Icon className="w-4 h-4 md:h-5 md:w-5 text-accent" />
-                      </div>
-                      <span className="text-primary-700 text-sm md:text-base">Modern facilities in convenient locations</span>
-                    </motion.li>
-                  </motion.ul>
-                  
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.8 }}
-                  >
-                    <Link 
-                      href="#booking" 
-                      onClick={handleBookClick}
-                      className="inline-flex items-center justify-center bg-accent hover:bg-accent-dark text-white text-xs md:text-sm font-medium px-4 md:px-6 py-2.5 md:py-3.5 rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg relative overflow-hidden group mt-6 md:mt-8" 
-                    >
-                      <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-accent/0 via-accent/20 to-accent/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></span>
-                      Book Your Dedicated Session
-                    </Link>
-                  </motion.div>
-                </motion.div>
-                
-                {/* Image with enhanced presentation */}
-                <motion.div 
-                  className="relative h-full min-h-[250px] md:min-h-[400px] rounded-xl md:rounded-2xl overflow-hidden shadow-xl group"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{ duration: 0.7, delay: 0.2 }}
-                > 
-                  <Image
-                    src="/images/clinic-pic-updated.jpg"
-                    alt="Physiotherapy treatment room at KH Physiotherapy"
-                    fill
-                    sizes="(max-width: 640px) 90vw, (max-width: 768px) 80vw, 40vw"
-                    className="object-cover object-center transition-transform duration-500 ease-in-out group-hover:scale-105"
-                    style={{ 
-                      filter: 'brightness(1.1) saturate(1.15) contrast(1.05)',
-                    }}
-                  />
-                  {/* Subtle overlay for better depth */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary-800/20 via-transparent to-primary-100/10 opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </motion.div>
-              </div>
-            </GlassCard>
-          </motion.div>
-
-          {/* Add clinic reception area showcase - REDESIGNED */}
-          <motion.div 
-            className="mt-16 md:mt-28 mb-12 md:mb-16"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="text-center mb-8 md:mb-12">
-              <h3 className="font-heading text-2xl md:text-3xl lg:text-4xl font-semibold text-primary-700 mb-3 md:mb-4">
-                Modern Clinic Environment
-              </h3>
-              <p className="text-primary-600 max-w-3xl mx-auto text-sm md:text-lg px-4">
-                Experience physiotherapy in a welcoming, comfortable space designed for your healing journey.
-              </p>
-            </div>
-            
-            {/* Redesigned Image Showcase with Overlapping Effect */}
-            <div className="relative mx-auto max-w-6xl group">
-              <div className="relative aspect-[16/9] sm:aspect-[16/8] w-full rounded-xl md:rounded-2xl overflow-hidden shadow-2xl transform-gpu perspective-1000">
-                <Image
-                  src="/images/clinic-pic-3.jpg"
-                  alt="KH Physiotherapy clinic reception area"
-                  fill
-                  className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
-                  style={{ 
-                    filter: 'brightness(1.15) contrast(1.05) saturate(1.15)',
-                  }}
-                  sizes="(max-width: 640px) 95vw, (max-width: 1280px) 90vw, 1200px"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-300"></div>
-              </div>
-              
-              {/* Overlapping text card */}
-              <motion.div
-                className="absolute -bottom-8 md:-bottom-10 left-1/2 transform -translate-x-1/2 w-[90%] md:w-[70%] bg-white/90 backdrop-blur-lg p-4 md:p-6 lg:p-8 rounded-lg md:rounded-xl shadow-xl border border-neutral-200/50"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
+              <h3 className="text-xl font-semibold mb-3 text-gray-900 group-hover:text-accent transition-colors duration-300">{service.title}</h3>
+              <p className="text-gray-600 mb-5 leading-relaxed">{service.description}</p>
+              <Link 
+                href="/services"
+                className="inline-flex items-center text-accent font-medium text-sm group-hover:translate-x-1 transition-transform duration-300"
               >
-                <div className="inline-block text-[10px] xs:text-xs md:text-sm uppercase tracking-wider bg-accent/90 text-white px-2 md:px-3 py-0.5 md:py-1 rounded-full mb-2 md:mb-3 shadow-sm">
-                  Professional Environment
-                </div>
-                <p className="text-base md:text-lg lg:text-xl font-medium text-primary-800">
-                  A calming space where your recovery journey begins
-                </p>
-              </motion.div>
-            </div>
-          </motion.div>
-        </motion.div>
-      </div>
+                Learn more <ArrowRight weight="bold" className="h-4 w-4 ml-1" />
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+        
+        <div className="mt-16 lg:mt-20 text-center">
+          <button
+            onClick={handleBookClick}
+            className="bg-accent hover:bg-accent-dark text-white font-medium px-8 py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 hover:scale-[1.03] inline-flex items-center gap-2 focus:outline-none focus:ring-4 focus:ring-accent-light/30"
+          >
+            Book an appointment
+            <ArrowRight weight="bold" className="h-5 w-5" />
+          </button>
+        </div>
+      </motion.div>
     </section>
   );
-}
+};
+
+export default ServicesSection;

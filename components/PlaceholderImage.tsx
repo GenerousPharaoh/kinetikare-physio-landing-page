@@ -9,7 +9,6 @@ type PlaceholderImageProps = Omit<ImageProps, 'src'> & {
   category?: string;
   objectPosition?: string;
   isProfile?: boolean;
-  priority?: boolean;
 };
 
 export default function PlaceholderImage({
@@ -19,26 +18,15 @@ export default function PlaceholderImage({
   category = 'physiotherapy',
   objectPosition = 'center',
   isProfile = false,
-  priority = false,
   ...props
 }: PlaceholderImageProps) {
   const [imgSrc, setImgSrc] = useState<string | null>(null);
   const [error, setError] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     // Initialize the image source on the client side to avoid SSR issues
     setImgSrc(src);
-
-    // Prefetch critical images
-    if (priority && typeof window !== 'undefined') {
-      const imgElement = new window.Image();
-      imgElement.src = src;
-      imgElement.onload = () => {
-        setIsLoaded(true);
-      };
-    }
-  }, [src, priority]);
+  }, [src]);
 
   // Generate a placeholder URL if the image fails to load
   const generatePlaceholder = () => {
@@ -53,10 +41,6 @@ export default function PlaceholderImage({
       'physiotherapy': 'E2E8F0/0A1A2F',
       'Physiotherapist': 'D1D5DB/1E293B',
       'Treatment Room': 'F3F4F6/0F172A',
-      'Manual Therapy': 'E2E8F0/0A1A2F',
-      'Sports Rehabilitation': 'D1D5DB/1E293B', 
-      'Dry Needling': 'F3F4F6/0F172A',
-      'Exercise Therapy': 'E2E8F0/0A1A2F',
       default: 'FAFAFA/334155'
     };
     
@@ -73,19 +57,11 @@ export default function PlaceholderImage({
     }
   };
 
-  const handleLoad = () => {
-    setIsLoaded(true);
-  };
-
   // Special styling for profile images to prevent head cropping
   const imageStyle = {
     ...(props.style || {}),
     objectFit: props.style?.objectFit || 'cover',
     objectPosition: isProfile ? 'center 20%' : objectPosition,
-    transition: isLoaded ? 'opacity 0.3s ease-in' : 'none',
-    opacity: isLoaded ? 1 : 0,
-    transform: 'translateZ(0)', // Hardware acceleration
-    willChange: 'opacity',
   };
 
   if (!imgSrc) {
@@ -101,8 +77,7 @@ export default function PlaceholderImage({
           justifyContent: 'center',
           color: '#0A1A2F',
           fontSize: '14px',
-          fontWeight: 500,
-          transform: 'translateZ(0)', // Hardware acceleration
+          fontWeight: 500
         }}
       >
         {category}
@@ -116,12 +91,7 @@ export default function PlaceholderImage({
       src={imgSrc}
       alt={alt}
       onError={handleError}
-      onLoad={handleLoad}
       style={imageStyle}
-      priority={priority}
-      loading={priority ? 'eager' : 'lazy'}
-      fetchPriority={priority ? 'high' : 'auto'}
-      sizes={priority ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 768px) 100vw, 33vw"}
     />
   );
 } 

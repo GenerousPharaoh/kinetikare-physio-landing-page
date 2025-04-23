@@ -23,22 +23,35 @@ export default function LoadingScreen({ isFadingOut = false }: LoadingScreenProp
       setTimeout(() => {
         setRevealElements(true);
       }, 200);
-    }, 800);
+    }, 600); // Faster activation of pyramid
     
     // Handle external fade out signal
     if (isFadingOut) {
       setIsComplete(true);
       setTimeout(() => {
         setShouldRender(false);
-      }, 1400); // Extended fade-out duration for smoother transition
+      }, 800); // Shorter fade-out duration
     }
+    
+    // Failsafe: Force complete loading after 3 seconds
+    const forceCompleteTimer = setTimeout(() => {
+      if (!isComplete) {
+        console.log('Force completing loading animation');
+        setIsComplete(true);
+        setTimeout(() => {
+          setShouldRender(false);
+        }, 800);
+      }
+    }, 3000);
     
     return () => {
       clearTimeout(pyramidTimer);
+      clearTimeout(forceCompleteTimer);
     };
-  }, [isFadingOut]);
+  }, [isFadingOut, isComplete]);
 
-  if (!shouldRender) return null;
+  // Skip rendering completely in development mode for faster reloads
+  if (process.env.NODE_ENV === 'development' || !shouldRender) return null;
 
   return (
     <motion.div
@@ -47,12 +60,12 @@ export default function LoadingScreen({ isFadingOut = false }: LoadingScreenProp
       initial={{ opacity: 1 }}
       animate={{ 
         opacity: isComplete ? 0 : 1,
-        scale: isComplete ? 1.02 : 1, // Subtle scaling on exit
+        scale: isComplete ? 1.025 : 1, // Subtle scaling on exit
       }}
       exit={{ opacity: 0 }}
       transition={{ 
-        duration: isComplete ? 1.2 : 1,
-        ease: isComplete ? [0.16, 1, 0.3, 1] : "easeInOut" // Match main content timing 
+        duration: isComplete ? 0.8 : 1, // Faster exit animation
+        ease: isComplete ? [0.22, 1, 0.36, 1] : "easeInOut" // Custom bezier curve for smoother exit
       }}
       style={{ 
         pointerEvents: isComplete ? 'none' : 'auto',
@@ -341,7 +354,7 @@ export default function LoadingScreen({ isFadingOut = false }: LoadingScreenProp
             }}
             transition={{ duration: 3.0, repeat: isComplete ? 0 : Infinity, ease: "easeInOut" }}
           >
-            <span className="bg-gradient-to-r from-[#E5C76B] via-[#FFFAD1] to-[#E5C76B] text-transparent bg-clip-text bg-size-200 animate-gradient-x">KINETIKARE</span>
+            <span className="bg-gradient-to-r from-[#E5C76B] via-[#FFFAD1] to-[#E5C76B] text-transparent bg-clip-text bg-size-200 animate-gradient-x">KH PHYSIO</span>
           </motion.h1>
         </motion.div>
 

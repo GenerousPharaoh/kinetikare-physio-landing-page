@@ -358,7 +358,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               transition={{ duration: 0.3 }}
             >
               <Link
-                href="https://khphysiotherapy.janeapp.com/" 
+                href="https://endorphinshealth.janeapp.com/#/staff_member/42" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-gradient-to-r from-accent to-accent-dark text-white text-sm font-medium px-3 lg:px-4 py-2 rounded-full 
@@ -499,7 +499,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   <span>Call Now</span>
                 </Link>
                 <Link
-                  href="https://khphysiotherapy.janeapp.com/"
+                  href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
                   onClick={() => setMobileMenuOpen(false)}
                   className="flex-1 flex items-center justify-center gap-2 px-3 py-3 bg-gradient-to-r from-accent to-accent-dark text-white rounded-lg text-base font-medium border border-accent/50 shadow-md hover:shadow-lg transition-all duration-200"

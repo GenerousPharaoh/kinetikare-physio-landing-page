@@ -1,4 +1,5 @@
 import PlaceholderImage from '@/components/PlaceholderImage';
+import { CalendarIcon } from '@heroicons/react/24/outline';
 
 // Success stories data
 const successStories = [
@@ -181,7 +182,7 @@ export default function SuccessStories() {
                 Call (905) 634-6000
               </a>
               <a
-                href="https://endorphinshealthandwellness.janeapp.com/"
+                href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-transparent border-2 border-gold-accent text-gold-accent px-6 py-3 rounded-md font-medium hover:bg-gold-accent/10 transition-colors flex items-center hover-lift"
@@ -195,6 +196,18 @@ export default function SuccessStories() {
           </div>
         </div>
       </section>
+
+      <div className="text-center mt-12 mb-20">
+        <a
+          href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+          target="_blank"
+          rel="noopener noreferrer" 
+          className="px-6 py-3 bg-accent text-white font-medium rounded-full shadow-md hover:bg-accent-dark transition-colors duration-300 inline-flex items-center"
+        >
+          <CalendarIcon className="w-5 h-5 mr-2" />
+          Share Your Success Story
+        </a>
+      </div>
     </main>
   );
 } 

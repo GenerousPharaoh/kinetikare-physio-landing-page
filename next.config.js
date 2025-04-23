@@ -44,7 +44,6 @@ const securityHeaders = [
 
 const nextConfig = {
   reactStrictMode: true,
-  // swcMinify: true, // Removed - no longer supported in Next.js 15.3.0
   
   // Add ESLint configuration
   eslint: {
@@ -80,14 +79,17 @@ const nextConfig = {
     dangerouslyAllowSVG: true, // Enable SVG support
   },
   
-  // Performance optimizations
+  // Improved performance optimizations
   experimental: {
     optimizeCss: true, // Optimize CSS
     scrollRestoration: true, // Improve scroll restoration
     webVitalsAttribution: ['CLS', 'LCP', 'FID', 'INP'], // Track Web Vitals
+    serverActions: {
+      bodySizeLimit: '2mb',
+    },
   },
   
-  // Moved from experimental
+  // Required for sharp image processing
   serverExternalPackages: ['sharp'],
   
   // Enable static compression
@@ -118,6 +120,14 @@ const nextConfig = {
             minChunks: 2,
             priority: 20,
           },
+          // Optimize framer-motion separately since it's quite large
+          animations: {
+            test: /[\\/]node_modules[\\/](framer-motion)[\\/]/,
+            name: 'animations',
+            chunks: 'all',
+            priority: 30,
+          },
+          // Third-party libraries
           lib: {
             test: /[\\/]node_modules[\\/]/,
             chunks: 'all',
@@ -130,12 +140,6 @@ const nextConfig = {
             priority: 10,
             minChunks: 1,
             reuseExistingChunk: true,
-          },
-          animations: {
-            test: /[\\/]node_modules[\\/](framer-motion)[\\/]/,
-            name: 'animations',
-            chunks: 'all',
-            priority: 30,
           },
         },
       };
@@ -156,18 +160,13 @@ const nextConfig = {
     return config;
   },
 
-  // Limit number of simultaneous image optimizations in development
-  devIndicators: {
-    position: 'bottom-right', // Renamed from buildActivityPosition
-  },
-
-  // Enable production source maps for better debugging
-  productionBrowserSourceMaps: false, // Set to true for debugging production issues
+  // Enable response compression
+  poweredByHeader: false, // Remove X-Powered-By header for security
   
   // Configure the build output
   output: 'standalone',
 
-  // Disable image optimization during development for faster startup
+  // Development optimizations
   ...(process.env.NODE_ENV === 'development' ? {
     typescript: {
       // Faster typescript checking in development

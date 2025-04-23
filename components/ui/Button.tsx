@@ -1,129 +1,143 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
+// Define button variants using class-variance-authority
 const buttonVariants = cva(
-  "inline-flex items-center justify-center rounded-lg font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-1 disabled:opacity-70 disabled:cursor-not-allowed relative overflow-hidden",
+  // Base styles applied to all buttons
+  "relative inline-flex items-center justify-center font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-4 focus:ring-offset-2 disabled:opacity-70 disabled:pointer-events-none overflow-hidden",
   {
     variants: {
       variant: {
-        primary: "bg-accent text-white hover:bg-accent-dark shadow-elevation-1 hover:shadow-elevation-2 hover:-translate-y-0.5",
-        secondary: "bg-primary text-white hover:bg-primary-dark shadow-elevation-1 hover:shadow-elevation-2 hover:-translate-y-0.5",
-        outline: "bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white",
-        ghost: "bg-transparent text-primary hover:bg-primary-50/50 hover:text-primary-dark",
-        light: "bg-white/10 border border-white/20 text-white hover:bg-white/15 shadow-sm",
-        dark: "bg-primary-800 text-white hover:bg-primary-900 shadow-elevation-1",
-        link: "bg-transparent text-primary underline-offset-4 hover:underline hover:text-primary-dark p-0 shadow-none",
+        primary: 
+          "bg-accent hover:bg-accent-dark text-white shadow-md hover:shadow-lg focus:ring-accent/30",
+        secondary: 
+          "bg-white/15 backdrop-blur-md border border-white/30 hover:border-white/50 text-white shadow-md hover:shadow-lg focus:ring-white/30",
+        outline: 
+          "border-2 border-accent text-accent hover:bg-accent/10 focus:ring-accent/20",
+        ghost: 
+          "bg-transparent text-accent hover:bg-accent/10 focus:ring-accent/20",
+        subtle: 
+          "bg-neutral-100 hover:bg-neutral-200 text-gray-900 focus:ring-neutral-300",
+        link: 
+          "bg-transparent underline-offset-4 hover:underline text-accent focus:ring-accent/20 shadow-none",
       },
       size: {
-        xs: "text-xs px-2.5 py-1.5 rounded-md",
-        sm: "text-sm px-4 py-2 rounded-md",
-        md: "text-base px-6 py-3",
-        lg: "text-lg px-8 py-4",
-        icon: "p-2",
+        sm: "text-xs px-4 py-2 rounded-full",
+        md: "text-sm px-6 py-3 rounded-full",
+        lg: "text-base px-8 py-4 rounded-full",
+        xl: "text-lg px-10 py-5 rounded-full",
+        icon: "h-10 w-10 rounded-full p-0",
       },
       fullWidth: {
         true: "w-full",
       },
-      withRipple: {
-        true: "ripple-effect",
-      },
     },
+    // Default variant
     defaultVariants: {
       variant: "primary",
       size: "md",
       fullWidth: false,
-      withRipple: false,
     },
   }
 );
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+// Shimmer effect for premium buttons
+const ShimmerEffect = () => (
+  <span className="absolute inset-0 overflow-hidden rounded-full pointer-events-none">
+    <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-shimmer"></span>
+  </span>
+);
+
+// Button props extending HTML button attributes and variant props
+export interface ButtonProps 
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>, 
     VariantProps<typeof buttonVariants> {
   href?: string;
+  premium?: boolean;
   external?: boolean;
-  leftIcon?: React.ReactNode;
-  rightIcon?: React.ReactNode;
+  icon?: React.ReactNode;
+  iconPosition?: 'left' | 'right';
 }
 
+// Main Button component
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ 
     className, 
+    children, 
     variant, 
     size, 
     fullWidth, 
-    withRipple, 
+    premium = false,
     href, 
-    external, 
-    leftIcon, 
-    rightIcon, 
-    children, 
+    external = false,
+    icon,
+    iconPosition = 'right',
     ...props 
   }, ref) => {
-    const classes = cn(
-      buttonVariants({ variant, size, fullWidth, withRipple }),
-      className
-    );
-    
-    // Handle ripple effect for buttons with withRipple
-    const handleRipple = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
-      if (!withRipple) return;
-      
-      const button = e.currentTarget;
-      const rect = button.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      
-      const ripple = document.createElement('span');
-      ripple.style.left = `${x}px`;
-      ripple.style.top = `${y}px`;
-      ripple.className = 'ripple';
-      
-      button.appendChild(ripple);
-      
-      setTimeout(() => {
-        ripple.remove();
-      }, 600);
-    };
-
     // If href is provided, render as Link
     if (href) {
+      const linkProps = external ? { 
+        target: "_blank", 
+        rel: "noopener noreferrer" 
+      } : {};
+      
       return (
         <Link
           href={href}
-          className={classes}
-          {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-          onClick={handleRipple as any}
+          className={cn(
+            buttonVariants({ variant, size, fullWidth }),
+            premium && "group",
+            className
+          )}
+          {...linkProps}
         >
-          {leftIcon && <span className="mr-2">{leftIcon}</span>}
+          {premium && <ShimmerEffect />}
+          
+          {icon && iconPosition === 'left' && (
+            <span className="mr-2">{icon}</span>
+          )}
+          
           {children}
-          {rightIcon && <span className="ml-2">{rightIcon}</span>}
+          
+          {icon && iconPosition === 'right' && (
+            <span className="ml-2 group-hover:translate-x-0.5 transition-transform duration-300">{icon}</span>
+          )}
         </Link>
       );
     }
 
-    // Otherwise render as button
+    // Otherwise, render as button
     return (
       <button
-        className={classes}
+        className={cn(
+          buttonVariants({ variant, size, fullWidth }),
+          premium && "group",
+          className
+        )}
         ref={ref}
-        onClick={(e) => {
-          handleRipple(e);
-          props.onClick?.(e);
-        }}
         {...props}
       >
-        {leftIcon && <span className="mr-2">{leftIcon}</span>}
+        {premium && <ShimmerEffect />}
+        
+        {icon && iconPosition === 'left' && (
+          <span className="mr-2">{icon}</span>
+        )}
+        
         {children}
-        {rightIcon && <span className="ml-2">{rightIcon}</span>}
+        
+        {icon && iconPosition === 'right' && (
+          <span className="ml-2 group-hover:translate-x-0.5 transition-transform duration-300">{icon}</span>
+        )}
       </button>
     );
   }
 );
 
-Button.displayName = 'Button';
+Button.displayName = "Button";
 
 export { Button, buttonVariants };
 

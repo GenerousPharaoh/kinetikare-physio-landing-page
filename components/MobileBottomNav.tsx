@@ -9,7 +9,7 @@ import { motion } from 'framer-motion';
 const navItems = [
   { href: '/', label: 'Home', icon: HomeIcon },
   { href: '/#services', label: 'Services', icon: WrenchScrewdriverIcon },
-  { href: 'https://khphysiotherapy.janeapp.com/', label: 'Book', icon: CalendarDaysIcon, external: true, highlight: true },
+  { href: 'https://endorphinshealth.janeapp.com/#/staff_member/42', label: 'Book', icon: CalendarDaysIcon, external: true, highlight: true },
   { href: '/#contact', label: 'Contact', icon: PhoneIcon },
   { href: '/about', label: 'About', icon: UserIcon },
 ];

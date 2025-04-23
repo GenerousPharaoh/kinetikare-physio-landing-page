@@ -1,0 +1,156 @@
+/* Critical CSS for immediate application during page load */
+
+/* Loading state - applied immediately */
+html {
+  background-color: #0F2E4F;
+}
+
+/* Override body background */
+body {
+  background-color: var(--background-color, #F9F8F6);
+  margin: 0;
+  padding: 0;
+  -webkit-text-size-adjust: 100%;
+  opacity: 0; /* Hide body until ready */
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Loading state styles */
+html.loading-init body {
+  overflow: hidden !important;
+  background-color: #0F2E4F; /* Match html background for consistency */
+}
+
+/* Hide main content during loading */
+html.loading-init #__next,
+html.loading-init main,
+html.loading-init header,
+html.loading-init footer {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/* Only show content when fully loaded */
+html:not(.loading-init) body {
+  opacity: 1;
+}
+
+html:not(.loading-init) #__next,
+html:not(.loading-init) main,
+html:not(.loading-init) header,
+html:not(.loading-init) footer {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.2s ease-in-out;
+}
+
+/* Performance optimization styles */
+.layout-wrapper, header, footer, .sticky, .fixed, .animated, .motion-item {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Properly scoped will-change properties to avoid overuse */
+.header-fixed, .floating-button, .motion-active {
+  will-change: transform;
+}
+
+/* Reduce motion animation if user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .animated, .motion-item {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Safe area insets for notched devices */
+@supports(padding: max(0px)) {
+  body {
+    padding-left: env(safe-area-inset-left, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
+  }
+  
+  /* Bottom nav padding for notched devices */
+  .fixed-bottom-nav {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
+
+/* Fix for iOS 100vh issue */
+@supports (-webkit-touch-callout: none) {
+  .min-h-screen {
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* Prevent horizontal overflow on mobile */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Better tap targets for mobile */
+@media (max-width: 640px) {
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Skip to content link for accessibility */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 9999;
+  background: white;
+  color: #0F2E4F;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  font-weight: 600;
+}
+
+.skip-to-content:focus {
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  outline: 3px solid #4f46e5;
+}
+
+/* Content visibility optimization where supported */
+@supports (content-visibility: auto) {
+  .use-content-visibility {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
+  }
+}
+
+/* Loading screen background */
+.loading-screen-wrapper {
+  isolation: isolate;
+  z-index: 9999;
+  background-color: #0F2E4F;
+}
+
+/* Ensure Next.js wrapper is properly hidden */
+/* For Next.js 13+ app router */
+[data-nextjs-root], [data-nextjs-body] {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+html:not(.loading-init) [data-nextjs-root],
+html:not(.loading-init) [data-nextjs-body] {
+  opacity: 1;
+} 

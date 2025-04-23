@@ -5,123 +5,351 @@
 /* Import premium fonts */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap');
 
-/* Base styles */
+/* Variables that define the design system */
 :root {
-  /* Enhanced, more vibrant accent colors */
-  --accent: 231, 169, 49; /* More vibrant gold accent */
-  --accent-dark: 209, 142, 26; /* Deeper accent version */
-  --accent-light: 242, 194, 81; /* Lighter accent for highlights */
+  /* Core Brand Colors with refined shades */
+  --color-primary-50: #f0f7ff;
+  --color-primary-100: #e0effe;
+  --color-primary-200: #bae0fd;
+  --color-primary-300: #7dc4fb;
+  --color-primary-400: #38a5f7;
+  --color-primary-500: #0f87e8;
+  --color-primary-600: #0067c5;
+  --color-primary-700: #0052a3;
+  --color-primary-800: #0a4585;
+  --color-primary-900: #0F2E4F;
+  --color-primary-950: #0a2040;
+
+  /* Refined accent colors */
+  --color-accent: #56A4FF;
+  --color-accent-light: #78B7FF; 
+  --color-accent-dark: #3686E0;
   
-  /* More vibrant primary blue shades with higher saturation */
-  --primary-50: 230, 243, 250;
-  --primary-100: 204, 223, 240;
-  --primary-200: 163, 199, 224;
-  --primary-300: 122, 175, 208;
-  --primary-400: 81, 147, 189;
-  --primary-500: 58, 125, 159;
-  --primary-600: 39, 100, 139;
-  --primary-700: 31, 79, 119;
-  --primary-800: 23, 59, 99;
-  --primary-900: 15, 41, 79;
+  /* Typography */
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-playfair);
+  --font-body: var(--font-montserrat);
   
-  /* Neutral colors */
-  --neutral-50: 250, 248, 245;
-  --neutral-100: 243, 239, 232;
-  --neutral-200: 237, 230, 219;
-  --neutral-300: 230, 222, 209;
-  --neutral-400: 212, 199, 179;
-  --neutral-500: 188, 173, 150;
-  --neutral-600: 168, 148, 120;
-  --neutral-700: 138, 122, 100;
-  --neutral-800: 108, 96, 79;
-  --neutral-900: 78, 69, 56;
+  /* Elevation - refined shadows */
+  --shadow-sm: 0 1px 2px rgba(15, 46, 79, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(15, 46, 79, 0.08), 0 2px 4px -2px rgba(15, 46, 79, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(15, 46, 79, 0.08), 0 4px 6px -4px rgba(15, 46, 79, 0.04);
+  --shadow-xl: 0 20px 25px -5px rgba(15, 46, 79, 0.08), 0 8px 10px -6px rgba(15, 46, 79, 0.05);
+
+  /* Spacing/sizing */
+  --header-height: 80px;
+  --max-width: 1280px;
+  --border-radius-sm: 6px;
+  --border-radius: 12px;
+  --border-radius-md: 16px;
+  --border-radius-lg: 24px;
+  --border-radius-xl: 32px;
   
-  /* Font settings */
-  --font-heading: 'Montserrat', sans-serif;
-  --font-body: 'Inter', sans-serif;
-  
-  /* Premium color system - synced with updated tailwind.config.js */
-  --primary-color: #3A7D9F; /* More saturated teal */
-  --primary-dark: #27648B;
-  
-  --accent-color: #E7A931; /* More vibrant gold accent */
-  --accent-light: #F2C251;
-  --accent-dark: #D18E1A;
-  
-  --neutral-color: #E6DED1; /* Warm sand */
-  --neutral-light: #F3EFE8;
-  --neutral-dark: #BCAD96;
-  
-  --background-color: #F9F8F6; /* Warm ivory/off-white */
-  --text-color: #1A202C; /* Darker text for better contrast */
-  --text-secondary: #3D4A59; /* Darker secondary text */
-  --text-light: #5A6A7F; /* Darker tertiary text */
-  
-  --border-color: #E8E1D4; /* Subtle neutral border */
-  --error-color: #C93535; /* More vibrant error red */
-  --success-color: #2E855A; /* More vibrant success green */
-  
-  /* Enhanced shadow system with better depth */
-  --shadow-subtle: 0 2px 5px rgba(0, 0, 0, 0.05);
-  --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --shadow-large: 0 15px 30px rgba(0, 0, 0, 0.12);
-  --shadow-card: 0 8px 20px rgba(0, 0, 0, 0.08);
-  --shadow-elevation-1: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.18);
-  --shadow-elevation-2: 0 4px 8px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.12);
-  --shadow-elevation-3: 0 15px 30px rgba(0, 0, 0, 0.18), 0 6px 10px rgba(0, 0, 0, 0.12);
-  --shadow-focus: 0 0 0 3px rgba(231, 169, 49, 0.35);
-  
-  /* Spacing system */
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-3: 0.75rem;
-  --space-4: 1rem;
-  --space-6: 1.5rem;
-  --space-8: 2rem;
-  --space-12: 3rem;
-  --space-16: 4rem;
-  --space-24: 6rem;
-  --space-32: 8rem;
-  
-  /* Border radius */
-  --radius-sm: 0.25rem;
-  --radius-md: 0.375rem;
-  --radius-lg: 0.5rem;
-  --radius-xl: 0.75rem;
-  --radius-2xl: 1rem;
-  
-  /* Global settings */
-  scroll-behavior: smooth;
+  /* Z-index layers */
+  --z-header: 50;
+  --z-modal: 100;
+  --z-toast: 200;
+  --z-loading: 1000;
 }
 
-/* Respect user's reduced motion preferences */
-@media (prefers-reduced-motion: reduce) {
-  :root {
-    scroll-behavior: auto;
-  }
-  
-  *, ::before, ::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
+/* Base Styles */
 body {
-  font-family: var(--font-body);
-  color: rgb(var(--primary-800));
-  background-color: rgb(var(--neutral-50));
-  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-  text-rendering: optimizeLegibility;
+  @apply bg-white text-gray-900;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Pattern dots for backgrounds */
+/* Typography Refinements */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-heading;
+  letter-spacing: -0.025em;
+}
+
+p {
+  @apply font-body;
+}
+
+/* Advanced animation keyframes */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Radial gradient for background effects */
+.bg-radial-gradient {
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 70%);
+}
+
+/* Premium icon badges */
+.premium-icon-badge {
+  @apply flex items-center justify-center text-white rounded-md;
+}
+
+.premium-icon-badge-circle {
+  @apply rounded-full;
+}
+
+.premium-icon-badge-square {
+  @apply rounded-lg;
+}
+
+.premium-icon-badge-hexagon {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.premium-icon-badge-accent {
+  @apply bg-accent;
+}
+
+.premium-icon-badge-primary {
+  @apply bg-primary-600;
+}
+
+.premium-icon-badge-pattern {
+  background-color: var(--color-accent);
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-size: 12px 12px;
+}
+
+/* Skip to content for accessibility */
+.skip-to-content {
+  @apply absolute overflow-hidden bg-white text-primary-900 py-2 px-4 rounded -top-10 left-4 transition-all duration-200 focus:top-4 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent;
+  height: 1px;
+  width: 1px;
+  clip: rect(0 0 0 0);
+}
+
+.skip-to-content:focus {
+  clip: auto;
+  height: auto;
+  width: auto;
+  z-index: 100;
+}
+
+/* Responsive spacing utilities */
+.container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.section {
+  @apply py-16 md:py-24 lg:py-32;
+}
+
+/* Utilities for premium effects */
+.text-balance {
+  text-wrap: balance;
+}
+
+.animate-shimmer {
+  animation: shimmer 3s infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.7s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+/* Card hover effects */
+.hover-card {
+  @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+}
+
+/* Better Tailwind prose overrides */
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  @apply font-heading text-gray-900;
+}
+
+.prose a {
+  @apply text-accent hover:text-accent-dark transition-colors duration-300;
+}
+
+.prose strong {
+  @apply font-semibold;
+}
+
+/* Focus styling */
+*:focus-visible {
+  @apply outline-none ring-2 ring-accent ring-opacity-50;
+}
+
+/* Import responsive utilities CSS */
+@import '../styles/responsive.css';
+
+/* Improved loading transitions and page entry animations */
+/* These styles improve the transition from loading screen to page content */
+html.loading-init {
+  overflow: hidden;
+}
+
+/* Main content wrapper transitions */
+.main-content-wrapper {
+  opacity: 0;
+  transition: opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html.content-visible .main-content-wrapper {
+  opacity: 1;
+}
+
+/* Staggered element fade-in */
+.stagger-fade-in > * {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.7s ease-out, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html.content-visible .stagger-fade-in > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Apply sequential delays to children */
+html.content-visible .stagger-fade-in > *:nth-child(1) { transition-delay: 0.1s; }
+html.content-visible .stagger-fade-in > *:nth-child(2) { transition-delay: 0.2s; }
+html.content-visible .stagger-fade-in > *:nth-child(3) { transition-delay: 0.3s; }
+html.content-visible .stagger-fade-in > *:nth-child(4) { transition-delay: 0.4s; }
+html.content-visible .stagger-fade-in > *:nth-child(5) { transition-delay: 0.5s; }
+html.content-visible .stagger-fade-in > *:nth-child(6) { transition-delay: 0.6s; }
+
+/* Hero section specific transitions */
+.hero-fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.2s ease-out, transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: 0.3s;
+}
+
+html.content-visible .hero-fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Enhanced image loading transition */
+.image-fade-in {
+  opacity: 0;
+  filter: blur(10px);
+  transform: scale(1.05);
+  transition: opacity 1s ease-out, filter 1.5s ease-out, transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: 0.2s;
+}
+
+html.content-visible .image-fade-in {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1);
+}
+
+/* Loading complete animation for critical above-the-fold content */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.above-fold-content {
+  opacity: 0;
+}
+
+html.content-visible .above-fold-content {
+  animation: fadeSlideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Pattern dots for backgrounds - subtle and professional */
 .pattern-dots {
   background-image: radial-gradient(currentColor 1px, transparent 1px);
-  background-size: 20px 20px;
+  background-size: 24px 24px;
+}
+
+.pattern-dots-sm {
+  background-image: radial-gradient(currentColor 0.75px, transparent 0.75px);
+  background-size: 16px 16px;
+}
+
+.pattern-dots-md {
+  background-image: radial-gradient(currentColor 1.25px, transparent 1.25px);
+  background-size: 32px 32px;
+}
+
+/* Subtle grid pattern for professional look */
+.pattern-grid {
+  background-image: linear-gradient(to right, currentColor 1px, transparent 1px),
+                    linear-gradient(to bottom, currentColor 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.05;
+}
+
+.pattern-grid-sm {
+  background-image: linear-gradient(to right, currentColor 1px, transparent 1px),
+                    linear-gradient(to bottom, currentColor 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.05;
+}
+
+/* Minimal diagonal lines */
+.pattern-diagonal {
+  background-image: repeating-linear-gradient(
+    45deg, 
+    currentColor 0, 
+    currentColor 1px, 
+    transparent 0, 
+    transparent 16px
+  );
+  opacity: 0.05;
+}
+
+/* Understated paper texture */
+.pattern-paper {
+  background-color: #fff;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.01) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0, 0, 0, 0.01) 1px, transparent 1px);
+  background-size: 32px 32px;
 }
 
 /* Additional background styling for white sections */
@@ -281,31 +509,27 @@ body {
     @apply w-5 h-5 text-lg border border-neutral-300 rounded focus:outline-none focus:ring-2 focus:ring-accent/60 focus:border-transparent bg-white;
   }
   
-  /* Animation classes - Optimized for better performance */
+  /* Animation classes */
   .animated-fade-up {
-    animation: fastFadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    will-change: opacity, transform;
-    transform: translateZ(0);
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
 
-  @keyframes fastFadeInUp {
+  @keyframes fadeInUp {
     from {
       opacity: 0;
-      transform: translateY(20px) translateZ(0);
+      transform: translateY(30px);
     }
     to {
       opacity: 1;
-      transform: translateY(0) translateZ(0);
+      transform: translateY(0);
     }
   }
 
   .animated-fade {
-    animation: fastFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    will-change: opacity;
-    transform: translateZ(0);
+    animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
 
-  @keyframes fastFadeIn {
+  @keyframes fadeIn {
     from {
       opacity: 0;
     }
@@ -314,57 +538,34 @@ body {
     }
   }
 
-  /* Optimized slide animations for better performance */
+  /* Slide animations for testimonials */
   .animate-slide-left {
-    animation: fastSlideLeft 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    will-change: opacity, transform;
-    transform: translateZ(0);
+    animation: slideLeft 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
 
   .animate-slide-right {
-    animation: fastSlideRight 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    will-change: opacity, transform;
-    transform: translateZ(0);
+    animation: slideRight 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
 
-  @keyframes fastSlideLeft {
+  @keyframes slideLeft {
     from {
       opacity: 0;
-      transform: translateX(20px) translateZ(0);
+      transform: translateX(30px);
     }
     to {
       opacity: 1;
-      transform: translateX(0) translateZ(0);
+      transform: translateX(0);
     }
   }
 
-  @keyframes fastSlideRight {
+  @keyframes slideRight {
     from {
       opacity: 0;
-      transform: translateX(-20px) translateZ(0);
+      transform: translateX(-30px);
     }
     to {
       opacity: 1;
-      transform: translateX(0) translateZ(0);
-    }
-  }
-
-  /* Improved fade-in animations for the Services page */
-  .animate-fade-in {
-    opacity: 0;
-    animation: optimizedFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    will-change: opacity, transform;
-    transform: translateZ(0);
-  }
-
-  @keyframes optimizedFadeIn {
-    0% {
-      opacity: 0;
-      transform: translateY(10px) translateZ(0);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0) translateZ(0);
+      transform: translateX(0);
     }
   }
 
@@ -690,11 +891,11 @@ body {
     --focus-ring: 210 80% 55%;
     
     /* Shadows */
-    --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.1);
-    --shadow: 0 1px 3px rgba(15, 23, 42, 0.1), 0 1px 2px rgba(15, 23, 42, 0.06);
-    --shadow-md: 0 4px 6px rgba(15, 23, 42, 0.1), 0 2px 4px rgba(15, 23, 42, 0.06);
-    --shadow-lg: 0 10px 15px rgba(15, 23, 42, 0.1), 0 4px 6px rgba(15, 23, 42, 0.05);
-    --shadow-xl: 0 20px 25px rgba(15, 23, 42, 0.1), 0 10px 10px rgba(15, 23, 42, 0.04);
+    --shadow-sm: 0 1px 2px rgba(15, 46, 79, 0.05);
+    --shadow: 0 1px 3px rgba(15, 46, 79, 0.1), 0 1px 2px rgba(15, 46, 79, 0.06);
+    --shadow-md: 0 4px 6px -1px rgba(15, 46, 79, 0.08), 0 2px 4px -2px rgba(15, 46, 79, 0.04);
+    --shadow-lg: 0 10px 15px -3px rgba(15, 46, 79, 0.08), 0 4px 6px -4px rgba(15, 46, 79, 0.04);
+    --shadow-xl: 0 20px 25px -5px rgba(15, 46, 79, 0.08), 0 8px 10px -6px rgba(15, 46, 79, 0.05);
     
     /* Spacing system tokens */
     --radius: 0.5rem;
@@ -869,8 +1070,12 @@ header::after {
 }
 
 @keyframes shimmer {
-  0% { background-position: -100% 0; }
-  100% { background-position: 100% 0; }
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 .float-animation {
@@ -1246,36 +1451,14 @@ html.loading-init {
   overflow: hidden;
 }
 
-/* Main content wrapper transitions - improved to prevent flash */
+/* Main content wrapper transitions */
 .main-content-wrapper {
   opacity: 0;
-  visibility: hidden;
-  position: relative;
-  z-index: 1;
-  min-height: 100vh;
-  background-color: var(--background-color, #F9F8F6);
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  will-change: opacity, transform;
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0.8s;
-}
-
-/* Content is in DOM but not visible yet */
-.main-content-wrapper.ready {
-  visibility: visible;
-  opacity: 0;
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0s;
-}
-
-/* Content is now visible */
-.main-content-wrapper.visible {
-  opacity: 1;
-  visibility: visible;
+  transition: opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 html.content-visible .main-content-wrapper {
   opacity: 1;
-  visibility: visible;
 }
 
 /* Staggered element fade-in */

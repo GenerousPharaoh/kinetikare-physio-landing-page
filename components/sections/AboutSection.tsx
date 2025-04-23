@@ -2,19 +2,59 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-// import { GraduationCap, Award, Heart, Store } from 'lucide-react';
-import { AcademicCapIcon, TrophyIcon, HeartIcon, BuildingStorefrontIcon } from '@heroicons/react/24/solid';
-import { FaGraduationCap, FaCertificate, FaHeartbeat, FaUsers } from 'react-icons/fa';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
+import { Button } from '@/components/ui/Button';
+// Replace with Phosphor Icons
+import { 
+  GraduationCap, 
+  Trophy, 
+  Heart, 
+  Certificate, 
+  Heartbeat, 
+  Users, 
+  ArrowRight,
+  CheckCircle
+} from "@phosphor-icons/react";
 
-export default function AboutSection() {
-  const { ref, isVisible } = useScrollAnimation();
+const AboutSection = () => {
+  const prefersReducedMotion = useReducedMotion();
+  
+  // Animation variants with reduced motion preference support
+  const sectionVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        staggerChildren: prefersReducedMotion ? 0.1 : 0.2
+      }
+    }
+  };
+  
+  const itemVariants = {
+    hidden: { opacity: 0, y: prefersReducedMotion ? 0 : 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: prefersReducedMotion ? 0.3 : 0.7,
+        ease: [0.22, 1, 0.36, 1]
+      }
+    }
+  };
+
+  // Professional credentials - moved inside the component
+  const credentials = [
+    'Registered Physiotherapist',
+    'Sports Rehabilitation',
+    'Manual Therapy',
+    'Functional Dry Needling'
+  ];
 
   const qualifications = [
     {
       id: 'education',
-      icon: FaGraduationCap,
+      icon: GraduationCap,
       title: 'Education',
       items: [
         'Master of Science in Physical Therapy',
@@ -23,7 +63,7 @@ export default function AboutSection() {
     },
     {
       id: 'certification',
-      icon: FaCertificate,
+      icon: Certificate,
       title: 'Certifications',
       items: [
         'Advanced Manual & Manipulative Therapy (CAMPT)',
@@ -33,7 +73,7 @@ export default function AboutSection() {
     },
     {
       id: 'experience',
-      icon: FaHeartbeat,
+      icon: Heartbeat,
       title: 'Experience',
       items: [
         '5 years of clinical experience',
@@ -43,7 +83,7 @@ export default function AboutSection() {
     },
     {
       id: 'affiliations',
-      icon: FaUsers,
+      icon: Users,
       title: 'Affiliations',
       items: [
         'Canadian Physiotherapy Association',
@@ -62,201 +102,114 @@ export default function AboutSection() {
     'Personalized treatment plans'
   ];
 
-  const credentials = [
-    'Registered Physiotherapist',
-    'Sports Rehabilitation',
-    'Manual Therapy'
-  ];
-
-  const animationVariants = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: -20 }
-  };
-
   return (
-    // Add top border for separation
-    <section id="about" className="section bg-neutral-50 text-primary-700 overflow-hidden relative border-t border-neutral-200 pt-20 md:pt-28">
-      <div className="container mx-auto px-4">
-        <div 
-          ref={ref}
-          className={`transition-opacity duration-700 ease-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+    <section id="about" className="py-24 md:py-32 bg-white relative overflow-hidden">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 pattern-paper pointer-events-none"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={sectionVariants}
+          className="grid md:grid-cols-2 gap-12 md:gap-16 lg:gap-24 items-center"
         >
-          {/* Section Header - Update text colors */}
-          <div className="text-center mb-16 lg:mb-20">
-            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-primary-700 mb-4">
-              About Kareem
+          {/* Enhanced image container with subtle border and shadow */}
+          <div className="lg:col-span-5 col-span-12 relative">
+            <div className="aspect-[4/5] relative rounded-2xl overflow-hidden border border-neutral-100 shadow-xl transition-all duration-500 group bg-gradient-to-b from-gray-100 to-gray-200">
+              <Image
+                src="/images/kareem-profile.png"
+                alt="Kareem Hassanein, Registered Physiotherapist"
+                fill
+                className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
+              />
+            </div>
+            
+            {/* Remove or fix gradient decoration */}
+            <div className="absolute -z-10 -bottom-10 -right-10 w-80 h-80 bg-gradient-to-br from-primary-100 to-primary-300/50 rounded-full blur-3xl opacity-40"></div>
+          </div>
+          
+          {/* Enhanced content section */}
+          <motion.div variants={itemVariants}>
+            <span className="inline-block mb-3 text-sm font-medium tracking-wider text-accent uppercase relative">
+              <span className="relative z-10">About Me</span>
+              <span className="absolute bottom-0 left-0 w-full h-2 bg-accent/10 -z-10"></span>
+            </span>
+            
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-playfair font-semibold text-gray-900 tracking-tight mb-6">
+              Kareem Hassanein
             </h2>
-            <p className="section-subtitle text-lg text-primary-600 mx-auto max-w-3xl">
-              A dedicated professional committed to your optimal health and recovery
-            </p>
-             {/* Accent separator */}
-             <div className="w-20 h-px bg-accent mx-auto"></div>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto">
-            {/* Image column */}
-            <motion.div 
-              className={`relative transition-all duration-700 ease-out delay-100 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              {/* Subtle background shape */}
-              <div className="absolute -top-6 -left-6 w-full h-full bg-primary-50 rounded-2xl transform -rotate-3 opacity-60"></div>
-              
-              {/* Main profile image with enhanced shadow and border */}
-              <div className="relative rounded-xl overflow-hidden shadow-2xl border-2 border-white w-full max-w-sm mx-auto lg:max-w-md transform transition-transform duration-300 hover:scale-105">
-                <Image
-                  src="/images/kareem-profile.png"
-                  alt="Kareem Hassanein - Professional Physiotherapist"
-                  width={400}
-                  height={500}
-                  sizes="(max-width: 640px) 90vw, (max-width: 768px) 40vw, 400px"
-                  className="w-full h-auto object-cover"
-                  quality={90}
-                  loading="lazy"
-                  placeholder="blur"
-                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN0YPh/HwAEJgJmXaiXvwAAAABJRU5ErkJggg=="
-                />
-              </div>
-            </motion.div>
-
-            {/* Content column - Update text colors */}
-            <motion.div 
-              className={`transition-all duration-700 ease-out delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              {/* Tagline */}
-              <p className="text-xl italic text-accent mb-5 font-light">
-                &quot;Personalized care for optimal recovery&quot;
+            
+            <div className="space-y-4 text-gray-700 leading-relaxed mb-8">
+              <p>
+                With over five years of experience as a registered physiotherapist, I specialize in providing individualized care to clients with a wide range of conditions and goals.
               </p>
-              
-              {/* Heading with primary color text */}
-              <h3 className="font-heading text-2xl md:text-3xl font-semibold text-primary-700 mb-6">
-                Your Path to Optimal Health
-              </h3>
-              
-              {/* Paragraph text updated to primary */}
-              <div className="space-y-4 text-primary-700 leading-relaxed">
-                <p>
-                  Providing expert physiotherapy care in Burlington and Waterdown. My approach focuses on individualized treatment plans to help you achieve your health and performance goals.
-                </p>
-                <p>
-                  I bring advanced manual therapy skills, evidence-based treatment approaches, and a passion for helping people overcome pain and movement limitations. My approach focuses on identifying the root cause of your issues, not just treating symptoms.
-                </p>
-                <p>
-                  Building on extensive experience, including several years dedicatedly serving the Waterdown community, 
-                  my focus is always on achieving the best possible outcomes for my patients. 
-                </p>
-                <p>
-                  Whether you&apos;re recovering from an injury, managing chronic pain, or seeking to optimize 
-                  your physical performance, I&apos;m committed to helping you achieve your health goals through 
-                  dedicated one-on-one care.
-                </p>
-              </div>
-              
-              {/* Credentials - Update background and text colors */}
-              <div className="flex flex-wrap gap-2 mt-6">
-                {credentials.map((credential, index) => (
-                  <span 
-                    key={index} 
-                    className="px-3 py-1.5 bg-primary-100 rounded-md text-sm text-primary-700 border border-primary-200/50"
-                  >
-                    {credential}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          </div> {/* End of main 2-column grid */} 
-
-          {/* Qualifications Section - Update colors */}
-          <div className="mt-20 lg:mt-24 max-w-5xl mx-auto"> 
-            <h3 className="text-2xl font-semibold text-primary-700 mb-8 text-center">My Qualifications</h3>
-            <motion.div 
-              className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.5, staggerChildren: 0.1 }}
-              viewport={{ once: true, amount: 0.2 }}
+              <p>
+                My approach combines manual therapy, targeted exercise prescription, and patient education to create comprehensive treatment plans that address not just symptoms, but root causes.
+              </p>
+              <p>
+                I believe in spending quality time with each client, ensuring thorough assessments and personalized care. This dedication to one-on-one treatment allows for better outcomes and more meaningful therapeutic relationships.
+              </p>
+            </div>
+            
+            {/* Enhanced key qualifications with accent colors */}
+            <div className="grid grid-cols-2 gap-4 mb-8">
+              {credentials.map((credential, index) => (
+                <div key={index} className="flex items-center">
+                  <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-accent to-accent-light shadow-sm mr-2"></div>
+                  <span className="text-gray-700">{credential}</span>
+                </div>
+              ))}
+            </div>
+            
+            {/* Enhanced button with icon */}
+            <Button 
+              href="/about" 
+              variant="outline" 
+              size="lg"
+              icon={<ArrowRight weight="bold" className="h-5 w-5" />}
+              iconPosition="right"
+              className="group hover:border-accent/70 hover:bg-gradient-to-r hover:from-accent/5 hover:to-accent/10"
             >
-              {qualifications.map((qual, index) => {
-                const IconComponent = qual.icon; 
-                return (
-                  <motion.div 
-                    key={qual.id}
-                    variants={animationVariants}
-                    className="bg-white p-6 rounded-xl shadow-lg border border-neutral-100 transition-all duration-300 hover:shadow-xl hover:border-accent/20 transform hover:-translate-y-1"
-                  >
-                    <div className="flex items-center mb-4">
-                      <div className="flex-shrink-0 premium-icon-badge premium-icon-badge-sm premium-icon-badge-square premium-icon-badge-primary mr-4">
-                        <IconComponent className="w-5 h-5" aria-hidden="true" />
-                      </div>
-                      <h4 className="font-semibold text-primary-700 text-lg">{qual.title}</h4>
-                    </div>
-                    {/* Conditional rendering for Affiliations */}
-                    {qual.id === 'affiliations' ? (
-                      <div className="flex flex-col sm:flex-row gap-4 items-center mt-3 space-y-4 sm:space-y-0 sm:space-x-4">
-                        {/* CPA Logo */}
-                        <a 
-                          href="https://physiotherapy.ca/" 
-                          target="_blank" 
-                          rel="noopener noreferrer" 
-                          className="block hover:opacity-80 transition-opacity duration-200"
-                          aria-label="Visit Canadian Physiotherapy Association website"
-                        >
-                          <Image
-                            src="/images/canadian-physio-association-logo.png"
-                            alt="Canadian Physiotherapy Association Logo"
-                            width={180} // Adjust size as needed
-                            height={50} // Adjust size based on aspect ratio
-                            style={{ height: 'auto' }} // Maintain aspect ratio
-                            className="max-h-12 object-contain"
-                          />
-                        </a>
-                        {/* CPO Logo */}
-                        <a 
-                          href="https://collegept.org/" 
-                          target="_blank" 
-                          rel="noopener noreferrer" 
-                          className="block hover:opacity-80 transition-opacity duration-200"
-                          aria-label="Visit College of Physiotherapists of Ontario website"
-                        >
-                          <Image
-                            src="/images/college-of-physiotherapists-of-ontario-logo.webp"
-                            alt="College of Physiotherapists of Ontario Logo"
-                            width={150} // Adjust size as needed
-                            height={50} // Adjust size based on aspect ratio
-                            style={{ height: 'auto' }} // Maintain aspect ratio
-                            className="max-h-12 object-contain"
-                          />
-                        </a>
-                      </div>
-                    ) : (
-                      <ul className="space-y-2 text-sm text-primary-600 pl-1">
-                        {qual.items.map((item, i) => (
-                          <li key={i} className="flex items-start">
-                            <span className="text-accent mr-2.5 mt-1 inline-block w-1.5 h-1.5 rounded-full bg-current flex-shrink-0" aria-hidden="true"></span>
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </motion.div>
-                );
-              })}
-            </motion.div>
+              Learn more about me
+            </Button>
+          </motion.div>
+        </motion.div>
+        
+        {/* New qualification cards section */}
+        <div className="mt-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {qualifications.map((qual, index) => (
+              <motion.div
+                key={qual.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-neutral-100"
+              >
+                <div className="w-12 h-12 mb-4 rounded-lg flex items-center justify-center bg-accent/10">
+                  <qual.icon weight="regular" size={24} className="text-accent" />
+                </div>
+                <h3 className="text-lg font-semibold mb-3 text-gray-900">{qual.title}</h3>
+                <ul className="space-y-2">
+                  {qual.items.map((item, i) => (
+                    <li key={i} className="flex items-start">
+                      <CheckCircle className="w-4 h-4 text-accent mt-1 mr-2 flex-shrink-0" weight="fill" />
+                      <span className="text-sm text-gray-600">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
           </div>
-
         </div>
       </div>
-
-      {/* REMOVED Subtle Bottom Divider */}
-      {/* <div className="absolute bottom-0 left-0 right-0 h-px bg-primary-700"></div> */}
     </section>
   );
-}
+};
+
+export default AboutSection;

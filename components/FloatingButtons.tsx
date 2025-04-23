@@ -96,7 +96,7 @@ export default function FloatingButtons() {
     >
       {/* Book Appointment Button */}
       <motion.a
-        href="https://endorphinshealth.janeapp.com/#/staff_member/6"
+        href="https://endorphinshealth.janeapp.com/#/staff_member/42"
         target="_blank"
         rel="noopener noreferrer"
         onMouseEnter={() => setShowTooltip('book')}

@@ -42,10 +42,10 @@ export default function BookingSection({ onNavLinkClick }: BookingSectionProps) 
         <div className="flex flex-col sm:flex-row justify-center items-center gap-5">
           {/* Online Booking Button - Use btn-primary (accent) */}
           <Link 
-            href="https://endorphinshealth.janeapp.com/#/staff_member/6"
+            href="https://endorphinshealth.janeapp.com/#/staff_member/42"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center bg-accent hover:bg-accent-dark text-white font-medium px-6 py-3 rounded-lg transition-colors duration-300 text-center shadow-md hover:shadow-lg"
+            className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-accent to-accent-dark hover:from-accent-dark hover:to-accent text-white text-base font-medium rounded-full shadow-md hover:shadow-lg transition transform duration-300 hover:scale-[1.02] w-full sm:w-auto"
           >
             <CalendarDaysIcon className="w-5 h-5 mr-2" />
             Book Online Now

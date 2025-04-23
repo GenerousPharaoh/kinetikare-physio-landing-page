@@ -1,4 +1,5 @@
 import PlaceholderImage from '@/components/PlaceholderImage';
+import { CalendarIcon } from '@heroicons/react/24/outline';
 
 export default function Services() {
   return (
@@ -7,7 +8,7 @@ export default function Services() {
       <section className="bg-navy-deep text-white py-16 relative">
         <div className="absolute inset-0 bg-gradient-to-r from-navy-deep via-navy-deep to-navy-light opacity-90"></div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center animate-fade-in" style={{ willChange: 'opacity', transform: 'translateZ(0)' }}>
+          <div className="max-w-4xl mx-auto text-center animate-fade-in">
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">
               Our <span className="text-gold-accent">Services</span>
             </h1>
@@ -23,7 +24,7 @@ export default function Services() {
         <div className="container mx-auto px-4">
         
           {/* Service 1 */}
-          <div id="manual-therapy" className="flex flex-col md:flex-row items-center gap-12 mb-20 animate-fade-in" style={{ willChange: 'opacity, transform', transform: 'translateZ(0)' }}>
+          <div id="manual-therapy" className="flex flex-col md:flex-row items-center gap-12 mb-20 animate-fade-in">
             <div className="md:w-1/2">
               <div className="relative w-full h-80 md:h-[400px] rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500">
                 <PlaceholderImage
@@ -33,8 +34,6 @@ export default function Services() {
                   style={{ objectFit: 'cover' }}
                   className="transform hover:scale-105 transition-transform duration-700"
                   category="Manual Therapy"
-                  priority={true}
-                  data-critical="true"
                 />
               </div>
             </div>
@@ -67,7 +66,7 @@ export default function Services() {
           </div>
           
           {/* Service 2 */}
-          <div id="sports-injuries" className="flex flex-col md:flex-row-reverse items-center gap-12 mb-20 animate-fade-in" style={{ animationDelay: "0.1s", willChange: 'opacity, transform', transform: 'translateZ(0)' }}>
+          <div id="sports-injuries" className="flex flex-col md:flex-row-reverse items-center gap-12 mb-20 animate-fade-in" style={{ animationDelay: "0.2s" }}>
             <div className="md:w-1/2">
               <div className="relative w-full h-80 md:h-[400px] rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500">
                 <PlaceholderImage
@@ -77,7 +76,6 @@ export default function Services() {
                   style={{ objectFit: 'cover' }}
                   className="transform hover:scale-105 transition-transform duration-700"
                   category="Sports Rehabilitation"
-                  priority={true}
                 />
               </div>
             </div>
@@ -111,7 +109,7 @@ export default function Services() {
           </div>
           
           {/* Service 3 */}
-          <div id="dry-needling" className="flex flex-col md:flex-row items-center gap-12 mb-20 animate-fade-in" style={{ animationDelay: "0.2s", willChange: 'opacity, transform', transform: 'translateZ(0)' }}>
+          <div id="dry-needling" className="flex flex-col md:flex-row items-center gap-12 mb-20 animate-fade-in" style={{ animationDelay: "0.4s" }}>
             <div className="md:w-1/2">
               <div className="relative w-full h-80 md:h-[400px] rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500">
                 <PlaceholderImage
@@ -154,7 +152,7 @@ export default function Services() {
           </div>
           
           {/* Service 4 */}
-          <div id="exercise-prescription" className="flex flex-col md:flex-row-reverse items-center gap-12 animate-fade-in" style={{ animationDelay: "0.3s", willChange: 'opacity, transform', transform: 'translateZ(0)' }}>
+          <div id="exercise-prescription" className="flex flex-col md:flex-row-reverse items-center gap-12 animate-fade-in" style={{ animationDelay: "0.6s" }}>
             <div className="md:w-1/2">
               <div className="relative w-full h-80 md:h-[400px] rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500">
                 <PlaceholderImage
@@ -201,7 +199,7 @@ export default function Services() {
       {/* CTA Section */}
       <section className="py-16 bg-navy-deep text-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center animate-fade-in" style={{ willChange: 'opacity', transform: 'translateZ(0)' }}>
+          <div className="max-w-3xl mx-auto text-center animate-fade-in">
             <h2 className="text-3xl font-heading font-bold mb-4">
               Ready to Start Your <span className="text-gold-accent">Recovery Journey</span>?
             </h2>
@@ -219,15 +217,13 @@ export default function Services() {
                 Call (905) 634-6000
               </a>
               <a
-                href="https://endorphinshealthandwellness.janeapp.com/"
+                href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-transparent border-2 border-gold-accent text-gold-accent px-6 py-3 rounded-md font-medium hover:bg-gold-accent/10 transition-colors flex items-center hover-lift"
+                className="px-6 py-3 bg-accent text-white font-medium rounded-full shadow-md hover:bg-accent-dark transition-colors duration-300 inline-flex items-center"
               >
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                Book Online
+                <CalendarIcon className="w-5 h-5 mr-2" />
+                Book Your Consultation
               </a>
             </div>
           </div>

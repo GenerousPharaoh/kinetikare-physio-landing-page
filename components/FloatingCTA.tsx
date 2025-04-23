@@ -67,7 +67,7 @@ export default function FloatingCTA() {
             variants={buttonVariants}
           >
             <Link
-              href="https://endorphinshealth.janeapp.com/#/staff_member/6"
+              href="https://endorphinshealth.janeapp.com/#/staff_member/42"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 bg-accent hover:bg-accent-dark text-white font-medium px-5 py-3 rounded-full shadow-lg transition-all duration-200"

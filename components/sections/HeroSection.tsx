@@ -143,7 +143,7 @@ const HeroSection = memo(function HeroSection() {
               <div className="flex flex-wrap gap-5 mt-8">
                 <Button
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
-                  target="_blank"
+                  external={true}
                   variant="primary"
                   size="lg"
                   className="w-full md:w-auto"

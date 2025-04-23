@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { CalendarDaysIcon } from '@heroicons/react/24/outline';
 import { motion, useReducedMotion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/Button';
 
 const HeroSection = memo(function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);

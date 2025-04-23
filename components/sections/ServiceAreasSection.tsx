@@ -144,7 +144,7 @@ export default function ServiceAreasSection() {
                 Easy access from surrounding communities
               </h3>
               <p className="text-white text-lg md:text-xl drop-shadow-lg max-w-2xl">
-                Conveniently positioned at 5195 Harvester Rd, Burlington, ON L7L 6E9
+                Conveniently positioned at 4631 Palladium Wy Unit 6, Burlington, ON L7M 0W9
               </p>
             </div>
           </div>
@@ -179,7 +179,7 @@ export default function ServiceAreasSection() {
                 </div>
                 
                 <p className="text-gray-700 font-medium">
-                  5195 Harvester Rd, Burlington, ON L7L 6E9
+                  4631 Palladium Wy Unit 6, Burlington, ON L7M 0W9
                 </p>
                 
                 <p className="text-primary-700 my-4 text-sm leading-relaxed flex-grow">
@@ -187,7 +187,7 @@ export default function ServiceAreasSection() {
                 </p>
                 
                 <Link 
-                  href="https://maps.app.goo.gl/TnMCjpzxtYoK6WLPA" 
+                  href="https://maps.app.goo.gl/JC7uKnd9zW4AJPP49" 
                   target="_blank"
                   className="inline-flex items-center justify-center text-white bg-accent hover:bg-accent-dark px-4 py-2.5 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg text-sm font-medium w-full mt-3"
                   style={{ boxShadow: '0 4px 14px rgba(231, 169, 49, 0.2)' }}

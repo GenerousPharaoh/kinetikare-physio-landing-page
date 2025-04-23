@@ -220,7 +220,7 @@ export default function RootLayout({
         `}} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://khphysiotherapy.janeapp.com" />
+        <link rel="dns-prefetch" href="https://endorphinshealth.janeapp.com" />
         
         {/* Preload critical images to improve load time */}
         <link rel="preload" as="image" href="/images/kareem-profile.png" />

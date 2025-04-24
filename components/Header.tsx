@@ -42,6 +42,13 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
+    
+    // Set CSS variable for header height
+    const headerElement = document.querySelector('header');
+    if (headerElement) {
+      document.documentElement.style.setProperty('--header-height', `${headerElement.offsetHeight}px`);
+    }
+    
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -62,6 +69,12 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     const handleResize = () => {
       if (window.innerWidth >= 768 && mobileMenuOpen) {
         setMobileMenuOpen(false);
+      }
+      
+      // Update header height CSS variable on resize
+      const headerElement = document.querySelector('header');
+      if (headerElement) {
+        document.documentElement.style.setProperty('--header-height', `${headerElement.offsetHeight}px`);
       }
     };
     
@@ -188,7 +201,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
   return (
     <header
       ref={ref}
-      className={`fixed w-full top-0 z-[100] transition-all duration-300 ease-in-out
+      className={`fixed w-full top-0 z-[100] transition-all duration-300 ease-in-out overflow-visible
         ${scrolled 
           ? 'shadow-xl py-1 xs:py-2' 
           : 'py-2 xs:py-3'}
@@ -224,8 +237,9 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
         <div className="flex justify-between items-center">
           <Link href="/" className="flex items-center z-10 group">
             <div className="font-heading font-bold text-base xs:text-xl md:text-2xl flex items-center relative">
-              <span className="text-primary-700 group-hover:text-primary-800 transition-colors duration-500">KH</span>
-              <span className="text-accent group-hover:text-accent-dark transition-colors duration-500 ml-1">Physiotherapy</span>
+              <span className="text-primary-700 group-hover:text-primary-800 transition-colors duration-500 tracking-tight">KH</span>
+              <span className="mx-1 text-neutral-300">|</span>
+              <span className="text-accent group-hover:text-accent-dark transition-colors duration-500 tracking-wide font-medium">Physiotherapy</span>
               
               {/* Enhanced animated underline */}
               <span className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary-500/80 via-accent/80 to-primary-500/80 w-0 group-hover:w-full transition-all duration-500"></span>
@@ -250,10 +264,10 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   onMouseLeave={() => setActiveItem(null)}
                 >
                   {item.name === 'Home' ? (
-                    <div className="relative">
+                    <div className="relative z-[9990] overflow-visible">
                       <div 
-                        className={`relative px-2 lg:px-4 py-2 rounded-full transition-all duration-300 
-                          text-sm lg:text-base font-medium cursor-pointer flex items-center gap-1
+                        className={`relative px-3 lg:px-4 py-2.5 rounded-full transition-all duration-300 
+                          text-sm lg:text-base font-medium cursor-pointer flex items-center gap-1.5 group
                           ${isCurrentPath(item.href) 
                             ? 'text-accent-600 font-semibold' 
                             : 'text-primary-700 hover:text-accent-500'}`}
@@ -269,12 +283,18 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                         {(isCurrentPath(item.href) || activeItem === item.name || homeSectionsOpen) && (
                           <span className="absolute inset-0 bg-accent/10 rounded-full -z-0"></span>
                         )}
+                        
+                        {/* Improved underline indicator with animation */}
+                        <span className={`absolute bottom-1 left-0 right-0 h-0.5 mx-3 bg-accent rounded-full 
+                          transform origin-left transition-all duration-300 ease-out 
+                          ${homeSectionsOpen ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}>
+                        </span>
                       </div>
                       
                       {/* Dropdown for Home Sections */}
                       {homeSectionsOpen && (
                         <div 
-                          className="absolute top-full left-0 mt-1 bg-white rounded-lg shadow-lg border border-neutral-200 py-2 min-w-[180px] z-50"
+                          className="absolute top-full left-0 mt-1 bg-white rounded-lg shadow-lg border border-neutral-200 py-2 min-w-[180px] z-[9999] overflow-visible"
                           onMouseLeave={() => setHomeSectionsOpen(false)}
                         >
                           <Link
@@ -304,23 +324,27 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                     <Link
                       href={item.href}
                       onClick={(e) => handleNavClick(e, item.href)}
-                      className={`relative px-2 lg:px-4 py-2 rounded-full transition-all duration-300 
-                          text-sm lg:text-base font-medium 
+                      className={`relative px-3 lg:px-4 py-2.5 rounded-full transition-all duration-300 
+                          text-sm lg:text-base font-medium cursor-pointer flex items-center gap-1.5 group
                           ${isCurrentPath(item.href) 
                             ? 'text-accent-600 font-semibold' 
                             : 'text-primary-700 hover:text-accent-500'}`}
                     >
-                      <span className="relative z-10">{item.name}</span>
+                      <span className="relative z-10">Explore</span>
+                      <ChevronDownIcon 
+                        className={`h-4 w-4 transition-transform duration-300 ${homeSectionsOpen ? 'rotate-180' : ''}`} 
+                      />
                       
                       {/* Animated background on hover and active states */}
-                      {(isCurrentPath(item.href) || activeItem === item.name) && (
+                      {(isCurrentPath(item.href) || activeItem === item.name || homeSectionsOpen) && (
                         <span className="absolute inset-0 bg-accent/10 rounded-full -z-0"></span>
                       )}
                       
-                      {/* Underline indicator for current page */}
-                      {isCurrentPath(item.href) && (
-                        <span className="absolute bottom-1 left-3 right-3 h-0.5 bg-accent rounded-full"></span>
-                      )}
+                      {/* Improved underline indicator with animation */}
+                      <span className={`absolute bottom-1 left-0 right-0 h-0.5 mx-3 bg-accent rounded-full 
+                        transform origin-left transition-all duration-300 ease-out 
+                        ${homeSectionsOpen ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}>
+                      </span>
                     </Link>
                   )}
                 </div>
@@ -335,12 +359,12 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 href="tel:+19056346000"
                 className="flex items-center text-sm font-medium transition-all duration-300 py-2 px-3 lg:px-4 
                   rounded-full hover:scale-105 h-10 whitespace-nowrap
-                  text-primary-700 bg-white border border-neutral-200 hover:shadow-md
+                  text-primary-700 hover:text-primary-800 bg-transparent border border-primary-300 hover:shadow-md
                   hover:border-accent/30"
                 aria-label="Call Now"
               >
-                <div className="premium-icon-badge premium-icon-badge-sm premium-icon-badge-circle header-badge mr-2 bg-primary-50">
-                  <PhoneIcon className="h-3.5 w-3.5 text-primary-700" />
+                <div className="flex items-center justify-center w-6 h-6 rounded-full text-primary-700 mr-2">
+                  <PhoneIcon className="h-3.5 w-3.5" />
                 </div>
                 <span className="hidden lg:inline">905-634-6000</span>
                 <span className="lg:hidden">Call</span>
@@ -354,9 +378,11 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 rel="noopener noreferrer"
                 className="bg-gradient-to-r from-accent to-accent-dark text-white text-sm font-medium px-3 lg:px-4 py-2 rounded-full 
                   shadow-md hover:shadow-lg transition-all duration-300 
-                  flex items-center gap-1.5 h-10 whitespace-nowrap border border-accent/50"
+                  flex items-center gap-1.5 h-10 whitespace-nowrap border border-accent/50 
+                  hover:scale-105 hover:brightness-105 group relative overflow-hidden"
               >
-                <div className="premium-icon-badge premium-icon-badge-sm premium-icon-badge-circle header-badge bg-white/20">
+                <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="flex items-center justify-center w-6 h-6 rounded-full bg-white/20 group-hover:bg-white/30 transition-colors duration-300">
                   <CalendarDaysIcon className="h-3.5 w-3.5" />
                 </div>
                 <span>Book Online</span>
@@ -369,9 +395,9 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               type="button"
-              className="p-2 rounded-full focus:outline-none transition-colors duration-200
-                bg-white/80 border border-neutral-200 shadow-sm 
-                text-primary-700 hover:text-accent"
+              className="p-2 rounded-full focus:outline-none transition-all duration-200
+                bg-white/50 backdrop-blur-sm border border-neutral-200 shadow-sm 
+                text-primary-700 hover:text-accent hover:bg-white/80 hover:shadow-md"
               aria-controls="mobile-menu"
               aria-expanded={mobileMenuOpen}
             >
@@ -390,7 +416,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
       {mobileMenuOpen && (
         <div
           id="mobile-menu"
-          className="md:hidden"
+          className="md:hidden fixed top-[calc(var(--header-height,60px))] left-0 right-0 z-[9999] max-h-[calc(100vh-var(--header-height,60px))] overflow-y-auto"
         >
           <div 
             className="backdrop-blur-xl bg-white/95 shadow-lg border-b border-neutral-200/30 px-4 py-3"
@@ -450,8 +476,8 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   <Link
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href)}
-                    className={`flex items-center px-4 py-3 rounded-lg text-base font-medium 
-                      hover:bg-accent/10 transition-all duration-200
+                    className={`flex items-center px-4 py-4 rounded-lg text-base font-medium 
+                      hover:bg-accent/10 active:bg-accent/20 transition-all duration-200
                       ${isCurrentPath(item.href) 
                         ? 'text-accent-600 font-semibold bg-accent/5 border-l-2 border-accent' 
                         : 'text-primary-700 hover:text-accent-500'}`}

@@ -126,10 +126,10 @@ export default function AboutSection() {
 
             {/* Content column - Update text colors */}
             <motion.div 
-              className={`transition-all duration-700 ease-out delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}
-              initial={{ opacity: 0, x: 30 }}
+              className={`transition-all duration-700 ease-out delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}
+              initial={{ opacity: 0, x: 10 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
               viewport={{ once: true, amount: 0.3 }}
             >
               {/* Tagline */}

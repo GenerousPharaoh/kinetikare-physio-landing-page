@@ -202,9 +202,12 @@ export default function PerformanceOptimizer() {
       const styleElement = document.createElement('style');
       styleElement.id = 'performance-styles';
       styleElement.textContent = `
-        .is-scrolling .animate-on-scroll {
+        .is-scrolling .animate-on-scroll,
+        .is-scrolling [data-framer-appear-id],
+        .is-scrolling .motion-div {
           animation-play-state: paused !important;
           transition: none !important;
+          transform: none !important;
         }
         
         @media (prefers-reduced-motion: reduce) {

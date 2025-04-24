@@ -32,7 +32,12 @@ export default function ContactSection() {
     {
       icon: ClockIcon,
       title: 'Clinic Hours',
-      lines: ['Mon-Fri: 2pm - 8pm']
+      lines: [
+        'Monday - Thursday: 8:00 AM - 8:00 PM',
+        'Friday: 8:00 AM - 5:00 PM',
+        'Saturday: 9:00 AM - 2:00 PM',
+        'Sunday: Closed'
+      ]
     }
   ];
 

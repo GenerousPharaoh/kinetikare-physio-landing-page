@@ -403,10 +403,10 @@ const HeroSection = memo(function HeroSection() {
                   <div className="mb-12 flex flex-col gap-5 stagger-fade-in">
                     <motion.div 
                       className="relative overflow-hidden group"
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : 20 }}
-                      transition={{ duration: 0.5, delay: 0.3 }}
-                      whileHover={{ y: -5, x: 5 }}
+                      initial={{ opacity: 0, x: 10 }}
+                      animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : 10 }}
+                      transition={{ duration: 0.4, delay: 0.2 }}
+                      whileHover={{ y: -5, x: 2 }}
                     >
                       <motion.div 
                         className="absolute inset-0 bg-gradient-to-r from-white/5 via-white/10 to-white/5 rounded-xl opacity-0 group-hover:opacity-100"
@@ -441,10 +441,10 @@ const HeroSection = memo(function HeroSection() {
                     
                     <motion.div 
                       className="relative overflow-hidden group"
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : 20 }}
-                      transition={{ duration: 0.5, delay: 0.5 }}
-                      whileHover={{ y: -5, x: 5 }}
+                      initial={{ opacity: 0, x: 10 }}
+                      animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : 10 }}
+                      transition={{ duration: 0.4, delay: 0.4 }}
+                      whileHover={{ y: -5, x: 2 }}
                     >
                       <motion.div 
                         className="absolute inset-0 bg-gradient-to-r from-white/5 via-white/10 to-white/5 rounded-xl opacity-0 group-hover:opacity-100"

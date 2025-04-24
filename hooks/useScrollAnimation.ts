@@ -53,7 +53,7 @@ export function useScrollAnimation<T extends HTMLElement = HTMLDivElement>({
   triggerOnce = true,
   rootMargin = '0px', // More conservative rootMargin
   disabled = false,
-  duration = 150, // Faster animations by default
+  duration = 100, // Faster animations by default (reduced from 150ms)
 }: ScrollAnimationOptions = {}): {
   ref: RefObject<T>;
   isVisible: boolean;
@@ -68,7 +68,7 @@ export function useScrollAnimation<T extends HTMLElement = HTMLDivElement>({
   const shouldDisable = disabled || prefersReducedMotion();
   // Use a faster duration for mobile
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-  const effectiveDuration = isMobile ? Math.min(duration, 100) : duration;
+  const effectiveDuration = isMobile ? Math.min(duration, 80) : duration;
   
   useEffect(() => {
     // Skip for SSR or when animations are disabled
@@ -136,7 +136,7 @@ export function useScrollAnimation<T extends HTMLElement = HTMLDivElement>({
         }
       }
     };
-  }, [rootMargin, threshold, triggerOnce, shouldDisable, isMobile]);
+  }, [threshold, rootMargin, triggerOnce, shouldDisable, isMobile]);
   
   return { 
     ref: ref as RefObject<T>, 
@@ -151,7 +151,7 @@ export function useSectionAnimation(options?: Omit<ScrollAnimationOptions, 'root
   return useScrollAnimation({
     rootMargin: '0px', // More conservative rootMargin to avoid too early animations
     threshold: 0,
-    duration: 100, // Even faster animations for sections
+    duration: 80, // Even faster animations for sections (reduced from 100ms)
     ...options,
   });
 } 

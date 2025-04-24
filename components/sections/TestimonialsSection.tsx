@@ -158,8 +158,8 @@ export default function TestimonialsSection() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.98 }}
                   transition={{ 
-                    duration: 0.5, 
-                    ease: [0.32, 0.72, 0, 1] // Custom easing for smooth transitions
+                    duration: 0.4, 
+                    ease: [0.32, 0.72, 0, 1]
                   }}
                   className="bg-white backdrop-blur-sm border border-primary-100 rounded-xl p-10 md:p-12 shadow-lg overflow-hidden"
                   style={{ willChange: 'transform, opacity' }}

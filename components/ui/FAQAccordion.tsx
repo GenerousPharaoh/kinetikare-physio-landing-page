@@ -22,7 +22,7 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ question, answer }) => {
         <h3 className="text-lg font-medium text-neutral-900">{question}</h3>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.2 }}
         >
           <ChevronDownIcon className="h-5 w-5 text-accent" />
         </motion.div>
@@ -34,7 +34,7 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ question, answer }) => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.2 }}
             className="overflow-hidden"
           >
             <div className="p-5 pt-0 text-neutral-700" dangerouslySetInnerHTML={{ __html: answer }} />

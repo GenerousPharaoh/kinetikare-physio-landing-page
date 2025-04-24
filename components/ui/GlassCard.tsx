@@ -63,10 +63,10 @@ export default function GlassCard({
     <motion.div
       className={baseClasses}
       style={style}
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: 0.4 }}
       tabIndex={tabIndex}
     >
       {children}

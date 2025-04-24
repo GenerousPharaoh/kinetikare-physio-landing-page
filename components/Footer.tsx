@@ -39,9 +39,9 @@ export default function Footer() {
   ];
 
   const businessHours = [
-    { day: 'Monday - Thursday', hours: '9:00 AM - 8:00 PM' },
-    { day: 'Friday', hours: '9:00 AM - 5:00 PM' },
-    { day: 'Saturday', hours: 'By Appointment' },
+    { day: 'Monday - Thursday', hours: '8:00 AM - 8:00 PM' },
+    { day: 'Friday', hours: '8:00 AM - 5:00 PM' },
+    { day: 'Saturday', hours: '9:00 AM - 2:00 PM' },
     { day: 'Sunday', hours: 'Closed' }
   ];
 
@@ -49,7 +49,7 @@ export default function Footer() {
     { 
       name: 'LinkedIn', 
       href: 'https://www.linkedin.com/in/kareem-hassanein-60585133a',
-      icon: <LinkedinLogo weight="fill" className="w-5 h-5" />
+      icon: <LinkedinLogo weight="fill" className="w-6 h-6" />
     }
   ];
 
@@ -91,12 +91,12 @@ export default function Footer() {
       <div className="absolute inset-0 bg-pattern opacity-[0.03] pointer-events-none"></div>
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent"></div>
       
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         {/* Main footer content with map */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 mb-10">
           
           {/* Column 1: Contact & Info (4 cols) */}
-          <div className="lg:col-span-4 flex flex-col justify-between">
+          <div className="md:col-span-1 lg:col-span-4 flex flex-col justify-between">
             <div>
               <Link href="/" className="inline-block mb-6" aria-label="Return to homepage">
                 <div className="flex items-center">
@@ -114,7 +114,7 @@ export default function Footer() {
                 </div>
               </Link>
               
-              <div className="mb-6">
+              <div className="mb-8">
                 <h3 className="text-base font-semibold mb-4 text-white relative inline-flex">
                   <span className="relative z-10">Contact Information</span>
                   <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent/40 rounded-full -z-10"></span>
@@ -140,11 +140,11 @@ export default function Footer() {
                   <span className="relative z-10">Business Hours</span>
                   <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent/40 rounded-full -z-10"></span>
                 </h3>
-                <ul className="space-y-2 text-neutral-200">
+                <ul className="space-y-3 text-neutral-200">
                   {businessHours.map((schedule) => (
-                    <li key={schedule.day} className="flex justify-between text-sm">
-                      <span className="font-medium">{schedule.day}</span>
-                      <span className="text-accent">{schedule.hours}</span>
+                    <li key={schedule.day} className="flex flex-col sm:flex-row sm:justify-between text-sm">
+                      <span className="font-medium mb-1 sm:mb-0">{schedule.day}</span>
+                      <span className="text-accent bg-primary-800/50 px-2 py-1 rounded-md font-medium inline-block max-w-full">{schedule.hours}</span>
                     </li>
                   ))}
                 </ul>
@@ -152,24 +152,25 @@ export default function Footer() {
             </div>
             
             {/* Social links */}
-            <div className="mt-6 flex space-x-3">
+            <div className="mt-8 flex space-x-3">
               {socialLinks.map((social) => (
                 <a 
                   key={social.name}
                   href={social.href} 
                   aria-label={`Visit ${social.name} profile`}
-                  className="w-9 h-9 rounded-full bg-white/10 hover:bg-accent transition-colors duration-300 flex items-center justify-center hover:scale-105 transform"
+                  className="w-10 h-10 rounded-full bg-white/15 hover:bg-accent hover:text-white transition-all duration-300 flex items-center justify-center hover:scale-110 transform"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   {social.icon}
+                  <span className="sr-only">{social.name}</span>
                 </a>
               ))}
             </div>
           </div>
           
           {/* Column 2: Quick Links & Services (3 cols) */}
-          <div className="lg:col-span-3 grid grid-cols-1 gap-6">
+          <div className="md:col-span-1 lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-8">
             <div>
               <h3 className="text-base font-semibold mb-4 text-white relative inline-flex">
                 <span className="relative z-10">Quick Links</span>
@@ -192,7 +193,7 @@ export default function Footer() {
             
             <div>
               <h3 className="text-base font-semibold mb-4 text-white relative inline-flex">
-                <span className="relative z-10">Our Services</span>
+                <span className="relative z-10">Physiotherapy Treatments</span>
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent/40 rounded-full -z-10"></span>
               </h3>
               <ul className="space-y-2">
@@ -207,6 +208,7 @@ export default function Footer() {
                     <Link 
                       href={`/services/#${service.toLowerCase().replace(/\s+/g, '-')}`} 
                       className="text-neutral-200 hover:text-accent transition-colors flex items-center group text-sm"
+                      onClick={(e) => handleNavClick(e, `/#${service.toLowerCase().replace(/\s+/g, '-')}`)}
                     >
                       <span className="w-1 h-1 bg-accent rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                       {service}
@@ -218,7 +220,7 @@ export default function Footer() {
           </div>
           
           {/* Column 3: Google Map (5 cols) */}
-          <div className="lg:col-span-5 rounded-lg overflow-hidden shadow-xl border border-white/10 h-[300px] relative">
+          <div className="md:col-span-2 lg:col-span-5 rounded-xl overflow-hidden h-[300px] relative shadow-lg border border-white/20">
             <iframe 
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2898.518670972593!2d-79.82630139999999!3d43.4079889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b61568c54cbff%3A0x433767b454bd4446!2sEndorphins%20Health%20and%20Wellness%20Centre!5e0!3m2!1sen!2sca!4v1745456201323!5m2!1sen!2sca" 
               width="100%" 
@@ -228,9 +230,9 @@ export default function Footer() {
               loading="lazy" 
               referrerPolicy="no-referrer-when-downgrade"
               title="Endorphins Health and Wellness Centre location"
-              className="filter grayscale hover:grayscale-0 transition-all duration-500"
+              className="transition-all duration-500 hover:opacity-95"
             ></iframe>
-            <div className="absolute top-2 left-2 bg-accent/90 text-white py-1 px-3 rounded-md shadow-md text-xs font-medium backdrop-blur-sm">
+            <div className="absolute top-2 left-2 bg-accent/90 text-white py-1.5 px-3 rounded-md shadow-md text-xs font-medium backdrop-blur-sm">
               <MapPin weight="bold" className="inline-block w-3 h-3 mr-1" />
               Find Us Here
             </div>
@@ -242,7 +244,7 @@ export default function Footer() {
           <p className="text-sm text-neutral-400">
             © {currentYear} <span className="text-white">KH Physiotherapy</span>. All rights reserved.
           </p>
-          <div className="flex mt-4 md:mt-0 space-x-6 text-xs text-neutral-400">
+          <div className="flex flex-wrap justify-center md:justify-end mt-4 md:mt-0 gap-4 md:space-x-6 text-xs text-neutral-400">
             <Link href="/privacy" className="hover:text-accent transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-accent transition-colors">Terms of Service</Link>
             <Link href="/accessibility" className="hover:text-accent transition-colors">Accessibility</Link>

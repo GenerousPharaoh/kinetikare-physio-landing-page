@@ -91,7 +91,7 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, defaultOpen = null }
               </span>
               <motion.div
                 animate={{ rotate: isActive ? 180 : 0 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
+                transition={{ duration: 0.2, ease: "easeInOut" }}
                 className={`flex-shrink-0 w-5 h-5 transition-colors duration-200 ${
                   isActive ? 'text-accent' : 'text-primary-400'
                 }`}
@@ -109,14 +109,14 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, defaultOpen = null }
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: 'auto', opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  transition={{ duration: 0.2, ease: "easeInOut" }}
                   className="overflow-hidden"
                 >
                   <motion.div 
-                    initial={{ y: -10 }}
+                    initial={{ y: -5 }}
                     animate={{ y: 0 }}
-                    exit={{ y: -10 }}
-                    transition={{ duration: 0.2 }}
+                    exit={{ y: -5 }}
+                    transition={{ duration: 0.15 }}
                     className="p-5 pt-0 border-t border-neutral-100"
                   >
                     <p className="text-primary-600 leading-relaxed whitespace-pre-line">

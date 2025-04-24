@@ -105,11 +105,11 @@ export default function Footer() {
                     alt="Kareem Hassanein"
                     width={60}
                     height={60}
-                    className="rounded-full border-2 border-accent/30 mr-3"
+                    className="rounded-full border-2 border-accent/50 mr-3 shadow-md shadow-accent/20"
                   />
                   <div>
                     <h3 className="font-heading text-xl text-white">KH <span className="text-accent">Physiotherapy</span></h3>
-                    <p className="text-xs text-neutral-300">Registered Physiotherapist</p>
+                    <p className="text-xs text-white/80">Registered Physiotherapist</p>
                   </div>
                 </div>
               </Link>
@@ -117,9 +117,9 @@ export default function Footer() {
               <div className="mb-8">
                 <h3 className="text-base font-semibold mb-4 text-white relative inline-flex">
                   <span className="relative z-10">Contact Information</span>
-                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent/40 rounded-full -z-10"></span>
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent/60 rounded-full -z-10"></span>
                 </h3>
-                <div className="space-y-3 text-neutral-200">
+                <div className="space-y-3 text-white/90">
                   {contactInfo.map((item, index) => (
                     <p key={index} className="flex items-start">
                       <span className="mt-1">{item.icon}</span>
@@ -138,13 +138,13 @@ export default function Footer() {
               <div>
                 <h3 className="text-base font-semibold mb-4 text-white relative inline-flex">
                   <span className="relative z-10">Business Hours</span>
-                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent/40 rounded-full -z-10"></span>
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent/60 rounded-full -z-10"></span>
                 </h3>
-                <ul className="space-y-3 text-neutral-200">
+                <ul className="space-y-3 text-white/90">
                   {businessHours.map((schedule) => (
                     <li key={schedule.day} className="flex flex-col sm:flex-row sm:justify-between text-sm">
                       <span className="font-medium mb-1 sm:mb-0">{schedule.day}</span>
-                      <span className="text-accent bg-primary-800/50 px-2 py-1 rounded-md font-medium inline-block max-w-full">{schedule.hours}</span>
+                      <span className="text-white bg-accent/30 px-2 py-1 rounded-md font-medium inline-block max-w-full shadow-sm">{schedule.hours}</span>
                     </li>
                   ))}
                 </ul>
@@ -158,7 +158,7 @@ export default function Footer() {
                   key={social.name}
                   href={social.href} 
                   aria-label={`Visit ${social.name} profile`}
-                  className="w-10 h-10 rounded-full bg-white/15 hover:bg-accent hover:text-white transition-all duration-300 flex items-center justify-center hover:scale-110 transform"
+                  className="w-10 h-10 rounded-full bg-white/20 hover:bg-accent hover:text-white transition-all duration-300 flex items-center justify-center hover:scale-110 transform shadow-md"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -174,16 +174,16 @@ export default function Footer() {
             <div>
               <h3 className="text-base font-semibold mb-4 text-white relative inline-flex">
                 <span className="relative z-10">Quick Links</span>
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent/40 rounded-full -z-10"></span>
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent/60 rounded-full -z-10"></span>
               </h3>
               <ul className="space-y-2">
                 {['Home', 'Services', 'About', 'FAQ', 'Blog', 'Contact'].map((item) => (
                   <li key={item}>
                     <Link 
                       href={`/${item === 'Home' ? '' : item.toLowerCase()}`} 
-                      className="text-neutral-200 hover:text-accent transition-colors flex items-center group text-sm"
+                      className="text-white/90 hover:text-accent transition-colors flex items-center group text-sm"
                     >
-                      <span className="w-1 h-1 bg-accent rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                      <span className="w-1.5 h-1.5 bg-accent rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                       {item}
                     </Link>
                   </li>
@@ -194,7 +194,7 @@ export default function Footer() {
             <div>
               <h3 className="text-base font-semibold mb-4 text-white relative inline-flex">
                 <span className="relative z-10">Physiotherapy Treatments</span>
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent/40 rounded-full -z-10"></span>
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent/60 rounded-full -z-10"></span>
               </h3>
               <ul className="space-y-2">
                 {[
@@ -207,10 +207,10 @@ export default function Footer() {
                   <li key={service}>
                     <Link 
                       href={`/services/#${service.toLowerCase().replace(/\s+/g, '-')}`} 
-                      className="text-neutral-200 hover:text-accent transition-colors flex items-center group text-sm"
+                      className="text-white/90 hover:text-accent transition-colors flex items-center group text-sm"
                       onClick={(e) => handleNavClick(e, `/#${service.toLowerCase().replace(/\s+/g, '-')}`)}
                     >
-                      <span className="w-1 h-1 bg-accent rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                      <span className="w-1.5 h-1.5 bg-accent rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                       {service}
                     </Link>
                   </li>
@@ -232,7 +232,7 @@ export default function Footer() {
               title="Endorphins Health and Wellness Centre location"
               className="transition-all duration-500 hover:opacity-95"
             ></iframe>
-            <div className="absolute top-2 left-2 bg-accent/90 text-white py-1.5 px-3 rounded-md shadow-md text-xs font-medium backdrop-blur-sm">
+            <div className="absolute top-2 left-2 bg-accent text-white py-1.5 px-3 rounded-md shadow-md text-xs font-medium backdrop-blur-sm">
               <MapPin weight="bold" className="inline-block w-3 h-3 mr-1" />
               Find Us Here
             </div>
@@ -241,10 +241,10 @@ export default function Footer() {
         
         {/* Bottom section with copyright and legal links */}
         <div className="border-t border-white/10 py-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-          <p className="text-sm text-neutral-400">
-            © {currentYear} <span className="text-white">KH Physiotherapy</span>. All rights reserved.
+          <p className="text-sm text-white/80">
+            © {currentYear} <span className="text-white font-medium">KH Physiotherapy</span>. All rights reserved.
           </p>
-          <div className="flex flex-wrap justify-center md:justify-end mt-4 md:mt-0 gap-4 md:space-x-6 text-xs text-neutral-400">
+          <div className="flex flex-wrap justify-center md:justify-end mt-4 md:mt-0 gap-4 md:space-x-6 text-xs text-white/80">
             <Link href="/privacy" className="hover:text-accent transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-accent transition-colors">Terms of Service</Link>
             <Link href="/accessibility" className="hover:text-accent transition-colors">Accessibility</Link>

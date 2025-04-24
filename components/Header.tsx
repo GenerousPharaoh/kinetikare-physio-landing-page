@@ -3,7 +3,21 @@
 import React, { useState, useEffect, forwardRef } from 'react';
 import Link from 'next/link';
 // import { Menu, X, Phone, Calendar } from 'lucide-react';
-import { Bars3Icon, XMarkIcon, PhoneIcon, CalendarDaysIcon, ChevronDownIcon } from '@heroicons/react/24/outline'; // Using outline for header icons
+import { 
+  Bars3Icon, 
+  XMarkIcon, 
+  PhoneIcon, 
+  CalendarDaysIcon, 
+  ChevronDownIcon,
+} from '@heroicons/react/24/outline'; // Using outline for header icons
+
+import { 
+  HomeIcon,
+  WrenchScrewdriverIcon, 
+  UserIcon,
+  ClipboardDocumentCheckIcon,
+  StarIcon
+} from '@heroicons/react/24/solid'; // Using solid icons for menu items for a bolder look
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
@@ -26,7 +40,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -51,7 +65,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
       }
     };
     
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize, { passive: true });
     return () => window.removeEventListener('resize', handleResize);
   }, [mobileMenuOpen]);
 
@@ -65,24 +79,42 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
 
   // Define sections that exist on the home page
   const homeSections = [
-    { name: 'Services', href: '/#services', icon: "🛎️" },
-    { name: 'About', href: '/#about', icon: "👨‍⚕️" },
-    { name: 'Conditions', href: '/#conditions', icon: "🦵" },
-    { name: 'Testimonials', href: '/#testimonials', icon: "⭐" },
+    { 
+      name: 'Services', 
+      href: '/#services', 
+      icon: <div className="flex items-center justify-center w-5 h-5 rounded-md bg-gradient-to-br from-accent to-accent-dark">
+              <WrenchScrewdriverIcon className="h-3 w-3 text-white" />
+            </div> 
+    },
+    { 
+      name: 'About', 
+      href: '/#about', 
+      icon: <div className="flex items-center justify-center w-5 h-5 rounded-md bg-gradient-to-br from-primary-600 to-primary-700">
+              <UserIcon className="h-3 w-3 text-white" />
+            </div> 
+    },
+    { 
+      name: 'Conditions', 
+      href: '/#conditions', 
+      icon: <div className="flex items-center justify-center w-5 h-5 rounded-md bg-gradient-to-br from-accent-dark to-primary-700">
+              <ClipboardDocumentCheckIcon className="h-3 w-3 text-white" />
+            </div> 
+    },
+    { 
+      name: 'Testimonials', 
+      href: '/#testimonials', 
+      icon: <div className="flex items-center justify-center w-5 h-5 rounded-md bg-gradient-to-br from-amber-400 to-orange-500">
+              <StarIcon className="h-3 w-3 text-white" />
+            </div> 
+    },
   ];
 
-  // Animation variants
+  // Simplified animation variants to prevent flash
   const navItemVariants = {
-    hidden: { opacity: 0, y: -5 },
-    visible: (i: number) => ({
+    visible: {
       opacity: 1,
-      y: 0,
-      transition: {
-        delay: 0.05 * i,
-        duration: 0.35,
-        ease: "easeOut"
-      }
-    })
+      y: 0
+    }
   };
 
   // Handle navigation click with consistent behavior for all navigation items
@@ -154,11 +186,8 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
   };
 
   return (
-    <motion.header
+    <header
       ref={ref}
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed w-full top-0 z-[100] transition-all duration-300 ease-in-out
         ${scrolled 
           ? 'shadow-xl py-1 xs:py-2' 
@@ -194,22 +223,13 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
         
         <div className="flex justify-between items-center">
           <Link href="/" className="flex items-center z-10 group">
-            <motion.div 
-              className="font-heading font-bold text-base xs:text-xl md:text-2xl flex items-center relative"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            >
+            <div className="font-heading font-bold text-base xs:text-xl md:text-2xl flex items-center relative">
               <span className="text-primary-700 group-hover:text-primary-800 transition-colors duration-500">KH</span>
               <span className="text-accent group-hover:text-accent-dark transition-colors duration-500 ml-1">Physiotherapy</span>
               
               {/* Enhanced animated underline */}
-              <motion.span 
-                className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary-500/80 via-accent/80 to-primary-500/80"
-                initial={{ width: 0 }}
-                whileHover={{ width: '100%' }}
-                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              ></motion.span>
-            </motion.div>
+              <span className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary-500/80 via-accent/80 to-primary-500/80 w-0 group-hover:w-full transition-all duration-500"></span>
+            </div>
           </Link>
 
           {/* Desktop Navigation - with dropdown for home sections */}
@@ -217,20 +237,17 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
             <div className="flex items-center space-x-0.5 lg:space-x-2 bg-white/30 backdrop-blur-sm rounded-full px-1 py-1 border border-white/50 shadow-sm">
               {/* Main navigation items */}
               {mainNavItems.map((item, i) => (
-                <motion.div 
+                <div 
                   key={item.name}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 * i, duration: 0.5 }}
                   className="flex items-center"
-                  onHoverStart={() => {
+                  onMouseEnter={() => {
                     setActiveItem(item.name);
                     // Close home sections dropdown when hovering other items
                     if (item.name !== 'Home' && homeSectionsOpen) {
                       setHomeSectionsOpen(false);
                     }
                   }}
-                  onHoverEnd={() => setActiveItem(null)}
+                  onMouseLeave={() => setActiveItem(null)}
                 >
                   {item.name === 'Home' ? (
                     <div className="relative">
@@ -250,48 +267,38 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                         
                         {/* Animated background on hover and active states */}
                         {(isCurrentPath(item.href) || activeItem === item.name || homeSectionsOpen) && (
-                          <motion.span 
-                            className="absolute inset-0 bg-accent/10 rounded-full -z-0"
-                            layoutId="navBackground"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 0.3 }}
-                          />
+                          <span className="absolute inset-0 bg-accent/10 rounded-full -z-0"></span>
                         )}
                       </div>
                       
                       {/* Dropdown for Home Sections */}
-                      <AnimatePresence>
-                        {homeSectionsOpen && (
-                          <motion.div 
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
-                            transition={{ duration: 0.2 }}
-                            className="absolute top-full left-0 mt-1 bg-white rounded-lg shadow-lg border border-neutral-200 py-2 min-w-[180px] z-50"
-                            onMouseLeave={() => setHomeSectionsOpen(false)}
+                      {homeSectionsOpen && (
+                        <div 
+                          className="absolute top-full left-0 mt-1 bg-white rounded-lg shadow-lg border border-neutral-200 py-2 min-w-[180px] z-50"
+                          onMouseLeave={() => setHomeSectionsOpen(false)}
+                        >
+                          <Link
+                            href="/"
+                            onClick={(e) => handleNavClick(e, "/")}
+                            className="flex items-center px-4 py-2 text-sm text-primary-700 hover:bg-accent/10 hover:text-accent-700"
                           >
+                            <div className="flex items-center justify-center w-5 h-5 rounded-md bg-gradient-to-br from-primary-500 to-primary-700 mr-2">
+                              <HomeIcon className="h-3 w-3 text-white" />
+                            </div> Home
+                          </Link>
+                          <div className="h-px bg-neutral-200 my-1 mx-3"></div>
+                          {homeSections.map((section) => (
                             <Link
-                              href="/"
-                              onClick={(e) => handleNavClick(e, "/")}
+                              key={section.name}
+                              href={section.href}
+                              onClick={(e) => handleNavClick(e, section.href)}
                               className="flex items-center px-4 py-2 text-sm text-primary-700 hover:bg-accent/10 hover:text-accent-700"
                             >
-                              🏠 Home
+                              <span className="mr-2">{section.icon}</span> {section.name}
                             </Link>
-                            <div className="h-px bg-neutral-200 my-1 mx-3"></div>
-                            {homeSections.map((section) => (
-                              <Link
-                                key={section.name}
-                                href={section.href}
-                                onClick={(e) => handleNavClick(e, section.href)}
-                                className="flex items-center px-4 py-2 text-sm text-primary-700 hover:bg-accent/10 hover:text-accent-700"
-                              >
-                                <span className="mr-2">{section.icon}</span> {section.name}
-                              </Link>
-                            ))}
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   ) : (
                     <Link
@@ -307,35 +314,23 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                       
                       {/* Animated background on hover and active states */}
                       {(isCurrentPath(item.href) || activeItem === item.name) && (
-                        <motion.span 
-                          className="absolute inset-0 bg-accent/10 rounded-full -z-0"
-                          layoutId="navBackground"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ duration: 0.3 }}
-                        />
+                        <span className="absolute inset-0 bg-accent/10 rounded-full -z-0"></span>
                       )}
                       
                       {/* Underline indicator for current page */}
                       {isCurrentPath(item.href) && (
-                        <motion.span 
-                          className="absolute bottom-1 left-3 right-3 h-0.5 bg-accent rounded-full"
-                          layoutId="activeIndicator"
-                        />
+                        <span className="absolute bottom-1 left-3 right-3 h-0.5 bg-accent rounded-full"></span>
                       )}
                     </Link>
                   )}
-                </motion.div>
+                </div>
               ))}
             </div>
           </nav>
 
           {/* Desktop Call-to-Action */}
           <div className="hidden md:flex items-center gap-3 lg:gap-4 h-12">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            >
+            <div>
               <Link
                 href="tel:+19056346000"
                 className="flex items-center text-sm font-medium transition-all duration-300 py-2 px-3 lg:px-4 
@@ -350,13 +345,9 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 <span className="hidden lg:inline">905-634-6000</span>
                 <span className="lg:hidden">Call</span>
               </Link>
-            </motion.div>
+            </div>
 
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ duration: 0.3 }}
-            >
+            <div>
               <Link
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42" 
                 target="_blank"
@@ -370,14 +361,12 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 </div>
                 <span>Book Online</span>
               </Link>
-            </motion.div>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="flex md:hidden ml-auto">
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
+            <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               type="button"
               className="p-2 rounded-full focus:outline-none transition-colors duration-200
@@ -392,129 +381,113 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               ) : (
                 <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
               )}
-            </motion.button>
+            </button>
           </div>
         </div>
       </div>
 
       {/* Mobile Menu - reorganized with collapsible sections */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            id="mobile-menu"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden overflow-hidden"
+      {mobileMenuOpen && (
+        <div
+          id="mobile-menu"
+          className="md:hidden"
+        >
+          <div 
+            className="backdrop-blur-xl bg-white/95 shadow-lg border-b border-neutral-200/30 px-4 py-3"
           >
-            <motion.div 
-              className="backdrop-blur-xl bg-white/95 shadow-lg border-b border-neutral-200/30 px-4 py-3"
-              initial={{ y: -20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.3, delay: 0.1 }}
-            >
-              <div className="space-y-1">
-                {/* Home with dropdown toggle for sections */}
-                <div className="mb-2">
-                  <div
-                    className={`flex justify-between items-center px-4 py-3 rounded-lg text-base font-medium 
-                      hover:bg-accent/10 transition-all duration-200 cursor-pointer 
-                      ${pathname === '/' 
-                        ? 'text-accent-600 font-semibold bg-accent/5 border-l-2 border-accent' 
-                        : 'text-primary-700 hover:text-accent-500'}`}
-                    onClick={() => setMobileHomeSectionsOpen(!mobileHomeSectionsOpen)}
-                  >
-                    <div className="flex items-center">
-                      <span>Home & Sections</span>
-                    </div>
-                    <ChevronDownIcon 
-                      className={`h-5 w-5 transition-transform duration-300 ${mobileHomeSectionsOpen ? 'rotate-180' : ''}`} 
-                    />
+            <div className="space-y-1">
+              {/* Home with dropdown toggle for sections */}
+              <div className="mb-2">
+                <div
+                  className={`flex justify-between items-center px-4 py-3 rounded-lg text-base font-medium 
+                    hover:bg-accent/10 transition-all duration-200 cursor-pointer 
+                    ${pathname === '/' 
+                      ? 'text-accent-600 font-semibold bg-accent/5 border-l-2 border-accent' 
+                      : 'text-primary-700 hover:text-accent-500'}`}
+                  onClick={() => setMobileHomeSectionsOpen(!mobileHomeSectionsOpen)}
+                >
+                  <div className="flex items-center">
+                    <span>Home & Sections</span>
                   </div>
-                  
-                  {/* Collapsible home sections */}
-                  <AnimatePresence>
-                    {mobileHomeSectionsOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.2 }}
-                        className="pl-4 ml-4 border-l border-neutral-200 mt-1 mb-2"
-                      >
-                        <Link
-                          href="/"
-                          onClick={(e) => handleNavClick(e, "/")}
-                          className="flex items-center px-4 py-2.5 rounded-lg text-primary-700 hover:bg-accent/10 hover:text-accent-500 text-sm font-medium"
-                        >
-                          🏠 Home Page
-                        </Link>
-                        {homeSections.map((section) => (
-                          <Link
-                            key={section.name}
-                            href={section.href}
-                            onClick={(e) => handleNavClick(e, section.href)}
-                            className="flex items-center px-4 py-2.5 rounded-lg text-primary-700 hover:bg-accent/10 hover:text-accent-500 text-sm font-medium"
-                          >
-                            <span className="mr-2">{section.icon}</span> {section.name}
-                          </Link>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  <ChevronDownIcon 
+                    className={`h-5 w-5 transition-transform duration-300 ${mobileHomeSectionsOpen ? 'rotate-180' : ''}`} 
+                  />
                 </div>
                 
-                {/* Other main nav items without Home */}
-                {mainNavItems.filter(item => item.name !== 'Home').map((item, i) => (
-                  <motion.div
-                    key={item.name}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.05 * i, duration: 0.3 }}
+                {/* Collapsible home sections */}
+                {mobileHomeSectionsOpen && (
+                  <div
+                    className="pl-4 ml-4 border-l border-neutral-200 mt-1 mb-2"
                   >
                     <Link
-                      href={item.href}
-                      onClick={(e) => handleNavClick(e, item.href)}
-                      className={`flex items-center px-4 py-3 rounded-lg text-base font-medium 
-                        hover:bg-accent/10 transition-all duration-200
-                        ${isCurrentPath(item.href) 
-                          ? 'text-accent-600 font-semibold bg-accent/5 border-l-2 border-accent' 
-                          : 'text-primary-700 hover:text-accent-500'}`}
+                      href="/"
+                      onClick={(e) => handleNavClick(e, "/")}
+                      className="flex items-center px-4 py-2.5 rounded-lg text-primary-700 hover:bg-accent/10 hover:text-accent-500 text-sm font-medium"
                     >
-                      {item.name}
+                      <div className="flex items-center justify-center w-5 h-5 rounded-md bg-gradient-to-br from-primary-500 to-primary-700 mr-2">
+                        <HomeIcon className="h-3 w-3 text-white" />
+                      </div> Home Page
                     </Link>
-                  </motion.div>
-                ))}
+                    {homeSections.map((section) => (
+                      <Link
+                        key={section.name}
+                        href={section.href}
+                        onClick={(e) => handleNavClick(e, section.href)}
+                        className="flex items-center px-4 py-2.5 rounded-lg text-primary-700 hover:bg-accent/10 hover:text-accent-500 text-sm font-medium"
+                      >
+                        <span className="mr-2">{section.icon}</span> {section.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
               
-              <div className="flex items-center gap-3 mt-5 py-2">
-                <Link
-                  href="tel:+19056346000"
-                  className="flex-1 flex items-center justify-center gap-2 px-3 py-3 bg-white text-primary-700 rounded-lg text-base font-medium border border-neutral-200 hover:border-accent/30 hover:shadow-md transition-all duration-200"
+              {/* Other main nav items without Home */}
+              {mainNavItems.filter(item => item.name !== 'Home').map((item, i) => (
+                <div
+                  key={item.name}
                 >
-                  <div className="premium-icon-badge premium-icon-badge-sm premium-icon-badge-circle header-badge bg-primary-50">
-                    <PhoneIcon className="h-4 w-4 text-primary-700" />
-                  </div>
-                  <span>Call Now</span>
-                </Link>
-                <Link
-                  href="https://endorphinshealth.janeapp.com/#/staff_member/42"
-                  target="_blank"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="flex-1 flex items-center justify-center gap-2 px-3 py-3 bg-gradient-to-r from-accent to-accent-dark text-white rounded-lg text-base font-medium border border-accent/50 shadow-md hover:shadow-lg transition-all duration-200"
-                >
-                  <div className="premium-icon-badge premium-icon-badge-sm premium-icon-badge-circle header-badge bg-white/20">
-                    <CalendarDaysIcon className="h-4 w-4" />
-                  </div>
-                  <span>Book</span>
-                </Link>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.header>
+                  <Link
+                    href={item.href}
+                    onClick={(e) => handleNavClick(e, item.href)}
+                    className={`flex items-center px-4 py-3 rounded-lg text-base font-medium 
+                      hover:bg-accent/10 transition-all duration-200
+                      ${isCurrentPath(item.href) 
+                        ? 'text-accent-600 font-semibold bg-accent/5 border-l-2 border-accent' 
+                        : 'text-primary-700 hover:text-accent-500'}`}
+                  >
+                    {item.name}
+                  </Link>
+                </div>
+              ))}
+            </div>
+            
+            <div className="flex items-center gap-3 mt-5 py-2">
+              <Link
+                href="tel:+19056346000"
+                className="flex-1 flex items-center justify-center gap-2 px-3 py-3 bg-white text-primary-700 rounded-lg text-base font-medium border border-neutral-200 hover:border-accent/30 hover:shadow-md transition-all duration-200"
+              >
+                <div className="premium-icon-badge premium-icon-badge-sm premium-icon-badge-circle header-badge bg-primary-50">
+                  <PhoneIcon className="h-4 w-4 text-primary-700" />
+                </div>
+                <span>Call Now</span>
+              </Link>
+              <Link
+                href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                target="_blank"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex-1 flex items-center justify-center gap-2 px-3 py-3 bg-gradient-to-r from-accent to-accent-dark text-white rounded-lg text-base font-medium border border-accent/50 shadow-md hover:shadow-lg transition-all duration-200"
+              >
+                <div className="premium-icon-badge premium-icon-badge-sm premium-icon-badge-circle header-badge bg-white/20">
+                  <CalendarDaysIcon className="h-4 w-4" />
+                </div>
+                <span>Book</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+    </header>
   );
 });
 

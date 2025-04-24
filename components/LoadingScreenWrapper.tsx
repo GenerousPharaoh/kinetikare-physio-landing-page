@@ -55,41 +55,41 @@ const LoadingScreenWrapper: React.FC<LoadingScreenWrapperProps> = ({ children })
     // Add loading classes once
     document.documentElement.classList.add('loading-init');
     document.body.style.overflow = 'hidden';
-    document.documentElement.style.backgroundColor = '#0F2E4F';
+    // Use a background closer to the site's final background to reduce contrast
+    document.documentElement.style.backgroundColor = '#F9F8F6'; // Light background similar to final state
     
     // Store timeouts for cleanup
     const timeouts: NodeJS.Timeout[] = [];
     
     // Define transition function
     const startTransition = () => {
-      // First make content visible
-      setLoadingState(prev => ({ ...prev, contentVisible: true }));
+      // First start fading out the loading screen
+      setLoadingState(prev => ({ ...prev, isFadingOut: true }));
       
-      // After a short delay, start fade out
-      const fadeOutDelay = setTimeout(() => {
-        setLoadingState(prev => ({ ...prev, isFadingOut: true }));
+      // Only after loading screen starts to fade out, begin transitioning the background
+      // and showing content
+      const transitionTime = reducedMotion || isLowPoweredDevice ? 600 : 1000;
+      
+      const completeDelay = setTimeout(() => {
+        // Set background transition before making content visible
+        document.documentElement.style.transition = 'background-color 1s ease-out';
+        document.documentElement.style.backgroundColor = '';
         
-        // Complete transition after fade out animation
-        const transitionTime = reducedMotion || isLowPoweredDevice ? 600 : 1000;
-        const completeDelay = setTimeout(() => {
+        // Make content visible AFTER loading screen starts fading
+        setLoadingState(prev => ({ ...prev, contentVisible: true }));
+        
+        // Then after loading screen is mostly faded, completely remove it
+        const finalDelay = setTimeout(() => {
           setLoadingState({ isLoading: false, isFadingOut: false, contentVisible: true });
-          
-          // Clean up DOM classes after components are updated
-          const cleanupDelay = setTimeout(() => {
-            document.documentElement.classList.remove('loading-init');
-            document.documentElement.classList.add('content-visible');
-            document.body.style.overflow = '';
-            document.documentElement.style.transition = 'background-color 0.5s ease-out';
-            document.documentElement.style.backgroundColor = '';
-          }, 300);
-          
-          timeouts.push(cleanupDelay);
-        }, transitionTime);
+          document.documentElement.classList.remove('loading-init');
+          document.documentElement.classList.add('content-visible');
+          document.body.style.overflow = '';
+        }, transitionTime / 2); // Use half the transition time to remove loading screen
         
-        timeouts.push(completeDelay);
-      }, 100);
+        timeouts.push(finalDelay);
+      }, transitionTime / 4); // Start showing content at 1/4 of the transition
       
-      timeouts.push(fadeOutDelay);
+      timeouts.push(completeDelay);
     };
     
     // Determine maximum wait time - shorter for better UX
@@ -139,12 +139,13 @@ const LoadingScreenWrapper: React.FC<LoadingScreenWrapperProps> = ({ children })
 
   return (
     <>
-      {/* Main content - Always render with at least minimal opacity to ensure content is accessible */}
+      {/* Main content - completely invisible until ready to show */}
       <div 
         className="transition-opacity"
         style={{ 
-          opacity: contentVisible ? 1 : 0.01, // Set minimum opacity so content is technically present
-          transition: 'opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1)'
+          opacity: contentVisible ? 1 : 0, // Change from 0.01 to 0 for complete invisibility
+          transition: 'opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1)',
+          visibility: contentVisible ? 'visible' : 'hidden' // Add visibility to prevent interaction
         }}
       >
         {children}

@@ -13,7 +13,7 @@ interface CardProps {
 
 export function Card({ title, description, icon, className, children, delay = 0 }: CardProps) {
   const { ref, isVisible } = useScrollAnimation({
-    threshold: 0.2,
+    threshold: 0,
     triggerOnce: true,
   });
 
@@ -21,10 +21,10 @@ export function Card({ title, description, icon, className, children, delay = 0 
     <div
       ref={ref}
       className={cn(
-        'bg-white rounded-lg shadow-md p-6 transition-all duration-700 ease-in-out',
+        'bg-white rounded-lg shadow-md p-6 transition-all duration-300 ease-out',
         isVisible 
           ? 'opacity-100 translate-y-0' 
-          : 'opacity-0 translate-y-10',
+          : 'opacity-0 translate-y-5',
         delay > 0 ? `transition-delay-${delay}` : '',
         className
       )}

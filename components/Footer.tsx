@@ -7,50 +7,15 @@ import {
   Phone, 
   Envelope, 
   Clock, 
-  ArrowUp, 
-  CaretDown, 
+  ArrowUp,
   FacebookLogo, 
   InstagramLogo, 
-  TwitterLogo, 
   LinkedinLogo 
 } from "@phosphor-icons/react";
-import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const [expandedSection, setExpandedSection] = useState<string | null>(null);
-
-  const toggleSection = (section: string) => {
-    if (expandedSection === section) {
-      setExpandedSection(null);
-    } else {
-      setExpandedSection(section);
-    }
-  };
-
-  const footerLinks = [
-    { 
-      title: "Quick Links",
-      links: [
-        { name: 'Home', href: '/' },
-        { name: 'Services', href: '/#services' },
-        { name: 'About', href: '/#about' },
-        { name: 'Conditions', href: '/#conditions' },
-        { name: 'Testimonials', href: '/#testimonials' },
-        { name: 'FAQ', href: '/faq' },
-        { name: 'Blog', href: '/blog' },
-        { name: 'Contact', href: '/#contact' }
-      ]
-    },
-    {
-      title: "Legal",
-      links: [
-        { name: 'Privacy Policy', href: '/privacy-policy' },
-        { name: 'Terms of Service', href: '/terms-of-service' }
-      ]
-    }
-  ];
 
   const contactInfo = [
     {
@@ -70,11 +35,14 @@ export default function Footer() {
       text: 'kareem.hassanein@gmail.com',
       href: 'mailto:kareem.hassanein@gmail.com',
       ariaLabel: 'Email us'
-    },
-    {
-      icon: <Clock className="w-5 h-5 text-accent flex-shrink-0" weight="duotone" />,
-      text: 'Mon-Fri: 2pm-8pm'
     }
+  ];
+
+  const businessHours = [
+    { day: 'Monday - Thursday', hours: '9:00 AM - 8:00 PM' },
+    { day: 'Friday', hours: '9:00 AM - 5:00 PM' },
+    { day: 'Saturday', hours: 'By Appointment' },
+    { day: 'Sunday', hours: 'Closed' }
   ];
 
   const socialLinks = [
@@ -118,151 +86,178 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-primary-900 text-white pt-16 pb-8 relative overflow-hidden">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 pattern-dots-sm opacity-[0.03] text-white pointer-events-none"></div>
+    <footer className="bg-gradient-to-b from-primary-900 to-primary-950 text-white pt-16 relative overflow-hidden">
+      {/* Premium subtle background pattern */}
+      <div className="absolute inset-0 bg-pattern opacity-[0.03] pointer-events-none"></div>
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent"></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        {/* Main footer content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
-          {/* Column 1: Logo and contact info */}
-          <div className="space-y-6">
-            <Link href="/" className="inline-block" aria-label="Return to homepage">
-              <Image
-                src="/images/logo-light.png"
-                alt="KH Physiotherapy"
-                width={180}
-                height={48}
-                className="h-12 w-auto"
-              />
-            </Link>
+        {/* Main footer content with map */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-10">
+          
+          {/* Column 1: Contact & Info (4 cols) */}
+          <div className="lg:col-span-4 flex flex-col justify-between">
+            <div>
+              <Link href="/" className="inline-block mb-6" aria-label="Return to homepage">
+                <div className="flex items-center">
+                  <Image
+                    src="/images/kareem-profile.png"
+                    alt="Kareem Hassanein"
+                    width={60}
+                    height={60}
+                    className="rounded-full border-2 border-accent/30 mr-3"
+                  />
+                  <div>
+                    <h3 className="font-heading text-xl text-white">KH <span className="text-accent">Physiotherapy</span></h3>
+                    <p className="text-xs text-neutral-300">Registered Physiotherapist</p>
+                  </div>
+                </div>
+              </Link>
+              
+              <div className="mb-6">
+                <h3 className="text-base font-semibold mb-4 text-white relative inline-flex">
+                  <span className="relative z-10">Contact Information</span>
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent/40 rounded-full -z-10"></span>
+                </h3>
+                <div className="space-y-3 text-neutral-200">
+                  {contactInfo.map((item, index) => (
+                    <p key={index} className="flex items-start">
+                      <span className="mt-1">{item.icon}</span>
+                      {item.href ? (
+                        <a href={item.href} className="ml-3 hover:text-accent transition-colors duration-300 text-sm" aria-label={item.ariaLabel}>
+                          {item.text}
+                        </a>
+                      ) : (
+                        <span className="ml-3 text-sm">{item.text}</span>
+                      )}
+                    </p>
+                  ))}
+                </div>
+              </div>
+              
+              <div>
+                <h3 className="text-base font-semibold mb-4 text-white relative inline-flex">
+                  <span className="relative z-10">Business Hours</span>
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent/40 rounded-full -z-10"></span>
+                </h3>
+                <ul className="space-y-2 text-neutral-200">
+                  {businessHours.map((schedule) => (
+                    <li key={schedule.day} className="flex justify-between text-sm">
+                      <span className="font-medium">{schedule.day}</span>
+                      <span className="text-accent">{schedule.hours}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
             
-            <div className="space-y-4 text-neutral-200">
-              {contactInfo.map((item, index) => (
-                <p key={index} className="flex items-start">
-                  {item.icon}
-                  {item.href ? (
-                    <a href={item.href} className="ml-3 hover:text-accent transition-colors duration-300" aria-label={item.ariaLabel}>
-                      {item.text}
-                    </a>
-                  ) : (
-                    <span className="ml-3">{item.text}</span>
-                  )}
-                </p>
+            {/* Social links */}
+            <div className="mt-6 flex space-x-3">
+              {socialLinks.map((social) => (
+                <a 
+                  key={social.name}
+                  href={social.href} 
+                  aria-label={`Visit ${social.name} profile`}
+                  className="w-9 h-9 rounded-full bg-white/10 hover:bg-accent transition-colors duration-300 flex items-center justify-center hover:scale-105 transform"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {social.icon}
+                </a>
               ))}
             </div>
           </div>
           
-          {/* Column 2: Quick Links */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4 text-white relative inline-flex">
-              <span className="relative z-10">Quick Links</span>
-              <span className="absolute bottom-0 left-0 w-full h-1 bg-accent/40 rounded-full -z-10"></span>
-            </h3>
-            <ul className="space-y-3">
-              {['Home', 'Services', 'About', 'FAQ', 'Blog', 'Contact'].map((item) => (
-                <li key={item}>
-                  <Link 
-                    href={`/${item === 'Home' ? '' : item.toLowerCase()}`} 
-                    className="text-neutral-200 hover:text-accent transition-colors flex items-center group"
-                  >
-                    <span className="w-1.5 h-1.5 bg-accent rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                    {item}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          {/* Column 2: Quick Links & Services (3 cols) */}
+          <div className="lg:col-span-3 grid grid-cols-1 gap-6">
+            <div>
+              <h3 className="text-base font-semibold mb-4 text-white relative inline-flex">
+                <span className="relative z-10">Quick Links</span>
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent/40 rounded-full -z-10"></span>
+              </h3>
+              <ul className="space-y-2">
+                {['Home', 'Services', 'About', 'FAQ', 'Blog', 'Contact'].map((item) => (
+                  <li key={item}>
+                    <Link 
+                      href={`/${item === 'Home' ? '' : item.toLowerCase()}`} 
+                      className="text-neutral-200 hover:text-accent transition-colors flex items-center group text-sm"
+                    >
+                      <span className="w-1 h-1 bg-accent rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                      {item}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            <div>
+              <h3 className="text-base font-semibold mb-4 text-white relative inline-flex">
+                <span className="relative z-10">Our Services</span>
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent/40 rounded-full -z-10"></span>
+              </h3>
+              <ul className="space-y-2">
+                {[
+                  'Manual Therapy', 
+                  'Movement Assessment', 
+                  'Therapeutic Exercise', 
+                  'Pain Management', 
+                  'Sports Rehabilitation'
+                ].map((service) => (
+                  <li key={service}>
+                    <Link 
+                      href={`/services/#${service.toLowerCase().replace(/\s+/g, '-')}`} 
+                      className="text-neutral-200 hover:text-accent transition-colors flex items-center group text-sm"
+                    >
+                      <span className="w-1 h-1 bg-accent rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                      {service}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
           
-          {/* Column 3: Services */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4 text-white relative inline-flex">
-              <span className="relative z-10">Our Services</span>
-              <span className="absolute bottom-0 left-0 w-full h-1 bg-accent/40 rounded-full -z-10"></span>
-            </h3>
-            <ul className="space-y-3">
-              {[
-                'Manual Therapy', 
-                'Movement Assessment', 
-                'Therapeutic Exercise', 
-                'Pain Management', 
-                'Sports Rehabilitation'
-              ].map((service) => (
-                <li key={service}>
-                  <Link 
-                    href={`/services/#${service.toLowerCase().replace(/\s+/g, '-')}`} 
-                    className="text-neutral-200 hover:text-accent transition-colors flex items-center group"
-                  >
-                    <span className="w-1.5 h-1.5 bg-accent rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                    {service}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          
-          {/* Column 4: Hours */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4 text-white relative inline-flex">
-              <span className="relative z-10">Hours of Operation</span>
-              <span className="absolute bottom-0 left-0 w-full h-1 bg-accent/40 rounded-full -z-10"></span>
-            </h3>
-            <ul className="space-y-3 text-neutral-200">
-              {[
-                { day: 'Monday - Thursday', hours: '9:00 AM - 8:00 PM' },
-                { day: 'Friday', hours: '9:00 AM - 5:00 PM' },
-                { day: 'Saturday', hours: 'By Appointment' },
-                { day: 'Sunday', hours: 'Closed' }
-              ].map((schedule) => (
-                <li key={schedule.day} className="flex justify-between border-b border-white/10 pb-2">
-                  <span>{schedule.day}</span>
-                  <span className="text-accent font-medium">{schedule.hours}</span>
-                </li>
-              ))}
-            </ul>
+          {/* Column 3: Google Map (5 cols) */}
+          <div className="lg:col-span-5 rounded-lg overflow-hidden shadow-xl border border-white/10 h-[300px] relative">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2898.518670972593!2d-79.82630139999999!3d43.4079889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b61568c54cbff%3A0x433767b454bd4446!2sEndorphins%20Health%20and%20Wellness%20Centre!5e0!3m2!1sen!2sca!4v1745456201323!5m2!1sen!2sca" 
+              width="100%" 
+              height="100%" 
+              style={{ border: 0 }} 
+              allowFullScreen={false} 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Endorphins Health and Wellness Centre location"
+              className="filter grayscale hover:grayscale-0 transition-all duration-500"
+            ></iframe>
+            <div className="absolute top-2 left-2 bg-accent/90 text-white py-1 px-3 rounded-md shadow-md text-xs font-medium backdrop-blur-sm">
+              <MapPin weight="bold" className="inline-block w-3 h-3 mr-1" />
+              Find Us Here
+            </div>
           </div>
         </div>
         
-        {/* Social links and payment methods */}
-        <div className="border-t border-white/10 pt-8 pb-6 grid gap-6 md:grid-cols-1 items-center">
-          {/* Social links */}
-          <div className="flex justify-center space-x-4">
-            {socialLinks.map((social) => (
-              <a 
-                key={social.name}
-                href={social.href} 
-                aria-label={`Visit ${social.name} profile`}
-                className="w-10 h-10 rounded-full bg-white/10 hover:bg-accent transition-colors duration-300 flex items-center justify-center hover:scale-110 transform"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {social.icon}
-              </a>
-            ))}
-          </div>
-        </div>
-        
-        {/* Copyright */}
-        <div className="border-t border-white/10 pt-6 text-center">
-          <p className="text-sm text-neutral-300">
-            © {currentYear} KH Physiotherapy. All rights reserved.
+        {/* Bottom section with copyright and legal links */}
+        <div className="border-t border-white/10 py-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+          <p className="text-sm text-neutral-400">
+            © {currentYear} <span className="text-white">KH Physiotherapy</span>. All rights reserved.
           </p>
-          <div className="flex justify-center mt-4 space-x-6 text-xs text-neutral-400">
+          <div className="flex mt-4 md:mt-0 space-x-6 text-xs text-neutral-400">
             <Link href="/privacy" className="hover:text-accent transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-accent transition-colors">Terms of Service</Link>
             <Link href="/accessibility" className="hover:text-accent transition-colors">Accessibility</Link>
           </div>
         </div>
-        
-        {/* Back to top button */}
-        <button 
-          onClick={scrollToTop}
-          className="fixed bottom-6 right-6 w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center shadow-lg hover:bg-accent-dark transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent"
-          aria-label="Back to top"
-        >
-          <ArrowUp weight="bold" className="w-5 h-5" />
-        </button>
       </div>
+      
+      {/* Back to top button */}
+      <button 
+        onClick={scrollToTop}
+        className="fixed bottom-6 right-6 w-10 h-10 rounded-full bg-accent shadow-lg hover:bg-accent-dark transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent z-50 flex items-center justify-center"
+        aria-label="Back to top"
+      >
+        <ArrowUp weight="bold" className="w-5 h-5 text-white" />
+      </button>
     </footer>
   );
 } 

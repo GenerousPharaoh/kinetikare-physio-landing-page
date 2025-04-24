@@ -1,19 +1,21 @@
-'use client';
-
 import { Inter, Playfair_Display, Montserrat } from 'next/font/google';
 import './globals.css';
-import LoadingScreenWrapper from '@/components/LoadingScreenWrapper';
-import FloatingButtons from '@/components/FloatingButtons';
-import FloatingCTA from '@/components/FloatingCTA';
 import Script from 'next/script';
-import { PageTransition } from '@/components/PageTransition';
-import React, { useEffect } from 'react';
-import MobileBottomNav from '@/components/MobileBottomNav';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import { optimizeScrollPerformance } from '@/lib/performance';
-import PerformanceOptimizer from '@/components/PerformanceOptimizer';
-import AccessibilityChecker from '@/components/AccessibilityChecker';
+import React from 'react';
+import { Metadata } from 'next';
+
+// Client components need to be imported with dynamic to avoid server/client mismatch
+import dynamic from 'next/dynamic';
+
+// Dynamic imports for client components
+const FloatingButtons = dynamic(() => import('@/components/FloatingButtons'), { ssr: true });
+const FloatingCTA = dynamic(() => import('@/components/FloatingCTA'), { ssr: true });
+const MobileBottomNav = dynamic(() => import('@/components/MobileBottomNav'), { ssr: true });
+const Header = dynamic(() => import('@/components/Header'), { ssr: true });
+const Footer = dynamic(() => import('@/components/Footer'), { ssr: true });
+
+// These components will be loaded only on the client side
+const ClientOnly = dynamic(() => import('@/components/ClientOnly'), { ssr: true });
 
 // Keep Inter as defined for --font-inter (matches tailwind config)
 const inter = Inter({ 
@@ -40,37 +42,10 @@ const montserrat = Montserrat({
   variable: '--font-montserrat',
 });
 
-// Performance optimization script
-function PerformanceOptimization() {
-  useEffect(() => {
-    // Run performance optimizations after initial render
-    optimizeScrollPerformance();
-
-    // Apply low-level browser optimizations
-    if (typeof window !== 'undefined') {
-      // Use passive event listeners for better scrolling performance
-      window.addEventListener('touchstart', () => {}, { passive: true });
-      
-      // Hint to the browser which animations will happen for better planning
-      document.querySelectorAll('.will-change-transform, .animate-fade-in, .animate-slide-in')
-        .forEach(el => {
-          if (el instanceof HTMLElement) {
-            el.style.willChange = 'transform, opacity';
-          }
-        });
-      
-      // Apply transforms for hardware acceleration on key elements
-      const acceleratedElements = document.querySelectorAll('.sticky, .fixed, header, .floating-button');
-      acceleratedElements.forEach(el => {
-        if (el instanceof HTMLElement) {
-          el.style.transform = 'translateZ(0)';
-        }
-      });
-    }
-  }, []);
-
-  return null;
-}
+export const metadata: Metadata = {
+  title: 'Kareem Hassanein Physiotherapy',
+  description: 'Professional physiotherapy services in Burlington, Ontario.',
+};
 
 const organizationSchema = {
   "@context": "https://schema.org",
@@ -114,7 +89,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable} ${montserrat.variable}`}>
+    <html lang="en" className={`${inter.variable} ${playfair.variable} ${montserrat.variable} content-visible`}>
       <head>
         {/* Ensure proper viewport settings for responsive design */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
@@ -135,31 +110,6 @@ export default function RootLayout({
             margin: 0;
             padding: 0;
             -webkit-text-size-adjust: 100%;
-          }
-          
-          /* Loading state styles */
-          html.loading-init body {
-            overflow: hidden !important;
-            background-color: var(--background-color, #F9F8F6); /* Use site background for smoother transition */
-          }
-          
-          /* Hide main content during loading */
-          html.loading-init #__next,
-          html.loading-init main,
-          html.loading-init header,
-          html.loading-init footer {
-            opacity: 0 !important;
-            visibility: hidden !important;
-          }
-          
-          /* Only show content when fully loaded */
-          html:not(.loading-init) #__next,
-          html:not(.loading-init) main,
-          html:not(.loading-init) header,
-          html:not(.loading-init) footer {
-            opacity: 1;
-            visibility: visible;
-            transition: opacity 0.2s ease-in-out;
           }
           
           /* Performance optimization styles */
@@ -226,39 +176,34 @@ export default function RootLayout({
         <link rel="preload" as="image" href="/images/kareem-profile.png" />
       </head>
       <body className="antialiased pb-16 md:pb-0 overflow-x-hidden">
-        {/* Performance optimization component */}
-        <PerformanceOptimization />
-        
         {/* Skip to content link for accessibility */}
         <a href="#main-content" className="skip-to-content">
           Skip to main content
         </a>
         
-        <LoadingScreenWrapper>
-          {/* Header */}
-          <Header />
+        {/* Header */}
+        <Header />
+        
+        {/* Main content without transitions that cause flash */}
+        <div className="main-content-wrapper">
+          <main id="main-content" className="min-h-screen flex flex-col overflow-x-hidden pt-16 xs:pt-20">
+            {children}
+          </main>
           
-          {/* Main content with transition wrapper */}
-          <div className="main-content-wrapper">
-            <main id="main-content" className="min-h-screen flex flex-col overflow-x-hidden pt-16 xs:pt-20">
-              {children}
-            </main>
-            
-            {/* Footer */}
-            <Footer />
-          </div>
-          
-          {/* UI Components */}
-          <FloatingCTA />
-          <FloatingButtons />
-          <MobileBottomNav />
-          
-          {/* Performance optimizer */}
-          <PerformanceOptimizer />
-          
-          {/* Accessibility Checker - only active in development */}
-          <AccessibilityChecker />
-        </LoadingScreenWrapper>
+          {/* Footer */}
+          <Footer />
+        </div>
+        
+        {/* UI Components */}
+        <FloatingCTA />
+        <FloatingButtons />
+        <MobileBottomNav />
+        
+        {/* ClientOnly components */}
+        <ClientOnly>
+          {process.env.NODE_ENV === 'production' && <div id="performance-optimizer"></div>}
+          {process.env.NODE_ENV === 'development' && <div id="accessibility-checker"></div>}
+        </ClientOnly>
         
         {/* Structured data for SEO */}
         <script
@@ -266,7 +211,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
         
-        {/* Deferred script for additional performance optimizations */}
+        {/* Defer non-critical scripts */}
         <Script id="performance-optimizations" strategy="afterInteractive">
           {`
             // Optimize initial load performance

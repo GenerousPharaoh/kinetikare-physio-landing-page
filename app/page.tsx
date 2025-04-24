@@ -47,7 +47,7 @@ const ClientScrollWrapper = dynamic(() => import('@/components/ClientScrollWrapp
 // Server component for the homepage content
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-white-styled">
+    <div className="flex flex-col min-h-screen bg-background">
       <main className="relative overflow-x-hidden">
         <div className="relative z-0">
           <HeroSection />

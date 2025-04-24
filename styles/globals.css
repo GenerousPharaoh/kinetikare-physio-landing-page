@@ -259,4 +259,10 @@ html {
 /* .elevation-2 { ... } */
 /* .elevation-3 { ... } */
 /* .elevation-4 { ... } */
-/* .elevation-5 { ... } */ 
+/* .elevation-5 { ... } */
+
+/* Background patterns */
+.pattern-dots {
+  background-image: radial-gradient(currentColor 2px, transparent 2px);
+  background-size: 12px 12px;
+} 

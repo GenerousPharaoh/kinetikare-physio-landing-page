@@ -13,7 +13,7 @@ const FloatingCTA = dynamic(() => import('@/components/FloatingCTA'), { ssr: tru
 const MobileBottomNav = dynamic(() => import('@/components/MobileBottomNav'), { ssr: true });
 const Header = dynamic(() => import('@/components/Header'), { ssr: true });
 const Footer = dynamic(() => import('@/components/Footer'), { ssr: true });
-const BackgroundTexture = dynamic(() => import('@/components/BackgroundTexture'), { ssr: false });
+const ClientBackgroundTexture = dynamic(() => import('@/components/ClientBackgroundTexture'), { ssr: true });
 
 // These components will be loaded only on the client side
 const ClientOnly = dynamic(() => import('@/components/ClientOnly'), { ssr: true });
@@ -183,7 +183,7 @@ export default function RootLayout({
         </a>
         
         {/* Background Texture */}
-        <BackgroundTexture opacity={0.035} />
+        <ClientBackgroundTexture opacity={0.035} />
         
         {/* Header */}
         <Header />

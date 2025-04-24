@@ -226,20 +226,20 @@ const HeroSection = memo(function HeroSection() {
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
                 Revealing the subtle patterns in your movement to design targeted interventions that{' '}
-                <span className="relative inline-flex items-center">
+                <span className="relative inline-flex h-7 items-center overflow-visible min-w-[160px] align-bottom">
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={currentTextIndex}
-                      className="absolute text-accent font-medium"
+                      className="absolute text-accent font-medium will-change-transform"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -20 }}
-                      transition={{ duration: 0.5 }}
+                      transition={{ duration: 0.5, ease: "easeOut" }}
                     >
                       {rotatingTexts[currentTextIndex]}
                     </motion.span>
                   </AnimatePresence>
-                  <span className="opacity-0">restore function</span>
+                  <span className="opacity-0 invisible select-none">{rotatingTexts.reduce((a, b) => a.length > b.length ? a : b)}</span>
                 </span>,{' '}
                 and help you reclaim the activities that matter most.
               </motion.p>

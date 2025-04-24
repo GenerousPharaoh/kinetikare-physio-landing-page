@@ -172,6 +172,68 @@ const HeroSection = memo(function HeroSection() {
       {/* Add particle effect for premium look */}
       <ParticleEffect />
       
+      {/* Add smooth transition gradient at the bottom */}
+      <motion.div 
+        className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-neutral-50 via-neutral-50/70 to-transparent z-30 pointer-events-none"
+        animate={{
+          opacity: [0.9, 1, 0.9]
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          repeatType: "reverse"
+        }}
+      ></motion.div>
+      
+      {/* Add subtle wave pattern for more elegant transition */}
+      <div className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none overflow-hidden" style={{ height: '150px' }}>
+        <motion.svg
+          className="absolute bottom-0 w-full text-neutral-50 opacity-20"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+          preserveAspectRatio="none"
+          style={{ height: '100%', width: '100%' }}
+          animate={{ 
+            x: [0, 10, 0],
+            y: [0, -5, 0]
+          }}
+          transition={{ 
+            duration: 20, 
+            repeat: Infinity,
+            repeatType: "reverse" 
+          }}
+        >
+          <path
+            fill="currentColor"
+            fillOpacity="1"
+            d="M0,224L48,224C96,224,192,224,288,197.3C384,171,480,117,576,117.3C672,117,768,171,864,186.7C960,203,1056,181,1152,160C1248,139,1344,117,1392,106.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          ></path>
+        </motion.svg>
+        <motion.svg
+          className="absolute bottom-0 w-full text-neutral-50 opacity-30"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+          preserveAspectRatio="none"
+          style={{ height: '70%', width: '100%' }}
+          animate={{ 
+            x: [0, -15, 0],
+            y: [0, 3, 0]
+          }}
+          transition={{ 
+            duration: 25, 
+            repeat: Infinity,
+            repeatType: "reverse",
+            delay: 1
+          }}
+        >
+          <path
+            fill="currentColor"
+            fillOpacity="1"
+            d="M0,288L48,272C96,256,192,224,288,213.3C384,203,480,213,576,192C672,171,768,117,864,101.3C960,85,1056,107,1152,144C1248,181,1344,235,1392,261.3L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          ></path>
+        </motion.svg>
+      </div>
+      
       <div className="container mx-auto px-4 relative z-10 above-fold-content">
         <div className="grid lg:grid-cols-12 gap-12 items-center stagger-fade-in">
           {/* Left side content - Enhanced text and CTA */}

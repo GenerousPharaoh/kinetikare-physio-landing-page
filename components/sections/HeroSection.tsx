@@ -76,6 +76,8 @@ const HeroSection = memo(function HeroSection() {
           initial={{ scale: 1.05 }}
           animate={{ 
             scale: [1.05, 1.08, 1.05],
+            x: [0, -10, 5, -5, 0],
+            y: [0, -5, 2, -8, 0]
           }}
           transition={{
             scale: { 
@@ -83,6 +85,18 @@ const HeroSection = memo(function HeroSection() {
               repeat: Infinity,
               repeatType: "reverse",
               ease: "easeInOut" 
+            },
+            x: {
+              duration: 30,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "easeInOut"
+            },
+            y: {
+              duration: 25,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "easeInOut"
             }
           }}
         >
@@ -90,11 +104,11 @@ const HeroSection = memo(function HeroSection() {
             src="/images/clinic-pic-updated.jpg"
             alt="Physiotherapy treatment room"
             fill
-            className="object-cover object-center"
+            className="object-cover object-center scale-110"
             priority={true}
-            quality={95}  // Increased quality
+            quality={95}
             style={{
-              filter: 'brightness(0.5) contrast(1.2) saturate(1.2)', // Enhanced filtering
+              filter: 'brightness(0.5) contrast(1.2) saturate(1.2)', 
             }}
           />
         </motion.div>
@@ -174,7 +188,7 @@ const HeroSection = memo(function HeroSection() {
       
       {/* Add smooth transition gradient at the bottom */}
       <motion.div 
-        className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-neutral-50 via-neutral-50/70 to-transparent z-30 pointer-events-none"
+        className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-neutral-50 via-neutral-50/90 to-transparent z-30 pointer-events-none"
         animate={{
           opacity: [0.9, 1, 0.9]
         }}
@@ -186,9 +200,9 @@ const HeroSection = memo(function HeroSection() {
       ></motion.div>
       
       {/* Add subtle wave pattern for more elegant transition */}
-      <div className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none overflow-hidden" style={{ height: '150px' }}>
+      <div className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none overflow-hidden" style={{ height: '200px' }}>
         <motion.svg
-          className="absolute bottom-0 w-full text-neutral-50 opacity-20"
+          className="absolute bottom-0 w-full text-neutral-50 opacity-30"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1440 320"
           preserveAspectRatio="none"
@@ -210,11 +224,11 @@ const HeroSection = memo(function HeroSection() {
           ></path>
         </motion.svg>
         <motion.svg
-          className="absolute bottom-0 w-full text-neutral-50 opacity-30"
+          className="absolute bottom-0 w-full text-neutral-50 opacity-40"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1440 320"
           preserveAspectRatio="none"
-          style={{ height: '70%', width: '100%' }}
+          style={{ height: '80%', width: '100%' }}
           animate={{ 
             x: [0, -15, 0],
             y: [0, 3, 0]
@@ -232,7 +246,35 @@ const HeroSection = memo(function HeroSection() {
             d="M0,288L48,272C96,256,192,224,288,213.3C384,203,480,213,576,192C672,171,768,117,864,101.3C960,85,1056,107,1152,144C1248,181,1344,235,1392,261.3L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
           ></path>
         </motion.svg>
+        
+        {/* Add a third wave for more layered effect */}
+        <motion.svg
+          className="absolute bottom-0 w-full text-neutral-50 opacity-20"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+          preserveAspectRatio="none"
+          style={{ height: '90%', width: '100%' }}
+          animate={{ 
+            x: [0, 20, 0],
+            y: [0, -2, 0]
+          }}
+          transition={{ 
+            duration: 30, 
+            repeat: Infinity,
+            repeatType: "reverse",
+            delay: 2
+          }}
+        >
+          <path
+            fill="currentColor"
+            fillOpacity="1"
+            d="M0,64L48,80C96,96,192,128,288,149.3C384,171,480,181,576,165.3C672,149,768,107,864,85.3C960,64,1056,64,1152,80C1248,96,1344,128,1392,144L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          ></path>
+        </motion.svg>
       </div>
+      
+      {/* Add a subtle mesh gradient overlay for smoother transition */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 z-25 pointer-events-none overflow-hidden bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-neutral-50/60 via-neutral-50/40 to-transparent"></div>
       
       <div className="container mx-auto px-4 relative z-10 above-fold-content">
         <div className="grid lg:grid-cols-12 gap-12 items-center stagger-fade-in">
@@ -288,20 +330,24 @@ const HeroSection = memo(function HeroSection() {
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
                 Revealing the subtle patterns in your movement to design targeted interventions that{' '}
-                <span className="relative inline-flex h-7 items-center overflow-visible min-w-[160px] align-bottom">
-                  <AnimatePresence mode="wait">
+                <span className="relative inline-block overflow-hidden h-[28px] md:h-[32px] w-[180px] md:w-[220px] align-bottom">
+                  {rotatingTexts.map((text, index) => (
                     <motion.span
-                      key={currentTextIndex}
-                      className="absolute text-accent font-medium will-change-transform"
+                      key={index}
+                      className={`absolute inset-0 flex items-center justify-center text-accent font-medium`}
                       initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      transition={{ duration: 0.5, ease: "easeOut" }}
+                      animate={{ 
+                        opacity: currentTextIndex === index ? 1 : 0,
+                        y: currentTextIndex === index ? 0 : 20,
+                      }}
+                      transition={{ 
+                        duration: 0.5, 
+                        ease: "easeOut"
+                      }}
                     >
-                      {rotatingTexts[currentTextIndex]}
+                      {text}
                     </motion.span>
-                  </AnimatePresence>
-                  <span className="opacity-0 invisible select-none">{rotatingTexts.reduce((a, b) => a.length > b.length ? a : b)}</span>
+                  ))}
                 </span>,{' '}
                 and help you reclaim the activities that matter most.
               </motion.p>
@@ -349,9 +395,10 @@ const HeroSection = memo(function HeroSection() {
                 whileHover={{ y: -5 }}
               >
                 <motion.div 
-                  className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent/20 to-primary-500/20 blur-xl transform scale-105 opacity-60"
+                  className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-accent/20 via-accent/5 to-primary-500/20 blur-xl transform scale-[1.03] opacity-70"
                   animate={{ 
-                    opacity: [0.4, 0.6, 0.4],
+                    opacity: [0.5, 0.7, 0.5],
+                    scale: [1.02, 1.03, 1.02]
                   }}
                   transition={{ 
                     duration: 4, 
@@ -360,43 +407,48 @@ const HeroSection = memo(function HeroSection() {
                   }}
                 ></motion.div>
                 
-                <div className="relative bg-white/15 backdrop-blur-xl rounded-2xl p-6 border border-white/20 max-w-md shadow-2xl overflow-hidden">
-                  {/* Decorative elements */}
-                  <div className="absolute -bottom-10 -right-10 w-40 h-40 rounded-full bg-accent/20 blur-[30px]"></div>
+                <div className="relative bg-white/10 backdrop-blur-xl rounded-2xl p-6 border border-white/30 max-w-md shadow-[0_8px_32px_rgba(0,0,0,0.2)] overflow-hidden">
+                  {/* Enhanced glass effect with better lighting */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/[0.15] to-white/[0.05] pointer-events-none"></div>
+                  <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                  <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+                  
+                  {/* Improved decorative elements */}
+                  <div className="absolute -bottom-12 -right-12 w-48 h-48 rounded-full bg-accent/20 blur-[40px]"></div>
                   <motion.div 
-                    className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-transparent via-white/5 to-transparent"
+                    className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100"
                     animate={{ 
-                      backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"]
+                      backgroundPosition: ["100% 0%", "0% 100%"]
                     }}
                     transition={{ 
                       duration: 8, 
                       repeat: Infinity,
-                      repeatType: "reverse" 
+                      repeatType: "mirror" 
                     }}
                   ></motion.div>
                   
                   <div className="flex items-center gap-4 mb-4 relative z-10">
                     <div className="flex -space-x-4">
                       <motion.div
-                        className="w-12 h-12 rounded-full bg-accent/40 flex items-center justify-center text-white font-bold ring-2 ring-white/20 shadow-lg"
+                        className="w-12 h-12 rounded-full bg-gradient-to-br from-accent to-accent/70 flex items-center justify-center text-white font-bold ring-[1.5px] ring-white/30 shadow-lg"
                         whileHover={{ scale: 1.1, y: -5 }}
                       >K</motion.div>
                       <motion.div 
-                        className="w-12 h-12 rounded-full bg-primary-500/40 flex items-center justify-center text-white font-bold ring-2 ring-white/20 shadow-lg"
+                        className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-500 to-primary-600/80 flex items-center justify-center text-white font-bold ring-[1.5px] ring-white/30 shadow-lg"
                         whileHover={{ scale: 1.1, y: -5 }}
                       >M</motion.div>
                       <motion.div 
-                        className="w-12 h-12 rounded-full bg-primary-700/40 flex items-center justify-center text-white font-bold ring-2 ring-white/20 shadow-lg"
+                        className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-700 to-primary-800/80 flex items-center justify-center text-white font-bold ring-[1.5px] ring-white/30 shadow-lg"
                         whileHover={{ scale: 1.1, y: -5 }}
                       >J</motion.div>
                     </div>
                     <div className="text-amber-200 tracking-wider text-lg">★★★★★</div>
                   </div>
                   
-                  <p className="text-sm font-medium text-white leading-relaxed relative z-10">
-                    <span className="text-4xl text-accent opacity-50 font-serif absolute -top-2 -left-1">&ldquo;</span>
+                  <p className="text-sm font-medium text-white/95 leading-relaxed relative z-10">
+                    <span className="text-4xl text-accent/70 font-serif absolute -top-2 -left-1">&ldquo;</span>
                     <span className="italic pl-4">The treatment I received for my shoulder issue was excellent. Professional, thorough, and effective.</span>
-                    <span className="text-4xl text-accent opacity-50 font-serif absolute -bottom-8 right-0">&rdquo;</span>
+                    <span className="text-4xl text-accent/70 font-serif absolute -bottom-8 right-0">&rdquo;</span>
                   </p>
                 </div>
               </motion.div>
@@ -413,13 +465,19 @@ const HeroSection = memo(function HeroSection() {
             <div className="relative h-[580px] w-full">
               {/* Enhanced glass card with better styling */}
               <motion.div 
-                className="absolute inset-0 rounded-3xl backdrop-blur-2xl bg-gradient-to-br from-white/20 to-white/5 border border-white/20 shadow-2xl overflow-hidden"
+                className="absolute inset-0 rounded-3xl overflow-hidden"
                 whileHover={{ y: -5, boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)" }}
                 transition={{ duration: 0.3 }}
               >
+                {/* Premium glass effect with multi-layered styling */}
+                <div className="absolute inset-0 backdrop-blur-2xl bg-gradient-to-br from-white/20 to-white/5 border border-white/30 shadow-[0_10px_50px_rgba(0,0,0,0.3)] z-10"></div>
+                <div className="absolute inset-0 bg-gradient-to-tr from-white/[0.07] via-transparent to-white/[0.07] z-20"></div>
+                <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/40 to-transparent z-30"></div>
+                <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent z-30"></div>
+                
                 {/* Enhanced background glow effects with animations */}
                 <motion.div 
-                  className="absolute -bottom-20 -right-20 w-[400px] h-[400px] rounded-full bg-accent/15 blur-[100px]"
+                  className="absolute -bottom-20 -right-20 w-[400px] h-[400px] rounded-full bg-accent/15 blur-[100px] z-0"
                   animate={{ 
                     opacity: [0.15, 0.25, 0.15],
                     scale: [1, 1.1, 1]
@@ -432,7 +490,7 @@ const HeroSection = memo(function HeroSection() {
                 ></motion.div>
                 
                 <motion.div 
-                  className="absolute -top-20 -left-20 w-[300px] h-[300px] rounded-full bg-primary-500/15 blur-[80px]"
+                  className="absolute -top-20 -left-20 w-[300px] h-[300px] rounded-full bg-primary-500/15 blur-[80px] z-0"
                   animate={{ 
                     opacity: [0.15, 0.25, 0.15],
                     scale: [1, 1.15, 1]
@@ -445,9 +503,9 @@ const HeroSection = memo(function HeroSection() {
                   }}
                 ></motion.div>
                 
-                {/* Animated light beam effect */}
+                {/* Animated light beams effect */}
                 <motion.div 
-                  className="absolute top-0 right-1/3 w-[1px] h-[300px] bg-gradient-to-b from-white/0 via-white/30 to-white/0"
+                  className="absolute top-0 right-1/3 w-[1px] h-[300px] bg-gradient-to-b from-white/0 via-white/40 to-white/0 z-20"
                   animate={{ 
                     opacity: [0, 0.7, 0],
                     height: ["0%", "100%", "0%"],
@@ -460,7 +518,21 @@ const HeroSection = memo(function HeroSection() {
                   }}
                 ></motion.div>
                 
-                <div className="p-10 h-full flex flex-col justify-center relative z-10">
+                <motion.div 
+                  className="absolute top-[20%] left-1/4 w-[1px] h-[200px] bg-gradient-to-b from-white/0 via-white/30 to-white/0 z-20"
+                  animate={{ 
+                    opacity: [0, 0.5, 0],
+                    height: ["0%", "100%", "0%"],
+                  }}
+                  transition={{ 
+                    duration: 8, 
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    delay: 5
+                  }}
+                ></motion.div>
+                
+                <div className="p-10 h-full flex flex-col justify-center relative z-50">
                   {/* Enhanced professional credentials with better styling */}
                   <div className="mb-12 flex flex-col gap-5 stagger-fade-in">
                     <motion.div 
@@ -482,8 +554,12 @@ const HeroSection = memo(function HeroSection() {
                         }}
                       ></motion.div>
                       
-                      <div className="flex items-center gap-4 bg-white/15 backdrop-blur-md rounded-xl px-5 py-4 border border-white/20 shadow-lg relative z-10">
-                        <div className="w-12 h-12 rounded-full bg-primary-700/50 flex items-center justify-center shadow-inner group-hover:shadow-accent/20">
+                      <div className="flex items-center gap-4 bg-white/15 backdrop-blur-md rounded-xl px-5 py-4 border border-white/30 shadow-lg relative z-10 overflow-hidden">
+                        {/* Improved inner light effect */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-white/[0.07] to-transparent pointer-events-none"></div>
+                        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                        
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-600/90 to-primary-700/90 flex items-center justify-center shadow-inner group-hover:shadow-accent/20">
                           <motion.svg 
                             xmlns="http://www.w3.org/2000/svg" 
                             className="h-6 w-6 text-white" 
@@ -491,7 +567,7 @@ const HeroSection = memo(function HeroSection() {
                             fill="currentColor"
                             whileHover={{ rotate: 5 }}
                           >
-                            <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                            <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
                           </motion.svg>
                         </div>
                         <div>
@@ -521,8 +597,12 @@ const HeroSection = memo(function HeroSection() {
                         }}
                       ></motion.div>
                       
-                      <div className="flex items-center gap-4 bg-white/15 backdrop-blur-md rounded-xl px-5 py-4 border border-white/20 shadow-lg relative z-10">
-                        <div className="w-12 h-12 rounded-full bg-primary-700/50 flex items-center justify-center shadow-inner group-hover:shadow-accent/20">
+                      <div className="flex items-center gap-4 bg-white/15 backdrop-blur-md rounded-xl px-5 py-4 border border-white/30 shadow-lg relative z-10 overflow-hidden">
+                        {/* Improved inner light effect */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-white/[0.07] to-transparent pointer-events-none"></div>
+                        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                        
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-600/90 to-primary-700/90 flex items-center justify-center shadow-inner group-hover:shadow-accent/20">
                           <motion.svg 
                             xmlns="http://www.w3.org/2000/svg" 
                             className="h-6 w-6 text-white" 

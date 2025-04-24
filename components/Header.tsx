@@ -274,7 +274,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                         onClick={() => setHomeSectionsOpen(!homeSectionsOpen)}
                         onMouseEnter={() => setHomeSectionsOpen(true)}
                       >
-                        <span className="relative z-10">Explore</span>
+                        <span className="relative z-10">Home</span>
                         <ChevronDownIcon 
                           className={`h-4 w-4 transition-transform duration-300 ${homeSectionsOpen ? 'rotate-180' : ''}`} 
                         />
@@ -330,20 +330,17 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                             ? 'text-accent-600 font-semibold' 
                             : 'text-primary-700 hover:text-accent-500'}`}
                     >
-                      <span className="relative z-10">Explore</span>
-                      <ChevronDownIcon 
-                        className={`h-4 w-4 transition-transform duration-300 ${homeSectionsOpen ? 'rotate-180' : ''}`} 
-                      />
+                      <span className="relative z-10">{item.name}</span>
                       
                       {/* Animated background on hover and active states */}
-                      {(isCurrentPath(item.href) || activeItem === item.name || homeSectionsOpen) && (
+                      {(isCurrentPath(item.href) || activeItem === item.name) && (
                         <span className="absolute inset-0 bg-accent/10 rounded-full -z-0"></span>
                       )}
                       
                       {/* Improved underline indicator with animation */}
                       <span className={`absolute bottom-1 left-0 right-0 h-0.5 mx-3 bg-accent rounded-full 
                         transform origin-left transition-all duration-300 ease-out 
-                        ${homeSectionsOpen ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}>
+                        scale-x-0 group-hover:scale-x-100`}>
                       </span>
                     </Link>
                   )}
@@ -433,7 +430,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   onClick={() => setMobileHomeSectionsOpen(!mobileHomeSectionsOpen)}
                 >
                   <div className="flex items-center">
-                    <span>Home & Sections</span>
+                    <span>Home</span>
                   </div>
                   <ChevronDownIcon 
                     className={`h-5 w-5 transition-transform duration-300 ${mobileHomeSectionsOpen ? 'rotate-180' : ''}`} 

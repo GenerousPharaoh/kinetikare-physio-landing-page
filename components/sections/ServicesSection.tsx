@@ -20,6 +20,10 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import GlassCard from '@/components/GlassCard';
 import { Button } from '@/components/ui/Button';
+import dynamic from 'next/dynamic';
+
+// Dynamically import SectionBackground with no SSR to avoid hydration issues
+const SectionBackground = dynamic(() => import('@/components/SectionBackground'), { ssr: false });
 
 // Create a custom Acupuncture icon component
 const AcupunctureIcon = ({ className, size, ...props }: { className?: string; size?: number } & React.SVGProps<SVGSVGElement>) => {
@@ -197,6 +201,9 @@ export default function ServicesSection({ onBookLinkClick }: ServicesSectionProp
       id="services" 
       className="section bg-neutral-50 text-primary-700 relative border-t border-neutral-200 pt-20 md:pt-28 pb-24"
     >
+      {/* Add subtle section background */}
+      <SectionBackground variant="subtle-lines" />
+      
       {/* Background Image with gradient overlay */}
       <div className="absolute inset-0 z-0 opacity-[0.07] pointer-events-none"> 
         <Image

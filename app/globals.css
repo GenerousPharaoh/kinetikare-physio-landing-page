@@ -4,6 +4,8 @@
 
 /* Import premium fonts */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap');
+/* Import responsive utilities CSS */
+@import '../styles/responsive.css';
 
 /* Variables that define the design system */
 :root {
@@ -73,9 +75,6 @@ p {
 *:focus-visible {
   @apply outline-none ring-2 ring-accent ring-opacity-50;
 }
-
-/* Import responsive utilities CSS */
-@import '../styles/responsive.css';
 
 /* REMOVE FLASH TRANSITIONS - Modified for instant visibility with no flash or load screens */
 /* Main content wrapper transitions - NO TRANSITION */

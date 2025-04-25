@@ -101,7 +101,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Physio" />
-        <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+        <link rel="apple-touch-icon" href="/icons/icon-192x192.svg" />
         
         {/* Critical loading and transition styles */}
         <style dangerouslySetInnerHTML={{ __html: `
@@ -172,9 +172,6 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://endorphinshealth.janeapp.com" />
-        
-        {/* Preload critical images to improve load time */}
-        <link rel="preload" as="image" href="/images/kareem-profile.png" />
       </head>
       <body className="antialiased pb-16 md:pb-0 overflow-x-hidden">
         {/* Skip to content link for accessibility */}

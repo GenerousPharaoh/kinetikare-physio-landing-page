@@ -3,9 +3,8 @@ const CACHE_NAME = 'physiotherapy-cache-v1';
 const urlsToCache = [
   '/',
   '/manifest.json',
-  '/icons/icon-192x192.png',
-  '/icons/icon-512x512.png',
-  '/images/kareem-profile.png',
+  '/icons/icon-192x192.svg',
+  '/icons/icon-512x512.svg',
   // Add other important assets here that should be available offline
 ];
 
@@ -38,6 +37,11 @@ self.addEventListener('activate', (event) => {
 
 // Fetch event - respond with cached assets or fetch from network
 self.addEventListener('fetch', (event) => {
+  // Skip non-GET requests
+  if (event.request.method !== 'GET') {
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request)
       .then((response) => {

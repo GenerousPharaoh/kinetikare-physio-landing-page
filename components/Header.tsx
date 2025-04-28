@@ -201,7 +201,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
   return (
     <header
       ref={ref}
-      className={`fixed w-full top-0 z-[100] transition-all duration-300 ease-in-out overflow-visible
+      className={`fixed w-full top-0 z-[999] transition-all duration-300 ease-in-out
         ${scrolled 
           ? 'shadow-xl py-1 xs:py-2' 
           : 'py-2 xs:py-3'}
@@ -218,9 +218,6 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => {
         setIsHovered(false);
-        if (!homeSectionsOpen) {
-          setHomeSectionsOpen(false);
-        }
       }}
     >
       {/* Premium header accent line */}
@@ -253,27 +250,45 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               {mainNavItems.map((item, i) => (
                 <div 
                   key={item.name}
-                  className="flex items-center"
+                  className="flex items-center relative"
                   onMouseEnter={() => {
                     setActiveItem(item.name);
-                    // Close home sections dropdown when hovering other items
-                    if (item.name !== 'Home' && homeSectionsOpen) {
+                    // Only open dropdown for Home item
+                    if (item.name === 'Home') {
+                      setHomeSectionsOpen(true);
+                    } else if (homeSectionsOpen) {
                       setHomeSectionsOpen(false);
                     }
                   }}
-                  onMouseLeave={() => setActiveItem(null)}
+                  onMouseLeave={() => {
+                    setActiveItem(null);
+                    // Don't close dropdown immediately to allow hovering the dropdown
+                    if (item.name === 'Home') {
+                      // Delay closing to allow mouse to move to dropdown
+                      setTimeout(() => {
+                        if (!document.querySelector(':hover > .home-sections-dropdown')) {
+                          setHomeSectionsOpen(false);
+                        }
+                      }, 100);
+                    }
+                  }}
                 >
                   {item.name === 'Home' ? (
-                    <div className="relative z-[9990] overflow-visible">
+                    <div className="relative z-[9990]" style={{ position: 'static' }}>
                       <div 
                         className={`relative px-3 lg:px-4 py-2.5 rounded-full transition-all duration-300 
                           text-sm lg:text-base font-medium cursor-pointer flex items-center gap-1.5 group
                           ${isCurrentPath(item.href) 
                             ? 'text-accent-600 font-semibold' 
                             : 'text-primary-700 hover:text-accent-500'}`}
-                        onClick={() => setHomeSectionsOpen(!homeSectionsOpen)}
-                        onMouseEnter={() => setHomeSectionsOpen(true)}
-                      >
+                        onClick={(e) => {
+                          if (pathname === '/') {
+                            setHomeSectionsOpen(!homeSectionsOpen);
+                          } else {
+                            handleNavClick(e as any, item.href);
+                          }
+                        }}
+                        style={{ position: 'relative', zIndex: 9990 }}>
                         <span className="relative z-10">Home</span>
                         <ChevronDownIcon 
                           className={`h-4 w-4 transition-transform duration-300 ${homeSectionsOpen ? 'rotate-180' : ''}`} 
@@ -287,14 +302,20 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                         {/* Improved underline indicator with animation */}
                         <span className={`absolute bottom-1 left-0 right-0 h-0.5 mx-3 bg-accent rounded-full 
                           transform origin-left transition-all duration-300 ease-out 
-                          ${homeSectionsOpen ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}>
+                          ${homeSectionsOpen || isCurrentPath(item.href) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}>
                         </span>
                       </div>
                       
                       {/* Dropdown for Home Sections */}
                       {homeSectionsOpen && (
                         <div 
-                          className="absolute top-full left-0 mt-1 bg-white rounded-lg shadow-lg border border-neutral-200 py-2 min-w-[180px] z-[9999] overflow-visible"
+                          className="fixed top-auto left-auto mt-1 bg-white rounded-lg shadow-lg border border-neutral-200 py-2 min-w-[180px] z-[9999] dropdown-menu"
+                          style={{ 
+                            position: 'absolute',
+                            zIndex: 9999,
+                            boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
+                          }}
+                          onMouseEnter={() => setHomeSectionsOpen(true)}
                           onMouseLeave={() => setHomeSectionsOpen(false)}
                         >
                           <Link
@@ -340,7 +361,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                       {/* Improved underline indicator with animation */}
                       <span className={`absolute bottom-1 left-0 right-0 h-0.5 mx-3 bg-accent rounded-full 
                         transform origin-left transition-all duration-300 ease-out 
-                        scale-x-0 group-hover:scale-x-100`}>
+                        ${isCurrentPath(item.href) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}>
                       </span>
                     </Link>
                   )}

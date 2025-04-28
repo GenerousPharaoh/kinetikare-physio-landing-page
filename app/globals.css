@@ -222,5 +222,14 @@ img {
   animation: none !important;
 }
 
+/* Fix dropdown menus to ensure proper stacking */
+.dropdown-menu {
+  position: absolute !important;
+  z-index: 9999 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: block !important;
+  pointer-events: auto !important;
+}
+
 /* End of CSS file */
-/* The rest of the CSS file remains unchanged */

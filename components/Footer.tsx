@@ -39,9 +39,8 @@ export default function Footer() {
   ];
 
   const businessHours = [
-    { day: 'Monday - Thursday', hours: '8:00 AM - 8:00 PM' },
-    { day: 'Friday', hours: '8:00 AM - 5:00 PM' },
-    { day: 'Saturday', hours: '9:00 AM - 2:00 PM' },
+    { day: 'Monday - Friday', hours: '2:00 PM - 8:00 PM' },
+    { day: 'Saturday', hours: 'Available upon request' },
     { day: 'Sunday', hours: 'Closed' }
   ];
 
@@ -177,7 +176,7 @@ export default function Footer() {
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent/60 rounded-full -z-10"></span>
               </h3>
               <ul className="space-y-2">
-                {['Home', 'Services', 'About', 'FAQ', 'Blog', 'Contact'].map((item) => (
+                {['Home', 'Services', 'About', 'FAQ', 'Blog'].map((item) => (
                   <li key={item}>
                     <Link 
                       href={`/${item === 'Home' ? '' : item.toLowerCase()}`} 
@@ -232,10 +231,6 @@ export default function Footer() {
               title="Endorphins Health and Wellness Centre location"
               className="transition-all duration-500 hover:opacity-95"
             ></iframe>
-            <div className="absolute top-2 left-2 bg-accent text-white py-1.5 px-3 rounded-md shadow-md text-xs font-medium backdrop-blur-sm">
-              <MapPin weight="bold" className="inline-block w-3 h-3 mr-1" />
-              Find Us Here
-            </div>
           </div>
         </div>
         

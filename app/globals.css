@@ -209,5 +209,18 @@ html {
   }
 }
 
+/* Disable image animations site-wide for better performance */
+img {
+  transform: none !important;
+  transition: none !important;
+}
+
+/* Optional class to explicitly mark images as static */
+.image-static {
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
+}
+
 /* End of CSS file */
 /* The rest of the CSS file remains unchanged */

@@ -145,73 +145,46 @@ html.content-visible .above-fold-content {
 
 /* Optimize animation performance with improved settings */
 [data-animate-on-scroll] {
-  opacity: 0.5; /* Start partially visible for smoother transition */
-  will-change: opacity, transform;
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
+  opacity: 0.9; /* Start almost fully visible for minimal transition */
+  will-change: opacity;
 }
 
-/* Add smooth scrolling to the page */
+/* Add smooth scrolling to the page but with reduced animation */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto; /* Disable smooth scrolling for better performance */
 }
 
-/* Pause animations during scrolling to improve performance */
-.is-scrolling [data-animate-on-scroll] {
-  transition: none !important;
+/* Disable all transitions during scrolling for better performance */
+.is-scrolling * {
+  transition-duration: 0ms !important;
+  animation-duration: 0ms !important;
 }
 
-/* Improved smooth animation curves */
+/* Simpler animation settings */
 @media (prefers-reduced-motion: no-preference) {
   .motion-safe\:animate-on-scroll {
-    transition-timing-function: cubic-bezier(0.33, 1, 0.68, 1) !important;
-    transition-duration: 800ms !important;
+    transition-timing-function: ease-out !important;
+    transition-duration: 400ms !important;
   }
   
-  /* Default subtle animation distances - reduced for smoother effect */
+  /* Almost invisible transform distances */
   [data-animation-type="fade-in-up"] {
-    transform: translateY(3px);
+    transform: translateY(2px);
   }
   
-  [data-animation-type="fade-in-left"] {
-    /* No side translation, just fade */
-  }
-  
+  [data-animation-type="fade-in-left"],
   [data-animation-type="fade-in-right"] {
-    /* No side translation, just fade */
+    /* No transform, just opacity */
   }
   
   [data-animation-type="scale-in"] {
-    transform: scale(0.995);
+    transform: scale(0.998);
   }
   
-  /* Group animations to avoid jarring effects when multiple elements animate */
+  /* Remove group animation delays */
   .animate-group > [data-animate-on-scroll] {
-    transition-duration: 800ms !important;
-  }
-  
-  .animate-group > [data-animate-on-scroll]:nth-child(1) {
+    transition-duration: 400ms !important;
     transition-delay: 0ms !important;
-  }
-  
-  .animate-group > [data-animate-on-scroll]:nth-child(2) {
-    transition-delay: 50ms !important;
-  }
-  
-  .animate-group > [data-animate-on-scroll]:nth-child(3) {
-    transition-delay: 100ms !important;
-  }
-  
-  .animate-group > [data-animate-on-scroll]:nth-child(4) {
-    transition-delay: 150ms !important;
-  }
-  
-  .animate-group > [data-animate-on-scroll]:nth-child(5) {
-    transition-delay: 200ms !important;
-  }
-  
-  .animate-group > [data-animate-on-scroll]:nth-child(6) {
-    transition-delay: 250ms !important;
   }
 }
 

@@ -12,29 +12,34 @@ export default function ClientWrapper({ children }: { children: React.ReactNode 
   useEffect(() => {
     let scrollTimeout: NodeJS.Timeout;
     let lastScrollY = window.scrollY;
+    let ticking = false;
     
-    // Function to handle scroll events and add/remove the is-scrolling class
+    // Debounced scroll handler for better performance
     const handleScroll = () => {
-      const scrollY = window.scrollY;
+      lastScrollY = window.scrollY;
       
-      // Only apply the is-scrolling class if we're actually scrolling a significant amount
-      // This prevents animations from pausing during minor scroll adjustments
-      if (Math.abs(scrollY - lastScrollY) > 10) {
-        document.body.classList.add('is-scrolling');
+      // Use requestAnimationFrame to limit computations
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          // Only add is-scrolling class to optimize animation rendering
+          document.body.classList.add('is-scrolling');
+          
+          // Clear any existing timeout
+          clearTimeout(scrollTimeout);
+          
+          // Set a timeout to remove class when scrolling stops
+          scrollTimeout = setTimeout(() => {
+            document.body.classList.remove('is-scrolling');
+          }, 50); // Very short timeout to improve perceived performance
+          
+          ticking = false;
+        });
         
-        // Clear any existing timeout
-        clearTimeout(scrollTimeout);
-        
-        // Set a new timeout - this helps ensure smooth transitions
-        scrollTimeout = setTimeout(() => {
-          document.body.classList.remove('is-scrolling');
-        }, 100); // Short timeout for smoother feel
+        ticking = true;
       }
-      
-      lastScrollY = scrollY;
     };
     
-    // Add the scroll event listener
+    // Passive scroll listener for better performance
     window.addEventListener('scroll', handleScroll, { passive: true });
     
     // Cleanup

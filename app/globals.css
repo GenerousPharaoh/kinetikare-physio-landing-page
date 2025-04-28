@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import performance optimization styles */
+@import '../styles/performance.css';
+
 /* Import premium fonts */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap');
 /* Import responsive utilities CSS */
@@ -136,6 +139,101 @@ html.content-visible .image-fade-in {
 
 html.content-visible .above-fold-content {
   opacity: 1;
+}
+
+/* ENHANCED SMOOTH ANIMATION STYLES */
+
+/* Optimize animation performance with improved settings */
+[data-animate-on-scroll] {
+  opacity: 0.5; /* Start partially visible for smoother transition */
+  will-change: opacity, transform;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+/* Add smooth scrolling to the page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Pause animations during scrolling to improve performance */
+.is-scrolling [data-animate-on-scroll] {
+  transition: none !important;
+}
+
+/* Improved smooth animation curves */
+@media (prefers-reduced-motion: no-preference) {
+  .motion-safe\:animate-on-scroll {
+    transition-timing-function: cubic-bezier(0.33, 1, 0.68, 1) !important;
+    transition-duration: 800ms !important;
+  }
+  
+  /* Default subtle animation distances - reduced for smoother effect */
+  [data-animation-type="fade-in-up"] {
+    transform: translateY(3px);
+  }
+  
+  [data-animation-type="fade-in-left"] {
+    transform: translateX(3px);
+  }
+  
+  [data-animation-type="fade-in-right"] {
+    transform: translateX(-3px);
+  }
+  
+  [data-animation-type="scale-in"] {
+    transform: scale(0.995);
+  }
+  
+  /* Group animations to avoid jarring effects when multiple elements animate */
+  .animate-group > [data-animate-on-scroll] {
+    transition-duration: 800ms !important;
+  }
+  
+  .animate-group > [data-animate-on-scroll]:nth-child(1) {
+    transition-delay: 0ms !important;
+  }
+  
+  .animate-group > [data-animate-on-scroll]:nth-child(2) {
+    transition-delay: 50ms !important;
+  }
+  
+  .animate-group > [data-animate-on-scroll]:nth-child(3) {
+    transition-delay: 100ms !important;
+  }
+  
+  .animate-group > [data-animate-on-scroll]:nth-child(4) {
+    transition-delay: 150ms !important;
+  }
+  
+  .animate-group > [data-animate-on-scroll]:nth-child(5) {
+    transition-delay: 200ms !important;
+  }
+  
+  .animate-group > [data-animate-on-scroll]:nth-child(6) {
+    transition-delay: 250ms !important;
+  }
+}
+
+/* Disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  [data-animate-on-scroll] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Optimize animation performance for lower-end devices */
+@media (max-width: 768px) {
+  [data-animate-on-scroll] {
+    transition-duration: 600ms !important;
+  }
 }
 
 /* End of CSS file */

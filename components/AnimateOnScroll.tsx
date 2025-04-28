@@ -59,7 +59,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
     element.style.transition = `opacity ${duration}ms cubic-bezier(0.33, 1, 0.68, 1), transform ${duration}ms cubic-bezier(0.33, 1, 0.68, 1)`;
     element.style.transitionDelay = `${delay}ms`;
     
-    // Use even gentler initial transforms for smoother animations
+    // Use appropriate transforms based on animation type
     switch (animation) {
       case 'fade-in':
         // Just fade, no movement
@@ -68,10 +68,10 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
         element.style.transform = 'translateY(3px)';
         break;
       case 'fade-in-right':
-        element.style.transform = 'translateX(-3px)';
+        // No horizontal movement, just fade
         break;
       case 'fade-in-left':
-        element.style.transform = 'translateX(3px)';
+        // No horizontal movement, just fade
         break;
       case 'scale-in':
         element.style.transform = 'scale(0.995)';
@@ -111,10 +111,10 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
                   element.style.transform = 'translateY(3px)';
                   break;
                 case 'fade-in-right':
-                  element.style.transform = 'translateX(-3px)';
+                  // No horizontal movement on exit
                   break;
                 case 'fade-in-left':
-                  element.style.transform = 'translateX(3px)';
+                  // No horizontal movement on exit
                   break;
                 case 'scale-in':
                   element.style.transform = 'scale(0.995)';

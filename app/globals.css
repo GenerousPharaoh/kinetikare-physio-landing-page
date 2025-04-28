@@ -174,11 +174,11 @@ html {
   }
   
   [data-animation-type="fade-in-left"] {
-    transform: translateX(3px);
+    /* No side translation, just fade */
   }
   
   [data-animation-type="fade-in-right"] {
-    transform: translateX(-3px);
+    /* No side translation, just fade */
   }
   
   [data-animation-type="scale-in"] {

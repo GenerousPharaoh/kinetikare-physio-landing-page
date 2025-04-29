@@ -18,9 +18,14 @@ interface FAQAccordionProps {
 
 // Function to decode HTML entities to their respective characters
 const decodeHtmlEntities = (text: string): string => {
-  const textarea = document.createElement('textarea');
-  textarea.innerHTML = text;
-  return textarea.value;
+  // Use a pure string replacement approach instead of DOM manipulation
+  return text
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&apos;/g, "'");
 };
 
 // Function to format answers with special formatting

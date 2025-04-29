@@ -103,6 +103,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
   // Define the main navigation items and home sections using useMemo
   const mainNavItems = useMemo(() => [
     { name: 'Home', href: '/' },
+    { name: 'Services', href: '/services' },
     { name: 'Blog', href: '/blog' },
     { name: 'FAQ', href: '/faq' },
     { name: 'Contact', href: '/#contact' },

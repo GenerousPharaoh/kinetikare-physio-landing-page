@@ -62,8 +62,8 @@ const HeroSection = React.memo(function HeroSection() {
                 <span className="tracking-wide">Experience Expert Care in Burlington</span>
               </div>
               
-              {/* Premium heading with enhanced typography */}
-              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-8 tracking-tight leading-tight">
+              {/* Premium heading with enhanced typography - fixed sizing */}
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 tracking-tight leading-tight">
                 <span className="block font-light tracking-wide">The Science of</span>
                 <span className="relative inline-block mt-2">
                   <span className="relative z-10">Recovery</span>
@@ -81,12 +81,12 @@ const HeroSection = React.memo(function HeroSection() {
                 help you reclaim the activities that matter most.
               </p>
               
-              {/* Luxury CTA buttons with premium hover effects */}
+              {/* Luxury CTA buttons with premium hover effects - reduced sizes for consistency */}
               <div className="flex flex-wrap gap-5 mt-10">
                 <Link 
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42" 
                   target="_blank"
-                  className="group relative px-8 py-4 font-semibold rounded-xl text-white flex items-center justify-center gap-2 overflow-hidden transition-all duration-300"
+                  className="group relative px-7 py-3.5 font-semibold rounded-xl text-white flex items-center justify-center gap-2 overflow-hidden transition-all duration-300"
                   aria-label="Book an appointment online"
                 >
                   {/* Premium button background with refined gradient */}
@@ -105,7 +105,7 @@ const HeroSection = React.memo(function HeroSection() {
                 
                 <Link 
                   href="#services" 
-                  className="relative px-8 py-4 font-medium rounded-xl text-white flex items-center justify-center transition-all duration-300 group overflow-hidden"
+                  className="relative px-7 py-3.5 font-medium rounded-xl text-white flex items-center justify-center transition-all duration-300 group overflow-hidden"
                   aria-label="Explore our services"
                 >
                   {/* Enhanced button background */}
@@ -122,35 +122,35 @@ const HeroSection = React.memo(function HeroSection() {
                 </Link>
               </div>
               
-              {/* Premium testimonial preview with enhanced glass effect */}
+              {/* Premium testimonial preview with enhanced glass effect - sized more appropriately */}
               <div className="mt-16 relative">
-                <div className="relative bg-white/10 backdrop-blur-xl rounded-2xl p-7 md:p-8 border border-white/20 max-w-md shadow-xl overflow-hidden group transition-all duration-500 hover:bg-white/[0.12] hover:border-white/25 hover:shadow-2xl">
+                <div className="relative bg-white/10 backdrop-blur-xl rounded-2xl p-6 md:p-7 border border-white/20 max-w-md shadow-xl overflow-hidden group transition-all duration-500 hover:bg-white/[0.12] hover:border-white/25 hover:shadow-2xl">
                   {/* Enhanced inner glow */}
                   <div className="absolute inset-0 bg-gradient-to-br from-white/[0.18] to-white/[0.05] pointer-events-none"></div>
                   <div className="absolute -top-40 -right-40 w-80 h-80 bg-accent/10 rounded-full blur-[100px] opacity-60 group-hover:opacity-80 transition-opacity duration-700"></div>
                   
                   <div className="flex items-center gap-4 mb-5 relative z-10">
                     <div className="flex -space-x-4">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent to-accent/70 flex items-center justify-center text-white font-bold ring-[1.5px] ring-white/30 shadow-lg">K</div>
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-500 to-primary-600/80 flex items-center justify-center text-white font-bold ring-[1.5px] ring-white/30 shadow-lg">M</div>
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-700 to-primary-800/80 flex items-center justify-center text-white font-bold ring-[1.5px] ring-white/30 shadow-lg">J</div>
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent to-accent/70 flex items-center justify-center text-white font-bold ring-[1.5px] ring-white/30 shadow-lg">K</div>
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary-500 to-primary-600/80 flex items-center justify-center text-white font-bold ring-[1.5px] ring-white/30 shadow-lg">M</div>
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary-700 to-primary-800/80 flex items-center justify-center text-white font-bold ring-[1.5px] ring-white/30 shadow-lg">J</div>
                     </div>
                     <div className="text-amber-300 tracking-wider text-lg">★★★★★</div>
                   </div>
                   
                   <p className="text-sm font-medium text-white/95 leading-relaxed relative z-10">
-                    <span className="text-4xl text-accent/70 font-serif absolute -top-2 -left-1">&ldquo;</span>
+                    <span className="text-3xl text-accent/70 font-serif absolute -top-2 -left-1">&ldquo;</span>
                     <span className="italic pl-4">The treatment I received for my shoulder issue was excellent. Professional, thorough, and effective.</span>
-                    <span className="text-4xl text-accent/70 font-serif absolute -bottom-8 right-0">&rdquo;</span>
+                    <span className="text-3xl text-accent/70 font-serif absolute -bottom-8 right-0">&rdquo;</span>
                   </p>
                 </div>
               </div>
             </div>
           </div>
           
-          {/* Right side - Premium decorative element */}
+          {/* Right side - Premium decorative element - reduced size for better scaling */}
           <div className="lg:col-span-5 hidden lg:block">
-            <div className="relative h-[580px] w-full">
+            <div className="relative h-[540px] w-full">
               <div className="absolute inset-0 rounded-3xl overflow-hidden">
                 {/* Premium glass effect with refined layers */}
                 <div className="absolute inset-0 backdrop-blur-2xl bg-gradient-to-br from-white/20 to-white/5 border border-white/20 shadow-2xl z-10"></div>
@@ -161,20 +161,20 @@ const HeroSection = React.memo(function HeroSection() {
                 <div className="absolute -bottom-20 -right-20 w-[450px] h-[450px] rounded-full bg-accent/15 blur-[120px] z-0 animate-pulse-slow"></div>
                 <div className="absolute -top-20 -left-20 w-[350px] h-[350px] rounded-full bg-primary-500/15 blur-[100px] z-0 animate-pulse-slow animation-delay-1000"></div>
                 
-                <div className="p-10 h-full flex flex-col justify-center relative z-50">
-                  {/* Refined professional credentials with premium styling */}
-                  <div className="mb-12 flex flex-col gap-6">
+                <div className="p-8 h-full flex flex-col justify-center relative z-50">
+                  {/* Refined professional credentials with premium styling - less padding for size */}
+                  <div className="mb-10 flex flex-col gap-5">
                     <div className="relative overflow-hidden group">
-                      <div className="flex items-center gap-5 bg-white/15 backdrop-blur-md rounded-xl px-6 py-5 border border-white/20 shadow-xl relative z-10 overflow-hidden transition-all duration-500 group-hover:bg-white/20">
+                      <div className="flex items-center gap-4 bg-white/15 backdrop-blur-md rounded-xl px-5 py-4 border border-white/20 shadow-xl relative z-10 overflow-hidden transition-all duration-500 group-hover:bg-white/20">
                         {/* Inner highlight effect on hover */}
                         <div className="absolute inset-[1px] rounded-[10px] bg-gradient-to-b from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-500/80 to-primary-700/80 flex items-center justify-center shadow-inner relative">
+                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary-500/80 to-primary-700/80 flex items-center justify-center shadow-inner relative">
                           {/* Inner glow */}
                           <div className="absolute inset-[1px] rounded-full bg-gradient-to-b from-white/10 to-transparent"></div>
                           <svg 
                             xmlns="http://www.w3.org/2000/svg" 
-                            className="h-6 w-6 text-white" 
+                            className="h-5 w-5 text-white" 
                             viewBox="0 0 20 20" 
                             fill="currentColor"
                           >
@@ -189,16 +189,16 @@ const HeroSection = React.memo(function HeroSection() {
                     </div>
                     
                     <div className="relative overflow-hidden group">
-                      <div className="flex items-center gap-5 bg-white/15 backdrop-blur-md rounded-xl px-6 py-5 border border-white/20 shadow-xl relative z-10 overflow-hidden transition-all duration-500 group-hover:bg-white/20">
+                      <div className="flex items-center gap-4 bg-white/15 backdrop-blur-md rounded-xl px-5 py-4 border border-white/20 shadow-xl relative z-10 overflow-hidden transition-all duration-500 group-hover:bg-white/20">
                         {/* Inner highlight effect on hover */}
                         <div className="absolute inset-[1px] rounded-[10px] bg-gradient-to-b from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-500/80 to-primary-700/80 flex items-center justify-center shadow-inner relative">
+                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary-500/80 to-primary-700/80 flex items-center justify-center shadow-inner relative">
                           {/* Inner glow */}
                           <div className="absolute inset-[1px] rounded-full bg-gradient-to-b from-white/10 to-transparent"></div>
                           <svg 
                             xmlns="http://www.w3.org/2000/svg" 
-                            className="h-6 w-6 text-white" 
+                            className="h-5 w-5 text-white" 
                             viewBox="0 0 20 20" 
                             fill="currentColor"
                           >
@@ -213,18 +213,18 @@ const HeroSection = React.memo(function HeroSection() {
                     </div>
                   </div>
                   
-                  {/* Premium specialties section */}
+                  {/* Premium specialties section - improved size consistency */}
                   <div className="mt-auto">
-                    <div className="flex items-center gap-2 mb-5">
+                    <div className="flex items-center gap-2 mb-4">
                       <div className="w-1.5 h-1.5 rounded-full bg-accent"></div>
                       <p className="text-white/95 text-base font-medium tracking-wide">Specialized Treatment For:</p>
                     </div>
                     
-                    <div className="flex flex-wrap gap-3">
+                    <div className="flex flex-wrap gap-2">
                       {["Sports Injuries", "Back Pain", "Post-Surgery", "Chronic Pain", "Joint Mobility"].map((specialty) => (
                         <span
                           key={specialty}
-                          className="text-sm bg-white/10 hover:bg-white/15 text-white px-4 py-2 rounded-full border border-white/20 shadow-lg transition-all duration-300 cursor-pointer hover:border-white/30 hover:shadow-xl hover:translate-y-[-2px]"
+                          className="text-sm bg-white/10 hover:bg-white/15 text-white px-3 py-1.5 rounded-full border border-white/20 shadow-lg transition-all duration-300 cursor-pointer hover:border-white/30 hover:shadow-xl hover:translate-y-[-2px]"
                         >
                           {specialty}
                         </span>

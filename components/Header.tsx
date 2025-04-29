@@ -298,7 +298,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
           position: 'absolute',
           top: 'calc(100% - 5px)',
           left: '0',
-          zIndex: 99980,
+          zIndex: 100000, // Increased z-index to be higher than header
           boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
           paddingTop: '10px' // Add extra padding at top to create overlap
         }}
@@ -335,12 +335,15 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
   return (
     <header
       ref={ref}
-      className={`fixed w-full top-0 z-[99999] transition-all duration-300 ease-in-out
+      className={`fixed w-full top-0 z-[100000] transition-all duration-300 ease-in-out
         ${scrolled 
           ? 'shadow-modern-medium py-1 xs:py-2' 
           : 'py-2 xs:py-3'}
         ${getHeaderOpacity()} backdrop-blur-lg`}
-      style={headerStyle}
+      style={{
+        ...headerStyle,
+        zIndex: 100000 // Ensure consistent z-index
+      }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => {
         setIsHovered(false);
@@ -356,12 +359,12 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
       <div className="absolute inset-0 bg-white/40 backdrop-blur-xl -z-10"></div>
       
       {/* Force GPU acceleration for smoother transitions */}
-      <div className="container mx-auto px-3 xs:px-4 md:px-6 relative z-[9999]">
+      <div className="container mx-auto px-3 xs:px-4 md:px-6 relative">
         {/* Top subtle accent line */}
         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[80%] h-[1px] bg-gradient-to-r from-transparent via-accent/30 to-transparent"></div>
         
         <div className="flex justify-between items-center">
-          <Link href="/" className="flex items-center z-[9999] group">
+          <Link href="/" className="flex items-center group">
             <div className="font-heading font-bold text-base xs:text-xl md:text-2xl flex items-center relative">
               <span className="text-primary-700 group-hover:text-primary-800 transition-colors duration-500 tracking-tight">KH</span>
               <span className="mx-1 text-neutral-300">|</span>
@@ -373,7 +376,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
           </Link>
 
           {/* Desktop Navigation - with dropdown for home sections */}
-          <nav className="hidden md:flex items-center justify-center flex-1 z-[9999]">
+          <nav className="hidden md:flex items-center justify-center flex-1">
             <div className="flex items-center space-x-1 lg:space-x-2 bg-white/30 backdrop-blur-sm rounded-xl px-1.5 py-1.5 border border-white/50 shadow-modern-subtle">
               {/* Main navigation items */}
               {mainNavItems.map((item) => (
@@ -394,7 +397,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   {item.name === 'Home' ? (
                     <div 
                       className="relative home-dropdown-container" 
-                      style={{ position: 'relative', zIndex: 99990 }}
+                      style={{ position: 'relative' }}
                       onMouseEnter={() => {
                         setHomeSectionsOpen(true);
                         setActiveItem('Home');
@@ -423,7 +426,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                             handleNavClick(e as any, item.href);
                           }
                         }}
-                        style={{ position: 'relative', zIndex: 99990 }}>
+                        style={{ position: 'relative' }}>
                         <span className="relative z-10">Home</span>
                         <ChevronDownIcon 
                           className={`h-4 w-4 transition-transform duration-300 ${homeSectionsOpen ? 'rotate-180' : ''}`} 

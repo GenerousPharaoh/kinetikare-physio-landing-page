@@ -45,6 +45,17 @@ const prefersReducedMotion = () => {
 // Use a single IntersectionObserver for better performance
 const observerMap = new Map<string, IntersectionObserver>();
 
+// Helper to validate threshold value
+const validateThreshold = (threshold: number | undefined): number => {
+  if (threshold === undefined) return 0;
+  
+  // Ensure threshold is a finite number between 0 and 1
+  const validatedThreshold = Number(threshold);
+  if (!Number.isFinite(validatedThreshold)) return 0;
+  
+  return Math.min(Math.max(validatedThreshold, 0), 1);
+};
+
 /**
  * Simplified and optimized scroll animation hook
  */
@@ -84,8 +95,11 @@ export function useScrollAnimation<T extends HTMLElement = HTMLDivElement>({
     const currentRef = ref.current;
     if (!currentRef) return;
     
+    // Validate threshold
+    const safeThreshold = validateThreshold(threshold);
+    
     // Create a unique key for this observer configuration
-    const observerKey = `${threshold}-${rootMargin}-${triggerOnce}`;
+    const observerKey = `${safeThreshold}-${rootMargin}-${triggerOnce}`;
     
     // Create or reuse an existing observer
     if (!observerMap.has(observerKey)) {
@@ -93,7 +107,7 @@ export function useScrollAnimation<T extends HTMLElement = HTMLDivElement>({
         const observerOptions = {
           root: null,
           rootMargin: isMobile ? '0px' : rootMargin,
-          threshold: 0, // Always use 0 threshold for best performance
+          threshold: safeThreshold, // Use validated threshold
         };
         
         observerMap.set(
@@ -125,14 +139,26 @@ export function useScrollAnimation<T extends HTMLElement = HTMLDivElement>({
     
     // Start observing the element
     const observer = observerMap.get(observerKey);
-    observer?.observe(currentRef);
+    if (observer) {
+      try {
+        observer.observe(currentRef);
+      } catch (error) {
+        console.warn('Error observing element:', error);
+        setIsVisible(true);
+        setHasBeenVisible(true);
+      }
+    }
     
     // Cleanup function
     return () => {
       if (currentRef) {
-        const observer = observerMap.get(observerKey);
-        if (observer) {
-          observer.unobserve(currentRef);
+        try {
+          const observer = observerMap.get(observerKey);
+          if (observer) {
+            observer.unobserve(currentRef);
+          }
+        } catch (error) {
+          console.warn('Error cleaning up observer:', error);
         }
       }
     };

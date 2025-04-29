@@ -14,7 +14,9 @@ module.exports = {
     'motion-parent',
     'optimized-animation',
     'js-loaded',
-    'reduced-motion'
+    'reduced-motion',
+    'animation-delay-1000',
+    'animate-pulse-slow'
   ],
   future: {
     hoverOnlyWhenSupported: true, // Only generate hover styles for devices that support hover
@@ -224,6 +226,7 @@ module.exports = {
         'float': 'float 6s ease-in-out infinite',
         'float-slow': 'float 8s ease-in-out infinite',
         'pulse-subtle': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards',
         'fade-in': 'fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards',
         'slide-in-right': 'slideInRight 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards',
@@ -269,6 +272,12 @@ module.exports = {
         '-10': '-10',
         '-1': '-1',
       },
+
+      // Add utility for animation delays
+      transitionDelay: {
+        '1000': '1000ms',
+        '2000': '2000ms',
+      },
     },
   },
   variants: {
@@ -287,5 +296,21 @@ module.exports = {
       blur: [], // Disable blur variants - use classes instead
     },
   },
-  plugins: [],
+  plugins: [
+    // Add custom plugin for animation delay utility classes
+    function({ addUtilities }) {
+      const newUtilities = {
+        '.animation-delay-1000': {
+          'animation-delay': '1000ms',
+        },
+        '.animation-delay-2000': {
+          'animation-delay': '2000ms',
+        },
+        '.animation-delay-3000': {
+          'animation-delay': '3000ms',
+        },
+      }
+      addUtilities(newUtilities)
+    }
+  ],
 } 

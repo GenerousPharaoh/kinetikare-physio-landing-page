@@ -32,21 +32,21 @@ export default function SectionWithBackground({
     switch (variant) {
       case 'primary':
         return {
-          bgColor: 'bg-white',
+          bgColor: 'bg-[#fbfafa]',
           pattern: <BackgroundPattern variant="pinstripe" opacity={0.025} color="100, 130, 210" />,
           additionalClass: ''
         };
       case 'secondary':
         return {
-          bgColor: 'bg-neutral-50',
+          bgColor: 'bg-white',
           pattern: <BackgroundPattern variant="dots" opacity={0.03} color="100, 130, 210" />,
           additionalClass: ''
         };
       case 'accent':
         return {
-          bgColor: 'bg-white',
+          bgColor: 'bg-[#fbfafa]',
           pattern: <>
-            <div className="absolute inset-0 bg-gradient-to-br from-primary-50/20 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent"></div>
             <BackgroundPattern variant="dots" opacity={0.02} color="80, 120, 210" />
           </>,
           additionalClass: 'accent-section'
@@ -54,7 +54,7 @@ export default function SectionWithBackground({
       case 'minimal':
       default:
         return {
-          bgColor: 'bg-white',
+          bgColor: 'bg-[#fbfafa]',
           pattern: <BackgroundPattern variant="minimal" opacity={0.012} color="100, 130, 210" />,
           additionalClass: ''
         };

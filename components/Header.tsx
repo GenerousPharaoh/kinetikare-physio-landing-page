@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, forwardRef } from 'react';
+import React, { useState, useEffect, forwardRef, useCallback, useMemo } from 'react';
 import Link from 'next/link';
 // import { Menu, X, Phone, Calendar } from 'lucide-react';
 import { 
@@ -36,10 +36,20 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
   const [mobileHomeSectionsOpen, setMobileHomeSectionsOpen] = useState(false);
   const pathname = usePathname();
 
+  // Optimize scroll handler with throttling
   useEffect(() => {
+    let ticking = false;
+    
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 20);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     
@@ -64,34 +74,42 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     return () => window.removeEventListener('keydown', handleEscKey);
   }, [mobileMenuOpen, homeSectionsOpen]);
 
-  // Close mobile menu when the window is resized to desktop size
+  // Optimize resize handler with throttling
   useEffect(() => {
+    let resizeTimeout: NodeJS.Timeout;
+    
     const handleResize = () => {
-      if (window.innerWidth >= 768 && mobileMenuOpen) {
-        setMobileMenuOpen(false);
-      }
-      
-      // Update header height CSS variable on resize
-      const headerElement = document.querySelector('header');
-      if (headerElement) {
-        document.documentElement.style.setProperty('--header-height', `${headerElement.offsetHeight}px`);
-      }
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        if (window.innerWidth >= 768 && mobileMenuOpen) {
+          setMobileMenuOpen(false);
+        }
+        
+        // Update header height CSS variable on resize
+        const headerElement = document.querySelector('header');
+        if (headerElement) {
+          document.documentElement.style.setProperty('--header-height', `${headerElement.offsetHeight}px`);
+        }
+      }, 100);
     };
     
     window.addEventListener('resize', handleResize, { passive: true });
-    return () => window.removeEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      clearTimeout(resizeTimeout);
+    };
   }, [mobileMenuOpen]);
 
-  // Define the main navigation items and home sections
-  const mainNavItems = [
+  // Define the main navigation items and home sections using useMemo
+  const mainNavItems = useMemo(() => [
     { name: 'Home', href: '/' },
     { name: 'Blog', href: '/blog' },
     { name: 'FAQ', href: '/faq' },
     { name: 'Contact', href: '/#contact' },
-  ];
+  ], []);
 
-  // Define sections that exist on the home page
-  const homeSections = [
+  // Define sections that exist on the home page with useMemo
+  const homeSections = useMemo(() => [
     { 
       name: 'Services', 
       href: '/#services', 
@@ -120,18 +138,18 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               <StarIcon className="h-3 w-3 text-white" />
             </div> 
     },
-  ];
+  ], []);
 
-  // Simplified animation variants to prevent flash
-  const navItemVariants = {
+  // Memoize animation variants to prevent recreation
+  const navItemVariants = useMemo(() => ({
     visible: {
       opacity: 1,
       y: 0
     }
-  };
+  }), []);
 
-  // Handle navigation click with consistent behavior for all navigation items
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  // Handle navigation click with useCallback to prevent re-creation
+  const handleNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     // For both hash and non-hash links
     if ((href === '/' || href.includes('#')) && pathname === '/') {
       // Only handle hash navigation on the home page
@@ -164,10 +182,10 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     if (onNavLinkClick) {
       onNavLinkClick(href);
     }
-  };
+  }, [pathname, onNavLinkClick]);
 
-  // Determine if current location matches the nav item
-  const isCurrentPath = (href: string) => {
+  // Memoize current path checking function
+  const isCurrentPath = useCallback((href: string) => {
     // Exact match for pages like home, blog, faq
     if (href === pathname) {
       return true;
@@ -185,10 +203,10 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     
     // Default case
     return false;
-  };
+  }, [pathname]);
 
-  // Determine header opacity based on scroll position and hover state
-  const getHeaderOpacity = () => {
+  // Memoize header opacity function
+  const getHeaderOpacity = useCallback(() => {
     if (isHovered) {
       return 'bg-white/98'; // Almost fully opaque when hovered
     }
@@ -196,25 +214,69 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
       return 'bg-white/95'; // More opaque when scrolled for better readability
     }
     return 'bg-white/90'; // Default opacity
-  };
+  }, [isHovered, scrolled]);
+
+  // Memoize the header background style
+  const headerStyle = useMemo(() => ({
+    transform: 'translateZ(0)' as const,
+    backfaceVisibility: 'hidden' as const,
+    willChange: 'transform, background-color, box-shadow, padding',
+    borderBottom: scrolled ? '1px solid rgba(231, 169, 49, 0.15)' : 'none',
+    background: scrolled 
+      ? 'linear-gradient(to right, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.95))' 
+      : 'linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9))',
+    position: 'fixed' as const,
+    top: 0,
+    left: 0,
+    right: 0
+  }), [scrolled]);
+
+  // Prevent unnecessary re-renders with useMemo for dropdown elements
+  const renderHomeDropdown = useMemo(() => {
+    if (!homeSectionsOpen) return null;
+    
+    return (
+      <div 
+        className="fixed top-auto left-auto mt-1 bg-white rounded-lg shadow-lg border border-neutral-200 py-2 min-w-[180px] z-[99980] dropdown-menu"
+        style={{ 
+          position: 'absolute',
+          zIndex: 99980,
+          boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
+        }}
+      >
+        <Link
+          href="/"
+          onClick={(e) => handleNavClick(e, "/")}
+          className="flex items-center px-4 py-2 text-sm text-primary-700 hover:bg-accent/10 hover:text-accent-700"
+        >
+          <div className="flex items-center justify-center w-5 h-5 rounded-md bg-gradient-to-br from-primary-500 to-primary-700 mr-2">
+            <HomeIcon className="h-3 w-3 text-white" />
+          </div> Home
+        </Link>
+        <div className="h-px bg-neutral-200 my-1 mx-3"></div>
+        {homeSections.map((section) => (
+          <Link
+            key={section.name}
+            href={section.href}
+            onClick={(e) => handleNavClick(e, section.href)}
+            className="flex items-center px-4 py-2 text-sm text-primary-700 hover:bg-accent/10 hover:text-accent-700"
+          >
+            <span className="mr-2">{section.icon}</span> {section.name}
+          </Link>
+        ))}
+      </div>
+    );
+  }, [homeSectionsOpen, homeSections, handleNavClick]);
 
   return (
     <header
       ref={ref}
-      className={`fixed w-full top-0 z-[999] transition-all duration-300 ease-in-out
+      className={`fixed w-full top-0 z-[99999] transition-all duration-300 ease-in-out
         ${scrolled 
           ? 'shadow-xl py-1 xs:py-2' 
           : 'py-2 xs:py-3'}
         ${getHeaderOpacity()} backdrop-blur-lg`}
-      style={{ 
-        transform: 'translateZ(0)',
-        backfaceVisibility: 'hidden',
-        willChange: 'transform, background-color, box-shadow, padding',
-        borderBottom: scrolled ? '1px solid rgba(231, 169, 49, 0.15)' : 'none',
-        background: scrolled 
-          ? 'linear-gradient(to right, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.95))' 
-          : 'linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9))'
-      }}
+      style={headerStyle}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => {
         setIsHovered(false);
@@ -227,12 +289,12 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
       <div className="absolute inset-0 bg-white/40 backdrop-blur-xl -z-10"></div>
       
       {/* Force GPU acceleration for smoother transitions */}
-      <div className="container mx-auto px-3 xs:px-4 md:px-6 relative">
+      <div className="container mx-auto px-3 xs:px-4 md:px-6 relative z-[9999]">
         {/* Top subtle accent line */}
         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[80%] h-[1px] bg-gradient-to-r from-transparent via-accent/30 to-transparent"></div>
         
         <div className="flex justify-between items-center">
-          <Link href="/" className="flex items-center z-10 group">
+          <Link href="/" className="flex items-center z-[9999] group">
             <div className="font-heading font-bold text-base xs:text-xl md:text-2xl flex items-center relative">
               <span className="text-primary-700 group-hover:text-primary-800 transition-colors duration-500 tracking-tight">KH</span>
               <span className="mx-1 text-neutral-300">|</span>
@@ -244,37 +306,31 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
           </Link>
 
           {/* Desktop Navigation - with dropdown for home sections */}
-          <nav className="hidden md:flex items-center justify-center flex-1">
+          <nav className="hidden md:flex items-center justify-center flex-1 z-[9999]">
             <div className="flex items-center space-x-0.5 lg:space-x-2 bg-white/30 backdrop-blur-sm rounded-full px-1 py-1 border border-white/50 shadow-sm">
               {/* Main navigation items */}
-              {mainNavItems.map((item, i) => (
+              {mainNavItems.map((item) => (
                 <div 
                   key={item.name}
                   className="flex items-center relative"
                   onMouseEnter={() => {
                     setActiveItem(item.name);
-                    // Only open dropdown for Home item
-                    if (item.name === 'Home') {
-                      setHomeSectionsOpen(true);
-                    } else if (homeSectionsOpen) {
+                    // Only other items will set activeItem, Home item handles its own dropdown
+                    if (item.name !== 'Home' && homeSectionsOpen) {
                       setHomeSectionsOpen(false);
                     }
                   }}
                   onMouseLeave={() => {
                     setActiveItem(null);
-                    // Don't close dropdown immediately to allow hovering the dropdown
-                    if (item.name === 'Home') {
-                      // Delay closing to allow mouse to move to dropdown
-                      setTimeout(() => {
-                        if (!document.querySelector(':hover > .home-sections-dropdown')) {
-                          setHomeSectionsOpen(false);
-                        }
-                      }, 100);
-                    }
                   }}
                 >
                   {item.name === 'Home' ? (
-                    <div className="relative z-[9990]" style={{ position: 'static' }}>
+                    <div 
+                      className="relative z-[9990] home-dropdown-container" 
+                      style={{ position: 'static' }}
+                      onMouseEnter={() => setHomeSectionsOpen(true)}
+                      onMouseLeave={() => setHomeSectionsOpen(false)}
+                    >
                       <div 
                         className={`relative px-3 lg:px-4 py-2.5 rounded-full transition-all duration-300 
                           text-sm lg:text-base font-medium cursor-pointer flex items-center gap-1.5 group
@@ -306,40 +362,8 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                         </span>
                       </div>
                       
-                      {/* Dropdown for Home Sections */}
-                      {homeSectionsOpen && (
-                        <div 
-                          className="fixed top-auto left-auto mt-1 bg-white rounded-lg shadow-lg border border-neutral-200 py-2 min-w-[180px] z-[9999] dropdown-menu"
-                          style={{ 
-                            position: 'absolute',
-                            zIndex: 9999,
-                            boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
-                          }}
-                          onMouseEnter={() => setHomeSectionsOpen(true)}
-                          onMouseLeave={() => setHomeSectionsOpen(false)}
-                        >
-                          <Link
-                            href="/"
-                            onClick={(e) => handleNavClick(e, "/")}
-                            className="flex items-center px-4 py-2 text-sm text-primary-700 hover:bg-accent/10 hover:text-accent-700"
-                          >
-                            <div className="flex items-center justify-center w-5 h-5 rounded-md bg-gradient-to-br from-primary-500 to-primary-700 mr-2">
-                              <HomeIcon className="h-3 w-3 text-white" />
-                            </div> Home
-                          </Link>
-                          <div className="h-px bg-neutral-200 my-1 mx-3"></div>
-                          {homeSections.map((section) => (
-                            <Link
-                              key={section.name}
-                              href={section.href}
-                              onClick={(e) => handleNavClick(e, section.href)}
-                              className="flex items-center px-4 py-2 text-sm text-primary-700 hover:bg-accent/10 hover:text-accent-700"
-                            >
-                              <span className="mr-2">{section.icon}</span> {section.name}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
+                      {/* Dropdown for Home Sections - Only render when open */}
+                      {renderHomeDropdown}
                     </div>
                   ) : (
                     <Link
@@ -398,6 +422,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   shadow-md hover:shadow-lg transition-all duration-300 
                   flex items-center gap-1.5 h-10 whitespace-nowrap border border-accent/50 
                   hover:scale-105 hover:brightness-105 group relative overflow-hidden"
+                style={{ transform: 'translateZ(0)' }}
               >
                 <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="flex items-center justify-center w-6 h-6 rounded-full bg-white/20 group-hover:bg-white/30 transition-colors duration-300">
@@ -418,6 +443,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 text-primary-700 hover:text-accent hover:bg-white/80 hover:shadow-md"
               aria-controls="mobile-menu"
               aria-expanded={mobileMenuOpen}
+              style={{ transform: 'translateZ(0)' }}
             >
               <span className="sr-only">Open main menu</span>
               {mobileMenuOpen ? (
@@ -430,14 +456,15 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
         </div>
       </div>
 
-      {/* Mobile Menu - reorganized with collapsible sections */}
+      {/* Mobile Menu - Only render when open */}
       {mobileMenuOpen && (
         <div
           id="mobile-menu"
-          className="md:hidden fixed top-[calc(var(--header-height,60px))] left-0 right-0 z-[9999] max-h-[calc(100vh-var(--header-height,60px))] overflow-y-auto"
+          className="md:hidden fixed top-[calc(var(--header-height,60px))] left-0 right-0 z-[99990] max-h-[calc(100vh-var(--header-height,60px))] overflow-y-auto"
+          style={{ position: 'fixed', zIndex: 99990, transform: 'translateZ(0)' }}
         >
           <div 
-            className="backdrop-blur-xl bg-white/95 shadow-lg border-b border-neutral-200/30 px-4 py-3"
+            className="backdrop-blur-xl bg-white/98 shadow-lg border-b border-neutral-200/30 px-4 py-3"
           >
             <div className="space-y-1">
               {/* Home with dropdown toggle for sections */}
@@ -487,7 +514,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               </div>
               
               {/* Other main nav items without Home */}
-              {mainNavItems.filter(item => item.name !== 'Home').map((item, i) => (
+              {mainNavItems.filter(item => item.name !== 'Home').map((item) => (
                 <div
                   key={item.name}
                 >
@@ -510,6 +537,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               <Link
                 href="tel:+19056346000"
                 className="flex-1 flex items-center justify-center gap-2 px-3 py-3 bg-white text-primary-700 rounded-lg text-base font-medium border border-neutral-200 hover:border-accent/30 hover:shadow-md transition-all duration-200"
+                style={{ transform: 'translateZ(0)' }}
               >
                 <div className="premium-icon-badge premium-icon-badge-sm premium-icon-badge-circle header-badge bg-primary-50">
                   <PhoneIcon className="h-4 w-4 text-primary-700" />
@@ -521,6 +549,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 target="_blank"
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex-1 flex items-center justify-center gap-2 px-3 py-3 bg-gradient-to-r from-accent to-accent-dark text-white rounded-lg text-base font-medium border border-accent/50 shadow-md hover:shadow-lg transition-all duration-200"
+                style={{ transform: 'translateZ(0)' }}
               >
                 <div className="premium-icon-badge premium-icon-badge-sm premium-icon-badge-circle header-badge bg-white/20">
                   <CalendarDaysIcon className="h-4 w-4" />
@@ -535,4 +564,4 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
   );
 });
 
-export default Header;
+export default React.memo(Header);

@@ -1,0 +1,285 @@
+/* Performance optimization styles */
+
+/* Apply will-change only during animations to optimize rendering */
+.will-change-transform {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Reduce use of will-change to only when absolutely necessary */
+.motion-reduced .will-change-transform {
+  will-change: auto;
+  transform: none;
+}
+
+/* Styles while user is scrolling */
+.is-scrolling .motion-item,
+.is-scrolling .animated,
+.is-scrolling .animate-element,
+.is-scrolling .floating-element {
+  transition: none !important;
+  animation-play-state: paused !important;
+  will-change: auto !important;
+}
+
+/* Disable blur effects during scrolling */
+.is-scrolling .backdrop-blur-md,
+.is-scrolling .backdrop-blur-lg,
+.is-scrolling .backdrop-blur-xl,
+.is-scrolling .blur-md,
+.is-scrolling .blur-lg,
+.is-scrolling .blur-xl,
+.is-scrolling .bg-blur {
+  backdrop-filter: none !important;
+  filter: none !important;
+}
+
+/* Replace expensive blur filters with lighter alternatives */
+.backdrop-blur-xl {
+  backdrop-filter: blur(4px) !important; /* Reduce from default 24px to 4px */
+}
+
+.backdrop-blur-lg {
+  backdrop-filter: blur(3px) !important; /* Reduce from default 16px to 3px */
+}
+
+.backdrop-blur-md {
+  backdrop-filter: blur(2px) !important; /* Reduce from default 12px to 2px */
+}
+
+/* Disable heavy animations even when not scrolling on lower-end devices */
+.slow-device .animate-pulse,
+.slow-device .animate-spin,
+.slow-device .animate-ping,
+.slow-device .animate-bounce,
+.animation-paused {
+  animation: none !important;
+}
+
+/* Disable shadows during scrolling */
+.fast-scrolling .shadow-lg,
+.fast-scrolling .shadow-xl,
+.fast-scrolling .shadow-2xl {
+  box-shadow: none !important;
+  transition: none !important;
+}
+
+/* Only animate when element is in viewport */
+.motion-item:not(.is-visible),
+.animated:not(.is-visible) {
+  opacity: 0.8 !important;
+  transform: none !important;
+  animation-play-state: paused !important;
+  transition: opacity 0.1s !important;
+}
+
+/* During resize, pause animations temporarily */
+.is-resizing .motion-item,
+.is-resizing .animated {
+  transition: none !important;
+  animation-play-state: paused !important;
+}
+
+/* Optimizations for devices with reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .motion-item, .animated {
+    transition: none !important;
+    transform: none !important;
+    animation: none !important;
+  }
+  
+  .backdrop-blur-md,
+  .backdrop-blur-lg,
+  .backdrop-blur-xl {
+    backdrop-filter: none !important;
+  }
+}
+
+/* Optimize nested animations */
+.motion-parent {
+  transform-style: flat; /* Prevent 3D transformation effects for children */
+}
+
+/* Optimized animation class */
+.optimized-animation {
+  animation-timing-function: linear !important; /* Linear is less CPU intensive */
+  will-change: opacity;
+  backface-visibility: hidden;
+}
+
+/* Limit animation frame rate on slower devices */
+@media (max-width: 768px) {
+  .animated, .motion-item {
+    transition-duration: 0.2s !important;
+    animation-duration: 0.2s !important;
+  }
+}
+
+/* Enhanced performance mode */
+.performance-mode {
+  --transition-duration: 0.1s;
+}
+
+.performance-mode .motion-item,
+.performance-mode .animated,
+.performance-mode [class*="animate-"] {
+  transition-duration: var(--transition-duration) !important;
+  animation-duration: var(--transition-duration) !important;
+}
+
+.performance-mode .backdrop-blur-md,
+.performance-mode .backdrop-blur-lg,
+.performance-mode .backdrop-blur-xl {
+  backdrop-filter: none !important;
+}
+
+.performance-mode .shadow-lg,
+.performance-mode .shadow-xl,
+.performance-mode .shadow-2xl {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+}
+
+/* Performance optimizations */
+
+/* Smoother scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Animation utilities */
+.animate-fade-in {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in-right {
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: fadeInRight 0.8s ease-out forwards;
+}
+
+.animate-fade-in-left {
+  opacity: 0;
+  transform: translateX(20px);
+  animation: fadeInLeft 0.8s ease-out forwards;
+}
+
+.animate-scale-in {
+  opacity: 0;
+  transform: scale(0.95);
+  animation: scaleIn 0.8s ease-out forwards;
+}
+
+.animate-pulse-subtle {
+  animation: pulseSlow 3s infinite ease-in-out;
+}
+
+.hover-lift {
+  transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulseSlow {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Animation delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+.delay-700 { animation-delay: 0.7s; }
+.delay-800 { animation-delay: 0.8s; }
+.delay-900 { animation-delay: 0.9s; }
+.delay-1000 { animation-delay: 1s; }
+
+/* Hardware acceleration for animations */
+.accelerated {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+} 

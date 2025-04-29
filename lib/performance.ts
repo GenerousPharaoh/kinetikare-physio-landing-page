@@ -146,6 +146,115 @@ export const optimizeScrollPerformance = (): void => {
   optimizeImages();
 };
 
+// Optimizes performance by limiting animations and effects on scroll
+// to reduce jank and improve perceived performance
+export function optimizeScroll() {
+  if (typeof window === 'undefined') return;
+
+  let scrolling = false;
+  let scrollTimeout: NodeJS.Timeout;
+  let lastScrollY = window.scrollY;
+  
+  // Detect if we're scrolling and throttle scroll-related operations
+  const handleScroll = () => {
+    if (!scrolling) {
+      scrolling = true;
+      document.body.classList.add('is-scrolling');
+      
+      // Disable heavy animations while scrolling
+      window.requestAnimationFrame(() => {
+        // Check if scroll distance is significant
+        const scrollDelta = Math.abs(window.scrollY - lastScrollY);
+        
+        // Only update for significant scrolls
+        if (scrollDelta > 50) {
+          document.body.classList.add('fast-scrolling');
+        }
+        
+        lastScrollY = window.scrollY;
+        scrolling = false;
+      });
+    }
+    
+    // Clear the timeout
+    clearTimeout(scrollTimeout);
+    
+    // Reset classes after scrolling stops
+    scrollTimeout = setTimeout(() => {
+      document.body.classList.remove('is-scrolling');
+      document.body.classList.remove('fast-scrolling');
+    }, 100);
+  };
+  
+  // Check for Intersection Observer support
+  if ('IntersectionObserver' in window) {
+    // Only animate elements when they're visible in viewport
+    const visibilityObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        } else {
+          // Optionally remove the visible class to save resources
+          if (entry.boundingClientRect.y > 0) {
+            entry.target.classList.remove('is-visible');
+          }
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    // Observe all animatable elements
+    setTimeout(() => {
+      const animatableElements = document.querySelectorAll('.motion-item, .animated');
+      animatableElements.forEach(el => visibilityObserver.observe(el));
+    }, 100);
+  }
+  
+  // Add scroll listener
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  
+  // Debounced resize handler
+  let resizeTimeout: NodeJS.Timeout;
+  const handleResize = () => {
+    clearTimeout(resizeTimeout);
+    document.body.classList.add('is-resizing');
+    
+    resizeTimeout = setTimeout(() => {
+      document.body.classList.remove('is-resizing');
+    }, 200);
+  };
+  
+  window.addEventListener('resize', handleResize, { passive: true });
+}
+
+/**
+ * Automatically adjusts Framer Motion animation settings based on device capability
+ */
+export function getOptimizedMotionProps(isReducedMotion: boolean) {
+  if (isReducedMotion) {
+    return {
+      // For reduced motion, remove animations that move content
+      translateY: 0,
+      scale: 1,
+      opacity: 1,
+      transition: { duration: 0.1 }
+    };
+  }
+  
+  // Mobile devices
+  if (typeof window !== 'undefined' && window.innerWidth < 768) {
+    return {
+      // Reduced but still visible animations for mobile
+      transition: { 
+        duration: 0.3,
+        ease: "linear" 
+      }
+    };
+  }
+  
+  // Default for desktops
+  return {};
+}
+
 // Assign the object to a variable before exporting
 const performanceUtils = {
   prefersReducedMotion,
@@ -158,6 +267,8 @@ const performanceUtils = {
   optimizeImages,
   isElementInViewport,
   optimizeScrollPerformance,
+  optimizeScroll,
+  getOptimizedMotionProps,
 }; 
 
 export default performanceUtils; 

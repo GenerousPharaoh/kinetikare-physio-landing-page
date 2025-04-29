@@ -5,6 +5,20 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  safelist: [
+    // Performance classes that must not be purged
+    'is-scrolling',
+    'fast-scrolling',
+    'is-visible',
+    'will-change-transform',
+    'motion-parent',
+    'optimized-animation',
+    'js-loaded',
+    'reduced-motion'
+  ],
+  future: {
+    hoverOnlyWhenSupported: true, // Only generate hover styles for devices that support hover
+  },
   theme: {
     container: {
       center: true,
@@ -35,13 +49,17 @@ module.exports = {
     extend: {
       colors: {
         // More vibrant color palette
-        'background': '#F9F8F6', // Keep existing warm ivory/off-white background
+        'background': {
+          DEFAULT: '#ffffff',
+          alt: '#f9fafc',
+          subtle: '#f5f7fa',
+        },
         'primary': {
           // New Primary: Professional Dark Blue
           DEFAULT: '#2C3E50',
           dark: '#1B2631',
-          '50': '#EAECEE',
-          '100': '#D5DBDB',
+          '50': '#f0f6ff',
+          '100': '#e4edff',
           '200': '#ABB2B9',
           '300': '#808B96',
           '400': '#566573',
@@ -96,7 +114,8 @@ module.exports = {
         
         // For compatibility - using new color system
         'secondary': {
-          '100': '#F3EFE8', // neutral-100
+          '50': '#f8f9fa',
+          '100': '#eef1f5',
           '200': '#EDE6DB', // neutral-200
           '300': '#E6DED1', // neutral-300
           '400': '#D4C7B3', // neutral-400
@@ -237,6 +256,35 @@ module.exports = {
           'to': { transform: 'translateX(0)', opacity: 1 },
         },
       },
+      
+      // Add gradient configurations
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'gradient-subtle': 'linear-gradient(to right, rgba(100, 130, 210, 0.05), rgba(100, 130, 210, 0))',
+      },
+      
+      // Add z-index values to prevent stacking issues
+      zIndex: {
+        '-10': '-10',
+        '-1': '-1',
+      },
+    },
+  },
+  variants: {
+    // Limit variant generation to improve performance
+    extend: {
+      backgroundColor: ['hover', 'focus', 'active'],
+      textColor: ['hover', 'focus', 'active'],
+      opacity: ['hover', 'focus', 'group-hover'],
+      scale: ['hover', 'group-hover'],
+      transform: ['hover', 'focus'],
+      translate: ['hover', 'focus'],
+      boxShadow: ['hover', 'focus'],
+      borderColor: ['hover', 'focus'],
+      animation: [], // Disable animation variants - use classes instead
+      backdropFilter: [], // Disable backdrop variants - use classes instead
+      blur: [], // Disable blur variants - use classes instead
     },
   },
   plugins: [],

@@ -1,5 +1,9 @@
+"use client";
+
 import PlaceholderImage from '@/components/PlaceholderImage';
 import { CalendarIcon } from '@heroicons/react/24/outline';
+import Image from 'next/image';
+import AnimateOnScroll from '@/components/AnimateOnScroll';
 
 export default function Services() {
   return (
@@ -8,14 +12,14 @@ export default function Services() {
       <section className="bg-navy-deep text-white py-16 relative">
         <div className="absolute inset-0 bg-gradient-to-r from-navy-deep via-navy-deep to-navy-light opacity-90"></div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center animate-fade-in">
+          <AnimateOnScroll animation="fade-in" className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">
               Our <span className="text-gold-accent">Services</span>
             </h1>
             <p className="text-slate-text text-lg max-w-2xl mx-auto">
               Evidence-based physiotherapy treatments tailored to your specific needs, focused on long-term results and enhanced quality of life.
             </p>
-          </div>
+          </AnimateOnScroll>
         </div>
       </section>
       
@@ -24,8 +28,8 @@ export default function Services() {
         <div className="container mx-auto px-4">
         
           {/* Service 1 */}
-          <div id="manual-therapy" className="flex flex-col md:flex-row items-center gap-12 mb-20 animate-fade-in">
-            <div className="md:w-1/2">
+          <div id="manual-therapy" className="flex flex-col md:flex-row items-center gap-12 mb-20">
+            <AnimateOnScroll animation="fade-in-right" className="md:w-1/2">
               <div className="relative w-full h-80 md:h-[400px] rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500">
                 <PlaceholderImage
                   src="/images/manual-therapy.jpg"
@@ -36,8 +40,8 @@ export default function Services() {
                   category="Manual Therapy"
                 />
               </div>
-            </div>
-            <div className="md:w-1/2">
+            </AnimateOnScroll>
+            <AnimateOnScroll animation="fade-in-left" className="md:w-1/2">
               <div className="w-14 h-14 bg-navy-light rounded-full flex items-center justify-center mb-4 animate-pulse-subtle">
                 <svg className="w-7 h-7 text-gold-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -62,12 +66,12 @@ export default function Services() {
               <p className="text-cool-gray italic">
                 &quot;Manual therapy provides immediate relief while creating the foundation for long-term recovery.&quot;
               </p>
-            </div>
+            </AnimateOnScroll>
           </div>
           
           {/* Service 2 */}
-          <div id="sports-injuries" className="flex flex-col md:flex-row-reverse items-center gap-12 mb-20 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            <div className="md:w-1/2">
+          <div id="sports-injuries" className="flex flex-col md:flex-row-reverse items-center gap-12 mb-20">
+            <AnimateOnScroll animation="fade-in-left" className="md:w-1/2" delay={100}>
               <div className="relative w-full h-80 md:h-[400px] rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500">
                 <PlaceholderImage
                   src="/images/sports-rehab.jpg"
@@ -78,8 +82,8 @@ export default function Services() {
                   category="Sports Rehabilitation"
                 />
               </div>
-            </div>
-            <div className="md:w-1/2">
+            </AnimateOnScroll>
+            <AnimateOnScroll animation="fade-in-right" className="md:w-1/2" delay={100}>
               <div className="w-14 h-14 bg-navy-light rounded-full flex items-center justify-center mb-4 animate-pulse-subtle">
                 <svg className="w-7 h-7 text-gold-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
@@ -105,12 +109,12 @@ export default function Services() {
               <p className="text-cool-gray italic">
                 &quot;My goal is not just to get you back to your sport, but to help you perform better than before your injury.&quot;
               </p>
-            </div>
+            </AnimateOnScroll>
           </div>
           
           {/* Service 3 */}
-          <div id="dry-needling" className="flex flex-col md:flex-row items-center gap-12 mb-20 animate-fade-in" style={{ animationDelay: "0.4s" }}>
-            <div className="md:w-1/2">
+          <div id="dry-needling" className="flex flex-col md:flex-row items-center gap-12 mb-20">
+            <AnimateOnScroll animation="fade-in-right" className="md:w-1/2" delay={200}>
               <div className="relative w-full h-80 md:h-[400px] rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500">
                 <PlaceholderImage
                   src="/images/dry-needling.jpg"
@@ -121,8 +125,8 @@ export default function Services() {
                   category="Dry Needling"
                 />
               </div>
-            </div>
-            <div className="md:w-1/2">
+            </AnimateOnScroll>
+            <AnimateOnScroll animation="fade-in-left" className="md:w-1/2" delay={200}>
               <div className="w-14 h-14 bg-navy-light rounded-full flex items-center justify-center mb-4 animate-pulse-subtle">
                 <svg className="w-7 h-7 text-gold-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -148,12 +152,12 @@ export default function Services() {
               <p className="text-cool-gray italic">
                 &quot;Dry needling often provides immediate improvement in areas that have been problematic for months or even years.&quot;
               </p>
-            </div>
+            </AnimateOnScroll>
           </div>
           
           {/* Service 4 */}
-          <div id="exercise-prescription" className="flex flex-col md:flex-row-reverse items-center gap-12 animate-fade-in" style={{ animationDelay: "0.6s" }}>
-            <div className="md:w-1/2">
+          <div id="exercise-prescription" className="flex flex-col md:flex-row-reverse items-center gap-12">
+            <AnimateOnScroll animation="fade-in-left" className="md:w-1/2" delay={300}>
               <div className="relative w-full h-80 md:h-[400px] rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500">
                 <PlaceholderImage
                   src="/images/exercise-therapy.jpg"
@@ -164,8 +168,8 @@ export default function Services() {
                   category="Exercise Therapy"
                 />
               </div>
-            </div>
-            <div className="md:w-1/2">
+            </AnimateOnScroll>
+            <AnimateOnScroll animation="fade-in-right" className="md:w-1/2" delay={300}>
               <div className="w-14 h-14 bg-navy-light rounded-full flex items-center justify-center mb-4 animate-pulse-subtle">
                 <svg className="w-7 h-7 text-gold-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -191,6 +195,77 @@ export default function Services() {
               <p className="text-cool-gray italic">
                 &quot;The right exercises, performed correctly and consistently, are the key to sustainable recovery and optimal physical performance.&quot;
               </p>
+            </AnimateOnScroll>
+          </div>
+        </div>
+      </section>
+      
+      {/* Clinic Environment Section */}
+      <section className="py-16 bg-neutral-50 border-t border-neutral-200">
+        <div className="container mx-auto px-4">
+          <AnimateOnScroll animation="fade-in" className="max-w-3xl mx-auto text-center mb-12">
+            <h2 className="text-3xl font-heading font-bold mb-4 text-navy-deep">
+              Our Comfortable Clinic Environment
+            </h2>
+            <p className="text-cool-gray">
+              Experience physiotherapy in a modern, welcoming space designed for your comfort and recovery.
+            </p>
+          </AnimateOnScroll>
+          
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <AnimateOnScroll animation="fade-in-right" className="relative h-96 rounded-lg overflow-hidden shadow-xl">
+                <Image
+                  src="/images/treatment-room.jpg"
+                  alt="Professional Treatment Room"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 600px"
+                />
+              </AnimateOnScroll>
+              
+              <AnimateOnScroll animation="fade-in-left">
+                <div className="bg-white p-8 rounded-lg shadow-md">
+                  <h3 className="text-2xl font-heading font-semibold mb-4 text-navy-deep">
+                    A Space Dedicated to Your Healing
+                  </h3>
+                  <p className="text-cool-gray mb-4">
+                    Our professional treatment rooms at Endorphins Health & Wellness Centre provide a tranquil and clinical atmosphere where healing can flourish.
+                  </p>
+                  <ul className="space-y-3 mb-6">
+                    <li className="flex items-start">
+                      <svg className="w-5 h-5 text-gold-accent mt-1 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      <span className="text-cool-gray">Professional treatment tables for optimal comfort</span>
+                    </li>
+                    <li className="flex items-start">
+                      <svg className="w-5 h-5 text-gold-accent mt-1 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      <span className="text-cool-gray">Private, quiet rooms for focused care</span>
+                    </li>
+                    <li className="flex items-start">
+                      <svg className="w-5 h-5 text-gold-accent mt-1 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      <span className="text-cool-gray">Modern, clean, and well-maintained facilities</span>
+                    </li>
+                    <li className="flex items-start">
+                      <svg className="w-5 h-5 text-gold-accent mt-1 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      <span className="text-cool-gray">Natural lighting and calming environment</span>
+                    </li>
+                    <li className="flex items-start">
+                      <svg className="w-5 h-5 text-gold-accent mt-1 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      <span className="text-cool-gray">State-of-the-art physiotherapy equipment</span>
+                    </li>
+                  </ul>
+                </div>
+              </AnimateOnScroll>
             </div>
           </div>
         </div>
@@ -199,7 +274,7 @@ export default function Services() {
       {/* CTA Section */}
       <section className="py-16 bg-navy-deep text-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center animate-fade-in">
+          <AnimateOnScroll animation="fade-in-up" className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-heading font-bold mb-4">
               Ready to Start Your <span className="text-gold-accent">Recovery Journey</span>?
             </h2>
@@ -226,7 +301,7 @@ export default function Services() {
                 Book Your Consultation
               </a>
             </div>
-          </div>
+          </AnimateOnScroll>
         </div>
       </section>
     </main>

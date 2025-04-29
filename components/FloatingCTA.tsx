@@ -20,13 +20,11 @@ export default function FloatingCTA() {
 
   const buttonVariants = {
     hidden: { 
-      opacity: 0, 
-      y: 20, 
-      scale: 0.9 
+      opacity: 0,
+      scale: 0.98
     },
     visible: { 
-      opacity: 1, 
-      y: 0, 
+      opacity: 1,
       scale: 1,
       transition: {
         type: "spring",
@@ -35,9 +33,8 @@ export default function FloatingCTA() {
       }
     },
     exit: { 
-      opacity: 0, 
-      y: 20, 
-      scale: 0.9,
+      opacity: 0,
+      scale: 0.98,
       transition: {
         duration: 0.2
       }

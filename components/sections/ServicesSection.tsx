@@ -320,9 +320,8 @@ export default function ServicesSection({ onBookLinkClick }: ServicesSectionProp
                   whileHover={{ y: -5, transition: { duration: 0.3 } }}
                   className="h-full"
                 >
-                  <GlassCard
-                    className="p-5 sm:p-8 h-full flex flex-col bg-white border border-primary-100"
-                    animate={false}
+                  <div
+                    className={`card p-5 sm:p-8 h-full flex flex-col group`}
                   >
                     {/* Enhanced Premium Icon Badge */}
                     <motion.div 
@@ -331,7 +330,7 @@ export default function ServicesSection({ onBookLinkClick }: ServicesSectionProp
                       whileHover="hover"
                     >
                       <motion.div 
-                        className="premium-icon-badge premium-icon-badge-hexagon premium-icon-badge-pattern"
+                        className="premium-icon-badge premium-icon-badge-hexagon premium-icon-badge-pattern bg-gradient-to-br from-primary/5 via-primary/10 to-primary/15"
                         variants={{
                           initial: { scale: 1 },
                           hover: { 
@@ -365,25 +364,8 @@ export default function ServicesSection({ onBookLinkClick }: ServicesSectionProp
                       <p className="text-sm md:text-base text-primary-600 leading-relaxed flex-1">
                         {service.description}
                       </p>
-                      
-                      {/* Added subtle animated indicator */}
-                      <motion.div 
-                        className="mt-4 md:mt-6 flex items-center text-accent text-xs sm:text-sm font-medium"
-                        initial={{ opacity: 0.7 }}
-                        whileHover={{ opacity: 1 }}
-                      >
-                        <span>Learn more</span>
-                        <motion.span 
-                          initial={{ x: 0 }}
-                          whileHover={{ x: 5 }}
-                          transition={{ type: "spring", stiffness: 300 }}
-                          className="ml-2"
-                        >
-                          →
-                        </motion.span>
-                      </motion.div>
                     </div>
-                  </GlassCard>
+                  </div>
                 </motion.div>
               );
             })}
@@ -543,16 +525,16 @@ export default function ServicesSection({ onBookLinkClick }: ServicesSectionProp
               
               {/* Overlapping text card */}
               <motion.div
-                className="absolute -bottom-8 md:-bottom-10 left-1/2 transform -translate-x-1/2 w-[90%] md:w-[70%] bg-white/90 backdrop-blur-lg p-4 md:p-6 lg:p-8 rounded-lg md:rounded-xl shadow-xl border border-neutral-200/50"
-                initial={{ opacity: 0, y: 20 }}
+                className="absolute -bottom-4 md:-bottom-6 left-1/2 transform -translate-x-1/2 w-[85%] md:w-[60%] lg:w-[50%] bg-white/95 backdrop-blur-sm p-3 md:p-5 rounded-lg shadow-lg border border-neutral-200/80"
+                initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.05 }}
+                viewport={{ once: true, margin: "-5%" }}
               >
-                <div className="inline-block text-[10px] xs:text-xs md:text-sm uppercase tracking-wider bg-accent/90 text-white px-2 md:px-3 py-0.5 md:py-1 rounded-full mb-2 md:mb-3 shadow-sm">
+                <div className="inline-block text-[10px] xs:text-xs md:text-sm uppercase tracking-wider bg-accent/90 text-white px-2 md:px-3 py-0.5 rounded-full mb-1 md:mb-2 shadow-sm">
                   Professional Environment
                 </div>
-                <p className="text-base md:text-lg lg:text-xl font-medium text-primary-800">
+                <p className="text-sm md:text-base lg:text-lg font-medium text-primary-800">
                   A calming space where your recovery journey begins
                 </p>
               </motion.div>

@@ -2,6 +2,21 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Metadata } from 'next';
+import fs from 'fs';
+import path from 'path';
+
+// Helper function to check if an image exists
+function imageExists(slug: string): boolean {
+  try {
+    // Check if the file exists in the public directory
+    const publicDir = path.join(process.cwd(), 'public');
+    const imagePath = path.join(publicDir, 'images', 'blog', `${slug}.jpg`);
+    return fs.existsSync(imagePath);
+  } catch (error) {
+    console.error('Error checking image existence:', error);
+    return false;
+  }
+}
 
 // Placeholder data structure - replace with actual fetching logic later
 const getPostData = (slug: string) => {
@@ -62,6 +77,10 @@ export const dynamic = 'force-static';
 export default function Page(props: any) {
   const slug = props.params.slug;
   const post = getPostData(slug);
+  
+  // Determine the image path - use slug-specific image if it exists, otherwise fallback
+  const imagePath = `/images/blog/${slug}.jpg`;
+  const fallbackImagePath = '/images/blog/post-placeholder.jpg';
 
   if (!post) {
     return <div className="container mx-auto px-4 py-16 md:py-24 text-center text-primary-500 bg-neutral-50 flex-grow">Post not found.</div>;
@@ -77,8 +96,8 @@ export default function Page(props: any) {
           
           <div className="mb-8 aspect-video bg-primary-100 rounded-lg flex items-center justify-center text-primary-400 relative overflow-hidden">
             <Image 
-              src={`https://via.placeholder.com/800x450/F5F7F9/4A87A0?text=Featured+Image`}
-              alt={`${post.title} - Featured Image Placeholder`} 
+              src={imageExists(slug) ? imagePath : fallbackImagePath}
+              alt={`${post.title} - Featured Image`} 
               fill
               style={{ objectFit: 'cover' }}
               priority

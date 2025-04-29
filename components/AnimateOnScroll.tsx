@@ -53,21 +53,24 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
       return;
     }
     
-    element.style.opacity = '0.85';
-    element.style.transition = `opacity ${duration}ms ease-out, transform ${duration}ms ease-out`;
+    element.style.opacity = '1';
+    element.style.transition = `transform ${duration}ms ease-out`;
     element.style.transitionDelay = `${delay}ms`;
     
     switch (animation) {
       case 'fade-in':
         break;
       case 'fade-in-up':
-        element.style.transform = 'translateY(2px)';
+        element.style.transform = 'translateY(5px)';
         break;
       case 'fade-in-right':
+        element.style.transform = 'translateX(-5px)';
+        break;
       case 'fade-in-left':
+        element.style.transform = 'translateX(5px)';
         break;
       case 'scale-in':
-        element.style.transform = 'scale(0.998)';
+        element.style.transform = 'scale(0.98)';
         break;
       default:
         break;
@@ -77,11 +80,12 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
       entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            element.style.opacity = '1';
-            element.style.transform = 'none';
-            setIsVisible(true);
+              element.style.transform = 'none';
+              setIsVisible(true);
             
-            observer.disconnect();
+              if (once) {
+                observer.unobserve(entry.target);
+              }
           }
         });
       },
@@ -102,7 +106,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
   return (
     <div 
       ref={elementRef} 
-      className={className}
+      className={className} 
       aria-hidden={typeof children === 'string' ? 'false' : undefined}
     >
       {children}

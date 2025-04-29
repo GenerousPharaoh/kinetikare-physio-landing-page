@@ -24,6 +24,11 @@ const securityHeaders = [
     // 'preload' allows submission to browser HSTS preload lists (permanent).
     value: 'max-age=86400; includeSubDomains' // Start with 1 day max-age for safety
   },
+  // Performance header to hint browsers to preconnect to important domains
+  {
+    key: 'Link',
+    value: '<https://fonts.googleapis.com>; rel=preconnect; crossorigin, <https://fonts.gstatic.com>; rel=preconnect; crossorigin'
+  }
   // // Basic Content Security Policy (CSP) - **NEEDS CAREFUL CONFIGURATION** - COMMENTED OUT FOR NOW
   // {
   //   key: 'Content-Security-Policy',
@@ -44,7 +49,6 @@ const securityHeaders = [
 
 const nextConfig = {
   reactStrictMode: true,
-  // swcMinify: true, // Removed - no longer supported in Next.js 15.3.0
   
   // Add ESLint configuration
   eslint: {
@@ -138,12 +142,6 @@ const nextConfig = {
             minChunks: 1,
             reuseExistingChunk: true,
           },
-          animations: {
-            test: /[\\/]node_modules[\\/](framer-motion)[\\/]/,
-            name: 'animations',
-            chunks: 'all',
-            priority: 30,
-          },
         },
       };
       
@@ -174,19 +172,41 @@ const nextConfig = {
   // Configure the build output
   output: 'standalone',
 
-  // Disable image optimization during development for faster startup
+  // Optimize for development
   ...(process.env.NODE_ENV === 'development' ? {
     typescript: {
       // Faster typescript checking in development
       ignoreBuildErrors: true,
     },
+    images: {
+      // Disable image optimization in development for faster hot reloads
+      unoptimized: true
+    },
   } : {}),
   
-  // Prevent loading screens and flash transitions
+  // Compiler options for production
   compiler: {
     // Remove all console logs in production
     removeConsole: process.env.NODE_ENV === 'production',
+    // Enable React optimizations
+    reactRemoveProperties: process.env.NODE_ENV === 'production',
+    // Disable styled-components
+    styledComponents: false
   },
+
+  // Improved page loading performance (current syntax)
+  onDemandEntries: {
+    // Period (in ms) where the server will keep pages in the buffer
+    maxInactiveAge: 25 * 1000,
+    // Number of pages that should be kept simultaneously without being disposed
+    pagesBufferLength: 2,
+  },
+  
+  // Reduce build time with build cache
+  distDir: process.env.BUILD_DIR || '.next',
+  
+  // Increase page generation timeout
+  staticPageGenerationTimeout: 120
 };
 
 module.exports = nextConfig; 

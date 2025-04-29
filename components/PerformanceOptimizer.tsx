@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { optimizeScroll } from '@/lib/performance';
 
 /**
  * PerformanceOptimizer Component
@@ -14,6 +15,127 @@ import { useEffect } from 'react';
  */
 export default function PerformanceOptimizer() {
   useEffect(() => {
+    // Apply scroll optimizations
+    optimizeScroll();
+    
+    // Disable unnecessary animations after initial load
+    const disableUnusedAnimations = () => {
+      // Get all elements with infinite animations that are offscreen
+      const offscreenAnimations = document.querySelectorAll(
+        '.animate-pulse, .animate-spin, .animate-ping, .animate-bounce'
+      );
+      
+      offscreenAnimations.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        const isOffscreen = 
+          rect.bottom < 0 || 
+          rect.top > window.innerHeight ||
+          rect.right < 0 || 
+          rect.left > window.innerWidth;
+          
+        // If offscreen, disable the animation
+        if (isOffscreen) {
+          el.classList.add('animation-paused');
+        }
+      });
+    };
+    
+    // Optimize image loading
+    const optimizeImages = () => {
+      // Find all image elements that aren't crucial for first render
+      const lazyImages = document.querySelectorAll('img:not([loading="eager"])');
+      
+      // Add loading="lazy" to all non-crucial images
+      lazyImages.forEach(img => {
+        if (!img.hasAttribute('loading')) {
+          img.setAttribute('loading', 'lazy');
+        }
+      });
+    };
+    
+    // Defer blur effects
+    const deferBlurEffects = () => {
+      // Initially add a class to all blur elements
+      const blurElements = document.querySelectorAll(
+        '.backdrop-blur-md, .backdrop-blur-lg, .backdrop-blur-xl, .blur-md, .blur-lg, .blur-xl'
+      );
+      
+      blurElements.forEach(el => {
+        el.classList.add('blur-deferred');
+      });
+      
+      // After initial render, restore blur effects
+      setTimeout(() => {
+        blurElements.forEach(el => {
+          el.classList.remove('blur-deferred');
+        });
+      }, 500);
+    };
+    
+    // Add classes to relevant elements for optimization
+    const addOptimizationClasses = () => {
+      // Find elements that benefit from will-change optimization
+      const animatedElements = document.querySelectorAll(
+        '.animate-element, .motion-item, .animated, [data-animate="true"]'
+      );
+      
+      animatedElements.forEach(el => {
+        el.classList.add('will-change-transform');
+      });
+      
+      // Find elements with transform that should use GPU
+      const transformElements = document.querySelectorAll(
+        '.transform, .rotate, .scale, .translate, .skew'
+      );
+      
+      transformElements.forEach(el => {
+        el.classList.add('will-change-transform');
+      });
+    };
+    
+    // Run optimizations
+    disableUnusedAnimations();
+    optimizeImages();
+    deferBlurEffects();
+    addOptimizationClasses();
+    
+    // Detect slow devices and add class to body
+    const detectSlowDevice = () => {
+      // Average frame duration over last 10 frames
+      let frameTimes: number[] = [];
+      let frameIndex = 0;
+      let lastFrameTime = performance.now();
+      
+      const checkFrameRate = () => {
+        const now = performance.now();
+        const frameDuration = now - lastFrameTime;
+        lastFrameTime = now;
+        
+        // Update rolling average
+        frameTimes[frameIndex] = frameDuration;
+        frameIndex = (frameIndex + 1) % 10;
+        
+        // Calculate average after we have enough data
+        if (frameTimes.filter(Boolean).length >= 5) {
+          const avgFrameTime = frameTimes.reduce((a, b) => a + b, 0) / 
+            frameTimes.filter(Boolean).length;
+            
+          // If average frame time is over 25ms (under 40fps), we consider it a slow device
+          if (avgFrameTime > 25) {
+            document.body.classList.add('slow-device');
+          }
+        }
+        
+        requestAnimationFrame(checkFrameRate);
+      };
+      
+      // Start monitoring
+      requestAnimationFrame(checkFrameRate);
+    };
+    
+    // Detect slow devices after a short delay
+    setTimeout(detectSlowDevice, 2000);
+    
     // Utility functions to batch DOM read/write operations
     // This prevents layout thrashing (https://web.dev/avoid-large-complex-layouts-and-layout-thrashing/)
     const domReadOperations: Array<() => void> = [];
@@ -126,7 +248,7 @@ export default function PerformanceOptimizer() {
     const handleScroll = () => {
       if (!isScrolling) {
         batchDomWrites(() => {
-      document.body.classList.add('is-scrolling');
+          document.body.classList.add('is-scrolling');
           isScrolling = true;
         });
       }
@@ -134,10 +256,10 @@ export default function PerformanceOptimizer() {
       clearTimeout(scrollTimeout);
       scrollTimeout = setTimeout(() => {
         batchDomWrites(() => {
-        document.body.classList.remove('is-scrolling');
+          document.body.classList.remove('is-scrolling');
           isScrolling = false;
         });
-      }, 200);
+      }, 150); // Reduced from 200ms for quicker animations after scroll stops
     };
 
     // Optimize images using Intersection Observer
@@ -202,14 +324,50 @@ export default function PerformanceOptimizer() {
       const styleElement = document.createElement('style');
       styleElement.id = 'performance-styles';
       styleElement.textContent = `
+        /* Optimize animations during scroll */
         .is-scrolling .animate-on-scroll,
         .is-scrolling [data-framer-appear-id],
         .is-scrolling .motion-div {
-          animation-play-state: paused !important;
           transition: none !important;
-          transform: none !important;
         }
         
+        /* Make animations more subtle and smoother */
+        [data-animate], 
+        .animate-on-scroll,
+        .motion-div {
+          transition-duration: 350ms !important;
+          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
+          transform-style: preserve-3d;
+          backface-visibility: hidden;
+        }
+        
+        /* Use smaller, more subtle transform distances */
+        .fade-in-up {
+          transform: translateY(5px) !important;
+          opacity: 0.2;
+        }
+        
+        .fade-in-left {
+          transform: translateX(5px) !important;
+          opacity: 0.2;
+        }
+        
+        .fade-in-right {
+          transform: translateX(-5px) !important;
+          opacity: 0.2;
+        }
+        
+        /* Improve animation performance with better GPU acceleration */
+        [data-animate-on-scroll],
+        .animate-on-scroll,
+        .motion-div,
+        .animated-element {
+          transform: translateZ(0);
+          backface-visibility: hidden;
+          -webkit-font-smoothing: subpixel-antialiased;
+        }
+        
+        /* Reduce animation distance and time for users who prefer reduced motion */
         @media (prefers-reduced-motion: reduce) {
           *, *::before, *::after {
             animation-duration: 0.01ms !important;
@@ -226,14 +384,41 @@ export default function PerformanceOptimizer() {
           }
         }
         
-        /* Only apply will-change to elements that need it */
+        /* Optimize will-change property to avoid memory issues */
+        .will-change-transform {
+          will-change: transform;
+        }
+        
+        /* Limit will-change to essential elements only */
         .header-fixed, .floating-button, .motion-active {
-            will-change: transform;
-          }
+          will-change: transform;
+          transform: translateZ(0);
+        }
           
         /* Better paint containment for performance */
         header, footer, section, .card {
           contain: layout paint;
+        }
+        
+        /* Prevent layout shift during animations */
+        .relative {
+          position: relative;
+        }
+        
+        .overflow-hidden {
+          overflow: hidden;
+        }
+        
+        /* Make transitions more fluid with optimized easing */
+        .transition-all {
+          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+        
+        /* Fix stutter in Safari */
+        @supports (-webkit-overflow-scrolling: touch) {
+          .animate-on-scroll {
+            -webkit-transform: translate3d(0, 0, 0);
+          }
         }
       `;
       

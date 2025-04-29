@@ -61,7 +61,13 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
   return (
     <>
       {/* Accessibility skip link */}
-      <a href="#main-content" className="skip-to-content">
+      <a 
+        href="#main-content" 
+        className="sr-only sr-only-focusable 
+                   absolute top-0 left-0 m-3 p-3 bg-white text-primary 
+                   rounded-md shadow-md z-[999999] transition-all duration-200 
+                   focus:left-3 focus:top-3"
+      >
         Skip to main content
       </a>
       
@@ -84,8 +90,8 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
         <FloatingButtons />
         <MobileBottomNav />
         
-        {/* Performance optimizer */}
-        <PerformanceOptimizer />
+        {/* Performance optimizer - Temporarily disabled for testing */}
+        {/* <PerformanceOptimizer /> */}
         
         {/* Accessibility Checker - only active in development */}
         <AccessibilityChecker />

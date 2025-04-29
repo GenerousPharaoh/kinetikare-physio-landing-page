@@ -43,7 +43,7 @@ const faqCategories: FAQCategory[] = [
       },
       {
         question: 'What should I expect during my first physiotherapy visit?',
-        answer: 'Your first visit is dedicated to thoroughly understanding you and your situation.<br><br><strong>Conversation:</strong> We&apos;ll have a detailed discussion about your current symptoms, your goals for physiotherapy, your daily activities and lifestyle, and your relevant health history. This includes past injuries or conditions, surgeries, as well as any medications you are currently taking. Understanding this full picture is crucial for ensuring your safety and developing the most effective treatment plan for you.<br><br><strong>Assessment:</strong> I&apos;ll propose an assessment approach, explain what it involves, and then evaluate your movement, strength, joint mobility, and muscle control relevant to your concern.<br><br><strong>Plan:</strong> Based on the findings, I&apos;ll discuss my assessment of the issue (or potential causes) and collaboratively create an initial treatment plan with you.<br><br>Importantly, every step is based on your informed consent. I will explain the assessment and treatment options, their benefits, and any potential risks. You are always in control, and there is absolutely no obligation to proceed with any part of the process you&apos;re uncomfortable with. I encourage you to ask questions and voice any concerns at any time. To help you digest everything, I&apos;ll send a follow-up summary outlining the key assessment findings and our agreed-upon plan.'
+        answer: 'Your first visit is dedicated to thoroughly understanding you and your situation.\n\nConversation: We\'ll have a detailed discussion about your current symptoms, your goals for physiotherapy, your daily activities and lifestyle, and your relevant health history. This includes past injuries or conditions, surgeries, as well as any medications you are currently taking. Understanding this full picture is crucial for ensuring your safety and developing the most effective treatment plan for you.\n\nAssessment: I\'ll propose an assessment approach, explain what it involves, and then evaluate your movement, strength, joint mobility, and muscle control relevant to your concern.\n\nPlan: Based on the findings, I\'ll discuss my assessment of the issue (or potential causes) and collaboratively create an initial treatment plan with you.\n\nImportantly, every step is based on your informed consent. I will explain the assessment and treatment options, their benefits, and any potential risks. You are always in control, and there is absolutely no obligation to proceed with any part of the process you\'re uncomfortable with. I encourage you to ask questions and voice any concerns at any time. To help you digest everything, I\'ll send a follow-up summary outlining the key assessment findings and our agreed-upon plan.'
       },
       {
         question: 'Will I receive treatment during my first session, or is it just an assessment?',
@@ -74,7 +74,7 @@ const faqCategories: FAQCategory[] = [
       },
       {
         question: 'Do you offer dry needling?',
-        answer: 'Yes. Dry needling is one of several tools I may use to help reduce pain, release muscle tension, or improve mobility—particularly when addressing persistent trigger points, movement restrictions, or muscle imbalances. It involves the use of fine, sterile needles to target specific areas of tightness or dysfunction within muscle tissue.<br><br>Common uses include treating myofascial trigger points ("knots"), calming overactive muscle contractions, supporting postural or repetitive strain issues, and helping restore normal movement patterns when muscles are contributing to pain or joint restriction.<br><br>That said, it is never a required part of treatment. If I believe dry needling could be helpful for your condition, I&apos;ll explain the rationale, what to expect, and any potential risks. Your informed consent is essential, and you&apos;re always free to decline it. Many effective treatment plans do not include dry needling at all—it&apos;s simply one option among many, based on what works best for you.'
+        answer: 'Yes. Dry needling is one of several tools I may use to help reduce pain, release muscle tension, or improve mobility—particularly when addressing persistent trigger points, movement restrictions, or muscle imbalances. It involves the use of fine, sterile needles to target specific areas of tightness or dysfunction within muscle tissue.\n\nCommon uses include treating myofascial trigger points ("knots"), calming overactive muscle contractions, supporting postural or repetitive strain issues, and helping restore normal movement patterns when muscles are contributing to pain or joint restriction.\n\nThat said, it is never a required part of treatment. If I believe dry needling could be helpful for your condition, I&apos;ll explain the rationale, what to expect, and any potential risks. Your informed consent is essential, and you&apos;re always free to decline it. Many effective treatment plans do not include dry needling at all—it&apos;s simply one option among many, based on what works best for you.'
       },
       {
         question: 'Will I be treated by you directly throughout my care?',
@@ -82,7 +82,7 @@ const faqCategories: FAQCategory[] = [
       },
       {
         question: 'I&apos;ve tried physiotherapy before and it didn&apos;t help. How is your approach different?',
-        answer: 'It&apos;s really understandable to feel that way if you haven&apos;t had the results you hoped for in the past. Finding the right therapeutic relationship and approach is key, as different styles work better for different people and conditions. While I can&apos;t speak to your specific previous experiences, I can share what I focus on in my practice:<br><br><strong>Dedicated Time & Attention:</strong> I structure my schedule to ensure I can dedicate the entire appointment time to you, one-on-one. My aim here is simply to allow enough focused time for us to thoroughly explore your concerns, conduct assessments without feeling rushed, and carefully work through treatment strategies together.<br><br><strong>Looking Holistically:</strong> I try my best to understand the bigger picture. This often involves looking beyond the immediate area of pain to consider related body regions, how you move during meaningful activities, and listening closely to your history to understand potential contributing factors. The goal is collaborative problem-solving to find potential root causes.<br><br><strong>Emphasis on Education and Active Participation:</strong> A core part of my philosophy is helping you understand what might be going on and why. While I use hands-on techniques when appropriate (and always with your informed consent), I place a strong emphasis on active strategies – finding the right exercises and movements for you, and equipping you with knowledge for self-management. My hope is this empowers you long after our sessions end.<br><br><strong>Partnership in Goal Setting:</strong> We work together to define what success looks like for you. Whether it&apos;s reducing pain, improving function for a specific hobby, or increasing confidence in movement, your goals guide the plan. Your feedback is essential in adjusting our approach along the way.<br><br>Ultimately, my commitment is to provide thoughtful, individualized care and work collaboratively with you. If you decide to proceed, I hope you&apos;ll recognize this approach as helpful.'
+        answer: 'It&apos;s really understandable to feel that way if you haven&apos;t had the results you hoped for in the past. Finding the right therapeutic relationship and approach is key, as different styles work better for different people and conditions. While I can&apos;t speak to your specific previous experiences, I can share what I focus on in my practice:\n\nDedicated Time & Attention: I structure my schedule to ensure I can dedicate the entire appointment time to you, one-on-one. My aim here is simply to allow enough focused time for us to thoroughly explore your concerns, conduct assessments without feeling rushed, and carefully work through treatment strategies together.\n\nLooking Holistically: I try my best to understand the bigger picture. This often involves looking beyond the immediate area of pain to consider related body regions, how you move during meaningful activities, and listening closely to your history to understand potential contributing factors. The goal is collaborative problem-solving to find potential root causes.\n\nEmphasis on Education and Active Participation: A core part of my philosophy is helping you understand what might be going on and why. While I use hands-on techniques when appropriate (and always with your informed consent), I place a strong emphasis on active strategies – finding the right exercises and movements for you, and equipping you with knowledge for self-management. My hope is this empowers you long after our sessions end.\n\nPartnership in Goal Setting: We work together to define what success looks like for you. Whether it&apos;s reducing pain, improving function for a specific hobby, or increasing confidence in movement, your goals guide the plan. Your feedback is essential in adjusting our approach along the way.\n\nUltimately, my commitment is to provide thoughtful, individualized care and work collaboratively with you. If you decide to proceed, I hope you&apos;ll recognize this approach as helpful.'
       },
       {
         question: 'Do you give exercises? What if I struggle to keep up with them?',
@@ -94,11 +94,11 @@ const faqCategories: FAQCategory[] = [
       },
       {
         question: 'What happens if my progress stalls or I&apos;m not improving as expected?',
-        answer: 'Progress isn&apos;t always linear, and pain levels aren&apos;t the only measure. Together, we&apos;ll track objective improvements in strength, range of motion, function, and your ability to perform meaningful activities. If progress stalls despite you following the plan:<br><br><strong>I Reassess Thoroughly:</strong> I don&apos;t just keep doing the same thing. I&apos;ll step back and systematically reassess to understand why things might not be changing as expected.<br><br><strong>We Adjust the Strategy:</strong> Based on my findings and our discussion, I&apos;ll modify the treatment plan with you.<br><br><strong>I Collaborate and Advocate:</strong> If needed, and always with your permission, I will communicate with your doctor or other providers. Furthermore, I firmly believe that effective care includes supporting you beyond our clinic walls. If you face obstacles or feel unsupported elsewhere in the healthcare system, I&apos;m committed to helping you navigate those challenges. This might involve assisting you in formulating questions for other providers, helping to ensure your concerns are taken seriously, or facilitating appropriate referrals. My role is to support your overall well-being and advocate for the care you need to find the best path forward.'
+        answer: 'Progress isn&apos;t always linear, and pain levels aren&apos;t the only measure. Together, we&apos;ll track objective improvements in strength, range of motion, function, and your ability to perform meaningful activities. If progress stalls despite you following the plan:\n\nI Reassess Thoroughly: I don&apos;t just keep doing the same thing. I&apos;ll step back and systematically reassess to understand why things might not be changing as expected.\n\nWe Adjust the Strategy: Based on my findings and our discussion, I&apos;ll modify the treatment plan with you.\n\nI Collaborate and Advocate: If needed, and always with your permission, I will communicate with your doctor or other providers. Furthermore, I firmly believe that effective care includes supporting you beyond our clinic walls. If you face obstacles or feel unsupported elsewhere in the healthcare system, I&apos;m committed to helping you navigate those challenges. This might involve assisting you in formulating questions for other providers, helping to ensure your concerns are taken seriously, or facilitating appropriate referrals. My role is to support your overall well-being and advocate for the care you need to find the best path forward.'
       },
       {
         question: 'How do you decide which specific treatments or techniques to use?',
-        answer: 'Treatment decisions are always collaborative and evidence-informed. They are based on:<br><br>- Findings from your detailed assessment.<br>- Your specific goals and preferences.<br>- How your body responds to different interventions.<br>- The best available scientific evidence.<br><br>I discuss the rationale for each approach with you, ensuring you understand the &apos;why&apos; behind your plan.'
+        answer: 'Treatment decisions are always collaborative and evidence-informed. They are based on:\n\n- Findings from your detailed assessment.\n- Your specific goals and preferences.\n- How your body responds to different interventions.\n- The best available scientific evidence.\n\nI discuss the rationale for each approach with you, ensuring you understand the \'why\' behind your plan.'
       },
       {
         question: 'What if I&apos;ve received conflicting advice from another healthcare provider?',
@@ -106,7 +106,7 @@ const faqCategories: FAQCategory[] = [
       },
       {
         question: 'What kind of environment do you try to create for your patients?',
-        answer: 'Creating an environment where you feel genuinely heard, truly respected, and completely safe isn&apos;t just a goal—it&apos;s fundamental to how I practice. Because I understand firsthand how vulnerable and challenging it can feel to seek healthcare, and how crucial it is to feel genuinely supported, I am deeply committed to:<br><br><strong>Listening Attentively:</strong> Ensuring you have the uninterrupted time and space needed to share your story, concerns, and goals.<br><br><strong>Communicating Clearly & Honestly:</strong> Explaining my findings and our plan in straightforward language, ensuring you understand the &apos;why&apos; behind every step.<br><br><strong>Empowering You:</strong> Making certain you feel fully in control of your care. This means knowing you have the right to ask anything, voice concerns, understand your options, and decline any part of assessment or treatment at any time, without hesitation or judgment. My aim is for you to feel like an informed, respected, and active partner throughout your entire care journey here.'
+        answer: 'Creating an environment where you feel genuinely heard, truly respected, and completely safe isn&apos;t just a goal—it&apos;s fundamental to how I practice. Because I understand firsthand how vulnerable and challenging it can feel to seek healthcare, and how crucial it is to feel genuinely supported, I am deeply committed to:\n\nListening Attentively: Ensuring you have the uninterrupted time and space needed to share your story, concerns, and goals.\n\nCommunicating Clearly & Honestly: Explaining my findings and our plan in straightforward language, ensuring you understand the \'why\' behind every step.\n\nEmpowering You: Making certain you feel fully in control of your care. This means knowing you have the right to ask anything, voice concerns, understand your options, and decline any part of assessment or treatment at any time, without hesitation or judgment. My aim is for you to feel like an informed, respected, and active partner throughout your entire care journey here.'
       },
       {
         question: 'What makes your assessments distinct?',
@@ -203,105 +203,125 @@ export default function FAQPage() {
     : faqCategories.find(cat => cat.id === activeCategory)?.questions || [];
 
   return (
-    <div className="container mx-auto px-4 py-8 md:py-16">
-      <PageHeader
-        title="Frequently Asked Questions"
-        subtitle="Find answers to common questions about physiotherapy services and what to expect during your visits"
-      />
-      
-      {/* Search bar */}
-      <div className="max-w-2xl mx-auto mb-12">
-        <SearchBar 
-          placeholder="Search for questions..." 
-          onChange={(e) => setSearchQuery(e.target.value)}
-          value={searchQuery}
-          onClear={() => setSearchQuery('')}
-        />
-      </div>
-      
-      {!isSearching && (
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-12">
-          {faqCategories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => setActiveCategory(category.id)}
-              className={`flex flex-col items-center justify-center p-4 rounded-xl transition-all duration-300 ${
-                activeCategory === category.id
-                  ? 'bg-primary-100 text-primary-900 border-2 border-primary-300 shadow-md'
-                  : 'bg-white hover:bg-neutral-50 text-primary-700 border border-neutral-200 hover:border-neutral-300'
-              }`}
-            >
-              <div className={`p-3 rounded-full mb-3 ${
-                activeCategory === category.id 
-                  ? 'bg-primary-200 text-primary-900' 
-                  : 'bg-neutral-100 text-primary-600'
-              }`}>
-                {category.icon}
+    <>
+      <div className="relative overflow-hidden">
+        {/* Decorative background elements */}
+        <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-accent/5 -mr-32 -mt-32 blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-primary-100/80 -ml-48 -mb-48 blur-3xl"></div>
+        
+        <div className="container relative mx-auto px-4 py-12 md:py-20">
+          <PageHeader
+            title="Frequently Asked Questions"
+            subtitle="Find answers to common questions about physiotherapy services and what to expect during your visits"
+          />
+          
+          {/* Enhanced search bar */}
+          <div className="max-w-2xl mx-auto mb-12 relative z-10">
+            <div className="bg-white/90 backdrop-blur-sm shadow-lg rounded-xl p-3 border border-neutral-200">
+              <SearchBar 
+                placeholder="Search for questions..." 
+                onChange={(e) => setSearchQuery(e.target.value)}
+                value={searchQuery}
+                onClear={() => setSearchQuery('')}
+              />
+            </div>
+          </div>
+          
+          {!isSearching && (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6 mb-12">
+              {faqCategories.map((category) => (
+                <button
+                  key={category.id}
+                  onClick={() => setActiveCategory(category.id)}
+                  className={`flex flex-col items-center justify-center p-5 rounded-xl transition-all duration-300 
+                    transform hover:scale-[1.02] ${
+                    activeCategory === category.id
+                      ? 'bg-primary-100 text-primary-900 border-2 border-primary-300 shadow-md'
+                      : 'bg-white hover:bg-neutral-50 text-primary-700 border border-neutral-200 hover:border-neutral-300 hover:shadow-sm'
+                  }`}
+                >
+                  <div className={`p-3 rounded-full mb-3 ${
+                    activeCategory === category.id 
+                      ? 'bg-primary-200 text-primary-900' 
+                      : 'bg-neutral-100 text-primary-600'
+                  }`}>
+                    {category.icon}
+                  </div>
+                  <span className="text-sm font-medium text-center">{category.name}</span>
+                </button>
+              ))}
+            </div>
+          )}
+          
+          <div className="max-w-3xl mx-auto">
+            {isSearching && (
+              <div className="mb-8 bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-neutral-200">
+                <h2 className="text-2xl font-semibold text-primary-900 mb-2">
+                  Search Results
+                </h2>
+                <p className="text-primary-600">
+                  {filteredQuestions.length === 0 
+                    ? 'No questions found matching your search.' 
+                    : `Found ${filteredQuestions.length} question${filteredQuestions.length === 1 ? '' : 's'} matching "${searchQuery}"`}
+                </p>
+                {filteredQuestions.length === 0 && (
+                  <button 
+                    onClick={() => setSearchQuery('')}
+                    className="mt-4 px-4 py-2 bg-accent/10 hover:bg-accent/20 text-accent hover:text-accent-dark rounded-lg transition-colors"
+                  >
+                    Clear search and view all questions
+                  </button>
+                )}
               </div>
-              <span className="text-sm font-medium text-center">{category.name}</span>
-            </button>
-          ))}
-        </div>
-      )}
-      
-      <div className="max-w-3xl mx-auto">
-        {isSearching && (
-          <div className="mb-8">
-            <h2 className="text-2xl font-semibold text-primary-900 mb-2">
-              Search Results
-            </h2>
-            <p className="text-primary-600">
-              {filteredQuestions.length === 0 
-                ? 'No questions found matching your search.' 
-                : `Found ${filteredQuestions.length} question${filteredQuestions.length === 1 ? '' : 's'} matching "${searchQuery}"`}
-            </p>
-            {filteredQuestions.length === 0 && (
-              <button 
-                onClick={() => setSearchQuery('')}
-                className="mt-4 text-accent hover:text-accent-dark underline transition-colors"
+            )}
+            
+            {!isSearching && (
+              <div className="mb-8 bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-neutral-200">
+                <div className="flex items-center gap-3">
+                  <div className="bg-primary-100 p-3 rounded-full">
+                    {faqCategories.find(cat => cat.id === activeCategory)?.icon}
+                  </div>
+                  <div>
+                    <h2 className="text-2xl font-semibold text-primary-900 mb-1">
+                      {faqCategories.find(cat => cat.id === activeCategory)?.name}
+                    </h2>
+                    <p className="text-primary-600">
+                      {faqCategories.find(cat => cat.id === activeCategory)?.questions.length} questions in this category
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+            
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={isSearching ? 'search' : activeCategory}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
               >
-                Clear search and view all questions
-              </button>
+                <FAQAccordion items={currentQuestions} />
+              </motion.div>
+            </AnimatePresence>
+            
+            {currentQuestions.length > 0 && !isSearching && (
+              <div className="mt-16 text-center">
+                <div className="bg-white/80 backdrop-blur-sm p-8 rounded-xl shadow-sm border border-neutral-200">
+                  <p className="text-primary-600 mb-4">Can&apos;t find what you&apos;re looking for?</p>
+                  <a 
+                    href="/contact" 
+                    className="inline-block px-6 py-3 bg-accent hover:bg-accent-dark text-white font-medium rounded-lg transition-colors duration-300 shadow-sm hover:shadow-md"
+                  >
+                    Contact Us
+                  </a>
+                </div>
+              </div>
             )}
           </div>
-        )}
-        
-        {!isSearching && (
-          <div className="mb-8">
-            <h2 className="text-2xl font-semibold text-primary-900 mb-2">
-              {faqCategories.find(cat => cat.id === activeCategory)?.name}
-            </h2>
-            <p className="text-primary-600">
-              {faqCategories.find(cat => cat.id === activeCategory)?.questions.length} questions in this category
-            </p>
-          </div>
-        )}
-        
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={isSearching ? 'search' : activeCategory}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-          >
-            <FAQAccordion items={currentQuestions} />
-          </motion.div>
-        </AnimatePresence>
-        
-        {currentQuestions.length > 0 && !isSearching && (
-          <div className="mt-12 text-center">
-            <p className="text-primary-600 mb-4">Can&apos;t find what you&apos;re looking for?</p>
-            <a 
-              href="/contact" 
-              className="inline-block px-6 py-3 bg-accent hover:bg-accent-dark text-white font-medium rounded-lg transition-colors duration-300"
-            >
-              Contact Us
-            </a>
-          </div>
-        )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -41,19 +41,31 @@ export default function ServiceAreasSection() {
     }
   ];
 
-  const animationVariants = {
-    hidden: { opacity: 0, y: 20 },
+  const itemVariant = {
+    hidden: { opacity: 0 },
     visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.3, ease: "easeOut" }
+      opacity: 1,
+      transition: { 
+        duration: 0.5, 
+        ease: "easeOut" 
+      }
+    }
+  };
+
+  const containerVariant = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1
+      }
     }
   };
 
   const hoursData = [
-    { day: "Monday - Thursday", hours: "8:00 AM - 8:00 PM" },
-    { day: "Friday", hours: "8:00 AM - 5:00 PM" },
-    { day: "Saturday", hours: "9:00 AM - 2:00 PM" },
+    { day: "Monday - Friday", hours: "2:00 PM - 8:00 PM" },
+    { day: "Saturday", hours: "Available upon request" },
     { day: "Sunday", hours: "Closed" }
   ];
 
@@ -65,49 +77,43 @@ export default function ServiceAreasSection() {
       <div className="absolute bottom-20 left-10 w-96 h-96 bg-primary-200/5 rounded-full blur-3xl"></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          {/* Redesigned header with better badge placement */}
-          <div className="flex flex-col items-center">
-            <motion.div 
-              initial={isMounted ? { opacity: 0, y: 15 } : { opacity: 1, y: 0 }}
-              whileInView={isMounted ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-              viewport={{ once: true, margin: "50px" }}
-              className="mb-6"
-            >
-              <span className="inline-block text-accent font-medium bg-accent/15 px-5 py-2 rounded-full border border-accent/20 shadow-md">
-                Service Areas
-              </span>
-            </motion.div>
-            
-            <motion.h2 
-              initial={isMounted ? { opacity: 0, y: 15 } : { opacity: 1, y: 0 }}
-              whileInView={isMounted ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-              viewport={{ once: true, margin: "50px" }}
-              className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-primary-900 mb-5 relative"
-            >
-              Serving Burlington, Waterdown and Beyond
-              <motion.div 
-                initial={isMounted ? { width: 0 } : { width: '120px' }}
-                whileInView={isMounted ? { width: '120px' } : { width: '120px' }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: true, margin: "50px" }}
-                className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 h-1 bg-accent rounded-full"
-              ></motion.div>
-            </motion.h2>
-            
-            <motion.p 
-              initial={isMounted ? { opacity: 0, y: 15 } : { opacity: 1, y: 0 }}
-              whileInView={isMounted ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-              viewport={{ once: true, margin: "50px" }}
-              className="text-xl text-primary-700 mx-auto max-w-3xl mt-8"
-            >
-              Providing accessible physiotherapy care to local communities with a convenient central location.
-            </motion.p>
-          </div>
-        </div>
+        <motion.div 
+          className="mb-10 md:mb-14 max-w-3xl mx-auto text-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+        >
+          <motion.div 
+            className="inline-block rounded-full px-3 md:px-4 py-1 bg-accent/10 text-accent text-xs md:text-sm font-medium mb-4 md:mb-6 border border-accent/20 shadow-sm"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            Service Areas
+          </motion.div>
+          
+          <motion.h2 
+            className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-primary-800 mb-4 md:mb-6"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            Where I Provide Care
+          </motion.h2>
+          
+          <motion.p 
+            className="text-primary-600 leading-relaxed md:text-lg"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            Serving communities across Greater Vancouver with dedicated physiotherapy care.
+          </motion.p>
+        </motion.div>
 
         {/* Enhanced hero image section with improved image treatment and text visibility */}
         <motion.div
@@ -155,7 +161,7 @@ export default function ServiceAreasSection() {
           <div className="grid md:grid-cols-3 gap-8 -mt-12">
             {/* Card 1: Practice Location */}
             <motion.div 
-              variants={animationVariants}
+              variants={itemVariant}
               initial="hidden"
               animate={isMounted && isVisible ? "visible" : "hidden"}
               transition={{ delay: 0, duration: 0.3 }}
@@ -199,7 +205,7 @@ export default function ServiceAreasSection() {
             
             {/* Card 2: Communities Served */}
             <motion.div 
-              variants={animationVariants}
+              variants={itemVariant}
               initial="hidden"
               animate={isMounted && isVisible ? "visible" : "hidden"}
               transition={{ delay: 0.05, duration: 0.3 }}
@@ -245,7 +251,7 @@ export default function ServiceAreasSection() {
             
             {/* Card 3: Operating Hours */}
             <motion.div 
-              variants={animationVariants}
+              variants={itemVariant}
               initial="hidden"
               animate={isMounted && isVisible ? "visible" : "hidden"}
               transition={{ delay: 0.1, duration: 0.3 }}

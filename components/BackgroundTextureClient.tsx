@@ -1,34 +1,30 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 interface BackgroundTextureClientProps {
   opacity?: number;
   zIndex?: number;
 }
 
-export default function BackgroundTextureClient({ 
-  opacity = 0.04, 
-  zIndex = -50 
+export default function BackgroundTextureClient({
+  opacity = 0.025,
+  zIndex = -10,
 }: BackgroundTextureClientProps) {
-  // Only render on client to avoid SSR issues
-  const [isMounted, setIsMounted] = useState(false);
-  
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-  
-  if (!isMounted) return null;
-
+  // Use the SVG noise pattern image file for better performance
   return (
-    <div 
-      className="fixed inset-0 pointer-events-none w-full h-full"
-      style={{ 
-        opacity,
-        zIndex,
-        backgroundImage: 'url("/images/patterns/noise-pattern.png")',
+    <div
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        backgroundImage: 'url("/images/patterns/noise-pattern.svg")',
         backgroundRepeat: 'repeat',
-        mixBlendMode: 'multiply'
+        opacity: opacity,
+        zIndex: zIndex,
+        pointerEvents: 'none',
       }}
       aria-hidden="true"
     />

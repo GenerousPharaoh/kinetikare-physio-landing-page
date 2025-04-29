@@ -1,75 +1,51 @@
-import React, { Suspense } from 'react';
+"use client";
+
+import React from 'react';
 import dynamic from 'next/dynamic';
-import LoadingPlaceholders from '@/components/LoadingPlaceholders';
+import SectionWithBackground from '@/components/SectionWithBackground';
 
-// Import all sections with proper loading and error handling
-const HeroSection = dynamic(() => import('@/components/sections/HeroSection'), {
-  loading: () => <LoadingPlaceholders.Hero />
+// --- Critical Sections (Load Immediately) ---
+import HeroSection from '@/components/sections/HeroSection';
+import ServicesSection from '@/components/sections/ServicesSection';
+
+// --- Less Critical Sections (Load Dynamically) ---
+const AboutSection = dynamic(() => import('@/components/sections/AboutSection'), { 
+  ssr: false, // Keep ssr: false if preferred, or add loading state
+  // loading: () => <p>Loading About...</p> // Optional loading state
 });
 
-const ServicesSection = dynamic(() => import('@/components/sections/ServicesSection'), {
-  loading: () => <LoadingPlaceholders.Services />
+const TestimonialsSection = dynamic(() => import('@/components/sections/TestimonialsSection'), { 
+  ssr: false, // Keep ssr: false if preferred, or add loading state
+  // loading: () => <p>Loading Testimonials...</p> // Optional loading state
 });
 
-const AboutSection = dynamic(() => import('@/components/sections/AboutSection'), {
-  loading: () => <LoadingPlaceholders.About />
+const ContactSection = dynamic(() => import('@/components/sections/ContactSection'), { 
+  ssr: false, // Keep ssr: false if preferred, or add loading state
+  // loading: () => <p>Loading Contact...</p> // Optional loading state
 });
 
-const PhilosophySection = dynamic(() => import('@/components/sections/PhilosophySection'), {
-  loading: () => <LoadingPlaceholders.Philosophy />
-});
-
-const ConditionsSection = dynamic(() => import('@/components/sections/ConditionsSection'), {
-  loading: () => <LoadingPlaceholders.Conditions />
-});
-
-const ServiceAreasSection = dynamic(() => import('@/components/sections/ServiceAreasSection'), {
-  loading: () => <LoadingPlaceholders.ServiceAreas />
-});
-
-const TestimonialsSection = dynamic(() => import('@/components/sections/TestimonialsSection'), {
-  loading: () => <LoadingPlaceholders.Testimonials />
-});
-
-const ContactSection = dynamic(() => import('@/components/sections/ContactSection'), {
-  loading: () => <LoadingPlaceholders.Contact />
-});
-
-const BookingSection = dynamic(() => import('@/components/sections/BookingSection'), {
-  loading: () => <LoadingPlaceholders.Booking />
-});
-
-// Dynamic import of client component wrapper for ScrollHandler
-const ClientScrollWrapper = dynamic(() => import('@/components/ClientScrollWrapper'), {
-  loading: () => <div className="min-h-16"></div>
-});
-
-// Server component for the homepage content
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
-      <main className="relative overflow-x-hidden">
-        <div className="relative z-0">
-          <HeroSection />
-          
-          <ClientScrollWrapper>
-            <ServicesSection />
-          </ClientScrollWrapper>
-          
+      <main className="relative overflow-x-hidden z-[1]">
+        {/* Load all sections immediately - no animations */}
+        <HeroSection />
+        
+        <SectionWithBackground variant="primary" id="services">
+          <ServicesSection />
+        </SectionWithBackground>
+
+        <SectionWithBackground variant="secondary" id="about">
           <AboutSection />
-          
-          <PhilosophySection />
-          
-          <ConditionsSection />
-          
-          <ServiceAreasSection />
-          
+        </SectionWithBackground>
+
+        <SectionWithBackground variant="accent" id="testimonials">
           <TestimonialsSection />
-          
-          <BookingSection />
-          
+        </SectionWithBackground>
+
+        <SectionWithBackground variant="minimal" id="contact">
           <ContactSection />
-        </div>
+        </SectionWithBackground>
       </main>
     </div>
   );

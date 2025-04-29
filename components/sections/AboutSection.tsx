@@ -27,9 +27,8 @@ export default function AboutSection() {
       icon: FaCertificate,
       title: 'Certifications',
       items: [
-        'Advanced Manual & Manipulative Therapy (CAMPT)',
+        'Advanced Manual & Manipulative Therapy (CAMPT) - Level 2 Upper and Lower Quadrant',
         'Certified Dry Needling Practitioner',
-        'Sports Rehabilitation Specialist'
       ]
     },
     {
@@ -37,9 +36,8 @@ export default function AboutSection() {
       icon: FaHeartbeat,
       title: 'Experience',
       items: [
-        '5 years of clinical experience',
-        'Worked with professional athletes',
-        'Specialized in complex injury rehabilitation'
+        '5+ years of clinical experience',
+        'Treating a wide range of musculoskeletal conditions'
       ]
     },
     {

@@ -49,27 +49,30 @@ export function PageTransition({ children, disabled = false }: PageTransitionPro
     return <div className="min-h-screen w-full">{children}</div>;
   }
 
-  // Simplified variants with reduced properties
+  // Ultra-subtle variants for much smoother transitions
   const variants = {
     hidden: {
-      opacity: 0,
-      // Only use filter:blur on desktop for better performance
-      ...(shouldAnimate ? { filter: "blur(2px)" } : {})
+      opacity: 0.95, // Start at 95% opacity for ultra-subtle fade
+      y: 0, // No vertical movement
+      // Only use minimal filter:blur effect
+      ...(shouldAnimate ? { filter: "blur(0.5px)" } : {})
     },
     visible: {
       opacity: 1,
+      y: 0,
       ...(shouldAnimate ? { filter: "blur(0px)" } : {}),
       transition: {
-        duration: 0.25, // Reduced duration
-        ease: "easeOut",
+        duration: 0.15, // Reduced duration for snappier feel
+        ease: [0.16, 1, 0.3, 1], // Use a custom easing curve (CSS cubic-bezier)
       }
     },
     exit: {
-      opacity: 0,
-      ...(shouldAnimate ? { filter: "blur(1px)" } : {}),
+      opacity: 0.98, // Almost full opacity for subtler exit
+      y: 0,
+      ...(shouldAnimate ? { filter: "blur(0.25px)" } : {}),
       transition: {
-        duration: 0.15, // Further reduced for exit
-        ease: "easeOut",
+        duration: 0.08, // Further reduced for exit
+        ease: [0.16, 1, 0.3, 1], // Same custom easing
       }
     }
   };
@@ -83,7 +86,14 @@ export function PageTransition({ children, disabled = false }: PageTransitionPro
         exit="exit"
         variants={variants}
         className="min-h-screen w-full"
-        style={{ willChange: 'opacity' }}
+        style={{ 
+          willChange: 'opacity, filter',
+          // Force GPU rendering for smoother transitions
+          transform: 'translateZ(0)',
+          backfaceVisibility: 'hidden',
+          // Preserve 3D for better GPU acceleration
+          transformStyle: 'preserve-3d',
+        }}
         aria-live="polite"
         aria-atomic="true"
         onAnimationStart={() => {

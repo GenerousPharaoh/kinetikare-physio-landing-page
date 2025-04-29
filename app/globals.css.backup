@@ -12,58 +12,24 @@
 
 /* Variables that define the design system */
 :root {
-  /* Core brand colors */
-  --color-primary-50: 236 245 253;
-  --color-primary-100: 219 234 254;
-  --color-primary-200: 186 216 245;
-  --color-primary-300: 144 189 230;
-  --color-primary-400: 99 162 215;
-  --color-primary-500: 62 142 201;
-  --color-primary-600: 41 120 181;
-  --color-primary-700: 35 99 149;
-  --color-primary-800: 31 84 123;
-  --color-primary-900: 29 67 96;
-  --color-primary-950: 14 40 61;
-  
-  /* Accent colors */
-  --color-accent: 231 169 49;
-  --color-accent-dark: 202 148 40;
-  --color-accent-light: 243 197 102;
-  
-  /* Typography settings */
-  --font-heading: 'Playfair Display', serif;
-  --font-body: 'Inter', system-ui, sans-serif; 
-  --font-alt: 'Montserrat', sans-serif;
-  
-  /* Elevation shadows */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  
-  /* Spacing/layout variables */
-  --page-padding-x: clamp(1rem, 5vw, 2rem);
-  --section-spacing: clamp(3rem, 10vw, 5rem);
-  --header-height: 70px;
-  
-  /* Z-index layers */
-  --z-header: 9999;
-  --z-backdrop: -10;
-  --z-logo: 10;
-  --z-popup: 100;
-  --z-tooltip: 50;
-  
-  /* Animation timing */
-  --transition-fast: 150ms;
-  --transition-default: 300ms;
-  --transition-slow: 500ms;
-  
-  /* Set common will-change hints */
-  --will-change-opacity: opacity;
-  --will-change-transform: transform;
-  --will-change-opacity-transform: opacity, transform;
+  /* Core Brand Colors with refined shades */
+  --color-primary-50: #f0f7ff;
+  --color-primary-100: #e0effe;
+  --color-primary-200: #bae0fd;
+  --color-primary-300: #7dc4fb;
+  --color-primary-400: #38a5f7;
+  --color-primary-500: #0f87e8;
+  --color-primary-600: #0067c5;
+  --color-primary-700: #0052a3;
+  --color-primary-800: #0a4585;
+  --color-primary-900: #0F2E4F;
+  --color-primary-950: #0a2040;
 
+  /* Refined accent colors */
+  --color-accent: #56A4FF;
+  --color-accent-light: #78B7FF; 
+  --color-accent-dark: #3686E0;
+  
   /* Typography */
   --font-sans: var(--font-inter);
   --font-heading: var(--font-playfair);
@@ -76,6 +42,7 @@
   --shadow-xl: 0 20px 25px -5px rgba(15, 46, 79, 0.08), 0 8px 10px -6px rgba(15, 46, 79, 0.05);
 
   /* Spacing/sizing */
+  --header-height: 80px;
   --max-width: 1280px;
   --border-radius-sm: 6px;
   --border-radius: 12px;
@@ -83,14 +50,16 @@
   --border-radius-lg: 24px;
   --border-radius-xl: 32px;
   
+  /* Z-index layers */
+  --z-header: 50;
+  --z-modal: 100;
+  --z-toast: 200;
+  --z-loading: 1000;
+  
   /* Section spacing */
   --section-spacing-sm: 3rem;
+  --section-spacing: 5rem;
   --section-spacing-lg: 7rem;
-}
-
-/* Remove smooth scroll behavior */
-html {
-  scroll-behavior: auto;
 }
 
 /* Base Styles */
@@ -99,10 +68,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: linear-gradient(to right, rgba(245, 250, 255, 0.5), rgba(250, 252, 255, 0.5));
-  
-  /* Remove overflow handling that can cause choppiness */
-  overflow-x: hidden;
-  overflow-y: auto;
 }
 
 /* Enhanced Typography System */
@@ -219,11 +184,17 @@ section + section {
 .card {
   border-radius: var(--border-radius);
   overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   background: white;
 }
 
 .card-elevated {
   box-shadow: var(--shadow-md);
+}
+
+.card-elevated:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
 }
 
 .card-border {
@@ -298,6 +269,7 @@ section + section {
   border-radius: var(--border-radius);
   border: 1px solid rgba(100, 150, 230, 0.2);
   background-color: white;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .form-input:focus,
@@ -312,6 +284,159 @@ section + section {
   color: #e53e3e;
   font-size: 0.875rem;
   margin-top: 0.5rem;
+}
+
+/* REMOVE FLASH TRANSITIONS - Modified for instant visibility with no flash or load screens */
+/* Main content wrapper transitions - NO TRANSITION */
+.main-content-wrapper {
+  opacity: 1;
+}
+
+html.content-visible .main-content-wrapper {
+  opacity: 1;
+}
+
+/* All content visible immediately */
+.stagger-fade-in > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+html.content-visible .stagger-fade-in > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Remove all staggered transitions */
+html.content-visible .stagger-fade-in > *:nth-child(1) { transition-delay: 0s; }
+html.content-visible .stagger-fade-in > *:nth-child(2) { transition-delay: 0s; }
+html.content-visible .stagger-fade-in > *:nth-child(3) { transition-delay: 0s; }
+html.content-visible .stagger-fade-in > *:nth-child(4) { transition-delay: 0s; }
+html.content-visible .stagger-fade-in > *:nth-child(5) { transition-delay: 0s; }
+html.content-visible .stagger-fade-in > *:nth-child(6) { transition-delay: 0s; }
+
+/* Hero section - NO TRANSITION */
+.hero-fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+html.content-visible .hero-fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Images load immediately - NO TRANSITION */
+.image-fade-in {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1);
+}
+
+html.content-visible .image-fade-in {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1);
+}
+
+/* Above the fold content - NO TRANSITION */
+.above-fold-content {
+  opacity: 1;
+}
+
+html.content-visible .above-fold-content {
+  opacity: 1;
+}
+
+/* ENHANCED SMOOTH ANIMATION STYLES */
+
+/* Optimize animation performance with improved settings */
+[data-animate-on-scroll] {
+  opacity: 0.9; /* Start almost fully visible for minimal transition */
+  will-change: opacity;
+}
+
+/* Add smooth scrolling to the page but with reduced animation */
+html {
+  scroll-behavior: auto; /* Disable smooth scrolling for better performance */
+}
+
+/* Disable all transitions during scrolling for better performance */
+.is-scrolling * {
+  transition-duration: 0ms !important;
+  animation-duration: 0ms !important;
+}
+
+/* Simpler animation settings */
+@media (prefers-reduced-motion: no-preference) {
+  .motion-safe\:animate-on-scroll {
+    transition-timing-function: ease-out !important;
+    transition-duration: 400ms !important;
+  }
+  
+  /* Almost invisible transform distances */
+  [data-animation-type="fade-in-up"] {
+    transform: translateY(2px);
+  }
+  
+  [data-animation-type="fade-in-left"],
+  [data-animation-type="fade-in-right"] {
+    /* No transform, just opacity */
+  }
+  
+  [data-animation-type="scale-in"] {
+    transform: scale(0.998);
+  }
+  
+  /* Remove group animation delays */
+  .animate-group > [data-animate-on-scroll] {
+    transition-duration: 400ms !important;
+    transition-delay: 0ms !important;
+  }
+}
+
+/* Disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  [data-animate-on-scroll] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Optimize animation performance for lower-end devices */
+@media (max-width: 768px) {
+  [data-animate-on-scroll] {
+    transition-duration: 600ms !important;
+  }
+}
+
+/* Disable image animations site-wide for better performance */
+img {
+  transform: none !important;
+  transition: none !important;
+}
+
+/* Optional class to explicitly mark images as static */
+.image-static {
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Fix dropdown menus to ensure proper stacking */
+.dropdown-menu {
+  position: absolute !important;
+  z-index: 9999 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: block !important;
+  pointer-events: auto !important;
 }
 
 /* Modern Background Styling */
@@ -540,7 +665,7 @@ body::before {
 }
 
 .big-quote::before {
-  content: "\\22";
+  content: """;
   font-size: 5rem;
   font-family: var(--font-heading);
   color: var(--color-accent-light);
@@ -591,20 +716,19 @@ body::before {
   box-shadow: var(--shadow-lg);
 }
 
-/* Fix dropdown menus to ensure proper stacking */
-.dropdown-menu {
-  position: absolute !important;
-  z-index: 9999 !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  display: block !important;
-  pointer-events: auto !important;
+.hover-shine {
+  position: relative;
+  overflow: hidden;
+}
 }
 
-/* Remove animation and transition styles */
-* {
-  transition: none !important;
-  animation: none !important;
-  transform: none !important;
+.hover-shine:hover::after {
+  opacity: 1;
+  left: 130%;
+  transition: left 0.7s ease-in-out, opacity 0.1s ease-in 0.1s;
 }
 
+/* End of CSS file */
+.hover-shine { position: relative; overflow: hidden; }
+.hover-shine::after { content: ""; position: absolute; top: -50%; left: -60%; width: 20%; height: 200%; opacity: 0; transform: rotate(30deg); background: rgba(255, 255, 255, 0.13); }
+.hover-shine:hover::after { opacity: 1; left: 130%; transition: left 0.7s ease-in-out, opacity 0.1s ease-in 0.1s; }

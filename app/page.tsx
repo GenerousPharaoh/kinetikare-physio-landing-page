@@ -1,5 +1,3 @@
-"use client";
-
 import React from 'react';
 import dynamic from 'next/dynamic';
 import SectionWithBackground from '@/components/SectionWithBackground';
@@ -8,26 +6,26 @@ import SectionWithBackground from '@/components/SectionWithBackground';
 import HeroSection from '@/components/sections/HeroSection';
 import ServicesSection from '@/components/sections/ServicesSection';
 
-// --- Less Critical Sections (Load Dynamically) ---
+// --- Less Critical Sections (Load Dynamically with SSR) ---
 const AboutSection = dynamic(() => import('@/components/sections/AboutSection'), { 
-  ssr: false, // Keep ssr: false if preferred, or add loading state
-  // loading: () => <p>Loading About...</p> // Optional loading state
+  ssr: true,
+  loading: () => <div className="min-h-[300px] bg-secondary-50/50 animate-pulse"></div>
 });
 
 const TestimonialsSection = dynamic(() => import('@/components/sections/TestimonialsSection'), { 
-  ssr: false, // Keep ssr: false if preferred, or add loading state
-  // loading: () => <p>Loading Testimonials...</p> // Optional loading state
+  ssr: true,
+  loading: () => <div className="min-h-[300px] bg-accent-50/50 animate-pulse"></div>
 });
 
 const ContactSection = dynamic(() => import('@/components/sections/ContactSection'), { 
-  ssr: false, // Keep ssr: false if preferred, or add loading state
-  // loading: () => <p>Loading Contact...</p> // Optional loading state
+  ssr: true,
+  loading: () => <div className="min-h-[300px] bg-neutral-50/50 animate-pulse"></div>
 });
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
-      <main className="relative overflow-x-hidden z-[1]">
+      <main className="relative overflow-x-hidden z-[1]" id="main-content">
         {/* Load all sections immediately - no animations */}
         <HeroSection />
         

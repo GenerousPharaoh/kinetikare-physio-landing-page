@@ -85,14 +85,29 @@ export default function RootLayout({
                 clip: auto !important;
                 white-space: normal !important;
               }
+              .skip-to-content {
+                position: absolute;
+                left: -9999px;
+                top: 1em;
+                z-index: 999999;
+                background: white;
+                color: black;
+                padding: 0.5em 1em;
+                border: 1px solid black;
+                text-decoration: none;
+                border-radius: 4px;
+              }
+              .skip-to-content:focus {
+                left: 1em;
+              }
             `,
           }}
         />
       </head>
       <body className="antialiased pb-16 md:pb-0 overflow-x-hidden">
-        {/* Removed duplicate skip link from server layout */}
+        <a href="#main-content" className="skip-to-content">Skip to main content</a>
         
-        {/* The ClientWrapper component handles all client-side rendering */}
+        {/* Using our simplified ClientWrapper */}
         <ClientWrapper>
           {children}
         </ClientWrapper>

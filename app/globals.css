@@ -55,6 +55,11 @@
   --z-modal: 100;
   --z-toast: 200;
   --z-loading: 1000;
+  
+  /* Section spacing */
+  --section-spacing-sm: 3rem;
+  --section-spacing: 5rem;
+  --section-spacing-lg: 7rem;
 }
 
 /* Base Styles */
@@ -62,21 +67,223 @@ body {
   @apply bg-white text-gray-900;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: linear-gradient(to right, rgba(245, 250, 255, 0.5), rgba(250, 252, 255, 0.5));
 }
 
-/* Typography Refinements */
+/* Enhanced Typography System */
 h1, h2, h3, h4, h5, h6 {
   @apply font-heading;
   letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin-bottom: 0.5em;
+  color: var(--color-primary-900);
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 600;
+}
+
+h4 {
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-weight: 500;
+}
+
+h5 {
+  font-size: clamp(1.125rem, 1.5vw, 1.5rem);
+  font-weight: 500;
+}
+
+h6 {
+  font-size: clamp(1rem, 1.25vw, 1.25rem);
+  font-weight: 500;
 }
 
 p {
   @apply font-body;
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+  font-size: clamp(1rem, 1.1vw, 1.125rem);
+}
+
+/* Typography scale system */
+.text-display {
+  font-size: clamp(3rem, 7vw, 5rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+  margin-bottom: 0.25em;
+}
+
+.text-jumbo {
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  font-weight: 800;
+}
+
+.subtitle-lg {
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+.subtitle {
+  font-size: clamp(1.125rem, 1.5vw, 1.5rem);
+  font-weight: 400;
+  line-height: 1.5;
+  opacity: 0.85;
 }
 
 /* Focus styling */
 *:focus-visible {
   @apply outline-none ring-2 ring-accent ring-opacity-50;
+}
+
+/* Section spacing with improved hierarchy */
+section {
+  padding: var(--section-spacing) 0;
+  position: relative;
+}
+
+section.hero-section {
+  padding: calc(var(--header-height) + 2rem) 0 var(--section-spacing);
+}
+
+section + section {
+  margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+  section {
+    padding: var(--section-spacing-lg) 0;
+  }
+  
+  section.hero-section {
+    padding: calc(var(--header-height) + 3rem) 0 var(--section-spacing-lg);
+  }
+  
+  section + section {
+    margin-top: 2rem;
+  }
+}
+
+/* Card hierarchy system */
+.card {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: white;
+}
+
+.card-elevated {
+  box-shadow: var(--shadow-md);
+}
+
+.card-elevated:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card-border {
+  border: 1px solid rgba(100, 150, 230, 0.15);
+}
+
+.card-header {
+  padding: 1.5rem 1.5rem 0.75rem;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-footer {
+  padding: 0.75rem 1.5rem 1.5rem;
+}
+
+/* Content container with responsive spacing */
+.content-container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .content-container {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .content-container {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+/* Button group container */
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.button-group-center {
+  justify-content: center;
+}
+
+/* Form element improvements */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--color-primary-800);
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(100, 150, 230, 0.2);
+  background-color: white;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(86, 164, 255, 0.2);
+  outline: none;
+}
+
+.form-error {
+  color: #e53e3e;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
 }
 
 /* REMOVE FLASH TRANSITIONS - Modified for instant visibility with no flash or load screens */
@@ -230,6 +437,313 @@ img {
   opacity: 1 !important;
   display: block !important;
   pointer-events: auto !important;
+}
+
+/* Modern Background Styling */
+/* Base background for standard content areas */
+.bg-neutral-50 {
+  background-color: #fafafa;
+  background-image: 
+    linear-gradient(to bottom right, rgba(240, 247, 255, 0.8) 0%, rgba(248, 250, 252, 0.8) 100%);
+  position: relative;
+}
+
+.bg-neutral-50::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(236, 242, 255, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(236, 242, 255, 0.2) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: -1px -1px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Alternating section background */
+.bg-white {
+  position: relative;
+  background-color: #ffffff;
+  background-image: linear-gradient(120deg, rgba(248, 250, 252, 0.5) 0%, rgba(240, 247, 255, 0.5) 100%);
+}
+
+/* Elegant diagonal lines for white sections */
+.bg-white::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(135deg, 
+      rgba(210, 225, 245, 0.03) 0px, rgba(210, 225, 245, 0.03) 1px,
+      transparent 1px, transparent 8px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Light professional pattern for sections */
+section {
+  position: relative;
+}
+
+section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.02;
+  background-image: 
+    linear-gradient(135deg, 
+      transparent 25%, 
+      var(--color-primary-100) 25%, 
+      var(--color-primary-100) 26%, 
+      transparent 26%,
+      transparent 75%,
+      var(--color-primary-100) 75%,
+      var(--color-primary-100) 76%,
+      transparent 76%);
+  background-size: 120px 120px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Alternate premium pattern for every other section */
+section:nth-child(even)::after {
+  opacity: 0.015;
+  background-image: 
+    linear-gradient(to right,
+      transparent 50%,
+      var(--color-primary-100) 50%);
+  background-size: 2px 100%;
+}
+
+/* Special premium pattern for accent sections */
+section.accent-section::after {
+  opacity: 0.03;
+  background-image: 
+    radial-gradient(
+      circle at 50% 50%,
+      var(--color-accent-light) 1px,
+      transparent 1px
+    );
+  background-size: 40px 40px;
+}
+
+/* Elegant gradient borders between sections */
+.border-t, .border-b {
+  position: relative;
+}
+
+.border-t::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(100, 150, 230, 0.1) 15%, 
+    rgba(100, 150, 230, 0.15) 50%,
+    rgba(100, 150, 230, 0.1) 85%, 
+    transparent 100%);
+  z-index: 1;
+}
+
+.border-b::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(100, 150, 230, 0.1) 15%, 
+    rgba(100, 150, 230, 0.15) 50%,
+    rgba(100, 150, 230, 0.1) 85%, 
+    transparent 100%);
+  z-index: 1;
+}
+
+/* Ensure content stays above the background patterns */
+section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero section exception - no background pattern */
+.hero-section::after {
+  display: none;
+}
+
+/* Subtle top accent for the page */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, 
+    var(--color-primary-500),
+    var(--color-primary-400),
+    var(--color-accent),
+    var(--color-primary-400),
+    var(--color-primary-500));
+  z-index: var(--z-header);
+}
+
+/* Advanced visual hierarchy helpers */
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(45deg, var(--color-primary-700), var(--color-accent));
+  display: inline-block;
+}
+
+.accent-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.accent-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-accent);
+  border-radius: 2px;
+  transform: scaleX(0.3);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.accent-underline:hover::after {
+  transform: scaleX(1);
+}
+
+/* Content emphasis system */
+.accent-box {
+  border-left: 3px solid var(--color-accent);
+  padding-left: 1.5rem;
+  background: rgba(86, 164, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  margin: 2rem 0;
+}
+
+.highlight-text {
+  font-weight: 500;
+  color: var(--color-primary-800);
+  background: linear-gradient(to bottom, transparent 50%, rgba(86, 164, 255, 0.15) 50%);
+  padding: 0 0.25em;
+}
+
+.big-quote {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  font-style: italic;
+  color: var(--color-primary-800);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  background: linear-gradient(to bottom right, rgba(240, 247, 255, 0.7), rgba(255, 255, 255, 0.9));
+  position: relative;
+  margin: 3rem 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.big-quote::before {
+  content: """;
+  font-size: 5rem;
+  font-family: var(--font-heading);
+  color: var(--color-accent-light);
+  opacity: 0.5;
+  position: absolute;
+  top: -2.5rem;
+  left: 1rem;
+}
+
+/* Dividers with improved visual hierarchy */
+.section-divider {
+  height: 1px;
+  width: 100%;
+  margin: 4rem 0;
+  background: linear-gradient(to right, transparent, rgba(100, 150, 230, 0.15), transparent);
+}
+
+.centered-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 3rem 0;
+  color: var(--color-primary-400);
+}
+
+.centered-divider::before,
+.centered-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid rgba(100, 150, 230, 0.2);
+}
+
+.centered-divider::before {
+  margin-right: 1.5rem;
+}
+
+.centered-divider::after {
+  margin-left: 1.5rem;
+}
+
+/* Focus/active states with improved visibility */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.hover-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-shine::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 20%;
+  height: 200%;
+  opacity: 0;
+  transform: rotate(30deg);
+  background: rgba(255, 255, 255, 0.13);
+  background: linear-gradient(
+    to right, 
+    rgba(255, 255, 255, 0.13) 0%,
+    rgba(255, 255, 255, 0.13) 77%,
+    rgba(255, 255, 255, 0.5) 92%,
+    rgba(255, 255, 255, 0.0) 100%
+  );
+}
+
+.hover-shine:hover::after {
+  opacity: 1;
+  left: 130%;
+  transition: left 0.7s ease-in-out, opacity 0.1s ease-in 0.1s;
 }
 
 /* End of CSS file */

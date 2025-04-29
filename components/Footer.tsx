@@ -189,33 +189,6 @@ export default function Footer() {
                 ))}
               </ul>
             </div>
-            
-            <div>
-              <h3 className="text-base font-semibold mb-4 text-white relative inline-flex">
-                <span className="relative z-10">Physiotherapy Treatments</span>
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent/60 rounded-full -z-10"></span>
-              </h3>
-              <ul className="space-y-2">
-                {[
-                  'Manual Therapy', 
-                  'Movement Assessment', 
-                  'Therapeutic Exercise', 
-                  'Pain Management', 
-                  'Sports Rehabilitation'
-                ].map((service) => (
-                  <li key={service}>
-                    <Link 
-                      href={`/services/#${service.toLowerCase().replace(/\s+/g, '-')}`} 
-                      className="text-white/90 hover:text-accent transition-colors flex items-center group text-sm"
-                      onClick={(e) => handleNavClick(e, `/#${service.toLowerCase().replace(/\s+/g, '-')}`)}
-                    >
-                      <span className="w-1.5 h-1.5 bg-accent rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                      {service}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
           
           {/* Column 3: Google Map (5 cols) */}
@@ -234,12 +207,12 @@ export default function Footer() {
           </div>
         </div>
         
-        {/* Bottom section with copyright and legal links */}
-        <div className="border-t border-white/10 py-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-          <p className="text-sm text-white/80">
+        {/* Bottom section with copyright and legal links - improved visibility */}
+        <div className="border-t border-white/20 py-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+          <p className="text-sm text-white">
             © {currentYear} <span className="text-white font-medium">KH Physiotherapy</span>. All rights reserved.
           </p>
-          <div className="flex flex-wrap justify-center md:justify-end mt-4 md:mt-0 gap-4 md:space-x-6 text-xs text-white/80">
+          <div className="flex flex-wrap justify-center md:justify-end mt-4 md:mt-0 gap-4 md:space-x-6 text-sm text-white">
             <Link href="/privacy" className="hover:text-accent transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-accent transition-colors">Terms of Service</Link>
             <Link href="/accessibility" className="hover:text-accent transition-colors">Accessibility</Link>

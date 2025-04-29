@@ -1,3 +1,4 @@
+"use client";
 import type { Metadata } from 'next';
 import PageHeader from '@/components/PageHeader';
 import SectionWithBackground from '@/components/SectionWithBackground';

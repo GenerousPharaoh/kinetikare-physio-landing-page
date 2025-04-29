@@ -3,10 +3,6 @@ import type { Metadata } from 'next';
 import PageHeader from '@/components/PageHeader';
 import SectionWithBackground from '@/components/SectionWithBackground';
 
-export const metadata: Metadata = {
-  title: 'Premium Physiotherapy Services | Kareem Hassanein',
-  description: 'Explore our comprehensive range of services',
-};
 
 export default function ServicesPage() {
   return (

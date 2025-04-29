@@ -18,12 +18,12 @@ html {
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-size: 16.5px; /* Ensuring base font size is at least 16px for readability */
+    font-size: 17px; /* Slightly increased base font size for better readability */
   }
 
   h1, h2 {
     @apply font-heading text-text tracking-tight;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.02em; /* Tighter letter-spacing for headings */
   }
 
   h3, h4, h5, h6 {
@@ -86,8 +86,8 @@ html {
   }
 
   p {
-    @apply text-text-secondary leading-relaxed mb-4 max-w-prose text-base;
-    line-height: 1.7; /* Consistent line height for paragraphs */
+    @apply text-text-secondary leading-relaxed mb-5 max-w-prose text-lg;
+    line-height: 1.8; /* Improved line height for readability */
   }
 }
 
@@ -105,16 +105,38 @@ html {
     clip: auto;
   }
 
-  /* Elegant Button Styles */
+  /* Standardized Section Heading Styles */
+  .section-heading {
+    @apply font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-primary-700 mb-6 relative inline-block;
+  }
+
+  .section-heading-decorated::after {
+    @apply content-[''] absolute -bottom-3 left-0 w-20 h-1.5 bg-accent rounded-full;
+  }
+
+  .section-heading-center {
+    @apply text-center;
+  }
+
+  .section-heading-center::after {
+    @apply left-1/2 transform -translate-x-1/2;
+  }
+
+  .section-subheading {
+    @apply text-lg md:text-xl text-primary-600 max-w-3xl mt-5 mb-10;
+    line-height: 1.6;
+  }
+
+  /* Consistent Button Styles - Modernized */
   .btn {
-    @apply inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium 
+    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium 
            transition-all duration-300 ease-in-out rounded-xl
            relative overflow-hidden focus:outline-none focus:ring-2 focus:ring-offset-2;
     letter-spacing: 0.01em;
   }
   
   .btn:hover {
-    @apply transform scale-[1.02] shadow-medium;
+    @apply transform scale-[1.02] shadow-lg;
   }
 
   .btn:active {
@@ -122,43 +144,81 @@ html {
   }
 
   .btn-primary {
-    @apply bg-accent text-white focus:ring-accent/50 
+    @apply bg-gradient-to-r from-accent to-accent-dark text-white focus:ring-accent/50 
            hover:bg-accent-dark hover:shadow-lg;
   }
   
   .btn-secondary {
-    @apply bg-gradient-to-r from-accent to-accent-dark text-white hover:brightness-105 focus:ring-accent/50;
+    @apply bg-gradient-to-r from-primary-600 to-primary-700 text-white hover:brightness-105 focus:ring-primary/50;
   }
   
   .btn-outline {
-    @apply bg-transparent border border-accent text-accent hover:bg-accent/10 focus:ring-accent/50;
+    @apply bg-transparent border-2 border-accent text-accent hover:bg-accent/10 focus:ring-accent/50;
   }
 
   .btn-outline-light {
-    @apply bg-transparent border border-white text-white 
+    @apply bg-transparent border-2 border-white text-white 
            hover:bg-white/10 focus:ring-white/50;
   }
 
   /* Button sizes */
   .btn-sm {
-    @apply px-3.5 py-1.5 text-xs;
+    @apply px-4 py-2 text-sm;
   }
   
   .btn-lg {
-    @apply px-7 py-3 text-base;
+    @apply px-8 py-4 text-lg;
   }
   
-  /* Modern Card Design */
+  /* Standardized Icon Badge Styles */
+  .icon-badge {
+    @apply flex items-center justify-center;
+  }
+
+  .icon-badge-circle {
+    @apply w-12 h-12 rounded-full;
+  }
+
+  .icon-badge-square {
+    @apply w-12 h-12 rounded-lg;
+  }
+
+  .icon-badge-hexagon {
+    @apply w-12 h-12 relative;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  }
+
+  .icon-badge-sm {
+    @apply w-8 h-8;
+  }
+
+  .icon-badge-lg {
+    @apply w-16 h-16;
+  }
+
+  .icon-badge-primary {
+    @apply bg-primary-100 text-primary-700;
+  }
+
+  .icon-badge-accent {
+    @apply bg-accent-100 text-accent-700;
+  }
+
+  .icon-badge-neutral {
+    @apply bg-neutral-100 text-neutral-700;
+  }
+
+  /* Modern Card Design - Updated with finer details */
   .card {
-    @apply relative overflow-hidden rounded-xl border border-neutral-100 
+    @apply relative overflow-hidden rounded-xl border border-neutral-100/70 
            transition-all duration-300 ease-in-out 
-           bg-white/80 backdrop-blur-lg shadow-modern-subtle;
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.9));
+           bg-white/90 backdrop-blur-lg shadow-modern-subtle;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
   }
   
   .card:hover {
-    @apply shadow-premium-card transform -translate-y-1 bg-white/90;
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(250, 250, 255, 1));
+    @apply shadow-premium-card transform -translate-y-1 bg-white;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.95));
   }
   
   /* Refined separator */
@@ -175,14 +235,27 @@ html {
     @apply text-lg text-text-secondary max-w-2xl mt-1 mb-10;
   }
 
-  /* Section spacing */
+  /* Section spacing - Updated for more breathing room */
   .section-spacing {
-    @apply my-20 md:my-24 lg:my-28 xl:my-32;
+    @apply my-24 md:my-28 lg:my-32 xl:my-36;
   }
 
   /* Card padding standardization */
   .card-padding {
-    @apply p-6 md:p-8;
+    @apply p-8 md:p-10;
+  }
+
+  /* List items with consistent styling */
+  .feature-list-item {
+    @apply flex items-start gap-4 md:gap-5 mb-4;
+  }
+
+  .feature-list-icon {
+    @apply flex-shrink-0 w-6 h-6 md:w-7 md:h-7 rounded-full bg-accent/10 flex items-center justify-center mt-0.5 md:mt-0;
+  }
+
+  .feature-list-text {
+    @apply text-primary-700 text-base md:text-lg;
   }
 
   /* Subtle animations */
@@ -236,7 +309,7 @@ html {
   
   /* Modern navigation */
   .site-header {
-    @apply bg-white border-b border-border-color shadow-subtle;
+    @apply bg-white/90 backdrop-blur-md border-b border-border-color shadow-subtle;
   }
   
   /* Text logo */
@@ -262,20 +335,24 @@ html {
   
   /* Section styling with standardized spacing */
   .section {
-    @apply py-20 md:py-24 lg:py-28 xl:py-30;
+    @apply py-20 md:py-28 lg:py-32 xl:py-36;
   }
   
   .section-alt {
-    @apply py-20 md:py-24 lg:py-28 xl:py-30 bg-background;
+    @apply py-20 md:py-28 lg:py-32 xl:py-36 bg-background;
   }
 
   /* Standardized shadows */
   .shadow-modern-subtle {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    box-shadow: 
+      0 4px 16px rgba(0, 0, 0, 0.04),
+      0 1px 4px rgba(0, 0, 0, 0.02);
   }
   
   .shadow-modern-medium {
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 
+      0 8px 20px rgba(0, 0, 0, 0.08), 
+      0 2px 6px rgba(0, 0, 0, 0.04);
   }
 
   /* Section divider styles */
@@ -327,13 +404,13 @@ html {
 
 /* Background patterns */
 .pattern-dots {
-  background-image: radial-gradient(currentColor 2px, transparent 2px);
-  background-size: 12px 12px;
+  background-image: radial-gradient(currentColor 1.5px, transparent 1.5px);
+  background-size: 15px 15px;
 }
 
 /* Subtle linear gradient for section backgrounds */
 .section-gradient-bg {
-  background: linear-gradient(to bottom, #FDFDFD, #F9F9F9);
+  background: linear-gradient(to bottom, #FFFFFF, #F9FAFC);
 }
 
 /* Animation for accordion expansion */
@@ -423,8 +500,8 @@ html {
   background: linear-gradient(145deg, #ffffff, #f8f9fc);
   border: 1px solid rgba(255, 255, 255, 0.7);
   box-shadow: 
-    0 4px 16px -1px rgba(0, 0, 0, 0.05), 
-    0 1px 6px -1px rgba(0, 0, 0, 0.02),
+    0 8px 24px -1px rgba(0, 0, 0, 0.06), 
+    0 2px 8px -1px rgba(0, 0, 0, 0.03),
     inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
 }
@@ -484,15 +561,15 @@ html {
 /* Enhanced shadows */
 .shadow-premium-subtle {
   box-shadow: 
-    0 4px 20px -2px rgba(0, 0, 0, 0.05), 
-    0 2px 4px -1px rgba(0, 0, 0, 0.02),
+    0 6px 20px -2px rgba(0, 0, 0, 0.06), 
+    0 2px 6px -1px rgba(0, 0, 0, 0.03),
     0 0 0 1px rgba(0, 0, 0, 0.01);
 }
 
 .shadow-premium-card {
   box-shadow: 
-    0 10px 30px -5px rgba(0, 0, 0, 0.08), 
-    0 5px 15px -3px rgba(0, 0, 0, 0.04),
+    0 12px 30px -5px rgba(0, 0, 0, 0.08), 
+    0 5px 15px -3px rgba(0, 0, 0, 0.05),
     0 0 0 1px rgba(0, 0, 0, 0.01);
 }
 
@@ -686,43 +763,9 @@ html {
   transform: translateX(100%);
 }
 
-/* Sophisticated loading indicator */
-.premium-loading {
-  display: inline-block;
-  position: relative;
-  width: 64px;
-  height: 64px;
-}
-
-.premium-loading:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 2px solid rgba(212, 175, 55, 0.1);
-  border-left-color: #D4AF37;
-  border-radius: 50%;
-  animation: premium-spin 1s ease-in-out infinite;
-}
-
-@keyframes premium-spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Enhance focus states */
-.premium-focus:focus-visible {
-  outline: none;
-  box-shadow: 
-    0 0 0 2px #ffffff,
-    0 0 0 4px rgba(212, 175, 55, 0.4);
-}
-
 /* Premium image treatment */
 .premium-image {
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: 
     0 10px 30px -5px rgba(0, 0, 0, 0.1), 
     0 5px 15px -5px rgba(0, 0, 0, 0.05);

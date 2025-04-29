@@ -17,6 +17,8 @@ interface SectionWithBackgroundProps {
   dividerColor?: string;
   dividerHeight?: number;
   border?: boolean;
+  patternOverlay?: boolean;
+  glowEffect?: boolean;
 }
 
 const SectionWithBackground: React.FC<SectionWithBackgroundProps> = ({
@@ -31,6 +33,8 @@ const SectionWithBackground: React.FC<SectionWithBackgroundProps> = ({
   dividerColor = '#ffffff',
   dividerHeight = 80,
   border = false,
+  patternOverlay = false,
+  glowEffect = false,
 }) => {
   // Determine spacing classes
   const spacingClasses = {
@@ -57,6 +61,8 @@ const SectionWithBackground: React.FC<SectionWithBackgroundProps> = ({
       <SectionBackground 
         variant={bgVariant}
         border={border}
+        patternOverlay={patternOverlay}
+        glowEffect={glowEffect}
         className={cn(spacingClasses[spacing])}
       >
         <div className="container mx-auto px-4 relative">

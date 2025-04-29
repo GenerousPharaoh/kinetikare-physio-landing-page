@@ -31,25 +31,40 @@ const SectionBackground: React.FC<SectionBackgroundProps> = ({
   const getBgClasses = () => {
     switch (variant) {
       case 'light':
-        return 'bg-gradient-to-b from-[#FDFDFD] to-[#F9F9F9]';
+        return 'bg-white';
       case 'subtle':
-        return 'bg-gradient-to-b from-neutral-50 to-white';
+        return 'bg-gradient-to-br from-neutral-50 via-white to-neutral-50/80';
       case 'accent':
-        return 'bg-gradient-to-b from-accent-50 to-accent-100/70';
+        return 'bg-gradient-to-br from-accent-50 via-accent-50/80 to-accent-100/80';
       case 'primary':
-        return 'bg-gradient-to-b from-primary-50 to-primary-100/70';
+        return 'bg-gradient-to-br from-primary-50 via-primary-50/90 to-primary-100/80';
       case 'neutral':
-        return 'bg-gradient-to-b from-neutral-100 to-neutral-50';
+        return 'bg-gradient-to-br from-neutral-100 via-neutral-50 to-neutral-100/70';
       case 'premium':
         return 'bg-premium-subtle';
       case 'premium-light':
         return 'bg-premium-light';
       case 'premium-dark':
-        return 'bg-gradient-to-br from-primary-700 to-primary-900';
+        return 'bg-gradient-to-br from-primary-800 to-primary-900';
       case 'none':
         return 'bg-transparent';
       default:
-        return 'bg-gradient-to-b from-[#FDFDFD] to-[#F9F9F9]';
+        return 'bg-white';
+    }
+  };
+
+  const getBorderClass = () => {
+    if (!border) return '';
+    
+    switch (variant) {
+      case 'accent':
+        return 'border-t border-b border-accent-200/30';
+      case 'primary':
+        return 'border-t border-b border-primary-200/30';
+      case 'neutral':
+        return 'border-t border-b border-neutral-200/70';
+      default:
+        return 'border-t border-b border-neutral-100/80';
     }
   };
 
@@ -57,11 +72,12 @@ const SectionBackground: React.FC<SectionBackgroundProps> = ({
     <div
       className={cn(
         getBgClasses(),
-        rounded && 'rounded-xl',
+        getBorderClass(),
+        rounded && 'rounded-2xl',
         shadowed && 'shadow-premium-subtle',
-        border && 'border border-neutral-100',
         variant === 'premium' && 'section-premium',
         padding,
+        'relative overflow-hidden',
         className
       )}
       style={{
@@ -69,11 +85,46 @@ const SectionBackground: React.FC<SectionBackgroundProps> = ({
       }}
     >
       {patternOverlay && (
-        <div className="absolute inset-0 premium-dot-pattern opacity-[0.03] pointer-events-none"></div>
+        <div className="absolute inset-0 pattern-dots opacity-[0.025] pointer-events-none animate-[pulse_15s_ease-in-out_infinite]"></div>
       )}
       
-      {glowEffect && (
-        <div className="absolute -top-20 -right-20 w-96 h-96 rounded-full bg-accent/[0.03] blur-3xl" aria-hidden="true"></div>
+      {glowEffect && variant === 'accent' && (
+        <>
+          <div 
+            className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-accent/[0.04] blur-3xl animate-[pulse_20s_ease-in-out_infinite]" 
+            aria-hidden="true"
+          ></div>
+          <div 
+            className="absolute -bottom-40 -left-40 w-[400px] h-[400px] rounded-full bg-accent/[0.03] blur-3xl animate-[pulse_15s_ease-in-out_2s_infinite]" 
+            aria-hidden="true"
+          ></div>
+        </>
+      )}
+
+      {glowEffect && variant === 'primary' && (
+        <>
+          <div 
+            className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-primary/[0.04] blur-3xl animate-[pulse_20s_ease-in-out_infinite]" 
+            aria-hidden="true"
+          ></div>
+          <div 
+            className="absolute -bottom-40 -left-40 w-[400px] h-[400px] rounded-full bg-primary/[0.03] blur-3xl animate-[pulse_15s_ease-in-out_2s_infinite]" 
+            aria-hidden="true"
+          ></div>
+        </>
+      )}
+
+      {glowEffect && variant === 'subtle' && (
+        <>
+          <div 
+            className="absolute -bottom-40 -right-40 w-[500px] h-[500px] rounded-full bg-neutral-200/[0.4] blur-3xl animate-[pulse_25s_ease-in-out_infinite]" 
+            aria-hidden="true"
+          ></div>
+          <div 
+            className="absolute -top-40 -left-40 w-[400px] h-[400px] rounded-full bg-neutral-300/[0.2] blur-3xl animate-[pulse_20s_ease-in-out_3s_infinite]" 
+            aria-hidden="true"
+          ></div>
+        </>
       )}
       
       {children}

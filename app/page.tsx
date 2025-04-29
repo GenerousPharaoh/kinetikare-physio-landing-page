@@ -10,40 +10,61 @@ import ServicesSection from '@/components/sections/ServicesSection';
 
 // --- Less Critical Sections (Load Dynamically) ---
 const AboutSection = dynamic(() => import('@/components/sections/AboutSection'), { 
-  ssr: false, // Keep ssr: false if preferred, or add loading state
-  // loading: () => <p>Loading About...</p> // Optional loading state
+  ssr: false
 });
 
 const TestimonialsSection = dynamic(() => import('@/components/sections/TestimonialsSection'), { 
-  ssr: false, // Keep ssr: false if preferred, or add loading state
-  // loading: () => <p>Loading Testimonials...</p> // Optional loading state
+  ssr: false
 });
 
 const ContactSection = dynamic(() => import('@/components/sections/ContactSection'), { 
-  ssr: false, // Keep ssr: false if preferred, or add loading state
-  // loading: () => <p>Loading Contact...</p> // Optional loading state
+  ssr: false
 });
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <main className="relative overflow-x-hidden z-[1]">
-        {/* Load all sections immediately - no animations */}
+        {/* Hero Section - full width */}
         <HeroSection />
         
-        <SectionWithBackground bgVariant="primary" id="services">
+        {/* Services Section - primary background with pattern */}
+        <SectionWithBackground 
+          bgVariant="primary" 
+          id="services" 
+          patternOverlay={true}
+          glowEffect={true}
+          border={true}
+        >
           <ServicesSection />
         </SectionWithBackground>
 
-        <SectionWithBackground bgVariant="subtle" id="about">
+        {/* About Section - subtle background */}
+        <SectionWithBackground 
+          bgVariant="subtle" 
+          id="about"
+          glowEffect={true}
+        >
           <AboutSection />
         </SectionWithBackground>
 
-        <SectionWithBackground bgVariant="accent" id="testimonials">
+        {/* Testimonials Section - accent background with pattern */}
+        <SectionWithBackground 
+          bgVariant="accent" 
+          id="testimonials"
+          patternOverlay={true}
+          glowEffect={true}
+          border={true}
+        >
           <TestimonialsSection />
         </SectionWithBackground>
 
-        <SectionWithBackground bgVariant="light" id="contact">
+        {/* Contact Section - light background */}
+        <SectionWithBackground 
+          bgVariant="light" 
+          id="contact"
+          glowEffect={true}
+        >
           <ContactSection />
         </SectionWithBackground>
       </main>

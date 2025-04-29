@@ -42,7 +42,7 @@ const formatAnswer = (answer: string) => {
               {beforeList && <p className="text-primary-700 font-medium">{decodeHtmlEntities(beforeList)}</p>}
               <ul className="list-disc pl-5 space-y-2 marker:text-accent">
                 {listItems.map((item, j) => (
-                  <li key={j} className="text-primary-600 pl-1">{decodeHtmlEntities(item)}</li>
+                  <li key={j} className="text-primary-600 pl-1 leading-relaxed">{decodeHtmlEntities(item)}</li>
                 ))}
               </ul>
             </div>
@@ -107,7 +107,7 @@ const formatAnswer = (answer: string) => {
             }
             
             return (
-              <p key={i} className="text-primary-600 leading-relaxed bg-primary-50/60 p-2 rounded">
+              <p key={i} className="text-primary-600 leading-relaxed bg-primary-50/60 p-2 rounded-lg">
                 {formattedParts}
               </p>
             );
@@ -172,9 +172,9 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, defaultOpen = null }
             onMouseLeave={() => setIsHovering(null)}
             className={`border rounded-xl overflow-hidden transition-all duration-300 ${
               isActive 
-                ? 'bg-white border-accent shadow-lg' 
+                ? 'bg-white border-accent shadow-modern-medium' 
                 : isHovering === index
-                  ? 'bg-white border-neutral-300 shadow-sm'
+                  ? 'bg-white border-neutral-300 shadow-modern-subtle'
                   : 'bg-white border-neutral-200'
             }`}
           >
@@ -227,7 +227,7 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, defaultOpen = null }
                     initial={{ y: -10, opacity: 0.8 }}
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: -10, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
+                    transition={{ duration: 0.3 }}
                     className="p-5 md:p-6 pt-3 md:pt-4 border-t border-neutral-100"
                   >
                     <div className="text-primary-600 leading-relaxed prose prose-sm md:prose max-w-none">
@@ -245,7 +245,7 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, defaultOpen = null }
         <div className="text-center mt-8">
           <button
             onClick={() => setActiveIndex(null)}
-            className="px-4 py-2 text-accent bg-accent/10 hover:bg-accent/20 rounded-lg transition-colors font-medium"
+            className="px-4 py-2 text-accent bg-accent/10 hover:bg-accent/20 rounded-lg transition-colors duration-300 font-medium"
           >
             Reset All Questions
           </button>

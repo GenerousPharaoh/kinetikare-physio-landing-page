@@ -1,119 +1,79 @@
 'use client';
 
 import React from 'react';
-import BackgroundPattern from './BackgroundPattern';
+import SectionBackground from './SectionBackground';
+import SectionDivider from './SectionDivider';
+import { cn } from '@/lib/utils';
 
 interface SectionWithBackgroundProps {
   children: React.ReactNode;
-  className?: string;
-  variant?: 'primary' | 'secondary' | 'accent' | 'minimal';
   id?: string;
-  noPadding?: boolean;
-  spacing?: 'sm' | 'md' | 'lg' | 'none';
-  withContainer?: boolean;
-  containerSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
+  className?: string;
+  bgVariant?: 'light' | 'subtle' | 'accent' | 'primary' | 'neutral' | 'none';
+  spacing?: 'normal' | 'large' | 'small' | 'none';
+  hasDividerTop?: boolean;
+  hasDividerBottom?: boolean;
+  dividerShape?: 'wave' | 'curve' | 'tilt' | 'arrow';
+  dividerColor?: string;
+  dividerHeight?: number;
+  border?: boolean;
 }
 
-/**
- * A premium section wrapper with elegant background patterns
- */
-export default function SectionWithBackground({
+const SectionWithBackground: React.FC<SectionWithBackgroundProps> = ({
   children,
-  className = '',
-  variant = 'primary',
   id,
-  noPadding = false,
-  spacing = 'md',
-  withContainer = false,
-  containerSize = 'xl',
-}: SectionWithBackgroundProps) {
-  // Get background styling based on variant
-  const getBackgroundStyles = () => {
-    switch (variant) {
-      case 'primary':
-        return {
-          bgColor: 'bg-[#fbfafa]',
-          pattern: <BackgroundPattern variant="pinstripe" opacity={0.025} color="100, 130, 210" />,
-          additionalClass: ''
-        };
-      case 'secondary':
-        return {
-          bgColor: 'bg-white',
-          pattern: <BackgroundPattern variant="dots" opacity={0.03} color="100, 130, 210" />,
-          additionalClass: ''
-        };
-      case 'accent':
-        return {
-          bgColor: 'bg-[#fbfafa]',
-          pattern: <>
-            <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent"></div>
-            <BackgroundPattern variant="dots" opacity={0.02} color="80, 120, 210" />
-          </>,
-          additionalClass: 'accent-section'
-        };
-      case 'minimal':
-      default:
-        return {
-          bgColor: 'bg-[#fbfafa]',
-          pattern: <BackgroundPattern variant="minimal" opacity={0.012} color="100, 130, 210" />,
-          additionalClass: ''
-        };
-    }
+  className = '',
+  bgVariant = 'light',
+  spacing = 'normal',
+  hasDividerTop = false,
+  hasDividerBottom = false,
+  dividerShape = 'curve',
+  dividerColor = '#ffffff',
+  dividerHeight = 80,
+  border = false,
+}) => {
+  // Determine spacing classes
+  const spacingClasses = {
+    normal: 'py-20 md:py-24 lg:py-28',
+    large: 'py-24 md:py-32 lg:py-36',
+    small: 'py-12 md:py-16 lg:py-20',
+    none: '',
   };
-
-  const { bgColor, pattern, additionalClass } = getBackgroundStyles();
-  
-  // Determine spacing classes based on the spacing prop
-  const getSpacingClasses = () => {
-    if (noPadding) return '';
-    
-    switch (spacing) {
-      case 'sm':
-        return 'py-12 md:py-16';
-      case 'lg':
-        return 'py-20 md:py-28';
-      case 'none':
-        return '';
-      case 'md':
-      default:
-        return 'py-16 md:py-20';
-    }
-  };
-
-  const spacingClasses = getSpacingClasses();
-  
-  // Container width classes based on the containerSize prop
-  const containerClasses = {
-    'sm': 'max-w-screen-sm',
-    'md': 'max-w-screen-md',
-    'lg': 'max-w-screen-lg',
-    'xl': 'max-w-screen-xl',
-    '2xl': 'max-w-screen-2xl',
-    'full': 'max-w-full',
-  };
-
-  // Content with optional container
-  const content = withContainer ? (
-    <div className={`mx-auto px-4 sm:px-6 lg:px-8 ${containerClasses[containerSize]}`}>
-      {children}
-    </div>
-  ) : children;
 
   return (
-    <section 
-      id={id} 
-      className={`relative ${bgColor} ${spacingClasses} ${additionalClass} ${className}`}
+    <section
+      id={id}
+      className={cn('relative overflow-hidden', className)}
     >
-      {/* Professional background pattern */}
-      {pattern}
+      {hasDividerTop && (
+        <SectionDivider
+          position="top"
+          shape={dividerShape}
+          fillColor={dividerColor}
+          height={dividerHeight}
+        />
+      )}
       
-      {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent pointer-events-none"></div>
+      <SectionBackground 
+        variant={bgVariant}
+        border={border}
+        className={cn(spacingClasses[spacing])}
+      >
+        <div className="container mx-auto px-4 relative">
+          {children}
+        </div>
+      </SectionBackground>
       
-      {/* Section content with proper z-index */}
-      <div className="relative z-10">
-        {content}
-      </div>
+      {hasDividerBottom && (
+        <SectionDivider
+          position="bottom"
+          shape={dividerShape}
+          fillColor={dividerColor}
+          height={dividerHeight}
+        />
+      )}
     </section>
   );
-} 
+};
+
+export default SectionWithBackground; 

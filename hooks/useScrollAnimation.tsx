@@ -9,7 +9,7 @@ function debounce(fn: Function, ms = 100) {
   };
 }
 
-export function useScrollAnimation(threshold = 0.1, rootMargin = '0px 0px -10% 0px') {
+export function useScrollAnimation(threshold = 0, rootMargin = '100px 0px 0px 0px') {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 

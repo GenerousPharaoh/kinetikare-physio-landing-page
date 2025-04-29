@@ -207,12 +207,12 @@ export default function Footer() {
           </div>
         </div>
         
-        {/* Bottom section with copyright and legal links - improved visibility */}
-        <div className="border-t border-white/20 py-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+        {/* Bottom section with copyright and legal links */}
+        <div className="border-t border-white/10 py-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
           <p className="text-sm text-white">
             © {currentYear} <span className="text-white font-medium">KH Physiotherapy</span>. All rights reserved.
           </p>
-          <div className="flex flex-wrap justify-center md:justify-end mt-4 md:mt-0 gap-4 md:space-x-6 text-sm text-white">
+          <div className="flex flex-wrap justify-center md:justify-end mt-4 md:mt-0 gap-4 md:space-x-6 text-xs text-white">
             <Link href="/privacy" className="hover:text-accent transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-accent transition-colors">Terms of Service</Link>
             <Link href="/accessibility" className="hover:text-accent transition-colors">Accessibility</Link>

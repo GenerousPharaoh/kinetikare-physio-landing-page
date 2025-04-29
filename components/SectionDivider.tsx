@@ -1,71 +1,103 @@
 import React from 'react';
 
-type SectionDividerProps = {
-  variant?: 'wave' | 'straight' | 'curve' | 'angled';
-  className?: string;
-};
+type DividerShape = 'wave' | 'curve' | 'tilt' | 'arrow';
+type DividerPosition = 'top' | 'bottom';
 
-const SectionDivider: React.FC<SectionDividerProps> = ({ 
-  variant = 'wave',
-  className = ''
+interface SectionDividerProps {
+  shape?: DividerShape;
+  position?: DividerPosition;
+  fillColor?: string;
+  bgColor?: string;
+  className?: string;
+  height?: number;
+  invertX?: boolean;
+  invertY?: boolean;
+}
+
+const SectionDivider: React.FC<SectionDividerProps> = ({
+  shape = 'curve',
+  position = 'bottom',
+  fillColor = '#ffffff',
+  bgColor = 'transparent',
+  className = '',
+  height = 80,
+  invertX = false,
+  invertY = false,
 }) => {
-  if (variant === 'straight') {
-    return <div className={`w-full h-4 ${className}`} aria-hidden="true" />;
-  }
-  
-  if (variant === 'angled') {
-    return (
-      <div className={`w-full overflow-hidden ${className}`} aria-hidden="true">
-        <svg
-          preserveAspectRatio="none"
-          width="100%"
-          height="50"
-          viewBox="0 0 1440 74"
-          fill="currentColor"
-          xmlns="http://www.w3.org/2000/svg"
-          role="presentation"
-        >
-          <path d="M1440 0H0V74L1440 24V0Z" />
-        </svg>
-      </div>
-    );
-  }
-  
-  if (variant === 'curve') {
-    return (
-      <div className={`w-full overflow-hidden ${className}`} aria-hidden="true">
-        <svg
-          preserveAspectRatio="none"
-          width="100%"
-          height="50"
-          viewBox="0 0 1440 48"
-          fill="currentColor"
-          xmlns="http://www.w3.org/2000/svg"
-          role="presentation"
-        >
-          <path
-            d="M0 48H1440C1440 48 1088.76 0 720 0C351.24 0 0 48 0 48Z"
+  // Apply transform if needed
+  const getTransform = () => {
+    let transform = '';
+    
+    if (invertX) transform += ' scaleX(-1)';
+    if (invertY || position === 'top') transform += ' scaleY(-1)';
+    
+    return transform.trim();
+  };
+
+  // Get the SVG path based on the shape
+  const getPath = () => {
+    switch (shape) {
+      case 'wave':
+        return (
+          <path 
+            d="M0,96L60,80C120,64,240,32,360,37.3C480,43,600,85,720,90.7C840,96,960,64,1080,53.3C1200,43,1320,53,1380,58.7L1440,64L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z" 
+            fill={fillColor}
           />
-        </svg>
-      </div>
-    );
-  }
-  
-  // Default is 'wave'
+        );
+      case 'curve':
+        return (
+          <path 
+            d="M0,160L1440,32L1440,320L0,320Z" 
+            fill={fillColor}
+          />
+        );
+      case 'tilt':
+        return (
+          <path 
+            d="M0,192L1440,64L1440,320L0,320Z" 
+            fill={fillColor}
+          />
+        );
+      case 'arrow':
+        return (
+          <path 
+            d="M0,0L720,128L1440,0L1440,320L720,320L0,320Z" 
+            fill={fillColor}
+          />
+        );
+      default:
+        return (
+          <path 
+            d="M0,160L1440,32L1440,320L0,320Z" 
+            fill={fillColor}
+          />
+        );
+    }
+  };
+
   return (
-    <div className={`w-full overflow-hidden ${className}`} aria-hidden="true">
+    <div
+      className={`section-divider relative w-full overflow-hidden ${className}`}
+      style={{ 
+        height: `${height}px`,
+        backgroundColor: bgColor,
+        marginTop: position === 'top' ? 0 : '-1px',
+        marginBottom: position === 'bottom' ? 0 : '-1px',
+      }}
+    >
       <svg
+        className="absolute w-full h-full"
+        style={{ 
+          transform: getTransform(),
+          bottom: position === 'bottom' ? 0 : 'auto',
+          top: position === 'top' ? 0 : 'auto',
+          left: 0,
+          right: 0,
+        }}
+        viewBox="0 0 1440 320"
         preserveAspectRatio="none"
-        width="100%"
-        height="50"
-        viewBox="0 0 1440 96"
-        fill="currentColor"
-        xmlns="http://www.w3.org/2000/svg"
-        role="presentation"
       >
-        <path
-          d="M0 96L48 90.7C96 85 192 75 288 69.3C384 64 480 64 576 58.7C672 53 768 43 864 48C960 53 1056 75 1152 80C1248 85 1344 75 1392 69.3L1440 64V0H1392C1344 0 1248 0 1152 0C1056 0 960 0 864 0C768 0 672 0 576 0C480 0 384 0 288 0C192 0 96 0 48 0H0V96Z"
-        />
+        {getPath()}
       </svg>
     </div>
   );

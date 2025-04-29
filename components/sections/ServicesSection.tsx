@@ -202,7 +202,9 @@ export default function ServicesSection({ onBookLinkClick }: ServicesSectionProp
       className="section bg-neutral-50 text-primary-700 relative border-t border-neutral-200 pt-20 md:pt-28 pb-24"
     >
       {/* Add subtle section background */}
-      <SectionBackground variant="subtle-lines" />
+      <SectionBackground variant="subtle">
+        <div className="hidden"></div>
+      </SectionBackground>
       
       {/* Background Image with gradient overlay */}
       <div className="absolute inset-0 z-0 opacity-[0.07] pointer-events-none"> 

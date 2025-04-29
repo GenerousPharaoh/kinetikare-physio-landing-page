@@ -11,7 +11,9 @@ interface CardProps {
   animated?: boolean;
   icon?: ReactNode;
   onClick?: () => void;
-  variant?: 'default' | 'outline' | 'filled';
+  variant?: 'default' | 'outline' | 'filled' | 'premium' | 'glass';
+  accentBorder?: boolean;
+  shine?: boolean;
 }
 
 const Card = ({
@@ -24,6 +26,8 @@ const Card = ({
   icon,
   onClick,
   variant = 'default',
+  accentBorder = false,
+  shine = false,
 }: CardProps) => {
   const { ref, isVisible } = useScrollAnimation({
     triggerOnce: true,
@@ -33,13 +37,15 @@ const Card = ({
   const baseClasses = 'rounded-xl p-6 transition-all duration-300';
 
   const variantClasses = {
-    default: 'bg-white shadow-md',
+    default: 'bg-white shadow-modern-subtle',
     outline: 'border-2 border-gray-200',
     filled: 'bg-secondary-100',
+    premium: 'premium-card',
+    glass: 'bg-white/80 backdrop-blur-lg border border-white/70 shadow-modern-subtle',
   };
 
   const hoverClasses = hoverEffect
-    ? 'hover:shadow-xl hover:-translate-y-1 cursor-pointer'
+    ? 'hover:shadow-premium-card hover:-translate-y-1 cursor-pointer'
     : '';
 
   const animationClasses = animated
@@ -56,6 +62,8 @@ const Card = ({
         variantClasses[variant],
         hoverClasses,
         animationClasses,
+        accentBorder && 'border-accent-subtle pl-6',
+        shine && 'premium-shine',
         className
       )}
       onClick={onClick}
@@ -72,9 +80,9 @@ const Card = ({
           : undefined
       }
     >
-      {icon && <div className="mb-4 text-teal-500">{icon}</div>}
-      {title && <h3 className="text-xl font-bold mb-2">{title}</h3>}
-      {subtitle && <p className="text-gray-600 mb-4">{subtitle}</p>}
+      {icon && <div className="mb-4 text-accent-dark">{icon}</div>}
+      {title && <h3 className="text-xl font-bold mb-2 text-premium-heading">{title}</h3>}
+      {subtitle && <p className="text-gray-600 mb-4 leading-relaxed text-premium-subheading">{subtitle}</p>}
       <div className={title || subtitle ? 'mt-4' : ''}>{children}</div>
     </div>
   );

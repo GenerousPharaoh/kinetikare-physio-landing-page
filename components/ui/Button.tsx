@@ -13,7 +13,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary: 
-          "bg-accent hover:bg-accent-dark text-white shadow-md hover:shadow-lg focus:ring-accent/30",
+          "bg-gradient-to-r from-accent to-accent-dark text-white shadow-md hover:shadow-lg focus:ring-accent/30",
         secondary: 
           "bg-white/15 backdrop-blur-md border border-white/30 hover:border-white/50 text-white shadow-md hover:shadow-lg focus:ring-white/30",
         outline: 
@@ -24,12 +24,14 @@ const buttonVariants = cva(
           "bg-neutral-100 hover:bg-neutral-200 text-gray-900 focus:ring-neutral-300",
         link: 
           "bg-transparent underline-offset-4 hover:underline text-accent focus:ring-accent/20 shadow-none",
+        premium:
+          "bg-gradient-to-r from-accent to-accent-dark text-white shadow-premium-subtle hover:shadow-md focus:ring-accent/30",
       },
       size: {
-        sm: "text-xs px-4 py-2 rounded-full",
-        md: "text-sm px-6 py-3 rounded-full",
-        lg: "text-base px-8 py-4 rounded-full",
-        xl: "text-lg px-10 py-5 rounded-full",
+        sm: "text-xs px-4 py-2 rounded-xl",
+        md: "text-sm px-6 py-3 rounded-xl",
+        lg: "text-base px-8 py-4 rounded-xl",
+        xl: "text-lg px-10 py-5 rounded-xl",
         icon: "h-10 w-10 rounded-full p-0",
       },
       fullWidth: {
@@ -45,9 +47,9 @@ const buttonVariants = cva(
   }
 );
 
-// Shimmer effect for premium buttons
+// Enhanced shimmer effect for buttons
 const ShimmerEffect = () => (
-  <span className="absolute inset-0 overflow-hidden rounded-full pointer-events-none">
+  <span className="absolute inset-0 overflow-hidden rounded-xl pointer-events-none">
     <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-shimmer"></span>
   </span>
 );
@@ -90,7 +92,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           href={href}
           className={cn(
             buttonVariants({ variant, size, fullWidth }),
-            premium && "group",
+            premium && "group hover:-translate-y-1 premium-shine",
             className
           )}
           {...linkProps}
@@ -115,7 +117,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         className={cn(
           buttonVariants({ variant, size, fullWidth }),
-          premium && "group",
+          premium && "group hover:-translate-y-1 premium-shine",
           className
         )}
         ref={ref}

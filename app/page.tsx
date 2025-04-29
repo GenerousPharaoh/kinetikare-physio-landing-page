@@ -31,19 +31,19 @@ export default function Home() {
         {/* Load all sections immediately - no animations */}
         <HeroSection />
         
-        <SectionWithBackground variant="primary" id="services">
+        <SectionWithBackground bgVariant="primary" id="services">
           <ServicesSection />
         </SectionWithBackground>
 
-        <SectionWithBackground variant="secondary" id="about">
+        <SectionWithBackground bgVariant="subtle" id="about">
           <AboutSection />
         </SectionWithBackground>
 
-        <SectionWithBackground variant="accent" id="testimonials">
+        <SectionWithBackground bgVariant="accent" id="testimonials">
           <TestimonialsSection />
         </SectionWithBackground>
 
-        <SectionWithBackground variant="minimal" id="contact">
+        <SectionWithBackground bgVariant="light" id="contact">
           <ContactSection />
         </SectionWithBackground>
       </main>

@@ -3,14 +3,14 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+// import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 // import { GraduationCap, Award, Heart, Store } from 'lucide-react';
 import { AcademicCapIcon, TrophyIcon, HeartIcon, BuildingStorefrontIcon } from '@heroicons/react/24/solid';
 import { FaGraduationCap, FaCertificate, FaHeartbeat, FaUsers } from 'react-icons/fa';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 
 export default function AboutSection() {
-  const { ref, isVisible } = useScrollAnimation();
+  // Removed animation variants since they're no longer needed
 
   const qualifications = [
     {
@@ -67,20 +67,11 @@ export default function AboutSection() {
     'Manual Therapy'
   ];
 
-  const animationVariants = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: -20 }
-  };
-
   return (
     // Add top border for separation
     <section id="about" className="section bg-neutral-50 text-primary-700 overflow-hidden relative border-t border-neutral-200 pt-20 md:pt-28">
       <div className="container mx-auto px-4">
-        <div 
-          ref={ref}
-          className={`transition-opacity duration-700 ease-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}
-        >
+        <div>
           {/* Section Header - Update text colors */}
           <div className="text-center mb-16 lg:mb-20">
             <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-primary-700 mb-4">
@@ -95,13 +86,7 @@ export default function AboutSection() {
 
           <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto">
             {/* Image column */}
-            <motion.div 
-              className={`relative transition-all duration-700 ease-out delay-100 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              viewport={{ once: true, amount: 0.3 }}
-            >
+            <div className="relative">
               {/* Subtle background shape */}
               <div className="absolute -top-6 -left-6 w-full h-full bg-primary-50 rounded-2xl transform -rotate-3 opacity-60"></div>
               
@@ -120,16 +105,10 @@ export default function AboutSection() {
                   blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN0YPh/HwAEJgJmXaiXvwAAAABJRU5ErkJggg=="
                 />
               </div>
-            </motion.div>
+            </div>
 
             {/* Content column - Update text colors */}
-            <motion.div 
-              className={`transition-all duration-700 ease-out delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}
-              initial={{ opacity: 0, x: 10 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-              viewport={{ once: true, amount: 0.3 }}
-            >
+            <div>
               {/* Tagline */}
               <p className="text-xl italic text-accent mb-5 font-light">
                 &quot;Personalized care for optimal recovery&quot;
@@ -170,26 +149,19 @@ export default function AboutSection() {
                   </span>
                 ))}
               </div>
-            </motion.div>
+            </div>
           </div> {/* End of main 2-column grid */} 
 
           {/* Qualifications Section - Update colors */}
           <div className="mt-20 lg:mt-24 max-w-5xl mx-auto"> 
             <h3 className="text-2xl font-semibold text-primary-700 mb-8 text-center">My Qualifications</h3>
-            <motion.div 
-              className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.5, staggerChildren: 0.1 }}
-              viewport={{ once: true, amount: 0.2 }}
-            >
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
               {qualifications.map((qual, index) => {
                 const IconComponent = qual.icon; 
                 return (
-                  <motion.div 
+                  <div 
                     key={qual.id}
-                    variants={animationVariants}
-                    className="bg-white p-6 rounded-xl shadow-lg border border-neutral-100 transition-all duration-300 hover:shadow-xl hover:border-accent/20 transform hover:-translate-y-1"
+                    className="bg-white p-6 rounded-xl shadow-lg border border-neutral-100 transition-shadow duration-300 hover:shadow-xl hover:border-accent/20"
                   >
                     <div className="flex items-center mb-4">
                       <div className="flex-shrink-0 premium-icon-badge premium-icon-badge-sm premium-icon-badge-square premium-icon-badge-primary mr-4">
@@ -205,20 +177,14 @@ export default function AboutSection() {
                         </li>
                       ))}
                     </ul>
-                  </motion.div>
+                  </div>
                 );
               })}
-            </motion.div>
+            </div>
           </div>
 
           {/* Professional Affiliations with Logos */}
-          <motion.div 
-            className="mt-20 lg:mt-24 pb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true, amount: 0.2 }}
-          >
+          <div className="mt-20 lg:mt-24 pb-16">
             <h3 className="text-2xl font-semibold text-primary-700 mb-8 text-center">Professional Affiliations</h3>
             
             <div className="max-w-3xl mx-auto">
@@ -260,8 +226,7 @@ export default function AboutSection() {
                 </Link>
               </div>
             </div>
-          </motion.div>
-
+          </div>
         </div>
       </div>
 

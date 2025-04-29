@@ -51,9 +51,9 @@ const observerMap = new Map<string, IntersectionObserver>();
 export function useScrollAnimation<T extends HTMLElement = HTMLDivElement>({
   threshold = 0, // Zero threshold for earlier detection and better performance
   triggerOnce = true,
-  rootMargin = '0px', // More conservative rootMargin
+  rootMargin = '50px 0px', // Increased rootMargin to trigger animation sooner
   disabled = false,
-  duration = 100, // Faster animations by default (reduced from 150ms)
+  duration = 80, // Even faster animations (reduced from 100ms)
 }: ScrollAnimationOptions = {}): {
   ref: RefObject<T>;
   isVisible: boolean;
@@ -149,9 +149,9 @@ export function useScrollAnimation<T extends HTMLElement = HTMLDivElement>({
 // Helper hook specifically for sections
 export function useSectionAnimation(options?: Omit<ScrollAnimationOptions, 'rootMargin'>) {
   return useScrollAnimation({
-    rootMargin: '0px', // More conservative rootMargin to avoid too early animations
+    rootMargin: '100px 0px', // More aggressive rootMargin to trigger animations earlier
     threshold: 0,
-    duration: 80, // Even faster animations for sections (reduced from 100ms)
+    duration: 60, // Faster animations for sections
     ...options,
   });
 } 

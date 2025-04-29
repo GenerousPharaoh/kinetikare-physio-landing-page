@@ -159,11 +159,6 @@ export default function FAQPage() {
         <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-primary-100/80 -ml-48 -mb-48 blur-3xl"></div>
         
         <div className="container relative mx-auto px-4 py-12 md:py-20">
-          <PageHeader
-            title="Frequently Asked Questions"
-            subtitle="Find answers to common questions about physiotherapy services and what to expect during your visits"
-          />
-          
           <FAQClient faqCategories={faqCategories} />
         </div>
       </div>

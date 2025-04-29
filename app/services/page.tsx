@@ -10,7 +10,6 @@ export default function ServicesPage() {
       <PageHeader
         title="Premium Physiotherapy Services"
         subtitle="Specialized care for optimal recovery"
-        imagePath="/images/patterns/pattern-3.jpg"
       />
       <SectionWithBackground className="py-16">
         <div className="container mx-auto px-4">

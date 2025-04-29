@@ -665,7 +665,7 @@ body::before {
 }
 
 .big-quote::before {
-  content: """;
+  content: "\\22";
   font-size: 5rem;
   font-family: var(--font-heading);
   color: var(--color-accent-light);
@@ -716,34 +716,3 @@ body::before {
   box-shadow: var(--shadow-lg);
 }
 
-.hover-shine {
-  position: relative;
-  overflow: hidden;
-}
-
-.hover-shine::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -60%;
-  width: 20%;
-  height: 200%;
-  opacity: 0;
-  transform: rotate(30deg);
-  background: rgba(255, 255, 255, 0.13);
-  background: linear-gradient(
-    to right, 
-    rgba(255, 255, 255, 0.13) 0%,
-    rgba(255, 255, 255, 0.13) 77%,
-    rgba(255, 255, 255, 0.5) 92%,
-    rgba(255, 255, 255, 0.0) 100%
-  );
-}
-
-.hover-shine:hover::after {
-  opacity: 1;
-  left: 130%;
-  transition: left 0.7s ease-in-out, opacity 0.1s ease-in 0.1s;
-}
-
-/* End of CSS file */

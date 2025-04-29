@@ -13,6 +13,7 @@ const AboutSection = dynamic(() => import('@/components/sections/AboutSection'),
   ssr: false
 });
 
+// Added this comment to verify deployment - DELETE ME LATER
 const TestimonialsSection = dynamic(() => import('@/components/sections/TestimonialsSection'), { 
   ssr: false
 });

@@ -1,6 +1,9 @@
-import React from 'react';
+'use client';
 
-interface PageHeaderProps {
+import React from 'react';
+import { motion } from 'framer-motion';
+
+interface AnimatedPageHeaderProps {
   title: string;
   subtitle?: string;
   alignment?: 'left' | 'center' | 'right';
@@ -9,7 +12,7 @@ interface PageHeaderProps {
   accentBar?: boolean;
 }
 
-const PageHeader: React.FC<PageHeaderProps> = ({
+const AnimatedPageHeader: React.FC<AnimatedPageHeaderProps> = ({
   title,
   subtitle,
   alignment = 'center',
@@ -51,26 +54,37 @@ const PageHeader: React.FC<PageHeaderProps> = ({
   
   return (
     <header className={`${currentSize.spacing} ${alignmentClasses[alignment]} ${className}`}>
-      <div className="mb-2">
+      <motion.div
+        className="mb-2"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         <h1 className={`${currentSize.title} text-primary-900 mb-4`}>
           {title}
         </h1>
-      </div>
+      </motion.div>
       
       {subtitle && (
-        <div>
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
           <p className={`${currentSize.subtitle} text-primary-600 mx-auto opacity-90`}>
             {subtitle}
           </p>
-        </div>
+        </motion.div>
       )}
       
       {accentBar && (
-        <div
+        <motion.div
           className="mt-6 bg-accent rounded-full" 
+          initial={{ width: 0, opacity: 0 }}
+          animate={{ width: currentSize.barWidth, opacity: 1 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
           style={{
             height: currentSize.barHeight,
-            width: currentSize.barWidth,
             margin: alignment === 'center' ? '0 auto' : alignment === 'right' ? '0 0 0 auto' : '0',
           }}
         />
@@ -79,4 +93,4 @@ const PageHeader: React.FC<PageHeaderProps> = ({
   );
 };
 
-export default PageHeader; 
+export default AnimatedPageHeader; 

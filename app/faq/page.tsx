@@ -10,7 +10,6 @@ import {
   DocumentTextIcon
 } from '@heroicons/react/24/outline';
 import FAQClient from '@/components/FAQClient';
-import PageHeader from '@/components/PageHeader';
 
 // FAQ categories and data definition
 const faqCategories = [

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import FAQAccordion, { FaqItem } from '@/components/FAQAccordion';
 import SearchBar from '@/components/ui/SearchBar';
 import Link from 'next/link';
+import AnimatedPageHeader from '@/components/AnimatedPageHeader';
 
 interface FAQCategory {
   id: string;
@@ -56,6 +57,11 @@ export default function FAQClient({ faqCategories }: FAQClientProps) {
 
   return (
     <>
+      <AnimatedPageHeader
+        title="Frequently Asked Questions"
+        subtitle="Find answers to common questions about physiotherapy services and what to expect during your visits"
+      />
+      
       {/* Enhanced search bar */}
       <div className="max-w-2xl mx-auto mb-12 relative z-10">
         <div className="bg-white/90 backdrop-blur-sm shadow-lg rounded-xl p-3 border border-neutral-200">

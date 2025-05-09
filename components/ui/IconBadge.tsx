@@ -27,29 +27,29 @@ const IconBadge: React.FC<IconBadgeProps> = ({
 }) => {
   // Shape classes
   const variantClasses = {
-    circle: 'icon-badge-circle',
-    square: 'icon-badge-square',
-    hexagon: 'icon-badge-hexagon',
+    circle: 'rounded-full',
+    square: 'rounded-lg',
+    hexagon: 'rounded-lg',
   };
 
-  // Color classes with enhanced gradients
+  // Color classes with navy/gold theme
   const colorClasses = {
     primary: gradient 
-      ? 'bg-gradient-to-br from-primary-200 via-primary-100 to-primary-200/80 text-primary-700 shadow-md' 
-      : 'icon-badge-primary',
+      ? 'bg-[#1A1F36] text-[#D4AF37]' 
+      : 'bg-[#1A1F36] text-[#D4AF37]',
     accent: gradient 
-      ? 'bg-gradient-to-br from-accent-200 via-accent-100 to-accent-200/80 text-accent-700 shadow-md' 
-      : 'icon-badge-accent',
+      ? 'bg-[#D4AF37] text-[#1A1F36]' 
+      : 'bg-[#D4AF37] text-[#1A1F36]',
     neutral: gradient 
-      ? 'bg-gradient-to-br from-neutral-200 via-neutral-100 to-neutral-200/80 text-neutral-700 shadow-md' 
-      : 'icon-badge-neutral',
+      ? 'bg-[#F7F7F5] text-[#1A1F36]' 
+      : 'bg-[#F7F7F5] text-[#1A1F36]',
   };
 
   // Size classes
   const sizeClasses = {
-    sm: 'icon-badge-sm',
-    md: '', // Default size
-    lg: 'icon-badge-lg',
+    sm: 'w-8 h-8',
+    md: 'w-10 h-10', // Default size
+    lg: 'w-12 h-12',
   };
 
   // Animation variants
@@ -71,17 +71,10 @@ const IconBadge: React.FC<IconBadgeProps> = ({
       }
     },
     hover: {
-      scale: 1.08,
-      rotate: [0, 5, 0, -5, 0],
+      scale: 1.05,
       transition: {
-        rotate: {
-          duration: 0.5,
-          ease: 'easeInOut'
-        },
-        scale: {
-          duration: 0.2,
-          ease: 'easeOut'
-        }
+        duration: 0.2,
+        ease: 'easeOut'
       }
     }
   };
@@ -92,11 +85,10 @@ const IconBadge: React.FC<IconBadgeProps> = ({
   return (
     <Component 
       className={cn(
-        'icon-badge relative',
+        'flex items-center justify-center shadow-sm',
         variantClasses[variant],
         colorClasses[color],
         sizeClasses[size],
-        gradient && 'shadow-lg',
         onClick && 'cursor-pointer',
         className
       )}
@@ -107,17 +99,8 @@ const IconBadge: React.FC<IconBadgeProps> = ({
       viewport={animate ? { once: true, amount: 0.8 } : undefined}
       variants={animate ? badgeVariants : undefined}
     >
-      {/* Add subtle inner shadow and border for depth */}
-      <div className="absolute inset-[1px] bg-white/10 rounded-full opacity-40"></div>
-      
-      {/* Add subtle animated glow effects for gradient badges */}
-      {gradient && (
-        <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="absolute inset-0 bg-inherit opacity-50 blur-md"></div>
-        </div>
-      )}
-      
-      <div className={cn('w-5 h-5 relative z-10', iconClassName)}>
+      {/* Safely render the icon with proper dimensions */}
+      <div className={cn('relative z-10 flex items-center justify-center', iconClassName)}>
         {icon}
       </div>
     </Component>

@@ -241,8 +241,9 @@ const ReviewsSection = () => {
               Ready to experience the same results? Book your appointment today.
             </p>
             <Link 
-              href="#booking" 
-              onClick={handleBookClick}
+              href="https://endorphinshealth.janeapp.com/#/staff_member/42" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center bg-accent hover:bg-accent-dark text-white font-medium px-6 py-3.5 rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg relative overflow-hidden" 
             >
               Schedule Your Consultation

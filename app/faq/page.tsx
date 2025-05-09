@@ -19,6 +19,9 @@ import {
   DocumentTextIcon
 } from '@heroicons/react/24/outline';
 
+// Helper to check if code is running in browser
+const isBrowser = typeof window !== 'undefined';
+
 interface FAQCategory {
   id: string;
   name: string;
@@ -170,9 +173,17 @@ export default function FAQPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredQuestions, setFilteredQuestions] = useState<FaqItem[]>([]);
   const [isSearching, setIsSearching] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  // Set mounted state once component mounts in browser
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // Search functionality
   useEffect(() => {
+    if (!isMounted) return;
+    
     if (searchQuery.trim() === '') {
       setIsSearching(false);
       return;
@@ -195,12 +206,27 @@ export default function FAQPage() {
     );
     
     setFilteredQuestions(filtered);
-  }, [searchQuery]);
+  }, [searchQuery, isMounted]);
 
   // Get current questions to display
   const currentQuestions = isSearching 
     ? filteredQuestions 
     : faqCategories.find(cat => cat.id === activeCategory)?.questions || [];
+
+  // If not mounted yet (server-side), render a minimal version
+  if (!isMounted) {
+    return (
+      <div className="container relative mx-auto px-4 py-12 md:py-20">
+        <PageHeader
+          title="Frequently Asked Questions"
+          subtitle="Find answers to common questions about physiotherapy services and what to expect during your visits"
+        />
+        <div className="h-[600px] flex items-center justify-center">
+          <div className="text-center">Loading FAQ content...</div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -309,12 +335,12 @@ export default function FAQPage() {
               <div className="mt-16 text-center">
                 <div className="bg-white/80 backdrop-blur-sm p-8 rounded-xl shadow-sm border border-neutral-200">
                   <p className="text-primary-600 mb-4">Can&apos;t find what you&apos;re looking for?</p>
-                  <a 
-                    href="/contact" 
+                  <Link 
+                    href="/#contact" 
                     className="inline-block px-6 py-3 bg-accent hover:bg-accent-dark text-white font-medium rounded-lg transition-colors duration-300 shadow-sm hover:shadow-md"
                   >
                     Contact Us
-                  </a>
+                  </Link>
                 </div>
               </div>
             )}

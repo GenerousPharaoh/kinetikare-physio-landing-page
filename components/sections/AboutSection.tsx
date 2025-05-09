@@ -70,82 +70,84 @@ export default function AboutSection() {
   ];
 
   return (
-    <section id="about" className="relative overflow-hidden py-20 md:py-28">
-      <div className="absolute inset-0 bg-gradient-to-b from-neutral-50 to-white pointer-events-none"></div>
-      
-      {/* Subtle pattern overlay */}
+    <section id="about" className="relative overflow-hidden py-10 md:py-12 lg:py-14 section-bg-primary">
+      {/* Subtle texture background */}
       <div 
-        className="absolute inset-0 opacity-[0.02]" 
-        style={{backgroundImage: "url('/images/patterns/pattern-dots.svg')"}}
+        className="absolute inset-0 opacity-[0.04] bg-texture-grid" 
       ></div>
       
-      {/* Subtle background glow effects */}
-      <div className="absolute top-[20%] right-[10%] w-[500px] h-[500px] rounded-full bg-accent/5 blur-[150px] opacity-40"></div>
-      <div className="absolute bottom-[30%] left-[5%] w-[400px] h-[400px] rounded-full bg-primary-500/5 blur-[120px] opacity-50"></div>
+      {/* Enhanced subtle background elements */}
+      <div className="absolute top-[20%] right-[10%] w-[600px] h-[600px] rounded-full bg-accent/5 blur-[180px] opacity-60"></div>
+      <div className="absolute bottom-[20%] left-[5%] w-[500px] h-[500px] rounded-full bg-accent-light/5 blur-[150px] opacity-50"></div>
       
       <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <SectionHeading 
-            title="About Kareem"
-            subtitle="A dedicated professional committed to your optimal health and recovery"
-          />
+        <div className="max-w-3xl mx-auto text-center mb-16 md:mb-20">
+          {/* Premium section heading with improved typography */}
+          <h2 className="font-heading text-4xl md:text-5xl lg:text-5xl font-bold text-white tracking-tight relative inline-block mb-4 leading-tight">
+            About Kareem
+          </h2>
+          <div className="relative mt-4 flex justify-center">
+            {/* Refined gold accent */}
+            <div className="h-[3px] w-[80px] bg-accent rounded-full overflow-hidden">
+              <div className="absolute inset-0 w-full bg-gradient-to-r from-accent-light via-accent to-accent-light animate-pulse-slow"></div>
+            </div>
+          </div>
+          <p className="font-sans text-lg text-white font-medium mx-auto leading-relaxed mt-6 max-w-2xl">
+            A dedicated professional committed to your optimal health and recovery
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto relative z-10">
-          {/* Image column - Premium styling */}
-          <div className="relative">
-            {/* Enhanced decorative elements */}
-            <div className="absolute -top-6 -left-6 w-full h-full bg-primary-50 rounded-2xl transform -rotate-3 opacity-60"></div>
-            <div className="absolute -bottom-4 -right-4 w-40 h-40 rounded-full bg-accent/10 opacity-70 animate-pulse-slow"></div>
+        <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center max-w-6xl mx-auto relative z-10">
+          {/* Image column with premium styling */}
+          <div className="relative order-2 md:order-1">
+            {/* Premium frame with subtle accents */}
+            <div className="absolute -bottom-4 -right-4 w-2/3 h-2/3 border-r-2 border-b-2 border-accent/30 rounded-br-lg"></div>
             
-            {/* Diagonal decorative line */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-              <div className="absolute top-0 left-0 w-[120%] h-1 bg-gradient-to-r from-transparent via-accent/30 to-transparent transform rotate-[30deg] translate-x-[-10%] translate-y-[150%] opacity-60"></div>
-            </div>
-            
-            {/* Main profile image with premium styling */}
-            <div className="relative rounded-2xl overflow-hidden shadow-xl border-2 border-white w-full max-w-sm mx-auto lg:max-w-md transition duration-500 hover:scale-[1.02] group">
-              <Image
-                src="/images/kareem-profile.png"
-                alt="Kareem Hassanein - Professional Physiotherapist"
-                width={400}
-                height={500}
-                className="w-full h-auto object-cover"
-                sizes="(max-width: 640px) 90vw, (max-width: 768px) 40vw, 400px"
-              />
-              {/* Premium overlay gradient */}
-              <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-primary-900/60 to-transparent"></div>
-              
-              {/* Shine effect on hover */}
-              <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-2000 ease-in-out"></div>
+            {/* Main profile image with enhanced container */}
+            <div className="relative overflow-hidden rounded-xl shadow-medium bg-white w-full max-w-lg mx-auto transition-all duration-500 hover:shadow-lg group">
+              <div className="p-2 md:p-3 border border-neutral-100">
+                <div className="relative overflow-hidden rounded-lg">
+                  <Image
+                    src="/images/kareem-profile.png"
+                    alt="Kareem Hassanein - Professional Physiotherapist"
+                    width={500}
+                    height={600}
+                    className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    sizes="(max-width: 640px) 90vw, (max-width: 768px) 40vw, 500px"
+                  />
+                  {/* Subtle gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary-900/30 to-transparent opacity-60"></div>
+                </div>
+              </div>
+              {/* Decorative accent */}
+              <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent"></div>
             </div>
           </div>
 
-          {/* Content column - Premium styling */}
-          <div className="bg-white p-8 md:p-10 rounded-2xl shadow-xl border border-neutral-100 relative overflow-hidden group transition-all duration-500 hover:shadow-2xl">
-            {/* Subtle gradient interior */}
-            <div className="absolute inset-0 bg-gradient-to-br from-neutral-50/50 to-white pointer-events-none"></div>
-            
-            {/* Refined tagline */}
-            <div className="inline-block px-4 py-1.5 bg-primary-50 rounded-full text-accent font-medium mb-6 text-sm">
+          {/* Content column with premium card styling */}
+          <div className="bg-white p-8 md:p-10 rounded-xl shadow-medium border border-neutral-100/80 order-1 md:order-2 hover:shadow-lg transition-all duration-300 relative">
+            {/* Professional badge with improved styling */}
+            <div className="inline-block px-5 py-2 bg-primary-800 text-accent rounded-full text-sm font-medium mb-8 shadow-sm">
               Professional Physiotherapist
             </div>
             
-            {/* Enhanced quote with premium styling */}
-            <p className="text-xl italic text-primary-700 mb-5 font-light relative pl-4">
-              <span className="absolute top-0 left-0 text-3xl text-accent/70 -mt-2">&ldquo;</span>
-              Personalized care for optimal recovery
-              <span className="text-3xl text-accent/70 inline-block ml-1">&rdquo;</span>
-            </p>
+            {/* Enhanced quote styling */}
+            <div className="mb-8 relative">
+              <p className="font-heading text-xl md:text-2xl italic text-primary-700 pl-4 tracking-tight">
+                <span className="absolute top-0 left-0 text-3xl text-accent -mt-2">&ldquo;</span>
+                Personalized care for optimal recovery
+                <span className="text-3xl text-accent inline-block ml-1">&rdquo;</span>
+              </p>
+            </div>
             
-            {/* Heading with premium accent */}
-            <h3 className="font-heading text-2xl md:text-3xl font-semibold text-primary-700 mb-8 relative inline-block">
+            {/* Heading with elegant underline */}
+            <h3 className="font-heading text-2xl md:text-3xl font-bold text-primary-800 mb-8 relative inline-block tracking-tight leading-tight">
               Your Path to Optimal Health
-              <span className="absolute -bottom-2 left-0 w-full max-w-[180px] h-1 bg-gradient-to-r from-primary-500/60 to-accent/60 rounded-full"></span>
+              <span className="absolute -bottom-2 left-0 w-full max-w-[180px] h-[3px] bg-gradient-to-r from-accent/80 to-accent-light/50 rounded-full"></span>
             </h3>
             
-            {/* Content with improved spacing and premium typography */}
-            <div className="space-y-4 text-primary-700 leading-relaxed">
+            {/* Content with improved typography and spacing */}
+            <div className="space-y-5 text-primary-600 font-sans leading-relaxed">
               <p>
                 Providing expert physiotherapy care in Burlington and Waterdown. My approach focuses on individualized treatment plans to help you achieve your health and performance goals.
               </p>
@@ -163,53 +165,66 @@ export default function AboutSection() {
               </p>
             </div>
             
-            {/* Premium credential tags */}
-            <div className="flex flex-wrap gap-2 mt-8">
+            {/* Modern credential tags */}
+            <div className="flex flex-wrap gap-3 mt-10">
               {credentials.map((credential, index) => (
                 <span 
                   key={index} 
-                  className="px-4 py-2 bg-primary-50 rounded-full text-sm text-primary-700 border border-primary-100 shadow-sm transition-all duration-300 hover:bg-primary-100 hover:shadow group-hover:translate-y-[-2px]"
+                  className="px-4 py-2 bg-primary-800/90 text-white rounded-lg text-sm font-medium shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow inline-flex items-center"
                 >
+                  <span className="w-2 h-2 rounded-full bg-accent mr-2"></span>
                   {credential}
                 </span>
               ))}
             </div>
+            
+            {/* Premium CTA button */}
+            <div className="mt-10">
+              <Link
+                href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-accent to-accent-dark text-primary-900 font-medium rounded-lg transition-all duration-300 shadow-sm hover:shadow hover:-translate-y-1 relative overflow-hidden group"
+              >
+                <span className="relative z-10">Book a Consultation</span>
+                <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+              </Link>
+            </div>
           </div>
         </div>
-
-        {/* Qualifications Section with premium styling */}
-        <div className="mt-24 max-w-5xl mx-auto"> 
-          <h3 className="text-2xl font-semibold text-primary-700 mb-10 text-center relative inline-block mx-auto">
-            <span className="relative inline-block px-10">
-              My Qualifications
-              <span className="absolute -bottom-3 left-0 w-full h-1 bg-gradient-to-r from-primary-500/60 via-accent/60 to-primary-500/60 rounded-full"></span>
-            </span>
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
+        
+        {/* Qualifications Section with premium card styling */}
+        <div className="mt-24 max-w-6xl mx-auto relative z-10"> 
+          {/* Premium section heading */}
+          <div className="text-center mb-12">
+            <h3 className="font-heading text-3xl font-bold text-white tracking-tight relative inline-block leading-tight">
+              Qualifications
+            </h3>
+            <div className="relative mt-4 flex justify-center">
+              <div className="h-[2px] w-[60px] bg-accent rounded-full"></div>
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-6 lg:gap-8">
             {qualifications.map((qual, index) => {
               const IconComponent = qual.icon; 
               return (
                 <div 
                   key={qual.id}
-                  className="bg-white p-7 rounded-2xl shadow-xl border border-neutral-100 transition-all duration-300 hover:shadow-2xl hover:translate-y-[-4px] group"
+                  className="bg-white p-8 rounded-xl shadow-subtle border border-neutral-100/80 hover:shadow-medium hover:-translate-y-1 transition-all duration-300 h-full mx-auto w-full"
                 >
-                  {/* Subtle interior glow on hover */}
-                  <div className="absolute inset-[1px] rounded-[14px] bg-gradient-to-b from-white/80 to-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-                  
-                  <div className="flex items-center mb-4">
-                    <IconBadge 
-                      icon={<IconComponent className="h-5 w-5" />}
-                      variant="circle"
-                      color="primary"
-                      size="sm"
-                      className="mr-4"
-                    />
-                    <h4 className="font-semibold text-primary-700 text-lg">{qual.title}</h4>
+                  {/* Icon with gradient background */}
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-br from-primary-700 to-primary-900 mr-4 shadow-sm">
+                      <IconComponent className="h-5 w-5 text-accent" />
+                    </div>
+                    <h4 className="font-heading font-bold text-xl text-primary-800 tracking-tight leading-tight">{qual.title}</h4>
                   </div>
-                  <ul className="space-y-3 text-sm text-primary-600 pl-1">
+                  
+                  <ul className="space-y-3 text-primary-600 pl-1 font-sans leading-relaxed">
                     {qual.items.map((item, i) => (
                       <li key={i} className="flex items-start">
-                        <span className="text-accent mr-2.5 mt-1.5 inline-block w-1.5 h-1.5 rounded-full bg-current flex-shrink-0" aria-hidden="true"></span>
+                        <span className="text-accent mr-3 mt-1.5 inline-block w-2 h-2 rounded-full bg-current flex-shrink-0"></span>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -220,65 +235,69 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* Professional Affiliations with premium styling */}
-        <div className="mt-24 pb-16">
-          <h3 className="text-2xl font-semibold text-primary-700 mb-10 text-center relative inline-block mx-auto">
-            <span className="relative inline-block px-10">
+        {/* Professional Affiliations with enhanced styling */}
+        <div className="mt-24 pb-16 relative z-10">
+          {/* Premium section heading */}
+          <div className="text-center mb-12">
+            <h3 className="font-heading text-3xl font-bold text-white tracking-tight relative inline-block leading-tight">
               Professional Affiliations
-              <span className="absolute -bottom-3 left-0 w-full h-1 bg-gradient-to-r from-primary-500/60 via-accent/60 to-primary-500/60 rounded-full"></span>
-            </span>
-          </h3>
+            </h3>
+            <div className="relative mt-4 flex justify-center">
+              <div className="h-[2px] w-[60px] bg-accent rounded-full"></div>
+            </div>
+          </div>
           
-          <div className="max-w-3xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center justify-items-center">
-              {/* Canadian Physiotherapy Association Logo */}
+          <div className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center justify-items-center">
+              {/* Canadian Physiotherapy Association Logo with premium styling */}
               <Link 
                 href="https://physiotherapy.ca/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="transition-all duration-300 hover:scale-105 block w-full group"
+                className="block w-full group"
               >
-                <div className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl border border-neutral-100 flex items-center justify-center h-40 w-full relative overflow-hidden">
-                  {/* Subtle interior glow on hover */}
-                  <div className="absolute inset-[1px] rounded-[14px] bg-gradient-to-b from-white/80 to-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-                  
-                  {/* Subtle highlight on hover */}
-                  <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  
+                <div className="bg-white p-8 rounded-xl shadow-subtle border border-neutral-100/80 hover:border-accent/20 hover:shadow-medium hover:-translate-y-1 flex items-center justify-center h-44 w-full transition-all duration-300">
                   <Image
                     src="/images/canadian-physio-association-logo.png"
                     alt="Canadian Physiotherapy Association"
-                    width={200}
-                    height={120}
-                    className="object-contain h-auto max-h-28 relative z-10"
+                    width={220}
+                    height={140}
+                    className="object-contain h-auto max-h-28 transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
               </Link>
               
-              {/* College of Physiotherapists of Ontario Logo */}
+              {/* College of Physiotherapists of Ontario Logo with premium styling */}
               <Link 
                 href="https://collegept.org/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="transition-all duration-300 hover:scale-105 block w-full group"
+                className="block w-full group"
               >
-                <div className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl border border-neutral-100 flex items-center justify-center h-40 w-full relative overflow-hidden">
-                  {/* Subtle interior glow on hover */}
-                  <div className="absolute inset-[1px] rounded-[14px] bg-gradient-to-b from-white/80 to-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-                  
-                  {/* Subtle highlight on hover */}
-                  <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  
+                <div className="bg-white p-8 rounded-xl shadow-subtle border border-neutral-100/80 hover:border-accent/20 hover:shadow-medium hover:-translate-y-1 flex items-center justify-center h-44 w-full transition-all duration-300">
                   <Image
                     src="/images/college-of-physiotherapists-of-ontario-logo.webp"
                     alt="College of Physiotherapists of Ontario"
-                    width={200}
-                    height={120}
-                    className="object-contain h-auto max-h-28 relative z-10"
+                    width={220}
+                    height={140}
+                    className="object-contain h-auto max-h-28 transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
               </Link>
             </div>
+          </div>
+          
+          {/* Premium CTA Button */}
+          <div className="text-center mt-16">
+            <Link 
+              href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-accent to-accent-dark text-primary-900 font-medium rounded-lg transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1 relative overflow-hidden group"
+            >
+              <span className="relative z-10">Book Your First Appointment</span>
+              <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,13 +1,12 @@
 'use client';
 
 import React, { useEffect, ReactNode } from 'react';
-import LoadingScreenWrapper from '@/components/LoadingScreenWrapper';
 import FloatingButtons from '@/components/FloatingButtons';
 import FloatingCTA from '@/components/FloatingCTA';
 import MobileBottomNav from '@/components/MobileBottomNav';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { optimizeScrollPerformance } from '@/lib/performance';
+import { optimizeScrollPerformance, optimizeScroll } from '@/lib/performance';
 import PerformanceOptimizer from '@/components/PerformanceOptimizer';
 import AccessibilityChecker from '@/components/AccessibilityChecker';
 import Script from 'next/script';
@@ -28,6 +27,7 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
   useEffect(() => {
     // Run performance optimizations after initial render
     optimizeScrollPerformance();
+    optimizeScroll();
 
     // Apply low-level browser optimizations
     if (typeof window !== 'undefined') {
@@ -71,31 +71,29 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
         Skip to main content
       </a>
       
-      <LoadingScreenWrapper>
-        {/* Header */}
-        <Header />
+      {/* Header */}
+      <Header />
+      
+      {/* Main content with transition wrapper */}
+      <div className="main-content-wrapper">
+        <main id="main-content" className="min-h-screen flex flex-col overflow-x-hidden pt-16 xs:pt-20">
+          {children}
+        </main>
         
-        {/* Main content with transition wrapper */}
-        <div className="main-content-wrapper">
-          <main id="main-content" className="min-h-screen flex flex-col overflow-x-hidden pt-16 xs:pt-20">
-            {children}
-          </main>
-          
-          {/* Footer */}
-          <Footer />
-        </div>
-        
-        {/* UI Components */}
-        <FloatingCTA />
-        <FloatingButtons />
-        <MobileBottomNav />
-        
-        {/* Performance optimizer - Temporarily disabled for testing */}
-        {/* <PerformanceOptimizer /> */}
-        
-        {/* Accessibility Checker - only active in development */}
-        <AccessibilityChecker />
-      </LoadingScreenWrapper>
+        {/* Footer */}
+        <Footer />
+      </div>
+      
+      {/* UI Components */}
+      <FloatingCTA />
+      <FloatingButtons />
+      <MobileBottomNav />
+      
+      {/* Performance optimizer - Temporarily disabled for testing */}
+      {/* <PerformanceOptimizer /> */}
+      
+      {/* Accessibility Checker - only active in development */}
+      <AccessibilityChecker />
     </>
   );
 } 

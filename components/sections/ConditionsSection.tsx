@@ -165,7 +165,9 @@ const ConditionsSection = () => {
           className="mt-16 text-center"
         >
           <a 
-            href="/book" 
+            href="https://endorphinshealth.janeapp.com/#/staff_member/42" 
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block bg-accent text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-accent-dark transition-all duration-300 transform hover:-translate-y-1"
           >
             Book a Consultation

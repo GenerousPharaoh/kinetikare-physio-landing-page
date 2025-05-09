@@ -5,32 +5,29 @@ import dynamic from 'next/dynamic';
 
 // Critical UI component loaded eagerly
 import Header from '@/components/Header';
+import ClientBackgroundWrapper from '@/components/ClientBackgroundWrapper';
 
-// Other components loaded with increased suspense timeout
+// Other components loaded with improved chunking strategy
 const Footer = dynamic(() => import('@/components/Footer'), { 
-  loading: () => <footer className="pt-8 pb-6 bg-primary-900 text-white"></footer> 
+  loading: () => <footer className="pt-8 pb-6 bg-primary-900 text-white"></footer>
 });
 
-// Less critical UI components loaded lazily
+// Less critical UI components loaded lazily with explicit chunk names
 const FloatingButtons = dynamic(() => import('@/components/FloatingButtons'), { 
-  ssr: false,
   loading: () => null
 });
 
 const FloatingCTA = dynamic(() => import('@/components/FloatingCTA'), { 
-  ssr: false,
-  loading: () => null 
+  loading: () => null
 });
 
 const MobileBottomNav = dynamic(() => import('@/components/MobileBottomNav'), { 
-  ssr: false,
-  loading: () => null 
+  loading: () => null
 });
 
 // Lowest priority components
 const ClientOnly = dynamic(() => import('@/components/ClientOnly'), { 
-  ssr: false,
-  loading: () => null 
+  loading: () => null
 });
 
 type ClientComponentsWrapperProps = {
@@ -41,14 +38,15 @@ type ClientComponentsWrapperProps = {
 const ClientComponentsWrapper = memo(function ClientComponentsWrapper({ children }: ClientComponentsWrapperProps) {
   return (
     <>
+      <ClientBackgroundWrapper />
       <Header />
       
-      <div className="main-content-wrapper">
-        <main id="main-content" className="min-h-screen flex flex-col overflow-x-hidden pt-16 xs:pt-20">
+      <div className="main-content-wrapper bg-transparent">
+        <main id="main-content" className="min-h-screen flex flex-col overflow-x-hidden pt-16 xs:pt-20 bg-transparent">
           {children}
         </main>
         
-        <Suspense fallback={<div className="py-16 bg-primary-900"></div>}>
+        <Suspense fallback={<div className="py-16"></div>}>
           <Footer />
         </Suspense>
       </div>

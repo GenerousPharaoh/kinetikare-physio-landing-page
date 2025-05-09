@@ -1,95 +1,136 @@
-# Physiotherapy Next
+# KH Physiotherapy Website
 
-A modern, responsive physiotherapy website built with Next.js 15.
+This is a modern physiotherapy website built with Next.js, React, and Tailwind CSS.
 
-## Deployment Status
+## Troubleshooting Design Issues
 
-Latest build deployed on: May 30, 2024
+If you're experiencing design issues with the website, follow these steps to fix them:
 
-## Features
+### Quick Fix
 
-- Dark mode design with professional color scheme
-- Responsive layouts for all device sizes
-- Performance optimized with modern Next.js features
-- TypeScript for code quality and developer experience
+Run the following commands in your terminal:
 
-## Getting Started
+```bash
+# Navigate to the project directory
+cd /Users/kareemhassanein/Desktop/code/physiotherapy-next
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+# Make the fix script executable
+chmod +x apply-and-restart.sh
 
-### Prerequisites
+# Run the fix script
+./apply-and-restart.sh
+```
 
-- Node.js 18.17.0 or later
-- npm or yarn
+This will automatically:
+1. Apply all necessary CSS fixes
+2. Fix image positioning issues
+3. Ensure service cards display correctly
+4. Add debug scripts for runtime fixes
+5. Restart the development server
 
-### Installation
+### Fixing Hydration Issues
 
-1. Clone the repository:
+If you're seeing React hydration errors in the console, run:
+
+```bash
+# Navigate to the project directory
+cd /Users/kareemhassanein/Desktop/code/physiotherapy-next
+
+# Make the hydration fix script executable
+chmod +x fix-hydration.sh
+
+# Run the hydration fix script
+./fix-hydration.sh
+```
+
+This script will:
+1. Apply fixes to components with hydration mismatches
+2. Add specialized client-side scripts to fix remaining issues
+3. Clear the Next.js cache to ensure clean hydration
+4. Restart the development server
+
+### Manual Fix Steps
+
+If the quick fix doesn't resolve the issues, you can perform the following steps manually:
+
+1. **Check for rendering issues**:
    ```bash
-   git clone [repository-url]
+   node scripts/debug-render.js
    ```
+   This will analyze your code and identify potential issues.
 
-2. Navigate to the project directory:
+2. **Apply general rendering fixes**:
    ```bash
-   cd physiotherapy-next
+   node scripts/apply-fixes.js
    ```
+   This script will create and update necessary CSS and component files.
 
-3. Install dependencies:
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
+3. **Fix hydration issues specifically**:
+   - Edit `components/sections/HeroSection.tsx` to remove complex animations
+   - Edit `components/MobileBottomNav.tsx` to simplify the framer-motion animations
+   - Add the hydration-fix.js script to the layout
 
-4. Run the development server:
+4. **Restart the development server**:
    ```bash
    npm run dev
-   # or
-   yarn dev
    ```
 
-5. Open your browser and navigate to http://localhost:3000
+5. **Check the browser console** for any remaining errors.
 
-## Deployment
+## Common Issues and Solutions
 
-This project is configured for easy deployment on Vercel.
+### React Hydration Errors
 
-### One-Click Deployment with Vercel
+If you see error messages like "Hydration failed because the initial UI does not match what was rendered on the server":
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com):
+- Remove complex animations, especially from framer-motion
+- Ensure all CSS values match between server and client renders
+- Use inline styles for critical positioning instead of classes
+- Add the hydration-fix.js script to fix mismatches in the browser
 
-1. Sign up or log in to Vercel
-2. Connect your GitHub repository to Vercel
-3. Vercel will automatically detect that you're using Next.js and will set up the build configuration for you
-4. Your site will be deployed with a custom URL, and you can later add your custom domain
+### Image Positioning Issues
 
-### Manual Deployment
+If images appear to be missing or incorrectly positioned:
 
-You can also deploy manually using the Vercel CLI:
+- Ensure parent containers of `<Image fill>` components have `position: relative`
+- Add appropriate `width="auto"` or `height="auto"` to images with aspect ratio issues
 
-1. Install Vercel CLI:
+### Service Cards Not Displaying
+
+If service cards are empty or not visible:
+
+- Check for CSS animations that might be keeping elements hidden
+- Ensure the cards have proper z-index and visibility settings
+- Replace framer-motion animations with simpler CSS transitions
+
+### CSS Conflicts
+
+If the CSS styling is inconsistent:
+
+- The site has over 200 `!important` declarations which may cause conflicts
+- The critical CSS files override problematic styles
+- Check for competing CSS rules in the browser inspector
+
+## Development Workflow
+
+1. Start the development server:
    ```bash
-   npm install -g vercel
+   npm run dev
    ```
 
-2. Run the deployment command from your project directory:
-   ```bash
-   vercel
-   ```
+2. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-3. Follow the prompts to complete the deployment
+3. Make changes to the code.
 
-## Built With
+4. The changes will be reflected automatically in the browser.
 
-- [Next.js](https://nextjs.org/) - The React framework for production
-- [TypeScript](https://www.typescriptlang.org/) - Typed JavaScript
-- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+## Production Deployment
 
-## License
+To build for production:
 
-This project is licensed under the ISC License.
+```bash
+npm run build
+npm start
+```
 
-## Acknowledgments
-
-- Original design by Kareem Hassanein Physiotherapy
-- Icons from Heroicons 
+This will generate an optimized production build of the website.

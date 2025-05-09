@@ -5,9 +5,9 @@ import AnimateOnScroll from '../AnimateOnScroll';
 
 export default function ContactSection() {
   return (
-    <section className="py-16 bg-gray-50" id="contact">
+    <section className="py-8 md:py-10" id="contact">
       <div className="container mx-auto px-4">
-        <AnimateOnScroll animation="fade-in" className="text-center mb-12">
+        <AnimateOnScroll animation="fade-in" className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl font-bold text-primary-900 mb-4">Get in Touch</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Have questions about our services or want to schedule an appointment? 
@@ -17,7 +17,7 @@ export default function ContactSection() {
 
         <div className="max-w-5xl mx-auto">
             <AnimateOnScroll animation="fade-in" delay={200}>
-            <div className="bg-white p-6 md:p-8 rounded-lg shadow-sm mx-auto max-w-xl">
+            <div className="bg-white/80 backdrop-blur-sm p-6 md:p-8 rounded-lg shadow-sm mx-auto max-w-xl">
                 <h3 className="text-xl font-semibold text-primary-800 mb-6">Contact Information</h3>
                 
                 <div className="space-y-6">

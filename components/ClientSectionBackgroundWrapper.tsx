@@ -10,7 +10,7 @@ const SectionBackground = dynamic(
 );
 
 interface ClientSectionBackgroundWrapperProps {
-  variant?: 'light' | 'subtle' | 'accent' | 'primary' | 'neutral' | 'premium' | 'premium-light' | 'premium-dark' | 'none';
+  variant?: 'white' | 'light' | 'navy' | 'gold' | 'none';
   children?: ReactNode;
 }
 

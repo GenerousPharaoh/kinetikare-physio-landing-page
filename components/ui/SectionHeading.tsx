@@ -6,35 +6,69 @@ interface SectionHeadingProps {
   title: string;
   subtitle?: string;
   align?: 'left' | 'center' | 'right';
-  titleClassName?: string;
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+  theme?: 'light' | 'dark' | 'gold';
+  className?: string;
   subtitleClassName?: string;
   decorated?: boolean;
-  badge?: React.ReactNode;
-  accentLine?: boolean;
-  containerClassName?: string;
-  animate?: boolean;
+  animateOnScroll?: boolean;
+  as?: 'h1' | 'h2' | 'h3'; 
+  highlight?: string;
+  eyebrow?: string;
 }
 
-const SectionHeading: React.FC<SectionHeadingProps> = ({
+const SectionHeading = ({
   title,
   subtitle,
-  align = 'center',
-  titleClassName = '',
+  align = 'left',
+  size = 'md',
+  theme = 'light',
+  className = '',
   subtitleClassName = '',
   decorated = true,
-  badge,
-  accentLine = true,
-  containerClassName = '',
-  animate = true,
-}) => {
-  const alignmentClasses = {
-    left: 'text-left items-start',
-    center: 'text-center items-center',
-    right: 'text-right items-end',
+  animateOnScroll = true,
+  as: Component = 'h2',
+  highlight,
+  eyebrow,
+}: SectionHeadingProps) => {
+  // Alignment classes
+  const alignClasses = {
+    left: 'text-left',
+    center: 'text-center mx-auto',
+    right: 'text-right ml-auto',
   };
 
-  // Split title into words for staggered animation
-  const titleWords = title.split(' ');
+  // Size classes for the heading
+  const sizeClasses = {
+    sm: 'text-xl md:text-2xl',
+    md: 'text-2xl md:text-3xl',
+    lg: 'text-3xl md:text-4xl',
+    xl: 'text-4xl md:text-5xl',
+  };
+
+  // Size classes for the subtitle
+  const subtitleSizeClasses = {
+    sm: 'text-sm md:text-base',
+    md: 'text-base md:text-lg',
+    lg: 'text-lg md:text-xl',
+    xl: 'text-xl md:text-2xl',
+  };
+
+  // Theme classes
+  const themeClasses = {
+    light: 'text-[#1A2036]',
+    dark: 'text-white',
+    gold: 'text-[#D4AF37]',
+  };
+
+  const subtitleThemeClasses = {
+    light: 'text-[#455070]',
+    dark: 'text-white/80',
+    gold: 'text-[#1A2036]',
+  };
+
+  // Max width based on alignment
+  const maxWidthClasses = align === 'center' ? 'max-w-3xl' : 'max-w-2xl';
   
   // Animation variants
   const containerVariants = {
@@ -42,94 +76,118 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
     visible: { 
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.1
+        staggerChildren: 0.15,
+        duration: 0.5,
       }
     }
   };
   
-  const wordVariants = {
+  const itemVariants = {
     hidden: { 
       opacity: 0, 
-      y: 10,
+      y: 20 
     },
     visible: { 
       opacity: 1, 
       y: 0,
       transition: {
-        duration: 0.4,
-        ease: [0.2, 0.65, 0.3, 0.9]
+        duration: 0.5,
+        ease: [0.2, 0.8, 0.2, 1]
       }
     }
   };
 
-  const lineVariants = {
-    hidden: { width: 0, opacity: 0 },
-    visible: { 
-      width: '100%', 
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        delay: 0.3,
-        ease: [0.2, 0.65, 0.3, 0.9]
+  // Function to highlight parts of the title if highlight is provided
+  const renderTitle = () => {
+    if (!highlight) return title;
+    
+    const parts = title.split(new RegExp(`(${highlight})`, 'gi'));
+    
+    return parts.map((part, i) => {
+      if (part.toLowerCase() === highlight.toLowerCase()) {
+        return <span key={i} className="text-[#D4AF37]">{part}</span>;
       }
-    }
+      return part;
+    });
   };
 
-  // The Component wrapper (motion.div or regular div)
-  const Component = animate ? motion.div : 'div';
-  const WordComponent = animate ? motion.span : 'span';
-  const LineComponent = animate ? motion.span : 'span';
+  // Determine which component to use based on animateOnScroll
+  const MainComponent = animateOnScroll ? motion.div : 'div';
+  const HeadingComponent = animateOnScroll ? motion.h2 : Component;
+  const SubtitleComponent = animateOnScroll ? motion.p : 'p';
+  const DecorativeElement = animateOnScroll ? motion.div : 'div';
+  const EyebrowComponent = animateOnScroll ? motion.div : 'div';
+
+  // Animation props
+  const mainAnimationProps = animateOnScroll ? {
+    variants: containerVariants,
+    initial: "hidden",
+    whileInView: "visible",
+    viewport: { once: true, margin: "-100px" }
+  } : {};
+
+  const childAnimationProps = animateOnScroll ? {
+    variants: itemVariants
+  } : {};
 
   return (
-    <Component 
-      className={cn('flex flex-col mb-14 md:mb-20', alignmentClasses[align], containerClassName)}
-      initial={animate ? "hidden" : undefined}
-      whileInView={animate ? "visible" : undefined}
-      viewport={animate ? { once: true, amount: 0.2 } : undefined}
-      variants={animate ? containerVariants : undefined}
+    <MainComponent 
+      className={cn(
+        alignClasses[align],
+        maxWidthClasses,
+        'mb-10',
+        className
+      )}
+      {...mainAnimationProps}
     >
-      {badge && (
-        <div className="mb-6">{badge}</div>
+      {eyebrow && (
+        <EyebrowComponent 
+          className={cn(
+            "mb-3 inline-block font-medium tracking-wide text-[#D4AF37] text-sm uppercase",
+            align === 'center' && 'mx-auto'
+          )}
+          {...childAnimationProps}
+        >
+          {eyebrow}
+        </EyebrowComponent>
       )}
-      
-      <h2 className={cn(
-        'section-heading relative',
-        titleClassName,
-      )}>
-        <div className="inline-block">
-          {titleWords.map((word, i) => (
-            <WordComponent 
-              key={i} 
-              className="inline-block mr-[0.3em] last:mr-0"
-              variants={animate ? wordVariants : undefined}
-            >
-              {word}
-            </WordComponent>
-          ))}
-        </div>
-        
-        {accentLine && decorated && (
-          <LineComponent 
-            className={cn(
-              "absolute h-1.5 bg-accent rounded-full",
-              align === 'center' ? "-bottom-4 left-1/2 transform -translate-x-1/2 w-20" : "-bottom-4 left-0 w-20"
-            )}
-            variants={animate ? lineVariants : undefined}
-            style={animate ? { width: 0 } : undefined}
-          />
+
+      <HeadingComponent
+        className={cn(
+          'font-bold font-serif leading-tight tracking-tight',
+          sizeClasses[size],
+          themeClasses[theme]
         )}
-      </h2>
-      
-      {subtitle && (
-        <p className={cn('section-subheading', subtitleClassName, {
-          'mx-auto': align === 'center',
-          'ml-auto': align === 'right',
-        })}>
-          {subtitle}
-        </p>
+        {...childAnimationProps}
+      >
+        {renderTitle()}
+      </HeadingComponent>
+
+      {decorated && (
+        <DecorativeElement 
+          className={cn(
+            'h-1 bg-gradient-to-r from-[#D4AF37] to-transparent w-16 mt-4 mb-4 rounded-full',
+            align === 'center' && 'mx-auto',
+            align === 'right' && 'ml-auto'
+          )}
+          {...childAnimationProps}
+        />
       )}
-    </Component>
+
+      {subtitle && (
+        <SubtitleComponent
+          className={cn(
+            'mt-4 leading-relaxed',
+            subtitleSizeClasses[size],
+            subtitleThemeClasses[theme],
+            subtitleClassName
+          )}
+          {...childAnimationProps}
+        >
+          {subtitle}
+        </SubtitleComponent>
+      )}
+    </MainComponent>
   );
 };
 

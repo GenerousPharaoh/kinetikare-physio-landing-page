@@ -39,7 +39,7 @@ const formatAnswer = (answer: string) => {
           
           return (
             <div key={i} className="space-y-2">
-              {beforeList && <p className="text-primary-700 font-medium">{decodeHtmlEntities(beforeList)}</p>}
+              {beforeList && <p className="text-primary-600 leading-relaxed">{decodeHtmlEntities(beforeList)}</p>}
               <ul className="list-disc pl-5 space-y-2 marker:text-accent">
                 {listItems.map((item, j) => (
                   <li key={j} className="text-primary-600 pl-1 leading-relaxed">{decodeHtmlEntities(item)}</li>
@@ -70,7 +70,7 @@ const formatAnswer = (answer: string) => {
         // Highlight key phrases like "assessment" with accent color, "Yes" with accent background
         if (paragraph.trim().startsWith("Yes")) {
           return (
-            <p key={i} className="text-primary-700 leading-relaxed pl-3 border-l-2 border-accent">
+            <p key={i} className="text-primary-600 leading-relaxed pl-3 border-l-2 border-accent">
               <span className="font-medium text-accent-dark">Yes. </span>
               {decodeHtmlEntities(paragraph.substring(4))}
             </p>
@@ -82,14 +82,14 @@ const formatAnswer = (answer: string) => {
         if (sentences.length > 1 && sentences[0].length < 60) {
           return (
             <p key={i} className="text-primary-600 leading-relaxed">
-              <span className="font-medium text-primary-800">{decodeHtmlEntities(sentences[0])}. </span>
+              <span className="font-medium text-primary-700">{decodeHtmlEntities(sentences[0])}. </span>
               {decodeHtmlEntities(sentences.slice(1).join('. '))}
             </p>
           );
         }
         
         // Highlight conversation, assessment, plan type of words
-        const keyTerms = ["Conversation:", "Assessment:", "Plan:", "I Reassess Thoroughly:", "We Adjust the Strategy:", "I Collaborate and Advocate:"];
+        const keyTerms = ["Conversation:", "Assessment:", "Plan:", "I Reassess Thoroughly:", "We Adjust the Strategy:", "I Collaborate and Advocate:", "Listening Attentively:", "Communicating Clearly & Honestly:", "Empowering You:"];
         for (const term of keyTerms) {
           if (paragraph.includes(term)) {
             const parts = paragraph.split(term);
@@ -107,14 +107,14 @@ const formatAnswer = (answer: string) => {
             }
             
             return (
-              <p key={i} className="text-primary-600 leading-relaxed bg-primary-50/60 p-2 rounded-lg">
+              <p key={i} className="text-primary-600 leading-relaxed">
                 {formattedParts}
               </p>
             );
           }
         }
         
-        return <p key={i} className="text-primary-600 leading-7">{decodeHtmlEntities(paragraph)}</p>;
+        return <p key={i} className="text-primary-600 leading-relaxed">{decodeHtmlEntities(paragraph)}</p>;
       })}
     </div>
   );
@@ -172,9 +172,9 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, defaultOpen = null }
             onMouseLeave={() => setIsHovering(null)}
             className={`border rounded-xl overflow-hidden transition-all duration-300 ${
               isActive 
-                ? 'bg-white border-accent shadow-modern-medium' 
+                ? 'bg-neutral-50 border-neutral-300 shadow-medium'
                 : isHovering === index
-                  ? 'bg-white border-neutral-300 shadow-modern-subtle'
+                  ? 'bg-white border-neutral-300 shadow-subtle'
                   : 'bg-white border-neutral-200'
             }`}
           >
@@ -184,7 +184,7 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, defaultOpen = null }
               aria-controls={answerId}
               onClick={() => toggleQuestion(index)}
               className={`flex items-center justify-between w-full p-5 md:p-6 text-left focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-50 rounded-t-xl
-                transition-all duration-300 ${isActive ? 'bg-accent/5' : ''}`}
+                transition-all duration-300 ${isActive ? '' : ''}`}
             >
               <span className="flex-1 pr-4">
                 <span className={`font-medium text-lg md:text-xl transition-colors duration-200 ${
@@ -203,8 +203,8 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, defaultOpen = null }
                 transition={{ duration: 0.3, ease: "easeInOut" }}
                 className={`flex-shrink-0 w-6 h-6 rounded-full ${
                   isActive 
-                    ? 'bg-accent/20 text-accent-dark p-1' 
-                    : 'text-primary-400'
+                    ? 'text-accent-dark'
+                    : 'text-primary-300'
                 }`}
               >
                 <ChevronDownIcon />
@@ -228,7 +228,7 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, defaultOpen = null }
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: -10, opacity: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="p-5 md:p-6 pt-3 md:pt-4 border-t border-neutral-100"
+                    className="p-5 md:p-6 pt-3 md:pt-4 border-t border-neutral-200"
                   >
                     <div className="text-primary-600 leading-relaxed prose prose-sm md:prose max-w-none">
                       {formatAnswer(item.answer)}
@@ -240,17 +240,6 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, defaultOpen = null }
           </div>
         );
       })}
-      
-      {items.length > 10 && (
-        <div className="text-center mt-8">
-          <button
-            onClick={() => setActiveIndex(null)}
-            className="px-4 py-2 text-accent bg-accent/10 hover:bg-accent/20 rounded-lg transition-colors duration-300 font-medium"
-          >
-            Reset All Questions
-          </button>
-        </div>
-      )}
     </div>
   );
 };

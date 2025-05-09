@@ -9,8 +9,10 @@ interface ClientBackgroundWrapperProps {
 }
 
 export default function ClientBackgroundWrapper({
-  opacity = 0.025,
+  opacity = 0.02,
   zIndex = -10,
 }: ClientBackgroundWrapperProps) {
-  return <BackgroundTextureClient opacity={opacity} zIndex={zIndex} />;
+  return (
+    <BackgroundTextureClient opacity={opacity} zIndex={zIndex} />
+  );
 } 

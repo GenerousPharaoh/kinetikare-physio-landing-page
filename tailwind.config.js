@@ -142,13 +142,24 @@ module.exports = {
           '700': '#4E4538', // neutral-900
           '800': '#1A202C'  // text DEFAULT
         },
+        blue: {
+          50: '#EEF2F5',
+          100: '#D3E2EA',
+          200: '#A6C5D5',
+          300: '#79A8C0',
+          400: '#4D8BAA',
+          500: '#366F8C',
+          600: '#2B5A72',
+          700: '#1F4455',
+          800: '#142D39',
+          900: '#0A171C',
+        },
       },
       
       fontFamily: {
-        // Updated premium typography system
-        'sans': ['var(--font-montserrat)', 'Montserrat', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', '"Noto Sans"', 'sans-serif'],
-        'heading': ['var(--font-playfair)', '"Playfair Display"', 'ui-serif', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
-        'body': ['var(--font-montserrat)', 'Montserrat', 'ui-sans-serif', 'system-ui']
+        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        playfair: ['var(--font-playfair)', 'serif'],
+        montserrat: ['var(--font-montserrat)', 'sans-serif'],
       },
       
       boxShadow: {
@@ -308,6 +319,16 @@ module.exports = {
         },
         '.animation-delay-3000': {
           'animation-delay': '3000ms',
+        },
+        // Add gradient background utilities
+        '.bg-gradient-soft': {
+          'background': 'linear-gradient(135deg, #ffffff 0%, #f8f9fe 100%)',
+        },
+        '.bg-gradient-primary': {
+          'background': 'linear-gradient(135deg, #f0f7ff 0%, #e8f0fe 100%)',
+        },
+        '.bg-gradient-accent': {
+          'background': 'linear-gradient(135deg, #fcfefd 0%, #f0f7ff 100%)',
         },
       }
       addUtilities(newUtilities)

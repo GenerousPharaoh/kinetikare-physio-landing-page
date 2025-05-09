@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function About() {
   return (
-    <main className="min-h-screen flex flex-col bg-neutral-50 text-primary-700">
+    <main className="min-h-screen flex flex-col text-primary-700">
       {/* Hero Section */}
       <section className="bg-premium-light text-primary-800 py-20 relative border-b border-neutral-200 section-premium">
         <div className="container mx-auto px-4 relative z-10">
@@ -20,7 +20,7 @@ export default function About() {
       </section>
 
       {/* Bio Section with Side-by-Side Layout */}
-      <section className="py-16 bg-neutral-50">
+      <section className="py-16 bg-gradient-soft">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="md:w-1/2">
@@ -136,7 +136,7 @@ export default function About() {
       </section>
 
       {/* Credentials Section with Visual Elements */}
-      <section className="py-16 bg-neutral-50 bg-premium-dots">
+      <section className="py-16 bg-gradient-primary bg-premium-dots">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-heading font-bold mb-4 text-primary-800 text-premium-heading">

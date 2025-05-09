@@ -1,0 +1,150 @@
+/* Premium Override Styles - These will take precedence over other styles */
+
+/* Global body styles */
+body {
+  background: linear-gradient(135deg, #f0f6ff 0%, #e5f0ff 100%) !important;
+  color: #1A1F36 !important;
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+/* Add subtle texture overlay to entire site */
+body::before {
+  content: "" !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: none !important;
+  z-index: -1 !important;
+  opacity: 0.2 !important;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") !important;
+}
+
+/* Make headers more sophisticated */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif !important;
+  letter-spacing: -0.02em !important;
+  font-weight: 600 !important;
+  color: #1A1F36 !important;
+}
+
+/* Improved paragraph text */
+p {
+  color: #3a4054 !important;
+  line-height: 1.8 !important;
+  font-size: 1rem !important;
+}
+
+/* Sophisticated card styling */
+.card, 
+[class*="card"], 
+div[class*="Card"],
+div[class*="card"] {
+  background: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(232, 240, 254, 0.7) !important;
+  box-shadow: 
+    0 10px 30px -5px rgba(0, 0, 0, 0.08) !important,
+    0 0 0 1px rgba(232, 240, 254, 0.9) !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  transition: transform 0.3s, box-shadow 0.3s !important;
+}
+
+.card:hover, 
+[class*="card"]:hover, 
+div[class*="Card"]:hover,
+div[class*="card"]:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 
+    0 15px 35px -5px rgba(0, 0, 0, 0.1) !important,
+    0 0 0 1px rgba(232, 240, 254, 1) !important;
+}
+
+/* Premium button styling */
+.btn,
+button[class*="btn"],
+[class*="button"],
+button:not([class]) {
+  background: linear-gradient(135deg, #1A1F36 0%, #141825 100%) !important;
+  color: #D4AF37 !important;
+  padding: 0.8rem 1.8rem !important;
+  border-radius: 4px !important;
+  font-weight: 500 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  border: none !important;
+}
+
+.btn:hover,
+button[class*="btn"]:hover,
+[class*="button"]:hover,
+button:not([class]):hover {
+  background: linear-gradient(135deg, #D4AF37 0%, #C8A52E 100%) !important;
+  color: #1A1F36 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Premium header styling */
+header {
+  background: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Modern section styling - allow sections to have their own backgrounds */
+section, [class*="section"] {
+  position: relative !important;
+  padding: 80px 0 !important;
+  /* Removed background: transparent !important; to allow proper section backgrounds */
+}
+
+/* Keep main elements transparent to show section backgrounds */
+main, 
+[class*="main"],
+[class*="Main"],
+[class*="wrapper"], 
+[class*="Wrapper"],
+.main-content-wrapper {
+  background: transparent !important;
+}
+
+/* Clean form styling */
+input, textarea, select {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border: 1px solid rgba(26, 31, 54, 0.1) !important;
+  border-radius: 4px !important;
+  padding: 0.75rem 1rem !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02) !important;
+  transition: all 0.3s ease !important;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: #D4AF37 !important;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1) !important;
+  background: rgba(255, 255, 255, 1) !important;
+}
+
+/* Leave backgrounds for sections with specific classes - remove the forcing */
+/* Removed original code to allow proper section backgrounds */
+
+/* Premium navy background */
+.bg-navy,
+.bg-dark,
+[class*="bg-primary"],
+[class*="bg-navy"] {
+  background: linear-gradient(135deg, #1A1F36 0%, #141825 100%) !important;
+  color: white !important;
+}
+
+/* Accent gold color */
+.bg-gold,
+[class*="bg-accent"],
+[class*="bg-gold"] {
+  background: linear-gradient(135deg, #D4AF37 0%, #C8A52E 100%) !important;
+  color: #1A1F36 !important;
+} 

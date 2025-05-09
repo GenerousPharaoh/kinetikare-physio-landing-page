@@ -5,11 +5,14 @@ import SectionBackground from './SectionBackground';
 import SectionDivider from './SectionDivider';
 import { cn } from '@/lib/utils';
 
+// Define allowed background variants
+type BackgroundVariant = 'white' | 'light' | 'navy' | 'gold' | 'primary' | 'subtle' | 'accent' | 'dark' | 'none';
+
 interface SectionWithBackgroundProps {
   children: React.ReactNode;
   id?: string;
   className?: string;
-  bgVariant?: 'light' | 'subtle' | 'accent' | 'primary' | 'neutral' | 'none';
+  bgVariant?: BackgroundVariant;
   spacing?: 'normal' | 'large' | 'small' | 'none';
   hasDividerTop?: boolean;
   hasDividerBottom?: boolean;
@@ -19,6 +22,7 @@ interface SectionWithBackgroundProps {
   border?: boolean;
   patternOverlay?: boolean;
   glowEffect?: boolean;
+  texture?: 'dots' | 'grid' | 'fine' | 'none';
 }
 
 const SectionWithBackground: React.FC<SectionWithBackgroundProps> = ({
@@ -35,12 +39,13 @@ const SectionWithBackground: React.FC<SectionWithBackgroundProps> = ({
   border = false,
   patternOverlay = false,
   glowEffect = false,
+  texture = 'none',
 }) => {
-  // Determine spacing classes
+  // Remove all padding
   const spacingClasses = {
-    normal: 'py-20 md:py-24 lg:py-28',
-    large: 'py-24 md:py-32 lg:py-36',
-    small: 'py-12 md:py-16 lg:py-20',
+    normal: '',
+    large: '',
+    small: '',
     none: '',
   };
 
@@ -62,10 +67,11 @@ const SectionWithBackground: React.FC<SectionWithBackgroundProps> = ({
         variant={bgVariant}
         border={border}
         patternOverlay={patternOverlay}
-        glowEffect={glowEffect}
+        glowEffect={false}
+        texture={texture}
         className={cn(spacingClasses[spacing])}
       >
-        <div className="container mx-auto px-4 relative">
+        <div className="container mx-auto px-4 md:px-5 lg:px-6 relative">
           {children}
         </div>
       </SectionBackground>

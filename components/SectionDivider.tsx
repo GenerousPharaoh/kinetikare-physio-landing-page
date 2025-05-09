@@ -20,7 +20,7 @@ const SectionDivider: React.FC<SectionDividerProps> = ({
   fillColor = '#ffffff',
   bgColor = 'transparent',
   className = '',
-  height = 80,
+  height = 60,
   invertX = false,
   invertY = false,
 }) => {
@@ -54,14 +54,14 @@ const SectionDivider: React.FC<SectionDividerProps> = ({
       case 'tilt':
         return (
           <path 
-            d="M0,192L1440,64L1440,320L0,320Z" 
+            d="M0,180L1440,40L1440,320L0,320Z" 
             fill={fillColor}
           />
         );
       case 'arrow':
         return (
           <path 
-            d="M0,0L720,128L1440,0L1440,320L720,320L0,320Z" 
+            d="M0,0L720,100L1440,0L1440,320L720,320L0,320Z" 
             fill={fillColor}
           />
         );

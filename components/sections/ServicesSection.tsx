@@ -3,27 +3,30 @@
 import React from 'react';
 import Link from 'next/link';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-// Import better looking icons
+// Import better looking icons from HeroIcons instead of React Icons
 import { 
   HandIcon, 
   HeartPulseIcon,
   BrainCircuitIcon,
-  CheckCircle2Icon
+  CheckCircle2Icon,
+  CalendarDaysIcon
 } from "lucide-react"; 
-// Complementary icons from React Icons
-import { IoIosFitness, IoMdMedical } from "react-icons/io";
-import { FaRunning, FaHandsHelping, FaDumbbell, FaWalking } from "react-icons/fa";
-import { GiMuscleUp } from "react-icons/gi";
-import { MdOutlineBiotech, MdSchool, MdSportsGymnastics } from "react-icons/md";
-import { RiSurgicalMaskLine, RiMentalHealthLine } from "react-icons/ri";
+// Safe import of icons using dynamic
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import GlassCard from '@/components/GlassCard';
+import GlassCard from '@/components/ui/GlassCard';
 import { Button } from '@/components/ui/Button';
-import dynamic from 'next/dynamic';
+import SectionHeading from '@/components/ui/SectionHeading';
+import Card from '@/components/ui/Card';
+import SectionBackground from '@/components/SectionBackground';
 
-// Dynamically import SectionBackground with no SSR to avoid hydration issues
-const SectionBackground = dynamic(() => import('@/components/SectionBackground'), { ssr: false });
+// Safely import icons with dynamic to avoid hydration issues
+const DumbbellIcon = dynamic(() => import('lucide-react').then(mod => mod.DumbbellIcon), { ssr: false });
+const WrenchScrewdriverIcon = dynamic(() => import('@heroicons/react/24/outline').then(mod => mod.WrenchScrewdriverIcon), { ssr: false });
+const UserIcon = dynamic(() => import('@heroicons/react/24/outline').then(mod => mod.UserIcon), { ssr: false });
+const BookOpenIcon = dynamic(() => import('@heroicons/react/24/outline').then(mod => mod.BookOpenIcon), { ssr: false });
+const AcademicCapIcon = dynamic(() => import('@heroicons/react/24/outline').then(mod => mod.AcademicCapIcon), { ssr: false });
 
 // Create a custom Acupuncture icon component
 const AcupunctureIcon = ({ className, size, ...props }: { className?: string; size?: number } & React.SVGProps<SVGSVGElement>) => {
@@ -61,37 +64,53 @@ type ServicesSectionProps = {
   onBookLinkClick?: (id: string) => void;
 };
 
-const Service = ({ id, title, icon: IconComponent, description, onBookLinkClick }: ServiceProps) => {
+const ServiceCard = ({ id, title, icon: IconComponent, description, onBookLinkClick }: ServiceProps) => {
   return (
-    <div className="flex flex-col items-center">
-      <div className="w-16 h-16 flex justify-center items-center rounded-xl bg-primary/10 mb-4">
-        {IconComponent && (
-          <IconComponent 
-            className="w-8 h-8 text-primary" 
-            aria-hidden="true" 
-          />
+    <Card
+      variant="gradient"
+      hoverEffect={true}
+      elevate={true}
+      className="h-full p-6 md:p-8"
+    >
+      <div className="flex flex-col items-center h-full">
+        <div className="w-16 h-16 flex justify-center items-center rounded-xl bg-[#1A2036]/10 mb-5">
+          {IconComponent && (
+            <div className="w-7 h-7 flex items-center justify-center">
+              {React.createElement(IconComponent, {
+                size: 28,
+                className: "text-[#D4AF37]"
+              })}
+            </div>
+          )}
+        </div>
+        <h3 className="font-serif font-bold text-xl tracking-tight text-[#1A2036] text-center">{title}</h3>
+        <p className="text-center text-[#455070] font-sans leading-relaxed mt-3 mb-5">{description}</p>
+        {onBookLinkClick && (
+          <div className="mt-auto pt-3">
+            <Button 
+              variant="outline" 
+              onClick={() => onBookLinkClick(id)} 
+              premium
+              className="w-full justify-center"
+            >
+              Learn More
+            </Button>
+          </div>
         )}
       </div>
-      <h3 className="font-bold text-lg">{title}</h3>
-      <p className="text-center text-gray-600 mt-2">{description}</p>
-      {onBookLinkClick && (
-        <Button onClick={() => onBookLinkClick(id)} className="mt-4">
-          Book Now
-        </Button>
-      )}
-    </div>
+    </Card>
   );
 };
 
 export default function ServicesSection({ onBookLinkClick }: ServicesSectionProps) {
   const { ref, isVisible } = useScrollAnimation();
 
-  // Services data with better icons
+  // Services data with safer icon references
   const services: ServiceProps[] = [
     {
       id: 'manual-therapy',
       title: 'Manual Therapy',
-      icon: FaHandsHelping,
+      icon: HandIcon,
       description: 'Hands-on techniques including joint mobilization, manipulation, and soft tissue release to restore movement and reduce pain.'
     },
     {
@@ -103,25 +122,25 @@ export default function ServicesSection({ onBookLinkClick }: ServicesSectionProp
     {
       id: 'exercise-prescription',
       title: 'Exercise Prescription',
-      icon: FaDumbbell,
+      icon: DumbbellIcon,
       description: 'Customized exercise programs designed to improve strength, flexibility, and function, tailored to your specific needs.'
     },
     {
       id: 'sports-rehab',
       title: 'Sports Rehabilitation',
-      icon: MdSportsGymnastics,
+      icon: HeartPulseIcon,
       description: 'Specialized care for athletes of all levels, focusing on injury recovery, performance enhancement, and prevention.'
     },
     {
       id: 'post-operative',
       title: 'Post-Operative Care',
-      icon: FaWalking,
+      icon: BrainCircuitIcon,
       description: 'Structured rehabilitation programs following surgery to ensure optimal recovery and return to function.'
     },
     {
       id: 'patient-education',
       title: 'Patient Education',
-      icon: MdSchool,
+      icon: AcademicCapIcon,
       description: 'Empowering you with knowledge about your condition and self-management strategies for long-term health.'
     }
   ];
@@ -131,7 +150,7 @@ export default function ServicesSection({ onBookLinkClick }: ServicesSectionProp
     e.preventDefault();
     // Reliable scroll code that works without props
     const bookingSection = document.getElementById('booking');
-    if (bookingSection) {
+    if (bookingSection && typeof window !== 'undefined') {
       const headerOffset = document.querySelector('header')?.offsetHeight || 80;
       const elementPosition = bookingSection.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.scrollY - headerOffset;
@@ -149,123 +168,34 @@ export default function ServicesSection({ onBookLinkClick }: ServicesSectionProp
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.15,
         delayChildren: 0.1
       }
     }
   };
   
   const itemVariants = {
-    hidden: { opacity: 0, y: 10 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.4, ease: [0.23, 1, 0.32, 1] }
-    }
-  };
-
-  // New, enhanced icon animation variants
-  const iconVariants = {
-    initial: { scale: 1 },
-    hover: { 
-      scale: 1.12,
-      rotate: 0,
-      y: -5,
-      transition: { 
-        type: "spring", 
-        stiffness: 500, 
-        damping: 15 
-      }
-    }
-  };
-
-  // Subtle background pulse animation
-  const bgPulseVariants = {
-    initial: { 
-      opacity: 0.7,
-      boxShadow: "0 0 0 rgba(222, 184, 135, 0)" 
-    },
-    hover: { 
-      opacity: 1,
-      boxShadow: "0 0 15px rgba(222, 184, 135, 0.5)",
-      transition: { 
-        duration: 0.5,
-        repeat: Infinity,
-        repeatType: "mirror" as const
-      }
+      transition: { duration: 0.5, ease: [0.2, 0.8, 0.2, 1] }
     }
   };
 
   return (
-    <section 
-      id="services" 
-      className="section bg-neutral-50 text-primary-700 relative border-t border-neutral-200 pt-20 md:pt-28 pb-24"
+    <SectionBackground 
+      id="services"
+      bgVariant="subtle"
+      patternOverlay={true}
+      patternVariant="dots"
+      patternOpacity={0.03}
+      texture="noise"
+      textureOpacity={0.03}
+      spacing="none"
+      glowEffect={false}
     >
-      {/* Add subtle section background */}
-      <SectionBackground variant="subtle">
-        <div className="hidden"></div>
-      </SectionBackground>
-      
-      {/* Background Image with gradient overlay */}
-      <div className="absolute inset-0 z-0 opacity-[0.07] pointer-events-none"> 
-        <Image
-          src="/images/about-physio.jpg" 
-          alt="Clinic background"
-          fill
-          className="object-cover"
-        />
-        {/* Enhanced gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-neutral-50/95 via-neutral-50/85 to-neutral-50/95 backdrop-blur-sm"></div>
-      </div>
-
-      {/* Improved decorative elements */}
-      <motion.div 
-        className="absolute top-1/4 right-[-5%] w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl"
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.05, 0.09, 0.05],
-        }}
-        transition={{
-          duration: 12,
-          repeat: Infinity,
-          repeatType: "reverse"
-        }}
-        aria-hidden="true"
-      />
-      
-      <motion.div 
-        className="absolute bottom-1/4 left-[-5%] w-[700px] h-[700px] bg-primary-500/5 rounded-full blur-3xl"
-        animate={{
-          scale: [1, 1.3, 1],
-          opacity: [0.05, 0.1, 0.05],
-        }}
-        transition={{
-          duration: 15,
-          repeat: Infinity,
-          repeatType: "reverse",
-          delay: 3
-        }}
-        aria-hidden="true"
-      />
-      
-      {/* Additional decorative elements */}
-      <motion.div 
-        className="absolute top-[60%] left-[50%] w-[300px] h-[300px] bg-accent/3 rounded-full blur-2xl"
-        animate={{
-          scale: [1, 1.5, 1],
-          opacity: [0.03, 0.06, 0.03],
-        }}
-        transition={{
-          duration: 18,
-          repeat: Infinity,
-          repeatType: "reverse",
-          delay: 1.5
-        }}
-        aria-hidden="true"
-      />
-
-      {/* Content Container */}
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           ref={ref as React.RefObject<HTMLDivElement>}
           initial="hidden"
@@ -273,117 +203,58 @@ export default function ServicesSection({ onBookLinkClick }: ServicesSectionProp
           variants={containerVariants}
           className="max-w-6xl mx-auto"
         >
-          {/* Enhanced section header with motion */}
-          <motion.div 
-            className="text-center mb-20"
-            variants={itemVariants}
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="inline-block mb-4"
-            >
-              <div className="premium-icon-badge premium-icon-badge-circle premium-icon-badge-accent">
-                <FaHandsHelping className="w-8 h-8" />
-              </div>
-            </motion.div>
-            
-            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-primary-700 mb-4 relative">
-              Physiotherapy Services
-              <motion.span 
-                className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-20 h-1.5 bg-accent rounded-full"
-                initial={{ width: 0, opacity: 0 }}
-                whileInView={{ width: 80, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-              />
-            </h2>
-            <p className="section-subtitle text-lg text-primary-600 mx-auto max-w-3xl mt-6">
-              Comprehensive physiotherapy solutions tailored to your individual needs,
-              delivered with expertise and compassion.
-            </p>
-          </motion.div>
+          {/* Section Heading with new component */}
+          <SectionHeading
+            title="Physiotherapy Services"
+            subtitle="Comprehensive physiotherapy solutions tailored to your individual needs, delivered with expertise and compassion."
+            align="center"
+            size="lg"
+            theme="light"
+            decorated={true}
+            eyebrow="Expert Care"
+            highlight="Physiotherapy"
+          />
 
-          {/* Reimagined Services Grid with enhanced GlassCards */}
+          {/* Services Grid with standardized card sizes */}
           <motion.div 
-            className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16"
             variants={containerVariants}
           >
-            {services.map((service, index) => {
-              const IconComponent = service.icon;
-              const delay = index * 0.1;
-              
-              return (
-                <motion.div
-                  key={service.id}
-                  variants={itemVariants}
-                  custom={index}
-                  whileHover={{ y: -5, transition: { duration: 0.3 } }}
-                  className="h-full"
-                >
-                  <div
-                    className={`card p-5 sm:p-8 h-full flex flex-col group`}
-                  >
-                    {/* Enhanced Premium Icon Badge */}
-                    <motion.div 
-                      className="mb-4 md:mb-6 relative"
-                      initial="initial"
-                      whileHover="hover"
-                    >
-                      <motion.div 
-                        className="premium-icon-badge premium-icon-badge-hexagon premium-icon-badge-pattern bg-gradient-to-br from-primary/5 via-primary/10 to-primary/15"
-                        variants={{
-                          initial: { scale: 1 },
-                          hover: { 
-                            scale: 1.05,
-                            y: -4,
-                            transition: { 
-                              type: "spring", 
-                              stiffness: 500, 
-                              damping: 15 
-                            }
-                          }
-                        }}
-                      >
-                        {IconComponent && (
-                          React.isValidElement(IconComponent) ? (
-                            <div className="w-6 h-6 md:w-7 md:h-7">{IconComponent}</div>
-                          ) : typeof IconComponent === 'function' ? (
-                            <IconComponent size={window?.innerWidth < 768 ? 24 : 28} aria-hidden="true" />
-                          ) : (
-                            <span className="w-6 h-6 md:w-7 md:h-7"></span>
-                          )
-                        )}
-                      </motion.div>
-                    </motion.div>
-
-                    {/* Content with improved typography */}
-                    <div className="flex-1 flex flex-col">
-                      <h3 className="text-xl sm:text-2xl font-semibold text-primary-700 mb-2 md:mb-4 font-heading">
-                        {service.title}
-                      </h3>
-                      <p className="text-sm md:text-base text-primary-600 leading-relaxed flex-1">
-                        {service.description}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
+            {services.map((service, index) => (
+              <motion.div
+                key={service.id}
+                variants={itemVariants}
+                custom={index}
+                className="h-full"
+                whileHover={{ y: -5 }}
+                transition={{ duration: 0.3 }}
+              >
+                <ServiceCard 
+                  id={service.id}
+                  title={service.title}
+                  icon={service.icon}
+                  description={service.description}
+                  onBookLinkClick={onBookLinkClick}
+                />
+              </motion.div>
+            ))}
           </motion.div>
 
-          {/* Featured section with improved styling */}
+          {/* Featured section with glass card styling */}
           <motion.div 
-            className="mt-20 md:mt-32 mb-10"
+            className="mt-24 mb-12"
             variants={itemVariants}
           >
             <GlassCard
-              className="p-6 sm:p-10 md:p-16 max-w-6xl mx-auto rounded-xl md:rounded-2xl bg-white border border-primary-100"
-              animate={false}
+              variant="light"
+              blur="lg"
+              border={true}
+              glow={true}
+              hoverEffect="lift"
+              className="p-8 md:p-12"
             >
-              <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-                {/* Text content with enhancements */}
+              <div className="grid md:grid-cols-2 gap-10 items-center">
+                {/* Text content with refined typography */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -391,7 +262,7 @@ export default function ServicesSection({ onBookLinkClick }: ServicesSectionProp
                   transition={{ duration: 0.6, delay: 0.1 }}
                 >
                   <motion.div 
-                    className="inline-block rounded-full px-3 md:px-4 py-1 bg-accent/10 text-accent text-xs md:text-sm font-medium mb-4 md:mb-6 border border-accent/20 shadow-sm"
+                    className="inline-block rounded-full px-4 py-1.5 bg-[#1A2036] text-[#D4AF37] text-xs font-semibold mb-6 shadow-sm"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -400,17 +271,17 @@ export default function ServicesSection({ onBookLinkClick }: ServicesSectionProp
                     Featured
                   </motion.div>
                   
-                  <motion.h3 
-                    className="font-heading text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-primary-700 mb-3 md:mb-5"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
-                  >
-                    One-on-One Dedicated Care
-                  </motion.h3>
+                  <SectionHeading
+                    title="One-on-One Dedicated Care"
+                    decorated={true}
+                    align="left"
+                    size="md"
+                    theme="light"
+                    animateOnScroll={false}
+                  />
+                  
                   <motion.p 
-                    className="text-primary-600 mb-4 md:mb-6 leading-relaxed text-sm md:text-lg"
+                    className="font-sans text-base text-[#455070] mb-6 leading-relaxed mt-4"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -419,34 +290,31 @@ export default function ServicesSection({ onBookLinkClick }: ServicesSectionProp
                     Unlike clinics that book multiple patients per hour, I dedicate my full attention to you during your entire appointment. This allows for deeper assessment, more hands-on treatment time, and better outcomes.
                   </motion.p>
                   
-                  {/* Redesigned bullet points with premium badges */}
+                  {/* Bullet points with gold accents */}
                   <motion.ul 
-                    className="space-y-3 md:space-y-5 mt-6 md:mt-8"
+                    className="space-y-3 mt-6"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.5, staggerChildren: 0.1 }}
                   >
-                    <motion.li variants={itemVariants} className="flex items-start gap-3 md:gap-4">
-                      {/* Directly apply Tailwind styles for the badge */}
-                      <div className="flex-shrink-0 w-6 h-6 md:w-7 md:h-7 rounded-full bg-accent/10 flex items-center justify-center mt-0.5 md:mt-0">
-                        <CheckCircle2Icon className="w-4 h-4 md:w-5 md:w-5 text-accent" />
+                    <motion.li variants={itemVariants} className="flex items-start gap-4">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#1A2036]/5 flex items-center justify-center mt-0.5">
+                        <CheckCircle2Icon className="w-4 h-4 text-[#D4AF37]" />
                       </div>
-                      <span className="text-primary-700 text-sm md:text-base">Personalized care plans designed for your specific needs</span>
+                      <span className="font-sans text-[#455070] text-base leading-relaxed">Personalized care plans designed for your specific needs</span>
                     </motion.li>
-                    <motion.li variants={itemVariants} className="flex items-start gap-3 md:gap-4">
-                      {/* Directly apply Tailwind styles for the badge */}
-                      <div className="flex-shrink-0 w-6 h-6 md:w-7 md:h-7 rounded-full bg-accent/10 flex items-center justify-center mt-0.5 md:mt-0">
-                        <CheckCircle2Icon className="w-4 h-4 md:w-5 md:w-5 text-accent" />
+                    <motion.li variants={itemVariants} className="flex items-start gap-4">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#1A2036]/5 flex items-center justify-center mt-0.5">
+                        <CheckCircle2Icon className="w-4 h-4 text-[#D4AF37]" />
                       </div>
-                      <span className="text-primary-700 text-sm md:text-base">Evidence-based treatment with proven results</span>
+                      <span className="font-sans text-[#455070] text-base leading-relaxed">Evidence-based treatment with proven results</span>
                     </motion.li>
-                    <motion.li variants={itemVariants} className="flex items-start gap-3 md:gap-4">
-                      {/* Directly apply Tailwind styles for the badge */}
-                      <div className="flex-shrink-0 w-6 h-6 md:w-7 md:h-7 rounded-full bg-accent/10 flex items-center justify-center mt-0.5 md:mt-0">
-                        <CheckCircle2Icon className="w-4 h-4 md:h-5 md:w-5 text-accent" />
+                    <motion.li variants={itemVariants} className="flex items-start gap-4">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#1A2036]/5 flex items-center justify-center mt-0.5">
+                        <CheckCircle2Icon className="w-4 h-4 text-[#D4AF37]" />
                       </div>
-                      <span className="text-primary-700 text-sm md:text-base">Modern facilities in convenient locations</span>
+                      <span className="font-sans text-[#455070] text-base leading-relaxed">Modern facilities in convenient locations</span>
                     </motion.li>
                   </motion.ul>
                   
@@ -455,22 +323,24 @@ export default function ServicesSection({ onBookLinkClick }: ServicesSectionProp
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.8 }}
+                    className="mt-8"
                   >
-                    <Link 
-                      href="#booking" 
-                      onClick={handleBookClick}
-                      className="inline-flex items-center justify-center bg-accent hover:bg-accent-dark text-white text-xs md:text-sm font-medium px-4 md:px-6 py-2.5 md:py-3.5 rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg relative overflow-hidden group mt-6 md:mt-8" 
+                    <Button 
+                      variant="primary"
+                      href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                      premium={true}
+                      icon={<CalendarDaysIcon className="h-5 w-5" />}
+                      iconPosition="left"
                     >
-                      <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-accent/0 via-accent/20 to-accent/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></span>
                       Book Your Dedicated Session
-                    </Link>
+                    </Button>
                   </motion.div>
                 </motion.div>
                 
-                {/* Image with enhanced presentation */}
+                {/* Image with navy overlay */}
                 <motion.div 
-                  className="relative h-full min-h-[250px] md:min-h-[400px] rounded-xl md:rounded-2xl overflow-hidden shadow-xl group"
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  className="relative h-full min-h-[240px] md:min-h-[380px] rounded-xl overflow-hidden shadow-lg group"
+                  initial={{ opacity: 0, scale: 0.95 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.7, delay: 0.2 }}
@@ -480,70 +350,97 @@ export default function ServicesSection({ onBookLinkClick }: ServicesSectionProp
                     alt="Physiotherapy treatment room at KH Physiotherapy"
                     fill
                     sizes="(max-width: 640px) 90vw, (max-width: 768px) 80vw, 40vw"
-                    className="object-cover object-center transition-transform duration-500 ease-in-out group-hover:scale-105"
-                    style={{ 
-                      filter: 'brightness(1.1) saturate(1.15) contrast(1.05)',
-                    }}
+                    className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                   />
-                  {/* Subtle overlay for better depth */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary-800/20 via-transparent to-primary-100/10 opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  {/* Navy overlay with gold accent */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1A2036]/60 via-[#1A2036]/30 to-transparent opacity-80 group-hover:opacity-70 transition-opacity duration-300"></div>
+                  
+                  {/* Gold accent line */}
+                  <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[#D4AF37] to-[#C8A52E]"></div>
                 </motion.div>
               </div>
             </GlassCard>
           </motion.div>
 
-          {/* Add clinic reception area showcase - REDESIGNED */}
+          {/* Modern clinic environment - Navy/gold styling */}
           <motion.div 
-            className="mt-16 md:mt-28 mb-12 md:mb-16"
-            initial={{ opacity: 0, y: 50 }}
+            className="mt-20 mb-10"
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="text-center mb-8 md:mb-12">
-              <h3 className="font-heading text-2xl md:text-3xl lg:text-4xl font-semibold text-primary-700 mb-3 md:mb-4">
-                Modern Clinic Environment
-              </h3>
-              <p className="text-primary-600 max-w-3xl mx-auto text-sm md:text-lg px-4">
-                Experience physiotherapy in a welcoming, comfortable space designed for your healing journey.
-              </p>
-            </div>
+            <SectionHeading
+              title="Modern Clinic Environment"
+              subtitle="Experience physiotherapy in a welcoming, comfortable space designed for your healing journey."
+              align="center"
+              size="md"
+              theme="light"
+              decorated={true}
+            />
             
-            {/* Redesigned Image Showcase with Overlapping Effect */}
-            <div className="relative mx-auto max-w-6xl group">
-              <div className="relative aspect-[16/9] sm:aspect-[16/8] w-full rounded-xl md:rounded-2xl overflow-hidden shadow-2xl transform-gpu perspective-1000">
+            {/* Image showcase with navy/gold styling */}
+            <div className="relative mx-auto max-w-6xl mt-12 group">
+              <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden shadow-lg transform-gpu">
                 <Image
                   src="/images/clinic-pic-3.jpg"
                   alt="KH Physiotherapy clinic reception area"
                   fill
-                  className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
-                  style={{ 
-                    filter: 'brightness(1.15) contrast(1.05) saturate(1.15)',
-                  }}
+                  className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                   sizes="(max-width: 640px) 95vw, (max-width: 1280px) 90vw, 1200px"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1A2036]/50 via-[#1A2036]/30 to-transparent"></div>
+                
+                {/* Gold accent line */}
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[#D4AF37] to-[#D4AF37]/60"></div>
               </div>
               
-              {/* Overlapping text card */}
+              {/* Overlapping card with navy/gold styling */}
               <motion.div
-                className="absolute -bottom-4 md:-bottom-6 left-1/2 transform -translate-x-1/2 w-[85%] md:w-[60%] lg:w-[50%] bg-white/95 backdrop-blur-sm p-3 md:p-5 rounded-lg shadow-lg border border-neutral-200/80"
+                className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-[85%] md:w-[60%] lg:w-[50%]"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.05 }}
                 viewport={{ once: true, margin: "-5%" }}
               >
-                <div className="inline-block text-[10px] xs:text-xs md:text-sm uppercase tracking-wider bg-accent/90 text-white px-2 md:px-3 py-0.5 rounded-full mb-1 md:mb-2 shadow-sm">
-                  Professional Environment
-                </div>
-                <p className="text-sm md:text-base lg:text-lg font-medium text-primary-800">
-                  A calming space where your recovery journey begins
-                </p>
+                <GlassCard
+                  variant="light"
+                  blur="lg"
+                  border={true}
+                  className="p-5"
+                >
+                  <div className="inline-block text-xs md:text-sm uppercase tracking-wider bg-[#1A2036] text-[#D4AF37] px-3 py-1.5 rounded-full mb-2.5 shadow-sm font-medium">
+                    Professional Environment
+                  </div>
+                  <p className="font-serif text-base lg:text-lg font-medium text-[#1A2036] leading-relaxed tracking-tight">
+                    A calming space where your recovery journey begins
+                  </p>
+                </GlassCard>
               </motion.div>
             </div>
+            
+            {/* Book Now CTA - Added as per design requirements */}
+            <motion.div
+              className="text-center mt-20"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <Button 
+                variant="primary"
+                size="lg"
+                href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                premium={true}
+                icon={<CalendarDaysIcon className="h-5 w-5" />}
+                iconPosition="left"
+              >
+                Book Your First Appointment
+              </Button>
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>
-    </section>
+    </SectionBackground>
   );
 }

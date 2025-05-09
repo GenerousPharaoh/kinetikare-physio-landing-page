@@ -2,13 +2,13 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { HomeIcon, WrenchScrewdriverIcon, PhoneIcon, CalendarDaysIcon, UserIcon } from '@heroicons/react/24/outline';
+import { HomeIcon, PhoneIcon, CalendarDaysIcon, UserIcon } from '@heroicons/react/24/outline';
 import { usePathname } from 'next/navigation';
-import { motion } from 'framer-motion';
+
+// Remove framer-motion imports and styling
 
 const navItems = [
   { href: '/', label: 'Home', icon: HomeIcon },
-  { href: '/#services', label: 'Services', icon: WrenchScrewdriverIcon },
   { href: 'https://endorphinshealth.janeapp.com/#/staff_member/42', label: 'Book', icon: CalendarDaysIcon, external: true, highlight: true },
   { href: '/#contact', label: 'Contact', icon: PhoneIcon },
   { href: '/about', label: 'About', icon: UserIcon },
@@ -49,11 +49,15 @@ export default function MobileBottomNav() {
   };
 
   return (
-    <motion.nav 
+    <nav 
       className="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-white border-t border-neutral-200 shadow-lg z-40 flex items-center justify-around"
-      initial={{ y: 100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, delay: 0.2 }}
+      style={{ 
+        position: 'fixed',
+        bottom: 0,
+        left: 0,
+        right: 0,
+        zIndex: 40
+      }}
     >
       {navItems.map((item) => (
         <Link
@@ -69,50 +73,107 @@ export default function MobileBottomNav() {
                 ? 'text-accent'
                 : 'text-primary-600 hover:text-accent'
           }`}
+          style={{
+            position: 'relative',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
         >
           {item.highlight && (
-            <motion.div
+            <div
               className="absolute inset-0 bg-accent rounded-full -top-2 -left-1 -right-1"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3 }}
+              style={{
+                position: 'absolute',
+                inset: 0,
+                top: '-0.5rem',
+                left: '-0.25rem',
+                right: '-0.25rem',
+                backgroundColor: 'var(--color-accent, #D4AF37)',
+                borderRadius: '9999px'
+              }}
             />
           )}
           
-          <motion.div
+          <div
             className={`relative z-10 flex flex-col items-center justify-center ${
               item.highlight ? '-mt-1' : ''
             }`}
-            whileTap={{ scale: 0.9 }}
+            style={{
+              position: 'relative',
+              zIndex: 10,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginTop: item.highlight ? '-0.25rem' : '0'
+            }}
           >
             {item.highlight ? (
-              <div className="premium-icon-badge premium-icon-badge-sm premium-icon-badge-circle bg-white/30 mb-0.5 shadow-lg" style={{ filter: "drop-shadow(0 2px 3px rgba(0,0,0,0.2))" }}>
+              <div 
+                className="premium-icon-badge premium-icon-badge-sm premium-icon-badge-circle bg-white/30 mb-0.5 shadow-lg" 
+                style={{ 
+                  backgroundColor: 'rgba(255, 255, 255, 0.3)',
+                  marginBottom: '0.125rem',
+                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+                }}
+              >
                 <item.icon className="w-4 h-4 xs:w-5 xs:h-5 text-white" />
               </div>
             ) : (
-              <div className={`premium-icon-badge premium-icon-badge-sm premium-icon-badge-circle mb-0.5 shadow-md ${
-                isActive(item.href) ? 'premium-icon-badge-accent' : ''
-              }`} style={{ boxShadow: "0 4px 10px rgba(0,0,0,0.15)" }}>
+              <div 
+                className={`premium-icon-badge premium-icon-badge-sm premium-icon-badge-circle mb-0.5 shadow-md ${
+                  isActive(item.href) ? 'premium-icon-badge-accent' : ''
+                }`} 
+                style={{ 
+                  marginBottom: '0.125rem',
+                  boxShadow: '0 4px 10px rgba(0, 0, 0, 0.15)'
+                }}
+              >
                 <item.icon className="w-4 h-4 xs:w-5 xs:h-5" />
               </div>
             )}
-            <span className={`${item.highlight ? 'text-white font-medium' : ''} mt-1 text-[10px] xs:text-xs`}>
+            <span 
+              className={`${item.highlight ? 'text-white font-medium' : ''} mt-1 text-[10px] xs:text-xs`}
+              style={{
+                marginTop: '0.25rem',
+                fontSize: '10px',
+                color: item.highlight ? 'white' : 'inherit',
+                fontWeight: item.highlight ? '500' : 'inherit'
+              }}
+            >
               {item.label}
             </span>
             
             {isActive(item.href) && !item.highlight && (
-              <motion.div
+              <div
                 className="absolute -bottom-1 w-1.5 h-1.5 bg-accent rounded-full"
-                layoutId="navIndicator"
-                transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                style={{
+                  position: 'absolute',
+                  bottom: '-0.25rem',
+                  width: '0.375rem',
+                  height: '0.375rem',
+                  backgroundColor: 'var(--color-accent, #D4AF37)',
+                  borderRadius: '9999px'
+                }}
               />
             )}
-          </motion.div>
+          </div>
         </Link>
       ))}
 
       {/* Add a bottom safe area for iOS devices */}
-      <div className="fixed bottom-0 h-[env(safe-area-inset-bottom,0px)] left-0 right-0 bg-white"></div>
-    </motion.nav>
+      <div 
+        className="fixed bottom-0 h-[env(safe-area-inset-bottom,0px)] left-0 right-0 bg-white"
+        style={{
+          position: 'fixed',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          backgroundColor: 'white'
+        }}
+      ></div>
+    </nav>
   );
-} 
+}

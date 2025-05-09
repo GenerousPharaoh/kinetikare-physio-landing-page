@@ -90,8 +90,7 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased pb-16 md:pb-0 overflow-x-hidden">
-        {/* Removed duplicate skip link from server layout */}
-        
+        {/* Removed bg-white to allow gradient from CSS */}
         {/* The ClientWrapper component handles all client-side rendering */}
         <ClientWrapper>
           {children}

@@ -6,7 +6,7 @@ import SectionDivider from './SectionDivider';
 import { cn } from '@/lib/utils';
 
 // Define allowed background variants
-type BackgroundVariant = 'white' | 'light' | 'navy' | 'gold' | 'primary' | 'subtle' | 'accent' | 'dark' | 'none';
+type BackgroundVariant = 'primary' | 'subtle' | 'light' | 'white' | 'dark' | 'transparent' | 'gradient';
 
 interface SectionWithBackgroundProps {
   children: React.ReactNode;
@@ -22,7 +22,7 @@ interface SectionWithBackgroundProps {
   border?: boolean;
   patternOverlay?: boolean;
   glowEffect?: boolean;
-  texture?: 'dots' | 'grid' | 'fine' | 'none';
+  texture?: 'dots' | 'noise' | 'mesh' | 'none';
 }
 
 const SectionWithBackground: React.FC<SectionWithBackgroundProps> = ({
@@ -64,7 +64,7 @@ const SectionWithBackground: React.FC<SectionWithBackgroundProps> = ({
       )}
       
       <SectionBackground 
-        variant={bgVariant}
+        bgVariant={bgVariant}
         border={border}
         patternOverlay={patternOverlay}
         glowEffect={false}

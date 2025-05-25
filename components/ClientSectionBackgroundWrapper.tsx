@@ -10,10 +10,10 @@ const SectionBackground = dynamic(
 );
 
 interface ClientSectionBackgroundWrapperProps {
-  variant?: 'white' | 'light' | 'navy' | 'gold' | 'none';
+  bgVariant?: 'primary' | 'subtle' | 'light' | 'white' | 'dark' | 'transparent' | 'gradient';
   children?: ReactNode;
 }
 
-export default function ClientSectionBackgroundWrapper({ variant, children }: ClientSectionBackgroundWrapperProps) {
-  return <SectionBackground variant={variant}>{children || <div />}</SectionBackground>;
+export default function ClientSectionBackgroundWrapper({ bgVariant, children }: ClientSectionBackgroundWrapperProps) {
+  return <SectionBackground bgVariant={bgVariant}>{children || <div />}</SectionBackground>;
 } 

@@ -351,7 +351,7 @@ export default function About() {
                     <div className="w-3 h-8 bg-gradient-to-b from-[#B08D57] to-[#A17D47] rounded-full mr-4"></div>
                     <h4 className="text-2xl font-bold text-slate-800">Education</h4>
                   </div>
-                  
+
                   <div className="space-y-6">
                     {/* Master's Degree */}
                     <div className="group">
@@ -366,9 +366,9 @@ export default function About() {
                             <ClientImage
                               src="/images/robert-gordon-university-logo-png_seeklogo-341455.png"
                               alt="Robert Gordon University"
-                              width={72}
-                              height={72}
-                              className="w-18 h-18 object-contain group-hover:scale-105 transition-transform duration-300"
+                              width={96}
+                              height={96}
+                              className="w-24 h-24 object-contain group-hover:scale-105 transition-transform duration-300"
                               style={{
                                 filter: 'contrast(1.1) saturate(1.2) brightness(1.05)',
                                 imageRendering: 'crisp-edges'
@@ -411,9 +411,9 @@ export default function About() {
                             <ClientImage
                               src="/images/mcmaster-university-logo-png_seeklogo-90018.png"
                               alt="McMaster University"
-                              width={72}
-                              height={72}
-                              className="w-18 h-18 object-contain group-hover:scale-105 transition-transform duration-300"
+                              width={96}
+                              height={96}
+                              className="w-24 h-24 object-contain group-hover:scale-105 transition-transform duration-300"
                               style={{
                                 filter: 'contrast(1.1) saturate(1.2) brightness(1.05)',
                                 imageRendering: 'crisp-edges'
@@ -590,10 +590,10 @@ export default function About() {
                           <div className="font-bold text-slate-800 text-xl mb-2">Canadian Soccer League</div>
                           <div className="text-[#B08D57] font-semibold text-base mb-1">Brantford Galaxy</div>
                           <div className="text-slate-600 text-sm leading-relaxed">Professional league experience in Canadian competitive soccer</div>
-                        </div>
-                      </div>
-                    </div>
-                    
+                  </div>
+                </div>
+              </div>
+
                     <div className="p-6 bg-white/90 rounded-xl border border-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
                       <div className="flex items-start space-x-4">
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
@@ -611,7 +611,7 @@ export default function About() {
           </div>
         </div>
       </section>
-
+      
       {/* My Commitment to You Section - Full Width */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">

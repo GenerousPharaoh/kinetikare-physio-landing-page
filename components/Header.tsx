@@ -163,7 +163,6 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Services', href: '/services' },
-    { name: 'Blog', href: '/blog' },
     { name: 'FAQ', href: '/faq' },
     { name: 'Contact', href: '/contact' },
   ], []);

@@ -293,7 +293,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
             {/* Logo Section */}
             <Link href="/" className="flex items-center space-x-3 group flex-shrink-0">
               <div className="flex items-center space-x-3">
-                <div className="relative flex items-center" style={{ marginTop: '-1px' }}>
+                <div className="relative flex items-center">
                   <Image
                     src="/images/kinetikare-logo-without-text.png"
                     alt="KinetiKare Logo"
@@ -314,9 +314,11 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   <span className="font-serif text-xl xl:text-2xl text-white tracking-wide font-light">are</span>
                 </div>
               </div>
-              <div className="hidden lg:block w-px h-5 bg-white/20 mx-2"></div>
-              <div className="hidden lg:block text-xs xl:text-sm text-white/70 font-medium">
-                Kareem Hassanein Physiotherapy
+              <div className="hidden lg:block w-px h-5 bg-white/20 mx-3"></div>
+              <div className="hidden lg:flex flex-col justify-center" style={{ marginTop: '2px' }}>
+                <div className="text-xs xl:text-sm text-white/70 font-medium leading-tight">
+                  Kareem Hassanein Physiotherapy
+                </div>
               </div>
             </Link>
 

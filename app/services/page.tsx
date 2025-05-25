@@ -193,31 +193,123 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Insurance Section */}
-      <section className="py-16 bg-gradient-accent text-white relative">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-heading font-bold mb-4 text-white">
-              Insurance Coverage
-            </h2>
-            <div className="w-32 h-0.5 bg-white/60 mx-auto mt-6"></div>
-          </div>
-          
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 shadow-lg max-w-3xl mx-auto text-left border border-white/20">
-            <p className="text-white/90 mb-4 font-medium">
-              Physiotherapy services are covered by most extended health insurance plans. We offer direct billing with many providers, including:
-            </p>
-            <ul className="list-disc list-inside text-white/90 mb-6 space-y-1 font-medium">
-              <li>Green Shield</li>
-              <li>Blue Cross</li>
-              <li>Sun Life</li>
-              <li>Manulife</li>
-              <li>Great-West Life</li>
-              <li>WSIB</li>
-            </ul>
-            <p className="text-white/90">
-              Not sure if your insurance plan covers your treatment? Contact us and we'll help verify your coverage.
-            </p>
+      {/* Insurance Coverage Section - Premium Redesign */}
+      <section className="py-20 bg-gradient-to-br from-slate-50 to-white relative overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#B08D57]/5 to-transparent rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-[#D4AF37]/5 to-transparent rounded-full blur-2xl"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto">
+            {/* Header */}
+            <div className="text-center mb-16">
+              <div className="inline-block px-6 py-2 bg-[#B08D57]/10 text-[#B08D57] text-sm font-medium rounded-full mb-6">
+                Insurance & Billing
+              </div>
+              <h2 className="text-4xl font-bold mb-6 text-primary-800">
+                Insurance Coverage
+              </h2>
+              <div className="w-24 h-1 bg-[#B08D57] mx-auto mb-8"></div>
+              <p className="text-xl text-primary-600 max-w-2xl mx-auto leading-relaxed">
+                Physiotherapy services are covered by most extended health insurance plans
+              </p>
+            </div>
+
+            {/* Main Content */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Left Side - Insurance Providers */}
+              <div className="bg-white rounded-2xl p-8 shadow-lg border border-neutral-200 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#B08D57]/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
+                
+                <div className="relative z-10">
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-xl flex items-center justify-center mr-4 shadow-lg">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-2xl font-bold text-primary-800">
+                      Direct Billing Available
+                    </h3>
+                  </div>
+                  
+                  <p className="text-primary-600 mb-8 leading-relaxed">
+                    We offer direct billing with major insurance providers:
+                  </p>
+                  
+                  <div className="space-y-3 mb-6">
+                    {[
+                      'Canada Life',
+                      'Sun Life', 
+                      'Manulife',
+                      'Green Shield Canada',
+                      'Blue Cross',
+                      'WSIB'
+                    ].map((provider, index) => (
+                      <div key={index} className="flex items-center p-4 bg-gradient-to-r from-slate-50 to-white rounded-xl border border-slate-200/60 hover:shadow-md hover:border-[#B08D57]/20 transition-all duration-300 group">
+                        <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mr-4 flex-shrink-0 group-hover:scale-110 transition-transform duration-300"></div>
+                        <span className="text-primary-700 font-medium text-lg">{provider}</span>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  <div className="bg-gradient-to-r from-[#B08D57]/5 to-[#D4AF37]/5 rounded-xl p-4 border border-[#B08D57]/20">
+                    <div className="flex items-start">
+                      <div className="w-2 h-2 rounded-full bg-[#B08D57] mt-2 mr-3 flex-shrink-0"></div>
+                      <span className="text-primary-700 font-medium">and more</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Side - Coverage Help */}
+              <div className="bg-gradient-to-br from-primary-800 to-slate-800 rounded-2xl p-8 text-white shadow-xl relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#D4AF37]/20 to-transparent rounded-full -translate-y-20 translate-x-20"></div>
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-[#B08D57]/15 to-transparent rounded-full translate-y-16 -translate-x-16"></div>
+                
+                <div className="relative z-10">
+                  <div className="w-16 h-16 bg-[#D4AF37] rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+                    <svg className="w-8 h-8 text-primary-800" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  
+                  <h3 className="text-2xl font-bold mb-4 text-white">
+                    Need Coverage Help?
+                  </h3>
+                  <p className="text-white/90 mb-6 leading-relaxed">
+                    If you're unsure whether we can direct bill your plan, call us and we'll let you know. We're here to help verify your coverage and ensure you get the care you need.
+                  </p>
+                  
+                  <div className="space-y-4 mb-8">
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 rounded-full bg-[#D4AF37] mr-3"></div>
+                      <span className="text-white/90">Free coverage verification</span>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 rounded-full bg-[#D4AF37] mr-3"></div>
+                      <span className="text-white/90">Direct billing when possible</span>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 rounded-full bg-[#D4AF37] mr-3"></div>
+                      <span className="text-white/90">Payment plan options available</span>
+                    </div>
+                  </div>
+                  
+                  <div className="flex flex-col sm:flex-row gap-4 mt-8">
+                    <a
+                      href="tel:+16139007234"
+                      className="inline-flex items-center justify-center px-6 py-3 bg-white/20 hover:bg-white/30 text-white border border-white/30 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                    >
+                      <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                      </svg>
+                      Call for Support
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

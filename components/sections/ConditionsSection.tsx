@@ -15,7 +15,7 @@ const conditions = {
     },
     {
       title: "Sports Injuries",
-      description: "Specialized rehabilitation for athletes of all levels, focusing on rapid recovery and performance optimization.",
+      description: "Comprehensive rehabilitation for athletes of all levels, focusing on rapid recovery and performance optimization.",
     },
     {
       title: "Joint Pain",

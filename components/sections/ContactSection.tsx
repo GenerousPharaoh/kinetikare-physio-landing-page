@@ -1,22 +1,33 @@
 "use client";
 
 import React from 'react';
-import AnimateOnScroll from '../AnimateOnScroll';
+import { motion } from 'framer-motion';
 
 export default function ContactSection() {
   return (
     <section className="py-8 md:py-10" id="contact">
       <div className="container mx-auto px-4">
-        <AnimateOnScroll animation="fade-in" className="text-center mb-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="text-center mb-8"
+        >
           <h2 className="text-3xl md:text-4xl font-bold text-primary-900 mb-4">Get in Touch</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Have questions about our services or want to schedule an appointment? 
             Contact us using the information below.
           </p>
-        </AnimateOnScroll>
+        </motion.div>
 
         <div className="max-w-5xl mx-auto">
-            <AnimateOnScroll animation="fade-in" delay={200}>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
             <div className="bg-white/80 backdrop-blur-sm p-6 md:p-8 rounded-lg shadow-sm mx-auto max-w-xl">
                 <h3 className="text-xl font-semibold text-primary-800 mb-6">Contact Information</h3>
                 
@@ -75,7 +86,7 @@ export default function ContactSection() {
                   </div>
                 </div>
               </div>
-            </AnimateOnScroll>
+          </motion.div>
         </div>
       </div>
     </section>

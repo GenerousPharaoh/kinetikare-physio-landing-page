@@ -57,7 +57,7 @@ const ServiceCard = ({ id, title, description }: ServiceProps) => {
     {
       id: 'sports-injury',
       title: 'Sports Injury Rehab',
-      description: 'Specialized rehabilitation for athletes recovering from sports-related injuries and performance optimization.'
+      description: 'Rehabilitation for athletes recovering from sports injuries, with a focus on safe return to activity and performance enhancement.'
     },
     {
       id: 'exercise-therapy',
@@ -107,8 +107,83 @@ export default function ServicesSection({ onBookLinkClick }: ServicesSectionProp
               {...service} 
             />
           ))}
+        </div>
+        
+        {/* Your Healing Environment - Three Images Section */}
+        <div className="mt-24 mb-16">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl md:text-4xl font-bold text-primary-800 mb-4">
+              Your Healing Environment
+            </h3>
+            <div className="w-24 h-1 bg-[#B08D57] mx-auto rounded-full"></div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* First Image */}
+            <div className="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+              <div className="aspect-[4/3] relative">
+                <Image
+                  src="/images/facebook-image.jpg"
+                  alt="Modern Clinic Building"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  style={{
+                    filter: 'contrast(1.1) saturate(1.2) brightness(1.05)',
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+                <div className="absolute bottom-6 left-4">
+                  <div className="bg-white/95 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg border border-white/50">
+                    <h4 className="text-sm font-bold text-slate-800">Modern Clinic Building</h4>
+                  </div>
+                </div>
               </div>
-              
+            </div>
+            
+            {/* Second Image */}
+            <div className="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+              <div className="aspect-[4/3] relative">
+                <Image
+                  src="/images/clinic-reception-new-may-2025.jpg"
+                  alt="Welcoming Reception Area"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  style={{
+                    filter: 'contrast(1.1) saturate(1.2) brightness(1.05)',
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+                <div className="absolute bottom-6 left-4">
+                  <div className="bg-white/95 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg border border-white/50">
+                    <h4 className="text-sm font-bold text-slate-800">Welcoming Reception Area</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Third Image - Fixed saturation */}
+            <div className="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+              <div className="aspect-[4/3] relative">
+                <Image
+                  src="/images/clinic-room-april-2025.jpg"
+                  alt="Treatment Room"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  style={{
+                    filter: 'contrast(1) saturate(1.05) brightness(1.02)',
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+                <div className="absolute bottom-6 left-4">
+                  <div className="bg-white/95 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg border border-white/50">
+                    <h4 className="text-sm font-bold text-slate-800">Dedicated Treatment Space</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
         <div className="mt-20 max-w-4xl mx-auto text-center bg-white p-10 rounded-xl shadow-lg border border-gray-100">
           <h3 className="text-2xl font-bold text-primary-800 mb-4">
             One-on-One Dedicated Care

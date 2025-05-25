@@ -57,7 +57,7 @@ const formatAnswer = (answer: string) => {
           const formattedParts = parts.map((part, j) => 
             j % 2 === 0 ? 
               part : 
-              <span key={j} className="font-medium text-accent-dark italic">{part}</span>
+              <span key={j} className="font-medium text-primary-600 italic">{part}</span>
           );
           
           return (

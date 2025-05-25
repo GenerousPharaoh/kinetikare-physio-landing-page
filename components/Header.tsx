@@ -7,8 +7,7 @@ import {
   Bars3Icon, 
   XMarkIcon, 
   PhoneIcon, 
-  CalendarDaysIcon, 
-  ChevronDownIcon,
+  CalendarDaysIcon
 } from '@heroicons/react/24/outline'; // Using outline for header icons
 
 import { 
@@ -32,8 +31,6 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [activeItem, setActiveItem] = useState<string | null>(null);
-  const [homeSectionsOpen, setHomeSectionsOpen] = useState(false);
-  const [mobileHomeSectionsOpen, setMobileHomeSectionsOpen] = useState(false);
   const pathname = usePathname();
 
   // Optimize scroll handler with throttling
@@ -66,13 +63,12 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     const handleEscKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         if (mobileMenuOpen) setMobileMenuOpen(false);
-        if (homeSectionsOpen) setHomeSectionsOpen(false);
       }
     };
 
     window.addEventListener('keydown', handleEscKey);
     return () => window.removeEventListener('keydown', handleEscKey);
-  }, [mobileMenuOpen, homeSectionsOpen]);
+  }, [mobileMenuOpen]);
 
   // Optimize scroll handler with throttling
   useEffect(() => {
@@ -165,6 +161,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
   // Define the main navigation items and home sections using useMemo
   const mainNavItems = useMemo(() => [
     { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
     { name: 'Services', href: '/services' },
     { name: 'Blog', href: '/blog' },
     { name: 'FAQ', href: '/faq' },
@@ -173,20 +170,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
 
   // Define sections that exist on the home page with useMemo
   const homeSections = useMemo(() => [
-    { 
-      name: 'About', 
-      href: '/about', 
-      icon: <div className="flex items-center justify-center w-5 h-5 rounded-md bg-gradient-to-br from-primary-600 to-primary-700">
-              <UserIcon className="h-3 w-3 text-white" />
-            </div> 
-    },
-    { 
-      name: 'Testimonials', 
-      href: '/#testimonials', 
-      icon: <div className="flex items-center justify-center w-5 h-5 rounded-md bg-gradient-to-br from-primary-500 to-primary-600">
-              <StarIcon className="h-3 w-3 text-white" />
-            </div> 
-    },
+    // Removed since About is now in main nav
   ], []);
 
   // Memoize animation variants to prevent recreation
@@ -224,8 +208,6 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     // Always close menus
     setIsOpen(false);
     setMobileMenuOpen(false);
-    setHomeSectionsOpen(false);
-    setMobileHomeSectionsOpen(false);
     
     // Call onNavLinkClick if provided (for the parent component to react)
     if (onNavLinkClick) {
@@ -282,378 +264,179 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     zIndex: 100
   }), [scrolled]);
 
-  // Prevent unnecessary re-renders with useMemo for dropdown elements
-  const renderHomeDropdown = useMemo(() => {
-    if (!homeSectionsOpen) return null;
-    
-    return (
-      <motion.div 
-        initial={{ opacity: 0, y: -5 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -5 }}
-        transition={{ duration: 0.2, ease: [0.2, 0.8, 0.2, 1] }}
-        className="absolute top-full left-0 mt-1 bg-white/90 backdrop-blur-lg rounded-xl shadow-lg border border-neutral-100/80 py-3 min-w-[220px] dropdown-menu"
-        style={{ 
-          zIndex: 1000,
-          overflow: 'hidden',
-          transform: 'translateY(0)',
-          boxShadow: '0 14px 40px -12px rgba(0, 0, 0, 0.08), 0 0 1px rgba(0, 0, 0, 0.05)'
-        }}
-      >
-        <Link
-          href="/"
-          onClick={(e) => handleNavClick(e, "/")}
-          className="flex items-center px-4 py-2.5 text-sm text-[#1A2036] hover:bg-neutral-50 transition-colors duration-200"
-        >
-          <div className="flex items-center justify-center w-6 h-6 rounded-lg bg-[#1A2036] mr-3">
-            <HomeIcon className="h-3.5 w-3.5 text-[#D4AF37]" />
-          </div> Home
-        </Link>
-        <div className="h-px bg-neutral-100 my-2 mx-3"></div>
-        {homeSections.map((section) => (
-          <Link
-            key={section.name}
-            href={section.href}
-            onClick={(e) => handleNavClick(e, section.href)}
-            className="flex items-center px-4 py-2.5 text-sm text-[#1A2036] hover:bg-neutral-50 transition-colors duration-200"
-          >
-            <span className="mr-3">{section.icon}</span> {section.name}
-          </Link>
-        ))}
-      </motion.div>
-    );
-  }, [homeSectionsOpen, homeSections, handleNavClick]);
-
   return (
     <header
       ref={ref}
-      className={`fixed w-full top-0 transition-all duration-250 ease-in-out
-        ${scrolled 
-          ? 'py-1.5 xs:py-2' 
-          : 'py-2.5 xs:py-3.5'}
-        ${getHeaderOpacity()} backdrop-blur-lg`}
+      className={`fixed w-full top-0 transition-all duration-300 ease-in-out z-50`}
       style={{
-        ...headerStyle,
-        zIndex: 100
+        transform: 'translateZ(0)',
+        backfaceVisibility: 'hidden',
+        willChange: 'transform, background-color, box-shadow',
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => {
         setIsHovered(false);
         if (!mobileMenuOpen) {
-          setHomeSectionsOpen(false);
+          setIsOpen(false);
         }
       }}
     >
-      {/* Modern gold accent line at top */}
-      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent opacity-60"></div>
-      
-      {/* Enhanced glass effect overlay */}
-      <div className="absolute inset-0 bg-white/30 backdrop-blur-xl -z-10"></div>
-      
-      <div className="container mx-auto px-4 md:px-6 relative">
-        <div className="flex justify-between items-center">
-          <Link href="/" className="flex items-center group">
-            <div className="relative overflow-hidden rounded-xl p-1.5 mr-2">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#1A2036]/0 to-[#1A2036]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="font-serif font-bold text-base xs:text-xl md:text-2xl flex items-center relative">
-                <span className="text-[#1A2036] group-hover:text-[#1A2036] transition-colors duration-500 tracking-tight">KH</span>
-                <span className="mx-1 text-neutral-300">|</span>
-                <span className="text-[#1A2036] group-hover:text-[#1A2036] transition-colors duration-500 tracking-wide font-medium">Physiotherapy</span>
-                
-                {/* Gold animated underline */}
-                <span className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-[#D4AF37]/70 to-[#D4AF37]/90 w-0 group-hover:w-full transition-all duration-500 ease-out"></span>
-              </div>
-            </div>
-          </Link>
-
-          {/* Desktop Navigation - with dropdown for home sections */}
-          <nav className="hidden md:flex items-center justify-center flex-1">
-            <div className="flex items-center space-x-1 lg:space-x-2 bg-white/30 backdrop-blur-sm rounded-xl px-1.5 py-1.5 border border-neutral-100/60 shadow-sm">
-              {/* Main navigation items */}
-              {mainNavItems.map((item) => (
-                <div 
-                  key={item.name}
-                  className="flex items-center relative"
-                  onMouseEnter={() => {
-                    setActiveItem(item.name);
-                    // Only other items will set activeItem, Home item handles its own dropdown
-                    if (item.name !== 'Home' && homeSectionsOpen) {
-                      setHomeSectionsOpen(false);
-                    }
-                  }}
-                  onMouseLeave={() => {
-                    setActiveItem(null);
-                  }}
-                >
-                  {item.name === 'Home' ? (
-                    <div 
-                      className="relative home-dropdown-container" 
-                      style={{ position: 'relative' }}
-                      onMouseEnter={() => {
-                        setHomeSectionsOpen(true);
-                        setActiveItem('Home');
-                      }}
-                      onMouseLeave={() => {
-                        // Use a small delay before closing the menu to make it more forgiving
-                        setTimeout(() => {
-                          if (!document.querySelector('.home-dropdown-container:hover') && 
-                              !document.querySelector('.dropdown-menu:hover')) {
-                            setHomeSectionsOpen(false);
-                            setActiveItem(null);
-                          }
-                        }, 100);
-                      }}
-                    >
-                      <div 
-                        className={`relative px-3.5 lg:px-4.5 py-2.5 rounded-xl transition-all duration-250 
-                          text-sm lg:text-[15px] font-medium cursor-pointer flex items-center gap-1.5 group
-                          ${isCurrentPath(item.href) 
-                            ? 'text-[#1A2036] font-semibold' 
-                            : 'text-[#1A2036] hover:text-[#1A2036]'}`}
-                        onClick={(e) => {
-                          if (pathname === '/') {
-                            setHomeSectionsOpen(!homeSectionsOpen);
-                          } else {
-                            handleNavClick(e as any, item.href);
-                          }
-                        }}
-                        style={{ position: 'relative' }}>
-                        <span className="relative z-10">Home</span>
-                        <ChevronDownIcon 
-                          className={`h-4 w-4 transition-transform duration-250 ${homeSectionsOpen ? 'rotate-180' : ''}`} 
-                        />
-                        
-                        {/* Animated background on hover and active states */}
-                        {(isCurrentPath(item.href) || activeItem === item.name || homeSectionsOpen) && (
-                          <motion.span 
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            className="absolute inset-0 bg-white/80 rounded-xl -z-0"
-                          ></motion.span>
-                        )}
-                        
-                        {/* Gold underline indicator with animation */}
-                        <span className={`absolute bottom-1 left-0 right-0 h-0.5 mx-3 bg-[#D4AF37] rounded-full 
-                          transform origin-left transition-all duration-250 ease-out 
-                          ${homeSectionsOpen || isCurrentPath(item.href) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}>
-                        </span>
-                      </div>
-                      
-                      {/* Dropdown for Home Sections with AnimatePresence for animation */}
-                      <AnimatePresence>
-                      {renderHomeDropdown}
-                      </AnimatePresence>
-                    </div>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      onClick={(e) => handleNavClick(e, item.href)}
-                      className={`relative px-3.5 lg:px-4.5 py-2.5 rounded-xl transition-all duration-250
-                          text-sm lg:text-[15px] font-medium cursor-pointer flex items-center gap-1.5 group
-                          ${isCurrentPath(item.href) 
-                            ? 'text-[#1A2036] font-semibold' 
-                            : 'text-[#1A2036] hover:text-[#1A2036]'}`}
-                    >
-                      <span className="relative z-10">{item.name}</span>
-                      
-                      {/* Animated background on hover and active states */}
-                      {(isCurrentPath(item.href) || activeItem === item.name) && (
-                        <motion.span 
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          className="absolute inset-0 bg-white/80 rounded-xl -z-0"
-                        ></motion.span>
-                      )}
-                      
-                      {/* Gold underline indicator with animation */}
-                      <span className={`absolute bottom-1 left-0 right-0 h-0.5 mx-3 bg-[#D4AF37] rounded-full 
-                        transform origin-left transition-all duration-250 ease-out 
-                        ${isCurrentPath(item.href) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}>
-                      </span>
-                    </Link>
-                  )}
+      {/* Single Unified Navigation Bar */}
+      <div className={`relative w-full bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 backdrop-blur-xl shadow-2xl transition-all duration-300 ${scrolled ? 'shadow-3xl' : ''}`}>
+        
+        {/* Premium golden accent line */}
+        <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-amber-400 to-transparent opacity-90"></div>
+        
+        <div className="container mx-auto px-6 relative">
+          <div className="flex items-center justify-between h-16">
+            
+            {/* Logo Section */}
+            <Link href="/" className="flex items-center space-x-3 group flex-shrink-0">
+              <div className="flex items-center space-x-3">
+                <div className="relative flex items-center" style={{ marginTop: '-1px' }}>
+                  <Image
+                    src="/images/kinetikare-logo-without-text.png"
+                    alt="KinetiKare Logo"
+                    width={28}
+                    height={28}
+                    className="w-7 h-7 object-contain transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"
+                    style={{
+                      filter: 'contrast(1.2) saturate(1.3) brightness(1.1) drop-shadow(0 1px 3px rgba(255, 255, 255, 0.1))',
+                      imageRendering: 'crisp-edges'
+                    }}
+                  />
+                  {/* Subtle glow effect */}
+                  <div className="absolute inset-0 w-7 h-7 bg-white/10 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-              ))}
-            </div>
-          </nav>
+                <div className="flex items-center">
+                  <span className="font-serif text-xl xl:text-2xl text-white tracking-wide font-light">Kineti</span>
+                  <span className="font-serif text-xl xl:text-2xl text-white/90 tracking-wide font-semibold">K</span>
+                  <span className="font-serif text-xl xl:text-2xl text-white tracking-wide font-light">are</span>
+                </div>
+              </div>
+              <div className="hidden lg:block w-px h-5 bg-white/20 mx-2"></div>
+              <div className="hidden lg:block text-xs xl:text-sm text-white/70 font-medium">
+                Kareem Hassanein Physiotherapy
+              </div>
+            </Link>
 
-          {/* Desktop Call-to-Action */}
-          <div className="hidden md:flex items-center gap-3 lg:gap-4 h-12">
-            <div>
+            {/* Navigation */}
+            <nav className="hidden lg:flex items-center space-x-4 xl:space-x-8 flex-shrink-0">
+              {mainNavItems.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
+                  className={`relative text-sm font-medium tracking-wide transition-all duration-300 py-2 group whitespace-nowrap
+                    ${isCurrentPath(item.href) 
+                      ? 'text-amber-400 font-semibold' 
+                      : 'text-white hover:text-amber-300'}`}
+                >
+                  {item.name}
+                  
+                  {/* Underline indicator */}
+                  <span className={`absolute bottom-0 left-0 right-0 h-0.5 bg-amber-400 transform origin-left transition-all duration-300
+                    ${isCurrentPath(item.href) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}>
+                  </span>
+                </Link>
+              ))}
+            </nav>
+
+            {/* Action Buttons */}
+            <div className="flex items-center space-x-3 xl:space-x-4 flex-shrink-0">
               <Link
                 href="tel:+19056346000"
-                className="flex items-center text-sm font-medium transition-all duration-250 py-2 px-3.5 lg:px-4.5 
-                  rounded-xl hover:scale-105 h-10 whitespace-nowrap
-                  text-[#1A2036] hover:text-[#1A2036] bg-white/60 backdrop-blur-sm border border-neutral-200/80 hover:shadow-sm
-                  hover:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/30 group"
-                aria-label="Call Now"
+                className="hidden lg:flex items-center text-sm font-medium tracking-wide text-white/80 hover:text-white transition-colors duration-300 whitespace-nowrap"
               >
-                <div className="flex items-center justify-center w-6 h-6 rounded-full bg-[#1A2036] text-[#D4AF37] mr-2 group-hover:scale-110 transition-transform">
-                  <PhoneIcon className="h-3.5 w-3.5" />
-                </div>
-                <span className="hidden lg:inline">905-634-6000</span>
-                <span className="lg:hidden">Call</span>
+                <PhoneIcon className="h-4 w-4 xl:mr-2" />
+                <span className="hidden xl:inline">905-634-6000</span>
               </Link>
-            </div>
 
-            <div>
+              {/* Phone icon for smaller screens */}
+              <Link
+                href="tel:+19056346000"
+                className="lg:hidden p-2.5 bg-white/10 hover:bg-white/20 text-white hover:text-amber-300 rounded-lg transition-all duration-300 border border-white/20"
+              >
+                <PhoneIcon className="h-4 w-4" />
+              </Link>
+
               <Link
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gradient-to-br from-[#1A2036] to-[#252E4A] text-[#D4AF37] hover:bg-gradient-to-br hover:from-[#D4AF37] hover:to-[#C8A52E] hover:text-[#1A2036] text-sm font-medium px-3.5 lg:px-4.5 py-2 rounded-xl 
-                  shadow-sm hover:shadow-md transition-all duration-250 
-                  flex items-center gap-1.5 h-10 whitespace-nowrap border border-transparent 
-                  hover:scale-105 group relative overflow-hidden
-                  focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/30"
-                style={{ transform: 'translateZ(0)' }}
+                className="bg-amber-500 hover:bg-amber-400 text-slate-900 text-sm font-semibold tracking-wide px-3 xl:px-5 py-2.5 rounded-lg transition-all duration-300 flex items-center gap-2 whitespace-nowrap shadow-lg hover:shadow-xl"
               >
-                <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-250"></div>
-                <div className="flex items-center justify-center w-6 h-6 rounded-full bg-white/20 group-hover:bg-white/30 transition-colors duration-250 group-hover:scale-110">
-                  <CalendarDaysIcon className="h-3.5 w-3.5" />
-                </div>
-                <span>Book Online</span>
+                <CalendarDaysIcon className="h-4 w-4" />
+                <span className="hidden sm:inline">Book Appointment</span>
+                <span className="sm:hidden">Book</span>
               </Link>
+
+              {/* Mobile Menu Button */}
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                type="button"
+                className="lg:hidden p-2 text-white hover:text-amber-300 transition-colors duration-300"
+              >
+                {mobileMenuOpen ? (
+                  <XMarkIcon className="h-6 w-6" />
+                ) : (
+                  <Bars3Icon className="h-6 w-6" />
+                )}
+              </button>
             </div>
           </div>
-
-          {/* Mobile Menu Button */}
-          <div className="flex md:hidden ml-auto">
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              type="button"
-              className="p-2 rounded-xl focus:outline-none transition-all duration-200
-                bg-white/60 backdrop-blur-sm border border-neutral-100/80 shadow-sm 
-                text-[#1A2036] hover:text-[#1A2036] hover:bg-white/80 hover:shadow-md hover:scale-105
-                focus:ring-2 focus:ring-[#D4AF37]/30"
-              aria-controls="mobile-menu"
-              aria-expanded={mobileMenuOpen}
-              style={{ transform: 'translateZ(0)' }}
-            >
-              <span className="sr-only">Open main menu</span>
-              {mobileMenuOpen ? (
-                <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
-              ) : (
-                <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
-              )}
-            </button>
-          </div>
         </div>
+        
+        {/* Bottom accent line */}
+        <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-amber-400/60 to-transparent"></div>
       </div>
 
-      {/* Mobile Menu with AnimatePresence for smooth animation */}
+      {/* Mobile Menu */}
       <AnimatePresence>
       {mobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: [0.2, 0.8, 0.2, 1] }}
-          id="mobile-menu"
-            className="md:hidden fixed left-0 right-0 max-h-[calc(100vh-var(--header-height,60px))] overflow-y-auto bg-white/95 backdrop-blur-xl shadow-lg border-b border-neutral-100"
-          style={{ 
-            position: 'fixed', 
-            top: 'var(--header-height, 70px)', 
-            zIndex: 99
-          }}
+            transition={{ duration: 0.3 }}
+            className="lg:hidden bg-slate-900/95 backdrop-blur-xl border-b border-amber-400/30"
         >
-            <div className="px-4 py-3 space-y-1">
-              {/* Home with dropdown toggle for sections */}
-              <div className="mb-2">
-                <motion.div
-                  whileTap={{ scale: 0.98 }}
-                  className={`flex justify-between items-center px-4 py-3.5 rounded-xl text-base font-medium 
-                    hover:bg-white/80 transition-all duration-200 cursor-pointer 
-                    ${pathname === '/' 
-                      ? 'text-[#1A2036] font-semibold bg-white/80 border-l-2 border-[#D4AF37]' 
-                      : 'text-[#1A2036] hover:text-[#1A2036]'}`}
-                  onClick={() => setMobileHomeSectionsOpen(!mobileHomeSectionsOpen)}
+            <div className="px-6 py-4 space-y-1">
+              {mainNavItems.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
+                  className={`block px-4 py-3 rounded-lg text-base font-medium tracking-wide transition-all duration-300
+                    ${isCurrentPath(item.href) 
+                      ? 'text-amber-400 bg-amber-400/10 font-semibold' 
+                      : 'text-white hover:bg-white/5 hover:text-amber-300'}`}
                 >
-                  <div className="flex items-center">
-                    <span>Home</span>
-                  </div>
-                  <ChevronDownIcon 
-                    className={`h-5 w-5 transition-transform duration-250 ${mobileHomeSectionsOpen ? 'rotate-180' : ''}`} 
-                  />
-                </motion.div>
-                
-                {/* Collapsible home sections with animation */}
-                <AnimatePresence>
-                {mobileHomeSectionsOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.25, ease: [0.2, 0.8, 0.2, 1] }}
-                      className="pl-4 ml-4 border-l border-neutral-100 mt-1 mb-2 overflow-hidden"
-                  >
-                    <Link
-                      href="/"
-                      onClick={(e) => handleNavClick(e, "/")}
-                        className="flex items-center px-4 py-3 rounded-xl text-[#1A2036] hover:bg-white/80 text-sm font-medium"
-                    >
-                        <div className="flex items-center justify-center w-6 h-6 rounded-lg bg-[#1A2036] mr-2.5">
-                          <HomeIcon className="h-3.5 w-3.5 text-[#D4AF37]" />
-                      </div> Home Page
-                    </Link>
-                    {homeSections.map((section) => (
-                      <Link
-                        key={section.name}
-                        href={section.href}
-                        onClick={(e) => handleNavClick(e, section.href)}
-                          className="flex items-center px-4 py-3 rounded-xl text-[#1A2036] hover:bg-white/80 text-sm font-medium"
-                      >
-                          <span className="mr-2.5">{section.icon}</span> {section.name}
-                      </Link>
-                    ))}
-                    </motion.div>
-                )}
-                </AnimatePresence>
-              </div>
-              
-              {/* Other main nav items without Home */}
-              {mainNavItems.filter(item => item.name !== 'Home').map((item) => (
-                <div key={item.name}>
-                  <Link
-                    href={item.href}
-                    onClick={(e) => handleNavClick(e, item.href)}
-                    className={`flex items-center px-4 py-4 rounded-xl text-base font-medium 
-                      hover:bg-white/80 active:bg-white/80 transition-all duration-200
-                      ${isCurrentPath(item.href) 
-                        ? 'text-[#1A2036] font-semibold bg-white/80 border-l-2 border-[#D4AF37]' 
-                        : 'text-[#1A2036] hover:text-[#1A2036]'}`}
-                  >
-                    {item.name}
-                  </Link>
-                </div>
+                  {item.name}
+                </Link>
               ))}
             </div>
             
-            <div className="flex items-center gap-3 mt-5 py-3 px-4">
-              <Link
-                href="tel:+19056346000"
-                className="flex-1 flex items-center justify-center gap-2 px-3 py-3.5 bg-white text-[#1A2036] rounded-xl text-base font-medium border border-neutral-100 hover:border-neutral-300 hover:shadow-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/30 group"
-                style={{ transform: 'translateZ(0)' }}
-              >
-                <div className="w-8 h-8 flex items-center justify-center rounded-full bg-gradient-to-br from-[#1A2036] to-[#252E4A] group-hover:scale-110 transition-transform">
-                  <PhoneIcon className="h-4 w-4 text-[#D4AF37]" />
-                </div>
-                <span>Call Now</span>
-              </Link>
-              <Link
-                href="https://endorphinshealth.janeapp.com/#/staff_member/42"
-                target="_blank"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex-1 flex items-center justify-center gap-2 px-3 py-3.5 bg-gradient-to-br from-[#1A2036] to-[#252E4A] text-[#D4AF37] rounded-xl text-base font-medium border border-neutral-100 shadow-sm hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/30 group"
-                style={{ transform: 'translateZ(0)' }}
-              >
-                <div className="w-8 h-8 flex items-center justify-center rounded-full bg-white/20 group-hover:scale-110 transition-transform">
-                  <CalendarDaysIcon className="h-4 w-4" />
-                </div>
-                <span>Book</span>
-              </Link>
+            <div className="px-6 pb-4 border-t border-white/10 pt-4">
+              <div className="flex gap-3">
+                <Link
+                  href="tel:+19056346000"
+                  className="flex items-center justify-center gap-2 py-3 px-4 bg-white/10 text-white rounded-lg font-semibold tracking-wide border border-white/20 hover:bg-white/15 transition-all duration-300"
+                >
+                  <PhoneIcon className="h-5 w-5" />
+                  Call
+                </Link>
+                
+                <Link
+                  href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                  target="_blank"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex-1 flex items-center justify-center gap-2 py-3 bg-amber-500 text-slate-900 rounded-lg font-semibold tracking-wide shadow-lg"
+                >
+                  <CalendarDaysIcon className="h-5 w-5" />
+                  Book Appointment
+                </Link>
+              </div>
             </div>
           </motion.div>
       )}

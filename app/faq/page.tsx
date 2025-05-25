@@ -147,7 +147,7 @@ const faqCategories: FAQCategory[] = [
     questions: [
       {
         question: 'Can I bring someone with me to my appointment?',
-        answer: 'Absolutely. If having a partner, friend, or family member present helps you feel more comfortable or supported, they are welcome to join you. Please just let me know when you book your appointment.'
+        answer: 'Absolutely. If having a partner, friend, family member, or primary caregiver present helps you feel more comfortable or supported, they are welcome to join you. This can be especially helpful for those who may need assistance with communication, understanding treatment instructions, or simply prefer having additional support during their healthcare journey. Please just let me know when you book your appointment.'
       },
       {
         question: 'What is your cancellation policy?',
@@ -217,21 +217,17 @@ export default function FAQPage() {
   if (!isMounted) {
     return (
       <main className="min-h-screen flex flex-col text-primary-700 bg-white">
-        {/* Hero Section */}
-        <section className="bg-primary-50 text-primary-800 py-10 pt-20 relative border-b border-neutral-200">
-          <div className="container mx-auto px-4 relative z-10 flex flex-col items-center">
-            <div className="text-center max-w-3xl">
-              <h1 className="text-4xl md:text-5xl font-heading font-bold mb-5">
-                Frequently Asked <span className="text-[#B08D57]">Questions</span>
-              </h1>
-              <p className="text-lg text-primary-600 max-w-2xl mx-auto">
-                Find answers to common questions about physiotherapy services and what to expect during your visits
-              </p>
-            </div>
+        {/* Content */}
+        <div className="container mx-auto px-4 py-8 pt-24">
+          {/* Page Title */}
+          <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-5xl font-heading font-bold mb-5 text-primary-800">
+              Frequently Asked <span className="text-[#B08D57]">Questions</span>
+            </h1>
+            <p className="text-lg text-primary-600 max-w-2xl mx-auto">
+              Find answers to common questions about physiotherapy services and what to expect during your visits
+            </p>
           </div>
-          <div className="absolute bottom-0 left-0 w-full h-1 bg-[#B08D57] opacity-20"></div>
-        </section>
-        <div className="container mx-auto px-4 py-12">
           <div className="h-[600px] flex items-center justify-center">
             <div className="text-center">Loading FAQ content...</div>
           </div>
@@ -242,23 +238,18 @@ export default function FAQPage() {
 
   return (
     <main className="min-h-screen flex flex-col text-primary-700 bg-white">
-      {/* Hero Section */}
-      <section className="bg-primary-50 text-primary-800 py-10 pt-20 relative border-b border-neutral-200">
-        <div className="container mx-auto px-4 relative z-10 flex flex-col items-center">
-          <div className="text-center max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-heading font-bold mb-5">
-              Frequently Asked <span className="text-[#B08D57]">Questions</span>
-            </h1>
-            <p className="text-lg text-primary-600 max-w-2xl mx-auto">
-              Find answers to common questions about physiotherapy services and what to expect during your visits
-            </p>
-          </div>
-        </div>
-        <div className="absolute bottom-0 left-0 w-full h-1 bg-[#B08D57] opacity-20"></div>
-      </section>
-      
       {/* Content */}
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-8 pt-24">
+        {/* Page Title */}
+        <div className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-5 text-primary-800">
+            Frequently Asked <span className="text-[#B08D57]">Questions</span>
+          </h1>
+          <p className="text-lg text-primary-600 max-w-2xl mx-auto">
+            Find answers to common questions about physiotherapy services and what to expect during your visits
+          </p>
+        </div>
+        
         {/* Enhanced search bar */}
         <div className="max-w-2xl mx-auto mb-12 relative z-10">
           <div className="bg-white/90 backdrop-blur-sm shadow-lg rounded-xl p-3 border border-neutral-200">

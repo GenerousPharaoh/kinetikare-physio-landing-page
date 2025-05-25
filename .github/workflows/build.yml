@@ -1,0 +1,51 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+      
+      - name: Lint
+        run: npm run lint || true
+      
+      - name: Build
+        run: npm run build
+      
+      - name: Check for build errors
+        run: |
+          if [ ! -d ".next" ]; then
+            echo "Build directory .next not found"
+            exit 1
+          fi
+          
+          # Check for critical build files
+          if [ ! -f ".next/BUILD_ID" ]; then
+            echo "BUILD_ID file not found in .next directory"
+            exit 1
+          fi
+          
+          echo "Build succeeded!"
+      
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-output
+          path: .next/
+          retention-days: 7 

@@ -67,11 +67,11 @@ const formatAnswer = (answer: string) => {
           );
         }
         
-        // Highlight key phrases like "assessment" with accent color, "Yes" with accent background
+        // Handle "Yes" answers with more subtle formatting (no color change)
         if (paragraph.trim().startsWith("Yes")) {
           return (
-            <p key={i} className="text-primary-600 leading-relaxed pl-3 border-l-2 border-accent">
-              <span className="font-medium text-accent-dark">Yes. </span>
+            <p key={i} className="text-primary-600 leading-relaxed pl-3 border-l-2 border-neutral-300">
+              <span className="font-medium">Yes. </span>
               {decodeHtmlEntities(paragraph.substring(4))}
             </p>
           );
@@ -88,7 +88,7 @@ const formatAnswer = (answer: string) => {
           );
         }
         
-        // Highlight conversation, assessment, plan type of words
+        // Highlight key terms with consistent styling
         const keyTerms = ["Conversation:", "Assessment:", "Plan:", "I Reassess Thoroughly:", "We Adjust the Strategy:", "I Collaborate and Advocate:", "Listening Attentively:", "Communicating Clearly & Honestly:", "Empowering You:"];
         for (const term of keyTerms) {
           if (paragraph.includes(term)) {
@@ -98,7 +98,7 @@ const formatAnswer = (answer: string) => {
             for (let j = 0; j < parts.length; j++) {
               if (j > 0) {
                 formattedParts.push(
-                  <span key={`term-${j}`} className="font-semibold text-accent-dark">{term} </span>
+                  <span key={`term-${j}`} className="font-semibold text-primary-800">{term} </span>
                 );
               }
               if (parts[j]) {

@@ -68,10 +68,10 @@ const SectionBackground = ({
   // Section spacing
   const spacingClasses = {
     none: 'py-0',
-    small: 'py-0',
-    normal: 'py-0',
-    large: 'py-0',
-    xlarge: 'py-0'
+    small: 'py-8',
+    normal: 'py-16',
+    large: 'py-24',
+    xlarge: 'py-32'
   };
 
   // Pattern file based on variant
@@ -217,7 +217,7 @@ const SectionBackground = ({
     >
       {/* Top divider */}
       {hasDividerTop && (
-        <div
+        <div 
           className="absolute top-0 left-0 right-0 overflow-hidden z-10 pointer-events-none"
           dangerouslySetInnerHTML={{
             __html: getDividerPath(dividerShape, true),
@@ -225,7 +225,7 @@ const SectionBackground = ({
           style={{ transform: 'translateY(-98%)' }}
         />
       )}
-
+      
       {/* Optional background pattern overlay */}
       {patternOverlay && (
         <div
@@ -241,7 +241,7 @@ const SectionBackground = ({
           />
         </div>
       )}
-
+      
       {/* Optional texture overlay */}
       {texture !== 'none' && (
         <BackgroundTexture 

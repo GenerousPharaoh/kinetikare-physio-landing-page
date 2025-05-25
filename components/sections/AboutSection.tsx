@@ -7,6 +7,7 @@ import Link from 'next/link';
 // import { GraduationCap, Award, Heart, Store } from 'lucide-react';
 import { AcademicCapIcon, TrophyIcon, HeartIcon, BuildingStorefrontIcon } from '@heroicons/react/24/solid';
 import { FaGraduationCap, FaCertificate, FaHeartbeat, FaUsers } from 'react-icons/fa';
+import { LightBulbIcon, UserGroupIcon, AdjustmentsHorizontalIcon } from '@heroicons/react/24/outline';
 // import { motion } from 'framer-motion';
 import SectionHeading from '../ui/SectionHeading';
 import IconBadge from '../ui/IconBadge';
@@ -20,47 +21,66 @@ export default function AboutSection() {
       icon: FaGraduationCap,
       title: 'Education',
       items: [
-        'Master of Science in Physical Therapy',
-        'Bachelor of Science in Kinesiology'
+        'MSc Physiotherapy (Distinction), Robert Gordon University',
+        'BSc Kinesiology (Honours), McMaster University'
+      ],
+      logos: [
+        {
+          src: "/images/robert-gordon-university-logo-png_seeklogo-341455.png",
+          alt: "Robert Gordon University Logo",
+          link: "https://www.rgu.ac.uk/"
+        },
+        {
+          src: "/images/mcmaster-university-logo-png_seeklogo-90018.png",
+          alt: "McMaster University Logo",
+          link: "https://www.mcmaster.ca/"
+        }
       ]
     },
     {
       id: 'certification',
       icon: FaCertificate,
-      title: 'Certifications',
+      title: 'Advanced Certifications',
       items: [
-        'Advanced Manual & Manipulative Therapy (CAMPT) - Level 2 Upper and Lower Quadrant',
+        'FCAMPT Level 2 (Manual & Manipulative Therapy)',
         'Certified Dry Needling Practitioner',
       ]
     },
     {
       id: 'experience',
       icon: FaHeartbeat,
-      title: 'Experience',
+      title: 'Experience & Athletic Background',
       items: [
-        '5+ years of clinical experience',
-        'Treating a wide range of musculoskeletal conditions'
+        '5+ years clinical practice',
+        '6,000+ hours personal training',
+        'Former Assistant Fitness Manager, GoodLife Fitness',
+        'Semi-professional soccer (Cove Rangers, Scotland)',
+        'Canadian Soccer League (Brantford Galaxy)'
       ]
     },
     {
       id: 'affiliations',
       icon: FaUsers,
-      title: 'Affiliations',
-      items: [
-        'Canadian Physiotherapy Association',
-        'Orthopaedic Division of CPA',
-        'Canadian Academy of Manipulative Physiotherapy'
+      title: 'Professional Affiliations',
+      items: [],
+      logos: [
+        {
+          src: "/images/canadian-physio-association-logo.png",
+          alt: "Canadian Physiotherapy Association",
+          link: "https://physiotherapy.ca/"
+        },
+        {
+          src: "/images/college-of-physiotherapists-of-ontario-logo.webp",
+          alt: "College of Physiotherapists of Ontario",
+          link: "https://collegept.org/"
+        },
+        {
+          src: "/images/endorphins-health-and-wellness-centre-logo.png",
+          alt: "Endorphins Health & Wellness Centre",
+          link: "https://endorphinshealth.com/"
+        }
       ]
     }
-  ];
-
-  const listItems = [
-    'Manual therapy & joint mobilization',
-    'Soft tissue release techniques',
-    'Exercise prescription & rehabilitation',
-    'Pain management strategies',
-    '5 years of clinical experience',
-    'Personalized treatment plans'
   ];
 
   const credentials = [
@@ -70,234 +90,274 @@ export default function AboutSection() {
   ];
 
   return (
-    <section id="about" className="relative overflow-hidden py-10 md:py-12 lg:py-14 section-bg-primary">
-      {/* Subtle texture background */}
-      <div 
-        className="absolute inset-0 opacity-[0.04] bg-texture-grid" 
-      ></div>
+    <section id="about" className="py-24 bg-white relative">
+      <div className="absolute inset-0 bg-pattern-grid opacity-[0.03]"></div>
       
-      {/* Enhanced subtle background elements */}
-      <div className="absolute top-[20%] right-[10%] w-[600px] h-[600px] rounded-full bg-accent/5 blur-[180px] opacity-60"></div>
-      <div className="absolute bottom-[20%] left-[5%] w-[500px] h-[500px] rounded-full bg-accent-light/5 blur-[150px] opacity-50"></div>
-      
-      <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center mb-16 md:mb-20">
-          {/* Premium section heading with improved typography */}
-          <h2 className="font-heading text-4xl md:text-5xl lg:text-5xl font-bold text-white tracking-tight relative inline-block mb-4 leading-tight">
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center mb-16">
+          <div className="inline-block px-3 py-1 bg-[#B08D57]/10 text-[#B08D57] text-sm font-medium rounded-full mb-4">
             About Kareem
-          </h2>
-          <div className="relative mt-4 flex justify-center">
-            {/* Refined gold accent */}
-            <div className="h-[3px] w-[80px] bg-accent rounded-full overflow-hidden">
-              <div className="absolute inset-0 w-full bg-gradient-to-r from-accent-light via-accent to-accent-light animate-pulse-slow"></div>
-            </div>
           </div>
-          <p className="font-sans text-lg text-white font-medium mx-auto leading-relaxed mt-6 max-w-2xl">
-            A dedicated professional committed to your optimal health and recovery
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-800 mb-6">
+            A Journey of Experience and Empathy
+          </h2>
+          <p className="text-lg text-primary-600 max-w-2xl mx-auto">
+            The fusion of professional expertise and personal experience that shapes my approach to physiotherapy
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center max-w-6xl mx-auto relative z-10">
-          {/* Image column with premium styling */}
-          <div className="relative order-2 md:order-1">
-            {/* Premium frame with subtle accents */}
-            <div className="absolute -bottom-4 -right-4 w-2/3 h-2/3 border-r-2 border-b-2 border-accent/30 rounded-br-lg"></div>
-            
-            {/* Main profile image with enhanced container */}
-            <div className="relative overflow-hidden rounded-xl shadow-medium bg-white w-full max-w-lg mx-auto transition-all duration-500 hover:shadow-lg group">
-              <div className="p-2 md:p-3 border border-neutral-100">
-                <div className="relative overflow-hidden rounded-lg">
-                  <Image
-                    src="/images/kareem-profile.png"
-                    alt="Kareem Hassanein - Professional Physiotherapist"
-                    width={500}
-                    height={600}
-                    className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                    sizes="(max-width: 640px) 90vw, (max-width: 768px) 40vw, 500px"
-                  />
-                  {/* Subtle gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary-900/30 to-transparent opacity-60"></div>
-                </div>
-              </div>
-              {/* Decorative accent */}
-              <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent"></div>
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center mb-20">
+          {/* Image column - significantly reduced size */}
+          <div className="lg:col-span-2 relative max-w-sm mx-auto lg:max-w-md">
+            <div className="bg-white rounded-lg shadow-xl p-3 relative z-10">
+              <Image
+                src="/images/kareem-profile.png"
+                alt="Kareem Hassanein - Professional Physiotherapist"
+                width={320}
+                height={380}
+                className="w-full h-auto rounded-lg"
+              />
             </div>
+            <div className="absolute -bottom-4 -right-4 w-2/3 h-1/3 border-r-2 border-b-2 border-[#B08D57]/30 rounded-br-lg"></div>
+            <div className="absolute -top-4 -left-4 w-1/3 h-1/3 border-l-2 border-t-2 border-[#B08D57]/30 rounded-tl-lg"></div>
           </div>
-
-          {/* Content column with premium card styling */}
-          <div className="bg-white p-8 md:p-10 rounded-xl shadow-medium border border-neutral-100/80 order-1 md:order-2 hover:shadow-lg transition-all duration-300 relative">
-            {/* Professional badge with improved styling */}
-            <div className="inline-block px-5 py-2 bg-primary-800 text-accent rounded-full text-sm font-medium mb-8 shadow-sm">
-              Professional Physiotherapist
-            </div>
-            
-            {/* Enhanced quote styling */}
-            <div className="mb-8 relative">
-              <p className="font-heading text-xl md:text-2xl italic text-primary-700 pl-4 tracking-tight">
-                <span className="absolute top-0 left-0 text-3xl text-accent -mt-2">&ldquo;</span>
-                Personalized care for optimal recovery
-                <span className="text-3xl text-accent inline-block ml-1">&rdquo;</span>
-              </p>
-            </div>
-            
-            {/* Heading with elegant underline */}
-            <h3 className="font-heading text-2xl md:text-3xl font-bold text-primary-800 mb-8 relative inline-block tracking-tight leading-tight">
-              Your Path to Optimal Health
-              <span className="absolute -bottom-2 left-0 w-full max-w-[180px] h-[3px] bg-gradient-to-r from-accent/80 to-accent-light/50 rounded-full"></span>
+          
+          {/* Content column */}
+          <div className="lg:col-span-3">
+            <h3 className="text-2xl font-bold text-primary-800 mb-6 relative inline-block pb-2">
+              A Different Approach to Care
+              <span className="absolute bottom-0 left-0 w-24 h-1 bg-[#B08D57]"></span>
             </h3>
             
-            {/* Content with improved typography and spacing */}
-            <div className="space-y-5 text-primary-600 font-sans leading-relaxed">
+            <div className="prose prose-lg max-w-none prose-headings:font-heading prose-headings:text-primary-800 prose-p:text-primary-700 prose-p:leading-relaxed mb-8">
               <p>
-                Providing expert physiotherapy care in Burlington and Waterdown. My approach focuses on individualized treatment plans to help you achieve your health and performance goals.
+                Behind every treatment plan is a physiotherapist who has stood in your shoes. My journey into physiotherapy was forged through personal experience—from competitive soccer and a Kinesiology degree at McMaster to navigating my own significant injuries, including debilitating disc herniations.
               </p>
+
+              <blockquote className="italic border-l-4 border-[#B08D57] pl-4 py-2 my-6">
+                Having sat on both sides of the treatment table, I recognize the profound difference between being processed through a system and being truly understood.
+              </blockquote>
+
               <p>
-                I bring advanced manual therapy skills, evidence-based treatment approaches, and a passion for helping people overcome pain and movement limitations. My approach focuses on identifying the root cause of your issues, not just treating symptoms.
-              </p>
-              <p>
-                Building on extensive experience, including several years dedicatedly serving the Waterdown community, 
-                my focus is always on achieving the best possible outcomes for my patients. 
-              </p>
-              <p>
-                Whether you&apos;re recovering from an injury, managing chronic pain, or seeking to optimize 
-                your physical performance, I&apos;m committed to helping you achieve your health goals through 
-                dedicated one-on-one care.
+                My practice is built on firsthand experience—both as a clinician and a patient who has navigated the frustrations of an impersonal healthcare system. I don't subscribe to high-volume, prescriptive protocols; instead, I focus on individualized care with plans tailored to your unique needs.
               </p>
             </div>
             
-            {/* Modern credential tags */}
-            <div className="flex flex-wrap gap-3 mt-10">
-              {credentials.map((credential, index) => (
-                <span 
-                  key={index} 
-                  className="px-4 py-2 bg-primary-800/90 text-white rounded-lg text-sm font-medium shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow inline-flex items-center"
-                >
-                  <span className="w-2 h-2 rounded-full bg-accent mr-2"></span>
-                  {credential}
-                </span>
-              ))}
-            </div>
-            
-            {/* Premium CTA button */}
-            <div className="mt-10">
+            <div className="flex gap-4">
               <Link
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-accent to-accent-dark text-primary-900 font-medium rounded-lg transition-all duration-300 shadow-sm hover:shadow hover:-translate-y-1 relative overflow-hidden group"
+                className="bg-[#B08D57] hover:bg-[#C9A769] text-white font-medium py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center transform hover:-translate-y-1"
               >
-                <span className="relative z-10">Book a Consultation</span>
-                <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+                Contact Kareem
+              </Link>
+
+              <Link
+                href="/about"
+                className="bg-white text-primary-800 hover:bg-gray-50 border border-primary-800/20 font-medium py-3 px-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex items-center justify-center transform hover:-translate-y-1"
+              >
+                Full Professional Biography
               </Link>
             </div>
           </div>
         </div>
         
-        {/* Qualifications Section with premium card styling */}
-        <div className="mt-24 max-w-6xl mx-auto relative z-10"> 
-          {/* Premium section heading */}
-          <div className="text-center mb-12">
-            <h3 className="font-heading text-3xl font-bold text-white tracking-tight relative inline-block leading-tight">
-              Qualifications
-            </h3>
-            <div className="relative mt-4 flex justify-center">
-              <div className="h-[2px] w-[60px] bg-accent rounded-full"></div>
+        {/* Clinic images section */}
+        <div className="mb-20">
+          <h3 className="text-3xl font-bold text-primary-800 mb-12 text-center relative pb-3">
+            Your Healing Environment
+            <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-[#B08D57]"></span>
+          </h3>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            {/* Exterior clinic image - now first */}
+            <div className="relative rounded-xl overflow-hidden shadow-2xl transition-all duration-500 ease-in-out group hover:shadow-3xl transform hover:-translate-y-1">
+              <div className="aspect-[16/9] relative">
+                <Image
+                  src="/images/facebook-image.jpg"
+                  alt="Clinic Exterior"
+                  fill
+                  className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, 600px"
+                  style={{
+                    filter: 'brightness(1) contrast(1.05) saturate(1)'
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 w-full p-6 z-10">
+                  <div className="bg-black/30 backdrop-blur-sm p-4 rounded-lg inline-block">
+                    <h4 className="text-xl font-semibold text-white mb-1">Modern Clinic Building</h4>
+                    <div className="w-16 h-0.5 bg-[#B08D57]"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Reception area image - now second */}
+            <div className="relative rounded-xl overflow-hidden shadow-2xl transition-all duration-500 ease-in-out group hover:shadow-3xl transform hover:-translate-y-1">
+              <div className="aspect-[16/9] relative">
+                <Image
+                  src="/images/clinic-pic-3.jpg"
+                  alt="Reception Area"
+                  fill
+                  className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, 600px"
+                  style={{
+                    filter: 'brightness(1) contrast(1.05) saturate(1)'
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 w-full p-6 z-10">
+                  <div className="bg-black/30 backdrop-blur-sm p-4 rounded-lg inline-block">
+                    <h4 className="text-xl font-semibold text-white mb-1">Welcoming Reception Area</h4>
+                    <div className="w-16 h-0.5 bg-[#B08D57]"></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-6 lg:gap-8">
-            {qualifications.map((qual, index) => {
+          {/* Premium treatment room image with enhanced elegant styling */}
+          <div className="relative rounded-xl overflow-hidden shadow-2xl transition-all duration-500 ease-in-out group hover:shadow-3xl transform hover:-translate-y-1">
+            <div className="aspect-[21/9] relative">
+              <Image
+                src="/images/clinic-pic-may-2025.jpg"
+                alt="Treatment Room"
+                fill
+                className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                sizes="(max-width: 768px) 100vw, 1200px"
+                style={{
+                  filter: 'brightness(1) contrast(1.05) saturate(1)'
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 right-0 w-full p-4 md:p-8 text-center z-10">
+                 <div className="bg-black/30 backdrop-blur-sm p-3 md:p-6 rounded-lg inline-block max-w-xs sm:max-w-sm md:max-w-xl">
+                  <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-1 md:mb-2">A calming space designed for your comfort and recovery</h4>
+                  <div className="w-16 md:w-24 h-1 bg-[#B08D57] mx-auto"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Philosophy of Practice - Redesigned for Light Theme */}
+        <div className="max-w-4xl mx-auto mb-20">
+          {/* Changed section background to white, added border, adjusted shadow and padding */}
+          <div className="bg-white p-8 md:p-10 rounded-xl border border-neutral-200 shadow-xl">
+            <h3 className="text-3xl font-bold text-primary-800 mb-10 text-center relative pb-3">
+              Philosophy of Practice
+              <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-[#B08D57]"></span>
+            </h3>
+            
+            {/* Changed top border of card grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-10 pt-8 border-t border-neutral-200">
+              {/* Card 1: Root Cause Resolution - Redesigned */}
+              <div className="bg-primary-50 p-6 rounded-lg border border-primary-100 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col items-center text-center">
+                <LightBulbIcon className="h-10 w-10 md:h-12 md:w-12 text-[#B08D57] mb-5" />
+                <h4 className="font-semibold text-lg md:text-xl text-primary-800 mb-3">Root Cause Resolution</h4>
+                <p className="text-primary-700 leading-relaxed text-sm">I don't just treat symptoms; I investigate underlying movement patterns, compensations, and lifestyle factors to address what's truly driving your pain or limitation.</p>
+              </div>
+              
+              {/* Card 2: Collaborative Partnership - Redesigned */}
+              <div className="bg-primary-50 p-6 rounded-lg border border-primary-100 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col items-center text-center">
+                <UserGroupIcon className="h-10 w-10 md:h-12 md:w-12 text-[#B08D57] mb-5" />
+                <h4 className="font-semibold text-lg md:text-xl text-primary-800 mb-3">Collaborative Partnership</h4>
+                <p className="text-primary-700 leading-relaxed text-sm">Your input is essential to successful outcomes. I listen intently, explain clearly, and involve you actively in every treatment decision.</p>
+              </div>
+              
+              {/* Card 3: Personalized Progression - Redesigned */}
+              <div className="bg-primary-50 p-6 rounded-lg border border-primary-100 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col items-center text-center">
+                <AdjustmentsHorizontalIcon className="h-10 w-10 md:h-12 md:w-12 text-[#B08D57] mb-5" />
+                <h4 className="font-semibold text-lg md:text-xl text-primary-800 mb-3">Personalized Progression</h4>
+                <p className="text-primary-700 leading-relaxed text-sm">Recovery isn't linear. Your treatment evolves as you do, with continual reassessment and adaptation to optimize your unique healing journey.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Qualifications Section */}
+        <div className="max-w-5xl mx-auto"> 
+          <h3 className="text-3xl font-bold text-primary-800 mb-12 text-center relative pb-4">
+            Qualifications
+            <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-40 h-1.5 bg-gradient-to-r from-[#9a7744] via-[#B08D57] to-[#d1b174]"></span>
+          </h3>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {qualifications.map((qual) => {
               const IconComponent = qual.icon; 
               return (
                 <div 
                   key={qual.id}
-                  className="bg-white p-8 rounded-xl shadow-subtle border border-neutral-100/80 hover:shadow-medium hover:-translate-y-1 transition-all duration-300 h-full mx-auto w-full"
+                  className="bg-gradient-to-b from-white to-gray-50 p-8 rounded-xl shadow-lg border border-neutral-200 hover:shadow-2xl transition-all duration-500 h-full transform hover:-translate-y-1 relative overflow-hidden"
                 >
-                  {/* Icon with gradient background */}
-                  <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-br from-primary-700 to-primary-900 mr-4 shadow-sm">
-                      <IconComponent className="h-5 w-5 text-accent" />
+                  {/* Decorative corner accent */}
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-[#B08D57]/10 to-transparent"></div>
+                  
+                  <div className="flex items-center mb-7">
+                    <div className="w-14 h-14 flex items-center justify-center rounded-full bg-gradient-to-br from-primary-700 to-primary-900 mr-5 shadow-lg relative">
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#B08D57]/50 to-transparent opacity-50 animate-pulse-slow"></div>
+                      <IconComponent className="h-7 w-7 text-[#B08D57]" />
                     </div>
-                    <h4 className="font-heading font-bold text-xl text-primary-800 tracking-tight leading-tight">{qual.title}</h4>
+                    <h4 className="font-bold text-2xl text-primary-800 tracking-tight">{qual.title}</h4>
                   </div>
                   
-                  <ul className="space-y-3 text-primary-600 pl-1 font-sans leading-relaxed">
-                    {qual.items.map((item, i) => (
-                      <li key={i} className="flex items-start">
-                        <span className="text-accent mr-3 mt-1.5 inline-block w-2 h-2 rounded-full bg-current flex-shrink-0"></span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  {qual.items.length > 0 && (
+                    <ul className={`space-y-4 text-primary-700 mb-6 ${qual.id === 'certification' ? 'mb-8' : ''}`}>
+                      {qual.items.map((item, i) => (
+                        <li key={i} className="flex items-start group">
+                          <span className="text-[#B08D57] mr-3 mt-1 text-lg flex-shrink-0 group-hover:scale-110 transition-transform duration-300">•</span>
+                          <span className={`${qual.id === 'certification' ? 'text-xl font-medium' : 'text-lg'} group-hover:text-primary-900 transition-colors duration-300`}>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  
+                  {qual.logos && (
+                    <div className={`${qual.items.length > 0 ? 'mt-8 pt-6 border-t border-neutral-200' : 'mt-4'}`}>
+                      <div className={`flex flex-wrap ${qual.id === 'education' ? 'gap-8' : 'gap-8'} items-center justify-center`}>
+                        {qual.logos.map((logo, i) => (
+                          <Link 
+                            key={i} 
+                            href={logo.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:opacity-95 transition-all duration-300 bg-gradient-to-b from-white to-gray-50 p-5 md:p-6 rounded-xl shadow-md hover:shadow-xl border border-neutral-100 flex items-center justify-center transform hover:-translate-y-1 relative overflow-hidden group"
+                          >
+                            {/* Subtle corner accent */}
+                            <div className="absolute top-0 right-0 w-10 h-10 bg-gradient-to-bl from-primary-200/20 to-transparent"></div>
+                            <div className="absolute -bottom-1 -left-1 w-10 h-10 bg-gradient-to-tr from-[#B08D57]/10 to-transparent"></div>
+                            
+                            {/* Enhanced hover effect */}
+                            <div className="absolute inset-0 bg-primary-50/0 group-hover:bg-primary-50/30 transition-colors duration-300"></div>
+                            
+                            <Image
+                              src={logo.src}
+                              alt={logo.alt}
+                              width={qual.id === 'education' ? 140 : 170}
+                              height={qual.id === 'education' ? 80 : 100}
+                              className={`object-contain ${qual.id === 'education' ? 'h-20' : 'h-24'} transition-transform duration-300 group-hover:scale-105`}
+                            />
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  
+                  {/* Enhanced empty space filler for Advanced Certifications */}
+                  {qual.id === 'certification' && qual.items.length > 0 && !qual.logos && (
+                    <div className="mt-6 pt-6 border-t border-neutral-200">
+                      <div className="flex justify-center">
+                        <div className="bg-primary-50 px-8 py-4 rounded-lg border border-primary-100">
+                          <p className="text-center text-primary-700 italic">Certified by leading professional organizations</p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               );
             })}
-          </div>
-        </div>
-
-        {/* Professional Affiliations with enhanced styling */}
-        <div className="mt-24 pb-16 relative z-10">
-          {/* Premium section heading */}
-          <div className="text-center mb-12">
-            <h3 className="font-heading text-3xl font-bold text-white tracking-tight relative inline-block leading-tight">
-              Professional Affiliations
-            </h3>
-            <div className="relative mt-4 flex justify-center">
-              <div className="h-[2px] w-[60px] bg-accent rounded-full"></div>
-            </div>
-          </div>
-          
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center justify-items-center">
-              {/* Canadian Physiotherapy Association Logo with premium styling */}
-              <Link 
-                href="https://physiotherapy.ca/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="block w-full group"
-              >
-                <div className="bg-white p-8 rounded-xl shadow-subtle border border-neutral-100/80 hover:border-accent/20 hover:shadow-medium hover:-translate-y-1 flex items-center justify-center h-44 w-full transition-all duration-300">
-                  <Image
-                    src="/images/canadian-physio-association-logo.png"
-                    alt="Canadian Physiotherapy Association"
-                    width={220}
-                    height={140}
-                    className="object-contain h-auto max-h-28 transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-              </Link>
-              
-              {/* College of Physiotherapists of Ontario Logo with premium styling */}
-              <Link 
-                href="https://collegept.org/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="block w-full group"
-              >
-                <div className="bg-white p-8 rounded-xl shadow-subtle border border-neutral-100/80 hover:border-accent/20 hover:shadow-medium hover:-translate-y-1 flex items-center justify-center h-44 w-full transition-all duration-300">
-                  <Image
-                    src="/images/college-of-physiotherapists-of-ontario-logo.webp"
-                    alt="College of Physiotherapists of Ontario"
-                    width={220}
-                    height={140}
-                    className="object-contain h-auto max-h-28 transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-              </Link>
-            </div>
-          </div>
-          
-          {/* Premium CTA Button */}
-          <div className="text-center mt-16">
-            <Link 
-              href="https://endorphinshealth.janeapp.com/#/staff_member/42"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-accent to-accent-dark text-primary-900 font-medium rounded-lg transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1 relative overflow-hidden group"
-            >
-              <span className="relative z-10">Book Your First Appointment</span>
-              <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
-            </Link>
           </div>
         </div>
       </div>

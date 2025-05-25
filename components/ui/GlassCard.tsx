@@ -54,7 +54,7 @@ const GlassCard = ({
     lg: 'backdrop-blur-lg',
     xl: 'backdrop-blur-xl',
   };
-
+  
   // Border variations
   const borderClasses = border ? {
     light: 'border border-white/50',
@@ -64,7 +64,7 @@ const GlassCard = ({
     subtle: 'border border-white/40',
     frost: 'border border-white/30',
   }[variant] : '';
-
+  
   // Glow effect
   const glowClasses = glow ? {
     light: 'shadow-[0_8px_32px_rgba(255,255,255,0.2)]',

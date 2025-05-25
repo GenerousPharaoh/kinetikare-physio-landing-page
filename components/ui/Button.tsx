@@ -25,7 +25,7 @@ const buttonVariants = cva(
         link: 
           "bg-transparent underline-offset-4 hover:underline text-[#1A2036] focus:ring-[#1A2036]/20 shadow-none p-0 hover:text-[#D4AF37]",
         gold:
-          "bg-gradient-to-br from-[#D4AF37] to-[#C8A52E] text-[#1A2036] hover:bg-gradient-to-br hover:from-[#1A2036] hover:to-[#252E4A] hover:text-[#D4AF37] shadow-md hover:shadow-lg focus:ring-[#D4AF37]/30",
+          "bg-gradient-to-br from-[#B08D57] to-[#B08D57] text-white hover:bg-gradient-to-br hover:from-[#A17D47] hover:to-[#A17D47] hover:text-white shadow-md hover:shadow-lg focus:ring-[#B08D57]/30",
       },
       size: {
         sm: "text-xs h-9 px-4 py-2 rounded-lg",
@@ -124,15 +124,15 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           {premium && <ShimmerEffect />}
           
           <span className="flex items-center justify-center">
-            {icon && iconPosition === 'left' && (
+          {icon && iconPosition === 'left' && (
               <span className="mr-2.5 inline-flex">{icon}</span>
-            )}
-            
+          )}
+          
             <span>{children}</span>
-            
-            {icon && iconPosition === 'right' && (
+          
+          {icon && iconPosition === 'right' && (
               <span className="ml-2.5 inline-flex group-hover:translate-x-0.5 transition-transform duration-300 ease-out">{icon}</span>
-            )}
+          )}
           </span>
         </Link>
       );
@@ -157,15 +157,15 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {premium && <ShimmerEffect />}
         
         <span className="flex items-center justify-center">
-          {icon && iconPosition === 'left' && (
+        {icon && iconPosition === 'left' && (
             <span className="mr-2.5 inline-flex">{icon}</span>
-          )}
-          
+        )}
+        
           <span>{children}</span>
-          
-          {icon && iconPosition === 'right' && (
+        
+        {icon && iconPosition === 'right' && (
             <span className="ml-2.5 inline-flex group-hover:translate-x-0.5 transition-transform duration-300 ease-out">{icon}</span>
-          )}
+        )}
         </span>
       </button>
     );

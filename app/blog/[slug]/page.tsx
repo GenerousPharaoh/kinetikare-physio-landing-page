@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import ClientImage from '@/components/ClientImage';
 import { Metadata } from 'next';
 import fs from 'fs';
 import path from 'path';
@@ -95,11 +95,11 @@ export default function Page(props: any) {
           </Link>
           
           <div className="mb-8 aspect-video bg-primary-100 rounded-lg flex items-center justify-center text-primary-400 relative overflow-hidden">
-            <Image 
+            <ClientImage 
               src={imageExists(slug) ? imagePath : fallbackImagePath}
               alt={`${post.title} - Featured Image`} 
               fill
-              style={{ objectFit: 'cover' }}
+              className="object-cover"
               priority
              /> 
           </div>

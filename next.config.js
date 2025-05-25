@@ -2,6 +2,12 @@
 
 const nextConfig = {
   reactStrictMode: true,
+  swcMinify: true,
+  
+  // Add Deployment ID for version skew protection
+  env: {
+    NEXT_DEPLOYMENT_ID: Date.now().toString(),
+  },
   
   // Add ESLint configuration
   eslint: {
@@ -19,15 +25,13 @@ const nextConfig = {
   
   // Optimize bundle size with custom webpack configuration
   webpack: (config, { dev, isServer }) => {
-    // Fix: Ensure React is properly resolved to prevent "Cannot read properties of undefined (reading 'call')" error
+    // Fix for module resolution errors
     config.resolve.alias = {
       ...config.resolve.alias,
-      react: require.resolve('react'),
-      'react-dom': require.resolve('react-dom'),
       'react/jsx-runtime': require.resolve('react/jsx-runtime'),
       'react/jsx-dev-runtime': require.resolve('react/jsx-dev-runtime'),
     };
-
+    
     // FIX: Make sure there's only one instance of React
     config.resolve.modules = ['node_modules', ...config.resolve.modules];
     

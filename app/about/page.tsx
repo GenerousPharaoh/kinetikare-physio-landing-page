@@ -1,313 +1,329 @@
-import Image from 'next/image';
 import Link from 'next/link';
+import ClientImage from '@/components/ClientImage';
+import { CheckBadgeIcon } from '@heroicons/react/24/solid';
+import { LightBulbIcon, UserGroupIcon, AdjustmentsHorizontalIcon } from '@heroicons/react/24/outline';
 
 export default function About() {
+  const commitments = [
+    'A thorough assessment in a comfortable, judgment-free environment',
+    'Clear explanations of findings in plain language',
+    'A customized treatment plan addressing your specific goals',
+    'One-on-one, unrushed attention during every session',
+    'Evidence-based interventions combining manual therapy, movement retraining, and self-management strategies',
+    'A collaborative approach that respects your input and preferences',
+  ];
+
   return (
-    <main className="min-h-screen flex flex-col text-primary-700">
+    <main className="min-h-screen flex flex-col text-primary-700 bg-white">
       {/* Hero Section */}
-      <section className="bg-premium-light text-primary-800 py-20 relative border-b border-neutral-200 section-premium">
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4 premium-text-shadow">
-              About <span className="premium-gradient-text">Kareem Hassanein</span>
+      <section className="bg-primary-50 text-primary-800 py-10 pt-20 relative border-b border-neutral-200">
+        <div className="container mx-auto px-4 relative z-10 flex flex-col items-center">
+          <div className="text-center max-w-3xl">
+            <h1 className="text-4xl md:text-5xl font-heading font-bold mb-5">
+              About <span className="text-[#B08D57]">Kareem</span>
             </h1>
-            <p className="text-primary-800 text-lg font-medium">
-              CAMPT-certified physiotherapist dedicated to evidence-based care and patient-centered treatment.
+            <p className="text-lg text-primary-600 max-w-2xl mx-auto">
+              A journey of experience, empathy, and a commitment to expertise in physiotherapy
             </p>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 w-full h-1 bg-premium-accent opacity-10"></div>
+        <div className="absolute bottom-0 left-0 w-full h-1 bg-[#B08D57] opacity-20"></div>
       </section>
 
-      {/* Bio Section with Side-by-Side Layout */}
-      <section className="py-16 bg-gradient-soft">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center gap-12">
-            <div className="md:w-1/2">
-              <div className="relative w-full h-[500px] rounded-lg overflow-hidden shadow-premium-card premium-image">
-                <Image
-                  src="/images/kareem-profile.png"
-                  alt="Kareem Hassanein, Physiotherapist"
-                  fill
-                  style={{ objectFit: 'cover', objectPosition: 'top center' }}
-                  className="image-static"
-                  priority
-                />
-              </div>
-              <div className="mt-6 relative w-full rounded-lg overflow-hidden shadow-premium-subtle max-w-sm md:max-w-md mx-auto premium-image">
-                <Image
-                  src="/images/physiotherapist.jpg"
-                  alt="Professional Physiotherapy Care"
-                  width={500}
-                  height={300}
-                  sizes="(max-width: 640px) 90vw, 400px"
-                  className="object-cover object-center w-full h-auto"
-                />
+      {/* Main Content */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
+            {/* Sidebar */}
+            <div className="md:col-span-1 order-2 md:order-1">
+              <div className="sticky top-24">
+                {/* Profile Image */}
+                <div className="mb-8 rounded-lg overflow-hidden shadow-md border border-neutral-100">
+                  <ClientImage
+                    src="/images/kareem-profile.png"
+                    alt="Kareem Hassanein, Physiotherapist"
+                    width={500}
+                    height={600}
+                    className="w-full h-auto"
+                  />
+                </div>
+                
+                {/* Professional Highlights */}
+                <div className="bg-primary-50 p-6 rounded-lg mb-6">
+                  <h3 className="text-lg font-bold mb-4 text-primary-800 border-b border-primary-100 pb-2">Professional Highlights</h3>
+                  <ul className="space-y-3">
+                    <li className="flex items-center">
+                      <div className="w-2 h-2 rounded-full bg-[#B08D57] mr-3"></div>
+                      <span>MSc Physiotherapy (Distinction)</span>
+                    </li>
+                    <li className="flex items-center">
+                      <div className="w-2 h-2 rounded-full bg-[#B08D57] mr-3"></div>
+                      <span>FCAMPT Level 2 Certified</span>
+                    </li>
+                    <li className="flex items-center">
+                      <div className="w-2 h-2 rounded-full bg-[#B08D57] mr-3"></div>
+                      <span>5+ Years Clinical Practice</span>
+                    </li>
+                    <li className="flex items-center">
+                      <div className="w-2 h-2 rounded-full bg-[#B08D57] mr-3"></div>
+                      <span>6,000+ hours personal training</span>
+                    </li>
+                  </ul>
+                </div>
+                
+                {/* CTA */}
+                <div className="bg-primary-800 p-6 rounded-lg text-white">
+                  <h3 className="text-lg font-bold mb-4 text-white">Ready to Begin?</h3>
+                  <p className="mb-5 text-sm text-white/90">Book your appointment today and start your journey to better movement and pain-free living.</p>
+                  <Link
+                    href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full text-center py-3 px-4 bg-[#B08D57] hover:bg-[#A17D47] text-white rounded-md transition-colors duration-300"
+                  >
+                    Book Appointment
+                  </Link>
+                </div>
               </div>
             </div>
-            <div className="md:w-1/2">
-              <h2 className="text-3xl font-heading font-bold mb-4 text-primary-800 text-premium-heading">
-                My Approach to Physiotherapy
+            
+            {/* Main Content */}
+            <div className="md:col-span-2 order-1 md:order-2">
+              <h2 className="text-3xl font-heading font-bold mb-6 text-primary-800">
+                The Path That Shaped My Practice
               </h2>
-              <div className="premium-border mb-6 bg-white/80 p-6 rounded-lg shadow-premium-subtle">
-                <p className="text-primary-800 mb-6">
-                  As a registered physiotherapist, I bring evidence-based care to every treatment session. My approach combines manual therapy, exercise prescription, and patient education to help you understand your condition and become an active participant in your recovery.
+              
+              <div className="prose prose-lg max-w-none prose-headings:font-heading prose-headings:text-primary-800 prose-p:text-primary-700">
+                <p>
+                  My journey into physiotherapy wasn't merely academic—it was forged through personal experience. From competitive soccer and pursuing a Kinesiology degree at McMaster University to navigating my own significant injuries including debilitating disc herniations, I've experienced both sides of rehabilitation.
                 </p>
-                <p className="text-primary-800 mb-6">
-                  With a <span className="highlight-premium font-medium">CAMPT certification</span>, I have advanced training in manual therapy techniques that allow me to diagnose and treat the root cause of your pain or dysfunction, not just the symptoms. My goal is to help you achieve long-term results and provide you with the tools to maintain your health.
+                <p>
+                  These moments of vulnerability transformed my professional purpose, leading me to complete a Master's in Physiotherapy from Robert Gordon University with distinction. My education, combined with firsthand experience as a patient, has deeply informed my approach to care.
                 </p>
-                <p className="text-primary-800 mb-6">
-                  I believe in personalized care—no two patients are the same, and your treatment plan should reflect your unique needs, goals, and lifestyle.
+                
+                {/* Philosophy of Practice Section - Redesigned */}
+                <div className="py-12 md:py-10">
+                  <h3 className="text-2xl md:text-3xl font-bold text-primary-800 mb-10 text-center relative pb-3">
+                    Philosophy of Practice
+                    <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-[#B08D57]"></span>
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 pt-8 border-t border-neutral-200">
+                    {/* Card 1: Root Cause Resolution */}
+                    <div className="bg-white p-6 rounded-xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center">
+                      <LightBulbIcon className="h-10 w-10 text-[#B08D57] mb-5" />
+                      <h4 className="font-semibold text-lg text-primary-800 mb-2">Root Cause Resolution</h4>
+                      <p className="text-primary-600 leading-relaxed text-sm">
+                        I don't just treat symptoms; I investigate underlying movement patterns to address what's truly driving your pain.
+                      </p>
+                    </div>
+                    {/* Card 2: Collaborative Partnership */}
+                    <div className="bg-white p-6 rounded-xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center">
+                      <UserGroupIcon className="h-10 w-10 text-[#B08D57] mb-5" />
+                      <h4 className="font-semibold text-lg text-primary-800 mb-2">Collaborative Partnership</h4>
+                      <p className="text-primary-600 leading-relaxed text-sm">
+                        Your input is key. I listen, explain clearly, and involve you in every treatment decision.
+                      </p>
+                    </div>
+                    {/* Card 3: Personalized Progression */}
+                    <div className="bg-white p-6 rounded-xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center">
+                      <AdjustmentsHorizontalIcon className="h-10 w-10 text-[#B08D57] mb-5" />
+                      <h4 className="font-semibold text-lg text-primary-800 mb-2">Personalized Progression</h4>
+                      <p className="text-primary-600 leading-relaxed text-sm">
+                        Recovery isn't linear. Your treatment evolves with you, adapting to optimize your unique healing journey.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+                <h3 className="text-2xl font-bold mt-10 mb-6">A Different Approach to Care</h3>
+                
+                <blockquote className="italic border-l-4 border-[#B08D57] pl-4 py-2 my-6 text-primary-700">
+                  "Having sat on both sides of the treatment table, I recognize the profound difference between being processed through a system and being truly understood."
+                </blockquote>
+                
+                <p>
+                  My practice is built on firsthand experience—both as a clinician and as a patient who has navigated the frustrations of pain, slow recovery, and an often impersonal healthcare system. This dual perspective means I genuinely understand how easily patients can be overlooked.
                 </p>
+                <p>
+                  I don't subscribe to high-volume, prescriptive protocols; instead, I focus on individualized care. Each patient receives a plan tailored to their unique needs, grounded in advanced manual therapy, exercise science, and a refusal to overlook the details that drive real outcomes and measurable progress.
+                </p>
+                <p>
+                  Beyond treatment, I take pride in acting as your advocate within a complex medical landscape. My standard for care isn't based on industry averages or convenient shortcuts—it's built on the dedicated attention and rigor you deserve.
+                </p>
+              </div>
+
+              {/* Professional Background Section */}
+              <div className="prose prose-lg max-w-none prose-headings:font-heading prose-headings:text-primary-800 prose-p:text-primary-700 mt-10 mb-10">
+                <h3 className="text-2xl font-bold mt-10 mb-6">Professional Background</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                  <div className="bg-white border border-neutral-200 p-6 rounded-lg">
+                    <h4 className="font-bold text-xl mb-4 text-primary-800">Education</h4>
+                    <ul className="space-y-4">
+                      <li className="flex items-center">
+                        <ClientImage
+                          src="/images/robert-gordon-university-logo-png_seeklogo-341455.png"
+                          alt="Robert Gordon University Logo"
+                          width={40}
+                          height={40}
+                          className="mr-3 h-10 w-10 object-contain"
+                        />
+                        <span>MSc Physiotherapy (Distinction), Robert Gordon University</span>
+                      </li>
+                      <li className="flex items-center">
+                        <ClientImage
+                          src="/images/mcmaster-university-logo-png_seeklogo-90018.png"
+                          alt="McMaster University Logo"
+                          width={40}
+                          height={40}
+                          className="mr-3 h-10 w-10 object-contain"
+                        />
+                        <span>BSc Kinesiology (Honours), McMaster University</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="bg-white border border-neutral-200 p-6 rounded-lg">
+                    <h4 className="font-bold text-xl mb-4 text-primary-800">Advanced Certifications</h4>
+                    <ul className="space-y-3">
+                      <li className="flex items-start">
+                        <span className="text-[#B08D57] mr-3 mt-1.5">•</span>
+                        <span>FCAMPT Level 2 (Manual & Manipulative Therapy)</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-[#B08D57] mr-3 mt-1.5">•</span>
+                        <span>Certified Dry Needling Practitioner</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                  <div className="bg-white border border-neutral-200 p-6 rounded-lg">
+                    <h4 className="font-bold text-xl mb-4 text-primary-800">Experience</h4>
+                    <ul className="space-y-3">
+                      <li className="flex items-start">
+                        <span className="text-[#B08D57] mr-3 mt-1.5">•</span>
+                        <span>5+ years clinical practice</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-[#B08D57] mr-3 mt-1.5">•</span>
+                        <span>6,000+ hours personal training</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-[#B08D57] mr-3 mt-1.5">•</span>
+                        <span>Former Assistant Fitness Manager, GoodLife Fitness</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="bg-white border border-neutral-200 p-6 rounded-lg">
+                    <h4 className="font-bold text-xl mb-4 text-primary-800">Athletic Background</h4>
+                    <ul className="space-y-3">
+                      <li className="flex items-start">
+                        <span className="text-[#B08D57] mr-3 mt-1.5">•</span>
+                        <span>Semi-professional soccer (Cove Rangers, Scotland)</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-[#B08D57] mr-3 mt-1.5">•</span>
+                        <span>Canadian Soccer League (Brantford Galaxy)</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* My Commitment to You Section */}
+              <div className="prose prose-lg max-w-none prose-headings:font-heading prose-headings:text-primary-800 prose-p:text-primary-700 mt-10">
+                <h3 className="text-2xl font-bold mt-10 mb-6">My Commitment to You</h3>
+                <ul className="space-y-3">
+                  {commitments.map((commitment, index) => (
+                    <li key={index} className="flex items-start">
+                      <CheckBadgeIcon className="h-6 w-6 text-[#B08D57] mr-3 mt-0.5 flex-shrink-0" />
+                      <span>{commitment}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
         </div>
       </section>
       
-      {/* Clinic Location Section */}
-      <section className="py-16 bg-white border-y border-neutral-200 section-premium">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-heading font-bold mb-4 text-primary-800 text-premium-heading">
-              Our Clinic Location
-            </h2>
-            <p className="text-primary-800 font-medium">
-              Conveniently located at Endorphins Health & Wellness Centre in Burlington, Ontario.
-            </p>
-            <div className="premium-divider mx-auto"></div>
-          </div>
+      {/* Professional Affiliations Section */}
+      <section className="py-16 bg-primary-50 border-t border-neutral-200">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <h2 className="text-2xl font-heading font-bold mb-8 text-primary-800 text-center">
+            Professional Affiliations
+          </h2>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <div className="luxury-card rounded-lg overflow-hidden premium-image">
-              <div className="relative h-80 overflow-hidden">
-                <Image 
-                  src="/images/clinic-exterior.jpg"
-                  alt="Endorphins Health & Wellness Centre"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+            <Link 
+              href="https://physiotherapy.ca/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-white p-6 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300 flex items-center justify-center h-32"
+            >
+              <ClientImage
+                src="/images/canadian-physio-association-logo.png"
+                alt="Canadian Physiotherapy Association"
+                width={180}
+                height={100}
+                className="object-contain h-auto max-h-20"
+              />
+            </Link>
             
-            <div className="flex flex-col justify-center p-8 luxury-card rounded-lg">
-              <h3 className="text-2xl font-heading font-bold mb-4 text-primary-800 text-premium-heading">
-                Endorphins Health & Wellness Centre
-              </h3>
-              <p className="text-primary-800 mb-4">
-                Our clinic is located in a modern, accessible facility with ample parking and a welcoming environment.
-              </p>
-              <ul className="space-y-3 text-primary-800 mb-6">
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 text-accent mt-0.5 mr-2 flex-shrink-0 drop-shadow-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                  </svg>
-                  <span>4631 Palladium Way, Unit 6</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 text-accent mt-0.5 mr-2 flex-shrink-0 drop-shadow-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                  </svg>
-                  <span>Burlington, ON L7M 0W9</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 text-accent mt-0.5 mr-2 flex-shrink-0 drop-shadow-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                  </svg>
-                  <span>(905) 634-6000</span>
-                </li>
-              </ul>
-              <a
-                href="https://maps.app.goo.gl/JC7uKnd9zW4AJPP49"
+            <Link 
+              href="https://collegept.org/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-white p-6 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300 flex items-center justify-center h-32"
+            >
+              <ClientImage
+                src="/images/college-of-physiotherapists-of-ontario-logo.webp"
+                alt="College of Physiotherapists of Ontario"
+                width={180}
+                height={100}
+                className="object-contain h-auto max-h-20"
+              />
+            </Link>
+            
+            <Link 
+              href="https://endorphinshealth.com/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-white p-6 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300 flex items-center justify-center h-32"
+            >
+              <ClientImage
+                src="/images/endorphins-health-and-wellness-centre-logo.png"
+                alt="Endorphins Health & Wellness Centre"
+                width={180}
+                height={100}
+                className="object-contain h-auto max-h-20"
+              />
+            </Link>
+          </div>
+        </div>
+      </section>
+      
+      {/* CTA Section */}
+      <section className="py-16 bg-primary-50 text-primary-800 border-t border-neutral-200">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-5 text-primary-800">
+              Take the Next Step in Your Recovery Journey
+            </h2>
+            <p className="text-lg text-primary-600 mb-10 leading-relaxed">
+              Book your appointment today or contact me with any questions.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-5">
+              <Link
+                href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-premium btn-premium-effect text-white transition-colors duration-300 px-6 py-3 rounded-lg font-medium inline-flex items-center justify-center premium-focus"
+                className="py-3.5 px-8 bg-[#B08D57] hover:bg-[#A17D47] text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
               >
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
-                </svg>
-                Get Directions
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Credentials Section with Visual Elements */}
-      <section className="py-16 bg-gradient-primary bg-premium-dots">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-heading font-bold mb-4 text-primary-800 text-premium-heading">
-              Credentials & Training
-            </h2>
-            <p className="text-primary-800 font-medium">
-              Continuously advancing my education to provide the highest standard of care.
-            </p>
-            <div className="premium-divider mx-auto"></div>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="premium-card p-6 rounded-lg hover:shadow-premium-card transition-shadow premium-shine">
-              <div className="rounded-lg bg-premium-subtle p-3 mb-4">
-                <h3 className="text-xl font-heading font-semibold mb-3 text-primary-700">Education</h3>
-              </div>
-              <ul className="space-y-3 text-primary-800">
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 text-accent mt-0.5 mr-2 flex-shrink-0 drop-shadow-md" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                  </svg>
-                  <span>Master of Physiotherapy, University of Toronto</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 text-accent mt-0.5 mr-2 flex-shrink-0 drop-shadow-md" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                  </svg>
-                  <span>Bachelor of Science in Kinesiology, McMaster University</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 text-accent mt-0.5 mr-2 flex-shrink-0 drop-shadow-md" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                  </svg>
-                  <span>CAMPT-Certified Manual Therapist</span>
-                </li>
-              </ul>
-            </div>
-            
-            <div className="premium-card p-6 rounded-lg hover:shadow-premium-card transition-shadow premium-shine">
-              <div className="rounded-lg bg-premium-subtle p-3 mb-4">
-                <h3 className="text-xl font-heading font-semibold mb-3 text-primary-700">Specialized Training</h3>
-              </div>
-              <ul className="space-y-3 text-primary-800">
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 text-accent mt-0.5 mr-2 flex-shrink-0 drop-shadow-md" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                  </svg>
-                  <span>Dry Needling & Acupuncture Certification</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 text-accent mt-0.5 mr-2 flex-shrink-0 drop-shadow-md" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                  </svg>
-                  <span>Sports Injury Rehabilitation Specialist</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 text-accent mt-0.5 mr-2 flex-shrink-0 drop-shadow-md" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                  </svg>
-                  <span>Active Release Technique (ART) Provider</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Visual Treatment Showcase */}
-      <section className="py-16 bg-white border-t border-neutral-200 section-premium">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-heading font-bold mb-4 text-primary-800 text-premium-heading">
-              Treatment Specialties
-            </h2>
-            <p className="text-primary-800 font-medium">
-              Offering a range of specialized treatments to address your specific needs.
-            </p>
-            <div className="premium-divider mx-auto"></div>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="luxury-card rounded-lg overflow-hidden hover:shadow-premium-card transition-shadow group premium-shine">
-              <div className="relative h-48 overflow-hidden premium-image">
-                <div className="absolute top-0 right-0 m-4 p-2 bg-white/80 backdrop-blur-sm rounded-full shadow-premium-subtle z-10">
-                  <svg className="w-8 h-8 text-accent drop-shadow-md" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 9.75h4.875a2.625 2.625 0 0 1 0 5.25H12M8.25 9.75 10.5 7.5M8.25 9.75 10.5 12m9-7.5h-9" />
-                  </svg>
-                </div>
-                <Image 
-                  src="/images/manual-therapy.jpg"
-                  alt="Manual Therapy"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-primary-800">Manual Therapy</h3>
-                <p className="text-primary-700 text-sm">
-                  Hands-on techniques to improve tissue mobility, reduce pain, and restore function to joints and muscles.
-                </p>
-              </div>
-            </div>
-            
-            <div className="luxury-card rounded-lg overflow-hidden hover:shadow-premium-card transition-shadow group premium-shine">
-              <div className="relative h-48 overflow-hidden premium-image">
-                <div className="absolute top-0 right-0 m-4 p-2 bg-white/80 backdrop-blur-sm rounded-full shadow-premium-subtle z-10">
-                  <svg className="w-8 h-8 text-accent drop-shadow-md" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5.636 5.636a9 9 0 1 0 12.728 12.728M5.636 5.636a9 9 0 1 1 12.728 12.728" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 8.25V6a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 6v8.25A2.25 2.25 0 0 0 6 16.5h2.25m8.25-8.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-7.5A2.25 2.25 0 0 1 8.25 18v-1.5m8.25-8.25h-6a2.25 2.25 0 0 0-2.25 2.25v6" />
-                  </svg>
-                </div>
-                <Image 
-                  src="/images/sports-injury.jpg"
-                  alt="Sports Rehabilitation"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-primary-800">Sports Rehabilitation</h3>
-                <p className="text-primary-700 text-sm">
-                  Specialized programs for athletes to recover from injury and improve performance.
-                </p>
-              </div>
-            </div>
-            
-            <div className="luxury-card rounded-lg overflow-hidden hover:shadow-premium-card transition-shadow group premium-shine">
-              <div className="relative h-48 overflow-hidden premium-image">
-                <div className="absolute top-0 right-0 m-4 p-2 bg-white/80 backdrop-blur-sm rounded-full shadow-premium-subtle z-10">
-                  <svg className="w-8 h-8 text-accent drop-shadow-md" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082c.25.024.5.05.75.082M9.75 9.235c.131 0 .263-.01.393-.02m-4.179-3.657c-.283-.102-.56-.215-.832-.338m-.832-.338L5 8.75m0 0H1.5m0 0 1.064-3.319c.176-.55.356-1.1.525-1.651M1.5 8.75l1.052-.323m1.948 2.898A2.25 2.25 0 0 1 3 9.375V2.625A2.25 2.25 0 0 1 5.25.375h13.5A2.25 2.25 0 0 1 21 2.625v6.75A2.25 2.25 0 0 1 18.75 11.25H16.5m-13.248 4.688 2.806-3.22" />
-                  </svg>
-                </div>
-                <Image 
-                  src="/images/dry-needling.jpg"
-                  alt="Dry Needling"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-primary-800">Dry Needling</h3>
-                <p className="text-primary-700 text-sm">
-                  Advanced technique targeting trigger points to relieve muscle tension and pain.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-premium-light border-t border-neutral-200 bg-premium-pattern">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center premium-glow p-10 rounded-xl bg-white/90 backdrop-blur-sm">
-            <h2 className="text-3xl font-heading font-bold mb-4 text-primary-800 text-premium-heading">
-              Ready to Work Together?
-            </h2>
-            <p className="text-primary-800 text-lg mb-8 font-medium">
-              Book your appointment today and let&apos;s start your journey to better movement and pain-free living.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link
-                href="#booking"
-                className="btn-premium btn-premium-effect text-white transition-colors duration-300 px-6 py-3 rounded-lg font-medium premium-focus"
-              >
-                Book Appointment
+                Book an Appointment
               </Link>
               <Link
-                href="/services"
-                className="premium-card bg-white text-primary-700 hover:shadow-premium-card transition-all duration-300 px-6 py-3 rounded-lg font-medium premium-focus"
+                href="/#services"
+                className="py-3.5 px-8 bg-white text-primary-700 hover:bg-neutral-100 border border-neutral-300 font-semibold rounded-lg shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5"
               >
                 Explore Services
               </Link>

@@ -147,7 +147,7 @@ const SectionHeading = ({
             align === 'center' && 'mx-auto'
           )}
           {...childAnimationProps}
-        >
+              >
           {eyebrow}
         </EyebrowComponent>
       )}
@@ -162,7 +162,7 @@ const SectionHeading = ({
       >
         {renderTitle()}
       </HeadingComponent>
-
+      
       {decorated && (
         <DecorativeElement 
           className={cn(
@@ -173,7 +173,7 @@ const SectionHeading = ({
           {...childAnimationProps}
         />
       )}
-
+      
       {subtitle && (
         <SubtitleComponent
           className={cn(

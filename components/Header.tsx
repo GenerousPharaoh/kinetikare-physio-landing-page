@@ -165,16 +165,17 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
   // Define the main navigation items and home sections using useMemo
   const mainNavItems = useMemo(() => [
     { name: 'Home', href: '/' },
+    { name: 'Services', href: '/services' },
     { name: 'Blog', href: '/blog' },
     { name: 'FAQ', href: '/faq' },
-    { name: 'Contact', href: '/#contact' },
+    { name: 'Contact', href: '/contact' },
   ], []);
 
   // Define sections that exist on the home page with useMemo
   const homeSections = useMemo(() => [
     { 
       name: 'About', 
-      href: '/#about', 
+      href: '/about', 
       icon: <div className="flex items-center justify-center w-5 h-5 rounded-md bg-gradient-to-br from-primary-600 to-primary-700">
               <UserIcon className="h-3 w-3 text-white" />
             </div> 
@@ -441,7 +442,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                       
                       {/* Dropdown for Home Sections with AnimatePresence for animation */}
                       <AnimatePresence>
-                        {renderHomeDropdown}
+                      {renderHomeDropdown}
                       </AnimatePresence>
                     </div>
                   ) : (
@@ -544,20 +545,20 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
 
       {/* Mobile Menu with AnimatePresence for smooth animation */}
       <AnimatePresence>
-        {mobileMenuOpen && (
+      {mobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: [0.2, 0.8, 0.2, 1] }}
-            id="mobile-menu"
+          id="mobile-menu"
             className="md:hidden fixed left-0 right-0 max-h-[calc(100vh-var(--header-height,60px))] overflow-y-auto bg-white/95 backdrop-blur-xl shadow-lg border-b border-neutral-100"
-            style={{ 
-              position: 'fixed', 
-              top: 'var(--header-height, 70px)', 
-              zIndex: 99
-            }}
-          >
+          style={{ 
+            position: 'fixed', 
+            top: 'var(--header-height, 70px)', 
+            zIndex: 99
+          }}
+        >
             <div className="px-4 py-3 space-y-1">
               {/* Home with dropdown toggle for sections */}
               <div className="mb-2">
@@ -580,35 +581,35 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 
                 {/* Collapsible home sections with animation */}
                 <AnimatePresence>
-                  {mobileHomeSectionsOpen && (
+                {mobileHomeSectionsOpen && (
                     <motion.div
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: 'auto' }}
                       exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.25, ease: [0.2, 0.8, 0.2, 1] }}
                       className="pl-4 ml-4 border-l border-neutral-100 mt-1 mb-2 overflow-hidden"
-                    >
-                      <Link
-                        href="/"
-                        onClick={(e) => handleNavClick(e, "/")}
+                  >
+                    <Link
+                      href="/"
+                      onClick={(e) => handleNavClick(e, "/")}
                         className="flex items-center px-4 py-3 rounded-xl text-[#1A2036] hover:bg-white/80 text-sm font-medium"
-                      >
+                    >
                         <div className="flex items-center justify-center w-6 h-6 rounded-lg bg-[#1A2036] mr-2.5">
                           <HomeIcon className="h-3.5 w-3.5 text-[#D4AF37]" />
-                        </div> Home Page
-                      </Link>
-                      {homeSections.map((section) => (
-                        <Link
-                          key={section.name}
-                          href={section.href}
-                          onClick={(e) => handleNavClick(e, section.href)}
+                      </div> Home Page
+                    </Link>
+                    {homeSections.map((section) => (
+                      <Link
+                        key={section.name}
+                        href={section.href}
+                        onClick={(e) => handleNavClick(e, section.href)}
                           className="flex items-center px-4 py-3 rounded-xl text-[#1A2036] hover:bg-white/80 text-sm font-medium"
-                        >
+                      >
                           <span className="mr-2.5">{section.icon}</span> {section.name}
-                        </Link>
-                      ))}
+                      </Link>
+                    ))}
                     </motion.div>
-                  )}
+                )}
                 </AnimatePresence>
               </div>
               
@@ -655,7 +656,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               </Link>
             </div>
           </motion.div>
-        )}
+      )}
       </AnimatePresence>
     </header>
   );

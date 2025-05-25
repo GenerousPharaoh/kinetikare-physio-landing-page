@@ -12,10 +12,11 @@ const Header = () => {
         </Link>
         <nav className="hidden md:block">
           <ul className="flex space-x-6">
-            <li><Link href="/#services" className="hover:text-blue-600 transition">Services</Link></li>
-            <li><Link href="/#about" className="hover:text-blue-600 transition">About</Link></li>
-            <li><Link href="/#testimonials" className="hover:text-blue-600 transition">Testimonials</Link></li>
-            <li><Link href="/#contact" className="hover:text-blue-600 transition">Contact</Link></li>
+            <li><Link href="/" className="hover:text-blue-600 transition">Home</Link></li>
+            <li><Link href="/services" className="hover:text-blue-600 transition">Services</Link></li>
+            <li><Link href="/blog" className="hover:text-blue-600 transition">Blog</Link></li>
+            <li><Link href="/faq" className="hover:text-blue-600 transition">FAQ</Link></li>
+            <li><Link href="/contact" className="hover:text-blue-600 transition">Contact</Link></li>
           </ul>
         </nav>
       </div>

@@ -71,29 +71,29 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
         Skip to main content
       </a>
       
-      {/* Header */}
-      <Header />
-      
-      {/* Main content with transition wrapper */}
-      <div className="main-content-wrapper">
-        <main id="main-content" className="min-h-screen flex flex-col overflow-x-hidden pt-16 xs:pt-20">
-          {children}
-        </main>
+        {/* Header */}
+        <Header />
         
-        {/* Footer */}
-        <Footer />
-      </div>
-      
-      {/* UI Components */}
-      <FloatingCTA />
-      <FloatingButtons />
-      <MobileBottomNav />
-      
-      {/* Performance optimizer - Temporarily disabled for testing */}
-      {/* <PerformanceOptimizer /> */}
-      
-      {/* Accessibility Checker - only active in development */}
-      <AccessibilityChecker />
+        {/* Main content with transition wrapper */}
+        <div className="main-content-wrapper">
+          <main id="main-content" className="min-h-screen flex flex-col overflow-x-hidden pt-16 xs:pt-20">
+            {children}
+          </main>
+          
+          {/* Footer */}
+          <Footer />
+        </div>
+        
+        {/* UI Components */}
+        <FloatingCTA />
+        <FloatingButtons />
+        <MobileBottomNav />
+        
+        {/* Performance optimizer - Temporarily disabled for testing */}
+        {/* <PerformanceOptimizer /> */}
+        
+        {/* Accessibility Checker - only active in development */}
+        <AccessibilityChecker />
     </>
   );
 } 

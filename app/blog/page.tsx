@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import ClientImage from '@/components/ClientImage';
 import Container from '@/components/ui/Container';
 import { Metadata } from 'next';
 
@@ -47,12 +47,11 @@ export default function BlogPage() {
                   <Link href={`/blog/${post.slug}`} className="block">
                     <div className="grid md:grid-cols-3 gap-6 items-center">
                       <div className="aspect-video relative rounded-lg overflow-hidden bg-primary-100">
-                        <Image
+                        <ClientImage
                           src={`/images/blog/blog-${post.slug}.jpg`}
                           alt={post.title}
                           fill
-                          style={{ objectFit: 'cover' }}
-                          className="group-hover:scale-105 transition-transform duration-300"
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                       </div>
                       

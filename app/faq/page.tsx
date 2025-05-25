@@ -216,43 +216,63 @@ export default function FAQPage() {
   // If not mounted yet (server-side), render a minimal version
   if (!isMounted) {
     return (
-      <div className="container relative mx-auto px-4 py-12 md:py-20">
-        <PageHeader
-          title="Frequently Asked Questions"
-          subtitle="Find answers to common questions about physiotherapy services and what to expect during your visits"
-        />
-        <div className="h-[600px] flex items-center justify-center">
-          <div className="text-center">Loading FAQ content...</div>
+      <main className="min-h-screen flex flex-col text-primary-700 bg-white">
+        {/* Hero Section */}
+        <section className="bg-primary-50 text-primary-800 py-10 pt-20 relative border-b border-neutral-200">
+          <div className="container mx-auto px-4 relative z-10 flex flex-col items-center">
+            <div className="text-center max-w-3xl">
+              <h1 className="text-4xl md:text-5xl font-heading font-bold mb-5">
+                Frequently Asked <span className="text-[#B08D57]">Questions</span>
+              </h1>
+              <p className="text-lg text-primary-600 max-w-2xl mx-auto">
+                Find answers to common questions about physiotherapy services and what to expect during your visits
+              </p>
+            </div>
+          </div>
+          <div className="absolute bottom-0 left-0 w-full h-1 bg-[#B08D57] opacity-20"></div>
+        </section>
+        <div className="container mx-auto px-4 py-12">
+          <div className="h-[600px] flex items-center justify-center">
+            <div className="text-center">Loading FAQ content...</div>
+          </div>
         </div>
-      </div>
+      </main>
     );
   }
 
   return (
-    <>
-      <div className="relative overflow-hidden">
-        {/* Decorative background elements */}
-        <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-accent/5 -mr-32 -mt-32 blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-primary-100/80 -ml-48 -mb-48 blur-3xl"></div>
-        
-        <div className="container relative mx-auto px-4 py-12 md:py-20">
-          <PageHeader
-            title="Frequently Asked Questions"
-            subtitle="Find answers to common questions about physiotherapy services and what to expect during your visits"
-          />
-          
-          {/* Enhanced search bar */}
-          <div className="max-w-2xl mx-auto mb-12 relative z-10">
-            <div className="bg-white/90 backdrop-blur-sm shadow-lg rounded-xl p-3 border border-neutral-200">
-              <SearchBar 
-                placeholder="Search for questions..." 
-                onChange={(e) => setSearchQuery(e.target.value)}
-                value={searchQuery}
-                onClear={() => setSearchQuery('')}
-              />
-            </div>
+    <main className="min-h-screen flex flex-col text-primary-700 bg-white">
+      {/* Hero Section */}
+      <section className="bg-primary-50 text-primary-800 py-10 pt-20 relative border-b border-neutral-200">
+        <div className="container mx-auto px-4 relative z-10 flex flex-col items-center">
+          <div className="text-center max-w-3xl">
+            <h1 className="text-4xl md:text-5xl font-heading font-bold mb-5">
+              Frequently Asked <span className="text-[#B08D57]">Questions</span>
+            </h1>
+            <p className="text-lg text-primary-600 max-w-2xl mx-auto">
+              Find answers to common questions about physiotherapy services and what to expect during your visits
+            </p>
           </div>
-          
+        </div>
+        <div className="absolute bottom-0 left-0 w-full h-1 bg-[#B08D57] opacity-20"></div>
+      </section>
+      
+      {/* Content */}
+      <div className="container mx-auto px-4 py-12">
+        {/* Enhanced search bar */}
+        <div className="max-w-2xl mx-auto mb-12 relative z-10">
+          <div className="bg-white/90 backdrop-blur-sm shadow-lg rounded-xl p-3 border border-neutral-200">
+            <SearchBar 
+              placeholder="Search for questions..." 
+              onChange={(e) => setSearchQuery(e.target.value)}
+              value={searchQuery}
+              onClear={() => setSearchQuery('')}
+            />
+          </div>
+        </div>
+        
+        {/* FAQ Content */}
+        <div className="max-w-6xl mx-auto">
           {!isSearching && (
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6 mb-12">
               {faqCategories.map((category) => (
@@ -347,7 +367,7 @@ export default function FAQPage() {
           </div>
         </div>
       </div>
-    </>
+    </main>
   );
 }
 

@@ -204,7 +204,7 @@ p {
   font-family: var(--font-body);
   margin-bottom: 1.25rem;
   color: #455070;
-  line-height: 1.7;
+  line-height: 1.6;
   font-size: 1rem;
   font-weight: 400;
 }
@@ -239,14 +239,18 @@ div[class*="Card"]:hover {
 
 /* Header styling - cleaner and more modern */
 header {
-  background: rgba(250, 252, 255, 0.85);
+  background: rgba(250, 252, 255, 0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.03);
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   z-index: var(--z-header);
   transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  height: var(--header-height);
 }
 
 header.scrolled {
@@ -672,4 +676,15 @@ label {
   background: linear-gradient(to right, transparent, rgba(26, 32, 54, 0.08), transparent);
   width: 100%;
   margin: 2rem 0;
+}
+
+/* Adjust main content to account for fixed header */
+main {
+  padding-top: var(--header-height);
+}
+
+/* Ensure proper centering of page titles */
+.section-primary h1 {
+  width: 100%;
+  text-align: center;
 }

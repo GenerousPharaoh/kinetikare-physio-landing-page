@@ -81,7 +81,7 @@ const Card = ({
     initial: "hidden",
     animate: isVisible ? "visible" : "hidden"
   } : {};
-  
+
   return (
     <CardComponent
       ref={animated ? ref : undefined}

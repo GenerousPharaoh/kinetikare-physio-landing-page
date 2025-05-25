@@ -367,7 +367,7 @@ const HeroSection = React.memo(function HeroSection() {
                       transition={{ duration: 0.6, delay: 2.4, ease: [0.16, 1, 0.3, 1] }}
                       className="font-medium text-white/95 inline-block mr-2"
                     >
-                      Expert Care.
+                      Genuine Understanding.
                     </motion.span>
                     <motion.span
                       initial={{ opacity: 0, y: 20 }}
@@ -375,7 +375,7 @@ const HeroSection = React.memo(function HeroSection() {
                       transition={{ duration: 0.6, delay: 2.7, ease: [0.16, 1, 0.3, 1] }}
                       className="font-medium text-white/95 inline-block"
                     >
-                      Genuine Understanding.
+                      Expert Care.
                     </motion.span>
                   </div>
                   {/* Second line */}

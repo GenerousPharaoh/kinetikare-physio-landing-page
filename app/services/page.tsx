@@ -191,49 +191,123 @@ export default function ServicesPage() {
       </section>
 
       {/* Process Section */}
-      <section className="py-16 section-light border-y border-[#B08D57]/10">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-heading font-bold mb-4 text-primary-800">
+      <section className="py-20 bg-gradient-to-br from-slate-50 to-white relative overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-[#B08D57]/5 to-transparent rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-tl from-[#D4AF37]/5 to-transparent rounded-full blur-2xl"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <div className="inline-block px-6 py-2 bg-[#B08D57]/10 text-[#B08D57] text-sm font-medium rounded-full mb-6">
+              Your Journey
+            </div>
+            <h2 className="text-4xl font-bold mb-6 text-primary-800">
               The Treatment Process
             </h2>
-            <p className="text-primary-800 font-medium">
-              What to expect during your physiotherapy journey with me.
+            <div className="w-24 h-1 bg-[#B08D57] mx-auto mb-8"></div>
+            <p className="text-xl text-primary-600 leading-relaxed">
+              What to expect during your physiotherapy journey with me
             </p>
-            <div className="w-32 h-0.5 bg-[#B08D57] mx-auto mt-6"></div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 max-w-5xl mx-auto">
-            <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-[#1A2036] rounded-full text-[#D4AF37] font-bold text-2xl flex items-center justify-center mb-4 shadow-md">1</div>
-              <h3 className="text-xl font-heading font-semibold mb-2 text-primary-800">Patient-Led Discovery</h3>
-              <p className="text-primary-700">
-                You lead the way by sharing your experience, concerns, and goals in an open, judgment-free environment.
-              </p>
+          {/* Treatment Process Carousel */}
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[
+                {
+                  step: "01",
+                  title: "Patient-Led Discovery",
+                  description: "You lead the way by sharing your experience, concerns, and goals in an open, judgment-free environment.",
+                  icon: (
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                    </svg>
+                  )
+                },
+                {
+                  step: "02", 
+                  title: "Assessment",
+                  description: "A thorough evaluation of your condition, medical history, and goals to create a personalized treatment plan.",
+                  icon: (
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                    </svg>
+                  )
+                },
+                {
+                  step: "03",
+                  title: "Treatment", 
+                  description: "Evidence-based interventions combining manual therapy, exercise, and education to address your specific needs.",
+                  icon: (
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    </svg>
+                  )
+                },
+                {
+                  step: "04",
+                  title: "Adaptive Progress",
+                  description: "Collaborative fine-tuning of your program based on your response, ensuring optimal recovery through continuous adaptation.",
+                  icon: (
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  )
+                }
+              ].map((step, index) => (
+                <div key={index} className="group relative">
+                  {/* Connection Line */}
+                  {index < 3 && (
+                    <div className="hidden lg:block absolute top-12 left-full w-8 h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] transform translate-x-4 z-0"></div>
+                  )}
+                  
+                  {/* Step Card */}
+                  <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200/60 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden h-full flex flex-col">
+                    {/* Decorative Background */}
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[#B08D57]/10 to-transparent rounded-full -translate-y-12 translate-x-12"></div>
+                    
+                    {/* Content */}
+                    <div className="relative z-10 flex-1 flex flex-col items-center text-center">
+                      {/* Step Number */}
+                      <div className="w-16 h-16 bg-gradient-to-br from-[#1A2036] to-slate-700 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <span className="text-[#D4AF37] font-bold text-xl">{step.step}</span>
+                      </div>
+                      
+                      {/* Icon */}
+                      <div className="w-12 h-12 bg-gradient-to-br from-[#B08D57]/20 to-[#D4AF37]/20 rounded-xl flex items-center justify-center mb-6 text-[#B08D57] group-hover:scale-105 transition-transform duration-300">
+                        {step.icon}
+                      </div>
+                      
+                      {/* Title */}
+                      <h3 className="text-xl font-bold mb-4 text-primary-800 group-hover:text-[#B08D57] transition-colors duration-300">
+                        {step.title}
+                      </h3>
+                      
+                      {/* Description */}
+                      <p className="text-primary-700 leading-relaxed flex-1">
+                        {step.description}
+                      </p>
+                    </div>
+                    
+                    {/* Hover Effect Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/5 to-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none"></div>
+                  </div>
+                </div>
+              ))}
             </div>
             
-            <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-[#1A2036] rounded-full text-[#D4AF37] font-bold text-2xl flex items-center justify-center mb-4 shadow-md">2</div>
-              <h3 className="text-xl font-heading font-semibold mb-2 text-primary-800">Assessment</h3>
-              <p className="text-primary-700">
-                A thorough evaluation of your condition, medical history, and goals to create a personalized treatment plan.
-              </p>
-            </div>
-            
-            <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-[#1A2036] rounded-full text-[#D4AF37] font-bold text-2xl flex items-center justify-center mb-4 shadow-md">3</div>
-              <h3 className="text-xl font-heading font-semibold mb-2 text-primary-800">Treatment</h3>
-              <p className="text-primary-700">
-                Evidence-based interventions combining manual therapy, exercise, and education to address your specific needs.
-              </p>
-            </div>
-            
-            <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-[#1A2036] rounded-full text-[#D4AF37] font-bold text-2xl flex items-center justify-center mb-4 shadow-md">4</div>
-              <h3 className="text-xl font-heading font-semibold mb-2 text-primary-800">Adaptive Progress</h3>
-              <p className="text-primary-700">
-                Collaborative fine-tuning of your program based on your response, ensuring optimal recovery through continuous adaptation.
-              </p>
+            {/* Progress Indicator */}
+            <div className="flex justify-center mt-12">
+              <div className="flex items-center space-x-4">
+                {[1, 2, 3, 4].map((num, index) => (
+                  <React.Fragment key={num}>
+                    <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] shadow-lg"></div>
+                    {index < 3 && (
+                      <div className="w-12 h-0.5 bg-gradient-to-r from-[#B08D57]/30 to-[#D4AF37]/30"></div>
+                    )}
+                  </React.Fragment>
+                ))}
+              </div>
             </div>
           </div>
         </div>

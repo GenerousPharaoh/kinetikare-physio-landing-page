@@ -210,103 +210,126 @@ export default function ServicesPage() {
             </p>
           </div>
           
-          {/* Treatment Process Carousel */}
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {[
-                {
-                  step: "01",
-                  title: "Patient-Led Discovery",
-                  description: "You lead the way by sharing your experience, concerns, and goals in an open, judgment-free environment.",
-                  icon: (
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                    </svg>
-                  )
-                },
-                {
-                  step: "02", 
-                  title: "Assessment",
-                  description: "A thorough evaluation of your condition, medical history, and goals to create a personalized treatment plan.",
-                  icon: (
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-                    </svg>
-                  )
-                },
-                {
-                  step: "03",
-                  title: "Treatment", 
-                  description: "Evidence-based interventions combining manual therapy, exercise, and education to address your specific needs.",
-                  icon: (
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                    </svg>
-                  )
-                },
-                {
-                  step: "04",
-                  title: "Adaptive Progress",
-                  description: "Collaborative fine-tuning of your program based on your response, ensuring optimal recovery through continuous adaptation.",
-                  icon: (
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  )
-                }
-              ].map((step, index) => (
-                <div key={index} className="group relative">
-                  {/* Connection Line */}
-                  {index < 3 && (
-                    <div className="hidden lg:block absolute top-12 left-full w-8 h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] transform translate-x-4 z-0"></div>
-                  )}
-                  
-                  {/* Step Card */}
-                  <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200/60 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden h-full flex flex-col">
-                    {/* Decorative Background */}
-                    <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[#B08D57]/10 to-transparent rounded-full -translate-y-12 translate-x-12"></div>
-                    
-                    {/* Content */}
-                    <div className="relative z-10 flex-1 flex flex-col items-center text-center">
-                      {/* Step Number */}
-                      <div className="w-16 h-16 bg-gradient-to-br from-[#1A2036] to-slate-700 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                        <span className="text-[#D4AF37] font-bold text-xl">{step.step}</span>
+          {/* Sophisticated Treatment Flow */}
+          <div className="max-w-7xl mx-auto">
+            {/* Flow Container */}
+            <div className="relative">
+              {/* Flowing Connection Line */}
+              <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#B08D57]/30 to-transparent transform -translate-y-1/2 z-0"></div>
+              
+              {/* Process Steps */}
+              <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-4">
+                {[
+                  {
+                    title: "Patient-Led Discovery",
+                    description: "You lead the way by sharing your experience, concerns, and goals in an open, judgment-free environment.",
+                    icon: (
+                      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                      </svg>
+                    ),
+                    gradient: "from-blue-500 to-blue-600"
+                  },
+                  {
+                    title: "Assessment",
+                    description: "A thorough evaluation of your condition, medical history, and goals to create a personalized treatment plan.",
+                    icon: (
+                      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                      </svg>
+                    ),
+                    gradient: "from-emerald-500 to-emerald-600"
+                  },
+                  {
+                    title: "Treatment",
+                    description: "Evidence-based interventions combining manual therapy, exercise, and education to address your specific needs.",
+                    icon: (
+                      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                      </svg>
+                    ),
+                    gradient: "from-purple-500 to-purple-600"
+                  },
+                  {
+                    title: "Adaptive Progress",
+                    description: "Collaborative fine-tuning of your program based on your response, ensuring optimal recovery through continuous adaptation.",
+                    icon: (
+                      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                    ),
+                    gradient: "from-amber-500 to-amber-600"
+                  }
+                ].map((step, index) => (
+                  <div key={index} className="group relative">
+                    {/* Floating Card */}
+                    <div className="relative bg-white/80 backdrop-blur-xl rounded-3xl p-8 shadow-xl border border-white/60 hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-3 hover:scale-105 overflow-hidden">
+                      {/* Gradient Background Overlay */}
+                      <div className={`absolute inset-0 bg-gradient-to-br ${step.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`}></div>
+                      
+                      {/* Floating Orbs */}
+                      <div className="absolute top-4 right-4 w-20 h-20 bg-gradient-to-br from-[#B08D57]/10 to-[#D4AF37]/10 rounded-full blur-xl opacity-60"></div>
+                      <div className="absolute bottom-4 left-4 w-16 h-16 bg-gradient-to-tr from-[#D4AF37]/8 to-[#B08D57]/8 rounded-full blur-lg opacity-40"></div>
+                      
+                      {/* Content */}
+                      <div className="relative z-10 text-center">
+                        {/* Icon Container */}
+                        <div className="relative mx-auto mb-6 w-20 h-20 flex items-center justify-center">
+                          {/* Icon Background */}
+                          <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-500"></div>
+                          <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl animate-pulse opacity-20"></div>
+                          
+                          {/* Icon */}
+                          <div className="relative z-10 text-white group-hover:scale-110 transition-transform duration-300">
+                            {step.icon}
+                          </div>
+                        </div>
+                        
+                        {/* Title */}
+                        <h3 className="text-xl font-bold mb-4 text-primary-800 group-hover:text-[#B08D57] transition-colors duration-300 leading-tight">
+                          {step.title}
+                        </h3>
+                        
+                        {/* Description */}
+                        <p className="text-primary-600 leading-relaxed text-sm group-hover:text-primary-700 transition-colors duration-300">
+                          {step.description}
+                        </p>
+                        
+                        {/* Accent Line */}
+                        <div className="mt-6 mx-auto w-12 h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full group-hover:w-16 transition-all duration-300"></div>
                       </div>
                       
-                      {/* Icon */}
-                      <div className="w-12 h-12 bg-gradient-to-br from-[#B08D57]/20 to-[#D4AF37]/20 rounded-xl flex items-center justify-center mb-6 text-[#B08D57] group-hover:scale-105 transition-transform duration-300">
-                        {step.icon}
-                      </div>
-                      
-                      {/* Title */}
-                      <h3 className="text-xl font-bold mb-4 text-primary-800 group-hover:text-[#B08D57] transition-colors duration-300">
-                        {step.title}
-                      </h3>
-                      
-                      {/* Description */}
-                      <p className="text-primary-700 leading-relaxed flex-1">
-                        {step.description}
-                      </p>
+                      {/* Hover Glow Effect */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/5 to-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl pointer-events-none"></div>
                     </div>
                     
-                    {/* Hover Effect Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/5 to-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none"></div>
+                    {/* Connection Arrow (Desktop Only) */}
+                    {index < 3 && (
+                      <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-20">
+                        <div className="w-8 h-8 flex items-center justify-center">
+                          <svg className="w-6 h-6 text-[#B08D57] group-hover:text-[#D4AF37] transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                          </svg>
+                        </div>
+                      </div>
+                    )}
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
             
-            {/* Progress Indicator */}
-            <div className="flex justify-center mt-12">
-              <div className="flex items-center space-x-4">
-                {[1, 2, 3, 4].map((num, index) => (
-                  <React.Fragment key={num}>
-                    <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] shadow-lg"></div>
-                    {index < 3 && (
-                      <div className="w-12 h-0.5 bg-gradient-to-r from-[#B08D57]/30 to-[#D4AF37]/30"></div>
-                    )}
-                  </React.Fragment>
-                ))}
+            {/* Bottom Flow Indicator */}
+            <div className="flex justify-center mt-16">
+              <div className="flex items-center space-x-3 bg-white/60 backdrop-blur-xl rounded-full px-8 py-4 shadow-lg border border-white/40">
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] animate-pulse"></div>
+                  <span className="text-sm font-medium text-primary-700">Your Journey Begins</span>
+                </div>
+                <div className="w-16 h-0.5 bg-gradient-to-r from-[#B08D57]/30 to-[#D4AF37]/30"></div>
+                <div className="flex items-center space-x-2">
+                  <span className="text-sm font-medium text-primary-700">Lasting Recovery</span>
+                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#B08D57] animate-pulse"></div>
+                </div>
               </div>
             </div>
           </div>

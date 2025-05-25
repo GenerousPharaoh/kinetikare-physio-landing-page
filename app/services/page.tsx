@@ -120,35 +120,38 @@ export default function ServicesPage() {
                       {/* Better Icons based on service */}
                       {service.id === 'manual-therapy' && (
                         <svg className="w-8 h-8 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11" />
                         </svg>
                       )}
                       {service.id === 'sports-rehab' && (
                         <svg className="w-8 h-8 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          <circle cx="12" cy="12" r="3" strokeWidth={2} />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 1v6m0 10v6m11-7h-6m-10 0H1" />
                         </svg>
                       )}
                       {service.id === 'dry-needling' && (
                         <svg className="w-8 h-8 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2L12 22M8 6L16 6M10 10L14 10M9 14L15 14M11 18L13 18" />
                         </svg>
                       )}
                       {service.id === 'exercise-therapy' && (
                         <svg className="w-8 h-8 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.5 12a7.5 7.5 0 0015 0m-15 0a7.5 7.5 0 1115 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077l1.41-.513m14.095-5.13l1.41-.513M5.106 17.785l1.15-.964m11.49-9.642l1.149-.964M7.501 19.795l.75-1.3m7.5-12.99l.75-1.3m-6.063 16.658l.26-1.477m2.605-14.772l.26-1.477m0 17.726l-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205L8.25 2.95M12 12m-2 0a2 2 0 104 0 2 2 0 10-4 0" />
                         </svg>
                       )}
                       {service.id === 'postural-assessment' && (
                         <svg className="w-8 h-8 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14v7M9 17h6M10 21h4" />
                         </svg>
                       )}
                       {service.id === 'pain-management' && (
                         <svg className="w-8 h-8 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                         </svg>
                       )}
-                </div>
+                    </div>
 
                     {/* Title */}
                     <h2 className="text-2xl font-bold mb-4 text-primary-800 group-hover:text-[#B08D57] transition-colors duration-300">
@@ -225,7 +228,7 @@ export default function ServicesPage() {
                     description: "You lead the way by sharing your experience, concerns, and goals in an open, judgment-free environment.",
                     icon: (
                       <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
                       </svg>
                     ),
                     gradient: "from-blue-500 to-blue-600"
@@ -235,7 +238,7 @@ export default function ServicesPage() {
                     description: "A thorough evaluation of your condition, medical history, and goals to create a personalized treatment plan.",
                     icon: (
                       <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                       </svg>
                     ),
                     gradient: "from-emerald-500 to-emerald-600"
@@ -245,7 +248,7 @@ export default function ServicesPage() {
                     description: "Evidence-based interventions combining manual therapy, exercise, and education to address your specific needs.",
                     icon: (
                       <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
                       </svg>
                     ),
                     gradient: "from-purple-500 to-purple-600"
@@ -263,7 +266,7 @@ export default function ServicesPage() {
                 ].map((step, index) => (
                   <div key={index} className="group relative">
                     {/* Floating Card */}
-                    <div className="relative bg-white/80 backdrop-blur-xl rounded-3xl p-8 shadow-xl border border-white/60 hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-3 hover:scale-105 overflow-hidden">
+                    <div className="relative bg-white/80 backdrop-blur-xl rounded-3xl p-8 shadow-xl border border-white/60 hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-3 hover:scale-105 overflow-hidden h-80 flex flex-col">
                       {/* Gradient Background Overlay */}
                       <div className={`absolute inset-0 bg-gradient-to-br ${step.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`}></div>
                       
@@ -272,7 +275,7 @@ export default function ServicesPage() {
                       <div className="absolute bottom-4 left-4 w-16 h-16 bg-gradient-to-tr from-[#D4AF37]/8 to-[#B08D57]/8 rounded-full blur-lg opacity-40"></div>
                       
                       {/* Content */}
-                      <div className="relative z-10 text-center">
+                      <div className="relative z-10 text-center flex flex-col h-full">
                         {/* Icon Container */}
                         <div className="relative mx-auto mb-6 w-20 h-20 flex items-center justify-center">
                           {/* Icon Background */}
@@ -291,17 +294,17 @@ export default function ServicesPage() {
                         </h3>
                         
                         {/* Description */}
-                        <p className="text-primary-600 leading-relaxed text-sm group-hover:text-primary-700 transition-colors duration-300">
+                        <p className="text-primary-600 leading-relaxed text-sm group-hover:text-primary-700 transition-colors duration-300 flex-1">
                           {step.description}
                         </p>
                         
                         {/* Accent Line */}
                         <div className="mt-6 mx-auto w-12 h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full group-hover:w-16 transition-all duration-300"></div>
-            </div>
-            
+                      </div>
+                      
                       {/* Hover Glow Effect */}
                       <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/5 to-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl pointer-events-none"></div>
-            </div>
+                    </div>
             
                     {/* Connection Arrow (Desktop Only) */}
                     {index < 3 && (
@@ -315,21 +318,6 @@ export default function ServicesPage() {
                     )}
                   </div>
                 ))}
-              </div>
-            </div>
-            
-            {/* Bottom Flow Indicator */}
-            <div className="flex justify-center mt-16">
-              <div className="flex items-center space-x-3 bg-white/60 backdrop-blur-xl rounded-full px-8 py-4 shadow-lg border border-white/40">
-                <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] animate-pulse"></div>
-                  <span className="text-sm font-medium text-primary-700">Your Journey Begins</span>
-                </div>
-                <div className="w-16 h-0.5 bg-gradient-to-r from-[#B08D57]/30 to-[#D4AF37]/30"></div>
-                <div className="flex items-center space-x-2">
-                  <span className="text-sm font-medium text-primary-700">Lasting Recovery</span>
-                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#B08D57] animate-pulse"></div>
-                </div>
               </div>
             </div>
           </div>

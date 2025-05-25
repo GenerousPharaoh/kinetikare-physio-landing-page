@@ -6,8 +6,16 @@ import Footer from '@/components/Footer';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'Physiotherapy Services',
-  description: 'Professional physiotherapy services for better health and mobility.',
+  title: 'KinetiKare - Kareem Hassanein Physiotherapy',
+  description: 'Professional physiotherapy services in Burlington, Ontario. Expert care for sports injuries, manual therapy, dry needling, and rehabilitation.',
+  icons: {
+    icon: [
+      { url: '/favicon.png', sizes: 'any' },
+      { url: '/images/kinetikare-logo-without-text.png', sizes: '32x32', type: 'image/png' }
+    ],
+    shortcut: '/favicon.png',
+    apple: '/favicon.png'
+  }
 };
 
 export default function RootLayout({

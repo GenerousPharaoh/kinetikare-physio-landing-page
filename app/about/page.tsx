@@ -197,28 +197,20 @@ export default function About() {
                 </div>
                 
                 {/* KinetiKare Logo */}
-                <div className="bg-gradient-to-br from-white to-slate-50 p-6 rounded-2xl border border-neutral-200 shadow-lg">
-                  <div className="flex items-center justify-center space-x-3">
+                <div className="bg-gradient-to-br from-white to-slate-50 p-8 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300">
+                  <div className="flex items-center justify-center">
                     <Image
                       src="/images/kinetikare-logo.png"
                       alt="KinetiKare Logo"
-                      width={32}
-                      height={32}
-                      className="w-8 h-8 object-contain"
+                      width={80}
+                      height={80}
+                      className="w-20 h-20 object-contain hover:scale-105 transition-transform duration-300"
                       style={{
-                        filter: 'contrast(1.1) saturate(1.2) brightness(1.05)',
+                        filter: 'contrast(1.2) saturate(1.3) brightness(1.1) drop-shadow(0 2px 8px rgba(176, 141, 87, 0.15))',
                         imageRendering: 'crisp-edges'
                       }}
                     />
-                    <div className="flex items-center">
-                      <span className="font-serif text-2xl text-slate-800 tracking-wide font-light">Kineti</span>
-                      <span className="font-serif text-2xl text-slate-700 tracking-wide font-semibold">K</span>
-                      <span className="font-serif text-2xl text-slate-800 tracking-wide font-light">are</span>
-                    </div>
                   </div>
-                  <p className="text-center text-xs text-slate-500 mt-2 font-medium">
-                    Kareem Hassanein Physiotherapy
-                  </p>
                 </div>
                 
                 {/* CTA */}

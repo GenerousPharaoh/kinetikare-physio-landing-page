@@ -148,25 +148,25 @@ export default function ServicesPage() {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                         </svg>
                       )}
-                    </div>
+                </div>
 
                     {/* Title */}
                     <h2 className="text-2xl font-bold mb-4 text-primary-800 group-hover:text-[#B08D57] transition-colors duration-300">
-                      {service.title}
-                    </h2>
+                    {service.title}
+                  </h2>
 
                     {/* Description */}
                     <p className="text-primary-700 mb-6 leading-relaxed flex-1">
-                      {service.description}
-                    </p>
+                    {service.description}
+                  </p>
 
                     {/* Features List */}
-                    <div className="mt-auto">
+                  <div className="mt-auto">
                       <div className="flex items-center mb-4">
                         <div className="w-6 h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mr-3"></div>
                         <h3 className="text-sm font-bold uppercase tracking-wider text-[#B08D57]">
-                          Key Benefits
-                        </h3>
+                      Key Benefits
+                    </h3>
                       </div>
                       <ul className="space-y-3">
                         {service.features.map((feature, featureIndex) => (
@@ -175,9 +175,9 @@ export default function ServicesPage() {
                               <div className="w-2 h-2 rounded-full bg-gradient-to-br from-[#B08D57] to-[#D4AF37]"></div>
                             </div>
                             <span className="text-primary-700 text-sm leading-relaxed font-medium">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
+                        </li>
+                      ))}
+                    </ul>
                     </div>
 
                     {/* Hover Effect Overlay */}
@@ -297,12 +297,12 @@ export default function ServicesPage() {
                         
                         {/* Accent Line */}
                         <div className="mt-6 mx-auto w-12 h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full group-hover:w-16 transition-all duration-300"></div>
-                      </div>
-                      
+            </div>
+            
                       {/* Hover Glow Effect */}
                       <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/5 to-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl pointer-events-none"></div>
-                    </div>
-                    
+            </div>
+            
                     {/* Connection Arrow (Desktop Only) */}
                     {index < 3 && (
                       <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-20">
@@ -350,8 +350,8 @@ export default function ServicesPage() {
                 Insurance & Billing
               </div>
               <h2 className="text-4xl font-bold mb-6 text-primary-800">
-                Insurance Coverage
-              </h2>
+              Insurance Coverage
+            </h2>
               <div className="w-24 h-1 bg-[#B08D57] mx-auto mb-8"></div>
               <p className="text-xl text-primary-600 max-w-2xl mx-auto leading-relaxed">
                 Physiotherapy services are covered by most extended health insurance plans
@@ -374,8 +374,8 @@ export default function ServicesPage() {
                     <h3 className="text-2xl font-bold text-primary-800">
                       Direct Billing Available
                     </h3>
-                  </div>
-                  
+          </div>
+          
                   <p className="text-primary-600 mb-8 leading-relaxed">
                     We offer direct billing with major insurance providers:
                   </p>

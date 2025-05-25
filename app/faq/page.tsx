@@ -77,7 +77,7 @@ const faqCategories: FAQCategory[] = [
       },
       {
         question: 'Do you offer dry needling?',
-        answer: 'Yes. Dry needling is one of several tools I may use to help reduce pain, release muscle tension, or improve mobility—particularly when addressing persistent trigger points, movement restrictions, or muscle imbalances. It involves the use of fine, sterile needles to target specific areas of tightness or dysfunction within muscle tissue.\n\nCommon uses include treating myofascial trigger points ("knots"), calming overactive muscle contractions, supporting postural or repetitive strain issues, and helping restore normal movement patterns when muscles are contributing to pain or joint restriction.\n\nThat said, it is never a required part of treatment. If I believe dry needling could be helpful for your condition, I\'ll explain the rationale, what to expect, and any potential risks. Your informed consent is essential, and you\'re always free to decline it. Many effective treatment plans do not include dry needling at all—it\'s simply one option among many, based on what works best for you.'
+        answer: 'Yes. Dry needling is one of several tools I may use to help reduce pain, release muscle tension, or improve mobility—particularly when addressing persistent trigger points, movement restrictions, or muscle imbalances. It involves the use of fine, sterile needles to target specific areas of tightness or dysfunction within muscle tissue.\n\nCommon uses include treating myofascial trigger points (knots), calming overactive muscle contractions, supporting postural or repetitive strain issues, and helping restore normal movement patterns when muscles are contributing to pain or joint restriction.\n\nThat said, it is never a required part of treatment. If I believe dry needling could be helpful for your condition, I\'ll explain the rationale, what to expect, and any potential risks. Your informed consent is essential, and you\'re always free to decline it. Many effective treatment plans do not include dry needling at all—it\'s simply one option among many, based on what works best for you.'
       },
       {
         question: 'Will I be treated by you directly throughout my care?',
@@ -101,7 +101,7 @@ const faqCategories: FAQCategory[] = [
       },
       {
         question: 'How do you decide which specific treatments or techniques to use?',
-        answer: 'Treatment decisions are always collaborative and evidence-informed. They are based on:\n\n- Findings from your detailed assessment.\n- Your specific goals and preferences.\n- How your body responds to different interventions.\n- The best available scientific evidence.\n\nI discuss the rationale for each approach with you, ensuring you understand the \'why\' behind your plan.'
+        answer: 'Treatment decisions are always collaborative and evidence-informed. They are based on:\n\n- Findings from your detailed assessment.\n- Your specific goals and preferences.\n- How your body responds to different interventions.\n- The best available scientific evidence.\n\nI discuss the rationale for each approach with you, ensuring you understand the why behind your plan.'
       },
       {
         question: 'What if I\'ve received conflicting advice from another healthcare provider?',
@@ -109,7 +109,7 @@ const faqCategories: FAQCategory[] = [
       },
       {
         question: 'What kind of environment do you try to create for your patients?',
-        answer: 'Creating an environment where you feel genuinely heard, truly respected, and completely safe isn\'t just a goal—it\'s fundamental to how I practice. Because I understand firsthand how vulnerable and challenging it can feel to seek healthcare, and how crucial it is to feel genuinely supported, I am deeply committed to:\n\nListening Attentively: Ensuring you have the uninterrupted time and space needed to share your story, concerns, and goals.\n\nCommunicating Clearly & Honestly: Explaining my findings and our plan in straightforward language, ensuring you understand the \'why\' behind every step.\n\nEmpowering You: Making certain you feel fully in control of your care. This means knowing you have the right to ask anything, voice concerns, understand your options, and decline any part of assessment or treatment at any time, without hesitation or judgment. My aim is for you to feel like an informed, respected, and active partner throughout your entire care journey here.'
+        answer: 'Creating an environment where you feel genuinely heard, truly respected, and completely safe isn\'t just a goal—it\'s fundamental to how I practice. Because I understand firsthand how vulnerable and challenging it can feel to seek healthcare, and how crucial it is to feel genuinely supported, I am deeply committed to:\n\nListening Attentively: Ensuring you have the uninterrupted time and space needed to share your story, concerns, and goals.\n\nCommunicating Clearly & Honestly: Explaining my findings and our plan in straightforward language, ensuring you understand the why behind every step.\n\nEmpowering You: Making certain you feel fully in control of your care. This means knowing you have the right to ask anything, voice concerns, understand your options, and decline any part of assessment or treatment at any time, without hesitation or judgment. My aim is for you to feel like an informed, respected, and active partner throughout your entire care journey here.'
       },
       {
         question: 'What makes your assessments distinct?',
@@ -131,7 +131,7 @@ const faqCategories: FAQCategory[] = [
     icon: <ClockIcon className="w-6 h-6" />,
     questions: [
       {
-        question: 'Can I come for injury prevention, performance enhancement, or \'tune-ups,\' even if I\'m not currently in pain?',
+        question: 'Can I come for injury prevention, performance enhancement, or tune-ups, even if I\'m not currently in pain?',
         answer: 'Yes, definitely! Proactive physiotherapy is incredibly valuable. I work with many individuals – athletes, active individuals, or those simply wanting to move better and feel more resilient – to identify potential movement limitations or strength deficits before they cause problems. I can help develop strategies to optimize movement, build strength, enhance performance, and reduce future injury risk.'
       },
       {

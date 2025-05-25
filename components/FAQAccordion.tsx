@@ -89,7 +89,7 @@ const formatAnswer = (answer: string) => {
         }
         
         // Highlight key terms with consistent styling
-        const keyTerms = ["Conversation:", "Assessment:", "Plan:", "I Reassess Thoroughly:", "We Adjust the Strategy:", "I Collaborate and Advocate:", "Listening Attentively:", "Communicating Clearly & Honestly:", "Empowering You:"];
+        const keyTerms = ["Conversation:", "Assessment:", "Plan:", "I Reassess Thoroughly:", "We Adjust the Strategy:", "I Collaborate and Advocate:", "Listening Attentively:", "Communicating Clearly & Honestly:", "Empowering You:", "Dedicated Time & Attention:", "Looking Holistically:", "Emphasis on Education and Active Participation:", "Partnership in Goal Setting:"];
         for (const term of keyTerms) {
           if (paragraph.includes(term)) {
             const parts = paragraph.split(term);
@@ -102,7 +102,7 @@ const formatAnswer = (answer: string) => {
                 );
               }
               if (parts[j]) {
-                formattedParts.push(<span key={`content-${j}`}>{parts[j]}</span>);
+                formattedParts.push(<span key={`content-${j}`}>{decodeHtmlEntities(parts[j])}</span>);
               }
             }
             

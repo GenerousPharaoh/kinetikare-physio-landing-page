@@ -118,8 +118,8 @@ export default function ContactSection() {
                     <div className="flex items-center space-x-3">
                       <div className="inline-flex items-center justify-center w-10 h-10 bg-gradient-to-br from-[#B08D57] to-[#A17D47] rounded-lg text-white shadow-md">
                         <PhoneIcon className="w-5 h-5" />
-                      </div>
-                      <div>
+                    </div>
+                    <div>
                         <p className="text-sm font-medium text-slate-500 uppercase tracking-wide">Phone</p>
                         <a 
                           href="tel:+19056346000"
@@ -127,9 +127,9 @@ export default function ContactSection() {
                         >
                           (905) 634-6000
                         </a>
-                      </div>
                     </div>
-
+                  </div>
+                  
                     {/* Hours */}
                     <div className="flex items-start space-x-3">
                       <div className="inline-flex items-center justify-center w-10 h-10 bg-gradient-to-br from-[#B08D57] to-[#A17D47] rounded-lg text-white shadow-md mt-1">

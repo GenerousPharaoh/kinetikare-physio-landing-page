@@ -570,10 +570,10 @@ export default function About() {
                           <div className="font-bold text-slate-800 text-xl mb-2">Canadian Soccer League</div>
                           <div className="text-[#B08D57] font-semibold text-base mb-1">Brantford Galaxy</div>
                           <div className="text-slate-600 text-sm leading-relaxed">Semi-professional league experience in Canadian competitive soccer</div>
-                        </div>
-                      </div>
-                    </div>
-                    
+                  </div>
+                </div>
+              </div>
+
                     <div className="p-6 bg-white/90 rounded-xl border border-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
                       <div className="flex items-start space-x-4">
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>

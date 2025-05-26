@@ -131,10 +131,11 @@ export default function ServicesSection({ onBookLinkClick }: ServicesSectionProp
                     filter: 'contrast(1.05) saturate(1.1) brightness(1.02)',
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent"></div>
-                <div className="absolute bottom-6 left-4">
-                  <div className="bg-white/95 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg border border-white/50">
-                    <h4 className="text-sm font-bold text-slate-800">Modern Clinic Building</h4>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+                <div className="absolute bottom-3 left-3 right-3">
+                  <div className="bg-gradient-to-r from-white/95 to-white/90 backdrop-blur-md rounded-2xl px-6 py-3 shadow-xl border border-white/60 transform transition-all duration-300 group-hover:scale-105">
+                    <h4 className="text-base font-bold text-slate-800 tracking-wide">Modern Clinic Building</h4>
+                    <div className="w-8 h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full mt-1"></div>
                   </div>
                 </div>
               </div>
@@ -152,31 +153,33 @@ export default function ServicesSection({ onBookLinkClick }: ServicesSectionProp
                     filter: 'contrast(1.05) saturate(1.1) brightness(1.02)',
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent"></div>
-                <div className="absolute bottom-6 left-4">
-                  <div className="bg-white/95 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg border border-white/50">
-                    <h4 className="text-sm font-bold text-slate-800">Welcoming Reception Area</h4>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+                <div className="absolute bottom-3 left-3 right-3">
+                  <div className="bg-gradient-to-r from-white/95 to-white/90 backdrop-blur-md rounded-2xl px-6 py-3 shadow-xl border border-white/60 transform transition-all duration-300 group-hover:scale-105">
+                    <h4 className="text-base font-bold text-slate-800 tracking-wide">Welcoming Reception Area</h4>
+                    <div className="w-8 h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full mt-1"></div>
                   </div>
                 </div>
               </div>
             </div>
             
-            {/* Third Image - Fixed saturation */}
+            {/* Third Image */}
             <div className="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="aspect-[4/3] relative">
                 <Image
                   src="/images/clinic-pic-may-2025.jpg"
-                  alt="Modern Clinic Building"
+                  alt="Dedicated Treatment Space"
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                   style={{
                     filter: 'contrast(1.05) saturate(1.1) brightness(1.02)',
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent"></div>
-                <div className="absolute bottom-6 left-4">
-                  <div className="bg-white/95 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg border border-white/50">
-                    <h4 className="text-sm font-bold text-slate-800">Dedicated Treatment Space</h4>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+                <div className="absolute bottom-3 left-3 right-3">
+                  <div className="bg-gradient-to-r from-white/95 to-white/90 backdrop-blur-md rounded-2xl px-6 py-3 shadow-xl border border-white/60 transform transition-all duration-300 group-hover:scale-105">
+                    <h4 className="text-base font-bold text-slate-800 tracking-wide">Dedicated Treatment Space</h4>
+                    <div className="w-8 h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full mt-1"></div>
                   </div>
                 </div>
               </div>

@@ -87,15 +87,20 @@ export default function ContactSection() {
                   {/* Contact Details */}
                   <div className="space-y-6">
                     {/* Email */}
-                    <div className="flex items-center space-x-3">
-                      <div className="inline-flex items-center justify-center w-10 h-10 bg-gradient-to-br from-[#B08D57] to-[#A17D47] rounded-lg text-white shadow-md">
+                    <div className="flex items-start space-x-3">
+                      <div className="inline-flex items-center justify-center w-10 h-10 bg-gradient-to-br from-[#B08D57] to-[#A17D47] rounded-lg text-white shadow-md flex-shrink-0 mt-0.5">
                         <EnvelopeIcon className="w-5 h-5" />
                       </div>
                       <div className="min-w-0 flex-1">
-                        <p className="text-sm font-medium text-slate-500 uppercase tracking-wide">Email</p>
+                        <p className="text-sm font-medium text-slate-500 uppercase tracking-wide mb-1">Email</p>
                         <a 
                           href="mailto:kareem.hassanein@gmail.com"
-                          className="text-[#B08D57] hover:text-[#D4AF37] transition-colors duration-300 font-semibold text-sm sm:text-base break-words"
+                          className="text-[#B08D57] hover:text-[#D4AF37] transition-colors duration-300 font-semibold text-sm leading-tight block overflow-hidden"
+                          style={{ 
+                            wordBreak: 'keep-all',
+                            overflowWrap: 'anywhere',
+                            hyphens: 'none'
+                          }}
                         >
                           kareem.hassanein@gmail.com
                         </a>

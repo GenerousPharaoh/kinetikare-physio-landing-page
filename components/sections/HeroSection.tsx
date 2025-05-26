@@ -491,7 +491,7 @@ const HeroSection = React.memo(function HeroSection() {
                 </div>
 
                 {/* Testimonial Content */}
-                <div className="relative h-[320px] relative z-10">
+                <div className="relative h-[380px] relative z-10">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={currentTestimonialIndex}
@@ -596,12 +596,13 @@ const HeroSection = React.memo(function HeroSection() {
                         
                         <div className="relative pl-5">
                           <div 
-                            className="text-slate-700 leading-relaxed text-sm font-normal pr-4 overflow-y-auto max-h-full"
+                            className="text-slate-700 leading-relaxed text-sm font-normal pr-2 overflow-y-auto"
                             data-testimonial-scroll
                             style={{
                               scrollBehavior: 'smooth',
                               scrollbarWidth: 'none',
-                              msOverflowStyle: 'none'
+                              msOverflowStyle: 'none',
+                              maxHeight: '240px'
                             }}
                             ref={(el) => {
                               if (el && currentTestimonial.name === "Thanula") {

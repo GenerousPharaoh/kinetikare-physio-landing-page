@@ -68,73 +68,65 @@ export default function ContactSection() {
               <div className="bg-white/95 backdrop-blur-2xl rounded-3xl p-12 shadow-xl border border-slate-200/60">
                 <h3 className="text-3xl font-bold text-slate-900 mb-10 tracking-tight text-center">Contact Information</h3>
                 
-                <div className="grid sm:grid-cols-2 gap-8">
+                <div className="space-y-8">
                   {/* Location */}
-                  <div className="space-y-3">
-                    <div className="flex items-center space-x-3 mb-4">
-                      <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-[#B08D57] to-[#A17D47] rounded-xl text-white shadow-lg">
-                        <MapPinIcon className="w-6 h-6" />
-                      </div>
-                      <h4 className="text-xl font-bold text-slate-900">Location</h4>
+                  <div className="flex items-start space-x-4">
+                    <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-[#B08D57] to-[#A17D47] rounded-xl text-white shadow-lg flex-shrink-0">
+                      <MapPinIcon className="w-6 h-6" />
                     </div>
-                    <div className="pl-15">
-                      <p className="font-semibold text-slate-900">Endorphins Health and Wellness Centre</p>
-                      <p className="text-slate-600">4631 Palladium Wy Unit 6</p>
-                      <p className="text-slate-600">Burlington, ON L7M 0W9</p>
+                    <div className="min-w-0 flex-1">
+                      <h4 className="text-lg font-bold text-slate-900 mb-2">Location</h4>
+                      <div className="space-y-1">
+                        <p className="font-semibold text-slate-900">Endorphins Health and Wellness Centre</p>
+                        <p className="text-slate-600">4631 Palladium Wy Unit 6</p>
+                        <p className="text-slate-600">Burlington, ON L7M 0W9</p>
+                      </div>
                     </div>
                   </div>
-                  
-                  {/* Contact Details */}
-                  <div className="space-y-6">
-                    {/* Email */}
-                    <div className="flex items-start space-x-3">
-                      <div className="inline-flex items-center justify-center w-10 h-10 bg-gradient-to-br from-[#B08D57] to-[#A17D47] rounded-lg text-white shadow-md flex-shrink-0 mt-0.5">
-                        <EnvelopeIcon className="w-5 h-5" />
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <p className="text-sm font-medium text-slate-500 uppercase tracking-wide mb-1">Email</p>
-                        <a 
-                          href="mailto:kareem.hassanein@gmail.com"
-                          className="text-[#B08D57] hover:text-[#D4AF37] transition-colors duration-300 font-semibold text-sm leading-tight block overflow-hidden"
-                          style={{ 
-                            wordBreak: 'keep-all',
-                            overflowWrap: 'anywhere',
-                            hyphens: 'none'
-                          }}
-                        >
-                          kareem.hassanein@gmail.com
-                        </a>
-                      </div>
-                    </div>
 
-                    {/* Phone */}
-                    <div className="flex items-center space-x-3">
-                      <div className="inline-flex items-center justify-center w-10 h-10 bg-gradient-to-br from-[#B08D57] to-[#A17D47] rounded-lg text-white shadow-md">
-                        <PhoneIcon className="w-5 h-5" />
+                  {/* Email */}
+                  <div className="flex items-start space-x-4">
+                    <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-[#B08D57] to-[#A17D47] rounded-xl text-white shadow-lg flex-shrink-0">
+                      <EnvelopeIcon className="w-6 h-6" />
                     </div>
-                    <div>
-                        <p className="text-sm font-medium text-slate-500 uppercase tracking-wide">Phone</p>
-                        <a 
-                          href="tel:+19056346000"
-                          className="text-[#B08D57] hover:text-[#D4AF37] transition-colors duration-300 font-semibold"
-                        >
-                          (905) 634-6000
-                        </a>
+                    <div className="min-w-0 flex-1">
+                      <h4 className="text-lg font-bold text-slate-900 mb-2">Email</h4>
+                      <a 
+                        href="mailto:kareem.hassanein@gmail.com"
+                        className="text-[#B08D57] hover:text-[#D4AF37] transition-colors duration-300 font-semibold text-lg"
+                      >
+                        kareem.hassanein@gmail.com
+                      </a>
                     </div>
                   </div>
-                  
-                    {/* Hours */}
-                    <div className="flex items-start space-x-3">
-                      <div className="inline-flex items-center justify-center w-10 h-10 bg-gradient-to-br from-[#B08D57] to-[#A17D47] rounded-lg text-white shadow-md mt-1">
-                        <ClockIcon className="w-5 h-5" />
+
+                  {/* Phone */}
+                  <div className="flex items-start space-x-4">
+                    <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-[#B08D57] to-[#A17D47] rounded-xl text-white shadow-lg flex-shrink-0">
+                      <PhoneIcon className="w-6 h-6" />
                     </div>
-                    <div>
-                        <p className="text-sm font-medium text-slate-500 uppercase tracking-wide mb-2">Hours</p>
-                        <div className="space-y-1">
-                          <p className="text-slate-800 font-semibold">Monday - Friday: 2PM - 8PM</p>
-                          <p className="text-slate-600">Saturday: Available upon request</p>
-                          <p className="text-slate-600">Sunday: Closed</p>
-                        </div>
+                    <div className="min-w-0 flex-1">
+                      <h4 className="text-lg font-bold text-slate-900 mb-2">Phone</h4>
+                      <a 
+                        href="tel:+19056346000"
+                        className="text-[#B08D57] hover:text-[#D4AF37] transition-colors duration-300 font-semibold text-lg"
+                      >
+                        (905) 634-6000
+                      </a>
+                    </div>
+                  </div>
+                
+                  {/* Hours */}
+                  <div className="flex items-start space-x-4">
+                    <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-[#B08D57] to-[#A17D47] rounded-xl text-white shadow-lg flex-shrink-0">
+                      <ClockIcon className="w-6 h-6" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <h4 className="text-lg font-bold text-slate-900 mb-2">Hours</h4>
+                      <div className="space-y-1">
+                        <p className="text-slate-800 font-semibold">Monday - Friday: 2PM - 8PM</p>
+                        <p className="text-slate-600">Saturday: Available upon request</p>
+                        <p className="text-slate-600">Sunday: Closed</p>
                       </div>
                     </div>
                   </div>

@@ -10,429 +10,310 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-b from-slate-50 to-white py-24">
+      {/* Simple Header */}
+      <section className="bg-gray-50 py-12 border-b border-gray-200">
         <div className="container mx-auto px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
+          <div className="max-w-4xl mx-auto">
+            <h1 className="text-3xl font-bold text-gray-900 mb-4">
               Terms of Service
             </h1>
-            <div className="w-24 h-1 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mx-auto mb-8 rounded-full"></div>
-            <p className="text-xl text-slate-600 leading-relaxed">
-              Terms and conditions for professional physiotherapy services
-            </p>
-            <div className="bg-[#B08D57]/10 rounded-2xl p-6 mt-8 border border-[#B08D57]/20">
-              <p className="text-lg font-semibold text-slate-800 mb-2">Effective Date: May 25, 2025</p>
-              <div className="text-slate-600">
-                <p className="font-semibold">Kareem Hassanein, Registered Physiotherapist</p>
-                <p>Operating at: Endorphins Health and Wellness Centre</p>
-                <p>4631 Palladium Way, Unit 6, Burlington, ON L7M 0W9</p>
-              </div>
+            <div className="text-gray-600 space-y-1">
+              <p><strong>Effective Date:</strong> May 25, 2025</p>
+              <p><strong>Kareem Hassanein, Registered Physiotherapist</strong></p>
+              <p>Operating at: Endorphins Health and Wellness Centre</p>
+              <p>4631 Palladium Way, Unit 6, Burlington, ON L7M 0W9</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="py-16 bg-white">
+      {/* Legal Content */}
+      <section className="py-12">
         <div className="container mx-auto px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto prose prose-lg prose-slate">
-            
-            {/* Acceptance of Terms */}
-            <div className="mb-16">
-              <h2 className="text-3xl font-bold text-slate-900 mb-6 border-b-2 border-[#B08D57]/20 pb-4">
-                1. Acceptance of Terms
-              </h2>
-              <div className="bg-blue-50 rounded-2xl p-6 border border-blue-200">
-                <p className="text-slate-700 leading-relaxed text-lg">
+          <div className="max-w-4xl mx-auto">
+            <div className="prose prose-gray max-w-none">
+              
+              {/* 1. Acceptance of Terms */}
+              <section className="mb-12">
+                <h2 className="text-xl font-semibold text-gray-900 mb-4 border-b border-gray-300 pb-2">
+                  1. Acceptance of Terms
+                </h2>
+                <p className="text-gray-700 leading-relaxed">
                   By booking an appointment, receiving physiotherapy services, or using my website, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use my services.
                 </p>
-              </div>
-            </div>
+              </section>
 
-            {/* Professional Services */}
-            <div className="mb-16">
-              <h2 className="text-3xl font-bold text-slate-900 mb-8 border-b-2 border-[#B08D57]/20 pb-4">
-                2. Professional Services
-              </h2>
+              {/* 2. Professional Services */}
+              <section className="mb-12">
+                <h2 className="text-xl font-semibold text-gray-900 mb-4 border-b border-gray-300 pb-2">
+                  2. Professional Services
+                </h2>
 
-              <div className="space-y-8">
-                {/* Scope of Services */}
-                <div>
-                  <h3 className="text-2xl font-bold text-slate-900 mb-4 text-[#B08D57]">2.1 Scope of Services</h3>
-                  <p className="text-slate-700 mb-4">
-                    I provide physiotherapy assessment and treatment services within my scope of practice as defined by the College of Physiotherapists of Ontario. Services may include but are not limited to:
-                  </p>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="bg-gradient-to-br from-[#B08D57]/5 to-[#D4AF37]/5 rounded-xl p-4 border border-[#B08D57]/20">
-                      <ul className="space-y-2 text-slate-700">
-                        <li className="flex items-start">
-                          <span className="text-[#B08D57] mr-2 mt-1">•</span>
-                          Physical assessment and diagnosis
-                        </li>
-                        <li className="flex items-start">
-                          <span className="text-[#B08D57] mr-2 mt-1">•</span>
-                          Manual therapy
-                        </li>
-                        <li className="flex items-start">
-                          <span className="text-[#B08D57] mr-2 mt-1">•</span>
-                          Exercise prescription
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="bg-gradient-to-br from-[#B08D57]/5 to-[#D4AF37]/5 rounded-xl p-4 border border-[#B08D57]/20">
-                      <ul className="space-y-2 text-slate-700">
-                        <li className="flex items-start">
-                          <span className="text-[#B08D57] mr-2 mt-1">•</span>
-                          Education and advice
-                        </li>
-                        <li className="flex items-start">
-                          <span className="text-[#B08D57] mr-2 mt-1">•</span>
-                          Modalities as appropriate
-                        </li>
-                      </ul>
-                    </div>
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-lg font-medium text-gray-900 mb-3">2.1 Scope of Services</h3>
+                    <p className="text-gray-700 mb-3">
+                      I provide physiotherapy assessment and treatment services within my scope of practice as defined by the College of Physiotherapists of Ontario. Services may include but are not limited to:
+                    </p>
+                    <ul className="list-disc ml-6 space-y-1 text-gray-700">
+                      <li>Physical assessment and diagnosis</li>
+                      <li>Manual therapy</li>
+                      <li>Exercise prescription</li>
+                      <li>Education and advice</li>
+                      <li>Modalities as appropriate</li>
+                    </ul>
                   </div>
-                </div>
 
-                {/* Not Medical Advice */}
-                <div>
-                  <h3 className="text-2xl font-bold text-slate-900 mb-4 text-[#B08D57]">2.2 Not Medical Advice</h3>
-                  <div className="bg-orange-50 rounded-xl p-6 border border-orange-200">
-                    <p className="text-slate-700">
+                  <div>
+                    <h3 className="text-lg font-medium text-gray-900 mb-3">2.2 Not Medical Advice</h3>
+                    <p className="text-gray-700">
                       While I am a regulated healthcare professional, the information provided on my website is for general informational purposes only and should not be considered a substitute for professional medical advice, diagnosis, or treatment.
                     </p>
                   </div>
                 </div>
-              </div>
-            </div>
+              </section>
 
-            {/* Appointments */}
-            <div className="mb-16">
-              <h2 className="text-3xl font-bold text-slate-900 mb-8 border-b-2 border-[#B08D57]/20 pb-4">
-                3. Appointments
-              </h2>
+              {/* 3. Appointments */}
+              <section className="mb-12">
+                <h2 className="text-xl font-semibold text-gray-900 mb-4 border-b border-gray-300 pb-2">
+                  3. Appointments
+                </h2>
 
-              <div className="grid md:grid-cols-3 gap-6">
-                {/* Booking */}
-                <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200">
-                  <h3 className="text-xl font-bold text-slate-900 mb-4 text-[#B08D57]">3.1 Booking</h3>
-                  <p className="text-slate-700 text-sm">
-                    Appointments can be booked through the methods I make available. By booking an appointment, you confirm that all information provided is accurate and complete.
-                  </p>
-                </div>
-
-                {/* Cancellation Policy */}
-                <div className="bg-red-50 rounded-2xl p-6 border border-red-200">
-                  <h3 className="text-xl font-bold text-slate-900 mb-4 text-red-700">3.2 Cancellation Policy</h3>
-                  <p className="text-slate-700 text-sm mb-3">
-                    I require a minimum of <span className="font-semibold text-red-600">24 hours notice</span> for appointment cancellations or rescheduling.
-                  </p>
-                  <p className="text-slate-700 text-sm">
-                    Failure to provide adequate notice may result in a cancellation fee equivalent to the full appointment cost.
-                  </p>
-                </div>
-
-                {/* Late Arrivals */}
-                <div className="bg-yellow-50 rounded-2xl p-6 border border-yellow-200">
-                  <h3 className="text-xl font-bold text-slate-900 mb-4 text-yellow-700">3.3 Late Arrivals</h3>
-                  <p className="text-slate-700 text-sm mb-3">
-                    If you arrive late for your appointment, I will do my best to accommodate you for the remaining time.
-                  </p>
-                  <p className="text-slate-700 text-sm font-semibold">
-                    The full fee will still apply.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Fees and Payment */}
-            <div className="mb-16">
-              <h2 className="text-3xl font-bold text-slate-900 mb-8 border-b-2 border-[#B08D57]/20 pb-4">
-                4. Fees and Payment
-              </h2>
-
-              <div className="grid md:grid-cols-2 gap-8">
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-3 text-[#B08D57]">4.1 Service Fees</h3>
-                    <p className="text-slate-700">
+                    <h3 className="text-lg font-medium text-gray-900 mb-3">3.1 Booking</h3>
+                    <p className="text-gray-700">
+                      Appointments can be booked through the methods I make available. By booking an appointment, you confirm that all information provided is accurate and complete.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-lg font-medium text-gray-900 mb-3">3.2 Cancellation Policy</h3>
+                    <p className="text-gray-700 mb-2">
+                      I require a minimum of <strong>24 hours notice</strong> for appointment cancellations or rescheduling.
+                    </p>
+                    <p className="text-gray-700">
+                      Failure to provide adequate notice or missing an appointment without notice may result in a cancellation fee equivalent to the full appointment cost.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-lg font-medium text-gray-900 mb-3">3.3 Late Arrivals</h3>
+                    <p className="text-gray-700">
+                      If you arrive late for your appointment, I will do my best to accommodate you for the remaining time. The full fee will still apply.
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              {/* 4. Fees and Payment */}
+              <section className="mb-12">
+                <h2 className="text-xl font-semibold text-gray-900 mb-4 border-b border-gray-300 pb-2">
+                  4. Fees and Payment
+                </h2>
+
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-lg font-medium text-gray-900 mb-3">4.1 Service Fees</h3>
+                    <p className="text-gray-700">
                       Current fees for services are available upon request and will be communicated before treatment begins. Fees are subject to change with reasonable notice.
                     </p>
                   </div>
                   
                   <div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-3 text-[#B08D57]">4.2 Payment Terms</h3>
-                    <p className="text-slate-700 mb-3">
-                      Payment is due at the time of service unless other arrangements have been made.
+                    <h3 className="text-lg font-medium text-gray-900 mb-3">4.2 Payment Terms</h3>
+                    <p className="text-gray-700 mb-3">
+                      Payment is due at the time of service unless other arrangements have been made. I accept cash, debit, credit cards, and e-transfer.
                     </p>
-                    <div className="bg-green-50 rounded-lg p-4 border border-green-200">
-                      <p className="text-slate-700 font-medium">Accepted Payment Methods:</p>
-                      <div className="grid grid-cols-2 gap-2 mt-2 text-sm text-slate-600">
-                        <span>• Cash</span>
-                        <span>• Debit</span>
-                        <span>• Credit Cards</span>
-                        <span>• E-transfer</span>
-                      </div>
-                    </div>
                   </div>
-                </div>
 
-                <div className="space-y-6">
                   <div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-3 text-[#B08D57]">4.3 Insurance</h3>
-                    <p className="text-slate-700">
+                    <h3 className="text-lg font-medium text-gray-900 mb-3">4.3 Insurance</h3>
+                    <p className="text-gray-700">
                       I provide receipts suitable for insurance submission. You are responsible for understanding your insurance coverage and for any amounts not covered by insurance.
                     </p>
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-3 text-[#B08D57]">4.4 Outstanding Balances</h3>
-                    <div className="bg-orange-50 rounded-lg p-4 border border-orange-200">
-                      <p className="text-slate-700">
-                        Accounts with outstanding balances may be subject to additional fees or collection procedures as permitted by law.
-                      </p>
-                    </div>
+                    <h3 className="text-lg font-medium text-gray-900 mb-3">4.4 Outstanding Balances</h3>
+                    <p className="text-gray-700">
+                      Accounts with outstanding balances may be subject to additional fees or collection procedures as permitted by law.
+                    </p>
                   </div>
                 </div>
-              </div>
-            </div>
+              </section>
 
-            {/* Professional Relationship */}
-            <div className="mb-16">
-              <h2 className="text-3xl font-bold text-slate-900 mb-8 border-b-2 border-[#B08D57]/20 pb-4">
-                5. Professional Relationship
-              </h2>
+              {/* 5. Professional Relationship */}
+              <section className="mb-12">
+                <h2 className="text-xl font-semibold text-gray-900 mb-4 border-b border-gray-300 pb-2">
+                  5. Professional Relationship
+                </h2>
 
-              <div className="space-y-8">
-                <div className="grid md:grid-cols-3 gap-6">
-                  <div className="bg-blue-50 rounded-2xl p-6 border border-blue-200">
-                    <h3 className="text-xl font-bold text-slate-900 mb-4 text-blue-700">5.1 Informed Consent</h3>
-                    <p className="text-slate-700 text-sm">
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-lg font-medium text-gray-900 mb-3">5.1 Informed Consent</h3>
+                    <p className="text-gray-700">
                       Before beginning treatment, I will explain the proposed treatment, expected benefits, material risks, and alternatives. Your consent to treatment may be withdrawn at any time.
                     </p>
                   </div>
 
-                  <div className="bg-purple-50 rounded-2xl p-6 border border-purple-200">
-                    <h3 className="text-xl font-bold text-slate-900 mb-4 text-purple-700">5.2 Professional Boundaries</h3>
-                    <p className="text-slate-700 text-sm">
+                  <div>
+                    <h3 className="text-lg font-medium text-gray-900 mb-3">5.2 Professional Boundaries</h3>
+                    <p className="text-gray-700">
                       My relationship with patients is strictly professional. I maintain appropriate professional boundaries as required by my regulatory college.
                     </p>
                   </div>
 
-                  <div className="bg-teal-50 rounded-2xl p-6 border border-teal-200">
-                    <h3 className="text-xl font-bold text-slate-900 mb-4 text-teal-700">5.3 Collaborative Care</h3>
-                    <p className="text-slate-700 text-sm">
+                  <div>
+                    <h3 className="text-lg font-medium text-gray-900 mb-3">5.3 Collaborative Care</h3>
+                    <p className="text-gray-700">
                       With your consent, I may communicate with other healthcare providers involved in your care to ensure coordinated treatment.
                     </p>
                   </div>
                 </div>
-              </div>
-            </div>
+              </section>
 
-            {/* Your Responsibilities */}
-            <div className="mb-16">
-              <h2 className="text-3xl font-bold text-slate-900 mb-8 border-b-2 border-[#B08D57]/20 pb-4">
-                6. Your Responsibilities
-              </h2>
-              <div className="bg-[#B08D57]/5 rounded-2xl p-8 border border-[#B08D57]/20">
-                <p className="text-slate-700 mb-6 font-medium">As a patient, you agree to:</p>
-                <div className="grid md:grid-cols-2 gap-6">
+              {/* 6. Your Responsibilities */}
+              <section className="mb-12">
+                <h2 className="text-xl font-semibold text-gray-900 mb-4 border-b border-gray-300 pb-2">
+                  6. Your Responsibilities
+                </h2>
+                <p className="text-gray-700 mb-3">As a patient, you agree to:</p>
+                <ul className="list-disc ml-6 space-y-1 text-gray-700">
+                  <li>Provide accurate and complete health information</li>
+                  <li>Inform me of changes in your health status</li>
+                  <li>Follow the prescribed treatment plan or communicate concerns</li>
+                  <li>Treat me and my practice space with respect</li>
+                  <li>Attend scheduled appointments or provide adequate cancellation notice</li>
+                  <li>Make timely payment for services</li>
+                </ul>
+              </section>
+
+              {/* 7. Limitation of Liability */}
+              <section className="mb-12">
+                <h2 className="text-xl font-semibold text-gray-900 mb-4 border-b border-gray-300 pb-2">
+                  7. Limitation of Liability
+                </h2>
+
+                <div className="space-y-6">
                   <div>
-                    <ul className="space-y-3 text-slate-700">
-                      <li className="flex items-start">
-                        <span className="text-[#B08D57] mr-3 mt-1">✓</span>
-                        Provide accurate and complete health information
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-[#B08D57] mr-3 mt-1">✓</span>
-                        Inform me of changes in your health status
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-[#B08D57] mr-3 mt-1">✓</span>
-                        Follow the prescribed treatment plan or communicate concerns
-                      </li>
-                    </ul>
+                    <h3 className="text-lg font-medium text-gray-900 mb-3">7.1 Professional Liability</h3>
+                    <p className="text-gray-700">
+                      I maintain professional liability insurance as required by the College of Physiotherapists of Ontario. My liability for professional services is limited to the coverage provided by this insurance.
+                    </p>
                   </div>
+
                   <div>
-                    <ul className="space-y-3 text-slate-700">
-                      <li className="flex items-start">
-                        <span className="text-[#B08D57] mr-3 mt-1">✓</span>
-                        Treat me and my practice space with respect
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-[#B08D57] mr-3 mt-1">✓</span>
-                        Attend scheduled appointments or provide adequate notice
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-[#B08D57] mr-3 mt-1">✓</span>
-                        Make timely payment for services
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Limitation of Liability */}
-            <div className="mb-16">
-              <h2 className="text-3xl font-bold text-slate-900 mb-8 border-b-2 border-[#B08D57]/20 pb-4">
-                7. Limitation of Liability
-              </h2>
-
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-3 text-[#B08D57]">7.1 Professional Liability</h3>
-                  <p className="text-slate-700">
-                    I maintain professional liability insurance as required by the College of Physiotherapists of Ontario. My liability for professional services is limited to the coverage provided by this insurance.
-                  </p>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-yellow-50 rounded-lg p-6 border border-yellow-200">
-                    <h3 className="text-lg font-bold text-slate-900 mb-3 text-yellow-700">7.2 No Guarantee of Results</h3>
-                    <p className="text-slate-700">
+                    <h3 className="text-lg font-medium text-gray-900 mb-3">7.2 No Guarantee of Results</h3>
+                    <p className="text-gray-700">
                       While I strive to provide effective treatment, I cannot guarantee specific results or outcomes from physiotherapy services.
                     </p>
                   </div>
 
-                  <div className="bg-red-50 rounded-lg p-6 border border-red-200">
-                    <h3 className="text-lg font-bold text-slate-900 mb-3 text-red-700">7.3 Limitation on Damages</h3>
-                    <p className="text-slate-700">
-                      To the maximum extent permitted by law, I shall not be liable for any indirect, incidental, special, consequential, or punitive damages.
+                  <div>
+                    <h3 className="text-lg font-medium text-gray-900 mb-3">7.3 Limitation on Damages</h3>
+                    <p className="text-gray-700">
+                      To the maximum extent permitted by law, I shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from or related to the provision of services.
                     </p>
                   </div>
                 </div>
-              </div>
-            </div>
+              </section>
 
-            {/* Legal and Compliance Sections */}
-            <div className="space-y-12">
-              {/* Intellectual Property */}
-              <div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">8. Intellectual Property</h3>
-                <p className="text-slate-700">
-                  All content on my website, including text, graphics, logos, and images, is my property or used with permission and is protected by Canadian copyright laws.
-                </p>
-              </div>
+              {/* Additional Legal Sections */}
+              <section className="mb-12 space-y-8">
+                <div>
+                  <h3 className="text-lg font-medium text-gray-900 mb-3">8. Intellectual Property</h3>
+                  <p className="text-gray-700">
+                    All content on my website, including text, graphics, logos, and images, is my property or used with permission and is protected by Canadian copyright laws.
+                  </p>
+                </div>
 
-              {/* Indemnification */}
-              <div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">9. Indemnification</h3>
-                <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200">
-                  <p className="text-slate-700 mb-4">You agree to indemnify and hold me harmless from any claims, damages, or expenses arising from:</p>
-                  <ul className="space-y-2 text-slate-700">
-                    <li className="flex items-start">
-                      <span className="text-[#B08D57] mr-2 mt-1">•</span>
-                      Your breach of these Terms of Service
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-[#B08D57] mr-2 mt-1">•</span>
-                      Your violation of any law or regulation
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-[#B08D57] mr-2 mt-1">•</span>
-                      Your provision of false or misleading information
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-[#B08D57] mr-2 mt-1">•</span>
-                      Your failure to follow treatment recommendations resulting in injury
-                    </li>
+                <div>
+                  <h3 className="text-lg font-medium text-gray-900 mb-3">9. Indemnification</h3>
+                  <p className="text-gray-700 mb-3">You agree to indemnify and hold me harmless from any claims, damages, or expenses arising from:</p>
+                  <ul className="list-disc ml-6 space-y-1 text-gray-700">
+                    <li>Your breach of these Terms of Service</li>
+                    <li>Your violation of any law or regulation</li>
+                    <li>Your provision of false or misleading information</li>
+                    <li>Your failure to follow treatment recommendations resulting in injury</li>
                   </ul>
                 </div>
-              </div>
 
-              {/* Governing Law */}
-              <div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">10. Governing Law</h3>
-                <p className="text-slate-700">
-                  These Terms of Service are governed by the laws of Ontario, Canada. Any disputes shall be resolved in the courts of Ontario.
-                </p>
-              </div>
+                <div>
+                  <h3 className="text-lg font-medium text-gray-900 mb-3">10. Governing Law</h3>
+                  <p className="text-gray-700">
+                    These Terms of Service are governed by the laws of Ontario, Canada. Any disputes shall be resolved in the courts of Ontario.
+                  </p>
+                </div>
 
-              {/* Regulatory Compliance */}
-              <div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">11. Regulatory Compliance</h3>
-                <div className="bg-green-50 rounded-lg p-6 border border-green-200">
-                  <p className="text-slate-700">
+                <div>
+                  <h3 className="text-lg font-medium text-gray-900 mb-3">11. Regulatory Compliance</h3>
+                  <p className="text-gray-700">
                     I am registered with and regulated by the College of Physiotherapists of Ontario. I maintain all required registrations, insurance, and comply with all applicable professional standards and regulations.
                   </p>
                 </div>
-              </div>
 
-              {/* Accessibility */}
-              <div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">12. Accessibility</h3>
-                <p className="text-slate-700">
-                  I am committed to providing accessible services in compliance with the Accessibility for Ontarians with Disabilities Act (AODA). Please contact me to discuss any accommodation needs.
-                </p>
-              </div>
-
-              {/* Additional Terms */}
-              <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">13. Modifications to Terms</h3>
-                  <p className="text-slate-700 text-sm">
-                    I reserve the right to modify these Terms of Service at any time. Changes will be effective upon posting to my website.
+                  <h3 className="text-lg font-medium text-gray-900 mb-3">12. Accessibility</h3>
+                  <p className="text-gray-700">
+                    I am committed to providing accessible services in compliance with the Accessibility for Ontarians with Disabilities Act (AODA). Please contact me to discuss any accommodation needs.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">14. Severability</h3>
-                  <p className="text-slate-700 text-sm">
-                    If any provision is found unenforceable, it shall be limited to the minimum extent necessary, and remaining provisions shall remain in effect.
+                  <h3 className="text-lg font-medium text-gray-900 mb-3">13. Modifications to Terms</h3>
+                  <p className="text-gray-700">
+                    I reserve the right to modify these Terms of Service at any time. Changes will be effective upon posting to my website. Your continued use of my services after changes constitutes acceptance of the modified terms.
                   </p>
                 </div>
-              </div>
 
-              <div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">15. Entire Agreement</h3>
-                <p className="text-slate-700">
-                  These Terms of Service, together with my Privacy Policy and any consent forms, constitute the entire agreement between us regarding the use of my services.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+                <div>
+                  <h3 className="text-lg font-medium text-gray-900 mb-3">14. Severability</h3>
+                  <p className="text-gray-700">
+                    If any provision of these Terms is found to be unenforceable or invalid, that provision shall be limited or eliminated to the minimum extent necessary, and the remaining provisions shall remain in full effect.
+                  </p>
+                </div>
 
-      {/* Contact and Complaints Section */}
-      <section className="bg-slate-50 py-16">
-        <div className="container mx-auto px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h3 className="text-lg font-medium text-gray-900 mb-3">15. Entire Agreement</h3>
+                  <p className="text-gray-700">
+                    These Terms of Service, together with my Privacy Policy and any consent forms, constitute the entire agreement between us regarding the use of my services.
+                  </p>
+                </div>
+              </section>
+
               {/* Contact Information */}
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200">
-                <h3 className="text-2xl font-bold text-slate-900 mb-6 text-[#B08D57]">16. Contact Information</h3>
-                <p className="text-slate-700 mb-6">
+              <section className="mb-12">
+                <h2 className="text-xl font-semibold text-gray-900 mb-4 border-b border-gray-300 pb-2">
+                  16. Contact Information
+                </h2>
+                <p className="text-gray-700 mb-4">
                   For questions about these Terms of Service, please contact:
                 </p>
-                <div className="bg-[#B08D57]/10 rounded-lg p-6 border border-[#B08D57]/20">
-                  <p className="font-semibold text-slate-800 mb-3">Kareem Hassanein, Registered Physiotherapist</p>
-                  <div className="space-y-2 text-slate-700">
-                    <p><span className="font-medium">Email:</span> kareem.hassanein@gmail.com</p>
-                    <p><span className="font-medium">Phone:</span> (905) 634-6000</p>
-                    <p><span className="font-medium">Address:</span> 4631 Palladium Way, Unit 6, Burlington, ON L7M 0W9</p>
-                  </div>
+                <div className="bg-gray-50 p-4 border border-gray-200">
+                  <p className="font-medium text-gray-900">Kareem Hassanein, Registered Physiotherapist</p>
+                  <p className="text-gray-700">Email: kareem.hassanein@gmail.com</p>
+                  <p className="text-gray-700">Phone: (905) 634-6000</p>
+                  <p className="text-gray-700">Address: 4631 Palladium Way, Unit 6, Burlington, ON L7M 0W9</p>
                 </div>
-              </div>
+              </section>
 
               {/* Complaints and Regulatory Bodies */}
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200">
-                <h3 className="text-2xl font-bold text-slate-900 mb-6 text-[#B08D57]">17. Complaints & Regulatory Bodies</h3>
-                <p className="text-slate-700 mb-6">
+              <section className="mb-12">
+                <h2 className="text-xl font-semibold text-gray-900 mb-4 border-b border-gray-300 pb-2">
+                  17. Complaints and Regulatory Bodies
+                </h2>
+                <p className="text-gray-700 mb-4">
                   Concerns about my professional services may be directed to:
                 </p>
-                <div className="bg-slate-50 rounded-lg p-6 border border-slate-200">
-                  <p className="font-semibold text-slate-800 mb-3">College of Physiotherapists of Ontario</p>
-                  <div className="text-slate-600 text-sm space-y-1">
-                    <p>375 University Avenue, Suite 901</p>
-                    <p>Toronto, ON M5G 2J5</p>
-                    <p>Phone: 416-591-3828</p>
-                    <p>Toll-free: 1-800-583-5885</p>
-                  </div>
+                <div className="bg-gray-50 p-4 border border-gray-200">
+                  <p className="font-medium text-gray-900">College of Physiotherapists of Ontario</p>
+                  <p className="text-gray-700">375 University Avenue, Suite 901</p>
+                  <p className="text-gray-700">Toronto, ON M5G 2J5</p>
+                  <p className="text-gray-700">Phone: 416-591-3828</p>
+                  <p className="text-gray-700">Toll-free: 1-800-583-5885</p>
                 </div>
-              </div>
+              </section>
             </div>
           </div>
         </div>

@@ -14,77 +14,9 @@ import {
 } from '@heroicons/react/24/outline';
 
 export default function ContactSection() {
-  const contactInfo = [
-    {
-      icon: <MapPinIcon className="w-7 h-7" />,
-      title: "Location",
-      content: (
-        <div className="space-y-2">
-          <p className="font-semibold text-slate-900 text-lg">Endorphins Health and Wellness Centre</p>
-          <p className="text-slate-600 font-medium">4631 Palladium Wy Unit 6</p>
-          <p className="text-slate-600 font-medium">Burlington, ON L7M 0W9</p>
-        </div>
-      ),
-      gradient: "from-slate-600 to-slate-700",
-      bgColor: "bg-slate-50",
-      hoverBg: "group-hover:bg-slate-100/50"
-    },
-    {
-      icon: <EnvelopeIcon className="w-7 h-7" />,
-      title: "Email",
-      content: (
-        <a 
-          href="mailto:kareem.hassanein@gmail.com"
-          className="text-[#B08D57] hover:text-[#D4AF37] transition-colors duration-300 font-semibold text-base sm:text-lg break-all"
-        >
-          kareem.hassanein@gmail.com
-        </a>
-      ),
-      gradient: "from-[#B08D57] to-[#A17D47]",
-      bgColor: "bg-[#B08D57]/5",
-      hoverBg: "group-hover:bg-[#B08D57]/10"
-    },
-    {
-      icon: <PhoneIcon className="w-7 h-7" />,
-      title: "Phone",
-      content: (
-        <a 
-          href="tel:+19056346000"
-          className="text-[#B08D57] hover:text-[#D4AF37] transition-colors duration-300 font-semibold text-base sm:text-lg"
-        >
-          (905) 634-6000
-        </a>
-      ),
-      gradient: "from-slate-700 to-slate-800",
-      bgColor: "bg-slate-50",
-      hoverBg: "group-hover:bg-slate-100/50"
-    },
-    {
-      icon: <ClockIcon className="w-7 h-7" />,
-      title: "Hours",
-      content: (
-        <div className="space-y-2">
-          <p className="text-slate-800 font-semibold text-lg">Monday - Friday: 2PM - 8PM</p>
-          <p className="text-slate-600 font-medium">Saturday: Available upon request</p>
-          <p className="text-slate-600 font-medium">Sunday: Closed</p>
-        </div>
-      ),
-      gradient: "from-[#8B7355] to-[#6B5B47]",
-      bgColor: "bg-[#D4AF37]/5",
-      hoverBg: "group-hover:bg-[#D4AF37]/10"
-    }
-  ];
-
   const serviceAreas = [
     "Burlington", "Waterdown", "Oakville", "Milton", "Hamilton", 
     "Flamborough", "Dundas", "Ancaster", "Aldershot"
-  ];
-
-  const premiumFeatures = [
-    "Direct online booking",
-    "Same-day appointments available",
-    "Comprehensive assessment included",
-    "Personalized treatment plans"
   ];
 
   return (
@@ -152,7 +84,7 @@ export default function ContactSection() {
                   {/* Location */}
                   <div className="space-y-3">
                     <div className="flex items-center space-x-3 mb-4">
-                      <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-slate-600 to-slate-700 rounded-xl text-white shadow-lg">
+                      <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-[#B08D57] to-[#A17D47] rounded-xl text-white shadow-lg">
                         <MapPinIcon className="w-6 h-6" />
                       </div>
                       <h4 className="text-xl font-bold text-slate-900">Location</h4>
@@ -184,7 +116,7 @@ export default function ContactSection() {
 
                     {/* Phone */}
                     <div className="flex items-center space-x-3">
-                      <div className="inline-flex items-center justify-center w-10 h-10 bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg text-white shadow-md">
+                      <div className="inline-flex items-center justify-center w-10 h-10 bg-gradient-to-br from-[#B08D57] to-[#A17D47] rounded-lg text-white shadow-md">
                         <PhoneIcon className="w-5 h-5" />
                       </div>
                       <div>
@@ -200,7 +132,7 @@ export default function ContactSection() {
 
                     {/* Hours */}
                     <div className="flex items-start space-x-3">
-                      <div className="inline-flex items-center justify-center w-10 h-10 bg-gradient-to-br from-[#8B7355] to-[#6B5B47] rounded-lg text-white shadow-md mt-1">
+                      <div className="inline-flex items-center justify-center w-10 h-10 bg-gradient-to-br from-[#B08D57] to-[#A17D47] rounded-lg text-white shadow-md mt-1">
                         <ClockIcon className="w-5 h-5" />
                       </div>
                       <div>
@@ -252,7 +184,7 @@ export default function ContactSection() {
               </div>
             </motion.div>
 
-            {/* Right Column - Premium CTA */}
+            {/* Right Column - Simplified CTA */}
             <motion.div 
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -260,8 +192,8 @@ export default function ContactSection() {
               viewport={{ once: true, margin: "-100px" }}
               className="flex flex-col justify-start"
             >
-              {/* Premium Book Appointment CTA */}
-              <div className="bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-3xl p-12 text-white relative overflow-hidden shadow-2xl h-full">
+              {/* Simplified Book Appointment CTA */}
+              <div className="bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-3xl p-12 text-white relative overflow-hidden shadow-2xl">
                 {/* Premium background pattern */}
                 <div className="absolute inset-0 opacity-10" style={{
                   backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.4) 1px, transparent 0)`,
@@ -272,38 +204,41 @@ export default function ContactSection() {
                 <div className="absolute top-4 right-4 w-20 h-20 bg-white/10 rounded-full blur-xl"></div>
                 <div className="absolute bottom-4 left-4 w-16 h-16 bg-white/10 rounded-full blur-lg"></div>
                 
-                <div className="relative z-10 h-full flex flex-col">
-                  <CalendarDaysIcon className="w-16 h-16 mb-8 opacity-90" />
-                  <h3 className="text-4xl font-bold mb-8 tracking-tight">Ready to Start?</h3>
-                  <p className="text-white/90 mb-10 leading-relaxed text-xl font-light flex-grow">
-                    Book your appointment online and take the first step towards recovery with personalized care tailored to your specific needs.
+                <div className="relative z-10 text-center">
+                  <CalendarDaysIcon className="w-16 h-16 mb-8 mx-auto opacity-90" />
+                  <h3 className="text-4xl font-bold mb-8 tracking-tight">Book Your Appointment</h3>
+                  <p className="text-white/90 mb-12 leading-relaxed text-xl font-light">
+                    Schedule your physiotherapy consultation and start your journey to better health.
                   </p>
-                  
-                  {/* Premium features list */}
-                  <div className="mb-10 space-y-4">
-                    {premiumFeatures.map((feature, index) => (
-                      <motion.div
-                        key={index}
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: 0.1 * index }}
-                        viewport={{ once: true }}
-                        className="flex items-center text-white/90"
-                      >
-                        <CheckCircleIcon className="w-6 h-6 mr-4 flex-shrink-0" />
-                        <span className="font-semibold text-lg">{feature}</span>
-                      </motion.div>
-                    ))}
-                  </div>
                   
                   <Link
                     href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                     target="_blank"
-                    className="group inline-flex items-center justify-center w-full px-8 py-6 bg-white text-[#B08D57] rounded-2xl font-bold shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 text-xl"
+                    className="group inline-flex items-center justify-center px-8 py-6 bg-white text-[#B08D57] rounded-2xl font-bold shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 text-xl mb-8"
                   >
                     <span>Book Appointment</span>
                     <ArrowTopRightOnSquareIcon className="w-7 h-7 ml-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
                   </Link>
+
+                  {/* Features list */}
+                  <div className="grid grid-cols-1 gap-4 text-left">
+                    <div className="flex items-center text-white/90">
+                      <CheckCircleIcon className="w-6 h-6 mr-4 flex-shrink-0" />
+                      <span className="font-semibold">Direct online booking</span>
+                    </div>
+                    <div className="flex items-center text-white/90">
+                      <CheckCircleIcon className="w-6 h-6 mr-4 flex-shrink-0" />
+                      <span className="font-semibold">Same-day appointments available</span>
+                    </div>
+                    <div className="flex items-center text-white/90">
+                      <CheckCircleIcon className="w-6 h-6 mr-4 flex-shrink-0" />
+                      <span className="font-semibold">Comprehensive assessment included</span>
+                    </div>
+                    <div className="flex items-center text-white/90">
+                      <CheckCircleIcon className="w-6 h-6 mr-4 flex-shrink-0" />
+                      <span className="font-semibold">Personalized treatment plans</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>

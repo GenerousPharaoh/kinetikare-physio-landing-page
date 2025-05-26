@@ -19,6 +19,7 @@ type TestimonialItem = {
 const HeroSection = React.memo(function HeroSection() {
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
   const [isTestimonialReady, setIsTestimonialReady] = useState(false);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   // Enhanced testimonials data with initials for avatar
   const testimonials: TestimonialItem[] = [
@@ -59,13 +60,20 @@ const HeroSection = React.memo(function HeroSection() {
     }
   ];
 
+  const goToTestimonial = (index: number) => {
+    setIsAutoPlaying(false); // Stop auto-play when user manually navigates
+    setCurrentTestimonialIndex(index);
+  };
+
   useEffect(() => {
-    // Testimonial carousel with longer timing
+    // Testimonial carousel with adjusted timing
+    if (!isAutoPlaying) return;
+    
     const testimonialStartDelay = setTimeout(() => {
       setIsTestimonialReady(true);
       const testimonialInterval = setInterval(() => {
         setCurrentTestimonialIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-      }, 8000); // Increased from 3000 to 8000 (8 seconds)
+      }, 6000); // Changed to 6 seconds for better reading time
 
       return () => clearInterval(testimonialInterval);
     }, 3000); // Hold reviews for 3 seconds
@@ -73,7 +81,7 @@ const HeroSection = React.memo(function HeroSection() {
     return () => {
       clearTimeout(testimonialStartDelay);
     };
-  }, [testimonials.length]);
+  }, [testimonials.length, isAutoPlaying]);
 
   const currentTestimonial = testimonials[currentTestimonialIndex];
 
@@ -360,7 +368,7 @@ const HeroSection = React.memo(function HeroSection() {
                   transition={{ delay: 3.2, duration: 1.0, ease: "easeOut" }}
                 />
               </motion.div>
-              
+
               <motion.div 
                 initial={{ y: 30 }}
                 animate={{ y: 0 }}
@@ -418,216 +426,303 @@ const HeroSection = React.memo(function HeroSection() {
             className="lg:col-span-5 mt-8 lg:mt-0"
           >
             <div className="relative max-w-xl ml-auto">
-              {/* Sophisticated Testimonials Card - Start with glass styling */}
+              {/* Modern Testimonials Card */}
               <motion.div 
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 1.0, ease: [0.25, 0.8, 0.25, 1], delay: 2.2 }}
-                className="relative bg-white/15 backdrop-blur-2xl rounded-3xl p-10 shadow-2xl border border-white/20 overflow-hidden"
+                className="relative bg-white/95 backdrop-blur-3xl rounded-[2rem] p-6 shadow-[0_20px_70px_-10px_rgba(0,0,0,0.3)] border border-white/40 overflow-hidden"
                 style={{
-                  boxShadow: '0 32px 64px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3)'
+                  background: 'linear-gradient(145deg, rgba(255,255,255,0.95) 0%, rgba(248,250,252,0.9) 100%)',
+                  boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
                 }}
               >
-                {/* Enhanced background elements */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/8 via-white/3 to-white/8 rounded-3xl"></div>
-                <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#D4AF37]/20 to-transparent rounded-3xl blur-3xl"></div>
-                <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-[#B08D57]/20 to-transparent rounded-3xl blur-2xl"></div>
+                {/* Subtle background pattern */}
+                <div className="absolute inset-0 opacity-[0.02]" style={{
+                  backgroundImage: `radial-gradient(circle at 1px 1px, rgba(0,0,0,0.15) 1px, transparent 0)`,
+                  backgroundSize: '20px 20px'
+                }}></div>
                 
-                {/* Premium accent line */}
-                <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] rounded-t-3xl"></div>
+                {/* Elegant top accent */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#B08D57] to-transparent"></div>
+                
+                {/* Floating elements for depth */}
+                <div className="absolute top-4 right-4 w-16 h-16 bg-gradient-to-br from-[#B08D57]/5 to-[#D4AF37]/5 rounded-full blur-xl"></div>
+                <div className="absolute bottom-4 left-4 w-12 h-12 bg-gradient-to-tr from-[#D4AF37]/5 to-[#B08D57]/5 rounded-full blur-lg"></div>
 
                 {/* Header */}
-                <div className="text-center mb-10 relative z-10">
-                  <h3 className="text-2xl font-bold text-white mb-2 tracking-tight drop-shadow-lg">
+                <div className="text-center mb-6 relative z-10">
+                  <h3 className="text-lg font-semibold text-slate-800 mb-2 tracking-tight">
                     Patient Testimonials
-                  </h3>
-                  <div className="w-16 h-0.5 bg-gradient-to-r from-[#D4AF37] to-[#B08D57] mx-auto rounded-full"></div>
+              </h3>
+                  <div className="w-12 h-px bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mx-auto"></div>
                 </div>
 
                 {/* Testimonial Content */}
-                <div className="relative h-80 sm:h-96 md:h-80 relative z-10">
+                <div className="relative h-[320px] relative z-10">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={currentTestimonialIndex}
                       initial={{ 
                         opacity: 0, 
-                        y: 60, 
-                        scale: 0.95,
-                        rotateX: 20,
-                        filter: "blur(10px)"
+                        y: 30, 
+                        scale: 0.98
                       }}
                       animate={{ 
                         opacity: 1, 
                         y: 0, 
-                        scale: 1,
-                        rotateX: 0,
-                        filter: "blur(0px)"
+                        scale: 1
                       }}
                       exit={{ 
                         opacity: 0, 
-                        y: -60, 
-                        scale: 0.95,
-                        rotateX: -20,
-                        filter: "blur(10px)"
+                        y: -30, 
+                        scale: 0.98
                       }}
                       transition={{ 
-                        duration: 1.2, 
-                        ease: [0.16, 1, 0.3, 1],
-                        opacity: { duration: 1.0 },
-                        scale: { duration: 1.2 },
-                        rotateX: { duration: 1.2 },
-                        filter: { duration: 1.0 }
+                        duration: 0.8, 
+                        ease: [0.16, 1, 0.3, 1]
                       }}
-                      className="absolute inset-0 flex flex-col justify-center"
-                      style={{ perspective: "1200px" }}
+                      className="absolute inset-0 flex flex-col"
                     >
-                      {/* User Avatar and Info with enhanced entrance */}
+                      {/* User Info */}
                       <motion.div 
-                        initial={{ x: -40, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                        className="flex items-start space-x-5 mb-8"
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ delay: 0.2, duration: 0.6 }}
+                        className="flex items-center space-x-3 mb-4"
                       >
                         <motion.div 
-                          initial={{ scale: 0, rotate: -180 }}
-                          animate={{ scale: 1, rotate: 0 }}
-                          transition={{ delay: 0.4, duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
-                          className="w-16 h-16 sm:w-18 sm:h-18 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-full flex items-center justify-center shadow-2xl border-3 border-white/40 flex-shrink-0"
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          transition={{ delay: 0.3, duration: 0.6, type: "spring", stiffness: 200 }}
+                          className="relative"
                         >
-                          <span className="text-white font-bold text-xl sm:text-2xl drop-shadow-lg">
-                            {currentTestimonial.initial}
-                          </span>
+                          <div className="w-12 h-12 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-xl flex items-center justify-center shadow-lg relative overflow-hidden">
+                            {/* Subtle inner glow */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-xl"></div>
+                            <span className="text-white font-bold text-base relative z-10">
+                              {currentTestimonial.initial}
+                            </span>
+                  </div>
+                          {/* Subtle outer ring */}
+                          <div className="absolute inset-0 rounded-xl ring-1 ring-white/20"></div>
                         </motion.div>
-                        <div className="flex-1 min-w-0">
+                        
+                        <div className="flex-1">
                           <motion.h4 
-                            initial={{ y: 25, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ delay: 0.5, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                            className="font-bold text-white text-xl sm:text-2xl drop-shadow-lg mb-1"
+                            initial={{ x: 20, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ delay: 0.4, duration: 0.5 }}
+                            className="font-semibold text-slate-800 text-base"
                           >
                             {currentTestimonial.name}
                           </motion.h4>
                           <motion.p 
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ delay: 0.6, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                            className="text-white/90 text-sm sm:text-base font-medium drop-shadow-sm mb-3"
+                            initial={{ x: 20, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ delay: 0.5, duration: 0.5 }}
+                            className="text-slate-500 text-sm font-medium"
                           >
                             {currentTestimonial.role}
                           </motion.p>
-                          <motion.div 
-                            initial={{ scale: 0 }}
-                            animate={{ scale: 1 }}
-                            transition={{ delay: 0.7, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                            className="flex space-x-1"
-                          >
-                            {Array(5).fill(0).map((_, i) => (
-                              <motion.div
-                                key={i}
-                                initial={{ scale: 0, rotate: -180 }}
-                                animate={{ scale: 1, rotate: 0 }}
-                                transition={{ 
-                                  delay: 0.8 + (i * 0.1), 
-                                  duration: 0.5, 
-                                  ease: [0.16, 1, 0.3, 1] 
-                                }}
-                              >
-                                <StarIcon className="h-4 w-4 sm:h-5 sm:w-5 text-[#D4AF37] drop-shadow-lg" />
-                              </motion.div>
-                            ))}
-                          </motion.div>
-                        </div>
+                  </div>
                       </motion.div>
 
-                      {/* Review Text with enhanced styling and animation */}
+                      {/* Stars */}
                       <motion.div 
-                        initial={{ y: 40, opacity: 0, scale: 0.9 }}
-                        animate={{ y: 0, opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.6, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-                        className="relative flex-1 overflow-hidden"
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ delay: 0.6, duration: 0.5 }}
+                        className="flex space-x-1 mb-4"
                       >
-                        <motion.div 
-                          initial={{ backdropFilter: "blur(0px)" }}
-                          animate={{ backdropFilter: "blur(12px)" }}
-                          transition={{ delay: 0.8, duration: 0.6 }}
-                          className="bg-white/12 backdrop-blur-lg rounded-2xl p-6 sm:p-8 border border-white/25 shadow-xl h-full flex items-center"
-                        >
-                          <motion.p 
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 1.0, duration: 0.8 }}
-                            className="text-white leading-relaxed text-sm sm:text-base font-medium drop-shadow-sm overflow-y-auto max-h-full"
-                            style={{ lineHeight: '1.7' }}
+                        {Array(5).fill(0).map((_, i) => (
+                          <motion.div
+                            key={i}
+                            initial={{ scale: 0, rotate: -180 }}
+                            animate={{ scale: 1, rotate: 0 }}
+                            transition={{ 
+                              delay: 0.7 + (i * 0.1), 
+                              duration: 0.4,
+                              type: "spring",
+                              stiffness: 200
+                            }}
                           >
-                            "{currentTestimonial.text}"
-                          </motion.p>
-                        </motion.div>
-                        {/* Enhanced quote mark with animation */}
-                        <motion.div 
-                          initial={{ scale: 0, rotate: -90, opacity: 0 }}
-                          animate={{ scale: 1, rotate: 0, opacity: 1 }}
-                          transition={{ delay: 1.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                          className="absolute top-2 left-2 w-6 h-6 sm:w-7 sm:h-7 bg-gradient-to-br from-[#D4AF37] to-[#B08D57] rounded-full flex items-center justify-center shadow-xl"
-                        >
-                          <span className="text-white text-xs font-bold">"</span>
-                        </motion.div>
+                            <StarIcon className="h-4 w-4 text-[#D4AF37]" />
+                          </motion.div>
+                        ))}
+                      </motion.div>
+
+                      {/* Quote */}
+                      <motion.div 
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ delay: 0.8, duration: 0.6 }}
+                        className="flex-1 relative"
+                      >
+                        {/* Large opening quote */}
+                        <div className="absolute -top-1 -left-1 text-3xl text-[#B08D57]/20 font-serif leading-none">"</div>
+                        
+                        <div className="relative pl-5">
+                          <div 
+                            className="text-slate-700 leading-relaxed text-sm font-normal pr-4 overflow-y-auto max-h-full"
+                            style={{
+                              scrollBehavior: 'smooth',
+                              scrollbarWidth: 'none',
+                              msOverflowStyle: 'none'
+                            }}
+                            ref={(el) => {
+                              if (el && currentTestimonial.name === "Thanula") {
+                                // Auto-scroll for lengthy reviews
+                                const scrollHeight = el.scrollHeight;
+                                const clientHeight = el.clientHeight;
+                                if (scrollHeight > clientHeight) {
+                                  let scrollPosition = 0;
+                                  const scrollStep = (scrollHeight - clientHeight) / 8; // 8 steps over 6 seconds
+                                  const scrollInterval = setInterval(() => {
+                                    scrollPosition += scrollStep;
+                                    if (scrollPosition >= scrollHeight - clientHeight) {
+                                      clearInterval(scrollInterval);
+                                    } else {
+                                      el.scrollTop = scrollPosition;
+                                    }
+                                  }, 750); // Every 0.75 seconds
+                                  
+                                  // Clean up on component unmount or testimonial change
+                                  return () => clearInterval(scrollInterval);
+                                }
+                              }
+                            }}
+                          >
+                            <style jsx>{`
+                              div::-webkit-scrollbar {
+                                display: none;
+                              }
+                            `}</style>
+                            
+                            {/* Beautiful, elegantly emphasized testimonial content */}
+                            {currentTestimonial.name === "Kathy" && (
+                              <p className="text-base leading-7">
+                                <span className="text-[#B08D57] font-medium">Highly recommend!</span> Kareem has been{" "}
+                                <span className="relative font-medium text-slate-800">
+                                  truly exceptional
+                                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#B08D57]/30 to-[#D4AF37]/30 rounded-full"></span>
+                                </span>! Can't express my gratitude for the{" "}
+                                <span className="font-medium text-slate-800">remarkable care and guidance</span> he has provided during my son's recovery from a knee injury.
+                              </p>
+                            )}
+                            
+                            {currentTestimonial.name === "Catherine" && (
+                              <p className="text-base leading-7">
+                                I've been under the{" "}
+                                <span className="font-medium text-slate-800 bg-gradient-to-r from-[#B08D57]/5 to-[#D4AF37]/5 px-1 rounded">expert physiotherapy care</span>{" "}
+                                of Kareem since August for Plantar Fasciitis, tendonitis & some aches & pains associated with aging. He shows{" "}
+                                <span className="relative font-medium text-slate-800">
+                                  genuine interest and concern
+                                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#B08D57]/30 to-[#D4AF37]/30 rounded-full"></span>
+                                </span>{" "}
+                                for my well-being.
+                              </p>
+                            )}
+                            
+                            {currentTestimonial.name === "Tania" && (
+                              <p className="text-base leading-7">
+                                My daughter had her knee pain treated by Kareem. He was{" "}
+                                <span className="font-medium text-[#B08D57]">kind</span> and{" "}
+                                <span className="relative font-medium text-slate-800">
+                                  really good at asking the right questions
+                                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#B08D57]/30 to-[#D4AF37]/30 rounded-full"></span>
+                                </span>{" "}
+                                to diagnose her issues and give her the{" "}
+                                <span className="font-medium text-slate-800">right exercises to help her heal.</span>
+                              </p>
+                            )}
+                            
+                            {currentTestimonial.name === "Tobi" && (
+                              <p className="text-base leading-7">
+                                For the past few months Kareem has helped me with a{" "}
+                                <span className="italic text-slate-600">very stubborn shoulder injury.</span> He's been{" "}
+                                <span className="relative font-medium text-slate-800">
+                                  patient and supportive every step of the way
+                                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#B08D57]/30 to-[#D4AF37]/30 rounded-full"></span>
+                                </span>. Thanks to him, my shoulder is finally{" "}
+                                <span className="font-medium text-[#B08D57]">starting to feel like my own again.</span>
+                              </p>
+                            )}
+                            
+                            {currentTestimonial.name === "Thanula" && (
+                              <div className="space-y-4 text-base leading-7">
+                                <p>
+                                  <span className="text-[#B08D57] font-medium">Highly recommend.</span> Everybody go ask for Kareem. He is the best physiotherapist ever. He's{" "}
+                                  <span className="font-medium text-slate-700">kind, funny and encouraging.</span>
+                                </p>
+                                <p>
+                                  I've been seeing him for a few weeks now for my ankle injury, and it has been such a{" "}
+                                  <span className="font-medium text-[#B08D57] bg-gradient-to-r from-[#B08D57]/5 to-[#D4AF37]/5 px-1 rounded">positive experience</span>. He{" "}
+                                  <span className="relative font-medium text-slate-800">
+                                    communicates clearly
+                                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#B08D57]/30 to-[#D4AF37]/30 rounded-full"></span>
+                                  </span> and patiently explains each step of the treatment process.
+                                </p>
+                                <p>
+                                  I've noticed{" "}
+                                  <span className="font-medium text-slate-800">improvement in my condition</span> since starting treatment. I feel{" "}
+                                  <span className="relative font-medium text-slate-800">
+                                    genuinely cared for by Kareem
+                                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#B08D57]/30 to-[#D4AF37]/30 rounded-full"></span>
+                                  </span>{" "}
+                                  and his empathy makes a difference in my recovery journey.
+                                </p>
+                  </div>
+                            )}
+                  </div>
+                  </div>
+                        
+                        {/* Closing quote */}
+                        <div className="absolute bottom-0 right-0 text-3xl text-[#B08D57]/20 font-serif leading-none transform rotate-180">"</div>
                       </motion.div>
                     </motion.div>
                   </AnimatePresence>
-                </div>
+                  </div>
 
-                {/* Enhanced progress indicators with dynamic animations */}
-                <div className="flex justify-center space-x-4 mt-8 relative z-10">
+                {/* Navigation Dots */}
+                <div className="flex justify-center space-x-2 mt-4 relative z-10">
                   {testimonials.map((_, index) => (
                     <button
                       key={index}
-                      onClick={() => setCurrentTestimonialIndex(index)}
-                      className={`relative transition-all duration-600 ${
+                      onClick={() => goToTestimonial(index)}
+                      className={`relative transition-all duration-300 ${
                         index === currentTestimonialIndex 
-                          ? 'scale-125' 
-                          : 'hover:scale-110'
+                          ? 'scale-110' 
+                          : 'hover:scale-105'
                       }`}
                       aria-label={`View testimonial ${index + 1}`}
                     >
-                      <div className={`w-3 h-3 rounded-full transition-all duration-600 relative ${
+                      <div className={`w-2 h-2 rounded-full transition-all duration-300 ${
                         index === currentTestimonialIndex 
-                          ? 'bg-gradient-to-r from-[#D4AF37] to-[#B08D57] shadow-xl shadow-[#D4AF37]/60' 
-                          : 'bg-white/50 hover:bg-white/70 shadow-lg'
+                          ? 'bg-[#B08D57] shadow-lg shadow-[#B08D57]/40' 
+                          : 'bg-slate-300 hover:bg-slate-400'
                       }`}>
                         {index === currentTestimonialIndex && (
-                          <>
-                            <motion.div 
-                              initial={{ scale: 0 }}
-                              animate={{ scale: [1, 1.8, 1] }}
-                              transition={{ 
-                                duration: 2.5, 
-                                repeat: Infinity, 
-                                ease: "easeInOut" 
-                              }}
-                              className="absolute inset-0 w-3 h-3 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#B08D57] opacity-50"
-                            />
-                            <motion.div 
-                              initial={{ scale: 0 }}
-                              animate={{ scale: [1, 2.5, 1] }}
-                              transition={{ 
-                                duration: 3.5, 
-                                repeat: Infinity, 
-                                ease: "easeInOut",
-                                delay: 0.7
-                              }}
-                              className="absolute inset-0 w-3 h-3 rounded-full bg-[#D4AF37]/40 blur-sm"
-                            />
-                          </>
+                          <motion.div 
+                            initial={{ scale: 0 }}
+                            animate={{ scale: [1, 1.5, 1] }}
+                            transition={{ 
+                              duration: 2, 
+                              repeat: Infinity, 
+                              ease: "easeInOut" 
+                            }}
+                            className="absolute inset-0 w-2 h-2 rounded-full bg-[#B08D57] opacity-30"
+                          />
                         )}
-                      </div>
+                  </div>
                     </button>
                   ))}
-                </div>
+                  </div>
               </motion.div>
               
-              {/* Enhanced sophisticated shadow */}
-              <div className="absolute -inset-6 bg-gradient-to-br from-[#D4AF37]/25 to-[#B08D57]/25 rounded-3xl blur-3xl opacity-70"></div>
-            </div>
+              {/* Subtle outer glow */}
+              <div className="absolute -inset-4 bg-gradient-to-br from-[#B08D57]/10 to-[#D4AF37]/10 rounded-[2.5rem] blur-2xl opacity-60 -z-10"></div>
+              </div>
           </motion.div>
         </div>
       </div>

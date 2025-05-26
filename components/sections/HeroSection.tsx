@@ -652,8 +652,11 @@ const HeroSection = React.memo(function HeroSection() {
                                 <span className="relative font-medium text-slate-800">
                                   patient and supportive every step of the way
                                   <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#B08D57]/30 to-[#D4AF37]/30 rounded-full"></span>
-                                </span>. Thanks to him, my shoulder is finally{" "}
-                                <span className="font-medium text-[#B08D57]">starting to feel like my own again.</span>
+                                </span>.{" "}
+                                <span className="relative font-medium text-[#B08D57]">
+                                  Thanks to him, my shoulder is finally starting to feel like my own again.
+                                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#B08D57]/30 to-[#D4AF37]/30 rounded-full"></span>
+                                </span>
                               </p>
                             )}
                             

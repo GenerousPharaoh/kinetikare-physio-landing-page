@@ -5,102 +5,54 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { CalendarDaysIcon } from '@heroicons/react/24/outline';
-import { StarIcon, ClipboardDocumentCheckIcon, HandRaisedIcon, AcademicCapIcon, MapIcon } from '@heroicons/react/24/solid';
-import GlassCard from '@/components/ui/GlassCard';
+import { StarIcon } from '@heroicons/react/24/solid';
 
 // Type definitions
-type CareJourneyItem = {
-  type: 'journey';
-  title: string;
-  description: string;
-  icon: React.ComponentType<{ className?: string }>;
-};
-
 type TestimonialItem = {
-  type: 'testimonial';
   name: string;
   role: string;
   stars: number;
   text: string;
+  initial?: string;
 };
 
 const HeroSection = React.memo(function HeroSection() {
-  const [currentJourneyIndex, setCurrentJourneyIndex] = useState(0);
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
-  const [isJourneyReady, setIsJourneyReady] = useState(false);
   const [isTestimonialReady, setIsTestimonialReady] = useState(false);
 
-  // Care Journey items with appropriate icons
-  const careJourneyItems: CareJourneyItem[] = [
-    {
-      type: 'journey',
-      title: "Thorough Assessments",
-      description: "Seeking to uncover the root causes and patterns where applicable, beyond just treating the symptoms",
-      icon: ClipboardDocumentCheckIcon
-    },
-    {
-      type: 'journey',
-      title: "Advanced Manual Therapy",
-      description: "Specialized hands-on techniques combined with evidence-based interventions for effective treatment",
-      icon: HandRaisedIcon
-    },
-    {
-      type: 'journey',
-      title: "Personalized Exercise Plans",
-      description: "Customized rehabilitation strategies tailored to your unique needs and functional status",
-      icon: AcademicCapIcon
-    },
-    {
-      type: 'journey',
-      title: "Clear Recovery Roadmap",
-      description: "Strategic planning with measurable milestones to achieve your health goals efficiently",
-      icon: MapIcon
-    }
-  ];
-
-  // Testimonials data
+  // Enhanced testimonials data with initials for avatar
   const testimonials: TestimonialItem[] = [
     {
-      type: 'testimonial',
-      name: "Kathy",
+      name: "Kathy M.",
       role: "Parent of Patient",
       stars: 5,
-      text: "Highly recommend! In particular, Kareem has been truly exceptional! Can't express my gratitude for the remarkable care and guidance he has provided during my son's recovery from a knee injury."
+      text: "Highly recommend! In particular, Kareem has been truly exceptional! Can't express my gratitude for the remarkable care and guidance he has provided during my son's recovery from a knee injury.",
+      initial: "K"
     },
     {
-      type: 'testimonial',
-      name: "Catherine",
+      name: "Catherine L.",
       role: "Patient",
       stars: 5,
-      text: "I've been under the expert physiotherapy care of Kareem since August for Plantar Fasciitis, tendonitis & some aches & pains associated with aging. He shows genuine interest and concern for my well-being."
+      text: "I've been under the expert physiotherapy care of Kareem since August for Plantar Fasciitis, tendonitis & some aches & pains associated with aging. He shows genuine interest and concern for my well-being.",
+      initial: "C"
     },
     {
-      type: 'testimonial',
-      name: "Tania",
+      name: "Tania R.",
       role: "Parent of Patient",
       stars: 5,
-      text: "My daughter had her knee pain treated by Kareem. He was kind and really good at asking the right questions to diagnose her issues and give her the right exercises to help her heal."
+      text: "My daughter had her knee pain treated by Kareem. He was kind and really good at asking the right questions to diagnose her issues and give her the right exercises to help her heal.",
+      initial: "T"
     },
     {
-      type: 'testimonial',
-      name: "Tobi",
+      name: "Tobi S.",
       role: "Patient",
       stars: 5,
-      text: "For the past few months Kareem has helped me with a very stubborn shoulder injury. He's been patient and supportive every step of the way. Thanks to him, my shoulder is finally starting to feel like my own again."
+      text: "For the past few months Kareem has helped me with a very stubborn shoulder injury. He's been patient and supportive every step of the way. Thanks to him, my shoulder is finally starting to feel like my own again.",
+      initial: "T"
     }
   ];
 
   useEffect(() => {
-    // Journey carousel
-    const journeyStartDelay = setTimeout(() => {
-      setIsJourneyReady(true);
-      const journeyInterval = setInterval(() => {
-        setCurrentJourneyIndex((prevIndex) => (prevIndex + 1) % careJourneyItems.length);
-      }, 4000);
-
-      return () => clearInterval(journeyInterval);
-    }, 2000);
-
     // Testimonial carousel
     const testimonialStartDelay = setTimeout(() => {
       setIsTestimonialReady(true);
@@ -112,12 +64,10 @@ const HeroSection = React.memo(function HeroSection() {
     }, 3000);
 
     return () => {
-      clearTimeout(journeyStartDelay);
       clearTimeout(testimonialStartDelay);
     };
-  }, [careJourneyItems.length, testimonials.length]);
+  }, [testimonials.length]);
 
-  const currentJourney = careJourneyItems[currentJourneyIndex];
   const currentTestimonial = testimonials[currentTestimonialIndex];
 
   return (
@@ -297,13 +247,13 @@ const HeroSection = React.memo(function HeroSection() {
       <div className="absolute bottom-0 left-0 right-0 h-36 bg-gradient-to-t from-neutral-50/10 to-transparent z-30 pointer-events-none"></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-8 items-start">
-          {/* Left side content - spans more columns */}
+        <div className="grid lg:grid-cols-12 gap-8 items-center">
+          {/* Left side content - main hero content */}
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.25, 0.8, 0.25, 1] }}
-            className="lg:col-span-8 text-left"
+            className="lg:col-span-7 text-left"
           >
             <div className="max-w-4xl">
               {/* Sophisticated main heading with dramatic reveals */}
@@ -359,7 +309,7 @@ const HeroSection = React.memo(function HeroSection() {
                 </motion.h1>
               </div>
               
-              {/* MOVED UP: Sophisticated tagline with staggered word reveals */}
+              {/* Sophisticated tagline with staggered word reveals */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -457,252 +407,153 @@ const HeroSection = React.memo(function HeroSection() {
             </div>
           </motion.div>
           
-          {/* MOVED UP: Right side - Premium Glass Journey Carousel */}
+          {/* Right side - Google Reviews Style Patient Testimonials */}
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: [0.25, 0.8, 0.25, 1], delay: 0.2 }}
-            className="lg:col-span-4 mt-8 lg:mt-0"
+            transition={{ duration: 0.9, ease: [0.25, 0.8, 0.25, 1], delay: 0.4 }}
+            className="lg:col-span-5 mt-8 lg:mt-0"
           >
-            <div className="relative">
-              {/* PREMIUM GLASS: Ultra-premium glass container */}
+            <div className="relative max-w-md ml-auto">
+              {/* Google Reviews Style Card */}
               <div 
-                className="relative bg-white/10 backdrop-blur-3xl rounded-3xl p-8 shadow-2xl border border-white/30 overflow-hidden"
+                className="relative bg-white/95 backdrop-blur-2xl rounded-3xl p-8 shadow-2xl border border-white/60 overflow-hidden"
                 style={{
-                  boxShadow: '0 32px 64px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3)'
+                  boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.9)'
                 }}
               >
-                
-                {/* Premium glass background elements */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-white/5 to-white/10 rounded-3xl"></div>
-                <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-[#D4AF37]/20 via-[#B08D57]/10 to-transparent rounded-3xl blur-2xl"></div>
-                <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr from-[#B08D57]/15 via-[#D4AF37]/10 to-transparent rounded-3xl blur-xl"></div>
-                
-                {/* Glass accent bar */}
-                <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#B08D57]/60 via-[#D4AF37]/80 to-[#B08D57]/60 rounded-t-3xl"></div>
-                
-                {/* Floating glass elements */}
-                <div className="absolute top-6 right-6 w-3 h-3 bg-white/40 rounded-full shadow-lg animate-pulse"></div>
-                <div className="absolute bottom-8 left-8 w-2 h-2 bg-white/30 rounded-full shadow-md animate-pulse" style={{ animationDelay: '1s' }}></div>
-                
-                {/* Header */}
-                <div className="text-center mb-8 relative z-10">
-                  <h3 className="text-2xl font-bold text-white mb-3 tracking-tight drop-shadow-lg">
-                    Your Care Journey
-                  </h3>
-                  <div className="w-20 h-1 bg-gradient-to-r from-[#B08D57]/80 via-[#D4AF37] to-[#B08D57]/80 mx-auto rounded-full shadow-lg"></div>
+                {/* Header with Google-style branding */}
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 bg-gradient-to-br from-[#4285F4] to-[#34A853] rounded-lg flex items-center justify-center">
+                      <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-slate-800">Patient Testimonials</h3>
+                      <div className="flex items-center space-x-1">
+                        <div className="flex space-x-0.5">
+                          {Array(5).fill(0).map((_, i) => (
+                            <StarIcon key={i} className="h-4 w-4 text-[#FBBC04]" />
+                          ))}
+                        </div>
+                        <span className="text-sm text-slate-600 ml-2">5.0</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="text-xs text-slate-500 font-medium">Reviews</div>
                 </div>
-                
-                {/* Content area */}
-                <div className="relative h-56 flex items-center justify-center z-10">
-                  {isJourneyReady ? (
+
+                {/* Testimonial Content */}
+                <div className="relative h-48">
+                  {isTestimonialReady ? (
                     <AnimatePresence mode="wait">
                       <motion.div
-                        key={currentJourneyIndex}
-                        initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: -20, scale: 0.95 }}
-                        transition={{ 
-                          duration: 0.6, 
-                          ease: [0.16, 1, 0.3, 1]
-                        }}
-                        className="text-center w-full"
+                        key={currentTestimonialIndex}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                        className="absolute inset-0"
                       >
-                        <div className="space-y-6">
-                          {/* Premium icon */}
-                          <motion.div 
-                            className="flex justify-center mb-6"
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: 0.1, duration: 0.5 }}
-                          >
-                            <div className="relative w-16 h-16 bg-gradient-to-br from-[#B08D57]/80 to-[#D4AF37]/80 rounded-2xl flex items-center justify-center shadow-xl backdrop-blur-sm border border-white/20">
-                              <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/60 to-[#D4AF37]/60 rounded-2xl animate-pulse opacity-30"></div>
-                              {React.createElement(currentJourney.icon, {
-                                className: "w-8 h-8 text-white relative z-10 drop-shadow-sm"
-                              })}
-                            </div>
-                          </motion.div>
-                          
-                          {/* Title */}
-                          <motion.h4 
-                            className="text-xl font-bold text-white mb-4 leading-tight tracking-tight drop-shadow-lg"
-                            initial={{ opacity: 0, y: 15 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2, duration: 0.5 }}
-                          >
-                            {currentJourney.title}
-                          </motion.h4>
-                          
-                          {/* Description */}
-                          <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.3, duration: 0.5 }}
-                            className="relative"
-                          >
-                            <p className="text-white/90 leading-relaxed text-sm max-w-sm mx-auto font-medium relative z-10 px-4 py-3 bg-white/10 rounded-xl border border-white/20 backdrop-blur-sm shadow-sm">
-                              {currentJourney.description}
+                        {/* User Avatar and Info */}
+                        <div className="flex items-start space-x-4 mb-4">
+                          <div className="w-12 h-12 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-full flex items-center justify-center shadow-lg">
+                            <span className="text-white font-bold text-lg">
+                              {currentTestimonial.initial}
+                            </span>
+                          </div>
+                          <div className="flex-1">
+                            <h4 className="font-semibold text-slate-800 text-base">
+                              {currentTestimonial.name}
+                            </h4>
+                            <p className="text-slate-500 text-sm">
+                              {currentTestimonial.role}
                             </p>
-                          </motion.div>
-                          
-                          {/* Accent line */}
-                          <motion.div 
-                            className="flex justify-center mt-4"
-                            initial={{ width: 0, opacity: 0 }}
-                            animate={{ width: "3rem", opacity: 1 }}
-                            transition={{ delay: 0.4, duration: 0.4 }}
-                          >
-                            <div className="h-0.5 bg-gradient-to-r from-[#B08D57]/80 to-[#D4AF37]/80 rounded-full shadow-sm"></div>
-                          </motion.div>
+                            <div className="flex space-x-0.5 mt-1">
+                              {Array(5).fill(0).map((_, i) => (
+                                <StarIcon key={i} className="h-3.5 w-3.5 text-[#FBBC04]" />
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Review Text */}
+                        <div className="relative">
+                          <p className="text-slate-700 leading-relaxed text-sm">
+                            "{currentTestimonial.text}"
+                          </p>
+                        </div>
+
+                        {/* Time indicator (Google style) */}
+                        <div className="absolute bottom-0 right-0">
+                          <span className="text-xs text-slate-400">
+                            {Math.floor(Math.random() * 3) + 1} months ago
+                          </span>
                         </div>
                       </motion.div>
                     </AnimatePresence>
                   ) : (
-                    // Static placeholder - no transition on first load
-                    <div className="text-center w-full">
-                      <div className="space-y-6">
-                        <div className="relative w-16 h-16 bg-gradient-to-br from-[#B08D57]/80 to-[#D4AF37]/80 rounded-2xl flex items-center justify-center shadow-xl backdrop-blur-sm border border-white/20 mx-auto">
-                          <ClipboardDocumentCheckIcon className="w-8 h-8 text-white" />
+                    // Static placeholder
+                    <div>
+                      <div className="flex items-start space-x-4 mb-4">
+                        <div className="w-12 h-12 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-full flex items-center justify-center shadow-lg">
+                          <span className="text-white font-bold text-lg">K</span>
                         </div>
-                        <h4 className="text-xl font-bold text-white mb-4 leading-tight tracking-tight drop-shadow-lg">
-                          Thorough Assessments
-                        </h4>
-                        <p className="text-white/90 leading-relaxed text-sm max-w-sm mx-auto font-medium px-4 py-3 bg-white/10 rounded-xl border border-white/20 backdrop-blur-sm shadow-sm">
-                          Seeking to uncover the root causes and patterns where applicable, beyond just treating the symptoms
-                        </p>
+                        <div className="flex-1">
+                          <h4 className="font-semibold text-slate-800 text-base">Kathy M.</h4>
+                          <p className="text-slate-500 text-sm">Parent of Patient</p>
+                          <div className="flex space-x-0.5 mt-1">
+                            {Array(5).fill(0).map((_, i) => (
+                              <StarIcon key={i} className="h-3.5 w-3.5 text-[#FBBC04]" />
+                            ))}
+                          </div>
+                        </div>
                       </div>
+                      <p className="text-slate-700 leading-relaxed text-sm">
+                        "Highly recommend! In particular, Kareem has been truly exceptional! Can't express my gratitude for the remarkable care and guidance he has provided during my son's recovery from a knee injury."
+                      </p>
                     </div>
                   )}
                 </div>
-                
-                {/* Progress dots */}
-                <div className="flex justify-center space-x-2 mt-6 mb-4 relative z-20">
-                  {careJourneyItems.map((_, index) => (
+
+                {/* Progress indicators (Google style dots) */}
+                <div className="flex justify-center space-x-2 mt-6">
+                  {testimonials.map((_, index) => (
                     <button
                       key={index}
-                      onClick={() => setCurrentJourneyIndex(index)}
-                      className={`group relative transition-all duration-300 cursor-pointer hover:scale-125 ${
-                        index === currentJourneyIndex 
-                          ? 'scale-125' 
-                          : 'hover:scale-110'
+                      onClick={() => setCurrentTestimonialIndex(index)}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                        index === currentTestimonialIndex 
+                          ? 'bg-[#4285F4] scale-125' 
+                          : 'bg-slate-300 hover:bg-slate-400'
                       }`}
-                      style={{ pointerEvents: 'auto', zIndex: 20 }}
-                      aria-label={`Go to slide ${index + 1}`}
-                    >
-                      <div className={`w-3 h-3 rounded-full transition-all duration-300 relative ${
-                        index === currentJourneyIndex 
-                          ? 'bg-gradient-to-r from-[#B08D57] to-[#D4AF37] shadow-lg shadow-[#D4AF37]/50' 
-                          : 'bg-white/40 hover:bg-white/70 shadow-md'
-                      }`}>
-                        {index === currentJourneyIndex && (
-                          <>
-                            <div className="absolute inset-0 w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] animate-ping opacity-30"></div>
-                            <div className="absolute inset-0 w-3 h-3 rounded-full bg-[#D4AF37]/20 blur-sm"></div>
-                          </>
-                        )}
-                      </div>
-                    </button>
+                      aria-label={`View testimonial ${index + 1}`}
+                    />
                   ))}
                 </div>
-              
-                {/* CTA */}
-                <div className="pt-4 border-t border-white/20 text-center relative z-20">
-                  <Link
-                    href="/about"
-                    className="inline-flex items-center text-white/80 hover:text-[#D4AF37] transition-all duration-300 text-sm font-medium tracking-wide cursor-pointer group"
-                    style={{ pointerEvents: 'auto', zIndex: 20 }}
-                  >
-                    <span className="mr-2">Learn more about my approach</span>
-                    <span className="transform transition-transform duration-300 group-hover:translate-x-1">→</span>
-                  </Link>
+
+                {/* Google-style footer */}
+                <div className="mt-6 pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs text-slate-500">
+                  <span>Powered by patient reviews</span>
+                  <span className="flex items-center space-x-1">
+                    <span>View all</span>
+                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
                 </div>
               </div>
               
-              {/* Enhanced glass shadow */}
-              <div className="absolute -inset-4 bg-gradient-to-br from-[#B08D57]/20 to-[#D4AF37]/20 rounded-3xl blur-2xl opacity-40"></div>
+              {/* Enhanced shadow */}
+              <div className="absolute -inset-4 bg-gradient-to-br from-[#4285F4]/10 to-[#34A853]/10 rounded-3xl blur-2xl opacity-60"></div>
             </div>
           </motion.div>
         </div>
-
-        {/* BOTTOM LEFT: Modern Testimonials Slider */}
-        <motion.div 
-          initial={{ opacity: 0, y: 60 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.0, ease: [0.25, 0.8, 0.25, 1], delay: 1.5 }}
-          className="absolute bottom-8 left-8 w-80 z-20"
-        >
-          <div className="relative">
-            {/* Modern testimonial card */}
-            <div 
-              className="relative bg-white/95 backdrop-blur-2xl rounded-2xl p-6 shadow-2xl border border-white/60 overflow-hidden"
-              style={{
-                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.8)'
-              }}
-            >
-              {/* Header */}
-              <div className="flex items-center justify-between mb-4">
-                <h4 className="text-lg font-bold text-slate-800">Client Success</h4>
-                <div className="flex space-x-1">
-                  {Array(5).fill(0).map((_, i) => (
-                    <StarIcon key={i} className="h-4 w-4 text-[#D4AF37]" />
-                  ))}
-                </div>
-              </div>
-
-              {/* Testimonial content */}
-              {isTestimonialReady ? (
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={currentTestimonialIndex}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -20 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <p className="text-slate-600 text-sm leading-relaxed mb-4 italic">
-                      "{currentTestimonial.text}"
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="font-semibold text-slate-800 text-sm">
-                          {currentTestimonial.name}
-                        </p>
-                        <p className="text-slate-500 text-xs">
-                          {currentTestimonial.role}
-                        </p>
-                      </div>
-                      <div className="flex space-x-1">
-                        {testimonials.map((_, index) => (
-                          <div
-                            key={index}
-                            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                              index === currentTestimonialIndex 
-                                ? 'bg-[#D4AF37] scale-125' 
-                                : 'bg-slate-300'
-                            }`}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
-              ) : (
-                <div>
-                  <p className="text-slate-600 text-sm leading-relaxed mb-4 italic">
-                    "Highly recommend! In particular, Kareem has been truly exceptional! Can't express my gratitude for the remarkable care and guidance he has provided during my son's recovery from a knee injury."
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="font-semibold text-slate-800 text-sm">Kathy</p>
-                      <p className="text-slate-500 text-xs">Parent of Patient</p>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

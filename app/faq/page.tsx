@@ -48,11 +48,11 @@ const faqCategories: FAQCategory[] = [
         question: `What should I expect during my first physiotherapy visit?`,
         answer: `Your first visit is dedicated to thoroughly understanding you and your situation.
 
-**Conversation:** We will have a detailed discussion about your current symptoms, your goals for physiotherapy, your daily activities and lifestyle, and your relevant health history. This includes past injuries or conditions, surgeries, as well as any medications you are currently taking. Understanding this full picture is crucial for ensuring your safety and developing the most effective treatment plan for you.
+Conversation: We will have a detailed discussion about your current symptoms, your goals for physiotherapy, your daily activities and lifestyle, and your relevant health history. This includes past injuries or conditions, surgeries, as well as any medications you are currently taking. Understanding this full picture is crucial for ensuring your safety and developing the most effective treatment plan for you.
 
-**Assessment:** I will propose an assessment approach, explain what it involves, and then evaluate your movement, strength, joint mobility, and muscle control relevant to your concern.
+Assessment: I will propose an assessment approach, explain what it involves, and then evaluate your movement, strength, joint mobility, and muscle control relevant to your concern.
 
-**Plan:** Based on the findings, I will discuss my assessment of the issue (or potential causes) and collaboratively create an initial treatment plan with you.
+Plan: Based on the findings, I will discuss my assessment of the issue (or potential causes) and collaboratively create an initial treatment plan with you.
 
 Importantly, every step is based on your informed consent. I will explain the assessment and treatment options, their benefits, and any potential risks. You are always in control, and there is absolutely no obligation to proceed with any part of the process you are uncomfortable with. I encourage you to ask questions and voice any concerns at any time. To help you digest everything, I will send a follow-up summary outlining the key assessment findings and our agreed-upon plan.`
       },
@@ -87,11 +87,7 @@ Importantly, every step is based on your informed consent. I will explain the as
         question: `Do you offer dry needling?`,
         answer: `Yes. Dry needling is one of several tools I may use to help reduce pain, release muscle tension, or improve mobility—particularly when addressing persistent trigger points, movement restrictions, or muscle imbalances. It involves the use of fine, sterile needles to target specific areas of tightness or dysfunction within muscle tissue.
 
-**Common uses include:**
-• Treating myofascial trigger points (knots)
-• Calming overactive muscle contractions
-• Supporting postural or repetitive strain issues
-• Helping restore normal movement patterns when muscles are contributing to pain or joint restriction
+Common uses include treating myofascial trigger points (knots), calming overactive muscle contractions, supporting postural or repetitive strain issues, and helping restore normal movement patterns when muscles are contributing to pain or joint restriction.
 
 That said, it is never a required part of treatment. If I believe dry needling could be helpful for your condition, I will explain the rationale, what to expect, and any potential risks. Your informed consent is essential, and you are always free to decline it. Many effective treatment plans do not include dry needling at all—it is simply one option among many, based on what works best for you.`
       },
@@ -103,13 +99,13 @@ That said, it is never a required part of treatment. If I believe dry needling c
         question: `I have tried physiotherapy before and it did not help. How is your approach different?`,
         answer: `It is really understandable to feel that way if you have not had the results you hoped for in the past. Finding the right therapeutic relationship and approach is key, as different styles work better for different people and conditions. While I cannot speak to your specific previous experiences, I can share what I focus on in my practice:
 
-**Dedicated Time & Attention:** I structure my schedule to ensure I can dedicate the entire appointment time to you, one-on-one. My aim here is simply to allow enough focused time for us to thoroughly explore your concerns, conduct assessments without feeling rushed, and carefully work through treatment strategies together.
+Dedicated Time & Attention: I structure my schedule to ensure I can dedicate the entire appointment time to you, one-on-one. My aim here is simply to allow enough focused time for us to thoroughly explore your concerns, conduct assessments without feeling rushed, and carefully work through treatment strategies together.
 
-**Looking Holistically:** I try my best to understand the bigger picture. This often involves looking beyond the immediate area of pain to consider related body regions, how you move during meaningful activities, and listening closely to your history to understand potential contributing factors. The goal is collaborative problem-solving to find potential root causes.
+Looking Holistically: I try my best to understand the bigger picture. This often involves looking beyond the immediate area of pain to consider related body regions, how you move during meaningful activities, and listening closely to your history to understand potential contributing factors. The goal is collaborative problem-solving to find potential root causes.
 
-**Emphasis on Education and Active Participation:** A core part of my philosophy is helping you understand what might be going on and why. While I use hands-on techniques when appropriate (and always with your informed consent), I place a strong emphasis on active strategies – finding the right exercises and movements for you, and equipping you with knowledge for self-management. My hope is this empowers you long after our sessions end.
+Emphasis on Education and Active Participation: A core part of my philosophy is helping you understand what might be going on and why. While I use hands-on techniques when appropriate (and always with your informed consent), I place a strong emphasis on active strategies – finding the right exercises and movements for you, and equipping you with knowledge for self-management. My hope is this empowers you long after our sessions end.
 
-**Partnership in Goal Setting:** We work together to define what success looks like for you. Whether it is reducing pain, improving function for a specific hobby, or increasing confidence in movement, your goals guide the plan. Your feedback is essential in adjusting our approach along the way.
+Partnership in Goal Setting: We work together to define what success looks like for you. Whether it is reducing pain, improving function for a specific hobby, or increasing confidence in movement, your goals guide the plan. Your feedback is essential in adjusting our approach along the way.
 
 Ultimately, my commitment is to provide thoughtful, individualized care and work collaboratively with you. If you decide to proceed, I hope you will recognize this approach as helpful.`
       },
@@ -125,20 +121,20 @@ Ultimately, my commitment is to provide thoughtful, individualized care and work
         question: `What happens if my progress stalls or I am not improving as expected?`,
         answer: `Progress is not always linear, and pain levels are not the only measure. Together, we will track objective improvements in strength, range of motion, function, and your ability to perform meaningful activities. If progress stalls despite you following the plan:
 
-**I Reassess Thoroughly:** I do not just keep doing the same thing. I will step back and systematically reassess to understand why things might not be changing as expected.
+I Reassess Thoroughly: I do not just keep doing the same thing. I will step back and systematically reassess to understand why things might not be changing as expected.
 
-**We Adjust the Strategy:** Based on my findings and our discussion, I will modify the treatment plan with you.
+We Adjust the Strategy: Based on my findings and our discussion, I will modify the treatment plan with you.
 
-**I Collaborate and Advocate:** If needed, and always with your permission, I will communicate with your doctor or other providers. Furthermore, I firmly believe that effective care includes supporting you beyond our clinic walls. If you face obstacles or feel unsupported elsewhere in the healthcare system, I am committed to helping you navigate those challenges. This might involve assisting you in formulating questions for other providers, helping to ensure your concerns are taken seriously, or facilitating appropriate referrals. My role is to support your overall well-being and advocate for the care you need to find the best path forward.`
+I Collaborate and Advocate: If needed, and always with your permission, I will communicate with your doctor or other providers. Furthermore, I firmly believe that effective care includes supporting you beyond our clinic walls. If you face obstacles or feel unsupported elsewhere in the healthcare system, I am committed to helping you navigate those challenges. This might involve assisting you in formulating questions for other providers, helping to ensure your concerns are taken seriously, or facilitating appropriate referrals. My role is to support your overall well-being and advocate for the care you need to find the best path forward.`
       },
       {
         question: `How do you decide which specific treatments or techniques to use?`,
         answer: `Treatment decisions are always collaborative and evidence-informed. They are based on:
 
-• Findings from your detailed assessment
-• Your specific goals and preferences
-• How your body responds to different interventions
-• The best available scientific evidence
+- Findings from your detailed assessment
+- Your specific goals and preferences
+- How your body responds to different interventions
+- The best available scientific evidence
 
 I discuss the rationale for each approach with you, ensuring you understand the why behind your plan.`
       },
@@ -150,11 +146,11 @@ I discuss the rationale for each approach with you, ensuring you understand the 
         question: `What kind of environment do you try to create for your patients?`,
         answer: `Creating an environment where you feel genuinely heard, truly respected, and completely safe is not just a goal—it is fundamental to how I practice. Because I understand firsthand how vulnerable and challenging it can feel to seek healthcare, and how crucial it is to feel genuinely supported, I am deeply committed to:
 
-**Listening Attentively:** Ensuring you have the uninterrupted time and space needed to share your story, concerns, and goals.
+Listening Attentively: Ensuring you have the uninterrupted time and space needed to share your story, concerns, and goals.
 
-**Communicating Clearly & Honestly:** Explaining my findings and our plan in straightforward language, ensuring you understand the why behind every step.
+Communicating Clearly & Honestly: Explaining my findings and our plan in straightforward language, ensuring you understand the why behind every step.
 
-**Empowering You:** Making certain you feel fully in control of your care. This means knowing you have the right to ask anything, voice concerns, understand your options, and decline any part of assessment or treatment at any time, without hesitation or judgment. My aim is for you to feel like an informed, respected, and active partner throughout your entire care journey here.`
+Empowering You: Making certain you feel fully in control of your care. This means knowing you have the right to ask anything, voice concerns, understand your options, and decline any part of assessment or treatment at any time, without hesitation or judgment. My aim is for you to feel like an informed, respected, and active partner throughout your entire care journey here.`
       },
       {
         question: `What makes your assessments distinct?`,

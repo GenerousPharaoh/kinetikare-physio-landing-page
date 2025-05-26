@@ -131,11 +131,10 @@ export default function ServicesSection({ onBookLinkClick }: ServicesSectionProp
                     filter: 'contrast(1.05) saturate(1.1) brightness(1.02)',
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
-                <div className="absolute bottom-3 left-3 right-3">
-                  <div className="bg-gradient-to-r from-white/95 to-white/90 backdrop-blur-md rounded-2xl px-6 py-3 shadow-xl border border-white/60 transform transition-all duration-300 group-hover:scale-105">
-                    <h4 className="text-base font-bold text-slate-800 tracking-wide">Modern Clinic Building</h4>
-                    <div className="w-8 h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full mt-1"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent"></div>
+                <div className="absolute bottom-4 left-4">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-lg px-3 py-1.5 shadow-md border border-white/40">
+                    <h4 className="text-sm font-semibold text-slate-800">Modern Clinic Building</h4>
                   </div>
                 </div>
               </div>
@@ -153,11 +152,10 @@ export default function ServicesSection({ onBookLinkClick }: ServicesSectionProp
                     filter: 'contrast(1.05) saturate(1.1) brightness(1.02)',
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
-                <div className="absolute bottom-3 left-3 right-3">
-                  <div className="bg-gradient-to-r from-white/95 to-white/90 backdrop-blur-md rounded-2xl px-6 py-3 shadow-xl border border-white/60 transform transition-all duration-300 group-hover:scale-105">
-                    <h4 className="text-base font-bold text-slate-800 tracking-wide">Welcoming Reception Area</h4>
-                    <div className="w-8 h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full mt-1"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent"></div>
+                <div className="absolute bottom-4 left-4">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-lg px-3 py-1.5 shadow-md border border-white/40">
+                    <h4 className="text-sm font-semibold text-slate-800">Welcoming Reception Area</h4>
                   </div>
                 </div>
               </div>
@@ -175,11 +173,10 @@ export default function ServicesSection({ onBookLinkClick }: ServicesSectionProp
                     filter: 'contrast(1.05) saturate(1.1) brightness(1.02)',
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
-                <div className="absolute bottom-3 left-3 right-3">
-                  <div className="bg-gradient-to-r from-white/95 to-white/90 backdrop-blur-md rounded-2xl px-6 py-3 shadow-xl border border-white/60 transform transition-all duration-300 group-hover:scale-105">
-                    <h4 className="text-base font-bold text-slate-800 tracking-wide">Dedicated Treatment Space</h4>
-                    <div className="w-8 h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full mt-1"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent"></div>
+                <div className="absolute bottom-4 left-4">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-lg px-3 py-1.5 shadow-md border border-white/40">
+                    <h4 className="text-sm font-semibold text-slate-800">Dedicated Treatment Space</h4>
                   </div>
                 </div>
               </div>

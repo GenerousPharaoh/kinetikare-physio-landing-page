@@ -35,7 +35,7 @@ export default function ContactSection() {
       content: (
         <a 
           href="mailto:kareem.hassanein@gmail.com"
-          className="text-[#B08D57] hover:text-[#D4AF37] transition-colors duration-300 font-semibold text-lg"
+          className="text-[#B08D57] hover:text-[#D4AF37] transition-colors duration-300 font-semibold text-base sm:text-lg break-all"
         >
           kareem.hassanein@gmail.com
         </a>
@@ -50,7 +50,7 @@ export default function ContactSection() {
       content: (
         <a 
           href="tel:+19056346000"
-          className="text-[#B08D57] hover:text-[#D4AF37] transition-colors duration-300 font-semibold text-lg"
+          className="text-[#B08D57] hover:text-[#D4AF37] transition-colors duration-300 font-semibold text-base sm:text-lg"
         >
           (905) 634-6000
         </a>
@@ -116,9 +116,6 @@ export default function ContactSection() {
                   <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
                 </span>
               </h2>
-              {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-br from-[#D4AF37] to-[#B08D57] rounded-full opacity-20"></div>
-              <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-full opacity-30"></div>
             </div>
             
             <p className="text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed font-light mb-8">
@@ -138,67 +135,133 @@ export default function ContactSection() {
             </motion.div>
           </motion.div>
 
-          <div className="grid lg:grid-cols-3 gap-16 lg:gap-20">
-            {/* Left Column - Premium Contact Cards */}
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-20">
+            {/* Left Column - Consolidated Contact Information */}
             <motion.div 
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="lg:col-span-2"
+              className="space-y-8"
             >
-              <div className="grid md:grid-cols-2 gap-8">
-                {contactInfo.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 * index }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    className="group relative bg-white/95 backdrop-blur-2xl rounded-3xl p-10 shadow-xl border border-slate-200/60 hover:shadow-2xl transition-all duration-700 hover:-translate-y-2 overflow-hidden"
-                  >
-                    {/* Premium background pattern */}
-                    <div className="absolute inset-0 opacity-[0.02]" style={{
-                      backgroundImage: `radial-gradient(circle at 2px 2px, rgba(0,0,0,0.15) 1px, transparent 0)`,
-                      backgroundSize: '32px 32px'
-                    }}></div>
-                    
-                    {/* Subtle background */}
-                    <div className={`absolute inset-0 ${item.bgColor} opacity-0 group-hover:opacity-100 rounded-3xl transition-all duration-700`}></div>
-                    
-                    {/* Premium icon container */}
-                    <div className={`relative inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${item.gradient} rounded-2xl mb-8 text-white shadow-lg group-hover:shadow-xl transition-all duration-500 group-hover:scale-110`}>
-                      {item.icon}
-                      {/* Icon glow effect */}
-                      <div className="absolute inset-0 bg-white/20 rounded-2xl"></div>
+              {/* Single Consolidated Contact Card */}
+              <div className="bg-white/95 backdrop-blur-2xl rounded-3xl p-12 shadow-xl border border-slate-200/60">
+                <h3 className="text-3xl font-bold text-slate-900 mb-10 tracking-tight text-center">Contact Information</h3>
+                
+                <div className="grid sm:grid-cols-2 gap-8">
+                  {/* Location */}
+                  <div className="space-y-3">
+                    <div className="flex items-center space-x-3 mb-4">
+                      <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-slate-600 to-slate-700 rounded-xl text-white shadow-lg">
+                        <MapPinIcon className="w-6 h-6" />
+                      </div>
+                      <h4 className="text-xl font-bold text-slate-900">Location</h4>
                     </div>
-                    
-                    {/* Content */}
-                    <h3 className="relative text-2xl font-bold text-slate-900 mb-6 tracking-tight">{item.title}</h3>
-                    <div className="relative text-slate-600 leading-relaxed">
-                      {item.content}
+                    <div className="pl-15">
+                      <p className="font-semibold text-slate-900">Endorphins Health and Wellness Centre</p>
+                      <p className="text-slate-600">4631 Palladium Wy Unit 6</p>
+                      <p className="text-slate-600">Burlington, ON L7M 0W9</p>
                     </div>
-                    
-                    {/* Premium hover accent */}
-                    <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-b-3xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700"></div>
-                    
-                    {/* Corner decoration */}
-                    <div className="absolute top-6 right-6 w-2 h-2 bg-gradient-to-br from-[#D4AF37] to-[#B08D57] rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
-                  </motion.div>
-                ))}
+                  </div>
+
+                  {/* Contact Details */}
+                  <div className="space-y-6">
+                    {/* Email */}
+                    <div className="flex items-center space-x-3">
+                      <div className="inline-flex items-center justify-center w-10 h-10 bg-gradient-to-br from-[#B08D57] to-[#A17D47] rounded-lg text-white shadow-md">
+                        <EnvelopeIcon className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-slate-500 uppercase tracking-wide">Email</p>
+                        <a 
+                          href="mailto:kareem.hassanein@gmail.com"
+                          className="text-[#B08D57] hover:text-[#D4AF37] transition-colors duration-300 font-semibold break-all"
+                        >
+                          kareem.hassanein@gmail.com
+                        </a>
+                      </div>
+                    </div>
+
+                    {/* Phone */}
+                    <div className="flex items-center space-x-3">
+                      <div className="inline-flex items-center justify-center w-10 h-10 bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg text-white shadow-md">
+                        <PhoneIcon className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-slate-500 uppercase tracking-wide">Phone</p>
+                        <a 
+                          href="tel:+19056346000"
+                          className="text-[#B08D57] hover:text-[#D4AF37] transition-colors duration-300 font-semibold"
+                        >
+                          (905) 634-6000
+                        </a>
+                      </div>
+                    </div>
+
+                    {/* Hours */}
+                    <div className="flex items-start space-x-3">
+                      <div className="inline-flex items-center justify-center w-10 h-10 bg-gradient-to-br from-[#8B7355] to-[#6B5B47] rounded-lg text-white shadow-md mt-1">
+                        <ClockIcon className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-slate-500 uppercase tracking-wide mb-2">Hours</p>
+                        <div className="space-y-1">
+                          <p className="text-slate-800 font-semibold">Monday - Friday: 2PM - 8PM</p>
+                          <p className="text-slate-600">Saturday: Available upon request</p>
+                          <p className="text-slate-600">Sunday: Closed</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Service Areas */}
+              <div className="bg-white/95 backdrop-blur-2xl rounded-3xl p-12 shadow-xl border border-slate-200/60">
+                <h3 className="text-2xl font-bold text-slate-900 mb-10 tracking-tight text-center">Service Areas</h3>
+                
+                {/* Enhanced grid layout for service areas */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-10">
+                  {serviceAreas.map((area, index) => (
+                    <motion.div
+                      key={area}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.5, delay: 0.05 * index }}
+                      viewport={{ once: true }}
+                      className="group relative"
+                    >
+                      <div className="bg-slate-50 text-slate-700 rounded-2xl px-4 py-3 font-semibold border border-slate-200 hover:bg-[#B08D57]/10 hover:text-[#B08D57] hover:border-[#B08D57]/20 transition-all duration-400 cursor-default text-center relative overflow-hidden">
+                        {/* Subtle hover background */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-[#B08D57]/5 to-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-400 rounded-2xl"></div>
+                        <span className="relative z-10">{area}</span>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+                
+                {/* Enhanced description */}
+                <div className="text-center">
+                  <p className="text-slate-600 leading-relaxed font-medium text-lg max-w-lg mx-auto">
+                    My practice is conveniently located in <span className="font-semibold text-[#B08D57]">Burlington</span>, and I'm pleased to extend my physiotherapy services to individuals and families in our surrounding communities.
+                  </p>
+                  <p className="text-slate-500 mt-4 font-medium">
+                    If you're looking for experienced physiotherapy care to help you move and feel your best, I invite you to get in touch.
+                  </p>
+                </div>
               </div>
             </motion.div>
 
-            {/* Right Column - Premium CTA and Service Areas */}
+            {/* Right Column - Premium CTA */}
             <motion.div 
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="space-y-10"
+              className="flex flex-col justify-start"
             >
               {/* Premium Book Appointment CTA */}
-              <div className="bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-3xl p-10 text-white relative overflow-hidden shadow-2xl">
+              <div className="bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-3xl p-12 text-white relative overflow-hidden shadow-2xl h-full">
                 {/* Premium background pattern */}
                 <div className="absolute inset-0 opacity-10" style={{
                   backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.4) 1px, transparent 0)`,
@@ -209,15 +272,15 @@ export default function ContactSection() {
                 <div className="absolute top-4 right-4 w-20 h-20 bg-white/10 rounded-full blur-xl"></div>
                 <div className="absolute bottom-4 left-4 w-16 h-16 bg-white/10 rounded-full blur-lg"></div>
                 
-                <div className="relative z-10">
-                  <CalendarDaysIcon className="w-14 h-14 mb-8 opacity-90" />
-                  <h3 className="text-3xl font-bold mb-6 tracking-tight">Ready to Start?</h3>
-                  <p className="text-white/90 mb-8 leading-relaxed text-lg font-light">
-                    Book your appointment online and take the first step towards recovery with personalized care.
+                <div className="relative z-10 h-full flex flex-col">
+                  <CalendarDaysIcon className="w-16 h-16 mb-8 opacity-90" />
+                  <h3 className="text-4xl font-bold mb-8 tracking-tight">Ready to Start?</h3>
+                  <p className="text-white/90 mb-10 leading-relaxed text-xl font-light flex-grow">
+                    Book your appointment online and take the first step towards recovery with personalized care tailored to your specific needs.
                   </p>
                   
                   {/* Premium features list */}
-                  <div className="mb-8 space-y-3">
+                  <div className="mb-10 space-y-4">
                     {premiumFeatures.map((feature, index) => (
                       <motion.div
                         key={index}
@@ -227,8 +290,8 @@ export default function ContactSection() {
                         viewport={{ once: true }}
                         className="flex items-center text-white/90"
                       >
-                        <CheckCircleIcon className="w-5 h-5 mr-3 flex-shrink-0" />
-                        <span className="font-medium">{feature}</span>
+                        <CheckCircleIcon className="w-6 h-6 mr-4 flex-shrink-0" />
+                        <span className="font-semibold text-lg">{feature}</span>
                       </motion.div>
                     ))}
                   </div>
@@ -236,34 +299,12 @@ export default function ContactSection() {
                   <Link
                     href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                     target="_blank"
-                    className="group inline-flex items-center justify-center w-full px-8 py-5 bg-white text-[#B08D57] rounded-2xl font-bold shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 text-lg"
+                    className="group inline-flex items-center justify-center w-full px-8 py-6 bg-white text-[#B08D57] rounded-2xl font-bold shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 text-xl"
                   >
                     <span>Book Appointment</span>
-                    <ArrowTopRightOnSquareIcon className="w-6 h-6 ml-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+                    <ArrowTopRightOnSquareIcon className="w-7 h-7 ml-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
                   </Link>
                 </div>
-              </div>
-
-              {/* Premium Service Areas */}
-              <div className="bg-white/95 backdrop-blur-2xl rounded-3xl p-10 shadow-xl border border-slate-200/60">
-                <h3 className="text-2xl font-bold text-slate-900 mb-8 tracking-tight">Service Areas</h3>
-                <div className="flex flex-wrap gap-3 mb-8">
-                  {serviceAreas.map((area, index) => (
-                    <motion.span
-                      key={area}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.5, delay: 0.05 * index }}
-                      viewport={{ once: true }}
-                      className="inline-block px-4 py-2.5 bg-slate-100 text-slate-700 rounded-2xl font-semibold border border-slate-200 hover:bg-[#B08D57]/10 hover:text-[#B08D57] hover:border-[#B08D57]/20 transition-all duration-400 cursor-default"
-                    >
-                      {area}
-                    </motion.span>
-                  ))}
-                </div>
-                <p className="text-slate-600 leading-relaxed font-medium">
-                  My practice is conveniently located in Burlington, and I'm pleased to extend my physiotherapy services to individuals and families in our surrounding communities. If you're looking for experienced physiotherapy care to help you move and feel your best, I invite you to get in touch.
-                </p>
               </div>
             </motion.div>
           </div>

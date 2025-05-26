@@ -73,7 +73,7 @@ const HeroSection = React.memo(function HeroSection() {
       setIsTestimonialReady(true);
       const testimonialInterval = setInterval(() => {
         setCurrentTestimonialIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-      }, 6000); // Changed to 6 seconds for better reading time
+      }, 6000); // 6 seconds per testimonial
 
       return () => clearInterval(testimonialInterval);
     }, 3000); // Hold reviews for 3 seconds
@@ -572,24 +572,32 @@ const HeroSection = React.memo(function HeroSection() {
                             }}
                             ref={(el) => {
                               if (el && currentTestimonial.name === "Thanula") {
-                                // Auto-scroll for lengthy reviews
+                                // Auto-scroll for Thanula's lengthy review over 6 seconds
                                 const scrollHeight = el.scrollHeight;
                                 const clientHeight = el.clientHeight;
                                 if (scrollHeight > clientHeight) {
-                                  let scrollPosition = 0;
-                                  const scrollStep = (scrollHeight - clientHeight) / 8; // 8 steps over 6 seconds
+                                  el.scrollTop = 0; // Reset to top
+                                  const totalScrollDistance = scrollHeight - clientHeight;
+                                  const scrollDuration = 5500; // 5.5 seconds (leaving 0.5s buffer)
+                                  const scrollStep = totalScrollDistance / (scrollDuration / 100); // Steps every 100ms
+                                  let currentScroll = 0;
+                                  
                                   const scrollInterval = setInterval(() => {
-                                    scrollPosition += scrollStep;
-                                    if (scrollPosition >= scrollHeight - clientHeight) {
+                                    currentScroll += scrollStep;
+                                    if (currentScroll >= totalScrollDistance) {
+                                      el.scrollTop = totalScrollDistance;
                                       clearInterval(scrollInterval);
                                     } else {
-                                      el.scrollTop = scrollPosition;
+                                      el.scrollTop = currentScroll;
                                     }
-                                  }, 750); // Every 0.75 seconds
+                                  }, 100); // Smooth scrolling every 100ms
                                   
-                                  // Clean up on component unmount or testimonial change
+                                  // Clean up interval if component unmounts or testimonial changes
                                   return () => clearInterval(scrollInterval);
                                 }
+                              } else if (el) {
+                                // Reset scroll position for other testimonials
+                                el.scrollTop = 0;
                               }
                             }}
                           >

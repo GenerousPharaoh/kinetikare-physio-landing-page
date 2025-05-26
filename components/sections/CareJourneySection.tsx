@@ -14,49 +14,29 @@ const CareJourneySection = () => {
       number: 1,
       title: "Thorough Assessment",
       description: "Comprehensive evaluation to understand your unique condition and identify root causes beyond symptoms",
-      icon: (
-        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-        </svg>
-      ),
-      gradient: "from-blue-500 to-blue-600",
-      bgGradient: "from-blue-500/10 to-blue-600/5"
+      gradient: "from-[#B08D57] to-[#D4AF37]",
+      bgGradient: "from-[#B08D57]/10 to-[#D4AF37]/5"
     },
     {
       number: 2,
       title: "Expert Treatment",
       description: "Advanced manual therapy techniques combined with evidence-based interventions for optimal healing",
-      icon: (
-        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11" />
-        </svg>
-      ),
-      gradient: "from-emerald-500 to-emerald-600",
-      bgGradient: "from-emerald-500/10 to-emerald-600/5"
+      gradient: "from-[#A17D47] to-[#B08D57]",
+      bgGradient: "from-[#A17D47]/10 to-[#B08D57]/5"
     },
     {
       number: 3,
       title: "Personalized Plan",
       description: "Customized exercise programs and rehabilitation strategies tailored to your specific needs and goals",
-      icon: (
-        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
-        </svg>
-      ),
-      gradient: "from-purple-500 to-purple-600",
-      bgGradient: "from-purple-500/10 to-purple-600/5"
+      gradient: "from-[#D4AF37] to-[#B08D57]",
+      bgGradient: "from-[#D4AF37]/10 to-[#B08D57]/5"
     },
     {
       number: 4,
       title: "Ongoing Support",
       description: "Continuous guidance and progress monitoring to help you maintain improvements and prevent future issues",
-      icon: (
-        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
-      ),
-      gradient: "from-amber-500 to-amber-600",
-      bgGradient: "from-amber-500/10 to-amber-600/5"
+      gradient: "from-[#B08D57] to-[#A17D47]",
+      bgGradient: "from-[#B08D57]/10 to-[#A17D47]/5"
     }
   ];
 
@@ -130,7 +110,7 @@ const CareJourneySection = () => {
 
               {/* Content */}
               <div className="relative z-10 p-12 md:p-16 flex flex-col md:flex-row items-center min-h-[500px]">
-                {/* Left side - Icon and Number */}
+                {/* Left side - Number Display */}
                 <div className="flex-shrink-0 mb-8 md:mb-0 md:mr-12">
                   <AnimatePresence mode="wait">
                     <motion.div
@@ -141,17 +121,14 @@ const CareJourneySection = () => {
                       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                       className="relative"
                     >
-                      {/* Step Number */}
-                      <div className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-full flex items-center justify-center text-white font-bold text-xl shadow-xl border-4 border-white z-20">
-                        {journeySteps[currentStep].number}
-                      </div>
-                      
-                      {/* Icon Container */}
+                      {/* Main Number Container */}
                       <div className={`w-32 h-32 bg-gradient-to-br ${journeySteps[currentStep].gradient} rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden`}>
-                        {/* Icon background glow */}
+                        {/* Background glow */}
                         <div className="absolute inset-0 bg-white/20 rounded-3xl"></div>
-                        <div className="relative z-10 text-white">
-                          {journeySteps[currentStep].icon}
+                        
+                        {/* Step Number */}
+                        <div className="relative z-10 text-white text-5xl font-bold">
+                          {journeySteps[currentStep].number}
                         </div>
                         
                         {/* Animated ring */}

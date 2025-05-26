@@ -53,12 +53,12 @@ const HeroSection = React.memo(function HeroSection() {
   ];
 
   useEffect(() => {
-    // Testimonial carousel
+    // Testimonial carousel with longer timing
     const testimonialStartDelay = setTimeout(() => {
       setIsTestimonialReady(true);
       const testimonialInterval = setInterval(() => {
         setCurrentTestimonialIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-      }, 6000);
+      }, 8000); // Hold reviews for 8 seconds
 
       return () => clearInterval(testimonialInterval);
     }, 3000);
@@ -407,7 +407,7 @@ const HeroSection = React.memo(function HeroSection() {
             </div>
           </motion.div>
           
-          {/* Right side - Google Reviews Style Patient Testimonials */}
+          {/* Right side - Premium Google Reviews Style Patient Testimonials */}
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -415,18 +415,30 @@ const HeroSection = React.memo(function HeroSection() {
             className="lg:col-span-5 mt-8 lg:mt-0"
           >
             <div className="relative max-w-md ml-auto">
-              {/* Google Reviews Style Card */}
+              {/* Premium Glass Reviews Card */}
               <div 
-                className="relative bg-white/95 backdrop-blur-2xl rounded-3xl p-8 shadow-2xl border border-white/60 overflow-hidden"
+                className="relative bg-white/20 backdrop-blur-3xl rounded-3xl p-8 shadow-2xl border border-white/30 overflow-hidden"
                 style={{
-                  boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.9)'
+                  boxShadow: '0 32px 64px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.6)'
                 }}
               >
-                {/* Header with Google-style branding */}
-                <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-gradient-to-br from-[#4285F4] to-[#34A853] rounded-lg flex items-center justify-center">
-                      <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+                {/* Premium glass background elements */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/25 via-white/10 to-white/15 rounded-3xl"></div>
+                <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-[#4285F4]/10 via-[#34A853]/8 to-transparent rounded-3xl blur-2xl"></div>
+                <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr from-[#34A853]/8 via-[#4285F4]/10 to-transparent rounded-3xl blur-xl"></div>
+                
+                {/* Glass accent bar */}
+                <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#4285F4]/80 via-[#34A853]/80 to-[#4285F4]/80 rounded-t-3xl"></div>
+                
+                {/* Floating glass elements */}
+                <div className="absolute top-6 right-6 w-3 h-3 bg-white/40 rounded-full shadow-lg animate-pulse"></div>
+                <div className="absolute bottom-8 left-8 w-2 h-2 bg-white/30 rounded-full shadow-md animate-pulse" style={{ animationDelay: '1s' }}></div>
+
+                {/* Header with sophisticated Google-style branding */}
+                <div className="flex items-center justify-between mb-8 relative z-10">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-10 h-10 bg-gradient-to-br from-[#4285F4] to-[#34A853] rounded-xl flex items-center justify-center shadow-xl">
+                      <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
                         <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
                         <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
@@ -434,123 +446,139 @@ const HeroSection = React.memo(function HeroSection() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-slate-800">Patient Testimonials</h3>
-                      <div className="flex items-center space-x-1">
+                      <h3 className="text-xl font-bold text-white mb-1 tracking-tight drop-shadow-lg">
+                        Patient Testimonials
+                      </h3>
+                      <div className="flex items-center space-x-2">
                         <div className="flex space-x-0.5">
                           {Array(5).fill(0).map((_, i) => (
-                            <StarIcon key={i} className="h-4 w-4 text-[#FBBC04]" />
+                            <StarIcon key={i} className="h-4 w-4 text-[#FBBC04] drop-shadow-sm" />
                           ))}
                         </div>
-                        <span className="text-sm text-slate-600 ml-2">5.0</span>
+                        <span className="text-sm text-white/90 ml-2 font-medium drop-shadow-sm">5.0</span>
                       </div>
                     </div>
                   </div>
-                  <div className="text-xs text-slate-500 font-medium">Reviews</div>
+                  <div className="text-xs text-white/70 font-medium bg-white/10 px-3 py-1 rounded-full backdrop-blur-sm border border-white/20">
+                    Reviews
+                  </div>
                 </div>
 
                 {/* Testimonial Content */}
-                <div className="relative h-48">
+                <div className="relative h-56 relative z-10">
                   {isTestimonialReady ? (
                     <AnimatePresence mode="wait">
                       <motion.div
                         key={currentTestimonialIndex}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                        initial={{ opacity: 0, y: 25, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: -25, scale: 0.95 }}
+                        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                         className="absolute inset-0"
                       >
                         {/* User Avatar and Info */}
-                        <div className="flex items-start space-x-4 mb-4">
-                          <div className="w-12 h-12 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-full flex items-center justify-center shadow-lg">
-                            <span className="text-white font-bold text-lg">
+                        <div className="flex items-start space-x-4 mb-6">
+                          <div className="w-14 h-14 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-full flex items-center justify-center shadow-xl border-2 border-white/30">
+                            <span className="text-white font-bold text-lg drop-shadow-sm">
                               {currentTestimonial.initial}
                             </span>
                           </div>
                           <div className="flex-1">
-                            <h4 className="font-semibold text-slate-800 text-base">
+                            <h4 className="font-bold text-white text-lg drop-shadow-lg">
                               {currentTestimonial.name}
                             </h4>
-                            <p className="text-slate-500 text-sm">
+                            <p className="text-white/80 text-sm font-medium drop-shadow-sm">
                               {currentTestimonial.role}
                             </p>
-                            <div className="flex space-x-0.5 mt-1">
+                            <div className="flex space-x-0.5 mt-2">
                               {Array(5).fill(0).map((_, i) => (
-                                <StarIcon key={i} className="h-3.5 w-3.5 text-[#FBBC04]" />
+                                <StarIcon key={i} className="h-4 w-4 text-[#FBBC04] drop-shadow-sm" />
                               ))}
                             </div>
                           </div>
                         </div>
 
-                        {/* Review Text */}
+                        {/* Review Text with premium styling */}
                         <div className="relative">
-                          <p className="text-slate-700 leading-relaxed text-sm">
-                            "{currentTestimonial.text}"
-                          </p>
-                        </div>
-
-                        {/* Time indicator (Google style) */}
-                        <div className="absolute bottom-0 right-0">
-                          <span className="text-xs text-slate-400">
-                            {Math.floor(Math.random() * 3) + 1} months ago
-                          </span>
+                          <div className="bg-white/15 backdrop-blur-sm rounded-2xl p-5 border border-white/25 shadow-lg">
+                            <p className="text-white leading-relaxed text-sm font-medium drop-shadow-sm">
+                              "{currentTestimonial.text}"
+                            </p>
+                          </div>
+                          {/* Quote decoration */}
+                          <div className="absolute -top-2 -left-2 w-8 h-8 bg-gradient-to-br from-[#D4AF37] to-[#B08D57] rounded-full flex items-center justify-center shadow-lg">
+                            <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                            </svg>
+                          </div>
                         </div>
                       </motion.div>
                     </AnimatePresence>
                   ) : (
-                    // Static placeholder
+                    // Enhanced static placeholder
                     <div>
-                      <div className="flex items-start space-x-4 mb-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-full flex items-center justify-center shadow-lg">
-                          <span className="text-white font-bold text-lg">K</span>
+                      <div className="flex items-start space-x-4 mb-6">
+                        <div className="w-14 h-14 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-full flex items-center justify-center shadow-xl border-2 border-white/30">
+                          <span className="text-white font-bold text-lg drop-shadow-sm">K</span>
                         </div>
                         <div className="flex-1">
-                          <h4 className="font-semibold text-slate-800 text-base">Kathy M.</h4>
-                          <p className="text-slate-500 text-sm">Parent of Patient</p>
-                          <div className="flex space-x-0.5 mt-1">
+                          <h4 className="font-bold text-white text-lg drop-shadow-lg">Kathy M.</h4>
+                          <p className="text-white/80 text-sm font-medium drop-shadow-sm">Parent of Patient</p>
+                          <div className="flex space-x-0.5 mt-2">
                             {Array(5).fill(0).map((_, i) => (
-                              <StarIcon key={i} className="h-3.5 w-3.5 text-[#FBBC04]" />
+                              <StarIcon key={i} className="h-4 w-4 text-[#FBBC04] drop-shadow-sm" />
                             ))}
                           </div>
                         </div>
                       </div>
-                      <p className="text-slate-700 leading-relaxed text-sm">
-                        "Highly recommend! In particular, Kareem has been truly exceptional! Can't express my gratitude for the remarkable care and guidance he has provided during my son's recovery from a knee injury."
-                      </p>
+                      <div className="relative">
+                        <div className="bg-white/15 backdrop-blur-sm rounded-2xl p-5 border border-white/25 shadow-lg">
+                          <p className="text-white leading-relaxed text-sm font-medium drop-shadow-sm">
+                            "Highly recommend! In particular, Kareem has been truly exceptional! Can't express my gratitude for the remarkable care and guidance he has provided during my son's recovery from a knee injury."
+                          </p>
+                        </div>
+                        <div className="absolute -top-2 -left-2 w-8 h-8 bg-gradient-to-br from-[#D4AF37] to-[#B08D57] rounded-full flex items-center justify-center shadow-lg">
+                          <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                          </svg>
+                        </div>
+                      </div>
                     </div>
                   )}
                 </div>
 
-                {/* Progress indicators (Google style dots) */}
-                <div className="flex justify-center space-x-2 mt-6">
+                {/* Premium progress indicators */}
+                <div className="flex justify-center space-x-3 mt-8 relative z-10">
                   {testimonials.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => setCurrentTestimonialIndex(index)}
-                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      className={`relative transition-all duration-300 ${
                         index === currentTestimonialIndex 
-                          ? 'bg-[#4285F4] scale-125' 
-                          : 'bg-slate-300 hover:bg-slate-400'
+                          ? 'scale-125' 
+                          : 'hover:scale-110'
                       }`}
                       aria-label={`View testimonial ${index + 1}`}
-                    />
+                    >
+                      <div className={`w-3 h-3 rounded-full transition-all duration-300 relative ${
+                        index === currentTestimonialIndex 
+                          ? 'bg-gradient-to-r from-[#4285F4] to-[#34A853] shadow-lg shadow-[#4285F4]/50' 
+                          : 'bg-white/40 hover:bg-white/60 shadow-md'
+                      }`}>
+                        {index === currentTestimonialIndex && (
+                          <>
+                            <div className="absolute inset-0 w-3 h-3 rounded-full bg-gradient-to-r from-[#4285F4] to-[#34A853] animate-ping opacity-40"></div>
+                            <div className="absolute -inset-1 w-5 h-5 rounded-full bg-[#4285F4]/20 blur-sm"></div>
+                          </>
+                        )}
+                      </div>
+                    </button>
                   ))}
-                </div>
-
-                {/* Google-style footer */}
-                <div className="mt-6 pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs text-slate-500">
-                  <span>Powered by patient reviews</span>
-                  <span className="flex items-center space-x-1">
-                    <span>View all</span>
-                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </span>
                 </div>
               </div>
               
-              {/* Enhanced shadow */}
-              <div className="absolute -inset-4 bg-gradient-to-br from-[#4285F4]/10 to-[#34A853]/10 rounded-3xl blur-2xl opacity-60"></div>
+              {/* Enhanced premium shadow */}
+              <div className="absolute -inset-4 bg-gradient-to-br from-[#4285F4]/15 to-[#34A853]/15 rounded-3xl blur-2xl opacity-60"></div>
             </div>
           </motion.div>
         </div>

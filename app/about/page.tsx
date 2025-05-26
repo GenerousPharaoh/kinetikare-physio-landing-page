@@ -355,8 +355,8 @@ export default function About() {
                       >
                         <div className="flex items-start space-x-5">
                           <div className="flex-shrink-0">
-                            <ClientImage
-                              src="/images/robert-gordon-university-logo-png_seeklogo-341455.png"
+                        <ClientImage
+                          src="/images/robert-gordon-university-logo-png_seeklogo-341455.png"
                               alt="Robert Gordon University"
                               width={96}
                               height={96}
@@ -400,8 +400,8 @@ export default function About() {
                       >
                         <div className="flex items-start space-x-5">
                           <div className="flex-shrink-0">
-                            <ClientImage
-                              src="/images/mcmaster-university-logo-png_seeklogo-90018.png"
+                        <ClientImage
+                          src="/images/mcmaster-university-logo-png_seeklogo-90018.png"
                               alt="McMaster University"
                               width={96}
                               height={96}

@@ -154,7 +154,7 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, defaultOpen = null }
   const generateId = (index: number) => `${baseId}-faq-${index}`;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       {items.map((item, index) => {
         const isActive = activeIndex === index;
         const questionId = `${baseId}-question-${index}`;
@@ -170,12 +170,12 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, defaultOpen = null }
             }}
             onMouseEnter={() => setIsHovering(index)}
             onMouseLeave={() => setIsHovering(null)}
-            className={`border rounded-xl overflow-hidden transition-all duration-300 ${
+            className={`border rounded-2xl overflow-hidden transition-all duration-500 transform ${
               isActive 
-                ? 'bg-neutral-50 border-neutral-300 shadow-medium'
+                ? 'bg-gradient-to-br from-white to-neutral-50 border-primary-200 shadow-xl shadow-primary-100/20 scale-[1.02]'
                 : isHovering === index
-                  ? 'bg-white border-neutral-300 shadow-subtle'
-                  : 'bg-white border-neutral-200'
+                  ? 'bg-white border-neutral-300 shadow-lg hover:shadow-xl scale-[1.01]'
+                  : 'bg-white border-neutral-200 shadow-md'
             }`}
           >
             <button
@@ -183,28 +183,28 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, defaultOpen = null }
               aria-expanded={isActive}
               aria-controls={answerId}
               onClick={() => toggleQuestion(index)}
-              className={`flex items-center justify-between w-full p-5 md:p-6 text-left focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-50 rounded-t-xl
-                transition-all duration-300 ${isActive ? '' : ''}`}
+              className={`flex items-center justify-between w-full p-6 md:p-8 text-left focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-50 rounded-t-2xl
+                transition-all duration-300 ${isActive ? 'bg-gradient-to-r from-primary-50/50 to-transparent' : ''}`}
             >
-              <span className="flex-1 pr-4">
-                <span className={`font-medium text-lg md:text-xl transition-colors duration-200 ${
+              <span className="flex-1 pr-6">
+                <span className={`font-semibold text-lg md:text-xl transition-colors duration-300 leading-tight ${
                   isActive ? 'text-primary-900' : 'text-primary-800'
                 }`}>
                   {decodeHtmlEntities(item.question)}
                 </span>
                 {item.category && (
-                  <span className="ml-2 inline-block px-2 py-0.5 text-xs rounded-full bg-primary-100 text-primary-800">
+                  <span className="ml-3 inline-block px-3 py-1 text-xs font-medium rounded-full bg-gradient-to-r from-primary-100 to-primary-200 text-primary-800 shadow-sm">
                     {item.category}
                   </span>
                 )}
               </span>
               <motion.div
                 animate={{ rotate: isActive ? 180 : 0 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                className={`flex-shrink-0 w-6 h-6 rounded-full ${
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+                className={`flex-shrink-0 w-7 h-7 rounded-full p-1 transition-all duration-300 ${
                   isActive 
-                    ? 'text-accent-dark'
-                    : 'text-primary-300'
+                    ? 'text-accent-dark bg-accent/10'
+                    : 'text-primary-400 hover:text-primary-600 hover:bg-primary-50'
                 }`}
               >
                 <ChevronDownIcon />
@@ -220,15 +220,15 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, defaultOpen = null }
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: 'auto', opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
                   className="overflow-hidden"
                 >
                   <motion.div 
-                    initial={{ y: -10, opacity: 0.8 }}
+                    initial={{ y: -15, opacity: 0.8 }}
                     animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: -10, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="p-5 md:p-6 pt-3 md:pt-4 border-t border-neutral-200"
+                    exit={{ y: -15, opacity: 0 }}
+                    transition={{ duration: 0.4, delay: 0.1 }}
+                    className="p-6 md:p-8 pt-4 md:pt-6 border-t border-neutral-200/60 bg-gradient-to-br from-neutral-50/30 to-transparent"
                   >
                     <div className="text-primary-600 leading-relaxed prose prose-sm md:prose max-w-none">
                       {formatAnswer(item.answer)}

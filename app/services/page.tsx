@@ -151,7 +151,7 @@ export default function ServicesPage() {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                         </svg>
                       )}
-                    </div>
+                </div>
 
                     {/* Title */}
                     <h2 className="text-2xl font-bold mb-4 text-primary-800 group-hover:text-[#B08D57] transition-colors duration-300">
@@ -286,8 +286,8 @@ export default function ServicesPage() {
                           <div className="relative z-10 text-white group-hover:scale-110 transition-transform duration-300">
                             {step.icon}
                           </div>
-                        </div>
-                        
+            </div>
+            
                         {/* Title */}
                         <h3 className="text-xl font-bold mb-4 text-primary-800 group-hover:text-[#B08D57] transition-colors duration-300 leading-tight">
                           {step.title}
@@ -300,11 +300,11 @@ export default function ServicesPage() {
                         
                         {/* Accent Line */}
                         <div className="mt-6 mx-auto w-12 h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full group-hover:w-16 transition-all duration-300"></div>
-                      </div>
-                      
+            </div>
+            
                       {/* Hover Glow Effect */}
                       <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/5 to-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl pointer-events-none"></div>
-                    </div>
+            </div>
             
                     {/* Connection Arrow (Desktop Only) */}
                     {index < 3 && (

@@ -278,22 +278,22 @@ export default function FAQPage() {
   }
 
   return (
-    <main className="min-h-screen flex flex-col text-primary-700 bg-white">
+    <main className="min-h-screen flex flex-col text-primary-700 bg-gradient-to-br from-slate-50 via-white to-neutral-50">
       {/* Content */}
       <div className="container mx-auto px-4 py-8 pt-24">
         {/* Page Title */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-5 text-primary-800">
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-primary-800 tracking-tight">
             Frequently Asked <span className="text-[#B08D57]">Questions</span>
           </h1>
-          <p className="text-lg text-primary-600 max-w-2xl mx-auto">
+          <p className="text-xl text-primary-600 max-w-2xl mx-auto leading-relaxed">
             Find answers to common questions about physiotherapy services and what to expect during your visits
           </p>
         </div>
         
         {/* Enhanced search bar */}
-        <div className="max-w-2xl mx-auto mb-12 relative z-10">
-          <div className="bg-white/90 backdrop-blur-sm shadow-lg rounded-xl p-3 border border-neutral-200">
+        <div className="max-w-2xl mx-auto mb-16 relative z-10">
+          <div className="bg-white shadow-xl rounded-2xl p-4 border border-neutral-100 hover:shadow-2xl transition-all duration-300">
             <SearchBar 
               placeholder="Search for questions..." 
               onChange={(e) => setSearchQuery(e.target.value)}
@@ -306,38 +306,38 @@ export default function FAQPage() {
         {/* FAQ Content */}
         <div className="max-w-6xl mx-auto">
           {!isSearching && (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6 mb-12">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8 mb-16">
               {faqCategories.map((category) => (
                 <button
                   key={category.id}
                   onClick={() => setActiveCategory(category.id)}
-                  className={`flex flex-col items-center justify-center p-5 rounded-xl transition-all duration-300 
-                    transform hover:scale-[1.02] ${
+                  className={`group flex flex-col items-center justify-center p-6 rounded-2xl transition-all duration-500 
+                    transform hover:scale-105 hover:-translate-y-1 ${
                     activeCategory === category.id
-                      ? 'bg-primary-100 text-primary-900 border-2 border-primary-300 shadow-md'
-                      : 'bg-white hover:bg-neutral-50 text-primary-700 border border-neutral-200 hover:border-neutral-300 hover:shadow-sm'
+                      ? 'bg-gradient-to-br from-primary-50 to-primary-100 text-primary-900 border-2 border-primary-200 shadow-xl shadow-primary-100/50'
+                      : 'bg-white hover:bg-gradient-to-br hover:from-white hover:to-neutral-50 text-primary-700 border border-neutral-200 hover:border-neutral-300 shadow-lg hover:shadow-xl'
                   }`}
                 >
-                  <div className={`p-3 rounded-full mb-3 ${
+                  <div className={`p-4 rounded-xl mb-4 transition-all duration-300 ${
                     activeCategory === category.id 
-                      ? 'bg-primary-200 text-primary-900' 
-                      : 'bg-neutral-100 text-primary-600'
+                      ? 'bg-gradient-to-br from-primary-100 to-primary-200 text-primary-900 shadow-lg' 
+                      : 'bg-gradient-to-br from-neutral-50 to-neutral-100 text-primary-600 group-hover:from-primary-50 group-hover:to-primary-100 group-hover:text-primary-700'
                   }`}>
                     {category.icon}
                   </div>
-                  <span className="text-sm font-medium text-center">{category.name}</span>
+                  <span className="text-sm font-semibold text-center leading-tight">{category.name}</span>
                 </button>
               ))}
             </div>
           )}
           
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-4xl mx-auto">
             {isSearching && (
-              <div className="mb-8 bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-neutral-200">
-                <h2 className="text-2xl font-semibold text-primary-900 mb-2">
+              <div className="mb-10 bg-white shadow-lg rounded-2xl p-8 border border-neutral-100">
+                <h2 className="text-2xl font-bold text-primary-900 mb-3 tracking-tight">
                   Search Results
                 </h2>
-                <p className="text-primary-600">
+                <p className="text-primary-600 text-lg">
                   {filteredQuestions.length === 0 
                     ? 'No questions found matching your search.' 
                     : `Found ${filteredQuestions.length} question${filteredQuestions.length === 1 ? '' : 's'} matching "${searchQuery}"`}
@@ -345,7 +345,7 @@ export default function FAQPage() {
                 {filteredQuestions.length === 0 && (
                   <button 
                     onClick={() => setSearchQuery('')}
-                    className="mt-4 px-4 py-2 bg-accent/10 hover:bg-accent/20 text-accent hover:text-accent-dark rounded-lg transition-colors"
+                    className="mt-6 px-6 py-3 bg-gradient-to-r from-accent to-accent-dark hover:from-accent-dark hover:to-accent text-white font-medium rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
                   >
                     Clear search and view all questions
                   </button>
@@ -354,16 +354,16 @@ export default function FAQPage() {
             )}
             
             {!isSearching && (
-              <div className="mb-8 bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-neutral-200">
-                <div className="flex items-center gap-3">
-                  <div className="bg-primary-100 p-3 rounded-full">
+              <div className="mb-10 bg-white shadow-lg rounded-2xl p-8 border border-neutral-100">
+                <div className="flex items-center gap-4">
+                  <div className="bg-gradient-to-br from-primary-100 to-primary-200 p-4 rounded-xl shadow-lg">
                     {faqCategories.find(cat => cat.id === activeCategory)?.icon}
                   </div>
                   <div>
-                    <h2 className="text-2xl font-semibold text-primary-900 mb-1">
+                    <h2 className="text-3xl font-bold text-primary-900 mb-2 tracking-tight">
                       {faqCategories.find(cat => cat.id === activeCategory)?.name}
                     </h2>
-                    <p className="text-primary-600">
+                    <p className="text-primary-600 text-lg">
                       {faqCategories.find(cat => cat.id === activeCategory)?.questions.length} questions in this category
                     </p>
                   </div>
@@ -374,22 +374,22 @@ export default function FAQPage() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={isSearching ? 'search' : activeCategory}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
+                exit={{ opacity: 0, y: -30 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
               >
                 <FAQAccordion items={currentQuestions} />
               </motion.div>
             </AnimatePresence>
             
             {currentQuestions.length > 0 && !isSearching && (
-              <div className="mt-16 text-center">
-                <div className="bg-white/80 backdrop-blur-sm p-8 rounded-xl shadow-sm border border-neutral-200">
-                  <p className="text-primary-600 mb-4">Can't find what you're looking for?</p>
+              <div className="mt-20 text-center">
+                <div className="bg-gradient-to-br from-white to-neutral-50 shadow-lg rounded-2xl p-10 border border-neutral-100">
+                  <p className="text-primary-600 mb-6 text-lg">Can't find what you're looking for?</p>
                   <Link 
                     href="/#contact" 
-                    className="inline-block px-6 py-3 bg-accent hover:bg-accent-dark text-white font-medium rounded-lg transition-colors duration-300 shadow-sm hover:shadow-md"
+                    className="inline-block px-8 py-4 bg-gradient-to-r from-accent to-accent-dark hover:from-accent-dark hover:to-accent text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
                   >
                     Contact Us
                   </Link>

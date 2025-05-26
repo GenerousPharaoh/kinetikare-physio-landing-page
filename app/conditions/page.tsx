@@ -3,21 +3,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Head from 'next/head';
-import { 
-  HeartIcon,
-  ShieldCheckIcon,
-  StarIcon,
-  CheckCircleIcon,
-  SparklesIcon
-} from '@heroicons/react/24/outline';
 
 export default function ConditionsPage() {
   const conditionCategories = [
     {
       title: "Spinal Health",
       subtitle: "Neck, Mid-Back & Low Back",
-      icon: <ShieldCheckIcon className="w-8 h-8" />,
-      gradient: "from-[#B08D57] to-[#D4AF37]",
+      accent: "#B08D57",
+      gradient: "from-[#B08D57]/20 via-[#D4AF37]/10 to-transparent",
+      textGradient: "bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent",
       conditions: [
         "Low Back Pain (acute and chronic, mechanical, disc-related)",
         "Neck Pain & Stiffness (including whiplash-associated disorders)",
@@ -32,8 +26,9 @@ export default function ConditionsPage() {
     {
       title: "Shoulder Conditions",
       subtitle: "Complete shoulder care",
-      icon: <StarIcon className="w-8 h-8" />,
-      gradient: "from-[#A17D47] to-[#B08D57]",
+      accent: "#A17D47",
+      gradient: "from-[#A17D47]/20 via-[#B08D57]/10 to-transparent",
+      textGradient: "bg-gradient-to-r from-[#A17D47] to-[#B08D57] bg-clip-text text-transparent",
       conditions: [
         "Rotator Cuff Injuries (tendinopathy, tears, post-repair)",
         "Shoulder Impingement Syndrome",
@@ -45,9 +40,10 @@ export default function ConditionsPage() {
     },
     {
       title: "Elbow, Wrist & Hand",
-      subtitle: "Upper extremity specialists",
-      icon: <HeartIcon className="w-8 h-8" />,
-      gradient: "from-[#D4AF37] to-[#B08D57]",
+      subtitle: "Upper extremity specialization",
+      accent: "#D4AF37",
+      gradient: "from-[#D4AF37]/20 via-[#B08D57]/10 to-transparent",
+      textGradient: "bg-gradient-to-r from-[#D4AF37] to-[#B08D57] bg-clip-text text-transparent",
       conditions: [
         "Tennis Elbow (Lateral Epicondylitis)",
         "Golfer's Elbow (Medial Epicondylitis)",
@@ -60,8 +56,9 @@ export default function ConditionsPage() {
     {
       title: "Hip & Pelvis",
       subtitle: "Core stability and mobility",
-      icon: <SparklesIcon className="w-8 h-8" />,
-      gradient: "from-[#B08D57] to-[#A17D47]",
+      accent: "#B08D57",
+      gradient: "from-[#B08D57]/20 via-[#A17D47]/10 to-transparent",
+      textGradient: "bg-gradient-to-r from-[#B08D57] to-[#A17D47] bg-clip-text text-transparent",
       conditions: [
         "Hip Pain (e.g., Bursitis, Gluteal Tendinopathy, Impingement (FAI))",
         "Piriformis Syndrome",
@@ -72,8 +69,9 @@ export default function ConditionsPage() {
     {
       title: "Knee Conditions",
       subtitle: "Comprehensive knee care",
-      icon: <ShieldCheckIcon className="w-8 h-8" />,
-      gradient: "from-[#A17D47] to-[#D4AF37]",
+      accent: "#A17D47",
+      gradient: "from-[#A17D47]/20 via-[#D4AF37]/10 to-transparent",
+      textGradient: "bg-gradient-to-r from-[#A17D47] to-[#D4AF37] bg-clip-text text-transparent",
       conditions: [
         "Knee Pain (e.g., Patellofemoral Pain Syndrome, Patellar Tendinopathy)",
         "Ligament Sprains/Tears (ACL, PCL, MCL, LCL – conservative & post-surgical rehab)",
@@ -85,8 +83,9 @@ export default function ConditionsPage() {
     {
       title: "Foot & Ankle",
       subtitle: "Foundation of movement",
-      icon: <CheckCircleIcon className="w-8 h-8" />,
-      gradient: "from-[#D4AF37] to-[#A17D47]",
+      accent: "#D4AF37",
+      gradient: "from-[#D4AF37]/20 via-[#A17D47]/10 to-transparent",
+      textGradient: "bg-gradient-to-r from-[#D4AF37] to-[#A17D47] bg-clip-text text-transparent",
       conditions: [
         "Ankle Sprains",
         "Plantar Fasciitis & Heel Spurs",
@@ -100,27 +99,51 @@ export default function ConditionsPage() {
   const specializedServices = [
     {
       title: "Post-Surgical Rehabilitation",
-      description: "Including joint replacements (hip, knee, shoulder), ligament reconstructions (e.g., ACL), fracture fixation, rotator cuff repairs, meniscectomies, spinal surgery recovery."
+      description: "Including joint replacements (hip, knee, shoulder), ligament reconstructions (e.g., ACL), fracture fixation, rotator cuff repairs, meniscectomies, spinal surgery recovery.",
+      number: "01"
     },
     {
       title: "Arthritis Management",
-      description: "Osteoarthritis, Rheumatoid Arthritis (focus on pain management, mobility, and function)."
+      description: "Osteoarthritis, Rheumatoid Arthritis (focus on pain management, mobility, and function).",
+      number: "02"
     },
     {
       title: "Sports-Related Injuries",
-      description: "Muscle strains, ligament sprains, contusions, overuse injuries specific to various sports."
+      description: "Muscle strains, ligament sprains, contusions, overuse injuries specific to various sports.",
+      number: "03"
     },
     {
       title: "Chronic Pain Management",
-      description: "Multimodal approaches to help manage and reduce long-standing pain."
+      description: "Multimodal approaches to help manage and reduce long-standing pain.",
+      number: "04"
     },
     {
       title: "Balance & Gait Disorders",
-      description: "Especially relevant for older adults or those with neurological considerations."
+      description: "Especially relevant for older adults or those with neurological considerations.",
+      number: "05"
     },
     {
       title: "Pre-Operative Optimization",
-      description: "Preparing for surgery to improve outcomes."
+      description: "Preparing for surgery to improve outcomes.",
+      number: "06"
+    }
+  ];
+
+  const clientTypes = [
+    {
+      title: "Athletes & Active Individuals",
+      description: "Peak performance and injury prevention",
+      pattern: "dots"
+    },
+    {
+      title: "Chronic Conditions",
+      description: "Long-term pain management and mobility",
+      pattern: "lines"
+    },
+    {
+      title: "Recovery & Rehabilitation",
+      description: "Post-surgery and injury recovery",
+      pattern: "waves"
     }
   ];
 
@@ -133,114 +156,171 @@ export default function ConditionsPage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       
-      <main className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-50">
-        {/* Hero Section */}
-        <section className="relative py-32 overflow-hidden">
-          {/* Background Elements */}
-          <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-[#B08D57]/5 to-transparent rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-gradient-to-tl from-[#D4AF37]/5 to-transparent rounded-full blur-3xl"></div>
+      <main className="min-h-screen bg-white">
+        {/* Hero Section - Redesigned */}
+        <section className="relative py-32 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-100">
+          {/* Sophisticated background patterns */}
+          <div className="absolute inset-0">
+            <div className="absolute top-0 left-0 w-full h-full opacity-[0.02]" style={{
+              backgroundImage: `radial-gradient(circle at 20px 20px, #B08D57 2px, transparent 2px)`,
+              backgroundSize: '40px 40px'
+            }}></div>
+            <div className="absolute top-1/4 right-0 w-96 h-96 bg-gradient-to-l from-[#B08D57]/5 to-transparent blur-3xl"></div>
+            <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-gradient-to-r from-[#D4AF37]/5 to-transparent blur-3xl"></div>
+          </div>
           
           <div className="container mx-auto px-6 lg:px-8 relative z-10">
-            <div className="max-w-5xl mx-auto text-center">
+            <div className="max-w-6xl mx-auto">
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="text-center mb-20"
               >
-                <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 rounded-full border border-[#B08D57]/20 mb-8">
-                  <SparklesIcon className="w-5 h-5 text-[#B08D57] mr-2" />
-                  <span className="text-[#B08D57] font-semibold">Comprehensive Treatment Solutions</span>
+                {/* Premium badge */}
+                <div className="inline-flex items-center mb-8">
+                  <div className="h-px w-12 bg-gradient-to-r from-transparent to-[#B08D57]"></div>
+                  <span className="mx-4 text-[#B08D57] font-medium tracking-wider text-sm uppercase">Comprehensive Treatment Solutions</span>
+                  <div className="h-px w-12 bg-gradient-to-l from-transparent to-[#B08D57]"></div>
                 </div>
                 
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 mb-8 tracking-tight leading-[0.9]">
-                  Conditions I <span className="text-[#B08D57] relative">
-                    Treat
-                    <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
+                <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-slate-900 mb-8 tracking-tight leading-[0.85]">
+                  Conditions<br />
+                  <span className="bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] bg-clip-text text-transparent">
+                    I Treat
                   </span>
                 </h1>
                 
-                <p className="text-xl md:text-2xl text-slate-600 leading-relaxed font-light max-w-4xl mx-auto mb-12">
+                <p className="text-xl md:text-2xl text-slate-600 leading-relaxed font-light max-w-4xl mx-auto">
                   My passion lies in helping people of all ages and activity levels overcome physical limitations, reduce pain, and achieve their movement goals.
                 </p>
-                
-                <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto text-left">
-                  <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-slate-200/50">
-                    <div className="w-12 h-12 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-xl flex items-center justify-center mb-4">
-                      <StarIcon className="w-6 h-6 text-white" />
-                    </div>
-                    <h3 className="font-semibold text-slate-900 mb-2">Athletes & Active Individuals</h3>
-                    <p className="text-slate-600 text-sm">Peak performance and injury prevention</p>
-                  </div>
-                  
-                  <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-slate-200/50">
-                    <div className="w-12 h-12 bg-gradient-to-br from-[#A17D47] to-[#B08D57] rounded-xl flex items-center justify-center mb-4">
-                      <HeartIcon className="w-6 h-6 text-white" />
-                    </div>
-                    <h3 className="font-semibold text-slate-900 mb-2">Chronic Conditions</h3>
-                    <p className="text-slate-600 text-sm">Long-term pain management and mobility</p>
-                  </div>
-                  
-                  <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-slate-200/50">
-                    <div className="w-12 h-12 bg-gradient-to-br from-[#D4AF37] to-[#A17D47] rounded-xl flex items-center justify-center mb-4">
-                      <ShieldCheckIcon className="w-6 h-6 text-white" />
-                    </div>
-                    <h3 className="font-semibold text-slate-900 mb-2">Recovery & Rehabilitation</h3>
-                    <p className="text-slate-600 text-sm">Post-surgery and injury recovery</p>
-                  </div>
-                </div>
               </motion.div>
+
+              {/* Client types - New creative layout */}
+              <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                {clientTypes.map((type, index) => (
+                  <motion.div
+                    key={type.title}
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 + index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                    className="group relative"
+                  >
+                    <div className="relative bg-white/80 backdrop-blur-sm border border-slate-200/50 rounded-3xl p-8 hover:bg-white transition-all duration-500 hover:shadow-xl hover:shadow-[#B08D57]/10">
+                      {/* Creative pattern backgrounds */}
+                      <div className="absolute top-4 right-4 w-12 h-12 opacity-10">
+                        {type.pattern === 'dots' && (
+                          <div className="w-full h-full" style={{
+                            backgroundImage: `radial-gradient(circle, #B08D57 1px, transparent 1px)`,
+                            backgroundSize: '6px 6px'
+                          }}></div>
+                        )}
+                        {type.pattern === 'lines' && (
+                          <div className="w-full h-full" style={{
+                            backgroundImage: `linear-gradient(45deg, #B08D57 1px, transparent 1px)`,
+                            backgroundSize: '4px 4px'
+                          }}></div>
+                        )}
+                        {type.pattern === 'waves' && (
+                          <svg viewBox="0 0 48 48" className="w-full h-full fill-[#B08D57]">
+                            <path d="M0,20 Q12,10 24,20 T48,20 V48 H0 Z" opacity="0.5"/>
+                            <path d="M0,30 Q12,20 24,30 T48,30 V48 H0 Z" opacity="0.3"/>
+                          </svg>
+                        )}
+                      </div>
+                      
+                      <h3 className="text-xl font-bold text-slate-900 mb-3">{type.title}</h3>
+                      <p className="text-slate-600 leading-relaxed">{type.description}</p>
+                      
+                      {/* Hover accent */}
+                      <div className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-full"></div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Conditions Categories */}
-        <section className="py-24 relative">
+        {/* Conditions Categories - Completely new design */}
+        <section className="py-32 relative bg-white">
           <div className="container mx-auto px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               viewport={{ once: true }}
-              className="text-center mb-20"
+              className="text-center mb-24"
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-                Comprehensive Assessment & Treatment
+              <h2 className="text-5xl md:text-6xl font-bold text-slate-900 mb-8 leading-tight">
+                Comprehensive Assessment<br />
+                <span className="text-slate-600 font-light">& Treatment</span>
               </h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mx-auto rounded-full mb-8"></div>
               <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
                 I commonly provide assessment and treatment for a comprehensive list of conditions. Here are some of the key areas I focus on:
               </p>
             </motion.div>
 
-            <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+            {/* Revolutionary card design */}
+            <div className="space-y-16 max-w-7xl mx-auto">
               {conditionCategories.map((category, index) => (
                 <motion.div
                   key={category.title}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -80 : 80 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 1.0, delay: index * 0.15, ease: [0.16, 1, 0.3, 1] }}
                   viewport={{ once: true }}
-                  className="group"
+                  className={`group relative ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} flex flex-col lg:flex items-center gap-12`}
                 >
-                  <div className="bg-white/95 backdrop-blur-xl rounded-3xl p-8 shadow-xl border border-slate-200/60 hover:shadow-2xl transition-all duration-500 h-full">
-                    {/* Header */}
-                    <div className="flex items-start space-x-4 mb-6">
-                      <div className={`w-16 h-16 bg-gradient-to-br ${category.gradient} rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                        {category.icon}
+                  {/* Content Side */}
+                  <div className="flex-1 lg:max-w-md">
+                    <div className="relative">
+                      {/* Number indicator */}
+                      <div className="absolute -top-8 -left-4 text-6xl font-black text-slate-100 select-none">
+                        {String(index + 1).padStart(2, '0')}
                       </div>
-                      <div className="flex-1">
-                        <h3 className="text-2xl font-bold text-slate-900 mb-2">{category.title}</h3>
-                        <p className="text-slate-600 font-medium">{category.subtitle}</p>
+                      
+                      <div className="relative z-10">
+                        <h3 className={`text-3xl font-bold mb-3 ${category.textGradient}`}>
+                          {category.title}
+                        </h3>
+                        <p className="text-slate-600 font-medium text-lg mb-6">{category.subtitle}</p>
+                        
+                        {/* Elegant line separator */}
+                        <div className="w-16 h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mb-6 rounded-full"></div>
                       </div>
                     </div>
+                  </div>
 
-                    {/* Conditions List */}
-                    <div className="space-y-3">
-                      {category.conditions.map((condition, conditionIndex) => (
-                        <div key={conditionIndex} className="flex items-start space-x-3">
-                          <div className="w-1.5 h-1.5 bg-[#B08D57] rounded-full mt-2.5 flex-shrink-0"></div>
-                          <p className="text-slate-700 leading-relaxed">{condition}</p>
-                        </div>
-                      ))}
+                  {/* Conditions List Side */}
+                  <div className="flex-1">
+                    <div className="relative bg-gradient-to-br from-white to-slate-50/50 rounded-3xl p-8 border border-slate-200/30 shadow-lg hover:shadow-xl transition-all duration-700 group-hover:border-[#B08D57]/20">
+                      {/* Subtle background gradient */}
+                      <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700`}></div>
+                      
+                      <div className="relative z-10 space-y-4">
+                        {category.conditions.map((condition, conditionIndex) => (
+                          <motion.div
+                            key={conditionIndex}
+                            initial={{ opacity: 0, x: 20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.6, delay: conditionIndex * 0.05 }}
+                            viewport={{ once: true }}
+                            className="flex items-start space-x-4 group/item"
+                          >
+                            {/* Custom bullet */}
+                            <div className="mt-2.5 relative">
+                              <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] transform group-hover/item:scale-125 transition-transform duration-300"></div>
+                              <div className="absolute inset-0 w-2 h-2 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] blur-sm opacity-0 group-hover/item:opacity-50 transition-opacity duration-300"></div>
+                            </div>
+                            
+                            <p className="text-slate-700 leading-relaxed group-hover/item:text-slate-900 transition-colors duration-300">
+                              {condition}
+                            </p>
+                          </motion.div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </motion.div>
@@ -249,10 +329,11 @@ export default function ConditionsPage() {
           </div>
         </section>
 
-        {/* Specialized Services */}
-        <section className="py-24 bg-gradient-to-b from-white to-slate-50 relative">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-[#B08D57]/5 to-transparent rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-tl from-[#D4AF37]/5 to-transparent rounded-full blur-3xl"></div>
+        {/* Specialized Services - Reimagined */}
+        <section className="py-32 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
+          {/* Background elements */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-l from-[#B08D57]/3 to-transparent blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-r from-[#D4AF37]/3 to-transparent blur-3xl"></div>
           
           <div className="container mx-auto px-6 lg:px-8 relative z-10">
             <motion.div
@@ -262,14 +343,18 @@ export default function ConditionsPage() {
               viewport={{ once: true }}
               className="text-center mb-20"
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-                Specialized Treatment Programs
+              <h2 className="text-5xl md:text-6xl font-bold text-slate-900 mb-8">
+                Specialized<br />
+                <span className="bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent">
+                  Treatment Programs
+                </span>
               </h2>
               <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
                 Beyond specific conditions, I offer comprehensive care for complex cases and specialized rehabilitation needs.
               </p>
             </motion.div>
 
+            {/* Grid layout with creative numbering */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {specializedServices.map((service, index) => (
                 <motion.div
@@ -278,14 +363,25 @@ export default function ConditionsPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
                   viewport={{ once: true }}
-                  className="group"
+                  className="group relative"
                 >
-                  <div className="bg-white/95 backdrop-blur-xl rounded-2xl p-6 shadow-lg border border-slate-200/60 hover:shadow-xl transition-all duration-300 h-full">
-                    <div className="flex items-center space-x-3 mb-4">
-                      <div className="w-3 h-3 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
-                      <h3 className="text-lg font-bold text-slate-900">{service.title}</h3>
+                  <div className="relative bg-white rounded-3xl p-8 border border-slate-200/50 shadow-lg hover:shadow-xl transition-all duration-500 h-full hover:border-[#B08D57]/30">
+                    {/* Large number background */}
+                    <div className="absolute top-4 right-4 text-6xl font-black text-slate-50 select-none leading-none">
+                      {service.number}
                     </div>
-                    <p className="text-slate-600 leading-relaxed text-sm">{service.description}</p>
+                    
+                    <div className="relative z-10">
+                      <h3 className="text-xl font-bold text-slate-900 mb-4 pr-8">
+                        {service.title}
+                      </h3>
+                      <p className="text-slate-600 leading-relaxed text-sm">
+                        {service.description}
+                      </p>
+                    </div>
+                    
+                    {/* Hover accent line */}
+                    <div className="absolute bottom-0 left-8 right-8 h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-full"></div>
                   </div>
                 </motion.div>
               ))}
@@ -293,27 +389,29 @@ export default function ConditionsPage() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-24 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57] to-[#D4AF37]"></div>
-          <div className="absolute inset-0 bg-black/10"></div>
+        {/* CTA Section - Enhanced */}
+        <section className="py-32 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57] via-[#D4AF37] to-[#B08D57]"></div>
+          <div className="absolute inset-0 bg-black/5"></div>
           
-          {/* Floating elements */}
-          <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
-          <div className="absolute bottom-10 right-10 w-48 h-48 bg-white/10 rounded-full blur-3xl"></div>
+          {/* Sophisticated pattern overlay */}
+          <div className="absolute inset-0 opacity-10" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+          }}></div>
           
           <div className="container mx-auto px-6 lg:px-8 relative z-10">
-            <div className="max-w-4xl mx-auto text-center">
+            <div className="max-w-5xl mx-auto text-center">
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                  Ready to Start Your Recovery?
+                <h2 className="text-5xl md:text-6xl font-bold text-white mb-8 leading-tight">
+                  Ready to Start<br />
+                  Your Recovery?
                 </h2>
-                <p className="text-xl text-white/90 leading-relaxed mb-10 max-w-3xl mx-auto">
+                <p className="text-xl text-white/90 leading-relaxed mb-12 max-w-3xl mx-auto">
                   My goal is to provide exceptional physiotherapy services for residents of Burlington, Waterdown, and our surrounding communities, helping you find effective solutions.
                 </p>
                 
@@ -321,18 +419,19 @@ export default function ConditionsPage() {
                   <motion.a
                     href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                     target="_blank"
-                    whileHover={{ scale: 1.05 }}
+                    whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    className="inline-flex items-center justify-center px-8 py-4 bg-white text-[#B08D57] rounded-2xl font-bold shadow-xl hover:shadow-2xl transition-all duration-300 text-lg"
+                    className="inline-flex items-center justify-center px-10 py-5 bg-white text-[#B08D57] rounded-2xl font-bold shadow-xl hover:shadow-2xl transition-all duration-300 text-lg group"
                   >
                     Book Your Assessment
+                    <div className="ml-2 transform group-hover:translate-x-1 transition-transform duration-300">→</div>
                   </motion.a>
                   
                   <motion.a
-                    href="#contact"
-                    whileHover={{ scale: 1.05 }}
+                    href="/#contact"
+                    whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-xl border-2 border-white/30 text-white rounded-2xl font-bold hover:bg-white/20 transition-all duration-300 text-lg"
+                    className="inline-flex items-center justify-center px-10 py-5 bg-white/10 backdrop-blur-xl border-2 border-white/30 text-white rounded-2xl font-bold hover:bg-white/20 transition-all duration-300 text-lg"
                   >
                     Ask a Question
                   </motion.a>

@@ -99,33 +99,27 @@ export default function ConditionsPage() {
   const specializedServices = [
     {
       title: "Post-Surgical Rehabilitation",
-      description: "Including joint replacements (hip, knee, shoulder), ligament reconstructions (e.g., ACL), fracture fixation, rotator cuff repairs, meniscectomies, spinal surgery recovery.",
-      number: "01"
+      description: "Including joint replacements (hip, knee, shoulder), ligament reconstructions (e.g., ACL), fracture fixation, rotator cuff repairs, meniscectomies, spinal surgery recovery."
     },
     {
       title: "Arthritis Management",
-      description: "Osteoarthritis, Rheumatoid Arthritis (focus on pain management, mobility, and function).",
-      number: "02"
+      description: "Osteoarthritis, Rheumatoid Arthritis (focus on pain management, mobility, and function)."
     },
     {
       title: "Sports-Related Injuries",
-      description: "Muscle strains, ligament sprains, contusions, overuse injuries specific to various sports.",
-      number: "03"
+      description: "Muscle strains, ligament sprains, contusions, overuse injuries specific to various sports."
     },
     {
       title: "Chronic Pain Management",
-      description: "Multimodal approaches to help manage and reduce long-standing pain.",
-      number: "04"
+      description: "Multimodal approaches to help manage and reduce long-standing pain."
     },
     {
       title: "Balance & Gait Disorders",
-      description: "Especially relevant for older adults or those with neurological considerations.",
-      number: "05"
+      description: "Especially relevant for older adults or those with neurological considerations."
     },
     {
       title: "Pre-Operative Optimization",
-      description: "Preparing for surgery to improve outcomes.",
-      number: "06"
+      description: "Preparing for surgery to improve outcomes."
     }
   ];
 
@@ -185,10 +179,8 @@ export default function ConditionsPage() {
                 </div>
                 
                 <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-slate-900 mb-8 tracking-tight leading-[0.85]">
-                  Conditions<br />
-                  <span className="bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] bg-clip-text text-transparent">
-                    I Treat
-                  </span>
+                  <span className="block">Conditions</span>
+                  <span className="block text-slate-600 font-light italic">I Treat</span>
                 </h1>
                 
                 <p className="text-xl md:text-2xl text-slate-600 leading-relaxed font-light max-w-4xl mx-auto">
@@ -276,11 +268,6 @@ export default function ConditionsPage() {
                   {/* Content Side */}
                   <div className="flex-1 lg:max-w-md">
                     <div className="relative">
-                      {/* Number indicator */}
-                      <div className="absolute -top-8 -left-4 text-6xl font-black text-slate-100 select-none">
-                        {String(index + 1).padStart(2, '0')}
-                      </div>
-                      
                       <div className="relative z-10">
                         <h3 className={`text-3xl font-bold mb-3 ${category.textGradient}`}>
                           {category.title}
@@ -366,13 +353,8 @@ export default function ConditionsPage() {
                   className="group relative"
                 >
                   <div className="relative bg-white rounded-3xl p-8 border border-slate-200/50 shadow-lg hover:shadow-xl transition-all duration-500 h-full hover:border-[#B08D57]/30">
-                    {/* Large number background */}
-                    <div className="absolute top-4 right-4 text-6xl font-black text-slate-50 select-none leading-none">
-                      {service.number}
-                    </div>
-                    
                     <div className="relative z-10">
-                      <h3 className="text-xl font-bold text-slate-900 mb-4 pr-8">
+                      <h3 className="text-xl font-bold text-slate-900 mb-4">
                         {service.title}
                       </h3>
                       <p className="text-slate-600 leading-relaxed text-sm">

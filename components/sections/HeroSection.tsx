@@ -28,6 +28,7 @@ type ContentItem = CareJourneyItem | TestimonialItem;
 
 const HeroSection = React.memo(function HeroSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isCarouselReady, setIsCarouselReady] = useState(false);
 
   // Care Journey items with appropriate icons
   const careJourneyItems: CareJourneyItem[] = [
@@ -103,11 +104,19 @@ const HeroSection = React.memo(function HeroSection() {
   }
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % allContent.length);
-    }, 5000); // Change every 5 seconds
+    // Add a delay before starting the carousel to let the page load properly
+    const startDelay = setTimeout(() => {
+      setIsCarouselReady(true);
+      const interval = setInterval(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % allContent.length);
+      }, 5000); // Change every 5 seconds
 
-    return () => clearInterval(interval);
+      return () => clearInterval(interval);
+    }, 2000); // Wait 2 seconds before starting the carousel
+
+    return () => {
+      clearTimeout(startDelay);
+    };
   }, [allContent.length]);
 
   const currentContent = allContent[currentIndex];
@@ -449,7 +458,7 @@ const HeroSection = React.memo(function HeroSection() {
             </div>
           </motion.div>
           
-          {/* Right side - merged care journey and testimonials card */}
+          {/* Right side - REDESIGNED vibrant carousel */}
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -462,169 +471,185 @@ const HeroSection = React.memo(function HeroSection() {
             }}
           >
             <div className="relative">
-              {/* Premium integrated container - enhanced styling */}
+              {/* REDESIGNED: More vibrant and dynamic container */}
               <div 
-                className="relative bg-gradient-to-br from-white/25 via-white/20 to-slate-900/30 backdrop-blur-3xl rounded-3xl p-12 shadow-2xl border border-white/40 overflow-hidden"
+                className="relative bg-gradient-to-br from-white/95 via-slate-50/90 to-white/85 backdrop-blur-2xl rounded-3xl p-8 shadow-2xl border border-white/60 overflow-hidden"
                 style={{
                   willChange: 'auto',
                   backfaceVisibility: 'hidden',
                   transform: 'translateZ(0)',
-                  boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4)'
+                  boxShadow: '0 32px 64px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.9)'
                 }}
               >
                 
-                {/* Enhanced background pattern integration */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/8 via-transparent to-primary-900/15 rounded-3xl"></div>
-                <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#D4AF37]/15 via-[#B08D57]/10 to-transparent rounded-3xl blur-3xl"></div>
-                <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-[#B08D57]/12 via-[#D4AF37]/8 to-transparent rounded-3xl blur-2xl"></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-radial from-[#D4AF37]/5 via-transparent to-transparent rounded-full blur-3xl"></div>
+                {/* REDESIGNED: More vibrant background elements */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/8 via-transparent to-[#B08D57]/12 rounded-3xl"></div>
+                <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-[#D4AF37]/25 via-[#B08D57]/15 to-transparent rounded-3xl blur-2xl"></div>
+                <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr from-[#B08D57]/20 via-[#D4AF37]/15 to-transparent rounded-3xl blur-xl"></div>
                 
-                {/* Premium accent elements */}
-                <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] rounded-t-3xl opacity-80"></div>
-                <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-transparent"></div>
+                {/* REDESIGNED: More prominent accent bar */}
+                <div className="absolute top-0 left-0 w-full h-3 bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] rounded-t-3xl shadow-lg"></div>
                 
-                {/* Floating accent orbs */}
-                <div className="absolute top-6 right-6 w-3 h-3 bg-[#D4AF37] rounded-full opacity-60 animate-pulse"></div>
-                <div className="absolute bottom-8 left-8 w-2 h-2 bg-[#B08D57] rounded-full opacity-40 animate-pulse" style={{ animationDelay: '1s' }}></div>
+                {/* REDESIGNED: Dynamic floating elements */}
+                <div className="absolute top-8 right-8 w-4 h-4 bg-[#D4AF37] rounded-full shadow-lg animate-pulse"></div>
+                <div className="absolute bottom-12 left-12 w-3 h-3 bg-[#B08D57] rounded-full shadow-md animate-pulse" style={{ animationDelay: '1s' }}></div>
+                <div className="absolute top-1/2 right-12 w-2 h-2 bg-[#D4AF37]/70 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
                 
-                {/* Dynamic header based on content type */}
-                <div className="text-center mb-12 relative z-10">
-                  <h3 className="text-3xl font-bold text-white mb-4 tracking-tight drop-shadow-lg">
+                {/* REDESIGNED: More vibrant header */}
+                <div className="text-center mb-8 relative z-10">
+                  <h3 className="text-3xl font-bold text-slate-800 mb-3 tracking-tight">
                     {currentContent?.type === 'testimonial' ? 'Client Success' : 'Your Care Journey'}
                   </h3>
-                  <div className="w-20 h-1.5 bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] mx-auto rounded-full shadow-lg"></div>
+                  <div className="w-24 h-2 bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] mx-auto rounded-full shadow-md"></div>
                 </div>
                 
-                {/* Content area with ultra-smooth transitions */}
-                <div className="relative h-52 flex items-center justify-center z-10">
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={currentIndex}
-                      initial={{ opacity: 0, y: 15, scale: 0.98 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: -15, scale: 0.98 }}
-                      transition={{ 
-                        duration: 0.6, 
-                        ease: [0.16, 1, 0.3, 1]
-                      }}
-                      className="text-center w-full"
-                    >
-                      {currentContent?.type === 'testimonial' ? (
-                        // Testimonial content with smoother animations
-                        <div className="space-y-6">
-                          {/* Stars */}
-                          <motion.div 
-                            className="flex justify-center space-x-1 mb-4"
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: 0.1, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                          >
-                            {Array(5).fill(0).map((_, i) => (
-                              <motion.div
-                                key={i}
-                                initial={{ opacity: 0, scale: 0.8 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ delay: 0.15 + (i * 0.05), duration: 0.3, ease: "easeOut" }}
-                              >
-                                <StarIcon className="h-5 w-5 text-[#D4AF37]" />
-                              </motion.div>
-                            ))}
-                          </motion.div>
-                          
-                          {/* Testimonial text */}
-                          <motion.p 
-                            className="text-white/90 leading-relaxed text-sm max-w-sm mx-auto font-light italic"
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                          >
-                            "{(currentContent as TestimonialItem).text}"
-                          </motion.p>
-                          
-                          {/* Patient name */}
-                          <motion.div 
-                            className="pt-4"
-                            initial={{ opacity: 0, y: 8 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.3, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                          >
-                            <p className="font-semibold text-white text-lg">
-                              {(currentContent as TestimonialItem).name}
-                            </p>
-                            <p className="text-white/70 text-sm">
-                              {(currentContent as TestimonialItem).role}
-                            </p>
-                          </motion.div>
-                  </div>
-                      ) : (
-                        // Enhanced Care journey content with smoother animations
-                        <div className="space-y-6">
-                          {/* Professional icon for care journey */}
-                          <motion.div 
-                            className="flex justify-center mb-6"
-                            initial={{ opacity: 0, scale: 0.8, rotateY: 180 }}
-                            animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-                            transition={{ delay: 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                          >
-                            <div className="w-16 h-16 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl flex items-center justify-center shadow-lg relative">
-                              <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl animate-pulse opacity-20"></div>
-                              {React.createElement((currentContent as CareJourneyItem).icon, {
-                                className: "w-8 h-8 text-white relative z-10"
-                              })}
-                  </div>
-                          </motion.div>
-                          
-                          {/* Enhanced title with gradient and better typography */}
-                          <motion.h4 
-                            className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#B08D57] via-white to-[#D4AF37] mb-4 leading-tight tracking-tight"
-                            initial={{ opacity: 0, y: 15 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                          >
-                            {(currentContent as CareJourneyItem).title}
-                          </motion.h4>
-                          
-                          {/* Enhanced description with better styling */}
-                          <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.3, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                            className="relative"
-                            style={{
-                              willChange: 'transform, opacity',
-                              backfaceVisibility: 'hidden',
-                              transform: 'translateZ(0)'
-                            }}
-                          >
-                            <p 
-                              className="text-white/90 leading-relaxed text-sm max-w-sm mx-auto font-medium relative z-10 px-4 py-2 bg-white/10 rounded-lg border border-white/15 backdrop-blur-sm"
-                              style={{
-                                willChange: 'auto',
-                                backfaceVisibility: 'hidden',
-                                transform: 'translateZ(0)'
-                              }}
+                {/* REDESIGNED: Content area with much more vibrant styling */}
+                <div className="relative h-64 flex items-center justify-center z-10">
+                  {isCarouselReady ? (
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={currentIndex}
+                        initial={{ opacity: 0, y: 20, scale: 0.95, rotateX: 10 }}
+                        animate={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
+                        exit={{ opacity: 0, y: -20, scale: 0.95, rotateX: -10 }}
+                        transition={{ 
+                          duration: 0.7, 
+                          ease: [0.16, 1, 0.3, 1]
+                        }}
+                        className="text-center w-full"
+                      >
+                        {currentContent?.type === 'testimonial' ? (
+                          // REDESIGNED: Much more vibrant testimonial cards
+                          <div className="relative bg-gradient-to-br from-white/80 to-slate-50/60 rounded-2xl p-6 shadow-xl border border-white/40 backdrop-blur-sm">
+                            {/* Quote icon background */}
+                            <div className="absolute -top-3 -left-3 w-12 h-12 bg-gradient-to-br from-[#D4AF37] to-[#B08D57] rounded-full flex items-center justify-center shadow-lg">
+                              <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                              </svg>
+                            </div>
+                            
+                            {/* Vibrant stars */}
+                            <motion.div 
+                              className="flex justify-center space-x-1 mb-4"
+                              initial={{ opacity: 0, scale: 0.8 }}
+                              animate={{ opacity: 1, scale: 1 }}
+                              transition={{ delay: 0.1, duration: 0.4 }}
                             >
-                              {(currentContent as CareJourneyItem).description}
-                            </p>
-                          </motion.div>
-                          
-                          {/* Subtle accent line */}
-                          <motion.div 
-                            className="flex justify-center mt-4"
-                            initial={{ width: 0, opacity: 0 }}
-                            animate={{ width: "3rem", opacity: 1 }}
-                            transition={{ delay: 0.4, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                          >
-                            <div className="h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
-                          </motion.div>
-                  </div>
-                      )}
-                    </motion.div>
-                  </AnimatePresence>
-                  </div>
+                              {Array(5).fill(0).map((_, i) => (
+                                <motion.div
+                                  key={i}
+                                  initial={{ opacity: 0, scale: 0.5, rotate: -180 }}
+                                  animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                                  transition={{ delay: 0.15 + (i * 0.1), duration: 0.5, ease: "backOut" }}
+                                >
+                                  <StarIcon className="h-6 w-6 text-[#D4AF37] drop-shadow-sm" />
+                                </motion.div>
+                              ))}
+                            </motion.div>
+                            
+                            {/* Enhanced testimonial text */}
+                            <motion.p 
+                              className="text-slate-700 leading-relaxed text-base max-w-sm mx-auto font-medium mb-4"
+                              initial={{ opacity: 0, y: 15 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: 0.3, duration: 0.5 }}
+                            >
+                              "{(currentContent as TestimonialItem).text}"
+                            </motion.p>
+                            
+                            {/* Enhanced patient info */}
+                            <motion.div 
+                              className="pt-4 border-t border-slate-200/60"
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: 0.4, duration: 0.4 }}
+                            >
+                              <p className="font-bold text-slate-800 text-lg">
+                                {(currentContent as TestimonialItem).name}
+                              </p>
+                              <p className="text-slate-600 text-sm font-medium">
+                                {(currentContent as TestimonialItem).role}
+                              </p>
+                            </motion.div>
+                            
+                            {/* Decorative elements */}
+                            <div className="absolute top-4 right-4 w-8 h-8 bg-gradient-to-br from-[#D4AF37]/20 to-[#B08D57]/20 rounded-full blur-sm"></div>
+                            <div className="absolute bottom-4 left-4 w-6 h-6 bg-gradient-to-br from-[#B08D57]/15 to-[#D4AF37]/15 rounded-full blur-sm"></div>
+                        </div>
+                        ) : (
+                          // REDESIGNED: More vibrant care journey cards
+                          <div className="relative bg-gradient-to-br from-slate-50/70 to-white/60 rounded-2xl p-6 shadow-lg border border-white/30 backdrop-blur-sm">
+                            {/* Enhanced icon with more vibrant styling */}
+                            <motion.div 
+                              className="flex justify-center mb-6"
+                              initial={{ opacity: 0, scale: 0.6, rotateY: 180 }}
+                              animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+                              transition={{ delay: 0.1, duration: 0.6, ease: "backOut" }}
+                            >
+                              <div className="relative w-20 h-20 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl flex items-center justify-center shadow-xl">
+                                <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl animate-pulse opacity-30"></div>
+                                <div className="absolute -inset-1 bg-gradient-to-br from-[#D4AF37]/40 to-[#B08D57]/40 rounded-2xl blur-md"></div>
+                                {React.createElement((currentContent as CareJourneyItem).icon, {
+                                  className: "w-10 h-10 text-white relative z-10 drop-shadow-sm"
+                                })}
+                          </div>
+                            </motion.div>
+                            
+                            {/* Enhanced title with better contrast */}
+                            <motion.h4 
+                              className="text-2xl font-bold text-slate-800 mb-4 leading-tight tracking-tight"
+                              initial={{ opacity: 0, y: 15 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: 0.2, duration: 0.5 }}
+                            >
+                              {(currentContent as CareJourneyItem).title}
+                            </motion.h4>
+                            
+                            {/* Enhanced description with better readability */}
+                            <motion.div
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: 0.3, duration: 0.5 }}
+                              className="relative"
+                            >
+                              <p className="text-slate-600 leading-relaxed text-base max-w-sm mx-auto font-medium relative z-10 px-4 py-3 bg-white/60 rounded-xl border border-slate-200/50 backdrop-blur-sm shadow-sm">
+                                {(currentContent as CareJourneyItem).description}
+                              </p>
+                            </motion.div>
+                            
+                            {/* Enhanced accent line */}
+                            <motion.div 
+                              className="flex justify-center mt-6"
+                              initial={{ width: 0, opacity: 0 }}
+                              animate={{ width: "4rem", opacity: 1 }}
+                              transition={{ delay: 0.4, duration: 0.5 }}
+                            >
+                              <div className="h-1 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full shadow-sm"></div>
+                            </motion.div>
+                        </div>
+                        )}
+                      </motion.div>
+                    </AnimatePresence>
+                  ) : (
+                    // Enhanced placeholder
+                    <div className="text-center w-full">
+                      <div className="relative bg-gradient-to-br from-slate-50/70 to-white/60 rounded-2xl p-6 shadow-lg border border-white/30 backdrop-blur-sm">
+                        <div className="relative w-20 h-20 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl flex items-center justify-center shadow-xl mx-auto mb-6">
+                          <ClipboardDocumentCheckIcon className="w-10 h-10 text-white" />
+                        </div>
+                        <h4 className="text-2xl font-bold text-slate-800 mb-4 leading-tight tracking-tight">
+                          Thorough Assessments
+                        </h4>
+                        <p className="text-slate-600 leading-relaxed text-base max-w-sm mx-auto font-medium px-4 py-3 bg-white/60 rounded-xl border border-slate-200/50 backdrop-blur-sm shadow-sm">
+                          Seeking to uncover the root causes and patterns where applicable, beyond just treating the symptoms
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                </div>
                 
-                {/* Progress dots for all content - enhanced premium styling */}
-                <div className="flex justify-center space-x-3 mt-10 mb-10 relative z-20">
+                {/* REDESIGNED: More vibrant progress dots */}
+                <div className="flex justify-center space-x-3 mt-8 mb-6 relative z-20">
                   {allContent.map((_, index) => (
                     <button
                       key={index}
@@ -637,15 +662,15 @@ const HeroSection = React.memo(function HeroSection() {
                       style={{ pointerEvents: 'auto', zIndex: 20 }}
                       aria-label={`Go to slide ${index + 1}`}
                     >
-                      <div className={`w-3 h-3 rounded-full transition-all duration-300 relative ${
+                      <div className={`w-4 h-4 rounded-full transition-all duration-300 relative ${
                         index === currentIndex 
-                          ? 'bg-gradient-to-r from-[#B08D57] to-[#D4AF37] shadow-lg shadow-[#D4AF37]/50' 
-                          : 'bg-white/40 hover:bg-white/70 shadow-md'
+                          ? 'bg-gradient-to-r from-[#B08D57] to-[#D4AF37] shadow-lg shadow-[#D4AF37]/60' 
+                          : 'bg-slate-300 hover:bg-slate-400 shadow-md'
                       }`}>
                         {index === currentIndex && (
                           <>
-                            <div className="absolute inset-0 w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] animate-ping opacity-30"></div>
-                            <div className="absolute inset-0 w-3 h-3 rounded-full bg-[#D4AF37]/20 blur-sm"></div>
+                            <div className="absolute inset-0 w-4 h-4 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] animate-ping opacity-40"></div>
+                            <div className="absolute -inset-1 w-6 h-6 rounded-full bg-[#D4AF37]/30 blur-sm"></div>
                           </>
                         )}
                       </div>
@@ -654,20 +679,20 @@ const HeroSection = React.memo(function HeroSection() {
                 </div>
               
                 {/* Enhanced CTA */}
-                <div className="pt-8 border-t border-white/30 text-center relative z-20">
+                <div className="pt-6 border-t border-slate-200/60 text-center relative z-20">
                   <Link
                     href="/about"
-                    className="inline-flex items-center text-white/80 hover:text-[#D4AF37] transition-all duration-300 text-sm font-medium tracking-wide cursor-pointer group"
+                    className="inline-flex items-center text-slate-600 hover:text-[#B08D57] transition-all duration-300 text-sm font-semibold tracking-wide cursor-pointer group"
                     style={{ pointerEvents: 'auto', zIndex: 20 }}
                   >
                     <span className="mr-2">Learn more about my approach</span>
-                    <span className="transform transition-transform duration-300 group-hover:translate-x-1">→</span>
+                    <span className="transform transition-transform duration-300 group-hover:translate-x-1 text-[#D4AF37]">→</span>
                   </Link>
                 </div>
               </div>
               
-              {/* Enhanced shadow with better integration */}
-              <div className="absolute -inset-4 bg-gradient-to-br from-[#B08D57]/20 to-[#D4AF37]/20 rounded-3xl blur-2xl opacity-40"></div>
+              {/* Enhanced shadow with more vibrant colors */}
+              <div className="absolute -inset-4 bg-gradient-to-br from-[#B08D57]/30 to-[#D4AF37]/30 rounded-3xl blur-2xl opacity-60"></div>
             </div>
           </motion.div>
         </div>

@@ -137,17 +137,45 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, defaultOpen = null }
         const index = items.findIndex(item => item.id && item.id === faqId);
         if (index !== -1) {
           setActiveIndex(index);
-          // Scroll to the item after a slight delay to ensure rendering
+          // Scroll to the item after a delay to ensure rendering and animation
           setTimeout(() => {
-            accordionRefs.current[index]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }, 300);
+            const element = accordionRefs.current[index];
+            if (element) {
+              const headerOffset = 100; // Account for fixed header and some padding
+              const elementPosition = element.getBoundingClientRect().top;
+              const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+              window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+              });
+            }
+          }, 500); // Longer delay for initial page load
         }
       }
     }
   }, [items]);
 
   const toggleQuestion = (index: number) => {
+    const wasActive = activeIndex === index;
     setActiveIndex(activeIndex === index ? null : index);
+    
+    // If opening a question, scroll to it after a delay to ensure animation completes
+    if (!wasActive) {
+      setTimeout(() => {
+        const element = accordionRefs.current[index];
+        if (element) {
+          const headerOffset = 100; // Account for fixed header and some padding
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 200); // Wait for animation to start
+    }
   };
 
   // Track if all answer spans have been generated to assign unique IDs for accessibility

@@ -97,6 +97,24 @@ const HeroSection = React.memo(function HeroSection() {
     };
   }, [testimonials.length, isAutoPlaying]);
 
+  // Cleanup scroll intervals when testimonial changes
+  useEffect(() => {
+    return () => {
+      // Clean up any existing scroll intervals when testimonial changes
+      const scrollContainers = document.querySelectorAll('[data-testimonial-scroll]');
+      scrollContainers.forEach((container: any) => {
+        if (container._scrollInterval) {
+          clearInterval(container._scrollInterval);
+          container._scrollInterval = null;
+        }
+        if (container._scrollTimeout) {
+          clearTimeout(container._scrollTimeout);
+          container._scrollTimeout = null;
+        }
+      });
+    };
+  }, [currentTestimonialIndex]);
+
   const currentTestimonial = testimonials[currentTestimonialIndex];
 
   return (
@@ -579,6 +597,7 @@ const HeroSection = React.memo(function HeroSection() {
                         <div className="relative pl-5">
                           <div 
                             className="text-slate-700 leading-relaxed text-sm font-normal pr-4 overflow-y-auto max-h-full"
+                            data-testimonial-scroll
                             style={{
                               scrollBehavior: 'smooth',
                               scrollbarWidth: 'none',
@@ -586,32 +605,46 @@ const HeroSection = React.memo(function HeroSection() {
                             }}
                             ref={(el) => {
                               if (el && currentTestimonial.name === "Thanula") {
-                                // Auto-scroll for Thanula's lengthy review over 6 seconds
+                                // Auto-scroll for Thanula's lengthy review over the full 6 seconds
                                 const scrollHeight = el.scrollHeight;
                                 const clientHeight = el.clientHeight;
                                 if (scrollHeight > clientHeight) {
                                   el.scrollTop = 0; // Reset to top
                                   const totalScrollDistance = scrollHeight - clientHeight;
-                                  const scrollDuration = 5500; // 5.5 seconds (leaving 0.5s buffer)
-                                  const scrollStep = totalScrollDistance / (scrollDuration / 100); // Steps every 100ms
+                                  const scrollDuration = 5800; // 5.8 seconds (leaving 0.2s buffer)
+                                  const scrollStep = totalScrollDistance / (scrollDuration / 50); // Steps every 50ms for smoother scrolling
                                   let currentScroll = 0;
                                   
-                                  const scrollInterval = setInterval(() => {
-                                    currentScroll += scrollStep;
-                                    if (currentScroll >= totalScrollDistance) {
-                                      el.scrollTop = totalScrollDistance;
-                                      clearInterval(scrollInterval);
-                                    } else {
-                                      el.scrollTop = currentScroll;
-                                    }
-                                  }, 100); // Smooth scrolling every 100ms
+                                  // Start scrolling after a brief delay to let the content settle
+                                  const scrollTimeout = setTimeout(() => {
+                                    const scrollInterval = setInterval(() => {
+                                      currentScroll += scrollStep;
+                                      if (currentScroll >= totalScrollDistance) {
+                                        el.scrollTop = totalScrollDistance;
+                                        clearInterval(scrollInterval);
+                                      } else {
+                                        el.scrollTop = currentScroll;
+                                      }
+                                    }, 50); // Smoother scrolling every 50ms
+                                    
+                                    // Store interval for cleanup
+                                    (el as any)._scrollInterval = scrollInterval;
+                                  }, 200); // Small delay to let content render
                                   
-                                  // Clean up interval if component unmounts or testimonial changes
-                                  return () => clearInterval(scrollInterval);
+                                  // Store timeout for cleanup
+                                  (el as any)._scrollTimeout = scrollTimeout;
                                 }
                               } else if (el) {
-                                // Reset scroll position for other testimonials
+                                // Reset scroll position for other testimonials and clean up any existing intervals
                                 el.scrollTop = 0;
+                                if ((el as any)._scrollInterval) {
+                                  clearInterval((el as any)._scrollInterval);
+                                  (el as any)._scrollInterval = null;
+                                }
+                                if ((el as any)._scrollTimeout) {
+                                  clearTimeout((el as any)._scrollTimeout);
+                                  (el as any)._scrollTimeout = null;
+                                }
                               }
                             }}
                           >

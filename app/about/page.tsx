@@ -722,7 +722,7 @@ export default function About() {
                 Book an Appointment
               </Link>
               <Link
-                href="/#services"
+                href="/services"
                 className="py-3.5 px-8 bg-white text-primary-700 hover:bg-neutral-100 border border-neutral-300 font-semibold rounded-lg shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5"
               >
                 Explore Services

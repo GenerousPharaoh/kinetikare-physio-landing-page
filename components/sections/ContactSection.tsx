@@ -137,8 +137,8 @@ export default function ContactSection() {
               <div className="bg-white/95 backdrop-blur-2xl rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl border border-slate-200/60">
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-8 sm:mb-10 tracking-tight text-center">Service Areas</h3>
                 
-                {/* Enhanced grid layout for service areas */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 mb-8 sm:mb-10">
+                {/* Enhanced layout for service areas */}
+                <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-10">
                   {serviceAreas.map((area, index) => (
                     <motion.div
                       key={area}
@@ -148,7 +148,7 @@ export default function ContactSection() {
                       viewport={{ once: true }}
                       className="group relative"
                     >
-                      <div className="bg-slate-50 text-slate-700 rounded-2xl px-3 py-2 sm:px-4 sm:py-3 font-semibold border border-slate-200 hover:bg-[#B08D57]/10 hover:text-[#B08D57] hover:border-[#B08D57]/20 transition-all duration-400 cursor-default text-center relative overflow-hidden text-sm sm:text-base">
+                      <div className="bg-slate-50 text-slate-700 rounded-2xl px-4 py-3 font-semibold border border-slate-200 hover:bg-[#B08D57]/10 hover:text-[#B08D57] hover:border-[#B08D57]/20 transition-all duration-400 cursor-default text-center relative overflow-hidden text-sm sm:text-base min-w-[100px] whitespace-nowrap">
                         {/* Subtle hover background */}
                         <div className="absolute inset-0 bg-gradient-to-r from-[#B08D57]/5 to-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-400 rounded-2xl"></div>
                         <span className="relative z-10">{area}</span>

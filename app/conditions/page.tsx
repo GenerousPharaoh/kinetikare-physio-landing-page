@@ -40,7 +40,7 @@ export default function ConditionsPage() {
     },
     {
       title: "Elbow, Wrist & Hand",
-      subtitle: "Upper extremity specialization",
+      subtitle: "Upper extremity focus",
       accent: "#D4AF37",
       gradient: "from-[#D4AF37]/20 via-[#B08D57]/10 to-transparent",
       textGradient: "bg-gradient-to-r from-[#D4AF37] to-[#B08D57] bg-clip-text text-transparent",
@@ -96,7 +96,7 @@ export default function ConditionsPage() {
     }
   ];
 
-  const specializedServices = [
+  const additionalServices = [
     {
       title: "Post-Surgical Rehabilitation",
       description: "Including joint replacements (hip, knee, shoulder), ligament reconstructions (e.g., ACL), fracture fixation, rotator cuff repairs, meniscectomies, spinal surgery recovery."
@@ -316,7 +316,7 @@ export default function ConditionsPage() {
           </div>
         </section>
 
-        {/* Specialized Services - Reimagined */}
+        {/* Additional Services - Reimagined */}
         <section className="py-32 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
           {/* Background elements */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-l from-[#B08D57]/3 to-transparent blur-3xl"></div>
@@ -331,19 +331,19 @@ export default function ConditionsPage() {
               className="text-center mb-20"
             >
               <h2 className="text-5xl md:text-6xl font-bold text-slate-900 mb-8">
-                Specialized<br />
+                Additional<br />
                 <span className="bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent">
-                  Treatment Programs
+                  Treatment Areas
                 </span>
               </h2>
               <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-                Beyond specific conditions, I offer comprehensive care for complex cases and specialized rehabilitation needs.
+                Beyond specific conditions, I offer comprehensive care for complex cases and additional rehabilitation needs.
               </p>
             </motion.div>
 
             {/* Grid layout with creative numbering */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {specializedServices.map((service, index) => (
+              {additionalServices.map((service, index) => (
                 <motion.div
                   key={service.title}
                   initial={{ opacity: 0, y: 40 }}

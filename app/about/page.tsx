@@ -468,7 +468,7 @@ export default function About() {
                         <div className="flex-1">
                           <div className="font-bold text-slate-800 text-xl mb-2">Certified Dry Needling</div>
                           <div className="text-[#B08D57] font-semibold text-base mb-1">Practitioner</div>
-                          <div className="text-slate-600 text-sm leading-relaxed">Specialized technique for trigger point release and pain management</div>
+                          <div className="text-slate-600 text-sm leading-relaxed">Advanced technique for trigger point release and pain management</div>
                         </div>
                       </div>
                     </div>

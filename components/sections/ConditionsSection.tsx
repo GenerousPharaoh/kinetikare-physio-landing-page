@@ -26,14 +26,14 @@ const conditions = {
       description: "Targeted treatment to repair muscle damage and restore optimal function through progressive rehabilitation.",
     }
   ],
-  specialized: [
+  additional: [
     {
       title: "Post-Surgical Rehabilitation",
       description: "Customized recovery programs designed to optimize healing and restore function following surgical procedures.",
     },
     {
       title: "Neurological Conditions",
-      description: "Specialized physiotherapy for stroke recovery, Parkinson's, and other neurological disorders.",
+      description: "Comprehensive physiotherapy for stroke recovery, Parkinson's, and other neurological disorders.",
     },
     {
       title: "Chronic Pain Management",
@@ -55,11 +55,11 @@ const conditions = {
     },
     {
       title: "Fall Prevention",
-      description: "Specialized programs for older adults to improve balance, strength, and confidence to reduce fall risk.",
+      description: "Comprehensive programs for older adults to improve balance, strength, and confidence to reduce fall risk.",
     },
     {
       title: "Athletic Performance",
-      description: "Movement analysis and specialized training to enhance athletic performance and prevent injuries.",
+      description: "Movement analysis and advanced training to enhance athletic performance and prevent injuries.",
     }
   ]
 };
@@ -115,13 +115,13 @@ const ConditionsSection = () => {
             <FaRunning className="mr-2" /> Common Conditions
           </button>
           <button 
-            onClick={() => setActiveTab('specialized')}
+            onClick={() => setActiveTab('additional')}
             className={`px-6 py-3 text-lg font-medium transition flex items-center 
-              ${activeTab === 'specialized' 
+              ${activeTab === 'additional' 
                 ? 'text-primary-700 border-b-2 border-primary-500' 
                 : 'text-primary-500 hover:text-primary-700'}`}
           >
-            <FaSpa className="mr-2" /> Specialized Services
+            <FaSpa className="mr-2" /> Additional Services
           </button>
           <button 
             onClick={() => setActiveTab('preventive')}

@@ -202,11 +202,11 @@ export default function About() {
                     <Image
                       src="/images/kinetikare-logo.png"
                       alt="KinetiKare Logo"
-                      width={80}
-                      height={80}
-                      className="w-20 h-20 object-contain hover:scale-105 transition-transform duration-300"
+                      width={120}
+                      height={120}
+                      className="w-30 h-30 object-contain"
                       style={{
-                        filter: 'contrast(1.2) saturate(1.3) brightness(1.1) drop-shadow(0 2px 8px rgba(176, 141, 87, 0.15))',
+                        filter: 'contrast(1.15) saturate(1.2) brightness(0.95)',
                         imageRendering: 'crisp-edges'
                       }}
                     />
@@ -365,7 +365,7 @@ export default function About() {
                                 filter: 'contrast(1.1) saturate(1.2) brightness(1.05)',
                                 imageRendering: 'crisp-edges'
                               }}
-                            />
+                        />
                           </div>
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center space-x-3 mb-2">
@@ -433,18 +433,6 @@ export default function About() {
                           </div>
                         </div>
                       </Link>
-                    </div>
-
-                    {/* Academic Excellence Note */}
-                    <div className="mt-6 p-4 bg-gradient-to-r from-[#B08D57]/5 to-[#D4AF37]/5 rounded-lg border border-[#B08D57]/10">
-                      <div className="flex items-center space-x-2">
-                        <svg className="w-5 h-5 text-[#B08D57]" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                        </svg>
-                        <p className="text-sm font-medium text-slate-700">
-                          <span className="font-semibold text-[#B08D57]">Academic Excellence:</span> Graduated with distinction and honours, demonstrating commitment to evidence-based practice and continuous learning.
-                        </p>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -581,11 +569,11 @@ export default function About() {
                         <div className="flex-1">
                           <div className="font-bold text-slate-800 text-xl mb-2">Canadian Soccer League</div>
                           <div className="text-[#B08D57] font-semibold text-base mb-1">Brantford Galaxy</div>
-                          <div className="text-slate-600 text-sm leading-relaxed">Professional league experience in Canadian competitive soccer</div>
-                  </div>
-                </div>
-              </div>
-
+                          <div className="text-slate-600 text-sm leading-relaxed">Semi-professional league experience in Canadian competitive soccer</div>
+                        </div>
+                      </div>
+                    </div>
+                    
                     <div className="p-6 bg-white/90 rounded-xl border border-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
                       <div className="flex items-start space-x-4">
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
@@ -611,7 +599,7 @@ export default function About() {
             <span className="inline-block px-6 py-2 bg-[#D4AF37]/10 text-[#B08D57] text-sm font-medium rounded-full mb-6">
               My Professional Guarantee
             </span>
-            
+          
             <h3 className="text-4xl font-bold text-primary-800 mb-8">
               My Commitment to You
             </h3>

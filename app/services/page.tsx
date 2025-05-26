@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import ClientImage from '@/components/ClientImage';
 import { Metadata } from 'next';
+import { Hand, Dumbbell, Target, Activity, Ruler, Zap } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Physiotherapy Services | Kareem Hassanein',
@@ -15,10 +16,10 @@ const services = [
     description: 'Hands-on techniques to mobilize joints, reduce pain, and restore function through targeted tissue manipulation.',
     image: '/images/manual-therapy.jpg',
     features: [
-      'Joint mobilization and manipulation',
+      'Joint mobilization',
       'Soft tissue release techniques',
-      'Fascial release therapy',
-      'Proprioceptive neuromuscular facilitation',
+      'Trigger point therapy',
+      'Myofascial release'
     ],
   },
   {
@@ -40,9 +41,9 @@ const services = [
     image: '/images/dry-needling.jpg',
     features: [
       'Trigger point release',
-      'Improved blood flow to tissues',
-      'Reduced muscle tension',
-      'Enhanced tissue healing',
+      'Muscle tension reduction',
+      'Pain management',
+      'Improved range of motion'
     ],
   },
   {
@@ -51,10 +52,10 @@ const services = [
     description: 'Customized exercise programs designed to restore function, build strength, and prevent injury recurrence.',
     image: '/images/exercise-therapy.jpg',
     features: [
-      'Personalized exercise prescription',
-      'Progressive resistance training',
+      'Strength and conditioning',
       'Functional movement training',
-      'Home exercise programming',
+      'Core stabilization',
+      'Flexibility and mobility work'
     ],
   },
   {
@@ -63,22 +64,22 @@ const services = [
     description: 'Comprehensive analysis of your posture and work environment to address pain and prevent future issues.',
     image: '/images/posture-assessment.jpg',
     features: [
-      'Detailed postural evaluation',
-      'Workplace ergonomic assessment',
-      'Corrective exercise prescription',
-      'Lifestyle modification guidance',
+      'Movement pattern analysis',
+      'Postural correction strategies',
+      'Ergonomic recommendations',
+      'Preventive care planning'
     ],
   },
   {
     id: 'pain-management',
     title: 'Pain Management',
-    description: 'Evidence-based approaches to reduce persistent pain through multiple modalities and self-management strategies.',
+    description: 'Evidence-based approaches to reduce pain and improve quality of life through targeted interventions.',
     image: '/images/pain-management.jpg',
     features: [
-      'Pain neuroscience education',
-      'Manual pain relief techniques',
-      'Lifestyle and activity modification',
-      'Graded motor imagery and pain desensitization',
+      'Acute and chronic pain treatment',
+      'Myofascial Release Therapy (Instrument Assisted Soft Tissue Massage; Cupping)',
+      'Therapeutic modalities',
+      'Pain education and self-management'
     ],
   },
 ];
@@ -118,39 +119,12 @@ export default function ServicesPage() {
                     {/* Service Icon */}
                     <div className="w-16 h-16 bg-gradient-to-br from-[#1A2036] to-slate-700 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
                       {/* Better Icons based on service */}
-                      {service.id === 'manual-therapy' && (
-                        <svg className="w-8 h-8 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11" />
-                        </svg>
-                      )}
-                      {service.id === 'sports-rehab' && (
-                        <svg className="w-8 h-8 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          <circle cx="12" cy="12" r="3" strokeWidth={2} />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 1v6m0 10v6m11-7h-6m-10 0H1" />
-                        </svg>
-                      )}
-                      {service.id === 'dry-needling' && (
-                        <svg className="w-8 h-8 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2L12 22M8 6L16 6M10 10L14 10M9 14L15 14M11 18L13 18" />
-                        </svg>
-                      )}
-                      {service.id === 'exercise-therapy' && (
-                        <svg className="w-8 h-8 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.5 12a7.5 7.5 0 0015 0m-15 0a7.5 7.5 0 1115 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077l1.41-.513m14.095-5.13l1.41-.513M5.106 17.785l1.15-.964m11.49-9.642l1.149-.964M7.501 19.795l.75-1.3m7.5-12.99l.75-1.3m-6.063 16.658l.26-1.477m2.605-14.772l.26-1.477m0 17.726l-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205L8.25 2.95M12 12m-2 0a2 2 0 104 0 2 2 0 10-4 0" />
-                        </svg>
-                      )}
-                      {service.id === 'postural-assessment' && (
-                        <svg className="w-8 h-8 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14v7M9 17h6M10 21h4" />
-                        </svg>
-                      )}
-                      {service.id === 'pain-management' && (
-                        <svg className="w-8 h-8 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                        </svg>
-                      )}
+                      {service.id === 'manual-therapy' && <Hand className="w-8 h-8 text-[#D4AF37]" strokeWidth={2.2} />}
+                      {service.id === 'sports-rehab' && <Dumbbell className="w-8 h-8 text-[#D4AF37]" strokeWidth={2.2} />}
+                      {service.id === 'dry-needling' && <Target className="w-8 h-8 text-[#D4AF37]" strokeWidth={2.2} />}
+                      {service.id === 'exercise-therapy' && <Activity className="w-8 h-8 text-[#D4AF37]" strokeWidth={2.2} />}
+                      {service.id === 'postural-assessment' && <Ruler className="w-8 h-8 text-[#D4AF37]" strokeWidth={2.2} />}
+                      {service.id === 'pain-management' && <Zap className="w-8 h-8 text-[#D4AF37]" strokeWidth={2.2} />}
                 </div>
 
                     {/* Title */}

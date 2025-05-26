@@ -48,7 +48,7 @@ export default function Footer() {
   const socialLinks = [
     { 
       name: 'LinkedIn', 
-      href: 'https://www.linkedin.com/in/kareem-hassanein-60585133a',
+      href: 'https://www.linkedin.com/in/kareem-hassanein-physiotherapy/',
       icon: <LinkedinLogo weight="fill" className="w-6 h-6" />
     }
   ];

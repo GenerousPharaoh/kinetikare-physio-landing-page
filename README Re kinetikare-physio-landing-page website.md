@@ -3,7 +3,7 @@
 A modern, professional Next.js website for Kareem Hassanein's physiotherapy practice, featuring premium glass design elements, interactive components, and optimized user experience.
 
 ## 🌐 Live Website
-- **Production**: https://www.kareemphysio.com
+- **Production**: https://kinetikarephysio.com (not yet deployed)
 - **Repository**: `kinetikare-physio-landing-page` on GitHub
 - **Deployment**: Vercel with automatic deployments from main branch
 
@@ -267,7 +267,7 @@ xl: 1280px  /* Laptops */
 - **Purpose**: Online appointment booking
 
 ### Domain & Hosting
-- **Domain**: kareemphysio.com
+- **Domain**: kinetikarephysio.com (not yet deployed to production)
 - **Hosting**: Vercel
 - **SSL**: Automatic HTTPS
 - **CDN**: Global edge network

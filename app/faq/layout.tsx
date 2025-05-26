@@ -7,7 +7,7 @@ export default function FaqLayout({
 }) {
   return (
     <div className="flex flex-col min-h-screen bg-white">
-      <main className="flex-grow pt-24">
+      <main className="flex-grow pt-16">
         {children}
       </main>
     </div>

@@ -139,18 +139,18 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, defaultOpen = null }
           setActiveIndex(index);
           // Scroll to the item after a delay to ensure rendering and animation
           setTimeout(() => {
-            const element = accordionRefs.current[index];
+            const element = triggerRefs.current[index];
             if (element) {
-              const headerOffset = 100; // Account for fixed header and some padding
+              const headerOffset = 120; // Account for fixed header and some padding
               const elementPosition = element.getBoundingClientRect().top;
               const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
               window.scrollTo({
-                top: offsetPosition,
+                top: Math.max(0, offsetPosition),
                 behavior: 'smooth'
               });
             }
-          }, 500); // Longer delay for initial page load
+          }, 600); // Longer delay for initial page load
         }
       }
     }
@@ -163,18 +163,18 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, defaultOpen = null }
     // If opening a question, scroll to it after a delay to ensure animation completes
     if (!wasActive) {
       setTimeout(() => {
-        const element = accordionRefs.current[index];
+        const element = triggerRefs.current[index]; // Use trigger ref for more accurate positioning
         if (element) {
-          const headerOffset = 100; // Account for fixed header and some padding
+          const headerOffset = 120; // Increased offset for better positioning
           const elementPosition = element.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
           window.scrollTo({
-            top: offsetPosition,
+            top: Math.max(0, offsetPosition), // Ensure we don't scroll above the page
             behavior: 'smooth'
           });
         }
-      }, 200); // Wait for animation to start
+      }, 300); // Slightly longer delay for better animation timing
     }
   };
 
@@ -207,6 +207,11 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, defaultOpen = null }
             }`}
           >
             <button
+              ref={(el) => {
+                if (triggerRefs.current) {
+                  triggerRefs.current[index] = el;
+                }
+              }}
               id={questionId}
               aria-expanded={isActive}
               aria-controls={answerId}

@@ -9,7 +9,6 @@ import PatternBackground from '@/components/ui/PatternBackground';
 import ContactCTA from '@/components/sections/ContactCTA';
 import Container from '@/components/ui/Container';
 import PageHeader from '@/components/PageHeader';
-import SearchBar from '@/components/ui/SearchBar';
 import { 
   QuestionMarkCircleIcon, 
   CalendarIcon, 
@@ -225,8 +224,11 @@ export default function FAQPage() {
   useEffect(() => {
     if (!isMounted) return;
     
+    console.log('Search query changed:', searchQuery); // Debug log
+    
     if (searchQuery.trim() === '') {
       setIsSearching(false);
+      setFilteredQuestions([]);
       return;
     }
     
@@ -240,12 +242,15 @@ export default function FAQPage() {
       }))
     );
     
+    console.log('Total questions to search:', allQuestions.length); // Debug log
+    
     // Filter questions based on search query
     const filtered = allQuestions.filter(item => 
       item.question.toLowerCase().includes(searchQuery.toLowerCase()) || 
       item.answer.toLowerCase().includes(searchQuery.toLowerCase())
     );
     
+    console.log('Filtered results:', filtered.length); // Debug log
     setFilteredQuestions(filtered);
   }, [searchQuery, isMounted]);
 
@@ -259,7 +264,7 @@ export default function FAQPage() {
     return (
       <main className="min-h-screen flex flex-col text-primary-700 bg-white">
         {/* Content */}
-        <div className="container mx-auto px-4 py-8 pt-24">
+        <div className="container mx-auto px-4 py-8">
           {/* Page Title */}
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-5 text-primary-800">
@@ -280,9 +285,9 @@ export default function FAQPage() {
   return (
     <main className="min-h-screen flex flex-col text-primary-700 bg-gradient-to-br from-slate-50 via-white to-neutral-50">
       {/* Content */}
-      <div className="container mx-auto px-4 py-8 pt-24">
+      <div className="container mx-auto px-4 py-8">
         {/* Page Title */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-primary-800 tracking-tight">
             Frequently Asked <span className="text-[#B08D57]">Questions</span>
           </h1>
@@ -294,12 +299,31 @@ export default function FAQPage() {
         {/* Enhanced search bar */}
         <div className="max-w-2xl mx-auto mb-16 relative z-10">
           <div className="bg-white shadow-xl rounded-2xl p-4 border border-neutral-100 hover:shadow-2xl transition-all duration-300">
-            <SearchBar 
-              placeholder="Search for questions..." 
-              onChange={(e) => setSearchQuery(e.target.value)}
-              value={searchQuery}
-              onClear={() => setSearchQuery('')}
-            />
+            <div className="relative group">
+              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none transition-colors">
+                <MagnifyingGlassIcon className="h-5 w-5 text-neutral-400 group-hover:text-accent group-focus-within:text-accent transition-colors duration-200" />
+              </div>
+              
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search for questions..."
+                className="block w-full bg-white border border-neutral-300 rounded-full py-3.5 pl-12 pr-12 text-neutral-900 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent shadow-sm group-hover:shadow-md transition-all duration-200"
+              />
+              
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery('')}
+                  className="absolute inset-y-0 right-0 mr-3 flex items-center justify-center h-8 w-8 my-auto rounded-full text-neutral-400 hover:text-neutral-600 hover:bg-neutral-100 transition-all"
+                  aria-label="Clear search"
+                >
+                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              )}
+            </div>
           </div>
         </div>
         

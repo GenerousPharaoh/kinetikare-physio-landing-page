@@ -23,31 +23,38 @@ const HeroSection = React.memo(function HeroSection() {
   // Enhanced testimonials data with initials for avatar
   const testimonials: TestimonialItem[] = [
     {
-      name: "Kathy M.",
+      name: "Kathy",
       role: "Parent of Patient",
       stars: 5,
       text: "Highly recommend! In particular, Kareem has been truly exceptional! Can't express my gratitude for the remarkable care and guidance he has provided during my son's recovery from a knee injury.",
       initial: "K"
     },
     {
-      name: "Catherine L.",
+      name: "Catherine",
       role: "Patient",
       stars: 5,
       text: "I've been under the expert physiotherapy care of Kareem since August for Plantar Fasciitis, tendonitis & some aches & pains associated with aging. He shows genuine interest and concern for my well-being.",
       initial: "C"
     },
     {
-      name: "Tania R.",
+      name: "Tania",
       role: "Parent of Patient",
       stars: 5,
       text: "My daughter had her knee pain treated by Kareem. He was kind and really good at asking the right questions to diagnose her issues and give her the right exercises to help her heal.",
       initial: "T"
     },
     {
-      name: "Tobi S.",
+      name: "Tobi",
       role: "Patient",
       stars: 5,
       text: "For the past few months Kareem has helped me with a very stubborn shoulder injury. He's been patient and supportive every step of the way. Thanks to him, my shoulder is finally starting to feel like my own again.",
+      initial: "T"
+    },
+    {
+      name: "Thanula",
+      role: "Patient",
+      stars: 5,
+      text: "Highly recommend. Everybody go ask for Kareem. He is the best physiotherapist ever. He's kind, funny and encouraging. I've been seeing him for a few weeks now for my ankle injury, and it has been such a positive experience. He communicates clearly and patiently explains each step of the treatment process. I've noticed improvement in my condition since starting treatment. I feel genuinely cared for by Kareem and his empathy makes a difference in my recovery journey.",
       initial: "T"
     }
   ];
@@ -58,10 +65,10 @@ const HeroSection = React.memo(function HeroSection() {
       setIsTestimonialReady(true);
       const testimonialInterval = setInterval(() => {
         setCurrentTestimonialIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-      }, 8000); // Hold reviews for 8 seconds
+      }, 8000); // Increased from 3000 to 8000 (8 seconds)
 
       return () => clearInterval(testimonialInterval);
-    }, 3000);
+    }, 3000); // Hold reviews for 3 seconds
 
     return () => {
       clearTimeout(testimonialStartDelay);
@@ -76,7 +83,7 @@ const HeroSection = React.memo(function HeroSection() {
     >
       {/* Enhanced backdrop image with dynamic effects */}
       <div className="absolute inset-0 z-0">
-        <div className="h-full w-full overflow-hidden" style={{ position: 'relative' }}>
+        <div className="h-full w-full overflow-hidden relative">
           <motion.div
             initial={{ scale: 1.3, x: 0, y: 0, opacity: 0 }}
             animate={{ 
@@ -246,61 +253,57 @@ const HeroSection = React.memo(function HeroSection() {
       
       <div className="absolute bottom-0 left-0 right-0 h-36 bg-gradient-to-t from-neutral-50/10 to-transparent z-30 pointer-events-none"></div>
       
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-8 items-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center min-h-[80vh]">
           {/* Left side content - main hero content */}
           <motion.div 
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 40 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.8, ease: [0.25, 0.8, 0.25, 1] }}
-            className="lg:col-span-7 text-left"
+            className="lg:col-span-7 text-left space-y-8 lg:space-y-10"
           >
-            <div className="max-w-4xl">
-              {/* Sophisticated main heading with dramatic reveals */}
+            <div className="max-w-4xl space-y-6 lg:space-y-8">
+              {/* More Impactful main heading with enhanced styling */}
               <div className="relative mb-8">
-                <motion.h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight leading-[1.1] relative">
-                  {/* First line with sophisticated reveal - bigger and more prominent */}
+                <motion.h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 tracking-tight leading-[1.05] relative">
+                  {/* First line with enhanced impact */}
                   <div className="overflow-hidden">
                     <motion.span 
-                      initial={{ y: 100, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ 
-                        duration: 1.0, 
-                        delay: 0.8, 
-                        ease: [0.16, 1, 0.3, 1]
-                      }}
-                      className="block relative transform-gpu text-3xl md:text-4xl lg:text-5xl whitespace-nowrap"
-                    >
-                      The Science of Recovery,
-                      <motion.div 
-                        className="absolute -inset-2 bg-gradient-to-r from-white/12 to-transparent rounded-lg blur-xl"
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 1.4, duration: 1.0, ease: "easeOut" }}
-                      />
-                    </motion.span>
-                  </div>
-                  
-                  {/* Second line with enhanced dramatic reveal and premium styling */}
-                  <div className="overflow-hidden">
-                    <motion.span 
-                      initial={{ y: 120, opacity: 0, scale: 0.9 }}
+                      initial={{ y: 120, opacity: 0, scale: 0.8 }}
                       animate={{ y: 0, opacity: 1, scale: 1 }}
                       transition={{ 
                         duration: 1.2, 
-                        delay: 1.3, 
+                        delay: 0.8, 
                         ease: [0.16, 1, 0.3, 1]
                       }}
-                      className="block relative text-5xl md:text-6xl lg:text-7xl transform-gpu"
+                      className="block relative transform-gpu text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black"
                       style={{
-                        background: 'linear-gradient(135deg, #B08D57 0%, #D4AF37 25%, #F4E4BC 50%, #D4AF37 75%, #B08D57 100%)',
+                        textShadow: '0 4px 20px rgba(0, 0, 0, 0.8), 0 8px 40px rgba(176, 141, 87, 0.3)',
+                        filter: 'contrast(1.1) brightness(1.1)'
+                      }}
+                    >
+                      The Science of Recovery,
+                    </motion.span>
+                  </div>
+                  
+                  {/* Second line with maximum impact - clean and simple */}
+                  <div className="overflow-hidden">
+                    <motion.span 
+                      initial={{ y: 140, opacity: 0, scale: 0.7, rotateX: 20 }}
+                      animate={{ y: 0, opacity: 1, scale: 1, rotateX: 0 }}
+                      transition={{ 
+                        duration: 1.4, 
+                        delay: 1.4, 
+                        ease: [0.16, 1, 0.3, 1]
+                      }}
+                      className="block relative text-4xl md:text-5xl lg:text-6xl xl:text-7xl transform-gpu font-black"
+                      style={{
+                        background: 'linear-gradient(135deg, #B08D57 0%, #D4AF37 15%, #F4E4BC 35%, #D4AF37 55%, #B08D57 75%, #A17D47 100%)',
                         WebkitBackgroundClip: 'text',
                         WebkitTextFillColor: 'transparent',
                         backgroundClip: 'text',
-                        fontWeight: 'bold',
-                        letterSpacing: '0.02em',
-                        textShadow: '0 2px 4px rgba(0,0,0,0.1)',
-                        filter: 'contrast(1.1) brightness(1.05)'
+                        fontWeight: '900',
+                        letterSpacing: '0.01em'
                       }}
                     >
                       The Art of Care
@@ -359,8 +362,8 @@ const HeroSection = React.memo(function HeroSection() {
               </motion.div>
               
               <motion.div 
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ y: 30 }}
+                animate={{ y: 0 }}
                 transition={{ duration: 0.8, delay: 1.0 }}
                 className="flex flex-wrap gap-5 mt-10"
               >
@@ -392,7 +395,7 @@ const HeroSection = React.memo(function HeroSection() {
                 >
                 <Link
                   href="#services" 
-                    className="relative px-7 py-3.5 font-medium rounded-xl text-white flex items-center justify-center transition-all duration-300 group overflow-hidden focus:outline-none focus:ring-4 focus:ring-white/30 bg-white/15 backdrop-blur-xl border border-white/20"
+                  className="relative px-7 py-3.5 font-medium rounded-xl text-white flex items-center justify-center transition-all duration-300 group overflow-hidden focus:outline-none focus:ring-4 focus:ring-white/30"
                   aria-label="Explore services"
                   style={{ position: 'relative', zIndex: 10 }}
                 >
@@ -407,178 +410,223 @@ const HeroSection = React.memo(function HeroSection() {
             </div>
           </motion.div>
           
-          {/* Right side - Premium Google Reviews Style Patient Testimonials */}
+          {/* Right side - Premium Patient Testimonials */}
           <motion.div 
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: [0.25, 0.8, 0.25, 1], delay: 0.4 }}
+            initial={{ y: 40, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.9, ease: [0.25, 0.8, 0.25, 1], delay: 2.0 }}
             className="lg:col-span-5 mt-8 lg:mt-0"
           >
-            <div className="relative max-w-md ml-auto">
-              {/* Premium Glass Reviews Card */}
-              <div 
-                className="relative bg-white/20 backdrop-blur-3xl rounded-3xl p-8 shadow-2xl border border-white/30 overflow-hidden"
+            <div className="relative max-w-xl ml-auto">
+              {/* Sophisticated Testimonials Card - Start with glass styling */}
+              <motion.div 
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 1.0, ease: [0.25, 0.8, 0.25, 1], delay: 2.2 }}
+                className="relative bg-white/15 backdrop-blur-2xl rounded-3xl p-10 shadow-2xl border border-white/20 overflow-hidden"
                 style={{
-                  boxShadow: '0 32px 64px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.6)'
+                  boxShadow: '0 32px 64px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3)'
                 }}
               >
-                {/* Premium glass background elements */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/25 via-white/10 to-white/15 rounded-3xl"></div>
-                <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-[#4285F4]/10 via-[#34A853]/8 to-transparent rounded-3xl blur-2xl"></div>
-                <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr from-[#34A853]/8 via-[#4285F4]/10 to-transparent rounded-3xl blur-xl"></div>
+                {/* Enhanced background elements */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/8 via-white/3 to-white/8 rounded-3xl"></div>
+                <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#D4AF37]/20 to-transparent rounded-3xl blur-3xl"></div>
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-[#B08D57]/20 to-transparent rounded-3xl blur-2xl"></div>
                 
-                {/* Glass accent bar */}
-                <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#4285F4]/80 via-[#34A853]/80 to-[#4285F4]/80 rounded-t-3xl"></div>
-                
-                {/* Floating glass elements */}
-                <div className="absolute top-6 right-6 w-3 h-3 bg-white/40 rounded-full shadow-lg animate-pulse"></div>
-                <div className="absolute bottom-8 left-8 w-2 h-2 bg-white/30 rounded-full shadow-md animate-pulse" style={{ animationDelay: '1s' }}></div>
+                {/* Premium accent line */}
+                <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] rounded-t-3xl"></div>
 
-                {/* Header with sophisticated Google-style branding */}
-                <div className="flex items-center justify-between mb-8 relative z-10">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-10 h-10 bg-gradient-to-br from-[#4285F4] to-[#34A853] rounded-xl flex items-center justify-center shadow-xl">
-                      <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-                      </svg>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-white mb-1 tracking-tight drop-shadow-lg">
-                        Patient Testimonials
-                      </h3>
-                      <div className="flex items-center space-x-2">
-                        <div className="flex space-x-0.5">
-                          {Array(5).fill(0).map((_, i) => (
-                            <StarIcon key={i} className="h-4 w-4 text-[#FBBC04] drop-shadow-sm" />
-                          ))}
-                        </div>
-                        <span className="text-sm text-white/90 ml-2 font-medium drop-shadow-sm">5.0</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="text-xs text-white/70 font-medium bg-white/10 px-3 py-1 rounded-full backdrop-blur-sm border border-white/20">
-                    Reviews
-                  </div>
+                {/* Header */}
+                <div className="text-center mb-10 relative z-10">
+                  <h3 className="text-2xl font-bold text-white mb-2 tracking-tight drop-shadow-lg">
+                    Patient Testimonials
+                  </h3>
+                  <div className="w-16 h-0.5 bg-gradient-to-r from-[#D4AF37] to-[#B08D57] mx-auto rounded-full"></div>
                 </div>
 
                 {/* Testimonial Content */}
-                <div className="relative h-56 relative z-10">
-                  {isTestimonialReady ? (
-                    <AnimatePresence mode="wait">
-                      <motion.div
-                        key={currentTestimonialIndex}
-                        initial={{ opacity: 0, y: 25, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: -25, scale: 0.95 }}
-                        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                        className="absolute inset-0"
+                <div className="relative h-80 sm:h-96 md:h-80 relative z-10">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={currentTestimonialIndex}
+                      initial={{ 
+                        opacity: 0, 
+                        y: 60, 
+                        scale: 0.95,
+                        rotateX: 20,
+                        filter: "blur(10px)"
+                      }}
+                      animate={{ 
+                        opacity: 1, 
+                        y: 0, 
+                        scale: 1,
+                        rotateX: 0,
+                        filter: "blur(0px)"
+                      }}
+                      exit={{ 
+                        opacity: 0, 
+                        y: -60, 
+                        scale: 0.95,
+                        rotateX: -20,
+                        filter: "blur(10px)"
+                      }}
+                      transition={{ 
+                        duration: 1.2, 
+                        ease: [0.16, 1, 0.3, 1],
+                        opacity: { duration: 1.0 },
+                        scale: { duration: 1.2 },
+                        rotateX: { duration: 1.2 },
+                        filter: { duration: 1.0 }
+                      }}
+                      className="absolute inset-0 flex flex-col justify-center"
+                      style={{ perspective: "1200px" }}
+                    >
+                      {/* User Avatar and Info with enhanced entrance */}
+                      <motion.div 
+                        initial={{ x: -40, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                        className="flex items-start space-x-5 mb-8"
                       >
-                        {/* User Avatar and Info */}
-                        <div className="flex items-start space-x-4 mb-6">
-                          <div className="w-14 h-14 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-full flex items-center justify-center shadow-xl border-2 border-white/30">
-                            <span className="text-white font-bold text-lg drop-shadow-sm">
-                              {currentTestimonial.initial}
-                            </span>
-                          </div>
-                          <div className="flex-1">
-                            <h4 className="font-bold text-white text-lg drop-shadow-lg">
-                              {currentTestimonial.name}
-                            </h4>
-                            <p className="text-white/80 text-sm font-medium drop-shadow-sm">
-                              {currentTestimonial.role}
-                            </p>
-                            <div className="flex space-x-0.5 mt-2">
-                              {Array(5).fill(0).map((_, i) => (
-                                <StarIcon key={i} className="h-4 w-4 text-[#FBBC04] drop-shadow-sm" />
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Review Text with premium styling */}
-                        <div className="relative">
-                          <div className="bg-white/15 backdrop-blur-sm rounded-2xl p-5 border border-white/25 shadow-lg">
-                            <p className="text-white leading-relaxed text-sm font-medium drop-shadow-sm">
-                              "{currentTestimonial.text}"
-                            </p>
-                          </div>
-                          {/* Quote decoration */}
-                          <div className="absolute -top-2 -left-2 w-8 h-8 bg-gradient-to-br from-[#D4AF37] to-[#B08D57] rounded-full flex items-center justify-center shadow-lg">
-                            <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
-                            </svg>
-                          </div>
+                        <motion.div 
+                          initial={{ scale: 0, rotate: -180 }}
+                          animate={{ scale: 1, rotate: 0 }}
+                          transition={{ delay: 0.4, duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+                          className="w-16 h-16 sm:w-18 sm:h-18 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-full flex items-center justify-center shadow-2xl border-3 border-white/40 flex-shrink-0"
+                        >
+                          <span className="text-white font-bold text-xl sm:text-2xl drop-shadow-lg">
+                            {currentTestimonial.initial}
+                          </span>
+                        </motion.div>
+                        <div className="flex-1 min-w-0">
+                          <motion.h4 
+                            initial={{ y: 25, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ delay: 0.5, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                            className="font-bold text-white text-xl sm:text-2xl drop-shadow-lg mb-1"
+                          >
+                            {currentTestimonial.name}
+                          </motion.h4>
+                          <motion.p 
+                            initial={{ y: 20, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ delay: 0.6, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                            className="text-white/90 text-sm sm:text-base font-medium drop-shadow-sm mb-3"
+                          >
+                            {currentTestimonial.role}
+                          </motion.p>
+                          <motion.div 
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            transition={{ delay: 0.7, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                            className="flex space-x-1"
+                          >
+                            {Array(5).fill(0).map((_, i) => (
+                              <motion.div
+                                key={i}
+                                initial={{ scale: 0, rotate: -180 }}
+                                animate={{ scale: 1, rotate: 0 }}
+                                transition={{ 
+                                  delay: 0.8 + (i * 0.1), 
+                                  duration: 0.5, 
+                                  ease: [0.16, 1, 0.3, 1] 
+                                }}
+                              >
+                                <StarIcon className="h-4 w-4 sm:h-5 sm:w-5 text-[#D4AF37] drop-shadow-lg" />
+                              </motion.div>
+                            ))}
+                          </motion.div>
                         </div>
                       </motion.div>
-                    </AnimatePresence>
-                  ) : (
-                    // Enhanced static placeholder
-                    <div>
-                      <div className="flex items-start space-x-4 mb-6">
-                        <div className="w-14 h-14 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-full flex items-center justify-center shadow-xl border-2 border-white/30">
-                          <span className="text-white font-bold text-lg drop-shadow-sm">K</span>
-                        </div>
-                        <div className="flex-1">
-                          <h4 className="font-bold text-white text-lg drop-shadow-lg">Kathy M.</h4>
-                          <p className="text-white/80 text-sm font-medium drop-shadow-sm">Parent of Patient</p>
-                          <div className="flex space-x-0.5 mt-2">
-                            {Array(5).fill(0).map((_, i) => (
-                              <StarIcon key={i} className="h-4 w-4 text-[#FBBC04] drop-shadow-sm" />
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                      <div className="relative">
-                        <div className="bg-white/15 backdrop-blur-sm rounded-2xl p-5 border border-white/25 shadow-lg">
-                          <p className="text-white leading-relaxed text-sm font-medium drop-shadow-sm">
-                            "Highly recommend! In particular, Kareem has been truly exceptional! Can't express my gratitude for the remarkable care and guidance he has provided during my son's recovery from a knee injury."
-                          </p>
-                        </div>
-                        <div className="absolute -top-2 -left-2 w-8 h-8 bg-gradient-to-br from-[#D4AF37] to-[#B08D57] rounded-full flex items-center justify-center shadow-lg">
-                          <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                  )}
+
+                      {/* Review Text with enhanced styling and animation */}
+                      <motion.div 
+                        initial={{ y: 40, opacity: 0, scale: 0.9 }}
+                        animate={{ y: 0, opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.6, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+                        className="relative flex-1 overflow-hidden"
+                      >
+                        <motion.div 
+                          initial={{ backdropFilter: "blur(0px)" }}
+                          animate={{ backdropFilter: "blur(12px)" }}
+                          transition={{ delay: 0.8, duration: 0.6 }}
+                          className="bg-white/12 backdrop-blur-lg rounded-2xl p-6 sm:p-8 border border-white/25 shadow-xl h-full flex items-center"
+                        >
+                          <motion.p 
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 1.0, duration: 0.8 }}
+                            className="text-white leading-relaxed text-sm sm:text-base font-medium drop-shadow-sm overflow-y-auto max-h-full"
+                            style={{ lineHeight: '1.7' }}
+                          >
+                            "{currentTestimonial.text}"
+                          </motion.p>
+                        </motion.div>
+                        {/* Enhanced quote mark with animation */}
+                        <motion.div 
+                          initial={{ scale: 0, rotate: -90, opacity: 0 }}
+                          animate={{ scale: 1, rotate: 0, opacity: 1 }}
+                          transition={{ delay: 1.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                          className="absolute top-2 left-2 w-6 h-6 sm:w-7 sm:h-7 bg-gradient-to-br from-[#D4AF37] to-[#B08D57] rounded-full flex items-center justify-center shadow-xl"
+                        >
+                          <span className="text-white text-xs font-bold">"</span>
+                        </motion.div>
+                      </motion.div>
+                    </motion.div>
+                  </AnimatePresence>
                 </div>
 
-                {/* Premium progress indicators */}
-                <div className="flex justify-center space-x-3 mt-8 relative z-10">
+                {/* Enhanced progress indicators with dynamic animations */}
+                <div className="flex justify-center space-x-4 mt-8 relative z-10">
                   {testimonials.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => setCurrentTestimonialIndex(index)}
-                      className={`relative transition-all duration-300 ${
+                      className={`relative transition-all duration-600 ${
                         index === currentTestimonialIndex 
                           ? 'scale-125' 
                           : 'hover:scale-110'
                       }`}
                       aria-label={`View testimonial ${index + 1}`}
                     >
-                      <div className={`w-3 h-3 rounded-full transition-all duration-300 relative ${
+                      <div className={`w-3 h-3 rounded-full transition-all duration-600 relative ${
                         index === currentTestimonialIndex 
-                          ? 'bg-gradient-to-r from-[#4285F4] to-[#34A853] shadow-lg shadow-[#4285F4]/50' 
-                          : 'bg-white/40 hover:bg-white/60 shadow-md'
+                          ? 'bg-gradient-to-r from-[#D4AF37] to-[#B08D57] shadow-xl shadow-[#D4AF37]/60' 
+                          : 'bg-white/50 hover:bg-white/70 shadow-lg'
                       }`}>
                         {index === currentTestimonialIndex && (
                           <>
-                            <div className="absolute inset-0 w-3 h-3 rounded-full bg-gradient-to-r from-[#4285F4] to-[#34A853] animate-ping opacity-40"></div>
-                            <div className="absolute -inset-1 w-5 h-5 rounded-full bg-[#4285F4]/20 blur-sm"></div>
+                            <motion.div 
+                              initial={{ scale: 0 }}
+                              animate={{ scale: [1, 1.8, 1] }}
+                              transition={{ 
+                                duration: 2.5, 
+                                repeat: Infinity, 
+                                ease: "easeInOut" 
+                              }}
+                              className="absolute inset-0 w-3 h-3 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#B08D57] opacity-50"
+                            />
+                            <motion.div 
+                              initial={{ scale: 0 }}
+                              animate={{ scale: [1, 2.5, 1] }}
+                              transition={{ 
+                                duration: 3.5, 
+                                repeat: Infinity, 
+                                ease: "easeInOut",
+                                delay: 0.7
+                              }}
+                              className="absolute inset-0 w-3 h-3 rounded-full bg-[#D4AF37]/40 blur-sm"
+                            />
                           </>
                         )}
                       </div>
                     </button>
                   ))}
                 </div>
-              </div>
+              </motion.div>
               
-              {/* Enhanced premium shadow */}
-              <div className="absolute -inset-4 bg-gradient-to-br from-[#4285F4]/15 to-[#34A853]/15 rounded-3xl blur-2xl opacity-60"></div>
+              {/* Enhanced sophisticated shadow */}
+              <div className="absolute -inset-6 bg-gradient-to-br from-[#D4AF37]/25 to-[#B08D57]/25 rounded-3xl blur-3xl opacity-70"></div>
             </div>
           </motion.div>
         </div>

@@ -164,7 +164,6 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     { name: 'About', href: '/about' },
     { name: 'Services', href: '/services' },
     { name: 'FAQ', href: '/faq' },
-    { name: 'Contact', href: '/contact' },
   ], []);
 
   // Define sections that exist on the home page with useMemo

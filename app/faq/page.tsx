@@ -214,11 +214,60 @@ export default function FAQPage() {
   const [filteredQuestions, setFilteredQuestions] = useState<FaqItem[]>([]);
   const [isSearching, setIsSearching] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const [showStickyNav, setShowStickyNav] = useState(false);
+
+  // Refs for each section
+  const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   // Set mounted state once component mounts in browser
   useEffect(() => {
     setIsMounted(true);
   }, []);
+
+  // Handle scroll to show/hide sticky navigation and update active section
+  useEffect(() => {
+    if (!isMounted) return;
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      setShowStickyNav(scrollY > 400);
+
+      // Update active category based on scroll position (scroll spy)
+      if (!isSearching) {
+        const sections = Object.entries(sectionRefs.current);
+        const currentSection = sections.find(([id, element]) => {
+          if (!element) return false;
+          const rect = element.getBoundingClientRect();
+          return rect.top <= 200 && rect.bottom >= 200;
+        });
+
+        if (currentSection) {
+          setActiveCategory(currentSection[0]);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isMounted, isSearching]);
+
+  // Smooth scroll to section
+  const scrollToSection = (categoryId: string) => {
+    setActiveCategory(categoryId);
+    setSearchQuery(''); // Clear search when navigating
+    setIsSearching(false);
+    
+    const element = sectionRefs.current[categoryId];
+    if (element) {
+      const yOffset = -120; // Account for sticky header
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      
+      window.scrollTo({
+        top: y,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   // Search functionality
   useEffect(() => {
@@ -284,6 +333,41 @@ export default function FAQPage() {
 
   return (
     <main className="min-h-screen flex flex-col text-primary-700 bg-gradient-to-br from-slate-50 via-white to-neutral-50">
+      {/* Sticky Navigation */}
+      <AnimatePresence>
+        {showStickyNav && !isSearching && (
+          <motion.div
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -100, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-b border-neutral-200 shadow-lg"
+          >
+            <div className="container mx-auto px-4 py-3">
+              <div className="flex items-center justify-between">
+                <h3 className="text-lg font-bold text-primary-800">FAQ Categories</h3>
+                <div className="flex items-center space-x-2 overflow-x-auto">
+                  {faqCategories.map((category) => (
+                    <button
+                      key={category.id}
+                      onClick={() => scrollToSection(category.id)}
+                      className={`flex items-center space-x-2 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 whitespace-nowrap ${
+                        activeCategory === category.id
+                          ? 'bg-[#B08D57] text-white shadow-lg'
+                          : 'bg-neutral-100 text-neutral-700 hover:bg-[#B08D57]/10 hover:text-[#B08D57]'
+                      }`}
+                    >
+                      <div className="w-4 h-4">{category.icon}</div>
+                      <span>{category.name}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Content */}
       <div className="container mx-auto px-4 py-8">
         {/* Page Title */}
@@ -329,34 +413,9 @@ export default function FAQPage() {
         
         {/* FAQ Content */}
         <div className="max-w-6xl mx-auto">
-          {!isSearching && (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8 mb-16">
-              {faqCategories.map((category) => (
-                <button
-                  key={category.id}
-                  onClick={() => setActiveCategory(category.id)}
-                  className={`group flex flex-col items-center justify-center p-6 rounded-2xl transition-all duration-500 
-                    transform hover:scale-105 hover:-translate-y-1 ${
-                    activeCategory === category.id
-                      ? 'bg-gradient-to-br from-primary-50 to-primary-100 text-primary-900 border-2 border-primary-200 shadow-xl shadow-primary-100/50'
-                      : 'bg-white hover:bg-gradient-to-br hover:from-white hover:to-neutral-50 text-primary-700 border border-neutral-200 hover:border-neutral-300 shadow-lg hover:shadow-xl'
-                  }`}
-                >
-                  <div className={`p-4 rounded-xl mb-4 transition-all duration-300 ${
-                    activeCategory === category.id 
-                      ? 'bg-gradient-to-br from-primary-100 to-primary-200 text-primary-900 shadow-lg' 
-                      : 'bg-gradient-to-br from-neutral-50 to-neutral-100 text-primary-600 group-hover:from-primary-50 group-hover:to-primary-100 group-hover:text-primary-700'
-                  }`}>
-                    {category.icon}
-                  </div>
-                  <span className="text-sm font-semibold text-center leading-tight">{category.name}</span>
-                </button>
-              ))}
-            </div>
-          )}
-          
-          <div className="max-w-4xl mx-auto">
-            {isSearching && (
+          {/* Search Results */}
+          {isSearching && (
+            <div className="max-w-4xl mx-auto">
               <div className="mb-10 bg-white shadow-lg rounded-2xl p-8 border border-neutral-100">
                 <h2 className="text-2xl font-bold text-primary-900 mb-3 tracking-tight">
                   Search Results
@@ -375,39 +434,88 @@ export default function FAQPage() {
                   </button>
                 )}
               </div>
-            )}
-            
-            {!isSearching && (
-              <div className="mb-10 bg-white shadow-lg rounded-2xl p-8 border border-neutral-100">
-                <div className="flex items-center gap-4">
-                  <div className="bg-gradient-to-br from-primary-100 to-primary-200 p-4 rounded-xl shadow-lg">
-                    {faqCategories.find(cat => cat.id === activeCategory)?.icon}
-                  </div>
-                  <div>
-                    <h2 className="text-3xl font-bold text-primary-900 mb-2 tracking-tight">
-                      {faqCategories.find(cat => cat.id === activeCategory)?.name}
-                    </h2>
-                    <p className="text-primary-600 text-lg">
-                      {faqCategories.find(cat => cat.id === activeCategory)?.questions.length} questions in this category
-                    </p>
-                  </div>
-                </div>
+              
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key="search-results"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -30 }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                >
+                  <FAQAccordion items={filteredQuestions} />
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          )}
+
+          {/* Category Navigation (when not searching) */}
+          {!isSearching && (
+            <>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8 mb-16">
+                {faqCategories.map((category) => (
+                  <button
+                    key={category.id}
+                    onClick={() => scrollToSection(category.id)}
+                    className={`group flex flex-col items-center justify-center p-6 rounded-2xl transition-all duration-500 
+                      transform hover:scale-105 hover:-translate-y-1 ${
+                      activeCategory === category.id
+                        ? 'bg-gradient-to-br from-primary-50 to-primary-100 text-primary-900 border-2 border-primary-200 shadow-xl shadow-primary-100/50'
+                        : 'bg-white hover:bg-gradient-to-br hover:from-white hover:to-neutral-50 text-primary-700 border border-neutral-200 hover:border-neutral-300 shadow-lg hover:shadow-xl'
+                    }`}
+                  >
+                    <div className={`p-4 rounded-xl mb-4 transition-all duration-300 ${
+                      activeCategory === category.id 
+                        ? 'bg-gradient-to-br from-primary-100 to-primary-200 text-primary-900 shadow-lg' 
+                        : 'bg-gradient-to-br from-neutral-50 to-neutral-100 text-primary-600 group-hover:from-primary-50 group-hover:to-primary-100 group-hover:text-primary-700'
+                    }`}>
+                      {category.icon}
+                    </div>
+                    <span className="text-sm font-semibold text-center leading-tight">{category.name}</span>
+                  </button>
+                ))}
               </div>
-            )}
-            
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={isSearching ? 'search' : activeCategory}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -30 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-              >
-                <FAQAccordion items={currentQuestions} />
-              </motion.div>
-            </AnimatePresence>
-            
-            {currentQuestions.length > 0 && !isSearching && (
+
+              {/* Individual Category Sections */}
+              <div className="max-w-4xl mx-auto space-y-16">
+                {faqCategories.map((category) => (
+                  <div
+                    key={category.id}
+                    id={category.id}
+                    ref={(el) => {
+                      sectionRefs.current[category.id] = el;
+                    }}
+                    className="scroll-mt-32"
+                  >
+                    <div className="mb-10 bg-white shadow-lg rounded-2xl p-8 border border-neutral-100">
+                      <div className="flex items-center gap-4">
+                        <div className="bg-gradient-to-br from-primary-100 to-primary-200 p-4 rounded-xl shadow-lg">
+                          {category.icon}
+                        </div>
+                        <div>
+                          <h2 className="text-3xl font-bold text-primary-900 mb-2 tracking-tight">
+                            {category.name}
+                          </h2>
+                          <p className="text-primary-600 text-lg">
+                            {category.questions.length} questions in this category
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <motion.div
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-100px" }}
+                      transition={{ duration: 0.4, ease: "easeOut" }}
+                    >
+                      <FAQAccordion items={category.questions} />
+                    </motion.div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Contact CTA */}
               <div className="mt-20 text-center">
                 <div className="bg-gradient-to-br from-white to-neutral-50 shadow-lg rounded-2xl p-10 border border-neutral-100">
                   <p className="text-primary-600 mb-6 text-lg">Can't find what you're looking for?</p>
@@ -419,8 +527,8 @@ export default function FAQPage() {
                   </Link>
                 </div>
               </div>
-            )}
-          </div>
+            </>
+          )}
         </div>
       </div>
     </main>

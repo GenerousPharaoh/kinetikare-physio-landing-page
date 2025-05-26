@@ -39,7 +39,7 @@ export default function ContactSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
             viewport={{ once: true, margin: "-100px" }}
-            className="text-center mb-24"
+            className="text-center mb-20"
           >
             <div className="relative inline-block mb-8">
               <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 mb-8 tracking-tight leading-[0.9]">
@@ -50,21 +50,9 @@ export default function ContactSection() {
               </h2>
             </div>
             
-            <p className="text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed font-light mb-8">
+            <p className="text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed font-light">
               Ready to start your recovery journey? Experience personalized physiotherapy care designed to help you move and feel your best.
             </p>
-            
-            {/* Premium badge */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 rounded-full border border-[#B08D57]/20"
-            >
-              <CheckCircleIcon className="w-5 h-5 text-[#B08D57] mr-2" />
-              <span className="text-[#B08D57] font-semibold">Professional Physiotherapy Services</span>
-            </motion.div>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-20">
@@ -103,11 +91,11 @@ export default function ContactSection() {
                       <div className="inline-flex items-center justify-center w-10 h-10 bg-gradient-to-br from-[#B08D57] to-[#A17D47] rounded-lg text-white shadow-md">
                         <EnvelopeIcon className="w-5 h-5" />
                       </div>
-                      <div>
+                      <div className="min-w-0 flex-1">
                         <p className="text-sm font-medium text-slate-500 uppercase tracking-wide">Email</p>
                         <a 
                           href="mailto:kareem.hassanein@gmail.com"
-                          className="text-[#B08D57] hover:text-[#D4AF37] transition-colors duration-300 font-semibold break-all"
+                          className="text-[#B08D57] hover:text-[#D4AF37] transition-colors duration-300 font-semibold text-sm sm:text-base break-words"
                         >
                           kareem.hassanein@gmail.com
                         </a>

@@ -286,7 +286,7 @@ export default function ConditionsPage() {
                       {/* Subtle background gradient */}
                       <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700`}></div>
                       
-                      <div className="relative z-10 space-y-4">
+                      <div className="relative z-10 grid gap-3">
                         {category.conditions.map((condition, conditionIndex) => (
                           <motion.div
                             key={conditionIndex}
@@ -294,17 +294,39 @@ export default function ConditionsPage() {
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.6, delay: conditionIndex * 0.05 }}
                             viewport={{ once: true }}
-                            className="flex items-start space-x-4 group/item"
+                            className="group/item"
                           >
-                            {/* Custom bullet */}
-                            <div className="mt-2.5 relative">
-                              <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] transform group-hover/item:scale-125 transition-transform duration-300"></div>
-                              <div className="absolute inset-0 w-2 h-2 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] blur-sm opacity-0 group-hover/item:opacity-50 transition-opacity duration-300"></div>
+                            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-slate-200/50 hover:border-[#B08D57]/30 hover:bg-white transition-all duration-300 hover:shadow-md">
+                              <div className="flex items-start space-x-3">
+                                {/* Enhanced bullet */}
+                                <div className="mt-1.5 relative flex-shrink-0">
+                                  <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] transform group-hover/item:scale-125 transition-transform duration-300"></div>
+                                  <div className="absolute inset-0 w-2.5 h-2.5 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] blur-sm opacity-0 group-hover/item:opacity-50 transition-opacity duration-300"></div>
+                                </div>
+                                
+                                <div className="flex-1">
+                                  {/* Extract main condition name */}
+                                  {(() => {
+                                    const parts = condition.split('(');
+                                    const mainCondition = parts[0].trim();
+                                    const details = parts.length > 1 ? `(${parts.slice(1).join('(')}` : '';
+                                    
+                                    return (
+                                      <>
+                                        <h4 className="font-bold text-slate-900 text-base leading-tight group-hover/item:text-[#B08D57] transition-colors duration-300">
+                                          {mainCondition}
+                                        </h4>
+                                        {details && (
+                                          <p className="text-sm text-slate-600 mt-1 leading-relaxed">
+                                            {details}
+                                          </p>
+                                        )}
+                                      </>
+                                    );
+                                  })()}
+                                </div>
+                              </div>
                             </div>
-                            
-                            <p className="text-slate-700 leading-relaxed group-hover/item:text-slate-900 transition-colors duration-300">
-                              {condition}
-                            </p>
                           </motion.div>
                         ))}
                       </div>
@@ -352,18 +374,24 @@ export default function ConditionsPage() {
                   viewport={{ once: true }}
                   className="group relative"
                 >
-                  <div className="relative bg-white rounded-3xl p-8 border border-slate-200/50 shadow-lg hover:shadow-xl transition-all duration-500 h-full hover:border-[#B08D57]/30">
-                    <div className="relative z-10">
-                      <h3 className="text-xl font-bold text-slate-900 mb-4">
+                  <div className="relative bg-white rounded-3xl p-8 border border-slate-200/50 shadow-lg hover:shadow-xl transition-all duration-500 h-full hover:border-[#B08D57]/30 hover:-translate-y-1">
+                    {/* Number badge */}
+                    <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      <span className="text-white font-bold text-lg">{index + 1}</span>
+                    </div>
+                    
+                    <div className="relative z-10 pt-4">
+                      <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-[#B08D57] transition-colors duration-300">
                         {service.title}
                       </h3>
-                      <p className="text-slate-600 leading-relaxed text-sm">
+                      <p className="text-slate-600 leading-relaxed">
                         {service.description}
                       </p>
                     </div>
                     
-                    {/* Hover accent line */}
-                    <div className="absolute bottom-0 left-8 right-8 h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-full"></div>
+                    {/* Enhanced hover accent */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/5 to-[#D4AF37]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="absolute bottom-0 left-8 right-8 h-1 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-full"></div>
                   </div>
                 </motion.div>
               ))}

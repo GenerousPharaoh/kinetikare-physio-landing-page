@@ -299,21 +299,37 @@ export default function About() {
                   </div>
                 </div>
                 
-                <h3 className="text-3xl font-bold mt-16 mb-8">A Different Approach to Care</h3>
+                <h3 className="text-3xl font-bold mt-16 mb-12 text-center">My Commitment to You</h3>
                 
-                <blockquote className="italic border-l-4 border-[#B08D57] pl-6 py-4 my-8 text-primary-700 text-lg bg-primary-50/50 rounded-r-lg">
-                  "Having sat on both sides of the treatment table, I recognize the profound difference between being processed through a system and being truly understood."
-                </blockquote>
+                <div className="bg-gradient-to-br from-slate-50 to-white p-10 rounded-3xl border border-slate-200/50 shadow-lg mb-8">
+                  <div className="max-w-4xl mx-auto">
+                    <div className="flex items-start space-x-6">
+                      <div className="flex-shrink-0">
+                        <div className="w-1 h-20 bg-gradient-to-b from-[#B08D57] to-[#D4AF37] rounded-full"></div>
+                      </div>
+                      <div className="flex-1">
+                        <blockquote className="text-xl md:text-2xl text-slate-700 font-light leading-relaxed italic mb-6">
+                          "Having sat on both sides of the treatment table, I recognize the profound difference between being processed through a system and being truly understood."
+                        </blockquote>
+                        <div className="text-right">
+                          <cite className="text-[#B08D57] font-semibold not-italic">— Kareem Hassanein</cite>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 
-                <p className="text-lg leading-relaxed mb-6">
-                  My practice is built on firsthand experience—both as a clinician and as a patient who has navigated the frustrations of pain, slow recovery, and an often impersonal healthcare system. This dual perspective means I genuinely understand how easily patients can be overlooked.
-                </p>
-                <p className="text-lg leading-relaxed mb-6">
-                  I don't subscribe to high-volume, prescriptive protocols; instead, I focus on individualized care. Each patient receives a plan tailored to their unique needs, grounded in advanced manual therapy, exercise science, and a refusal to overlook the details that drive real outcomes and measurable progress.
-                </p>
-                <p className="text-lg leading-relaxed">
-                  Beyond treatment, I take pride in acting as your advocate within a complex medical landscape. My standard for care isn't based on industry averages or convenient shortcuts—it's built on the dedicated attention and rigor you deserve.
-                </p>
+                <div className="space-y-6 text-lg leading-relaxed">
+                  <p>
+                    My practice is built on firsthand experience—both as a clinician and as a patient who has navigated the frustrations of pain, slow recovery, and an often impersonal healthcare system. This dual perspective means I genuinely understand how easily patients can be overlooked.
+                  </p>
+                  <p>
+                    I don't subscribe to high-volume, prescriptive protocols; instead, I focus on individualized care. Each patient receives a plan tailored to their unique needs, grounded in advanced manual therapy, exercise science, and a refusal to overlook the details that drive real outcomes and measurable progress.
+                  </p>
+                  <p>
+                    Beyond treatment, I take pride in acting as your advocate within a complex medical landscape. My standard for care isn't based on industry averages or convenient shortcuts—it's built on the dedicated attention and rigor you deserve.
+                  </p>
+                </div>
               </div>
             </div>
           </div>

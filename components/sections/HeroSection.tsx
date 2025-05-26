@@ -24,11 +24,11 @@ type TestimonialItem = {
   text: string;
 };
 
-type ContentItem = CareJourneyItem | TestimonialItem;
-
 const HeroSection = React.memo(function HeroSection() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isCarouselReady, setIsCarouselReady] = useState(false);
+  const [currentJourneyIndex, setCurrentJourneyIndex] = useState(0);
+  const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
+  const [isJourneyReady, setIsJourneyReady] = useState(false);
+  const [isTestimonialReady, setIsTestimonialReady] = useState(false);
 
   // Care Journey items with appropriate icons
   const careJourneyItems: CareJourneyItem[] = [
@@ -58,7 +58,7 @@ const HeroSection = React.memo(function HeroSection() {
     }
   ];
 
-  // Testimonials data from existing TestimonialsSection
+  // Testimonials data
   const testimonials: TestimonialItem[] = [
     {
       type: 'testimonial',
@@ -90,36 +90,35 @@ const HeroSection = React.memo(function HeroSection() {
     }
   ];
 
-  // Combine care journey and testimonials in alternating pattern
-  const allContent: ContentItem[] = [];
-  const maxLength = Math.max(careJourneyItems.length, testimonials.length);
-  
-  for (let i = 0; i < maxLength; i++) {
-    if (i < careJourneyItems.length) {
-      allContent.push(careJourneyItems[i]);
-    }
-    if (i < testimonials.length) {
-      allContent.push(testimonials[i]);
-    }
-  }
-
   useEffect(() => {
-    // Add a delay before starting the carousel to let the page load properly
-    const startDelay = setTimeout(() => {
-      setIsCarouselReady(true);
-      const interval = setInterval(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % allContent.length);
-      }, 5000); // Change every 5 seconds
+    // Journey carousel
+    const journeyStartDelay = setTimeout(() => {
+      setIsJourneyReady(true);
+      const journeyInterval = setInterval(() => {
+        setCurrentJourneyIndex((prevIndex) => (prevIndex + 1) % careJourneyItems.length);
+      }, 4000);
 
-      return () => clearInterval(interval);
-    }, 2000); // Wait 2 seconds before starting the carousel
+      return () => clearInterval(journeyInterval);
+    }, 2000);
+
+    // Testimonial carousel
+    const testimonialStartDelay = setTimeout(() => {
+      setIsTestimonialReady(true);
+      const testimonialInterval = setInterval(() => {
+        setCurrentTestimonialIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+      }, 6000);
+
+      return () => clearInterval(testimonialInterval);
+    }, 3000);
 
     return () => {
-      clearTimeout(startDelay);
+      clearTimeout(journeyStartDelay);
+      clearTimeout(testimonialStartDelay);
     };
-  }, [allContent.length]);
+  }, [careJourneyItems.length, testimonials.length]);
 
-  const currentContent = allContent[currentIndex];
+  const currentJourney = careJourneyItems[currentJourneyIndex];
+  const currentTestimonial = testimonials[currentTestimonialIndex];
 
   return (
     <section 
@@ -298,17 +297,17 @@ const HeroSection = React.memo(function HeroSection() {
       <div className="absolute bottom-0 left-0 right-0 h-36 bg-gradient-to-t from-neutral-50/10 to-transparent z-30 pointer-events-none"></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-6 items-center">
-          {/* Left side content */}
+        <div className="grid lg:grid-cols-12 gap-8 items-start">
+          {/* Left side content - spans more columns */}
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.25, 0.8, 0.25, 1] }}
-            className="lg:col-span-7 text-left"
+            className="lg:col-span-8 text-left"
           >
-            <div className="max-w-3xl">
+            <div className="max-w-4xl">
               {/* Sophisticated main heading with dramatic reveals */}
-              <div className="relative mb-10">
+              <div className="relative mb-8">
                 <motion.h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight leading-[1.1] relative">
                   {/* First line with sophisticated reveal - bigger and more prominent */}
                   <div className="overflow-hidden">
@@ -360,12 +359,12 @@ const HeroSection = React.memo(function HeroSection() {
                 </motion.h1>
               </div>
               
-              {/* Sophisticated tagline with staggered word reveals - forced two lines */}
+              {/* MOVED UP: Sophisticated tagline with staggered word reveals */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 2.2 }}
-                className="relative mb-12"
+                className="relative mb-10"
               >
                 <div className="text-lg md:text-xl text-white leading-[1.6] max-w-2xl font-light relative z-10">
                   {/* First line */}
@@ -413,7 +412,7 @@ const HeroSection = React.memo(function HeroSection() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1.0 }}
-                className="flex flex-wrap gap-5 mt-12"
+                className="flex flex-wrap gap-5 mt-10"
               >
                 <motion.div
                   whileHover={{ scale: 1.05, y: -2 }}
@@ -458,189 +457,118 @@ const HeroSection = React.memo(function HeroSection() {
             </div>
           </motion.div>
           
-          {/* Right side - REDESIGNED vibrant carousel */}
+          {/* MOVED UP: Right side - Premium Glass Journey Carousel */}
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: [0.25, 0.8, 0.25, 1], delay: 0.2 }}
-            className="lg:col-span-5 mt-12 lg:mt-0"
-            style={{ 
-              willChange: 'transform, opacity',
-              backfaceVisibility: 'hidden',
-              transform: 'translateZ(0)'
-            }}
+            className="lg:col-span-4 mt-8 lg:mt-0"
           >
             <div className="relative">
-              {/* REDESIGNED: More vibrant and dynamic container */}
+              {/* PREMIUM GLASS: Ultra-premium glass container */}
               <div 
-                className="relative bg-gradient-to-br from-white/95 via-slate-50/90 to-white/85 backdrop-blur-2xl rounded-3xl p-8 shadow-2xl border border-white/60 overflow-hidden"
+                className="relative bg-white/10 backdrop-blur-3xl rounded-3xl p-8 shadow-2xl border border-white/30 overflow-hidden"
                 style={{
-                  willChange: 'auto',
-                  backfaceVisibility: 'hidden',
-                  transform: 'translateZ(0)',
-                  boxShadow: '0 32px 64px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.9)'
+                  boxShadow: '0 32px 64px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3)'
                 }}
               >
                 
-                {/* REDESIGNED: More vibrant background elements */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/8 via-transparent to-[#B08D57]/12 rounded-3xl"></div>
-                <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-[#D4AF37]/25 via-[#B08D57]/15 to-transparent rounded-3xl blur-2xl"></div>
-                <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr from-[#B08D57]/20 via-[#D4AF37]/15 to-transparent rounded-3xl blur-xl"></div>
+                {/* Premium glass background elements */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-white/5 to-white/10 rounded-3xl"></div>
+                <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-[#D4AF37]/20 via-[#B08D57]/10 to-transparent rounded-3xl blur-2xl"></div>
+                <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr from-[#B08D57]/15 via-[#D4AF37]/10 to-transparent rounded-3xl blur-xl"></div>
                 
-                {/* REDESIGNED: More prominent accent bar */}
-                <div className="absolute top-0 left-0 w-full h-3 bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] rounded-t-3xl shadow-lg"></div>
+                {/* Glass accent bar */}
+                <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#B08D57]/60 via-[#D4AF37]/80 to-[#B08D57]/60 rounded-t-3xl"></div>
                 
-                {/* REDESIGNED: Dynamic floating elements */}
-                <div className="absolute top-8 right-8 w-4 h-4 bg-[#D4AF37] rounded-full shadow-lg animate-pulse"></div>
-                <div className="absolute bottom-12 left-12 w-3 h-3 bg-[#B08D57] rounded-full shadow-md animate-pulse" style={{ animationDelay: '1s' }}></div>
-                <div className="absolute top-1/2 right-12 w-2 h-2 bg-[#D4AF37]/70 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
+                {/* Floating glass elements */}
+                <div className="absolute top-6 right-6 w-3 h-3 bg-white/40 rounded-full shadow-lg animate-pulse"></div>
+                <div className="absolute bottom-8 left-8 w-2 h-2 bg-white/30 rounded-full shadow-md animate-pulse" style={{ animationDelay: '1s' }}></div>
                 
-                {/* REDESIGNED: More vibrant header */}
+                {/* Header */}
                 <div className="text-center mb-8 relative z-10">
-                  <h3 className="text-3xl font-bold text-slate-800 mb-3 tracking-tight">
-                    {currentContent?.type === 'testimonial' ? 'Client Success' : 'Your Care Journey'}
+                  <h3 className="text-2xl font-bold text-white mb-3 tracking-tight drop-shadow-lg">
+                    Your Care Journey
                   </h3>
-                  <div className="w-24 h-2 bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] mx-auto rounded-full shadow-md"></div>
+                  <div className="w-20 h-1 bg-gradient-to-r from-[#B08D57]/80 via-[#D4AF37] to-[#B08D57]/80 mx-auto rounded-full shadow-lg"></div>
                 </div>
                 
-                {/* REDESIGNED: Content area with much more vibrant styling */}
-                <div className="relative h-64 flex items-center justify-center z-10">
-                  {isCarouselReady ? (
+                {/* Content area */}
+                <div className="relative h-56 flex items-center justify-center z-10">
+                  {isJourneyReady ? (
                     <AnimatePresence mode="wait">
                       <motion.div
-                        key={currentIndex}
-                        initial={{ opacity: 0, y: 20, scale: 0.95, rotateX: 10 }}
-                        animate={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
-                        exit={{ opacity: 0, y: -20, scale: 0.95, rotateX: -10 }}
+                        key={currentJourneyIndex}
+                        initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: -20, scale: 0.95 }}
                         transition={{ 
-                          duration: 0.7, 
+                          duration: 0.6, 
                           ease: [0.16, 1, 0.3, 1]
                         }}
                         className="text-center w-full"
                       >
-                        {currentContent?.type === 'testimonial' ? (
-                          // REDESIGNED: Much more vibrant testimonial cards
-                          <div className="relative bg-gradient-to-br from-white/80 to-slate-50/60 rounded-2xl p-6 shadow-xl border border-white/40 backdrop-blur-sm">
-                            {/* Quote icon background */}
-                            <div className="absolute -top-3 -left-3 w-12 h-12 bg-gradient-to-br from-[#D4AF37] to-[#B08D57] rounded-full flex items-center justify-center shadow-lg">
-                              <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
-                              </svg>
+                        <div className="space-y-6">
+                          {/* Premium icon */}
+                          <motion.div 
+                            className="flex justify-center mb-6"
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.1, duration: 0.5 }}
+                          >
+                            <div className="relative w-16 h-16 bg-gradient-to-br from-[#B08D57]/80 to-[#D4AF37]/80 rounded-2xl flex items-center justify-center shadow-xl backdrop-blur-sm border border-white/20">
+                              <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/60 to-[#D4AF37]/60 rounded-2xl animate-pulse opacity-30"></div>
+                              {React.createElement(currentJourney.icon, {
+                                className: "w-8 h-8 text-white relative z-10 drop-shadow-sm"
+                              })}
                             </div>
-                            
-                            {/* Vibrant stars */}
-                            <motion.div 
-                              className="flex justify-center space-x-1 mb-4"
-                              initial={{ opacity: 0, scale: 0.8 }}
-                              animate={{ opacity: 1, scale: 1 }}
-                              transition={{ delay: 0.1, duration: 0.4 }}
-                            >
-                              {Array(5).fill(0).map((_, i) => (
-                                <motion.div
-                                  key={i}
-                                  initial={{ opacity: 0, scale: 0.5, rotate: -180 }}
-                                  animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                                  transition={{ delay: 0.15 + (i * 0.1), duration: 0.5, ease: "backOut" }}
-                                >
-                                  <StarIcon className="h-6 w-6 text-[#D4AF37] drop-shadow-sm" />
-                                </motion.div>
-                              ))}
-                            </motion.div>
-                            
-                            {/* Enhanced testimonial text */}
-                            <motion.p 
-                              className="text-slate-700 leading-relaxed text-base max-w-sm mx-auto font-medium mb-4"
-                              initial={{ opacity: 0, y: 15 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              transition={{ delay: 0.3, duration: 0.5 }}
-                            >
-                              "{(currentContent as TestimonialItem).text}"
-                            </motion.p>
-                            
-                            {/* Enhanced patient info */}
-                            <motion.div 
-                              className="pt-4 border-t border-slate-200/60"
-                              initial={{ opacity: 0, y: 10 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              transition={{ delay: 0.4, duration: 0.4 }}
-                            >
-                              <p className="font-bold text-slate-800 text-lg">
-                                {(currentContent as TestimonialItem).name}
-                              </p>
-                              <p className="text-slate-600 text-sm font-medium">
-                                {(currentContent as TestimonialItem).role}
-                              </p>
-                            </motion.div>
-                            
-                            {/* Decorative elements */}
-                            <div className="absolute top-4 right-4 w-8 h-8 bg-gradient-to-br from-[#D4AF37]/20 to-[#B08D57]/20 rounded-full blur-sm"></div>
-                            <div className="absolute bottom-4 left-4 w-6 h-6 bg-gradient-to-br from-[#B08D57]/15 to-[#D4AF37]/15 rounded-full blur-sm"></div>
+                          </motion.div>
+                          
+                          {/* Title */}
+                          <motion.h4 
+                            className="text-xl font-bold text-white mb-4 leading-tight tracking-tight drop-shadow-lg"
+                            initial={{ opacity: 0, y: 15 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2, duration: 0.5 }}
+                          >
+                            {currentJourney.title}
+                          </motion.h4>
+                          
+                          {/* Description */}
+                          <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.3, duration: 0.5 }}
+                            className="relative"
+                          >
+                            <p className="text-white/90 leading-relaxed text-sm max-w-sm mx-auto font-medium relative z-10 px-4 py-3 bg-white/10 rounded-xl border border-white/20 backdrop-blur-sm shadow-sm">
+                              {currentJourney.description}
+                            </p>
+                          </motion.div>
+                          
+                          {/* Accent line */}
+                          <motion.div 
+                            className="flex justify-center mt-4"
+                            initial={{ width: 0, opacity: 0 }}
+                            animate={{ width: "3rem", opacity: 1 }}
+                            transition={{ delay: 0.4, duration: 0.4 }}
+                          >
+                            <div className="h-0.5 bg-gradient-to-r from-[#B08D57]/80 to-[#D4AF37]/80 rounded-full shadow-sm"></div>
+                          </motion.div>
                         </div>
-                        ) : (
-                          // REDESIGNED: More vibrant care journey cards
-                          <div className="relative bg-gradient-to-br from-slate-50/70 to-white/60 rounded-2xl p-6 shadow-lg border border-white/30 backdrop-blur-sm">
-                            {/* Enhanced icon with more vibrant styling */}
-                            <motion.div 
-                              className="flex justify-center mb-6"
-                              initial={{ opacity: 0, scale: 0.6, rotateY: 180 }}
-                              animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-                              transition={{ delay: 0.1, duration: 0.6, ease: "backOut" }}
-                            >
-                              <div className="relative w-20 h-20 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl flex items-center justify-center shadow-xl">
-                                <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl animate-pulse opacity-30"></div>
-                                <div className="absolute -inset-1 bg-gradient-to-br from-[#D4AF37]/40 to-[#B08D57]/40 rounded-2xl blur-md"></div>
-                                {React.createElement((currentContent as CareJourneyItem).icon, {
-                                  className: "w-10 h-10 text-white relative z-10 drop-shadow-sm"
-                                })}
-                          </div>
-                            </motion.div>
-                            
-                            {/* Enhanced title with better contrast */}
-                            <motion.h4 
-                              className="text-2xl font-bold text-slate-800 mb-4 leading-tight tracking-tight"
-                              initial={{ opacity: 0, y: 15 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              transition={{ delay: 0.2, duration: 0.5 }}
-                            >
-                              {(currentContent as CareJourneyItem).title}
-                            </motion.h4>
-                            
-                            {/* Enhanced description with better readability */}
-                            <motion.div
-                              initial={{ opacity: 0, y: 10 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              transition={{ delay: 0.3, duration: 0.5 }}
-                              className="relative"
-                            >
-                              <p className="text-slate-600 leading-relaxed text-base max-w-sm mx-auto font-medium relative z-10 px-4 py-3 bg-white/60 rounded-xl border border-slate-200/50 backdrop-blur-sm shadow-sm">
-                                {(currentContent as CareJourneyItem).description}
-                              </p>
-                            </motion.div>
-                            
-                            {/* Enhanced accent line */}
-                            <motion.div 
-                              className="flex justify-center mt-6"
-                              initial={{ width: 0, opacity: 0 }}
-                              animate={{ width: "4rem", opacity: 1 }}
-                              transition={{ delay: 0.4, duration: 0.5 }}
-                            >
-                              <div className="h-1 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full shadow-sm"></div>
-                            </motion.div>
-                        </div>
-                        )}
                       </motion.div>
                     </AnimatePresence>
                   ) : (
-                    // Enhanced placeholder
+                    // Static placeholder - no transition on first load
                     <div className="text-center w-full">
-                      <div className="relative bg-gradient-to-br from-slate-50/70 to-white/60 rounded-2xl p-6 shadow-lg border border-white/30 backdrop-blur-sm">
-                        <div className="relative w-20 h-20 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl flex items-center justify-center shadow-xl mx-auto mb-6">
-                          <ClipboardDocumentCheckIcon className="w-10 h-10 text-white" />
+                      <div className="space-y-6">
+                        <div className="relative w-16 h-16 bg-gradient-to-br from-[#B08D57]/80 to-[#D4AF37]/80 rounded-2xl flex items-center justify-center shadow-xl backdrop-blur-sm border border-white/20 mx-auto">
+                          <ClipboardDocumentCheckIcon className="w-8 h-8 text-white" />
                         </div>
-                        <h4 className="text-2xl font-bold text-slate-800 mb-4 leading-tight tracking-tight">
+                        <h4 className="text-xl font-bold text-white mb-4 leading-tight tracking-tight drop-shadow-lg">
                           Thorough Assessments
                         </h4>
-                        <p className="text-slate-600 leading-relaxed text-base max-w-sm mx-auto font-medium px-4 py-3 bg-white/60 rounded-xl border border-slate-200/50 backdrop-blur-sm shadow-sm">
+                        <p className="text-white/90 leading-relaxed text-sm max-w-sm mx-auto font-medium px-4 py-3 bg-white/10 rounded-xl border border-white/20 backdrop-blur-sm shadow-sm">
                           Seeking to uncover the root causes and patterns where applicable, beyond just treating the symptoms
                         </p>
                       </div>
@@ -648,29 +576,29 @@ const HeroSection = React.memo(function HeroSection() {
                   )}
                 </div>
                 
-                {/* REDESIGNED: More vibrant progress dots */}
-                <div className="flex justify-center space-x-3 mt-8 mb-6 relative z-20">
-                  {allContent.map((_, index) => (
+                {/* Progress dots */}
+                <div className="flex justify-center space-x-2 mt-6 mb-4 relative z-20">
+                  {careJourneyItems.map((_, index) => (
                     <button
                       key={index}
-                      onClick={() => setCurrentIndex(index)}
+                      onClick={() => setCurrentJourneyIndex(index)}
                       className={`group relative transition-all duration-300 cursor-pointer hover:scale-125 ${
-                        index === currentIndex 
+                        index === currentJourneyIndex 
                           ? 'scale-125' 
                           : 'hover:scale-110'
                       }`}
                       style={{ pointerEvents: 'auto', zIndex: 20 }}
                       aria-label={`Go to slide ${index + 1}`}
                     >
-                      <div className={`w-4 h-4 rounded-full transition-all duration-300 relative ${
-                        index === currentIndex 
-                          ? 'bg-gradient-to-r from-[#B08D57] to-[#D4AF37] shadow-lg shadow-[#D4AF37]/60' 
-                          : 'bg-slate-300 hover:bg-slate-400 shadow-md'
+                      <div className={`w-3 h-3 rounded-full transition-all duration-300 relative ${
+                        index === currentJourneyIndex 
+                          ? 'bg-gradient-to-r from-[#B08D57] to-[#D4AF37] shadow-lg shadow-[#D4AF37]/50' 
+                          : 'bg-white/40 hover:bg-white/70 shadow-md'
                       }`}>
-                        {index === currentIndex && (
+                        {index === currentJourneyIndex && (
                           <>
-                            <div className="absolute inset-0 w-4 h-4 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] animate-ping opacity-40"></div>
-                            <div className="absolute -inset-1 w-6 h-6 rounded-full bg-[#D4AF37]/30 blur-sm"></div>
+                            <div className="absolute inset-0 w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] animate-ping opacity-30"></div>
+                            <div className="absolute inset-0 w-3 h-3 rounded-full bg-[#D4AF37]/20 blur-sm"></div>
                           </>
                         )}
                       </div>
@@ -678,24 +606,103 @@ const HeroSection = React.memo(function HeroSection() {
                   ))}
                 </div>
               
-                {/* Enhanced CTA */}
-                <div className="pt-6 border-t border-slate-200/60 text-center relative z-20">
+                {/* CTA */}
+                <div className="pt-4 border-t border-white/20 text-center relative z-20">
                   <Link
                     href="/about"
-                    className="inline-flex items-center text-slate-600 hover:text-[#B08D57] transition-all duration-300 text-sm font-semibold tracking-wide cursor-pointer group"
+                    className="inline-flex items-center text-white/80 hover:text-[#D4AF37] transition-all duration-300 text-sm font-medium tracking-wide cursor-pointer group"
                     style={{ pointerEvents: 'auto', zIndex: 20 }}
                   >
                     <span className="mr-2">Learn more about my approach</span>
-                    <span className="transform transition-transform duration-300 group-hover:translate-x-1 text-[#D4AF37]">→</span>
+                    <span className="transform transition-transform duration-300 group-hover:translate-x-1">→</span>
                   </Link>
                 </div>
               </div>
               
-              {/* Enhanced shadow with more vibrant colors */}
-              <div className="absolute -inset-4 bg-gradient-to-br from-[#B08D57]/30 to-[#D4AF37]/30 rounded-3xl blur-2xl opacity-60"></div>
+              {/* Enhanced glass shadow */}
+              <div className="absolute -inset-4 bg-gradient-to-br from-[#B08D57]/20 to-[#D4AF37]/20 rounded-3xl blur-2xl opacity-40"></div>
             </div>
           </motion.div>
         </div>
+
+        {/* BOTTOM LEFT: Modern Testimonials Slider */}
+        <motion.div 
+          initial={{ opacity: 0, y: 60 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.0, ease: [0.25, 0.8, 0.25, 1], delay: 1.5 }}
+          className="absolute bottom-8 left-8 w-80 z-20"
+        >
+          <div className="relative">
+            {/* Modern testimonial card */}
+            <div 
+              className="relative bg-white/95 backdrop-blur-2xl rounded-2xl p-6 shadow-2xl border border-white/60 overflow-hidden"
+              style={{
+                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.8)'
+              }}
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between mb-4">
+                <h4 className="text-lg font-bold text-slate-800">Client Success</h4>
+                <div className="flex space-x-1">
+                  {Array(5).fill(0).map((_, i) => (
+                    <StarIcon key={i} className="h-4 w-4 text-[#D4AF37]" />
+                  ))}
+                </div>
+              </div>
+
+              {/* Testimonial content */}
+              {isTestimonialReady ? (
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentTestimonialIndex}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <p className="text-slate-600 text-sm leading-relaxed mb-4 italic">
+                      "{currentTestimonial.text}"
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="font-semibold text-slate-800 text-sm">
+                          {currentTestimonial.name}
+                        </p>
+                        <p className="text-slate-500 text-xs">
+                          {currentTestimonial.role}
+                        </p>
+                      </div>
+                      <div className="flex space-x-1">
+                        {testimonials.map((_, index) => (
+                          <div
+                            key={index}
+                            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                              index === currentTestimonialIndex 
+                                ? 'bg-[#D4AF37] scale-125' 
+                                : 'bg-slate-300'
+                            }`}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+              ) : (
+                <div>
+                  <p className="text-slate-600 text-sm leading-relaxed mb-4 italic">
+                    "Highly recommend! In particular, Kareem has been truly exceptional! Can't express my gratitude for the remarkable care and guidance he has provided during my son's recovery from a knee injury."
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="font-semibold text-slate-800 text-sm">Kathy</p>
+                      <p className="text-slate-500 text-xs">Parent of Patient</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

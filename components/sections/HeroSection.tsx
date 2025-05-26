@@ -20,6 +20,7 @@ const HeroSection = React.memo(function HeroSection() {
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
   const [isTestimonialReady, setIsTestimonialReady] = useState(false);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   // Enhanced testimonials data with initials for avatar
   const testimonials: TestimonialItem[] = [
@@ -61,8 +62,21 @@ const HeroSection = React.memo(function HeroSection() {
   ];
 
   const goToTestimonial = (index: number) => {
+    if (isTransitioning || index === currentTestimonialIndex) return;
+    
+    setIsTransitioning(true);
     setIsAutoPlaying(false); // Stop auto-play when user manually navigates
-    setCurrentTestimonialIndex(index);
+    
+    // Add a smooth transition delay to match the auto-play feel
+    setTimeout(() => {
+      setCurrentTestimonialIndex(index);
+      setIsTransitioning(false);
+      
+      // Resume auto-play after 10 seconds of no interaction
+      setTimeout(() => {
+        setIsAutoPlaying(true);
+      }, 10000);
+    }, 150); // Small delay for smooth transition
   };
 
   useEffect(() => {
@@ -701,11 +715,12 @@ const HeroSection = React.memo(function HeroSection() {
                     <button
                       key={index}
                       onClick={() => goToTestimonial(index)}
+                      disabled={isTransitioning}
                       className={`relative transition-all duration-300 ${
                         index === currentTestimonialIndex 
                           ? 'scale-110' 
                           : 'hover:scale-105'
-                      }`}
+                      } ${isTransitioning ? 'cursor-not-allowed opacity-70' : 'cursor-pointer'}`}
                       aria-label={`View testimonial ${index + 1}`}
                     >
                       <div className={`w-2 h-2 rounded-full transition-all duration-300 ${
@@ -713,7 +728,7 @@ const HeroSection = React.memo(function HeroSection() {
                           ? 'bg-[#B08D57] shadow-lg shadow-[#B08D57]/40' 
                           : 'bg-slate-300 hover:bg-slate-400'
                       }`}>
-                        {index === currentTestimonialIndex && (
+                        {index === currentTestimonialIndex && !isTransitioning && (
                           <motion.div 
                             initial={{ scale: 0 }}
                             animate={{ scale: [1, 1.5, 1] }}
@@ -725,10 +740,10 @@ const HeroSection = React.memo(function HeroSection() {
                             className="absolute inset-0 w-2 h-2 rounded-full bg-[#B08D57] opacity-30"
                           />
                         )}
-                  </div>
+                      </div>
                     </button>
                   ))}
-                  </div>
+                </div>
               </motion.div>
               
               {/* Subtle outer glow */}

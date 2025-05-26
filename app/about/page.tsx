@@ -299,7 +299,7 @@ export default function About() {
                   </div>
                 </div>
                 
-                <h3 className="text-3xl font-bold mt-16 mb-12 text-center">My Commitment to You</h3>
+                <h3 className="text-3xl font-bold mt-16 mb-12 text-center">What Drives My Practice</h3>
                 
                 <div className="bg-gradient-to-br from-slate-50 to-white p-10 rounded-3xl border border-slate-200/50 shadow-lg mb-8">
                   <div className="max-w-4xl mx-auto">

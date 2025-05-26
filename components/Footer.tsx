@@ -22,7 +22,7 @@ export default function Footer() {
     {
       icon: <MapPin className="w-5 h-5 text-gold flex-shrink-0" weight="duotone" />,
       text: '4631 Palladium Way, Unit 6, Burlington, ON L7M 0W9',
-      href: 'https://www.google.com/maps/place/Endorphins+Health+and+Wellness+Centre/@43.4079928,-79.8288817,17z',
+      href: 'https://maps.app.goo.gl/syZN4FUBgACrtqgK9',
       ariaLabel: 'View our location on Google Maps'
     },
     {

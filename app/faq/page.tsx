@@ -333,99 +333,48 @@ export default function FAQPage() {
 
   return (
     <main className="min-h-screen flex flex-col text-primary-700 bg-gradient-to-br from-slate-50 via-white to-neutral-50">
-      {/* Single Elegant Side Navigation */}
+      {/* Minimal Dot Navigation */}
       <AnimatePresence>
         {showStickyNav && !isSearching && (
           <motion.div
-            initial={{ x: -100, opacity: 0 }}
+            initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            exit={{ x: -100, opacity: 0 }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
-            className="fixed left-2 top-1/2 transform -translate-y-1/2 z-50 max-w-[200px]"
+            exit={{ x: -50, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="fixed left-4 top-1/2 transform -translate-y-1/2 z-50"
           >
-            {/* Desktop Version */}
-            <div className="hidden md:block">
-              <div className="bg-white/95 backdrop-blur-xl border border-slate-200/60 shadow-xl rounded-2xl p-3 relative overflow-hidden">
-                {/* Premium background elements */}
-                <div className="absolute top-0 right-0 w-12 h-12 bg-gradient-to-br from-[#B08D57]/8 to-transparent rounded-full blur-xl"></div>
-                
-                <div className="relative z-10">
-                  <div className="text-center mb-3">
-                    <div className="inline-flex items-center justify-center w-8 h-8 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-xl mb-2 shadow-lg">
-                      <QuestionMarkCircleIcon className="w-4 h-4 text-white" />
-                    </div>
-                    <h3 className="text-sm font-bold text-slate-900 tracking-tight">FAQ</h3>
-                  </div>
+            <div className="flex flex-col space-y-3 relative">
+              {faqCategories.map((category, index) => (
+                <motion.div
+                  key={category.id}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.2, delay: index * 0.05 }}
+                  className="group relative flex items-center"
+                >
+                  {/* Dot */}
+                  <button
+                    onClick={() => scrollToSection(category.id)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 shadow-sm relative z-10 ${
+                      activeCategory === category.id
+                        ? 'bg-[#B08D57] scale-125 shadow-md'
+                        : 'bg-slate-300 hover:bg-slate-400'
+                    }`}
+                    aria-label={`Go to ${category.name} section`}
+                  />
                   
-                  <div className="space-y-1 max-h-64 overflow-y-auto custom-scrollbar">
-                    {faqCategories.map((category, index) => (
-                      <motion.button
-                        key={category.id}
-                        onClick={() => scrollToSection(category.id)}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.3, delay: index * 0.1 }}
-                        className={`group flex items-center space-x-2 px-2 py-2 rounded-xl text-xs font-semibold transition-all duration-300 w-full text-left relative overflow-hidden ${
-                          activeCategory === category.id
-                            ? 'bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white shadow-md transform scale-105'
-                            : 'bg-slate-50/80 text-slate-700 hover:bg-gradient-to-r hover:from-[#B08D57]/10 hover:to-[#D4AF37]/10 hover:text-[#B08D57] hover:shadow-sm'
-                        }`}
-                      >
-                        <div className={`flex-shrink-0 w-6 h-6 rounded-lg flex items-center justify-center transition-all duration-300 ${
-                          activeCategory === category.id
-                            ? 'bg-white/20 text-white'
-                            : 'bg-white/60 text-slate-600 group-hover:bg-[#B08D57]/20 group-hover:text-[#B08D57]'
-                        }`}>
-                          <div className="w-3 h-3">{category.icon}</div>
-                        </div>
-                        
-                        <div className="flex-1 min-w-0">
-                          <span className="relative z-10 block truncate text-xs leading-tight">{category.name}</span>
-                        </div>
-                        
-                        {activeCategory === category.id && (
-                          <div className="flex-shrink-0 w-1.5 h-1.5 bg-white rounded-full animate-pulse"></div>
-                        )}
-                      </motion.button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Mobile Version - Ultra Compact */}
-            <div className="md:hidden">
-              <div className="bg-white/95 backdrop-blur-xl border border-slate-200/60 shadow-xl rounded-xl p-2 relative overflow-hidden">
-                <div className="relative z-10">
-                  <div className="text-center mb-2">
-                    <div className="inline-flex items-center justify-center w-6 h-6 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-lg mb-1 shadow-lg">
-                      <QuestionMarkCircleIcon className="w-3 h-3 text-white" />
+                  {/* Static label - always present but invisible */}
+                  <div 
+                    className="absolute left-6 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none"
+                  >
+                    <div className="bg-slate-800/90 text-white text-xs px-3 py-1.5 rounded-lg whitespace-nowrap backdrop-blur-sm shadow-lg border border-slate-700/50">
+                      {category.name}
+                      {/* Arrow */}
+                      <div className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-1 w-0 h-0 border-t-[4px] border-b-[4px] border-r-[4px] border-transparent border-r-slate-800/90"></div>
                     </div>
                   </div>
-                  
-                  <div className="space-y-1 max-h-48 overflow-y-auto">
-                    {faqCategories.map((category, index) => (
-                      <button
-                        key={category.id}
-                        onClick={() => scrollToSection(category.id)}
-                        className={`group flex items-center justify-center p-1.5 rounded-lg text-xs font-semibold transition-all duration-300 w-full ${
-                          activeCategory === category.id
-                            ? 'bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white shadow-md'
-                            : 'bg-slate-50/80 text-slate-700 hover:bg-[#B08D57]/10 hover:text-[#B08D57]'
-                        }`}
-                      >
-                        <div className={`w-4 h-4 rounded flex items-center justify-center ${
-                          activeCategory === category.id
-                            ? 'text-white'
-                            : 'text-slate-600 group-hover:text-[#B08D57]'
-                        }`}>
-                          <div className="w-3 h-3">{category.icon}</div>
-                        </div>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         )}

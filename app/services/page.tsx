@@ -4,9 +4,26 @@ import ClientImage from '@/components/ClientImage';
 import { Metadata } from 'next';
 import { Hand, Dumbbell, Target, Activity, Ruler, Zap } from 'lucide-react';
 
+// Force static generation for better SEO
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: 'Physiotherapy Services | Kareem Hassanein',
   description: 'Advanced physiotherapy services including sports rehabilitation, manual therapy, dry needling, and more for better movement and pain-free living.',
+  keywords: ['physiotherapy services', 'manual therapy', 'sports rehabilitation', 'dry needling', 'exercise therapy', 'Burlington physiotherapy'],
+  openGraph: {
+    title: 'Physiotherapy Services | Kareem Hassanein',
+    description: 'Advanced physiotherapy services including sports rehabilitation, manual therapy, dry needling, and more for better movement and pain-free living.',
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
 };
 
 const services = [
@@ -85,8 +102,63 @@ const services = [
 ];
 
 export default function ServicesPage() {
+  const servicesStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "name": "Kareem Hassanein Physiotherapy",
+    "url": "https://www.kinetikarephysio.com/services",
+    "description": "Professional physiotherapy services including manual therapy, sports rehabilitation, dry needling, exercise therapy, and pain management in Burlington, Ontario.",
+    "medicalSpecialty": "Physical Therapy",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Physiotherapy Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "MedicalTherapy",
+            "name": "Manual Therapy",
+            "description": "Hands-on techniques to mobilize joints, reduce pain, and restore function through targeted tissue manipulation."
+          }
+        },
+        {
+          "@type": "Offer", 
+          "itemOffered": {
+            "@type": "MedicalTherapy",
+            "name": "Sports Rehabilitation",
+            "description": "Tailored rehabilitation for athletes to recover from injury and return to their sport safely and stronger."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "MedicalTherapy", 
+            "name": "Dry Needling",
+            "description": "Precision therapy using thin filiform needles to release trigger points and relieve muscular pain and tension."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "MedicalTherapy",
+            "name": "Exercise Therapy", 
+            "description": "Customized exercise programs designed to restore function, build strength, and prevent injury recurrence."
+          }
+        }
+      ]
+    }
+  };
+
   return (
     <main className="min-h-screen flex flex-col text-primary-700 bg-white">
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(servicesStructuredData),
+        }}
+      />
+
       {/* Hero Section */}
       <section className="bg-primary-50 text-primary-800 py-10 pt-20 relative border-b border-neutral-200">
         <div className="container mx-auto px-4 relative z-10 flex flex-col items-center">

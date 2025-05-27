@@ -67,16 +67,18 @@ const HeroSection = React.memo(function HeroSection() {
     setIsTransitioning(true);
     setIsAutoPlaying(false); // Stop auto-play when user manually navigates
     
-    // Add a smooth transition delay to match the auto-play feel
+    // Immediate change for better responsiveness
+    setCurrentTestimonialIndex(index);
+    
+    // Short delay just for the transition state
     setTimeout(() => {
-      setCurrentTestimonialIndex(index);
       setIsTransitioning(false);
       
-      // Resume auto-play after 10 seconds of no interaction
+      // Resume auto-play after 8 seconds of no interaction (reduced from 10)
       setTimeout(() => {
         setIsAutoPlaying(true);
-      }, 10000);
-    }, 150); // Small delay for smooth transition
+      }, 8000);
+    }, 50); // Much shorter delay for better responsiveness
   };
 
   useEffect(() => {
@@ -744,37 +746,44 @@ const HeroSection = React.memo(function HeroSection() {
                   </div>
 
                 {/* Navigation Dots */}
-                <div className="flex justify-center space-x-2 mt-4 relative z-10">
+                <div className="flex justify-center space-x-3 mt-6 relative z-10">
                   {testimonials.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => goToTestimonial(index)}
                       disabled={isTransitioning}
-                      className={`relative transition-all duration-300 ${
+                      className={`relative p-2 transition-all duration-300 ${
                         index === currentTestimonialIndex 
                           ? 'scale-110' 
                           : 'hover:scale-105'
-                      } ${isTransitioning ? 'cursor-not-allowed opacity-70' : 'cursor-pointer'}`}
+                      } ${isTransitioning ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}`}
                       aria-label={`View testimonial ${index + 1}`}
                     >
-                      <div className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      <div className={`w-3 h-3 rounded-full transition-all duration-300 ${
                         index === currentTestimonialIndex 
-                          ? 'bg-[#B08D57] shadow-lg shadow-[#B08D57]/40' 
-                          : 'bg-slate-300 hover:bg-slate-400'
+                          ? 'bg-[#B08D57] shadow-lg shadow-[#B08D57]/40 scale-125' 
+                          : 'bg-slate-300 hover:bg-[#B08D57]/60 hover:scale-110'
                       }`}>
                         {index === currentTestimonialIndex && !isTransitioning && (
                           <motion.div 
                             initial={{ scale: 0 }}
-                            animate={{ scale: [1, 1.5, 1] }}
+                            animate={{ scale: [1, 1.4, 1] }}
                             transition={{ 
                               duration: 2, 
                               repeat: Infinity, 
                               ease: "easeInOut" 
                             }}
-                            className="absolute inset-0 w-2 h-2 rounded-full bg-[#B08D57] opacity-30"
+                            className="absolute inset-0 w-3 h-3 rounded-full bg-[#B08D57] opacity-30"
                           />
                         )}
                       </div>
+                      
+                      {/* Hover ring effect */}
+                      <div className={`absolute inset-0 rounded-full border-2 transition-all duration-300 ${
+                        index === currentTestimonialIndex 
+                          ? 'border-[#B08D57]/30 scale-150' 
+                          : 'border-transparent hover:border-[#B08D57]/20 hover:scale-125'
+                      }`}></div>
                     </button>
                   ))}
                 </div>

@@ -221,74 +221,83 @@ const HeroSection = React.memo(function HeroSection() {
                 initial={{ scale: 0.95, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 1.0, delay: 1.2, ease: [0.25, 0.8, 0.25, 1] }}
-                className="relative bg-white/95 backdrop-blur-3xl rounded-[2rem] p-6 shadow-[0_20px_70px_-10px_rgba(0,0,0,0.3)] border border-white/40 overflow-hidden"
+                className="relative bg-gradient-to-br from-white/98 via-white/95 to-slate-50/90 backdrop-blur-3xl rounded-[2.5rem] p-8 lg:p-10 shadow-[0_32px_80px_-12px_rgba(0,0,0,0.35)] border border-white/60 overflow-hidden"
                 style={{
-                  background: 'linear-gradient(145deg, rgba(255,255,255,0.95) 0%, rgba(248,250,252,0.9) 100%)',
-                  boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+                  background: 'linear-gradient(145deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.95) 50%, rgba(248,250,252,0.92) 100%)',
+                  boxShadow: '0 32px 80px -12px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 0 20px rgba(176, 141, 87, 0.03)'
                 }}
               >
-                {/* Subtle background pattern */}
-                <div className="absolute inset-0 opacity-[0.02]" style={{
-                  backgroundImage: `radial-gradient(circle at 1px 1px, rgba(0,0,0,0.15) 1px, transparent 0)`,
-                  backgroundSize: '20px 20px'
+                {/* Premium background pattern */}
+                <div className="absolute inset-0 opacity-[0.015]" style={{
+                  backgroundImage: `radial-gradient(circle at 2px 2px, rgba(176,141,87,0.4) 1px, transparent 0)`,
+                  backgroundSize: '32px 32px'
                 }}></div>
                 
-                {/* Elegant top accent */}
+                {/* Elegant top accent with gradient */}
                 <motion.div 
-                  className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#B08D57] to-transparent"
+                  className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-transparent via-[#B08D57] to-transparent opacity-80"
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
-                  transition={{ duration: 1.0, delay: 1.6, ease: "easeOut" }}
+                  transition={{ duration: 1.2, delay: 1.6, ease: "easeOut" }}
                 ></motion.div>
                 
-                {/* Floating elements for depth */}
+                {/* Sophisticated floating elements */}
                 <motion.div 
-                  className="absolute top-4 right-4 w-16 h-16 bg-gradient-to-br from-[#B08D57]/5 to-[#D4AF37]/5 rounded-full blur-xl"
+                  className="absolute top-6 right-6 w-20 h-20 bg-gradient-to-br from-[#B08D57]/8 via-[#D4AF37]/6 to-transparent rounded-full blur-2xl"
                   initial={{ scale: 0, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 1.5, delay: 1.8, ease: "easeOut" }}
+                  transition={{ duration: 2.0, delay: 1.8, ease: "easeOut" }}
                 ></motion.div>
                 <motion.div 
-                  className="absolute bottom-4 left-4 w-12 h-12 bg-gradient-to-tr from-[#D4AF37]/5 to-[#B08D57]/5 rounded-full blur-lg"
+                  className="absolute bottom-6 left-6 w-16 h-16 bg-gradient-to-tr from-[#D4AF37]/6 via-[#B08D57]/8 to-transparent rounded-full blur-xl"
                   initial={{ scale: 0, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 1.5, delay: 2.0, ease: "easeOut" }}
+                  transition={{ duration: 2.0, delay: 2.0, ease: "easeOut" }}
                 ></motion.div>
+                
+                {/* Corner accent elements */}
+                <div className="absolute top-4 left-4 w-3 h-3 bg-gradient-to-br from-[#B08D57]/20 to-[#D4AF37]/20 rounded-full"></div>
+                <div className="absolute bottom-4 right-4 w-2 h-2 bg-gradient-to-br from-[#D4AF37]/20 to-[#B08D57]/20 rounded-full"></div>
 
                 {/* Welcome Content */}
                 <div className="relative z-10 text-center">
                   <motion.div 
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 1.4, duration: 0.6 }}
-                    className="mb-6"
+                    transition={{ delay: 1.4, duration: 0.8 }}
+                    className="mb-8"
                   >
-                    <h3 className="text-xl font-semibold text-slate-800 mb-4 tracking-tight">
+                    <h3 className="text-2xl lg:text-3xl font-bold text-slate-800 mb-6 tracking-tight leading-tight">
                       Welcome
                     </h3>
                     <motion.div 
-                      className="w-12 h-px bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mx-auto mb-6"
+                      className="w-16 h-0.5 bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] mx-auto mb-8 rounded-full"
                       initial={{ scaleX: 0 }}
                       animate={{ scaleX: 1 }}
-                      transition={{ duration: 0.8, delay: 1.6, ease: "easeOut" }}
+                      transition={{ duration: 1.0, delay: 1.6, ease: "easeOut" }}
                     ></motion.div>
                   </motion.div>
 
                   <motion.div 
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 1.8, duration: 0.6 }}
-                    className="space-y-4"
+                    transition={{ delay: 1.8, duration: 0.8 }}
+                    className="space-y-6"
                   >
-                    <p className="text-slate-700 leading-relaxed text-base">
+                    <p className="text-slate-700 leading-relaxed text-lg lg:text-xl font-medium tracking-wide">
                       I'm passionate about helping people move better, feel stronger, and get back to doing what they love.
                     </p>
                     
-                    <p className="text-slate-600 leading-relaxed text-sm">
+                    <div className="w-8 h-px bg-gradient-to-r from-transparent via-[#B08D57]/30 to-transparent mx-auto my-6"></div>
+                    
+                    <p className="text-slate-600 leading-relaxed text-base lg:text-lg font-normal tracking-wide">
                       Every person's journey is unique, and I'm here to guide you through yours with care, understanding, and evidence-based treatment.
                     </p>
                   </motion.div>
                 </div>
+                
+                {/* Premium inner glow */}
+                <div className="absolute inset-2 bg-gradient-to-br from-white/20 via-transparent to-[#B08D57]/5 rounded-[2rem] pointer-events-none"></div>
               </motion.div>
               
               {/* Subtle outer glow */}

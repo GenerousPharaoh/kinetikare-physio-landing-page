@@ -234,7 +234,7 @@ export default function ContactSection() {
                   </h3>
                   
                   <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-light">
-                    Proudly serving communities across the Greater Toronto Area with expert physiotherapy care
+                    Proudly serving communities across Halton Region and the surrounding Golden Horseshoe area with expert physiotherapy care
                   </p>
                 </div>
 
@@ -276,7 +276,7 @@ export default function ContactSection() {
                         
                         {/* Highlight for Burlington - integrated into card */}
                         {area === "Burlington" && (
-                          <div className="absolute top-2 right-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white text-xs font-bold px-2 py-1 rounded-lg shadow-md">
+                          <div className="absolute bottom-2 left-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white text-xs font-bold px-2 py-1 rounded-lg shadow-md">
                             Home Base
                           </div>
                         )}

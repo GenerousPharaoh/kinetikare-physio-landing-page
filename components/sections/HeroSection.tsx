@@ -197,7 +197,7 @@ const HeroSection = React.memo(function HeroSection() {
                 >
                   <Link
                     href="#services" 
-                    className="relative px-7 py-3.5 font-medium rounded-xl text-white flex items-center justify-center transition-all duration-300 group overflow-hidden focus:outline-none focus:ring-4 focus:ring-white/30 bg-white/25 backdrop-blur-xl border border-white/30 hover:bg-white/35 hover:border-white/40 hover:shadow-lg hover:shadow-white/10"
+                    className="relative px-7 py-3.5 font-semibold rounded-xl text-white flex items-center justify-center transition-all duration-300 group overflow-hidden focus:outline-none focus:ring-4 focus:ring-white/30 bg-white/40 backdrop-blur-xl border border-white/50 hover:bg-white/50 hover:border-white/60 hover:shadow-lg hover:shadow-white/20"
                     aria-label="Explore services"
                   >
                     <span className="tracking-wide">Explore Services</span>

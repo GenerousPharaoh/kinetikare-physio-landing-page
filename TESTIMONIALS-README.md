@@ -55,6 +55,14 @@ type TestimonialItem = {
 3. **Implementation**: Once consent is obtained, testimonials can be re-implemented using the preserved code structure
 4. **Privacy Compliance**: Ensure all testimonial usage complies with PIPEDA and healthcare privacy regulations
 
+## Professional Credentials Reference
+
+When implementing testimonials, remember to highlight:
+- Master of Science in Physiotherapy (Distinction) from Robert Gordon University
+- Canadian Academy of Manual and Musculoskeletal Physiotherapists (Level 2 Upper & Lower Certified)
+- 5+ Years Clinical Experience
+- Registered Physiotherapist with College of Physiotherapists of Ontario
+
 ## Backup Component Location
 
 The original testimonial component code has been preserved in:

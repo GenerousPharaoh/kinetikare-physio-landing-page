@@ -408,7 +408,7 @@ const HeroSection = React.memo(function HeroSection() {
                     </div>
                   </motion.div>
 
-                  {/* FCAMPT Certification */}
+                  {/* CAMPT Certification */}
                   <motion.div 
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
@@ -419,8 +419,8 @@ const HeroSection = React.memo(function HeroSection() {
                       <CheckBadgeIcon className="w-5 h-5 text-white" />
                     </div>
                     <div className="flex-1">
-                      <h4 className="font-semibold text-slate-800 text-sm mb-1">FCAMPT Level 2 Certified</h4>
-                      <p className="text-slate-600 text-xs">Advanced Manual & Manipulative Therapy</p>
+                      <h4 className="font-semibold text-slate-800 text-sm mb-1">Canadian Academy of Manual and Musculoskeletal Physiotherapists</h4>
+                      <p className="text-slate-600 text-xs">Level 2 Upper & Lower Certified</p>
                     </div>
                   </motion.div>
 

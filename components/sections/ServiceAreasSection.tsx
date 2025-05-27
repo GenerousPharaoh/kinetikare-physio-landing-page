@@ -189,7 +189,7 @@ export default function ServiceAreasSection() {
                 </p>
                 
                 <p className="text-primary-700 my-4 text-sm leading-relaxed flex-grow">
-                  Strategically positioned for quick access from downtown Burlington, North Burlington, Waterdown, Oakville, and Hamilton.
+                  Strategically positioned for convenient access from Burlington, North Burlington, Waterdown, Oakville, and Hamilton.
                 </p>
                 
                 <Link 

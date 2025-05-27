@@ -234,7 +234,7 @@ export default function ContactSection() {
                   </h3>
                   
                   <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-light">
-                    Proudly serving communities across Halton Region and the surrounding Golden Horseshoe area with expert physiotherapy care
+                    Proudly serving patients from communities across Halton Region and the surrounding Golden Horseshoe area
                   </p>
                 </div>
 

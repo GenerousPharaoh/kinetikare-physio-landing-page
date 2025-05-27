@@ -408,79 +408,12 @@ const HeroSection = React.memo(function HeroSection() {
                       Every person's journey is unique, and I'm here to guide you through yours with care, understanding, and evidence-based treatment.
                     </p>
                   </motion.div>
-                  </div>
+                </div>
               </motion.div>
 
-              {/* Key Benefits Card */}
-              <motion.div 
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 1.0, ease: [0.25, 0.8, 0.25, 1], delay: 2.6 }}
-                className="relative bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-[2rem] p-6 text-white shadow-[0_20px_70px_-10px_rgba(0,0,0,0.3)] overflow-hidden"
-              >
-                {/* Premium background pattern */}
-                <div className="absolute inset-0 opacity-10" style={{
-                  backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.4) 1px, transparent 0)`,
-                  backgroundSize: '32px 32px'
-                }}></div>
-                
-                {/* Floating orbs */}
-                <div className="absolute top-4 right-4 w-16 h-16 bg-white/10 rounded-full blur-xl"></div>
-                <div className="absolute bottom-4 left-4 w-12 h-12 bg-white/10 rounded-full blur-lg"></div>
-                
-                <div className="relative z-10">
-                  <div className="text-center mb-6">
-                    <UserGroupIcon className="w-10 h-10 mb-3 mx-auto opacity-90" />
-                    <h3 className="text-lg font-semibold mb-2 tracking-tight">Why Choose My Practice?</h3>
-                  </div>
-                  
-                  <div className="space-y-3">
-                    <motion.div 
-                      initial={{ x: -20, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{ delay: 2.8, duration: 0.5 }}
-                      className="flex items-center space-x-3"
-                    >
-                      <StarIcon className="w-4 h-4 text-white/90 flex-shrink-0" />
-                      <span className="text-sm font-medium">Hands-on treatment that gets results</span>
-                    </motion.div>
-                    
-                    <motion.div 
-                      initial={{ x: -20, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{ delay: 3.0, duration: 0.5 }}
-                      className="flex items-center space-x-3"
-                    >
-                      <StarIcon className="w-4 h-4 text-white/90 flex-shrink-0" />
-                      <span className="text-sm font-medium">You'll understand your injury & recovery plan</span>
-                    </motion.div>
-                    
-                    <motion.div 
-                      initial={{ x: -20, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{ delay: 3.2, duration: 0.5 }}
-                      className="flex items-center space-x-3"
-                    >
-                      <StarIcon className="w-4 h-4 text-white/90 flex-shrink-0" />
-                      <span className="text-sm font-medium">Advanced manual therapy techniques</span>
-                    </motion.div>
-                    
-                    <motion.div 
-                      initial={{ x: -20, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{ delay: 3.4, duration: 0.5 }}
-                      className="flex items-center space-x-3"
-                    >
-                      <StarIcon className="w-4 h-4 text-white/90 flex-shrink-0" />
-                      <span className="text-sm font-medium">No insurance? Flexible payment options</span>
-                    </motion.div>
-                  </div>
-                  </div>
-              </motion.div>
-              
-              {/* Subtle outer glow for both cards */}
+              {/* Subtle outer glow for the card */}
               <div className="absolute -inset-4 bg-gradient-to-br from-[#B08D57]/10 to-[#D4AF37]/10 rounded-[2.5rem] blur-2xl opacity-60 -z-10"></div>
-              </div>
+            </div>
           </motion.div>
         </div>
       </div>

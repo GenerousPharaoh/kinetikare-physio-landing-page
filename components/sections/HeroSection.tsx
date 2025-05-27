@@ -82,6 +82,21 @@ const HeroSection = React.memo(function HeroSection() {
             <div className="max-w-4xl space-y-6 lg:space-y-8">
               {/* Elegant main heading with staggered reveals */}
               <div className="relative mb-8">
+                {/* Professional identifier - elegant and subtle */}
+                <motion.div
+                  initial={{ y: 30, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                  className="mb-6"
+                >
+                  <div className="inline-flex items-center gap-3 px-4 py-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full">
+                    <div className="w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full animate-pulse"></div>
+                    <span className="text-white/90 text-sm md:text-base font-medium tracking-wide">
+                      Kareem Hassanein Physiotherapy
+                    </span>
+                  </div>
+                </motion.div>
+                
                 <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 tracking-tight leading-[1.05] relative">
                   {/* First line with smooth reveal */}
                   <div className="overflow-hidden">

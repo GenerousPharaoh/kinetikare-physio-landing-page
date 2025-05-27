@@ -106,7 +106,7 @@ const CareJourneySection = () => {
                 key={`bg-${currentStep}`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 0.4 }}
                 className={`absolute inset-0 bg-gradient-to-br ${journeySteps[currentStep].bgGradient} rounded-3xl`}
               />
               
@@ -124,7 +124,7 @@ const CareJourneySection = () => {
                       initial={{ scale: 0.5, opacity: 0, rotateY: -90 }}
                       animate={{ scale: 1, opacity: 1, rotateY: 0 }}
                       exit={{ scale: 0.5, opacity: 0, rotateY: 90 }}
-                      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                       className="relative"
                     >
                       {/* Main Number Container */}
@@ -156,7 +156,7 @@ const CareJourneySection = () => {
                       initial={{ x: 50, opacity: 0 }}
                       animate={{ x: 0, opacity: 1 }}
                       exit={{ x: -50, opacity: 0 }}
-                      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                     >
                       <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-6 leading-tight">
                         {journeySteps[currentStep].title}

@@ -258,27 +258,45 @@ export default function ContactSection() {
                       }}
                       className="group relative"
                     >
-                      <div className="bg-white/80 backdrop-blur-sm text-slate-700 rounded-2xl p-4 sm:p-5 font-semibold border border-slate-200/60 hover:border-[#B08D57]/30 transition-all duration-500 cursor-default text-center relative overflow-hidden shadow-lg hover:shadow-xl group-hover:shadow-[#B08D57]/10">
+                      <div className={`bg-white/80 backdrop-blur-sm text-slate-700 rounded-2xl p-4 sm:p-5 font-semibold border transition-all duration-500 cursor-default text-center relative overflow-hidden shadow-lg hover:shadow-xl ${
+                        area === "Burlington" 
+                          ? "border-[#B08D57]/40 bg-gradient-to-br from-[#B08D57]/5 to-[#D4AF37]/5 shadow-[#B08D57]/10" 
+                          : "border-slate-200/60 hover:border-[#B08D57]/30 group-hover:shadow-[#B08D57]/10"
+                      }`}>
                         {/* Gradient background on hover */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/5 via-[#D4AF37]/3 to-[#B08D57]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+                        <div className={`absolute inset-0 bg-gradient-to-br transition-opacity duration-500 rounded-2xl ${
+                          area === "Burlington"
+                            ? "from-[#B08D57]/8 via-[#D4AF37]/5 to-[#B08D57]/8 opacity-100 group-hover:opacity-100"
+                            : "from-[#B08D57]/5 via-[#D4AF37]/3 to-[#B08D57]/5 opacity-0 group-hover:opacity-100"
+                        }`}></div>
                         
                         {/* Subtle shine effect */}
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-out"></div>
                         
                         {/* Location icon */}
-                        <div className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-[#B08D57]/10 to-[#D4AF37]/10 rounded-xl mb-3 sm:mb-4 group-hover:from-[#B08D57]/20 group-hover:to-[#D4AF37]/20 transition-all duration-300">
-                          <MapPinIcon className="w-4 h-4 sm:w-5 sm:h-5 text-[#B08D57] group-hover:text-[#D4AF37] transition-colors duration-300" />
+                        <div className={`inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br rounded-xl mb-3 sm:mb-4 transition-all duration-300 ${
+                          area === "Burlington"
+                            ? "from-[#B08D57]/20 to-[#D4AF37]/20 group-hover:from-[#B08D57]/30 group-hover:to-[#D4AF37]/30"
+                            : "from-[#B08D57]/10 to-[#D4AF37]/10 group-hover:from-[#B08D57]/20 group-hover:to-[#D4AF37]/20"
+                        }`}>
+                          <MapPinIcon className={`w-4 h-4 sm:w-5 sm:h-5 transition-colors duration-300 ${
+                            area === "Burlington"
+                              ? "text-[#B08D57] group-hover:text-[#D4AF37]"
+                              : "text-[#B08D57] group-hover:text-[#D4AF37]"
+                          }`} />
                         </div>
                         
-                        <span className="relative z-10 text-sm sm:text-base lg:text-lg font-bold text-slate-800 group-hover:text-[#B08D57] transition-colors duration-300">
+                        <span className={`relative z-10 text-sm sm:text-base lg:text-lg font-bold transition-colors duration-300 ${
+                          area === "Burlington"
+                            ? "text-[#B08D57] group-hover:text-[#D4AF37]"
+                            : "text-slate-800 group-hover:text-[#B08D57]"
+                        }`}>
                           {area}
                         </span>
                         
-                        {/* Highlight for Burlington - integrated into card */}
+                        {/* Elegant primary location indicator for Burlington */}
                         {area === "Burlington" && (
-                          <div className="absolute bottom-2 left-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white text-xs font-bold px-2 py-1 rounded-lg shadow-md">
-                            Home Base
-                          </div>
+                          <div className="absolute top-2 right-2 w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full shadow-sm animate-pulse"></div>
                         )}
                       </div>
                     </motion.div>

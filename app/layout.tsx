@@ -89,6 +89,12 @@ export default function RootLayout({
       <head>
         {/* Ensure proper viewport settings for responsive design */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+        
+        {/* Additional SEO meta tags for better indexing */}
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <meta name="googlebot" content="index, follow" />
+        <meta name="google" content="notranslate" />
+        <link rel="canonical" href="https://www.kareemphysio.com" />
       </head>
       <body className={inter.className}>
         {/* Global site header */}

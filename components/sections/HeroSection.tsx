@@ -211,7 +211,7 @@ const HeroSection = React.memo(function HeroSection() {
                   transition={{ duration: 0.2 }}
                 >
                   <Link
-                    href="#services" 
+                    href="/services" 
                     className="relative px-7 py-3.5 font-semibold rounded-xl text-white flex items-center justify-center transition-all duration-300 group overflow-hidden focus:outline-none focus:ring-4 focus:ring-white/30 bg-slate-700/90 backdrop-blur-xl border border-slate-600/80 hover:bg-slate-600/90 hover:border-slate-500/80 hover:shadow-lg hover:shadow-slate-900/20"
                     aria-label="Explore services"
                   >

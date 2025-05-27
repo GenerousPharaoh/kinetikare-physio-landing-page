@@ -38,7 +38,7 @@ export default function ContactSection() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "0px 0px -20% 0px" }}
             className="text-center mb-16 sm:mb-20"
           >
             <div className="relative inline-block mb-6 sm:mb-8">
@@ -61,7 +61,7 @@ export default function ContactSection() {
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, margin: "0px 0px -15% 0px" }}
             >
               {/* Single Consolidated Contact Card */}
               <div className="bg-white/95 backdrop-blur-2xl rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl border border-slate-200/60">
@@ -138,7 +138,7 @@ export default function ContactSection() {
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, margin: "0px 0px -15% 0px" }}
               className="flex flex-col justify-start"
             >
               {/* Simplified Book Appointment CTA */}
@@ -198,7 +198,7 @@ export default function ContactSection() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "0px 0px -20% 0px" }}
             className="mt-16 sm:mt-20"
           >
             <div className="bg-gradient-to-br from-white via-slate-50/50 to-white backdrop-blur-2xl rounded-3xl p-6 sm:p-8 lg:p-12 shadow-2xl border border-slate-200/60 relative overflow-hidden">
@@ -368,7 +368,7 @@ export default function ContactSection() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "0px 0px -20% 0px" }}
             className="text-center mt-16 sm:mt-20 lg:mt-24"
           >
             <div className="bg-white/95 backdrop-blur-2xl rounded-[2rem] p-8 sm:p-12 lg:p-16 shadow-2xl border border-slate-200/60 max-w-5xl mx-auto relative overflow-hidden">

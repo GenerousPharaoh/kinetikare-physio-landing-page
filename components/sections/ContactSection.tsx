@@ -274,9 +274,9 @@ export default function ContactSection() {
                           {area}
                         </span>
                         
-                        {/* Highlight for Burlington */}
+                        {/* Highlight for Burlington - integrated into card */}
                         {area === "Burlington" && (
-                          <div className="absolute -top-2 -right-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg">
+                          <div className="absolute top-2 right-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white text-xs font-bold px-2 py-1 rounded-lg shadow-md">
                             Home Base
                           </div>
                         )}

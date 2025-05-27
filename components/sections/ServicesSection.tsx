@@ -107,8 +107,8 @@ export default function ServicesSection({ onBookLinkClick }: ServicesSectionProp
               {...service} 
             />
           ))}
-        </div>
-        
+              </div>
+              
         {/* Your Healing Environment - Three Images Section */}
         <div className="mt-24 mb-16">
           <div className="text-center mb-12">

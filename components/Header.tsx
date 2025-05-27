@@ -282,10 +282,10 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     >
       {/* Single Unified Navigation Bar */}
       <div className={`relative w-full bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 backdrop-blur-xl shadow-2xl transition-all duration-300 ${scrolled ? 'shadow-3xl' : ''}`}>
-        
+      
         {/* Premium golden accent line */}
         <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-amber-400 to-transparent opacity-90"></div>
-        
+      
         <div className="container mx-auto px-6 relative">
           <div className="flex items-center justify-between h-16">
             
@@ -317,19 +317,19 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               <div className="hidden lg:flex flex-col justify-center" style={{ marginTop: '2px' }}>
                 <div className="text-xs xl:text-sm text-white/70 font-medium leading-tight">
                   Kareem Hassanein Physiotherapy
-                </div>
               </div>
-            </Link>
+            </div>
+          </Link>
 
             {/* Navigation */}
             <nav className="hidden lg:flex items-center space-x-4 xl:space-x-8 flex-shrink-0">
               {mainNavItems.map((item) => (
                 <Link
                   key={item.name}
-                  href={item.href}
-                  onClick={(e) => handleNavClick(e, item.href)}
+                      href={item.href}
+                      onClick={(e) => handleNavClick(e, item.href)}
                   className={`relative text-sm font-medium tracking-wide transition-all duration-300 py-2 group whitespace-nowrap
-                    ${isCurrentPath(item.href) 
+                          ${isCurrentPath(item.href) 
                       ? 'text-amber-400 font-semibold' 
                       : 'text-white hover:text-amber-300'}`}
                 >
@@ -337,11 +337,11 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   
                   {/* Underline indicator */}
                   <span className={`absolute bottom-0 left-0 right-0 h-0.5 bg-amber-400 transform origin-left transition-all duration-300
-                    ${isCurrentPath(item.href) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}>
-                  </span>
-                </Link>
+                        ${isCurrentPath(item.href) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}>
+                      </span>
+                    </Link>
               ))}
-            </nav>
+          </nav>
 
             {/* Action Buttons */}
             <div className="flex items-center space-x-3 xl:space-x-4 flex-shrink-0">
@@ -372,22 +372,22 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 <span className="sm:hidden">Book</span>
               </Link>
 
-              {/* Mobile Menu Button */}
-              <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                type="button"
+          {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              type="button"
                 className="lg:hidden p-2 text-white hover:text-amber-300 transition-colors duration-300"
               >
-                {mobileMenuOpen ? (
+              {mobileMenuOpen ? (
                   <XMarkIcon className="h-6 w-6" />
-                ) : (
+              ) : (
                   <Bars3Icon className="h-6 w-6" />
-                )}
-              </button>
-            </div>
+              )}
+            </button>
           </div>
         </div>
-        
+      </div>
+
         {/* Bottom accent line */}
         <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-amber-400/60 to-transparent"></div>
       </div>
@@ -404,40 +404,40 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
         >
             <div className="px-6 py-4 space-y-1">
               {mainNavItems.map((item) => (
-                <Link
+                    <Link
                   key={item.name}
-                  href={item.href}
-                  onClick={(e) => handleNavClick(e, item.href)}
+                    href={item.href}
+                    onClick={(e) => handleNavClick(e, item.href)}
                   className={`block px-4 py-3 rounded-lg text-base font-medium tracking-wide transition-all duration-300
-                    ${isCurrentPath(item.href) 
+                      ${isCurrentPath(item.href) 
                       ? 'text-amber-400 bg-amber-400/10 font-semibold' 
                       : 'text-white hover:bg-white/5 hover:text-amber-300'}`}
-                >
-                  {item.name}
-                </Link>
+                  >
+                    {item.name}
+                  </Link>
               ))}
             </div>
             
             <div className="px-6 pb-4 border-t border-white/10 pt-4">
               <div className="flex gap-3">
-                <Link
-                  href="tel:+19056346000"
+              <Link
+                href="tel:+19056346000"
                   className="flex items-center justify-center gap-2 py-3 px-4 bg-white/10 text-white rounded-lg font-semibold tracking-wide border border-white/20 hover:bg-white/15 transition-all duration-300"
                 >
                   <PhoneIcon className="h-5 w-5" />
                   Call
-                </Link>
+              </Link>
                 
-                <Link
-                  href="https://endorphinshealth.janeapp.com/#/staff_member/42"
-                  target="_blank"
-                  onClick={() => setMobileMenuOpen(false)}
+              <Link
+                href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                target="_blank"
+                onClick={() => setMobileMenuOpen(false)}
                   className="flex-1 flex items-center justify-center gap-2 py-3 bg-amber-500 text-slate-900 rounded-lg font-semibold tracking-wide shadow-lg"
-                >
+              >
                   <CalendarDaysIcon className="h-5 w-5" />
                   Book Appointment
                 </Link>
-              </div>
+                </div>
             </div>
           </motion.div>
       )}

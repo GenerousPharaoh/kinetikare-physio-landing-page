@@ -22,9 +22,9 @@ export default function AboutSection() {
             >
               <div className="relative max-w-md mx-auto lg:mx-0">
                 <div className="bg-white rounded-2xl shadow-xl p-4 relative z-10">
-                  <Image
-                    src="/images/kareem-profile.png"
-                    alt="Kareem Hassanein - Professional Physiotherapist"
+              <Image
+                src="/images/kareem-profile.png"
+                alt="Kareem Hassanein - Professional Physiotherapist"
                     width={400}
                     height={480}
                     className="w-full h-auto rounded-xl"
@@ -68,15 +68,15 @@ export default function AboutSection() {
                 >
                   Learn More About Kareem
                 </Link>
-                <Link
+                          <Link 
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                            target="_blank"
+                            rel="noopener noreferrer"
                   className="bg-white text-gray-700 hover:text-[#B08D57] border-2 border-gray-200 hover:border-[#B08D57] font-semibold py-3 px-8 rounded-xl transition-all duration-300 transform hover:-translate-y-1"
                 >
                   Book Appointment
-                </Link>
-              </div>
+                          </Link>
+                      </div>
             </motion.div>
           </div>
         </div>

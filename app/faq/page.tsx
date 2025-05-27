@@ -317,12 +317,12 @@ export default function FAQPage() {
           {/* Page Title */}
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-5 text-primary-800">
-              Frequently Asked <span className="text-[#B08D57]">Questions</span>
-            </h1>
-            <p className="text-lg text-primary-600 max-w-2xl mx-auto">
-              Find answers to common questions about physiotherapy services and what to expect during your visits
-            </p>
-          </div>
+                Frequently Asked <span className="text-[#B08D57]">Questions</span>
+              </h1>
+              <p className="text-lg text-primary-600 max-w-2xl mx-auto">
+                Find answers to common questions about physiotherapy services and what to expect during your visits
+              </p>
+            </div>
           <div className="h-[600px] flex items-center justify-center">
             <div className="text-center">Loading FAQ content...</div>
           </div>
@@ -341,25 +341,23 @@ export default function FAQPage() {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: -100, opacity: 0 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="fixed left-4 top-1/2 transform -translate-y-1/2 z-50 max-w-xs"
+            className="fixed left-2 top-1/2 transform -translate-y-1/2 z-50 max-w-[200px]"
           >
             {/* Desktop Version */}
             <div className="hidden md:block">
-              <div className="bg-white/95 backdrop-blur-xl border border-slate-200/60 shadow-2xl rounded-3xl p-6 relative overflow-hidden">
+              <div className="bg-white/95 backdrop-blur-xl border border-slate-200/60 shadow-xl rounded-2xl p-3 relative overflow-hidden">
                 {/* Premium background elements */}
-                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#B08D57]/8 to-transparent rounded-full blur-xl"></div>
-                <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tl from-[#D4AF37]/8 to-transparent rounded-full blur-lg"></div>
+                <div className="absolute top-0 right-0 w-12 h-12 bg-gradient-to-br from-[#B08D57]/8 to-transparent rounded-full blur-xl"></div>
                 
                 <div className="relative z-10">
-                  <div className="text-center mb-6">
-                    <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl mb-3 shadow-lg">
-                      <QuestionMarkCircleIcon className="w-6 h-6 text-white" />
+                  <div className="text-center mb-3">
+                    <div className="inline-flex items-center justify-center w-8 h-8 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-xl mb-2 shadow-lg">
+                      <QuestionMarkCircleIcon className="w-4 h-4 text-white" />
                     </div>
-                    <h3 className="text-lg font-bold text-slate-900 tracking-tight">FAQ Navigation</h3>
-                    <p className="text-sm text-slate-600 font-medium">Jump to section</p>
+                    <h3 className="text-sm font-bold text-slate-900 tracking-tight">FAQ</h3>
                   </div>
                   
-                  <div className="space-y-2 max-h-80 overflow-y-auto custom-scrollbar">
+                  <div className="space-y-1 max-h-64 overflow-y-auto custom-scrollbar">
                     {faqCategories.map((category, index) => (
                       <motion.button
                         key={category.id}
@@ -367,34 +365,26 @@ export default function FAQPage() {
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3, delay: index * 0.1 }}
-                        className={`group flex items-center space-x-3 px-4 py-3 rounded-2xl text-sm font-semibold transition-all duration-300 w-full text-left relative overflow-hidden ${
+                        className={`group flex items-center space-x-2 px-2 py-2 rounded-xl text-xs font-semibold transition-all duration-300 w-full text-left relative overflow-hidden ${
                           activeCategory === category.id
-                            ? 'bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white shadow-lg transform scale-105'
-                            : 'bg-slate-50/80 text-slate-700 hover:bg-gradient-to-r hover:from-[#B08D57]/10 hover:to-[#D4AF37]/10 hover:text-[#B08D57] hover:shadow-md hover:scale-102'
+                            ? 'bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white shadow-md transform scale-105'
+                            : 'bg-slate-50/80 text-slate-700 hover:bg-gradient-to-r hover:from-[#B08D57]/10 hover:to-[#D4AF37]/10 hover:text-[#B08D57] hover:shadow-sm'
                         }`}
                       >
-                        {/* Subtle shine effect */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-out"></div>
-                        
-                        <div className={`flex-shrink-0 w-8 h-8 rounded-xl flex items-center justify-center transition-all duration-300 ${
+                        <div className={`flex-shrink-0 w-6 h-6 rounded-lg flex items-center justify-center transition-all duration-300 ${
                           activeCategory === category.id
                             ? 'bg-white/20 text-white'
                             : 'bg-white/60 text-slate-600 group-hover:bg-[#B08D57]/20 group-hover:text-[#B08D57]'
                         }`}>
-                          <div className="w-4 h-4">{category.icon}</div>
+                          <div className="w-3 h-3">{category.icon}</div>
                         </div>
                         
                         <div className="flex-1 min-w-0">
-                          <span className="relative z-10 block truncate">{category.name}</span>
-                          <span className={`text-xs opacity-75 ${
-                            activeCategory === category.id ? 'text-white/80' : 'text-slate-500'
-                          }`}>
-                            {category.questions.length} questions
-                          </span>
+                          <span className="relative z-10 block truncate text-xs leading-tight">{category.name}</span>
                         </div>
                         
                         {activeCategory === category.id && (
-                          <div className="flex-shrink-0 w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                          <div className="flex-shrink-0 w-1.5 h-1.5 bg-white rounded-full animate-pulse"></div>
                         )}
                       </motion.button>
                     ))}
@@ -403,44 +393,34 @@ export default function FAQPage() {
               </div>
             </div>
 
-            {/* Mobile Version - Compact Floating Menu */}
+            {/* Mobile Version - Ultra Compact */}
             <div className="md:hidden">
-              <div className="bg-white/95 backdrop-blur-xl border border-slate-200/60 shadow-2xl rounded-2xl p-4 relative overflow-hidden">
-                {/* Premium background elements */}
-                <div className="absolute top-0 right-0 w-12 h-12 bg-gradient-to-br from-[#B08D57]/8 to-transparent rounded-full blur-lg"></div>
-                
+              <div className="bg-white/95 backdrop-blur-xl border border-slate-200/60 shadow-xl rounded-xl p-2 relative overflow-hidden">
                 <div className="relative z-10">
-                  <div className="text-center mb-4">
-                    <div className="inline-flex items-center justify-center w-8 h-8 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-xl mb-2 shadow-lg">
-                      <QuestionMarkCircleIcon className="w-4 h-4 text-white" />
+                  <div className="text-center mb-2">
+                    <div className="inline-flex items-center justify-center w-6 h-6 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-lg mb-1 shadow-lg">
+                      <QuestionMarkCircleIcon className="w-3 h-3 text-white" />
                     </div>
-                    <h3 className="text-sm font-bold text-slate-900">FAQ</h3>
                   </div>
                   
-                  <div className="space-y-1.5 max-h-64 overflow-y-auto">
+                  <div className="space-y-1 max-h-48 overflow-y-auto">
                     {faqCategories.map((category, index) => (
                       <button
                         key={category.id}
                         onClick={() => scrollToSection(category.id)}
-                        className={`group flex items-center space-x-2 px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-300 w-full text-left ${
+                        className={`group flex items-center justify-center p-1.5 rounded-lg text-xs font-semibold transition-all duration-300 w-full ${
                           activeCategory === category.id
                             ? 'bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white shadow-md'
                             : 'bg-slate-50/80 text-slate-700 hover:bg-[#B08D57]/10 hover:text-[#B08D57]'
                         }`}
                       >
-                        <div className={`flex-shrink-0 w-6 h-6 rounded-lg flex items-center justify-center ${
+                        <div className={`w-4 h-4 rounded flex items-center justify-center ${
                           activeCategory === category.id
-                            ? 'bg-white/20 text-white'
-                            : 'bg-white/60 text-slate-600 group-hover:text-[#B08D57]'
+                            ? 'text-white'
+                            : 'text-slate-600 group-hover:text-[#B08D57]'
                         }`}>
                           <div className="w-3 h-3">{category.icon}</div>
                         </div>
-                        
-                        <span className="flex-1 truncate">{category.name}</span>
-                        
-                        {activeCategory === category.id && (
-                          <div className="flex-shrink-0 w-1.5 h-1.5 bg-white rounded-full"></div>
-                        )}
                       </button>
                     ))}
                   </div>
@@ -456,13 +436,13 @@ export default function FAQPage() {
         {/* Page Title */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-primary-800 tracking-tight">
-            Frequently Asked <span className="text-[#B08D57]">Questions</span>
-          </h1>
+              Frequently Asked <span className="text-[#B08D57]">Questions</span>
+            </h1>
           <p className="text-xl text-primary-600 max-w-2xl mx-auto leading-relaxed">
-            Find answers to common questions about physiotherapy services and what to expect during your visits
-          </p>
+              Find answers to common questions about physiotherapy services and what to expect during your visits
+            </p>
         </div>
-        
+      
         {/* Enhanced search bar */}
         <div className="max-w-2xl mx-auto mb-16 relative z-10">
           <div className="bg-white shadow-xl rounded-2xl p-4 border border-neutral-100 hover:shadow-2xl transition-all duration-300">
@@ -475,7 +455,7 @@ export default function FAQPage() {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search for questions..."
+              placeholder="Search for questions..." 
                 className="block w-full bg-white border border-neutral-300 rounded-full py-3.5 pl-12 pr-12 text-neutral-900 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent shadow-sm group-hover:shadow-md transition-all duration-200"
               />
               
@@ -497,7 +477,7 @@ export default function FAQPage() {
         {/* FAQ Content */}
         <div className="max-w-6xl mx-auto">
           {/* Search Results */}
-          {isSearching && (
+            {isSearching && (
             <div className="max-w-4xl mx-auto">
               <div className="mb-10 bg-white shadow-lg rounded-2xl p-8 border border-neutral-100">
                 <h2 className="text-2xl font-bold text-primary-900 mb-3 tracking-tight">
@@ -529,11 +509,11 @@ export default function FAQPage() {
                   <FAQAccordion items={filteredQuestions} />
                 </motion.div>
               </AnimatePresence>
-            </div>
-          )}
-
+              </div>
+            )}
+            
           {/* Category Navigation (when not searching) */}
-          {!isSearching && (
+            {!isSearching && (
             <>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8 mb-16">
                 {faqCategories.map((category) => (
@@ -574,26 +554,26 @@ export default function FAQPage() {
                       <div className="flex items-center gap-4">
                         <div className="bg-gradient-to-br from-primary-100 to-primary-200 p-4 rounded-xl shadow-lg">
                           {category.icon}
-                        </div>
-                        <div>
+                  </div>
+                  <div>
                           <h2 className="text-3xl font-bold text-primary-900 mb-2 tracking-tight">
                             {category.name}
-                          </h2>
+                    </h2>
                           <p className="text-primary-600 text-lg">
                             {category.questions.length} questions in this category
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <motion.div
+                    </p>
+                  </div>
+                </div>
+              </div>
+            
+              <motion.div
                       initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true, margin: "-100px" }}
                       transition={{ duration: 0.4, ease: "easeOut" }}
-                    >
+              >
                       <FAQAccordion items={category.questions} />
-                    </motion.div>
+              </motion.div>
                   </div>
                 ))}
               </div>
@@ -611,7 +591,7 @@ export default function FAQPage() {
                 </div>
               </div>
             </>
-          )}
+            )}
         </div>
       </div>
 

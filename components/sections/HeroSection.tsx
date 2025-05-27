@@ -408,7 +408,7 @@ const HeroSection = React.memo(function HeroSection() {
                       Every person's journey is unique, and I'm here to guide you through yours with care, understanding, and evidence-based treatment.
                     </p>
                   </motion.div>
-                </div>
+                  </div>
               </motion.div>
 
               {/* Key Benefits Card */}
@@ -442,7 +442,7 @@ const HeroSection = React.memo(function HeroSection() {
                       className="flex items-center space-x-3"
                     >
                       <StarIcon className="w-4 h-4 text-white/90 flex-shrink-0" />
-                      <span className="text-sm font-medium">One-on-one personalized care</span>
+                      <span className="text-sm font-medium">Hands-on treatment that gets results</span>
                     </motion.div>
                     
                     <motion.div 
@@ -452,7 +452,7 @@ const HeroSection = React.memo(function HeroSection() {
                       className="flex items-center space-x-3"
                     >
                       <StarIcon className="w-4 h-4 text-white/90 flex-shrink-0" />
-                      <span className="text-sm font-medium">Evidence-based treatment approaches</span>
+                      <span className="text-sm font-medium">You'll understand your injury & recovery plan</span>
                     </motion.div>
                     
                     <motion.div 
@@ -462,7 +462,7 @@ const HeroSection = React.memo(function HeroSection() {
                       className="flex items-center space-x-3"
                     >
                       <StarIcon className="w-4 h-4 text-white/90 flex-shrink-0" />
-                      <span className="text-sm font-medium">Comprehensive assessment & education</span>
+                      <span className="text-sm font-medium">Advanced manual therapy techniques</span>
                     </motion.div>
                     
                     <motion.div 
@@ -472,15 +472,15 @@ const HeroSection = React.memo(function HeroSection() {
                       className="flex items-center space-x-3"
                     >
                       <StarIcon className="w-4 h-4 text-white/90 flex-shrink-0" />
-                      <span className="text-sm font-medium">Direct insurance billing available</span>
+                      <span className="text-sm font-medium">No insurance? Flexible payment options</span>
                     </motion.div>
                   </div>
-                </div>
+                  </div>
               </motion.div>
               
               {/* Subtle outer glow for both cards */}
               <div className="absolute -inset-4 bg-gradient-to-br from-[#B08D57]/10 to-[#D4AF37]/10 rounded-[2.5rem] blur-2xl opacity-60 -z-10"></div>
-            </div>
+              </div>
           </motion.div>
         </div>
       </div>

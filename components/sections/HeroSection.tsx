@@ -15,26 +15,25 @@ import {
 } from '@heroicons/react/24/solid';
 
 const HeroSection = React.memo(function HeroSection() {
+  // Check for reduced motion preference
+  const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  
   return (
     <section 
-      className="relative overflow-hidden min-h-screen flex items-center py-24 lg:pt-36"
+      className="hero-section relative overflow-hidden min-h-screen flex items-center py-24 lg:pt-36"
     >
       {/* Enhanced backdrop image with dynamic effects */}
       <div className="absolute inset-0 z-0">
         <div className="h-full w-full overflow-hidden relative">
           <motion.div
-            initial={{ scale: 1.3, x: 0, y: 0, opacity: 0 }}
+            initial={{ scale: prefersReducedMotion ? 1.2 : 1.3, opacity: 0 }}
             animate={{ 
               scale: 1.2,
-              x: [0, 10, 0, 20, 0],
-              y: [0, -8, 0, 8, 0],
               opacity: 1
             }}
             transition={{
-              scale: { duration: 2.5, ease: [0.16, 1, 0.3, 1] },
-              x: { duration: 40, repeat: Infinity, ease: "easeInOut", delay: 2.5 },
-              y: { duration: 35, repeat: Infinity, ease: "easeInOut", delay: 2.5 },
-              opacity: { duration: 1.5, ease: [0.16, 1, 0.3, 1] }
+              scale: { duration: prefersReducedMotion ? 1.0 : 2.5, ease: [0.16, 1, 0.3, 1] },
+              opacity: { duration: prefersReducedMotion ? 0.5 : 1.5, ease: [0.16, 1, 0.3, 1] }
             }}
             className="w-full h-full"
           >
@@ -71,21 +70,21 @@ const HeroSection = React.memo(function HeroSection() {
         {/* Enhanced gradient overlays with elegant entrance */}
         <motion.div 
           className="absolute inset-0 bg-gradient-to-br from-primary-900/70 via-primary-800/60 to-primary-800/65"
-          initial={{ opacity: 0 }}
+          initial={{ opacity: prefersReducedMotion ? 0.85 : 0 }}
           animate={{ opacity: 0.85 }}
           transition={{ 
-            duration: 2.0, 
+            duration: prefersReducedMotion ? 0.3 : 2.0, 
             ease: [0.16, 1, 0.3, 1]
           }}
         />
         <motion.div 
           className="absolute inset-0 bg-gradient-to-tr from-accent/10 via-transparent to-primary-700/25"
-          initial={{ opacity: 0 }}
+          initial={{ opacity: prefersReducedMotion ? 0.7 : 0 }}
           animate={{ opacity: 0.7 }}
           transition={{ 
-            duration: 2.5, 
+            duration: prefersReducedMotion ? 0.3 : 2.5, 
             ease: [0.16, 1, 0.3, 1],
-            delay: 0.3
+            delay: prefersReducedMotion ? 0 : 0.3
           }}
         />
         
@@ -384,7 +383,7 @@ const HeroSection = React.memo(function HeroSection() {
                 {/* Header */}
                 <div className="text-center mb-6 relative z-10">
                   <h3 className="text-lg font-semibold text-slate-800 mb-2 tracking-tight">
-                    Professional Excellence
+                    My Qualifications
                   </h3>
                   <div className="w-12 h-px bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mx-auto"></div>
                 </div>

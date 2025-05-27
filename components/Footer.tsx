@@ -108,7 +108,8 @@ export default function Footer() {
                     className="rounded-full border-2 border-gold/50 mr-3 shadow-md shadow-gold/20"
                   />
                   <div>
-                    <h3 className="font-heading text-xl text-white">KH <span className="text-gold">Physiotherapy</span></h3>
+                    <h3 className="font-heading text-xl text-white">KinetiKare <span className="text-gold">Physiotherapy</span></h3>
+                    <p className="text-xs text-white/90 font-medium">Kareem Hassanein</p>
                     <p className="text-xs text-white/80">Registered Physiotherapist</p>
                   </div>
                 </div>
@@ -188,7 +189,7 @@ export default function Footer() {
         {/* Bottom section with copyright and legal links */}
         <div className="border-t border-white/10 py-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
           <p className="text-sm text-white">
-            © {currentYear} <span className="text-white font-medium">KH Physiotherapy</span>. All rights reserved.
+            © {currentYear} <span className="text-white font-medium">KinetiKare Physiotherapy</span>. All rights reserved.
           </p>
           <div className="flex flex-wrap justify-center md:justify-end mt-4 md:mt-0 gap-4 md:space-x-6 text-xs text-white">
             <Link href="/privacy" className="hover:text-gold transition-colors">Privacy Policy</Link>

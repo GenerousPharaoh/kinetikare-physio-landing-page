@@ -745,44 +745,44 @@ const HeroSection = React.memo(function HeroSection() {
                   </AnimatePresence>
                   </div>
 
-                {/* Navigation Dots */}
-                <div className="flex justify-center space-x-3 mt-6 relative z-10">
+                {/* Navigation Bars - Professional Style */}
+                <div className="flex justify-center space-x-2 mt-6 relative z-10">
                   {testimonials.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => goToTestimonial(index)}
                       disabled={isTransitioning}
-                      className={`relative p-2 transition-all duration-300 ${
+                      className={`relative transition-all duration-300 ${
                         index === currentTestimonialIndex 
                           ? 'scale-110' 
                           : 'hover:scale-105'
                       } ${isTransitioning ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}`}
                       aria-label={`View testimonial ${index + 1}`}
                     >
-                      <div className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      <div className={`h-1 rounded-full transition-all duration-300 ${
                         index === currentTestimonialIndex 
-                          ? 'bg-[#B08D57] shadow-lg shadow-[#B08D57]/40 scale-125' 
-                          : 'bg-slate-300 hover:bg-[#B08D57]/60 hover:scale-110'
+                          ? 'w-8 bg-[#B08D57] shadow-lg shadow-[#B08D57]/40' 
+                          : 'w-6 bg-slate-300 hover:bg-[#B08D57]/60 hover:w-7'
                       }`}>
                         {index === currentTestimonialIndex && !isTransitioning && (
                           <motion.div 
-                            initial={{ scale: 0 }}
-                            animate={{ scale: [1, 1.4, 1] }}
+                            initial={{ scaleX: 0 }}
+                            animate={{ scaleX: [1, 1.2, 1] }}
                             transition={{ 
                               duration: 2, 
                               repeat: Infinity, 
                               ease: "easeInOut" 
                             }}
-                            className="absolute inset-0 w-3 h-3 rounded-full bg-[#B08D57] opacity-30"
+                            className="absolute inset-0 h-1 rounded-full bg-[#B08D57] opacity-30"
                           />
                         )}
                       </div>
                       
-                      {/* Hover ring effect */}
-                      <div className={`absolute inset-0 rounded-full border-2 transition-all duration-300 ${
+                      {/* Hover glow effect */}
+                      <div className={`absolute inset-0 rounded-full transition-all duration-300 ${
                         index === currentTestimonialIndex 
-                          ? 'border-[#B08D57]/30 scale-150' 
-                          : 'border-transparent hover:border-[#B08D57]/20 hover:scale-125'
+                          ? 'bg-[#B08D57]/10 scale-150 blur-sm' 
+                          : 'hover:bg-[#B08D57]/5 hover:scale-125 hover:blur-sm'
                       }`}></div>
                     </button>
                   ))}

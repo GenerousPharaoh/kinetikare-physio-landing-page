@@ -341,7 +341,8 @@ export default function FAQPage() {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -100, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-b border-neutral-200 shadow-lg"
+            className="fixed top-20 left-0 right-0 z-40 bg-white/95 backdrop-blur-xl border-b border-neutral-200 shadow-lg"
+            style={{ marginTop: '0px' }}
           >
             <div className="container mx-auto px-4 py-3">
               <div className="flex items-center justify-between">
@@ -363,6 +364,39 @@ export default function FAQPage() {
                   ))}
                 </div>
               </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Side Navigation - Alternative for larger screens */}
+      <AnimatePresence>
+        {showStickyNav && !isSearching && (
+          <motion.div
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: -100, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeOut", delay: 0.1 }}
+            className="fixed left-4 top-1/2 transform -translate-y-1/2 z-40 bg-white/95 backdrop-blur-xl border border-neutral-200 shadow-xl rounded-2xl p-4 hidden xl:block"
+            style={{ maxHeight: '70vh', overflowY: 'auto' }}
+          >
+            <div className="space-y-2">
+              <h3 className="text-sm font-bold text-primary-800 mb-4 text-center">FAQ</h3>
+              {faqCategories.map((category) => (
+                <button
+                  key={category.id}
+                  onClick={() => scrollToSection(category.id)}
+                  className={`flex items-center space-x-2 px-3 py-2 rounded-xl text-xs font-medium transition-all duration-300 w-full ${
+                    activeCategory === category.id
+                      ? 'bg-[#B08D57] text-white shadow-lg'
+                      : 'bg-neutral-100 text-neutral-700 hover:bg-[#B08D57]/10 hover:text-[#B08D57]'
+                  }`}
+                  title={category.name}
+                >
+                  <div className="w-4 h-4 flex-shrink-0">{category.icon}</div>
+                  <span className="truncate">{category.name}</span>
+                </button>
+              ))}
             </div>
           </motion.div>
         )}

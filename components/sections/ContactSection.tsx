@@ -56,13 +56,12 @@ export default function ContactSection() {
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20">
-            {/* Left Column - Consolidated Contact Information */}
+            {/* Left Column - Contact Information Only */}
             <motion.div 
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="space-y-8"
             >
               {/* Single Consolidated Contact Card */}
               <div className="bg-white/95 backdrop-blur-2xl rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl border border-slate-200/60">
@@ -132,41 +131,6 @@ export default function ContactSection() {
                   </div>
                 </div>
               </div>
-
-              {/* Service Areas */}
-              <div className="bg-white/95 backdrop-blur-2xl rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl border border-slate-200/60">
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-8 sm:mb-10 tracking-tight text-center">Service Areas</h3>
-                
-                {/* Enhanced layout for service areas */}
-                <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-10">
-                  {serviceAreas.map((area, index) => (
-                    <motion.div
-                      key={area}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.5, delay: 0.05 * index }}
-                      viewport={{ once: true }}
-                      className="group relative"
-                    >
-                      <div className="bg-slate-50 text-slate-700 rounded-2xl px-4 py-3 font-semibold border border-slate-200 hover:bg-[#B08D57]/10 hover:text-[#B08D57] hover:border-[#B08D57]/20 transition-all duration-400 cursor-default text-center relative overflow-hidden text-sm sm:text-base min-w-[100px] whitespace-nowrap">
-                        {/* Subtle hover background */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-[#B08D57]/5 to-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-400 rounded-2xl"></div>
-                        <span className="relative z-10">{area}</span>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-                
-                {/* Enhanced description */}
-                <div className="text-center">
-                  <p className="text-slate-600 leading-relaxed font-medium text-base sm:text-lg max-w-lg mx-auto">
-                    My practice is conveniently located in <span className="font-semibold text-[#B08D57]">Burlington</span>, and I'm pleased to extend my physiotherapy services to individuals and families in our surrounding communities.
-                  </p>
-                  <p className="text-slate-500 mt-4 font-medium text-sm sm:text-base">
-                    If you're looking for experienced physiotherapy care to help you move and feel your best, I invite you to get in touch.
-                  </p>
-                </div>
-              </div>
             </motion.div>
 
             {/* Right Column - Simplified CTA */}
@@ -228,6 +192,49 @@ export default function ContactSection() {
               </div>
             </motion.div>
           </div>
+
+          {/* Full-Width Service Areas Section */}
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="mt-16 sm:mt-20"
+          >
+            <div className="bg-white/95 backdrop-blur-2xl rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl border border-slate-200/60">
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-8 sm:mb-10 tracking-tight text-center">Service Areas</h3>
+              
+              {/* Enhanced layout for service areas */}
+              <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-10">
+                {serviceAreas.map((area, index) => (
+                  <motion.div
+                    key={area}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: 0.05 * index }}
+                    viewport={{ once: true }}
+                    className="group relative"
+                  >
+                    <div className="bg-slate-50 text-slate-700 rounded-2xl px-4 py-3 font-semibold border border-slate-200 hover:bg-[#B08D57]/10 hover:text-[#B08D57] hover:border-[#B08D57]/20 transition-all duration-400 cursor-default text-center relative overflow-hidden text-sm sm:text-base min-w-[100px] whitespace-nowrap">
+                      {/* Subtle hover background */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-[#B08D57]/5 to-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-400 rounded-2xl"></div>
+                      <span className="relative z-10">{area}</span>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+              
+              {/* Enhanced description */}
+              <div className="text-center">
+                <p className="text-slate-600 leading-relaxed font-medium text-base sm:text-lg max-w-lg mx-auto">
+                  My practice is conveniently located in <span className="font-semibold text-[#B08D57]">Burlington</span>, and I'm pleased to extend my physiotherapy services to individuals and families in our surrounding communities.
+                </p>
+                <p className="text-slate-500 mt-4 font-medium text-sm sm:text-base">
+                  If you're looking for experienced physiotherapy care to help you move and feel your best, I invite you to get in touch.
+                </p>
+              </div>
+            </div>
+          </motion.div>
 
           {/* Premium Bottom CTA Section */}
           <motion.div 

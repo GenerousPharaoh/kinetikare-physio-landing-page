@@ -1,5 +1,6 @@
 name: Build
 
+# Updated workflow - no tests, build only
 on:
   push:
     branches: [main]

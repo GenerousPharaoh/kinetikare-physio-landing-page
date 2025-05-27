@@ -52,7 +52,7 @@ export default function ContactSection() {
             
             <p className="text-lg sm:text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed font-light px-4">
               Ready to start your recovery journey? Experience personalized physiotherapy care designed to help you move and feel your best.
-            </p>
+          </p>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20">
@@ -82,7 +82,7 @@ export default function ContactSection() {
                       </div>
                     </div>
                   </div>
-
+                  
                   {/* Email */}
                   <div className="flex items-start space-x-3 sm:space-x-4">
                     <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#B08D57] to-[#A17D47] rounded-xl text-white shadow-lg flex-shrink-0">
@@ -98,7 +98,7 @@ export default function ContactSection() {
                       </a>
                     </div>
                   </div>
-
+                  
                   {/* Phone */}
                   <div className="flex items-start space-x-3 sm:space-x-4">
                     <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#B08D57] to-[#A17D47] rounded-xl text-white shadow-lg flex-shrink-0">
@@ -114,7 +114,7 @@ export default function ContactSection() {
                       </a>
                     </div>
                   </div>
-                
+                  
                   {/* Hours */}
                   <div className="flex items-start space-x-3 sm:space-x-4">
                     <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#B08D57] to-[#A17D47] rounded-xl text-white shadow-lg flex-shrink-0">
@@ -201,37 +201,146 @@ export default function ContactSection() {
             viewport={{ once: true, margin: "-100px" }}
             className="mt-16 sm:mt-20"
           >
-            <div className="bg-white/95 backdrop-blur-2xl rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl border border-slate-200/60">
-              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-8 sm:mb-10 tracking-tight text-center">Service Areas</h3>
+            <div className="bg-gradient-to-br from-white via-slate-50/50 to-white backdrop-blur-2xl rounded-3xl p-6 sm:p-8 lg:p-12 shadow-2xl border border-slate-200/60 relative overflow-hidden">
+              {/* Premium background elements */}
+              <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-[#B08D57]/8 to-transparent rounded-full blur-3xl"></div>
+              <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-[#D4AF37]/8 to-transparent rounded-full blur-2xl"></div>
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-[#B08D57]/3 to-[#D4AF37]/3 rounded-full blur-3xl"></div>
               
-              {/* Enhanced layout for service areas */}
-              <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-10">
-                {serviceAreas.map((area, index) => (
+              {/* Subtle texture overlay */}
+              <div className="absolute inset-0 opacity-[0.02]" style={{
+                backgroundImage: `radial-gradient(circle at 2px 2px, rgba(176, 141, 87, 0.3) 1px, transparent 0)`,
+                backgroundSize: '40px 40px'
+              }}></div>
+
+              <div className="relative z-10">
+                {/* Enhanced Header */}
+                <div className="text-center mb-12 sm:mb-16">
                   <motion.div
-                    key={area}
-                    initial={{ opacity: 0, scale: 0.8 }}
+                    initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: 0.05 * index }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
                     viewport={{ once: true }}
-                    className="group relative"
+                    className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl mb-6 sm:mb-8 shadow-xl"
                   >
-                    <div className="bg-slate-50 text-slate-700 rounded-2xl px-4 py-3 font-semibold border border-slate-200 hover:bg-[#B08D57]/10 hover:text-[#B08D57] hover:border-[#B08D57]/20 transition-all duration-400 cursor-default text-center relative overflow-hidden text-sm sm:text-base min-w-[100px] whitespace-nowrap">
-                      {/* Subtle hover background */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-[#B08D57]/5 to-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-400 rounded-2xl"></div>
-                      <span className="relative z-10">{area}</span>
-                    </div>
+                    <MapPinIcon className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
                   </motion.div>
-                ))}
-              </div>
-              
-              {/* Enhanced description */}
-              <div className="text-center">
-                <p className="text-slate-600 leading-relaxed font-medium text-base sm:text-lg max-w-lg mx-auto">
-                  My practice is conveniently located in <span className="font-semibold text-[#B08D57]">Burlington</span>, and I'm pleased to extend my physiotherapy services to individuals and families in our surrounding communities.
-                </p>
-                <p className="text-slate-500 mt-4 font-medium text-sm sm:text-base">
-                  If you're looking for experienced physiotherapy care to help you move and feel your best, I invite you to get in touch.
-                </p>
+                  
+                  <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 sm:mb-6 tracking-tight">
+                    Service <span className="text-[#B08D57] relative">
+                      Areas
+                      <div className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
+                    </span>
+                  </h3>
+                  
+                  <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-light">
+                    Proudly serving communities across the Greater Toronto Area with expert physiotherapy care
+                  </p>
+                </div>
+
+                {/* Enhanced Service Areas Grid */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 mb-12 sm:mb-16">
+                  {serviceAreas.map((area, index) => (
+                    <motion.div
+                      key={area}
+                      initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                      transition={{ 
+                        duration: 0.6, 
+                        delay: 0.1 * index,
+                        ease: [0.16, 1, 0.3, 1]
+                      }}
+                      viewport={{ once: true }}
+                      whileHover={{ 
+                        scale: 1.05, 
+                        y: -5,
+                        transition: { duration: 0.2 }
+                      }}
+                      className="group relative"
+                    >
+                      <div className="bg-white/80 backdrop-blur-sm text-slate-700 rounded-2xl p-4 sm:p-5 font-semibold border border-slate-200/60 hover:border-[#B08D57]/30 transition-all duration-500 cursor-default text-center relative overflow-hidden shadow-lg hover:shadow-xl group-hover:shadow-[#B08D57]/10">
+                        {/* Gradient background on hover */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/5 via-[#D4AF37]/3 to-[#B08D57]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+                        
+                        {/* Subtle shine effect */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-out"></div>
+                        
+                        {/* Location icon */}
+                        <div className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-[#B08D57]/10 to-[#D4AF37]/10 rounded-xl mb-3 sm:mb-4 group-hover:from-[#B08D57]/20 group-hover:to-[#D4AF37]/20 transition-all duration-300">
+                          <MapPinIcon className="w-4 h-4 sm:w-5 sm:h-5 text-[#B08D57] group-hover:text-[#D4AF37] transition-colors duration-300" />
+                        </div>
+                        
+                        <span className="relative z-10 text-sm sm:text-base lg:text-lg font-bold text-slate-800 group-hover:text-[#B08D57] transition-colors duration-300">
+                          {area}
+                        </span>
+                        
+                        {/* Highlight for Burlington */}
+                        {area === "Burlington" && (
+                          <div className="absolute -top-2 -right-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg">
+                            Home Base
+                          </div>
+                        )}
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+                
+                {/* Enhanced Description with Visual Elements */}
+                <div className="text-center relative">
+                  <div className="max-w-4xl mx-auto">
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: 0.4 }}
+                      viewport={{ once: true }}
+                      className="bg-gradient-to-r from-slate-50 to-white rounded-2xl p-6 sm:p-8 lg:p-10 border border-slate-200/60 shadow-lg relative overflow-hidden"
+                    >
+                      {/* Decorative elements */}
+                      <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-[#B08D57]/5 to-transparent rounded-full blur-xl"></div>
+                      <div className="absolute bottom-0 right-0 w-16 h-16 bg-gradient-to-tl from-[#D4AF37]/5 to-transparent rounded-full blur-lg"></div>
+                      
+                      <div className="relative z-10">
+                        <div className="flex items-center justify-center mb-6">
+                          <div className="flex items-center space-x-2 text-[#B08D57]">
+                            <div className="w-2 h-2 bg-[#B08D57] rounded-full animate-pulse"></div>
+                            <div className="w-3 h-3 bg-[#D4AF37] rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+                            <div className="w-2 h-2 bg-[#B08D57] rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+                          </div>
+                        </div>
+                        
+                        <p className="text-slate-700 leading-relaxed font-medium text-lg sm:text-xl lg:text-2xl mb-6">
+                          My practice is conveniently located in{" "}
+                          <span className="font-bold text-[#B08D57] bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 px-2 py-1 rounded-lg">
+                            Burlington
+                          </span>
+                          , and I'm pleased to extend my physiotherapy services to individuals and families throughout our surrounding communities.
+                        </p>
+                        
+                        <div className="flex items-center justify-center space-x-4 mb-6">
+                          <div className="flex items-center space-x-2 text-slate-600">
+                            <CheckCircleIcon className="w-5 h-5 text-[#B08D57]" />
+                            <span className="font-semibold text-sm sm:text-base">Expert Care</span>
+                          </div>
+                          <div className="w-1 h-1 bg-slate-400 rounded-full"></div>
+                          <div className="flex items-center space-x-2 text-slate-600">
+                            <CheckCircleIcon className="w-5 h-5 text-[#D4AF37]" />
+                            <span className="font-semibold text-sm sm:text-base">Convenient Locations</span>
+                          </div>
+                          <div className="w-1 h-1 bg-slate-400 rounded-full"></div>
+                          <div className="flex items-center space-x-2 text-slate-600">
+                            <CheckCircleIcon className="w-5 h-5 text-[#B08D57]" />
+                            <span className="font-semibold text-sm sm:text-base">Personalized Treatment</span>
+                          </div>
+                        </div>
+                        
+                        <p className="text-slate-500 font-medium text-base sm:text-lg">
+                          If you're looking for experienced physiotherapy care to help you move and feel your best,{" "}
+                          <span className="text-[#B08D57] font-semibold">I invite you to get in touch.</span>
+                        </p>
+                      </div>
+                    </motion.div>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>

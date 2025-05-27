@@ -1,124 +1,20 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { CalendarDaysIcon } from '@heroicons/react/24/outline';
-import { StarIcon } from '@heroicons/react/24/solid';
-
-// Type definitions
-type TestimonialItem = {
-  name: string;
-  role: string;
-  stars: number;
-  text: string;
-  initial?: string;
-};
+import { 
+  CheckBadgeIcon, 
+  AcademicCapIcon, 
+  ShieldCheckIcon,
+  StarIcon,
+  UserGroupIcon,
+  ClockIcon
+} from '@heroicons/react/24/solid';
 
 const HeroSection = React.memo(function HeroSection() {
-  const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
-  const [isTestimonialReady, setIsTestimonialReady] = useState(false);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-
-  // Enhanced testimonials data with initials for avatar
-  const testimonials: TestimonialItem[] = [
-    {
-      name: "Kathy",
-      role: "Parent of Patient",
-      stars: 5,
-      text: "Highly recommend! In particular, Kareem has been truly exceptional! Can't express my gratitude for the remarkable care and guidance he has provided during my son's recovery from a knee injury.",
-      initial: "K"
-    },
-    {
-      name: "Catherine",
-      role: "Patient",
-      stars: 5,
-      text: "I've been under the expert physiotherapy care of Kareem since August for Plantar Fasciitis, tendonitis & some aches & pains associated with aging. He shows genuine interest and concern for my well-being.",
-      initial: "C"
-    },
-    {
-      name: "Tania",
-      role: "Parent of Patient",
-      stars: 5,
-      text: "My daughter had her knee pain treated by Kareem. He was kind and really good at asking the right questions to diagnose her issues and give her the right exercises to help her heal.",
-      initial: "T"
-    },
-    {
-      name: "Tobi",
-      role: "Patient",
-      stars: 5,
-      text: "For the past few months Kareem has helped me with a very stubborn shoulder injury. He's been patient and supportive every step of the way. Thanks to him, my shoulder is finally starting to feel like my own again.",
-      initial: "T"
-    },
-    {
-      name: "Thanula",
-      role: "Patient",
-      stars: 5,
-      text: "Highly recommend. Everybody go ask for Kareem. He is the best physiotherapist ever. He's kind, funny and encouraging. I've been seeing him for a few weeks now for my ankle injury, and it has been such a positive experience. He communicates clearly and patiently explains each step of the treatment process. I've noticed improvement in my condition since starting treatment. I feel genuinely cared for by Kareem and his empathy makes a difference in my recovery journey.",
-      initial: "T"
-    }
-  ];
-
-  const goToTestimonial = (index: number) => {
-    if (isTransitioning || index === currentTestimonialIndex) return;
-    
-    setIsTransitioning(true);
-    setIsAutoPlaying(false); // Stop auto-play when user manually navigates
-    
-    // Immediate change for better responsiveness
-    setCurrentTestimonialIndex(index);
-    
-    // Short delay just for the transition state
-    setTimeout(() => {
-      setIsTransitioning(false);
-      
-      // Resume auto-play after 8 seconds of no interaction (reduced from 10)
-      setTimeout(() => {
-        setIsAutoPlaying(true);
-      }, 8000);
-    }, 50); // Much shorter delay for better responsiveness
-  };
-
-  useEffect(() => {
-    // Testimonial carousel with adjusted timing
-    if (!isAutoPlaying) return;
-    
-    const testimonialStartDelay = setTimeout(() => {
-      setIsTestimonialReady(true);
-      const testimonialInterval = setInterval(() => {
-        setCurrentTestimonialIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-      }, 6000); // 6 seconds per testimonial
-
-      return () => clearInterval(testimonialInterval);
-    }, 3000); // Hold reviews for 3 seconds
-
-    return () => {
-      clearTimeout(testimonialStartDelay);
-    };
-  }, [testimonials.length, isAutoPlaying]);
-
-  // Cleanup scroll intervals when testimonial changes
-  useEffect(() => {
-    return () => {
-      // Clean up any existing scroll intervals when testimonial changes
-      const scrollContainers = document.querySelectorAll('[data-testimonial-scroll]');
-      scrollContainers.forEach((container: any) => {
-        if (container._scrollInterval) {
-          clearInterval(container._scrollInterval);
-          container._scrollInterval = null;
-        }
-        if (container._scrollTimeout) {
-          clearTimeout(container._scrollTimeout);
-          container._scrollTimeout = null;
-        }
-      });
-    };
-  }, [currentTestimonialIndex]);
-
-  const currentTestimonial = testimonials[currentTestimonialIndex];
-
   return (
     <section 
       className="relative overflow-hidden min-h-screen flex items-center py-24 lg:pt-36"
@@ -452,15 +348,16 @@ const HeroSection = React.memo(function HeroSection() {
             </div>
           </motion.div>
           
-          {/* Right side - Premium Patient Testimonials */}
+          {/* Right side - Professional Credentials & Key Benefits */}
           <motion.div 
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.9, ease: [0.25, 0.8, 0.25, 1], delay: 2.0 }}
             className="lg:col-span-5 mt-8 lg:mt-0"
           >
-            <div className="relative max-w-xl ml-auto">
-              {/* Modern Testimonials Card */}
+            <div className="relative max-w-xl ml-auto space-y-6">
+              
+              {/* Professional Credentials Card */}
               <motion.div 
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
@@ -487,311 +384,150 @@ const HeroSection = React.memo(function HeroSection() {
                 {/* Header */}
                 <div className="text-center mb-6 relative z-10">
                   <h3 className="text-lg font-semibold text-slate-800 mb-2 tracking-tight">
-                    Patient Testimonials
-              </h3>
+                    Professional Excellence
+                  </h3>
                   <div className="w-12 h-px bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mx-auto"></div>
                 </div>
 
-                {/* Testimonial Content */}
-                <div className="relative h-[380px] relative z-10">
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={currentTestimonialIndex}
-                      initial={{ 
-                        opacity: 0, 
-                        y: 30, 
-                        scale: 0.98
-                      }}
-                      animate={{ 
-                        opacity: 1, 
-                        y: 0, 
-                        scale: 1
-                      }}
-                      exit={{ 
-                        opacity: 0, 
-                        y: -30, 
-                        scale: 0.98
-                      }}
-                      transition={{ 
-                        duration: 0.8, 
-                        ease: [0.16, 1, 0.3, 1]
-                      }}
-                      className="absolute inset-0 flex flex-col"
+                {/* Credentials Content */}
+                <div className="relative z-10 space-y-4">
+                  
+                  {/* Education */}
+                  <motion.div 
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 2.4, duration: 0.6 }}
+                    className="flex items-start space-x-3"
+                  >
+                    <div className="w-10 h-10 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-xl flex items-center justify-center shadow-lg flex-shrink-0">
+                      <AcademicCapIcon className="w-5 h-5 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-slate-800 text-sm mb-1">Master of Science in Physiotherapy</h4>
+                      <p className="text-slate-600 text-xs">Robert Gordon University (Distinction)</p>
+                    </div>
+                  </motion.div>
+
+                  {/* FCAMPT Certification */}
+                  <motion.div 
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 2.6, duration: 0.6 }}
+                    className="flex items-start space-x-3"
+                  >
+                    <div className="w-10 h-10 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-xl flex items-center justify-center shadow-lg flex-shrink-0">
+                      <CheckBadgeIcon className="w-5 h-5 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-slate-800 text-sm mb-1">FCAMPT Level 2 Certified</h4>
+                      <p className="text-slate-600 text-xs">Advanced Manual & Manipulative Therapy</p>
+                    </div>
+                  </motion.div>
+
+                  {/* Experience */}
+                  <motion.div 
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 2.8, duration: 0.6 }}
+                    className="flex items-start space-x-3"
+                  >
+                    <div className="w-10 h-10 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-xl flex items-center justify-center shadow-lg flex-shrink-0">
+                      <ClockIcon className="w-5 h-5 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-slate-800 text-sm mb-1">5+ Years Clinical Experience</h4>
+                      <p className="text-slate-600 text-xs">Comprehensive patient care & rehabilitation</p>
+                    </div>
+                  </motion.div>
+
+                  {/* Professional Standards */}
+                  <motion.div 
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 3.0, duration: 0.6 }}
+                    className="flex items-start space-x-3"
+                  >
+                    <div className="w-10 h-10 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-xl flex items-center justify-center shadow-lg flex-shrink-0">
+                      <ShieldCheckIcon className="w-5 h-5 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-slate-800 text-sm mb-1">Registered Physiotherapist</h4>
+                      <p className="text-slate-600 text-xs">College of Physiotherapists of Ontario</p>
+                    </div>
+                  </motion.div>
+                </div>
+              </motion.div>
+
+              {/* Key Benefits Card */}
+              <motion.div 
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 1.0, ease: [0.25, 0.8, 0.25, 1], delay: 2.6 }}
+                className="relative bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-[2rem] p-6 text-white shadow-[0_20px_70px_-10px_rgba(0,0,0,0.3)] overflow-hidden"
+              >
+                {/* Premium background pattern */}
+                <div className="absolute inset-0 opacity-10" style={{
+                  backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.4) 1px, transparent 0)`,
+                  backgroundSize: '32px 32px'
+                }}></div>
+                
+                {/* Floating orbs */}
+                <div className="absolute top-4 right-4 w-16 h-16 bg-white/10 rounded-full blur-xl"></div>
+                <div className="absolute bottom-4 left-4 w-12 h-12 bg-white/10 rounded-full blur-lg"></div>
+                
+                <div className="relative z-10">
+                  <div className="text-center mb-6">
+                    <UserGroupIcon className="w-10 h-10 mb-3 mx-auto opacity-90" />
+                    <h3 className="text-lg font-semibold mb-2 tracking-tight">Why Choose KinetiKare?</h3>
+                  </div>
+                  
+                  <div className="space-y-3">
+                    <motion.div 
+                      initial={{ x: -20, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ delay: 2.8, duration: 0.5 }}
+                      className="flex items-center space-x-3"
                     >
-                      {/* User Info */}
-                      <motion.div 
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.2, duration: 0.6 }}
-                        className="flex items-center space-x-3 mb-4"
-                      >
-                        <motion.div 
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          transition={{ delay: 0.3, duration: 0.6, type: "spring", stiffness: 200 }}
-                          className="relative"
-                        >
-                          <div className="w-12 h-12 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-xl flex items-center justify-center shadow-lg relative overflow-hidden">
-                            {/* Subtle inner glow */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-xl"></div>
-                            <span className="text-white font-bold text-base relative z-10">
-                              {currentTestimonial.initial}
-                            </span>
-                  </div>
-                          {/* Subtle outer ring */}
-                          <div className="absolute inset-0 rounded-xl ring-1 ring-white/20"></div>
-                        </motion.div>
-                        
-                        <div className="flex-1">
-                          <motion.h4 
-                            initial={{ x: 20, opacity: 0 }}
-                            animate={{ x: 0, opacity: 1 }}
-                            transition={{ delay: 0.4, duration: 0.5 }}
-                            className="font-semibold text-slate-800 text-base"
-                          >
-                            {currentTestimonial.name}
-                          </motion.h4>
-                          <motion.p 
-                            initial={{ x: 20, opacity: 0 }}
-                            animate={{ x: 0, opacity: 1 }}
-                            transition={{ delay: 0.5, duration: 0.5 }}
-                            className="text-slate-500 text-sm font-medium"
-                          >
-                            {currentTestimonial.role}
-                          </motion.p>
-                  </div>
-                      </motion.div>
-
-                      {/* Stars */}
-                      <motion.div 
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        transition={{ delay: 0.6, duration: 0.5 }}
-                        className="flex space-x-1 mb-4"
-                      >
-                        {Array(5).fill(0).map((_, i) => (
-                          <motion.div
-                            key={i}
-                            initial={{ scale: 0, rotate: -180 }}
-                            animate={{ scale: 1, rotate: 0 }}
-                            transition={{ 
-                              delay: 0.7 + (i * 0.1), 
-                              duration: 0.4,
-                              type: "spring",
-                              stiffness: 200
-                            }}
-                          >
-                            <StarIcon className="h-4 w-4 text-[#D4AF37]" />
-                          </motion.div>
-                        ))}
-                      </motion.div>
-
-                      {/* Quote */}
-                      <motion.div 
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.8, duration: 0.6 }}
-                        className="flex-1 relative"
-                      >
-                        {/* Large opening quote */}
-                        <div className="absolute -top-1 -left-1 text-3xl text-[#B08D57]/20 font-serif leading-none">"</div>
-                        
-                        <div className="relative pl-5">
-                          <div 
-                            className="text-slate-700 leading-relaxed text-sm font-normal pr-2 overflow-y-auto"
-                            data-testimonial-scroll
-                            style={{
-                              scrollBehavior: 'smooth',
-                              scrollbarWidth: 'none',
-                              msOverflowStyle: 'none',
-                              maxHeight: '240px'
-                            }}
-                            ref={(el) => {
-                              if (el && currentTestimonial.name === "Thanula") {
-                                // Auto-scroll for Thanula's lengthy review over the full 6 seconds
-                                const scrollHeight = el.scrollHeight;
-                                const clientHeight = el.clientHeight;
-                                if (scrollHeight > clientHeight) {
-                                  el.scrollTop = 0; // Reset to top
-                                  const totalScrollDistance = scrollHeight - clientHeight;
-                                  const scrollDuration = 5800; // 5.8 seconds (leaving 0.2s buffer)
-                                  const scrollStep = totalScrollDistance / (scrollDuration / 50); // Steps every 50ms for smoother scrolling
-                                  let currentScroll = 0;
-                                  
-                                  // Start scrolling after a brief delay to let the content settle
-                                  const scrollTimeout = setTimeout(() => {
-                                    const scrollInterval = setInterval(() => {
-                                      currentScroll += scrollStep;
-                                      if (currentScroll >= totalScrollDistance) {
-                                        el.scrollTop = totalScrollDistance;
-                                        clearInterval(scrollInterval);
-                                      } else {
-                                        el.scrollTop = currentScroll;
-                                      }
-                                    }, 50); // Smoother scrolling every 50ms
-                                    
-                                    // Store interval for cleanup
-                                    (el as any)._scrollInterval = scrollInterval;
-                                  }, 200); // Small delay to let content render
-                                  
-                                  // Store timeout for cleanup
-                                  (el as any)._scrollTimeout = scrollTimeout;
-                                }
-                              } else if (el) {
-                                // Reset scroll position for other testimonials and clean up any existing intervals
-                                el.scrollTop = 0;
-                                if ((el as any)._scrollInterval) {
-                                  clearInterval((el as any)._scrollInterval);
-                                  (el as any)._scrollInterval = null;
-                                }
-                                if ((el as any)._scrollTimeout) {
-                                  clearTimeout((el as any)._scrollTimeout);
-                                  (el as any)._scrollTimeout = null;
-                                }
-                              }
-                            }}
-                          >
-                            <style jsx>{`
-                              div::-webkit-scrollbar {
-                                display: none;
-                              }
-                            `}</style>
-                            
-                            {/* Beautiful, elegantly emphasized testimonial content */}
-                            {currentTestimonial.name === "Kathy" && (
-                              <p className="text-base leading-7">
-                                <span className="text-[#B08D57] font-medium">Highly recommend!</span> Kareem has been{" "}
-                                <span className="relative font-medium text-slate-800">
-                                  truly exceptional
-                                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#B08D57]/30 to-[#D4AF37]/30 rounded-full"></span>
-                                </span>! Can't express my gratitude for the{" "}
-                                <span className="font-medium text-slate-800">remarkable care and guidance</span> he has provided during my son's recovery from a knee injury.
-                              </p>
-                            )}
-                            
-                            {currentTestimonial.name === "Catherine" && (
-                              <p className="text-base leading-7">
-                                I've been under the{" "}
-                                <span className="font-medium text-slate-800 bg-gradient-to-r from-[#B08D57]/5 to-[#D4AF37]/5 px-1 rounded">expert physiotherapy care</span>{" "}
-                                of Kareem since August for Plantar Fasciitis, tendonitis & some aches & pains associated with aging. He shows{" "}
-                                <span className="relative font-medium text-slate-800">
-                                  genuine interest and concern
-                                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#B08D57]/30 to-[#D4AF37]/30 rounded-full"></span>
-                                </span>{" "}
-                                for my well-being.
-                              </p>
-                            )}
-                            
-                            {currentTestimonial.name === "Tania" && (
-                              <p className="text-base leading-7">
-                                My daughter had her knee pain treated by Kareem. He was{" "}
-                                <span className="font-medium text-[#B08D57]">kind</span> and{" "}
-                                <span className="relative font-medium text-slate-800">
-                                  really good at asking the right questions
-                                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#B08D57]/30 to-[#D4AF37]/30 rounded-full"></span>
-                                </span>{" "}
-                                to diagnose her issues and give her the{" "}
-                                <span className="font-medium text-slate-800">right exercises to help her heal.</span>
-                              </p>
-                            )}
-                            
-                            {currentTestimonial.name === "Tobi" && (
-                              <p className="text-base leading-7">
-                                For the past few months Kareem has helped me with a{" "}
-                                <span className="italic text-slate-600">very stubborn shoulder injury.</span> He's been{" "}
-                                <span className="relative font-medium text-slate-800">
-                                  patient and supportive every step of the way
-                                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#B08D57]/30 to-[#D4AF37]/30 rounded-full"></span>
-                                </span>.{" "}
-                                <span className="relative font-medium text-[#B08D57]">
-                                  Thanks to him, my shoulder is finally starting to feel like my own again.
-                                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#B08D57]/30 to-[#D4AF37]/30 rounded-full"></span>
-                                </span>
-                              </p>
-                            )}
-                            
-                            {currentTestimonial.name === "Thanula" && (
-                              <div className="space-y-4 text-base leading-7">
-                                <p>
-                                  <span className="text-[#B08D57] font-medium">Highly recommend.</span> Everybody go ask for Kareem. He is the best physiotherapist ever. He's{" "}
-                                  <span className="font-medium text-slate-700">kind, funny and encouraging.</span>
-                                </p>
-                                <p>
-                                  I've been seeing him for a few weeks now for my ankle injury, and it has been such a{" "}
-                                  <span className="font-medium text-[#B08D57] bg-gradient-to-r from-[#B08D57]/5 to-[#D4AF37]/5 px-1 rounded">positive experience</span>. He{" "}
-                                  <span className="relative font-medium text-slate-800">
-                                    communicates clearly
-                                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#B08D57]/30 to-[#D4AF37]/30 rounded-full"></span>
-                                  </span> and patiently explains each step of the treatment process.
-                                </p>
-                                <p>
-                                  I've noticed{" "}
-                                  <span className="font-medium text-slate-800">improvement in my condition</span> since starting treatment. I feel{" "}
-                                  <span className="relative font-medium text-slate-800">
-                                    genuinely cared for by Kareem
-                                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#B08D57]/30 to-[#D4AF37]/30 rounded-full"></span>
-                                  </span>{" "}
-                                  and his empathy makes a difference in my recovery journey.
-                                </p>
-                  </div>
-                            )}
-                  </div>
-                  </div>
-                        
-                        {/* Closing quote */}
-                        <div className="absolute bottom-0 right-0 text-3xl text-[#B08D57]/20 font-serif leading-none transform rotate-180">"</div>
-                      </motion.div>
+                      <StarIcon className="w-4 h-4 text-white/90 flex-shrink-0" />
+                      <span className="text-sm font-medium">One-on-one personalized care</span>
                     </motion.div>
-                  </AnimatePresence>
-                  </div>
-
-                {/* Navigation Bars - Professional Style */}
-                <div className="flex justify-center space-x-2 mt-6 relative z-10">
-                  {testimonials.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => goToTestimonial(index)}
-                      disabled={isTransitioning}
-                      className={`relative transition-all duration-300 ${
-                        index === currentTestimonialIndex 
-                          ? 'scale-110' 
-                          : 'hover:scale-105'
-                      } ${isTransitioning ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}`}
-                      aria-label={`View testimonial ${index + 1}`}
+                    
+                    <motion.div 
+                      initial={{ x: -20, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ delay: 3.0, duration: 0.5 }}
+                      className="flex items-center space-x-3"
                     >
-                      <div className={`h-1 rounded-full transition-all duration-300 ${
-                        index === currentTestimonialIndex 
-                          ? 'w-8 bg-[#B08D57] shadow-lg shadow-[#B08D57]/40' 
-                          : 'w-6 bg-slate-300 hover:bg-[#B08D57]/60 hover:w-7'
-                      }`}>
-                        {index === currentTestimonialIndex && !isTransitioning && (
-                          <motion.div 
-                            initial={{ scaleX: 0 }}
-                            animate={{ scaleX: [1, 1.2, 1] }}
-                            transition={{ 
-                              duration: 2, 
-                              repeat: Infinity, 
-                              ease: "easeInOut" 
-                            }}
-                            className="absolute inset-0 h-1 rounded-full bg-[#B08D57] opacity-30"
-                          />
-                        )}
-                      </div>
-                      
-                      {/* Hover glow effect */}
-                      <div className={`absolute inset-0 rounded-full transition-all duration-300 ${
-                        index === currentTestimonialIndex 
-                          ? 'bg-[#B08D57]/10 scale-150 blur-sm' 
-                          : 'hover:bg-[#B08D57]/5 hover:scale-125 hover:blur-sm'
-                      }`}></div>
-                    </button>
-                  ))}
+                      <StarIcon className="w-4 h-4 text-white/90 flex-shrink-0" />
+                      <span className="text-sm font-medium">Evidence-based treatment approaches</span>
+                    </motion.div>
+                    
+                    <motion.div 
+                      initial={{ x: -20, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ delay: 3.2, duration: 0.5 }}
+                      className="flex items-center space-x-3"
+                    >
+                      <StarIcon className="w-4 h-4 text-white/90 flex-shrink-0" />
+                      <span className="text-sm font-medium">Comprehensive assessment & education</span>
+                    </motion.div>
+                    
+                    <motion.div 
+                      initial={{ x: -20, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ delay: 3.4, duration: 0.5 }}
+                      className="flex items-center space-x-3"
+                    >
+                      <StarIcon className="w-4 h-4 text-white/90 flex-shrink-0" />
+                      <span className="text-sm font-medium">Direct insurance billing available</span>
+                    </motion.div>
+                  </div>
                 </div>
               </motion.div>
               
-              {/* Subtle outer glow */}
+              {/* Subtle outer glow for both cards */}
               <div className="absolute -inset-4 bg-gradient-to-br from-[#B08D57]/10 to-[#D4AF37]/10 rounded-[2.5rem] blur-2xl opacity-60 -z-10"></div>
-              </div>
+            </div>
           </motion.div>
         </div>
       </div>

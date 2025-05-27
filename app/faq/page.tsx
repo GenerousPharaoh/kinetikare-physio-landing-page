@@ -333,70 +333,119 @@ export default function FAQPage() {
 
   return (
     <main className="min-h-screen flex flex-col text-primary-700 bg-gradient-to-br from-slate-50 via-white to-neutral-50">
-      {/* Sticky Navigation */}
-      <AnimatePresence>
-        {showStickyNav && !isSearching && (
-          <motion.div
-            initial={{ y: -100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -100, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed top-20 left-0 right-0 z-40 bg-white/95 backdrop-blur-xl border-b border-neutral-200 shadow-lg"
-            style={{ marginTop: '0px' }}
-          >
-            <div className="container mx-auto px-4 py-3">
-              <div className="flex items-center justify-between">
-                <h3 className="text-lg font-bold text-primary-800">FAQ Categories</h3>
-                <div className="flex items-center space-x-2 overflow-x-auto">
-                  {faqCategories.map((category) => (
-                    <button
-                      key={category.id}
-                      onClick={() => scrollToSection(category.id)}
-                      className={`flex items-center space-x-2 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 whitespace-nowrap ${
-                        activeCategory === category.id
-                          ? 'bg-[#B08D57] text-white shadow-lg'
-                          : 'bg-neutral-100 text-neutral-700 hover:bg-[#B08D57]/10 hover:text-[#B08D57]'
-                      }`}
-                    >
-                      <div className="w-4 h-4">{category.icon}</div>
-                      <span>{category.name}</span>
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Side Navigation - Alternative for larger screens */}
+      {/* Single Elegant Side Navigation */}
       <AnimatePresence>
         {showStickyNav && !isSearching && (
           <motion.div
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: -100, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeOut", delay: 0.1 }}
-            className="fixed left-4 top-1/2 transform -translate-y-1/2 z-40 bg-white/95 backdrop-blur-xl border border-neutral-200 shadow-xl rounded-2xl p-4 hidden xl:block"
-            style={{ maxHeight: '70vh', overflowY: 'auto' }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="fixed left-4 top-1/2 transform -translate-y-1/2 z-50 max-w-xs"
           >
-            <div className="space-y-2">
-              <h3 className="text-sm font-bold text-primary-800 mb-4 text-center">FAQ</h3>
-              {faqCategories.map((category) => (
-                <button
-                  key={category.id}
-                  onClick={() => scrollToSection(category.id)}
-                  className={`flex items-center space-x-2 px-3 py-2 rounded-xl text-xs font-medium transition-all duration-300 w-full ${
-                    activeCategory === category.id
-                      ? 'bg-[#B08D57] text-white shadow-lg'
-                      : 'bg-neutral-100 text-neutral-700 hover:bg-[#B08D57]/10 hover:text-[#B08D57]'
-                  }`}
-                  title={category.name}
-                >
-                  <div className="w-4 h-4 flex-shrink-0">{category.icon}</div>
-                  <span className="truncate">{category.name}</span>
-                </button>
-              ))}
+            {/* Desktop Version */}
+            <div className="hidden md:block">
+              <div className="bg-white/95 backdrop-blur-xl border border-slate-200/60 shadow-2xl rounded-3xl p-6 relative overflow-hidden">
+                {/* Premium background elements */}
+                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#B08D57]/8 to-transparent rounded-full blur-xl"></div>
+                <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tl from-[#D4AF37]/8 to-transparent rounded-full blur-lg"></div>
+                
+                <div className="relative z-10">
+                  <div className="text-center mb-6">
+                    <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl mb-3 shadow-lg">
+                      <QuestionMarkCircleIcon className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-lg font-bold text-slate-900 tracking-tight">FAQ Navigation</h3>
+                    <p className="text-sm text-slate-600 font-medium">Jump to section</p>
+                  </div>
+                  
+                  <div className="space-y-2 max-h-80 overflow-y-auto custom-scrollbar">
+                    {faqCategories.map((category, index) => (
+                      <motion.button
+                        key={category.id}
+                        onClick={() => scrollToSection(category.id)}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.3, delay: index * 0.1 }}
+                        className={`group flex items-center space-x-3 px-4 py-3 rounded-2xl text-sm font-semibold transition-all duration-300 w-full text-left relative overflow-hidden ${
+                          activeCategory === category.id
+                            ? 'bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white shadow-lg transform scale-105'
+                            : 'bg-slate-50/80 text-slate-700 hover:bg-gradient-to-r hover:from-[#B08D57]/10 hover:to-[#D4AF37]/10 hover:text-[#B08D57] hover:shadow-md hover:scale-102'
+                        }`}
+                      >
+                        {/* Subtle shine effect */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-out"></div>
+                        
+                        <div className={`flex-shrink-0 w-8 h-8 rounded-xl flex items-center justify-center transition-all duration-300 ${
+                          activeCategory === category.id
+                            ? 'bg-white/20 text-white'
+                            : 'bg-white/60 text-slate-600 group-hover:bg-[#B08D57]/20 group-hover:text-[#B08D57]'
+                        }`}>
+                          <div className="w-4 h-4">{category.icon}</div>
+                        </div>
+                        
+                        <div className="flex-1 min-w-0">
+                          <span className="relative z-10 block truncate">{category.name}</span>
+                          <span className={`text-xs opacity-75 ${
+                            activeCategory === category.id ? 'text-white/80' : 'text-slate-500'
+                          }`}>
+                            {category.questions.length} questions
+                          </span>
+                        </div>
+                        
+                        {activeCategory === category.id && (
+                          <div className="flex-shrink-0 w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                        )}
+                      </motion.button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Mobile Version - Compact Floating Menu */}
+            <div className="md:hidden">
+              <div className="bg-white/95 backdrop-blur-xl border border-slate-200/60 shadow-2xl rounded-2xl p-4 relative overflow-hidden">
+                {/* Premium background elements */}
+                <div className="absolute top-0 right-0 w-12 h-12 bg-gradient-to-br from-[#B08D57]/8 to-transparent rounded-full blur-lg"></div>
+                
+                <div className="relative z-10">
+                  <div className="text-center mb-4">
+                    <div className="inline-flex items-center justify-center w-8 h-8 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-xl mb-2 shadow-lg">
+                      <QuestionMarkCircleIcon className="w-4 h-4 text-white" />
+                    </div>
+                    <h3 className="text-sm font-bold text-slate-900">FAQ</h3>
+                  </div>
+                  
+                  <div className="space-y-1.5 max-h-64 overflow-y-auto">
+                    {faqCategories.map((category, index) => (
+                      <button
+                        key={category.id}
+                        onClick={() => scrollToSection(category.id)}
+                        className={`group flex items-center space-x-2 px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-300 w-full text-left ${
+                          activeCategory === category.id
+                            ? 'bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white shadow-md'
+                            : 'bg-slate-50/80 text-slate-700 hover:bg-[#B08D57]/10 hover:text-[#B08D57]'
+                        }`}
+                      >
+                        <div className={`flex-shrink-0 w-6 h-6 rounded-lg flex items-center justify-center ${
+                          activeCategory === category.id
+                            ? 'bg-white/20 text-white'
+                            : 'bg-white/60 text-slate-600 group-hover:text-[#B08D57]'
+                        }`}>
+                          <div className="w-3 h-3">{category.icon}</div>
+                        </div>
+                        
+                        <span className="flex-1 truncate">{category.name}</span>
+                        
+                        {activeCategory === category.id && (
+                          <div className="flex-shrink-0 w-1.5 h-1.5 bg-white rounded-full"></div>
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.div>
         )}
@@ -565,6 +614,24 @@ export default function FAQPage() {
           )}
         </div>
       </div>
+
+      {/* Custom Scrollbar Styles */}
+      <style jsx>{`
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: rgba(148, 163, 184, 0.1);
+          border-radius: 2px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: linear-gradient(to bottom, #B08D57, #D4AF37);
+          border-radius: 2px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: linear-gradient(to bottom, #D4AF37, #B08D57);
+        }
+      `}</style>
     </main>
   );
 }

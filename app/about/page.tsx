@@ -309,8 +309,8 @@ export default function About() {
                       </div>
                       <div className="flex-1">
                         <blockquote className="text-xl md:text-2xl text-slate-700 font-light leading-relaxed italic mb-6">
-                          "Having sat on both sides of the treatment table, I recognize the profound difference between being processed through a system and being truly understood."
-                        </blockquote>
+                  "Having sat on both sides of the treatment table, I recognize the profound difference between being processed through a system and being truly understood."
+                </blockquote>
                         <div className="text-right">
                           <cite className="text-[#B08D57] font-semibold not-italic">— Kareem Hassanein</cite>
                         </div>
@@ -320,16 +320,16 @@ export default function About() {
                 </div>
                 
                 <div className="space-y-6 text-lg leading-relaxed">
-                  <p>
-                    My practice is built on firsthand experience—both as a clinician and as a patient who has navigated the frustrations of pain, slow recovery, and an often impersonal healthcare system. This dual perspective means I genuinely understand how easily patients can be overlooked.
-                  </p>
-                  <p>
-                    I don't subscribe to high-volume, prescriptive protocols; instead, I focus on individualized care. Each patient receives a plan tailored to their unique needs, grounded in advanced manual therapy, exercise science, and a refusal to overlook the details that drive real outcomes and measurable progress.
-                  </p>
-                  <p>
-                    Beyond treatment, I take pride in acting as your advocate within a complex medical landscape. My standard for care isn't based on industry averages or convenient shortcuts—it's built on the dedicated attention and rigor you deserve.
-                  </p>
-                </div>
+                <p>
+                  My practice is built on firsthand experience—both as a clinician and as a patient who has navigated the frustrations of pain, slow recovery, and an often impersonal healthcare system. This dual perspective means I genuinely understand how easily patients can be overlooked.
+                </p>
+                <p>
+                  I don't subscribe to high-volume, prescriptive protocols; instead, I focus on individualized care. Each patient receives a plan tailored to their unique needs, grounded in advanced manual therapy, exercise science, and a refusal to overlook the details that drive real outcomes and measurable progress.
+                </p>
+                <p>
+                  Beyond treatment, I take pride in acting as your advocate within a complex medical landscape. My standard for care isn't based on industry averages or convenient shortcuts—it's built on the dedicated attention and rigor you deserve.
+                </p>
+              </div>
               </div>
             </div>
           </div>

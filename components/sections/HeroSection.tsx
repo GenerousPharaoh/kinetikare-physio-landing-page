@@ -356,7 +356,7 @@ const HeroSection = React.memo(function HeroSection() {
           >
             <div className="relative max-w-xl ml-auto space-y-6">
               
-              {/* Professional Credentials Card */}
+              {/* Personal Welcome Card */}
               <motion.div 
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
@@ -380,79 +380,33 @@ const HeroSection = React.memo(function HeroSection() {
                 <div className="absolute top-4 right-4 w-16 h-16 bg-gradient-to-br from-[#B08D57]/5 to-[#D4AF37]/5 rounded-full blur-xl"></div>
                 <div className="absolute bottom-4 left-4 w-12 h-12 bg-gradient-to-tr from-[#D4AF37]/5 to-[#B08D57]/5 rounded-full blur-lg"></div>
 
-                {/* Header */}
-                <div className="text-center mb-6 relative z-10">
-                  <h3 className="text-lg font-semibold text-slate-800 mb-2 tracking-tight">
-                    My Qualifications
-                  </h3>
-                  <div className="w-12 h-px bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mx-auto"></div>
-                </div>
-
-                {/* Credentials Content */}
-                <div className="relative z-10 space-y-4">
-                  
-                  {/* Education */}
+                {/* Welcome Content */}
+                <div className="relative z-10 text-center">
                   <motion.div 
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 2.4, duration: 0.6 }}
-                    className="flex items-start space-x-3"
+                    className="mb-6"
                   >
-                    <div className="w-10 h-10 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-xl flex items-center justify-center shadow-lg flex-shrink-0">
-                      <AcademicCapIcon className="w-5 h-5 text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="font-semibold text-slate-800 text-sm mb-1">Master of Science in Physiotherapy</h4>
-                      <p className="text-slate-600 text-xs">Robert Gordon University (Distinction)</p>
-                    </div>
+                    <h3 className="text-xl font-semibold text-slate-800 mb-4 tracking-tight">
+                      Welcome
+                    </h3>
+                    <div className="w-12 h-px bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mx-auto mb-6"></div>
                   </motion.div>
 
-                  {/* CAMPT Certification */}
                   <motion.div 
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 2.6, duration: 0.6 }}
-                    className="flex items-start space-x-3"
+                    className="space-y-4"
                   >
-                    <div className="w-10 h-10 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-xl flex items-center justify-center shadow-lg flex-shrink-0">
-                      <CheckBadgeIcon className="w-5 h-5 text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="font-semibold text-slate-800 text-sm mb-1">Canadian Academy of Manual and Musculoskeletal Physiotherapists</h4>
-                      <p className="text-slate-600 text-xs">Level 2 Upper & Lower Certified</p>
-                    </div>
-                  </motion.div>
-
-                  {/* Experience */}
-                  <motion.div 
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 2.8, duration: 0.6 }}
-                    className="flex items-start space-x-3"
-                  >
-                    <div className="w-10 h-10 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-xl flex items-center justify-center shadow-lg flex-shrink-0">
-                      <ClockIcon className="w-5 h-5 text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="font-semibold text-slate-800 text-sm mb-1">5+ Years Clinical Experience</h4>
-                      <p className="text-slate-600 text-xs">Comprehensive patient care & rehabilitation</p>
-                    </div>
-                  </motion.div>
-
-                  {/* Professional Standards */}
-                  <motion.div 
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 3.0, duration: 0.6 }}
-                    className="flex items-start space-x-3"
-                  >
-                    <div className="w-10 h-10 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-xl flex items-center justify-center shadow-lg flex-shrink-0">
-                      <ShieldCheckIcon className="w-5 h-5 text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="font-semibold text-slate-800 text-sm mb-1">Registered Physiotherapist</h4>
-                      <p className="text-slate-600 text-xs">College of Physiotherapists of Ontario</p>
-                    </div>
+                    <p className="text-slate-700 leading-relaxed text-base">
+                      I'm passionate about helping people move better, feel stronger, and get back to doing what they love.
+                    </p>
+                    
+                    <p className="text-slate-600 leading-relaxed text-sm">
+                      Every person's journey is unique, and I'm here to guide you through yours with care, understanding, and evidence-based treatment.
+                    </p>
                   </motion.div>
                 </div>
               </motion.div>
@@ -477,7 +431,7 @@ const HeroSection = React.memo(function HeroSection() {
                 <div className="relative z-10">
                   <div className="text-center mb-6">
                     <UserGroupIcon className="w-10 h-10 mb-3 mx-auto opacity-90" />
-                    <h3 className="text-lg font-semibold mb-2 tracking-tight">Why Choose KinetiKare?</h3>
+                    <h3 className="text-lg font-semibold mb-2 tracking-tight">Why Choose My Practice?</h3>
                   </div>
                   
                   <div className="space-y-3">

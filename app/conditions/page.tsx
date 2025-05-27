@@ -2,7 +2,22 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import Head from 'next/head';
+import Link from 'next/link';
+import ClientImage from '@/components/ClientImage';
+import { Metadata } from 'next';
+
+// SEO Metadata
+export const metadata: Metadata = {
+  title: 'Conditions I Treat | Physiotherapy in Burlington & Waterdown',
+  description: 'Comprehensive physiotherapy treatment for spinal health, sports injuries, chronic pain, post-surgical rehabilitation, and more. Expert care for all ages and activity levels in Burlington, Waterdown, Hamilton, and Oakville.',
+  keywords: ['physiotherapy conditions', 'back pain treatment Burlington', 'sports injury rehab', 'chronic pain management', 'post-surgical rehab', 'Burlington physiotherapy', 'Waterdown physiotherapy', 'Hamilton physiotherapy', 'Oakville physiotherapy'],
+  openGraph: {
+    title: 'Conditions I Treat | KinetiKare Physiotherapy',
+    description: 'Expert physiotherapy treatment for spinal health, sports injuries, chronic pain, and post-surgical rehabilitation in Burlington and surrounding areas.',
+    url: 'https://www.kinetikarephysio.com/conditions',
+    type: 'website',
+  },
+};
 
 export default function ConditionsPage() {
   const conditionCategories = [
@@ -143,13 +158,6 @@ export default function ConditionsPage() {
 
   return (
     <>
-      <Head>
-        <title>Conditions I Treat | KinetiKare Physiotherapy</title>
-        <meta name="description" content="Comprehensive physiotherapy treatment for spinal health, sports injuries, chronic pain, post-surgical rehabilitation, and more. Expert care for all ages and activity levels in Burlington." />
-        <meta name="keywords" content="physiotherapy conditions, back pain treatment, sports injury rehab, chronic pain management, post-surgical rehab, Burlington physiotherapy" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
-      
       <main className="min-h-screen bg-white">
         {/* Hero Section - Redesigned */}
         <section className="relative py-32 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-100">

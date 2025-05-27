@@ -17,6 +17,7 @@ import {
   ClockIcon,
   DocumentTextIcon
 } from '@heroicons/react/24/outline';
+import { Metadata } from 'next';
 
 // Helper to check if code is running in browser
 const isBrowser = typeof window !== 'undefined';
@@ -207,6 +208,19 @@ Empowering You: Making certain you feel fully in control of your care. This mean
     ]
   }
 ];
+
+// SEO Metadata
+export const metadata: Metadata = {
+  title: 'Frequently Asked Questions | Physiotherapy in Burlington & Waterdown',
+  description: 'Find answers to common questions about physiotherapy treatments, insurance coverage, what to expect during your first appointment, and more. Expert care in Burlington, Waterdown, Hamilton, and Oakville.',
+  keywords: ['physiotherapy FAQ', 'physiotherapy questions', 'Burlington physiotherapy', 'Waterdown physiotherapy', 'insurance coverage physiotherapy', 'first physiotherapy appointment', 'Hamilton physiotherapy', 'Oakville physiotherapy'],
+  openGraph: {
+    title: 'FAQ | KinetiKare Physiotherapy',
+    description: 'Common questions about physiotherapy treatments, insurance coverage, and what to expect during your appointment.',
+    url: 'https://www.kinetikarephysio.com/faq',
+    type: 'website',
+  },
+};
 
 export default function FAQPage() {
   const [activeCategory, setActiveCategory] = useState('getting-started');
@@ -563,12 +577,4 @@ export default function FAQPage() {
       `}</style>
     </main>
   );
-}
-
-// Commented out metadata export as it is not allowed in client components
-/*
-export const metadata: Metadata = {
-  title: 'Frequently Asked Questions | Physiotherapy Clinic',
-  description: 'Find answers to common questions about physiotherapy treatments, what to expect during your first visit, treatment approaches, and more.',
-};
-*/ 
+} 

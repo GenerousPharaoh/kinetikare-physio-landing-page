@@ -16,6 +16,20 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import React from 'react';
 import Image from 'next/image';
+import { Metadata } from 'next';
+
+// SEO Metadata
+export const metadata: Metadata = {
+  title: 'About Kareem Hassanein | Physiotherapist in Burlington & Waterdown',
+  description: 'Meet Kareem Hassanein, MSc Physiotherapy with distinction, CAMPT Level 2 certified upper and lower quadrant. Personalized physiotherapy care in Burlington, Waterdown, Hamilton, and Oakville with 5+ years experience.',
+  keywords: ['Kareem Hassanein physiotherapist', 'Burlington physiotherapy', 'Waterdown physiotherapy', 'CAMPT certified', 'manual therapy Burlington', 'physiotherapy Hamilton', 'physiotherapy Oakville'],
+  openGraph: {
+    title: 'About Kareem Hassanein | Expert Physiotherapist',
+    description: 'MSc Physiotherapy with distinction, CAMPT Level 2 certified upper and lower quadrant. Personalized care in Burlington, Waterdown, Hamilton, and Oakville.',
+    url: 'https://www.kinetikarephysio.com/about',
+    type: 'website',
+  },
+};
 
 export default function About() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -128,7 +142,7 @@ export default function About() {
                     </li>
                     <li className="flex items-center">
                       <div className="w-2 h-2 rounded-full bg-[#B08D57] mr-3 flex-shrink-0"></div>
-                      <span className="text-sm font-medium">FCAMPT Level 2 Certified</span>
+                      <span className="text-sm font-medium">CAMPT Level 2 Certified</span>
                     </li>
                     <li className="flex items-center">
                       <div className="w-2 h-2 rounded-full bg-[#B08D57] mr-3 flex-shrink-0"></div>
@@ -471,7 +485,7 @@ export default function About() {
                       <div className="flex items-start space-x-4">
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
                         <div className="flex-1">
-                          <div className="font-bold text-slate-800 text-xl mb-2">FCAMPT Level 2</div>
+                          <div className="font-bold text-slate-800 text-xl mb-2">CAMPT Level 2</div>
                           <div className="text-[#B08D57] font-semibold text-base mb-1">Manual & Manipulative Therapy (Upper and Lower Quadrants)</div>
                           <div className="text-slate-600 text-sm leading-relaxed">Advanced certification in orthopedic manual physical therapy</div>
                         </div>

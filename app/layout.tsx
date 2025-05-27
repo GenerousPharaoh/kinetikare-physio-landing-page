@@ -94,7 +94,7 @@ export default function RootLayout({
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta name="googlebot" content="index, follow" />
         <meta name="google" content="notranslate" />
-        <link rel="canonical" href="https://www.kareemphysio.com" />
+        <link rel="canonical" href="https://www.kinetikarephysio.com" />
       </head>
       <body className={inter.className}>
         {/* Global site header */}

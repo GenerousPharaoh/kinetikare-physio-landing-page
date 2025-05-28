@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY || 'AIzaSyBoHxMRLlqSzCzvVpeuw06SUqmkj4eNzm8';
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent';
 
 // Simple system prompt
@@ -20,6 +20,11 @@ export async function POST(request: NextRequest) {
 
     if (!message || typeof message !== 'string') {
       return NextResponse.json({ error: 'Message is required' }, { status: 400 });
+    }
+
+    if (!GEMINI_API_KEY) {
+      console.error('GEMINI_API_KEY environment variable is not set');
+      return NextResponse.json({ error: 'AI service is currently unavailable' }, { status: 503 });
     }
 
     console.log('API Key available:', !!GEMINI_API_KEY);

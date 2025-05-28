@@ -29,7 +29,7 @@ export default function AboutSection() {
                     src="/images/kareem-profile.png"
                     alt="Kareem Hassanein, Physiotherapist"
                     fill
-                    className="object-cover object-center"
+                    className="object-contain object-center"
                     style={{
                       filter: 'contrast(1.05) saturate(1.1) brightness(1.02)',
                     }}

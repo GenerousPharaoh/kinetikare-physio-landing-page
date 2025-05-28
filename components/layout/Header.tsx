@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { SparklesIcon } from '@heroicons/react/24/outline';
 
 const Header = () => {
   return (
@@ -11,11 +12,20 @@ const Header = () => {
           Physiotherapy
         </Link>
         <nav className="hidden md:block">
-          <ul className="flex space-x-6">
+          <ul className="flex space-x-6 items-center">
             <li><Link href="/" className="hover:text-blue-600 transition">Home</Link></li>
             <li><Link href="/services" className="hover:text-blue-600 transition">Services</Link></li>
             <li><Link href="/blog" className="hover:text-blue-600 transition">Blog</Link></li>
             <li><Link href="/faq" className="hover:text-blue-600 transition">FAQ</Link></li>
+            <li>
+              <Link href="/ai-physio" className="relative flex items-center space-x-1 hover:text-[#B08D57] transition group">
+                <SparklesIcon className="h-4 w-4 text-[#B08D57] group-hover:scale-110 transition-transform" />
+                <span>AI Advisor</span>
+                <span className="absolute -top-2 -right-8 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white text-xs px-2 py-0.5 rounded-full animate-pulse">
+                  NEW
+                </span>
+              </Link>
+            </li>
             <li><Link href="/contact" className="hover:text-blue-600 transition">Contact</Link></li>
           </ul>
         </nav>

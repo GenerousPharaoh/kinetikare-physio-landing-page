@@ -7,6 +7,11 @@ import { Metadata } from 'next';
 // Sample blog posts data - replace with API or data fetching later
 const posts = [
   {
+    slug: 'ai-physiotherapy-advisor-launch',
+    title: 'Introducing Our AI Physiotherapy Advisor: Get Instant Guidance 24/7',
+    excerpt: 'Experience the future of physiotherapy consultation with our new AI-powered advisor. Get evidence-based guidance for your pain and movement concerns anytime.',
+  },
+  {
     slug: 'understanding-low-back-pain',
     title: 'Understanding Low Back Pain: Why It Keeps Coming Back and What You Can Actually Do About It',
     excerpt: 'Discover the most common reasons your back pain recurs and learn practical ways to finally address the root causes for lasting relief.',

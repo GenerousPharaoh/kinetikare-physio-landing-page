@@ -66,6 +66,110 @@ const getPostData = (slug: string) => {
         </>
       ),
     };
+  } else if (slug === 'ai-physiotherapy-advisor-launch') {
+    return {
+      title: "Introducing Our AI Physiotherapy Advisor: Get Instant Guidance 24/7",
+      content: (
+        <>
+          <h2>Revolutionizing Physiotherapy Access with AI</h2>
+          <p>I&apos;m excited to announce the launch of our <strong>AI Physiotherapy Advisor</strong> - a cutting-edge tool designed to provide instant, evidence-based physiotherapy guidance whenever you need it.</p>
+          
+          <h3>Why We Built This</h3>
+          <p>As a physiotherapist, I often encounter patients who:</p>
+          <ul>
+            <li>Need quick answers outside of clinic hours</li>
+            <li>Are unsure if their symptoms require professional assessment</li>
+            <li>Want to understand their condition better before booking an appointment</li>
+            <li>Live far from quality physiotherapy services</li>
+          </ul>
+          <p>Our AI advisor bridges this gap, offering professional-grade guidance that&apos;s accessible to everyone.</p>
+          
+          <h3>What Can the AI Physio Advisor Do?</h3>
+          
+          <h4>1. Pain Assessment & Guidance</h4>
+          <ul>
+            <li>Analyze your symptoms and provide initial insights</li>
+            <li>Suggest safe, evidence-based exercises</li>
+            <li>Identify red flags that require immediate medical attention</li>
+          </ul>
+          
+          <h4>2. Exercise Recommendations</h4>
+          <ul>
+            <li>Personalized exercise suggestions based on your condition</li>
+            <li>Proper form cues and safety considerations</li>
+            <li>Progressive exercise plans for various stages of recovery</li>
+          </ul>
+          
+          <h4>3. Injury Prevention Tips</h4>
+          <ul>
+            <li>Sport-specific injury prevention strategies</li>
+            <li>Workplace ergonomics advice</li>
+            <li>Movement pattern corrections</li>
+          </ul>
+          
+          <h4>4. Educational Resources</h4>
+          <ul>
+            <li>Clear explanations of various conditions</li>
+            <li>Understanding of healing timelines</li>
+            <li>Self-management strategies</li>
+          </ul>
+          
+          <h3>How It Works</h3>
+          <ol>
+            <li><strong>Visit our AI Physio page</strong> - Access the advisor directly from our website</li>
+            <li><strong>Ask your question</strong> - Describe your symptoms or concerns in plain language</li>
+            <li><strong>Receive instant guidance</strong> - Get evidence-based recommendations tailored to your query</li>
+            <li><strong>Follow up if needed</strong> - Book a consultation for hands-on assessment and treatment</li>
+          </ol>
+          
+          <h3>Important: When to See a Physiotherapist</h3>
+          <p>While our AI advisor is incredibly helpful, it&apos;s important to remember that it <strong>complements, not replaces</strong>, professional care. You should always book an in-person assessment for:</p>
+          <ul>
+            <li>Severe or worsening pain</li>
+            <li>Recent injuries or trauma</li>
+            <li>Symptoms that don&apos;t improve with conservative care</li>
+            <li>When you need hands-on treatment techniques</li>
+            <li>Post-surgical rehabilitation</li>
+            <li>Complex movement disorders</li>
+          </ul>
+          
+          <h3>The Technology Behind It</h3>
+          <p>Our AI advisor is powered by advanced language models trained on physiotherapy knowledge, including:</p>
+          <ul>
+            <li>Evidence-based treatment protocols</li>
+            <li>Current best practices in rehabilitation</li>
+            <li>Safety guidelines and contraindications</li>
+            <li>My own clinical experience and approach</li>
+          </ul>
+          
+          <h3>Privacy & Security</h3>
+          <p>Your conversations with the AI advisor are:</p>
+          <ul>
+            <li>Completely confidential</li>
+            <li>Not stored or shared</li>
+            <li>Protected by industry-standard encryption</li>
+            <li>Compliant with healthcare privacy regulations</li>
+          </ul>
+          
+          <h3>Try It Today!</h3>
+          <p>Ready to experience the future of physiotherapy consultation? <Link href="/ai-physio">Visit our AI Physio Advisor</Link> and get instant guidance for your movement and pain concerns.</p>
+          <p>Remember, while AI can provide valuable guidance, nothing replaces the expertise of hands-on assessment and treatment. If you need personalized care, <a href="https://endorphinshealth.janeapp.com/#/staff_member/42" target="_blank" rel="noopener noreferrer">book your consultation</a> today.</p>
+          
+          <h3>Looking Forward</h3>
+          <p>This is just the beginning. We&apos;re continuously improving the AI advisor based on user feedback and the latest research. Future updates will include:</p>
+          <ul>
+            <li>Visual exercise demonstrations</li>
+            <li>Progress tracking features</li>
+            <li>Integration with wearable devices</li>
+            <li>Multi-language support</li>
+          </ul>
+          <p>Have questions or feedback about our AI advisor? I&apos;d love to hear from you!</p>
+          <p><em>Stay moving, stay healthy!</em></p>
+          <p><strong>Kareem Hassanein, PT</strong><br />
+          <em>CAMPT Level 2 Certified Physiotherapist</em></p>
+        </>
+      ),
+    };
   }
   return null; // Post not found
 };
@@ -150,6 +254,7 @@ export function generateStaticParams() {
   return [
     { slug: 'understanding-low-back-pain' },
     { slug: 'rotator-cuff-exercises' },
-    { slug: 'first-physio-visit-expectations' }
+    { slug: 'first-physio-visit-expectations' },
+    { slug: 'ai-physiotherapy-advisor-launch' }
   ];
 } 

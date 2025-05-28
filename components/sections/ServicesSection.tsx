@@ -94,8 +94,8 @@ export default function ServicesSection({ onBookLinkClick }: ServicesSectionProp
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "0px 0px -20% 0px" }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true, margin: "0px 0px -5% 0px" }}
+          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-3xl mx-auto text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-800 mb-6">
@@ -112,8 +112,8 @@ export default function ServicesSection({ onBookLinkClick }: ServicesSectionProp
               key={service.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "0px 0px -10% 0px" }}
-              transition={{ duration: 0.5, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true, margin: "0px 0px -5% 0px" }}
+              transition={{ duration: 0.4, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
             >
               <ServiceCard {...service} />
             </motion.div>
@@ -124,8 +124,8 @@ export default function ServicesSection({ onBookLinkClick }: ServicesSectionProp
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "0px 0px -15% 0px" }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true, margin: "0px 0px -5% 0px" }}
+          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
           className="mt-24 mb-16"
         >
           <div className="text-center mb-12">
@@ -140,8 +140,8 @@ export default function ServicesSection({ onBookLinkClick }: ServicesSectionProp
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "0px 0px -10% 0px" }}
-              transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true, margin: "0px 0px -5% 0px" }}
+              transition={{ duration: 0.4, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
               className="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
             >
               <div className="aspect-[4/3] relative">
@@ -167,8 +167,8 @@ export default function ServicesSection({ onBookLinkClick }: ServicesSectionProp
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "0px 0px -10% 0px" }}
-              transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true, margin: "0px 0px -5% 0px" }}
+              transition={{ duration: 0.4, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
             >
               <div className="aspect-[4/3] relative">
@@ -194,8 +194,8 @@ export default function ServicesSection({ onBookLinkClick }: ServicesSectionProp
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "0px 0px -10% 0px" }}
-              transition={{ duration: 0.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true, margin: "0px 0px -5% 0px" }}
+              transition={{ duration: 0.4, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
               className="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
             >
               <div className="aspect-[4/3] relative">
@@ -222,8 +222,8 @@ export default function ServicesSection({ onBookLinkClick }: ServicesSectionProp
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "0px 0px -15% 0px" }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true, margin: "0px 0px -5% 0px" }}
+          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
           className="mt-20 max-w-4xl mx-auto text-center bg-white p-10 rounded-xl shadow-lg border border-gray-100"
         >
           <h3 className="text-2xl font-bold text-primary-800 mb-4">

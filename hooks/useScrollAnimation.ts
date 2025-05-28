@@ -5,7 +5,7 @@ import { useState, useEffect, useRef, RefObject } from 'react';
 interface ScrollAnimationOptions {
   /**
    * Number between 0 and 1 indicating the percentage of the element that needs to be visible
-   * before triggering the animation (default: 0.05 or 5%)
+   * before triggering the animation (default: 0.01 or 1%)
    */
   threshold?: number;
   
@@ -60,11 +60,11 @@ const validateThreshold = (threshold: number | undefined): number => {
  * Simplified and optimized scroll animation hook
  */
 export function useScrollAnimation<T extends HTMLElement = HTMLDivElement>({
-  threshold = 0, // Zero threshold for earlier detection and better performance
+  threshold = 0.01, // Reduced from 0.05 to 0.01 for earlier triggering
   triggerOnce = true,
-  rootMargin = '50px 0px', // Increased rootMargin to trigger animation sooner
+  rootMargin = '0px 0px -5% 0px', // Reduced from '100px 0px' to trigger earlier
   disabled = false,
-  duration = 80, // Even faster animations (reduced from 100ms)
+  duration = 300 // Reduced from 600 to 300 for snappier animations
 }: ScrollAnimationOptions = {}): {
   ref: RefObject<T>;
   isVisible: boolean;
@@ -175,9 +175,101 @@ export function useScrollAnimation<T extends HTMLElement = HTMLDivElement>({
 // Helper hook specifically for sections
 export function useSectionAnimation(options?: Omit<ScrollAnimationOptions, 'rootMargin'>) {
   return useScrollAnimation({
-    rootMargin: '100px 0px', // More aggressive rootMargin to trigger animations earlier
+    rootMargin: '0px 0px -5% 0px', // More aggressive rootMargin to trigger animations earlier
     threshold: 0,
-    duration: 60, // Faster animations for sections
+    duration: 300, // Faster animations for sections
     ...options,
   });
-} 
+}
+
+// Utility function to create staggered animations
+export function useStaggeredAnimation(
+  count: number,
+  options: ScrollAnimationOptions & { staggerDelay?: number } = {}
+) {
+  const { staggerDelay = 50, ...scrollOptions } = options; // Reduced from 100 to 50
+  const { ref, isVisible, duration } = useScrollAnimation(scrollOptions);
+
+  const getStaggerDelay = (index: number) => {
+    return isVisible ? index * staggerDelay : 0;
+  };
+
+  return {
+    ref,
+    isVisible,
+    duration,
+    getStaggerDelay,
+  };
+}
+
+// Animation variants for common patterns
+export const fadeInUp = {
+  hidden: { 
+    opacity: 0, 
+    y: 20 // Reduced from 30 to 20 for subtler movement
+  },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      duration: 0.3, // Reduced from 0.6 to 0.3
+      ease: [0.16, 1, 0.3, 1]
+    }
+  }
+};
+
+export const fadeInLeft = {
+  hidden: { 
+    opacity: 0, 
+    x: -20 // Reduced from -30 to -20
+  },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    transition: {
+      duration: 0.3,
+      ease: [0.16, 1, 0.3, 1]
+    }
+  }
+};
+
+export const fadeInRight = {
+  hidden: { 
+    opacity: 0, 
+    x: 20 // Reduced from 30 to 20
+  },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    transition: {
+      duration: 0.3,
+      ease: [0.16, 1, 0.3, 1]
+    }
+  }
+};
+
+export const scaleIn = {
+  hidden: { 
+    opacity: 0, 
+    scale: 0.95 // Reduced from 0.9 to 0.95 for subtler scaling
+  },
+  visible: { 
+    opacity: 1, 
+    scale: 1,
+    transition: {
+      duration: 0.3,
+      ease: [0.16, 1, 0.3, 1]
+    }
+  }
+};
+
+// Container variants for staggered children
+export const staggerContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.05, // Reduced from 0.1 to 0.05
+      delayChildren: 0.05 // Reduced from 0.1 to 0.05
+    }
+  }
+}; 

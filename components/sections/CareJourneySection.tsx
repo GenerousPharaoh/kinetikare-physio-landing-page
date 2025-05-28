@@ -48,8 +48,8 @@ const CareJourneySection = () => {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "0px 0px -20% 0px" }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: true, margin: "0px 0px -5% 0px" }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             className="text-center mb-20"
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 tracking-tight">
@@ -68,8 +68,8 @@ const CareJourneySection = () => {
                 key={step.number}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "0px 0px -10% 0px" }}
-                transition={{ duration: 0.5, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                viewport={{ once: true, margin: "0px 0px -5% 0px" }}
+                transition={{ duration: 0.4, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
                 className="relative group"
               >
                 <div className="bg-white/95 backdrop-blur-xl rounded-2xl p-6 shadow-lg border border-white/60 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
@@ -102,8 +102,8 @@ const CareJourneySection = () => {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "0px 0px -15% 0px" }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+            viewport={{ once: true, margin: "0px 0px -5% 0px" }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
             className="flex flex-col sm:flex-row gap-6 justify-center"
           >
             <Link

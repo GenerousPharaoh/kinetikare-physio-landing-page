@@ -709,10 +709,29 @@ main {
   background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
 }
 
-/* Optimize for mobile performance */
+/* Optimize for mobile performance - More targeted approach */
 @media (max-width: 768px) {
-  * {
+  /* Apply hardware acceleration only to specific elements that need it */
+  .hero-section {
+    will-change: transform;
     transform: translateZ(0);
-    -webkit-transform: translateZ(0);
+  }
+  
+  /* Reduce backdrop blur intensity on mobile for better performance */
+  .backdrop-blur-xl,
+  .backdrop-blur-3xl {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  
+  /* Optimize animations for mobile */
+  .motion-reduce-mobile {
+    animation-duration: 0.3s !important;
+    transition-duration: 0.3s !important;
+  }
+  
+  /* Ensure smooth scrolling on mobile */
+  html {
+    -webkit-overflow-scrolling: touch;
   }
 }

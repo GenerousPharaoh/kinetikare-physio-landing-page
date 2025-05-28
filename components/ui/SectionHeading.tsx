@@ -123,7 +123,7 @@ const SectionHeading = ({
     variants: containerVariants,
     initial: "hidden",
     whileInView: "visible",
-    viewport: { once: true, margin: "-100px" }
+    viewport: { once: true, margin: "0px 0px -5% 0px" }
   } : {};
 
   const childAnimationProps = animateOnScroll ? {

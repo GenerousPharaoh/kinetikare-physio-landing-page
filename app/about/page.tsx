@@ -1,5 +1,3 @@
-"use client";
-
 import Link from 'next/link';
 import ClientImage from '@/components/ClientImage';
 import { CheckBadgeIcon } from '@heroicons/react/24/solid';
@@ -12,11 +10,10 @@ import {
   BeakerIcon,
   UserGroupIcon as UserGroupIconSolid
 } from '@heroicons/react/24/solid';
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import React from 'react';
 import Image from 'next/image';
 import { Metadata } from 'next';
+import CommitmentCarousel from '@/components/CommitmentCarousel';
 
 // SEO Metadata
 export const metadata: Metadata = {
@@ -32,70 +29,44 @@ export const metadata: Metadata = {
 };
 
 export default function About() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-
   const commitmentItems = [
     {
       id: 'assessment',
       title: 'Thorough Assessment',
       description: 'A comprehensive evaluation in a comfortable, judgment-free environment',
-      icon: DocumentTextIcon
+      iconType: 'document'
     },
     {
       id: 'communication',
       title: 'Clear Communication',
       description: 'Easy-to-understand explanations of findings in accessible language',
-      icon: ChatBubbleBottomCenterTextIcon
+      iconType: 'chat'
     },
     {
       id: 'customization',
       title: 'Custom Treatment',
       description: 'A tailored therapy plan addressing your specific recovery goals',
-      icon: AdjustmentsIcon
+      iconType: 'adjustments'
     },
     {
       id: 'attention',
       title: 'Dedicated Attention',
       description: 'One-on-one, unhurried focus during every treatment session',
-      icon: UserIcon
+      iconType: 'user'
     },
     {
       id: 'evidence',
       title: 'Evidence-Based Care',
       description: 'Proven interventions combining manual therapy, movement retraining, and self-management',
-      icon: BeakerIcon
+      iconType: 'beaker'
     },
     {
       id: 'collaboration',
       title: 'Collaborative Approach',
       description: 'A partnership that respects your input and preferences',
-      icon: UserGroupIconSolid
+      iconType: 'userGroup'
     }
   ];
-
-  // Auto-play functionality
-  useEffect(() => {
-    if (!isAutoPlaying) return;
-    
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % commitmentItems.length);
-    }, 4000);
-    
-    return () => clearInterval(interval);
-  }, [isAutoPlaying, commitmentItems.length]);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % commitmentItems.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + commitmentItems.length) % commitmentItems.length);
-  };
-
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index);
-  };
 
   return (
     <main className="min-h-screen flex flex-col text-primary-700 bg-white">
@@ -640,79 +611,7 @@ export default function About() {
             </p>
           </div>
 
-          {/* Carousel Container */}
-          <div 
-            className="relative max-w-4xl mx-auto"
-            onMouseEnter={() => setIsAutoPlaying(false)}
-            onMouseLeave={() => setIsAutoPlaying(true)}
-          >
-            {/* Carousel Content */}
-            <div className="overflow-hidden rounded-2xl">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={currentSlide}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.6, ease: "easeInOut" }}
-                  className="bg-gradient-to-br from-white to-slate-50 p-16 text-center border border-[#B08D57]/20 shadow-xl"
-                >
-                  <div className="w-24 h-24 bg-gradient-to-br from-[#1A2036] to-slate-700 rounded-full flex items-center justify-center mb-10 mx-auto shadow-lg">
-                    {React.createElement(commitmentItems[currentSlide].icon, {
-                      className: "h-12 w-12 text-[#D4AF37]"
-                    })}
-                  </div>
-                  
-                  <h4 className="text-3xl font-bold text-primary-800 mb-6">
-                    {commitmentItems[currentSlide].title}
-                  </h4>
-                  
-                  <p className="text-xl text-primary-600 leading-relaxed max-w-3xl mx-auto">
-                    {commitmentItems[currentSlide].description}
-                  </p>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-
-            {/* Subtle Navigation Dots */}
-            <div className="flex justify-center space-x-4 mt-12">
-              {commitmentItems.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToSlide(index)}
-                  className={`group relative transition-all duration-300 ${
-                    currentSlide === index ? 'scale-110' : 'hover:scale-105'
-                  }`}
-                >
-                  <div className={`w-4 h-4 rounded-full transition-all duration-300 ${
-                    currentSlide === index 
-                      ? 'bg-[#B08D57] shadow-lg' 
-                      : 'bg-[#B08D57]/30 hover:bg-[#B08D57]/60'
-                  }`} />
-                  {currentSlide === index && (
-                    <div className="absolute inset-0 w-4 h-4 rounded-full bg-[#B08D57] animate-ping opacity-20" />
-                  )}
-                </button>
-              ))}
-            </div>
-
-            {/* Enhanced Progress Bar */}
-            <div className="mt-8 w-full bg-gradient-to-r from-[#B08D57]/10 via-[#B08D57]/20 to-[#B08D57]/10 rounded-full h-2 overflow-hidden shadow-inner">
-              <motion.div
-                className="h-full bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#A17D47] shadow-lg"
-                initial={{ width: "0%" }}
-                animate={{ width: `${((currentSlide + 1) / commitmentItems.length) * 100}%` }}
-                transition={{ duration: 0.6, ease: "easeInOut" }}
-              />
-            </div>
-
-            {/* Slide Counter */}
-            <div className="text-center mt-6">
-              <span className="text-sm text-primary-600 font-medium">
-                {currentSlide + 1} of {commitmentItems.length}
-              </span>
-            </div>
-          </div>
+          <CommitmentCarousel items={commitmentItems} />
         </div>
       </section>
       

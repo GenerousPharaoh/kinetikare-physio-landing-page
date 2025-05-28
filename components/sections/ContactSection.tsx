@@ -50,9 +50,9 @@ export default function ContactSection() {
               </h2>
             </div>
             
-            <p className="text-lg sm:text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed font-light px-4">
-              Ready to start your recovery journey? Experience personalized physiotherapy care designed to help you move and feel your best.
-          </p>
+            <p className="text-lg sm:text-xl lg:text-2xl text-slate-700 leading-relaxed font-medium mb-8">
+              Ready to continue your recovery journey? Experience personalized physiotherapy care designed to help you move and feel your best.
+            </p>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20">

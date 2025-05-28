@@ -32,11 +32,11 @@ export default function BookingSection({ onNavLinkClick }: BookingSectionProps) 
   return (
     <section id="booking" className="section bg-primary-900 text-neutral-200 relative"> {/* Changed bg, added relative */}
       <div className="container mx-auto px-4 text-center">
-        <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-5">
-          Ready to Start Your Recovery?
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
+          Ready to Advance Your Recovery?
         </h2>
-        <p className="text-lg md:text-xl text-neutral-300 mb-10 max-w-2xl mx-auto">
-          Take the first step towards a pain-free life. Book your appointment online or contact the clinic today.
+        <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-12">
+          Book your assessment today and take the next step towards better movement and less pain.
         </p>
         
         <div className="flex flex-col sm:flex-row justify-center items-center gap-5">

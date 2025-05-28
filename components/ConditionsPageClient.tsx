@@ -334,17 +334,15 @@ export default function ConditionsPageClient({
         </div>
       </section>
 
-      {/* CTA Section - Simplified */}
-      <section className="py-20 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] relative">
-        <div className="absolute inset-0 bg-black/5"></div>
-        
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Ready to Start Your Recovery?
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-br from-[#B08D57]/5 to-[#D4AF37]/5">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl lg:text-5xl font-bold text-slate-800 mb-6 leading-tight">
+              Ready to Continue Your Recovery?
             </h2>
-            <p className="text-xl text-white/90 mb-10">
-              Book your assessment today and take the first step towards better movement and less pain.
+            <p className="text-xl text-slate-600 mb-12 leading-relaxed">
+              Book your assessment today and take the next step towards better movement and less pain.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

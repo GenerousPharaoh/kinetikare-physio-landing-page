@@ -1,7 +1,6 @@
 "use client";
 
 import React from 'react';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { 
   MapPinIcon, 
@@ -34,13 +33,7 @@ export default function ContactSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Premium Section Header */}
-          <motion.div 
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
-            viewport={{ once: true, margin: "0px 0px -20% 0px" }}
-            className="text-center mb-16 sm:mb-20"
-          >
+          <div className="text-center mb-16 sm:mb-20">
             <div className="relative inline-block mb-6 sm:mb-8">
               <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 mb-6 sm:mb-8 tracking-tight leading-[0.9]">
                 Get in <span className="text-[#B08D57] relative">
@@ -53,16 +46,11 @@ export default function ContactSection() {
             <p className="text-2xl lg:text-3xl font-light text-slate-600 mb-8 leading-relaxed">
               Ready to move forward in your recovery journey? Experience personalized physiotherapy care designed to help you move and feel your best.
             </p>
-          </motion.div>
+          </div>
 
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20">
             {/* Left Column - Contact Information Only */}
-            <motion.div 
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-              viewport={{ once: true, margin: "0px 0px -15% 0px" }}
-            >
+            <div>
               {/* Single Consolidated Contact Card */}
               <div className="bg-white/95 backdrop-blur-2xl rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl border border-slate-200/60">
                 <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-8 sm:mb-10 tracking-tight text-center">Contact Information</h3>
@@ -131,16 +119,10 @@ export default function ContactSection() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
             {/* Right Column - Simplified CTA */}
-            <motion.div 
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-              viewport={{ once: true, margin: "0px 0px -5% 0px" }}
-              className="flex flex-col justify-start"
-            >
+            <div className="flex flex-col justify-start">
               {/* Simplified Book Appointment CTA */}
               <div className="bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-3xl p-6 sm:p-8 lg:p-12 text-white relative overflow-hidden shadow-2xl">
                 {/* Premium background pattern */}
@@ -190,17 +172,11 @@ export default function ContactSection() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
 
-          {/* Full-Width Service Areas Section */}
-          <motion.div 
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            viewport={{ once: true, margin: "0px 0px -5% 0px" }}
-            className="mt-16 sm:mt-20"
-          >
+          {/* Service Areas Section - Static */}
+          <div className="mt-16 sm:mt-20">
             <div className="bg-gradient-to-br from-white via-slate-50/50 to-white backdrop-blur-2xl rounded-3xl p-6 sm:p-8 lg:p-12 shadow-2xl border border-slate-200/60 relative overflow-hidden">
               {/* Premium background elements */}
               <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-[#B08D57]/8 to-transparent rounded-full blur-3xl"></div>
@@ -216,15 +192,9 @@ export default function ContactSection() {
               <div className="relative z-10">
                 {/* Enhanced Header */}
                 <div className="text-center mb-12 sm:mb-16">
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    viewport={{ once: true }}
-                    className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl mb-6 sm:mb-8 shadow-xl"
-                  >
+                  <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl mb-6 sm:mb-8 shadow-xl">
                     <MapPinIcon className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
-                  </motion.div>
+                  </div>
                   
                   <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 sm:mb-6 tracking-tight">
                     Service <span className="text-[#B08D57] relative">
@@ -241,23 +211,7 @@ export default function ContactSection() {
                 {/* Enhanced Service Areas Grid */}
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 mb-12 sm:mb-16">
                   {serviceAreas.map((area, index) => (
-                    <motion.div
-                      key={area}
-                      initial={{ opacity: 0, scale: 0.8, y: 20 }}
-                      whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                      transition={{ 
-                        duration: 0.4, 
-                        delay: 0.02 * index,
-                        ease: [0.16, 1, 0.3, 1]
-                      }}
-                      viewport={{ once: true, margin: "0px 0px -5% 0px" }}
-                      whileHover={{ 
-                        scale: 1.05, 
-                        y: -5,
-                        transition: { duration: 0.2 }
-                      }}
-                      className="group relative"
-                    >
+                    <div key={area} className="group relative">
                       <div className={`bg-white/80 backdrop-blur-sm text-slate-700 rounded-2xl p-4 sm:p-5 font-semibold border transition-all duration-500 cursor-default text-center relative overflow-hidden shadow-lg hover:shadow-xl ${
                         area === "Burlington" 
                           ? "border-[#B08D57]/40 bg-gradient-to-br from-[#B08D57]/5 to-[#D4AF37]/5 shadow-[#B08D57]/10" 
@@ -299,20 +253,14 @@ export default function ContactSection() {
                           <div className="absolute top-2 right-2 w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full shadow-sm animate-pulse"></div>
                         )}
                       </div>
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
                 
                 {/* Enhanced Description with Visual Elements */}
                 <div className="text-center relative">
                   <div className="max-w-4xl mx-auto">
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, delay: 0.4 }}
-                      viewport={{ once: true }}
-                      className="bg-gradient-to-r from-slate-50 to-white rounded-2xl p-6 sm:p-8 lg:p-10 border border-slate-200/60 shadow-lg relative overflow-hidden"
-                    >
+                    <div className="bg-gradient-to-r from-slate-50 to-white rounded-2xl p-6 sm:p-8 lg:p-10 border border-slate-200/60 shadow-lg relative overflow-hidden">
                       {/* Decorative elements */}
                       <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-[#B08D57]/5 to-transparent rounded-full blur-xl"></div>
                       <div className="absolute bottom-0 right-0 w-16 h-16 bg-gradient-to-tl from-[#D4AF37]/5 to-transparent rounded-full blur-lg"></div>
@@ -356,21 +304,15 @@ export default function ContactSection() {
                           <span className="text-[#B08D57] font-semibold">I invite you to get in touch.</span>
                         </p>
                       </div>
-                    </motion.div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Premium Bottom CTA Section */}
-          <motion.div 
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            viewport={{ once: true, margin: "0px 0px -5% 0px" }}
-            className="text-center mt-16 sm:mt-20 lg:mt-24"
-          >
+          <div className="text-center mt-16 sm:mt-20 lg:mt-24">
             <div className="bg-white/95 backdrop-blur-2xl rounded-[2rem] p-8 sm:p-12 lg:p-16 shadow-2xl border border-slate-200/60 max-w-5xl mx-auto relative overflow-hidden">
               {/* Premium background elements */}
               <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-[#B08D57]/5 to-transparent rounded-full blur-2xl"></div>
@@ -401,7 +343,7 @@ export default function ContactSection() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

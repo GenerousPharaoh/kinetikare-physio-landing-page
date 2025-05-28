@@ -4,15 +4,12 @@ import React from 'react';
 import Link from 'next/link';
 // import { Phone, Calendar } from 'lucide-react';
 import { PhoneIcon, CalendarDaysIcon } from '@heroicons/react/24/outline';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 interface BookingSectionProps {
   onNavLinkClick?: (targetId: string) => void; 
 }
 
 export default function BookingSection({ onNavLinkClick }: BookingSectionProps) {
-  const { ref, isVisible } = useScrollAnimation();
-
   // Simplified handler for contact link
   const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();

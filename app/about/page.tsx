@@ -245,79 +245,48 @@ export default function About() {
                 </div>
                   </div>
                   
-                  {/* Elegant Story Timeline */}
+                  {/* Journey Story - Clean Design */}
                   <div className="space-y-12">
-                    {/* Chapter 1: The Journey Begins */}
-                    <div className="relative">
-                      <div className="flex items-start space-x-6">
-                        <div className="flex-shrink-0 mt-2">
-                          <div className="w-4 h-4 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full shadow-md"></div>
-                          <div className="w-0.5 h-20 bg-gradient-to-b from-[#B08D57]/60 to-[#D4AF37]/30 mx-auto mt-3"></div>
-                        </div>
-                        <div className="flex-1">
-                          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-white/60 shadow-lg">
-                            <h3 className="text-2xl font-bold text-slate-800 mb-4 flex items-center">
-                              <span className="w-8 h-8 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-lg flex items-center justify-center text-white text-sm font-bold mr-3">1</span>
-                              The Foundation
-                            </h3>
-                            <p className="text-lg text-slate-700 leading-relaxed">
-                              My journey into physiotherapy wasn't merely academic—it was forged through personal experience. From competitive soccer and pursuing a Kinesiology degree at{" "}
-                              <span className="font-semibold text-[#B08D57]">McMaster University</span> to navigating my own significant injuries including debilitating disc herniations, I've experienced both sides of rehabilitation.
-                  </p>
-                          </div>
-                        </div>
+                    {/* First Story Block */}
+                    <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 sm:p-10 lg:p-12 border border-white/60 shadow-xl relative overflow-hidden">
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#B08D57]/8 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
+                      <div className="relative z-10">
+                        <p className="text-lg sm:text-xl text-slate-700 leading-relaxed mb-6">
+                          My journey into physiotherapy wasn't merely academic—it was forged through personal experience. From competitive soccer and pursuing a Kinesiology degree at{" "}
+                          <span className="font-semibold text-[#B08D57]">McMaster University</span> to navigating my own significant injuries including debilitating disc herniations, I've experienced both sides of rehabilitation.
+                        </p>
                       </div>
                     </div>
 
-                    {/* Chapter 2: The Transformation */}
-                    <div className="relative">
-                      <div className="flex items-start space-x-6">
-                        <div className="flex-shrink-0 mt-2">
-                          <div className="w-4 h-4 bg-gradient-to-r from-[#D4AF37] to-[#B08D57] rounded-full shadow-md"></div>
-                          <div className="w-0.5 h-20 bg-gradient-to-b from-[#D4AF37]/60 to-[#B08D57]/30 mx-auto mt-3"></div>
-                        </div>
-                        <div className="flex-1">
-                          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-white/60 shadow-lg">
-                            <h3 className="text-2xl font-bold text-slate-800 mb-4 flex items-center">
-                              <span className="w-8 h-8 bg-gradient-to-r from-[#D4AF37] to-[#B08D57] rounded-lg flex items-center justify-center text-white text-sm font-bold mr-3">2</span>
-                              The Awakening
-                            </h3>
-                            <p className="text-lg text-slate-700 leading-relaxed">
-                              These moments of vulnerability transformed my professional purpose, leading me to complete a{" "}
-                              <span className="font-semibold text-[#B08D57]">Master's in Physiotherapy from Robert Gordon University with distinction</span>. My education, combined with firsthand experience as a patient, has deeply informed my approach to care.
-                  </p>
-                          </div>
-                        </div>
+                    {/* Second Story Block */}
+                    <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 sm:p-10 lg:p-12 border border-white/60 shadow-xl relative overflow-hidden">
+                      <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-[#D4AF37]/8 to-transparent rounded-full -translate-y-16 -translate-x-16"></div>
+                      <div className="relative z-10">
+                        <p className="text-lg sm:text-xl text-slate-700 leading-relaxed mb-6">
+                          These moments of vulnerability transformed my professional purpose, leading me to complete a{" "}
+                          <span className="font-semibold text-[#B08D57]">Master's in Physiotherapy from Robert Gordon University with distinction</span>. My education, combined with firsthand experience as a patient, has deeply informed my approach to care.
+                        </p>
                       </div>
                     </div>
 
                     {/* Powerful Quote Section */}
-                    <div className="relative my-16">
-                      <div className="flex items-start space-x-6">
-                        <div className="flex-shrink-0 mt-2">
-                          <div className="w-4 h-4 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full shadow-md"></div>
-                        </div>
-                        <div className="flex-1">
-                          <div className="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-2xl p-10 shadow-2xl relative overflow-hidden">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#D4AF37]/20 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
-                            <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-[#B08D57]/20 to-transparent rounded-full translate-y-12 -translate-x-12"></div>
-                            
-                            <div className="relative z-10">
-                              <div className="flex items-center mb-6">
-                                <div className="w-1 h-16 bg-gradient-to-b from-[#D4AF37] to-[#B08D57] rounded-full mr-6"></div>
-                                <div>
-                                  <div className="text-[#D4AF37] text-sm font-semibold uppercase tracking-wider mb-1">Personal Insight</div>
-                                  <div className="text-white text-lg font-medium">From Patient to Practitioner</div>
-                                </div>
-                              </div>
-                              <blockquote className="text-2xl lg:text-3xl text-white font-light leading-relaxed italic mb-6">
-                                "Having sat on both sides of the treatment table, I recognize the profound difference between being processed through a system and being truly understood."
-                              </blockquote>
-                              <div className="text-right">
-                                <cite className="text-[#D4AF37] font-semibold not-italic text-lg">— Kareem Hassanein</cite>
-                              </div>
-                            </div>
+                    <div className="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-3xl p-8 sm:p-10 lg:p-12 shadow-2xl relative overflow-hidden">
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#D4AF37]/20 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
+                      <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-[#B08D57]/20 to-transparent rounded-full translate-y-12 -translate-x-12"></div>
+                      
+                      <div className="relative z-10">
+                        <div className="flex items-center mb-6">
+                          <div className="w-1 h-16 bg-gradient-to-b from-[#D4AF37] to-[#B08D57] rounded-full mr-6"></div>
+                          <div>
+                            <div className="text-[#D4AF37] text-sm font-semibold uppercase tracking-wider mb-1">Personal Insight</div>
+                            <div className="text-white text-lg font-medium">From Patient to Practitioner</div>
                           </div>
+                        </div>
+                        <blockquote className="text-2xl lg:text-3xl text-white font-light leading-relaxed italic mb-6">
+                          "Having sat on both sides of the treatment table, I recognize the profound difference between being processed through a system and being truly understood."
+                        </blockquote>
+                        <div className="text-right">
+                          <cite className="text-[#D4AF37] font-semibold not-italic text-lg">— Kareem Hassanein</cite>
                         </div>
                       </div>
                     </div>

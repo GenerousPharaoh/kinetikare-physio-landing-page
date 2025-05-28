@@ -2,135 +2,133 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
+import { 
+  UserIcon, 
+  DocumentTextIcon, 
+  WrenchScrewdriverIcon, 
+  CheckCircleIcon 
+} from '@heroicons/react/24/outline';
 
-const CareJourneySection = () => {
-  const journeySteps = [
+export default function CareJourneySection() {
+  const steps = [
     {
       number: 1,
-      title: "Thorough Assessment",
-      description: "Comprehensive evaluation to understand your unique condition and identify root causes beyond symptoms",
-      gradient: "from-[#B08D57] to-[#D4AF37]",
-      bgGradient: "from-[#B08D57]/10 to-[#D4AF37]/5"
+      title: "Initial Assessment",
+      description: "Comprehensive evaluation of your condition, medical history, and movement patterns to understand your unique needs.",
+      icon: UserIcon,
+      color: "from-blue-500 to-indigo-600"
     },
     {
       number: 2,
-      title: "Expert Treatment",
-      description: "Advanced manual therapy techniques combined with evidence-based interventions for optimal healing",
-      gradient: "from-[#A17D47] to-[#B08D57]",
-      bgGradient: "from-[#A17D47]/10 to-[#B08D57]/5"
+      title: "Treatment Planning",
+      description: "Development of a personalized treatment plan with clear goals, timelines, and evidence-based interventions.",
+      icon: DocumentTextIcon,
+      color: "from-emerald-500 to-green-600"
     },
     {
       number: 3,
-      title: "Personalized Plan",
-      description: "Customized exercise programs and rehabilitation strategies tailored to your specific needs and goals",
-      gradient: "from-[#D4AF37] to-[#B08D57]",
-      bgGradient: "from-[#D4AF37]/10 to-[#B08D57]/5"
+      title: "Active Treatment",
+      description: "Hands-on therapy, exercise prescription, and education to address your specific condition and restore function.",
+      icon: WrenchScrewdriverIcon,
+      color: "from-amber-500 to-orange-600"
     },
     {
       number: 4,
-      title: "Ongoing Support",
-      description: "Continuous guidance and progress monitoring to help you maintain improvements and prevent future issues",
-      gradient: "from-[#B08D57] to-[#A17D47]",
-      bgGradient: "from-[#B08D57]/10 to-[#A17D47]/5"
+      title: "Recovery & Prevention",
+      description: "Ongoing support, home exercise programs, and strategies to prevent re-injury and maintain long-term health.",
+      icon: CheckCircleIcon,
+      color: "from-purple-500 to-violet-600"
     }
   ];
 
   return (
-    <section className="py-24 lg:py-32 bg-gradient-to-b from-white via-slate-50/30 to-white relative overflow-hidden">
+    <section className="py-24 bg-white relative overflow-hidden">
       {/* Background decorative elements */}
-      <div className="absolute top-1/4 left-0 w-72 h-72 bg-gradient-to-br from-[#D4AF37]/8 to-transparent rounded-full blur-3xl"></div>
-      <div className="absolute bottom-1/4 right-0 w-72 h-72 bg-gradient-to-tl from-[#B08D57]/8 to-transparent rounded-full blur-3xl"></div>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-gradient-to-b from-[#B08D57]/5 to-transparent rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-tl from-[#D4AF37]/5 to-transparent rounded-full blur-3xl"></div>
       
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "0px 0px -5% 0px" }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="text-center mb-20"
-          >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 tracking-tight">
-              Your Care <span className="text-[#B08D57]">Journey</span>
+          <div className="text-center mb-16 sm:mb-20">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-slate-900 mb-6 tracking-tight leading-tight">
+              Your <span className="text-[#B08D57] relative">
+                Care Journey
+                <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
+              </span>
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mx-auto mb-8 rounded-full"></div>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              A systematic approach to physiotherapy focused on understanding, treating, and empowering your recovery
+            <p className="text-xl lg:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed font-light">
+              A structured, personalized approach to your recovery designed to deliver measurable results
             </p>
-          </motion.div>
+          </div>
 
-          {/* Steps Grid - All visible at once */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-            {journeySteps.map((step, index) => (
-              <motion.div
-                key={step.number}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "0px 0px -5% 0px" }}
-                transition={{ duration: 0.4, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
-                className="relative group"
-              >
-                <div className="bg-white/95 backdrop-blur-xl rounded-2xl p-6 shadow-lg border border-white/60 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
-                  {/* Background gradient */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${step.bgGradient} rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+          {/* Care Journey Steps Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
+            {steps.map((step, index) => (
+              <div key={step.number} className="group">
+                <div className="relative">
+                  {/* Connection Line (hidden on mobile, visible on lg+) */}
+                  {index < steps.length - 1 && (
+                    <div className="hidden lg:block absolute top-16 left-full w-12 h-0.5 bg-gradient-to-r from-[#B08D57]/30 to-[#D4AF37]/30 transform translate-x-0"></div>
+                  )}
                   
-                  {/* Content */}
-                  <div className="relative z-10">
-                    {/* Number Badge */}
-                    <div className={`w-16 h-16 bg-gradient-to-br ${step.gradient} rounded-xl flex items-center justify-center mb-6 shadow-lg`}>
-                      <span className="text-white text-2xl font-bold">{step.number}</span>
+                  {/* Step Card */}
+                  <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-slate-200/60 shadow-lg hover:shadow-xl hover:border-[#B08D57]/30 transition-all duration-500 relative overflow-hidden group-hover:scale-[1.02]">
+                    {/* Background pattern */}
+                    <div className="absolute inset-0 opacity-[0.02]" style={{
+                      backgroundImage: `radial-gradient(circle at 2px 2px, rgba(176, 141, 87, 0.3) 1px, transparent 0)`,
+                      backgroundSize: '32px 32px'
+                    }}></div>
+                    
+                    {/* Step Number */}
+                    <div className="relative z-10 mb-6">
+                      <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${step.color} rounded-2xl shadow-lg mb-4`}>
+                        <step.icon className="w-8 h-8 text-white" />
+                      </div>
+                      <div className="inline-flex items-center justify-center w-8 h-8 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full text-white font-bold text-sm shadow-md">
+                        {step.number}
+                      </div>
                     </div>
                     
-                    {/* Title */}
-                    <h3 className="text-xl font-bold text-slate-900 mb-4 leading-tight">
-                      {step.title}
-                    </h3>
+                    {/* Step Content */}
+                    <div className="relative z-10">
+                      <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4 group-hover:text-[#B08D57] transition-colors duration-300">
+                        {step.title}
+                      </h3>
+                      <p className="text-slate-600 leading-relaxed text-base sm:text-lg">
+                        {step.description}
+                      </p>
+                    </div>
                     
-                    {/* Description */}
-                    <p className="text-slate-600 leading-relaxed text-sm">
-                      {step.description}
-                    </p>
+                    {/* Decorative corner accent */}
+                    <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-[#D4AF37]/10 to-transparent rounded-bl-3xl"></div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
 
-          {/* CTA Buttons */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "0px 0px -5% 0px" }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-            className="flex flex-col sm:flex-row gap-6 justify-center"
-          >
-            <Link
-              href="/about"
-              className="group inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105"
-            >
-              <span>Learn About My Approach</span>
-              <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-            
-            <Link
-              href="https://endorphinshealth.janeapp.com/#/staff_member/42"
-              target="_blank"
-              className="group inline-flex items-center justify-center px-8 py-4 bg-white/90 backdrop-blur-xl text-slate-700 rounded-xl font-semibold shadow-lg border border-white/60 hover:bg-white hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-            >
-              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-              <span>Start Your Journey</span>
-            </Link>
-          </motion.div>
+          {/* Bottom CTA */}
+          <div className="text-center mt-16 sm:mt-20">
+            <div className="bg-gradient-to-br from-slate-50 to-white rounded-3xl p-8 sm:p-12 border border-slate-200/60 shadow-lg max-w-4xl mx-auto">
+              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4 sm:mb-6">
+                Ready to Begin Your Recovery Journey?
+              </h3>
+              <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+                Every step is designed around your specific needs and goals. Let's start with a comprehensive assessment.
+              </p>
+              <a
+                href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white rounded-2xl font-bold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 text-lg"
+              >
+                Book Your Assessment
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
-};
-
-export default CareJourneySection; 
+} 

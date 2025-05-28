@@ -286,7 +286,7 @@ export default function About() {
                           "Having sat on both sides of the treatment table, I recognize the profound difference between being processed through a system and being truly understood."
                         </blockquote>
                         <div className="text-right">
-                          <cite className="text-[#D4AF37] font-semibold not-italic text-lg">— Kareem Hassanein</cite>
+                          <cite className="text-[#D4AF37] font-semibold not-italic text-lg">— K.H.</cite>
                         </div>
                       </div>
                     </div>

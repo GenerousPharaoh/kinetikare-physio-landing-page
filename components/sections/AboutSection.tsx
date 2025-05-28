@@ -16,9 +16,9 @@ export default function AboutSection() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left side - Image */}
-            <div className="relative">
-              <div className="relative w-full max-w-lg mx-auto lg:mx-0">
-                <div className="aspect-[4/5] relative rounded-3xl overflow-hidden shadow-2xl">
+            <div className="relative" style={{ willChange: 'auto', transform: 'none' }}>
+              <div className="relative w-full max-w-lg mx-auto lg:mx-0" style={{ willChange: 'auto', transform: 'none' }}>
+                <div className="aspect-[4/5] relative rounded-3xl overflow-hidden shadow-2xl" style={{ willChange: 'auto', transform: 'none' }}>
                   <Image
                     src="/images/kareem-profile.png"
                     alt="Kareem Hassanein, Physiotherapist"
@@ -26,13 +26,20 @@ export default function AboutSection() {
                     className="object-contain object-center"
                     style={{
                       filter: 'contrast(1.05) saturate(1.1) brightness(1.02)',
+                      willChange: 'auto',
+                      transform: 'none',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '100%',
+                      height: '100%'
                     }}
                   />
                 </div>
                 
                 {/* Floating accent elements */}
-                <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-[#D4AF37]/20 to-[#B08D57]/20 rounded-full blur-xl"></div>
-                <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-tr from-[#B08D57]/15 to-[#D4AF37]/15 rounded-full blur-2xl"></div>
+                <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-[#D4AF37]/20 to-[#B08D57]/20 rounded-full blur-xl" style={{ willChange: 'auto', transform: 'none' }}></div>
+                <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-tr from-[#B08D57]/15 to-[#D4AF37]/15 rounded-full blur-2xl" style={{ willChange: 'auto', transform: 'none' }}></div>
               </div>
             </div>
             

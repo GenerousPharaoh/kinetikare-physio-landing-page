@@ -216,105 +216,232 @@ export default function About() {
             
             {/* Main Content */}
             <div className="lg:col-span-3">
-              <h2 className="text-4xl font-heading font-bold mb-8 text-primary-800">
-                The Path That Shaped My Practice
-              </h2>
               
-              {/* Mobile integrated image and intro */}
-              <div className="lg:hidden mb-10">
-                <div className="w-36 h-44 float-left mr-6 mb-4 rounded-2xl overflow-hidden shadow-lg border border-neutral-200 bg-white">
-                  <ClientImage
-                    src="/images/kareem-profile.png"
-                    alt="Kareem Hassanein, Physiotherapist"
-                    width={500}
-                    height={600}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <div className="text-primary-700 leading-relaxed">
-                  <p className="mb-4 text-lg">
-                    My journey into physiotherapy wasn't merely academic—it was forged through personal experience. From competitive soccer and pursuing a Kinesiology degree at McMaster University to navigating my own significant injuries including debilitating disc herniations, I've experienced both sides of rehabilitation.
-                  </p>
-                  <p className="text-lg">
-                    These moments of vulnerability transformed my professional purpose, leading me to complete a Master's in Physiotherapy from Robert Gordon University with distinction. My education, combined with firsthand experience as a patient, has deeply informed my approach to care.
-                  </p>
-                </div>
-                <div className="clear-both"></div>
-              </div>
-              
-              <div className="prose prose-xl max-w-none prose-headings:font-heading prose-headings:text-primary-800 prose-p:text-primary-700">
-                <p className="hidden lg:block text-lg leading-relaxed">
-                  My journey into physiotherapy wasn't merely academic—it was forged through personal experience. From competitive soccer and pursuing a Kinesiology degree at McMaster University to navigating my own significant injuries including debilitating disc herniations, I've experienced both sides of rehabilitation.
-                </p>
-                <p className="hidden lg:block text-lg leading-relaxed">
-                  These moments of vulnerability transformed my professional purpose, leading me to complete a Master's in Physiotherapy from Robert Gordon University with distinction. My education, combined with firsthand experience as a patient, has deeply informed my approach to care.
-                </p>
+              {/* Hero Section with Story */}
+              <div className="relative mb-20">
+                <div className="absolute -top-8 -left-8 w-24 h-24 bg-gradient-to-br from-[#D4AF37]/20 to-[#B08D57]/10 rounded-full blur-2xl"></div>
+                <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-tl from-[#B08D57]/15 to-transparent rounded-full blur-3xl"></div>
                 
-                {/* Philosophy of Practice Section */}
-                <div className="py-16">
-                  <h3 className="text-3xl lg:text-4xl font-bold text-primary-800 mb-12 text-center relative pb-4">
-                    Philosophy of Practice
-                    <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-[#B08D57]"></span>
-                  </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                    {/* Card 1: Root Cause Resolution */}
-                    <div className="bg-white p-8 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center">
-                      <LightBulbIcon className="h-12 w-12 text-[#B08D57] mb-6" />
-                      <h4 className="font-semibold text-xl text-primary-800 mb-3">Root Cause Resolution</h4>
-                      <p className="text-primary-600 leading-relaxed">
-                        I don't just treat symptoms; I investigate underlying movement patterns to address what's truly driving your pain.
-                      </p>
-                    </div>
-                    {/* Card 2: Collaborative Partnership */}
-                    <div className="bg-white p-8 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center">
-                      <UserGroupIcon className="h-12 w-12 text-[#B08D57] mb-6" />
-                      <h4 className="font-semibold text-xl text-primary-800 mb-3">Collaborative Partnership</h4>
-                      <p className="text-primary-600 leading-relaxed">
-                        Your input is key. I listen, explain clearly, and involve you in every treatment decision.
-                      </p>
-                    </div>
-                    {/* Card 3: Personalized Progression */}
-                    <div className="bg-white p-8 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center">
-                      <AdjustmentsHorizontalIcon className="h-12 w-12 text-[#B08D57] mb-6" />
-                      <h4 className="font-semibold text-xl text-primary-800 mb-3">Personalized Progression</h4>
-                      <p className="text-primary-600 leading-relaxed">
-                        Recovery isn't linear. Your treatment evolves with you, adapting to optimize your unique healing journey.
-                      </p>
+                <div className="relative bg-gradient-to-br from-white via-slate-50/30 to-white border border-slate-200/60 rounded-3xl p-12 shadow-xl">
+                  <div className="absolute top-0 left-8 w-24 h-1 bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] rounded-full"></div>
+                  
+                  <h2 className="text-5xl lg:text-6xl font-bold mb-8 text-slate-800 leading-tight">
+                    The Path That Shaped My{" "}
+                    <span className="bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] bg-clip-text text-transparent">
+                      Practice
+                    </span>
+                  </h2>
+                  
+                  {/* Mobile integrated image and intro */}
+                  <div className="lg:hidden mb-10">
+                    <div className="w-40 h-48 float-left mr-8 mb-6 rounded-2xl overflow-hidden shadow-xl border-2 border-white bg-white">
+                      <ClientImage
+                        src="/images/kareem-profile.png"
+                        alt="Kareem Hassanein, Physiotherapist"
+                        width={500}
+                        height={600}
+                        className="w-full h-full object-contain"
+                      />
                     </div>
                   </div>
-                </div>
-                
-                <h3 className="text-3xl font-bold mt-16 mb-12 text-center">What Drives My Practice</h3>
-                
-                <div className="bg-gradient-to-br from-slate-50 to-white p-10 rounded-3xl border border-slate-200/50 shadow-lg mb-8">
-                  <div className="max-w-4xl mx-auto">
-                    <div className="flex items-start space-x-6">
-                      <div className="flex-shrink-0">
-                        <div className="w-1 h-20 bg-gradient-to-b from-[#B08D57] to-[#D4AF37] rounded-full"></div>
+                  
+                  {/* Elegant Story Timeline */}
+                  <div className="space-y-12">
+                    {/* Chapter 1: The Journey Begins */}
+                    <div className="relative">
+                      <div className="flex items-start space-x-6">
+                        <div className="flex-shrink-0 mt-2">
+                          <div className="w-4 h-4 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full shadow-md"></div>
+                          <div className="w-0.5 h-20 bg-gradient-to-b from-[#B08D57]/60 to-[#D4AF37]/30 mx-auto mt-3"></div>
+                        </div>
+                        <div className="flex-1">
+                          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-white/60 shadow-lg">
+                            <h3 className="text-2xl font-bold text-slate-800 mb-4 flex items-center">
+                              <span className="w-8 h-8 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-lg flex items-center justify-center text-white text-sm font-bold mr-3">1</span>
+                              The Foundation
+                            </h3>
+                            <p className="text-lg text-slate-700 leading-relaxed">
+                              My journey into physiotherapy wasn't merely academic—it was forged through personal experience. From competitive soccer and pursuing a Kinesiology degree at{" "}
+                              <span className="font-semibold text-[#B08D57]">McMaster University</span> to navigating my own significant injuries including debilitating disc herniations, I've experienced both sides of rehabilitation.
+                            </p>
+                          </div>
+                        </div>
                       </div>
-                      <div className="flex-1">
-                        <blockquote className="text-xl md:text-2xl text-slate-700 font-light leading-relaxed italic mb-6">
-                  "Having sat on both sides of the treatment table, I recognize the profound difference between being processed through a system and being truly understood."
-                </blockquote>
-                        <div className="text-right">
-                          <cite className="text-[#B08D57] font-semibold not-italic">— Kareem Hassanein</cite>
+                    </div>
+
+                    {/* Chapter 2: The Transformation */}
+                    <div className="relative">
+                      <div className="flex items-start space-x-6">
+                        <div className="flex-shrink-0 mt-2">
+                          <div className="w-4 h-4 bg-gradient-to-r from-[#D4AF37] to-[#B08D57] rounded-full shadow-md"></div>
+                          <div className="w-0.5 h-20 bg-gradient-to-b from-[#D4AF37]/60 to-[#B08D57]/30 mx-auto mt-3"></div>
+                        </div>
+                        <div className="flex-1">
+                          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-white/60 shadow-lg">
+                            <h3 className="text-2xl font-bold text-slate-800 mb-4 flex items-center">
+                              <span className="w-8 h-8 bg-gradient-to-r from-[#D4AF37] to-[#B08D57] rounded-lg flex items-center justify-center text-white text-sm font-bold mr-3">2</span>
+                              The Awakening
+                            </h3>
+                            <p className="text-lg text-slate-700 leading-relaxed">
+                              These moments of vulnerability transformed my professional purpose, leading me to complete a{" "}
+                              <span className="font-semibold text-[#B08D57]">Master's in Physiotherapy from Robert Gordon University with distinction</span>. My education, combined with firsthand experience as a patient, has deeply informed my approach to care.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Powerful Quote Section */}
+                    <div className="relative my-16">
+                      <div className="flex items-start space-x-6">
+                        <div className="flex-shrink-0 mt-2">
+                          <div className="w-4 h-4 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full shadow-md"></div>
+                        </div>
+                        <div className="flex-1">
+                          <div className="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-2xl p-10 shadow-2xl relative overflow-hidden">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#D4AF37]/20 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
+                            <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-[#B08D57]/20 to-transparent rounded-full translate-y-12 -translate-x-12"></div>
+                            
+                            <div className="relative z-10">
+                              <div className="flex items-center mb-6">
+                                <div className="w-1 h-16 bg-gradient-to-b from-[#D4AF37] to-[#B08D57] rounded-full mr-6"></div>
+                                <div>
+                                  <div className="text-[#D4AF37] text-sm font-semibold uppercase tracking-wider mb-1">Personal Insight</div>
+                                  <div className="text-white text-lg font-medium">From Patient to Practitioner</div>
+                                </div>
+                              </div>
+                              <blockquote className="text-2xl lg:text-3xl text-white font-light leading-relaxed italic mb-6">
+                                "Having sat on both sides of the treatment table, I recognize the profound difference between being processed through a system and being truly understood."
+                              </blockquote>
+                              <div className="text-right">
+                                <cite className="text-[#D4AF37] font-semibold not-italic text-lg">— Kareem Hassanein</cite>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="clear-both"></div>
+                </div>
+              </div>
+
+              {/* Philosophy of Practice Section */}
+              <div className="py-16">
+                <h3 className="text-3xl lg:text-4xl font-bold text-primary-800 mb-12 text-center relative pb-4">
+                  Philosophy of Practice
+                  <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-[#B08D57]"></span>
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                  {/* Card 1: Root Cause Resolution */}
+                  <div className="bg-white p-8 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center">
+                    <LightBulbIcon className="h-12 w-12 text-[#B08D57] mb-6" />
+                    <h4 className="font-semibold text-xl text-primary-800 mb-3">Root Cause Resolution</h4>
+                    <p className="text-primary-600 leading-relaxed">
+                      I don't just treat symptoms; I investigate underlying movement patterns to address what's truly driving your pain.
+                    </p>
+                  </div>
+                  {/* Card 2: Collaborative Partnership */}
+                  <div className="bg-white p-8 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center">
+                    <UserGroupIcon className="h-12 w-12 text-[#B08D57] mb-6" />
+                    <h4 className="font-semibold text-xl text-primary-800 mb-3">Collaborative Partnership</h4>
+                    <p className="text-primary-600 leading-relaxed">
+                      Your input is key. I listen, explain clearly, and involve you in every treatment decision.
+                    </p>
+                  </div>
+                  {/* Card 3: Personalized Progression */}
+                  <div className="bg-white p-8 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center">
+                    <AdjustmentsHorizontalIcon className="h-12 w-12 text-[#B08D57] mb-6" />
+                    <h4 className="font-semibold text-xl text-primary-800 mb-3">Personalized Progression</h4>
+                    <p className="text-primary-600 leading-relaxed">
+                      Recovery isn't linear. Your treatment evolves with you, adapting to optimize your unique healing journey.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              {/* What Drives My Practice - Enhanced Design */}
+              <div className="py-16">
+                <div className="text-center mb-16">
+                  <h3 className="text-4xl lg:text-5xl font-bold text-slate-800 mb-6 leading-tight">
+                    What Drives My{" "}
+                    <span className="bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] bg-clip-text text-transparent">
+                      Practice
+                    </span>
+                  </h3>
+                  <div className="w-24 h-1 bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] mx-auto rounded-full"></div>
+                </div>
+
+                {/* Three Core Principles in Elegant Cards */}
+                <div className="space-y-8">
+                  {/* Principle 1: Dual Perspective */}
+                  <div className="relative group">
+                    <div className="absolute -inset-4 bg-gradient-to-r from-[#B08D57]/20 via-[#D4AF37]/10 to-[#B08D57]/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+                    <div className="relative bg-white/95 backdrop-blur-sm border border-white/60 rounded-3xl p-10 lg:p-12 shadow-xl">
+                      <div className="flex items-start space-x-8">
+                        <div className="flex-shrink-0">
+                          <div className="w-16 h-16 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-2xl flex items-center justify-center shadow-lg">
+                            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                            </svg>
+                          </div>
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="text-2xl lg:text-3xl font-bold text-slate-800 mb-4">Lived Experience</h4>
+                          <p className="text-lg text-slate-700 leading-relaxed">
+                            My practice is built on firsthand experience—both as a clinician and as a patient who has navigated the frustrations of pain, slow recovery, and an often impersonal healthcare system. This dual perspective means I genuinely understand how easily patients can be overlooked.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Principle 2: Individualized Care */}
+                  <div className="relative group">
+                    <div className="absolute -inset-4 bg-gradient-to-r from-[#D4AF37]/20 via-[#B08D57]/10 to-[#D4AF37]/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+                    <div className="relative bg-white/95 backdrop-blur-sm border border-white/60 rounded-3xl p-10 lg:p-12 shadow-xl">
+                      <div className="flex items-start space-x-8">
+                        <div className="flex-shrink-0">
+                          <div className="w-16 h-16 bg-gradient-to-r from-[#D4AF37] to-[#B08D57] rounded-2xl flex items-center justify-center shadow-lg">
+                            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            </svg>
+                          </div>
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="text-2xl lg:text-3xl font-bold text-slate-800 mb-4">Personalized Excellence</h4>
+                          <p className="text-lg text-slate-700 leading-relaxed">
+                            I don't subscribe to high-volume, prescriptive protocols; instead, I focus on individualized care. Each patient receives a plan tailored to their unique needs, grounded in advanced manual therapy, exercise science, and a refusal to overlook the details that drive real outcomes and measurable progress.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Principle 3: Advocacy */}
+                  <div className="relative group">
+                    <div className="absolute -inset-4 bg-gradient-to-r from-[#B08D57]/20 via-[#D4AF37]/10 to-[#B08D57]/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+                    <div className="relative bg-white/95 backdrop-blur-sm border border-white/60 rounded-3xl p-10 lg:p-12 shadow-xl">
+                      <div className="flex items-start space-x-8">
+                        <div className="flex-shrink-0">
+                          <div className="w-16 h-16 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-2xl flex items-center justify-center shadow-lg">
+                            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                          </div>
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="text-2xl lg:text-3xl font-bold text-slate-800 mb-4">Your Healthcare Advocate</h4>
+                          <p className="text-lg text-slate-700 leading-relaxed">
+                            Beyond treatment, I take pride in acting as your advocate within a complex medical landscape. My standard for care isn't based on industry averages or convenient shortcuts—it's built on the dedicated attention and rigor you deserve.
+                          </p>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                
-                <div className="space-y-6 text-lg leading-relaxed">
-                <p>
-                  My practice is built on firsthand experience—both as a clinician and as a patient who has navigated the frustrations of pain, slow recovery, and an often impersonal healthcare system. This dual perspective means I genuinely understand how easily patients can be overlooked.
-                </p>
-                <p>
-                  I don't subscribe to high-volume, prescriptive protocols; instead, I focus on individualized care. Each patient receives a plan tailored to their unique needs, grounded in advanced manual therapy, exercise science, and a refusal to overlook the details that drive real outcomes and measurable progress.
-                </p>
-                <p>
-                  Beyond treatment, I take pride in acting as your advocate within a complex medical landscape. My standard for care isn't based on industry averages or convenient shortcuts—it's built on the dedicated attention and rigor you deserve.
-                </p>
-              </div>
               </div>
             </div>
           </div>

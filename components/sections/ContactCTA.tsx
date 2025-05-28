@@ -7,16 +7,12 @@ import Container from '@/components/ui/Container';
 interface ContactCTAProps {
   title?: string;
   subtitle?: string;
-  showPhoneNumber?: boolean;
-  showEmail?: boolean;
   className?: string;
 }
 
 const ContactCTA: React.FC<ContactCTAProps> = ({
   title = "Ready to Continue Your Recovery Journey?",
-  subtitle = "Experience personalized physiotherapy care designed to help you move and feel your best.",
-  showPhoneNumber = true,
-  showEmail = true,
+  subtitle = "Take the next step towards better movement and less pain with personalized physiotherapy care.",
   className = '',
 }) => {
   return (
@@ -56,36 +52,32 @@ const ContactCTA: React.FC<ContactCTAProps> = ({
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            {showPhoneNumber && (
-              <motion.div
-                whileHover={{ y: -5 }}
-                transition={{ type: "spring", stiffness: 300, damping: 10 }}
+            <motion.div
+              whileHover={{ y: -5 }}
+              transition={{ type: "spring", stiffness: 300, damping: 10 }}
+            >
+              <Link 
+                href="https://endorphinshealth.janeapp.com/#/staff_member/42" 
+                target="_blank"
+                className="bg-accent hover:bg-accent-dark text-white font-medium px-8 py-4 rounded-xl transition-all duration-300 flex items-center shadow-lg"
               >
-                <Link 
-                  href="https://endorphinshealth.janeapp.com/#/staff_member/42" 
-                  target="_blank"
-                  className="bg-accent hover:bg-accent-dark text-white font-medium px-8 py-4 rounded-xl transition-all duration-300 flex items-center shadow-lg"
-                >
-                  <PhoneIcon className="w-5 h-5 mr-2" />
-                  Book an Appointment
-                </Link>
-              </motion.div>
-            )}
+                <PhoneIcon className="w-5 h-5 mr-2" />
+                Book an Appointment
+              </Link>
+            </motion.div>
             
-            {showEmail && (
-              <motion.div
-                whileHover={{ y: -5 }}
-                transition={{ type: "spring", stiffness: 300, damping: 10 }}
+            <motion.div
+              whileHover={{ y: -5 }}
+              transition={{ type: "spring", stiffness: 300, damping: 10 }}
+            >
+              <Link 
+                href="/contact" 
+                className="bg-white/15 hover:bg-white/25 backdrop-blur-sm text-white font-medium px-8 py-4 rounded-xl transition-all duration-300 flex items-center border border-white/30 shadow-lg"
               >
-                <Link 
-                  href="/contact" 
-                  className="bg-white/15 hover:bg-white/25 backdrop-blur-sm text-white font-medium px-8 py-4 rounded-xl transition-all duration-300 flex items-center border border-white/30 shadow-lg"
-                >
-                  <EnvelopeIcon className="w-5 h-5 mr-2" />
-                  Contact Us
-                </Link>
-              </motion.div>
-            )}
+                <EnvelopeIcon className="w-5 h-5 mr-2" />
+                Contact Us
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </Container>

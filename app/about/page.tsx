@@ -231,18 +231,18 @@ export default function About() {
                       Practice
                     </span>
                   </h2>
-                  
-                  {/* Mobile integrated image and intro */}
-                  <div className="lg:hidden mb-10">
+              
+              {/* Mobile integrated image and intro */}
+              <div className="lg:hidden mb-10">
                     <div className="w-40 h-48 float-left mr-8 mb-6 rounded-2xl overflow-hidden shadow-xl border-2 border-white bg-white">
-                      <ClientImage
-                        src="/images/kareem-profile.png"
-                        alt="Kareem Hassanein, Physiotherapist"
-                        width={500}
-                        height={600}
-                        className="w-full h-full object-contain"
-                      />
-                    </div>
+                  <ClientImage
+                    src="/images/kareem-profile.png"
+                    alt="Kareem Hassanein, Physiotherapist"
+                    width={500}
+                    height={600}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
                   </div>
                   
                   {/* Elegant Story Timeline */}
@@ -326,41 +326,41 @@ export default function About() {
                   <div className="clear-both"></div>
                 </div>
               </div>
-
-              {/* Philosophy of Practice Section */}
-              <div className="py-16">
-                <h3 className="text-3xl lg:text-4xl font-bold text-primary-800 mb-12 text-center relative pb-4">
-                  Philosophy of Practice
-                  <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-[#B08D57]"></span>
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                  {/* Card 1: Root Cause Resolution */}
-                  <div className="bg-white p-8 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center">
-                    <LightBulbIcon className="h-12 w-12 text-[#B08D57] mb-6" />
-                    <h4 className="font-semibold text-xl text-primary-800 mb-3">Root Cause Resolution</h4>
-                    <p className="text-primary-600 leading-relaxed">
-                      I don't just treat symptoms; I investigate underlying movement patterns to address what's truly driving your pain.
-                    </p>
-                  </div>
-                  {/* Card 2: Collaborative Partnership */}
-                  <div className="bg-white p-8 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center">
-                    <UserGroupIcon className="h-12 w-12 text-[#B08D57] mb-6" />
-                    <h4 className="font-semibold text-xl text-primary-800 mb-3">Collaborative Partnership</h4>
-                    <p className="text-primary-600 leading-relaxed">
-                      Your input is key. I listen, explain clearly, and involve you in every treatment decision.
-                    </p>
-                  </div>
-                  {/* Card 3: Personalized Progression */}
-                  <div className="bg-white p-8 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center">
-                    <AdjustmentsHorizontalIcon className="h-12 w-12 text-[#B08D57] mb-6" />
-                    <h4 className="font-semibold text-xl text-primary-800 mb-3">Personalized Progression</h4>
-                    <p className="text-primary-600 leading-relaxed">
-                      Recovery isn't linear. Your treatment evolves with you, adapting to optimize your unique healing journey.
-                    </p>
+                
+                {/* Philosophy of Practice Section */}
+                <div className="py-16">
+                  <h3 className="text-3xl lg:text-4xl font-bold text-primary-800 mb-12 text-center relative pb-4">
+                    Philosophy of Practice
+                    <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-[#B08D57]"></span>
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                    {/* Card 1: Root Cause Resolution */}
+                    <div className="bg-white p-8 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center">
+                      <LightBulbIcon className="h-12 w-12 text-[#B08D57] mb-6" />
+                      <h4 className="font-semibold text-xl text-primary-800 mb-3">Root Cause Resolution</h4>
+                      <p className="text-primary-600 leading-relaxed">
+                        I don't just treat symptoms; I investigate underlying movement patterns to address what's truly driving your pain.
+                      </p>
+                    </div>
+                    {/* Card 2: Collaborative Partnership */}
+                    <div className="bg-white p-8 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center">
+                      <UserGroupIcon className="h-12 w-12 text-[#B08D57] mb-6" />
+                      <h4 className="font-semibold text-xl text-primary-800 mb-3">Collaborative Partnership</h4>
+                      <p className="text-primary-600 leading-relaxed">
+                        Your input is key. I listen, explain clearly, and involve you in every treatment decision.
+                      </p>
+                    </div>
+                    {/* Card 3: Personalized Progression */}
+                    <div className="bg-white p-8 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center">
+                      <AdjustmentsHorizontalIcon className="h-12 w-12 text-[#B08D57] mb-6" />
+                      <h4 className="font-semibold text-xl text-primary-800 mb-3">Personalized Progression</h4>
+                      <p className="text-primary-600 leading-relaxed">
+                        Recovery isn't linear. Your treatment evolves with you, adapting to optimize your unique healing journey.
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-              
+                
               {/* What Drives My Practice - Enhanced Design */}
               <div className="py-16">
                 <div className="text-center mb-16">
@@ -403,7 +403,7 @@ export default function About() {
                     <div className="absolute -inset-4 bg-gradient-to-r from-[#D4AF37]/20 via-[#B08D57]/10 to-[#D4AF37]/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
                     <div className="relative bg-white/95 backdrop-blur-sm border border-white/60 rounded-3xl p-10 lg:p-12 shadow-xl">
                       <div className="flex items-start space-x-8">
-                        <div className="flex-shrink-0">
+                      <div className="flex-shrink-0">
                           <div className="w-16 h-16 bg-gradient-to-r from-[#D4AF37] to-[#B08D57] rounded-2xl flex items-center justify-center shadow-lg">
                             <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -431,8 +431,8 @@ export default function About() {
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                             </svg>
                           </div>
-                        </div>
-                        <div className="flex-1">
+                      </div>
+                      <div className="flex-1">
                           <h4 className="text-2xl lg:text-3xl font-bold text-slate-800 mb-4">Your Healthcare Advocate</h4>
                           <p className="text-lg text-slate-700 leading-relaxed">
                             Beyond treatment, I take pride in acting as your advocate within a complex medical landscape. My standard for care isn't based on industry averages or convenient shortcuts—it's built on the dedicated attention and rigor you deserve.
@@ -441,7 +441,7 @@ export default function About() {
                       </div>
                     </div>
                   </div>
-                </div>
+              </div>
               </div>
             </div>
           </div>

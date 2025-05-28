@@ -50,7 +50,7 @@ export default function ContactSection() {
               </h2>
             </div>
             
-            <p className="text-lg sm:text-xl lg:text-2xl text-slate-700 leading-relaxed font-medium mb-8">
+            <p className="text-lg sm:text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed font-light px-4">
               Ready to continue your recovery journey? Experience personalized physiotherapy care designed to help you move and feel your best.
             </p>
           </motion.div>
@@ -327,11 +327,7 @@ export default function ContactSection() {
                         </div>
                         
                         <p className="text-slate-700 leading-relaxed font-medium text-lg sm:text-xl lg:text-2xl mb-6">
-                          My practice is conveniently located in{" "}
-                          <span className="font-bold text-[#B08D57] bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 px-2 py-1 rounded-lg">
-                            Burlington
-                          </span>
-                          , and I'm pleased to extend my physiotherapy services to individuals and families throughout our surrounding communities.
+                          Ready to continue your recovery journey? Experience personalized physiotherapy care designed to help you move and feel your best.
                         </p>
                         
                         <div className="flex items-center justify-center space-x-4 mb-6">

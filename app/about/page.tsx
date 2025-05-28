@@ -222,36 +222,36 @@ export default function About() {
                 <div className="absolute -top-8 -left-8 w-24 h-24 bg-gradient-to-br from-[#D4AF37]/20 to-[#B08D57]/10 rounded-full blur-2xl"></div>
                 <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-tl from-[#B08D57]/15 to-transparent rounded-full blur-3xl"></div>
                 
-                <div className="relative bg-gradient-to-br from-white via-slate-50/30 to-white border border-slate-200/60 rounded-3xl p-12 shadow-xl">
-                  <div className="absolute top-0 left-8 w-24 h-1 bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] rounded-full"></div>
+                <div className="relative bg-gradient-to-br from-white via-slate-50/30 to-white border border-slate-200/60 rounded-3xl p-6 sm:p-8 md:p-12 shadow-xl">
+                  <div className="absolute top-0 left-4 sm:left-8 w-16 sm:w-24 h-1 bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] rounded-full"></div>
                   
-                  <h2 className="text-5xl lg:text-6xl font-bold mb-8 text-slate-800 leading-tight">
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 text-slate-800 leading-tight">
                     The Path That Shaped My{" "}
                     <span className="bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] bg-clip-text text-transparent">
                       Practice
                     </span>
-              </h2>
+                  </h2>
               
-              {/* Mobile integrated image and intro */}
-              <div className="lg:hidden mb-10">
-                    <div className="w-40 h-48 float-left mr-8 mb-6 rounded-2xl overflow-hidden shadow-xl border-2 border-white bg-white">
-                  <ClientImage
-                    src="/images/kareem-profile.png"
-                    alt="Kareem Hassanein, Physiotherapist"
-                    width={500}
-                    height={600}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
+                  {/* Mobile integrated image and intro */}
+                  <div className="lg:hidden mb-8">
+                    <div className="w-32 sm:w-40 h-40 sm:h-48 float-left mr-4 sm:mr-8 mb-4 sm:mb-6 rounded-2xl overflow-hidden shadow-xl border-2 border-white bg-white">
+                      <ClientImage
+                        src="/images/kareem-profile.png"
+                        alt="Kareem Hassanein, Physiotherapist"
+                        width={500}
+                        height={600}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
                   </div>
                   
-                  {/* Journey Story - Clean Design */}
-                  <div className="space-y-12">
+                  {/* Journey Story - Clean Design with better mobile spacing */}
+                  <div className="space-y-8 sm:space-y-12">
                     {/* First Story Block */}
-                    <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 sm:p-10 lg:p-12 border border-white/60 shadow-xl relative overflow-hidden">
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#B08D57]/8 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
+                    <div className="bg-white/95 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 border border-white/60 shadow-xl relative overflow-hidden">
+                      <div className="absolute top-0 right-0 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br from-[#B08D57]/8 to-transparent rounded-full -translate-y-12 sm:-translate-y-16 translate-x-12 sm:translate-x-16"></div>
                       <div className="relative z-10">
-                        <p className="text-lg sm:text-xl text-slate-700 leading-relaxed mb-6">
+                        <p className="text-base sm:text-lg lg:text-xl text-slate-700 leading-relaxed mb-4 sm:mb-6">
                           My journey into physiotherapy wasn't merely academic—it was forged through personal experience. From competitive soccer and pursuing a Kinesiology degree at{" "}
                           <span className="font-semibold text-[#B08D57]">McMaster University</span> to navigating my own significant injuries including debilitating disc herniations, I've experienced both sides of rehabilitation.
                         </p>
@@ -259,34 +259,34 @@ export default function About() {
                     </div>
 
                     {/* Second Story Block */}
-                    <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 sm:p-10 lg:p-12 border border-white/60 shadow-xl relative overflow-hidden">
-                      <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-[#D4AF37]/8 to-transparent rounded-full -translate-y-16 -translate-x-16"></div>
+                    <div className="bg-white/95 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 border border-white/60 shadow-xl relative overflow-hidden">
+                      <div className="absolute top-0 left-0 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br from-[#D4AF37]/8 to-transparent rounded-full -translate-y-12 sm:-translate-y-16 -translate-x-12 sm:-translate-x-16"></div>
                       <div className="relative z-10">
-                        <p className="text-lg sm:text-xl text-slate-700 leading-relaxed mb-6">
+                        <p className="text-base sm:text-lg lg:text-xl text-slate-700 leading-relaxed mb-4 sm:mb-6">
                           These moments of vulnerability transformed my professional purpose, leading me to complete a{" "}
                           <span className="font-semibold text-[#B08D57]">Master's in Physiotherapy from Robert Gordon University with distinction</span>. My education, combined with firsthand experience as a patient, has deeply informed my approach to care.
                         </p>
                       </div>
                     </div>
 
-                    {/* Powerful Quote Section */}
-                    <div className="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-3xl p-8 sm:p-10 lg:p-12 shadow-2xl relative overflow-hidden">
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#D4AF37]/20 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
-                      <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-[#B08D57]/20 to-transparent rounded-full translate-y-12 -translate-x-12"></div>
+                    {/* Powerful Quote Section - Mobile Optimized */}
+                    <div className="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 shadow-2xl relative overflow-hidden">
+                      <div className="absolute top-0 right-0 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br from-[#D4AF37]/20 to-transparent rounded-full -translate-y-12 sm:-translate-y-16 translate-x-12 sm:translate-x-16"></div>
+                      <div className="absolute bottom-0 left-0 w-20 sm:w-24 h-20 sm:h-24 bg-gradient-to-tr from-[#B08D57]/20 to-transparent rounded-full translate-y-10 sm:translate-y-12 -translate-x-10 sm:-translate-x-12"></div>
                       
                       <div className="relative z-10">
-                        <div className="flex items-center mb-6">
-                          <div className="w-1 h-16 bg-gradient-to-b from-[#D4AF37] to-[#B08D57] rounded-full mr-6"></div>
+                        <div className="flex items-center mb-4 sm:mb-6">
+                          <div className="w-1 h-12 sm:h-16 bg-gradient-to-b from-[#D4AF37] to-[#B08D57] rounded-full mr-4 sm:mr-6"></div>
                           <div>
-                            <div className="text-[#D4AF37] text-sm font-semibold uppercase tracking-wider mb-1">Personal Insight</div>
-                            <div className="text-white text-lg font-medium">From Patient to Practitioner</div>
+                            <div className="text-[#D4AF37] text-xs sm:text-sm font-semibold uppercase tracking-wider mb-1">Personal Insight</div>
+                            <div className="text-white text-base sm:text-lg font-medium">From Patient to Practitioner</div>
                           </div>
                         </div>
-                        <blockquote className="text-2xl lg:text-3xl text-white font-light leading-relaxed italic mb-6">
+                        <blockquote className="text-lg sm:text-xl lg:text-2xl xl:text-3xl text-white font-light leading-relaxed italic mb-4 sm:mb-6">
                           "Having sat on both sides of the treatment table, I recognize the profound difference between being processed through a system and being truly understood."
                         </blockquote>
                         <div className="text-right">
-                          <cite className="text-[#D4AF37] font-semibold not-italic text-lg">— K.H.</cite>
+                          <cite className="text-[#D4AF37] font-semibold not-italic text-base sm:text-lg">— K.H.</cite>
                         </div>
                       </div>
                     </div>
@@ -332,34 +332,34 @@ export default function About() {
                 
               {/* What Drives My Practice - Enhanced Design */}
               <div className="py-16">
-                <div className="text-center mb-16">
-                  <h3 className="text-4xl lg:text-5xl font-bold text-slate-800 mb-6 leading-tight">
+                <div className="text-center mb-12 sm:mb-16">
+                  <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 mb-4 sm:mb-6 leading-tight">
                     What Drives My{" "}
                     <span className="bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] bg-clip-text text-transparent">
                       Practice
                     </span>
                   </h3>
-                  <div className="w-24 h-1 bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] mx-auto rounded-full"></div>
+                  <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] mx-auto rounded-full"></div>
                 </div>
 
-                {/* Three Core Principles in Elegant Cards */}
-                <div className="space-y-8">
+                {/* Three Core Principles in Elegant Cards - Mobile Optimized */}
+                <div className="space-y-6 sm:space-y-8">
                   {/* Principle 1: Dual Perspective */}
                   <div className="relative group">
-                    <div className="absolute -inset-4 bg-gradient-to-r from-[#B08D57]/20 via-[#D4AF37]/10 to-[#B08D57]/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-                    <div className="relative bg-white/95 backdrop-blur-sm border border-white/60 rounded-3xl p-10 lg:p-12 shadow-xl">
-                      <div className="flex items-start space-x-8">
-                        <div className="flex-shrink-0">
-                          <div className="w-16 h-16 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-2xl flex items-center justify-center shadow-lg">
-                            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-[#B08D57]/20 via-[#D4AF37]/10 to-[#B08D57]/20 rounded-2xl sm:rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+                    <div className="relative bg-white/95 backdrop-blur-sm border border-white/60 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl">
+                      <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6 lg:space-x-8">
+                        <div className="flex-shrink-0 mx-auto sm:mx-0">
+                          <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg">
+                            <svg className="w-7 h-7 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                             </svg>
                           </div>
                         </div>
-                        <div className="flex-1">
-                          <h4 className="text-2xl lg:text-3xl font-bold text-slate-800 mb-4">Lived Experience</h4>
-                          <p className="text-lg text-slate-700 leading-relaxed">
+                        <div className="flex-1 text-center sm:text-left">
+                          <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-800 mb-3 sm:mb-4">Lived Experience</h4>
+                          <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
                             My practice is built on firsthand experience—both as a clinician and as a patient who has navigated the frustrations of pain, slow recovery, and an often impersonal healthcare system. This dual perspective means I genuinely understand how easily patients can be overlooked.
                           </p>
                         </div>
@@ -369,19 +369,19 @@ export default function About() {
 
                   {/* Principle 2: Individualized Care */}
                   <div className="relative group">
-                    <div className="absolute -inset-4 bg-gradient-to-r from-[#D4AF37]/20 via-[#B08D57]/10 to-[#D4AF37]/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-                    <div className="relative bg-white/95 backdrop-blur-sm border border-white/60 rounded-3xl p-10 lg:p-12 shadow-xl">
-                      <div className="flex items-start space-x-8">
-                      <div className="flex-shrink-0">
-                          <div className="w-16 h-16 bg-gradient-to-r from-[#D4AF37] to-[#B08D57] rounded-2xl flex items-center justify-center shadow-lg">
-                            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-[#D4AF37]/20 via-[#B08D57]/10 to-[#D4AF37]/20 rounded-2xl sm:rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+                    <div className="relative bg-white/95 backdrop-blur-sm border border-white/60 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl">
+                      <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6 lg:space-x-8">
+                        <div className="flex-shrink-0 mx-auto sm:mx-0">
+                          <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-r from-[#D4AF37] to-[#B08D57] rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg">
+                            <svg className="w-7 h-7 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                             </svg>
                           </div>
                         </div>
-                        <div className="flex-1">
-                          <h4 className="text-2xl lg:text-3xl font-bold text-slate-800 mb-4">Personalized Excellence</h4>
-                          <p className="text-lg text-slate-700 leading-relaxed">
+                        <div className="flex-1 text-center sm:text-left">
+                          <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-800 mb-3 sm:mb-4">Personalized Excellence</h4>
+                          <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
                             I don't subscribe to high-volume, prescriptive protocols; instead, I focus on individualized care. Each patient receives a plan tailored to their unique needs, grounded in advanced manual therapy, exercise science, and a refusal to overlook the details that drive real outcomes and measurable progress.
                           </p>
                         </div>
@@ -391,26 +391,26 @@ export default function About() {
 
                   {/* Principle 3: Advocacy */}
                   <div className="relative group">
-                    <div className="absolute -inset-4 bg-gradient-to-r from-[#B08D57]/20 via-[#D4AF37]/10 to-[#B08D57]/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-                    <div className="relative bg-white/95 backdrop-blur-sm border border-white/60 rounded-3xl p-10 lg:p-12 shadow-xl">
-                      <div className="flex items-start space-x-8">
-                        <div className="flex-shrink-0">
-                          <div className="w-16 h-16 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-2xl flex items-center justify-center shadow-lg">
-                            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-[#B08D57]/20 via-[#D4AF37]/10 to-[#B08D57]/20 rounded-2xl sm:rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+                    <div className="relative bg-white/95 backdrop-blur-sm border border-white/60 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl">
+                      <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6 lg:space-x-8">
+                        <div className="flex-shrink-0 mx-auto sm:mx-0">
+                          <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg">
+                            <svg className="w-7 h-7 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                             </svg>
                           </div>
-                      </div>
-                      <div className="flex-1">
-                          <h4 className="text-2xl lg:text-3xl font-bold text-slate-800 mb-4">Your Healthcare Advocate</h4>
-                          <p className="text-lg text-slate-700 leading-relaxed">
+                        </div>
+                        <div className="flex-1 text-center sm:text-left">
+                          <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-800 mb-3 sm:mb-4">Your Healthcare Advocate</h4>
+                          <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
                             Beyond treatment, I take pride in acting as your advocate within a complex medical landscape. My standard for care isn't based on industry averages or convenient shortcuts—it's built on the dedicated attention and rigor you deserve.
                           </p>
                         </div>
                       </div>
                     </div>
                   </div>
-              </div>
+                </div>
               </div>
             </div>
           </div>

@@ -404,11 +404,11 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
         >
             <div className="px-6 py-4 space-y-1">
               {mainNavItems.map((item) => (
-                    <Link
+                <Link
                   key={item.name}
-                    href={item.href}
-                    onClick={(e) => handleNavClick(e, item.href)}
-                  className={`block px-4 py-3 rounded-lg text-base font-medium tracking-wide transition-all duration-300
+                  href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
+                  className={`block px-4 py-3 rounded-lg text-base font-medium tracking-wide transition-all duration-300 flex items-center gap-2
                       ${isCurrentPath(item.href) 
                       ? 'text-amber-400 bg-amber-400/10 font-semibold' 
                       : 'text-white hover:bg-white/5 hover:text-amber-300'}`}

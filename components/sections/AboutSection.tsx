@@ -24,12 +24,12 @@ export default function AboutSection() {
               className="relative"
             >
               <div className="relative w-full max-w-lg mx-auto lg:mx-0">
-                <div className="aspect-[3/4] relative rounded-3xl overflow-hidden shadow-2xl">
+                <div className="aspect-[4/5] relative rounded-3xl overflow-hidden shadow-2xl">
                   <Image
                     src="/images/kareem-profile.png"
                     alt="Kareem Hassanein, Physiotherapist"
                     fill
-                    className="object-cover object-top"
+                    className="object-cover object-center"
                     style={{
                       filter: 'contrast(1.05) saturate(1.1) brightness(1.02)',
                     }}

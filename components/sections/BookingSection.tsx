@@ -32,12 +32,14 @@ export default function BookingSection({ onNavLinkClick }: BookingSectionProps) 
   return (
     <section id="booking" className="section bg-primary-900 text-neutral-200 relative"> {/* Changed bg, added relative */}
       <div className="container mx-auto px-4 text-center">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
-          Ready to Advance Your Recovery?
-        </h2>
-        <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-12">
-          Book your assessment today and take the next step towards better movement and less pain.
-        </p>
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+            Ready to Take the Next Step?
+          </h2>
+          <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+            Book your assessment today and let&apos;s work together toward better movement and less pain.
+          </p>
+        </div>
         
         <div className="flex flex-col sm:flex-row justify-center items-center gap-5">
           {/* Online Booking Button - Use btn-primary (accent) */}

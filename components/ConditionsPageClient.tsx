@@ -340,12 +340,14 @@ export default function ConditionsPageClient({
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Ready to Continue Your Recovery?
-            </h2>
-            <p className="text-xl text-white/90 mb-10">
-              Book your assessment today and take the next step towards better movement and less pain.
-            </p>
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                Ready to Move Forward Together?
+              </h2>
+              <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+                Book your personalized assessment and let&apos;s work toward your recovery goals.
+              </p>
+            </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

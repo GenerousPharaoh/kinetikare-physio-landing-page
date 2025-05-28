@@ -8,12 +8,14 @@ interface ContactCTAProps {
   title?: string;
   subtitle?: string;
   className?: string;
+  showImage?: boolean;
 }
 
 const ContactCTA: React.FC<ContactCTAProps> = ({
-  title = "Ready to Continue Your Recovery Journey?",
-  subtitle = "Take the next step towards better movement and less pain with personalized physiotherapy care.",
+  title = "Ready to Move Forward in Your Recovery?",
+  subtitle = "Experience personalized physiotherapy care designed to help you feel your best.",
   className = '',
+  showImage = true
 }) => {
   return (
     <section className={`py-16 md:py-24 bg-primary-800 text-white relative overflow-hidden ${className}`}>

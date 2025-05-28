@@ -230,7 +230,7 @@ export default function About() {
                     <span className="bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] bg-clip-text text-transparent">
                       Practice
                     </span>
-                  </h2>
+              </h2>
               
               {/* Mobile integrated image and intro */}
               <div className="lg:hidden mb-10">
@@ -263,7 +263,7 @@ export default function About() {
                             <p className="text-lg text-slate-700 leading-relaxed">
                               My journey into physiotherapy wasn't merely academic—it was forged through personal experience. From competitive soccer and pursuing a Kinesiology degree at{" "}
                               <span className="font-semibold text-[#B08D57]">McMaster University</span> to navigating my own significant injuries including debilitating disc herniations, I've experienced both sides of rehabilitation.
-                            </p>
+                  </p>
                           </div>
                         </div>
                       </div>
@@ -285,7 +285,7 @@ export default function About() {
                             <p className="text-lg text-slate-700 leading-relaxed">
                               These moments of vulnerability transformed my professional purpose, leading me to complete a{" "}
                               <span className="font-semibold text-[#B08D57]">Master's in Physiotherapy from Robert Gordon University with distinction</span>. My education, combined with firsthand experience as a patient, has deeply informed my approach to care.
-                            </p>
+                  </p>
                           </div>
                         </div>
                       </div>

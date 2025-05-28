@@ -16,13 +16,7 @@ export default function AboutSection() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left side - Image */}
-            <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "0px 0px -5% 0px" }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="relative"
-            >
+            <div className="relative">
               <div className="relative w-full max-w-lg mx-auto lg:mx-0">
                 <div className="aspect-[4/5] relative rounded-3xl overflow-hidden shadow-2xl">
                   <Image
@@ -40,7 +34,7 @@ export default function AboutSection() {
                 <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-[#D4AF37]/20 to-[#B08D57]/20 rounded-full blur-xl"></div>
                 <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-tr from-[#B08D57]/15 to-[#D4AF37]/15 rounded-full blur-2xl"></div>
               </div>
-            </motion.div>
+            </div>
             
             {/* Right side - Content */}
             <motion.div 

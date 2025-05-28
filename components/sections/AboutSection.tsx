@@ -37,13 +37,7 @@ export default function AboutSection() {
             </div>
             
             {/* Right side - Content */}
-            <motion.div 
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "0px 0px -5% 0px" }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-              className="text-center lg:text-left"
-            >
+            <div className="text-center lg:text-left">
               <div className="inline-block px-4 py-2 bg-[#B08D57]/10 text-[#B08D57] text-sm font-medium rounded-full mb-6">
                 Meet Your Physiotherapist
               </div>
@@ -75,7 +69,7 @@ export default function AboutSection() {
                   View Services
                 </Link>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>

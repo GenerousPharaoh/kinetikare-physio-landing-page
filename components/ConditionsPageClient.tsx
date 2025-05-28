@@ -102,22 +102,6 @@ export default function ConditionsPageClient({
                   />
                 </div>
               </div>
-
-              {/* Quick Stats */}
-              <div className="grid grid-cols-3 gap-4 max-w-xl mx-auto">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-[#B08D57]">50+</div>
-                  <div className="text-sm text-slate-600">Conditions Treated</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-[#B08D57]">6</div>
-                  <div className="text-sm text-slate-600">Body Areas</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-[#B08D57]">15+</div>
-                  <div className="text-sm text-slate-600">Years Experience</div>
-                </div>
-              </div>
             </motion.div>
           </div>
         </div>

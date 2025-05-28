@@ -28,7 +28,7 @@
         "--allow-dirs",
         "/Users/kareemhassanein/Desktop/code/physiotherapy-next/data",
         "--allow-dirs", 
-        "/Users/kareemhassanein/Desktop/code/physiotherapy-next/reports"
+        "/Users/kareemhassanein/Desktop/code/physiotherapy-next/ai-conversations"
       ]
     },
     "ai-physio-context": {

@@ -1,7 +1,9 @@
 #!/bin/bash
 
-echo "🏥 KinetiKare MCP Knowledge Graph Setup"
-echo "======================================"
+echo "🤖 KinetiKare AI Chatbot Memory Setup"
+echo "====================================="
+echo "This sets up memory for your AI assistant (NOT patient records!)"
+echo ""
 
 # Check if Node.js is installed
 if ! command -v node &> /dev/null; then
@@ -18,7 +20,7 @@ fi
 echo "✅ Node.js and npm found"
 
 # Install MCP packages
-echo "📦 Installing MCP packages..."
+echo "📦 Installing MCP packages for AI memory..."
 npm install -g mcp-knowledge-graph @modelcontextprotocol/server-memory @modelcontextprotocol/server-filesystem
 
 # Create Claude Desktop config directory if it doesn't exist
@@ -44,7 +46,7 @@ fi
 # Get current directory
 CURRENT_DIR=$(pwd)
 DATA_DIR="$CURRENT_DIR/data"
-REPORTS_DIR="$CURRENT_DIR/reports"
+AI_CONVERSATIONS_DIR="$CURRENT_DIR/ai-conversations"
 
 # Create Claude Desktop configuration
 CLAUDE_CONFIG_FILE="$CLAUDE_CONFIG_DIR/claude_desktop_config.json"
@@ -82,7 +84,7 @@ cat > "$CLAUDE_CONFIG_FILE" << EOF
         "--allow-dirs",
         "$DATA_DIR",
         "--allow-dirs", 
-        "$REPORTS_DIR"
+        "$AI_CONVERSATIONS_DIR"
       ]
     },
     "ai-physio-context": {
@@ -111,17 +113,22 @@ echo "1. Restart Claude Desktop completely (quit and reopen)"
 echo "2. In Claude Desktop, go to Settings > Developer to verify MCP servers are running"
 echo "3. You should see 'memory', 'filesystem', and 'ai-physio-context' listed"
 echo ""
-echo "Features Enabled:"
-echo "✅ Persistent memory across chat sessions"
-echo "✅ Knowledge graph for physiotherapy information"
-echo "✅ File system access for reports and data"
-echo "✅ Context retention for AI Physio feature"
+echo "What This Does:"
+echo "✅ AI remembers conversations (like ChatGPT's memory)"
+echo "✅ Provides better, personalized responses"
+echo "✅ Tracks common questions for service improvement"
+echo "✅ Makes your AI assistant smarter over time"
+echo ""
+echo "What This Does NOT Do:"
+echo "❌ Store real patient medical records"
+echo "❌ Create clinical documentation"
+echo "❌ Replace practice management systems"
 echo ""
 echo "Data Storage Locations:"
-echo "📂 Knowledge Graph: $DATA_DIR/knowledge-graph.jsonl"
-echo "📂 AI Memory: $DATA_DIR/ai-physio-memory.json"
-echo "📂 Reports: $REPORTS_DIR/"
+echo "🤖 AI Knowledge: $DATA_DIR/knowledge-graph.jsonl"
+echo "💬 Conversation Memory: $DATA_DIR/ai-physio-memory.json"
+echo "📝 Chat Summaries: $AI_CONVERSATIONS_DIR/"
 echo ""
 echo "Configuration File: $CLAUDE_CONFIG_FILE"
 echo ""
-echo "⚠️  IMPORTANT: Make sure to restart Claude Desktop to apply these changes!" 
+echo "⚠️  IMPORTANT: This is just AI chatbot memory, NOT for real patient data!" 

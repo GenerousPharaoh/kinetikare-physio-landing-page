@@ -159,9 +159,8 @@ export default function CommitmentCarousel({ items }: CommitmentCarouselProps) {
             transition={{ duration: 0.5, ease: "easeInOut" }}
           />
         </div>
-        <div className="flex justify-between mt-2 text-xs text-slate-500">
+        <div className="flex justify-center mt-2 text-xs text-slate-500">
           <span>{currentSlide + 1} of {items.length}</span>
-          <span>{isAutoPlaying ? 'Auto-playing' : 'Paused'}</span>
         </div>
       </div>
     </div>

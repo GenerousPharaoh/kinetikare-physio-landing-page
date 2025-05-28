@@ -52,13 +52,13 @@ export default function ServicesSection() {
         {/* Main Services Grid */}
         <div className="grid lg:grid-cols-3 gap-8 mb-16">
           {mainServices.map((service, index) => (
-            <div key={service.title} className="group">
-              <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 h-full border border-gray-200 hover:border-[#B08D57]/30">
+            <div key={service.title} className="group h-full">
+              <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 h-full border border-gray-200 hover:border-[#B08D57]/30 flex flex-col">
                 {/* Service Content */}
                 <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-[#B08D57] transition-colors duration-300">
                   {service.title}
                 </h3>
-                <p className="text-slate-600 leading-relaxed mb-6 text-lg">
+                <p className="text-slate-600 leading-relaxed mb-6 text-lg flex-grow">
                   {service.description}
                 </p>
                 
@@ -73,13 +73,15 @@ export default function ServicesSection() {
                 </div>
                 
                 {/* Learn More Link */}
-                <Link
-                  href="/services"
-                  className="inline-flex items-center text-[#B08D57] hover:text-[#D4AF37] font-semibold transition-colors duration-300"
-                >
-                  <span>Learn More</span>
-                  <ChevronRightIcon className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" />
-                </Link>
+                <div className="mt-auto">
+                  <Link
+                    href="/services"
+                    className="inline-flex items-center text-[#B08D57] hover:text-[#D4AF37] font-semibold transition-colors duration-300"
+                  >
+                    <span>Learn More</span>
+                    <ChevronRightIcon className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" />
+                  </Link>
+                </div>
               </div>
             </div>
           ))}

@@ -1,0 +1,10 @@
+{"type": "entity", "name": "Kareem_Hassanein", "entityType": "physiotherapist", "observations": ["CAMPT Level 2 certified upper and lower quadrant", "Licensed physiotherapist in Burlington, Ontario", "Specializes in manual therapy and evidence-based treatment", "Practices at KinetiKare Physiotherapy"]}
+{"type": "entity", "name": "KinetiKare_Physiotherapy", "entityType": "clinic", "observations": ["Located in Burlington, Ontario", "Offers comprehensive physiotherapy services", "Serves Burlington, Waterdown, Hamilton, and Oakville areas", "Focus on evidence-based treatment approaches"]}
+{"type": "entity", "name": "AI_Physio_Advisor", "entityType": "service", "observations": ["AI-powered physiotherapy guidance tool", "Provides evidence-based recommendations", "Available 24/7 for general guidance", "Complements professional physiotherapy services"]}
+{"type": "relation", "from": "Kareem_Hassanein", "to": "KinetiKare_Physiotherapy", "relationType": "practices_at"}
+{"type": "relation", "from": "KinetiKare_Physiotherapy", "to": "AI_Physio_Advisor", "relationType": "offers"}
+{"type": "entity", "name": "lower_back_pain", "entityType": "condition", "observations": ["Most common musculoskeletal complaint", "Often caused by mechanical dysfunction", "Benefits from manual therapy and exercise", "May require postural assessment"]}
+{"type": "entity", "name": "manual_therapy", "entityType": "treatment", "observations": ["Evidence-based hands-on treatment approach", "Includes joint mobilization and soft tissue techniques", "Effective for various musculoskeletal conditions", "Kareem's specialty area"]}
+{"type": "relation", "from": "manual_therapy", "to": "lower_back_pain", "relationType": "treats"}
+{"type": "entity", "name": "exercise_therapy", "entityType": "treatment", "observations": ["Progressive loading and movement patterns", "Customized to individual patient needs", "Essential for long-term recovery", "Focuses on strength and mobility"]}
+{"type": "relation", "from": "exercise_therapy", "to": "lower_back_pain", "relationType": "treats"} 

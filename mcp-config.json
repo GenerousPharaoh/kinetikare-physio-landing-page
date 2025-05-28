@@ -1,0 +1,45 @@
+{
+  "mcpServers": {
+    "memory": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-knowledge-graph",
+        "--memory-path",
+        "/Users/kareemhassanein/Desktop/code/physiotherapy-next/data/knowledge-graph.jsonl"
+      ],
+      "autoapprove": [
+        "create_entities",
+        "create_relations", 
+        "add_observations",
+        "delete_entities",
+        "delete_observations",
+        "delete_relations",
+        "read_graph",
+        "search_nodes",
+        "open_nodes"
+      ]
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "--allow-dirs",
+        "/Users/kareemhassanein/Desktop/code/physiotherapy-next/data",
+        "--allow-dirs", 
+        "/Users/kareemhassanein/Desktop/code/physiotherapy-next/reports"
+      ]
+    },
+    "ai-physio-context": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ],
+      "env": {
+        "MEMORY_FILE_PATH": "/Users/kareemhassanein/Desktop/code/physiotherapy-next/data/ai-physio-memory.json"
+      }
+    }
+  }
+} 

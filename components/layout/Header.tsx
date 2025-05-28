@@ -21,9 +21,6 @@ const Header = () => {
               <Link href="/ai-physio" className="relative flex items-center space-x-1 hover:text-[#B08D57] transition group">
                 <SparklesIcon className="h-4 w-4 text-[#B08D57] group-hover:scale-110 transition-transform" />
                 <span>AI Advisor</span>
-                <span className="absolute -top-2 -right-8 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white text-xs px-2 py-0.5 rounded-full animate-pulse">
-                  NEW
-                </span>
               </Link>
             </li>
             <li><Link href="/contact" className="hover:text-blue-600 transition">Contact</Link></li>

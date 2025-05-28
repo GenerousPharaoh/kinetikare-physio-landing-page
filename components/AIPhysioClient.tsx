@@ -360,11 +360,6 @@ How can I help you today?`,
         {/* Trust Indicators */}
         <div className="mt-8 text-center">
           <div className="flex items-center justify-center space-x-6 text-sm text-slate-600">
-            <div className="flex items-center">
-              <StarIcon className="h-4 w-4 text-[#B08D57] mr-1" />
-              <span>Trusted by 1000+ users</span>
-            </div>
-            <div>•</div>
             <div>Powered by Advanced AI</div>
             <div>•</div>
             <div>Burlington, ON</div>

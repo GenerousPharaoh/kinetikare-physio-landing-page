@@ -738,7 +738,7 @@ export default function About() {
                       <div className="flex items-start space-x-4">
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
                         <div className="flex-1">
-                          <div className="font-bold text-slate-800 text-xl mb-2">Assistant Fitness Manager</div>
+                          <div className="font-bold text-slate-800 text-xl mb-2">Assistant Fitness Manager (GoodLife Fitness)</div>
                           <div className="text-[#B08D57] font-semibold text-base mb-1">Leadership & Operations</div>
                           <div className="text-slate-600 text-sm leading-relaxed">Team management and facility operations in fitness environment</div>
                         </div>

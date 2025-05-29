@@ -175,134 +175,219 @@ export default function ContactSection() {
             </div>
           </div>
 
-          {/* Service Areas Section - Static */}
+          {/* Service Areas Section - Enhanced Design */}
           <div className="mt-16 sm:mt-20">
-            <div className="bg-gradient-to-br from-white via-slate-50/50 to-white backdrop-blur-2xl rounded-3xl p-6 sm:p-8 lg:p-12 shadow-2xl border border-slate-200/60 relative overflow-hidden">
-              {/* Premium background elements */}
-              <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-[#B08D57]/8 to-transparent rounded-full blur-3xl"></div>
-              <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-[#D4AF37]/8 to-transparent rounded-full blur-2xl"></div>
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-[#B08D57]/3 to-[#D4AF37]/3 rounded-full blur-3xl"></div>
+            <div className="relative group">
+              {/* Enhanced background with multiple layers */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white via-slate-50/30 to-white rounded-[2.5rem] transform group-hover:scale-[1.01] transition-transform duration-700"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-[#B08D57]/3 via-transparent to-[#D4AF37]/3 rounded-[2.5rem] opacity-60"></div>
+              <div className="absolute inset-0 shadow-2xl rounded-[2.5rem] opacity-30"></div>
               
-              {/* Subtle texture overlay */}
-              <div className="absolute inset-0 opacity-[0.02]" style={{
-                backgroundImage: `radial-gradient(circle at 2px 2px, rgba(176, 141, 87, 0.3) 1px, transparent 0)`,
-                backgroundSize: '40px 40px'
+              {/* Premium floating background elements */}
+              <div className="absolute -top-10 -left-10 w-52 h-52 bg-gradient-to-br from-[#B08D57]/8 to-[#D4AF37]/4 rounded-full blur-3xl animate-pulse"></div>
+              <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-gradient-to-tl from-[#D4AF37]/8 to-[#B08D57]/4 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+              <div className="absolute top-1/3 left-1/4 w-32 h-32 bg-gradient-to-r from-[#B08D57]/4 to-[#D4AF37]/6 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+              
+              {/* Geometric pattern overlay */}
+              <div className="absolute inset-0 opacity-[0.015] rounded-[2.5rem]" style={{
+                backgroundImage: `radial-gradient(circle at 3px 3px, rgba(176, 141, 87, 0.4) 1px, transparent 0)`,
+                backgroundSize: '48px 48px'
               }}></div>
 
-              <div className="relative z-10">
-                {/* Enhanced Header */}
-                <div className="text-center mb-12 sm:mb-16">
-                  <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl mb-6 sm:mb-8 shadow-xl">
-                    <MapPinIcon className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
+              <div className="relative z-10 p-8 sm:p-12 lg:p-16">
+                {/* Enhanced Header with better visual hierarchy */}
+                <div className="text-center mb-16 sm:mb-20">
+                  {/* Icon with enhanced styling */}
+                  <div className="relative inline-block mb-8 sm:mb-10">
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl blur-lg opacity-30 scale-110"></div>
+                    <div className="relative w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl shadow-2xl flex items-center justify-center transform hover:scale-105 transition-transform duration-300">
+                      <MapPinIcon className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
+                      <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent rounded-2xl"></div>
+                    </div>
                   </div>
                   
-                  <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 sm:mb-6 tracking-tight">
-                    Service <span className="text-[#B08D57] relative">
-                      Areas
-                      <div className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
-                    </span>
-                  </h3>
-                  
-                  <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-light">
-                    Proudly serving patients from communities across Halton Region and the surrounding Golden Horseshoe area
-                  </p>
+                  {/* Enhanced typography */}
+                  <div className="space-y-6">
+                    <h3 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 tracking-tight leading-none">
+                      Service{" "}
+                      <span className="relative inline-block">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B08D57] to-[#D4AF37]">
+                          Areas
+                        </span>
+                        <div className="absolute -bottom-2 left-0 w-full h-1.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full shadow-lg"></div>
+                        <div className="absolute -bottom-2 left-0 w-full h-1.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full shadow-lg blur-sm"></div>
+                      </span>
+                    </h3>
+                    
+                    <div className="max-w-4xl mx-auto">
+                      <p className="text-xl sm:text-2xl text-slate-600 leading-relaxed font-light">
+                        Proudly serving patients from communities across{" "}
+                        <span className="font-semibold text-slate-700">Halton Region</span>{" "}
+                        and the surrounding{" "}
+                        <span className="font-semibold text-slate-700">Golden Horseshoe area</span>
+                      </p>
+                    </div>
+                  </div>
                 </div>
 
-                {/* Enhanced Service Areas Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 mb-12 sm:mb-16">
-                  {serviceAreas.map((area, index) => (
-                    <div key={area} className="group relative">
-                      <div className={`bg-white/80 backdrop-blur-sm text-slate-700 rounded-2xl p-4 sm:p-5 font-semibold border transition-all duration-500 cursor-default text-center relative overflow-hidden shadow-lg hover:shadow-xl ${
-                        area === "Burlington" 
-                          ? "border-[#B08D57]/40 bg-gradient-to-br from-[#B08D57]/5 to-[#D4AF37]/5 shadow-[#B08D57]/10" 
-                          : "border-slate-200/60 hover:border-[#B08D57]/30 group-hover:shadow-[#B08D57]/10"
-                      }`}>
-                        {/* Gradient background on hover */}
-                        <div className={`absolute inset-0 bg-gradient-to-br transition-opacity duration-500 rounded-2xl ${
-                          area === "Burlington"
-                            ? "from-[#B08D57]/8 via-[#D4AF37]/5 to-[#B08D57]/8 opacity-100 group-hover:opacity-100"
-                            : "from-[#B08D57]/5 via-[#D4AF37]/3 to-[#B08D57]/5 opacity-0 group-hover:opacity-100"
-                        }`}></div>
-                        
-                        {/* Subtle shine effect */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-out"></div>
-                        
-                        {/* Location icon */}
-                        <div className={`inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br rounded-xl mb-3 sm:mb-4 transition-all duration-300 ${
-                          area === "Burlington"
-                            ? "from-[#B08D57]/20 to-[#D4AF37]/20 group-hover:from-[#B08D57]/30 group-hover:to-[#D4AF37]/30"
-                            : "from-[#B08D57]/10 to-[#D4AF37]/10 group-hover:from-[#B08D57]/20 group-hover:to-[#D4AF37]/20"
-                        }`}>
-                          <MapPinIcon className={`w-4 h-4 sm:w-5 sm:h-5 transition-colors duration-300 ${
-                            area === "Burlington"
-                              ? "text-[#B08D57] group-hover:text-[#D4AF37]"
-                              : "text-[#B08D57] group-hover:text-[#D4AF37]"
-                          }`} />
+                {/* Completely redesigned Service Areas Grid */}
+                <div className="mb-16 sm:mb-20">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 max-w-6xl mx-auto">
+                    {serviceAreas.map((area, index) => (
+                      <div key={area} className="group relative">
+                        {/* Enhanced badge design */}
+                        <div className={`
+                          relative bg-white/90 backdrop-blur-xl rounded-2xl p-5 sm:p-6 
+                          border transition-all duration-500 cursor-default text-center 
+                          shadow-lg hover:shadow-2xl transform hover:-translate-y-2
+                          ${area === "Burlington" 
+                            ? "border-[#B08D57]/40 bg-gradient-to-br from-[#B08D57]/8 to-[#D4AF37]/6 shadow-[#B08D57]/20" 
+                            : "border-slate-200/60 hover:border-[#B08D57]/40 group-hover:shadow-[#B08D57]/15"
+                          }
+                        `}>
+                          {/* Gradient background on hover */}
+                          <div className={`
+                            absolute inset-0 bg-gradient-to-br rounded-2xl transition-opacity duration-500
+                            ${area === "Burlington"
+                              ? "from-[#B08D57]/12 via-[#D4AF37]/8 to-[#B08D57]/12 opacity-100"
+                              : "from-[#B08D57]/8 via-[#D4AF37]/5 to-[#B08D57]/8 opacity-0 group-hover:opacity-100"
+                            }
+                          `}></div>
+                          
+                          {/* Premium shine effect */}
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-1000 ease-out rounded-2xl"></div>
+                          
+                          {/* Enhanced location icon */}
+                          <div className={`
+                            relative inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 
+                            bg-gradient-to-br rounded-xl mb-4 sm:mb-5 transition-all duration-300 shadow-lg
+                            ${area === "Burlington"
+                              ? "from-[#B08D57]/25 to-[#D4AF37]/25 group-hover:from-[#B08D57]/35 group-hover:to-[#D4AF37]/35 shadow-[#B08D57]/20"
+                              : "from-[#B08D57]/15 to-[#D4AF37]/15 group-hover:from-[#B08D57]/25 group-hover:to-[#D4AF37]/25 group-hover:shadow-[#B08D57]/20"
+                            }
+                          `}>
+                            <MapPinIcon className={`
+                              w-6 h-6 sm:w-7 sm:h-7 transition-all duration-300
+                              ${area === "Burlington"
+                                ? "text-[#B08D57] group-hover:text-[#D4AF37] group-hover:scale-110"
+                                : "text-[#B08D57] group-hover:text-[#D4AF37] group-hover:scale-110"
+                              }
+                            `} />
+                            <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent rounded-xl"></div>
+                          </div>
+                          
+                          {/* Enhanced text */}
+                          <div className="relative z-10">
+                            <span className={`
+                              block text-base sm:text-lg lg:text-xl font-bold transition-all duration-300
+                              ${area === "Burlington"
+                                ? "text-[#B08D57] group-hover:text-[#D4AF37]"
+                                : "text-slate-800 group-hover:text-[#B08D57]"
+                              }
+                            `}>
+                              {area}
+                            </span>
+                          </div>
+                          
+                          {/* Enhanced primary location indicator for Burlington */}
+                          {area === "Burlington" && (
+                            <div className="absolute top-3 right-3 flex items-center space-x-1">
+                              <div className="w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full shadow-sm animate-pulse"></div>
+                              <div className="w-1 h-1 bg-[#D4AF37] rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+                            </div>
+                          )}
+                          
+                          {/* Subtle border glow effect */}
+                          <div className={`
+                            absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500
+                            ${area === "Burlington" 
+                              ? "shadow-[0_0_0_1px_rgba(176,141,87,0.3),0_0_20px_rgba(176,141,87,0.1)]"
+                              : "shadow-[0_0_0_1px_rgba(176,141,87,0.2),0_0_15px_rgba(176,141,87,0.08)]"
+                            }
+                          `}></div>
                         </div>
-                        
-                        <span className={`relative z-10 text-sm sm:text-base lg:text-lg font-bold transition-colors duration-300 ${
-                          area === "Burlington"
-                            ? "text-[#B08D57] group-hover:text-[#D4AF37]"
-                            : "text-slate-800 group-hover:text-[#B08D57]"
-                        }`}>
-                          {area}
-                        </span>
-                        
-                        {/* Elegant primary location indicator for Burlington */}
-                        {area === "Burlington" && (
-                          <div className="absolute top-2 right-2 w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full shadow-sm animate-pulse"></div>
-                        )}
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
                 
-                {/* Enhanced Description with Visual Elements */}
+                {/* Enhanced Description Section */}
                 <div className="text-center relative">
-                  <div className="max-w-4xl mx-auto">
-                    <div className="bg-gradient-to-r from-slate-50 to-white rounded-2xl p-6 sm:p-8 lg:p-10 border border-slate-200/60 shadow-lg relative overflow-hidden">
-                      {/* Decorative elements */}
-                      <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-[#B08D57]/5 to-transparent rounded-full blur-xl"></div>
-                      <div className="absolute bottom-0 right-0 w-16 h-16 bg-gradient-to-tl from-[#D4AF37]/5 to-transparent rounded-full blur-lg"></div>
+                  <div className="max-w-5xl mx-auto">
+                    <div className="relative bg-gradient-to-br from-white/95 to-slate-50/90 backdrop-blur-xl rounded-3xl p-8 sm:p-10 lg:p-12 border border-slate-200/60 shadow-2xl overflow-hidden">
+                      {/* Enhanced decorative elements */}
+                      <div className="absolute top-0 left-0 w-28 h-28 bg-gradient-to-br from-[#B08D57]/8 to-transparent rounded-full blur-2xl"></div>
+                      <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-[#D4AF37]/8 to-transparent rounded-full blur-xl"></div>
+                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-gradient-to-r from-[#B08D57]/3 to-[#D4AF37]/3 rounded-full blur-3xl"></div>
                       
-                      <div className="relative z-10">
-                        <div className="flex items-center justify-center mb-6">
-                          <div className="flex items-center space-x-2 text-[#B08D57]">
-                            <div className="w-2 h-2 bg-[#B08D57] rounded-full animate-pulse"></div>
-                            <div className="w-3 h-3 bg-[#D4AF37] rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-                            <div className="w-2 h-2 bg-[#B08D57] rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+                      {/* Geometric pattern */}
+                      <div className="absolute inset-0 opacity-[0.02]" style={{
+                        backgroundImage: `radial-gradient(circle at 2px 2px, rgba(176, 141, 87, 0.5) 1px, transparent 0)`,
+                        backgroundSize: '32px 32px'
+                      }}></div>
+
+                      <div className="relative z-10 space-y-8">
+                        {/* Enhanced animated dots */}
+                        <div className="flex items-center justify-center mb-8">
+                          <div className="flex items-center space-x-3">
+                            <div className="w-3 h-3 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full animate-pulse shadow-lg"></div>
+                            <div className="w-4 h-4 bg-gradient-to-r from-[#D4AF37] to-[#B08D57] rounded-full animate-pulse shadow-lg" style={{ animationDelay: '0.5s' }}></div>
+                            <div className="w-3 h-3 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full animate-pulse shadow-lg" style={{ animationDelay: '1s' }}></div>
                           </div>
                         </div>
                         
-                        <p className="text-slate-700 leading-relaxed font-medium text-lg sm:text-xl lg:text-2xl mb-6">
-                          My practice is conveniently located in{" "}
-                          <span className="font-bold text-[#B08D57] bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 px-2 py-1 rounded-lg">
-                            Burlington
-                          </span>
-                          , and I'm pleased to extend my physiotherapy services to individuals and families throughout our surrounding communities.
-                        </p>
+                        {/* Enhanced main text */}
+                        <div className="space-y-6">
+                          <p className="text-slate-700 leading-relaxed font-medium text-xl sm:text-2xl lg:text-3xl">
+                            My practice is conveniently located in{" "}
+                            <span className="relative inline-block font-bold text-[#B08D57] bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 px-4 py-2 rounded-xl shadow-lg">
+                              Burlington
+                              <div className="absolute inset-0 bg-gradient-to-r from-[#B08D57]/5 to-[#D4AF37]/5 rounded-xl"></div>
+                            </span>
+                            , and I'm pleased to extend my physiotherapy services to individuals and families throughout our surrounding communities.
+                          </p>
+                        </div>
                         
-                        <div className="flex items-center justify-center space-x-4 mb-6">
-                          <div className="flex items-center space-x-2 text-slate-600">
-                            <CheckCircleIcon className="w-5 h-5 text-[#B08D57]" />
-                            <span className="font-semibold text-sm sm:text-base">Expert Care</span>
+                        {/* Enhanced feature points */}
+                        <div className="flex flex-col sm:flex-row items-center justify-center sm:space-x-8 space-y-4 sm:space-y-0 py-6">
+                          <div className="flex items-center space-x-3 group">
+                            <div className="w-8 h-8 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                              <CheckCircleIcon className="w-5 h-5 text-white" />
+                            </div>
+                            <span className="font-bold text-slate-700 text-lg sm:text-xl">Expert Care</span>
                           </div>
-                          <div className="w-1 h-1 bg-slate-400 rounded-full"></div>
-                          <div className="flex items-center space-x-2 text-slate-600">
-                            <CheckCircleIcon className="w-5 h-5 text-[#D4AF37]" />
-                            <span className="font-semibold text-sm sm:text-base">Convenient Locations</span>
+                          
+                          <div className="hidden sm:block w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
+                          
+                          <div className="flex items-center space-x-3 group">
+                            <div className="w-8 h-8 bg-gradient-to-br from-[#D4AF37] to-[#B08D57] rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                              <CheckCircleIcon className="w-5 h-5 text-white" />
+                            </div>
+                            <span className="font-bold text-slate-700 text-lg sm:text-xl">Convenient Locations</span>
                           </div>
-                          <div className="w-1 h-1 bg-slate-400 rounded-full"></div>
-                          <div className="flex items-center space-x-2 text-slate-600">
-                            <CheckCircleIcon className="w-5 h-5 text-[#B08D57]" />
-                            <span className="font-semibold text-sm sm:text-base">Personalized Treatment</span>
+                          
+                          <div className="hidden sm:block w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
+                          
+                          <div className="flex items-center space-x-3 group">
+                            <div className="w-8 h-8 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                              <CheckCircleIcon className="w-5 h-5 text-white" />
+                            </div>
+                            <span className="font-bold text-slate-700 text-lg sm:text-xl">Personalized Treatment</span>
                           </div>
                         </div>
                         
-                        <p className="text-slate-500 font-medium text-base sm:text-lg">
-                          If you're looking for experienced physiotherapy care to help you move and feel your best,{" "}
-                          <span className="text-[#B08D57] font-semibold">I invite you to get in touch.</span>
-                        </p>
+                        {/* Enhanced call-to-action */}
+                        <div className="pt-4">
+                          <p className="text-slate-600 font-medium text-lg sm:text-xl leading-relaxed">
+                            If you're looking for experienced physiotherapy care to help you move and feel your best,{" "}
+                            <span className="relative inline-block">
+                              <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#B08D57] to-[#D4AF37]">
+                                I invite you to get in touch.
+                              </span>
+                              <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
+                            </span>
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>

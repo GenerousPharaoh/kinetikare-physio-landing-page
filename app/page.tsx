@@ -8,7 +8,7 @@ import ContactSection from '@/components/sections/ContactSection';
 
 // SEO Metadata for Homepage
 export const metadata: Metadata = {
-  title: 'Expert Physiotherapy in Burlington & Waterdown | Kareem Hassanein',
+  title: 'Kareem Hassanein Physiotherapy | Burlington & Waterdown',
   description: 'Professional physiotherapy services in Burlington and Waterdown by Kareem Hassanein, MSc PT. Specializing in manual therapy, sports rehabilitation, dry needling, and evidence-based treatment. Book your appointment today!',
   keywords: [
     'physiotherapy Burlington',

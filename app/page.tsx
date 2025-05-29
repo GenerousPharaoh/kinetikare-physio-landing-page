@@ -9,7 +9,7 @@ import ContactSection from '@/components/sections/ContactSection';
 // SEO Metadata for Homepage
 export const metadata: Metadata = {
   title: 'Kareem Hassanein | Expert Physiotherapist in Burlington & Waterdown',
-  description: 'Kareem Hassanein, MSc PT - Expert physiotherapy services in Burlington, Waterdown, Hamilton & Oakville. Specializing in manual therapy, sports rehabilitation, dry needling, and evidence-based treatment. CAMPT certified physiotherapist. Book your appointment today!',
+  description: 'Kareem Hassanein, Registered Physiotherapist in Burlington, Waterdown, Hamilton & Oakville. One-on-one, dedicated care with personalized solutions to keep you moving forward. CAMPT certified, specializing in manual therapy, sports rehabilitation, and dry needling.',
   keywords: [
     'Kareem Hassanein',
     'Kareem Hassanein physiotherapy',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'Kareem Hassanein | Expert Physiotherapist in Burlington & Waterdown',
-    description: 'Kareem Hassanein, MSc PT - Expert physiotherapy services specializing in manual therapy, sports rehabilitation, and evidence-based treatment in Burlington and Waterdown.',
+    description: 'Kareem Hassanein, Registered Physiotherapist. One-on-one, dedicated care with personalized solutions to keep you moving forward.',
     url: 'https://www.kinetikarephysio.com',
     type: 'website',
     images: [
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Kareem Hassanein | Expert Physiotherapist in Burlington & Waterdown',
-    description: 'Kareem Hassanein, MSc PT - Expert physiotherapy services specializing in manual therapy, sports rehabilitation, and evidence-based treatment.',
+    description: 'Kareem Hassanein, Registered Physiotherapist. One-on-one, dedicated care with personalized solutions to keep you moving forward.',
     images: ['https://www.kinetikarephysio.com/images/og-image.jpg'],
   },
   alternates: {

@@ -21,9 +21,11 @@ export const metadata = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "PhysicalTherapy",
-  "name": "Kareem Hassanein Physiotherapy",
-  "image": "https://physiotherapy-next.vercel.app/images/kareem-profile.png",
-  "url": "https://physiotherapy-next.vercel.app",
+  "@id": "https://www.kinetikarephysio.com/#organization",
+  "name": "KinetiKare Physiotherapy",
+  "alternateName": "Kareem Hassanein Physiotherapy",
+  "image": "https://www.kinetikarephysio.com/images/kareem-profile.png",
+  "url": "https://www.kinetikarephysio.com",
   "telephone": "+19056346000",
   "email": "kareem.hassanein@gmail.com",
   "hasMap": "https://maps.app.goo.gl/JC7uKnd9zW4AJPP49",
@@ -74,6 +76,7 @@ const organizationSchema = {
   "priceRange": "Contact for details",
   "founder": {
     "@type": "Person",
+    "@id": "https://www.kinetikarephysio.com/#person",
     "name": "Kareem Hassanein",
     "jobTitle": "Registered Physiotherapist"
   }
@@ -95,6 +98,12 @@ export default function RootLayout({
         <meta name="googlebot" content="index, follow" />
         <meta name="google" content="notranslate" />
         <link rel="canonical" href="https://www.kinetikarephysio.com" />
+        
+        {/* Organization Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
       </head>
       <body className={inter.className}>
         {/* Global site header */}

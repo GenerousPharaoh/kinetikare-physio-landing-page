@@ -8,9 +8,13 @@ import ContactSection from '@/components/sections/ContactSection';
 
 // SEO Metadata for Homepage
 export const metadata: Metadata = {
-  title: 'Kareem Hassanein Physiotherapy | Burlington & Waterdown',
-  description: 'Professional physiotherapy services in Burlington and Waterdown by Kareem Hassanein, MSc PT. Specializing in manual therapy, sports rehabilitation, dry needling, and evidence-based treatment. Book your appointment today!',
+  title: 'Kareem Hassanein | Expert Physiotherapist in Burlington & Waterdown',
+  description: 'Kareem Hassanein, MSc PT - Expert physiotherapy services in Burlington, Waterdown, Hamilton & Oakville. Specializing in manual therapy, sports rehabilitation, dry needling, and evidence-based treatment. CAMPT certified physiotherapist. Book your appointment today!',
   keywords: [
+    'Kareem Hassanein',
+    'Kareem Hassanein physiotherapy',
+    'Kareem physiotherapist',
+    'Kareem Hassanein Burlington',
     'physiotherapy Burlington',
     'physiotherapy Waterdown', 
     'physiotherapist Burlington Ontario',
@@ -18,14 +22,13 @@ export const metadata: Metadata = {
     'sports rehabilitation',
     'dry needling Burlington',
     'back pain treatment',
-    'Kareem Hassanein physiotherapy',
     'CAMPT certified physiotherapist',
     'physiotherapy Hamilton',
     'physiotherapy Oakville'
   ],
   openGraph: {
-    title: 'Expert Physiotherapy in Burlington & Waterdown | Kareem Hassanein',
-    description: 'Professional physiotherapy services by Kareem Hassanein, MSc PT. Specializing in manual therapy, sports rehabilitation, and evidence-based treatment in Burlington and Waterdown.',
+    title: 'Kareem Hassanein | Expert Physiotherapist in Burlington & Waterdown',
+    description: 'Kareem Hassanein, MSc PT - Expert physiotherapy services specializing in manual therapy, sports rehabilitation, and evidence-based treatment in Burlington and Waterdown.',
     url: 'https://www.kinetikarephysio.com',
     type: 'website',
     images: [
@@ -33,14 +36,14 @@ export const metadata: Metadata = {
         url: 'https://www.kinetikarephysio.com/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Kareem Hassanein Physiotherapy - Burlington & Waterdown',
+        alt: 'Kareem Hassanein - Expert Physiotherapist in Burlington & Waterdown',
       }
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Expert Physiotherapy in Burlington & Waterdown',
-    description: 'Professional physiotherapy services by Kareem Hassanein, MSc PT. Manual therapy, sports rehabilitation, and evidence-based treatment.',
+    title: 'Kareem Hassanein | Expert Physiotherapist in Burlington & Waterdown',
+    description: 'Kareem Hassanein, MSc PT - Expert physiotherapy services specializing in manual therapy, sports rehabilitation, and evidence-based treatment.',
     images: ['https://www.kinetikarephysio.com/images/og-image.jpg'],
   },
   alternates: {
@@ -59,16 +62,83 @@ export const metadata: Metadata = {
   },
 };
 
+// Person Schema for Kareem Hassanein - helps with branded searches
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Kareem Hassanein",
+  "jobTitle": "Registered Physiotherapist",
+  "description": "Expert physiotherapist specializing in manual therapy, sports rehabilitation, and evidence-based treatment in Burlington, Waterdown, Hamilton, and Oakville.",
+  "url": "https://www.kinetikarephysio.com",
+  "image": "https://www.kinetikarephysio.com/images/kareem-profile.png",
+  "telephone": "+19056346000",
+  "email": "kareem.hassanein@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "4631 Palladium Way, Unit 6",
+    "addressLocality": "Burlington",
+    "addressRegion": "ON",
+    "postalCode": "L7M 0W9",
+    "addressCountry": "CA"
+  },
+  "worksFor": {
+    "@type": "Organization",
+    "@id": "https://www.kinetikarephysio.com/#organization",
+    "name": "KinetiKare Physiotherapy"
+  },
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Master of Science in Physiotherapy",
+      "credentialCategory": "degree",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "Robert Gordon University"
+      }
+    },
+    {
+      "@type": "EducationalOccupationalCredential", 
+      "name": "CAMPT Level 2 Certification",
+      "credentialCategory": "certificate",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "Canadian Academy of Manipulative Physiotherapy"
+      }
+    }
+  ],
+  "knowsAbout": [
+    "Manual Therapy",
+    "Sports Rehabilitation", 
+    "Dry Needling",
+    "Exercise Therapy",
+    "Pain Management",
+    "Movement Assessment"
+  ],
+  "areaServed": [
+    "Burlington, ON",
+    "Waterdown, ON", 
+    "Hamilton, ON",
+    "Oakville, ON"
+  ]
+};
+
 // Streamlined site structure: Hero → About → Healing Environment → Care Journey → Services → Contact
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <HeroSection />
-      <AboutSection />
-      <HealingEnvironmentSection />
-      <CareJourneySection />
-      <ServicesSection />
-      <ContactSection />
-    </main>
+    <>
+      {/* Person Schema for Kareem Hassanein */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+      />
+      <main className="min-h-screen">
+        <HeroSection />
+        <AboutSection />
+        <HealingEnvironmentSection />
+        <CareJourneySection />
+        <ServicesSection />
+        <ContactSection />
+      </main>
+    </>
   );
 } 

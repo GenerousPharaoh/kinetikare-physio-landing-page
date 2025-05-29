@@ -195,17 +195,40 @@ export const metadata: Metadata = {
   title: 'Frequently Asked Questions | Physiotherapy in Burlington & Waterdown',
   description: 'Find answers to common questions about physiotherapy treatments, insurance coverage, what to expect during your first appointment, and more. Expert care in Burlington, Waterdown, Hamilton, and Oakville.',
   keywords: ['physiotherapy FAQ', 'physiotherapy questions', 'Burlington physiotherapy', 'Waterdown physiotherapy', 'insurance coverage physiotherapy', 'first physiotherapy appointment', 'Hamilton physiotherapy', 'Oakville physiotherapy'],
+  metadataBase: new URL('https://www.kinetikarephysio.com'),
   openGraph: {
     title: 'FAQ | KinetiKare Physiotherapy',
     description: 'Common questions about physiotherapy treatments, insurance coverage, and what to expect during your appointment.',
-    url: 'https://www.kinetikarephysio.com/faq',
+    url: '/faq',
     type: 'website',
   },
 };
 
 export default function FAQPage() {
+  // Generate FAQ schema markup for SEO
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqCategories.flatMap(category => 
+      category.questions.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer
+        }
+      }))
+    )
+  };
+
   return (
     <main className="min-h-screen flex flex-col text-primary-700 bg-gradient-to-br from-slate-50 via-white to-neutral-50">
+      {/* FAQ Schema Markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      
       {/* Content */}
       <div className="container mx-auto px-4 py-8">
         {/* Page Title */}

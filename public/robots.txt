@@ -2,8 +2,14 @@
 User-agent: *
 Allow: /
 
+# *
+User-agent: *
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+
 # Host
-Host: https://www.kareemphysio.com
+Host: https://www.kinetikarephysio.com
 
 # Sitemaps
-Sitemap: https://www.kareemphysio.com/sitemap.xml
+Sitemap: https://www.kinetikarephysio.com/sitemap.xml

@@ -11,10 +11,12 @@ export const metadata: Metadata = {
   title: 'Physiotherapy Services | Kareem Hassanein',
   description: 'Advanced physiotherapy services including sports rehabilitation, manual therapy, dry needling, and more for better movement and pain-free living.',
   keywords: ['physiotherapy services', 'manual therapy', 'sports rehabilitation', 'dry needling', 'exercise therapy', 'Burlington physiotherapy'],
+  metadataBase: new URL('https://www.kinetikarephysio.com'),
   openGraph: {
     title: 'Physiotherapy Services | Kareem Hassanein',
     description: 'Advanced physiotherapy services including sports rehabilitation, manual therapy, dry needling, and more for better movement and pain-free living.',
     type: 'website',
+    url: '/services',
   },
   robots: {
     index: true,
@@ -149,8 +151,34 @@ export default function ServicesPage() {
     }
   };
 
+  // Breadcrumb schema for SEO
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.kinetikarephysio.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Services",
+        "item": "https://www.kinetikarephysio.com/services"
+      }
+    ]
+  };
+
   return (
     <main className="min-h-screen flex flex-col text-primary-700 bg-white">
+      {/* Breadcrumb Schema Markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
       {/* Structured Data */}
       <script
         type="application/ld+json"

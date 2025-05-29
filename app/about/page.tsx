@@ -20,10 +20,11 @@ export const metadata: Metadata = {
   title: 'About Kareem Hassanein | Physiotherapist in Burlington & Waterdown',
   description: 'Meet Kareem Hassanein, MSc Physiotherapy with distinction, CAMPT Level 2 certified upper and lower quadrant. Personalized physiotherapy care in Burlington, Waterdown, Hamilton, and Oakville with 5+ years experience.',
   keywords: ['Kareem Hassanein physiotherapist', 'Burlington physiotherapy', 'Waterdown physiotherapy', 'CAMPT certified', 'manual therapy Burlington', 'physiotherapy Hamilton', 'physiotherapy Oakville'],
+  metadataBase: new URL('https://www.kinetikarephysio.com'),
   openGraph: {
     title: 'About Kareem Hassanein | Expert Physiotherapist',
     description: 'MSc Physiotherapy with distinction, CAMPT Level 2 certified upper and lower quadrant. Personalized care in Burlington, Waterdown, Hamilton, and Oakville.',
-    url: 'https://www.kinetikarephysio.com/about',
+    url: '/about',
     type: 'website',
   },
 };
@@ -88,8 +89,133 @@ export default function About() {
       {/* Main Content with Sidebar */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 max-w-6xl">
+          
+          {/* Mobile-First Layout - Stack everything vertically on mobile */}
+          <div className="lg:hidden space-y-8 mb-12">
+            {/* Mobile Profile Section */}
+            <div className="text-center">
+              <div className="w-48 h-56 mx-auto rounded-2xl overflow-hidden shadow-lg border border-neutral-200 mb-6">
+                <ClientImage
+                  src="/images/kareem-profile.png"
+                  alt="Kareem Hassanein, Physiotherapist"
+                  width={500}
+                  height={600}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              
+              {/* Professional Highlights - Mobile */}
+              <div className="bg-gradient-to-br from-primary-50 to-white p-6 rounded-2xl border border-[#B08D57]/20 shadow-lg mb-6">
+                <h3 className="text-lg font-bold mb-4 text-primary-800 border-b border-primary-200 pb-3">Professional Highlights</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-center justify-center sm:justify-start">
+                    <div className="w-2 h-2 rounded-full bg-[#B08D57] mr-3 flex-shrink-0"></div>
+                    <span className="text-sm font-medium">MSc Physiotherapy (Distinction)</span>
+                  </li>
+                  <li className="flex items-center justify-center sm:justify-start">
+                    <div className="w-2 h-2 rounded-full bg-[#B08D57] mr-3 flex-shrink-0"></div>
+                    <span className="text-sm font-medium">CAMPT Level 2 Certified</span>
+                  </li>
+                  <li className="flex items-center justify-center sm:justify-start">
+                    <div className="w-2 h-2 rounded-full bg-[#B08D57] mr-3 flex-shrink-0"></div>
+                    <span className="text-sm font-medium">5+ Years Clinical Practice</span>
+                  </li>
+                  <li className="flex items-center justify-center sm:justify-start">
+                    <div className="w-2 h-2 rounded-full bg-[#B08D57] mr-3 flex-shrink-0"></div>
+                    <span className="text-sm font-medium">6,000+ hours personal training</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Mobile CTA - Prominent placement */}
+              <div className="bg-gradient-to-br from-primary-800 to-slate-800 p-6 rounded-2xl text-white shadow-lg">
+                <h3 className="text-lg font-bold mb-3 text-white">Take the Next Step</h3>
+                <p className="mb-4 text-sm text-white/90 leading-relaxed">Ready to work together on your recovery? Let's discuss how I can support your specific goals and challenges.</p>
+                <Link
+                  href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full text-center py-3 px-4 bg-[#B08D57] hover:bg-[#A17D47] text-white rounded-xl font-semibold transition-colors duration-300"
+                >
+                  Book Appointment
+                </Link>
+              </div>
+
+              {/* Professional Affiliations - Mobile */}
+              <div className="bg-gradient-to-br from-slate-50 to-white p-6 rounded-2xl border border-neutral-200 shadow-lg mt-6">
+                <h3 className="text-lg font-bold mb-6 text-primary-800 border-b border-primary-200 pb-3 text-center">Professional Affiliations</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <Link 
+                    href="https://physiotherapy.ca/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block bg-white p-4 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300"
+                  >
+                    <ClientImage
+                      src="/images/canadian-physio-association-logo.png"
+                      alt="Canadian Physiotherapy Association"
+                      width={140}
+                      height={70}
+                      className="object-contain h-auto max-h-12 mx-auto filter contrast-110 brightness-105"
+                      style={{ 
+                        filter: 'contrast(1.1) brightness(1.05) saturate(1.1) unsharp-mask(amount=1.5, radius=1, threshold=0)',
+                        imageRendering: 'crisp-edges'
+                      }}
+                    />
+                  </Link>
+                  
+                  <Link 
+                    href="https://collegept.org/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block bg-white p-4 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300"
+                  >
+                    <ClientImage
+                      src="/images/college-of-physiotherapists-of-ontario-logo.webp"
+                      alt="College of Physiotherapists of Ontario"
+                      width={140}
+                      height={70}
+                      className="object-contain h-auto max-h-12 mx-auto"
+                    />
+                  </Link>
+                  
+                  <Link 
+                    href="https://endorphinshealth.com/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block bg-white p-4 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300"
+                  >
+                    <ClientImage
+                      src="/images/endorphins-health-and-wellness-centre-logo.png"
+                      alt="Endorphins Health & Wellness Centre"
+                      width={140}
+                      height={70}
+                      className="object-contain h-auto max-h-12 mx-auto"
+                    />
+                  </Link>
+                </div>
+              </div>
+
+              {/* KinetiKare Logo - Mobile */}
+              <div className="bg-gradient-to-br from-white to-slate-50 p-6 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300 mt-6 text-center">
+                <Image
+                  src="/images/kinetikare-logo.png"
+                  alt="KinetiKare Logo"
+                  width={100}
+                  height={100}
+                  className="w-24 h-24 object-contain mx-auto"
+                  style={{
+                    filter: 'contrast(1.15) saturate(1.2) brightness(0.95)',
+                    imageRendering: 'crisp-edges'
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop + Mobile Grid Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 items-start">
-            {/* Sidebar */}
+            {/* Desktop Sidebar - Hidden on mobile */}
             <div className="hidden lg:block lg:col-span-1">
               <div className="sticky top-24 space-y-6">
                 {/* Profile Image */}
@@ -231,19 +357,6 @@ export default function About() {
                       Practice
                     </span>
                   </h2>
-              
-                  {/* Mobile integrated image and intro */}
-                  <div className="lg:hidden mb-8">
-                    <div className="w-32 sm:w-40 h-40 sm:h-48 float-left mr-4 sm:mr-8 mb-4 sm:mb-6 rounded-2xl overflow-hidden shadow-xl border-2 border-white bg-white">
-                      <ClientImage
-                        src="/images/kareem-profile.png"
-                        alt="Kareem Hassanein, Physiotherapist"
-                        width={500}
-                        height={600}
-                        className="w-full h-full object-contain"
-                      />
-                    </div>
-                  </div>
                   
                   {/* Journey Story - Clean Design with better mobile spacing */}
                   <div className="space-y-8 sm:space-y-12">
@@ -292,7 +405,6 @@ export default function About() {
                     </div>
                   </div>
                   
-                  <div className="clear-both"></div>
                 </div>
               </div>
                 

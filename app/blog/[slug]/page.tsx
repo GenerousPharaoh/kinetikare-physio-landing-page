@@ -236,6 +236,7 @@ export default function Page(props: any) {
 // Use simple typing for metadata functions as well
 export function generateMetadata(props: any): Metadata {
   const post = getPostData(props.params.slug);
+  const slug = props.params.slug;
   
   if (!post) {
     return {
@@ -243,9 +244,80 @@ export function generateMetadata(props: any): Metadata {
     };
   }
   
+  // Create a description based on the post content
+  const getPostDescription = (slug: string) => {
+    switch (slug) {
+      case 'understanding-low-back-pain':
+        return 'Discover why low back pain keeps returning and learn evidence-based strategies to address root causes for lasting relief. Expert physiotherapy insights from Burlington.';
+      case 'rotator-cuff-exercises':
+        return 'Safe, effective rotator cuff exercises to start your recovery. Learn proper techniques and when to seek professional physiotherapy care in Burlington.';
+      case 'first-physio-visit-expectations':
+        return 'Complete guide to your first physiotherapy appointment. Learn what to expect, how to prepare, and maximize your recovery from day one.';
+      case 'ai-physiotherapy-advisor-launch':
+        return 'Introducing our revolutionary AI Physiotherapy Advisor - get instant, evidence-based guidance 24/7 for your movement and pain concerns.';
+      default:
+        return `Expert physiotherapy insights and guidance from Kareem Hassanein. Read about ${post.title} and improve your movement health.`;
+    }
+  };
+  
+  const description = getPostDescription(slug);
+  const imageUrl = imageExists(slug) ? `/images/blog/${slug}.jpg` : '/images/blog/post-placeholder.jpg';
+  
   return {
-    title: `${post.title} - Kareem Hassanein Physiotherapy`,
-    description: `Read more about ${post.title} and get expert physiotherapy insights.`
+    title: `${post.title} | Physiotherapy Blog`,
+    description: description,
+    keywords: [
+      'physiotherapy blog',
+      'Burlington physiotherapy',
+      'back pain treatment',
+      'sports injury recovery',
+      'manual therapy',
+      'exercise therapy',
+      'physiotherapy tips',
+      'Kareem Hassanein',
+      'evidence-based physiotherapy'
+    ],
+    authors: [{ name: 'Kareem Hassanein', url: 'https://www.kinetikarephysio.com/about' }],
+    metadataBase: new URL('https://www.kinetikarephysio.com'),
+    openGraph: {
+      title: post.title,
+      description: description,
+      url: `/blog/${slug}`,
+      type: 'article',
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        }
+      ],
+      publishedTime: new Date().toISOString(),
+      authors: ['Kareem Hassanein'],
+      section: 'Physiotherapy',
+      tags: ['physiotherapy', 'health', 'wellness', 'Burlington', 'treatment'],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: description,
+      images: [imageUrl],
+      creator: '@kinetikarephysio',
+    },
+    alternates: {
+      canonical: `https://www.kinetikarephysio.com/blog/${slug}`,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
   };
 }
 

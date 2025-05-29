@@ -89,6 +89,20 @@ export default function PrivacyPage() {
                       <li>Device and operating system information</li>
                     </ul>
                   </div>
+
+                  <div>
+                    <h3 className="text-lg font-medium text-gray-900 mb-3">Website Analytics</h3>
+                    <p className="text-gray-700 mb-2">I use Google Analytics to understand how visitors use my website. This service collects:</p>
+                    <ul className="list-disc ml-6 space-y-1 text-gray-700">
+                      <li>Anonymous usage data (pages viewed, time on site, bounce rate)</li>
+                      <li>General location information (city/region, not specific address)</li>
+                      <li>Device and browser information</li>
+                      <li>How you found my website (search engines, referral sites)</li>
+                    </ul>
+                    <p className="text-gray-700 mt-2">
+                      This data is anonymized and used solely to improve website content and user experience. No personal health information is shared with Google Analytics.
+                    </p>
+                  </div>
                 </div>
               </section>
 

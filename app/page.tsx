@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     'physiotherapy Oakville'
   ],
   openGraph: {
-    title: 'Kareem Hassanein | Expert Physiotherapist in Burlington & Waterdown',
+    title: 'KinetiKare | KH Physiotherapy Services | Burlington & Waterdown',
     description: 'Kareem Hassanein, Registered Physiotherapist. One-on-one, dedicated care with personalized solutions to keep you moving forward.',
     url: 'https://www.kinetikarephysio.com',
     type: 'website',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Kareem Hassanein | Expert Physiotherapist in Burlington & Waterdown',
+    title: 'KinetiKare | KH Physiotherapy Services | Burlington & Waterdown',
     description: 'Kareem Hassanein, Registered Physiotherapist. One-on-one, dedicated care with personalized solutions to keep you moving forward.',
     images: ['https://www.kinetikarephysio.com/images/og-image.jpg'],
   },

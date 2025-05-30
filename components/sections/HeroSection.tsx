@@ -9,12 +9,12 @@ import { CalendarDaysIcon } from '@heroicons/react/24/outline';
 const HeroSection = React.memo(function HeroSection() {
   return (
     <section 
-      className="hero-section relative overflow-hidden min-h-screen flex flex-col lg:flex items-start lg:items-center pt-16 pb-16 lg:pt-24 lg:pb-20"
+      className="hero-section relative min-h-screen flex flex-col pt-16 pb-16 lg:pt-24 lg:pb-20"
       style={{ willChange: 'transform' }}
     >
       {/* Enhanced backdrop image - simplified animation */}
       <div className="absolute inset-0 z-0">
-        <div className="h-full w-full overflow-hidden relative">
+        <div className="h-full w-full relative">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -44,7 +44,7 @@ const HeroSection = React.memo(function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-tr from-accent/10 via-transparent to-primary-700/25 hidden lg:block" />
         
         {/* Light effects - simplified, desktop only */}
-        <div className="absolute inset-0 overflow-hidden hidden lg:block pointer-events-none">
+        <div className="absolute inset-0 hidden lg:block pointer-events-none">
           <div 
             className="absolute top-1/4 right-1/4 w-96 h-96 blur-3xl bg-gradient-to-br from-[#D4AF37]/20 via-transparent to-transparent rounded-full opacity-60" 
           />
@@ -56,66 +56,57 @@ const HeroSection = React.memo(function HeroSection() {
       
       <div className="absolute bottom-0 left-0 right-0 h-36 bg-gradient-to-t from-neutral-50/10 to-transparent z-30 pointer-events-none"></div>
       
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex-1 flex flex-col justify-start lg:justify-center">
-        {/* Premium Logo Container - staggered animation */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex-1 flex flex-col py-8">
+        {/* Premium Logo Container - unified smooth animation */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="flex flex-col items-center mb-12 lg:mb-12"
-          style={{ willChange: 'opacity, transform' }}
+          initial={{ opacity: 0, y: 15, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="flex flex-col items-center mb-8 lg:mb-12"
         >
-          <div className="relative">
-            {/* Simplified outer glow - no animation */}
-            <div className="absolute -inset-4 lg:-inset-6 bg-gradient-to-br from-[#D4AF37]/15 to-[#B08D57]/10 rounded-2xl blur-xl opacity-100"></div>
-
-            {/* Main container */}
-            <div className="relative bg-gradient-to-br from-slate-900/90 via-slate-800/85 to-slate-900/90 backdrop-blur-xl rounded-2xl p-4 sm:p-6 lg:p-10 shadow-xl border border-white/10 overflow-hidden">
-              {/* Simple background effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/5 via-transparent to-[#B08D57]/3 rounded-2xl"></div>
-              
-              {/* Logo - simple fade in */}
-              <div className="relative z-10 flex items-center justify-center">
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="relative transform-gpu"
-                  style={{ willChange: 'opacity' }}
-                >
-                  <Image
-                    src="/images/kinetikare-logo.png"
-                    alt="KinetiKare physiotherapy logo Burlington Waterdown"
-                    width={160}
-                    height={160}
-                    className="w-32 h-32 sm:w-36 sm:h-36 lg:w-40 lg:h-40 object-contain"
-                    style={{
-                      filter: 'contrast(1.2) saturate(1.2) brightness(1.15) drop-shadow(0 4px 20px rgba(212, 175, 55, 0.3))',
-                      imageRendering: 'crisp-edges'
-                    }}
-                  />
-                </motion.div>
-              </div>
+          {/* Simplified unified container */}
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="relative bg-gradient-to-br from-slate-900/95 via-slate-800/90 to-slate-900/95 backdrop-blur-xl rounded-2xl p-4 sm:p-6 lg:p-8 shadow-2xl border border-white/20"
+            style={{
+              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1), 0 8px 32px rgba(212, 175, 55, 0.15)'
+            }}
+          >
+            {/* Unified background glow */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/8 via-transparent to-[#B08D57]/5 rounded-2xl"></div>
+            
+            {/* Logo */}
+            <div className="relative z-10 flex items-center justify-center">
+              <Image
+                src="/images/kinetikare-logo.png"
+                alt="KinetiKare physiotherapy logo Burlington Waterdown"
+                width={160}
+                height={160}
+                className="w-28 h-28 sm:w-32 sm:h-32 lg:w-36 lg:h-36 object-contain"
+                style={{
+                  filter: 'contrast(1.1) saturate(1.1) brightness(1.1) drop-shadow(0 4px 16px rgba(212, 175, 55, 0.25))',
+                  imageRendering: 'crisp-edges'
+                }}
+              />
             </div>
-          </div>
+          </motion.div>
           
-          {/* Professional subtitle under logo */}
+          {/* Professional subtitle */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.4, ease: "easeOut" }}
+            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
             className="mt-4 lg:mt-6"
-            style={{ willChange: 'opacity' }}
           >
-            <div className="text-white/90 text-sm sm:text-base lg:text-lg font-medium tracking-wide text-center">
+            <div className="text-white/95 text-sm sm:text-base lg:text-lg font-medium tracking-wide text-center">
               Kareem Hassanein Physiotherapy
             </div>
           </motion.div>
         </motion.div>
 
-        <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-start lg:items-center">
+        <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-start lg:items-center flex-1">
           {/* Left side content - PRIMARY FOCUS */}
           <motion.div 
             initial={{ opacity: 0, y: 30 }}

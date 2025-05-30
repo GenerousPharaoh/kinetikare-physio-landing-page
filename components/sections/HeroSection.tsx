@@ -234,7 +234,7 @@ const HeroSection = React.memo(function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-            className="lg:col-span-4 mt-8 lg:mt-0"
+            className="hidden sm:block lg:col-span-4 mt-8 lg:mt-0"
             style={{ willChange: 'opacity, transform' }}
           >
             <div className="relative max-w-md ml-auto">

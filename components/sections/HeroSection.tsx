@@ -70,7 +70,7 @@ const HeroSection = React.memo(function HeroSection() {
             <div className="absolute -inset-4 lg:-inset-6 bg-gradient-to-br from-[#D4AF37]/15 to-[#B08D57]/10 rounded-2xl blur-xl opacity-100"></div>
 
             {/* Main container */}
-            <div className="relative bg-gradient-to-br from-slate-900/90 via-slate-800/85 to-slate-900/90 backdrop-blur-xl rounded-2xl p-6 lg:p-10 shadow-xl border border-white/10 overflow-hidden">
+            <div className="relative bg-gradient-to-br from-slate-900/90 via-slate-800/85 to-slate-900/90 backdrop-blur-xl rounded-2xl p-4 sm:p-6 lg:p-10 shadow-xl border border-white/10 overflow-hidden">
               {/* Simple background effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/5 via-transparent to-[#B08D57]/3 rounded-2xl"></div>
               
@@ -90,7 +90,7 @@ const HeroSection = React.memo(function HeroSection() {
                     alt="KinetiKare physiotherapy logo Burlington Waterdown"
                     width={160}
                     height={160}
-                    className="w-24 h-24 lg:w-40 lg:h-40 object-contain"
+                    className="w-32 h-32 sm:w-36 sm:h-36 lg:w-40 lg:h-40 object-contain"
                     style={{
                       filter: 'contrast(1.2) saturate(1.2) brightness(1.15) drop-shadow(0 4px 20px rgba(212, 175, 55, 0.3))',
                       imageRendering: 'crisp-edges'
@@ -109,7 +109,7 @@ const HeroSection = React.memo(function HeroSection() {
             className="mt-4 lg:mt-6"
             style={{ willChange: 'opacity' }}
           >
-            <div className="text-white/90 text-base lg:text-lg font-medium tracking-wide text-center">
+            <div className="text-white/90 text-sm sm:text-base lg:text-lg font-medium tracking-wide text-center">
               Kareem Hassanein Physiotherapy
             </div>
           </motion.div>

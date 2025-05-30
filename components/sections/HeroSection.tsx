@@ -76,38 +76,21 @@ const HeroSection = React.memo(function HeroSection() {
           initial={{ y: -30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="hidden lg:flex justify-center mb-16"
+          className="hidden lg:flex flex-col items-center mb-16"
         >
           <div className="relative">
-            {/* Outer glow rings */}
+            {/* Simplified outer glow */}
             <motion.div 
-              className="absolute -inset-8 bg-gradient-to-br from-[#D4AF37]/20 via-[#B08D57]/15 to-[#D4AF37]/10 rounded-full blur-2xl"
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 1.5, delay: 0.5, ease: "easeOut" }}
-            ></motion.div>
-            
-            <motion.div 
-              className="absolute -inset-4 bg-gradient-to-br from-[#D4AF37]/30 via-transparent to-[#B08D57]/20 rounded-full blur-xl"
+              className="absolute -inset-6 bg-gradient-to-br from-[#D4AF37]/15 to-[#B08D57]/10 rounded-2xl blur-xl"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 1.2, delay: 0.7, ease: "easeOut" }}
+              transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
             ></motion.div>
 
-            {/* Main container */}
-            <div className="relative bg-gradient-to-br from-slate-900/98 via-blue-950/96 to-indigo-950/98 backdrop-blur-2xl rounded-[2.5rem] p-12 shadow-2xl border border-white/20 overflow-hidden">
-              {/* Premium background effects */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/8 via-transparent to-[#B08D57]/6 rounded-[2.5rem]"></div>
-              <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-[#D4AF37]/5 rounded-[2.5rem]"></div>
-              
-              {/* Top accent line */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent rounded-t-[2.5rem]"></div>
-              
-              {/* Corner accents */}
-              <div className="absolute top-4 left-4 w-6 h-6 bg-gradient-to-br from-[#D4AF37]/40 to-transparent rounded-full"></div>
-              <div className="absolute top-4 right-4 w-4 h-4 bg-gradient-to-br from-[#B08D57]/30 to-transparent rounded-full"></div>
-              <div className="absolute bottom-4 left-4 w-4 h-4 bg-gradient-to-br from-[#D4AF37]/30 to-transparent rounded-full"></div>
-              <div className="absolute bottom-4 right-4 w-6 h-6 bg-gradient-to-br from-[#B08D57]/40 to-transparent rounded-full"></div>
+            {/* Main container - much cleaner */}
+            <div className="relative bg-gradient-to-br from-slate-900/90 via-slate-800/85 to-slate-900/90 backdrop-blur-xl rounded-2xl p-10 shadow-xl border border-white/10 overflow-hidden">
+              {/* Simple background effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/5 via-transparent to-[#B08D57]/3 rounded-2xl"></div>
               
               {/* Logo */}
               <div className="relative z-10 flex items-center justify-center">
@@ -121,52 +104,30 @@ const HeroSection = React.memo(function HeroSection() {
                   <Image
                     src="/images/kinetikare-logo.png"
                     alt="KinetiKare physiotherapy logo Burlington Waterdown"
-                    width={140}
-                    height={140}
-                    className="w-35 h-35 object-contain"
+                    width={160}
+                    height={160}
+                    className="w-40 h-40 object-contain"
                     style={{
-                      filter: 'contrast(1.3) saturate(1.3) brightness(1.2) drop-shadow(0 8px 32px rgba(212, 175, 55, 0.4)) drop-shadow(0 4px 16px rgba(176, 141, 87, 0.3))',
+                      filter: 'contrast(1.2) saturate(1.2) brightness(1.15) drop-shadow(0 4px 20px rgba(212, 175, 55, 0.3))',
                       imageRendering: 'crisp-edges'
                     }}
                   />
-                  
-                  {/* Logo glow effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/20 to-[#B08D57]/20 rounded-full blur-xl scale-150 opacity-0 hover:opacity-100 transition-opacity duration-700"></div>
                 </motion.div>
               </div>
-              
-              {/* Floating particles */}
-              <motion.div 
-                className="absolute top-1/4 left-1/4 w-3 h-3 bg-[#D4AF37]/60 rounded-full blur-sm"
-                animate={{ 
-                  y: [-5, 5, -5],
-                  opacity: [0.6, 1, 0.6]
-                }}
-                transition={{ 
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              ></motion.div>
-              
-              <motion.div 
-                className="absolute bottom-1/3 right-1/3 w-2 h-2 bg-[#B08D57]/60 rounded-full blur-sm"
-                animate={{ 
-                  y: [5, -5, 5],
-                  opacity: [0.4, 0.8, 0.4]
-                }}
-                transition={{ 
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1
-                }}
-              ></motion.div>
-              
-              {/* Inner glow */}
-              <div className="absolute inset-3 bg-gradient-to-br from-white/10 via-transparent to-[#D4AF37]/5 rounded-[2rem] pointer-events-none"></div>
             </div>
           </div>
+          
+          {/* Professional subtitle under logo */}
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-6"
+          >
+            <div className="text-white/90 text-lg font-medium tracking-wide text-center">
+              Kareem Hassanein Physiotherapy
+            </div>
+          </motion.div>
         </motion.div>
 
         <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-start lg:items-center min-h-[75vh] lg:min-h-[70vh]">
@@ -338,11 +299,6 @@ const HeroSection = React.memo(function HeroSection() {
                     transition={{ delay: 1.0, duration: 0.6 }}
                     className="mb-6"
                   >
-                    {/* Professional subtitle */}
-                    <div className="text-[#B08D57] text-xs font-medium uppercase tracking-wider mb-3">
-                      Kareem Hassanein Physiotherapy
-                    </div>
-                    
                     <h3 className="text-xl lg:text-2xl font-bold text-slate-800 mb-5 tracking-tight leading-tight">
                       Welcome
                     </h3>

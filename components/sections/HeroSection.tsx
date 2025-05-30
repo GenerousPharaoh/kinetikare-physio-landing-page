@@ -9,7 +9,7 @@ import { CalendarDaysIcon } from '@heroicons/react/24/outline';
 const HeroSection = React.memo(function HeroSection() {
   return (
     <section 
-      className="hero-section relative overflow-hidden min-h-screen flex items-center pt-16 pb-16 lg:pt-24 lg:pb-20"
+      className="hero-section relative overflow-hidden min-h-screen flex flex-col lg:flex items-start lg:items-center pt-16 pb-16 lg:pt-24 lg:pb-20"
       style={{ willChange: 'transform' }}
     >
       {/* Enhanced backdrop image - simplified animation */}
@@ -56,7 +56,7 @@ const HeroSection = React.memo(function HeroSection() {
       
       <div className="absolute bottom-0 left-0 right-0 h-36 bg-gradient-to-t from-neutral-50/10 to-transparent z-30 pointer-events-none"></div>
       
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex-1 flex flex-col justify-start lg:justify-center">
         {/* Premium Logo Container - staggered animation */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -132,7 +132,7 @@ const HeroSection = React.memo(function HeroSection() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
-                    className="block relative text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-3"
+                    className="block relative text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-3"
                     style={{
                       textShadow: '0 6px 24px rgba(0, 0, 0, 0.9), 0 12px 48px rgba(176, 141, 87, 0.4)',
                       filter: 'contrast(1.2) brightness(1.15)',
@@ -145,7 +145,7 @@ const HeroSection = React.memo(function HeroSection() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
-                    className="block relative text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black"
+                    className="block relative text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black"
                     style={{
                       background: 'linear-gradient(135deg, #B08D57 0%, #D4AF37 15%, #F4E4BC 35%, #D4AF37 55%, #B08D57 75%, #A17D47 100%)',
                       WebkitBackgroundClip: 'text',

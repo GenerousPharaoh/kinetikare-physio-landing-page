@@ -9,7 +9,7 @@ import { CalendarDaysIcon } from '@heroicons/react/24/outline';
 const HeroSection = React.memo(function HeroSection() {
   return (
     <section 
-      className="hero-section relative overflow-hidden min-h-screen flex items-center py-16 lg:py-20"
+      className="hero-section relative overflow-hidden min-h-screen flex items-center pt-16 pb-16 lg:pt-24 lg:pb-20"
     >
       {/* Enhanced backdrop image */}
       <div className="absolute inset-0 z-0">
@@ -71,24 +71,24 @@ const HeroSection = React.memo(function HeroSection() {
       <div className="absolute bottom-0 left-0 right-0 h-36 bg-gradient-to-t from-neutral-50/10 to-transparent z-30 pointer-events-none"></div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Premium Logo Container - Above main content */}
+        {/* Premium Logo Container - Now responsive for mobile too */}
         <motion.div 
           initial={{ y: -30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="hidden lg:flex flex-col items-center mb-12"
+          className="flex flex-col items-center mb-8 lg:mb-12"
         >
           <div className="relative">
             {/* Simplified outer glow */}
             <motion.div 
-              className="absolute -inset-6 bg-gradient-to-br from-[#D4AF37]/15 to-[#B08D57]/10 rounded-2xl blur-xl"
+              className="absolute -inset-4 lg:-inset-6 bg-gradient-to-br from-[#D4AF37]/15 to-[#B08D57]/10 rounded-2xl blur-xl"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
             ></motion.div>
 
-            {/* Main container - much cleaner */}
-            <div className="relative bg-gradient-to-br from-slate-900/90 via-slate-800/85 to-slate-900/90 backdrop-blur-xl rounded-2xl p-10 shadow-xl border border-white/10 overflow-hidden">
+            {/* Main container - responsive sizing */}
+            <div className="relative bg-gradient-to-br from-slate-900/90 via-slate-800/85 to-slate-900/90 backdrop-blur-xl rounded-2xl p-6 lg:p-10 shadow-xl border border-white/10 overflow-hidden">
               {/* Simple background effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/5 via-transparent to-[#B08D57]/3 rounded-2xl"></div>
               
@@ -106,7 +106,7 @@ const HeroSection = React.memo(function HeroSection() {
                     alt="KinetiKare physiotherapy logo Burlington Waterdown"
                     width={160}
                     height={160}
-                    className="w-40 h-40 object-contain"
+                    className="w-24 h-24 lg:w-40 lg:h-40 object-contain"
                     style={{
                       filter: 'contrast(1.2) saturate(1.2) brightness(1.15) drop-shadow(0 4px 20px rgba(212, 175, 55, 0.3))',
                       imageRendering: 'crisp-edges'
@@ -122,9 +122,9 @@ const HeroSection = React.memo(function HeroSection() {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-6"
+            className="mt-4 lg:mt-6"
           >
-            <div className="text-white/90 text-lg font-medium tracking-wide text-center">
+            <div className="text-white/90 text-base lg:text-lg font-medium tracking-wide text-center">
               Kareem Hassanein Physiotherapy
             </div>
           </motion.div>
@@ -334,21 +334,6 @@ const HeroSection = React.memo(function HeroSection() {
             </div>
           </motion.div>
         </div>
-
-        {/* Mobile Logo - Only show on mobile */}
-        <motion.div 
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="lg:hidden mt-12 mb-6"
-        >
-          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/10 backdrop-blur-xl border border-white/20">
-            <div className="w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full animate-pulse"></div>
-            <span className="text-white/90 text-sm md:text-base font-medium tracking-wide">
-              Kareem Hassanein Physiotherapy
-            </span>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

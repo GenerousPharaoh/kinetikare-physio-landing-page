@@ -1,39 +1,20 @@
 "use client";
 
 import React from 'react';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { CalendarDaysIcon } from '@heroicons/react/24/outline';
 
 const HeroSection = React.memo(function HeroSection() {
   return (
-    <section 
-      className="w-full"
-      style={{
-        position: 'relative',
-        width: '100%',
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingTop: '80px',
-        paddingBottom: '40px',
-        overflow: 'visible'
-      }}
-    >
-      {/* Background Image */}
-      <div 
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          zIndex: 1,
-          width: '100%',
-          height: '100%'
-        }}
+    <section className="relative w-full min-h-screen overflow-hidden">
+      {/* Animated Background */}
+      <motion.div 
+        initial={{ scale: 1.1 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+        className="absolute inset-0"
       >
         <Image
           src="/images/clinic-pic-may-2025.jpg"
@@ -41,251 +22,190 @@ const HeroSection = React.memo(function HeroSection() {
           fill
           priority
           quality={90}
-          style={{ 
-            objectFit: 'cover',
-            filter: 'brightness(0.4)'
-          }}
+          className="object-cover"
+          style={{ filter: 'brightness(0.5) contrast(1.1)' }}
         />
-        <div 
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: 'rgba(26, 32, 54, 0.7)'
+        
+        {/* Gradient Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-900/80 via-primary-800/70 to-primary-900/75" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+        
+        {/* Animated Light Effects */}
+        <motion.div
+          animate={{
+            opacity: [0.3, 0.6, 0.3],
+            scale: [1, 1.2, 1],
           }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-[#D4AF37]/20 to-transparent rounded-full blur-3xl"
         />
-      </div>
+      </motion.div>
       
-      {/* Content Container */}
+      {/* Content Container - Guaranteed Visibility */}
       <div 
-        style={{
-          position: 'relative',
-          zIndex: 10,
-          width: '100%',
-          maxWidth: '1280px',
-          margin: '0 auto',
-          padding: '0 20px',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '40px'
-        }}
+        className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 py-20"
+        style={{ minHeight: '100vh' }}
       >
-        {/* Logo Section - GUARANTEED VISIBLE */}
-        <div 
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: '20px',
-            width: '100%'
-          }}
-        >
-          <div 
-            style={{
-              backgroundColor: 'rgba(20, 25, 40, 0.9)',
-              padding: '32px',
-              borderRadius: '16px',
-              backdropFilter: 'blur(10px)',
-              WebkitBackdropFilter: 'blur(10px)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              display: 'inline-block'
-            }}
+        <div className="w-full max-w-7xl mx-auto">
+          
+          {/* Logo Section - Always Visible with Animation */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex flex-col items-center mb-12"
+            style={{ minHeight: '200px' }}
           >
-            <Image
-              src="/images/kinetikare-logo.png"
-              alt="KinetiKare logo"
-              width={140}
-              height={140}
-              style={{
-                width: '140px',
-                height: '140px',
-                display: 'block'
-              }}
-            />
-          </div>
-          <p style={{ 
-            color: 'rgba(255, 255, 255, 0.9)', 
-            fontSize: '18px',
-            fontWeight: '500',
-            textAlign: 'center',
-            margin: 0
-          }}>
-            Kareem Hassanein Physiotherapy
-          </p>
-        </div>
-        
-        {/* Hero Text */}
-        <div 
-          style={{
-            textAlign: 'center',
-            width: '100%'
-          }}
-        >
-          <h1 style={{ marginBottom: '24px' }}>
-            <span 
-              style={{
-                display: 'block',
-                fontSize: 'clamp(28px, 5vw, 56px)',
-                fontWeight: '900',
-                color: 'white',
-                marginBottom: '12px',
-                lineHeight: '1.2'
-              }}
+            <motion.div 
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="relative group"
             >
-              The Science of Recovery,
-            </span>
-            <span 
-              style={{
-                display: 'block',
-                fontSize: 'clamp(36px, 6vw, 72px)',
-                fontWeight: '900',
-                background: 'linear-gradient(to right, #B08D57, #D4AF37)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                color: 'transparent',
-                lineHeight: '1.1'
-              }}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/20 to-[#B08D57]/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500" />
+              
+              <div className="relative bg-gradient-to-br from-slate-900/95 via-slate-800/90 to-slate-900/95 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/10 group-hover:border-white/20 transition-all duration-500">
+                <Image
+                  src="/images/kinetikare-logo.png"
+                  alt="KinetiKare logo"
+                  width={150}
+                  height={150}
+                  className="w-36 h-36 sm:w-40 sm:h-40 drop-shadow-2xl"
+                  style={{ minWidth: '144px', minHeight: '144px' }}
+                />
+              </div>
+            </motion.div>
+            
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="mt-6 text-lg sm:text-xl font-medium text-white/90 tracking-wide"
             >
-              The Art of Care
-            </span>
-          </h1>
+              Kareem Hassanein Physiotherapy
+            </motion.p>
+          </motion.div>
           
-          <div style={{ marginBottom: '40px' }}>
-            <p style={{
-              fontSize: 'clamp(18px, 3vw, 24px)',
-              color: 'rgba(255, 255, 255, 0.9)',
-              margin: '0 0 8px 0'
-            }}>
-              <strong>Genuine Understanding.</strong> <strong>Expert Care.</strong>
-            </p>
-            <p style={{
-              fontSize: 'clamp(24px, 4vw, 32px)',
-              color: '#D4AF37',
-              fontWeight: '600',
-              margin: 0
-            }}>
-              Lasting Recovery.
-            </p>
-          </div>
-        </div>
-        
-        {/* CTA Buttons */}
-        <div 
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '16px',
-            width: '100%',
-            maxWidth: '400px',
-            alignItems: 'center'
-          }}
-        >
-          <Link 
-            href="https://endorphinshealth.janeapp.com/#/staff_member/42"
-            target="_blank"
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '8px',
-              width: '100%',
-              padding: '16px 32px',
-              backgroundColor: '#B08D57',
-              color: 'white',
-              borderRadius: '12px',
-              fontWeight: '600',
-              fontSize: '16px',
-              textDecoration: 'none',
-              transition: 'background-color 0.3s'
-            }}
+          {/* Hero Text with Dynamic Animations */}
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-center mb-12"
           >
-            <CalendarDaysIcon style={{ width: '20px', height: '20px' }} />
-            Book an Appointment
-          </Link>
+            <h1 className="mb-8">
+              <motion.span 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-4 tracking-tight"
+                style={{ textShadow: '0 10px 30px rgba(0,0,0,0.7)' }}
+              >
+                The Science of Recovery,
+              </motion.span>
+              <motion.span 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black"
+                style={{
+                  background: 'linear-gradient(135deg, #B08D57 0%, #D4AF37 25%, #F4E4BC 50%, #D4AF37 75%, #B08D57 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.3))'
+                }}
+              >
+                The Art of Care
+              </motion.span>
+            </h1>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              <p className="text-xl sm:text-2xl md:text-3xl text-white/90 mb-2">
+                <span className="font-semibold">Genuine Understanding.</span>{' '}
+                <span className="font-semibold">Expert Care.</span>
+              </p>
+              <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#D4AF37]">
+                Lasting Recovery.
+              </p>
+            </motion.div>
+          </motion.div>
           
-          <Link
-            href="/services" 
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: '100%',
-              padding: '16px 32px',
-              backgroundColor: 'rgba(255, 255, 255, 0.1)',
-              color: 'white',
-              border: '1px solid rgba(255, 255, 255, 0.3)',
-              borderRadius: '12px',
-              fontWeight: '600',
-              fontSize: '16px',
-              textDecoration: 'none',
-              backdropFilter: 'blur(10px)',
-              WebkitBackdropFilter: 'blur(10px)',
-              transition: 'background-color 0.3s'
-            }}
+          {/* CTA Buttons with Hover Effects */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
           >
-            Explore Services
-          </Link>
-        </div>
-        
-        {/* Welcome Card - GUARANTEED VISIBLE */}
-        <div 
-          style={{
-            width: '100%',
-            maxWidth: '600px',
-            backgroundColor: 'rgba(255, 255, 255, 0.95)',
-            borderRadius: '24px',
-            padding: '32px',
-            textAlign: 'center',
-            backdropFilter: 'blur(10px)',
-            WebkitBackdropFilter: 'blur(10px)',
-            boxShadow: '0 20px 40px rgba(0, 0, 0, 0.1)',
-            marginTop: '20px'
-          }}
-        >
-          <h2 style={{
-            fontSize: '24px',
-            fontWeight: '700',
-            color: '#1A2036',
-            marginBottom: '16px'
-          }}>
-            Welcome
-          </h2>
-          <div style={{
-            width: '60px',
-            height: '3px',
-            background: 'linear-gradient(to right, #B08D57, #D4AF37)',
-            margin: '0 auto 24px',
-            borderRadius: '2px'
-          }} />
+            <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }}>
+              <Link 
+                href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                target="_blank"
+                className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#B08D57] to-[#C9A769] text-white font-semibold rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-[#C9A769] to-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <CalendarDaysIcon className="relative z-10 h-5 w-5 sm:h-6 sm:w-6" />
+                <span className="relative z-10">Book an Appointment</span>
+              </Link>
+            </motion.div>
+            
+            <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }}>
+              <Link
+                href="/services" 
+                className="group relative inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-xl text-white font-semibold rounded-xl border border-white/30 overflow-hidden hover:bg-white/20 transition-all duration-300"
+              >
+                <span className="relative z-10">Explore Services</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+              </Link>
+            </motion.div>
+          </motion.div>
           
-          <p style={{
-            fontSize: '18px',
-            color: '#455070',
-            marginBottom: '16px',
-            lineHeight: '1.6'
-          }}>
-            I'm passionate about helping people move better, feel stronger, and get back to doing what they love.
-          </p>
+          {/* Welcome Card - Beautiful with Guaranteed Visibility */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="w-full max-w-2xl mx-auto"
+            style={{ minHeight: '300px' }}
+          >
+            <div className="relative group">
+              {/* Glow Effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/20 to-[#B08D57]/20 rounded-3xl blur-3xl opacity-50 group-hover:opacity-70 transition-opacity duration-500" />
+              
+              {/* Card */}
+              <div className="relative bg-white/95 backdrop-blur-2xl rounded-3xl p-8 sm:p-10 shadow-2xl border border-white/50 overflow-hidden">
+                {/* Decorative Elements */}
+                <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-[#D4AF37]/10 to-transparent rounded-full -translate-y-20 translate-x-20" />
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-[#B08D57]/10 to-transparent rounded-full translate-y-16 -translate-x-16" />
+                
+                <div className="relative z-10 text-center">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 mb-4">
+                    Welcome
+                  </h2>
+                  <div className="w-20 h-1 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mx-auto mb-6 rounded-full" />
+                  
+                  <p className="text-lg sm:text-xl text-slate-700 mb-4 leading-relaxed font-medium">
+                    I'm passionate about helping people move better, feel stronger, and get back to doing what they love.
+                  </p>
+                  
+                  <div className="w-12 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent mx-auto my-4" />
+                  
+                  <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
+                    Every person's journey is unique, and I'm here to guide you through yours with care, understanding, and evidence-based treatment.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
           
-          <div style={{
-            width: '40px',
-            height: '1px',
-            backgroundColor: '#e5e5e5',
-            margin: '16px auto'
-          }} />
-          
-          <p style={{
-            fontSize: '16px',
-            color: '#667085',
-            margin: 0,
-            lineHeight: '1.6'
-          }}>
-            Every person's journey is unique, and I'm here to guide you through yours with care, understanding, and evidence-based treatment.
-          </p>
         </div>
       </div>
     </section>

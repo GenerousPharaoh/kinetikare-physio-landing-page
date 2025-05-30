@@ -45,7 +45,7 @@ const successStories = [
     quote: 'As someone who enjoys golf and weightlifting, developing shoulder pain in my dominant arm was frustrating. Kareem\'s approach was different from other therapists I\'d seen—he focused on finding the cause rather than just treating symptoms. The combination of hands-on treatment and his carefully designed exercise program has completely resolved my pain.',
     duration: '10 weeks',
     outcome: 'Full resolution of pain and return to activities',
-    story: 'David presented with right shoulder pain that had been progressively worsening over 6 months. Diagnostic imaging showed rotator cuff tendinopathy without full tears. Our treatment focused on improving scapular control, addressing posterior capsule tightness through manual therapy, and a progressive loading program for the rotator cuff muscles. We also modified his weightlifting and golf techniques to reduce strain on the affected tissues. David has returned to both activities pain-free and with improved performance.'
+    story: 'David presented with right shoulder pain that had been progressively worsening over 6 months. Diagnostic imaging showed rotator cuff tendinopathy without full tears. Treatment focused on improving scapular control, addressing posterior capsule tightness through manual therapy, and a progressive loading program for the rotator cuff muscles. We also modified his weightlifting and golf techniques to reduce strain on the affected tissues. David has returned to both activities pain-free and with improved performance.'
   }
 ];
 
@@ -169,7 +169,7 @@ export default function SuccessStories() {
               Start Your <span className="text-gold-accent">Success Story</span> Today
             </h2>
             <p className="text-slate-text text-lg mb-8">
-              Join our growing list of patients who have overcome pain and regained their active lifestyle through evidence-based physiotherapy treatment.
+              Join the growing list of patients who have overcome pain and regained their active lifestyle through evidence-based physiotherapy treatment.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a

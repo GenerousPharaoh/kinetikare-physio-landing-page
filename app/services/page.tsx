@@ -152,7 +152,7 @@ const services = [
       <>
         Customized exercise programs designed to restore function, build strength, and prevent injury recurrence.{' '}
         <Link href="/faq" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
-          Learn about our exercise approach
+          Learn about the exercise approach
         </Link>
         .
       </>
@@ -191,7 +191,7 @@ const services = [
       <>
         Evidence-based approaches to reduce pain and improve quality of life through targeted interventions including cupping and IASTM.{' '}
         <Link href="/faq" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
-          Explore our pain management FAQ
+          Explore the pain management FAQ
         </Link>
         .
       </>

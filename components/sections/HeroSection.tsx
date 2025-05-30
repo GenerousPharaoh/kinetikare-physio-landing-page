@@ -41,7 +41,6 @@ const HeroSection = React.memo(function HeroSection() {
 
         {/* Gradient overlays - static, no animation */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary-900/70 via-primary-800/60 to-primary-800/65" />
-        <div className="absolute inset-0 bg-gradient-to-tr from-accent/10 via-transparent to-primary-700/25 hidden lg:block" />
         
         {/* Light effects - simplified, desktop only */}
         <div className="absolute inset-0 hidden lg:block pointer-events-none">
@@ -56,7 +55,7 @@ const HeroSection = React.memo(function HeroSection() {
       
       <div className="absolute bottom-0 left-0 right-0 h-36 bg-gradient-to-t from-neutral-50/10 to-transparent z-30 pointer-events-none"></div>
       
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center lg:items-stretch py-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center py-8">
         {/* Premium Logo Container - unified smooth animation */}
         <motion.div 
           initial={{ opacity: 0, y: 15, scale: 0.95 }}
@@ -238,12 +237,6 @@ const HeroSection = React.memo(function HeroSection() {
                   boxShadow: '0 24px 60px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 0 20px rgba(176, 141, 87, 0.02)'
                 }}
               >
-                {/* Background pattern - hidden on mobile */}
-                <div className="absolute inset-0 opacity-[0.012] hidden lg:block" style={{
-                    backgroundImage: `radial-gradient(circle at 2px 2px, rgba(176,141,87,0.3) 1px, transparent 0)`,
-                    backgroundSize: '28px 28px'
-                  }}></div>
-                
                 {/* Corner accent elements */}
                 <div className="absolute top-3 left-3 w-2 h-2 bg-gradient-to-br from-[#B08D57]/15 to-[#D4AF37]/15 rounded-full"></div>
                 <div className="absolute bottom-3 right-3 w-1.5 h-1.5 bg-gradient-to-br from-[#D4AF37]/15 to-[#B08D57]/15 rounded-full"></div>
@@ -269,13 +262,7 @@ const HeroSection = React.memo(function HeroSection() {
                     </p>
                   </div>
                 </div>
-                
-                {/* Premium inner glow - hidden on mobile */}
-                <div className="absolute inset-2 bg-gradient-to-br from-white/15 via-transparent to-[#B08D57]/3 rounded-[1.5rem] pointer-events-none hidden lg:block"></div>
               </motion.div>
-              
-              {/* Subtle outer glow - static, hidden on mobile */}
-              <div className="absolute -inset-3 bg-gradient-to-br from-[#B08D57]/8 to-[#D4AF37]/8 rounded-[2rem] blur-xl opacity-40 -z-10 hidden lg:block"></div>
             </div>
           </motion.div>
         </div>

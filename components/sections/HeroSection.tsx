@@ -9,7 +9,7 @@ import { CalendarDaysIcon } from '@heroicons/react/24/outline';
 const HeroSection = React.memo(function HeroSection() {
   return (
     <section 
-      className="hero-section relative min-h-screen flex flex-col pt-16 pb-16 lg:pt-24 lg:pb-20"
+      className="hero-section relative min-h-screen flex flex-col items-center lg:items-stretch pt-16 pb-16 lg:pt-24 lg:pb-20 overflow-y-auto lg:overflow-y-hidden"
       style={{ willChange: 'transform' }}
     >
       {/* Enhanced backdrop image - simplified animation */}
@@ -56,7 +56,7 @@ const HeroSection = React.memo(function HeroSection() {
       
       <div className="absolute bottom-0 left-0 right-0 h-36 bg-gradient-to-t from-neutral-50/10 to-transparent z-30 pointer-events-none"></div>
       
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex-1 flex flex-col py-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col py-8">
         {/* Premium Logo Container - unified smooth animation */}
         <motion.div 
           initial={{ opacity: 0, y: 15, scale: 0.95 }}
@@ -106,7 +106,7 @@ const HeroSection = React.memo(function HeroSection() {
           </motion.div>
         </motion.div>
 
-        <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-start lg:items-center flex-1">
+        <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-start lg:items-center">
           {/* Left side content - PRIMARY FOCUS */}
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
@@ -225,7 +225,7 @@ const HeroSection = React.memo(function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-            className="lg:col-span-4 mt-8 lg:mt-0"
+            className="w-full lg:col-span-4 mt-8 lg:mt-0"
             style={{ willChange: 'opacity, transform' }}
           >
             <div className="relative max-w-md mx-auto lg:ml-auto">

@@ -9,7 +9,7 @@ import { CalendarDaysIcon } from '@heroicons/react/24/outline';
 const HeroSection = React.memo(function HeroSection() {
   return (
     <section 
-      className="hero-section relative min-h-screen flex flex-col items-center pt-16 pb-16 lg:pt-24 lg:pb-20 overflow-y-auto"
+      className="hero-section relative min-h-screen flex flex-col items-center justify-center pt-16 pb-16 lg:pt-24 lg:pb-20"
       style={{ willChange: 'transform' }}
     >
       {/* Enhanced backdrop image - simplified animation */}
@@ -39,90 +39,84 @@ const HeroSection = React.memo(function HeroSection() {
           </motion.div>
         </div>
 
-        {/* Gradient overlays - static, no animation */}
+        {/* Simplified gradient overlays - consistent across all screen sizes */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary-900/70 via-primary-800/60 to-primary-800/65" />
-        
-        {/* Light effects - simplified, desktop only */}
-        <div className="absolute inset-0 hidden lg:block pointer-events-none">
-          <div 
-            className="absolute top-1/4 right-1/4 w-96 h-96 blur-3xl bg-gradient-to-br from-[#D4AF37]/20 via-transparent to-transparent rounded-full opacity-60" 
-          />
-          <div 
-            className="absolute bottom-1/3 left-1/4 w-64 h-64 blur-2xl bg-gradient-to-br from-[#B08D57]/15 via-transparent to-transparent rounded-full opacity-40" 
-          />
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-tr from-accent/5 via-transparent to-primary-700/15" />
       </div>
       
       <div className="absolute bottom-0 left-0 right-0 h-36 bg-gradient-to-t from-neutral-50/10 to-transparent z-30 pointer-events-none"></div>
       
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center py-8">
-        {/* Premium Logo Container - unified smooth animation */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center py-8 w-full">
+        {/* Premium Logo Container - always visible */}
         <motion.div 
           initial={{ opacity: 0, y: 15, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="flex flex-col items-center mb-8 lg:mb-12"
+          className="flex flex-col items-center mb-8 lg:mb-12 w-full max-w-sm mx-auto"
         >
-          {/* Simplified unified container */}
+          {/* Logo container with guaranteed visibility */}
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="relative bg-gradient-to-br from-slate-900/95 via-slate-800/90 to-slate-900/95 backdrop-blur-xl rounded-2xl p-4 sm:p-6 lg:p-8 shadow-2xl border border-white/20"
+            className="relative bg-gradient-to-br from-slate-900/95 via-slate-800/90 to-slate-900/95 backdrop-blur-xl rounded-2xl p-6 lg:p-8 shadow-2xl border border-white/20 w-full"
             style={{
-              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1), 0 8px 32px rgba(212, 175, 55, 0.15)'
+              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1), 0 8px 32px rgba(212, 175, 55, 0.15)',
+              minHeight: '180px'
             }}
           >
-            {/* Unified background glow */}
+            {/* Background glow */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/8 via-transparent to-[#B08D57]/5 rounded-2xl"></div>
             
-            {/* Logo */}
+            {/* Logo with guaranteed minimum size */}
             <div className="relative z-10 flex items-center justify-center">
               <Image
                 src="/images/kinetikare-logo.png"
                 alt="KinetiKare physiotherapy logo Burlington Waterdown"
                 width={160}
                 height={160}
-                className="w-28 h-28 sm:w-32 sm:h-32 lg:w-36 lg:h-36 object-contain"
+                className="w-32 h-32 sm:w-36 sm:h-36 lg:w-40 lg:h-40 object-contain"
                 style={{
                   filter: 'contrast(1.1) saturate(1.1) brightness(1.1) drop-shadow(0 4px 16px rgba(212, 175, 55, 0.25))',
-                  imageRendering: 'crisp-edges'
+                  imageRendering: 'crisp-edges',
+                  minWidth: '128px',
+                  minHeight: '128px'
                 }}
               />
             </div>
           </motion.div>
           
-          {/* Professional subtitle */}
+          {/* Professional subtitle - always visible */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-            className="mt-4 lg:mt-6"
+            className="mt-4 lg:mt-6 text-center"
           >
-            <div className="text-white/95 text-sm sm:text-base lg:text-lg font-medium tracking-wide text-center">
+            <div className="text-white/95 text-base sm:text-lg lg:text-xl font-medium tracking-wide">
               Kareem Hassanein Physiotherapy
             </div>
           </motion.div>
         </motion.div>
 
-        <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-start lg:items-center">
+        <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start lg:items-center max-w-7xl mx-auto">
           {/* Left side content - PRIMARY FOCUS */}
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-            className="lg:col-span-8 text-left space-y-6 lg:space-y-8"
+            className="col-span-1 lg:col-span-8 text-center lg:text-left space-y-6 lg:space-y-8"
             style={{ willChange: 'opacity, transform' }}
           >
-            <div className="max-w-5xl space-y-6 lg:space-y-8">
-              {/* Main heading */}
+            <div className="space-y-6 lg:space-y-8">
+              {/* Main heading - responsive */}
               <div className="relative mb-6">
-                <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 tracking-tight leading-[1.02] relative">
+                <h1 className="text-white mb-6 tracking-tight leading-[1.02] relative">
                   <motion.span 
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
-                    className="block relative text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-3"
+                    className="block relative text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-3"
                     style={{
                       textShadow: '0 6px 24px rgba(0, 0, 0, 0.9), 0 12px 48px rgba(176, 141, 87, 0.4)',
                       filter: 'contrast(1.2) brightness(1.15)',
@@ -135,7 +129,7 @@ const HeroSection = React.memo(function HeroSection() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
-                    className="block relative text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black"
+                    className="block relative text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black"
                     style={{
                       background: 'linear-gradient(135deg, #B08D57 0%, #D4AF37 15%, #F4E4BC 35%, #D4AF37 55%, #B08D57 75%, #A17D47 100%)',
                       WebkitBackgroundClip: 'text',
@@ -151,7 +145,7 @@ const HeroSection = React.memo(function HeroSection() {
                 </h1>
               </div>
               
-              {/* Tagline */}
+              {/* Tagline - responsive */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -159,7 +153,7 @@ const HeroSection = React.memo(function HeroSection() {
                 className="relative mb-8"
                 style={{ willChange: 'opacity' }}
               >
-                <div className="text-xl md:text-2xl text-white leading-[1.6] max-w-3xl font-light relative z-10">
+                <div className="text-lg sm:text-xl md:text-2xl text-white leading-[1.6] max-w-3xl font-light relative z-10 mx-auto lg:mx-0">
                   <div className="block mb-3">
                     <span className="font-medium text-white/95 inline-block mr-3">
                       Genuine Understanding.
@@ -169,19 +163,19 @@ const HeroSection = React.memo(function HeroSection() {
                     </span>
                   </div>
                   <div className="block">
-                    <span className="font-medium text-[#D4AF37] inline-block text-2xl md:text-3xl">
+                    <span className="font-medium text-[#D4AF37] inline-block text-xl sm:text-2xl md:text-3xl">
                       Lasting Recovery.
                     </span>
                   </div>
                 </div>
               </motion.div>
 
-              {/* CTA Buttons */}
+              {/* CTA Buttons - responsive stacking */}
               <motion.div 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.6, ease: "easeOut" }}
-                className="flex flex-wrap gap-6 mt-10"
+                className="flex flex-col sm:flex-row gap-4 sm:gap-6 mt-10 justify-center lg:justify-start"
                 style={{ willChange: 'opacity' }}
               >
                 <motion.div
@@ -193,10 +187,10 @@ const HeroSection = React.memo(function HeroSection() {
                   <Link 
                     href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                     target="_blank"
-                    className="group relative px-8 py-4 font-semibold rounded-xl text-white flex items-center justify-center gap-3 overflow-hidden transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-accent/30 bg-gradient-to-r from-[#B08D57] to-[#C9A769] hover:shadow-xl hover:shadow-[#B08D57]/40 text-lg"
+                    className="group relative px-6 sm:px-8 py-4 font-semibold rounded-xl text-white flex items-center justify-center gap-3 overflow-hidden transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-accent/30 bg-gradient-to-r from-[#B08D57] to-[#C9A769] hover:shadow-xl hover:shadow-[#B08D57]/40 text-base sm:text-lg w-full sm:w-auto"
                     aria-label="Book an appointment online"
                   >
-                    <CalendarDaysIcon className="h-6 w-6 transition-transform group-hover:scale-110" aria-hidden="true" />
+                    <CalendarDaysIcon className="h-5 w-5 sm:h-6 sm:w-6 transition-transform group-hover:scale-110" aria-hidden="true" />
                     <span className="tracking-wide">Book an Appointment</span>
                   </Link>
                 </motion.div>
@@ -209,7 +203,7 @@ const HeroSection = React.memo(function HeroSection() {
                 >
                   <Link
                     href="/services" 
-                    className="relative px-8 py-4 font-semibold rounded-xl text-white flex items-center justify-center transition-all duration-300 group overflow-hidden focus:outline-none focus:ring-4 focus:ring-white/30 hover:shadow-xl hover:shadow-slate-900/30 bg-slate-700/90 backdrop-blur-xl border border-slate-600/80 hover:bg-slate-600/90 hover:border-slate-500/80 text-lg"
+                    className="relative px-6 sm:px-8 py-4 font-semibold rounded-xl text-white flex items-center justify-center transition-all duration-300 group overflow-hidden focus:outline-none focus:ring-4 focus:ring-white/30 hover:shadow-xl hover:shadow-slate-900/30 bg-slate-700/90 backdrop-blur-xl border border-slate-600/80 hover:bg-slate-600/90 hover:border-slate-500/80 text-base sm:text-lg w-full sm:w-auto"
                     aria-label="Explore services"
                   >
                     <span className="tracking-wide">Explore Services</span>
@@ -219,22 +213,22 @@ const HeroSection = React.memo(function HeroSection() {
             </div>
           </motion.div>
           
-          {/* Right side - Welcome Card */}
+          {/* Right side - Welcome Card - guaranteed visibility at all screen sizes */}
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-            className="w-full lg:col-span-4 mt-8 lg:mt-0"
+            className="col-span-1 lg:col-span-4 mt-8 lg:mt-0"
             style={{ willChange: 'opacity, transform' }}
           >
             <div className="relative max-w-md mx-auto lg:ml-auto">
-              
-              {/* Personal Welcome Card - simplified animation */}
+              {/* Welcome Card with minimum height to prevent collapse */}
               <motion.div 
-                className="relative rounded-[2rem] p-6 lg:p-8 shadow-[0_24px_60px_-12px_rgba(0,0,0,0.25)] border border-white/50 overflow-hidden bg-gradient-to-br from-white/96 via-white/93 to-slate-50/88 backdrop-blur-2xl"
+                className="relative rounded-2xl lg:rounded-[2rem] p-6 lg:p-8 shadow-2xl border border-white/50 overflow-hidden bg-gradient-to-br from-white/96 via-white/93 to-slate-50/88 backdrop-blur-2xl"
                 style={{
                   background: 'linear-gradient(145deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.93) 50%, rgba(248,250,252,0.88) 100%)',
-                  boxShadow: '0 24px 60px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 0 20px rgba(176, 141, 87, 0.02)'
+                  boxShadow: '0 24px 60px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+                  minHeight: '300px'
                 }}
               >
                 {/* Corner accent elements */}

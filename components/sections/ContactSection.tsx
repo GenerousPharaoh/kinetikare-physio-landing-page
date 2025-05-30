@@ -167,19 +167,19 @@ export default function ContactSection() {
           <div className="mt-16 sm:mt-20">
             <div className="bg-white rounded-3xl p-8 sm:p-12 lg:p-16 shadow-xl border border-slate-100">
               {/* Clean Header */}
-              <div className="text-center mb-12 sm:mb-16">
+                <div className="text-center mb-12 sm:mb-16">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl mb-6 shadow-lg">
                   <MapPinIcon className="w-8 h-8 text-white" />
-                </div>
-                
+                  </div>
+                  
                 <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 tracking-tight">
                   Service <span className="text-[#B08D57]">Areas</span>
-                </h3>
-                
+                  </h3>
+                  
                 <p className="text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto">
                   Proudly serving patients from communities across <span className="font-semibold text-slate-700">Halton Region</span> and the surrounding <span className="font-semibold text-slate-700">Golden Horseshoe area</span>
-                </p>
-              </div>
+                  </p>
+                </div>
 
               {/* Clean Service Areas Grid */}
               <div className="mb-12">
@@ -215,25 +215,25 @@ export default function ContactSection() {
                       </div>
                     </div>
                   ))}
-                </div>
-              </div>
-              
+                          </div>
+                        </div>
+                        
               {/* Clean Description */}
               <div className="text-center">
                 <div className="bg-slate-50 rounded-2xl p-8 sm:p-10 max-w-4xl mx-auto">
                   <p className="text-xl sm:text-2xl text-slate-700 leading-relaxed mb-6">
                     My practice is conveniently located in <span className="font-bold text-[#B08D57]">Burlington</span>, and I'm pleased to extend my physiotherapy services to individuals and families throughout our surrounding communities.
-                  </p>
-                  
+                        </p>
+                        
                   <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8">
                     <div className="flex items-center space-x-2">
                       <CheckCircleIcon className="w-6 h-6 text-[#B08D57]" />
                       <span className="font-semibold text-slate-700">Expert Care</span>
-                    </div>
+                          </div>
                     <div className="flex items-center space-x-2">
                       <CheckCircleIcon className="w-6 h-6 text-[#B08D57]" />
                       <span className="font-semibold text-slate-700">Convenient Locations</span>
-                    </div>
+                          </div>
                     <div className="flex items-center space-x-2">
                       <CheckCircleIcon className="w-6 h-6 text-[#B08D57]" />
                       <span className="font-semibold text-slate-700">Personalized Treatment</span>

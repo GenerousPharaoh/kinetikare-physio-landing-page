@@ -100,7 +100,7 @@ export default function ServiceAreasSection() {
         >
           <Image
             src="/images/facebook-image.jpg"
-            alt="KH Physiotherapy clinic in Burlington"
+            alt="Kareem Hassanein physiotherapy clinic Burlington location, serving Waterdown, Oakville, Hamilton with manual therapy, dry needling, sports rehabilitation"
             fill
             className="object-cover object-center"
             style={{ 

@@ -22,7 +22,7 @@ const HeroSection = React.memo(function HeroSection() {
           >
             <Image
               src="/images/clinic-pic-may-2025.jpg"
-              alt="Physiotherapy treatment room"
+              alt="Kareem Hassanein physiotherapy clinic treatment room in Burlington serving Waterdown, Oakville, Hamilton"
               fill
               className="object-cover object-center"
               priority={true}

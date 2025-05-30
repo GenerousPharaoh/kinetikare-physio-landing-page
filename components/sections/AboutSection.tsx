@@ -16,7 +16,7 @@ export default function AboutSection() {
                 <div className="aspect-[4/5] relative rounded-3xl overflow-hidden shadow-lg">
                   <Image
                     src="/images/kareem-profile.png"
-                    alt="Kareem Hassanein, Physiotherapist"
+                    alt="Kareem Hassanein, registered physiotherapist in Burlington, expert in manual therapy, sports rehabilitation, dry needling"
                     fill
                     className="object-contain object-center"
                   />

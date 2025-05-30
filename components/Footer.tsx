@@ -102,7 +102,7 @@ export default function Footer() {
                 <div className="flex items-center">
                   <Image
                     src="/images/kareem-profile.png"
-                    alt="Kareem Hassanein"
+                    alt="Kareem Hassanein registered physiotherapist Burlington Waterdown"
                     width={60}
                     height={60}
                     className="rounded-full border-2 border-gold/50 mr-3 shadow-md shadow-gold/20"

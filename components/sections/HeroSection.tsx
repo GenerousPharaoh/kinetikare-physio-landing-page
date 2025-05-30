@@ -9,7 +9,7 @@ import { CalendarDaysIcon } from '@heroicons/react/24/outline';
 const HeroSection = React.memo(function HeroSection() {
   return (
     <section 
-      className="hero-section relative overflow-hidden min-h-screen flex items-center py-24 lg:pt-36"
+      className="hero-section relative overflow-hidden min-h-screen flex items-center py-24 lg:pt-28"
     >
       {/* Enhanced backdrop image */}
       <div className="absolute inset-0 z-0">
@@ -71,23 +71,47 @@ const HeroSection = React.memo(function HeroSection() {
       <div className="absolute bottom-0 left-0 right-0 h-36 bg-gradient-to-t from-neutral-50/10 to-transparent z-30 pointer-events-none"></div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center min-h-[80vh]">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-8 xl:gap-12 items-start lg:items-center min-h-[75vh] lg:min-h-[80vh]">
           {/* Left side content */}
           <motion.div 
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.8, 0.25, 1] }}
-            className="lg:col-span-7 text-left space-y-8 lg:space-y-10"
+            className="lg:col-span-7 text-left space-y-8 lg:space-y-6 lg:-mt-12"
           >
-            <div className="max-w-4xl space-y-6 lg:space-y-8">
+            <div className="max-w-4xl space-y-6 lg:space-y-6">
+              
+              {/* KinetiKare Logo - Prominent position above content */}
+              <motion.div
+                initial={{ y: 30, opacity: 0, scale: 0.8 }}
+                animate={{ y: 0, opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                className="flex justify-start lg:justify-start mb-4 lg:mb-6"
+              >
+                <div className="flex items-center gap-4 lg:gap-6">
+                  <Image
+                    src="/images/kinetikare-logo.png"
+                    alt="KinetiKare physiotherapy logo Burlington Waterdown"
+                    width={80}
+                    height={80}
+                    className="w-16 h-16 lg:w-20 lg:h-20 object-contain drop-shadow-2xl"
+                    style={{
+                      filter: 'contrast(1.2) saturate(1.3) brightness(1.1) drop-shadow(0 4px 20px rgba(212, 175, 55, 0.4))',
+                      imageRendering: 'crisp-edges'
+                    }}
+                  />
+                  <div className="hidden lg:block w-16 h-0.5 bg-gradient-to-r from-[#D4AF37] via-[#B08D57] to-transparent rounded-full opacity-80"></div>
+                </div>
+              </motion.div>
+
               {/* Elegant main heading */}
-              <div className="relative mb-8">
+              <div className="relative mb-6 lg:mb-8">
                 {/* Professional identifier */}
                 <motion.div
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.6, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                  className="mb-6"
+                  className="mb-4 lg:mb-6"
                 >
                   <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/10 backdrop-blur-xl border border-white/20">
                     <div className="w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full animate-pulse"></div>
@@ -102,7 +126,7 @@ const HeroSection = React.memo(function HeroSection() {
                   initial={{ y: 60, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 tracking-tight leading-[1.05] relative"
+                  className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 lg:mb-6 tracking-tight leading-[1.05] relative"
                 >
                   <span 
                     className="block relative text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-2"
@@ -134,7 +158,7 @@ const HeroSection = React.memo(function HeroSection() {
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
-                className="relative mb-10"
+                className="relative mb-8 lg:mb-10"
               >
                 <div className="text-lg md:text-xl text-white leading-[1.6] max-w-2xl font-light relative z-10">
                   <div className="block mb-2">
@@ -166,7 +190,7 @@ const HeroSection = React.memo(function HeroSection() {
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                className="flex flex-wrap gap-5 mt-10"
+                className="flex flex-wrap gap-5 mt-8 lg:mt-10"
               >
                 <motion.div
                   whileHover={{ scale: 1.05, y: -2 }}
@@ -206,7 +230,7 @@ const HeroSection = React.memo(function HeroSection() {
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.8, 0.25, 1] }}
-            className="lg:col-span-5 mt-8 lg:mt-0"
+            className="lg:col-span-5 mt-8 lg:mt-6 lg:pt-8"
           >
             <div className="relative max-w-xl ml-auto">
               
@@ -234,26 +258,6 @@ const HeroSection = React.memo(function HeroSection() {
                   animate={{ scaleX: 1 }}
                   transition={{ duration: 1.0, delay: 0.9, ease: "easeOut" }}
                 ></motion.div>
-                
-                {/* KinetiKare Logo - positioned elegantly */}
-                <motion.div 
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8, delay: 1.0, ease: "easeOut" }}
-                  className="absolute top-6 right-6 w-12 h-12 hidden lg:block"
-                >
-                  <Image
-                    src="/images/kinetikare-logo.png"
-                    alt="KinetiKare physiotherapy logo Burlington Waterdown"
-                    width={48}
-                    height={48}
-                    className="w-full h-full object-contain opacity-60 hover:opacity-80 transition-opacity duration-300"
-                    style={{
-                      filter: 'contrast(1.1) saturate(1.1) brightness(0.9)',
-                      imageRendering: 'crisp-edges'
-                    }}
-                  />
-                </motion.div>
                 
                 {/* Floating elements - hidden on mobile */}
                 <motion.div 

@@ -17,7 +17,7 @@ const HeroSection = React.memo(function HeroSection() {
           <motion.div
             initial={{ scale: 1.1, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             className="w-full h-full"
           >
             <Image
@@ -42,30 +42,30 @@ const HeroSection = React.memo(function HeroSection() {
           className="absolute inset-0 bg-gradient-to-br from-primary-900/70 via-primary-800/60 to-primary-800/65"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1.0, ease: "easeOut" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         />
-          <motion.div 
+        <motion.div 
           className="absolute inset-0 bg-gradient-to-tr from-accent/10 via-transparent to-primary-700/25 hidden lg:block"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
-          />
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.0, delay: 0.1, ease: "easeOut" }}
+        />
         
         {/* Light effects - hidden on mobile via CSS */}
         <div className="absolute inset-0 overflow-hidden hidden lg:block">
-            <motion.div 
-              className="absolute top-1/4 right-1/4 w-96 h-96 blur-3xl bg-gradient-to-br from-[#D4AF37]/20 via-transparent to-transparent rounded-full" 
-              initial={{ scale: 0.5, opacity: 0 }}
-              animate={{ scale: 1, opacity: 0.6 }}
-              transition={{ duration: 2.0, delay: 0.8, ease: "easeOut" }}
-            />
-            <motion.div 
-              className="absolute bottom-1/3 left-1/4 w-64 h-64 blur-2xl bg-gradient-to-br from-[#B08D57]/15 via-transparent to-transparent rounded-full" 
-              initial={{ scale: 0.3, opacity: 0 }}
-              animate={{ scale: 1, opacity: 0.4 }}
-              transition={{ duration: 2.5, delay: 1.2, ease: "easeOut" }}
-            />
-          </div>
+          <motion.div 
+            className="absolute top-1/4 right-1/4 w-96 h-96 blur-3xl bg-gradient-to-br from-[#D4AF37]/20 via-transparent to-transparent rounded-full" 
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{ scale: 1, opacity: 0.6 }}
+            transition={{ duration: 1.5, delay: 0.5, ease: "easeOut" }}
+          />
+          <motion.div 
+            className="absolute bottom-1/3 left-1/4 w-64 h-64 blur-2xl bg-gradient-to-br from-[#B08D57]/15 via-transparent to-transparent rounded-full" 
+            initial={{ scale: 0.3, opacity: 0 }}
+            animate={{ scale: 1, opacity: 0.4 }}
+            transition={{ duration: 1.8, delay: 0.7, ease: "easeOut" }}
+          />
+        </div>
       </div>
       
       <div className="absolute bottom-0 left-0 right-0 h-36 bg-gradient-to-t from-neutral-50/10 to-transparent z-30 pointer-events-none"></div>
@@ -74,9 +74,9 @@ const HeroSection = React.memo(function HeroSection() {
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center min-h-[80vh]">
           {/* Left side content */}
           <motion.div 
-            initial={{ y: 60, opacity: 0 }}
+            initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1.0, delay: 0.3, ease: [0.25, 0.8, 0.25, 1] }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.8, 0.25, 1] }}
             className="lg:col-span-7 text-left space-y-8 lg:space-y-10"
           >
             <div className="max-w-4xl space-y-6 lg:space-y-8">
@@ -84,9 +84,9 @@ const HeroSection = React.memo(function HeroSection() {
               <div className="relative mb-8">
                 {/* Professional identifier */}
                 <motion.div
-                  initial={{ y: 30, opacity: 0 }}
+                  initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                  transition={{ duration: 0.6, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
                   className="mb-6"
                 >
                   <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/10 backdrop-blur-xl border border-white/20">
@@ -97,94 +97,75 @@ const HeroSection = React.memo(function HeroSection() {
                   </div>
                 </motion.div>
                 
-                <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 tracking-tight leading-[1.05] relative">
-                  <div className="overflow-hidden">
-                    <motion.span 
-                      initial={{ y: 100, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ duration: 0.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                      className="block relative text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black"
-                      style={{
-                        textShadow: '0 4px 20px rgba(0, 0, 0, 0.8), 0 8px 40px rgba(176, 141, 87, 0.3)',
-                        filter: 'contrast(1.1) brightness(1.1)'
-                      }}
-                    >
-                      The Science of Recovery,
-                    </motion.span>
-                  </div>
-                  
-                  <div className="overflow-hidden">
-                    <motion.span 
-                      initial={{ y: 120, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ duration: 1.0, delay: 1.0, ease: [0.16, 1, 0.3, 1] }}
-                      className="block relative text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black"
-                      style={{
-                        background: 'linear-gradient(135deg, #B08D57 0%, #D4AF37 15%, #F4E4BC 35%, #D4AF37 55%, #B08D57 75%, #A17D47 100%)',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        backgroundClip: 'text',
-                        fontWeight: '900',
-                        letterSpacing: '0.01em'
-                      }}
-                    >
-                      The Art of Care
-                    </motion.span>
-                  </div>
-                </h1>
+                {/* Main heading - animate as one cohesive unit */}
+                <motion.h1 
+                  initial={{ y: 60, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                  className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 tracking-tight leading-[1.05] relative"
+                >
+                  <span 
+                    className="block relative text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-2"
+                    style={{
+                      textShadow: '0 4px 20px rgba(0, 0, 0, 0.8), 0 8px 40px rgba(176, 141, 87, 0.3)',
+                      filter: 'contrast(1.1) brightness(1.1)'
+                    }}
+                  >
+                    The Science of Recovery,
+                  </span>
+                  <span 
+                    className="block relative text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black"
+                    style={{
+                      background: 'linear-gradient(135deg, #B08D57 0%, #D4AF37 15%, #F4E4BC 35%, #D4AF37 55%, #B08D57 75%, #A17D47 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                      fontWeight: '900',
+                      letterSpacing: '0.01em'
+                    }}
+                  >
+                    The Art of Care
+                  </span>
+                </motion.h1>
               </div>
               
-              {/* Tagline */}
+              {/* Tagline - animate as one group */}
               <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, delay: 1.6 }}
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
                 className="relative mb-10"
               >
                 <div className="text-lg md:text-xl text-white leading-[1.6] max-w-2xl font-light relative z-10">
-                  <div className="block">
-                    <motion.span
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 1.8, ease: [0.16, 1, 0.3, 1] }}
-                      className="font-medium text-white/95 inline-block mr-2"
-                    >
+                  <div className="block mb-2">
+                    <span className="font-medium text-white/95 inline-block mr-2">
                       Genuine Understanding.
-                    </motion.span>
-                    <motion.span
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 2.0, ease: [0.16, 1, 0.3, 1] }}
-                      className="font-medium text-white/95 inline-block"
-                    >
+                    </span>
+                    <span className="font-medium text-white/95 inline-block">
                       Expert Care.
-                    </motion.span>
+                    </span>
                   </div>
                   <div className="block">
-                    <motion.span
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 2.2, ease: [0.16, 1, 0.3, 1] }}
-                      className="font-medium text-[#D4AF37] inline-block"
-                    >
+                    <span className="font-medium text-[#D4AF37] inline-block">
                       Lasting Recovery.
-                    </motion.span>
+                    </span>
                   </div>
                 </div>
                 
                 {/* Background glow - hidden on mobile */}
-                  <motion.div 
+                <motion.div 
                   className="absolute inset-0 bg-gradient-to-r from-[#B08D57]/8 via-transparent to-[#D4AF37]/8 rounded-lg blur-xl hidden lg:block"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 2.4, duration: 1.0, ease: "easeOut" }}
-                  />
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 1.1, duration: 0.8, ease: "easeOut" }}
+                />
               </motion.div>
 
+              {/* CTA Buttons */}
               <motion.div 
-                initial={{ y: 40, opacity: 0 }}
+                initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 2.6 }}
+                transition={{ duration: 0.8, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
                 className="flex flex-wrap gap-5 mt-10"
               >
                 <motion.div
@@ -222,9 +203,9 @@ const HeroSection = React.memo(function HeroSection() {
           
           {/* Right side - Welcome Card */}
           <motion.div 
-            initial={{ y: 60, opacity: 0 }}
+            initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1.0, delay: 0.8, ease: [0.25, 0.8, 0.25, 1] }}
+            transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.8, 0.25, 1] }}
             className="lg:col-span-5 mt-8 lg:mt-0"
           >
             <div className="relative max-w-xl ml-auto">
@@ -233,7 +214,7 @@ const HeroSection = React.memo(function HeroSection() {
               <motion.div 
                 initial={{ scale: 0.95, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 1.0, delay: 1.2, ease: [0.25, 0.8, 0.25, 1] }}
+                transition={{ duration: 0.8, delay: 0.7, ease: [0.25, 0.8, 0.25, 1] }}
                 className="relative rounded-[2.5rem] p-8 lg:p-10 shadow-[0_32px_80px_-12px_rgba(0,0,0,0.35)] border border-white/60 overflow-hidden bg-gradient-to-br from-white/98 via-white/95 to-slate-50/90 backdrop-blur-3xl"
                 style={{
                   background: 'linear-gradient(145deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.95) 50%, rgba(248,250,252,0.92) 100%)',
@@ -251,22 +232,36 @@ const HeroSection = React.memo(function HeroSection() {
                   className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-transparent via-[#B08D57] to-transparent opacity-80"
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
-                  transition={{ duration: 1.2, delay: 1.6, ease: "easeOut" }}
+                  transition={{ duration: 1.0, delay: 0.9, ease: "easeOut" }}
                 ></motion.div>
                 
+                {/* KinetiKare Logo - positioned elegantly */}
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8, delay: 1.0, ease: "easeOut" }}
+                  className="absolute top-6 right-6 w-12 h-12 hidden lg:block"
+                >
+                  <Image
+                    src="/images/kinetikare-logo.png"
+                    alt="KinetiKare physiotherapy logo Burlington Waterdown"
+                    width={48}
+                    height={48}
+                    className="w-full h-full object-contain opacity-60 hover:opacity-80 transition-opacity duration-300"
+                    style={{
+                      filter: 'contrast(1.1) saturate(1.1) brightness(0.9)',
+                      imageRendering: 'crisp-edges'
+                    }}
+                  />
+                </motion.div>
+                
                 {/* Floating elements - hidden on mobile */}
-                    <motion.div 
-                  className="absolute top-6 right-6 w-20 h-20 bg-gradient-to-br from-[#B08D57]/8 via-[#D4AF37]/6 to-transparent rounded-full blur-2xl hidden lg:block"
-                      initial={{ scale: 0, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
-                      transition={{ duration: 2.0, delay: 1.8, ease: "easeOut" }}
-                    ></motion.div>
-                    <motion.div 
+                <motion.div 
                   className="absolute bottom-6 left-6 w-16 h-16 bg-gradient-to-tr from-[#D4AF37]/6 via-[#B08D57]/8 to-transparent rounded-full blur-xl hidden lg:block"
-                      initial={{ scale: 0, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
-                      transition={{ duration: 2.0, delay: 2.0, ease: "easeOut" }}
-                    ></motion.div>
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 1.5, delay: 1.1, ease: "easeOut" }}
+                ></motion.div>
                 
                 {/* Corner accent elements */}
                 <div className="absolute top-4 left-4 w-3 h-3 bg-gradient-to-br from-[#B08D57]/20 to-[#D4AF37]/20 rounded-full"></div>
@@ -277,7 +272,7 @@ const HeroSection = React.memo(function HeroSection() {
                   <motion.div 
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 1.4, duration: 0.8 }}
+                    transition={{ delay: 0.9, duration: 0.6 }}
                     className="mb-8"
                   >
                     <h3 className="text-2xl lg:text-3xl font-bold text-slate-800 mb-6 tracking-tight leading-tight">
@@ -287,14 +282,14 @@ const HeroSection = React.memo(function HeroSection() {
                       className="w-16 h-0.5 bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] mx-auto mb-8 rounded-full"
                       initial={{ scaleX: 0 }}
                       animate={{ scaleX: 1 }}
-                      transition={{ duration: 1.0, delay: 1.6, ease: "easeOut" }}
+                      transition={{ duration: 0.8, delay: 1.0, ease: "easeOut" }}
                     ></motion.div>
                   </motion.div>
 
                   <motion.div 
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 1.8, duration: 0.8 }}
+                    transition={{ delay: 1.1, duration: 0.6 }}
                     className="space-y-6"
                   >
                     <p className="text-slate-700 leading-relaxed text-lg lg:text-xl font-medium tracking-wide">
@@ -314,12 +309,12 @@ const HeroSection = React.memo(function HeroSection() {
               </motion.div>
               
               {/* Subtle outer glow - hidden on mobile */}
-                <motion.div 
+              <motion.div 
                 className="absolute -inset-4 bg-gradient-to-br from-[#B08D57]/10 to-[#D4AF37]/10 rounded-[2.5rem] blur-2xl opacity-60 -z-10 hidden lg:block"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 0.6, scale: 1 }}
-                  transition={{ duration: 2.0, delay: 2.2, ease: "easeOut" }}
-                ></motion.div>
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 0.6, scale: 1 }}
+                transition={{ duration: 1.5, delay: 1.2, ease: "easeOut" }}
+              ></motion.div>
             </div>
           </motion.div>
         </div>

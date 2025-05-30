@@ -267,7 +267,7 @@ const HeroSection = React.memo(function HeroSection() {
                 className="text-lg text-white/80 font-light tracking-wide italic"
               >
                 Where science meets compassion
-              </p>
+              </motion.p>
             </motion.div>
           </motion.div>
           

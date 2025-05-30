@@ -212,20 +212,20 @@ export default function ContactSection() {
                       Service{" "}
                       <span className="relative inline-block">
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B08D57] to-[#D4AF37]">
-                          Areas
+                      Areas
                         </span>
                         <div className="absolute -bottom-2 left-0 w-full h-1.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full shadow-lg"></div>
                         <div className="absolute -bottom-2 left-0 w-full h-1.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full shadow-lg blur-sm"></div>
-                      </span>
-                    </h3>
-                    
+                    </span>
+                  </h3>
+                  
                     <div className="max-w-4xl mx-auto">
                       <p className="text-xl sm:text-2xl text-slate-600 leading-relaxed font-light">
                         Proudly serving patients from communities across{" "}
                         <span className="font-semibold text-slate-700">Halton Region</span>{" "}
                         and the surrounding{" "}
                         <span className="font-semibold text-slate-700">Golden Horseshoe area</span>
-                      </p>
+                  </p>
                     </div>
                   </div>
                 </div>
@@ -233,8 +233,8 @@ export default function ContactSection() {
                 {/* Completely redesigned Service Areas Grid */}
                 <div className="mb-16 sm:mb-20">
                   <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 max-w-6xl mx-auto">
-                    {serviceAreas.map((area, index) => (
-                      <div key={area} className="group relative">
+                  {serviceAreas.map((area, index) => (
+                    <div key={area} className="group relative">
                         {/* Enhanced badge design */}
                         <div className={`
                           relative bg-white/90 backdrop-blur-xl rounded-2xl p-5 sm:p-6 
@@ -245,7 +245,7 @@ export default function ContactSection() {
                             : "border-slate-200/60 hover:border-[#B08D57]/40 group-hover:shadow-[#B08D57]/15"
                           }
                         `}>
-                          {/* Gradient background on hover */}
+                        {/* Gradient background on hover */}
                           <div className={`
                             absolute inset-0 bg-gradient-to-br rounded-2xl transition-opacity duration-500
                             ${area === "Burlington"
@@ -253,10 +253,10 @@ export default function ContactSection() {
                               : "from-[#B08D57]/8 via-[#D4AF37]/5 to-[#B08D57]/8 opacity-0 group-hover:opacity-100"
                             }
                           `}></div>
-                          
+                        
                           {/* Premium shine effect */}
                           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-1000 ease-out rounded-2xl"></div>
-                          
+                        
                           {/* Enhanced location icon */}
                           <div className={`
                             relative inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 
@@ -274,23 +274,23 @@ export default function ContactSection() {
                               }
                             `} />
                             <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent rounded-xl"></div>
-                          </div>
-                          
+                        </div>
+                        
                           {/* Enhanced text */}
                           <div className="relative z-10">
                             <span className={`
                               block text-base sm:text-lg lg:text-xl font-bold transition-all duration-300
                               ${area === "Burlington"
-                                ? "text-[#B08D57] group-hover:text-[#D4AF37]"
-                                : "text-slate-800 group-hover:text-[#B08D57]"
+                            ? "text-[#B08D57] group-hover:text-[#D4AF37]"
+                            : "text-slate-800 group-hover:text-[#B08D57]"
                               }
                             `}>
-                              {area}
-                            </span>
+                          {area}
+                        </span>
                           </div>
-                          
+                        
                           {/* Enhanced primary location indicator for Burlington */}
-                          {area === "Burlington" && (
+                        {area === "Burlington" && (
                             <div className="absolute top-3 right-3 flex items-center space-x-1">
                               <div className="w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full shadow-sm animate-pulse"></div>
                               <div className="w-1 h-1 bg-[#D4AF37] rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
@@ -308,7 +308,7 @@ export default function ContactSection() {
                         </div>
                       </div>
                     ))}
-                  </div>
+                    </div>
                 </div>
                 
                 {/* Enhanced Description Section */}
@@ -339,13 +339,13 @@ export default function ContactSection() {
                         {/* Enhanced main text */}
                         <div className="space-y-6">
                           <p className="text-slate-700 leading-relaxed font-medium text-xl sm:text-2xl lg:text-3xl">
-                            My practice is conveniently located in{" "}
+                          My practice is conveniently located in{" "}
                             <span className="relative inline-block font-bold text-[#B08D57] bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 px-4 py-2 rounded-xl shadow-lg">
-                              Burlington
+                            Burlington
                               <div className="absolute inset-0 bg-gradient-to-r from-[#B08D57]/5 to-[#D4AF37]/5 rounded-xl"></div>
-                            </span>
-                            , and I'm pleased to extend my physiotherapy services to individuals and families throughout our surrounding communities.
-                          </p>
+                          </span>
+                          , and I'm pleased to extend my physiotherapy services to individuals and families throughout our surrounding communities.
+                        </p>
                         </div>
                         
                         {/* Enhanced feature points */}
@@ -379,14 +379,14 @@ export default function ContactSection() {
                         {/* Enhanced call-to-action */}
                         <div className="pt-4">
                           <p className="text-slate-600 font-medium text-lg sm:text-xl leading-relaxed">
-                            If you're looking for experienced physiotherapy care to help you move and feel your best,{" "}
+                          If you're looking for experienced physiotherapy care to help you move and feel your best,{" "}
                             <span className="relative inline-block">
                               <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#B08D57] to-[#D4AF37]">
                                 I invite you to get in touch.
                               </span>
                               <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
                             </span>
-                          </p>
+                        </p>
                         </div>
                       </div>
                     </div>

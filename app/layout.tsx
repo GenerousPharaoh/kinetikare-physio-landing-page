@@ -5,6 +5,13 @@ import Footer from '@/components/Footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1.0,
+  maximumScale: 5.0,
+  viewportFit: 'cover'
+};
+
 export const metadata = {
   title: 'KinetiKare Physiotherapy | Kareem Hassanein | Burlington Ontario',
   description: 'KinetiKare Physiotherapy - Expert manual therapy, dry needling, and sports rehabilitation in Burlington, Ontario. Kareem Hassanein, Registered Physiotherapist serving Burlington, Waterdown, Hamilton & Oakville.',
@@ -25,7 +32,6 @@ export const metadata = {
     shortcut: '/favicon.png',
     apple: '/favicon.png'
   },
-  viewport: 'width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover',
   robots: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
   other: {
     'googlebot': 'index, follow',

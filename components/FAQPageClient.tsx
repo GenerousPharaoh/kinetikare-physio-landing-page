@@ -162,46 +162,35 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
 
   return (
     <>
-      {/* Minimal Dot Navigation */}
+      {/* Minimal Dot Navigation - Smaller and less obtrusive */}
       <AnimatePresence>
         {showStickyNav && !isSearching && (
           <motion.div
-            initial={{ x: -50, opacity: 0 }}
+            initial={{ x: -20, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            exit={{ x: -50, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed left-4 top-1/2 transform -translate-y-1/2 z-50"
+            exit={{ x: -20, opacity: 0 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="fixed left-2 top-1/2 transform -translate-y-1/2 z-40 hidden lg:block"
           >
-            <div className="flex flex-col space-y-3 relative">
+            <div className="flex flex-col space-y-2">
               {faqCategories.map((category, index) => (
                 <motion.div
                   key={category.id}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.2, delay: index * 0.05 }}
-                  className="group relative flex items-center"
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.2, delay: index * 0.03 }}
+                  className="relative"
                 >
-                  {/* Dot */}
                   <button
                     onClick={() => scrollToSection(category.id)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 shadow-sm relative z-10 ${
+                    className={`w-2 h-2 rounded-full transition-all duration-200 ${
                       activeCategory === category.id
-                        ? 'bg-[#B08D57] scale-125 shadow-md'
+                        ? 'bg-[#B08D57] w-6'
                         : 'bg-slate-300 hover:bg-slate-400'
                     }`}
                     aria-label={`Go to ${category.name} section`}
+                    title={category.name}
                   />
-                  
-                  {/* Static label - always present but invisible */}
-                  <div 
-                    className="absolute left-6 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none"
-                  >
-                    <div className="bg-slate-800/90 text-white text-xs px-3 py-1.5 rounded-lg whitespace-nowrap backdrop-blur-sm shadow-lg border border-slate-700/50">
-                      {category.name}
-                      {/* Arrow */}
-                      <div className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-1 w-0 h-0 border-t-[4px] border-b-[4px] border-r-[4px] border-transparent border-r-slate-800/90"></div>
-                    </div>
-                  </div>
                 </motion.div>
               ))}
             </div>

@@ -24,43 +24,120 @@ const decodeHtmlEntities = (text: string): string => {
   return textarea.value;
 };
 
-// Function to parse HTML links and convert them to JSX Link components
-const parseLinksInText = (text: string) => {
-  // Regular expression to match anchor tags
-  const linkRegex = /<a\s+href="([^"]*)"[^>]*className="([^"]*)"[^>]*>([^<]*)<\/a>/gi;
+// Function to parse markdown in text and convert to React elements
+const parseMarkdown = (text: string): React.ReactNode => {
+  // Handle bold text
+  const parts = text.split(/(\*\*[^*]+\*\*)/g);
   
-  const parts = [];
-  let lastIndex = 0;
-  let match;
+  return parts.map((part, index) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      // Remove the ** markers and render as bold
+      const boldText = part.slice(2, -2);
+      return <strong key={index} className="font-semibold text-primary-800">{boldText}</strong>;
+    }
+    return part;
+  });
+};
 
-  while ((match = linkRegex.exec(text)) !== null) {
-    // Add text before the link
-    if (match.index > lastIndex) {
-      parts.push(text.substring(lastIndex, match.index));
+// Function to parse HTML links and convert them to JSX Link components
+const parseLinksInText = (text: string | React.ReactNode | React.ReactNode[]): React.ReactNode => {
+  // If it's already a React node array, return it
+  if (Array.isArray(text) || React.isValidElement(text)) {
+    return text;
+  }
+  
+  // If it's not a string, return as is
+  if (typeof text !== 'string') {
+    return text;
+  }
+  
+  // First parse markdown
+  const withMarkdown = parseMarkdown(text);
+  
+  // If parseMarkdown returned a string, parse links
+  if (typeof withMarkdown === 'string') {
+    // Regular expression to match anchor tags
+    const linkRegex = /<a\s+href="([^"]*)"[^>]*className="([^"]*)"[^>]*>([^<]*)<\/a>/gi;
+    
+    const parts = [];
+    let lastIndex = 0;
+    let match;
+
+    while ((match = linkRegex.exec(withMarkdown)) !== null) {
+      // Add text before the link
+      if (match.index > lastIndex) {
+        parts.push(withMarkdown.substring(lastIndex, match.index));
+      }
+      
+      // Add the Link component
+      const [fullMatch, href, className, linkText] = match;
+      parts.push(
+        <Link 
+          key={`link-${match.index}`}
+          href={href}
+          className={className}
+        >
+          {linkText}
+        </Link>
+      );
+      
+      lastIndex = match.index + fullMatch.length;
     }
     
-    // Add the Link component
-    const [fullMatch, href, className, linkText] = match;
-    parts.push(
-      <Link 
-        key={`link-${match.index}`}
-        href={href}
-        className={className}
-      >
-        {linkText}
-      </Link>
-    );
+    // Add remaining text after the last link
+    if (lastIndex < withMarkdown.length) {
+      parts.push(withMarkdown.substring(lastIndex));
+    }
     
-    lastIndex = match.index + fullMatch.length;
+    // If no links were found, return the markdown parsed text
+    return parts.length > 1 ? parts : withMarkdown;
   }
   
-  // Add remaining text after the last link
-  if (lastIndex < text.length) {
-    parts.push(text.substring(lastIndex));
+  // If parseMarkdown returned an array, process each element for links
+  if (Array.isArray(withMarkdown)) {
+    return withMarkdown.map((element, idx) => {
+      if (typeof element === 'string') {
+        // Regular expression to match anchor tags
+        const linkRegex = /<a\s+href="([^"]*)"[^>]*className="([^"]*)"[^>]*>([^<]*)<\/a>/gi;
+        
+        const parts = [];
+        let lastIndex = 0;
+        let match;
+
+        while ((match = linkRegex.exec(element)) !== null) {
+          // Add text before the link
+          if (match.index > lastIndex) {
+            parts.push(element.substring(lastIndex, match.index));
+          }
+          
+          // Add the Link component
+          const [fullMatch, href, className, linkText] = match;
+          parts.push(
+            <Link 
+              key={`link-${idx}-${match.index}`}
+              href={href}
+              className={className}
+            >
+              {linkText}
+            </Link>
+          );
+          
+          lastIndex = match.index + fullMatch.length;
+        }
+        
+        // Add remaining text after the last link
+        if (lastIndex < element.length) {
+          parts.push(element.substring(lastIndex));
+        }
+        
+        // If no links were found, return the original element
+        return parts.length > 1 ? <React.Fragment key={idx}>{parts}</React.Fragment> : element;
+      }
+      return element;
+    });
   }
   
-  // If no links were found, return the original text
-  return parts.length > 1 ? parts : text;
+  return withMarkdown;
 };
 
 // Function to format answers with special formatting

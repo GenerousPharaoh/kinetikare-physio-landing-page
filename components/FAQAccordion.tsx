@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect, useId } from 'react';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
 import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 
 export interface FaqItem {
   question: string;
@@ -23,6 +24,45 @@ const decodeHtmlEntities = (text: string): string => {
   return textarea.value;
 };
 
+// Function to parse HTML links and convert them to JSX Link components
+const parseLinksInText = (text: string) => {
+  // Regular expression to match anchor tags
+  const linkRegex = /<a\s+href="([^"]*)"[^>]*className="([^"]*)"[^>]*>([^<]*)<\/a>/gi;
+  
+  const parts = [];
+  let lastIndex = 0;
+  let match;
+
+  while ((match = linkRegex.exec(text)) !== null) {
+    // Add text before the link
+    if (match.index > lastIndex) {
+      parts.push(text.substring(lastIndex, match.index));
+    }
+    
+    // Add the Link component
+    const [fullMatch, href, className, linkText] = match;
+    parts.push(
+      <Link 
+        key={`link-${match.index}`}
+        href={href}
+        className={className}
+      >
+        {linkText}
+      </Link>
+    );
+    
+    lastIndex = match.index + fullMatch.length;
+  }
+  
+  // Add remaining text after the last link
+  if (lastIndex < text.length) {
+    parts.push(text.substring(lastIndex));
+  }
+  
+  // If no links were found, return the original text
+  return parts.length > 1 ? parts : text;
+};
+
 // Function to format answers with special formatting
 const formatAnswer = (answer: string) => {
   // Split answer by paragraphs
@@ -39,10 +79,10 @@ const formatAnswer = (answer: string) => {
           
           return (
             <div key={i} className="space-y-2">
-              {beforeList && <p className="text-primary-600 leading-relaxed">{decodeHtmlEntities(beforeList)}</p>}
+              {beforeList && <p className="text-primary-600 leading-relaxed">{parseLinksInText(decodeHtmlEntities(beforeList))}</p>}
               <ul className="list-disc pl-5 space-y-2 marker:text-accent">
                 {listItems.map((item, j) => (
-                  <li key={j} className="text-primary-600 pl-1 leading-relaxed">{decodeHtmlEntities(item)}</li>
+                  <li key={j} className="text-primary-600 pl-1 leading-relaxed">{parseLinksInText(decodeHtmlEntities(item))}</li>
                 ))}
               </ul>
             </div>
@@ -56,7 +96,7 @@ const formatAnswer = (answer: string) => {
           const parts = paragraph.split("'");
           const formattedParts = parts.map((part, j) => 
             j % 2 === 0 ? 
-              part : 
+              parseLinksInText(part) : 
               <span key={j} className="font-medium text-primary-600 italic">{part}</span>
           );
           
@@ -72,7 +112,7 @@ const formatAnswer = (answer: string) => {
           return (
             <p key={i} className="text-primary-600 leading-relaxed pl-3 border-l-2 border-neutral-300">
               <span className="font-medium">Yes. </span>
-              {decodeHtmlEntities(paragraph.substring(4))}
+              {parseLinksInText(decodeHtmlEntities(paragraph.substring(4)))}
             </p>
           );
         }
@@ -83,7 +123,7 @@ const formatAnswer = (answer: string) => {
           return (
             <p key={i} className="text-primary-600 leading-relaxed">
               <span className="font-medium text-primary-700">{decodeHtmlEntities(sentences[0])}. </span>
-              {decodeHtmlEntities(sentences.slice(1).join('. '))}
+              {parseLinksInText(decodeHtmlEntities(sentences.slice(1).join('. ')))}
             </p>
           );
         }
@@ -102,7 +142,7 @@ const formatAnswer = (answer: string) => {
                 );
               }
               if (parts[j]) {
-                formattedParts.push(<span key={`content-${j}`}>{decodeHtmlEntities(parts[j])}</span>);
+                formattedParts.push(<span key={`content-${j}`}>{parseLinksInText(decodeHtmlEntities(parts[j]))}</span>);
               }
             }
             
@@ -114,7 +154,7 @@ const formatAnswer = (answer: string) => {
           }
         }
         
-        return <p key={i} className="text-primary-600 leading-relaxed">{decodeHtmlEntities(paragraph)}</p>;
+        return <p key={i} className="text-primary-600 leading-relaxed">{parseLinksInText(decodeHtmlEntities(paragraph))}</p>;
       })}
     </div>
   );

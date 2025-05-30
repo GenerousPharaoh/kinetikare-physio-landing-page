@@ -17,13 +17,25 @@ import CommitmentCarousel from '@/components/CommitmentCarousel';
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: 'About | Kareem Hassanein Physiotherapy Burlington & Waterdown',
-  description: 'Meet Kareem Hassanein, MSc Physiotherapy with distinction, CAMPT Level 2 certified upper and lower quadrant. Personalized physiotherapy care in Burlington, Waterdown, Hamilton, and Oakville with 5+ years experience.',
-  keywords: ['Kareem Hassanein physiotherapist', 'Burlington physiotherapy', 'Waterdown physiotherapy', 'CAMPT certified', 'manual therapy Burlington', 'physiotherapy Hamilton', 'physiotherapy Oakville'],
+  title: 'About Kareem Hassanein | Physiotherapist in Burlington & Waterdown',
+  description: 'Meet Kareem Hassanein, Registered Physiotherapist. MSc Physiotherapy (Distinction), CAMPT-Certified. Experienced in providing personalized care in Burlington, and welcoming patients from Waterdown, Hamilton, and Oakville. Over 5 years of clinical practice focused on manual therapy and sports rehabilitation.',
+  keywords: [
+    'Kareem Hassanein', 
+    'Kareem Hassanein physiotherapist', 
+    'Kareem Hassanein Burlington', 
+    'Kareem Hassanein Waterdown',
+    'Kareem physio Waterdown',
+    'physiotherapist Waterdown Kareem',
+    'Burlington physiotherapy Kareem Hassanein',
+    'KinetiKare Kareem Hassanein', 
+    'CAMPT certified physiotherapist Burlington', 
+    'manual therapy Waterdown', 
+    'sports physio Burlington'
+  ],
   metadataBase: new URL('https://www.kinetikarephysio.com'),
   openGraph: {
-    title: 'About Kareem Hassanein | Expert Physiotherapist',
-    description: 'MSc Physiotherapy with distinction, CAMPT Level 2 certified upper and lower quadrant. Personalized care in Burlington, Waterdown, Hamilton, and Oakville.',
+    title: 'About Kareem Hassanein | Physiotherapist | Burlington & Waterdown',
+    description: 'Learn about Kareem Hassanein, MSc (Physiotherapy), CAMPT-Certified. Dedicated to providing personalized physiotherapy and manual therapy in Burlington, serving Waterdown, Hamilton, and Oakville.',
     url: '/about',
     type: 'website',
   },
@@ -366,7 +378,7 @@ export default function About() {
                       <div className="relative z-10">
                         <p className="text-base sm:text-lg lg:text-xl text-slate-700 leading-relaxed mb-4 sm:mb-6">
                           My journey into physiotherapy wasn't merely academic—it was forged through personal experience. From competitive soccer and pursuing a Kinesiology degree at{" "}
-                          <span className="font-semibold text-[#B08D57]">McMaster University</span> to navigating my own significant injuries including debilitating disc herniations, I've experienced both sides of rehabilitation.
+                          <span className="font-semibold text-[#B08D57]">McMaster University</span> to navigating my own significant injuries including debilitating disc herniations, I've experienced both sides of rehabilitation. This deep understanding, enriched by years of serving diverse communities including <span class="font-semibold text-slate-800">Burlington, Waterdown, and surrounding areas</span>, shapes my empathetic and effective approach to care.
                         </p>
                       </div>
                     </div>
@@ -377,7 +389,7 @@ export default function About() {
                       <div className="relative z-10">
                         <p className="text-base sm:text-lg lg:text-xl text-slate-700 leading-relaxed mb-4 sm:mb-6">
                           These moments of vulnerability transformed my professional purpose, leading me to complete a{" "}
-                          <span className="font-semibold text-[#B08D57]">Master's in Physiotherapy from Robert Gordon University with distinction</span>. My education, combined with firsthand experience as a patient, has deeply informed my approach to care.
+                          <span className="font-semibold text-[#B08D57]">Master's in Physiotherapy from Robert Gordon University with distinction</span>. My education, combined with firsthand experience as a patient, has deeply informed my approach to care, particularly in delivering personalized treatment to those I've had the privilege to work with in <span class="font-semibold text-slate-800">Halton Region and beyond</span>.
                         </p>
                       </div>
                     </div>
@@ -577,11 +589,11 @@ export default function About() {
                         />
                           </div>
                           <div className="flex-1 min-w-0">
-                            <div className="flex items-center space-x-3 mb-2">
-                              <h5 className="font-bold text-slate-800 text-xl group-hover:text-[#B08D57] transition-colors duration-300">
+                            <div className="flex flex-wrap items-center gap-3 mb-2">
+                              <h5 className="font-bold text-slate-800 text-lg sm:text-xl group-hover:text-[#B08D57] transition-colors duration-300">
                                 Master of Science in Physiotherapy
                               </h5>
-                              <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#B08D57]/10 text-[#B08D57] border border-[#B08D57]/20">
+                              <span className="inline-flex items-center px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs font-semibold bg-[#B08D57]/10 text-[#B08D57] border border-[#B08D57]/20 whitespace-nowrap">
                                 Distinction
                               </span>
                             </div>
@@ -622,11 +634,11 @@ export default function About() {
                             />
                           </div>
                           <div className="flex-1 min-w-0">
-                            <div className="flex items-center space-x-3 mb-2">
-                              <h5 className="font-bold text-slate-800 text-xl group-hover:text-[#B08D57] transition-colors duration-300">
+                            <div className="flex flex-wrap items-center gap-3 mb-2">
+                              <h5 className="font-bold text-slate-800 text-lg sm:text-xl group-hover:text-[#B08D57] transition-colors duration-300">
                                 Bachelor of Science in Kinesiology
                               </h5>
-                              <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#B08D57]/10 text-[#B08D57] border border-[#B08D57]/20">
+                              <span className="inline-flex items-center px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs font-semibold bg-[#B08D57]/10 text-[#B08D57] border border-[#B08D57]/20 whitespace-nowrap">
                                 Honours
                               </span>
                             </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
+import Link from 'next/link';
 import FAQPageClient from '@/components/FAQPageClient';
 import { FaqItem } from '@/components/FAQAccordion';
 
@@ -54,19 +55,55 @@ const faqCategories: FAQCategory[] = [
       },
       {
         question: `What is manual therapy, and will it be part of my treatment?`,
-        answer: `Manual therapy involves specialized hands-on techniques to reduce pain, improve mobility, and restore function. This can include joint mobilizations, soft tissue massage, and specific methods like **trigger point release** to alleviate muscle tightness and referred pain. My approach to manual therapy also incorporates principles similar to those found in methodologies like **Active Release Therapy (ART)**, focusing on precise application and patient movement to effectively resolve deep muscle tension. If appropriate for your condition, I will explain these techniques, how they can help, and propose incorporating them into your comprehensive treatment plan (which always includes education and exercise). Your informed consent is always required before any manual therapy is performed. <a href="/services" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">Learn more about our manual therapy services</a>.`
+        answer: (
+          <>
+            Manual therapy involves specialized hands-on techniques to reduce pain, improve mobility, and restore function. This can include joint mobilizations, soft tissue massage, and specific methods like **trigger point release** to alleviate muscle tightness and referred pain. My approach to manual therapy also incorporates principles similar to those found in methodologies like **Active Release Therapy (ART)**, focusing on precise application and patient movement to effectively resolve deep muscle tension. If appropriate for your condition, I will explain these techniques, how they can help, and propose incorporating them into your comprehensive treatment plan (which always includes education and exercise). Your informed consent is always required before any manual therapy is performed.{' '}
+            <Link href="/services" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              Learn more about our manual therapy services
+            </Link>
+            .
+          </>
+        )
       },
       {
         question: `Do you offer dry needling?`,
-        answer: `Yes. Dry needling is one of several tools I may use to help reduce pain, release muscle tension, or improve mobility—particularly when addressing persistent trigger points, movement restrictions, or muscle imbalances. It involves the use of fine, sterile needles to target specific areas of tightness or dysfunction within muscle tissue.\n\nCommon uses include treating myofascial trigger points (knots), calming overactive muscle contractions, supporting postural or repetitive strain issues, and helping restore normal movement patterns when muscles are contributing to pain or joint restriction.\n\nThat said, it is never a required part of treatment. If I believe dry needling could be helpful for your condition, I will explain the rationale, what to expect, and any potential risks. Your informed consent is essential, and you are always free to decline it. Many effective treatment plans do not include dry needling at all—it is simply one option among many, based on what works best for you. <a href="/services" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">View all our treatment services</a>.`
+        answer: (
+          <>
+            Yes. Dry needling is one of several tools I may use to help reduce pain, release muscle tension, or improve mobility—particularly when addressing persistent trigger points, movement restrictions, or muscle imbalances. It involves the use of fine, sterile needles to target specific areas of tightness or dysfunction within muscle tissue.
+
+            Common uses include treating myofascial trigger points (knots), calming overactive muscle contractions, supporting postural or repetitive strain issues, and helping restore normal movement patterns when muscles are contributing to pain or joint restriction.
+
+            That said, it is never a required part of treatment. If I believe dry needling could be helpful for your condition, I will explain the rationale, what to expect, and any potential risks. Your informed consent is essential, and you are always free to decline it. Many effective treatment plans do not include dry needling at all—it is simply one option among many, based on what works best for you.{' '}
+            <Link href="/services" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              View all our treatment services
+            </Link>
+            .
+          </>
+        )
       },
       {
         question: `Do you offer cupping therapy?`,
-        answer: `Yes, cupping therapy is a technique I may integrate into a treatment plan if it\'s suitable for your condition. Cupping uses suction cups to gently lift tissue, which can help to increase blood flow, reduce muscle tension, and promote healing. It\'s often used for conditions like back pain, neck pain, and muscle stiffness. As with any treatment, I\'ll discuss if cupping is appropriate for you, explain the process, and ensure your comfort and consent. <a href="/services" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">Explore our comprehensive pain management services</a>.`
+        answer: (
+          <>
+            Yes, cupping therapy is a technique I may integrate into a treatment plan if it's suitable for your condition. Cupping uses suction cups to gently lift tissue, which can help to increase blood flow, reduce muscle tension, and promote healing. It's often used for conditions like back pain, neck pain, and muscle stiffness. As with any treatment, I'll discuss if cupping is appropriate for you, explain the process, and ensure your comfort and consent.{' '}
+            <Link href="/services" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              Explore our comprehensive pain management services
+            </Link>
+            .
+          </>
+        )
       },
       {
         question: `What about techniques like Graston Technique®? Do you offer that?`,
-        answer: `I utilize **Instrument Assisted Soft Tissue Mobilization (IASTM)**, which is a skilled approach using specialized ergonomic tools to effectively address scar tissue, fascial restrictions, and chronic inflammation. IASTM encompasses the principles and techniques that are sometimes known by specific brand names like Graston Technique®. This method helps to enhance tissue healing, improve range of motion, and restore normal function by targeting specific soft tissue limitations. If IASTM is considered beneficial for your condition, I will discuss it with you as part of your overall treatment plan. <a href="/services" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">Learn about our advanced manual therapy techniques</a>.`
+        answer: (
+          <>
+            I utilize **Instrument Assisted Soft Tissue Mobilization (IASTM)**, which is a skilled approach using specialized ergonomic tools to effectively address scar tissue, fascial restrictions, and chronic inflammation. IASTM encompasses the principles and techniques that are sometimes known by specific brand names like Graston Technique®. This method helps to enhance tissue healing, improve range of motion, and restore normal function by targeting specific soft tissue limitations. If IASTM is considered beneficial for your condition, I will discuss it with you as part of your overall treatment plan.{' '}
+            <Link href="/services" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              Learn about our advanced manual therapy techniques
+            </Link>
+            .
+          </>
+        )
       },
       {
         question: `Will I be treated by you directly throughout my care?`,
@@ -121,7 +158,15 @@ const faqCategories: FAQCategory[] = [
     questions: [
       {
         question: `Can I come for injury prevention, performance enhancement, or tune-ups, even if I am not currently in pain?`,
-        answer: `Yes, definitely! Proactive physiotherapy is incredibly valuable. I work with many individuals – athletes, active individuals, or those simply wanting to move better and feel more resilient – to identify potential movement limitations or strength deficits before they cause problems. I can help develop strategies to optimize movement, build strength, enhance performance, and reduce future injury risk. <a href="/services" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">Discover our sports rehabilitation and exercise therapy programs</a>.`
+        answer: (
+          <>
+            Yes, definitely! Proactive physiotherapy is incredibly valuable. I work with many individuals – athletes, active individuals, or those simply wanting to move better and feel more resilient – to identify potential movement limitations or strength deficits before they cause problems. I can help develop strategies to optimize movement, build strength, enhance performance, and reduce future injury risk.{' '}
+            <Link href="/services" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              Discover our sports rehabilitation and exercise therapy programs
+            </Link>
+            .
+          </>
+        )
       },
       {
         question: `Is strength training part of physiotherapy?`,

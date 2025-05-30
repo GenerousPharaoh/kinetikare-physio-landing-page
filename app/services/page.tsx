@@ -89,7 +89,14 @@ const services = [
   {
     id: 'manual-therapy',
     title: 'Manual Therapy',
-    description: 'Hands-on techniques to mobilize joints, reduce pain, and restore function through targeted tissue manipulation. <a href="/faq" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">Have questions about manual therapy?</a>',
+    description: (
+      <>
+        Hands-on techniques to mobilize joints, reduce pain, and restore function through targeted tissue manipulation.{' '}
+        <Link href="/faq" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+          Have questions about manual therapy?
+        </Link>
+      </>
+    ),
     image: '/images/manual-therapy.jpg',
     features: [
       'Joint mobilization',
@@ -101,7 +108,15 @@ const services = [
   {
     id: 'sports-rehab',
     title: 'Sports Rehabilitation',
-    description: 'Tailored rehabilitation for athletes to recover from injury and return to their sport safely and stronger. <a href="/faq" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">Learn what to expect during sports rehab</a>.',
+    description: (
+      <>
+        Tailored rehabilitation for athletes to recover from injury and return to their sport safely and stronger.{' '}
+        <Link href="/faq" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+          Learn what to expect during sports rehab
+        </Link>
+        .
+      </>
+    ),
     image: '/images/sports-injury.jpg',
     features: [
       'Sport-specific movement analysis',
@@ -113,7 +128,15 @@ const services = [
   {
     id: 'dry-needling',
     title: 'Dry Needling',
-    description: 'Precision therapy using thin filiform needles to release trigger points and relieve muscular pain and tension. <a href="/faq" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">Common questions about dry needling answered</a>.',
+    description: (
+      <>
+        Precision therapy using thin filiform needles to release trigger points and relieve muscular pain and tension.{' '}
+        <Link href="/faq" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+          Common questions about dry needling answered
+        </Link>
+        .
+      </>
+    ),
     image: '/images/dry-needling.jpg',
     features: [
       'Trigger point release',
@@ -125,7 +148,15 @@ const services = [
   {
     id: 'exercise-therapy',
     title: 'Exercise Therapy',
-    description: 'Customized exercise programs designed to restore function, build strength, and prevent injury recurrence. <a href="/faq" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">Learn about our exercise approach</a>.',
+    description: (
+      <>
+        Customized exercise programs designed to restore function, build strength, and prevent injury recurrence.{' '}
+        <Link href="/faq" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+          Learn about our exercise approach
+        </Link>
+        .
+      </>
+    ),
     image: '/images/exercise-therapy.jpg',
     features: [
       'Strength and conditioning',
@@ -137,7 +168,14 @@ const services = [
   {
     id: 'postural-assessment',
     title: 'Posture & Ergonomic Assessment',
-    description: 'Comprehensive analysis of your posture and work environment to address pain and prevent future issues. <a href="/faq" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">Questions about assessments?</a>',
+    description: (
+      <>
+        Comprehensive analysis of your posture and work environment to address pain and prevent future issues.{' '}
+        <Link href="/faq" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+          Questions about assessments?
+        </Link>
+      </>
+    ),
     image: '/images/posture-assessment.jpg',
     features: [
       'Movement pattern analysis',
@@ -149,7 +187,15 @@ const services = [
   {
     id: 'pain-management',
     title: 'Pain Management',
-    description: 'Evidence-based approaches to reduce pain and improve quality of life through targeted interventions including cupping and IASTM. <a href="/faq" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">Explore our pain management FAQ</a>.',
+    description: (
+      <>
+        Evidence-based approaches to reduce pain and improve quality of life through targeted interventions including cupping and IASTM.{' '}
+        <Link href="/faq" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+          Explore our pain management FAQ
+        </Link>
+        .
+      </>
+    ),
     image: '/images/pain-management.jpg',
     features: [
       'Acute and chronic pain treatment',

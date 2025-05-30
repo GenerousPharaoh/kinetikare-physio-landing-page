@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 export interface FaqItem {
   question: string;
-  answer: string;
+  answer: string | React.ReactNode;
   category?: string; // Optional property for search results
   id?: string; // Optional ID for direct linking
 }
@@ -64,7 +64,13 @@ const parseLinksInText = (text: string) => {
 };
 
 // Function to format answers with special formatting
-const formatAnswer = (answer: string) => {
+const formatAnswer = (answer: string | React.ReactNode) => {
+  // If answer is already a React node (JSX), return it directly
+  if (typeof answer !== 'string') {
+    return answer;
+  }
+
+  // Continue with existing string processing for string answers
   // Split answer by paragraphs
   const paragraphs = answer.split('\n\n');
   

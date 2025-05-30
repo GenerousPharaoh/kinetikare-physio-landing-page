@@ -26,8 +26,8 @@ export default function ContactSection() {
       
       {/* Subtle texture overlay */}
       <div className="absolute inset-0 opacity-[0.015]" style={{
-        backgroundImage: `radial-gradient(circle at 1px 1px, rgba(0,0,0,0.15) 1px, transparent 0)`,
-        backgroundSize: '24px 24px'
+        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.1' fill-rule='evenodd'%3E%3Ccircle cx='7' cy='7' r='1'/%3E%3Ccircle cx='27' cy='27' r='1'/%3E%3Ccircle cx='47' cy='47' r='1'/%3E%3C/g%3E%3C/svg%3E")`,
+        backgroundRepeat: 'repeat'
       }}></div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -127,8 +127,8 @@ export default function ContactSection() {
               <div className="bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-3xl p-6 sm:p-8 lg:p-12 text-white relative overflow-hidden shadow-2xl">
                 {/* Premium background pattern */}
                 <div className="absolute inset-0 opacity-10" style={{
-                  backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.4) 1px, transparent 0)`,
-                  backgroundSize: '32px 32px'
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.4' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='1'/%3E%3Ccircle cx='13' cy='13' r='1'/%3E%3Ccircle cx='23' cy='23' r='1'/%3E%3Ccircle cx='33' cy='33' r='1'/%3E%3C/g%3E%3C/svg%3E")`,
+                  backgroundRepeat: 'repeat'
                 }}></div>
                 
                 {/* Floating orbs */}
@@ -188,10 +188,10 @@ export default function ContactSection() {
               <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-gradient-to-tl from-[#D4AF37]/8 to-[#B08D57]/4 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
               <div className="absolute top-1/3 left-1/4 w-32 h-32 bg-gradient-to-r from-[#B08D57]/4 to-[#D4AF37]/6 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
               
-              {/* Geometric pattern overlay */}
-              <div className="absolute inset-0 opacity-[0.015] rounded-[2.5rem]" style={{
-                backgroundImage: `radial-gradient(circle at 3px 3px, rgba(176, 141, 87, 0.4) 1px, transparent 0)`,
-                backgroundSize: '48px 48px'
+              {/* Geometric pattern */}
+              <div className="absolute inset-0 opacity-[0.02]" style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23B08D57' fill-opacity='0.5' fill-rule='evenodd'%3E%3Ccircle cx='4' cy='4' r='1'/%3E%3Ccircle cx='14' cy='14' r='1'/%3E%3Ccircle cx='24' cy='24' r='1'/%3E%3Ccircle cx='34' cy='34' r='1'/%3E%3C/g%3E%3C/svg%3E")`,
+                backgroundRepeat: 'repeat'
               }}></div>
 
               <div className="relative z-10 p-8 sm:p-12 lg:p-16">
@@ -322,8 +322,8 @@ export default function ContactSection() {
                       
                       {/* Geometric pattern */}
                       <div className="absolute inset-0 opacity-[0.02]" style={{
-                        backgroundImage: `radial-gradient(circle at 2px 2px, rgba(176, 141, 87, 0.5) 1px, transparent 0)`,
-                        backgroundSize: '32px 32px'
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23B08D57' fill-opacity='0.5' fill-rule='evenodd'%3E%3Ccircle cx='4' cy='4' r='1'/%3E%3Ccircle cx='14' cy='14' r='1'/%3E%3Ccircle cx='24' cy='24' r='1'/%3E%3Ccircle cx='34' cy='34' r='1'/%3E%3C/g%3E%3C/svg%3E")`,
+                        backgroundRepeat: 'repeat'
                       }}></div>
 
                       <div className="relative z-10 space-y-8">

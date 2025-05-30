@@ -131,14 +131,14 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
-      <main className="min-h-screen">
-        <HeroSection />
-        <AboutSection />
+    <main className="min-h-screen">
+      <HeroSection />
+      <AboutSection />
         <HealingEnvironmentSection />
-        <CareJourneySection />
-        <ServicesSection />
-        <ContactSection />
-      </main>
+      <CareJourneySection />
+      <ServicesSection />
+      <ContactSection />
+    </main>
     </>
   );
 } 

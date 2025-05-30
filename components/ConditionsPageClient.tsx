@@ -31,7 +31,6 @@ export default function ConditionsPageClient({
 }: ConditionsPageClientProps) {
   const [activeTab, setActiveTab] = useState(0);
   const [searchQuery, setSearchQuery] = useState('');
-  const [showAllServices, setShowAllServices] = useState(false);
 
   // Filter conditions based on search query
   const filteredCategories = useMemo(() => {
@@ -245,7 +244,7 @@ export default function ConditionsPageClient({
             </div>
 
             {/* Compact Service Grid */}
-            <div className={`grid md:grid-cols-2 lg:grid-cols-3 gap-4 ${showAllServices ? '' : 'max-h-[400px] overflow-hidden relative'}`}>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {additionalServices.map((service, index) => (
                 <motion.div
                   key={service.title}
@@ -270,25 +269,7 @@ export default function ConditionsPageClient({
                   </div>
                 </motion.div>
               ))}
-              
-              {/* Gradient Overlay for Show More */}
-              {!showAllServices && (
-                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-50 to-transparent pointer-events-none"></div>
-              )}
             </div>
-
-            {/* Show More/Less Button */}
-            {additionalServices.length > 3 && (
-              <div className="text-center mt-8">
-                <button
-                  onClick={() => setShowAllServices(!showAllServices)}
-                  className="inline-flex items-center px-6 py-3 bg-white border border-slate-200 rounded-lg font-medium text-slate-700 hover:bg-slate-50 hover:border-[#B08D57]/30 transition-all duration-300"
-                >
-                  {showAllServices ? 'Show Less' : 'Show All Services'}
-                  <ChevronRightIcon className={`ml-2 h-4 w-4 transform transition-transform ${showAllServices ? 'rotate-90' : ''}`} />
-                </button>
-              </div>
-            )}
           </div>
         </div>
       </section>

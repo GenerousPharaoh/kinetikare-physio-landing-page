@@ -44,28 +44,28 @@ const HeroSection = React.memo(function HeroSection() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1.0, ease: "easeOut" }}
         />
-        <motion.div 
+          <motion.div 
           className="absolute inset-0 bg-gradient-to-tr from-accent/10 via-transparent to-primary-700/25 hidden lg:block"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
-        />
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
+          />
         
         {/* Light effects - hidden on mobile via CSS */}
         <div className="absolute inset-0 overflow-hidden hidden lg:block">
-          <motion.div 
-            className="absolute top-1/4 right-1/4 w-96 h-96 blur-3xl bg-gradient-to-br from-[#D4AF37]/20 via-transparent to-transparent rounded-full" 
-            initial={{ scale: 0.5, opacity: 0 }}
-            animate={{ scale: 1, opacity: 0.6 }}
-            transition={{ duration: 2.0, delay: 0.8, ease: "easeOut" }}
-          />
-          <motion.div 
-            className="absolute bottom-1/3 left-1/4 w-64 h-64 blur-2xl bg-gradient-to-br from-[#B08D57]/15 via-transparent to-transparent rounded-full" 
-            initial={{ scale: 0.3, opacity: 0 }}
-            animate={{ scale: 1, opacity: 0.4 }}
-            transition={{ duration: 2.5, delay: 1.2, ease: "easeOut" }}
-          />
-        </div>
+            <motion.div 
+              className="absolute top-1/4 right-1/4 w-96 h-96 blur-3xl bg-gradient-to-br from-[#D4AF37]/20 via-transparent to-transparent rounded-full" 
+              initial={{ scale: 0.5, opacity: 0 }}
+              animate={{ scale: 1, opacity: 0.6 }}
+              transition={{ duration: 2.0, delay: 0.8, ease: "easeOut" }}
+            />
+            <motion.div 
+              className="absolute bottom-1/3 left-1/4 w-64 h-64 blur-2xl bg-gradient-to-br from-[#B08D57]/15 via-transparent to-transparent rounded-full" 
+              initial={{ scale: 0.3, opacity: 0 }}
+              animate={{ scale: 1, opacity: 0.4 }}
+              transition={{ duration: 2.5, delay: 1.2, ease: "easeOut" }}
+            />
+          </div>
       </div>
       
       <div className="absolute bottom-0 left-0 right-0 h-36 bg-gradient-to-t from-neutral-50/10 to-transparent z-30 pointer-events-none"></div>
@@ -173,12 +173,12 @@ const HeroSection = React.memo(function HeroSection() {
                 </div>
                 
                 {/* Background glow - hidden on mobile */}
-                <motion.div 
+                  <motion.div 
                   className="absolute inset-0 bg-gradient-to-r from-[#B08D57]/8 via-transparent to-[#D4AF37]/8 rounded-lg blur-xl hidden lg:block"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 2.4, duration: 1.0, ease: "easeOut" }}
-                />
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 2.4, duration: 1.0, ease: "easeOut" }}
+                  />
               </motion.div>
 
               <motion.div 
@@ -242,9 +242,9 @@ const HeroSection = React.memo(function HeroSection() {
               >
                 {/* Background pattern - hidden on mobile */}
                 <div className="absolute inset-0 opacity-[0.015] hidden lg:block" style={{
-                  backgroundImage: `radial-gradient(circle at 2px 2px, rgba(176,141,87,0.4) 1px, transparent 0)`,
-                  backgroundSize: '32px 32px'
-                }}></div>
+                    backgroundImage: `radial-gradient(circle at 2px 2px, rgba(176,141,87,0.4) 1px, transparent 0)`,
+                    backgroundSize: '32px 32px'
+                  }}></div>
                 
                 {/* Elegant top accent */}
                 <motion.div 
@@ -255,18 +255,18 @@ const HeroSection = React.memo(function HeroSection() {
                 ></motion.div>
                 
                 {/* Floating elements - hidden on mobile */}
-                <motion.div 
+                    <motion.div 
                   className="absolute top-6 right-6 w-20 h-20 bg-gradient-to-br from-[#B08D57]/8 via-[#D4AF37]/6 to-transparent rounded-full blur-2xl hidden lg:block"
-                  initial={{ scale: 0, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 2.0, delay: 1.8, ease: "easeOut" }}
-                ></motion.div>
-                <motion.div 
+                      initial={{ scale: 0, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      transition={{ duration: 2.0, delay: 1.8, ease: "easeOut" }}
+                    ></motion.div>
+                    <motion.div 
                   className="absolute bottom-6 left-6 w-16 h-16 bg-gradient-to-tr from-[#D4AF37]/6 via-[#B08D57]/8 to-transparent rounded-full blur-xl hidden lg:block"
-                  initial={{ scale: 0, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 2.0, delay: 2.0, ease: "easeOut" }}
-                ></motion.div>
+                      initial={{ scale: 0, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      transition={{ duration: 2.0, delay: 2.0, ease: "easeOut" }}
+                    ></motion.div>
                 
                 {/* Corner accent elements */}
                 <div className="absolute top-4 left-4 w-3 h-3 bg-gradient-to-br from-[#B08D57]/20 to-[#D4AF37]/20 rounded-full"></div>
@@ -314,12 +314,12 @@ const HeroSection = React.memo(function HeroSection() {
               </motion.div>
               
               {/* Subtle outer glow - hidden on mobile */}
-              <motion.div 
+                <motion.div 
                 className="absolute -inset-4 bg-gradient-to-br from-[#B08D57]/10 to-[#D4AF37]/10 rounded-[2.5rem] blur-2xl opacity-60 -z-10 hidden lg:block"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 0.6, scale: 1 }}
-                transition={{ duration: 2.0, delay: 2.2, ease: "easeOut" }}
-              ></motion.div>
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 0.6, scale: 1 }}
+                  transition={{ duration: 2.0, delay: 2.2, ease: "easeOut" }}
+                ></motion.div>
             </div>
           </motion.div>
         </div>

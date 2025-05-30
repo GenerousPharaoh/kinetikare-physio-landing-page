@@ -20,22 +20,14 @@ interface AdditionalService {
   description: string;
 }
 
-interface ClientType {
-  title: string;
-  description: string;
-  pattern: string;
-}
-
 interface ConditionsPageClientProps {
   conditionCategories: ConditionCategory[];
   additionalServices: AdditionalService[];
-  clientTypes: ClientType[];
 }
 
 export default function ConditionsPageClient({ 
   conditionCategories, 
-  additionalServices, 
-  clientTypes 
+  additionalServices
 }: ConditionsPageClientProps) {
   const [activeTab, setActiveTab] = useState(0);
   const [searchQuery, setSearchQuery] = useState('');
@@ -297,39 +289,6 @@ export default function ConditionsPageClient({
                 </button>
               </div>
             )}
-          </div>
-        </div>
-      </section>
-
-      {/* Who I Help - Simplified */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 text-center mb-12">
-              Who I Help
-            </h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              {clientTypes.map((type, index) => (
-                <motion.div
-                  key={type.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="text-center"
-                >
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#B08D57]/10 to-[#D4AF37]/10 rounded-2xl mb-4">
-                    <div className="text-2xl">
-                      {type.pattern === 'dots' && '🏃'}
-                      {type.pattern === 'lines' && '🧘'}
-                      {type.pattern === 'waves' && '🏥'}
-                    </div>
-                  </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">{type.title}</h3>
-                  <p className="text-slate-600">{type.description}</p>
-                </motion.div>
-              ))}
-            </div>
           </div>
         </div>
       </section>

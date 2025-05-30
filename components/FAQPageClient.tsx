@@ -71,7 +71,14 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
 
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      setShowStickyNav(scrollY > 400);
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      
+      // Hide navigation when close to footer (within 300px of bottom)
+      const distanceFromBottom = documentHeight - (scrollY + windowHeight);
+      const shouldShowNav = scrollY > 400 && distanceFromBottom > 300;
+      
+      setShowStickyNav(shouldShowNav);
 
       // Update active category based on scroll position (scroll spy)
       if (!isSearching) {

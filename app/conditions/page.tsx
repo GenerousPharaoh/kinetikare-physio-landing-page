@@ -134,29 +134,10 @@ export default function ConditionsPage() {
     }
   ];
 
-  const clientTypes = [
-    {
-      title: "Athletes & Active Individuals",
-      description: "Peak performance and injury prevention",
-      pattern: "dots"
-    },
-    {
-      title: "Chronic Conditions",
-      description: "Long-term pain management and mobility",
-      pattern: "lines"
-    },
-    {
-      title: "Recovery & Rehabilitation",
-      description: "Post-surgery and injury recovery",
-      pattern: "waves"
-    }
-  ];
-
   return (
     <ConditionsPageClient 
       conditionCategories={conditionCategories}
       additionalServices={additionalServices}
-      clientTypes={clientTypes}
     />
   );
 } 

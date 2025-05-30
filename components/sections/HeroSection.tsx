@@ -26,9 +26,9 @@ const HeroSection = React.memo(function HeroSection() {
           style={{ filter: 'brightness(0.5) contrast(1.1)' }}
         />
         
-        {/* Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-900/80 via-primary-800/70 to-primary-900/75" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+        {/* Gradient Overlays - Changed from navy to neutral */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
         
         {/* Animated Light Effects */}
         <motion.div
@@ -123,18 +123,50 @@ const HeroSection = React.memo(function HeroSection() {
               </motion.span>
             </h1>
             
+            {/* Redesigned tagline section */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
+              className="flex flex-col items-center space-y-4"
             >
-              <p className="text-xl sm:text-2xl md:text-3xl text-white/90 mb-2">
-                <span className="font-semibold">Genuine Understanding.</span>{' '}
-                <span className="font-semibold">Expert Care.</span>
-              </p>
-              <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#D4AF37]">
-                Lasting Recovery.
-              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6">
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.7 }}
+                  className="flex items-center gap-2"
+                >
+                  <div className="h-8 w-1 bg-gradient-to-b from-[#D4AF37] to-[#B08D57] rounded-full" />
+                  <p className="text-lg sm:text-xl text-white/90 font-light tracking-wide">
+                    Genuine <span className="font-semibold text-white">Understanding</span>
+                  </p>
+                </motion.div>
+                
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.8 }}
+                  className="flex items-center gap-2"
+                >
+                  <div className="h-8 w-1 bg-gradient-to-b from-[#D4AF37] to-[#B08D57] rounded-full" />
+                  <p className="text-lg sm:text-xl text-white/90 font-light tracking-wide">
+                    Expert <span className="font-semibold text-white">Care</span>
+                  </p>
+                </motion.div>
+                
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.9 }}
+                  className="flex items-center gap-2"
+                >
+                  <div className="h-8 w-1 bg-gradient-to-b from-[#D4AF37] to-[#B08D57] rounded-full" />
+                  <p className="text-lg sm:text-xl text-white/90 font-light tracking-wide">
+                    Lasting <span className="font-semibold text-white">Recovery</span>
+                  </p>
+                </motion.div>
+              </div>
             </motion.div>
           </motion.div>
           
@@ -142,7 +174,7 @@ const HeroSection = React.memo(function HeroSection() {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
+            transition={{ duration: 0.6, delay: 1.0 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
           >
             <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }}>

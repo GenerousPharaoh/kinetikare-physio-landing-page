@@ -24,6 +24,22 @@ export const metadata = {
     ],
     shortcut: '/favicon.png',
     apple: '/favicon.png'
+  },
+  viewport: 'width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover',
+  robots: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
+  other: {
+    'googlebot': 'index, follow',
+    'google': 'notranslate',
+    'author': 'Kareem Hassanein',
+    'copyright': 'KinetiKare Physiotherapy',
+    'application-name': 'KinetiKare',
+    'theme-color': '#B08D57',
+    'msapplication-TileColor': '#B08D57',
+    'apple-mobile-web-app-title': 'KinetiKare',
+    'geo.region': 'CA-ON',
+    'geo.placename': 'Burlington',
+    'geo.position': '43.430782;-79.838055',
+    'ICBM': '43.430782, -79.838055'
   }
 };
 
@@ -167,52 +183,22 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        {/* Ensure proper viewport settings for responsive design */}
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
-        
-        {/* Additional SEO meta tags for better indexing */}
-        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-        <meta name="googlebot" content="index, follow" />
-        <meta name="google" content="notranslate" />
-        <link rel="canonical" href="https://www.kinetikarephysio.com" />
-        
-        {/* Organization Schema */}
+      <body className={inter.className}>
+        {/* Schema.org structured data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
-        
-        {/* Brand Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(brandSchema) }}
         />
-        
-        {/* Website Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
         
-        {/* Enhanced Brand Meta Tags */}
-        <meta name="author" content="Kareem Hassanein" />
-        <meta name="copyright" content="KinetiKare Physiotherapy" />
-        <meta name="application-name" content="KinetiKare" />
-        <meta name="theme-color" content="#B08D57" />
-        <meta name="msapplication-TileColor" content="#B08D57" />
-        <meta name="apple-mobile-web-app-title" content="KinetiKare" />
-        
-        {/* Additional Local SEO Meta Tags */}
-        <meta name="geo.region" content="CA-ON" />
-        <meta name="geo.placename" content="Burlington" />
-        <meta name="geo.position" content="43.430782;-79.838055" />
-        <meta name="ICBM" content="43.430782, -79.838055" />
-      </head>
-      <body className={inter.className}>
         {/* Global site header */}
-        {/* Using a client component here is fine – Next.js will automatically create a client boundary */}
-        {/* The header contains navigation links that scroll to the various sections rendered in the home page */}
         <Header />
         {/* Page content */}
         {children}

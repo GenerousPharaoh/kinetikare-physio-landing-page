@@ -50,43 +50,6 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     
-    // Set CSS variable for header height
-    const headerElement = document.querySelector('header');
-    if (headerElement) {
-      document.documentElement.style.setProperty('--header-height', `${headerElement.offsetHeight}px`);
-    }
-    
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const handleEscKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        if (mobileMenuOpen) setMobileMenuOpen(false);
-      }
-    };
-
-    window.addEventListener('keydown', handleEscKey);
-    return () => window.removeEventListener('keydown', handleEscKey);
-  }, [mobileMenuOpen]);
-
-  // Optimize scroll handler with throttling
-  useEffect(() => {
-    let ticking = false;
-    
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          setScrolled(window.scrollY > 20);
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    
     // Set CSS variable for header height - using a more reliable approach
     const updateHeaderHeight = () => {
       const headerElement = document.querySelector('header');
@@ -105,6 +68,17 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
       clearTimeout(timeoutId);
     };
   }, []);
+
+  useEffect(() => {
+    const handleEscKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        if (mobileMenuOpen) setMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleEscKey);
+    return () => window.removeEventListener('keydown', handleEscKey);
+  }, [mobileMenuOpen]);
 
   // Add additional useEffect to update header height on window resize and DOM changes
   useEffect(() => {

@@ -8,27 +8,30 @@ import ContactSection from '@/components/sections/ContactSection';
 
 // SEO Metadata for Homepage
 export const metadata: Metadata = {
-  title: 'Kareem Hassanein | Expert Physiotherapist in Burlington & Waterdown',
-  description: 'Kareem Hassanein, Registered Physiotherapist in Burlington, Waterdown, Hamilton & Oakville. One-on-one, dedicated care with personalized solutions to keep you moving forward. CAMPT certified, specializing in manual therapy, sports rehabilitation, and dry needling.',
+  title: 'KinetiKare Physiotherapy | Kareem Hassanein | Burlington Ontario',
+  description: 'KinetiKare Physiotherapy - Kareem Hassanein, Registered Physiotherapist in Burlington, Waterdown, Hamilton & Oakville. Expert manual therapy, dry needling, and personalized rehabilitation care. CAMPT certified.',
   keywords: [
-    'Kareem Hassanein',
+    'KinetiKare',
+    'KinetiKare Physiotherapy',
+    'Kareem Hassanein KinetiKare',
     'Kareem Hassanein physiotherapy',
-    'Kareem physiotherapist',
-    'Kareem Hassanein Burlington',
+    'KinetiKare Burlington',
+    'KinetiKare physio',
     'physiotherapy Burlington',
     'physiotherapy Waterdown', 
     'physiotherapist Burlington Ontario',
     'manual therapy Burlington',
-    'sports rehabilitation',
+    'sports rehabilitation Burlington',
     'dry needling Burlington',
-    'back pain treatment',
-    'CAMPT certified physiotherapist',
+    'CAMPT physiotherapist Burlington',
+    'KinetiKare manual therapy',
+    'Kareem Hassanein Burlington',
     'physiotherapy Hamilton',
     'physiotherapy Oakville'
   ],
   openGraph: {
-    title: 'KinetiKare | KH Physiotherapy Services | Burlington & Waterdown',
-    description: 'Kareem Hassanein, Registered Physiotherapist. One-on-one, dedicated care with personalized solutions to keep you moving forward.',
+    title: 'KinetiKare Physiotherapy | Kareem Hassanein | Burlington Ontario',
+    description: 'KinetiKare Physiotherapy - Expert manual therapy, dry needling, and personalized rehabilitation care in Burlington, Ontario.',
     url: 'https://www.kinetikarephysio.com',
     type: 'website',
     images: [
@@ -36,14 +39,14 @@ export const metadata: Metadata = {
         url: 'https://www.kinetikarephysio.com/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Kareem Hassanein - Expert Physiotherapist in Burlington & Waterdown',
+        alt: 'KinetiKare Physiotherapy - Kareem Hassanein, Expert Physiotherapist in Burlington',
       }
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'KinetiKare | KH Physiotherapy Services | Burlington & Waterdown',
-    description: 'Kareem Hassanein, Registered Physiotherapist. One-on-one, dedicated care with personalized solutions to keep you moving forward.',
+    title: 'KinetiKare Physiotherapy | Kareem Hassanein | Burlington Ontario',
+    description: 'KinetiKare Physiotherapy - Expert manual therapy, dry needling, and personalized rehabilitation care in Burlington, Ontario.',
     images: ['https://www.kinetikarephysio.com/images/og-image.jpg'],
   },
   alternates: {

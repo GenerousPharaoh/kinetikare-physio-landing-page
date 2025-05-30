@@ -209,7 +209,7 @@ export default function RootLayout({
         <meta name="geo.position" content="43.430782;-79.838055" />
         <meta name="ICBM" content="43.430782, -79.838055" />
       </head>
-      <body className={inter.className}>
+      <body className={`${inter.className} pt-16`}>
         {/* Global site header */}
         {/* Using a client component here is fine – Next.js will automatically create a client boundary */}
         {/* The header contains navigation links that scroll to the various sections rendered in the home page */}

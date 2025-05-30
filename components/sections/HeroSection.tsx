@@ -9,7 +9,7 @@ import { CalendarDaysIcon } from '@heroicons/react/24/outline';
 const HeroSection = React.memo(function HeroSection() {
   return (
     <section 
-      className="hero-section relative overflow-hidden min-h-screen flex items-center py-24 lg:pt-32"
+      className="hero-section relative overflow-hidden min-h-screen flex items-center py-16 lg:py-20"
     >
       {/* Enhanced backdrop image */}
       <div className="absolute inset-0 z-0">
@@ -18,7 +18,7 @@ const HeroSection = React.memo(function HeroSection() {
             initial={{ scale: 1.1, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full h-full"
+            className="w-full h-full relative"
           >
             <Image
               src="/images/clinic-pic-may-2025.jpg"
@@ -27,7 +27,7 @@ const HeroSection = React.memo(function HeroSection() {
               className="object-cover object-center"
               priority={true}
               quality={90}
-              sizes="100vw"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
               style={{ 
                 filter: 'brightness(0.6) contrast(1.2) saturate(1.2)',
                 objectFit: 'cover',
@@ -52,7 +52,7 @@ const HeroSection = React.memo(function HeroSection() {
         />
         
         {/* Light effects - hidden on mobile via CSS */}
-        <div className="absolute inset-0 overflow-hidden hidden lg:block">
+        <div className="absolute inset-0 overflow-hidden hidden lg:block pointer-events-none">
           <motion.div 
             className="absolute top-1/4 right-1/4 w-96 h-96 blur-3xl bg-gradient-to-br from-[#D4AF37]/20 via-transparent to-transparent rounded-full" 
             initial={{ scale: 0.5, opacity: 0 }}
@@ -76,7 +76,7 @@ const HeroSection = React.memo(function HeroSection() {
           initial={{ y: -30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="hidden lg:flex flex-col items-center mb-16"
+          className="hidden lg:flex flex-col items-center mb-12"
         >
           <div className="relative">
             {/* Simplified outer glow */}
@@ -130,13 +130,13 @@ const HeroSection = React.memo(function HeroSection() {
           </motion.div>
         </motion.div>
 
-        <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-start lg:items-center min-h-[75vh] lg:min-h-[70vh]">
+        <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-start lg:items-center">
           {/* Left side content - PRIMARY FOCUS */}
           <motion.div 
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.8, 0.25, 1] }}
-            className="lg:col-span-8 text-left space-y-6 lg:space-y-8 lg:-mt-8"
+            className="lg:col-span-8 text-left space-y-6 lg:space-y-8"
           >
             <div className="max-w-5xl space-y-6 lg:space-y-8">
               {/* Main heading */}
@@ -250,7 +250,7 @@ const HeroSection = React.memo(function HeroSection() {
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6, ease: [0.25, 0.8, 0.25, 1] }}
-            className="lg:col-span-4 mt-8 lg:mt-16"
+            className="lg:col-span-4 mt-8 lg:mt-0"
           >
             <div className="relative max-w-md ml-auto">
               
@@ -270,14 +270,6 @@ const HeroSection = React.memo(function HeroSection() {
                     backgroundImage: `radial-gradient(circle at 2px 2px, rgba(176,141,87,0.3) 1px, transparent 0)`,
                     backgroundSize: '28px 28px'
                   }}></div>
-                
-                {/* Elegant top accent */}
-                <motion.div 
-                  className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#B08D57] to-transparent opacity-70"
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ duration: 1.0, delay: 1.0, ease: "easeOut" }}
-                ></motion.div>
                 
                 {/* Floating elements - hidden on mobile */}
                 <motion.div 
@@ -348,7 +340,7 @@ const HeroSection = React.memo(function HeroSection() {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="lg:hidden mb-6"
+          className="lg:hidden mt-12 mb-6"
         >
           <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/10 backdrop-blur-xl border border-white/20">
             <div className="w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full animate-pulse"></div>

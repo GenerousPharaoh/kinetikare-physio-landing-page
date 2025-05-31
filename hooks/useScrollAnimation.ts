@@ -19,7 +19,7 @@ export const useScrollAnimation = (options: ScrollAnimationOptions = {}) => {
     delay = 0,
     duration = 0.6,
     yOffset = 20,
-    rootMargin = '200px 0px 200px 0px' // Much more aggressive - trigger 200px before AND after viewport
+    rootMargin = '1000px 0px 1000px 0px' // Super aggressive - trigger way before elements are near viewport
   } = options;
 
   const { ref, inView } = useInView({
@@ -70,9 +70,10 @@ export const useStaggeredAnimation = (options: ScrollAnimationOptions = {}) => {
 // Helper hook specifically for sections
 export function useSectionAnimation(options?: ScrollAnimationOptions) {
   return useScrollAnimation({
-    rootMargin: '500px 0px 500px 0px', // Super aggressive - trigger way before sections are visible
+    rootMargin: '2000px 0px 2000px 0px', // Extremely aggressive for sections
     threshold: 0,
     duration: 0.6,
+    yOffset: 10, // Reduced offset for subtler animation
     ...options,
   });
 }

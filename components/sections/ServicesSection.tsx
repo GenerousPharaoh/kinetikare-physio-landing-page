@@ -36,7 +36,7 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section className="py-20 bg-gray-50" id="services">
+    <section className="py-16 bg-gray-50" id="services">
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Section Header */}
         <div className="text-center mb-16">

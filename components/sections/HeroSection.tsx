@@ -29,9 +29,9 @@ const HeroSection = React.memo(function HeroSection() {
   };
 
   return (
-    <section className="hero-section relative w-full min-h-screen overflow-hidden">
-      {/* Static Background - No Animation */}
-      <div className="absolute inset-0">
+    <section className="hero-section relative w-full min-h-screen bg-black">
+      {/* Background Container - Absolute positioning within section */}
+      <div className="absolute inset-0 z-0">
         <Image
           src="/images/clinic-pic-may-2025.jpg"
           alt="Physiotherapy clinic"
@@ -41,7 +41,8 @@ const HeroSection = React.memo(function HeroSection() {
           className="object-cover object-center"
           style={{ 
             filter: 'brightness(0.5) contrast(1.1)',
-            objectPosition: 'center center'
+            width: '100%',
+            height: '100%'
           }}
           sizes="100vw"
         />
@@ -53,7 +54,7 @@ const HeroSection = React.memo(function HeroSection() {
         <div className="hidden md:block absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-[#D4AF37]/20 to-transparent rounded-full blur-3xl opacity-40" />
       </div>
       
-      {/* Content Container */}
+      {/* Content Container - On top of background */}
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 py-20">
         <div className="w-full max-w-7xl mx-auto">
       
@@ -66,7 +67,8 @@ const HeroSection = React.memo(function HeroSection() {
               {/* Simplified glow for iOS */}
               <div className={`absolute inset-0 rounded-3xl blur-2xl opacity-60 ${isIOS ? 'bg-[#D4AF37]/20' : 'bg-gradient-to-br from-[#D4AF37]/20 to-[#B08D57]/20'}`} />
               
-              <div className={`relative rounded-3xl p-8 shadow-2xl border border-white/10 ${isIOS ? 'bg-slate-900/90' : 'bg-gradient-to-br from-slate-900/95 via-slate-800/90 to-slate-900/95 backdrop-blur-xl'}`}>
+              {/* Removed navy background - now transparent with backdrop blur */}
+              <div className={`relative rounded-3xl p-8 shadow-2xl border border-white/20 ${isIOS ? 'bg-black/20' : 'bg-black/20 backdrop-blur-xl'}`}>
                 <Image
                   src="/images/kinetikare-logo.png"
                   alt="KinetiKare logo"

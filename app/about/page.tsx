@@ -87,8 +87,6 @@ export const metadata: Metadata = {
     'registered physiotherapist Waterdown',
     'registered physiotherapist Hamilton',
     'registered physiotherapist Oakville',
-    'expert physiotherapist Burlington',
-    'expert physiotherapist Waterdown',
     'MSc physiotherapy Burlington',
     'MSc physiotherapy Waterdown'
   ],

@@ -14,11 +14,20 @@ export const viewport = {
 
 export const metadata = {
   title: 'KinetiKare Physiotherapy | Kareem Hassanein | Burlington Ontario',
-  description: 'KinetiKare Physiotherapy - Expert manual therapy, dry needling, and sports rehabilitation in Burlington, Ontario. Kareem Hassanein, Registered Physiotherapist serving Burlington, Waterdown, Hamilton & Oakville.',
+  description: 'KinetiKare Physiotherapy - Manual therapy, dry needling, and sports rehabilitation in Burlington, Ontario. Kareem Hassanein, Registered Physiotherapist serving Burlington, Waterdown, Hamilton & Oakville.',
   keywords: ['KinetiKare', 'KinetiKare Physiotherapy', 'Kareem Hassanein', 'Burlington physiotherapy', 'Waterdown physiotherapy', 'manual therapy Burlington', 'dry needling Burlington', 'sports rehab Burlington', 'physiotherapist Burlington Ontario'],
   authors: [{ name: 'Kareem Hassanein', url: 'https://www.kinetikarephysio.com/about' }],
   creator: 'Kareem Hassanein',
   publisher: 'KinetiKare Physiotherapy',
+  applicationName: 'KinetiKare Physiotherapy',
+  openGraph: {
+    title: 'KinetiKare Physiotherapy | Kareem Hassanein | Burlington Ontario',
+    description: 'KinetiKare Physiotherapy - Manual therapy, dry needling, and sports rehabilitation in Burlington, Ontario.',
+    url: 'https://www.kinetikarephysio.com',
+    siteName: 'KinetiKare Physiotherapy',
+    type: 'website',
+    locale: 'en_CA',
+  },
   formatDetection: {
     email: false,
     address: false,

@@ -8,8 +8,8 @@ import ContactSection from '@/components/sections/ContactSection';
 
 // SEO Metadata for Homepage
 export const metadata: Metadata = {
-  title: 'Kareem Hassanein Physiotherapy | Burlington & Waterdown',
-  description: 'Kareem Hassanein, Registered Physiotherapist in Burlington, Waterdown, Hamilton & Oakville. One-on-one, dedicated care with personalized treatment for manual therapy, sports rehabilitation, and dry needling to keep you moving forward.',
+  title: 'KinetiKare Physiotherapy | Kareem Hassanein | Burlington & Waterdown',
+  description: 'KinetiKare Physiotherapy - Kareem Hassanein, Registered Physiotherapist in Burlington, Waterdown, Hamilton & Oakville. One-on-one, dedicated care with personalized treatment for manual therapy, sports rehabilitation, and dry needling.',
   keywords: [
     'Kareem Hassanein',
     'Kareem Hassanein physiotherapy',
@@ -52,8 +52,8 @@ export const metadata: Metadata = {
     'registered physiotherapist Waterdown'
   ],
   openGraph: {
-    title: 'KinetiKare | KH Physiotherapy Services | Burlington & Waterdown',
-    description: 'Kareem Hassanein, Registered Physiotherapist. One-on-one, dedicated care with personalized solutions to keep you moving forward.',
+    title: 'KinetiKare Physiotherapy | Kareem Hassanein | Burlington & Waterdown',
+    description: 'KinetiKare Physiotherapy - Kareem Hassanein, Registered Physiotherapist. One-on-one, dedicated care with personalized solutions to keep you moving forward.',
     url: 'https://www.kinetikarephysio.com',
     type: 'website',
     images: [
@@ -61,14 +61,14 @@ export const metadata: Metadata = {
         url: 'https://www.kinetikarephysio.com/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Kareem Hassanein Physiotherapy - Burlington & Waterdown',
+        alt: 'KinetiKare Physiotherapy - Kareem Hassanein - Burlington & Waterdown',
       }
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'KinetiKare | KH Physiotherapy Services | Burlington & Waterdown',
-    description: 'Kareem Hassanein, Registered Physiotherapist. One-on-one, dedicated care with personalized solutions to keep you moving forward.',
+    title: 'KinetiKare Physiotherapy | Kareem Hassanein | Burlington & Waterdown',
+    description: 'KinetiKare Physiotherapy - Kareem Hassanein, Registered Physiotherapist. One-on-one, dedicated care with personalized solutions to keep you moving forward.',
     images: ['https://www.kinetikarephysio.com/images/og-image.jpg'],
   },
   alternates: {

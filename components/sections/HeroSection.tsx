@@ -9,13 +9,8 @@ import { CalendarDaysIcon } from '@heroicons/react/24/outline';
 const HeroSection = React.memo(function HeroSection() {
   return (
     <section className="relative w-full min-h-screen overflow-hidden">
-      {/* Animated Background */}
-      <motion.div 
-        initial={{ scale: 1.1 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
-        className="absolute inset-0"
-      >
+      {/* Simplified Background - No Animation on Mobile */}
+      <div className="absolute inset-0">
         <Image
           src="/images/clinic-pic-may-2025.jpg"
           alt="Physiotherapy clinic"
@@ -26,80 +21,59 @@ const HeroSection = React.memo(function HeroSection() {
           style={{ filter: 'brightness(0.5) contrast(1.1)' }}
         />
         
-        {/* Gradient Overlays - Changed from navy to neutral */}
+        {/* Single Gradient Overlay - Simplified */}
         <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
         
-        {/* Animated Light Effects */}
-        <motion.div
-          animate={{
-            opacity: [0.3, 0.6, 0.3],
-            scale: [1, 1.2, 1],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-[#D4AF37]/20 to-transparent rounded-full blur-3xl"
-        />
-      </motion.div>
+        {/* Light Effect - Hidden on Mobile to Prevent Flickering */}
+        <div className="hidden md:block absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-[#D4AF37]/20 to-transparent rounded-full blur-3xl opacity-40" />
+      </div>
       
-      {/* Content Container - Guaranteed Visibility */}
-      <div 
-        className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 py-20"
-        style={{ minHeight: '100vh' }}
-      >
+      {/* Content Container - Optimized for Mobile */}
+      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 py-20">
         <div className="w-full max-w-7xl mx-auto">
           
-          {/* Logo Section - Always Visible with Animation */}
+          {/* Logo Section - Simplified Animation */}
           <motion.div 
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             className="flex flex-col items-center mb-12"
-            style={{ minHeight: '200px' }}
           >
-            <motion.div 
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300 }}
-              className="relative group"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/20 to-[#B08D57]/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500" />
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/20 to-[#B08D57]/20 rounded-3xl blur-2xl opacity-60" />
               
-              <div className="relative bg-gradient-to-br from-slate-900/95 via-slate-800/90 to-slate-900/95 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/10 group-hover:border-white/20 transition-all duration-500">
+              <div className="relative bg-gradient-to-br from-slate-900/95 via-slate-800/90 to-slate-900/95 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/10">
                 <Image
                   src="/images/kinetikare-logo.png"
                   alt="KinetiKare logo"
                   width={150}
                   height={150}
                   className="w-36 h-36 sm:w-40 sm:h-40 drop-shadow-2xl"
-                  style={{ minWidth: '144px', minHeight: '144px' }}
                 />
               </div>
-            </motion.div>
+            </div>
             
-            {/* Hero Text with Dynamic Animations */}
+            {/* Hero Text - Simplified Animation */}
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
               className="text-center mb-12"
             >
               <h1 className="mb-8">
                 <motion.span 
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
                   className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-4 tracking-tight"
                   style={{ textShadow: '0 10px 30px rgba(0,0,0,0.7)' }}
                 >
                   The Science of Recovery,
                 </motion.span>
                 <motion.span 
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.5 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
                   className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black"
                   style={{
                     background: 'linear-gradient(135deg, #B08D57 0%, #D4AF37 25%, #F4E4BC 50%, #D4AF37 75%, #B08D57 100%)',
@@ -114,97 +88,68 @@ const HeroSection = React.memo(function HeroSection() {
               </h1>
             </motion.div>
             
-            {/* Simplified Premium Tagline Section */}
+            {/* Simplified Tagline Section - No Complex Animations */}
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
               className="flex flex-col items-center space-y-8"
             >
-              {/* Clean Text Layout */}
               <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.7 }}
-                  className="text-center"
-                >
+                <div className="text-center">
                   <div className="text-white/90 text-lg font-light mb-2 tracking-wide">Genuine</div>
                   <div className="text-4xl lg:text-5xl font-bold text-white tracking-tight">Understanding</div>
-                </motion.div>
+                </div>
                 
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.8 }}
-                  className="text-center"
-                >
+                <div className="text-center">
                   <div className="text-white/90 text-lg font-light mb-2 tracking-wide">Expert</div>
                   <div className="text-4xl lg:text-5xl font-bold text-white tracking-tight">Care</div>
-                </motion.div>
+                </div>
                 
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.9 }}
-                  className="text-center"
-                >
+                <div className="text-center">
                   <div className="text-white/90 text-lg font-light mb-2 tracking-wide">Lasting</div>
                   <div className="text-4xl lg:text-5xl font-bold text-white tracking-tight">Recovery</div>
-                </motion.div>
+                </div>
               </div>
             </motion.div>
           </motion.div>
           
-          {/* CTA Buttons with Hover Effects */}
+          {/* CTA Buttons - Simplified Hover Effects */}
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
           >
-            <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }}>
-              <Link 
-                href="https://endorphinshealth.janeapp.com/#/staff_member/42"
-                target="_blank"
-                className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#B08D57] to-[#C9A769] text-white font-semibold rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-[#C9A769] to-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <CalendarDaysIcon className="relative z-10 h-5 w-5 sm:h-6 sm:w-6" />
-                <span className="relative z-10">Book an Appointment</span>
-              </Link>
-            </motion.div>
+            <Link 
+              href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+              target="_blank"
+              className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#B08D57] to-[#C9A769] text-white font-semibold rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+            >
+              <CalendarDaysIcon className="h-5 w-5 sm:h-6 sm:w-6" />
+              <span>Book an Appointment</span>
+            </Link>
             
-            <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }}>
-              <Link
-                href="/services" 
-                className="group relative inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-xl text-white font-semibold rounded-xl border border-white/30 overflow-hidden hover:bg-white/20 transition-all duration-300"
-              >
-                <span className="relative z-10">Explore Services</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-              </Link>
-            </motion.div>
+            <Link
+              href="/services" 
+              className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-xl text-white font-semibold rounded-xl border border-white/30 hover:bg-white/20 transition-all duration-300"
+            >
+              <span>Explore Services</span>
+            </Link>
           </motion.div>
           
-          {/* Welcome Card - Beautiful with Guaranteed Visibility */}
+          {/* Welcome Card - Simplified */}
           <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
             className="w-full max-w-2xl mx-auto"
-            style={{ minHeight: '300px' }}
           >
-            <div className="relative group">
-              {/* Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/20 to-[#B08D57]/20 rounded-3xl blur-3xl opacity-50 group-hover:opacity-70 transition-opacity duration-500" />
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/20 to-[#B08D57]/20 rounded-3xl blur-3xl opacity-50" />
               
-              {/* Card */}
-              <div className="relative bg-white/95 backdrop-blur-2xl rounded-3xl p-8 sm:p-10 shadow-2xl border border-white/50 overflow-hidden">
-                {/* Decorative Elements */}
-                <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-[#D4AF37]/10 to-transparent rounded-full -translate-y-20 translate-x-20" />
-                <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-[#B08D57]/10 to-transparent rounded-full translate-y-16 -translate-x-16" />
-                
-                <div className="relative z-10 text-center">
+              <div className="relative bg-white/95 backdrop-blur-2xl rounded-3xl p-8 sm:p-10 shadow-2xl border border-white/50">
+                <div className="text-center">
                   <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 mb-4">
                     Welcome
                   </h2>

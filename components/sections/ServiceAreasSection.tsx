@@ -9,7 +9,7 @@ import { motion } from 'framer-motion';
 
 export default function ServiceAreasSection() {
   const [isMounted, setIsMounted] = useState(false);
-  const { ref, isVisible } = useScrollAnimation();
+  const { ref, isInView } = useScrollAnimation();
 
   useEffect(() => {
     setIsMounted(true);
@@ -132,7 +132,7 @@ export default function ServiceAreasSection() {
             {/* Practice Location */}
             <motion.div 
               initial="hidden"
-              animate={isMounted && isVisible ? "visible" : "hidden"}
+              animate={isMounted && isInView ? "visible" : "hidden"}
               transition={{ delay: 0, duration: 0.3 }}
               className="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col"
             >
@@ -165,7 +165,7 @@ export default function ServiceAreasSection() {
             {/* Communities Served */}
             <motion.div 
               initial="hidden"
-              animate={isMounted && isVisible ? "visible" : "hidden"}
+              animate={isMounted && isInView ? "visible" : "hidden"}
               transition={{ delay: 0.1, duration: 0.3 }}
               className="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col"
             >
@@ -198,7 +198,7 @@ export default function ServiceAreasSection() {
             {/* Operating Hours */}
             <motion.div 
               initial="hidden"
-              animate={isMounted && isVisible ? "visible" : "hidden"}
+              animate={isMounted && isInView ? "visible" : "hidden"}
               transition={{ delay: 0.2, duration: 0.3 }}
               className="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col"
             >

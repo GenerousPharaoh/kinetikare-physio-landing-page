@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { ChevronRightIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import FAQAccordion, { FaqItem } from '@/components/FAQAccordion';
@@ -52,7 +52,6 @@ const getIcon = (iconType: string) => {
 export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
   const [activeCategory, setActiveCategory] = useState('getting-started');
   const [searchQuery, setSearchQuery] = useState('');
-  const [filteredQuestions, setFilteredQuestions] = useState<FaqItem[]>([]);
   const [isSearching, setIsSearching] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const [showStickyNav, setShowStickyNav] = useState(false);
@@ -118,33 +117,20 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
   };
 
   // Search functionality
+  const filteredQuestions = useMemo(() => {
+    if (!searchQuery.trim()) return [];
+    
+    return faqCategories.flatMap(category => 
+      category.questions.filter(item => 
+        item.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (typeof item.answer === 'string' && item.answer.toLowerCase().includes(searchQuery.toLowerCase()))
+      )
+    );
+  }, [searchQuery]);
+
   useEffect(() => {
-    if (!isMounted) return;
-    
-    if (searchQuery.trim() === '') {
-      setIsSearching(false);
-      setFilteredQuestions([]);
-      return;
-    }
-    
-    setIsSearching(true);
-    
-    // Flatten all questions from all categories
-    const allQuestions = faqCategories.flatMap(category => 
-      category.questions.map(q => ({
-        ...q,
-        category: category.name
-      }))
-    );
-    
-    // Filter questions based on search query
-    const filtered = allQuestions.filter(item => 
-      item.question.toLowerCase().includes(searchQuery.toLowerCase()) || 
-      item.answer.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    
-    setFilteredQuestions(filtered);
-  }, [searchQuery, isMounted, faqCategories]);
+    setIsSearching(searchQuery.trim() !== '');
+  }, [searchQuery]);
 
   // Get current questions to display
   const currentQuestions = isSearching 
@@ -299,7 +285,11 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
               {faqCategories.map((category) => (
                 <div
                   key={category.id}
-                  ref={(el) => sectionRefs.current[category.id] = el}
+                  ref={(el) => {
+                    if (el) {
+                      sectionRefs.current[category.id] = el;
+                    }
+                  }}
                   className="scroll-mt-32"
                 >
                   <div className="text-center mb-12">

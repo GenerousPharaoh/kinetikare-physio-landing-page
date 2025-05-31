@@ -4,41 +4,37 @@ import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 interface ScrollAnimationOptions {
-  threshold?: number;
-  triggerOnce?: boolean;
+  yOffset?: number;
   delay?: number;
   duration?: number;
-  yOffset?: number;
+  ease?: string;
+  rootMargin?: string;
+  threshold?: number;
 }
 
 export const useScrollAnimation = (options: ScrollAnimationOptions = {}) => {
   const {
-    threshold = 0.1,
-    triggerOnce = true,
+    yOffset = 50,
     delay = 0,
     duration = 0.6,
-    yOffset = 20
+    ease = "easeOut",
+    rootMargin = '0px 0px -5% 0px',
+    threshold = 0.1
   } = options;
 
-  const [hasAnimated, setHasAnimated] = useState(false);
-  const { ref, inView } = useInView({
+  const { ref, inView: isInView } = useInView({
     threshold,
-    triggerOnce,
+    triggerOnce: true,
+    rootMargin: rootMargin, // More aggressive rootMargin to trigger animations earlier
   });
-
-  useEffect(() => {
-    if (inView && !hasAnimated) {
-      setHasAnimated(true);
-    }
-  }, [inView, hasAnimated]);
 
   const animationProps = {
     initial: { opacity: 0, y: yOffset },
-    animate: hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: yOffset },
-    transition: { duration, delay, ease: "easeOut" }
+    animate: isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: yOffset },
+    transition: { duration, delay, ease }
   };
 
-  return { ref, animationProps, isInView: hasAnimated };
+  return { ref, animationProps, isInView };
 };
 
 // Staggered animation for child elements

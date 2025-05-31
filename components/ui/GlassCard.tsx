@@ -28,9 +28,9 @@ const GlassCard = ({
   hoverEffect = 'none',
   delayIndex = 0
 }: GlassCardProps) => {
-  const { ref, isVisible } = useScrollAnimation({
-    triggerOnce: true,
-    threshold: 0.1,
+  const { ref, isInView } = useScrollAnimation({
+    yOffset: 30,
+    delay: 0.1
   });
 
   // Base styles for all glass cards
@@ -107,7 +107,7 @@ const GlassCard = ({
   const animationProps = animate ? {
     variants: animationVariants,
     initial: "hidden",
-    animate: isVisible ? "visible" : "hidden"
+    animate: isInView ? "visible" : "hidden"
   } : {};
 
   return (

@@ -38,9 +38,8 @@ export function PageTransition({ children, disabled = false }: PageTransitionPro
       // Only animate on powerful devices and when user doesn't prefer reduced motion
       setShouldAnimate(!prefersReducedMotion && !isLowPoweredDevice);
     } catch (error) {
-      console.error('Error setting up page transition:', error);
+      // Error setting up page transition - handle silently in production
       setIsError(true);
-      setShouldAnimate(false);
     }
   }, [disabled]);
 
@@ -97,29 +96,23 @@ export function PageTransition({ children, disabled = false }: PageTransitionPro
         aria-live="polite"
         aria-atomic="true"
         onAnimationStart={() => {
-          // Announce page change to screen readers
-          const announcer = document.getElementById('page-change-announcer') || 
-            (() => {
-              const div = document.createElement('div');
-              div.id = 'page-change-announcer';
-              div.setAttribute('aria-live', 'assertive');
-              div.setAttribute('aria-atomic', 'true');
-              div.className = 'sr-only';
-              document.body.appendChild(div);
-              return div;
-            })();
-            
           try {
-            // Announce the page change
-            const pageTitle = document.title || 'New page';
-            announcer.textContent = `Navigated to ${pageTitle}`;
+            // Announce page change to screen readers
+            const announcement = document.createElement('div');
+            announcement.setAttribute('aria-live', 'polite');
+            announcement.setAttribute('aria-atomic', 'true');
+            announcement.className = 'sr-only';
+            announcement.textContent = `Page changed to ${pathname}`;
+            document.body.appendChild(announcement);
             
-            // Clear the announcement after it's read
+            // Clean up after announcement
             setTimeout(() => {
-              announcer.textContent = '';
+              if (document.body.contains(announcement)) {
+                document.body.removeChild(announcement);
+              }
             }, 1000);
           } catch (error) {
-            console.warn('Error announcing page change:', error);
+            // Error announcing page change - handle silently in production
           }
         }}
       >

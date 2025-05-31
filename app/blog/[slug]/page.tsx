@@ -13,7 +13,7 @@ function imageExists(slug: string): boolean {
     const imagePath = path.join(publicDir, 'images', 'blog', `${slug}.jpg`);
     return fs.existsSync(imagePath);
   } catch (error) {
-    console.error('Error checking image existence:', error);
+    // Error checking image existence - handle silently in production
     return false;
   }
 }

@@ -4,8 +4,14 @@ import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 
 // Dynamically import client-only components with no SSR
-const PerformanceOptimizer = dynamic(() => import('@/components/PerformanceOptimizer'), { ssr: false });
-const AccessibilityChecker = dynamic(() => import('@/components/AccessibilityChecker'), { ssr: false });
+const PerformanceOptimizer = dynamic(() => import('@/components/PerformanceOptimizer'), { 
+  ssr: false,
+  loading: () => null // Prevent flash during loading
+});
+const AccessibilityChecker = dynamic(() => import('@/components/AccessibilityChecker'), { 
+  ssr: false,
+  loading: () => null // Prevent flash during loading
+});
 
 type ClientOnlyProps = {
   children?: React.ReactNode;
@@ -15,10 +21,16 @@ const ClientOnly = ({ children }: ClientOnlyProps) => {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setIsMounted(true);
+    // Use requestAnimationFrame to prevent flickering during hydration
+    const timer = requestAnimationFrame(() => {
+      setIsMounted(true);
+    });
+    
+    return () => cancelAnimationFrame(timer);
   }, []);
 
-  if (!isMounted) {
+  // Always return null on server-side to prevent hydration mismatches
+  if (typeof window === 'undefined' || !isMounted) {
     return null;
   }
 

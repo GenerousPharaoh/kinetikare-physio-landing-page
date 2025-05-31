@@ -1,27 +1,68 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { CalendarDaysIcon } from '@heroicons/react/24/outline';
 
 const HeroSection = React.memo(function HeroSection() {
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
+
+  // Simplified animations for mobile to reduce flickering
+  const mobileAnimations = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    transition: { duration: 0.3, ease: "easeOut" }
+  };
+
+  const desktopAnimations = {
+    background: {
+      initial: { scale: 1.1 },
+      animate: { scale: 1 },
+      transition: { duration: 1.5, ease: "easeOut" }
+    },
+    logo: {
+      initial: { opacity: 0, y: 30 },
+      animate: { opacity: 1, y: 0 },
+      transition: { duration: 0.8, ease: "easeOut" }
+    },
+    text: {
+      initial: { opacity: 0, y: 20 },
+      animate: { opacity: 1, y: 0 },
+      transition: { duration: 0.6 }
+    }
+  };
+
   return (
     <section className="relative w-full min-h-screen overflow-hidden">
-      {/* Animated Background */}
+      {/* Animated Background - Simplified on mobile */}
       <motion.div 
-        initial={{ scale: 1.1 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
+        initial={isMobile ? mobileAnimations.initial : desktopAnimations.background.initial}
+        animate={isMobile ? mobileAnimations.animate : desktopAnimations.background.animate}
+        transition={isMobile ? mobileAnimations.transition : desktopAnimations.background.transition}
         className="absolute inset-0"
+        style={{ 
+          transform: isMobile ? 'translateZ(0)' : undefined,
+          willChange: isMobile ? 'auto' : 'transform'
+        }}
       >
         <Image
           src="/images/clinic-pic-may-2025.jpg"
           alt="Physiotherapy clinic"
           fill
           priority
-          quality={90}
+          quality={isMobile ? 75 : 90}
           className="object-cover"
           style={{ filter: 'brightness(0.5) contrast(1.1)' }}
         />
@@ -30,19 +71,21 @@ const HeroSection = React.memo(function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-br from-black/75 via-black/65 to-black/75" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
         
-        {/* Animated Light Effects */}
-        <motion.div
-          animate={{
-            opacity: [0.3, 0.6, 0.3],
-            scale: [1, 1.2, 1],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-[#D4AF37]/20 to-transparent rounded-full blur-3xl"
-        />
+        {/* Animated Light Effects - Disabled on mobile to prevent flickering */}
+        {!isMobile && (
+          <motion.div
+            animate={{
+              opacity: [0.3, 0.6, 0.3],
+              scale: [1, 1.2, 1],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-[#D4AF37]/20 to-transparent rounded-full blur-3xl"
+          />
+        )}
       </motion.div>
       
       {/* Content Container - Guaranteed Visibility */}
@@ -54,15 +97,14 @@ const HeroSection = React.memo(function HeroSection() {
           
           {/* Logo Section - Enhanced with better tagline emphasis */}
           <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="flex flex-col items-center mb-12"
-            style={{ minHeight: '200px' }}
+            initial={isMobile ? mobileAnimations.initial : desktopAnimations.logo.initial}
+            animate={isMobile ? mobileAnimations.animate : desktopAnimations.logo.animate}
+            transition={isMobile ? mobileAnimations.transition : desktopAnimations.logo.transition}
+            className="flex flex-col items-center mb-8"
           >
             <motion.div 
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300 }}
+              whileHover={isMobile ? undefined : { scale: 1.05 }}
+              transition={isMobile ? undefined : { type: "spring", stiffness: 300 }}
               className="relative group"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/20 to-[#B08D57]/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500" />
@@ -81,9 +123,9 @@ const HeroSection = React.memo(function HeroSection() {
             
             {/* Enhanced tagline with better emphasis and subtle gold accent */}
             <motion.p 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              initial={isMobile ? mobileAnimations.initial : { opacity: 0 }}
+              animate={isMobile ? mobileAnimations.animate : { opacity: 1 }}
+              transition={isMobile ? { ...mobileAnimations.transition, delay: 0.1 } : { duration: 0.8, delay: 0.3 }}
               className="mt-6 text-xl sm:text-2xl font-semibold text-white tracking-wide"
               style={{ 
                 textShadow: '0 2px 8px rgba(0,0,0,0.5)',
@@ -99,29 +141,30 @@ const HeroSection = React.memo(function HeroSection() {
           
           {/* Hero Text with Enhanced Typography and Dynamic Weight */}
           <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-center mb-12"
+            initial={isMobile ? mobileAnimations.initial : { opacity: 0 }}
+            animate={isMobile ? mobileAnimations.animate : { opacity: 1 }}
+            transition={isMobile ? { ...mobileAnimations.transition, delay: 0.1 } : { duration: 0.8, delay: 0.2 }}
+            className="text-center mb-8"
           >
-            <h1 className="mb-10">
+            <h1 className="mb-6">
               {/* Enhanced typography with different weights for visual rhythm */}
               <motion.span 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
+                initial={isMobile ? mobileAnimations.initial : desktopAnimations.text.initial}
+                animate={isMobile ? mobileAnimations.animate : desktopAnimations.text.animate}
+                transition={isMobile ? { ...mobileAnimations.transition, delay: 0.2 } : { ...desktopAnimations.text.transition, delay: 0.4 }}
                 className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 tracking-tight"
                 style={{ 
                   textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 2px 8px rgba(0,0,0,0.6)',
-                  fontWeight: '700'
+                  fontWeight: '700',
+                  transform: isMobile ? 'translateZ(0)' : undefined
                 }}
               >
                 The Science of Recovery,
               </motion.span>
               <motion.span 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
+                initial={isMobile ? mobileAnimations.initial : desktopAnimations.text.initial}
+                animate={isMobile ? mobileAnimations.animate : desktopAnimations.text.animate}
+                transition={isMobile ? { ...mobileAnimations.transition, delay: 0.3 } : { ...desktopAnimations.text.transition, delay: 0.5 }}
                 className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black"
                 style={{
                   background: 'linear-gradient(135deg, #B08D57 0%, #D4AF37 25%, #F4E4BC 50%, #D4AF37 75%, #B08D57 100%)',
@@ -129,139 +172,89 @@ const HeroSection = React.memo(function HeroSection() {
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
                   filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.4))',
-                  fontWeight: '900'
+                  fontWeight: '900',
+                  transform: isMobile ? 'translateZ(0)' : undefined
                 }}
               >
                 The Art of Care
               </motion.span>
             </h1>
             
-            {/* Enhanced tagline section with improved tracking and visual punctuation */}
+            {/* Streamlined and Elegant Tagline Section */}
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="flex flex-col items-center space-y-10"
+              initial={isMobile ? mobileAnimations.initial : { opacity: 0, y: 10 }}
+              animate={isMobile ? mobileAnimations.animate : { opacity: 1, y: 0 }}
+              transition={isMobile ? { ...mobileAnimations.transition, delay: 0.4 } : { duration: 0.6, delay: 0.6 }}
+              className="flex items-center justify-center"
             >
-              <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-20">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.7 }}
-                  className="group text-center"
+              <div className="flex items-center gap-4 lg:gap-6">
+                <motion.span
+                  initial={isMobile ? mobileAnimations.initial : { opacity: 0, x: -20 }}
+                  animate={isMobile ? mobileAnimations.animate : { opacity: 1, x: 0 }}
+                  transition={isMobile ? { ...mobileAnimations.transition, delay: 0.5 } : { duration: 0.6, delay: 0.7 }}
+                  className="text-lg sm:text-xl font-light text-white/90"
+                  style={{ letterSpacing: '0.05em', textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}
                 >
-                  <div className="relative">
-                    <h3 
-                      className="text-2xl sm:text-3xl font-light text-white/95 leading-tight"
-                      style={{ 
-                        letterSpacing: '0.05em',
-                        textShadow: '0 2px 8px rgba(0,0,0,0.5)'
-                      }}
-                    >
-                      Genuine{' '}
-                      <span className="font-semibold bg-gradient-to-r from-[#D4AF37] via-[#F4E4BC] to-[#B08D57] bg-clip-text text-transparent">
-                        Understanding
-                      </span>
-                    </h3>
-                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-0.5 bg-gradient-to-r from-transparent via-[#D4AF37]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  </div>
-                </motion.div>
-                
-                {/* Enhanced visual separators */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4, delay: 0.8 }}
-                  className="hidden lg:flex items-center"
-                >
-                  <div className="w-2 h-2 bg-[#D4AF37] rounded-full shadow-lg"></div>
-                  <div className="w-12 h-px bg-gradient-to-r from-[#D4AF37]/60 to-[#D4AF37]/20 mx-3"></div>
-                  <div className="w-1.5 h-1.5 bg-[#D4AF37]/70 rounded-full"></div>
-                  <div className="w-12 h-px bg-gradient-to-l from-[#D4AF37]/60 to-[#D4AF37]/20 mx-3"></div>
-                  <div className="w-2 h-2 bg-[#D4AF37] rounded-full shadow-lg"></div>
-                </motion.div>
+                  Genuine <span className="font-medium text-[#D4AF37]">Understanding</span>
+                </motion.span>
                 
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.8 }}
-                  className="group text-center"
+                  initial={isMobile ? mobileAnimations.initial : { opacity: 0, scale: 0 }}
+                  animate={isMobile ? mobileAnimations.animate : { opacity: 1, scale: 1 }}
+                  transition={isMobile ? { ...mobileAnimations.transition, delay: 0.6 } : { duration: 0.4, delay: 0.8 }}
+                  className="w-1 h-1 bg-[#D4AF37] rounded-full"
+                />
+                
+                <motion.span
+                  initial={isMobile ? mobileAnimations.initial : { opacity: 0, y: 20 }}
+                  animate={isMobile ? mobileAnimations.animate : { opacity: 1, y: 0 }}
+                  transition={isMobile ? { ...mobileAnimations.transition, delay: 0.7 } : { duration: 0.6, delay: 0.8 }}
+                  className="text-lg sm:text-xl font-light text-white/90"
+                  style={{ letterSpacing: '0.05em', textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}
                 >
-                  <div className="relative">
-                    <h3 
-                      className="text-2xl sm:text-3xl font-light text-white/95 leading-tight"
-                      style={{ 
-                        letterSpacing: '0.05em',
-                        textShadow: '0 2px 8px rgba(0,0,0,0.5)'
-                      }}
-                    >
-                      Expert{' '}
-                      <span className="font-semibold bg-gradient-to-r from-[#D4AF37] via-[#F4E4BC] to-[#B08D57] bg-clip-text text-transparent">
-                        Care
-                      </span>
-                    </h3>
-                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-0.5 bg-gradient-to-r from-transparent via-[#D4AF37]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  </div>
-                </motion.div>
+                  Expert <span className="font-medium text-[#D4AF37]">Care</span>
+                </motion.span>
                 
                 <motion.div
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4, delay: 0.9 }}
-                  className="hidden lg:flex items-center"
-                >
-                  <div className="w-2 h-2 bg-[#D4AF37] rounded-full shadow-lg"></div>
-                  <div className="w-12 h-px bg-gradient-to-r from-[#D4AF37]/60 to-[#D4AF37]/20 mx-3"></div>
-                  <div className="w-1.5 h-1.5 bg-[#D4AF37]/70 rounded-full"></div>
-                  <div className="w-12 h-px bg-gradient-to-l from-[#D4AF37]/60 to-[#D4AF37]/20 mx-3"></div>
-                  <div className="w-2 h-2 bg-[#D4AF37] rounded-full shadow-lg"></div>
-                </motion.div>
+                  initial={isMobile ? mobileAnimations.initial : { opacity: 0, scale: 0 }}
+                  animate={isMobile ? mobileAnimations.animate : { opacity: 1, scale: 1 }}
+                  transition={isMobile ? { ...mobileAnimations.transition, delay: 0.8 } : { duration: 0.4, delay: 0.9 }}
+                  className="w-1 h-1 bg-[#D4AF37] rounded-full"
+                />
                 
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.9 }}
-                  className="group text-center"
+                <motion.span
+                  initial={isMobile ? mobileAnimations.initial : { opacity: 0, x: 20 }}
+                  animate={isMobile ? mobileAnimations.animate : { opacity: 1, x: 0 }}
+                  transition={isMobile ? { ...mobileAnimations.transition, delay: 0.9 } : { duration: 0.6, delay: 0.9 }}
+                  className="text-lg sm:text-xl font-light text-white/90"
+                  style={{ letterSpacing: '0.05em', textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}
                 >
-                  <div className="relative">
-                    <h3 
-                      className="text-2xl sm:text-3xl font-light text-white/95 leading-tight"
-                      style={{ 
-                        letterSpacing: '0.05em',
-                        textShadow: '0 2px 8px rgba(0,0,0,0.5)'
-                      }}
-                    >
-                      Lasting{' '}
-                      <span className="font-semibold bg-gradient-to-r from-[#D4AF37] via-[#F4E4BC] to-[#B08D57] bg-clip-text text-transparent">
-                        Recovery
-                      </span>
-                    </h3>
-                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-0.5 bg-gradient-to-r from-transparent via-[#D4AF37]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  </div>
-                </motion.div>
+                  Lasting <span className="font-medium text-[#D4AF37]">Recovery</span>
+                </motion.span>
               </div>
             </motion.div>
           </motion.div>
           
           {/* Enhanced CTA Buttons with Improved Hover States and Visual Weight */}
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.0 }}
-            className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-20"
+            initial={isMobile ? mobileAnimations.initial : { opacity: 0, y: 20 }}
+            animate={isMobile ? mobileAnimations.animate : { opacity: 1, y: 0 }}
+            transition={isMobile ? { ...mobileAnimations.transition, delay: 1.0 } : { duration: 0.6, delay: 1.0 }}
+            className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-16"
           >
             {/* Primary CTA - Enhanced hover effects */}
             <motion.div 
-              whileHover={{ scale: 1.05, y: -3 }} 
+              whileHover={isMobile ? undefined : { scale: 1.05, y: -3 }} 
               whileTap={{ scale: 0.98 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              transition={isMobile ? undefined : { type: "spring", stiffness: 400, damping: 17 }}
             >
               <Link 
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                 target="_blank"
                 className="group relative inline-flex items-center gap-3 px-9 py-4 bg-gradient-to-r from-[#B08D57] to-[#C9A769] text-white font-semibold rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300"
                 style={{ 
-                  boxShadow: '0 8px 32px rgba(176, 141, 87, 0.3), 0 4px 16px rgba(0, 0, 0, 0.2)' 
+                  boxShadow: '0 8px 32px rgba(176, 141, 87, 0.3), 0 4px 16px rgba(0, 0, 0, 0.2)',
+                  transform: isMobile ? 'translateZ(0)' : undefined
                 }}
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-[#C9A769] to-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -273,15 +266,16 @@ const HeroSection = React.memo(function HeroSection() {
             
             {/* Secondary CTA - Refined visual weight and enhanced hover */}
             <motion.div 
-              whileHover={{ scale: 1.05, y: -3 }} 
+              whileHover={isMobile ? undefined : { scale: 1.05, y: -3 }} 
               whileTap={{ scale: 0.98 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              transition={isMobile ? undefined : { type: "spring", stiffness: 400, damping: 17 }}
             >
               <Link
                 href="/services" 
                 className="group relative inline-flex items-center gap-3 px-9 py-4 bg-white/10 backdrop-blur-xl text-white font-medium rounded-xl border-2 border-white/40 overflow-hidden hover:bg-white/20 hover:border-white/60 transition-all duration-300"
                 style={{ 
-                  boxShadow: '0 4px 20px rgba(255, 255, 255, 0.1)' 
+                  boxShadow: '0 4px 20px rgba(255, 255, 255, 0.1)',
+                  transform: isMobile ? 'translateZ(0)' : undefined
                 }}
               >
                 <span className="relative z-10 text-lg group-hover:text-white transition-colors duration-300">Explore Services</span>
@@ -291,42 +285,44 @@ const HeroSection = React.memo(function HeroSection() {
             </motion.div>
           </motion.div>
           
-          {/* Welcome Card - Enhanced Integration with Subtle Gradient */}
+          {/* Premium Dark Welcome Card - Fully Integrated Design */}
           <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            initial={isMobile ? mobileAnimations.initial : { opacity: 0, y: 30 }}
+            animate={isMobile ? mobileAnimations.animate : { opacity: 1, y: 0 }}
+            transition={isMobile ? { ...mobileAnimations.transition, delay: 1.1 } : { duration: 0.8, delay: 0.8 }}
             className="w-full max-w-2xl mx-auto"
-            style={{ minHeight: '300px' }}
           >
             <div className="relative group">
-              {/* Enhanced glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/25 to-[#B08D57]/25 rounded-3xl blur-3xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+              {/* Subtle glow effect that matches the overall theme */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/15 to-[#B08D57]/15 rounded-2xl blur-2xl opacity-70 group-hover:opacity-90 transition-opacity duration-500" />
               
-              {/* Card with subtle gradient background for better integration */}
+              {/* Premium dark card that integrates with the overall design */}
               <div 
-                className="relative backdrop-blur-2xl rounded-3xl p-8 sm:p-10 shadow-2xl border border-white/30 overflow-hidden"
+                className="relative backdrop-blur-2xl rounded-2xl p-8 sm:p-10 shadow-2xl border overflow-hidden"
                 style={{
-                  background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,250,252,0.92) 50%, rgba(255,255,255,0.95) 100%)'
+                  background: 'linear-gradient(135deg, rgba(30,41,59,0.95) 0%, rgba(15,23,42,0.92) 50%, rgba(30,41,59,0.95) 100%)',
+                  borderColor: 'rgba(212, 175, 55, 0.3)',
+                  boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(212, 175, 55, 0.1)',
+                  transform: isMobile ? 'translateZ(0)' : undefined
                 }}
               >
-                {/* Refined decorative elements */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#D4AF37]/8 to-transparent rounded-full -translate-y-16 translate-x-16" />
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-[#B08D57]/8 to-transparent rounded-full translate-y-12 -translate-x-12" />
+                {/* Subtle decorative elements */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#D4AF37]/10 to-transparent rounded-full -translate-y-16 translate-x-16" />
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-[#B08D57]/10 to-transparent rounded-full translate-y-12 -translate-x-12" />
                 
                 <div className="relative z-10 text-center">
-                  <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 mb-4">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
                     Welcome
                   </h2>
                   <div className="w-20 h-1 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mx-auto mb-6 rounded-full shadow-sm" />
                   
-                  <p className="text-lg sm:text-xl text-slate-700 mb-5 leading-relaxed font-medium">
+                  <p className="text-lg sm:text-xl text-white/95 mb-5 leading-relaxed font-medium">
                     I'm passionate about helping people move better, feel stronger, and get back to doing what they love.
                   </p>
                   
-                  <div className="w-16 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent mx-auto my-5" />
+                  <div className="w-16 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent mx-auto my-5" />
                   
-                  <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
+                  <p className="text-base sm:text-lg text-white/80 leading-relaxed">
                     Every person's journey is unique, and I'm here to guide you through yours with care, understanding, and evidence-based treatment.
                   </p>
                 </div>

@@ -23,7 +23,7 @@ const ClientOnly = ({ children }: ClientOnlyProps) => {
   useEffect(() => {
     // Use requestAnimationFrame to prevent flickering during hydration
     const timer = requestAnimationFrame(() => {
-      setIsMounted(true);
+    setIsMounted(true);
     });
     
     return () => cancelAnimationFrame(timer);

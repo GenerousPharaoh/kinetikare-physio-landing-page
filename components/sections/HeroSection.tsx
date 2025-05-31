@@ -229,7 +229,7 @@ const HeroSection = React.memo(function HeroSection() {
                 className="text-center"
                 >
                 <span 
-                  className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-light text-white/80 whitespace-nowrap"
+                  className="text-lg sm:text-xl md:text-2xl font-light text-white/80"
                       style={{ 
                         letterSpacing: '0.05em',
                     textShadow: '0 2px 8px rgba(0,0,0,0.5)',
@@ -237,7 +237,7 @@ const HeroSection = React.memo(function HeroSection() {
                     fontWeight: '300'
                   }}
                 >
-                  Comprehensive Assessment <span className="text-[#D4AF37]/70 mx-1 sm:mx-2">•</span> Hands-on Treatment <span className="text-[#D4AF37]/70 mx-1 sm:mx-2">•</span> Personalized Physio Care
+                  Comprehensive Assessment <span className="text-[#D4AF37]/70 mx-2">•</span> Hands-on Treatment <span className="text-[#D4AF37]/70 mx-2">•</span> Personalized Physio Care
                       </span>
                 </motion.div>
             </h1>

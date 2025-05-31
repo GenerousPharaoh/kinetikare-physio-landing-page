@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
+import ErrorBoundary from '@/components/ErrorBoundary';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -219,8 +220,10 @@ export default function RootLayout({
         
         {/* Global site header */}
         <Header />
-        {/* Page content */}
-        {children}
+        {/* Page content wrapped in ErrorBoundary */}
+        <ErrorBoundary>
+          {children}
+        </ErrorBoundary>
         {/* Global site footer */}
         <Footer />
       </body>

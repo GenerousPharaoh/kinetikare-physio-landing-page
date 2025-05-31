@@ -9,31 +9,44 @@ import { CalendarDaysIcon } from '@heroicons/react/24/outline';
 const HeroSection = React.memo(function HeroSection() {
   return (
     <section className="relative w-full min-h-screen overflow-hidden">
-      {/* Animated Background */}
+      {/* Animated Background with Fixed Scaling */}
       <motion.div 
         initial={{ scale: 1.1 }}
         animate={{ scale: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
-        className="absolute inset-0"
+        className="absolute inset-0 w-full h-full"
       >
-        <Image
-          src="/images/clinic-pic-may-2025.jpg"
-          alt="Physiotherapy clinic"
-          fill
-          priority
-          quality={90}
-          className="object-cover"
-          style={{ filter: 'brightness(0.5) contrast(1.1)' }}
-        />
+        {/* Background Image - Properly Scaled */}
+        <div 
+          className="absolute inset-0 w-full h-full"
+          style={{
+            backgroundColor: '#2c1810', // Warm dark brown fallback that matches clinic image
+          }}
+        >
+          <Image
+            src="/images/clinic-pic-may-2025.jpg"
+            alt="Physiotherapy clinic"
+            fill
+            priority
+            quality={90}
+            className="object-cover w-full h-full"
+            style={{ 
+              filter: 'brightness(0.7) contrast(1.1)',
+              objectFit: 'cover',
+              objectPosition: 'center'
+            }}
+            sizes="100vw"
+          />
+        </div>
         
-        {/* Gradient Overlays - Refined for better text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/75 via-black/65 to-black/75" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+        {/* Much Lighter Gradient Overlays - Let Image Show Through More */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black/25 via-black/15 to-black/25" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
         
         {/* Animated Light Effects */}
         <motion.div
           animate={{
-            opacity: [0.3, 0.6, 0.3],
+            opacity: [0.2, 0.4, 0.2],
             scale: [1, 1.2, 1],
           }}
           transition={{
@@ -41,7 +54,7 @@ const HeroSection = React.memo(function HeroSection() {
             repeat: Infinity,
             ease: "easeInOut"
           }}
-          className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-[#D4AF37]/20 to-transparent rounded-full blur-3xl"
+          className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-[#D4AF37]/15 to-transparent rounded-full blur-3xl"
         />
       </motion.div>
       

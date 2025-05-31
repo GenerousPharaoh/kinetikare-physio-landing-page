@@ -815,3 +815,67 @@ html, body {
     display: none !important;
   }
 }
+
+/* Mobile Performance Optimizations */
+@layer base {
+  /* Prevent font flickering on mobile */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* Prevent tap highlight on mobile */
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Optimize images for mobile */
+  img {
+    content-visibility: auto;
+    contain-intrinsic-size: 500px;
+  }
+
+  /* Prevent layout shift */
+  * {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  /* Improve button touch targets */
+  button, 
+  a {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    touch-action: manipulation;
+  }
+
+  /* Disable animations on mobile for better performance */
+  @media (max-width: 768px) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+
+    /* Keep essential transitions */
+    button,
+    a,
+    .transition-colors {
+      transition-duration: 200ms !important;
+    }
+  }
+
+  /* Optimize scrolling performance */
+  html {
+    scroll-behavior: smooth;
+    overscroll-behavior: none;
+  }
+
+  /* Prevent horizontal scroll on mobile */
+  html,
+  body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+}

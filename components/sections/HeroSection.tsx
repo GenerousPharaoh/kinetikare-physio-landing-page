@@ -1,15 +1,25 @@
 "use client";
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { CalendarDaysIcon } from '@heroicons/react/24/outline';
 
 const HeroSection = React.memo(function HeroSection() {
+  // Detect if user prefers reduced motion
+  const prefersReducedMotion = useReducedMotion();
+  
+  // Simple fade animation for reduced motion or mobile
+  const fadeIn = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    transition: { duration: 0.4 }
+  };
+
   return (
     <section className="relative w-full min-h-screen overflow-hidden">
-      {/* Simplified Background - No Animation on Mobile */}
+      {/* Static Background - No Animation */}
       <div className="absolute inset-0">
         <Image
           src="/images/clinic-pic-may-2025.jpg"
@@ -21,22 +31,20 @@ const HeroSection = React.memo(function HeroSection() {
           style={{ filter: 'brightness(0.5) contrast(1.1)' }}
         />
         
-        {/* Single Gradient Overlay - Simplified */}
+        {/* Single Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70" />
         
-        {/* Light Effect - Hidden on Mobile to Prevent Flickering */}
+        {/* Light Effect - Hidden on Mobile */}
         <div className="hidden md:block absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-[#D4AF37]/20 to-transparent rounded-full blur-3xl opacity-40" />
       </div>
       
-      {/* Content Container - Optimized for Mobile */}
+      {/* Content Container */}
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 py-20">
         <div className="w-full max-w-7xl mx-auto">
           
-          {/* Logo Section - Simplified Animation */}
+          {/* Logo Section - Minimal Animation */}
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            {...(prefersReducedMotion ? {} : fadeIn)}
             className="flex flex-col items-center mb-12"
           >
             <div className="relative group">
@@ -53,27 +61,16 @@ const HeroSection = React.memo(function HeroSection() {
               </div>
             </div>
             
-            {/* Hero Text - Simplified Animation */}
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-center mb-12"
-            >
+            {/* Hero Text - Static on Mobile */}
+            <div className="text-center mb-12 mt-8">
               <h1 className="mb-8">
-                <motion.span 
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
+                <span 
                   className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-4 tracking-tight"
                   style={{ textShadow: '0 10px 30px rgba(0,0,0,0.7)' }}
                 >
                   The Science of Recovery,
-                </motion.span>
-                <motion.span 
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
+                </span>
+                <span 
                   className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black"
                   style={{
                     background: 'linear-gradient(135deg, #B08D57 0%, #D4AF37 25%, #F4E4BC 50%, #D4AF37 75%, #B08D57 100%)',
@@ -84,57 +81,46 @@ const HeroSection = React.memo(function HeroSection() {
                   }}
                 >
                   The Art of Care
-                </motion.span>
+                </span>
               </h1>
-            </motion.div>
+            </div>
             
-            {/* Redesigned Elegant Tagline Section */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex flex-col items-center space-y-8"
-            >
-              {/* Elegant Three-Column Layout */}
+            {/* Tagline Section - No Animations on Mobile */}
+            <div className="flex flex-col items-center space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 max-w-5xl mx-auto">
-                <div className="text-center group">
+                <div className="text-center">
                   <div className="relative">
                     <h3 className="text-2xl lg:text-3xl font-light text-white/80 mb-2 tracking-wider">Genuine</h3>
-                    <h4 className="text-3xl lg:text-4xl font-bold text-white tracking-tight group-hover:text-[#D4AF37] transition-colors duration-300">Understanding</h4>
+                    <h4 className="text-3xl lg:text-4xl font-bold text-white tracking-tight md:hover:text-[#D4AF37] md:transition-colors md:duration-300">Understanding</h4>
                     <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto mt-4 opacity-60"></div>
                   </div>
                 </div>
                 
-                <div className="text-center group">
+                <div className="text-center">
                   <div className="relative">
                     <h3 className="text-2xl lg:text-3xl font-light text-white/80 mb-2 tracking-wider">Expert</h3>
-                    <h4 className="text-3xl lg:text-4xl font-bold text-white tracking-tight group-hover:text-[#D4AF37] transition-colors duration-300">Care</h4>
+                    <h4 className="text-3xl lg:text-4xl font-bold text-white tracking-tight md:hover:text-[#D4AF37] md:transition-colors md:duration-300">Care</h4>
                     <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto mt-4 opacity-60"></div>
                   </div>
                 </div>
                 
-                <div className="text-center group">
+                <div className="text-center">
                   <div className="relative">
                     <h3 className="text-2xl lg:text-3xl font-light text-white/80 mb-2 tracking-wider">Lasting</h3>
-                    <h4 className="text-3xl lg:text-4xl font-bold text-white tracking-tight group-hover:text-[#D4AF37] transition-colors duration-300">Recovery</h4>
+                    <h4 className="text-3xl lg:text-4xl font-bold text-white tracking-tight md:hover:text-[#D4AF37] md:transition-colors md:duration-300">Recovery</h4>
                     <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto mt-4 opacity-60"></div>
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </motion.div>
           
-          {/* CTA Buttons - Simplified Hover Effects */}
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
-          >
+          {/* CTA Buttons - Improved Touch Targets */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
             <Link 
               href="https://endorphinshealth.janeapp.com/#/staff_member/42"
               target="_blank"
-              className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#B08D57] to-[#C9A769] text-white font-semibold rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-[#B08D57] to-[#C9A769] text-white font-semibold rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-300 md:hover:scale-105 active:scale-95 touch-manipulation"
             >
               <CalendarDaysIcon className="h-5 w-5 sm:h-6 sm:w-6" />
               <span>Book an Appointment</span>
@@ -142,19 +128,14 @@ const HeroSection = React.memo(function HeroSection() {
             
             <Link
               href="/services" 
-              className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-xl text-white font-semibold rounded-xl border border-white/30 hover:bg-white/20 transition-all duration-300"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-xl text-white font-semibold rounded-xl border border-white/30 hover:bg-white/20 transition-colors duration-300 active:scale-95 touch-manipulation"
             >
               <span>Explore Services</span>
             </Link>
-          </motion.div>
+          </div>
           
-          {/* Welcome Card - Simplified */}
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-            className="w-full max-w-2xl mx-auto"
-          >
+          {/* Welcome Card - Static on Mobile */}
+          <div className="w-full max-w-2xl mx-auto">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/20 to-[#B08D57]/20 rounded-3xl blur-3xl opacity-50" />
               
@@ -177,7 +158,7 @@ const HeroSection = React.memo(function HeroSection() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
           
         </div>
       </div>

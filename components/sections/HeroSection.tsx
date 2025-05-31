@@ -128,20 +128,23 @@ const HeroSection = React.memo(function HeroSection() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="flex flex-col items-center space-y-6"
+              className="flex flex-col items-center space-y-8"
             >
-              <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12">
+              <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-16">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.7 }}
-                  className="group relative"
+                  className="group text-center"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37]/10 to-[#B08D57]/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl px-6 py-3 border border-white/10">
-                    <p className="text-xl sm:text-2xl text-white/95 font-light tracking-wide">
-                      Genuine <span className="font-semibold bg-gradient-to-r from-[#D4AF37] to-[#B08D57] bg-clip-text text-transparent">Understanding</span>
-                    </p>
+                  <div className="relative">
+                    <h3 className="text-2xl sm:text-3xl font-light text-white/95 tracking-wide leading-tight">
+                      Genuine{' '}
+                      <span className="font-semibold bg-gradient-to-r from-[#D4AF37] via-[#F4E4BC] to-[#B08D57] bg-clip-text text-transparent">
+                        Understanding
+                      </span>
+                    </h3>
+                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-0.5 bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
                 </motion.div>
                 
@@ -149,20 +152,29 @@ const HeroSection = React.memo(function HeroSection() {
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4, delay: 0.8 }}
-                  className="hidden lg:block w-2 h-2 bg-gradient-to-br from-[#D4AF37] to-[#B08D57] rounded-full"
-                />
+                  className="hidden lg:flex items-center"
+                >
+                  <div className="w-1 h-1 bg-[#D4AF37] rounded-full mx-2"></div>
+                  <div className="w-8 h-px bg-gradient-to-r from-[#D4AF37]/40 to-transparent"></div>
+                  <div className="w-1 h-1 bg-[#D4AF37] rounded-full mx-2"></div>
+                  <div className="w-8 h-px bg-gradient-to-l from-[#D4AF37]/40 to-transparent"></div>
+                  <div className="w-1 h-1 bg-[#D4AF37] rounded-full mx-2"></div>
+                </motion.div>
                 
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.8 }}
-                  className="group relative"
+                  className="group text-center"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37]/10 to-[#B08D57]/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl px-6 py-3 border border-white/10">
-                    <p className="text-xl sm:text-2xl text-white/95 font-light tracking-wide">
-                      Expert <span className="font-semibold bg-gradient-to-r from-[#D4AF37] to-[#B08D57] bg-clip-text text-transparent">Care</span>
-                    </p>
+                  <div className="relative">
+                    <h3 className="text-2xl sm:text-3xl font-light text-white/95 tracking-wide leading-tight">
+                      Expert{' '}
+                      <span className="font-semibold bg-gradient-to-r from-[#D4AF37] via-[#F4E4BC] to-[#B08D57] bg-clip-text text-transparent">
+                        Care
+                      </span>
+                    </h3>
+                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-0.5 bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
                 </motion.div>
                 
@@ -170,20 +182,29 @@ const HeroSection = React.memo(function HeroSection() {
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4, delay: 0.9 }}
-                  className="hidden lg:block w-2 h-2 bg-gradient-to-br from-[#D4AF37] to-[#B08D57] rounded-full"
-                />
+                  className="hidden lg:flex items-center"
+                >
+                  <div className="w-1 h-1 bg-[#D4AF37] rounded-full mx-2"></div>
+                  <div className="w-8 h-px bg-gradient-to-r from-[#D4AF37]/40 to-transparent"></div>
+                  <div className="w-1 h-1 bg-[#D4AF37] rounded-full mx-2"></div>
+                  <div className="w-8 h-px bg-gradient-to-l from-[#D4AF37]/40 to-transparent"></div>
+                  <div className="w-1 h-1 bg-[#D4AF37] rounded-full mx-2"></div>
+                </motion.div>
                 
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.9 }}
-                  className="group relative"
+                  className="group text-center"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37]/10 to-[#B08D57]/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl px-6 py-3 border border-white/10">
-                    <p className="text-xl sm:text-2xl text-white/95 font-light tracking-wide">
-                      Lasting <span className="font-semibold bg-gradient-to-r from-[#D4AF37] to-[#B08D57] bg-clip-text text-transparent">Recovery</span>
-                    </p>
+                  <div className="relative">
+                    <h3 className="text-2xl sm:text-3xl font-light text-white/95 tracking-wide leading-tight">
+                      Lasting{' '}
+                      <span className="font-semibold bg-gradient-to-r from-[#D4AF37] via-[#F4E4BC] to-[#B08D57] bg-clip-text text-transparent">
+                        Recovery
+                      </span>
+                    </h3>
+                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-0.5 bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
                 </motion.div>
               </div>

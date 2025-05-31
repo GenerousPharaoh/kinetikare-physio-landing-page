@@ -10,7 +10,7 @@ const HeroSection = React.memo(function HeroSection() {
   // Detect if user prefers reduced motion
   const prefersReducedMotion = useReducedMotion();
   const [isIOS, setIsIOS] = useState(false);
-  
+
   // Detect iOS devices
   useEffect(() => {
     const checkIOS = () => {
@@ -20,7 +20,7 @@ const HeroSection = React.memo(function HeroSection() {
     };
     checkIOS();
   }, []);
-  
+
   // Simple fade animation for reduced motion or mobile
   const fadeIn = {
     initial: { opacity: 0 },
@@ -29,7 +29,7 @@ const HeroSection = React.memo(function HeroSection() {
   };
 
   return (
-    <section className="relative w-full min-h-screen overflow-hidden">
+    <section className="hero-section relative w-full min-h-screen overflow-hidden">
       {/* Static Background - No Animation */}
       <div className="absolute inset-0">
         <Image
@@ -38,8 +38,12 @@ const HeroSection = React.memo(function HeroSection() {
           fill
           priority
           quality={90}
-          className="object-cover"
-          style={{ filter: 'brightness(0.5) contrast(1.1)' }}
+          className="object-cover object-center"
+          style={{ 
+            filter: 'brightness(0.5) contrast(1.1)',
+            objectPosition: 'center center'
+          }}
+          sizes="100vw"
         />
         
         {/* Single Gradient Overlay */}
@@ -52,7 +56,7 @@ const HeroSection = React.memo(function HeroSection() {
       {/* Content Container */}
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 py-20">
         <div className="w-full max-w-7xl mx-auto">
-          
+      
           {/* Logo Section - Minimal Animation */}
           <motion.div 
             {...(prefersReducedMotion ? {} : fadeIn)}
@@ -81,7 +85,7 @@ const HeroSection = React.memo(function HeroSection() {
                   style={{ textShadow: '0 10px 30px rgba(0,0,0,0.7)' }}
                 >
                   The Science of Recovery,
-                </span>
+                    </span>
                 {/* iOS-safe gradient text */}
                 {isIOS ? (
                   <span 
@@ -93,21 +97,21 @@ const HeroSection = React.memo(function HeroSection() {
                 ) : (
                   <span 
                     className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black"
-                    style={{
+                      style={{
                       background: 'linear-gradient(135deg, #B08D57 0%, #D4AF37 25%, #F4E4BC 50%, #D4AF37 75%, #B08D57 100%)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text',
                       color: '#D4AF37', // Fallback color
                       filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.3))'
-                    }}
-                  >
-                    The Art of Care
+                      }}
+                    >
+                      The Art of Care
                   </span>
                 )}
-              </h1>
-            </div>
-            
+                </h1>
+              </div>
+              
             {/* Tagline Section - No Animations on Mobile */}
             <div className="flex flex-col items-center space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 max-w-5xl mx-auto">
@@ -136,26 +140,26 @@ const HeroSection = React.memo(function HeroSection() {
                 </div>
               </div>
             </div>
-          </motion.div>
-          
+              </motion.div>
+
           {/* CTA Buttons - iOS Compatible */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <Link 
-              href="https://endorphinshealth.janeapp.com/#/staff_member/42"
-              target="_blank"
+                  <Link 
+                    href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                    target="_blank"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-[#B08D57] to-[#C9A769] text-white font-semibold rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-300 md:hover:scale-105 active:scale-95 touch-manipulation"
-            >
+                  >
               <CalendarDaysIcon className="h-5 w-5 sm:h-6 sm:w-6" />
               <span>Book an Appointment</span>
-            </Link>
-            
-            <Link
-              href="/services" 
+                  </Link>
+                
+                  <Link
+                    href="/services" 
               className={`w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 text-white font-semibold rounded-xl border border-white/30 hover:bg-white/20 transition-colors duration-300 active:scale-95 touch-manipulation ${isIOS ? 'bg-white/10' : 'bg-white/10 backdrop-blur-xl'}`}
             >
               <span>Explore Services</span>
-            </Link>
-          </div>
+                  </Link>
+            </div>
           
           {/* Welcome Card - iOS Compatible */}
           <div className="w-full max-w-2xl mx-auto">
@@ -166,19 +170,19 @@ const HeroSection = React.memo(function HeroSection() {
               <div className={`relative rounded-3xl p-8 sm:p-10 shadow-2xl border border-white/50 ${isIOS ? 'bg-white/95' : 'bg-white/95 backdrop-blur-2xl'}`}>
                 <div className="text-center">
                   <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 mb-4">
-                    Welcome
+                      Welcome
                   </h2>
                   <div className="w-20 h-1 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mx-auto mb-6 rounded-full" />
                   
                   <p className="text-lg sm:text-xl text-slate-700 mb-4 leading-relaxed font-medium">
-                    I'm passionate about helping people move better, feel stronger, and get back to doing what they love.
-                  </p>
-                  
+                      I'm passionate about helping people move better, feel stronger, and get back to doing what they love.
+                    </p>
+                    
                   <div className="w-12 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent mx-auto my-4" />
-                  
+                    
                   <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-                    Every person's journey is unique, and I'm here to guide you through yours with care, understanding, and evidence-based treatment.
-                  </p>
+                      Every person's journey is unique, and I'm here to guide you through yours with care, understanding, and evidence-based treatment.
+                    </p>
                 </div>
               </div>
             </div>

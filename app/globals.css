@@ -938,3 +938,17 @@ html, body {
   -webkit-perspective: 1000;
   perspective: 1000;
 }
+
+/* Ensure hero background image displays on all screen sizes */
+.hero-section .absolute.inset-0 {
+  width: 100vw !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+}
+
+.hero-section img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+}

@@ -44,6 +44,47 @@ const HeroSection = React.memo(function HeroSection() {
     }
   };
 
+  // Cycling Tagline Component
+  const CyclingTagline = ({ isMobile }: { isMobile: boolean }) => {
+    const taglines = [
+      "Comprehensive Assessment",
+      "Hands-on Treatment", 
+      "Personalized Physio Care"
+    ];
+    
+    const [currentIndex, setCurrentIndex] = useState(0);
+    
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setCurrentIndex((prev) => (prev + 1) % taglines.length);
+      }, 3000); // Change every 3 seconds
+      
+      return () => clearInterval(interval);
+    }, [taglines.length]);
+    
+    return (
+      <div className="min-h-[2.5rem] flex items-center justify-center">
+        <motion.span 
+          key={currentIndex}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.5 }}
+          className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-[#D4AF37] inline-block"
+          style={{ 
+            letterSpacing: '0.05em',
+            textShadow: '0 2px 8px rgba(0,0,0,0.5)',
+            fontFamily: 'Inter, system-ui, sans-serif',
+            fontWeight: '400',
+            transform: isMobile ? 'translateZ(0)' : undefined
+          }}
+        >
+          {taglines[currentIndex]}
+        </motion.span>
+      </div>
+    );
+  };
+
   return (
     <section 
       className="relative w-full min-h-screen overflow-hidden"
@@ -228,17 +269,7 @@ const HeroSection = React.memo(function HeroSection() {
                 transition={isMobile ? { ...mobileAnimations.transition, delay: 0.5 } : { duration: 0.6, delay: 0.7 }}
                 className="text-center px-4"
                 >
-                <span 
-                  className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light text-[#D4AF37] inline-block"
-                      style={{ 
-                        letterSpacing: '0.05em',
-                    textShadow: '0 2px 8px rgba(0,0,0,0.5)',
-                    fontFamily: 'Inter, system-ui, sans-serif',
-                    fontWeight: '400'
-                  }}
-                >
-                  Personalized Care
-                      </span>
+                <CyclingTagline isMobile={isMobile} />
                 </motion.div>
             </h1>
           </motion.div>

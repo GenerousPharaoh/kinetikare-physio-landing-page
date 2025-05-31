@@ -173,7 +173,7 @@ const HeroSection = React.memo(function HeroSection() {
             transition={isMobile ? { ...mobileAnimations.transition, delay: 0.1 } : { duration: 0.8, delay: 0.2 }}
             className="text-center mb-8"
           >
-            <h1 className="mb-6">
+            <h1 className="mb-8">
               {/* Enhanced typography with different weights for visual rhythm */}
               <motion.span 
                 initial={isMobile ? mobileAnimations.initial : desktopAnimations.text.initial}
@@ -192,7 +192,7 @@ const HeroSection = React.memo(function HeroSection() {
                 initial={isMobile ? mobileAnimations.initial : desktopAnimations.text.initial}
                 animate={isMobile ? mobileAnimations.animate : desktopAnimations.text.animate}
                 transition={isMobile ? { ...mobileAnimations.transition, delay: 0.3 } : { ...desktopAnimations.text.transition, delay: 0.5 }}
-                className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black"
+                className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-8"
                 style={{
                   background: 'linear-gradient(135deg, #B08D57 0%, #D4AF37 25%, #F4E4BC 50%, #D4AF37 75%, #B08D57 100%)',
                   WebkitBackgroundClip: 'text',
@@ -205,78 +205,42 @@ const HeroSection = React.memo(function HeroSection() {
               >
                 The Art of Care
               </motion.span>
+              
+              {/* Elegant Decorative Line Separator */}
+              <motion.div
+                initial={isMobile ? mobileAnimations.initial : { opacity: 0, scaleX: 0 }}
+                animate={isMobile ? mobileAnimations.animate : { opacity: 1, scaleX: 1 }}
+                transition={isMobile ? { ...mobileAnimations.transition, delay: 0.4 } : { duration: 0.8, delay: 0.6 }}
+                className="w-full max-w-md mx-auto mb-6"
+              >
+                <div 
+                  className="h-px bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent"
+                  style={{
+                    boxShadow: '0 0 8px rgba(212, 175, 55, 0.3)'
+                  }}
+                />
+              </motion.div>
+              
+              {/* Integrated Subtitle Tagline */}
+              <motion.div
+                initial={isMobile ? mobileAnimations.initial : { opacity: 0, y: 10 }}
+                animate={isMobile ? mobileAnimations.animate : { opacity: 1, y: 0 }}
+                transition={isMobile ? { ...mobileAnimations.transition, delay: 0.5 } : { duration: 0.6, delay: 0.7 }}
+                className="text-center"
+              >
+                <span 
+                  className="text-lg sm:text-xl md:text-2xl font-light text-white/80"
+                  style={{ 
+                    letterSpacing: '0.05em', 
+                    textShadow: '0 2px 8px rgba(0,0,0,0.5)',
+                    fontFamily: 'Inter, system-ui, sans-serif',
+                    fontWeight: '300'
+                  }}
+                >
+                  Genuine Understanding <span className="text-[#D4AF37]/70 mx-2">•</span> Expert Care <span className="text-[#D4AF37]/70 mx-2">•</span> Lasting Recovery
+                </span>
+              </motion.div>
             </h1>
-            
-            {/* Elegant and Refined Tagline Section */}
-            <motion.div
-              initial={isMobile ? mobileAnimations.initial : { opacity: 0, y: 10 }}
-              animate={isMobile ? mobileAnimations.animate : { opacity: 1, y: 0 }}
-              transition={isMobile ? { ...mobileAnimations.transition, delay: 0.4 } : { duration: 0.6, delay: 0.6 }}
-              className="flex items-center justify-center"
-            >
-              <div className="flex items-center gap-6 lg:gap-8">
-                <motion.span
-                  initial={isMobile ? mobileAnimations.initial : { opacity: 0, x: -20 }}
-                  animate={isMobile ? mobileAnimations.animate : { opacity: 1, x: 0 }}
-                  transition={isMobile ? { ...mobileAnimations.transition, delay: 0.5 } : { duration: 0.6, delay: 0.7 }}
-                  className="text-base sm:text-lg font-light text-white/80"
-                  style={{ 
-                    letterSpacing: '0.15em', 
-                    textShadow: '0 2px 12px rgba(0,0,0,0.6)',
-                    fontFamily: 'Inter, system-ui, sans-serif',
-                    fontWeight: '300'
-                  }}
-                >
-                  Genuine <span className="font-normal text-[#D4AF37]/90" style={{ letterSpacing: '0.1em' }}>Understanding</span>
-                </motion.span>
-                
-                <motion.div
-                  initial={isMobile ? mobileAnimations.initial : { opacity: 0, scale: 0 }}
-                  animate={isMobile ? mobileAnimations.animate : { opacity: 1, scale: 1 }}
-                  transition={isMobile ? { ...mobileAnimations.transition, delay: 0.6 } : { duration: 0.4, delay: 0.8 }}
-                  className="w-1.5 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-transparent"
-                  style={{ width: '12px' }}
-                />
-                
-                <motion.span
-                  initial={isMobile ? mobileAnimations.initial : { opacity: 0, y: 20 }}
-                  animate={isMobile ? mobileAnimations.animate : { opacity: 1, y: 0 }}
-                  transition={isMobile ? { ...mobileAnimations.transition, delay: 0.7 } : { duration: 0.6, delay: 0.8 }}
-                  className="text-base sm:text-lg font-light text-white/80"
-                  style={{ 
-                    letterSpacing: '0.15em', 
-                    textShadow: '0 2px 12px rgba(0,0,0,0.6)',
-                    fontFamily: 'Inter, system-ui, sans-serif',
-                    fontWeight: '300'
-                  }}
-                >
-                  Expert <span className="font-normal text-[#D4AF37]/90" style={{ letterSpacing: '0.1em' }}>Care</span>
-                </motion.span>
-                
-                <motion.div
-                  initial={isMobile ? mobileAnimations.initial : { opacity: 0, scale: 0 }}
-                  animate={isMobile ? mobileAnimations.animate : { opacity: 1, scale: 1 }}
-                  transition={isMobile ? { ...mobileAnimations.transition, delay: 0.8 } : { duration: 0.4, delay: 0.9 }}
-                  className="w-1.5 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-transparent"
-                  style={{ width: '12px' }}
-                />
-                
-                <motion.span
-                  initial={isMobile ? mobileAnimations.initial : { opacity: 0, x: 20 }}
-                  animate={isMobile ? mobileAnimations.animate : { opacity: 1, x: 0 }}
-                  transition={isMobile ? { ...mobileAnimations.transition, delay: 0.9 } : { duration: 0.6, delay: 0.9 }}
-                  className="text-base sm:text-lg font-light text-white/80"
-                  style={{ 
-                    letterSpacing: '0.15em', 
-                    textShadow: '0 2px 12px rgba(0,0,0,0.6)',
-                    fontFamily: 'Inter, system-ui, sans-serif',
-                    fontWeight: '300'
-                  }}
-                >
-                  Lasting <span className="font-normal text-[#D4AF37]/90" style={{ letterSpacing: '0.1em' }}>Recovery</span>
-                </motion.span>
-              </div>
-            </motion.div>
           </motion.div>
           
           {/* Enhanced CTA Buttons with Improved Hover States and Visual Weight */}

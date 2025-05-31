@@ -104,7 +104,7 @@ const HeroSection = React.memo(function HeroSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-center mb-12"
           >
-            <h1 className="mb-10">
+            <h1 className="mb-12">
               {/* Enhanced typography with different weights for visual rhythm */}
               <motion.span 
                 initial={{ opacity: 0, y: 20 }}
@@ -136,27 +136,93 @@ const HeroSection = React.memo(function HeroSection() {
               </motion.span>
             </h1>
             
-            {/* Ultra-subtle integrated tagline - whispered sophistication */}
+            {/* "Pillar" or "Key Services" Block - Structured Design */}
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1.2, delay: 0.7 }}
-              className="mt-2"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="flex flex-col items-center space-y-6 mb-12"
             >
-              <p 
-                className="text-xs sm:text-sm font-light tracking-[0.15em] sm:tracking-[0.2em]"
-                style={{ 
-                  color: 'rgba(255, 255, 255, 0.35)',
-                  lineHeight: '1.2',
-                  textShadow: '0 1px 3px rgba(0,0,0,0.3)'
-                }}
-              >
-                <span className="inline-block">Genuine Understanding</span>
-                <span className="hidden sm:inline-block mx-4 sm:mx-6" style={{ color: 'rgba(255, 255, 255, 0.2)' }}>·</span>
-                <span className="block sm:inline-block">Expert Care</span>
-                <span className="hidden sm:inline-block mx-4 sm:mx-6" style={{ color: 'rgba(255, 255, 255, 0.2)' }}>·</span>
-                <span className="block sm:inline-block">Lasting Recovery</span>
-              </p>
+              {/* Mobile-First Structured Pillars */}
+              <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-8 w-full max-w-4xl">
+                
+                {/* Pillar 1: Genuine Understanding */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.7 }}
+                  className="group w-full lg:w-auto"
+                >
+                  <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg px-6 py-4 hover:bg-white/15 hover:border-white/30 transition-all duration-300">
+                    <p className="text-center text-white font-medium text-sm sm:text-base tracking-wider">
+                      <span className="font-bold text-[#D4AF37]">Genuine</span> Understanding
+                    </p>
+                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-0.5 bg-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
+                </motion.div>
+
+                {/* Desktop Separator */}
+                <div className="hidden lg:flex items-center">
+                  <div className="w-2 h-2 bg-[#D4AF37]/60 rounded-full"></div>
+                  <div className="w-8 h-px bg-[#D4AF37]/40 mx-2"></div>
+                  <div className="w-2 h-2 bg-[#D4AF37]/60 rounded-full"></div>
+                </div>
+                
+                {/* Mobile Separator */}
+                <div className="lg:hidden flex justify-center">
+                  <div className="flex items-center space-x-1">
+                    <div className="w-1 h-1 bg-[#D4AF37]/60 rounded-full"></div>
+                    <div className="w-1 h-1 bg-[#D4AF37]/60 rounded-full"></div>
+                    <div className="w-1 h-1 bg-[#D4AF37]/60 rounded-full"></div>
+                  </div>
+                </div>
+
+                {/* Pillar 2: Expert Care */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.8 }}
+                  className="group w-full lg:w-auto"
+                >
+                  <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg px-6 py-4 hover:bg-white/15 hover:border-white/30 transition-all duration-300">
+                    <p className="text-center text-white font-medium text-sm sm:text-base tracking-wider">
+                      <span className="font-bold text-[#D4AF37]">Expert</span> Care
+                    </p>
+                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-0.5 bg-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
+                </motion.div>
+
+                {/* Desktop Separator */}
+                <div className="hidden lg:flex items-center">
+                  <div className="w-2 h-2 bg-[#D4AF37]/60 rounded-full"></div>
+                  <div className="w-8 h-px bg-[#D4AF37]/40 mx-2"></div>
+                  <div className="w-2 h-2 bg-[#D4AF37]/60 rounded-full"></div>
+                </div>
+                
+                {/* Mobile Separator */}
+                <div className="lg:hidden flex justify-center">
+                  <div className="flex items-center space-x-1">
+                    <div className="w-1 h-1 bg-[#D4AF37]/60 rounded-full"></div>
+                    <div className="w-1 h-1 bg-[#D4AF37]/60 rounded-full"></div>
+                    <div className="w-1 h-1 bg-[#D4AF37]/60 rounded-full"></div>
+                  </div>
+                </div>
+
+                {/* Pillar 3: Lasting Recovery */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.9 }}
+                  className="group w-full lg:w-auto"
+                >
+                  <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg px-6 py-4 hover:bg-white/15 hover:border-white/30 transition-all duration-300">
+                    <p className="text-center text-white font-medium text-sm sm:text-base tracking-wider">
+                      <span className="font-bold text-[#D4AF37]">Lasting</span> Recovery
+                    </p>
+                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-0.5 bg-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
+                </motion.div>
+              </div>
             </motion.div>
           </motion.div>
           
@@ -165,7 +231,7 @@ const HeroSection = React.memo(function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.0 }}
-            className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-32"
+            className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-24"
           >
             {/* Primary CTA - Enhanced hover effects */}
             <motion.div 
@@ -208,73 +274,88 @@ const HeroSection = React.memo(function HeroSection() {
             </motion.div>
           </motion.div>
           
+          {/* "Elevated Welcome Panel" - Premium Featured Design */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="w-full max-w-2xl mx-auto"
+            style={{ minHeight: '300px' }}
+          >
+            <div className="relative">
+              {/* Premium Panel with Rich Background */}
+              <div 
+                className="relative rounded-2xl p-8 sm:p-10 overflow-hidden border border-slate-600/30"
+                style={{
+                  background: 'linear-gradient(135deg, #1e293b 0%, #334155 50%, #1e293b 100%)',
+                  boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3), 0 8px 25px rgba(0, 0, 0, 0.2)'
+                }}
+              >
+                {/* Subtle Internal Gradient Overlay */}
+                <div 
+                  className="absolute inset-0 rounded-2xl"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, transparent 50%, rgba(176, 141, 87, 0.05) 100%)'
+                  }}
+                />
+                
+                {/* Accent Border */}
+                <div className="absolute inset-0 rounded-2xl border border-[#D4AF37]/20"></div>
+                
+                <div className="relative z-10 text-center">
+                  {/* Premium "Welcome" Title with Gold Accent */}
+                  <h2 
+                    className="text-3xl sm:text-4xl font-bold mb-4"
+                    style={{ 
+                      color: '#D4AF37',
+                      textShadow: '0 2px 8px rgba(212, 175, 55, 0.3)'
+                    }}
+                  >
+                    Welcome
+                  </h2>
+                  
+                  {/* Gold Accent Line */}
+                  <div 
+                    className="w-24 h-0.5 mx-auto mb-8 rounded-full"
+                    style={{
+                      background: 'linear-gradient(90deg, transparent 0%, #D4AF37 50%, transparent 100%)'
+                    }}
+                  />
+                  
+                  {/* High-Contrast Text with Excellent Line Height */}
+                  <p 
+                    className="text-lg sm:text-xl mb-6 leading-relaxed font-medium"
+                    style={{ 
+                      color: '#f1f5f9',
+                      lineHeight: '1.7em'
+                    }}
+                  >
+                    I'm passionate about helping people move better, feel stronger, and get back to doing what they love.
+                  </p>
+                  
+                  {/* Elegant Separator */}
+                  <div className="flex justify-center items-center my-6">
+                    <div className="w-8 h-px bg-gradient-to-r from-transparent to-slate-400"></div>
+                    <div className="w-2 h-2 bg-[#D4AF37]/60 rounded-full mx-4"></div>
+                    <div className="w-8 h-px bg-gradient-to-l from-transparent to-slate-400"></div>
+                  </div>
+                  
+                  <p 
+                    className="text-base sm:text-lg leading-relaxed"
+                    style={{ 
+                      color: '#cbd5e1',
+                      lineHeight: '1.6em'
+                    }}
+                  >
+                    Every person's journey is unique, and I'm here to guide you through yours with care, understanding, and evidence-based treatment.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+          
         </div>
       </div>
-      
-      {/* Welcome Section - Transformed to organic content flow */}
-      <motion.div 
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.9 }}
-        className="relative z-20 bg-white"
-        style={{ marginTop: '-80px' }}
-      >
-        <div className="container mx-auto px-4 py-24 sm:py-32">
-          <div className="max-w-3xl mx-auto text-center">
-            {/* Subtle separator line */}
-            <motion.div
-              initial={{ width: 0 }}
-              animate={{ width: '120px' }}
-              transition={{ duration: 0.8, delay: 1.1 }}
-              className="h-px bg-gradient-to-r from-transparent via-[#B08D57]/40 to-transparent mx-auto mb-12"
-            />
-            
-            {/* Welcome title as strong visual anchor */}
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.2 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8"
-              style={{
-                background: 'linear-gradient(135deg, #1e293b 0%, #334155 50%, #1e293b 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text'
-              }}
-            >
-              Welcome
-            </motion.h2>
-            
-            {/* Content with optimal typography and spacing */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 1.3 }}
-              className="space-y-6"
-            >
-              <p 
-                className="text-lg sm:text-xl text-slate-700 font-medium mx-auto"
-                style={{ 
-                  lineHeight: '1.8',
-                  maxWidth: '65ch'
-                }}
-              >
-                I'm passionate about helping people move better, feel stronger, and get back to doing what they love.
-              </p>
-              
-              <p 
-                className="text-base sm:text-lg text-slate-600 mx-auto"
-                style={{ 
-                  lineHeight: '1.75',
-                  maxWidth: '65ch'
-                }}
-              >
-                Every person's journey is unique, and I'm here to guide you through yours with care, understanding, and evidence-based treatment.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </motion.div>
     </section>
   );
 });

@@ -29,8 +29,9 @@ const GlassCard = ({
   delayIndex = 0
 }: GlassCardProps) => {
   const { ref, isInView } = useScrollAnimation({
-    yOffset: 30,
-    delay: 0.1
+    yOffset: 20,
+    threshold: 0.01,
+    rootMargin: '0px 0px 150px 0px'
   });
 
   // Base styles for all glass cards

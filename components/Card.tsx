@@ -13,8 +13,9 @@ interface CardProps {
 
 export function Card({ title, description, icon, className, children, delay = 0 }: CardProps) {
   const { ref, isInView } = useScrollAnimation({
-    yOffset: 30,
-    delay: 0.1
+    yOffset: 20,
+    threshold: 0.01,
+    rootMargin: '0px 0px 150px 0px'
   });
 
   return (

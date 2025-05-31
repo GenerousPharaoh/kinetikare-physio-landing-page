@@ -18,14 +18,14 @@ export const useScrollAnimation = (options: ScrollAnimationOptions = {}) => {
     delay = 0,
     duration = 0.6,
     ease = "easeOut",
-    rootMargin = '0px 0px -5% 0px',
-    threshold = 0.1
+    rootMargin = '0px 0px 200px 0px', // Trigger 200px before element enters viewport
+    threshold = 0.01 // Only need 1% of element visible to trigger
   } = options;
 
   const { ref, inView: isInView } = useInView({
     threshold,
     triggerOnce: true,
-    rootMargin: rootMargin, // More aggressive rootMargin to trigger animations earlier
+    rootMargin: rootMargin, // Trigger animations well before elements are visible
   });
 
   const animationProps = {
@@ -37,19 +37,38 @@ export const useScrollAnimation = (options: ScrollAnimationOptions = {}) => {
   return { ref, animationProps, isInView };
 };
 
-// Staggered animation for child elements
-export const useStaggeredAnimation = (options: ScrollAnimationOptions = {}) => {
-  const { ref, isInView } = useScrollAnimation(options);
-  
+interface StaggeredAnimationOptions {
+  delay?: number;
+  duration?: number;
+  staggerDelay?: number;
+  threshold?: number;
+  rootMargin?: string;
+}
+
+export const useStaggeredAnimation = (options: StaggeredAnimationOptions = {}) => {
+  const {
+    delay = 0,
+    duration = 0.6,
+    staggerDelay = 0.1,
+    threshold = 0.01, // Very low threshold for early triggering
+    rootMargin = '0px 0px 150px 0px' // Trigger 150px before visible
+  } = options;
+
+  const { ref, inView: isInView } = useInView({
+    threshold,
+    triggerOnce: true,
+    rootMargin,
+  });
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: options.delay || 0.2
-      }
-    }
+        delayChildren: delay,
+        staggerChildren: staggerDelay,
+      },
+    },
   };
 
   const itemVariants = {
@@ -57,22 +76,20 @@ export const useStaggeredAnimation = (options: ScrollAnimationOptions = {}) => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: options.duration || 0.5,
-        ease: "easeOut"
-      }
-    }
+      transition: { duration, ease: "easeOut" },
+    },
   };
 
   return { ref, containerVariants, itemVariants, isInView };
 };
 
-// Helper hook specifically for sections
+// Helper hook specifically for sections - even more aggressive early triggering
 export function useSectionAnimation(options?: Omit<ScrollAnimationOptions, 'rootMargin'>) {
   return useScrollAnimation({
-    rootMargin: '0px 0px -5% 0px', // More aggressive rootMargin to trigger animations earlier
-    threshold: 0,
-    duration: 300, // Faster animations for sections
+    rootMargin: '0px 0px 300px 0px', // Trigger 300px before section is visible
+    threshold: 0.01, // Very low threshold
+    duration: 0.6,
+    yOffset: 30,
     ...options,
   });
 }

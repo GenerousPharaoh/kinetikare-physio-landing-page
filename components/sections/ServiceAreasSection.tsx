@@ -9,7 +9,11 @@ import { motion } from 'framer-motion';
 
 export default function ServiceAreasSection() {
   const [isMounted, setIsMounted] = useState(false);
-  const { ref, isInView } = useScrollAnimation();
+  const { ref, isInView } = useScrollAnimation({
+    rootMargin: '0px 0px 250px 0px',
+    threshold: 0.01,
+    yOffset: 20
+  });
 
   useEffect(() => {
     setIsMounted(true);

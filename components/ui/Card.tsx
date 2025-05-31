@@ -34,10 +34,9 @@ const Card = ({
   elevate = false,
   animationDelay = 0,
 }: CardProps) => {
-  const { ref, isInView } = useScrollAnimation({
-    yOffset: 20,
-    threshold: 0.01,
-    rootMargin: '0px 0px 150px 0px'
+  const { ref, isVisible } = useScrollAnimation({
+    triggerOnce: true,
+    threshold: 0.1,
   });
 
   const baseClasses = 'rounded-xl p-6 transition-all duration-250 will-change-transform';
@@ -80,7 +79,7 @@ const Card = ({
   const animationProps = animated ? {
     variants: animationVariants,
     initial: "hidden",
-    animate: isInView ? "visible" : "hidden"
+    animate: isVisible ? "visible" : "hidden"
   } : {};
 
   return (

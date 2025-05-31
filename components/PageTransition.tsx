@@ -38,8 +38,9 @@ export function PageTransition({ children, disabled = false }: PageTransitionPro
       // Only animate on powerful devices and when user doesn't prefer reduced motion
       setShouldAnimate(!prefersReducedMotion && !isLowPoweredDevice);
     } catch (error) {
-      // Error setting up page transition - handle silently in production
+      console.error('Error setting up page transition:', error);
       setIsError(true);
+      setShouldAnimate(false);
     }
   }, [disabled]);
 
@@ -96,23 +97,29 @@ export function PageTransition({ children, disabled = false }: PageTransitionPro
         aria-live="polite"
         aria-atomic="true"
         onAnimationStart={() => {
-          try {
-            // Announce page change to screen readers
-            const announcement = document.createElement('div');
-            announcement.setAttribute('aria-live', 'polite');
-            announcement.setAttribute('aria-atomic', 'true');
-            announcement.className = 'sr-only';
-            announcement.textContent = `Page changed to ${pathname}`;
-            document.body.appendChild(announcement);
+          // Announce page change to screen readers
+          const announcer = document.getElementById('page-change-announcer') || 
+            (() => {
+              const div = document.createElement('div');
+              div.id = 'page-change-announcer';
+              div.setAttribute('aria-live', 'assertive');
+              div.setAttribute('aria-atomic', 'true');
+              div.className = 'sr-only';
+              document.body.appendChild(div);
+              return div;
+            })();
             
-            // Clean up after announcement
+          try {
+            // Announce the page change
+            const pageTitle = document.title || 'New page';
+            announcer.textContent = `Navigated to ${pageTitle}`;
+            
+            // Clear the announcement after it's read
             setTimeout(() => {
-              if (document.body.contains(announcement)) {
-                document.body.removeChild(announcement);
-              }
+              announcer.textContent = '';
             }, 1000);
           } catch (error) {
-            // Error announcing page change - handle silently in production
+            console.warn('Error announcing page change:', error);
           }
         }}
       >

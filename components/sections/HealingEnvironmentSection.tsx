@@ -5,16 +5,10 @@ import { motion } from 'framer-motion';
 import { useScrollAnimation, useStaggeredAnimation } from '@/hooks/useScrollAnimation';
 
 const HealingEnvironmentSection = () => {
-  const { ref: sectionRef, animationProps } = useScrollAnimation({ 
-    yOffset: 20, 
-    rootMargin: '0px 0px 250px 0px', 
-    threshold: 0.01 
-  });
+  const { ref: sectionRef, animationProps } = useScrollAnimation({ yOffset: 30 });
   const { ref: imagesRef, containerVariants, itemVariants, isInView } = useStaggeredAnimation({ 
-    delay: 0.1,
-    duration: 0.5,
-    rootMargin: '0px 0px 200px 0px',
-    threshold: 0.01
+    delay: 0.2,
+    duration: 0.5 
   });
 
   const clinicImages = [

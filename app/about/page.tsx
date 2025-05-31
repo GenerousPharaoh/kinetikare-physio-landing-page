@@ -484,7 +484,7 @@ export default function About() {
                       <div className="relative z-10">
                         <p className="text-base sm:text-lg lg:text-xl text-slate-700 leading-relaxed mb-4 sm:mb-6">
                           My journey into physiotherapy wasn't merely academic—it was forged through personal experience. From competitive soccer and pursuing a Kinesiology degree at{" "}
-                          <span className="font-semibold text-[#B08D57]">McMaster University</span> to navigating my own significant injuries including debilitating disc herniations, I've experienced both sides of rehabilitation. This deep understanding, enriched by years of serving diverse communities including <span className="font-semibold text-slate-800">Burlington, Waterdown, and surrounding areas</span>, shapes my empathetic and effective approach to care.
+                          <span className="font-semibold text-[#B08D57]">McMaster University</span> to navigating my own significant injuries including debilitating disc herniations, I've experienced both sides of rehabilitation. This deep understanding, enriched by years of serving diverse communities including <span class="font-semibold text-slate-800">Burlington, Waterdown, and surrounding areas</span>, shapes my empathetic and effective approach to care.
                         </p>
                       </div>
                     </div>
@@ -495,7 +495,7 @@ export default function About() {
                       <div className="relative z-10">
                         <p className="text-base sm:text-lg lg:text-xl text-slate-700 leading-relaxed mb-4 sm:mb-6">
                           These moments of vulnerability transformed my professional purpose, leading me to complete a{" "}
-                          <span className="font-semibold text-[#B08D57]">Master's in Physiotherapy from Robert Gordon University with distinction</span>. My education, combined with firsthand experience as a patient, has deeply informed my approach to care, particularly in delivering personalized treatment to those I've had the privilege to work with in <span className="font-semibold text-slate-800">Halton Region and beyond</span>.
+                          <span className="font-semibold text-[#B08D57]">Master's in Physiotherapy from Robert Gordon University with distinction</span>. My education, combined with firsthand experience as a patient, has deeply informed my approach to care, particularly in delivering personalized treatment to those I've had the privilege to work with in <span class="font-semibold text-slate-800">Halton Region and beyond</span>.
                         </p>
                       </div>
                     </div>

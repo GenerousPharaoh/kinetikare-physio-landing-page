@@ -26,7 +26,6 @@
     "@hookform/resolvers": "^5.0.1",
     "@phosphor-icons/react": "^2.1.7",
     "@types/node": "22.14.1",
-    "antd": "^5.25.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "critters": "^0.0.25",

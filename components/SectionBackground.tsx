@@ -234,7 +234,7 @@ const SectionBackground = ({
         >
           <Image
             src={patternFiles[patternVariant]}
-            alt=""
+            alt={`Decorative ${patternVariant} pattern background`}
             fill
             className="object-cover"
             aria-hidden="true"

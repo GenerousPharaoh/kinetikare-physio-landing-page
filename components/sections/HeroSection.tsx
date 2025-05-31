@@ -45,31 +45,58 @@ const HeroSection = React.memo(function HeroSection() {
   };
 
   return (
-    <section className="relative w-full min-h-screen overflow-hidden">
+    <section 
+      className="relative w-full min-h-screen overflow-hidden"
+      style={{
+        // Ensure dark fallback background to prevent body gradient from showing
+        background: 'linear-gradient(135deg, #1a202c 0%, #2d3748 50%, #1a202c 100%)'
+      }}
+    >
       {/* Animated Background - Simplified on mobile */}
       <motion.div 
         initial={isMobile ? mobileAnimations.initial : desktopAnimations.background.initial}
         animate={isMobile ? mobileAnimations.animate : desktopAnimations.background.animate}
         transition={isMobile ? mobileAnimations.transition : desktopAnimations.background.transition}
-        className="absolute inset-0"
+        className="absolute inset-0 w-full h-full"
         style={{ 
           transform: isMobile ? 'translateZ(0)' : undefined,
-          willChange: isMobile ? 'auto' : 'transform'
+          willChange: isMobile ? 'auto' : 'transform',
+          // Ensure this container takes full space
+          minHeight: '100vh',
+          minWidth: '100vw'
         }}
       >
-        <Image
-          src="/images/clinic-pic-may-2025.jpg"
-          alt="Physiotherapy clinic"
-          fill
-          priority
-          quality={isMobile ? 75 : 90}
-          className="object-cover"
-          style={{ filter: 'brightness(0.5) contrast(1.1)' }}
-        />
+        {/* Background Image with improved sizing */}
+        <div 
+          className="absolute inset-0 w-full h-full"
+          style={{
+            // Fallback background in case image doesn't load
+            background: 'linear-gradient(135deg, #1a202c 0%, #2d3748 50%, #1a202c 100%)',
+            minHeight: '100vh',
+            minWidth: '100vw'
+          }}
+        >
+          <Image
+            src="/images/clinic-pic-may-2025.jpg"
+            alt="Physiotherapy clinic"
+            fill
+            priority
+            quality={isMobile ? 75 : 95}
+            className="object-cover w-full h-full"
+            style={{ 
+              filter: 'brightness(0.5) contrast(1.1)',
+              // Ensure image covers entire container at all sizes
+              objectFit: 'cover',
+              minHeight: '100vh',
+              minWidth: '100vw'
+            }}
+            sizes="100vw"
+          />
+        </div>
         
-        {/* Gradient Overlays - Refined for better text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/75 via-black/65 to-black/75" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+        {/* Gradient Overlays - Slightly reduced intensity to let more image show */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
         
         {/* Animated Light Effects - Disabled on mobile to prevent flickering */}
         {!isMobile && (
@@ -180,56 +207,73 @@ const HeroSection = React.memo(function HeroSection() {
               </motion.span>
             </h1>
             
-            {/* Streamlined and Elegant Tagline Section */}
+            {/* Elegant and Refined Tagline Section */}
             <motion.div
               initial={isMobile ? mobileAnimations.initial : { opacity: 0, y: 10 }}
               animate={isMobile ? mobileAnimations.animate : { opacity: 1, y: 0 }}
               transition={isMobile ? { ...mobileAnimations.transition, delay: 0.4 } : { duration: 0.6, delay: 0.6 }}
               className="flex items-center justify-center"
             >
-              <div className="flex items-center gap-4 lg:gap-6">
+              <div className="flex items-center gap-6 lg:gap-8">
                 <motion.span
                   initial={isMobile ? mobileAnimations.initial : { opacity: 0, x: -20 }}
                   animate={isMobile ? mobileAnimations.animate : { opacity: 1, x: 0 }}
                   transition={isMobile ? { ...mobileAnimations.transition, delay: 0.5 } : { duration: 0.6, delay: 0.7 }}
-                  className="text-lg sm:text-xl font-light text-white/90"
-                  style={{ letterSpacing: '0.05em', textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}
+                  className="text-base sm:text-lg font-light text-white/80"
+                  style={{ 
+                    letterSpacing: '0.15em', 
+                    textShadow: '0 2px 12px rgba(0,0,0,0.6)',
+                    fontFamily: 'Inter, system-ui, sans-serif',
+                    fontWeight: '300'
+                  }}
                 >
-                  Genuine <span className="font-medium text-[#D4AF37]">Understanding</span>
+                  Genuine <span className="font-normal text-[#D4AF37]/90" style={{ letterSpacing: '0.1em' }}>Understanding</span>
                 </motion.span>
                 
                 <motion.div
                   initial={isMobile ? mobileAnimations.initial : { opacity: 0, scale: 0 }}
                   animate={isMobile ? mobileAnimations.animate : { opacity: 1, scale: 1 }}
                   transition={isMobile ? { ...mobileAnimations.transition, delay: 0.6 } : { duration: 0.4, delay: 0.8 }}
-                  className="w-1 h-1 bg-[#D4AF37] rounded-full"
+                  className="w-1.5 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-transparent"
+                  style={{ width: '12px' }}
                 />
                 
                 <motion.span
                   initial={isMobile ? mobileAnimations.initial : { opacity: 0, y: 20 }}
                   animate={isMobile ? mobileAnimations.animate : { opacity: 1, y: 0 }}
                   transition={isMobile ? { ...mobileAnimations.transition, delay: 0.7 } : { duration: 0.6, delay: 0.8 }}
-                  className="text-lg sm:text-xl font-light text-white/90"
-                  style={{ letterSpacing: '0.05em', textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}
+                  className="text-base sm:text-lg font-light text-white/80"
+                  style={{ 
+                    letterSpacing: '0.15em', 
+                    textShadow: '0 2px 12px rgba(0,0,0,0.6)',
+                    fontFamily: 'Inter, system-ui, sans-serif',
+                    fontWeight: '300'
+                  }}
                 >
-                  Expert <span className="font-medium text-[#D4AF37]">Care</span>
+                  Expert <span className="font-normal text-[#D4AF37]/90" style={{ letterSpacing: '0.1em' }}>Care</span>
                 </motion.span>
                 
                 <motion.div
                   initial={isMobile ? mobileAnimations.initial : { opacity: 0, scale: 0 }}
                   animate={isMobile ? mobileAnimations.animate : { opacity: 1, scale: 1 }}
                   transition={isMobile ? { ...mobileAnimations.transition, delay: 0.8 } : { duration: 0.4, delay: 0.9 }}
-                  className="w-1 h-1 bg-[#D4AF37] rounded-full"
+                  className="w-1.5 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-transparent"
+                  style={{ width: '12px' }}
                 />
                 
                 <motion.span
                   initial={isMobile ? mobileAnimations.initial : { opacity: 0, x: 20 }}
                   animate={isMobile ? mobileAnimations.animate : { opacity: 1, x: 0 }}
                   transition={isMobile ? { ...mobileAnimations.transition, delay: 0.9 } : { duration: 0.6, delay: 0.9 }}
-                  className="text-lg sm:text-xl font-light text-white/90"
-                  style={{ letterSpacing: '0.05em', textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}
+                  className="text-base sm:text-lg font-light text-white/80"
+                  style={{ 
+                    letterSpacing: '0.15em', 
+                    textShadow: '0 2px 12px rgba(0,0,0,0.6)',
+                    fontFamily: 'Inter, system-ui, sans-serif',
+                    fontWeight: '300'
+                  }}
                 >
-                  Lasting <span className="font-medium text-[#D4AF37]">Recovery</span>
+                  Lasting <span className="font-normal text-[#D4AF37]/90" style={{ letterSpacing: '0.1em' }}>Recovery</span>
                 </motion.span>
               </div>
             </motion.div>

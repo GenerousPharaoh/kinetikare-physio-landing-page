@@ -29,13 +29,11 @@ export default function FloatingButtons() {
   };
 
   const handleBookClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    // Potentially add analytics tracking here
-    console.log("Booking button clicked");
+    // Analytics tracking can be added here if needed
   };
 
   const handleCallClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    // Potentially add analytics tracking here
-    console.log("Call button clicked");
+    // Analytics tracking can be added here if needed
   };
 
   // Animation variants
@@ -99,6 +97,7 @@ export default function FloatingButtons() {
         href="https://endorphinshealth.janeapp.com/#/staff_member/42"
         target="_blank"
         rel="noopener noreferrer"
+        onClick={handleBookClick}
         onMouseEnter={() => setShowTooltip('book')}
         onMouseLeave={() => setShowTooltip(null)}
         className="group relative flex items-center justify-center w-14 h-14 bg-primary-600/90 backdrop-blur-md border border-primary-500/50 text-white rounded-full shadow-lg transition-colors duration-300 hover:bg-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
@@ -129,6 +128,7 @@ export default function FloatingButtons() {
       {/* Call Button */}
       <motion.a
         href="tel:+19056346000"
+        onClick={handleCallClick}
         onMouseEnter={() => setShowTooltip('call')}
         onMouseLeave={() => setShowTooltip(null)}
         className="group relative flex items-center justify-center w-14 h-14 bg-green-600/90 backdrop-blur-md border border-green-500/50 text-white rounded-full shadow-lg transition-colors duration-300 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-background"

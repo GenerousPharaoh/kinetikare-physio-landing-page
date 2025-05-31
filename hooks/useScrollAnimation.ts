@@ -14,34 +14,27 @@ interface ScrollAnimationOptions {
 
 export const useScrollAnimation = (options: ScrollAnimationOptions = {}) => {
   const {
-    threshold = 0.1,
+    threshold = 0,
     triggerOnce = true,
     delay = 0,
     duration = 0.6,
     yOffset = 20,
-    rootMargin = '0px 0px -100px 0px' // Trigger animations 100px before element is in viewport
+    rootMargin = '200px 0px 200px 0px' // Much more aggressive - trigger 200px before AND after viewport
   } = options;
 
-  const [hasAnimated, setHasAnimated] = useState(false);
   const { ref, inView } = useInView({
     threshold,
     triggerOnce,
     rootMargin,
   });
 
-  useEffect(() => {
-    if (inView && !hasAnimated) {
-      setHasAnimated(true);
-    }
-  }, [inView, hasAnimated]);
-
   const animationProps = {
     initial: { opacity: 0, y: yOffset },
-    animate: hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: yOffset },
+    animate: inView ? { opacity: 1, y: 0 } : { opacity: 0, y: yOffset },
     transition: { duration, delay, ease: "easeOut" }
   };
 
-  return { ref, animationProps, isInView: hasAnimated };
+  return { ref, animationProps, isInView: inView };
 };
 
 // Staggered animation for child elements
@@ -77,9 +70,9 @@ export const useStaggeredAnimation = (options: ScrollAnimationOptions = {}) => {
 // Helper hook specifically for sections
 export function useSectionAnimation(options?: ScrollAnimationOptions) {
   return useScrollAnimation({
-    rootMargin: '0px 0px -20% 0px', // Trigger when 20% of viewport height before element is visible
+    rootMargin: '500px 0px 500px 0px', // Super aggressive - trigger way before sections are visible
     threshold: 0,
-    duration: 0.6, // Smooth duration for sections
+    duration: 0.6,
     ...options,
   });
 }

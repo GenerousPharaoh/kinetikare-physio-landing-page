@@ -75,12 +75,12 @@ const HeroSection = React.memo(function HeroSection() {
             minHeight: '100vh',
             minWidth: '100vw'
           }}
-        >
-          <Image
-            src="/images/clinic-pic-may-2025.jpg"
-            alt="Physiotherapy clinic"
-            fill
-            priority
+      >
+        <Image
+          src="/images/clinic-pic-may-2025.jpg"
+          alt="Physiotherapy clinic"
+          fill
+          priority
             quality={isMobile ? 75 : 95}
             className="object-cover w-full h-full"
             style={{ 
@@ -91,7 +91,7 @@ const HeroSection = React.memo(function HeroSection() {
               minWidth: '100vw'
             }}
             sizes="100vw"
-          />
+        />
         </div>
         
         {/* Gradient Overlays - Slightly reduced intensity to let more image show */}
@@ -100,18 +100,18 @@ const HeroSection = React.memo(function HeroSection() {
         
         {/* Animated Light Effects - Disabled on mobile to prevent flickering */}
         {!isMobile && (
-          <motion.div
-            animate={{
-              opacity: [0.3, 0.6, 0.3],
-              scale: [1, 1.2, 1],
-            }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-[#D4AF37]/20 to-transparent rounded-full blur-3xl"
-          />
+        <motion.div
+          animate={{
+            opacity: [0.3, 0.6, 0.3],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-[#D4AF37]/20 to-transparent rounded-full blur-3xl"
+        />
         )}
       </motion.div>
       
@@ -205,41 +205,41 @@ const HeroSection = React.memo(function HeroSection() {
               >
                 The Art of Care
               </motion.span>
-              
+            
               {/* Elegant Decorative Line Separator */}
-              <motion.div
+            <motion.div
                 initial={isMobile ? mobileAnimations.initial : { opacity: 0, scaleX: 0 }}
                 animate={isMobile ? mobileAnimations.animate : { opacity: 1, scaleX: 1 }}
                 transition={isMobile ? { ...mobileAnimations.transition, delay: 0.4 } : { duration: 0.8, delay: 0.6 }}
                 className="w-full max-w-md mx-auto mb-6"
-              >
+                >
                 <div 
                   className="h-px bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent"
-                  style={{
+                      style={{ 
                     boxShadow: '0 0 8px rgba(212, 175, 55, 0.3)'
-                  }}
+                      }}
                 />
-              </motion.div>
-              
+                </motion.div>
+                
               {/* Integrated Subtitle Tagline */}
-              <motion.div
+                <motion.div
                 initial={isMobile ? mobileAnimations.initial : { opacity: 0, y: 10 }}
                 animate={isMobile ? mobileAnimations.animate : { opacity: 1, y: 0 }}
                 transition={isMobile ? { ...mobileAnimations.transition, delay: 0.5 } : { duration: 0.6, delay: 0.7 }}
                 className="text-center"
-              >
+                >
                 <span 
-                  className="text-lg sm:text-xl md:text-2xl font-light text-white/80"
-                  style={{ 
-                    letterSpacing: '0.05em', 
+                  className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-light text-white/80 whitespace-nowrap"
+                      style={{ 
+                        letterSpacing: '0.05em',
                     textShadow: '0 2px 8px rgba(0,0,0,0.5)',
                     fontFamily: 'Inter, system-ui, sans-serif',
                     fontWeight: '300'
                   }}
                 >
-                  Genuine Understanding <span className="text-[#D4AF37]/70 mx-2">•</span> Expert Care <span className="text-[#D4AF37]/70 mx-2">•</span> Lasting Recovery
-                </span>
-              </motion.div>
+                  Comprehensive Assessment <span className="text-[#D4AF37]/70 mx-1 sm:mx-2">•</span> Hands-on Treatment <span className="text-[#D4AF37]/70 mx-1 sm:mx-2">•</span> Personalized Physio Care
+                      </span>
+                </motion.div>
             </h1>
           </motion.div>
           

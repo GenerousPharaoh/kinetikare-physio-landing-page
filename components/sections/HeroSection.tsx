@@ -229,16 +229,15 @@ const HeroSection = React.memo(function HeroSection() {
                 className="text-center px-4"
                 >
                 <span 
-                  className="text-base sm:text-lg md:text-xl lg:text-2xl font-light text-white/80 whitespace-nowrap inline-block"
+                  className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light text-[#D4AF37] inline-block"
                       style={{ 
                         letterSpacing: '0.05em',
                     textShadow: '0 2px 8px rgba(0,0,0,0.5)',
                     fontFamily: 'Inter, system-ui, sans-serif',
-                    fontWeight: '300',
-                    minWidth: 'max-content'
+                    fontWeight: '400'
                   }}
                 >
-                  Comprehensive Assessment <span className="text-[#D4AF37]/70 mx-1 sm:mx-2">•</span> Hands-on Treatment <span className="text-[#D4AF37]/70 mx-1 sm:mx-2">•</span> Personalized Physio Care
+                  Personalized Care
                       </span>
                 </motion.div>
             </h1>

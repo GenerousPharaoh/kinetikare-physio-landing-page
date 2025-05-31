@@ -23,11 +23,6 @@ const HealingEnvironmentSection = dynamic(() => import('@/components/sections/He
   ssr: true
 });
 
-const ReviewsSection = dynamic(() => import('@/components/sections/ReviewsSection'), {
-  loading: () => <div className="h-96" />,
-  ssr: true
-});
-
 const ContactSection = dynamic(() => import('@/components/sections/ContactSection'), {
   loading: () => <div className="h-96" />,
   ssr: true
@@ -174,7 +169,7 @@ const personSchema = {
   ]
 };
 
-// Streamlined site structure: Hero → About → Healing Environment → Care Journey → Services → Contact
+// Streamlined site structure: Hero → About → Services → Care Journey → Healing Environment → Contact
 export default function Home() {
   return (
     <>
@@ -189,7 +184,6 @@ export default function Home() {
       <ServicesSection />
       <CareJourneySection />
       <HealingEnvironmentSection />
-      <ReviewsSection />
       <ContactSection />
     </main>
     </>

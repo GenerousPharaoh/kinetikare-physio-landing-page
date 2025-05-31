@@ -234,20 +234,44 @@ export default function About() {
                     />
                   </Link>
                   
-                  <Link 
-                    href="https://collegept.org/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="block bg-white p-4 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300"
-                  >
-                    <ClientImage
-                      src="/images/college-of-physiotherapists-of-ontario-logo.webp"
-                      alt="College of Physiotherapists of Ontario"
-                      width={140}
-                      height={70}
-                      className="object-contain h-auto max-h-12 mx-auto"
-                    />
-                  </Link>
+                  {/* Enhanced CPO section with verification link - Mobile */}
+                  <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300">
+                    <Link 
+                      href="https://collegept.org/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="block mb-3"
+                    >
+                      <ClientImage
+                        src="/images/college-of-physiotherapists-of-ontario-logo.webp"
+                        alt="College of Physiotherapists of Ontario"
+                        width={140}
+                        height={70}
+                        className="object-contain h-auto max-h-12 mx-auto"
+                      />
+                    </Link>
+                    
+                    {/* Professional Verification Badge - Mobile */}
+                    <div className="mt-3 pt-3 border-t border-neutral-100">
+                      <div className="flex items-center justify-center gap-1.5 mb-2">
+                        <svg className="w-3 h-3 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span className="text-xs font-semibold text-green-700">Registration Verified</span>
+                      </div>
+                      <Link
+                        href="https://portal.collegept.org/en-US/public-register/display-member-contact/?id=757882d7-8c40-eb11-a813-000d3af427b4"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center w-full px-2 py-1.5 text-xs font-medium text-[#B08D57] bg-[#B08D57]/10 border border-[#B08D57]/20 rounded-lg hover:bg-[#B08D57]/20 hover:border-[#B08D57]/30 transition-all duration-300"
+                      >
+                        <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                        Verify Registration
+                      </Link>
+                    </div>
+                  </div>
                   
                   <Link 
                     href="https://endorphinshealth.com/" 
@@ -345,20 +369,44 @@ export default function About() {
                       />
                     </Link>
                     
-                    <Link 
-                      href="https://collegept.org/" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="block bg-white p-5 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300"
-                    >
-                      <ClientImage
-                        src="/images/college-of-physiotherapists-of-ontario-logo.webp"
-                        alt="College of Physiotherapists of Ontario"
-                        width={140}
-                        height={70}
-                        className="object-contain h-auto max-h-14 mx-auto"
-                      />
-                    </Link>
+                    {/* Enhanced CPO section with verification link */}
+                    <div className="bg-white p-5 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300">
+                      <Link 
+                        href="https://collegept.org/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="block mb-3"
+                      >
+                        <ClientImage
+                          src="/images/college-of-physiotherapists-of-ontario-logo.webp"
+                          alt="College of Physiotherapists of Ontario"
+                          width={140}
+                          height={70}
+                          className="object-contain h-auto max-h-14 mx-auto"
+                        />
+                      </Link>
+                      
+                      {/* Professional Verification Badge */}
+                      <div className="mt-4 pt-4 border-t border-neutral-100">
+                        <div className="flex items-center justify-center gap-2 mb-2">
+                          <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          <span className="text-sm font-semibold text-green-700">Registration Verified</span>
+                        </div>
+                        <Link
+                          href="https://portal.collegept.org/en-US/public-register/display-member-contact/?id=757882d7-8c40-eb11-a813-000d3af427b4"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center w-full px-3 py-2 text-xs font-medium text-[#B08D57] bg-[#B08D57]/10 border border-[#B08D57]/20 rounded-lg hover:bg-[#B08D57]/20 hover:border-[#B08D57]/30 transition-all duration-300"
+                        >
+                          <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          </svg>
+                          Verify Professional Registration
+                        </Link>
+                      </div>
+                    </div>
                     
                     <Link 
                       href="https://endorphinshealth.com/" 

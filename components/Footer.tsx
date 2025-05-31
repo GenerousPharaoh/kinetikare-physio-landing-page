@@ -150,6 +150,36 @@ export default function Footer() {
                   ))}
                 </ul>
               </div>
+              
+              {/* Professional Registration Verification */}
+              <div className="mt-8">
+                <h3 className="text-base font-semibold mb-4 text-white relative inline-flex">
+                  <span className="relative z-10">Professional Registration</span>
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gold/60 rounded-full -z-10"></span>
+                </h3>
+                <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/10">
+                  <div className="flex items-center gap-2 mb-3">
+                    <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span className="text-sm font-medium text-green-400">CPO Registration Verified</span>
+                  </div>
+                  <Link
+                    href="https://portal.collegept.org/en-US/public-register/display-member-contact/?id=757882d7-8c40-eb11-a813-000d3af427b4"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-sm font-medium text-gold hover:text-gold/80 transition-colors duration-300"
+                  >
+                    <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                    Verify with College of Physiotherapists of Ontario
+                  </Link>
+                  <p className="text-xs text-white/70 mt-2">
+                    Independently verify my professional registration and credentials
+                  </p>
+                </div>
+              </div>
             </div>
             
             {/* Social links */}

@@ -9,44 +9,31 @@ import { CalendarDaysIcon } from '@heroicons/react/24/outline';
 const HeroSection = React.memo(function HeroSection() {
   return (
     <section className="relative w-full min-h-screen overflow-hidden">
-      {/* Animated Background with Fixed Scaling */}
+      {/* Animated Background */}
       <motion.div 
         initial={{ scale: 1.1 }}
         animate={{ scale: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
-        className="absolute inset-0 w-full h-full"
+        className="absolute inset-0"
       >
-        {/* Background Image - Properly Scaled */}
-        <div 
-          className="absolute inset-0 w-full h-full"
-          style={{
-            backgroundColor: '#2c1810', // Warm dark brown fallback that matches clinic image
-          }}
-        >
-          <Image
-            src="/images/clinic-pic-may-2025.jpg"
-            alt="Physiotherapy clinic"
-            fill
-            priority
-            quality={90}
-            className="object-cover w-full h-full"
-            style={{ 
-              filter: 'brightness(0.7) contrast(1.1)',
-              objectFit: 'cover',
-              objectPosition: 'center'
-            }}
-            sizes="100vw"
-          />
-        </div>
+        <Image
+          src="/images/clinic-pic-may-2025.jpg"
+          alt="Physiotherapy clinic"
+          fill
+          priority
+          quality={90}
+          className="object-cover"
+          style={{ filter: 'brightness(0.5) contrast(1.1)' }}
+        />
         
-        {/* Much Lighter Gradient Overlays - Let Image Show Through More */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/25 via-black/15 to-black/25" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+        {/* Gradient Overlays - Refined for better text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black/75 via-black/65 to-black/75" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
         
         {/* Animated Light Effects */}
         <motion.div
           animate={{
-            opacity: [0.2, 0.4, 0.2],
+            opacity: [0.3, 0.6, 0.3],
             scale: [1, 1.2, 1],
           }}
           transition={{
@@ -54,7 +41,7 @@ const HeroSection = React.memo(function HeroSection() {
             repeat: Infinity,
             ease: "easeInOut"
           }}
-          className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-[#D4AF37]/15 to-transparent rounded-full blur-3xl"
+          className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-[#D4AF37]/20 to-transparent rounded-full blur-3xl"
         />
       </motion.div>
       
@@ -117,7 +104,7 @@ const HeroSection = React.memo(function HeroSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-center mb-12"
           >
-            <h1 className="mb-12">
+            <h1 className="mb-10">
               {/* Enhanced typography with different weights for visual rhythm */}
               <motion.span 
                 initial={{ opacity: 0, y: 20 }}
@@ -149,90 +136,107 @@ const HeroSection = React.memo(function HeroSection() {
               </motion.span>
             </h1>
             
-            {/* "Pillar" or "Key Services" Block - Structured Design */}
+            {/* Enhanced tagline section with improved tracking and visual punctuation */}
             <motion.div
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="flex flex-col items-center space-y-6 mb-12"
+              className="flex flex-col items-center space-y-10"
             >
-              {/* Mobile-First Structured Pillars */}
-              <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-8 w-full max-w-4xl">
-                
-                {/* Pillar 1: Genuine Understanding */}
+              <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-20">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.7 }}
-                  className="group w-full lg:w-auto"
+                  transition={{ duration: 0.6, delay: 0.7 }}
+                  className="group text-center"
                 >
-                  <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg px-6 py-4 hover:bg-white/15 hover:border-white/30 transition-all duration-300">
-                    <p className="text-center text-white font-medium text-sm sm:text-base tracking-wider">
-                      <span className="font-bold text-[#D4AF37]">Genuine</span> Understanding
-                    </p>
-                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-0.5 bg-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="relative">
+                    <h3 
+                      className="text-2xl sm:text-3xl font-light text-white/95 leading-tight"
+                      style={{ 
+                        letterSpacing: '0.05em',
+                        textShadow: '0 2px 8px rgba(0,0,0,0.5)'
+                      }}
+                    >
+                      Genuine{' '}
+                      <span className="font-semibold bg-gradient-to-r from-[#D4AF37] via-[#F4E4BC] to-[#B08D57] bg-clip-text text-transparent">
+                        Understanding
+                      </span>
+                    </h3>
+                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-0.5 bg-gradient-to-r from-transparent via-[#D4AF37]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
                 </motion.div>
-
-                {/* Desktop Separator */}
-                <div className="hidden lg:flex items-center">
-                  <div className="w-2 h-2 bg-[#D4AF37]/60 rounded-full"></div>
-                  <div className="w-8 h-px bg-[#D4AF37]/40 mx-2"></div>
-                  <div className="w-2 h-2 bg-[#D4AF37]/60 rounded-full"></div>
-                </div>
                 
-                {/* Mobile Separator */}
-                <div className="lg:hidden flex justify-center">
-                  <div className="flex items-center space-x-1">
-                    <div className="w-1 h-1 bg-[#D4AF37]/60 rounded-full"></div>
-                    <div className="w-1 h-1 bg-[#D4AF37]/60 rounded-full"></div>
-                    <div className="w-1 h-1 bg-[#D4AF37]/60 rounded-full"></div>
-                  </div>
-                </div>
-
-                {/* Pillar 2: Expert Care */}
+                {/* Enhanced visual separators */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: 0.8 }}
+                  className="hidden lg:flex items-center"
+                >
+                  <div className="w-2 h-2 bg-[#D4AF37] rounded-full shadow-lg"></div>
+                  <div className="w-12 h-px bg-gradient-to-r from-[#D4AF37]/60 to-[#D4AF37]/20 mx-3"></div>
+                  <div className="w-1.5 h-1.5 bg-[#D4AF37]/70 rounded-full"></div>
+                  <div className="w-12 h-px bg-gradient-to-l from-[#D4AF37]/60 to-[#D4AF37]/20 mx-3"></div>
+                  <div className="w-2 h-2 bg-[#D4AF37] rounded-full shadow-lg"></div>
+                </motion.div>
+                
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.8 }}
-                  className="group w-full lg:w-auto"
+                  transition={{ duration: 0.6, delay: 0.8 }}
+                  className="group text-center"
                 >
-                  <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg px-6 py-4 hover:bg-white/15 hover:border-white/30 transition-all duration-300">
-                    <p className="text-center text-white font-medium text-sm sm:text-base tracking-wider">
-                      <span className="font-bold text-[#D4AF37]">Expert</span> Care
-                    </p>
-                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-0.5 bg-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="relative">
+                    <h3 
+                      className="text-2xl sm:text-3xl font-light text-white/95 leading-tight"
+                      style={{ 
+                        letterSpacing: '0.05em',
+                        textShadow: '0 2px 8px rgba(0,0,0,0.5)'
+                      }}
+                    >
+                      Expert{' '}
+                      <span className="font-semibold bg-gradient-to-r from-[#D4AF37] via-[#F4E4BC] to-[#B08D57] bg-clip-text text-transparent">
+                        Care
+                      </span>
+                    </h3>
+                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-0.5 bg-gradient-to-r from-transparent via-[#D4AF37]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
                 </motion.div>
-
-                {/* Desktop Separator */}
-                <div className="hidden lg:flex items-center">
-                  <div className="w-2 h-2 bg-[#D4AF37]/60 rounded-full"></div>
-                  <div className="w-8 h-px bg-[#D4AF37]/40 mx-2"></div>
-                  <div className="w-2 h-2 bg-[#D4AF37]/60 rounded-full"></div>
-                </div>
                 
-                {/* Mobile Separator */}
-                <div className="lg:hidden flex justify-center">
-                  <div className="flex items-center space-x-1">
-                    <div className="w-1 h-1 bg-[#D4AF37]/60 rounded-full"></div>
-                    <div className="w-1 h-1 bg-[#D4AF37]/60 rounded-full"></div>
-                    <div className="w-1 h-1 bg-[#D4AF37]/60 rounded-full"></div>
-                  </div>
-                </div>
-
-                {/* Pillar 3: Lasting Recovery */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: 0.9 }}
+                  className="hidden lg:flex items-center"
+                >
+                  <div className="w-2 h-2 bg-[#D4AF37] rounded-full shadow-lg"></div>
+                  <div className="w-12 h-px bg-gradient-to-r from-[#D4AF37]/60 to-[#D4AF37]/20 mx-3"></div>
+                  <div className="w-1.5 h-1.5 bg-[#D4AF37]/70 rounded-full"></div>
+                  <div className="w-12 h-px bg-gradient-to-l from-[#D4AF37]/60 to-[#D4AF37]/20 mx-3"></div>
+                  <div className="w-2 h-2 bg-[#D4AF37] rounded-full shadow-lg"></div>
+                </motion.div>
+                
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.9 }}
-                  className="group w-full lg:w-auto"
+                  transition={{ duration: 0.6, delay: 0.9 }}
+                  className="group text-center"
                 >
-                  <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg px-6 py-4 hover:bg-white/15 hover:border-white/30 transition-all duration-300">
-                    <p className="text-center text-white font-medium text-sm sm:text-base tracking-wider">
-                      <span className="font-bold text-[#D4AF37]">Lasting</span> Recovery
-                    </p>
-                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-0.5 bg-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="relative">
+                    <h3 
+                      className="text-2xl sm:text-3xl font-light text-white/95 leading-tight"
+                      style={{ 
+                        letterSpacing: '0.05em',
+                        textShadow: '0 2px 8px rgba(0,0,0,0.5)'
+                      }}
+                    >
+                      Lasting{' '}
+                      <span className="font-semibold bg-gradient-to-r from-[#D4AF37] via-[#F4E4BC] to-[#B08D57] bg-clip-text text-transparent">
+                        Recovery
+                      </span>
+                    </h3>
+                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-0.5 bg-gradient-to-r from-transparent via-[#D4AF37]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
                 </motion.div>
               </div>
@@ -244,7 +248,7 @@ const HeroSection = React.memo(function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.0 }}
-            className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-24"
+            className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-20"
           >
             {/* Primary CTA - Enhanced hover effects */}
             <motion.div 
@@ -287,7 +291,7 @@ const HeroSection = React.memo(function HeroSection() {
             </motion.div>
           </motion.div>
           
-          {/* "Elevated Welcome Panel" - Premium Featured Design */}
+          {/* Welcome Card - Enhanced Integration with Subtle Gradient */}
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -295,71 +299,34 @@ const HeroSection = React.memo(function HeroSection() {
             className="w-full max-w-2xl mx-auto"
             style={{ minHeight: '300px' }}
           >
-            <div className="relative">
-              {/* Premium Panel with Rich Background */}
+            <div className="relative group">
+              {/* Enhanced glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/25 to-[#B08D57]/25 rounded-3xl blur-3xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+              
+              {/* Card with subtle gradient background for better integration */}
               <div 
-                className="relative rounded-2xl p-8 sm:p-10 overflow-hidden border border-slate-600/30"
+                className="relative backdrop-blur-2xl rounded-3xl p-8 sm:p-10 shadow-2xl border border-white/30 overflow-hidden"
                 style={{
-                  background: 'linear-gradient(135deg, #1e293b 0%, #334155 50%, #1e293b 100%)',
-                  boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3), 0 8px 25px rgba(0, 0, 0, 0.2)'
+                  background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,250,252,0.92) 50%, rgba(255,255,255,0.95) 100%)'
                 }}
               >
-                {/* Subtle Internal Gradient Overlay */}
-                <div 
-                  className="absolute inset-0 rounded-2xl"
-                  style={{
-                    background: 'linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, transparent 50%, rgba(176, 141, 87, 0.05) 100%)'
-                  }}
-                />
-                
-                {/* Accent Border */}
-                <div className="absolute inset-0 rounded-2xl border border-[#D4AF37]/20"></div>
+                {/* Refined decorative elements */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#D4AF37]/8 to-transparent rounded-full -translate-y-16 translate-x-16" />
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-[#B08D57]/8 to-transparent rounded-full translate-y-12 -translate-x-12" />
                 
                 <div className="relative z-10 text-center">
-                  {/* Premium "Welcome" Title with Gold Accent */}
-                  <h2 
-                    className="text-3xl sm:text-4xl font-bold mb-4"
-                    style={{ 
-                      color: '#D4AF37',
-                      textShadow: '0 2px 8px rgba(212, 175, 55, 0.3)'
-                    }}
-                  >
+                  <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 mb-4">
                     Welcome
                   </h2>
+                  <div className="w-20 h-1 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mx-auto mb-6 rounded-full shadow-sm" />
                   
-                  {/* Gold Accent Line */}
-                  <div 
-                    className="w-24 h-0.5 mx-auto mb-8 rounded-full"
-                    style={{
-                      background: 'linear-gradient(90deg, transparent 0%, #D4AF37 50%, transparent 100%)'
-                    }}
-                  />
-                  
-                  {/* High-Contrast Text with Excellent Line Height */}
-                  <p 
-                    className="text-lg sm:text-xl mb-6 leading-relaxed font-medium"
-                    style={{ 
-                      color: '#f1f5f9',
-                      lineHeight: '1.7em'
-                    }}
-                  >
+                  <p className="text-lg sm:text-xl text-slate-700 mb-5 leading-relaxed font-medium">
                     I'm passionate about helping people move better, feel stronger, and get back to doing what they love.
                   </p>
                   
-                  {/* Elegant Separator */}
-                  <div className="flex justify-center items-center my-6">
-                    <div className="w-8 h-px bg-gradient-to-r from-transparent to-slate-400"></div>
-                    <div className="w-2 h-2 bg-[#D4AF37]/60 rounded-full mx-4"></div>
-                    <div className="w-8 h-px bg-gradient-to-l from-transparent to-slate-400"></div>
-                  </div>
+                  <div className="w-16 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent mx-auto my-5" />
                   
-                  <p 
-                    className="text-base sm:text-lg leading-relaxed"
-                    style={{ 
-                      color: '#cbd5e1',
-                      lineHeight: '1.6em'
-                    }}
-                  >
+                  <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
                     Every person's journey is unique, and I'm here to guide you through yours with care, understanding, and evidence-based treatment.
                   </p>
                 </div>

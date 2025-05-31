@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -9,6 +9,17 @@ import { CalendarDaysIcon } from '@heroicons/react/24/outline';
 const HeroSection = React.memo(function HeroSection() {
   // Detect if user prefers reduced motion
   const prefersReducedMotion = useReducedMotion();
+  const [isIOS, setIsIOS] = useState(false);
+  
+  // Detect iOS devices
+  useEffect(() => {
+    const checkIOS = () => {
+      const isIOSDevice = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      const isIOSSafari = isIOSDevice && /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
+      setIsIOS(isIOSDevice || isIOSSafari);
+    };
+    checkIOS();
+  }, []);
   
   // Simple fade animation for reduced motion or mobile
   const fadeIn = {
@@ -48,9 +59,10 @@ const HeroSection = React.memo(function HeroSection() {
             className="flex flex-col items-center mb-12"
           >
             <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/20 to-[#B08D57]/20 rounded-3xl blur-2xl opacity-60" />
+              {/* Simplified glow for iOS */}
+              <div className={`absolute inset-0 rounded-3xl blur-2xl opacity-60 ${isIOS ? 'bg-[#D4AF37]/20' : 'bg-gradient-to-br from-[#D4AF37]/20 to-[#B08D57]/20'}`} />
               
-              <div className="relative bg-gradient-to-br from-slate-900/95 via-slate-800/90 to-slate-900/95 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/10">
+              <div className={`relative rounded-3xl p-8 shadow-2xl border border-white/10 ${isIOS ? 'bg-slate-900/90' : 'bg-gradient-to-br from-slate-900/95 via-slate-800/90 to-slate-900/95 backdrop-blur-xl'}`}>
                 <Image
                   src="/images/kinetikare-logo.png"
                   alt="KinetiKare logo"
@@ -61,7 +73,7 @@ const HeroSection = React.memo(function HeroSection() {
               </div>
             </div>
             
-            {/* Hero Text - Static on Mobile */}
+            {/* Hero Text - iOS Compatible */}
             <div className="text-center mb-12 mt-8">
               <h1 className="mb-8">
                 <span 
@@ -70,18 +82,29 @@ const HeroSection = React.memo(function HeroSection() {
                 >
                   The Science of Recovery,
                 </span>
-                <span 
-                  className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black"
-                  style={{
-                    background: 'linear-gradient(135deg, #B08D57 0%, #D4AF37 25%, #F4E4BC 50%, #D4AF37 75%, #B08D57 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                    filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.3))'
-                  }}
-                >
-                  The Art of Care
-                </span>
+                {/* iOS-safe gradient text */}
+                {isIOS ? (
+                  <span 
+                    className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-[#D4AF37]"
+                    style={{ textShadow: '0 4px 8px rgba(0,0,0,0.3)' }}
+                  >
+                    The Art of Care
+                  </span>
+                ) : (
+                  <span 
+                    className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black"
+                    style={{
+                      background: 'linear-gradient(135deg, #B08D57 0%, #D4AF37 25%, #F4E4BC 50%, #D4AF37 75%, #B08D57 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                      color: '#D4AF37', // Fallback color
+                      filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.3))'
+                    }}
+                  >
+                    The Art of Care
+                  </span>
+                )}
               </h1>
             </div>
             
@@ -115,7 +138,7 @@ const HeroSection = React.memo(function HeroSection() {
             </div>
           </motion.div>
           
-          {/* CTA Buttons - Improved Touch Targets */}
+          {/* CTA Buttons - iOS Compatible */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
             <Link 
               href="https://endorphinshealth.janeapp.com/#/staff_member/42"
@@ -128,18 +151,19 @@ const HeroSection = React.memo(function HeroSection() {
             
             <Link
               href="/services" 
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-xl text-white font-semibold rounded-xl border border-white/30 hover:bg-white/20 transition-colors duration-300 active:scale-95 touch-manipulation"
+              className={`w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 text-white font-semibold rounded-xl border border-white/30 hover:bg-white/20 transition-colors duration-300 active:scale-95 touch-manipulation ${isIOS ? 'bg-white/10' : 'bg-white/10 backdrop-blur-xl'}`}
             >
               <span>Explore Services</span>
             </Link>
           </div>
           
-          {/* Welcome Card - Static on Mobile */}
+          {/* Welcome Card - iOS Compatible */}
           <div className="w-full max-w-2xl mx-auto">
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/20 to-[#B08D57]/20 rounded-3xl blur-3xl opacity-50" />
+              {/* Simplified glow for iOS */}
+              <div className={`absolute inset-0 rounded-3xl blur-3xl opacity-50 ${isIOS ? 'bg-[#D4AF37]/20' : 'bg-gradient-to-br from-[#D4AF37]/20 to-[#B08D57]/20'}`} />
               
-              <div className="relative bg-white/95 backdrop-blur-2xl rounded-3xl p-8 sm:p-10 shadow-2xl border border-white/50">
+              <div className={`relative rounded-3xl p-8 sm:p-10 shadow-2xl border border-white/50 ${isIOS ? 'bg-white/95' : 'bg-white/95 backdrop-blur-2xl'}`}>
                 <div className="text-center">
                   <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 mb-4">
                     Welcome

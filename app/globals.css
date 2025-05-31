@@ -879,3 +879,62 @@ html, body {
     width: 100%;
   }
 }
+
+/* iOS Safari Specific Fixes */
+@supports (-webkit-touch-callout: none) {
+  /* Fix for gradient text on iOS */
+  .gradient-text {
+    -webkit-text-fill-color: initial !important;
+    background: none !important;
+    color: #D4AF37 !important;
+  }
+  
+  /* Fix backdrop filters on iOS */
+  .backdrop-blur-xl,
+  .backdrop-blur-2xl,
+  .backdrop-blur-3xl {
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+  
+  /* Ensure content is visible */
+  * {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  
+  /* Fix position sticky/fixed issues */
+  .fixed {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  
+  /* Prevent iOS zoom on form inputs */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+}
+
+/* Additional iOS-specific fixes */
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* Ensure hero content is visible */
+  .hero-section * {
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+/* Prevent blank screen on iOS */
+.hero-section {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  perspective: 1000;
+}

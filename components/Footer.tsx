@@ -23,13 +23,13 @@ export default function Footer() {
       icon: <MapPin className="w-5 h-5 text-gold flex-shrink-0" weight="duotone" />,
       text: '4631 Palladium Way, Unit 6, Burlington, ON L7M 0W9',
       href: 'https://maps.app.goo.gl/syZN4FUBgACrtqgK9',
-      ariaLabel: 'View location on Google Maps'
+      ariaLabel: 'View my location on Google Maps'
     },
     {
       icon: <Phone className="w-5 h-5 text-gold flex-shrink-0" weight="duotone" />,
       text: '(905) 634-6000',
       href: 'tel:+19056346000',
-      ariaLabel: 'Call the office'
+      ariaLabel: 'Call my office'
     },
     {
       icon: <Envelope className="w-5 h-5 text-gold flex-shrink-0" weight="duotone" />,

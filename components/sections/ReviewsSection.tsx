@@ -133,7 +133,7 @@ const ReviewsSection = () => {
               />
             </h2>
             <p className="text-lg text-primary-600 max-w-3xl mx-auto mt-6">
-              Don&apos;t just take my word for it. Hear what patients have to say about their experience and results.
+              Don&apos;t just take our word for it. Hear what our patients have to say about their experience and results.
             </p>
           </motion.div>
 

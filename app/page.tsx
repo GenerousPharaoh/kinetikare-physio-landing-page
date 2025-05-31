@@ -1,32 +1,10 @@
 import { Metadata } from 'next';
-import dynamic from 'next/dynamic';
 import HeroSection from '@/components/sections/HeroSection';
-
-// Lazy load all sections except Hero for faster initial load
-const AboutSection = dynamic(() => import('@/components/sections/AboutSection'), {
-  loading: () => <div className="h-96" />,
-  ssr: true
-});
-
-const ServicesSection = dynamic(() => import('@/components/sections/ServicesSection'), {
-  loading: () => <div className="h-96" />,
-  ssr: true
-});
-
-const CareJourneySection = dynamic(() => import('@/components/sections/CareJourneySection'), {
-  loading: () => <div className="h-96" />,
-  ssr: true
-});
-
-const HealingEnvironmentSection = dynamic(() => import('@/components/sections/HealingEnvironmentSection'), {
-  loading: () => <div className="h-96" />,
-  ssr: true
-});
-
-const ContactSection = dynamic(() => import('@/components/sections/ContactSection'), {
-  loading: () => <div className="h-96" />,
-  ssr: true
-});
+import AboutSection from '@/components/sections/AboutSection';
+import HealingEnvironmentSection from '@/components/sections/HealingEnvironmentSection';
+import CareJourneySection from '@/components/sections/CareJourneySection';
+import ServicesSection from '@/components/sections/ServicesSection';
+import ContactSection from '@/components/sections/ContactSection';
 
 // SEO Metadata for Homepage
 export const metadata: Metadata = {
@@ -169,7 +147,7 @@ const personSchema = {
   ]
 };
 
-// Streamlined site structure: Hero → About → Services → Care Journey → Healing Environment → Contact
+// Streamlined site structure: Hero → About → Healing Environment → Care Journey → Services → Contact
 export default function Home() {
   return (
     <>
@@ -181,9 +159,9 @@ export default function Home() {
     <main className="min-h-screen">
       <HeroSection />
       <AboutSection />
-      <ServicesSection />
+        <HealingEnvironmentSection />
       <CareJourneySection />
-      <HealingEnvironmentSection />
+      <ServicesSection />
       <ContactSection />
     </main>
     </>

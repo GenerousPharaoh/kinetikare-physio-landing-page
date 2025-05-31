@@ -19,7 +19,7 @@ export default function ContactSection() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden" id="contact">
+    <section className="py-32 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden" id="contact">
       {/* Clean background elements */}
       <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-[#B08D57]/3 to-transparent rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-[#D4AF37]/3 to-transparent rounded-full blur-3xl"></div>
@@ -27,7 +27,7 @@ export default function ContactSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Premium Section Header */}
-          <div className="text-center mb-12 sm:mb-16">
+          <div className="text-center mb-16 sm:mb-20">
             <div className="relative inline-block mb-6 sm:mb-8">
               <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 mb-6 sm:mb-8 tracking-tight leading-[0.9]">
                 Get in <span className="text-[#B08D57] relative">

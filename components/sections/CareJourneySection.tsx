@@ -31,10 +31,10 @@ export default function CareJourneySection() {
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-br from-slate-50 via-white to-slate-50">
+    <section className="py-24 bg-gradient-to-br from-slate-50 via-white to-slate-50">
       <div className="container mx-auto px-4 max-w-7xl">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 tracking-tight">
             Your <span className="text-[#B08D57]">Care Journey</span>
           </h2>
@@ -83,7 +83,7 @@ export default function CareJourneySection() {
         </div>
 
         {/* Bottom CTA - Redesigned */}
-        <div className="mt-16">
+        <div className="mt-24">
           <div className="relative bg-gradient-to-br from-slate-800 via-slate-900 to-black rounded-3xl p-12 lg:p-16 shadow-2xl overflow-hidden">
             {/* Background pattern */}
             <div className="absolute inset-0 opacity-10">

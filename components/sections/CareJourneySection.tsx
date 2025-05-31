@@ -1,8 +1,13 @@
 "use client";
 
 import React from 'react';
+import { motion } from 'framer-motion';
+import { useScrollAnimation, useStaggeredAnimation } from '@/hooks/useScrollAnimation';
 
 export default function CareJourneySection() {
+  const { ref: sectionRef, animationProps } = useScrollAnimation({ yOffset: 30 });
+  const { ref: stepsRef, containerVariants, itemVariants, isInView } = useStaggeredAnimation({ delay: 0.1 });
+
   const steps = [
     {
       number: "01",
@@ -31,10 +36,19 @@ export default function CareJourneySection() {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-slate-50 via-white to-slate-50">
+    <motion.section 
+      ref={sectionRef}
+      {...animationProps}
+      className="py-12 md:py-16 bg-gradient-to-br from-slate-50 via-white to-slate-50"
+    >
       <div className="container mx-auto px-4 max-w-7xl">
         {/* Section Header */}
-        <div className="text-center mb-20">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12 md:mb-16"
+        >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 tracking-tight">
             Your <span className="text-[#B08D57]">Care Journey</span>
           </h2>
@@ -42,16 +56,22 @@ export default function CareJourneySection() {
           <p className="text-xl lg:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed font-light">
             A structured, personalized approach to your recovery designed to deliver measurable results
           </p>
-        </div>
+        </motion.div>
 
         {/* Care Journey Steps */}
         <div className="relative">
           {/* Background connecting line */}
           <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent transform -translate-y-1/2"></div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+          <motion.div 
+            ref={stepsRef}
+            variants={containerVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12"
+          >
             {steps.map((step, index) => (
-              <div key={step.number} className="relative group">
+              <motion.div key={step.number} variants={itemVariants} className="relative group">
                 {/* Step Card */}
                 <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/60 hover:shadow-2xl transition-all duration-500 relative overflow-hidden">
                   {/* Subtle background gradient */}
@@ -77,13 +97,18 @@ export default function CareJourneySection() {
                   {/* Corner accent */}
                   <div className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-[#B08D57]/5 to-transparent rounded-tl-3xl"></div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
 
         {/* Bottom CTA - Redesigned */}
-        <div className="mt-24">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-16"
+        >
           <div className="relative bg-gradient-to-br from-slate-800 via-slate-900 to-black rounded-3xl p-12 lg:p-16 shadow-2xl overflow-hidden">
             {/* Background pattern */}
             <div className="absolute inset-0 opacity-10">
@@ -125,8 +150,8 @@ export default function CareJourneySection() {
             <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#B08D57]/20 to-transparent rounded-full -translate-y-20 translate-x-20"></div>
             <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-[#D4AF37]/20 to-transparent rounded-full translate-y-16 -translate-x-16"></div>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 } 

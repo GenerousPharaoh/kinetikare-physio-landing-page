@@ -2,6 +2,8 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { useScrollAnimation, useStaggeredAnimation } from '@/hooks/useScrollAnimation';
 import { 
   MapPinIcon, 
   EnvelopeIcon, 
@@ -13,13 +15,21 @@ import {
 } from '@heroicons/react/24/outline';
 
 export default function ContactSection() {
+  const { ref: sectionRef, animationProps } = useScrollAnimation({ yOffset: 30 });
+  const { ref: areasRef, containerVariants, itemVariants, isInView } = useStaggeredAnimation({ delay: 0.1 });
+
   const serviceAreas = [
     "Burlington", "Waterdown", "Oakville", "Milton", "Hamilton", 
     "Flamborough", "Dundas", "Ancaster", "Aldershot"
   ];
 
   return (
-    <section className="py-32 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden" id="contact">
+    <motion.section 
+      ref={sectionRef}
+      {...animationProps}
+      className="py-16 md:py-20 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden" 
+      id="contact"
+    >
       {/* Clean background elements */}
       <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-[#B08D57]/3 to-transparent rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-[#D4AF37]/3 to-transparent rounded-full blur-3xl"></div>
@@ -27,7 +37,12 @@ export default function ContactSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Premium Section Header */}
-          <div className="text-center mb-16 sm:mb-20">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12 sm:mb-16"
+          >
             <div className="relative inline-block mb-6 sm:mb-8">
               <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 mb-6 sm:mb-8 tracking-tight leading-[0.9]">
                 Get in <span className="text-[#B08D57] relative">
@@ -40,11 +55,15 @@ export default function ContactSection() {
             <p className="text-2xl lg:text-3xl font-light text-slate-600 mb-8 leading-relaxed">
               Ready to move forward in your recovery journey? Experience personalized physiotherapy care designed to help you move and feel your best.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20">
             {/* Left Column - Contact Information Only */}
-            <div>
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               {/* Single Consolidated Contact Card */}
               <div className="bg-white/95 backdrop-blur-2xl rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl border border-slate-200/60">
                 <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-8 sm:mb-10 tracking-tight text-center">Contact Information</h3>
@@ -113,10 +132,15 @@ export default function ContactSection() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Right Column - Simplified CTA */}
-            <div className="flex flex-col justify-start">
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-col justify-start"
+            >
               {/* Simplified Book Appointment CTA */}
               <div className="bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-3xl p-6 sm:p-8 lg:p-12 text-white relative overflow-hidden shadow-2xl">
                 {/* Clean background elements */}
@@ -160,11 +184,16 @@ export default function ContactSection() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Service Areas Section - Clean Modern Design */}
-          <div className="mt-16 sm:mt-20">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mt-12 sm:mt-16"
+          >
             <div className="bg-white rounded-3xl p-8 sm:p-12 lg:p-16 shadow-xl border border-slate-100">
               {/* Clean Header */}
                 <div className="text-center mb-12 sm:mb-16">
@@ -183,9 +212,15 @@ export default function ContactSection() {
 
               {/* Clean Service Areas Grid */}
               <div className="mb-12">
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 max-w-4xl mx-auto">
+                <motion.div 
+                  ref={areasRef}
+                  variants={containerVariants}
+                  initial="hidden"
+                  animate={isInView ? "visible" : "hidden"}
+                  className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 max-w-4xl mx-auto"
+                >
                   {serviceAreas.map((area, index) => (
-                    <div key={area} className="text-center group">
+                    <motion.div key={area} variants={itemVariants} className="text-center group">
                       <div className={`
                         bg-slate-50 hover:bg-gradient-to-br hover:from-[#B08D57]/5 hover:to-[#D4AF37]/5 
                         rounded-2xl p-6 transition-all duration-300 border border-slate-200 
@@ -213,10 +248,10 @@ export default function ContactSection() {
                           {area}
                         </span>
                       </div>
-                    </div>
+                    </motion.div>
                   ))}
-                          </div>
-                        </div>
+                </motion.div>
+              </div>
                         
               {/* Clean Description */}
               <div className="text-center">
@@ -242,10 +277,15 @@ export default function ContactSection() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Premium Bottom CTA Section */}
-          <div className="text-center mt-16 sm:mt-20 lg:mt-24">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="text-center mt-12 sm:mt-16"
+          >
             <div className="bg-white/95 backdrop-blur-2xl rounded-[2rem] p-8 sm:p-12 lg:p-16 shadow-2xl border border-slate-200/60 max-w-5xl mx-auto relative overflow-hidden">
               {/* Premium background elements */}
               <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-[#B08D57]/5 to-transparent rounded-full blur-2xl"></div>
@@ -276,9 +316,9 @@ export default function ContactSection() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

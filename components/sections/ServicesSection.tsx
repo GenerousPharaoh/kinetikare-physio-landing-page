@@ -2,12 +2,17 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { useScrollAnimation, useStaggeredAnimation } from '@/hooks/useScrollAnimation';
 import { 
   ChevronRightIcon,
   CheckCircleIcon
 } from '@heroicons/react/24/outline';
 
 export default function ServicesSection() {
+  const { ref: sectionRef, animationProps } = useScrollAnimation({ yOffset: 30 });
+  const { ref: servicesRef, containerVariants, itemVariants, isInView } = useStaggeredAnimation({ delay: 0.1 });
+
   const mainServices = [
     {
       title: "Manual Therapy",
@@ -36,10 +41,20 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section className="py-20 bg-gray-50" id="services">
+    <motion.section 
+      ref={sectionRef}
+      {...animationProps}
+      className="py-12 md:py-16 bg-gray-50" 
+      id="services"
+    >
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
             <span className="text-[#B08D57]">Services</span>
           </h2>
@@ -47,12 +62,18 @@ export default function ServicesSection() {
           <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Comprehensive physiotherapy care tailored to your unique needs and recovery goals
           </p>
-        </div>
+        </motion.div>
 
         {/* Main Services Grid */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+        <motion.div 
+          ref={servicesRef}
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="grid lg:grid-cols-3 gap-8 mb-12"
+        >
           {mainServices.map((service, index) => (
-            <div key={service.title} className="group h-full">
+            <motion.div key={service.title} variants={itemVariants} className="group h-full">
               <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 h-full border border-gray-200 hover:border-[#B08D57]/30 flex flex-col">
                 {/* Service Content */}
                 <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-[#B08D57] transition-colors duration-300">
@@ -83,12 +104,17 @@ export default function ServicesSection() {
                   </Link>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Additional Services */}
-        <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200"
+        >
           <div className="text-center mb-8">
             <h3 className="text-3xl font-bold text-slate-900 mb-4">
               Additional <span className="text-[#B08D57]">Services</span>
@@ -101,17 +127,23 @@ export default function ServicesSection() {
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
             {additionalServices.map((service, index) => (
-              <div key={service} className="group">
+              <motion.div 
+                key={service} 
+                className="group"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+              >
                 <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 hover:border-[#B08D57]/50 hover:shadow-md transition-all duration-300 text-center">
                   <h4 className="font-semibold text-slate-900 group-hover:text-[#B08D57] transition-colors duration-300 text-lg">
                     {service}
                   </h4>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }

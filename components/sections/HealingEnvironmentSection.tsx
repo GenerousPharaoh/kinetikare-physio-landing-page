@@ -49,16 +49,16 @@ const HealingEnvironmentSection = () => {
   };
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-12 md:py-16 bg-gray-50">
       <div className="container mx-auto px-6">
         <motion.div
-          className="mt-24 mb-16"
+          className="mb-12"
           initial={isMobile ? mobileAnimations.initial : desktopAnimations.initial}
           whileInView={isMobile ? mobileAnimations.animate : desktopAnimations.animate}
           transition={isMobile ? mobileAnimations.transition : desktopAnimations.transition}
           viewport={{ once: true, margin: "-50px" }}
         >
-          <div className="text-center mb-12">
+          <div className="text-center mb-10">
             <h3 className="text-3xl md:text-4xl font-bold text-primary-800 mb-4">
               Your Healing Environment
             </h3>

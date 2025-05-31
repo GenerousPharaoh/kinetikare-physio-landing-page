@@ -88,27 +88,37 @@ const HeroSection = React.memo(function HeroSection() {
               </h1>
             </motion.div>
             
-            {/* Simplified Tagline Section - No Complex Animations */}
+            {/* Redesigned Elegant Tagline Section */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.5 }}
               className="flex flex-col items-center space-y-8"
             >
-              <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16">
-                <div className="text-center">
-                  <div className="text-white/90 text-lg font-light mb-2 tracking-wide">Genuine</div>
-                  <div className="text-4xl lg:text-5xl font-bold text-white tracking-tight">Understanding</div>
+              {/* Elegant Three-Column Layout */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 max-w-5xl mx-auto">
+                <div className="text-center group">
+                  <div className="relative">
+                    <h3 className="text-2xl lg:text-3xl font-light text-white/80 mb-2 tracking-wider">Genuine</h3>
+                    <h4 className="text-3xl lg:text-4xl font-bold text-white tracking-tight group-hover:text-[#D4AF37] transition-colors duration-300">Understanding</h4>
+                    <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto mt-4 opacity-60"></div>
+                  </div>
                 </div>
                 
-                <div className="text-center">
-                  <div className="text-white/90 text-lg font-light mb-2 tracking-wide">Expert</div>
-                  <div className="text-4xl lg:text-5xl font-bold text-white tracking-tight">Care</div>
+                <div className="text-center group">
+                  <div className="relative">
+                    <h3 className="text-2xl lg:text-3xl font-light text-white/80 mb-2 tracking-wider">Expert</h3>
+                    <h4 className="text-3xl lg:text-4xl font-bold text-white tracking-tight group-hover:text-[#D4AF37] transition-colors duration-300">Care</h4>
+                    <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto mt-4 opacity-60"></div>
+                  </div>
                 </div>
                 
-                <div className="text-center">
-                  <div className="text-white/90 text-lg font-light mb-2 tracking-wide">Lasting</div>
-                  <div className="text-4xl lg:text-5xl font-bold text-white tracking-tight">Recovery</div>
+                <div className="text-center group">
+                  <div className="relative">
+                    <h3 className="text-2xl lg:text-3xl font-light text-white/80 mb-2 tracking-wider">Lasting</h3>
+                    <h4 className="text-3xl lg:text-4xl font-bold text-white tracking-tight group-hover:text-[#D4AF37] transition-colors duration-300">Recovery</h4>
+                    <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto mt-4 opacity-60"></div>
+                  </div>
                 </div>
               </div>
             </motion.div>

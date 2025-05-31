@@ -136,110 +136,27 @@ const HeroSection = React.memo(function HeroSection() {
               </motion.span>
             </h1>
             
-            {/* Enhanced tagline section with improved tracking and visual punctuation */}
+            {/* Ultra-subtle integrated tagline - whispered sophistication */}
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="flex flex-col items-center space-y-10"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.2, delay: 0.7 }}
+              className="mt-2"
             >
-              <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-20">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.7 }}
-                  className="group text-center"
-                >
-                  <div className="relative">
-                    <h3 
-                      className="text-2xl sm:text-3xl font-light text-white/95 leading-tight"
-                      style={{ 
-                        letterSpacing: '0.05em',
-                        textShadow: '0 2px 8px rgba(0,0,0,0.5)'
-                      }}
-                    >
-                      Genuine{' '}
-                      <span className="font-semibold bg-gradient-to-r from-[#D4AF37] via-[#F4E4BC] to-[#B08D57] bg-clip-text text-transparent">
-                        Understanding
-                      </span>
-                    </h3>
-                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-0.5 bg-gradient-to-r from-transparent via-[#D4AF37]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  </div>
-                </motion.div>
-                
-                {/* Enhanced visual separators */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4, delay: 0.8 }}
-                  className="hidden lg:flex items-center"
-                >
-                  <div className="w-2 h-2 bg-[#D4AF37] rounded-full shadow-lg"></div>
-                  <div className="w-12 h-px bg-gradient-to-r from-[#D4AF37]/60 to-[#D4AF37]/20 mx-3"></div>
-                  <div className="w-1.5 h-1.5 bg-[#D4AF37]/70 rounded-full"></div>
-                  <div className="w-12 h-px bg-gradient-to-l from-[#D4AF37]/60 to-[#D4AF37]/20 mx-3"></div>
-                  <div className="w-2 h-2 bg-[#D4AF37] rounded-full shadow-lg"></div>
-                </motion.div>
-                
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.8 }}
-                  className="group text-center"
-                >
-                  <div className="relative">
-                    <h3 
-                      className="text-2xl sm:text-3xl font-light text-white/95 leading-tight"
-                      style={{ 
-                        letterSpacing: '0.05em',
-                        textShadow: '0 2px 8px rgba(0,0,0,0.5)'
-                      }}
-                    >
-                      Expert{' '}
-                      <span className="font-semibold bg-gradient-to-r from-[#D4AF37] via-[#F4E4BC] to-[#B08D57] bg-clip-text text-transparent">
-                        Care
-                      </span>
-                    </h3>
-                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-0.5 bg-gradient-to-r from-transparent via-[#D4AF37]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  </div>
-                </motion.div>
-                
-                <motion.div
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4, delay: 0.9 }}
-                  className="hidden lg:flex items-center"
-                >
-                  <div className="w-2 h-2 bg-[#D4AF37] rounded-full shadow-lg"></div>
-                  <div className="w-12 h-px bg-gradient-to-r from-[#D4AF37]/60 to-[#D4AF37]/20 mx-3"></div>
-                  <div className="w-1.5 h-1.5 bg-[#D4AF37]/70 rounded-full"></div>
-                  <div className="w-12 h-px bg-gradient-to-l from-[#D4AF37]/60 to-[#D4AF37]/20 mx-3"></div>
-                  <div className="w-2 h-2 bg-[#D4AF37] rounded-full shadow-lg"></div>
-                </motion.div>
-                
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.9 }}
-                  className="group text-center"
-                >
-                  <div className="relative">
-                    <h3 
-                      className="text-2xl sm:text-3xl font-light text-white/95 leading-tight"
-                      style={{ 
-                        letterSpacing: '0.05em',
-                        textShadow: '0 2px 8px rgba(0,0,0,0.5)'
-                      }}
-                    >
-                      Lasting{' '}
-                      <span className="font-semibold bg-gradient-to-r from-[#D4AF37] via-[#F4E4BC] to-[#B08D57] bg-clip-text text-transparent">
-                        Recovery
-                      </span>
-                    </h3>
-                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-0.5 bg-gradient-to-r from-transparent via-[#D4AF37]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  </div>
-                </motion.div>
-              </div>
+              <p 
+                className="text-xs sm:text-sm font-light tracking-[0.15em] sm:tracking-[0.2em]"
+                style={{ 
+                  color: 'rgba(255, 255, 255, 0.35)',
+                  lineHeight: '1.2',
+                  textShadow: '0 1px 3px rgba(0,0,0,0.3)'
+                }}
+              >
+                <span className="inline-block">Genuine Understanding</span>
+                <span className="hidden sm:inline-block mx-4 sm:mx-6" style={{ color: 'rgba(255, 255, 255, 0.2)' }}>·</span>
+                <span className="block sm:inline-block">Expert Care</span>
+                <span className="hidden sm:inline-block mx-4 sm:mx-6" style={{ color: 'rgba(255, 255, 255, 0.2)' }}>·</span>
+                <span className="block sm:inline-block">Lasting Recovery</span>
+              </p>
             </motion.div>
           </motion.div>
           
@@ -248,7 +165,7 @@ const HeroSection = React.memo(function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.0 }}
-            className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-20"
+            className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-32"
           >
             {/* Primary CTA - Enhanced hover effects */}
             <motion.div 
@@ -291,51 +208,73 @@ const HeroSection = React.memo(function HeroSection() {
             </motion.div>
           </motion.div>
           
-          {/* Welcome Card - Enhanced Integration with Subtle Gradient */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="w-full max-w-2xl mx-auto"
-            style={{ minHeight: '300px' }}
-          >
-            <div className="relative group">
-              {/* Enhanced glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/25 to-[#B08D57]/25 rounded-3xl blur-3xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
-              
-              {/* Card with subtle gradient background for better integration */}
-              <div 
-                className="relative backdrop-blur-2xl rounded-3xl p-8 sm:p-10 shadow-2xl border border-white/30 overflow-hidden"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,250,252,0.92) 50%, rgba(255,255,255,0.95) 100%)'
-                }}
-              >
-                {/* Refined decorative elements */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#D4AF37]/8 to-transparent rounded-full -translate-y-16 translate-x-16" />
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-[#B08D57]/8 to-transparent rounded-full translate-y-12 -translate-x-12" />
-                
-                <div className="relative z-10 text-center">
-                  <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 mb-4">
-                    Welcome
-                  </h2>
-                  <div className="w-20 h-1 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mx-auto mb-6 rounded-full shadow-sm" />
-                  
-                  <p className="text-lg sm:text-xl text-slate-700 mb-5 leading-relaxed font-medium">
-                    I'm passionate about helping people move better, feel stronger, and get back to doing what they love.
-                  </p>
-                  
-                  <div className="w-16 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent mx-auto my-5" />
-                  
-                  <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-                    Every person's journey is unique, and I'm here to guide you through yours with care, understanding, and evidence-based treatment.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-          
         </div>
       </div>
+      
+      {/* Welcome Section - Transformed to organic content flow */}
+      <motion.div 
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.9 }}
+        className="relative z-20 bg-white"
+        style={{ marginTop: '-80px' }}
+      >
+        <div className="container mx-auto px-4 py-24 sm:py-32">
+          <div className="max-w-3xl mx-auto text-center">
+            {/* Subtle separator line */}
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: '120px' }}
+              transition={{ duration: 0.8, delay: 1.1 }}
+              className="h-px bg-gradient-to-r from-transparent via-[#B08D57]/40 to-transparent mx-auto mb-12"
+            />
+            
+            {/* Welcome title as strong visual anchor */}
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.2 }}
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8"
+              style={{
+                background: 'linear-gradient(135deg, #1e293b 0%, #334155 50%, #1e293b 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
+              }}
+            >
+              Welcome
+            </motion.h2>
+            
+            {/* Content with optimal typography and spacing */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 1.3 }}
+              className="space-y-6"
+            >
+              <p 
+                className="text-lg sm:text-xl text-slate-700 font-medium mx-auto"
+                style={{ 
+                  lineHeight: '1.8',
+                  maxWidth: '65ch'
+                }}
+              >
+                I'm passionate about helping people move better, feel stronger, and get back to doing what they love.
+              </p>
+              
+              <p 
+                className="text-base sm:text-lg text-slate-600 mx-auto"
+                style={{ 
+                  lineHeight: '1.75',
+                  maxWidth: '65ch'
+                }}
+              >
+                Every person's journey is unique, and I'm here to guide you through yours with care, understanding, and evidence-based treatment.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </motion.div>
     </section>
   );
 });

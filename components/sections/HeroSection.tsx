@@ -202,33 +202,44 @@ const HeroSection = React.memo(function HeroSection() {
             </p>
           </motion.div>
 
-          {/* Premium Logo - Now more prominent */}
+          {/* Premium Logo with Badge - More prominent */}
           <motion.div 
             initial={isMobile ? mobileAnimations.initial : desktopAnimations.logo.initial}
             animate={isMobile ? mobileAnimations.animate : desktopAnimations.logo.animate}
             transition={isMobile ? mobileAnimations.transition : desktopAnimations.logo.transition}
-            className="flex justify-center mb-10"
+            className="flex justify-center mb-10 mt-6"
           >
             <motion.div 
-              whileHover={isMobile ? undefined : { scale: 1.05 }}
+              whileHover={isMobile ? undefined : { scale: 1.03 }}
               transition={isMobile ? undefined : { type: "spring", stiffness: 400 }}
               className="relative group"
             >
-              {/* Premium presentation with subtle glow */}
-              <div className="absolute inset-0 bg-gradient-radial from-[#D4AF37]/10 via-transparent to-transparent blur-2xl scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              
+              {/* Premium badge container */}
               <div className="relative">
-                <Image
-                  src="/images/kinetikare-logo.png"
-                  alt="KinetiKare logo"
-                  width={140}
-                  height={140}
-                  className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40"
-                  style={{ 
-                    filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.4)) brightness(1.05)',
-                    transform: 'translateZ(0)'
-                  }}
-                />
+                {/* Badge background */}
+                <div className="absolute inset-0 bg-gradient-to-b from-white/[0.06] to-white/[0.02] rounded-full blur-xl scale-110" />
+                
+                {/* Main badge */}
+                <div className="relative border border-[#D4AF37]/30 rounded-full p-8 bg-gradient-to-br from-transparent via-white/[0.02] to-transparent">
+                  {/* Inner circle accent */}
+                  <div className="absolute inset-4 border border-[#D4AF37]/20 rounded-full" />
+                  
+                  {/* Logo */}
+                  <Image
+                    src="/images/kinetikare-logo.png"
+                    alt="KinetiKare logo"
+                    width={160}
+                    height={160}
+                    className="w-36 h-36 sm:w-40 sm:h-40 md:w-44 md:h-44 relative z-10"
+                    style={{ 
+                      filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.5)) brightness(1.1)',
+                      transform: 'translateZ(0)'
+                    }}
+                  />
+                  
+                  {/* Premium shine effect */}
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                </div>
               </div>
             </motion.div>
           </motion.div>

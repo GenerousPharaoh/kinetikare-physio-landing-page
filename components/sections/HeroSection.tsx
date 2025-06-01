@@ -171,38 +171,60 @@ const HeroSection = React.memo(function HeroSection() {
             className="flex flex-col items-center mb-8"
           >
             <motion.div 
-              whileHover={isMobile ? undefined : { scale: 1.05 }}
-              transition={isMobile ? undefined : { type: "spring", stiffness: 300 }}
-              className="relative group"
+              whileHover={isMobile ? undefined : { scale: 1.02 }}
+              transition={isMobile ? undefined : { type: "spring", stiffness: 400 }}
+              className="relative"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/20 to-[#B08D57]/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500" />
-              
-              <div className="relative bg-gradient-to-br from-slate-900/95 via-slate-800/90 to-slate-900/95 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/10 group-hover:border-white/20 transition-all duration-500">
+              {/* Simplified, elegant container */}
+              <div className="relative bg-white/5 backdrop-blur-sm rounded-full p-6 shadow-[0_8px_32px_rgba(0,0,0,0.4)] border border-white/10">
                 <Image
                   src="/images/kinetikare-logo.png"
                   alt="KinetiKare logo"
                   width={150}
                   height={150}
-                  className="w-36 h-36 sm:w-40 sm:h-40 drop-shadow-2xl"
+                  className="w-36 h-36 sm:w-40 sm:h-40 drop-shadow-xl"
                   style={{ minWidth: '144px', minHeight: '144px' }}
                 />
               </div>
             </motion.div>
             
-            {/* Enhanced tagline with better emphasis and subtle gold accent */}
-            <motion.p 
+            {/* Elegant, flowing text with subtle gradient */}
+            <motion.div
               initial={isMobile ? mobileAnimations.initial : { opacity: 0 }}
               animate={isMobile ? mobileAnimations.animate : { opacity: 1 }}
               transition={isMobile ? { ...mobileAnimations.transition, delay: 0.1 } : { duration: 0.8, delay: 0.3 }}
-              className="mt-6 text-xl sm:text-2xl font-semibold tracking-wide"
-              style={{ 
-                color: '#E5E7EB',
-                textShadow: '0 2px 10px rgba(0,0,0,0.7)',
-                letterSpacing: '0.02em'
-              }}
+              className="mt-6"
             >
-              Kareem Hassanein Physiotherapy
-            </motion.p>
+              <p 
+                className="text-xl sm:text-2xl font-light tracking-[0.15em] uppercase"
+                style={{ 
+                  background: 'linear-gradient(90deg, #E5E7EB 0%, #D4AF37 50%, #E5E7EB 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  backgroundSize: '200% auto',
+                  animation: 'shine 8s linear infinite',
+                  textShadow: '0 0 30px rgba(212, 175, 55, 0.3)',
+                  fontFamily: 'Montserrat, sans-serif',
+                  fontWeight: '300'
+                }}
+              >
+                Kareem Hassanein
+              </p>
+              <p 
+                className="text-lg sm:text-xl mt-1 font-light tracking-[0.2em] uppercase"
+                style={{ 
+                  color: 'rgba(229, 231, 235, 0.7)',
+                  textShadow: '0 2px 10px rgba(0,0,0,0.5)',
+                  fontFamily: 'Inter, sans-serif',
+                  fontWeight: '300',
+                  fontSize: '0.875rem',
+                  letterSpacing: '0.3em'
+                }}
+              >
+                Physiotherapy
+              </p>
+            </motion.div>
           </motion.div>
           
           {/* Hero Text with Enhanced Typography and Dynamic Weight */}

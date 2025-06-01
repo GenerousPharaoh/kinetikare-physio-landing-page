@@ -66,20 +66,30 @@ const HeroSection = React.memo(function HeroSection() {
       <div className="min-h-[2.5rem] flex items-center justify-center">
         <motion.span 
           key={currentIndex}
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.5 }}
-          className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-[#D4AF37] inline-block"
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="text-base sm:text-lg md:text-xl lg:text-2xl font-light inline-block text-center"
           style={{ 
-            letterSpacing: '0.05em',
-            textShadow: '0 2px 8px rgba(0,0,0,0.5)',
+            color: 'rgba(229, 231, 235, 0.8)',
+            letterSpacing: '0.1em',
+            textShadow: '0 2px 12px rgba(0,0,0,0.6)',
             fontFamily: 'Inter, system-ui, sans-serif',
-            fontWeight: '400',
+            fontWeight: '300',
             transform: isMobile ? 'translateZ(0)' : undefined
           }}
         >
-          {taglines[currentIndex]}
+          <span style={{ 
+            display: 'inline-block',
+            padding: '0.25rem 1rem',
+            borderRadius: '2rem',
+            background: 'linear-gradient(135deg, rgba(176, 141, 87, 0.1) 0%, rgba(212, 175, 55, 0.1) 100%)',
+            border: '1px solid rgba(212, 175, 55, 0.2)',
+            backdropFilter: 'blur(8px)'
+          }}>
+            {taglines[currentIndex]}
+          </span>
         </motion.span>
       </div>
     );
@@ -171,24 +181,30 @@ const HeroSection = React.memo(function HeroSection() {
             className="flex flex-col items-center mb-8"
           >
             <motion.div 
-              whileHover={isMobile ? undefined : { scale: 1.02 }}
+              whileHover={isMobile ? undefined : { scale: 1.03 }}
               transition={isMobile ? undefined : { type: "spring", stiffness: 400 }}
               className="relative"
             >
-              {/* Simplified, elegant container */}
-              <div className="relative bg-white/5 backdrop-blur-sm rounded-full p-5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] border border-white/10">
-                <Image
-                  src="/images/kinetikare-logo.png"
-                  alt="KinetiKare logo"
-                  width={180}
-                  height={180}
-                  className="w-44 h-44 sm:w-48 sm:h-48 drop-shadow-2xl"
-                  style={{ 
-                    minWidth: '176px', 
-                    minHeight: '176px',
-                    filter: 'brightness(1.1) contrast(1.1) drop-shadow(0 4px 16px rgba(0,0,0,0.5))'
-                  }}
-                />
+              {/* Premium glass container */}
+              <div className="relative">
+                {/* Subtle glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/10 to-[#D4AF37]/10 rounded-full blur-xl" />
+                
+                {/* Main container */}
+                <div className="relative bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-md rounded-full p-4 shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-white/20">
+                  <Image
+                    src="/images/kinetikare-logo.png"
+                    alt="KinetiKare logo"
+                    width={120}
+                    height={120}
+                    className="w-28 h-28 sm:w-32 sm:h-32 drop-shadow-xl"
+                    style={{ 
+                      minWidth: '112px', 
+                      minHeight: '112px',
+                      filter: 'brightness(1.1) contrast(1.05) drop-shadow(0 2px 8px rgba(0,0,0,0.4))'
+                    }}
+                  />
+                </div>
               </div>
             </motion.div>
             

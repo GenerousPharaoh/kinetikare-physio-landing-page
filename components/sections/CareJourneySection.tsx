@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useScrollAnimation, useStaggeredAnimation } from '@/hooks/useScrollAnimation';
 
@@ -12,22 +13,30 @@ export default function CareJourneySection() {
     {
       number: "01",
       title: "Initial Assessment",
-      description: "Comprehensive evaluation of your condition, medical history, and movement patterns to understand your unique needs."
+      description: "Comprehensive evaluation of your condition, medical history, and movement patterns to understand your unique needs.",
+      link: "/about",
+      linkText: "About our approach"
     },
     {
       number: "02", 
       title: "Treatment Planning",
-      description: "Development of a personalized treatment plan with clear goals, timelines, and evidence-based interventions."
+      description: "Development of a personalized treatment plan with clear goals, timelines, and evidence-based interventions.",
+      link: "/services",
+      linkText: "View services"
     },
     {
       number: "03",
       title: "Active Treatment", 
-      description: "Hands-on therapy, exercise prescription, and education to address your specific condition and restore function."
+      description: "Hands-on therapy, exercise prescription, and education to address your specific condition and restore function.",
+      link: "/conditions",
+      linkText: "Conditions we treat"
     },
     {
       number: "04",
       title: "Recovery + Prevention",
-      description: "Ongoing support, home exercise programs, and strategies to prevent re-injury and maintain long-term health."
+      description: "Ongoing support, home exercise programs, and strategies to prevent re-injury and maintain long-term health.",
+      link: "/faq",
+      linkText: "Common questions"
     }
   ];
 
@@ -94,13 +103,16 @@ export default function CareJourneySection() {
                       {step.description}
                     </p>
                     
-                    {/* Interactive element */}
-                    <div className="mt-6 flex items-center text-sm text-[#B08D57] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <span className="font-medium">Learn more</span>
+                    {/* Interactive link */}
+                    <Link 
+                      href={step.link}
+                      className="mt-6 flex items-center text-sm text-[#B08D57] opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:text-[#D4AF37]"
+                    >
+                      <span className="font-medium">{step.linkText}</span>
                       <svg className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
-                    </div>
+                    </Link>
                   </div>
                   
                   {/* Premium accent line */}

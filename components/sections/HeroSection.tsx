@@ -70,26 +70,17 @@ const HeroSection = React.memo(function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="text-base sm:text-lg md:text-xl lg:text-2xl font-light inline-block text-center"
+          className="text-sm sm:text-base md:text-lg font-light inline-block text-center"
           style={{ 
-            color: 'rgba(229, 231, 235, 0.8)',
-            letterSpacing: '0.1em',
-            textShadow: '0 2px 12px rgba(0,0,0,0.6)',
+            color: 'rgba(212, 175, 55, 0.7)',
+            letterSpacing: '0.15em',
+            textTransform: 'uppercase',
             fontFamily: 'Inter, system-ui, sans-serif',
             fontWeight: '300',
             transform: isMobile ? 'translateZ(0)' : undefined
           }}
         >
-          <span style={{ 
-            display: 'inline-block',
-            padding: '0.25rem 1rem',
-            borderRadius: '2rem',
-            background: 'linear-gradient(135deg, rgba(176, 141, 87, 0.1) 0%, rgba(212, 175, 55, 0.1) 100%)',
-            border: '1px solid rgba(212, 175, 55, 0.2)',
-            backdropFilter: 'blur(8px)'
-          }}>
-            {taglines[currentIndex]}
-          </span>
+          {taglines[currentIndex]}
         </motion.span>
       </div>
     );
@@ -185,26 +176,18 @@ const HeroSection = React.memo(function HeroSection() {
               transition={isMobile ? undefined : { type: "spring", stiffness: 400 }}
               className="relative"
             >
-              {/* Premium glass container */}
+              {/* Minimalist logo presentation */}
               <div className="relative">
-                {/* Subtle glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/10 to-[#D4AF37]/10 rounded-full blur-xl" />
-                
-                {/* Main container */}
-                <div className="relative bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-md rounded-full p-4 shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-white/20">
-                  <Image
-                    src="/images/kinetikare-logo.png"
-                    alt="KinetiKare logo"
-                    width={120}
-                    height={120}
-                    className="w-28 h-28 sm:w-32 sm:h-32 drop-shadow-xl"
-                    style={{ 
-                      minWidth: '112px', 
-                      minHeight: '112px',
-                      filter: 'brightness(1.1) contrast(1.05) drop-shadow(0 2px 8px rgba(0,0,0,0.4))'
-                    }}
-                  />
-                </div>
+                <Image
+                  src="/images/kinetikare-logo.png"
+                  alt="KinetiKare logo"
+                  width={100}
+                  height={100}
+                  className="w-24 h-24 sm:w-28 sm:h-28"
+                  style={{ 
+                    filter: 'drop-shadow(0 10px 30px rgba(0,0,0,0.3))'
+                  }}
+                />
               </div>
             </motion.div>
             

@@ -274,3 +274,38 @@
 .delay-800 { animation-delay: 0.8s; }
 .delay-900 { animation-delay: 0.9s; }
 .delay-1000 { animation-delay: 1s; }
+
+/* Reduced animations for low-end devices */
+body.reduce-animations * {
+  animation-duration: 0.2s !important;
+  transition-duration: 0.2s !important;
+  animation-delay: 0s !important;
+  transition-delay: 0s !important;
+}
+
+body.reduce-animations .backdrop-blur-md,
+body.reduce-animations .backdrop-blur-lg,
+body.reduce-animations .backdrop-blur-xl {
+  backdrop-filter: none !important;
+  background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+body.reduce-animations .shadow-lg,
+body.reduce-animations .shadow-xl,
+body.reduce-animations .shadow-2xl {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+/* Disable complex animations on low-end devices */
+body.performance-mode .animate-pulse,
+body.performance-mode .animate-spin,
+body.performance-mode .animate-ping,
+body.performance-mode .animate-bounce {
+  animation: none !important;
+}
+
+/* Simplify transforms */
+body.performance-mode [class*="hover:scale-"],
+body.performance-mode [class*="hover:rotate-"] {
+  transform: none !important;
+}

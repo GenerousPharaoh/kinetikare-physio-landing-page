@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
+import { useAdaptiveAnimations } from './useDevicePerformance';
 
 interface ScrollAnimationOptions {
   threshold?: number;
@@ -13,13 +14,17 @@ interface ScrollAnimationOptions {
 }
 
 export const useScrollAnimation = (options: ScrollAnimationOptions = {}) => {
+  const adaptiveSettings = useAdaptiveAnimations();
+  
   const {
     threshold = 0,
     triggerOnce = true,
-    delay = 0,
-    duration = 0.6,
-    yOffset = 20,
-    rootMargin = '1000px 0px 1000px 0px' // Super aggressive - trigger way before elements are near viewport
+    delay = adaptiveSettings.animationDelay,
+    duration = adaptiveSettings.animationDuration,
+    yOffset = adaptiveSettings.animationDistance,
+    rootMargin = adaptiveSettings.shouldReduceAnimations 
+      ? '3000px 0px 3000px 0px' // Even more aggressive for low-end devices
+      : '1000px 0px 1000px 0px' // Normal aggressive triggering
   } = options;
 
   const { ref, inView } = useInView({
@@ -28,11 +33,19 @@ export const useScrollAnimation = (options: ScrollAnimationOptions = {}) => {
     rootMargin,
   });
 
-  const animationProps = {
-    initial: { opacity: 0, y: yOffset },
-    animate: inView ? { opacity: 1, y: 0 } : { opacity: 0, y: yOffset },
-    transition: { duration, delay, ease: "easeOut" }
-  };
+  const animationProps = adaptiveSettings.shouldReduceAnimations
+    ? {
+        // Simplified animations for low-end devices
+        initial: { opacity: 0 },
+        animate: inView ? { opacity: 1 } : { opacity: 0 },
+        transition: { duration: 0.3 }
+      }
+    : {
+        // Full animations for capable devices
+        initial: { opacity: 0, y: yOffset },
+        animate: inView ? { opacity: 1, y: 0 } : { opacity: 0, y: yOffset },
+        transition: { duration, delay, ease: "easeOut" }
+      };
 
   return { ref, animationProps, isInView: inView };
 };

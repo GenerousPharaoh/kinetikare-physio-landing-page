@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import ErrorBoundary from '@/components/ErrorBoundary';
+import { PerformanceProvider } from '@/context/PerformanceContext';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -218,14 +219,17 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
         
-        {/* Global site header */}
-        <Header />
-        {/* Page content wrapped in ErrorBoundary */}
-        <ErrorBoundary>
-          {children}
-        </ErrorBoundary>
-        {/* Global site footer */}
-        <Footer />
+        {/* Performance optimization provider */}
+        <PerformanceProvider>
+          {/* Global site header */}
+          <Header />
+          {/* Page content wrapped in ErrorBoundary */}
+          <ErrorBoundary>
+            {children}
+          </ErrorBoundary>
+          {/* Global site footer */}
+          <Footer />
+        </PerformanceProvider>
       </body>
     </html>
   );

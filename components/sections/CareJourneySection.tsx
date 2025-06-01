@@ -60,8 +60,12 @@ export default function CareJourneySection() {
 
         {/* Care Journey Steps */}
         <div className="relative">
-          {/* Background connecting line */}
-          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent transform -translate-y-1/2"></div>
+          {/* Subtle dots instead of line */}
+          <div className="hidden lg:flex absolute top-1/2 left-0 right-0 transform -translate-y-1/2 justify-between px-20 pointer-events-none">
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="w-2 h-2 bg-[#B08D57]/20 rounded-full"></div>
+            ))}
+          </div>
           
           <motion.div 
             ref={stepsRef}
@@ -71,31 +75,24 @@ export default function CareJourneySection() {
             className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12"
           >
             {steps.map((step, index) => (
-              <motion.div key={step.number} variants={itemVariants} className="relative group">
-                {/* Step Card */}
-                <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/60 hover:shadow-2xl transition-all duration-500 relative overflow-hidden">
-                  {/* Subtle background gradient */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${step.accent} opacity-[0.02] rounded-3xl`}></div>
+              <motion.div key={step.number} variants={itemVariants} className="relative group h-full">
+                {/* Step Card - Clean, consistent height */}
+                <div className="h-full bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 relative overflow-hidden border border-gray-100 hover:border-[#B08D57]/30">
+                  {/* Gold accent bar at top */}
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
                   
-                  {/* Step Number - Elegant Typography */}
-                  <div className="relative z-10 mb-8">
-                    <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${step.accent} rounded-2xl shadow-lg mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                      <span className="text-white font-bold text-lg tracking-wider">{step.number}</span>
-                    </div>
-                  </div>
-                  
-                  {/* Content */}
-                  <div className="relative z-10">
-                    <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-[#B08D57] transition-colors duration-300 leading-tight">
+                  {/* Content - no numbers, just clean text */}
+                  <div className="relative h-full flex flex-col">
+                    <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-[#B08D57] transition-colors duration-300">
                       {step.title}
                     </h3>
-                    <p className="text-slate-600 leading-relaxed text-base">
+                    <p className="text-slate-600 leading-relaxed flex-grow">
                       {step.description}
                     </p>
                   </div>
                   
-                  {/* Corner accent */}
-                  <div className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-[#B08D57]/5 to-transparent rounded-tl-3xl"></div>
+                  {/* Subtle gold gradient on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/0 to-[#D4AF37]/0 group-hover:from-[#B08D57]/5 group-hover:to-[#D4AF37]/5 transition-all duration-500 rounded-2xl pointer-events-none"></div>
                 </div>
               </motion.div>
             ))}

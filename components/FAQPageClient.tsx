@@ -56,6 +56,7 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
   const [isSearching, setIsSearching] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const [showStickyNav, setShowStickyNav] = useState(false);
+  const [showFloatingSearch, setShowFloatingSearch] = useState(false);
 
   // Refs for each section
   const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
@@ -73,6 +74,9 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
+      
+      // Show floating search when scrolled past the main search bar
+      setShowFloatingSearch(scrollY > 300);
       
       // Hide navigation when close to footer (within 300px of bottom)
       const distanceFromBottom = documentHeight - (scrollY + windowHeight);
@@ -137,18 +141,67 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
       }))
     );
     
-    // Filter questions based on search query
-    const filtered = allQuestions.filter(item => {
-      const questionMatch = item.question.toLowerCase().includes(searchQuery.toLowerCase());
+    // Smart search with relevance scoring
+    const searchTerms = searchQuery.toLowerCase().split(' ').filter(term => term.length > 2);
+    
+    // Keywords mapping for common search variations
+    const keywordMap: { [key: string]: string[] } = {
+      'insurance': ['insurance', 'billing', 'coverage', 'direct billing', 'payment', 'reimburse'],
+      'cost': ['cost', 'price', 'fee', 'billing', 'payment', 'insurance'],
+      'first': ['first', 'initial', 'new patient', 'expect', 'assessment'],
+      'hurt': ['hurt', 'pain', 'painful', 'discomfort', 'uncomfortable'],
+      'exercises': ['exercise', 'exercises', 'home program', 'strength', 'training'],
+      'sessions': ['sessions', 'appointments', 'visits', 'how many', 'frequency'],
+      'cancel': ['cancel', 'reschedule', 'cancellation', 'policy'],
+      'referral': ['referral', 'doctor', 'physician', 'prescription'],
+      'technique': ['technique', 'manual', 'dry needling', 'cupping', 'graston', 'IASTM', 'treatment'],
+    };
+    
+    // Expand search terms with related keywords
+    const expandedTerms = searchTerms.flatMap(term => {
+      const relatedTerms = [term];
+      Object.entries(keywordMap).forEach(([key, values]) => {
+        if (values.some(v => v.includes(term) || term.includes(v))) {
+          relatedTerms.push(...values);
+        }
+      });
+      return relatedTerms;
+    });
+    
+    // Score and filter questions
+    const scoredQuestions = allQuestions.map(item => {
+      let score = 0;
+      const questionLower = item.question.toLowerCase();
+      const answerLower = typeof item.answer === 'string' ? item.answer.toLowerCase() : '';
       
-      // Check if answer is a string before trying to search it
-      let answerMatch = false;
-      if (typeof item.answer === 'string') {
-        answerMatch = item.answer.toLowerCase().includes(searchQuery.toLowerCase());
+      // Check each search term
+      expandedTerms.forEach(term => {
+        // Higher score for question matches
+        if (questionLower.includes(term)) {
+          score += term === searchQuery.toLowerCase() ? 10 : 5;
+        }
+        // Lower score for answer matches
+        if (answerLower && answerLower.includes(term)) {
+          score += 2;
+        }
+      });
+      
+      // Bonus for matching multiple terms
+      const matchedOriginalTerms = searchTerms.filter(term => 
+        questionLower.includes(term) || answerLower.includes(term)
+      );
+      if (matchedOriginalTerms.length > 1) {
+        score += matchedOriginalTerms.length * 3;
       }
       
-      return questionMatch || answerMatch;
+      return { ...item, score };
     });
+    
+    // Filter and sort by relevance
+    const filtered = scoredQuestions
+      .filter(item => item.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .map(({ score, ...item }) => item);
     
     setFilteredQuestions(filtered);
   }, [searchQuery, isMounted, faqCategories]);
@@ -169,38 +222,115 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
 
   return (
     <>
-      {/* Minimal Dot Navigation - Smaller and less obtrusive */}
+      {/* Floating Search Bar */}
+      <AnimatePresence>
+        {showFloatingSearch && (
+          <motion.div
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -100, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="fixed top-20 left-0 right-0 z-50 px-4"
+          >
+            <div className="max-w-2xl mx-auto">
+              <div className="bg-white/95 backdrop-blur-xl shadow-2xl rounded-2xl p-3 border border-neutral-200">
+                <div className="relative group">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <MagnifyingGlassIcon className="h-5 w-5 text-neutral-400" />
+                  </div>
+                  
+                  <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="Search FAQ..." 
+                    className="block w-full bg-white/80 border border-neutral-300 rounded-full py-2.5 pl-10 pr-10 text-sm placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent"
+                  />
+                  
+                  {searchQuery && (
+                    <button
+                      onClick={() => setSearchQuery('')}
+                      className="absolute inset-y-0 right-0 mr-3 flex items-center"
+                      aria-label="Clear search"
+                    >
+                      <svg className="h-4 w-4 text-neutral-400 hover:text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  )}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Progress Indicator Bar */}
       <AnimatePresence>
         {showStickyNav && !isSearching && (
           <motion.div
-            initial={{ x: -20, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: -20, opacity: 0 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
-            className="fixed left-2 top-1/2 transform -translate-y-1/2 z-40 hidden lg:block"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed top-0 left-0 right-0 z-40 h-1 bg-neutral-100"
           >
-            <div className="flex flex-col space-y-2">
+            <div className="relative h-full flex">
               {faqCategories.map((category, index) => (
-                <motion.div
+                <button
                   key={category.id}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.2, delay: index * 0.03 }}
-                  className="relative"
+                  onClick={() => scrollToSection(category.id)}
+                  className={`flex-1 h-full transition-colors duration-300 ${
+                    activeCategory === category.id
+                      ? 'bg-[#B08D57]'
+                      : 'bg-transparent hover:bg-neutral-200'
+                  }`}
+                  aria-label={`Go to ${category.name}`}
                 >
-                  <button
-                    onClick={() => scrollToSection(category.id)}
-                    className={`w-2 h-2 rounded-full transition-all duration-200 ${
-                      activeCategory === category.id
-                        ? 'bg-[#B08D57] w-6'
-                        : 'bg-slate-300 hover:bg-slate-400'
-                    }`}
-                    aria-label={`Go to ${category.name} section`}
-                    title={category.name}
-                  />
-                </motion.div>
+                  <span className="sr-only">{category.name}</span>
+                </button>
               ))}
             </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Back to Top / Categories Button */}
+      <AnimatePresence>
+        {showStickyNav && (
+          <motion.div
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed bottom-6 right-6 z-50"
+          >
+            <button
+              onClick={() => {
+                if (isSearching) {
+                  setSearchQuery('');
+                  setIsSearching(false);
+                }
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="group relative bg-[#B08D57] text-white p-4 rounded-full shadow-2xl hover:bg-[#D4AF37] transition-all duration-300 hover:scale-110"
+              aria-label={isSearching ? "Clear search and go to top" : "Back to top"}
+            >
+              {isSearching ? (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                </svg>
+              )}
+              
+              {/* Tooltip */}
+              <span className="absolute bottom-full right-0 mb-2 px-3 py-1 bg-gray-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                {isSearching ? "Clear search" : "Back to top"}
+              </span>
+            </button>
           </motion.div>
         )}
       </AnimatePresence>
@@ -268,7 +398,21 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
                 exit={{ opacity: 0, y: -30 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
               >
-                <FAQAccordion items={filteredQuestions} />
+                <div className="space-y-4">
+                  {filteredQuestions.map((item, index) => (
+                    <div key={index} className="relative">
+                      {/* Show category label */}
+                      {'category' in item && (
+                        <div className="mb-2">
+                          <span className="text-xs font-medium text-[#B08D57] bg-[#B08D57]/10 px-3 py-1 rounded-full">
+                            {item.category}
+                          </span>
+                        </div>
+                      )}
+                      <FAQAccordion items={[item]} />
+                    </div>
+                  ))}
+                </div>
               </motion.div>
             </AnimatePresence>
           </div>

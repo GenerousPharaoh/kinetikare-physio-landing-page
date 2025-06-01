@@ -214,32 +214,54 @@ const HeroSection = React.memo(function HeroSection() {
               transition={isMobile ? undefined : { type: "spring", stiffness: 400 }}
               className="relative group"
             >
-              {/* Premium single circle container */}
-              <div className="relative">
-                {/* Subtle outer glow */}
-                <div className="absolute inset-0 bg-gradient-radial from-[#D4AF37]/5 to-transparent rounded-full blur-3xl scale-150" />
+              {/* Performance-optimized premium presentation */}
+              <div className="relative p-10">
+                {/* Single elegant backdrop element */}
+                <div 
+                  className="absolute inset-0 rounded-full opacity-30"
+                  style={{
+                    background: `radial-gradient(circle at center, 
+                      rgba(212, 175, 55, 0.08) 0%, 
+                      rgba(212, 175, 55, 0.04) 40%, 
+                      transparent 70%
+                    )`,
+                    transform: 'scale(1.5)'
+                  }}
+                />
                 
-                {/* Premium circle */}
-                <div className="relative rounded-full p-10 border-2 border-[#D4AF37]/40 bg-gradient-to-br from-white/[0.03] via-transparent to-white/[0.01] shadow-[0_0_80px_rgba(212,175,55,0.15)]">
-                  {/* Logo */}
-                  <Image
-                    src="/images/kinetikare-logo.png"
-                    alt="KinetiKare logo"
-                    width={160}
-                    height={160}
-                    className="w-36 h-36 sm:w-40 sm:h-40 md:w-44 md:h-44 relative z-10"
-                    style={{ 
-                      filter: 'drop-shadow(0 25px 50px rgba(0,0,0,0.5)) brightness(1.1) contrast(1.05)',
-                      transform: 'translateZ(0)'
-                    }}
-                  />
-                  
-                  {/* Premium shine overlay */}
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white/[0.02] to-transparent opacity-50" />
-                  
-                  {/* Hover glow effect */}
-                  <div className="absolute inset-0 rounded-full bg-gradient-radial from-[#D4AF37]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                </div>
+                {/* Logo with optimized shadow */}
+                <Image
+                  src="/images/kinetikare-logo.png"
+                  alt="KinetiKare logo"
+                  width={160}
+                  height={160}
+                  className="w-36 h-36 sm:w-40 sm:h-40 md:w-44 md:h-44 relative z-10"
+                  style={{ 
+                    filter: 'drop-shadow(0 25px 50px rgba(0,0,0,0.3))',
+                    transform: 'translateZ(0)',
+                    willChange: 'transform'
+                  }}
+                />
+                
+                {/* Single accent element */}
+                <div 
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background: `conic-gradient(from 0deg at 50% 50%, 
+                      transparent 0deg,
+                      rgba(212, 175, 55, 0.1) 45deg,
+                      transparent 90deg,
+                      rgba(212, 175, 55, 0.1) 135deg,
+                      transparent 180deg,
+                      rgba(212, 175, 55, 0.1) 225deg,
+                      transparent 270deg,
+                      rgba(212, 175, 55, 0.1) 315deg,
+                      transparent 360deg
+                    )`,
+                    maskImage: 'radial-gradient(circle, transparent 35%, black 40%, black 60%, transparent 65%)',
+                    WebkitMaskImage: 'radial-gradient(circle, transparent 35%, black 40%, black 60%, transparent 65%)'
+                  }}
+                />
               </div>
             </motion.div>
           </motion.div>

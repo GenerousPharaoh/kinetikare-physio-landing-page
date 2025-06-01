@@ -60,13 +60,8 @@ export default function CareJourneySection() {
 
         {/* Care Journey Steps */}
         <div className="relative">
-          {/* Enhanced connecting line with dots */}
-          <div className="hidden lg:block absolute top-1/2 left-0 right-0 transform -translate-y-1/2">
-            <div className="relative h-0.5 bg-gradient-to-r from-transparent via-[#B08D57]/20 to-transparent">
-              {/* Animated pulse effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#B08D57]/40 to-transparent animate-pulse"></div>
-            </div>
-          </div>
+          {/* Background connecting line */}
+          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent transform -translate-y-1/2"></div>
           
           <motion.div 
             ref={stepsRef}
@@ -77,52 +72,30 @@ export default function CareJourneySection() {
           >
             {steps.map((step, index) => (
               <motion.div key={step.number} variants={itemVariants} className="relative group">
-                {/* Step Card - Redesigned */}
-                <div className="h-full bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 relative overflow-hidden group-hover:-translate-y-2">
-                  {/* Premium gradient border effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/20 via-transparent to-[#D4AF37]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
+                {/* Step Card */}
+                <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/60 hover:shadow-2xl transition-all duration-500 relative overflow-hidden">
+                  {/* Subtle background gradient */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${step.accent} opacity-[0.02] rounded-3xl`}></div>
                   
-                  {/* Inner container with padding */}
-                  <div className="relative p-8 lg:p-10 h-full flex flex-col">
-                    {/* Step Number - Floating Design */}
-                    <div className="absolute -top-6 -right-6 w-24 h-24">
-                      <div className="relative w-full h-full">
-                        <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-full opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
-                        <span className="absolute inset-0 flex items-center justify-center text-5xl font-bold text-[#B08D57] opacity-30 group-hover:opacity-50 transition-opacity duration-500">
-                          {step.number}
-                        </span>
-                      </div>
-                    </div>
-                    
-                    {/* Content */}
-                    <div className="relative z-10 flex-1">
-                      <h3 className="text-2xl font-bold text-slate-900 mb-4 pr-12 leading-tight">
-                        {step.title}
-                      </h3>
-                      <p className="text-slate-600 leading-relaxed text-base">
-                        {step.description}
-                      </p>
-                    </div>
-                    
-                    {/* Progress indicator */}
-                    <div className="mt-6 pt-6 border-t border-slate-100">
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm font-medium text-slate-400">Step {step.number} of 4</span>
-                        <div className="flex space-x-1">
-                          {[1, 2, 3, 4].map((i) => (
-                            <div
-                              key={i}
-                              className={`h-1 w-6 rounded-full transition-all duration-300 ${
-                                i <= parseInt(step.number) 
-                                  ? 'bg-gradient-to-r from-[#B08D57] to-[#D4AF37]' 
-                                  : 'bg-slate-200'
-                              }`}
-                            />
-                          ))}
-                        </div>
-                      </div>
+                  {/* Step Number - Elegant Typography */}
+                  <div className="relative z-10 mb-8">
+                    <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${step.accent} rounded-2xl shadow-lg mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                      <span className="text-white font-bold text-lg tracking-wider">{step.number}</span>
                     </div>
                   </div>
+                  
+                  {/* Content */}
+                  <div className="relative z-10">
+                    <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-[#B08D57] transition-colors duration-300 leading-tight">
+                      {step.title}
+                    </h3>
+                    <p className="text-slate-600 leading-relaxed text-base">
+                      {step.description}
+                    </p>
+                  </div>
+                  
+                  {/* Corner accent */}
+                  <div className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-[#B08D57]/5 to-transparent rounded-tl-3xl"></div>
                 </div>
               </motion.div>
             ))}

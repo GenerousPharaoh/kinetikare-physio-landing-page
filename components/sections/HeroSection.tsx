@@ -214,31 +214,36 @@ const HeroSection = React.memo(function HeroSection() {
               transition={isMobile ? undefined : { type: "spring", stiffness: 400 }}
               className="relative group"
             >
-              {/* Premium badge container */}
-              <div className="relative">
-                {/* Badge background */}
-                <div className="absolute inset-0 bg-gradient-to-b from-white/[0.06] to-white/[0.02] rounded-full blur-xl scale-110" />
+              {/* Premium triangle/pyramid container */}
+              <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64">
+                {/* Triangle outline - responsive */}
+                <svg 
+                  className="absolute inset-0 w-full h-full"
+                  viewBox="0 0 200 200"
+                  preserveAspectRatio="xMidYMid meet"
+                >
+                  <path
+                    d="M 100 25 L 175 160 L 25 160 Z"
+                    fill="none"
+                    stroke="rgba(212, 175, 55, 0.4)"
+                    strokeWidth="2"
+                    className="group-hover:stroke-[rgba(212,175,55,0.6)] transition-all duration-500"
+                  />
+                </svg>
                 
-                {/* Main badge */}
-                <div className="relative border border-[#D4AF37]/30 rounded-full p-8 bg-gradient-to-br from-transparent via-white/[0.02] to-transparent">
-                  {/* Inner circle accent */}
-                  <div className="absolute inset-4 border border-[#D4AF37]/20 rounded-full" />
-                  
-                  {/* Logo */}
+                {/* Logo centered in triangle */}
+                <div className="absolute inset-0 flex items-center justify-center">
                   <Image
                     src="/images/kinetikare-logo.png"
                     alt="KinetiKare logo"
                     width={160}
                     height={160}
-                    className="w-36 h-36 sm:w-40 sm:h-40 md:w-44 md:h-44 relative z-10"
+                    className="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 relative z-10"
                     style={{ 
                       filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.5)) brightness(1.1)',
                       transform: 'translateZ(0)'
                     }}
                   />
-                  
-                  {/* Premium shine effect */}
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 </div>
               </div>
             </motion.div>

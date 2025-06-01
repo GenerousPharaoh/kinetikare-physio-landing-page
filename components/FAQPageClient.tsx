@@ -138,10 +138,17 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
     );
     
     // Filter questions based on search query
-    const filtered = allQuestions.filter(item => 
-      item.question.toLowerCase().includes(searchQuery.toLowerCase()) || 
-      item.answer.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+    const filtered = allQuestions.filter(item => {
+      const questionMatch = item.question.toLowerCase().includes(searchQuery.toLowerCase());
+      
+      // Check if answer is a string before trying to search it
+      let answerMatch = false;
+      if (typeof item.answer === 'string') {
+        answerMatch = item.answer.toLowerCase().includes(searchQuery.toLowerCase());
+      }
+      
+      return questionMatch || answerMatch;
+    });
     
     setFilteredQuestions(filtered);
   }, [searchQuery, isMounted, faqCategories]);

@@ -214,36 +214,31 @@ const HeroSection = React.memo(function HeroSection() {
               transition={isMobile ? undefined : { type: "spring", stiffness: 400 }}
               className="relative group"
             >
-              {/* Premium triangle/pyramid container */}
-              <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64">
-                {/* Triangle outline - responsive */}
-                <svg 
-                  className="absolute inset-0 w-full h-full"
-                  viewBox="0 0 200 200"
-                  preserveAspectRatio="xMidYMid meet"
-                >
-                  <path
-                    d="M 100 25 L 175 160 L 25 160 Z"
-                    fill="none"
-                    stroke="rgba(212, 175, 55, 0.4)"
-                    strokeWidth="2"
-                    className="group-hover:stroke-[rgba(212,175,55,0.6)] transition-all duration-500"
-                  />
-                </svg>
+              {/* Premium single circle container */}
+              <div className="relative">
+                {/* Subtle outer glow */}
+                <div className="absolute inset-0 bg-gradient-radial from-[#D4AF37]/5 to-transparent rounded-full blur-3xl scale-150" />
                 
-                {/* Logo centered in triangle */}
-                <div className="absolute inset-0 flex items-center justify-center">
+                {/* Premium circle */}
+                <div className="relative rounded-full p-10 border-2 border-[#D4AF37]/40 bg-gradient-to-br from-white/[0.03] via-transparent to-white/[0.01] shadow-[0_0_80px_rgba(212,175,55,0.15)]">
+                  {/* Logo */}
                   <Image
                     src="/images/kinetikare-logo.png"
                     alt="KinetiKare logo"
                     width={160}
                     height={160}
-                    className="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 relative z-10"
+                    className="w-36 h-36 sm:w-40 sm:h-40 md:w-44 md:h-44 relative z-10"
                     style={{ 
-                      filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.5)) brightness(1.1)',
+                      filter: 'drop-shadow(0 25px 50px rgba(0,0,0,0.5)) brightness(1.1) contrast(1.05)',
                       transform: 'translateZ(0)'
                     }}
                   />
+                  
+                  {/* Premium shine overlay */}
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white/[0.02] to-transparent opacity-50" />
+                  
+                  {/* Hover glow effect */}
+                  <div className="absolute inset-0 rounded-full bg-gradient-radial from-[#D4AF37]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 </div>
               </div>
             </motion.div>

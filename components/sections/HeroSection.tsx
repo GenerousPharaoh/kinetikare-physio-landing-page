@@ -164,69 +164,72 @@ const HeroSection = React.memo(function HeroSection() {
       >
         <div className="w-full max-w-7xl mx-auto">
           
-          {/* Logo Section - Enhanced with better tagline emphasis */}
+          {/* Kareem Hassanein Physiotherapy - Now at the top */}
+          <motion.div
+            initial={isMobile ? mobileAnimations.initial : { opacity: 0 }}
+            animate={isMobile ? mobileAnimations.animate : { opacity: 1 }}
+            transition={isMobile ? mobileAnimations.transition : { duration: 0.8, delay: 0.2 }}
+            className="text-center mb-10"
+          >
+            <p 
+              className="text-2xl sm:text-3xl md:text-4xl font-light"
+              style={{ 
+                background: 'linear-gradient(90deg, #E5E7EB 0%, #D4AF37 50%, #E5E7EB 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                backgroundSize: '200% auto',
+                animation: 'shine 8s linear infinite',
+                textShadow: '0 0 30px rgba(212, 175, 55, 0.3)',
+                fontFamily: 'Playfair Display, serif',
+                fontWeight: '400',
+                fontStyle: 'italic',
+                letterSpacing: '0.02em'
+              }}
+            >
+              Kareem Hassanein
+            </p>
+            <p 
+              className="text-sm sm:text-base mt-2 font-light tracking-[0.3em] uppercase text-center"
+              style={{ 
+                color: 'rgba(229, 231, 235, 0.7)',
+                textShadow: '0 2px 10px rgba(0,0,0,0.5)',
+                fontFamily: 'Inter, sans-serif',
+                fontWeight: '300'
+              }}
+            >
+              Physiotherapy
+            </p>
+          </motion.div>
+
+          {/* Premium Logo - Now more prominent */}
           <motion.div 
             initial={isMobile ? mobileAnimations.initial : desktopAnimations.logo.initial}
             animate={isMobile ? mobileAnimations.animate : desktopAnimations.logo.animate}
             transition={isMobile ? mobileAnimations.transition : desktopAnimations.logo.transition}
-            className="flex flex-col items-center mb-8"
+            className="flex justify-center mb-10"
           >
             <motion.div 
-              whileHover={isMobile ? undefined : { scale: 1.03 }}
+              whileHover={isMobile ? undefined : { scale: 1.05 }}
               transition={isMobile ? undefined : { type: "spring", stiffness: 400 }}
-              className="relative"
+              className="relative group"
             >
-              {/* Minimalist logo presentation */}
+              {/* Premium presentation with subtle glow */}
+              <div className="absolute inset-0 bg-gradient-radial from-[#D4AF37]/10 via-transparent to-transparent blur-2xl scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              
               <div className="relative">
                 <Image
                   src="/images/kinetikare-logo.png"
                   alt="KinetiKare logo"
-                  width={100}
-                  height={100}
-                  className="w-24 h-24 sm:w-28 sm:h-28"
+                  width={140}
+                  height={140}
+                  className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40"
                   style={{ 
-                    filter: 'drop-shadow(0 10px 30px rgba(0,0,0,0.3))'
+                    filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.4)) brightness(1.05)',
+                    transform: 'translateZ(0)'
                   }}
                 />
               </div>
-            </motion.div>
-            
-            {/* Elegant, flowing text with subtle gradient */}
-            <motion.div
-              initial={isMobile ? mobileAnimations.initial : { opacity: 0 }}
-              animate={isMobile ? mobileAnimations.animate : { opacity: 1 }}
-              transition={isMobile ? { ...mobileAnimations.transition, delay: 0.1 } : { duration: 0.8, delay: 0.3 }}
-              className="mt-6 text-center"
-            >
-              <p 
-                className="text-2xl sm:text-3xl md:text-4xl font-light"
-                style={{ 
-                  background: 'linear-gradient(90deg, #E5E7EB 0%, #D4AF37 50%, #E5E7EB 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                  backgroundSize: '200% auto',
-                  animation: 'shine 8s linear infinite',
-                  textShadow: '0 0 30px rgba(212, 175, 55, 0.3)',
-                  fontFamily: 'Playfair Display, serif',
-                  fontWeight: '400',
-                  fontStyle: 'italic',
-                  letterSpacing: '0.02em'
-                }}
-              >
-                Kareem Hassanein
-              </p>
-              <p 
-                className="text-sm sm:text-base mt-2 font-light tracking-[0.3em] uppercase text-center"
-                style={{ 
-                  color: 'rgba(229, 231, 235, 0.7)',
-                  textShadow: '0 2px 10px rgba(0,0,0,0.5)',
-                  fontFamily: 'Inter, sans-serif',
-                  fontWeight: '300'
-                }}
-              >
-                Physiotherapy
-              </p>
             </motion.div>
           </motion.div>
           
@@ -235,7 +238,7 @@ const HeroSection = React.memo(function HeroSection() {
             initial={isMobile ? mobileAnimations.initial : { opacity: 0 }}
             animate={isMobile ? mobileAnimations.animate : { opacity: 1 }}
             transition={isMobile ? { ...mobileAnimations.transition, delay: 0.1 } : { duration: 0.8, delay: 0.2 }}
-            className="text-center mb-8"
+            className="text-center mb-6"
           >
             <h1 className="mb-8">
               {/* Enhanced typography with different weights for visual rhythm */}
@@ -256,7 +259,7 @@ const HeroSection = React.memo(function HeroSection() {
                 initial={isMobile ? mobileAnimations.initial : desktopAnimations.text.initial}
                 animate={isMobile ? mobileAnimations.animate : desktopAnimations.text.animate}
                 transition={isMobile ? { ...mobileAnimations.transition, delay: 0.3 } : { ...desktopAnimations.text.transition, delay: 0.5 }}
-                className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-8"
+                className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-6"
                 style={{
                   background: 'linear-gradient(135deg, #B08D57 0%, #D4AF37 25%, #F4E4BC 50%, #D4AF37 75%, #B08D57 100%)',
                   WebkitBackgroundClip: 'text',
@@ -275,7 +278,7 @@ const HeroSection = React.memo(function HeroSection() {
                 initial={isMobile ? mobileAnimations.initial : { opacity: 0, scaleX: 0 }}
                 animate={isMobile ? mobileAnimations.animate : { opacity: 1, scaleX: 1 }}
                 transition={isMobile ? { ...mobileAnimations.transition, delay: 0.4 } : { duration: 0.8, delay: 0.6 }}
-                className="w-full max-w-md mx-auto mb-6"
+                className="w-full max-w-md mx-auto mb-4"
                 >
                 <div 
                   className="h-px bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent"
@@ -302,7 +305,7 @@ const HeroSection = React.memo(function HeroSection() {
             initial={isMobile ? mobileAnimations.initial : { opacity: 0, y: 20 }}
             animate={isMobile ? mobileAnimations.animate : { opacity: 1, y: 0 }}
             transition={isMobile ? { ...mobileAnimations.transition, delay: 1.0 } : { duration: 0.6, delay: 1.0 }}
-            className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-16"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
           >
             {/* Primary CTA - Enhanced hover effects */}
             <motion.div 

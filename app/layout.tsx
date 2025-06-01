@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
+import WebVitals from '@/components/WebVitals';
 import ErrorBoundary from '@/components/ErrorBoundary';
 import { PerformanceProvider } from '@/context/PerformanceContext';
 
@@ -204,6 +205,8 @@ export default function RootLayout({
       <body className={inter.className}>
         {/* Google Analytics */}
         <GoogleAnalytics />
+        {/* Web Vitals tracking */}
+        <WebVitals />
         
         {/* Schema.org structured data */}
         <script

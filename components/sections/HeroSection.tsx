@@ -194,13 +194,11 @@ const HeroSection = React.memo(function HeroSection() {
               initial={isMobile ? mobileAnimations.initial : { opacity: 0 }}
               animate={isMobile ? mobileAnimations.animate : { opacity: 1 }}
               transition={isMobile ? { ...mobileAnimations.transition, delay: 0.1 } : { duration: 0.8, delay: 0.3 }}
-              className="mt-6 text-xl sm:text-2xl font-semibold text-white tracking-wide"
+              className="mt-6 text-xl sm:text-2xl font-semibold tracking-wide"
               style={{ 
-                textShadow: '0 2px 8px rgba(0,0,0,0.5)',
-                background: 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 30%, #D4AF37 50%, #f8f9fa 70%, #ffffff 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text'
+                color: '#E5E7EB',
+                textShadow: '0 2px 10px rgba(0,0,0,0.7)',
+                letterSpacing: '0.02em'
               }}
             >
               Kareem Hassanein Physiotherapy

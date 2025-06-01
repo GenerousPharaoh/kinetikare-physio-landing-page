@@ -26,7 +26,7 @@ export default function CareJourneySection() {
     },
     {
       number: "04",
-      title: "Recovery & Prevention",
+      title: "Recovery + Prevention",
       description: "Ongoing support, home exercise programs, and strategies to prevent re-injury and maintain long-term health."
     }
   ];
@@ -72,26 +72,39 @@ export default function CareJourneySection() {
           >
             {steps.map((step, index) => (
               <motion.div key={step.number} variants={itemVariants} className="relative group h-full">
-                {/* Step Card - Clean design with brand colors */}
-                <div className="h-full bg-white rounded-2xl p-6 lg:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 relative overflow-hidden border border-slate-100 group-hover:border-[#B08D57]/30">
-                  {/* Subtle gold accent on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/0 to-[#D4AF37]/0 group-hover:from-[#B08D57]/5 group-hover:to-[#D4AF37]/5 transition-all duration-700"></div>
+                {/* Step Card - Premium glass design */}
+                <div className="h-full bg-white/95 backdrop-blur-sm rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_40px_rgb(0,0,0,0.1)] transition-all duration-500 relative overflow-hidden border border-white/60 group-hover:border-[#B08D57]/20 group-hover:-translate-y-1">
+                  {/* Premium gradient background */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 via-transparent to-[#B08D57]/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                   
                   {/* Content */}
                   <div className="relative h-full flex flex-col">
-                    {/* Title - responsive sizing to fit container */}
-                    <h3 className="text-lg lg:text-xl font-bold text-slate-900 mb-4 tracking-tight leading-tight group-hover:text-[#B08D57] transition-colors duration-300">
+                    {/* Number indicator - subtle */}
+                    <div className="absolute -top-2 -right-2 text-6xl font-bold text-[#B08D57]/5 group-hover:text-[#B08D57]/10 transition-colors duration-500">
+                      {index + 1}
+                    </div>
+                    
+                    {/* Title - premium typography */}
+                    <h3 className="text-lg lg:text-xl font-bold text-slate-900 mb-5 tracking-tight leading-none whitespace-nowrap group-hover:text-[#B08D57] transition-colors duration-300">
                       {step.title}
                     </h3>
                     
-                    {/* Description */}
-                    <p className="text-sm lg:text-base text-slate-600 leading-relaxed flex-grow">
+                    {/* Description - more engaging */}
+                    <p className="text-[15px] text-slate-700 leading-[1.7] flex-grow font-light">
                       {step.description}
                     </p>
+                    
+                    {/* Interactive element */}
+                    <div className="mt-6 flex items-center text-sm text-[#B08D57] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="font-medium">Learn more</span>
+                      <svg className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
                   </div>
                   
-                  {/* Single gold accent bar at bottom */}
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                  {/* Premium accent line */}
+                  <div className="absolute bottom-0 left-8 right-8 h-[2px] bg-gradient-to-r from-transparent via-[#B08D57] to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700"></div>
                 </div>
               </motion.div>
             ))}

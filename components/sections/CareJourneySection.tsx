@@ -29,7 +29,7 @@ export default function CareJourneySection() {
       title: "Active Treatment", 
       description: "Hands-on therapy, exercise prescription, and education to address your specific condition and restore function.",
       link: "/conditions",
-      linkText: "Conditions we treat"
+      linkText: "Conditions I treat"
     },
     {
       number: "04",

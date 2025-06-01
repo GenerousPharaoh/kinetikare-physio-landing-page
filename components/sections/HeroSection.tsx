@@ -176,14 +176,18 @@ const HeroSection = React.memo(function HeroSection() {
               className="relative"
             >
               {/* Simplified, elegant container */}
-              <div className="relative bg-white/5 backdrop-blur-sm rounded-full p-6 shadow-[0_8px_32px_rgba(0,0,0,0.4)] border border-white/10">
+              <div className="relative bg-white/5 backdrop-blur-sm rounded-full p-5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] border border-white/10">
                 <Image
                   src="/images/kinetikare-logo.png"
                   alt="KinetiKare logo"
-                  width={150}
-                  height={150}
-                  className="w-36 h-36 sm:w-40 sm:h-40 drop-shadow-xl"
-                  style={{ minWidth: '144px', minHeight: '144px' }}
+                  width={180}
+                  height={180}
+                  className="w-44 h-44 sm:w-48 sm:h-48 drop-shadow-2xl"
+                  style={{ 
+                    minWidth: '176px', 
+                    minHeight: '176px',
+                    filter: 'brightness(1.1) contrast(1.1) drop-shadow(0 4px 16px rgba(0,0,0,0.5))'
+                  }}
                 />
               </div>
             </motion.div>
@@ -193,10 +197,10 @@ const HeroSection = React.memo(function HeroSection() {
               initial={isMobile ? mobileAnimations.initial : { opacity: 0 }}
               animate={isMobile ? mobileAnimations.animate : { opacity: 1 }}
               transition={isMobile ? { ...mobileAnimations.transition, delay: 0.1 } : { duration: 0.8, delay: 0.3 }}
-              className="mt-6"
+              className="mt-6 text-center"
             >
               <p 
-                className="text-xl sm:text-2xl font-light tracking-[0.15em] uppercase"
+                className="text-2xl sm:text-3xl md:text-4xl font-light"
                 style={{ 
                   background: 'linear-gradient(90deg, #E5E7EB 0%, #D4AF37 50%, #E5E7EB 100%)',
                   WebkitBackgroundClip: 'text',
@@ -205,21 +209,21 @@ const HeroSection = React.memo(function HeroSection() {
                   backgroundSize: '200% auto',
                   animation: 'shine 8s linear infinite',
                   textShadow: '0 0 30px rgba(212, 175, 55, 0.3)',
-                  fontFamily: 'Montserrat, sans-serif',
-                  fontWeight: '300'
+                  fontFamily: 'Playfair Display, serif',
+                  fontWeight: '400',
+                  fontStyle: 'italic',
+                  letterSpacing: '0.02em'
                 }}
               >
                 Kareem Hassanein
               </p>
               <p 
-                className="text-lg sm:text-xl mt-1 font-light tracking-[0.2em] uppercase"
+                className="text-sm sm:text-base mt-2 font-light tracking-[0.3em] uppercase text-center"
                 style={{ 
                   color: 'rgba(229, 231, 235, 0.7)',
                   textShadow: '0 2px 10px rgba(0,0,0,0.5)',
                   fontFamily: 'Inter, sans-serif',
-                  fontWeight: '300',
-                  fontSize: '0.875rem',
-                  letterSpacing: '0.3em'
+                  fontWeight: '300'
                 }}
               >
                 Physiotherapy

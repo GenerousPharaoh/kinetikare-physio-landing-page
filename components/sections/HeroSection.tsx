@@ -214,52 +214,17 @@ const HeroSection = React.memo(function HeroSection() {
               transition={isMobile ? undefined : { type: "spring", stiffness: 400 }}
               className="relative group"
             >
-              {/* Performance-optimized premium presentation */}
-              <div className="relative p-10">
-                {/* Single elegant backdrop element */}
-                <div 
-                  className="absolute inset-0 rounded-full opacity-30"
-                  style={{
-                    background: `radial-gradient(circle at center, 
-                      rgba(212, 175, 55, 0.08) 0%, 
-                      rgba(212, 175, 55, 0.04) 40%, 
-                      transparent 70%
-                    )`,
-                    transform: 'scale(1.5)'
-                  }}
-                />
-                
-                {/* Logo with optimized shadow */}
+              {/* Clean, premium presentation */}
+              <div className="relative">
                 <Image
                   src="/images/kinetikare-logo.png"
                   alt="KinetiKare logo"
-                  width={160}
-                  height={160}
-                  className="w-36 h-36 sm:w-40 sm:h-40 md:w-44 md:h-44 relative z-10"
+                  width={180}
+                  height={180}
+                  className="w-40 h-40 sm:w-44 sm:h-44 md:w-48 md:h-48"
                   style={{ 
-                    filter: 'drop-shadow(0 25px 50px rgba(0,0,0,0.3))',
-                    transform: 'translateZ(0)',
-                    willChange: 'transform'
-                  }}
-                />
-                
-                {/* Single accent element */}
-                <div 
-                  className="absolute inset-0 pointer-events-none"
-                  style={{
-                    background: `conic-gradient(from 0deg at 50% 50%, 
-                      transparent 0deg,
-                      rgba(212, 175, 55, 0.1) 45deg,
-                      transparent 90deg,
-                      rgba(212, 175, 55, 0.1) 135deg,
-                      transparent 180deg,
-                      rgba(212, 175, 55, 0.1) 225deg,
-                      transparent 270deg,
-                      rgba(212, 175, 55, 0.1) 315deg,
-                      transparent 360deg
-                    )`,
-                    maskImage: 'radial-gradient(circle, transparent 35%, black 40%, black 60%, transparent 65%)',
-                    WebkitMaskImage: 'radial-gradient(circle, transparent 35%, black 40%, black 60%, transparent 65%)'
+                    filter: 'drop-shadow(0 20px 60px rgba(0,0,0,0.5)) drop-shadow(0 10px 20px rgba(212,175,55,0.1))',
+                    transform: 'translateZ(0)'
                   }}
                 />
               </div>

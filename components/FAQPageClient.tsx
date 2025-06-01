@@ -222,45 +222,70 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
 
   return (
     <>
-      {/* Floating Search Bar */}
+      {/* Minimalist Floating Search - Collapsed by default */}
       <AnimatePresence>
         {showFloatingSearch && (
           <motion.div
-            initial={{ y: -100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -100, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed top-20 left-0 right-0 z-50 px-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed top-4 right-4 z-50"
           >
-            <div className="max-w-2xl mx-auto">
-              <div className="bg-white/95 backdrop-blur-xl shadow-2xl rounded-2xl p-3 border border-neutral-200">
-                <div className="relative group">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <MagnifyingGlassIcon className="h-5 w-5 text-neutral-400" />
-                  </div>
-                  
+            {searchQuery || isSearching ? (
+              // Expanded search bar when active
+              <motion.div
+                initial={{ width: "48px", opacity: 0 }}
+                animate={{ width: "300px", opacity: 1 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+                className="bg-white/90 backdrop-blur-lg shadow-lg rounded-full border border-neutral-200/50"
+              >
+                <div className="relative">
                   <input
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Search FAQ..." 
-                    className="block w-full bg-white/80 border border-neutral-300 rounded-full py-2.5 pl-10 pr-10 text-sm placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent"
+                    placeholder="Search questions..." 
+                    className="w-full bg-transparent py-3 pl-12 pr-10 text-sm placeholder-neutral-400 focus:outline-none"
+                    autoFocus
                   />
                   
-                  {searchQuery && (
-                    <button
-                      onClick={() => setSearchQuery('')}
-                      className="absolute inset-y-0 right-0 mr-3 flex items-center"
-                      aria-label="Clear search"
-                    >
-                      <svg className="h-4 w-4 text-neutral-400 hover:text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                    </button>
-                  )}
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <MagnifyingGlassIcon className="h-5 w-5 text-[#B08D57]" />
+                  </div>
+                  
+                  <button
+                    onClick={() => setSearchQuery('')}
+                    className="absolute inset-y-0 right-0 mr-3 flex items-center"
+                    aria-label="Clear search"
+                  >
+                    <svg className="h-4 w-4 text-neutral-400 hover:text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            ) : (
+              // Collapsed search button
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => {
+                  // Create a temporary input to trigger search
+                  const searchBar = document.querySelector('input[type="text"]') as HTMLInputElement;
+                  if (searchBar) {
+                    searchBar.focus();
+                  } else {
+                    setSearchQuery(' '); // Trigger expansion
+                    setTimeout(() => setSearchQuery(''), 0);
+                  }
+                }}
+                className="bg-white/90 backdrop-blur-lg shadow-lg rounded-full p-3 border border-neutral-200/50 hover:shadow-xl transition-all duration-300"
+                aria-label="Search FAQ"
+              >
+                <MagnifyingGlassIcon className="h-5 w-5 text-[#B08D57]" />
+              </motion.button>
+            )}
           </motion.div>
         )}
       </AnimatePresence>
@@ -335,33 +360,64 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
         )}
       </AnimatePresence>
 
-      {/* Enhanced search bar */}
-      <div className="max-w-2xl mx-auto mb-16 relative z-10">
-        <div className="bg-white shadow-xl rounded-2xl p-4 border border-neutral-100 hover:shadow-2xl transition-all duration-300">
-          <div className="relative group">
-            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none transition-colors">
-              <MagnifyingGlassIcon className="h-5 w-5 text-neutral-400 group-hover:text-accent group-focus-within:text-accent transition-colors duration-200" />
-            </div>
-            
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search for questions..." 
-              className="block w-full bg-white border border-neutral-300 rounded-full py-3.5 pl-12 pr-12 text-neutral-900 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent shadow-sm group-hover:shadow-md transition-all duration-200"
-            />
-            
-            {searchQuery && (
-              <button
-                onClick={() => setSearchQuery('')}
-                className="absolute inset-y-0 right-0 mr-3 flex items-center justify-center h-8 w-8 my-auto rounded-full text-neutral-400 hover:text-neutral-600 hover:bg-neutral-100 transition-all"
-                aria-label="Clear search"
-              >
-                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
+      {/* Beautiful modern search bar */}
+      <div className="max-w-3xl mx-auto mb-16 relative z-10">
+        <div className="relative group">
+          {/* Subtle glow effect */}
+          <div className="absolute -inset-1 bg-gradient-to-r from-[#B08D57]/20 to-[#D4AF37]/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          
+          <div className="relative bg-white rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-neutral-100">
+            <div className="flex items-center">
+              <div className="pl-6 pr-2">
+                <MagnifyingGlassIcon className="h-5 w-5 text-[#B08D57]" />
+              </div>
+              
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="What would you like to know?" 
+                className="flex-1 py-4 pr-4 text-base placeholder-neutral-400 focus:outline-none bg-transparent"
+              />
+              
+              {searchQuery && (
+                <motion.button
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  exit={{ scale: 0 }}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={() => setSearchQuery('')}
+                  className="mr-2 p-2 rounded-full bg-neutral-100 text-neutral-500 hover:bg-neutral-200 transition-colors"
+                  aria-label="Clear search"
+                >
+                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </motion.button>
+              )}
+              
+              {/* Search button */}
+              <button className="bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white px-6 py-2 rounded-full mr-2 font-medium hover:shadow-lg transition-all duration-300">
+                Search
               </button>
-            )}
+            </div>
+          </div>
+        </div>
+        
+        {/* Helpful search suggestions */}
+        <div className="mt-4 text-center">
+          <p className="text-sm text-neutral-500 mb-2">Popular searches:</p>
+          <div className="flex flex-wrap justify-center gap-2">
+            {['Insurance', 'First visit', 'How many sessions', 'Does it hurt'].map((suggestion) => (
+              <button
+                key={suggestion}
+                onClick={() => setSearchQuery(suggestion)}
+                className="text-xs px-3 py-1 rounded-full bg-neutral-100 text-neutral-600 hover:bg-[#B08D57]/10 hover:text-[#B08D57] transition-all duration-200"
+              >
+                {suggestion}
+              </button>
+            ))}
           </div>
         </div>
       </div>

@@ -13,25 +13,29 @@ export default function CareJourneySection() {
       number: "01",
       title: "Initial Assessment",
       description: "Comprehensive evaluation of your condition, medical history, and movement patterns to understand your unique needs.",
-      accent: "from-slate-600 to-slate-800"
+      gradient: "from-blue-500 to-blue-600",
+      iconColor: "text-blue-500"
     },
     {
       number: "02", 
       title: "Treatment Planning",
       description: "Development of a personalized treatment plan with clear goals, timelines, and evidence-based interventions.",
-      accent: "from-slate-700 to-slate-900"
+      gradient: "from-purple-500 to-purple-600",
+      iconColor: "text-purple-500"
     },
     {
       number: "03",
       title: "Active Treatment", 
       description: "Hands-on therapy, exercise prescription, and education to address your specific condition and restore function.",
-      accent: "from-slate-800 to-black"
+      gradient: "from-emerald-500 to-emerald-600",
+      iconColor: "text-emerald-500"
     },
     {
       number: "04",
-      title: "Recovery & Prevention",
+      title: "Recovery + Prevention",
       description: "Ongoing support, home exercise programs, and strategies to prevent re-injury and maintain long-term health.",
-      accent: "from-[#B08D57] to-[#8B6D42]"
+      gradient: "from-[#B08D57] to-[#D4AF37]",
+      iconColor: "text-[#B08D57]"
     }
   ];
 
@@ -76,23 +80,29 @@ export default function CareJourneySection() {
           >
             {steps.map((step, index) => (
               <motion.div key={step.number} variants={itemVariants} className="relative group h-full">
-                {/* Step Card - Clean, consistent height */}
-                <div className="h-full bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 relative overflow-hidden border border-gray-100 hover:border-[#B08D57]/30">
-                  {/* Gold accent bar at top */}
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                {/* Step Card - Premium design with gradient accents */}
+                <div className="h-full bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 relative overflow-hidden border border-gray-200/50 group-hover:scale-[1.02]">
+                  {/* Gradient accent ribbon */}
+                  <div className={`absolute -top-2 -right-2 w-24 h-24 bg-gradient-to-br ${step.gradient} opacity-10 rounded-full blur-2xl group-hover:opacity-20 transition-opacity duration-500`}></div>
                   
-                  {/* Content - no numbers, just clean text */}
+                  {/* Content with better typography */}
                   <div className="relative h-full flex flex-col">
-                    <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-[#B08D57] transition-colors duration-300">
-                      {step.title}
+                    {/* Title with custom styling to prevent line breaks */}
+                    <h3 className={`text-xl font-black mb-5 tracking-tight leading-none ${step.iconColor} whitespace-nowrap`} style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                      {step.title.toUpperCase()}
                     </h3>
-                    <p className="text-slate-600 leading-relaxed flex-grow">
+                    
+                    {/* Description with better typography */}
+                    <p className="text-gray-700 leading-relaxed flex-grow text-[15px]" style={{ fontFamily: 'Inter, sans-serif' }}>
                       {step.description}
                     </p>
+                    
+                    {/* Bottom accent line */}
+                    <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${step.gradient} transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500`}></div>
                   </div>
                   
-                  {/* Subtle gold gradient on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/0 to-[#D4AF37]/0 group-hover:from-[#B08D57]/5 group-hover:to-[#D4AF37]/5 transition-all duration-500 rounded-2xl pointer-events-none"></div>
+                  {/* Decorative element */}
+                  <div className={`absolute bottom-4 right-4 w-12 h-12 bg-gradient-to-br ${step.gradient} opacity-5 rounded-full group-hover:opacity-10 transition-opacity duration-500`}></div>
                 </div>
               </motion.div>
             ))}

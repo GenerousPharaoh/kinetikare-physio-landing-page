@@ -154,44 +154,68 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
       'sessions': ['sessions', 'appointments', 'visits', 'how many', 'frequency'],
       'cancel': ['cancel', 'reschedule', 'cancellation', 'policy'],
       'referral': ['referral', 'doctor', 'physician', 'prescription'],
-      'technique': ['technique', 'manual', 'dry needling', 'cupping', 'graston', 'IASTM', 'treatment'],
+      'manual': ['manual therapy', 'hands-on', 'manipulation'],
+      'dry needling': ['dry needling', 'IMS', 'intramuscular stimulation'],
+      'cupping': ['cupping', 'cupping therapy'],
+      'graston': ['graston', 'IASTM', 'instrument assisted'],
     };
     
+    // For exact phrase searches (e.g., "cupping therapy"), don't expand
+    const isExactPhrase = searchQuery.includes('"') || 
+                         (searchTerms.length > 1 && searchQuery.toLowerCase().includes('therapy'));
+    
     // Expand search terms with related keywords
-    const expandedTerms = searchTerms.flatMap(term => {
-      const relatedTerms = [term];
-      Object.entries(keywordMap).forEach(([key, values]) => {
-        if (values.some(v => v.includes(term) || term.includes(v))) {
-          relatedTerms.push(...values);
-        }
-      });
-      return relatedTerms;
-    });
+    const expandedTerms = isExactPhrase 
+      ? [searchQuery.toLowerCase().replace(/"/g, '')] // Use exact phrase
+      : searchTerms.flatMap(term => {
+          const relatedTerms = [term];
+          Object.entries(keywordMap).forEach(([key, values]) => {
+            // Only expand if the term exactly matches a key
+            if (key === term) {
+              relatedTerms.push(...values);
+            } else if (values.includes(term)) {
+              // If term is in values, only add the key and the exact term
+              relatedTerms.push(key);
+            }
+          });
+          return [...new Set(relatedTerms)]; // Remove duplicates
+        });
     
     // Score and filter questions
     const scoredQuestions = allQuestions.map(item => {
       let score = 0;
       const questionLower = item.question.toLowerCase();
       const answerLower = typeof item.answer === 'string' ? item.answer.toLowerCase() : '';
+      const fullText = `${questionLower} ${answerLower}`;
       
-      // Check each search term
-      expandedTerms.forEach(term => {
-        // Higher score for question matches
-        if (questionLower.includes(term)) {
-          score += term === searchQuery.toLowerCase() ? 10 : 5;
+      // For exact phrase search
+      if (isExactPhrase) {
+        const exactPhrase = searchQuery.toLowerCase().replace(/"/g, '');
+        if (questionLower.includes(exactPhrase)) {
+          score += 20; // High score for exact phrase in question
+        } else if (answerLower.includes(exactPhrase)) {
+          score += 10; // Medium score for exact phrase in answer
         }
-        // Lower score for answer matches
-        if (answerLower && answerLower.includes(term)) {
-          score += 2;
+      } else {
+        // Check each search term
+        expandedTerms.forEach(term => {
+          // Higher score for question matches
+          if (questionLower.includes(term)) {
+            score += term === searchQuery.toLowerCase() ? 10 : 5;
+          }
+          // Lower score for answer matches
+          if (answerLower && answerLower.includes(term)) {
+            score += 2;
+          }
+        });
+        
+        // Bonus for matching ALL original terms (not just some)
+        const allOriginalTermsMatch = searchTerms.every(term => 
+          questionLower.includes(term) || answerLower.includes(term)
+        );
+        if (allOriginalTermsMatch && searchTerms.length > 1) {
+          score += searchTerms.length * 5;
         }
-      });
-      
-      // Bonus for matching multiple terms
-      const matchedOriginalTerms = searchTerms.filter(term => 
-        questionLower.includes(term) || answerLower.includes(term)
-      );
-      if (matchedOriginalTerms.length > 1) {
-        score += matchedOriginalTerms.length * 3;
       }
       
       return { ...item, score };

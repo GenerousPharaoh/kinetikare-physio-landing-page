@@ -15,7 +15,7 @@ export default function CareJourneySection() {
       title: "Initial Assessment",
       description: "Comprehensive evaluation of your condition, medical history, and movement patterns to understand your unique needs.",
       link: "/about",
-      linkText: "About our approach"
+      linkText: "About my approach"
     },
     {
       number: "02", 

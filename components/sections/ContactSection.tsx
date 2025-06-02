@@ -15,8 +15,12 @@ import {
 } from '@heroicons/react/24/outline';
 
 export default function ContactSection() {
-  const { ref: sectionRef, animationProps } = useScrollAnimation({ yOffset: 30 });
-  const { ref: areasRef, containerVariants, itemVariants, isInView } = useStaggeredAnimation({ delay: 0.1 });
+  const { ref: sectionRef, animationProps } = useScrollAnimation({ 
+    yOffset: 10, 
+    delay: 0,
+    rootMargin: '5000px 0px 5000px 0px' // Trigger much earlier
+  });
+  const { ref: areasRef, containerVariants, itemVariants, isInView } = useStaggeredAnimation({ delay: 0 });
 
   const serviceAreas = [
     "Burlington", "Waterdown", "Oakville", "Milton", "Hamilton", 
@@ -38,9 +42,9 @@ export default function ContactSection() {
         <div className="max-w-7xl mx-auto">
           {/* Premium Section Header */}
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+            transition={{ duration: 0.3 }}
             className="text-center mb-12 sm:mb-16"
           >
             <div className="relative inline-block mb-6 sm:mb-8">
@@ -60,9 +64,9 @@ export default function ContactSection() {
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20">
             {/* Left Column - Contact Information Only */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              initial={{ opacity: 0, x: -10 }}
+              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
+              transition={{ duration: 0.3, delay: 0 }}
             >
               {/* Single Consolidated Contact Card */}
               <div className="bg-white/95 backdrop-blur-2xl rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl border border-slate-200/60">
@@ -189,9 +193,9 @@ export default function ContactSection() {
 
           {/* Service Areas Section - Clean Modern Design */}
           <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+            transition={{ duration: 0.3, delay: 0 }}
             className="mt-12 sm:mt-16"
           >
             <div className="bg-white rounded-3xl p-8 sm:p-12 lg:p-16 shadow-xl border border-slate-100">

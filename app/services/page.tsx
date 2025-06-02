@@ -310,55 +310,60 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {services.map((service, index) => (
-              <div key={service.id} className="group relative">
-                {/* Premium Card Container */}
-                <div className="bg-white rounded-2xl shadow-lg border border-slate-200/60 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden h-full flex flex-col">
+              <div key={service.id} className="group relative h-full">
+                {/* Premium Card Container - Fixed height structure */}
+                <div className="bg-white rounded-2xl shadow-lg border border-slate-200/60 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden h-full min-h-[500px]">
                   {/* Decorative Background Elements */}
                   <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#B08D57]/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
                   <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-[#D4AF37]/5 to-transparent rounded-full translate-y-12 -translate-x-12"></div>
                   
-                  {/* Top Section - Fixed height for alignment */}
-                  <div className="relative z-10 p-8 pb-6">
-                    {/* Service Icon */}
-                    <div className="w-16 h-16 bg-gradient-to-br from-[#1A2036] to-slate-700 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                      {/* Better Icons based on service */}
-                      {service.id === 'manual-therapy' && <Hand className="w-8 h-8 text-[#D4AF37]" strokeWidth={2.2} />}
-                      {service.id === 'sports-rehab' && <Dumbbell className="w-8 h-8 text-[#D4AF37]" strokeWidth={2.2} />}
-                      {service.id === 'dry-needling' && <Target className="w-8 h-8 text-[#D4AF37]" strokeWidth={2.2} />}
-                      {service.id === 'exercise-therapy' && <Activity className="w-8 h-8 text-[#D4AF37]" strokeWidth={2.2} />}
-                      {service.id === 'postural-assessment' && <Ruler className="w-8 h-8 text-[#D4AF37]" strokeWidth={2.2} />}
-                      {service.id === 'pain-management' && <Zap className="w-8 h-8 text-[#D4AF37]" strokeWidth={2.2} />}
+                  {/* Grid Layout for consistent spacing */}
+                  <div className="relative z-10 h-full grid grid-rows-[auto_1fr_auto]">
+                    {/* Top Section */}
+                    <div className="p-8 pb-4">
+                      {/* Service Icon */}
+                      <div className="w-16 h-16 bg-gradient-to-br from-[#1A2036] to-slate-700 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        {/* Better Icons based on service */}
+                        {service.id === 'manual-therapy' && <Hand className="w-8 h-8 text-[#D4AF37]" strokeWidth={2.2} />}
+                        {service.id === 'sports-rehab' && <Dumbbell className="w-8 h-8 text-[#D4AF37]" strokeWidth={2.2} />}
+                        {service.id === 'dry-needling' && <Target className="w-8 h-8 text-[#D4AF37]" strokeWidth={2.2} />}
+                        {service.id === 'exercise-therapy' && <Activity className="w-8 h-8 text-[#D4AF37]" strokeWidth={2.2} />}
+                        {service.id === 'postural-assessment' && <Ruler className="w-8 h-8 text-[#D4AF37]" strokeWidth={2.2} />}
+                        {service.id === 'pain-management' && <Zap className="w-8 h-8 text-[#D4AF37]" strokeWidth={2.2} />}
+                      </div>
+
+                      {/* Title */}
+                      <h2 className="text-2xl font-bold mb-4 text-primary-800 group-hover:text-[#B08D57] transition-colors duration-300">
+                        {service.title}
+                      </h2>
                     </div>
 
-                    {/* Title */}
-                    <h2 className="text-2xl font-bold mb-4 text-primary-800 group-hover:text-[#B08D57] transition-colors duration-300 min-h-[2rem]">
-                      {service.title}
-                    </h2>
-
-                    {/* Description - Fixed min-height for consistency */}
-                    <p className="text-primary-700 leading-relaxed min-h-[4.5rem]">
-                      {service.description}
-                    </p>
-                  </div>
-
-                  {/* Bottom Section - Key Benefits */}
-                  <div className="relative z-10 px-8 pb-8 mt-auto">
-                    <div className="flex items-center mb-4">
-                      <div className="w-6 h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mr-3"></div>
-                      <h3 className="text-sm font-bold uppercase tracking-wider text-[#B08D57]">
-                        Key Benefits
-                      </h3>
+                    {/* Middle Section - Description */}
+                    <div className="px-8">
+                      <p className="text-primary-700 leading-relaxed">
+                        {service.description}
+                      </p>
                     </div>
-                    <ul className="space-y-3">
-                      {service.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-start group/item">
-                          <svg className="w-5 h-5 text-[#B08D57] mt-0.5 mr-3 flex-shrink-0 group-hover/item:text-[#D4AF37] transition-colors duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                          </svg>
-                          <span className="text-primary-700 text-sm leading-relaxed font-medium">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
+
+                    {/* Bottom Section - Key Benefits (fixed position) */}
+                    <div className="px-8 pb-8 pt-6">
+                      <div className="flex items-center mb-4">
+                        <div className="w-6 h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mr-3"></div>
+                        <h3 className="text-sm font-bold uppercase tracking-wider text-[#B08D57]">
+                          Key Benefits
+                        </h3>
+                      </div>
+                      <ul className="space-y-3">
+                        {service.features.map((feature, featureIndex) => (
+                          <li key={featureIndex} className="flex items-start group/item">
+                            <svg className="w-5 h-5 text-[#B08D57] mt-0.5 mr-3 flex-shrink-0 group-hover/item:text-[#D4AF37] transition-colors duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                            </svg>
+                            <span className="text-primary-700 text-sm leading-relaxed font-medium">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
 
                   {/* Hover Effect Overlay */}

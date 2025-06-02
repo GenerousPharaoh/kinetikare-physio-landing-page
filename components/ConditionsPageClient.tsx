@@ -79,11 +79,6 @@ export default function ConditionsPageClient({
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               className="text-center mb-12"
             >
-              {/* Elegant Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 rounded-full mb-6 border border-[#B08D57]/20">
-                <SparklesIcon className="w-4 h-4 text-[#B08D57]" />
-                <span className="text-sm font-medium text-[#B08D57]">Comprehensive Treatment</span>
-              </div>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 tracking-tight">
                 Conditions I <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B08D57] to-[#D4AF37]">Treat</span>
@@ -193,17 +188,6 @@ export default function ConditionsPageClient({
                       {/* Header Section */}
                       <div className="bg-gradient-to-br from-slate-50 to-white px-8 lg:px-12 pt-10 pb-8 border-b border-slate-100">
                         <div className="text-center">
-                          <motion.div
-                            initial={{ scale: 0.9, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            transition={{ delay: 0.1 }}
-                            className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 rounded-full mb-4 border border-[#B08D57]/20"
-                          >
-                            <CheckCircleIcon className="w-4 h-4 text-[#B08D57]" />
-                            <span className="text-sm font-medium text-[#B08D57]">
-                              {conditionCategories[activeTab].conditions.length} Conditions Treated
-                            </span>
-                          </motion.div>
                           
                           <h2 className="text-3xl lg:text-4xl font-bold mb-3 text-slate-900">
                             {conditionCategories[activeTab].title}
@@ -279,16 +263,12 @@ export default function ConditionsPageClient({
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 rounded-full mb-6 border border-[#B08D57]/20">
-                <SparklesIcon className="w-4 h-4 text-[#B08D57]" />
-                <span className="text-sm font-medium text-[#B08D57]">Specialized Care</span>
-              </div>
               
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 tracking-tight">
                 Additional Treatment <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B08D57] to-[#D4AF37]">Areas</span>
               </h2>
               <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-                Comprehensive care for complex cases and specialized rehabilitation needs
+                Comprehensive care for complex cases and unique rehabilitation needs
               </p>
             </motion.div>
 
@@ -348,18 +328,13 @@ export default function ConditionsPageClient({
               viewport={{ once: true }}
               className="text-center"
             >
-              {/* Premium Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-8 border border-white/20">
-                <CheckCircleIcon className="w-4 h-4 text-[#D4AF37]" />
-                <span className="text-sm font-medium text-white/90">Start Your Recovery Journey</span>
-              </div>
               
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
                 Ready to Address Your <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B08D57] to-[#D4AF37]">Condition?</span>
               </h2>
               <p className="text-xl text-white/80 max-w-2xl mx-auto mb-12 leading-relaxed">
-                Take the first step toward recovery with a comprehensive assessment tailored to your specific needs and goals.
+                Continue your recovery journey with a comprehensive assessment tailored to your specific needs and goals.
               </p>
             
               <div className="flex flex-col sm:flex-row gap-6 justify-center">

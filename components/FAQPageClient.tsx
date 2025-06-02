@@ -370,7 +370,7 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
         <div className="mt-4 text-center">
           <p className="text-sm text-neutral-500 mb-2">Popular searches:</p>
           <div className="flex flex-wrap justify-center gap-2">
-            {['Insurance', 'First visit', 'How many sessions', 'Does it hurt'].map((suggestion) => (
+            {['Direct billing', 'Manual therapy', 'Dry needling', 'First appointment', 'Treatment duration', 'Referral needed'].map((suggestion) => (
               <button
                 key={suggestion}
                 onClick={() => setSearchQuery(suggestion)}
@@ -470,18 +470,6 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
                   ref={(el) => sectionRefs.current[category.id] = el}
                   className="scroll-mt-32"
                 >
-                  <div className="text-center mb-12">
-                    <div className="inline-flex items-center justify-center p-4 bg-gradient-to-br from-primary-50 to-primary-100 rounded-2xl mb-6 shadow-lg">
-                      <div className="text-primary-700">
-                        {getIcon(category.iconType)}
-                      </div>
-                    </div>
-                    <h2 className="text-3xl md:text-4xl font-bold text-primary-900 mb-4 tracking-tight">
-                      {category.name}
-                    </h2>
-                    <div className="w-24 h-1 bg-gradient-to-r from-accent to-accent-dark mx-auto rounded-full"></div>
-                  </div>
-                  
                   <FAQAccordion items={category.questions} />
                 </div>
               ))}

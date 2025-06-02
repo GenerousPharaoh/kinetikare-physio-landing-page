@@ -351,9 +351,9 @@ export default function ServicesPage() {
                       <ul className="space-y-3">
                         {service.features.map((feature, featureIndex) => (
                           <li key={featureIndex} className="flex items-start group/item">
-                            <div className="w-5 h-5 rounded-full bg-gradient-to-br from-[#B08D57]/20 to-[#D4AF37]/20 flex items-center justify-center mt-0.5 mr-3 flex-shrink-0 group-hover/item:scale-110 transition-transform duration-200">
-                              <div className="w-2 h-2 rounded-full bg-gradient-to-br from-[#B08D57] to-[#D4AF37]"></div>
-                            </div>
+                            <svg className="w-5 h-5 text-[#B08D57] mt-0.5 mr-3 flex-shrink-0 group-hover/item:text-[#D4AF37] transition-colors duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                            </svg>
                             <span className="text-primary-700 text-sm leading-relaxed font-medium">{feature}</span>
                         </li>
                       ))}

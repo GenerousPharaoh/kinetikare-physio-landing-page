@@ -574,7 +574,7 @@ export default function About() {
 
                 {/* Three Core Principles in Elegant Cards - Mobile Optimized */}
                 <div className="space-y-6 sm:space-y-8">
-                  {/* Principle 1: Dual Perspective */}
+                  {/* Principle 1: Lived Experience */}
                   <div className="relative group">
                     <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-[#B08D57]/20 via-[#D4AF37]/10 to-[#B08D57]/20 rounded-2xl sm:rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
                     <div className="relative bg-white/95 backdrop-blur-sm border border-white/60 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl">
@@ -590,14 +590,14 @@ export default function About() {
                         <div className="flex-1 text-center sm:text-left">
                           <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-800 mb-3 sm:mb-4">Lived Experience</h4>
                           <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
-                            My practice is built on firsthand experience—both as a clinician and as a patient who has navigated the frustrations of pain, slow recovery, and an often impersonal healthcare system. This dual perspective means I genuinely understand how easily patients can be overlooked.
+                            My practice is grounded in firsthand experience—both as a clinician and as someone who has personally worked through recovery. That perspective gives me a deep understanding of what meaningful care requires: attentiveness, respect, and a commitment to walking beside you every step of the way.
                           </p>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  {/* Principle 2: Individualized Care */}
+                  {/* Principle 2: Thoughtful, Individualized Care */}
                   <div className="relative group">
                     <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-[#D4AF37]/20 via-[#B08D57]/10 to-[#D4AF37]/20 rounded-2xl sm:rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
                     <div className="relative bg-white/95 backdrop-blur-sm border border-white/60 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl">
@@ -610,16 +610,16 @@ export default function About() {
                           </div>
                         </div>
                         <div className="flex-1 text-center sm:text-left">
-                          <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-800 mb-3 sm:mb-4">Personalized Excellence</h4>
+                          <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-800 mb-3 sm:mb-4">Thoughtful, Individualized Care</h4>
                           <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
-                            I don't subscribe to high-volume, prescriptive protocols; instead, I focus on individualized care. Each patient receives a plan tailored to their unique needs, grounded in advanced manual therapy, exercise science, and a refusal to overlook the details that drive real outcomes and measurable progress.
+                            Every treatment plan is shaped by close observation, clinical insight, and a deep appreciation for your unique needs. I combine advanced manual therapy and movement science with precision and care, ensuring your progress is always intentional, responsive, and clearly guided.
                           </p>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  {/* Principle 3: Advocacy */}
+                  {/* Principle 3: Your Healthcare Advocate */}
                   <div className="relative group">
                     <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-[#B08D57]/20 via-[#D4AF37]/10 to-[#B08D57]/20 rounded-2xl sm:rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
                     <div className="relative bg-white/95 backdrop-blur-sm border border-white/60 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl">
@@ -634,7 +634,7 @@ export default function About() {
                         <div className="flex-1 text-center sm:text-left">
                           <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-800 mb-3 sm:mb-4">Your Healthcare Advocate</h4>
                           <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
-                            Beyond treatment, I take pride in acting as your advocate within a complex medical landscape. My standard for care isn't based on industry averages or convenient shortcuts—it's built on the dedicated attention and rigor you deserve.
+                            I approach care with the same rigour I would expect for myself or my loved ones. Whether it's explaining options, coordinating next steps, or thinking beyond the treatment table, I work to ensure you feel supported, informed, and genuinely cared for—at every stage of the process.
                           </p>
                         </div>
                       </div>

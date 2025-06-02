@@ -14,7 +14,7 @@ export default function LegalPageLayout({ title, effectiveDate, children }: Lega
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       {/* Modern Header with KinetiKare branding */}
-      <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-black text-white py-16 md:py-24">
+      <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-black text-white py-12 md:py-16">
         {/* Subtle background pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
@@ -55,7 +55,7 @@ export default function LegalPageLayout({ title, effectiveDate, children }: Lega
       </section>
 
       {/* Content Area with improved styling */}
-      <section className="py-12 md:py-16">
+      <section className="py-8 md:py-12">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="prose prose-lg max-w-none">
@@ -64,11 +64,16 @@ export default function LegalPageLayout({ title, effectiveDate, children }: Lega
                 .legal-content h2 {
                   font-size: 1.75rem;
                   font-weight: 700;
-                  color: #1e293b;
-                  margin-bottom: 1.5rem;
-                  padding-bottom: 0.75rem;
+                  color: #0f172a;
+                  margin-bottom: 1rem;
+                  margin-top: 2rem;
+                  padding-bottom: 0.5rem;
                   border-bottom: 2px solid #e2e8f0;
                   position: relative;
+                }
+                
+                .legal-content h2:first-child {
+                  margin-top: 0;
                 }
                 
                 .legal-content h2:after {
@@ -84,25 +89,26 @@ export default function LegalPageLayout({ title, effectiveDate, children }: Lega
                 .legal-content h3 {
                   font-size: 1.25rem;
                   font-weight: 600;
-                  color: #334155;
-                  margin-bottom: 1rem;
-                  margin-top: 1.5rem;
+                  color: #1e293b;
+                  margin-bottom: 0.75rem;
+                  margin-top: 1.25rem;
                 }
                 
                 .legal-content p {
-                  color: #475569;
-                  line-height: 1.8;
-                  margin-bottom: 1rem;
+                  color: #334155;
+                  line-height: 1.7;
+                  margin-bottom: 0.75rem;
                 }
                 
                 .legal-content ul {
                   margin-left: 1.5rem;
-                  margin-bottom: 1.5rem;
+                  margin-bottom: 1rem;
+                  margin-top: 0.5rem;
                 }
                 
                 .legal-content li {
-                  color: #475569;
-                  margin-bottom: 0.5rem;
+                  color: #334155;
+                  margin-bottom: 0.375rem;
                   position: relative;
                   padding-left: 0.5rem;
                 }
@@ -115,8 +121,8 @@ export default function LegalPageLayout({ title, effectiveDate, children }: Lega
                   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
                   border: 1px solid #e2e8f0;
                   border-radius: 12px;
-                  padding: 1.5rem;
-                  margin: 1.5rem 0;
+                  padding: 1.25rem;
+                  margin: 1rem 0;
                   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
                 }
                 
@@ -126,17 +132,17 @@ export default function LegalPageLayout({ title, effectiveDate, children }: Lega
                 
                 .legal-content .contact-box .contact-name {
                   font-weight: 600;
-                  color: #1e293b;
+                  color: #0f172a;
                   font-size: 1.125rem;
-                  margin-bottom: 0.5rem;
+                  margin-bottom: 0.375rem;
                 }
                 
                 .legal-content section {
-                  margin-bottom: 3rem;
+                  margin-bottom: 2rem;
                 }
                 
                 .legal-content strong {
-                  color: #334155;
+                  color: #1e293b;
                   font-weight: 600;
                 }
               `}</style>

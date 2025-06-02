@@ -15,12 +15,22 @@ import {
 } from '@heroicons/react/24/outline';
 
 export default function ContactSection() {
-  const { ref: sectionRef, animationProps } = useScrollAnimation({ 
-    yOffset: 10, 
+  // Use custom animation to bypass adaptive settings
+  const { ref: sectionRef, isInView } = useScrollAnimation({ 
+    yOffset: 0, 
     delay: 0,
-    rootMargin: '5000px 0px 5000px 0px' // Trigger much earlier
+    duration: 0.2,
+    rootMargin: '8000px 0px 8000px 0px' // Trigger even earlier
   });
-  const { ref: areasRef, containerVariants, itemVariants, isInView } = useStaggeredAnimation({ delay: 0 });
+  
+  // Override animation props to ensure immediate appearance
+  const animationProps = {
+    initial: { opacity: 0 },
+    animate: isInView ? { opacity: 1 } : { opacity: 0 },
+    transition: { duration: 0.2, delay: 0 }
+  };
+  
+  const { ref: areasRef, containerVariants, itemVariants } = useStaggeredAnimation({ delay: 0, duration: 0.2 });
 
   const serviceAreas = [
     "Burlington", "Waterdown", "Oakville", "Milton", "Hamilton", 
@@ -42,9 +52,9 @@ export default function ContactSection() {
         <div className="max-w-7xl mx-auto">
           {/* Premium Section Header */}
           <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-            transition={{ duration: 0.3 }}
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.2, delay: 0 }}
             className="text-center mb-12 sm:mb-16"
           >
             <div className="relative inline-block mb-6 sm:mb-8">
@@ -64,9 +74,9 @@ export default function ContactSection() {
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20">
             {/* Left Column - Contact Information Only */}
             <motion.div
-              initial={{ opacity: 0, x: -10 }}
-              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
-              transition={{ duration: 0.3, delay: 0 }}
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ duration: 0.2, delay: 0 }}
             >
               {/* Single Consolidated Contact Card */}
               <div className="bg-white/95 backdrop-blur-2xl rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl border border-slate-200/60">
@@ -193,9 +203,9 @@ export default function ContactSection() {
 
           {/* Service Areas Section - Clean Modern Design */}
           <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-            transition={{ duration: 0.3, delay: 0 }}
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.2, delay: 0 }}
             className="mt-12 sm:mt-16"
           >
             <div className="bg-white rounded-3xl p-8 sm:p-12 lg:p-16 shadow-xl border border-slate-100">
@@ -260,24 +270,9 @@ export default function ContactSection() {
               {/* Clean Description */}
               <div className="text-center">
                 <div className="bg-slate-50 rounded-2xl p-8 sm:p-10 max-w-4xl mx-auto">
-                  <p className="text-xl sm:text-2xl text-slate-700 leading-relaxed mb-6">
+                  <p className="text-xl sm:text-2xl text-slate-700 leading-relaxed">
                     My practice is conveniently located in <span className="font-bold text-[#B08D57]">Burlington</span>, and I'm pleased to extend my physiotherapy services to individuals and families throughout our surrounding communities.
-                        </p>
-                        
-                  <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8">
-                    <div className="flex items-center space-x-2">
-                      <CheckCircleIcon className="w-6 h-6 text-[#B08D57]" />
-                      <span className="font-semibold text-slate-700">Expert Care</span>
-                          </div>
-                    <div className="flex items-center space-x-2">
-                      <CheckCircleIcon className="w-6 h-6 text-[#B08D57]" />
-                      <span className="font-semibold text-slate-700">Convenient Locations</span>
-                          </div>
-                    <div className="flex items-center space-x-2">
-                      <CheckCircleIcon className="w-6 h-6 text-[#B08D57]" />
-                      <span className="font-semibold text-slate-700">Personalized Treatment</span>
-                    </div>
-                  </div>
+                  </p>
                 </div>
               </div>
             </div>

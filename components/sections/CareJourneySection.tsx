@@ -159,7 +159,7 @@ export default function CareJourneySection() {
                 </a>
                 <span className="text-white/60 text-sm">or</span>
                 <a
-                  href="tel:+19055559999"
+                  href="tel:+19056346000"
                   className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-2xl font-semibold border border-white/20 hover:bg-white/20 transition-all duration-300"
                 >
                   Call to Discuss

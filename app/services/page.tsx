@@ -332,8 +332,8 @@ export default function ServicesPage() {
                         {service.id === 'pain-management' && <Zap className="w-8 h-8 text-[#D4AF37]" strokeWidth={2.2} />}
                       </div>
 
-                      {/* Title */}
-                      <h2 className="text-2xl font-bold mb-4 text-primary-800 group-hover:text-[#B08D57] transition-colors duration-300">
+                      {/* Title - Fixed height to handle wrapping */}
+                      <h2 className="text-2xl font-bold mb-4 text-primary-800 group-hover:text-[#B08D57] transition-colors duration-300 min-h-[4rem] flex items-center">
                         {service.title}
                       </h2>
                     </div>

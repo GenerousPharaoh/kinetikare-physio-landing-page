@@ -173,9 +173,6 @@ export default function ConditionsPageClient({
 
                     {/* Conditions Grid */}
                     <div className="max-w-5xl mx-auto">
-                      <h3 className="text-lg font-semibold text-slate-700 mb-6 text-center">
-                        Conditions We Treat:
-                      </h3>
                       <div className="grid md:grid-cols-2 gap-4">
                         {conditionCategories[activeTab].conditions.map((condition, index) => {
                           const parts = condition.split('(');

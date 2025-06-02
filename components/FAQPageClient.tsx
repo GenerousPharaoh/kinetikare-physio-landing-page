@@ -370,7 +370,7 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
         <div className="mt-4 text-center">
           <p className="text-sm text-neutral-500 mb-2">Popular searches:</p>
           <div className="flex flex-wrap justify-center gap-2">
-            {['Direct billing', 'Manual therapy', 'Dry needling', 'First appointment', 'Treatment duration', 'Cancellation policy'].map((suggestion) => (
+            {['Direct billing', 'Manual therapy', 'Dry needling', 'Exercise programs', 'Cupping therapy', 'Sports injuries'].map((suggestion) => (
               <button
                 key={suggestion}
                 onClick={() => setSearchQuery(suggestion)}

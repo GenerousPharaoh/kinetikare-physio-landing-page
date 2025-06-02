@@ -230,7 +230,7 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed top-4 right-4 z-50"
+            className="fixed top-4 right-4 z-40"
           >
             {searchQuery || isSearching ? (
               // Expanded search bar when active
@@ -320,45 +320,6 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
         )}
       </AnimatePresence>
 
-      {/* Back to Top / Categories Button */}
-      <AnimatePresence>
-        {showStickyNav && (
-          <motion.div
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed bottom-6 right-6 z-50"
-          >
-            <button
-              onClick={() => {
-                if (isSearching) {
-                  setSearchQuery('');
-                  setIsSearching(false);
-                }
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-              className="group relative bg-[#B08D57] text-white p-4 rounded-full shadow-2xl hover:bg-[#D4AF37] transition-all duration-300 hover:scale-110"
-              aria-label={isSearching ? "Clear search and go to top" : "Back to top"}
-            >
-              {isSearching ? (
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              ) : (
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
-                </svg>
-              )}
-              
-              {/* Tooltip */}
-              <span className="absolute bottom-full right-0 mb-2 px-3 py-1 bg-gray-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                {isSearching ? "Clear search" : "Back to top"}
-              </span>
-            </button>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       {/* Beautiful modern search bar */}
       <div className="max-w-3xl mx-auto mb-16 relative z-10">

@@ -101,8 +101,10 @@ const HeroSection = React.memo(function HeroSection() {
         transition={isMobile ? mobileAnimations.transition : desktopAnimations.background.transition}
         className="absolute inset-0 w-full h-full"
         style={{ 
-          transform: isMobile ? 'translateZ(0)' : undefined,
-          willChange: isMobile ? 'auto' : 'transform',
+          transform: 'translateZ(0)',
+          willChange: 'transform',
+          backfaceVisibility: 'hidden',
+          perspective: 1000,
           // Ensure this container takes full space
           minHeight: '100vh',
           minWidth: '100vw'
@@ -211,11 +213,11 @@ const HeroSection = React.memo(function HeroSection() {
           >
             <motion.div 
               whileHover={isMobile ? undefined : { scale: 1.03 }}
-              transition={isMobile ? undefined : { type: "spring", stiffness: 400 }}
+              transition={isMobile ? undefined : { type: "spring", stiffness: 400, damping: 30 }}
               className="relative group"
             >
               {/* Clean, premium presentation */}
-              <div className="relative">
+              <div className="relative" style={{ transform: 'translateZ(0)' }}>
                 <Image
                   src="/images/kinetikare-logo.png"
                   alt="KinetiKare logo"
@@ -224,7 +226,8 @@ const HeroSection = React.memo(function HeroSection() {
                   className="w-40 h-40 sm:w-44 sm:h-44 md:w-48 md:h-48"
                   style={{ 
                     filter: 'drop-shadow(0 20px 60px rgba(0,0,0,0.5)) drop-shadow(0 10px 20px rgba(212,175,55,0.1))',
-                    transform: 'translateZ(0)'
+                    transform: 'translateZ(0)',
+                    backfaceVisibility: 'hidden'
                   }}
                 />
               </div>

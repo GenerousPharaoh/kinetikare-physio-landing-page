@@ -330,8 +330,8 @@ export default function ConditionsPageClient({
             >
               
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
-                Ready to Address Your <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B08D57] to-[#D4AF37]">Condition?</span>
+                Let's Work on Your <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B08D57] to-[#D4AF37]">Recovery Together</span>
               </h2>
               <p className="text-xl text-white/80 max-w-2xl mx-auto mb-12 leading-relaxed">
                 Continue your recovery journey with a comprehensive assessment tailored to your specific needs and goals.

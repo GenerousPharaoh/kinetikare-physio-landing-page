@@ -4,7 +4,6 @@ import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { MagnifyingGlassIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
-import ClientImage from '@/components/ClientImage';
 
 interface ConditionCategory {
   title: string;
@@ -103,7 +102,7 @@ export default function ConditionsPageClient({
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* Sticky Navigation Tabs */}
           <div className="sticky top-0 z-20 bg-white/95 backdrop-blur-md border-b border-slate-200 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 py-4 mb-8">
-            <div className="flex overflow-x-auto scrollbar-hide space-x-2 sm:space-x-4">
+            <div className="flex overflow-x-auto scrollbar-hide space-x-2 sm:space-x-4 justify-center">
               {quickNavItems.map((item, index) => (
                 <button
                   key={item.name}
@@ -134,15 +133,15 @@ export default function ConditionsPageClient({
                   </div>
                 ) : (
                   filteredCategories.map((category) => (
-                    <div key={category.title} className="bg-slate-50 rounded-2xl p-6">
-                      <h3 className={`text-xl font-bold mb-4 ${category.textGradient}`}>
+                    <div key={category.title} className="bg-slate-50 rounded-2xl p-8">
+                      <h3 className={`text-2xl font-bold mb-6 ${category.textGradient}`}>
                         {category.title}
                       </h3>
-                      <div className="grid sm:grid-cols-2 gap-3">
+                      <div className="grid md:grid-cols-2 gap-4">
                         {category.conditions.map((condition, index) => (
-                          <div key={index} className="flex items-start space-x-2">
-                            <ChevronRightIcon className="h-4 w-4 text-[#B08D57] mt-0.5 flex-shrink-0" />
-                            <span className="text-slate-700 text-sm">{condition}</span>
+                          <div key={index} className="flex items-start space-x-3">
+                            <ChevronRightIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
+                            <span className="text-slate-700">{condition}</span>
                           </div>
                         ))}
                       </div>
@@ -160,66 +159,57 @@ export default function ConditionsPageClient({
                   exit={{ opacity: 0, x: -20 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="bg-gradient-to-br from-white to-slate-50 rounded-3xl p-8 border border-slate-200/50 shadow-lg">
-                    <div className="flex flex-col lg:flex-row lg:items-start lg:space-x-12">
-                      {/* Category Header */}
-                      <div className="lg:w-1/3 mb-6 lg:mb-0">
-                        <h2 className={`text-3xl font-bold mb-3 ${conditionCategories[activeTab].textGradient}`}>
-                          {conditionCategories[activeTab].title}
-                        </h2>
-                        <p className="text-slate-600 text-lg mb-4">
-                          {conditionCategories[activeTab].subtitle}
-                        </p>
-                        <div className="w-16 h-1 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
-                        
-                        {/* Visual Icon/Illustration placeholder */}
-                        <div className="mt-8 hidden lg:block">
-                          <div className={`w-32 h-32 rounded-2xl bg-gradient-to-br ${conditionCategories[activeTab].gradient} flex items-center justify-center`}>
-                            <div className="text-6xl opacity-20">🦴</div>
-                          </div>
-                        </div>
-                      </div>
+                  <div className="bg-gradient-to-br from-white to-slate-50 rounded-3xl p-8 lg:p-12 border border-slate-200/50 shadow-lg">
+                    {/* Category Header */}
+                    <div className="text-center mb-10">
+                      <h2 className={`text-4xl font-bold mb-4 ${conditionCategories[activeTab].textGradient}`}>
+                        {conditionCategories[activeTab].title}
+                      </h2>
+                      <p className="text-xl text-slate-600 mb-6">
+                        {conditionCategories[activeTab].subtitle}
+                      </p>
+                      <div className="w-24 h-1 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full mx-auto"></div>
+                    </div>
 
-                      {/* Conditions List */}
-                      <div className="lg:w-2/3">
-                        <h3 className="text-lg font-semibold text-slate-700 mb-4">
-                          Conditions Treated:
-                        </h3>
-                        <div className="grid sm:grid-cols-2 gap-3">
-                          {conditionCategories[activeTab].conditions.map((condition, index) => {
-                            const parts = condition.split('(');
-                            const mainCondition = parts[0].trim();
-                            const details = parts.length > 1 ? `(${parts.slice(1).join('(')}` : '';
-                            
-                            return (
-                              <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: index * 0.05 }}
-                                className="group"
-                              >
-                                <div className="bg-white rounded-xl p-4 border border-slate-200/50 hover:border-[#B08D57]/30 hover:shadow-md transition-all duration-300">
-                                  <div className="flex items-start space-x-3">
-                                    <div className="mt-1.5">
-                                      <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37]"></div>
-                                    </div>
-                                    <div className="flex-1">
-                                      <h4 className="font-semibold text-slate-900 text-sm group-hover:text-[#B08D57] transition-colors">
-                                        {mainCondition}
-                                      </h4>
-                                      {details && (
-                                        <p className="text-xs text-slate-600 mt-0.5">
-                                          {details}
-                                        </p>
-                                      )}
-                                    </div>
+                    {/* Conditions Grid */}
+                    <div className="max-w-5xl mx-auto">
+                      <h3 className="text-lg font-semibold text-slate-700 mb-6 text-center">
+                        Conditions We Treat:
+                      </h3>
+                      <div className="grid md:grid-cols-2 gap-4">
+                        {conditionCategories[activeTab].conditions.map((condition, index) => {
+                          const parts = condition.split('(');
+                          const mainCondition = parts[0].trim();
+                          const details = parts.length > 1 ? `(${parts.slice(1).join('(')}` : '';
+                          
+                          return (
+                            <motion.div
+                              key={index}
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: index * 0.05 }}
+                              className="group"
+                            >
+                              <div className="bg-white rounded-xl p-5 border border-slate-200/50 hover:border-[#B08D57]/30 hover:shadow-md transition-all duration-300 h-full">
+                                <div className="flex items-start space-x-3">
+                                  <div className="mt-1.5">
+                                    <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37]"></div>
+                                  </div>
+                                  <div className="flex-1">
+                                    <h4 className="font-semibold text-slate-900 group-hover:text-[#B08D57] transition-colors">
+                                      {mainCondition}
+                                    </h4>
+                                    {details && (
+                                      <p className="text-sm text-slate-600 mt-1">
+                                        {details}
+                                      </p>
+                                    )}
                                   </div>
                                 </div>
-                              </motion.div>
-                            );
-                          })}
-                        </div>
+                              </div>
+                            </motion.div>
+                          );
+                        })}
                       </div>
                     </div>
                   </div>
@@ -230,7 +220,7 @@ export default function ConditionsPageClient({
         </div>
       </section>
 
-      {/* Additional Services - Compact Grid */}
+      {/* Additional Services - Improved Grid Alignment */}
       <section className="py-16 bg-slate-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
@@ -243,8 +233,8 @@ export default function ConditionsPageClient({
               </p>
             </div>
 
-            {/* Compact Service Grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {/* Improved Service Grid with consistent heights */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {additionalServices.map((service, index) => (
                 <motion.div
                   key={service.title}
@@ -252,19 +242,21 @@ export default function ConditionsPageClient({
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
                   viewport={{ once: true }}
-                  className="bg-white rounded-xl p-6 border border-slate-200/50 hover:shadow-lg hover:border-[#B08D57]/30 transition-all duration-300"
+                  className="h-full"
                 >
-                  <div className="flex items-start space-x-3">
-                    <div className="w-8 h-8 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-lg flex items-center justify-center flex-shrink-0">
-                      <span className="text-white font-bold text-sm">{index + 1}</span>
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-slate-900 mb-2 text-lg">
-                        {service.title}
-                      </h3>
-                      <p className="text-sm text-slate-600 leading-relaxed">
-                        {service.description}
-                      </p>
+                  <div className="bg-white rounded-xl p-6 border border-slate-200/50 hover:shadow-lg hover:border-[#B08D57]/30 transition-all duration-300 h-full flex flex-col">
+                    <div className="flex items-start space-x-4">
+                      <div className="w-10 h-10 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-lg flex items-center justify-center flex-shrink-0">
+                        <span className="text-white font-bold">{index + 1}</span>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-bold text-slate-900 mb-2 text-lg">
+                          {service.title}
+                        </h3>
+                        <p className="text-sm text-slate-600 leading-relaxed">
+                          {service.description}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
@@ -311,4 +303,4 @@ export default function ConditionsPageClient({
       </section>
     </main>
   );
-} 
+}

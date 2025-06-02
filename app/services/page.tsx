@@ -312,13 +312,13 @@ export default function ServicesPage() {
             {services.map((service, index) => (
               <div key={service.id} className="group relative">
                 {/* Premium Card Container */}
-                <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200/60 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden h-full flex flex-col">
+                <div className="bg-white rounded-2xl shadow-lg border border-slate-200/60 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden h-full flex flex-col">
                   {/* Decorative Background Elements */}
                   <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#B08D57]/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
                   <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-[#D4AF37]/5 to-transparent rounded-full translate-y-12 -translate-x-12"></div>
                   
-                  {/* Content */}
-                  <div className="relative z-10 flex-1 flex flex-col">
+                  {/* Top Section - Fixed height for alignment */}
+                  <div className="relative z-10 p-8 pb-6">
                     {/* Service Icon */}
                     <div className="w-16 h-16 bg-gradient-to-br from-[#1A2036] to-slate-700 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
                       {/* Better Icons based on service */}
@@ -328,41 +328,41 @@ export default function ServicesPage() {
                       {service.id === 'exercise-therapy' && <Activity className="w-8 h-8 text-[#D4AF37]" strokeWidth={2.2} />}
                       {service.id === 'postural-assessment' && <Ruler className="w-8 h-8 text-[#D4AF37]" strokeWidth={2.2} />}
                       {service.id === 'pain-management' && <Zap className="w-8 h-8 text-[#D4AF37]" strokeWidth={2.2} />}
-                </div>
+                    </div>
 
                     {/* Title */}
-                    <h2 className="text-2xl font-bold mb-4 text-primary-800 group-hover:text-[#B08D57] transition-colors duration-300">
-                    {service.title}
-                  </h2>
+                    <h2 className="text-2xl font-bold mb-4 text-primary-800 group-hover:text-[#B08D57] transition-colors duration-300 min-h-[2rem]">
+                      {service.title}
+                    </h2>
 
-                    {/* Description */}
-                    <p className="text-primary-700 mb-6 leading-relaxed flex-1">
-                    {service.description}
-                  </p>
+                    {/* Description - Fixed min-height for consistency */}
+                    <p className="text-primary-700 leading-relaxed min-h-[4.5rem]">
+                      {service.description}
+                    </p>
+                  </div>
 
-                    {/* Features List */}
-                  <div className="mt-auto">
-                      <div className="flex items-center mb-4">
-                        <div className="w-6 h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mr-3"></div>
-                        <h3 className="text-sm font-bold uppercase tracking-wider text-[#B08D57]">
-                      Key Benefits
-                    </h3>
-                      </div>
-                      <ul className="space-y-3">
-                        {service.features.map((feature, featureIndex) => (
-                          <li key={featureIndex} className="flex items-start group/item">
-                            <svg className="w-5 h-5 text-[#B08D57] mt-0.5 mr-3 flex-shrink-0 group-hover/item:text-[#D4AF37] transition-colors duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                            </svg>
-                            <span className="text-primary-700 text-sm leading-relaxed font-medium">{feature}</span>
+                  {/* Bottom Section - Key Benefits */}
+                  <div className="relative z-10 px-8 pb-8 mt-auto">
+                    <div className="flex items-center mb-4">
+                      <div className="w-6 h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mr-3"></div>
+                      <h3 className="text-sm font-bold uppercase tracking-wider text-[#B08D57]">
+                        Key Benefits
+                      </h3>
+                    </div>
+                    <ul className="space-y-3">
+                      {service.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-start group/item">
+                          <svg className="w-5 h-5 text-[#B08D57] mt-0.5 mr-3 flex-shrink-0 group-hover/item:text-[#D4AF37] transition-colors duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                          </svg>
+                          <span className="text-primary-700 text-sm leading-relaxed font-medium">{feature}</span>
                         </li>
                       ))}
                     </ul>
-                    </div>
-
-                    {/* Hover Effect Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/5 to-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none"></div>
                   </div>
+
+                  {/* Hover Effect Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/5 to-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none"></div>
                 </div>
               </div>
             ))}

@@ -3,29 +3,43 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useScrollAnimation, useStaggeredAnimation } from '@/hooks/useScrollAnimation';
+import { MapPinIcon, ClockIcon, PhoneIcon } from '@heroicons/react/24/outline';
 
 const HealingEnvironmentSection = () => {
   const { ref: sectionRef, animationProps } = useScrollAnimation({ yOffset: 30 });
-  const { ref: imagesRef, containerVariants, itemVariants, isInView } = useStaggeredAnimation({ 
+  const { ref: contentRef, containerVariants, itemVariants, isInView } = useStaggeredAnimation({ 
     delay: 0.2,
     duration: 0.5 
   });
 
-  const clinicImages = [
+  const supportingImages = [
     {
       src: '/images/facebook-image.jpg',
       alt: 'Modern Clinic Building',
-      title: 'Modern Clinic Building'
+      title: 'Modern Facility'
     },
     {
       src: '/images/clinic-reception-new-may-2025.jpg',
       alt: 'Welcoming Reception Area',
-      title: 'Welcoming Reception Area'
+      title: 'Welcoming Space'
+    }
+  ];
+
+  const clinicFeatures = [
+    {
+      icon: MapPinIcon,
+      title: "Convenient Location",
+      description: "Easily accessible in Burlington with ample parking"
     },
     {
-      src: '/images/clinic-pic-may-2025.jpg',
-      alt: 'Dedicated Treatment Space',
-      title: 'Dedicated Treatment Space'
+      icon: ClockIcon,
+      title: "Flexible Hours",
+      description: "Extended hours to accommodate your schedule"
+    },
+    {
+      icon: PhoneIcon,
+      title: "Direct Access",
+      description: "One-on-one care with your dedicated physiotherapist"
     }
   ];
 
@@ -33,59 +47,148 @@ const HealingEnvironmentSection = () => {
     <motion.section 
       ref={sectionRef}
       {...animationProps}
-      className="py-12 md:py-16 bg-gray-50"
+      className="py-20 md:py-24 bg-gradient-to-b from-white to-gray-50"
     >
-      <div className="container mx-auto px-6">
-        <div className="mb-12">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-10"
-          >
-            <h3 className="text-3xl md:text-4xl font-bold text-primary-800 mb-4">
-              Your Healing Environment
-            </h3>
-            <div className="w-24 h-1 bg-[#B08D57] mx-auto rounded-full"></div>
+      <div className="container mx-auto px-6 max-w-7xl">
+        {/* Section Header - More prominent */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+            Your <span className="text-[#B08D57]">Healing Environment</span>
+          </h2>
+          <div className="w-32 h-0.5 bg-gradient-to-r from-transparent via-[#B08D57] to-transparent mx-auto mb-8"></div>
+          <p className="text-xl lg:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-light">
+            A modern, welcoming space designed to support your recovery journey
+          </p>
+        </motion.div>
+
+        {/* Main Content Grid - Hero image as focal point */}
+        <motion.div 
+          ref={contentRef}
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16"
+        >
+          {/* Left: Hero Image - Focal Point */}
+          <motion.div variants={itemVariants} className="order-2 lg:order-1">
+            <div className="relative group overflow-hidden rounded-3xl shadow-2xl">
+              <div className="aspect-[4/3] relative">
+                <Image
+                  src="/images/clinic-pic-may-2025.jpg"
+                  alt="Modern Treatment Room at KinetiKare"
+                  fill
+                  priority
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent opacity-60"></div>
+                
+                {/* Overlay text on image */}
+                <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-12">
+                  <h3 className="text-white text-2xl lg:text-3xl font-bold mb-2">
+                    Treatment Room
+                  </h3>
+                  <p className="text-white/90 text-lg">
+                    A comfortable space for your physiotherapy sessions
+                  </p>
+                </div>
+              </div>
+            </div>
           </motion.div>
-          
-          <motion.div 
-            ref={imagesRef}
-            variants={containerVariants}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-          >
-            {clinicImages.map((image, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="relative group overflow-hidden rounded-2xl shadow-lg"
-              >
-                <div className="aspect-[4/3] relative">
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    style={{
-                      filter: 'contrast(1.05) saturate(1.1) brightness(1.02)'
-                    }}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="absolute bottom-4 left-4 transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                    <div className="bg-white/90 backdrop-blur-sm rounded-lg px-3 py-1.5 shadow-md border border-white/40">
-                      <h4 className="text-sm font-semibold text-slate-800">
-                        {image.title}
-                      </h4>
+
+          {/* Right: Content with Features */}
+          <motion.div variants={itemVariants} className="order-1 lg:order-2 space-y-8">
+            <div>
+              <h3 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6 leading-tight">
+                Where Your Recovery <span className="text-[#B08D57]">Continues</span>
+              </h3>
+              <p className="text-lg text-slate-600 leading-relaxed mb-8">
+                Our clinic provides a comfortable, professional environment for your physiotherapy sessions. 
+                With modern equipment and a focus on one-on-one care, we're here to support your ongoing 
+                recovery journey.
+              </p>
+            </div>
+
+            {/* Feature List */}
+            <div className="space-y-6">
+              {clinicFeatures.map((feature, index) => (
+                <motion.div 
+                  key={feature.title}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                  transition={{ duration: 0.5, delay: 0.3 + (index * 0.1) }}
+                  className="flex gap-4"
+                >
+                  <div className="flex-shrink-0">
+                    <div className="w-12 h-12 bg-[#B08D57]/10 rounded-xl flex items-center justify-center">
+                      <feature.icon className="w-6 h-6 text-[#B08D57]" />
                     </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                  <div>
+                    <h4 className="text-xl font-semibold text-slate-900 mb-1">{feature.title}</h4>
+                    <p className="text-slate-600">{feature.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* CTA Button */}
+            <div className="pt-4">
+              <a
+                href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-8 py-4 bg-[#B08D57] text-white rounded-xl font-semibold shadow-lg hover:bg-[#D4AF37] transition-all duration-300 hover:shadow-xl hover:scale-105"
+              >
+                Book Your Visit
+                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
           </motion.div>
-        </div>
+        </motion.div>
+
+        {/* Supporting Images - Smaller, secondary focus */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto"
+        >
+          {supportingImages.map((image, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.5, delay: 0.5 + (index * 0.1) }}
+              className="relative group overflow-hidden rounded-2xl shadow-lg"
+            >
+              <div className="aspect-[16/10] relative">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute bottom-4 left-4 right-4">
+                  <div className="bg-white/95 backdrop-blur-sm rounded-lg px-4 py-2 shadow-lg transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    <h4 className="text-sm font-semibold text-slate-800">
+                      {image.title}
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </motion.section>
   );

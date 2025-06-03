@@ -157,7 +157,7 @@ const personSchema = {
   ]
 };
 
-// Streamlined site structure: Hero → About → Healing Environment → Care Journey → Services → Contact
+// Streamlined site structure: Hero → About → Care Journey → Services → Healing Environment → Contact
 export default function Home() {
   return (
     <>
@@ -169,9 +169,9 @@ export default function Home() {
     <main className="min-h-screen">
       <HeroSection />
       <AboutSection />
-        <HealingEnvironmentSection />
       <CareJourneySection />
       <ServicesSection />
+      <HealingEnvironmentSection />
       <ContactSection />
     </main>
     </>

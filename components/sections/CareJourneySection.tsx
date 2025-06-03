@@ -103,10 +103,10 @@ export default function CareJourneySection() {
                       {step.description}
                     </p>
                     
-                    {/* Interactive link */}
+                    {/* Interactive link - always visible */}
                     <Link 
                       href={step.link}
-                      className="mt-6 flex items-center text-sm text-[#B08D57] opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:text-[#D4AF37]"
+                      className="mt-6 flex items-center text-sm text-[#B08D57] transition-all duration-300 hover:text-[#D4AF37]"
                     >
                       <span className="font-medium">{step.linkText}</span>
                       <svg className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">

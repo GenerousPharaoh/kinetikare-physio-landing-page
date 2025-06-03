@@ -89,13 +89,17 @@ const HealingEnvironmentSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent opacity-60"></div>
                 
                 {/* Overlay text on image */}
-                <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-12">
-                  <h3 className="text-white text-2xl lg:text-3xl font-bold mb-2">
-                    Your Treatment Space
-                  </h3>
-                  <p className="text-white/90 text-lg">
-                    A calm, private environment focused on your recovery
-                  </p>
+                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-8">
+                  <div className="bg-gradient-to-r from-black/50 to-transparent">
+                    <div className="px-4 py-3 sm:px-6 sm:py-4">
+                      <h3 className="text-white text-base sm:text-lg lg:text-xl font-medium mb-0.5">
+                        Your Treatment Space
+                      </h3>
+                      <p className="text-white/85 text-xs sm:text-sm font-light">
+                        A calm, private environment focused on your recovery
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

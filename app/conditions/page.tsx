@@ -4,9 +4,13 @@ import ConditionsPageClient from '@/components/ConditionsPageClient';
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: 'Conditions I Treat | Physiotherapy in Burlington & Waterdown',
-  description: 'Comprehensive physiotherapy treatment for spinal health, sports injuries, chronic pain, post-surgical rehabilitation, and more. Expert care for all ages and activity levels in Burlington, Waterdown, Hamilton, and Oakville.',
+  title: 'Conditions We Treat | KinetiKare Physiotherapy - Kareem Hassanein',
+  description: 'KinetiKare Physiotherapy treats spinal health, sports injuries, chronic pain, post-surgical rehabilitation, and more. Kareem Hassanein provides care for all ages and activity levels in Burlington, Waterdown, and Oakville.',
   keywords: [
+    'KinetiKare conditions',
+    'KinetiKare treatments',
+    'Kinetikare physiotherapy conditions',
+    'Kareem Hassanein conditions',
     'physiotherapy conditions Burlington',
     'physiotherapy conditions Waterdown',
     'physiotherapy conditions Hamilton',

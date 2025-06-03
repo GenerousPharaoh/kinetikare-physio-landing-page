@@ -8,10 +8,20 @@ import ContactSection from '@/components/sections/ContactSection';
 
 // SEO Metadata for Homepage
 export const metadata: Metadata = {
-  title: 'KinetiKare Physiotherapy | Kareem Hassanein | Burlington & Waterdown',
-  description: 'KinetiKare Physiotherapy - Kareem Hassanein, Registered Physiotherapist in Burlington, Waterdown, Hamilton & Oakville. One-on-one, dedicated care with personalized treatment for manual therapy, sports rehabilitation, and dry needling.',
+  title: 'KinetiKare Physiotherapy | Kareem Hassanein | Burlington, Waterdown & Oakville',
+  description: 'KinetiKare Physiotherapy - Kareem Hassanein, Registered Physiotherapist in Burlington, Waterdown, and Oakville. KinetiKare offers one-on-one, dedicated care with personalized treatment for manual therapy, sports rehabilitation, and dry needling.',
   keywords: [
+    'KinetiKare',
+    'Kinetikare',
+    'KinetiKare Physiotherapy',
+    'Kinetikare physiotherapy',
+    'KinetiKare physio',
+    'KinetiKare Burlington',
+    'KinetiKare Waterdown',
+    'KinetiKare Oakville',
     'Kareem Hassanein',
+    'Kareem Hassanein KinetiKare',
+    'KinetiKare Kareem Hassanein',
     'Kareem Hassanein physiotherapy',
     'Kareem physiotherapist',
     'Kareem Hassanein Burlington',

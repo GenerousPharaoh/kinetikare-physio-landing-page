@@ -8,9 +8,14 @@ import { Hand, Dumbbell, Target, Activity, Ruler, Zap } from 'lucide-react';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Physiotherapy Services | Kareem Hassanein',
-  description: 'Advanced physiotherapy services including sports rehabilitation, manual therapy, dry needling, and more for better movement and pain-free living.',
+  title: 'Physiotherapy Services | KinetiKare - Kareem Hassanein',
+  description: 'KinetiKare Physiotherapy services in Burlington, Waterdown & Oakville. Advanced treatments including sports rehabilitation, manual therapy, dry needling by Kareem Hassanein for better movement and pain-free living.',
   keywords: [
+    'KinetiKare services',
+    'KinetiKare Physiotherapy services',
+    'Kinetikare treatments',
+    'Kareem Hassanein services',
+    'Kareem Hassanein physiotherapy',
     'physiotherapy services Burlington',
     'physiotherapy services Waterdown',
     'physiotherapy services Hamilton', 

@@ -55,7 +55,7 @@ export default function LegalPageLayout({ title, effectiveDate, children }: Lega
       </section>
 
       {/* Content Area with improved styling */}
-      <section className="py-8 md:py-12">
+      <section className="py-6 md:py-8">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="prose prose-lg max-w-none">
@@ -65,8 +65,8 @@ export default function LegalPageLayout({ title, effectiveDate, children }: Lega
                   font-size: 1.75rem;
                   font-weight: 700;
                   color: #0f172a;
-                  margin-bottom: 1rem;
-                  margin-top: 2rem;
+                  margin-bottom: 0.75rem;
+                  margin-top: 1.5rem;
                   padding-bottom: 0.5rem;
                   border-bottom: 2px solid #e2e8f0;
                   position: relative;
@@ -89,26 +89,26 @@ export default function LegalPageLayout({ title, effectiveDate, children }: Lega
                 .legal-content h3 {
                   font-size: 1.25rem;
                   font-weight: 600;
-                  color: #1e293b;
-                  margin-bottom: 0.75rem;
-                  margin-top: 1.25rem;
+                  color: #0f172a;
+                  margin-bottom: 0.5rem;
+                  margin-top: 1rem;
                 }
                 
                 .legal-content p {
-                  color: #334155;
-                  line-height: 1.7;
-                  margin-bottom: 0.75rem;
+                  color: #1e293b;
+                  line-height: 1.6;
+                  margin-bottom: 0.5rem;
                 }
                 
                 .legal-content ul {
                   margin-left: 1.5rem;
-                  margin-bottom: 1rem;
-                  margin-top: 0.5rem;
+                  margin-bottom: 0.75rem;
+                  margin-top: 0.25rem;
                 }
                 
                 .legal-content li {
-                  color: #334155;
-                  margin-bottom: 0.375rem;
+                  color: #1e293b;
+                  margin-bottom: 0.25rem;
                   position: relative;
                   padding-left: 0.5rem;
                 }
@@ -138,7 +138,7 @@ export default function LegalPageLayout({ title, effectiveDate, children }: Lega
                 }
                 
                 .legal-content section {
-                  margin-bottom: 2rem;
+                  margin-bottom: 1.5rem;
                 }
                 
                 .legal-content strong {

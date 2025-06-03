@@ -15,13 +15,13 @@ const HealingEnvironmentSection = () => {
   const supportingImages = [
     {
       src: '/images/facebook-image.jpg',
-      alt: 'Modern Clinic Building',
-      title: 'Modern Facility'
+      alt: 'Clinic Building',
+      title: 'Our Location'
     },
     {
       src: '/images/clinic-reception-new-may-2025.jpg',
-      alt: 'Welcoming Reception Area',
-      title: 'Welcoming Space'
+      alt: 'Reception Area',
+      title: 'Welcoming Reception'
     }
   ];
 
@@ -91,10 +91,10 @@ const HealingEnvironmentSection = () => {
                 {/* Overlay text on image */}
                 <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-12">
                   <h3 className="text-white text-2xl lg:text-3xl font-bold mb-2">
-                    Treatment Room
+                    Your Treatment Space
                   </h3>
                   <p className="text-white/90 text-lg">
-                    A comfortable space for your physiotherapy sessions
+                    A calm, private environment focused on your recovery
                   </p>
                 </div>
               </div>
@@ -108,9 +108,8 @@ const HealingEnvironmentSection = () => {
                 Where Your Recovery <span className="text-[#B08D57]">Continues</span>
               </h3>
               <p className="text-lg text-slate-600 leading-relaxed mb-8">
-                Our clinic provides a comfortable, professional environment for your physiotherapy sessions. 
-                With modern equipment and a focus on one-on-one care, we're here to support your ongoing 
-                recovery journey.
+                A dedicated space for personalized, one-on-one physiotherapy care. Each session is tailored 
+                to your specific needs and recovery goals.
               </p>
             </div>
 
@@ -177,9 +176,9 @@ const HealingEnvironmentSection = () => {
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute bottom-4 left-4 right-4">
-                  <div className="bg-white/95 backdrop-blur-sm rounded-lg px-4 py-2 shadow-lg transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+                <div className="absolute bottom-4 left-4">
+                  <div className="bg-white/95 backdrop-blur-sm rounded-lg px-4 py-2 shadow-lg">
                     <h4 className="text-sm font-semibold text-slate-800">
                       {image.title}
                     </h4>

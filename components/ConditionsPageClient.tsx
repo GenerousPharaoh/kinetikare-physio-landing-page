@@ -88,7 +88,7 @@ export default function ConditionsPageClient({
               </p>
 
               {/* Enhanced Search Bar */}
-              <div className="max-w-2xl mx-auto">
+              <div className="max-w-2xl mx-auto mb-6">
                 <div className="relative group">
                   <div className="absolute inset-0 bg-gradient-to-r from-[#B08D57]/20 to-[#D4AF37]/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="relative bg-white rounded-2xl shadow-xl border border-slate-200/50">
@@ -112,14 +112,14 @@ export default function ConditionsPageClient({
       <section className="pt-0 pb-20 relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* Enhanced Navigation Tabs */}
-          <div className="sticky top-0 z-20 bg-white/80 backdrop-blur-xl shadow-sm -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 py-6 mb-12">
+          <div className="sticky top-0 z-20 bg-white/80 backdrop-blur-xl shadow-sm py-4 mb-8">
             <div className="max-w-4xl mx-auto">
-              <div className="flex overflow-x-auto scrollbar-hide gap-3 justify-center">
+              <div className="flex gap-2 overflow-x-auto scrollbar-hide px-2 -mx-2">
                 {quickNavItems.map((item, index) => (
                   <button
                     key={item.name}
                     onClick={() => setActiveTab(item.tab)}
-                    className={`relative px-6 py-3 rounded-xl font-semibold whitespace-nowrap transition-all duration-300 ${
+                    className={`relative px-4 py-2 rounded-lg font-medium text-sm whitespace-nowrap transition-all duration-300 flex-shrink-0 ${
                       activeTab === item.tab
                         ? 'text-white'
                         : 'text-slate-600 hover:text-slate-900 bg-white hover:bg-slate-50 shadow-sm border border-slate-200'
@@ -128,7 +128,7 @@ export default function ConditionsPageClient({
                     {activeTab === item.tab && (
                       <motion.div
                         layoutId="activeTab"
-                        className="absolute inset-0 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-xl shadow-lg"
+                        className="absolute inset-0 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-lg shadow-lg"
                         transition={{ duration: 0.3 }}
                       />
                     )}
@@ -160,7 +160,7 @@ export default function ConditionsPageClient({
                       <div className="grid md:grid-cols-2 gap-4">
                         {category.conditions.map((condition, index) => (
                           <div key={index} className="flex items-start space-x-3">
-                            <ChevronRightIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
+                            <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57] mt-2 flex-shrink-0" />
                             <span className="text-slate-700">{condition}</span>
                           </div>
                         ))}
@@ -214,18 +214,13 @@ export default function ConditionsPageClient({
                                 transition={{ delay: index * 0.03 }}
                                 className="group"
                               >
-                                <div className="relative bg-gradient-to-br from-slate-50 to-white rounded-2xl p-6 border border-slate-200/50 hover:border-[#B08D57]/30 hover:shadow-xl transition-all duration-300 h-full overflow-hidden">
-                                  {/* Hover Effect */}
-                                  <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/5 to-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                  
-                                  <div className="relative flex items-start gap-4">
-                                    <div className="mt-1 flex-shrink-0">
-                                      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#B08D57]/20 to-[#D4AF37]/20 flex items-center justify-center group-hover:from-[#B08D57] group-hover:to-[#D4AF37] transition-all duration-300">
-                                        <ChevronRightIcon className="w-4 h-4 text-[#B08D57] group-hover:text-white transition-colors" />
-                                      </div>
+                                <div className="relative bg-gradient-to-br from-slate-50 to-white rounded-2xl p-6 border border-slate-200/50 h-full">
+                                  <div className="flex items-start gap-3">
+                                    <div className="mt-2 flex-shrink-0">
+                                      <div className="w-2 h-2 rounded-full bg-gradient-to-br from-[#B08D57] to-[#D4AF37]"></div>
                                     </div>
                                     <div className="flex-1">
-                                      <h4 className="font-bold text-slate-900 group-hover:text-[#B08D57] transition-colors text-lg">
+                                      <h4 className="font-bold text-slate-900 text-lg">
                                         {mainCondition}
                                       </h4>
                                       {details && (

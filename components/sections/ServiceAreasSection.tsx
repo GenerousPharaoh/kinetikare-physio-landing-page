@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import Link from 'next/link';
-import { FaMapMarkerAlt, FaClock, FaCity, FaMapSigns, FaPhoneAlt, FaCalendarAlt } from 'react-icons/fa';
+import { MapPinIcon, ClockIcon, BuildingOfficeIcon, ArrowTopRightOnSquareIcon, PhoneIcon, CalendarIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
@@ -17,24 +17,24 @@ export default function ServiceAreasSection() {
 
   const areas = [
     {
-      name: "Burlington Central",
-      icon: FaMapMarkerAlt,
-      details: "Conveniently located near major routes (QEW, 407)."
-    },
-    {
-      name: "North Burlington",
-      icon: FaCity,
-      details: "Serving communities like Alton Village and Millcroft."
+      name: "Burlington",
+      icon: MapPinIcon,
+      details: "Central Burlington, North Burlington, and surrounding neighbourhoods"
     },
     {
       name: "Waterdown",
-      icon: FaCity,
-      details: "Easily accessible for Waterdown residents."
+      icon: BuildingOfficeIcon,
+      details: "Easy access for all Waterdown residents"
     },
     {
-      name: "Oakville & Hamilton",
-      icon: FaMapSigns,
-      details: "Welcoming patients from neighbouring cities."
+      name: "Oakville",
+      icon: BuildingOfficeIcon,
+      details: "Serving North Oakville communities"
+    },
+    {
+      name: "Hamilton",
+      icon: BuildingOfficeIcon,
+      details: "West Hamilton and Dundas areas"
     }
   ];
 
@@ -45,201 +45,159 @@ export default function ServiceAreasSection() {
   ];
 
   return (
-    <section id="service-areas" className="py-20 lg:py-28 bg-gradient-to-b from-white to-slate-50 text-gray-800 relative">
-      {/* Clean background elements */}
-      <div className="absolute top-40 right-10 w-72 h-72 bg-[#B08D57]/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 left-10 w-96 h-96 bg-[#D4AF37]/5 rounded-full blur-3xl"></div>
+    <section id="service-areas" className="py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 opacity-[0.03]">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 2px 2px, rgba(176, 141, 87, 0.5) 1px, transparent 0)`,
+          backgroundSize: '40px 40px'
+        }}></div>
+      </div>
       
       <div className="container mx-auto px-4 relative z-10">
-        {/* Clean Header */}
+        {/* Enhanced Header */}
         <motion.div 
-          className="mb-10 md:mb-14 max-w-3xl mx-auto text-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
+          className="mb-16 max-w-4xl mx-auto text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <motion.div 
-            className="inline-block rounded-full px-4 py-2 bg-[#B08D57]/10 text-[#B08D57] text-sm font-medium mb-6 border border-[#B08D57]/20"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            Service Areas
-          </motion.div>
-          
-          <motion.h2 
-            className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            Where I Provide Care
-          </motion.h2>
-          
-          <motion.p 
-            className="text-slate-600 leading-relaxed text-lg"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
-            Serving communities across the Greater Toronto Area with dedicated physiotherapy care.
-          </motion.p>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+            Where I <span className="text-[#B08D57]">Provide Care</span>
+          </h2>
+          <div className="w-32 h-0.5 bg-gradient-to-r from-transparent via-[#B08D57] to-transparent mx-auto mb-8"></div>
+          <p className="text-xl lg:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-light">
+            Serving communities across the Greater Toronto Area with dedicated physiotherapy care
+          </p>
         </motion.div>
 
-        {/* Clean hero image section */}
-        <motion.div
-          initial={isMounted ? { opacity: 0, y: 20 } : { opacity: 1, y: 0 }}
-          whileInView={isMounted ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          viewport={{ once: true, margin: "50px" }}
-          className="relative w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-xl mb-16 aspect-[16/7]"
-        >
-          <Image
-            src="/images/facebook-image.jpg"
-            alt="Kareem Hassanein physiotherapy clinic Burlington location, serving Waterdown, Oakville, Hamilton with manual therapy, dry needling, sports rehabilitation"
-            fill
-            className="object-cover object-center"
-            style={{ 
-              filter: 'brightness(1.1) contrast(1.1)',
-            }}
-            priority={true}
-          />
-          
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-800/30 to-transparent"></div>
-          
-          <div className="absolute inset-0 flex flex-col justify-end p-8 lg:p-12 text-white z-10">
-            <div className="max-w-3xl">
-              <div className="inline-block bg-[#B08D57] text-white text-sm uppercase tracking-wider px-4 py-2 rounded-full mb-4">
-                Centrally Located
-              </div>
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 text-white">
-                Easy access from surrounding communities
-              </h3>
-              <p className="text-white/90 text-lg md:text-xl max-w-2xl">
-                Conveniently positioned at 4631 Palladium Wy Unit 6, Burlington, ON L7M 0W9
-              </p>
-            </div>
-          </div>
-        </motion.div>
 
-        {/* Clean cards layout */}
-        <div ref={ref} className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8 -mt-12">
-            {/* Practice Location */}
+        {/* Cards Grid - Modern Design */}
+        <div ref={ref} className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-3 gap-8">
+            {/* Practice Location Card */}
             <motion.div 
-              initial="hidden"
-              animate={isMounted && isVisible ? "visible" : "hidden"}
-              transition={{ delay: 0, duration: 0.3 }}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="group"
             >
-              <div className="p-8 flex flex-col flex-grow">
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-xl flex items-center justify-center mr-4">
-                    <FaMapMarkerAlt className="h-6 w-6 text-white" />
+              <div className="bg-white rounded-2xl p-8 h-full shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#B08D57]/20 transform hover:-translate-y-1">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-14 h-14 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl flex items-center justify-center shadow-lg">
+                    <MapPinIcon className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900">Practice Location</h3>
+                  <h3 className="text-2xl font-bold text-slate-900">Practice Location</h3>
                 </div>
                 
-                <p className="text-slate-800 font-semibold mb-2">
-                  4631 Palladium Wy Unit 6, Burlington, ON L7M 0W9
-                </p>
-                
-                <p className="text-slate-600 mb-6 text-sm leading-relaxed flex-grow">
-                  Strategically positioned for convenient access from Burlington, North Burlington, Waterdown, Oakville, and Hamilton.
-                </p>
+                <div className="space-y-4 mb-8">
+                  <p className="text-slate-800 font-semibold text-lg">
+                    4631 Palladium Wy Unit 6
+                  </p>
+                  <p className="text-slate-700 font-medium -mt-2">
+                    Burlington, ON L7M 0W9
+                  </p>
+                  <p className="text-slate-600 leading-relaxed">
+                    Strategically positioned for convenient access from Burlington, North Burlington, Waterdown, Oakville, and Hamilton.
+                  </p>
+                </div>
                 
                 <Link 
                   href="https://maps.app.goo.gl/JC7uKnd9zW4AJPP49" 
                   target="_blank"
-                  className="inline-flex items-center justify-center text-white bg-[#B08D57] hover:bg-[#D4AF37] px-6 py-3 rounded-xl transition-colors duration-300 font-medium w-full"
+                  className="inline-flex items-center justify-center gap-2 w-full bg-[#B08D57] hover:bg-[#D4AF37] text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl group"
                 >
-                  Get Directions <FaMapMarkerAlt className="ml-2 h-4 w-4" />
+                  <span>Get Directions</span>
+                  <ArrowTopRightOnSquareIcon className="w-5 h-5 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </Link>
               </div>
             </motion.div>
             
-            {/* Communities Served */}
+            {/* Communities Served Card */}
             <motion.div 
-              initial="hidden"
-              animate={isMounted && isVisible ? "visible" : "hidden"}
-              transition={{ delay: 0.1, duration: 0.3 }}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="group"
             >
-              <div className="p-8 flex flex-col flex-grow">
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-xl flex items-center justify-center mr-4">
-                    <FaCity className="h-6 w-6 text-white" />
+              <div className="bg-white rounded-2xl p-8 h-full shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#B08D57]/20 transform hover:-translate-y-1">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-14 h-14 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl flex items-center justify-center shadow-lg">
+                    <BuildingOfficeIcon className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900">Communities I Serve</h3>
+                  <h3 className="text-2xl font-bold text-slate-900">Communities I Serve</h3>
                 </div>
                 
-                <ul className="space-y-3 text-sm flex-grow mb-6">
+                <div className="space-y-4 mb-8">
+                  <p className="text-slate-600 text-sm mb-4">Conveniently serving patients from:</p>
                   {areas.map((area, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <area.icon className="h-4 w-4 text-[#B08D57] mt-1 flex-shrink-0" />
-                      <div>
-                        <span className="font-semibold text-slate-800">{area.name}</span>
-                        <p className="text-slate-600 text-xs mt-1">{area.details}</p>
+                    <div key={index} className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-[#B08D57] rounded-full flex-shrink-0 mt-1.5"></div>
+                      <div className="flex-1">
+                        <h4 className="font-semibold text-slate-800">{area.name}</h4>
+                        <p className="text-slate-600 text-sm">{area.details}</p>
                       </div>
-                    </li>
+                    </div>
                   ))}
-                </ul>
+                </div>
                 
-                <div className="pt-4 border-t border-slate-100 text-xs text-slate-600">
-                  I also welcome patients from Milton, Flamborough, Dundas, Ancaster, and Aldershot areas.
+                <div className="pt-6 border-t border-gray-100">
+                  <p className="text-sm text-slate-600 leading-relaxed">
+                    I also welcome patients from Milton, Flamborough, Dundas, Ancaster, and Aldershot areas.
+                  </p>
                 </div>
               </div>
             </motion.div>
             
-            {/* Operating Hours */}
+            {/* Operating Hours Card */}
             <motion.div 
-              initial="hidden"
-              animate={isMounted && isVisible ? "visible" : "hidden"}
-              transition={{ delay: 0.2, duration: 0.3 }}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="group"
             >
-              <div className="p-8 flex flex-col flex-grow">
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-xl flex items-center justify-center mr-4">
-                    <FaClock className="h-6 w-6 text-white" />
+              <div className="bg-white rounded-2xl p-8 h-full shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#B08D57]/20 transform hover:-translate-y-1">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-14 h-14 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl flex items-center justify-center shadow-lg">
+                    <ClockIcon className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900">Operating Hours</h3>
+                  <h3 className="text-2xl font-bold text-slate-900">Operating Hours</h3>
                 </div>
                 
-                <div className="space-y-3 flex-grow mb-8">
+                <div className="space-y-4 mb-8">
                   {hoursData.map((item, index) => (
-                    <div key={index} className="flex justify-between items-center text-sm pb-2 border-b border-slate-100 last:border-0">
+                    <div key={index} className="flex justify-between items-center py-3 border-b border-gray-100 last:border-0">
                       <span className="font-medium text-slate-800">{item.day}</span>
                       <span className="text-slate-600">{item.hours}</span>
                     </div>
                   ))}
                 </div>
                 
-                <a
-                  href="https://endorphinshealth.janeapp.com/#/staff_member/42"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center bg-[#B08D57] hover:bg-[#D4AF37] text-white px-6 py-3 rounded-xl font-medium transition-colors duration-300 w-full"
-                >
-                  <FaCalendarAlt className="mr-2 h-4 w-4" /> Book Your Appointment
-                </a>
+                <div className="space-y-3">
+                  <a
+                    href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 w-full bg-[#B08D57] hover:bg-[#D4AF37] text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
+                  >
+                    <CalendarIcon className="w-5 h-5" />
+                    <span>Book Your Appointment</span>
+                  </a>
+                  
+                  <a
+                    href="tel:+19056346000"
+                    className="inline-flex items-center justify-center gap-2 w-full bg-white hover:bg-gray-50 text-slate-800 px-6 py-4 rounded-xl font-semibold transition-all duration-300 border-2 border-gray-200 hover:border-[#B08D57]/30"
+                  >
+                    <PhoneIcon className="w-5 h-5" />
+                    <span>905-634-6000</span>
+                  </a>
+                </div>
               </div>
             </motion.div>
-          </div>
-          
-          {/* Mobile call button */}
-          <div className="mt-8 md:hidden">
-            <Link 
-              href="tel:+19056346000" 
-              className="inline-flex items-center justify-center text-white bg-slate-800 hover:bg-slate-700 px-6 py-4 rounded-xl transition-colors duration-300 font-medium w-full"
-            >
-              <FaPhoneAlt className="h-4 w-4 mr-2" />
-              Call Me at 905-634-6000
-            </Link>
           </div>
         </div>
       </div>

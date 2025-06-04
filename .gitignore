@@ -49,3 +49,7 @@ yarn-error.log*
 # Typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Google Reviews Components (temporary)
+/components/sections/GoogleReviews*.tsx
+/app/api/google-reviews/

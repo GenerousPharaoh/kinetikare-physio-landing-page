@@ -115,7 +115,7 @@ const faqCategories: FAQCategory[] = [
       },
       {
         question: `Do you give exercises? What if I struggle to keep up with them?`,
-        answer: `Yes, targeted exercise is often key. I focus on quality over quantity, ensuring you understand the exercises and feel comfortable performing them. If you struggle, we modify the plan together. Your feedback is crucial.`
+        answer: `Yes. Targeted exercise is often key. I focus on quality over quantity, ensuring you understand the exercises and feel comfortable performing them. If you struggle, we modify the plan together. Your feedback is crucial.`
       },
       {
         question: `Is physiotherapy treatment painful?`,
@@ -196,7 +196,7 @@ const faqCategories: FAQCategory[] = [
     questions: [
       {
         question: `Do you offer direct billing to insurance companies?`,
-        answer: `Yes, direct billing is offered for most major extended health insurance providers. Please bring your insurance card/information (policy and group numbers) to your first appointment, and direct billing can typically be processed for you at the clinic. If you have questions about the process, please do not hesitate to ask, but remember to check with your insurer about your specific coverage details.`
+        answer: `Yes. Direct billing is offered for most major extended health insurance providers. Please bring your insurance card/information (policy and group numbers) to your first appointment, and direct billing can typically be processed for you at the clinic. If you have questions about the process, please do not hesitate to ask, but remember to check with your insurer about your specific coverage details.`
       }
     ]
   }

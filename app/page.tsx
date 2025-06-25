@@ -133,7 +133,7 @@ const personSchema = {
     },
     {
       "@type": "EducationalOccupationalCredential", 
-      "name": "CAMPT Level 2 Certification",
+      "name": "Advanced Integrated Musculoskeletal (AIM) Physiotherapy Program Level 2 Upper and Lower",
       "credentialCategory": "certificate",
       "recognizedBy": {
         "@type": "Organization",

@@ -208,7 +208,7 @@ export default function ConditionsPageClient({
 
                     {/* Conditions Grid - Clean Design */}
                     <div className="p-6 lg:p-10">
-                      <div className="grid md:grid-cols-2 gap-4">
+                      <div className="grid md:grid-cols-2 gap-4 items-stretch">
                           {conditionCategories[activeTab].conditions.map((condition, index) => {
                             const parts = condition.split('(');
                             const mainCondition = parts[0].trim();
@@ -222,7 +222,7 @@ export default function ConditionsPageClient({
                                 transition={{ delay: index * 0.02, duration: 0.3 }}
                                 className="group"
                               >
-                                <div className="p-5 rounded-xl bg-slate-50 border border-slate-200 hover:border-[#B08D57]/30 hover:bg-white hover:shadow-lg transition-all duration-300">
+                                <div className="p-5 rounded-xl bg-slate-50 border border-slate-200 hover:border-[#B08D57]/30 hover:bg-white hover:shadow-lg transition-all duration-300 h-full min-h-[100px]">
                                   <div className="flex items-start gap-3">
                                     <CheckCircleIcon className="w-5 h-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
                                     <div className="flex-1">

@@ -62,7 +62,7 @@ export default function ConditionsPageClient({
   ];
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-white to-slate-50">
+    <main className="bg-gradient-to-b from-white to-slate-50">
       {/* Enhanced Hero Section */}
       <section className="relative py-16 lg:py-20 overflow-hidden">
         {/* Background Elements */}
@@ -109,33 +109,31 @@ export default function ConditionsPageClient({
       </section>
 
       {/* Main Content with Enhanced Tabbed Interface */}
-      <section className="pt-0 pb-20 relative">
+      <section className="pt-0 pb-12 relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* Enhanced Navigation Tabs */}
-          <div className="sticky top-0 z-20 bg-white/80 backdrop-blur-xl shadow-sm py-4 mb-8">
-            <div className="max-w-4xl mx-auto">
-              <div className="flex gap-2 overflow-x-auto scrollbar-hide px-2 -mx-2">
-                {quickNavItems.map((item, index) => (
-                  <button
-                    key={item.name}
-                    onClick={() => setActiveTab(item.tab)}
-                    className={`relative px-4 py-2 rounded-lg font-medium text-sm whitespace-nowrap transition-all duration-300 flex-shrink-0 ${
-                      activeTab === item.tab
-                        ? 'text-white'
-                        : 'text-slate-600 hover:text-slate-900 bg-white hover:bg-slate-50 shadow-sm border border-slate-200'
-                    }`}
-                  >
-                    {activeTab === item.tab && (
-                      <motion.div
-                        layoutId="activeTab"
-                        className="absolute inset-0 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-lg shadow-lg"
-                        transition={{ duration: 0.3 }}
-                      />
-                    )}
-                    <span className="relative z-10">{item.name}</span>
-                  </button>
-                ))}
-              </div>
+          <div className="max-w-6xl mx-auto mb-12">
+            <div className="flex flex-wrap justify-center gap-3">
+              {quickNavItems.map((item, index) => (
+                <button
+                  key={item.name}
+                  onClick={() => setActiveTab(item.tab)}
+                  className={`relative px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 ${
+                    activeTab === item.tab
+                      ? 'text-white shadow-lg scale-105'
+                      : 'text-slate-700 bg-white hover:bg-slate-50 shadow-md hover:shadow-lg border border-slate-200 hover:border-[#B08D57]/20'
+                  }`}
+                >
+                  {activeTab === item.tab && (
+                    <motion.div
+                      layoutId="activeTab"
+                      className="absolute inset-0 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-xl"
+                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                    />
+                  )}
+                  <span className="relative z-10">{item.name}</span>
+                </button>
+              ))}
             </div>
           </div>
 
@@ -144,26 +142,42 @@ export default function ConditionsPageClient({
             {searchQuery ? (
               // Search Results View
               <div className="space-y-8">
-                <h2 className="text-2xl font-bold text-slate-900 mb-6">
-                  Search Results for "{searchQuery}"
-                </h2>
+                <div className="text-center mb-8">
+                  <h2 className="text-2xl font-bold text-slate-900">
+                    Search Results for "{searchQuery}"
+                  </h2>
+                  <p className="text-slate-600 mt-2">
+                    {filteredCategories.reduce((acc, cat) => acc + cat.conditions.length, 0)} conditions found
+                  </p>
+                </div>
                 {filteredCategories.length === 0 ? (
-                  <div className="text-center py-12">
+                  <div className="text-center py-12 bg-white rounded-2xl shadow-md">
                     <p className="text-slate-600">No conditions found matching your search.</p>
                   </div>
                 ) : (
                   filteredCategories.map((category) => (
-                    <div key={category.title} className="bg-slate-50 rounded-2xl p-8">
-                      <h3 className={`text-2xl font-bold mb-6 ${category.textGradient}`}>
+                    <div key={category.title} className="bg-white rounded-2xl shadow-md border border-slate-100 p-8">
+                      <h3 className="text-2xl font-bold mb-6 text-slate-900">
                         {category.title}
                       </h3>
                       <div className="grid md:grid-cols-2 gap-4">
-                        {category.conditions.map((condition, index) => (
-                          <div key={index} className="flex items-start space-x-3">
-                            <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57] mt-2 flex-shrink-0" />
-                            <span className="text-slate-700">{condition}</span>
-                          </div>
-                        ))}
+                        {category.conditions.map((condition, index) => {
+                          const parts = condition.split('(');
+                          const mainCondition = parts[0].trim();
+                          const details = parts.length > 1 ? `(${parts.slice(1).join('(')}` : '';
+                          
+                          return (
+                            <div key={index} className="flex items-start gap-3 p-4 rounded-lg bg-slate-50 hover:bg-slate-100 transition-colors">
+                              <CheckCircleIcon className="w-5 h-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
+                              <div>
+                                <span className="font-medium text-slate-900">{mainCondition}</span>
+                                {details && (
+                                  <span className="text-sm text-slate-600 block mt-0.5">{details}</span>
+                                )}
+                              </div>
+                            </div>
+                          );
+                        })}
                       </div>
                     </div>
                   ))
@@ -178,29 +192,23 @@ export default function ConditionsPageClient({
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                  className="relative"
                 >
-                  {/* Modern Card Design */}
-                  <div className="relative">
-                    {/* Background Decoration */}
-                    <div className="absolute -inset-4 bg-gradient-to-r from-[#B08D57]/20 via-[#D4AF37]/10 to-[#B08D57]/20 rounded-3xl blur-2xl opacity-50"></div>
-                    
-                    <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden">
-                      {/* Header Section */}
-                      <div className="bg-gradient-to-br from-slate-50 to-white px-8 lg:px-12 pt-10 pb-8 border-b border-slate-100">
-                        <div className="text-center">
-                          
-                          <h2 className="text-3xl lg:text-4xl font-bold mb-3 text-slate-900">
-                            {conditionCategories[activeTab].title}
-                          </h2>
-                          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                            {conditionCategories[activeTab].subtitle}
-                          </p>
-                        </div>
-                      </div>
+                  {/* Clean Card Design without overflow issues */}
+                  <div className="bg-white rounded-2xl shadow-xl border border-slate-100">
+                    {/* Header Section */}
+                    <div className="text-center px-6 py-8 border-b border-slate-100">
+                      <h2 className="text-3xl lg:text-4xl font-bold mb-3 text-slate-900">
+                        {conditionCategories[activeTab].title}
+                      </h2>
+                      <p className="text-lg text-slate-600">
+                        {conditionCategories[activeTab].subtitle}
+                      </p>
+                    </div>
 
-                      {/* Conditions Grid - Enhanced Design */}
-                      <div className="p-8 lg:p-12">
-                        <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
+                    {/* Conditions Grid - Clean Design */}
+                    <div className="p-6 lg:p-10">
+                      <div className="grid md:grid-cols-2 gap-4">
                           {conditionCategories[activeTab].conditions.map((condition, index) => {
                             const parts = condition.split('(');
                             const mainCondition = parts[0].trim();
@@ -209,22 +217,20 @@ export default function ConditionsPageClient({
                             return (
                               <motion.div
                                 key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: index * 0.03 }}
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ delay: index * 0.02, duration: 0.3 }}
                                 className="group"
                               >
-                                <div className="relative bg-gradient-to-br from-slate-50 to-white rounded-2xl p-6 border border-slate-200/50 h-full">
+                                <div className="p-5 rounded-xl bg-slate-50 border border-slate-200 hover:border-[#B08D57]/30 hover:bg-white hover:shadow-lg transition-all duration-300">
                                   <div className="flex items-start gap-3">
-                                    <div className="mt-2 flex-shrink-0">
-                                      <div className="w-2 h-2 rounded-full bg-gradient-to-br from-[#B08D57] to-[#D4AF37]"></div>
-                                    </div>
+                                    <CheckCircleIcon className="w-5 h-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
                                     <div className="flex-1">
-                                      <h4 className="font-bold text-slate-900 text-lg">
+                                      <h4 className="font-semibold text-slate-900">
                                         {mainCondition}
                                       </h4>
                                       {details && (
-                                        <p className="text-sm text-slate-600 mt-1 leading-relaxed">
+                                        <p className="text-sm text-slate-600 mt-1">
                                           {details}
                                         </p>
                                       )}
@@ -235,7 +241,6 @@ export default function ConditionsPageClient({
                             );
                           })}
                         </div>
-                      </div>
                     </div>
                   </div>
                 </motion.div>

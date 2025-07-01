@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false, // Temporarily disabled to fix Framer Motion animations in dev
   swcMinify: true,
   
   // Add Deployment ID for version skew protection

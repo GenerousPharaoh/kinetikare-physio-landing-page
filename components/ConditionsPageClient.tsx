@@ -64,7 +64,7 @@ export default function ConditionsPageClient({
   return (
     <main className="bg-gradient-to-b from-white to-slate-50">
       {/* Enhanced Hero Section */}
-      <section className="relative py-16 lg:py-20 overflow-hidden">
+      <section className="relative py-16 lg:py-16 pb-8 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#B08D57]/10 to-transparent rounded-full blur-3xl"></div>

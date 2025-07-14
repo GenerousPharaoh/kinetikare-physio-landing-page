@@ -1,0 +1,31 @@
+/* Debug scrollbar issues */
+* {
+  outline: 1px solid red !important;
+}
+
+/* Show all scrollbars */
+*::-webkit-scrollbar {
+  width: 12px !important;
+  height: 12px !important;
+}
+
+*::-webkit-scrollbar-track {
+  background: #f1f1f1 !important;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #888 !important;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #555 !important;
+}
+
+/* Highlight elements with overflow */
+*[style*="overflow"] {
+  border: 3px solid blue !important;
+}
+
+.overflow-auto, .overflow-y-auto, .overflow-x-auto, .overflow-scroll {
+  border: 3px solid green !important;
+}

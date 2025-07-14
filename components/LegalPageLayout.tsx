@@ -14,7 +14,7 @@ export default function LegalPageLayout({ title, effectiveDate, children }: Lega
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       {/* Modern Header with KinetiKare branding */}
-      <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-black text-white py-12 md:py-16">
+      <section className="relative bg-black text-white py-12 md:py-16">
         {/* Subtle background pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
@@ -34,12 +34,12 @@ export default function LegalPageLayout({ title, effectiveDate, children }: Lega
               Back to Home
             </Link>
             
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight legal-page-title">
               {title}
             </h1>
             <div className="space-y-2 text-white/80">
               <p className="text-lg">
-                <span className="text-white/60">Effective Date:</span> {effectiveDate}
+                <span className="text-white/80">Effective Date:</span> <span className="text-white">{effectiveDate}</span>
               </p>
               <div className="pt-4 border-t border-white/20">
                 <p className="text-xl font-semibold text-white mb-1">Kareem Hassanein, Registered Physiotherapist</p>
@@ -61,6 +61,10 @@ export default function LegalPageLayout({ title, effectiveDate, children }: Lega
             <div className="prose prose-lg max-w-none">
               {/* Custom prose styling */}
               <style jsx global>{`
+                .legal-page-title {
+                  color: #ffffff !important;
+                }
+                
                 .legal-content h2 {
                   font-size: 1.75rem;
                   font-weight: 700;
@@ -95,7 +99,7 @@ export default function LegalPageLayout({ title, effectiveDate, children }: Lega
                 }
                 
                 .legal-content p {
-                  color: #1e293b;
+                  color: #334155;
                   line-height: 1.6;
                   margin-bottom: 0.5rem;
                 }
@@ -107,7 +111,7 @@ export default function LegalPageLayout({ title, effectiveDate, children }: Lega
                 }
                 
                 .legal-content li {
-                  color: #1e293b;
+                  color: #334155;
                   margin-bottom: 0.25rem;
                   position: relative;
                   padding-left: 0.5rem;
@@ -142,7 +146,7 @@ export default function LegalPageLayout({ title, effectiveDate, children }: Lega
                 }
                 
                 .legal-content strong {
-                  color: #1e293b;
+                  color: #0f172a;
                   font-weight: 600;
                 }
               `}</style>

@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 
 // Generate metadata using a function for more flexibility
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://physiotherapy-next.vercel.app'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://www.kinetikarephysio.com'),
   title: {
     default: 'KinetiKare Physiotherapy Burlington, Waterdown & Oakville | Kareem Hassanein',
     template: '%s | KinetiKare - Kareem Hassanein Physiotherapy',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     'Oakville',
     'Hamilton'
   ],
-  authors: [{ name: 'Kareem Hassanein', url: 'https://physiotherapy-next.vercel.app' }],
+  authors: [{ name: 'Kareem Hassanein', url: 'https://www.kinetikarephysio.com' }],
   creator: 'Kareem Hassanein',
   publisher: 'KinetiKare - Kareem Hassanein Physiotherapy',
   formatDetection: {
@@ -49,18 +49,18 @@ export const metadata: Metadata = {
   robots: 'index, follow',
   applicationName: 'KinetiKare Physiotherapy',
   alternates: {
-    canonical: 'https://physiotherapy-next.vercel.app',
+    canonical: 'https://www.kinetikarephysio.com',
   },
   openGraph: {
     type: 'website',
     locale: 'en_CA',
-    url: 'https://physiotherapy-next.vercel.app',
+    url: 'https://www.kinetikarephysio.com',
     title: 'KinetiKare - Kareem Hassanein Physiotherapy | Burlington, Waterdown & Oakville',
     description: 'KinetiKare Physiotherapy provides manual therapy, dry needling, and evidence-based rehabilitation in Burlington, Waterdown, and Oakville, Ontario. Led by Kareem Hassanein.',
     siteName: 'KinetiKare Physiotherapy',
     images: [
       {
-        url: 'https://physiotherapy-next.vercel.app/images/og-image.jpg',
+        url: 'https://www.kinetikarephysio.com/images/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'KinetiKare - Kareem Hassanein Physiotherapy Burlington Waterdown Oakville',
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'KinetiKare Physiotherapy | Kareem Hassanein',
     description: 'KinetiKare - Physiotherapy care in Burlington, Waterdown & Oakville, Ontario by Kareem Hassanein.',
-    images: ['https://physiotherapy-next.vercel.app/images/og-image.jpg'],
+    images: ['https://www.kinetikarephysio.com/images/og-image.jpg'],
   },
   other: {
     'theme-color': '#4A87A0',

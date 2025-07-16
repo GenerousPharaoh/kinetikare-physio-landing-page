@@ -217,7 +217,7 @@ export default function About() {
               {/* Professional Affiliations - Mobile */}
               <div className="bg-gradient-to-br from-slate-50 to-white p-6 rounded-2xl border border-neutral-200 shadow-lg mt-6">
                 <h3 className="text-lg font-bold mb-6 text-primary-800 border-b border-primary-200 pb-3 text-center">Professional Affiliations</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                   <Link 
                     href="https://physiotherapy.ca/" 
                     target="_blank" 
@@ -285,6 +285,21 @@ export default function About() {
                     <ClientImage
                       src="/images/endorphins-health-and-wellness-centre-logo.png"
                       alt="Endorphins Health & Wellness Centre"
+                      width={140}
+                      height={70}
+                      className="object-contain h-auto max-h-12 mx-auto"
+                    />
+                  </Link>
+                  
+                  <Link 
+                    href="https://headonphysio.ca/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block bg-white p-4 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300"
+                  >
+                    <ClientImage
+                      src="/images/headon-physio-logo-affiliations.png"
+                      alt="Headon Physio"
                       width={140}
                       height={70}
                       className="object-contain h-auto max-h-12 mx-auto"
@@ -420,6 +435,21 @@ export default function About() {
                       <ClientImage
                         src="/images/endorphins-health-and-wellness-centre-logo.png"
                         alt="Endorphins Health & Wellness Centre"
+                        width={140}
+                        height={70}
+                        className="object-contain h-auto max-h-14 mx-auto"
+                      />
+                    </Link>
+                    
+                    <Link 
+                      href="https://headonphysio.ca/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="block bg-white p-5 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300"
+                    >
+                      <ClientImage
+                        src="/images/headon-physio-logo-affiliations.png"
+                        alt="Headon Physio"
                         width={140}
                         height={70}
                         className="object-contain h-auto max-h-14 mx-auto"

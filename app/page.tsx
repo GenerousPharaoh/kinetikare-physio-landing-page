@@ -9,13 +9,14 @@ import ContactSection from '@/components/sections/ContactSection';
 // SEO Metadata for Homepage
 export const metadata: Metadata = {
   title: 'KinetiKare Physiotherapy | Kareem Hassanein | Burlington, Waterdown & Oakville',
-  description: 'KinetiKare Physiotherapy - Kareem Hassanein, Registered Physiotherapist in Burlington, Waterdown, and Oakville. KinetiKare offers one-on-one, dedicated care with personalized treatment for manual therapy, sports rehabilitation, and dry needling.',
+  description: 'KinetiKare Physio - KinetiKare Physiotherapy by Kareem Hassanein, Registered Physiotherapist in Burlington, Waterdown, and Oakville. KinetiKare Physio offers one-on-one, dedicated care with personalized treatment for manual therapy, sports rehabilitation, and dry needling.',
   keywords: [
     'KinetiKare',
     'Kinetikare',
+    'KinetiKare Physio',
+    'Kinetikare physio',
     'KinetiKare Physiotherapy',
     'Kinetikare physiotherapy',
-    'KinetiKare physio',
     'KinetiKare Burlington',
     'KinetiKare Waterdown',
     'KinetiKare Oakville',
@@ -119,7 +120,8 @@ const personSchema = {
   "worksFor": {
     "@type": "Organization",
     "@id": "https://www.kinetikarephysio.com/#organization",
-    "name": "KinetiKare Physiotherapy"
+    "name": "KinetiKare Physiotherapy",
+    "alternateName": ["KinetiKare Physio", "Kinetikare Physio"]
   },
   "hasCredential": [
     {
@@ -167,6 +169,8 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
     <main className="min-h-screen">
+      {/* SEO-optimized hidden heading for brand search */}
+      <h1 className="sr-only">KinetiKare Physio - KinetiKare Physiotherapy by Kareem Hassanein in Burlington, Waterdown, and Oakville</h1>
       <HeroSection />
       <AboutSection />
       <CareJourneySection />

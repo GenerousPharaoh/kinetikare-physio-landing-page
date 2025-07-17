@@ -68,11 +68,11 @@ const organizationSchema = {
   "@id": "https://www.kinetikarephysio.com/#organization",
   "name": "KinetiKare Physiotherapy",
   "legalName": "KinetiKare Physiotherapy - Kareem Hassanein",
-  "alternateName": ["Kareem Hassanein Physiotherapy", "KinetiKare Physio", "KH Physiotherapy"],
+  "alternateName": ["KinetiKare Physio", "Kinetikare Physio", "KinetiKare", "Kareem Hassanein Physiotherapy"],
   "brand": {
     "@type": "Brand",
     "name": "KinetiKare",
-    "alternateName": "KinetiKare Physiotherapy"
+    "alternateName": ["KinetiKare Physiotherapy", "KinetiKare Physio", "Kinetikare Physio"]
   },
   "image": "https://www.kinetikarephysio.com/images/kareem-profile.png",
   "logo": "https://www.kinetikarephysio.com/images/kinetikare-logo.png",
@@ -167,14 +167,14 @@ const brandSchema = {
   "@type": "Brand",
   "@id": "https://www.kinetikarephysio.com/#brand",
   "name": "KinetiKare",
-  "alternateName": ["KinetiKare Physiotherapy", "KinetiKare Physio"],
+  "alternateName": ["KinetiKare Physio", "Kinetikare Physio", "KinetiKare Physiotherapy", "Kinetikare Physiotherapy"],
   "logo": "https://www.kinetikarephysio.com/images/kinetikare-logo.png",
   "url": "https://www.kinetikarephysio.com",
   "sameAs": [
     "https://www.facebook.com/kinetikarephysio",
     "https://www.instagram.com/kinetikarephysio"
   ],
-  "description": "KinetiKare is a specialized physiotherapy practice offering manual therapy, dry needling, and rehabilitation services in Burlington, Waterdown, and Oakville, Ontario."
+  "description": "KinetiKare Physio (KinetiKare Physiotherapy) is a physiotherapy practice offering manual therapy, dry needling, and rehabilitation services in Burlington, Waterdown, and Oakville, Ontario."
 };
 
 // Website Schema for improved search presence

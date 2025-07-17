@@ -1,0 +1,45 @@
+
+> physiotherapy-next@1.0.0 dev
+> cross-env NODE_OPTIONS='--inspect' next dev -p 5001
+
+Debugger listening on ws://127.0.0.1:9229/0ee36cea-8870-4a1a-a512-68c557e7c2d5
+For help, see: https://nodejs.org/en/docs/inspector
+Debugger listening on ws://127.0.0.1:9230/8b2f7275-d87e-4f6c-af16-a10cfba8e6d3
+For help, see: https://nodejs.org/en/docs/inspector
+   the --inspect option was detected, the Next.js router server should be inspected at port 9230.
+  ▲ Next.js 14.2.29
+  - Local:        http://localhost:5001
+  - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 977ms
+(node:88269) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ○ Compiling / ...
+ ⚠ ./lib/web-vitals.ts
+Attempted import error: 'onFID' is not exported from 'web-vitals' (imported as 'onFID').
+
+Import trace for requested module:
+./lib/web-vitals.ts
+./components/WebVitals.tsx
+
+./lib/web-vitals.ts
+Attempted import error: 'onFID' is not exported from 'web-vitals' (imported as 'onFID').
+
+Import trace for requested module:
+./lib/web-vitals.ts
+./components/WebVitals.tsx
+ ⚠ ./lib/web-vitals.ts
+Attempted import error: 'onFID' is not exported from 'web-vitals' (imported as 'onFID').
+
+Import trace for requested module:
+./lib/web-vitals.ts
+./components/WebVitals.tsx
+
+./lib/web-vitals.ts
+Attempted import error: 'onFID' is not exported from 'web-vitals' (imported as 'onFID').
+
+Import trace for requested module:
+./lib/web-vitals.ts
+./components/WebVitals.tsx
+[?25h

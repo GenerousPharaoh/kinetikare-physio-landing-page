@@ -40,9 +40,9 @@ export default function Footer() {
   ];
 
   const businessHours = [
-    { day: 'Monday - Friday', hours: '2:00 PM - 8:00 PM' },
-    { day: 'Saturday', hours: 'Available upon request' },
-    { day: 'Sunday', hours: 'Closed' }
+    { day: 'Monday', hours: '1:30 PM - 8:00 PM' },
+    { day: 'Tuesday', hours: '1:30 PM - 8:00 PM' },
+    { day: 'Thursday', hours: '1:30 PM - 8:00 PM' }
   ];
 
   const socialLinks = [

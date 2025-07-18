@@ -222,14 +222,14 @@ export default function About() {
                     href="https://physiotherapy.ca/" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="block bg-white p-4 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300"
+                    className="flex items-center justify-center bg-white p-4 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300 h-24 sm:h-auto"
                   >
                     <ClientImage
                       src="/images/canadian-physio-association-logo.png"
                       alt="Canadian Physiotherapy Association"
                       width={140}
                       height={70}
-                      className="object-contain h-auto max-h-12 mx-auto filter contrast-110 brightness-105"
+                      className="object-contain h-full max-h-16 sm:max-h-12 w-auto mx-auto filter contrast-110 brightness-105"
                       style={{ 
                         filter: 'contrast(1.1) brightness(1.05) saturate(1.1) unsharp-mask(amount=1.5, radius=1, threshold=0)',
                         imageRendering: 'crisp-edges'
@@ -237,25 +237,25 @@ export default function About() {
                     />
                   </Link>
                   
-                  {/* Enhanced CPO section with verification link - Mobile */}
-                  <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300">
+                  {/* Enhanced CPO section - simplified for mobile */}
+                  <div className="flex flex-col bg-white rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300 h-24 sm:h-auto overflow-hidden">
                     <Link 
                       href="https://collegept.org/" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="block mb-3"
+                      className="flex items-center justify-center flex-1 p-4"
                     >
                       <ClientImage
                         src="/images/college-of-physiotherapists-of-ontario-logo.webp"
                         alt="College of Physiotherapists of Ontario"
                         width={140}
                         height={70}
-                        className="object-contain h-auto max-h-12 mx-auto"
+                        className="object-contain h-full max-h-16 sm:max-h-12 w-auto mx-auto"
                       />
                     </Link>
                     
-                    {/* Professional Verification Badge - Mobile */}
-                    <div className="mt-3 pt-3 border-t border-neutral-100">
+                    {/* Hide verification on mobile, show on desktop */}
+                    <div className="hidden sm:block mt-3 pt-3 px-4 pb-4 border-t border-neutral-100">
                       <div className="flex items-center justify-center gap-1.5 mb-2">
                         <svg className="w-3 h-3 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -280,14 +280,14 @@ export default function About() {
                     href="https://endorphinshealth.com/" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="block bg-white p-4 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300"
+                    className="flex items-center justify-center bg-white p-4 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300 h-24 sm:h-auto"
                   >
                     <ClientImage
                       src="/images/endorphins-health-and-wellness-centre-logo.png"
                       alt="Endorphins Health & Wellness Centre"
                       width={140}
                       height={70}
-                      className="object-contain h-auto max-h-12 mx-auto"
+                      className="object-contain h-full max-h-16 sm:max-h-12 w-auto mx-auto"
                     />
                   </Link>
                   
@@ -295,7 +295,7 @@ export default function About() {
                     href="https://headonphysio.ca/" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="block bg-white p-4 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300"
+                    className="flex items-center justify-center bg-white p-4 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300 h-24 sm:h-auto"
                   >
                     <ClientImage
                       src="/images/headon-physio-logo-affiliations.png"

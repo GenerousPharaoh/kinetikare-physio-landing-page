@@ -156,6 +156,11 @@ const personSchema = {
     "Waterdown, ON", 
     "Hamilton, ON",
     "Oakville, ON"
+  ],
+  "sameAs": [
+    "https://endorphinshealth.com/team/kareem-hassanein/",
+    "https://portal.collegept.org/en-US/public-register/display-member-contact/?id=757882d7-8c40-eb11-a813-000d3af427b4",
+    "https://www.linkedin.com/in/kareem-hassanein-physiotherapy"
   ]
 };
 

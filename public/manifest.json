@@ -1,11 +1,11 @@
 {
-  "name": "Physiotherapy Services",
-  "short_name": "Physio",
-  "description": "Modern physiotherapy services",
+  "name": "KinetiKare Physio - Kareem Hassanein",
+  "short_name": "KinetiKare",
+  "description": "Kareem Hassanein - Registered Physiotherapist in Burlington & Waterdown. Manual therapy, dry needling, and personalized rehabilitation.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#4f46e5",
+  "theme_color": "#B08D57",
   "icons": [
     {
       "src": "/icons/icon-192x192.svg",

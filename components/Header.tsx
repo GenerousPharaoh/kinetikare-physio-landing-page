@@ -258,7 +258,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
       <div className={`relative w-full bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 backdrop-blur-xl shadow-2xl transition-all duration-300 ${scrolled ? 'shadow-3xl' : ''}`}>
       
         {/* Premium golden accent line */}
-        <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-amber-400 to-transparent opacity-90"></div>
+        <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent opacity-90"></div>
       
         <div className="container mx-auto px-6 relative">
           <div className="flex items-center justify-between h-16">
@@ -304,13 +304,13 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                       onClick={(e) => handleNavClick(e, item.href)}
                   className={`relative text-sm font-medium tracking-wide transition-all duration-300 py-2 group whitespace-nowrap
                           ${isCurrentPath(item.href) 
-                      ? 'text-amber-400 font-semibold' 
-                      : 'text-white hover:text-amber-300'}`}
+                      ? 'text-[#D4AF37] font-semibold' 
+                      : 'text-white hover:text-[#D4AF37]'}`}
                 >
                   {item.name}
                   
                   {/* Underline indicator */}
-                  <span className={`absolute bottom-0 left-0 right-0 h-0.5 bg-amber-400 transform origin-left transition-all duration-300
+                  <span className={`absolute bottom-0 left-0 right-0 h-0.5 bg-[#D4AF37] transform origin-left transition-all duration-300
                         ${isCurrentPath(item.href) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}>
                       </span>
                     </Link>
@@ -330,7 +330,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               {/* Phone icon for smaller screens */}
               <Link
                 href="tel:+19056346000"
-                className="lg:hidden p-2.5 bg-white/10 hover:bg-white/20 text-white hover:text-amber-300 rounded-lg transition-all duration-300 border border-white/20"
+                className="lg:hidden p-2.5 bg-white/10 hover:bg-white/20 text-white hover:text-[#D4AF37] rounded-lg transition-all duration-300 border border-white/20"
               >
                 <PhoneIcon className="h-4 w-4" />
               </Link>
@@ -350,7 +350,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               type="button"
-                className="lg:hidden p-2 text-white hover:text-amber-300 transition-colors duration-300"
+                className="lg:hidden p-2 text-white hover:text-[#D4AF37] transition-colors duration-300"
               >
               {mobileMenuOpen ? (
                   <XMarkIcon className="h-6 w-6" />
@@ -363,7 +363,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
       </div>
 
         {/* Bottom accent line */}
-        <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-amber-400/60 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-transparent"></div>
       </div>
 
       {/* Mobile Menu */}
@@ -374,7 +374,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden bg-slate-900/95 backdrop-blur-xl border-b border-amber-400/30"
+            className="lg:hidden bg-slate-900/95 backdrop-blur-xl border-b border-[#D4AF37]/30"
         >
             <div className="px-6 py-4 space-y-1">
               {mainNavItems.map((item) => (
@@ -384,8 +384,8 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   onClick={(e) => handleNavClick(e, item.href)}
                   className={`block px-4 py-3 rounded-lg text-base font-medium tracking-wide transition-all duration-300 flex items-center gap-2
                       ${isCurrentPath(item.href) 
-                      ? 'text-amber-400 bg-amber-400/10 font-semibold' 
-                      : 'text-white hover:bg-white/5 hover:text-amber-300'}`}
+                      ? 'text-[#D4AF37] bg-[#D4AF37]/10 font-semibold' 
+                      : 'text-white hover:bg-white/5 hover:text-[#D4AF37]'}`}
                   >
                     {item.name}
                   </Link>

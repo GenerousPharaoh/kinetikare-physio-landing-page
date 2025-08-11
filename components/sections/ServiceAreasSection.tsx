@@ -15,10 +15,9 @@ export default function ServiceAreasSection() {
   }, []);
 
   const areas = [
-    "Burlington (Central & North)",
     "Waterdown",
-    "Oakville (North)",
-    "Hamilton (West)",
+    "Oakville",
+    "Hamilton",
     "Milton",
     "Flamborough",
     "Dundas",
@@ -144,18 +143,21 @@ export default function ServiceAreasSection() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900">Areas Served</h3>
+                  <h3 className="text-xl font-bold text-slate-900">Service Area</h3>
                 </div>
                 
-                <p className="text-slate-600 text-sm mb-4">Proudly serving patients from:</p>
-                
-                <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
-                  {areas.map((area, index) => (
-                    <div key={index} className="flex items-center gap-1">
-                      <span className="w-1 h-1 bg-[#B08D57] rounded-full"></span>
-                      <span className="text-slate-700">{area}</span>
-                    </div>
-                  ))}
+                <div className="space-y-3">
+                  <div>
+                    <p className="text-slate-800 font-semibold text-base mb-1">Burlington</p>
+                    <p className="text-slate-600 text-sm">Primary service area</p>
+                  </div>
+                  
+                  <div className="pt-3 border-t border-gray-100">
+                    <p className="text-slate-600 text-sm mb-2">Welcoming patients from:</p>
+                    <p className="text-slate-700 text-sm leading-relaxed">
+                      {areas.join(", ")} and surrounding areas
+                    </p>
+                  </div>
                 </div>
               </div>
             </motion.div>

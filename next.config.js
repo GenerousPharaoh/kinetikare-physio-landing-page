@@ -30,6 +30,16 @@ const nextConfig = {
   // SEO-friendly trailing slashes
   trailingSlash: false,
   
+  // Dynamic sitemap
+  async rewrites() {
+    return [
+      {
+        source: '/sitemap.xml',
+        destination: '/api/sitemap',
+      },
+    ];
+  },
+  
   // Headers for better SEO and performance
   async headers() {
     return [

@@ -86,37 +86,36 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gradient-to-b from-primary-900 to-primary-950 text-white pt-16 relative overflow-hidden">
+    <footer className="bg-gradient-to-b from-primary-900 to-primary-950 text-white pt-8 relative overflow-hidden">
       {/* Premium subtle background pattern */}
       <BackgroundTexture texture="noise" opacity={0.02} />
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent"></div>
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         {/* Main footer content with map */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 mb-6">
           
           {/* Column 1: Contact & Info (4 cols) */}
           <div className="md:col-span-1 lg:col-span-4 flex flex-col justify-between">
             <div>
-              <Link href="/" className="inline-block mb-6" aria-label="Return to homepage">
+              <Link href="/" className="inline-block mb-4" aria-label="Return to homepage">
                 <div className="flex items-center">
                   <Image
-                    src="/images/kareem-profile.png"
-                    alt="Kareem Hassanein registered physiotherapist Burlington Waterdown"
-                    width={60}
-                    height={60}
-                    className="rounded-full border-2 border-gold/50 mr-3 shadow-md shadow-gold/20"
+                    src="/images/kinetikare-logo-kareem-hassanein-physiotherapy-transparent.png"
+                    alt="KinetiKare Physiotherapy Logo"
+                    width={50}
+                    height={50}
+                    className="mr-3 opacity-90 hover:opacity-100 transition-opacity"
                   />
                   <div>
-                    <h3 className="font-heading text-xl text-white">KinetiKare <span className="text-gold">Physiotherapy</span></h3>
-                    <p className="text-xs text-white/90 font-medium">Kareem Hassanein</p>
-                    <p className="text-xs text-white/80">Registered Physiotherapist</p>
+                    <h3 className="font-heading text-lg text-white">KinetiKare <span className="text-gold">Physiotherapy</span></h3>
+                    <p className="text-xs text-white/80">Kareem Hassanein, MSc PT</p>
                   </div>
                 </div>
               </Link>
               
-              <div className="mb-8">
-                <h3 className="text-base font-semibold mb-4 text-white relative inline-flex">
+              <div className="mb-4">
+                <h3 className="text-sm font-semibold mb-3 text-white relative inline-flex">
                   <span className="relative z-10">Contact Information</span>
                   <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gold/60 rounded-full -z-10"></span>
                 </h3>
@@ -137,53 +136,38 @@ export default function Footer() {
               </div>
               
               <div>
-                <h3 className="text-base font-semibold mb-4 text-white relative inline-flex">
-                  <span className="relative z-10">Business Hours</span>
+                <h3 className="text-sm font-semibold mb-3 text-white relative inline-flex">
+                  <span className="relative z-10">Hours</span>
                   <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gold/60 rounded-full -z-10"></span>
                 </h3>
-                <ul className="space-y-3 text-white/90">
+                <ul className="space-y-2 text-white/90">
                   {businessHours.map((schedule) => (
-                    <li key={schedule.day} className="flex flex-col sm:flex-row sm:justify-between text-sm">
-                      <span className="font-medium mb-1 sm:mb-0">{schedule.day}</span>
-                      <span className="text-white bg-gold/30 px-2 py-1 rounded-md font-medium inline-block max-w-full shadow-sm">{schedule.hours}</span>
+                    <li key={schedule.day} className="flex justify-between text-sm">
+                      <span>{schedule.day}:</span>
+                      <span className="text-white/80">{schedule.hours}</span>
                     </li>
                   ))}
                 </ul>
               </div>
               
-              {/* Professional Registration Verification */}
-              <div className="mt-8">
-                <h3 className="text-base font-semibold mb-4 text-white relative inline-flex">
-                  <span className="relative z-10">Professional Registration</span>
-                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gold/60 rounded-full -z-10"></span>
-                </h3>
-                <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/10">
-                  <div className="flex items-center gap-2 mb-3">
-                    <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span className="text-sm font-medium text-green-400">CPO Registration Verified</span>
-                  </div>
-                  <Link
-                    href="https://portal.collegept.org/en-US/public-register/display-member-contact/?id=757882d7-8c40-eb11-a813-000d3af427b4"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-sm font-medium text-gold hover:text-gold/80 transition-colors duration-300"
-                  >
-                    <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                    Verify with College of Physiotherapists of Ontario
-                  </Link>
-                  <p className="text-xs text-white/70 mt-2">
-                    Independently verify my professional registration and credentials
-                  </p>
-                </div>
+              {/* Professional Registration Link - Simplified */}
+              <div className="mt-6">
+                <Link
+                  href="https://portal.collegept.org/en-US/public-register/display-member-contact/?id=757882d7-8c40-eb11-a813-000d3af427b4"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-xs text-gold hover:text-gold/80 transition-colors duration-300"
+                >
+                  <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  CPO Verified Registration
+                </Link>
               </div>
             </div>
             
             {/* Social links */}
-            <div className="mt-8 flex space-x-3">
+            <div className="mt-4 flex space-x-3">
               {socialLinks.map((social) => (
                 <a 
                   key={social.name}

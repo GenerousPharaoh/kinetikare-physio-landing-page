@@ -623,7 +623,7 @@ export default function About() {
                         <div className="flex-1 text-center sm:text-left">
                           <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-800 mb-3 sm:mb-4">Lived Experience</h4>
                           <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
-                            My practice is grounded in firsthand experience—both as a clinician and as someone who has personally worked through recovery. That perspective gives me a deep understanding of what meaningful care requires: attentiveness, respect, and a commitment to walking beside you every step of the way.
+                            My practice is grounded in firsthand experience, both as a clinician and as someone who has personally worked through recovery. That perspective gives me a deep understanding of what meaningful care requires: attentiveness, respect, and a commitment to walking beside you every step of the way.
                           </p>
                         </div>
                       </div>

@@ -255,85 +255,115 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
       }}
     >
       {/* Single Unified Navigation Bar */}
-      <div className={`relative w-full backdrop-blur-md transition-all duration-500 ${scrolled ? 'bg-white/95 shadow-lg' : 'bg-white/80 shadow-md'}`}>
+      <div className={`relative w-full bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 backdrop-blur-xl shadow-2xl transition-all duration-300 ${scrolled ? 'shadow-3xl' : ''}`}>
       
-        {/* Subtle golden accent line */}
-        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#B08D57]/40 to-transparent"></div>
+        {/* Premium golden accent line */}
+        <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent opacity-90"></div>
       
-        <div className="container mx-auto px-4 sm:px-6 relative">
-          <div className="flex items-center justify-between h-14">
+        <div className="container mx-auto px-6 relative">
+          <div className="flex items-center justify-between h-16">
             
-            {/* Logo Section - Simplified */}
+            {/* Logo Section */}
             <Link href="/" className="flex items-center space-x-3 group flex-shrink-0">
-              <Image
-                src="/images/kinetikare-logo-without-text.png"
-                alt="KinetiKare Physiotherapy"
-                width={32}
-                height={32}
-                className="w-8 h-8 object-contain transition-transform duration-300 group-hover:scale-105"
-              />
-              <div className="flex flex-col">
-                <span className="text-lg font-semibold text-slate-800 tracking-tight">KinetiKare</span>
-                <span className="text-xs text-slate-600 hidden sm:block">Physiotherapy</span>
+              <div className="flex items-center space-x-3">
+                <div className="relative flex items-center">
+                  <Image
+                    src="/images/kinetikare-logo-without-text.png"
+                    alt="KinetiKare physiotherapy logo Burlington Waterdown Kareem Hassanein"
+                    width={28}
+                    height={28}
+                    className="w-7 h-7 object-contain transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"
+                    style={{
+                      filter: 'contrast(1.2) saturate(1.3) brightness(1.1) drop-shadow(0 1px 3px rgba(255, 255, 255, 0.1))',
+                      imageRendering: 'crisp-edges'
+                    }}
+                  />
+                  {/* Subtle glow effect */}
+                  <div className="absolute inset-0 w-7 h-7 bg-white/10 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div className="flex items-center">
+                  <span className="font-serif text-xl xl:text-2xl text-white tracking-wide font-light">Kineti</span>
+                  <span className="font-serif text-xl xl:text-2xl text-white/90 tracking-wide font-semibold">K</span>
+                  <span className="font-serif text-xl xl:text-2xl text-white tracking-wide font-light">are</span>
+                </div>
               </div>
-            </Link>
+              <div className="hidden lg:block w-px h-5 bg-white/20 mx-3"></div>
+              <div className="hidden lg:flex flex-col justify-center" style={{ marginTop: '2px' }}>
+                <div className="text-xs xl:text-sm text-white/70 font-medium leading-tight">
+                  Kareem Hassanein Physiotherapy
+              </div>
+            </div>
+          </Link>
 
             {/* Navigation */}
-            <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2 flex-shrink-0">
+            <nav className="hidden lg:flex items-center space-x-4 xl:space-x-8 flex-shrink-0">
               {mainNavItems.map((item) => (
                 <Link
                   key={item.name}
-                  href={item.href}
-                  onClick={(e) => handleNavClick(e, item.href)}
-                  className={`relative text-sm font-medium transition-all duration-300 px-4 py-2 rounded-lg group whitespace-nowrap
-                    ${isCurrentPath(item.href) 
-                      ? 'text-[#B08D57] bg-[#B08D57]/10' 
-                      : 'text-slate-700 hover:text-[#B08D57] hover:bg-slate-50'}`}
+                      href={item.href}
+                      onClick={(e) => handleNavClick(e, item.href)}
+                  className={`relative text-sm font-medium tracking-wide transition-all duration-300 py-2 group whitespace-nowrap
+                          ${isCurrentPath(item.href) 
+                      ? 'text-[#D4AF37] font-semibold' 
+                      : 'text-white hover:text-[#D4AF37]'}`}
                 >
                   {item.name}
-                </Link>
+                  
+                  {/* Underline indicator */}
+                  <span className={`absolute bottom-0 left-0 right-0 h-0.5 bg-[#D4AF37] transform origin-left transition-all duration-300
+                        ${isCurrentPath(item.href) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}>
+                      </span>
+                    </Link>
               ))}
-            </nav>
+          </nav>
 
             {/* Action Buttons */}
-            <div className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
+            <div className="flex items-center space-x-3 xl:space-x-4 flex-shrink-0">
               <Link
                 href="tel:+19056346000"
-                className="hidden lg:flex items-center text-sm text-slate-600 hover:text-[#B08D57] transition-colors duration-300"
+                className="hidden lg:flex items-center text-sm font-medium tracking-wide text-white/80 hover:text-white transition-colors duration-300 whitespace-nowrap"
               >
-                <PhoneIcon className="h-4 w-4 mr-2" />
+                <PhoneIcon className="h-4 w-4 xl:mr-2" />
                 <span className="hidden xl:inline">905-634-6000</span>
+              </Link>
+
+              {/* Phone icon for smaller screens */}
+              <Link
+                href="tel:+19056346000"
+                className="lg:hidden p-2.5 bg-white/10 hover:bg-white/20 text-white hover:text-[#D4AF37] rounded-lg transition-all duration-300 border border-white/20"
+              >
+                <PhoneIcon className="h-4 w-4" />
               </Link>
 
               <Link
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#B08D57] hover:bg-[#997A4A] text-white text-sm font-medium px-4 py-2 rounded-lg transition-all duration-300 flex items-center gap-2 whitespace-nowrap shadow-sm hover:shadow-md"
+                className="bg-[#D4AF37] hover:bg-[#C8A52E] text-slate-900 text-sm font-semibold tracking-wide px-3 xl:px-5 py-2.5 rounded-lg transition-all duration-300 flex items-center gap-2 whitespace-nowrap shadow-lg hover:shadow-xl"
               >
                 <CalendarDaysIcon className="h-4 w-4" />
-                <span className="hidden sm:inline">Book Now</span>
+                <span className="hidden sm:inline">Book Appointment</span>
                 <span className="sm:hidden">Book</span>
               </Link>
 
-              {/* Mobile Menu Button */}
-              <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                type="button"
-                className="lg:hidden p-2 text-slate-700 hover:text-[#B08D57] transition-colors duration-300"
+          {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              type="button"
+                className="lg:hidden p-2 text-white hover:text-[#D4AF37] transition-colors duration-300"
               >
-                {mobileMenuOpen ? (
-                  <XMarkIcon className="h-5 w-5" />
-                ) : (
-                  <Bars3Icon className="h-5 w-5" />
-                )}
-              </button>
+              {mobileMenuOpen ? (
+                  <XMarkIcon className="h-6 w-6" />
+              ) : (
+                  <Bars3Icon className="h-6 w-6" />
+              )}
+            </button>
           </div>
         </div>
       </div>
 
-        {/* Bottom border */}
-        <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+        {/* Bottom accent line */}
+        <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-transparent"></div>
       </div>
 
       {/* Mobile Menu */}
@@ -344,7 +374,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden bg-white/95 backdrop-blur-md border-b border-slate-200"
+            className="lg:hidden bg-slate-900/95 backdrop-blur-xl border-b border-[#D4AF37]/30"
         >
             <div className="px-6 py-4 space-y-1">
               {mainNavItems.map((item) => (
@@ -352,33 +382,33 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   key={item.name}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className={`block px-4 py-3 rounded-lg text-base font-medium transition-all duration-300
-                    ${isCurrentPath(item.href) 
-                      ? 'text-[#B08D57] bg-[#B08D57]/10' 
-                      : 'text-slate-700 hover:bg-slate-50 hover:text-[#B08D57]'}`}
+                  className={`block px-4 py-3 rounded-lg text-base font-medium tracking-wide transition-all duration-300 flex items-center gap-2
+                      ${isCurrentPath(item.href) 
+                      ? 'text-[#D4AF37] bg-[#D4AF37]/10 font-semibold' 
+                      : 'text-white hover:bg-white/5 hover:text-[#D4AF37]'}`}
                   >
                     {item.name}
                   </Link>
               ))}
             </div>
             
-            <div className="px-6 pb-4 border-t border-slate-200 pt-4">
+            <div className="px-6 pb-4 border-t border-white/10 pt-4">
               <div className="flex gap-3">
-                <Link
-                  href="tel:+19056346000"
-                  className="flex items-center justify-center gap-2 py-2.5 px-4 bg-slate-100 text-slate-700 rounded-lg font-medium border border-slate-200 hover:bg-slate-200 transition-all duration-300"
+              <Link
+                href="tel:+19056346000"
+                  className="flex items-center justify-center gap-2 py-3 px-4 bg-white/10 text-white rounded-lg font-semibold tracking-wide border border-white/20 hover:bg-white/15 transition-all duration-300"
                 >
-                  <PhoneIcon className="h-4 w-4" />
+                  <PhoneIcon className="h-5 w-5" />
                   Call
-                </Link>
+              </Link>
                 
-                <Link
-                  href="https://endorphinshealth.janeapp.com/#/staff_member/42"
-                  target="_blank"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="flex-1 flex items-center justify-center gap-2 py-2.5 bg-[#B08D57] text-white rounded-lg font-medium shadow-sm"
-                >
-                  <CalendarDaysIcon className="h-4 w-4" />
+              <Link
+                href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                target="_blank"
+                onClick={() => setMobileMenuOpen(false)}
+                  className="flex-1 flex items-center justify-center gap-2 py-3 bg-[#D4AF37] text-slate-900 rounded-lg font-semibold tracking-wide shadow-lg"
+              >
+                  <CalendarDaysIcon className="h-5 w-5" />
                   Book Appointment
                 </Link>
                 </div>

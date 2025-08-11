@@ -99,17 +99,17 @@ export default function Footer() {
           <div className="md:col-span-1 lg:col-span-4 flex flex-col justify-between">
             <div>
               <Link href="/" className="inline-block mb-4" aria-label="Return to homepage">
-                <div className="flex items-center">
+                <div className="flex items-center gap-4">
                   <Image
                     src="/images/kinetikare-logo-kareem-hassanein-physiotherapy-transparent.png"
                     alt="KinetiKare Physiotherapy Logo"
-                    width={50}
-                    height={50}
-                    className="mr-3 opacity-90 hover:opacity-100 transition-opacity"
+                    width={70}
+                    height={70}
+                    className="opacity-90 hover:opacity-100 transition-opacity"
                   />
                   <div>
-                    <h3 className="font-heading text-lg text-white">KinetiKare <span className="text-gold">Physiotherapy</span></h3>
-                    <p className="text-xs text-white/80">Kareem Hassanein, MSc PT</p>
+                    <h3 className="font-heading text-xl text-white">KinetiKare <span className="text-gold">Physiotherapy</span></h3>
+                    <p className="text-sm text-white/80 mt-1">Kareem Hassanein, Registered Physiotherapist</p>
                   </div>
                 </div>
               </Link>

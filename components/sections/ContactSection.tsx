@@ -33,7 +33,7 @@ export default function ContactSection() {
   const { ref: areasRef, containerVariants, itemVariants } = useStaggeredAnimation({ delay: 0, duration: 0.2 });
 
   const serviceAreas = [
-    "Burlington", "Waterdown", "Oakville", "Milton", "Hamilton", 
+    "Waterdown", "Oakville", "Milton", "Hamilton", 
     "Flamborough", "Dundas", "Ancaster", "Aldershot"
   ];
 
@@ -138,9 +138,18 @@ export default function ContactSection() {
                     <div className="min-w-0 flex-1">
                       <h4 className="text-base sm:text-lg font-bold text-slate-900 mb-2">Hours</h4>
                       <div className="space-y-1">
-                        <p className="text-slate-800 font-semibold text-sm sm:text-base">Monday:   1:30 PM - 8:00 PM</p>
-                        <p className="text-slate-800 font-semibold text-sm sm:text-base">Tuesday:  1:30 PM - 8:00 PM</p>
-                        <p className="text-slate-800 font-semibold text-sm sm:text-base">Thursday: 1:30 PM - 8:00 PM</p>
+                        <div className="flex justify-between text-sm sm:text-base">
+                          <span className="text-slate-700">Monday:</span>
+                          <span className="text-slate-800 font-semibold">1:30 PM - 8:00 PM</span>
+                        </div>
+                        <div className="flex justify-between text-sm sm:text-base">
+                          <span className="text-slate-700">Tuesday:</span>
+                          <span className="text-slate-800 font-semibold">1:30 PM - 8:00 PM</span>
+                        </div>
+                        <div className="flex justify-between text-sm sm:text-base">
+                          <span className="text-slate-700">Thursday:</span>
+                          <span className="text-slate-800 font-semibold">1:30 PM - 8:00 PM</span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -216,57 +225,19 @@ export default function ContactSection() {
                   </div>
                   
                 <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 tracking-tight">
-                  Service <span className="text-[#B08D57]">Areas</span>
+                  Service <span className="text-[#B08D57]">Area</span>
                   </h3>
                   
-                <p className="text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto">
-                  Proudly serving patients from communities across <span className="font-semibold text-slate-700">Halton Region</span> and the surrounding <span className="font-semibold text-slate-700">Golden Horseshoe area</span>
+                <div className="space-y-4 max-w-3xl mx-auto">
+                  <p className="text-2xl font-semibold text-slate-800">
+                    Burlington
+                  </p>
+                  <p className="text-lg text-slate-600 leading-relaxed">
+                    Welcoming patients from {serviceAreas.join(", ")} and surrounding areas
                   </p>
                 </div>
+                </div>
 
-              {/* Clean Service Areas Grid */}
-              <div className="mb-12">
-                <motion.div 
-                  ref={areasRef}
-                  variants={containerVariants}
-                  initial="hidden"
-                  animate={isInView ? "visible" : "hidden"}
-                  className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 max-w-4xl mx-auto"
-                >
-                  {serviceAreas.map((area, index) => (
-                    <motion.div key={area} variants={itemVariants} className="text-center group">
-                      <div className={`
-                        bg-slate-50 hover:bg-gradient-to-br hover:from-[#B08D57]/5 hover:to-[#D4AF37]/5 
-                        rounded-2xl p-6 transition-all duration-300 border border-slate-200 
-                        hover:border-[#B08D57]/30 hover:shadow-lg hover:-translate-y-1
-                        ${area === "Burlington" ? "border-[#B08D57] bg-gradient-to-br from-[#B08D57]/5 to-[#D4AF37]/5" : ""}
-                      `}>
-                        <div className={`
-                          w-12 h-12 mx-auto mb-4 rounded-xl flex items-center justify-center
-                          ${area === "Burlington" 
-                            ? "bg-gradient-to-br from-[#B08D57] to-[#D4AF37] text-white" 
-                            : "bg-slate-200 text-slate-600 group-hover:bg-gradient-to-br group-hover:from-[#B08D57] group-hover:to-[#D4AF37] group-hover:text-white"
-                          }
-                          transition-all duration-300
-                        `}>
-                          <MapPinIcon className="w-6 h-6" />
-                        </div>
-                        
-                        <span className={`
-                          block font-semibold text-lg transition-colors duration-300
-                          ${area === "Burlington" 
-                            ? "text-[#B08D57]" 
-                            : "text-slate-800 group-hover:text-[#B08D57]"
-                          }
-                        `}>
-                          {area}
-                        </span>
-                      </div>
-                    </motion.div>
-                  ))}
-                </motion.div>
-              </div>
-                        
               {/* Clean Description */}
               <div className="text-center">
                 <div className="bg-slate-50 rounded-2xl p-8 sm:p-10 max-w-4xl mx-auto">

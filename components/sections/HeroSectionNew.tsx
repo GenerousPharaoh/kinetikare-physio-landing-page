@@ -22,7 +22,7 @@ export default function HeroSection() {
   if (!isMounted) return null;
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white" style={{ marginTop: '0px', paddingTop: '0px', top: '0px' }}>
       {/* Desktop Split Layout / Mobile Stacked */}
       <div className="w-full h-full flex flex-col lg:flex-row">
         

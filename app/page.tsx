@@ -200,10 +200,10 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
-    <main className="min-h-screen">
+    <main className="min-h-screen" style={{ margin: '0px', padding: '0px' }}>
+      <HeroSection />
       {/* SEO-optimized hidden heading for brand search */}
       <h1 className="sr-only">Kareem Hassanein Physiotherapist Burlington - Back Pain Treatment, Sports Injury Rehabilitation, Knee Pain, North Burlington, Alton Village, Palladium Way</h1>
-      <HeroSection />
       <AboutSection />
       <CareJourneySection />
       <ServicesSection />

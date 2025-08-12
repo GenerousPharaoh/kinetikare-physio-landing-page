@@ -22,7 +22,7 @@ export default function HeroSection() {
   if (!isMounted) return null;
 
   return (
-    <section className="relative h-[90vh] lg:h-[85vh] flex items-center justify-center overflow-hidden bg-white" style={{ marginTop: '0px', paddingTop: '0px', top: '0px' }}>
+    <section className="relative h-screen max-h-[800px] flex items-center justify-center overflow-hidden bg-white" style={{ marginTop: '0px', paddingTop: '0px', top: '0px' }}>
       {/* Desktop Split Layout / Mobile Stacked */}
       <div className="w-full h-full flex flex-col lg:flex-row">
         
@@ -31,14 +31,14 @@ export default function HeroSection() {
           className="w-full lg:w-1/2 flex items-center justify-center order-2 lg:order-1 z-20 bg-white lg:bg-transparent"
           style={{ y: textY }}
         >
-          <div className="px-6 sm:px-8 lg:px-12 xl:px-16 py-8 sm:py-12 lg:py-16 max-w-2xl lg:max-w-none w-full">
+          <div className="px-6 sm:px-8 lg:px-12 xl:px-16 py-6 sm:py-8 lg:py-12 max-w-2xl lg:max-w-none w-full">
             
             {/* Premium credential badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="mb-8"
+              className="mb-4"
             >
               <div className="inline-flex items-center space-x-3 px-4 py-2 bg-gradient-to-r from-[#B08D57]/10 to-[#C9A769]/10 rounded-full border border-[#B08D57]/20">
                 <div className="w-2 h-2 bg-[#B08D57] rounded-full animate-pulse"></div>
@@ -53,7 +53,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[0.85] tracking-[-0.02em] mb-6"
+              className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[0.85] tracking-[-0.02em] mb-4"
             >
               <span className="block bg-gradient-to-r from-slate-900 to-slate-800 bg-clip-text text-transparent">
                 The Science
@@ -74,7 +74,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-lg sm:text-xl text-slate-600 leading-relaxed mb-12 max-w-lg"
+              className="text-base sm:text-lg text-slate-600 leading-relaxed mb-6 max-w-lg"
             >
               Advanced physiotherapy combining 
               <span className="font-semibold text-slate-800"> evidence-based techniques </span>
@@ -88,9 +88,9 @@ export default function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="mb-8 sm:mb-10"
+              className="mb-6"
             >
-              <p className="text-2xl font-light bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent mb-1">
+              <p className="text-xl font-light bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent mb-1">
                 Kareem Hassanein
               </p>
               <div className="h-px w-20 bg-gradient-to-r from-[#B08D57] to-transparent"></div>
@@ -106,7 +106,7 @@ export default function HeroSection() {
               <Link
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                 target="_blank"
-                className="group inline-flex items-center justify-center px-8 py-4 bg-slate-900 text-white font-medium rounded-none hover:bg-slate-800 transition-all duration-300 relative overflow-hidden"
+                className="group inline-flex items-center justify-center px-6 py-3 bg-slate-900 text-white font-medium rounded-none hover:bg-slate-800 transition-all duration-300 relative overflow-hidden text-sm"
               >
                 <span className="relative z-10">Book Your Assessment</span>
                 <ArrowRightIcon className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -115,7 +115,7 @@ export default function HeroSection() {
 
               <Link
                 href="/services"
-                className="group inline-flex items-center justify-center px-8 py-4 border-2 border-slate-300 text-slate-700 font-medium rounded-none hover:border-[#B08D57] hover:text-[#B08D57] transition-all duration-300 relative overflow-hidden"
+                className="group inline-flex items-center justify-center px-6 py-3 border-2 border-slate-300 text-slate-700 font-medium rounded-none hover:border-[#B08D57] hover:text-[#B08D57] transition-all duration-300 relative overflow-hidden text-sm"
               >
                 <span className="relative z-10">Explore Services</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-[#B08D57]/5 to-[#C9A769]/5 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
@@ -127,7 +127,7 @@ export default function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.7 }}
-              className="mt-8 sm:mt-12 pt-6 border-t border-slate-200/50"
+              className="mt-6 pt-4 border-t border-slate-200/50"
             >
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-x-6">
                 <div className="flex items-center space-x-2">
@@ -160,7 +160,7 @@ export default function HeroSection() {
         </motion.div>
 
         {/* Right Image Side */}
-        <div className="w-full lg:w-1/2 h-[40vh] sm:h-[50vh] lg:h-[85vh] relative order-1 lg:order-2">
+        <div className="w-full lg:w-1/2 h-[40vh] sm:h-[50vh] lg:h-full relative order-1 lg:order-2">
           {/* Image Container with Premium Ken Burns Effect */}
           <motion.div 
             className="absolute inset-0"

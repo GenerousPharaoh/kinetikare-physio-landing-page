@@ -11,7 +11,7 @@ export default function HeroSection() {
       {/* Mobile */}
       <section className="lg:hidden min-h-screen bg-white flex flex-col">
         {/* Image section - starts at top behind header */}
-        <div className="relative h-[65vh] w-full -mt-16">
+        <div className="relative h-[60vh] w-full">
           <Image
             src="/images/clinic-pic-may-2025.jpg"
             alt="KinetiKare Physiotherapy"
@@ -152,7 +152,7 @@ export default function HeroSection() {
           </div>
 
           {/* Right image - full height starting from top */}
-          <div className="w-1/2 relative -mt-16 pt-16">
+          <div className="w-1/2 relative">
             <motion.div
               initial={{ opacity: 0, scale: 1.05 }}
               animate={{ opacity: 1, scale: 1 }}

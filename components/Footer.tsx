@@ -171,19 +171,20 @@ export default function Footer() {
               
               {/* Social links */}
               <div className="flex space-x-3">
-              {socialLinks.map((social) => (
-                <a 
-                  key={social.name}
-                  href={social.href} 
-                  aria-label={`Visit ${social.name} profile`}
-                  className="w-10 h-10 rounded-full bg-white/20 hover:bg-gold hover:text-white transition-all duration-300 flex items-center justify-center hover:scale-110 transform shadow-md"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {social.icon}
-                  <span className="sr-only">{social.name}</span>
-                </a>
-              ))}
+                {socialLinks.map((social) => (
+                  <a 
+                    key={social.name}
+                    href={social.href} 
+                    aria-label={`Visit ${social.name} profile`}
+                    className="w-10 h-10 rounded-full bg-white/20 hover:bg-gold hover:text-white transition-all duration-300 flex items-center justify-center hover:scale-110 transform shadow-md"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {social.icon}
+                    <span className="sr-only">{social.name}</span>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
           

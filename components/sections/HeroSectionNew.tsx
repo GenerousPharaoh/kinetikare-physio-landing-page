@@ -129,7 +129,7 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.7 }}
               className="mt-16 pt-8 border-t border-slate-200/50"
             >
-              <div className="flex flex-wrap gap-x-6 gap-y-3">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-x-6">
                 <div className="flex items-center space-x-2">
                   <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#B08D57]/20 to-[#C9A769]/20 flex items-center justify-center">
                     <svg className="w-4 h-4 text-[#B08D57]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -161,28 +161,72 @@ export default function HeroSection() {
 
         {/* Right Image Side */}
         <div className="w-full lg:w-1/2 h-[40vh] sm:h-[50vh] lg:h-screen relative order-1 lg:order-2">
-          {/* Image Container with Parallax */}
+          {/* Image Container with Premium Ken Burns Effect */}
           <motion.div 
             className="absolute inset-0"
             style={{ y: imageY }}
           >
-            <Image
-              src="/images/clinic-pic-may-2025.jpg"
-              alt="Modern physiotherapy clinic"
-              fill
-              priority
-              quality={95}
-              className="object-cover"
-              style={{ 
-                objectPosition: 'center',
-                filter: 'contrast(1.05) brightness(1.02) saturate(1.1)'
+            <motion.div
+              className="absolute inset-0 scale-110"
+              animate={{ 
+                scale: [1.1, 1.15, 1.1],
+                x: [0, -20, 0],
+                y: [0, -10, 0]
               }}
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
+              transition={{ 
+                duration: 20,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              <Image
+                src="/images/clinic-pic-may-2025.jpg"
+                alt="Modern physiotherapy clinic"
+                fill
+                priority
+                quality={95}
+                className="object-cover"
+                style={{ 
+                  objectPosition: 'center',
+                  filter: 'contrast(1.05) brightness(1.02) saturate(1.1)'
+                }}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </motion.div>
           </motion.div>
 
-          {/* Gradient Overlay - Refined for Better Contrast */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/30 lg:bg-gradient-to-r lg:from-white/50 lg:via-transparent lg:to-transparent"></div>
+          {/* Animated Light Overlay for Premium Effect */}
+          <motion.div
+            className="absolute inset-0 pointer-events-none"
+            animate={{
+              background: [
+                'radial-gradient(circle at 20% 50%, rgba(176, 141, 87, 0.15) 0%, transparent 50%)',
+                'radial-gradient(circle at 80% 50%, rgba(176, 141, 87, 0.15) 0%, transparent 50%)',
+                'radial-gradient(circle at 50% 50%, rgba(176, 141, 87, 0.15) 0%, transparent 50%)',
+                'radial-gradient(circle at 20% 50%, rgba(176, 141, 87, 0.15) 0%, transparent 50%)'
+              ]
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+
+          {/* Gradient Overlay with Subtle Animation */}
+          <motion.div 
+            className="absolute inset-0"
+            animate={{
+              opacity: [0.7, 0.9, 0.7]
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/30 lg:bg-gradient-to-r lg:from-white/50 lg:via-transparent lg:to-transparent"></div>
+          </motion.div>
 
           {/* Premium Floating Glass Card with Logo - Desktop Only */}
           <motion.div
@@ -212,22 +256,6 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll Indicator - Desktop Only */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.5 }}
-        className="hidden lg:block absolute bottom-8 left-1/2 lg:left-1/4 transform -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="flex flex-col items-center text-slate-400"
-        >
-          <span className="text-xs tracking-wider uppercase mb-2">Scroll</span>
-          <div className="w-px h-12 bg-gradient-to-b from-slate-400 to-transparent"></div>
-        </motion.div>
-      </motion.div>
     </section>
   );
 }

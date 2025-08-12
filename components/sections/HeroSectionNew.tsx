@@ -22,7 +22,7 @@ export default function HeroSection() {
   if (!isMounted) return null;
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white pt-16 lg:pt-20">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
       {/* Desktop Split Layout / Mobile Stacked */}
       <div className="w-full h-full flex flex-col lg:flex-row">
         
@@ -160,7 +160,7 @@ export default function HeroSection() {
         </motion.div>
 
         {/* Right Image Side */}
-        <div className="w-full lg:w-1/2 h-[40vh] sm:h-[50vh] lg:h-screen relative order-1 lg:order-2 mt-16 lg:mt-0">
+        <div className="w-full lg:w-1/2 h-[40vh] sm:h-[50vh] lg:h-screen relative order-1 lg:order-2">
           {/* Image Container with Parallax */}
           <motion.div 
             className="absolute inset-0"

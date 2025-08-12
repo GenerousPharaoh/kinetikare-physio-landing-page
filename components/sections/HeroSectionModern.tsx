@@ -11,7 +11,7 @@ export default function HeroSection() {
       {/* Mobile */}
       <section className="lg:hidden min-h-screen bg-white flex flex-col -mt-16">
         {/* Image section - starts at top behind header */}
-        <div className="relative h-[60vh] w-full pt-16">
+        <div className="relative h-[60vh] w-full" style={{ paddingTop: '64px' }}>
           <Image
             src="/images/clinic-pic-may-2025.jpg"
             alt="KinetiKare Physiotherapy"
@@ -90,7 +90,7 @@ export default function HeroSection() {
       <section className="hidden lg:flex min-h-screen bg-white -mt-16">
         <div className="flex w-full">
           {/* Left content - with proper padding and centering */}
-          <div className="w-1/2 flex items-center pl-[8%] pr-[6%] pt-16">
+          <div className="w-1/2 flex items-center pl-[8%] pr-[6%]" style={{ paddingTop: '64px' }}>
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}

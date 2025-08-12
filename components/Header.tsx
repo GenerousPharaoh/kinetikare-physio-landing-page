@@ -257,9 +257,6 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
       {/* Single Unified Navigation Bar */}
       <div className={`relative w-full bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 transition-all duration-300 border-0 outline-none`} style={{ boxShadow: 'none' }}>
       
-        {/* Premium golden accent line */}
-        <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent opacity-90"></div>
-      
         <div className="container mx-auto px-6 relative">
           <div className="flex items-center justify-between h-16">
             

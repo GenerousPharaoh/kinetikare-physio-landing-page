@@ -22,7 +22,7 @@ export default function HeroSection() {
   if (!isMounted) return null;
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white pt-16 lg:pt-20">
       {/* Desktop Split Layout / Mobile Stacked */}
       <div className="w-full h-full flex flex-col lg:flex-row">
         
@@ -31,7 +31,7 @@ export default function HeroSection() {
           className="w-full lg:w-1/2 flex items-center justify-center order-2 lg:order-1 z-20 bg-white lg:bg-transparent"
           style={{ y: textY }}
         >
-          <div className="px-6 sm:px-12 lg:px-16 xl:px-24 py-20 lg:py-32 max-w-2xl lg:max-w-none w-full">
+          <div className="px-6 sm:px-12 lg:px-16 xl:px-24 py-16 sm:py-20 lg:py-24 max-w-2xl lg:max-w-none w-full">
             
             {/* Premium credential badge */}
             <motion.div
@@ -160,7 +160,7 @@ export default function HeroSection() {
         </motion.div>
 
         {/* Right Image Side */}
-        <div className="w-full lg:w-1/2 h-[50vh] lg:h-screen relative order-1 lg:order-2">
+        <div className="w-full lg:w-1/2 h-[40vh] sm:h-[50vh] lg:h-screen relative order-1 lg:order-2 mt-16 lg:mt-0">
           {/* Image Container with Parallax */}
           <motion.div 
             className="absolute inset-0"
@@ -209,13 +209,6 @@ export default function HeroSection() {
             </motion.div>
           </motion.div>
 
-          {/* Mobile Overlay Content */}
-          <div className="lg:hidden absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent flex items-end">
-            <div className="p-6 pb-8 text-white">
-              <p className="text-sm font-medium mb-2 opacity-90">Welcome to</p>
-              <p className="text-2xl font-bold">KinetiKare Physiotherapy</p>
-            </div>
-          </div>
         </div>
       </div>
 

@@ -362,8 +362,6 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
         </div>
       </div>
 
-        {/* Bottom accent line */}
-        <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-transparent"></div>
       </div>
 
       {/* Mobile Menu */}

@@ -22,7 +22,7 @@ export default function HeroSection() {
   if (!isMounted) return null;
 
   return (
-    <section className="relative h-[85vh] lg:h-[80vh] flex items-center justify-center overflow-hidden bg-white" style={{ marginTop: '0px', paddingTop: '0px', top: '0px' }}>
+    <section className="relative h-[90vh] lg:h-[85vh] flex items-center justify-center overflow-hidden bg-white" style={{ marginTop: '0px', paddingTop: '0px', top: '0px' }}>
       {/* Desktop Split Layout / Mobile Stacked */}
       <div className="w-full h-full flex flex-col lg:flex-row">
         
@@ -31,7 +31,7 @@ export default function HeroSection() {
           className="w-full lg:w-1/2 flex items-center justify-center order-2 lg:order-1 z-20 bg-white lg:bg-transparent"
           style={{ y: textY }}
         >
-          <div className="px-6 sm:px-12 lg:px-16 xl:px-24 py-16 sm:py-20 lg:py-24 max-w-2xl lg:max-w-none w-full">
+          <div className="px-4 sm:px-8 lg:px-12 xl:px-16 py-16 sm:py-20 lg:py-24 max-w-2xl lg:max-w-none w-full">
             
             {/* Premium credential badge */}
             <motion.div
@@ -160,7 +160,7 @@ export default function HeroSection() {
         </motion.div>
 
         {/* Right Image Side */}
-        <div className="w-full lg:w-1/2 h-[40vh] sm:h-[50vh] lg:h-[80vh] relative order-1 lg:order-2">
+        <div className="w-full lg:w-1/2 h-[40vh] sm:h-[50vh] lg:h-[85vh] relative order-1 lg:order-2">
           {/* Image Container with Premium Ken Burns Effect */}
           <motion.div 
             className="absolute inset-0"
@@ -213,9 +213,9 @@ export default function HeroSection() {
             }}
           />
 
-          {/* Gradient Overlay - Static for cleaner look */}
+          {/* Gradient Overlay - Subtle darkening only */}
           <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/40 lg:bg-gradient-to-r lg:from-white/60 lg:via-white/10 lg:to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/40"></div>
           </div>
 
           {/* Premium Static Logo Badge - Desktop Only */}
@@ -229,21 +229,15 @@ export default function HeroSection() {
               {/* Subtle glow */}
               <div className="absolute -inset-2 bg-gradient-to-br from-[#B08D57]/20 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
               
-              {/* Main badge */}
-              <div className="relative bg-gradient-to-br from-white/98 to-white/95 backdrop-blur-xl p-5 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-white/50">
-                <div className="flex items-center space-x-3">
-                  <Image
-                    src="/images/kinetikare-logo-kareem-hassanein-physiotherapy-transparent.png"
-                    alt="KinetiKare Physiotherapy"
-                    width={50}
-                    height={50}
-                    className="opacity-95"
-                  />
-                  <div className="pr-2">
-                    <p className="text-xs font-semibold text-slate-800 tracking-wide">KINETIKARE</p>
-                    <p className="text-[10px] text-slate-600 tracking-wider uppercase">Physiotherapy</p>
-                  </div>
-                </div>
+              {/* Main badge - Logo only */}
+              <div className="relative bg-white/95 backdrop-blur-xl p-6 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-white/50">
+                <Image
+                  src="/images/kinetikare-logo-kareem-hassanein-physiotherapy-transparent.png"
+                  alt="KinetiKare Physiotherapy"
+                  width={60}
+                  height={60}
+                  className="opacity-90"
+                />
               </div>
             </div>
           </motion.div>

@@ -22,7 +22,7 @@ export default function HeroSection() {
   if (!isMounted) return null;
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white" style={{ marginTop: '0px', paddingTop: '0px', top: '0px' }}>
+    <section className="relative h-[85vh] lg:h-[80vh] flex items-center justify-center overflow-hidden bg-white" style={{ marginTop: '0px', paddingTop: '0px', top: '0px' }}>
       {/* Desktop Split Layout / Mobile Stacked */}
       <div className="w-full h-full flex flex-col lg:flex-row">
         
@@ -160,7 +160,7 @@ export default function HeroSection() {
         </motion.div>
 
         {/* Right Image Side */}
-        <div className="w-full lg:w-1/2 h-[40vh] sm:h-[50vh] lg:h-screen relative order-1 lg:order-2">
+        <div className="w-full lg:w-1/2 h-[40vh] sm:h-[50vh] lg:h-[80vh] relative order-1 lg:order-2">
           {/* Image Container with Premium Ken Burns Effect */}
           <motion.div 
             className="absolute inset-0"
@@ -213,49 +213,47 @@ export default function HeroSection() {
             }}
           />
 
-          {/* Gradient Overlay with Subtle Animation */}
-          <motion.div 
-            className="absolute inset-0"
-            animate={{
-              opacity: [0.7, 0.9, 0.7]
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/30 lg:bg-gradient-to-r lg:from-white/50 lg:via-transparent lg:to-transparent"></div>
-          </motion.div>
+          {/* Gradient Overlay - Static for cleaner look */}
+          <div className="absolute inset-0">
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/40 lg:bg-gradient-to-r lg:from-white/60 lg:via-white/10 lg:to-transparent"></div>
+          </div>
 
-          {/* Premium Floating Glass Card with Logo - Desktop Only */}
+          {/* Premium Static Logo Badge - Desktop Only */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 1.2 }}
             className="hidden lg:block absolute bottom-12 right-12"
           >
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="relative"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/40 to-[#C9A769]/40 rounded-2xl blur-xl"></div>
-              <div className="relative bg-white/95 backdrop-blur-xl p-6 rounded-2xl shadow-2xl border border-[#B08D57]/20">
-                <Image
-                  src="/images/kinetikare-logo-kareem-hassanein-physiotherapy-transparent.png"
-                  alt="KinetiKare Physiotherapy"
-                  width={60}
-                  height={60}
-                  className="opacity-90"
-                />
+            <div className="relative group">
+              {/* Subtle glow */}
+              <div className="absolute -inset-2 bg-gradient-to-br from-[#B08D57]/20 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+              
+              {/* Main badge */}
+              <div className="relative bg-gradient-to-br from-white/98 to-white/95 backdrop-blur-xl p-5 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-white/50">
+                <div className="flex items-center space-x-3">
+                  <Image
+                    src="/images/kinetikare-logo-kareem-hassanein-physiotherapy-transparent.png"
+                    alt="KinetiKare Physiotherapy"
+                    width={50}
+                    height={50}
+                    className="opacity-95"
+                  />
+                  <div className="pr-2">
+                    <p className="text-xs font-semibold text-slate-800 tracking-wide">KINETIKARE</p>
+                    <p className="text-[10px] text-slate-600 tracking-wider uppercase">Physiotherapy</p>
+                  </div>
+                </div>
               </div>
-            </motion.div>
+            </div>
           </motion.div>
 
         </div>
       </div>
 
+      
+      {/* Bottom Transition Element */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-white/50 to-transparent pointer-events-none z-30"></div>
     </section>
   );
 }

@@ -87,7 +87,7 @@ export default function HeroSection() {
       </section>
 
       {/* Desktop */}
-      <section className="hidden lg:flex min-h-[90vh] bg-white -mt-16">
+      <section className="hidden lg:block relative h-screen bg-white -mt-16">
         <div className="flex w-full h-full">
           {/* Left content - with proper padding and centering */}
           <div className="w-1/2 flex items-center pl-[8%] pr-[6%]" style={{ paddingTop: '64px' }}>
@@ -152,13 +152,8 @@ export default function HeroSection() {
           </div>
 
           {/* Right image - full height starting from top */}
-          <div className="w-1/2 relative h-full">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8 }}
-              className="relative h-full"
-            >
+          <div className="w-1/2 relative">
+            <div className="absolute inset-0">
               <Image
                 src="/images/clinic-pic-may-2025.jpg"
                 alt="KinetiKare Physiotherapy"
@@ -188,7 +183,7 @@ export default function HeroSection() {
                   />
                 </div>
               </motion.div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>

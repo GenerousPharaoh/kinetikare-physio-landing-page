@@ -16,7 +16,7 @@ export default function HeroSection() {
   if (!isMounted) return null;
 
   return (
-    <section className="relative w-full bg-white">
+    <section className="relative w-full bg-white" style={{ marginTop: '0px', paddingTop: '0px' }}>
       {/* Mobile Layout */}
       <div className="lg:hidden">
         {/* Mobile Image */}
@@ -30,7 +30,7 @@ export default function HeroSection() {
             className="object-cover"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
           
           {/* Mobile Overlay Content */}
           <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
@@ -39,10 +39,12 @@ export default function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <p className="text-sm font-medium tracking-wider uppercase mb-2 opacity-90">
-                Registered Physiotherapist
-              </p>
-              <h1 className="text-3xl font-bold mb-2">
+              <div className="bg-black/30 backdrop-blur-sm rounded-lg px-4 py-3 inline-block mb-3">
+                <p className="text-xs font-medium tracking-wider uppercase opacity-90">
+                  Registered Physiotherapist
+                </p>
+              </div>
+              <h1 className="text-3xl font-bold mb-2 drop-shadow-lg">
                 The Science of Recovery.
                 <span className="block text-[#D4AF37]">The Art of Care.</span>
               </h1>
@@ -51,16 +53,19 @@ export default function HeroSection() {
         </div>
 
         {/* Mobile Content Below Image */}
-        <div className="px-6 py-8 bg-white">
+        <div className="px-6 py-8 bg-gradient-to-b from-gray-50 to-white">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <p className="text-lg text-gray-700 mb-2">Kareem Hassanein</p>
-            <p className="text-gray-600 mb-6">
-              Advanced physiotherapy combining evidence-based techniques with personalized attention for lasting results.
-            </p>
+            <div className="text-center mb-6">
+              <h2 className="text-2xl font-light text-gray-900 mb-2">Kareem Hassanein</h2>
+              <div className="w-16 h-px bg-[#B08D57] mx-auto mb-4" />
+              <p className="text-sm text-gray-600 leading-relaxed max-w-sm mx-auto">
+                Advanced physiotherapy combining evidence-based techniques with personalized attention for lasting results.
+              </p>
+            </div>
             
             <div className="space-y-3">
               <Link

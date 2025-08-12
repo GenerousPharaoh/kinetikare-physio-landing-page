@@ -31,7 +31,7 @@ export default function HeroSection() {
           className="w-full lg:w-1/2 flex items-center justify-center order-2 lg:order-1 z-20 bg-white lg:bg-transparent"
           style={{ y: textY }}
         >
-          <div className="px-4 sm:px-8 lg:px-12 xl:px-16 py-16 sm:py-20 lg:py-24 max-w-2xl lg:max-w-none w-full">
+          <div className="px-6 sm:px-8 lg:px-12 xl:px-16 py-8 sm:py-12 lg:py-16 max-w-2xl lg:max-w-none w-full">
             
             {/* Premium credential badge */}
             <motion.div
@@ -88,7 +88,7 @@ export default function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="mb-12"
+              className="mb-8 sm:mb-10"
             >
               <p className="text-2xl font-light bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent mb-1">
                 Kareem Hassanein
@@ -101,7 +101,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4"
             >
               <Link
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42"
@@ -127,7 +127,7 @@ export default function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.7 }}
-              className="mt-16 pt-8 border-t border-slate-200/50"
+              className="mt-8 sm:mt-12 pt-6 border-t border-slate-200/50"
             >
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-x-6">
                 <div className="flex items-center space-x-2">
@@ -213,10 +213,6 @@ export default function HeroSection() {
             }}
           />
 
-          {/* Gradient Overlay - Subtle darkening only */}
-          <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/40"></div>
-          </div>
 
           {/* Premium Static Logo Badge - Desktop Only */}
           <motion.div

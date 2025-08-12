@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import HeroSection from '@/components/sections/HeroSectionClean';
+import HeroSection from '@/components/sections/HeroSectionModern';
 import AboutSection from '@/components/sections/AboutSection';
 import HealingEnvironmentSection from '@/components/sections/HealingEnvironmentSection';
 import CareJourneySection from '@/components/sections/CareJourneySection';

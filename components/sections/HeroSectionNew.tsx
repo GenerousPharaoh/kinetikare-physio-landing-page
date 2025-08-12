@@ -22,16 +22,16 @@ export default function HeroSection() {
   if (!isMounted) return null;
 
   return (
-    <section className="relative h-screen max-h-[800px] flex items-center justify-center overflow-hidden bg-white" style={{ marginTop: '0px', paddingTop: '0px', top: '0px' }}>
+    <section className="relative min-h-screen lg:h-screen lg:max-h-[800px] flex items-center justify-center overflow-visible lg:overflow-hidden bg-white" style={{ marginTop: '0px', paddingTop: '0px', top: '0px' }}>
       {/* Desktop Split Layout / Mobile Stacked */}
-      <div className="w-full h-full flex flex-col lg:flex-row">
+      <div className="w-full h-full flex flex-col lg:flex-row lg:min-h-[800px]">
         
         {/* Left Content Side */}
         <motion.div 
           className="w-full lg:w-1/2 flex items-center justify-center order-2 lg:order-1 z-20 bg-white lg:bg-transparent"
           style={{ y: textY }}
         >
-          <div className="px-6 sm:px-8 lg:px-12 xl:px-16 py-6 sm:py-8 lg:py-12 max-w-2xl lg:max-w-none w-full">
+          <div className="px-4 sm:px-6 lg:px-12 xl:px-16 py-8 sm:py-10 lg:py-12 max-w-2xl lg:max-w-none w-full">
             
             {/* Premium credential badge */}
             <motion.div
@@ -53,7 +53,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[0.85] tracking-[-0.02em] mb-4"
+              className="text-2xl sm:text-3xl lg:text-5xl xl:text-6xl font-bold leading-[0.9] tracking-[-0.02em] mb-3 sm:mb-4"
             >
               <span className="block bg-gradient-to-r from-slate-900 to-slate-800 bg-clip-text text-transparent">
                 The Science
@@ -160,7 +160,7 @@ export default function HeroSection() {
         </motion.div>
 
         {/* Right Image Side */}
-        <div className="w-full lg:w-1/2 h-[40vh] sm:h-[50vh] lg:h-full relative order-1 lg:order-2">
+        <div className="w-full lg:w-1/2 h-[300px] sm:h-[400px] lg:h-full relative order-1 lg:order-2">
           {/* Image Container with Premium Ken Burns Effect */}
           <motion.div 
             className="absolute inset-0"
@@ -242,8 +242,8 @@ export default function HeroSection() {
       </div>
 
       
-      {/* Bottom Transition Element */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-white/50 to-transparent pointer-events-none z-30"></div>
+      {/* Bottom Transition Element - Desktop only */}
+      <div className="hidden lg:block absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-white/50 to-transparent pointer-events-none z-30"></div>
     </section>
   );
 }

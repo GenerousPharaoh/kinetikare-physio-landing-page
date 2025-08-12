@@ -682,10 +682,8 @@ label {
   margin: 2rem 0;
 }
 
-/* Adjust main content to account for fixed header */
-main {
-  padding-top: var(--header-height);
-}
+/* Note: Header is fixed, no padding needed for hero section */
+/* Individual sections that need spacing should add their own padding-top */
 
 /* Ensure proper centering of page titles */
 .section-primary h1 {

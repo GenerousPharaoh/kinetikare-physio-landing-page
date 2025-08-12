@@ -98,23 +98,7 @@ export default function Footer() {
           {/* Column 1: Contact & Info (4 cols) */}
           <div className="md:col-span-1 lg:col-span-4 flex flex-col justify-between">
             <div>
-              <Link href="/" className="inline-block mb-4" aria-label="Return to homepage">
-                <div className="flex items-center gap-4">
-                  <Image
-                    src="/images/kinetikare-logo-kareem-hassanein-physiotherapy-transparent.png"
-                    alt="KinetiKare Physiotherapy Logo"
-                    width={70}
-                    height={70}
-                    className="opacity-90 hover:opacity-100 transition-opacity"
-                  />
-                  <div>
-                    <h3 className="font-heading text-xl text-white">KinetiKare <span className="text-gold">Physiotherapy</span></h3>
-                    <p className="text-sm text-white/80 mt-1">Kareem Hassanein, Registered Physiotherapist</p>
-                  </div>
-                </div>
-              </Link>
-              
-              <div className="mb-4">
+              <div className="mb-6">
                 <h3 className="text-sm font-semibold mb-3 text-white relative inline-flex">
                   <span className="relative z-10">Contact Information</span>
                   <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gold/60 rounded-full -z-10"></span>
@@ -150,8 +134,28 @@ export default function Footer() {
                 </ul>
               </div>
               
-              {/* Professional Registration Link - Simplified */}
-              <div className="mt-6">
+            </div>
+            
+            {/* Logo and branding at bottom */}
+            <div className="mt-8">
+              <Link href="/" className="inline-block mb-4" aria-label="Return to homepage">
+                <div className="flex items-center gap-4">
+                  <Image
+                    src="/images/kinetikare-logo-kareem-hassanein-physiotherapy-transparent.png"
+                    alt="KinetiKare Physiotherapy Logo"
+                    width={60}
+                    height={60}
+                    className="opacity-90 hover:opacity-100 transition-opacity"
+                  />
+                  <div>
+                    <h3 className="font-heading text-lg text-white">KinetiKare <span className="text-gold">Physiotherapy</span></h3>
+                    <p className="text-xs text-white/80 mt-1">Kareem Hassanein, Registered Physiotherapist</p>
+                  </div>
+                </div>
+              </Link>
+              
+              {/* Professional Registration Link */}
+              <div className="mb-4">
                 <Link
                   href="https://portal.collegept.org/en-US/public-register/display-member-contact/?id=757882d7-8c40-eb11-a813-000d3af427b4"
                   target="_blank"
@@ -164,10 +168,9 @@ export default function Footer() {
                   CPO Verified Registration
                 </Link>
               </div>
-            </div>
-            
-            {/* Social links */}
-            <div className="mt-4 flex space-x-3">
+              
+              {/* Social links */}
+              <div className="flex space-x-3">
               {socialLinks.map((social) => (
                 <a 
                   key={social.name}

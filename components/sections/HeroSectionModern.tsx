@@ -9,9 +9,9 @@ export default function HeroSection() {
   return (
     <>
       {/* Mobile */}
-      <section className="lg:hidden min-h-screen bg-white flex flex-col -mt-16">
-        {/* Image section - starts at top behind header */}
-        <div className="relative h-[50vh] w-full" style={{ paddingTop: '64px' }}>
+      <section className="lg:hidden min-h-screen bg-white flex flex-col pt-16">
+        {/* Image section */}
+        <div className="relative h-[50vh] w-full">
           <Image
             src="/images/clinic-pic-may-2025.jpg"
             alt="KinetiKare Physiotherapy"
@@ -87,10 +87,10 @@ export default function HeroSection() {
       </section>
 
       {/* Desktop */}
-      <section className="hidden lg:block relative h-screen bg-white -mt-16">
-        <div className="flex w-full h-full">
+      <section className="hidden lg:flex min-h-screen bg-white">
+        <div className="flex w-full">
           {/* Left content - with proper padding and centering */}
-          <div className="w-1/2 flex items-center pl-[8%] pr-[6%]" style={{ paddingTop: '64px' }}>
+          <div className="w-1/2 flex items-center pl-[8%] pr-[6%] py-20">
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -152,8 +152,13 @@ export default function HeroSection() {
           </div>
 
           {/* Right image - full height starting from top */}
-          <div className="w-1/2 relative">
-            <div className="absolute inset-0">
+          <div className="w-1/2 relative min-h-screen">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}
+              className="relative h-full min-h-screen"
+            >
               <Image
                 src="/images/clinic-pic-may-2025.jpg"
                 alt="KinetiKare Physiotherapy"
@@ -183,7 +188,7 @@ export default function HeroSection() {
                   />
                 </div>
               </motion.div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>

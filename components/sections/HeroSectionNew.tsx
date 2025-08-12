@@ -55,15 +55,17 @@ export default function HeroSection() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-slate-900 leading-[0.85] tracking-[-0.02em] mb-6"
             >
-              The Science
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900">
+              <span className="block">
+                The Science
+              </span>
+              <span className="block text-[#B08D57]">
                 of Recovery.
               </span>
               <span className="block mt-2">
                 The Art
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-amber-700 ml-4">
-                  of Care.
-                </span>
+              </span>
+              <span className="block text-[#B08D57]">
+                of Care.
               </span>
             </motion.h1>
 

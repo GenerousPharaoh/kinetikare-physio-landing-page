@@ -33,50 +33,53 @@ export default function HeroSection() {
         >
           <div className="px-6 sm:px-12 lg:px-16 xl:px-24 py-20 lg:py-32 max-w-2xl lg:max-w-none w-full">
             
-            {/* Subtle credential tag */}
+            {/* Premium credential badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mb-8"
             >
-              <div className="inline-flex items-center space-x-2">
-                <div className="h-px w-8 bg-slate-300"></div>
-                <span className="text-xs tracking-[0.2em] text-slate-500 uppercase font-medium">
+              <div className="inline-flex items-center space-x-3 px-4 py-2 bg-gradient-to-r from-[#B08D57]/10 to-[#C9A769]/10 rounded-full border border-[#B08D57]/20">
+                <div className="w-2 h-2 bg-[#B08D57] rounded-full animate-pulse"></div>
+                <span className="text-xs tracking-[0.15em] text-slate-700 uppercase font-semibold">
                   Registered Physiotherapist
                 </span>
               </div>
             </motion.div>
 
-            {/* Main Headline - Massive and Bold */}
+            {/* Main Headline - Massive and Bold with Better Color Balance */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-slate-900 leading-[0.85] tracking-[-0.02em] mb-6"
+              className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[0.85] tracking-[-0.02em] mb-6"
             >
-              <span className="block">
+              <span className="block bg-gradient-to-r from-slate-900 to-slate-800 bg-clip-text text-transparent">
                 The Science
               </span>
-              <span className="block text-[#B08D57]">
+              <span className="block bg-gradient-to-r from-[#B08D57] via-[#C9A769] to-[#B08D57] bg-clip-text text-transparent">
                 of Recovery.
               </span>
-              <span className="block mt-2">
+              <span className="block mt-2 bg-gradient-to-r from-slate-900 to-slate-800 bg-clip-text text-transparent">
                 The Art
               </span>
-              <span className="block text-[#B08D57]">
+              <span className="block bg-gradient-to-r from-[#B08D57] via-[#C9A769] to-[#B08D57] bg-clip-text text-transparent">
                 of Care.
               </span>
             </motion.h1>
 
-            {/* Subtitle */}
+            {/* Subtitle with Enhanced Typography */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-lg sm:text-xl text-slate-600 leading-relaxed mb-12 max-w-lg"
             >
-              Advanced physiotherapy combining evidence-based techniques with personalized attention 
+              Advanced physiotherapy combining 
+              <span className="font-semibold text-slate-800"> evidence-based techniques </span>
+              with 
+              <span className="font-semibold text-slate-800"> personalized attention </span>
               for lasting results.
             </motion.p>
 
@@ -87,10 +90,10 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="mb-12"
             >
-              <p className="text-2xl font-light text-slate-900 mb-1">
+              <p className="text-2xl font-light bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent mb-1">
                 Kareem Hassanein
               </p>
-              <div className="h-px w-20 bg-gradient-to-r from-amber-600 to-transparent"></div>
+              <div className="h-px w-20 bg-gradient-to-r from-[#B08D57] to-transparent"></div>
             </motion.div>
 
             {/* CTAs - Modern Flat Design */}
@@ -107,28 +110,50 @@ export default function HeroSection() {
               >
                 <span className="relative z-10">Book Your Assessment</span>
                 <ArrowRightIcon className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                <div className="absolute inset-0 bg-gradient-to-r from-amber-600 to-amber-700 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#B08D57] to-[#C9A769] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
               </Link>
 
               <Link
                 href="/services"
-                className="inline-flex items-center justify-center px-8 py-4 border border-slate-300 text-slate-700 font-medium rounded-none hover:border-slate-900 hover:text-slate-900 transition-all duration-300"
+                className="group inline-flex items-center justify-center px-8 py-4 border-2 border-slate-300 text-slate-700 font-medium rounded-none hover:border-[#B08D57] hover:text-[#B08D57] transition-all duration-300 relative overflow-hidden"
               >
-                Explore Services
+                <span className="relative z-10">Explore Services</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#B08D57]/5 to-[#C9A769]/5 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
               </Link>
             </motion.div>
 
-            {/* Trust Indicators - Subtle */}
+            {/* Trust Indicators - Premium Design */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.7 }}
-              className="mt-16 pt-8 border-t border-slate-200"
+              className="mt-16 pt-8 border-t border-slate-200/50"
             >
-              <div className="flex flex-wrap gap-x-8 gap-y-2 text-sm text-slate-500">
-                <span>✓ Direct Billing</span>
-                <span>✓ Evening Hours</span>
-                <span>✓ 5+ Years Experience</span>
+              <div className="flex flex-wrap gap-x-6 gap-y-3">
+                <div className="flex items-center space-x-2">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#B08D57]/20 to-[#C9A769]/20 flex items-center justify-center">
+                    <svg className="w-4 h-4 text-[#B08D57]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <span className="text-sm text-slate-600 font-medium">Direct Billing</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#B08D57]/20 to-[#C9A769]/20 flex items-center justify-center">
+                    <svg className="w-4 h-4 text-[#B08D57]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <span className="text-sm text-slate-600 font-medium">Evening Hours</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#B08D57]/20 to-[#C9A769]/20 flex items-center justify-center">
+                    <svg className="w-4 h-4 text-[#B08D57]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                    </svg>
+                  </div>
+                  <span className="text-sm text-slate-600 font-medium">5+ Years Experience</span>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -150,31 +175,38 @@ export default function HeroSection() {
               className="object-cover"
               style={{ 
                 objectPosition: 'center',
-                filter: 'contrast(1.1)'
+                filter: 'contrast(1.05) brightness(1.02) saturate(1.1)'
               }}
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </motion.div>
 
-          {/* Gradient Overlay - Very Subtle */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20 lg:bg-gradient-to-r lg:from-white/40 lg:via-transparent lg:to-transparent"></div>
+          {/* Gradient Overlay - Refined for Better Contrast */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/30 lg:bg-gradient-to-r lg:from-white/50 lg:via-transparent lg:to-transparent"></div>
 
-          {/* Floating Glass Card with Logo - Desktop Only */}
+          {/* Premium Floating Glass Card with Logo - Desktop Only */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.8 }}
             className="hidden lg:block absolute bottom-12 right-12"
           >
-            <div className="bg-white/90 backdrop-blur-md p-6 rounded-2xl shadow-2xl border border-white/50">
-              <Image
-                src="/images/kinetikare-logo-kareem-hassanein-physiotherapy-transparent.png"
-                alt="KinetiKare Physiotherapy"
-                width={60}
-                height={60}
-                className="opacity-80"
-              />
-            </div>
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="relative"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/40 to-[#C9A769]/40 rounded-2xl blur-xl"></div>
+              <div className="relative bg-white/95 backdrop-blur-xl p-6 rounded-2xl shadow-2xl border border-[#B08D57]/20">
+                <Image
+                  src="/images/kinetikare-logo-kareem-hassanein-physiotherapy-transparent.png"
+                  alt="KinetiKare Physiotherapy"
+                  width={60}
+                  height={60}
+                  className="opacity-90"
+                />
+              </div>
+            </motion.div>
           </motion.div>
 
           {/* Mobile Overlay Content */}

@@ -225,7 +225,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     transform: 'translateZ(0)' as const,
     backfaceVisibility: 'hidden' as const,
     willChange: 'transform, background-color, box-shadow, padding',
-    borderBottom: scrolled ? '1px solid rgba(212, 175, 55, 0.10)' : 'none',
+    borderBottom: 'none',
     background: scrolled 
       ? 'linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(240, 247, 255, 0.98))' 
       : 'linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 255, 0.95))',
@@ -255,7 +255,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
       }}
     >
       {/* Single Unified Navigation Bar */}
-      <div className={`relative w-full bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 backdrop-blur-xl transition-all duration-300`}>
+      <div className={`relative w-full bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 transition-all duration-300 border-0 outline-none`} style={{ boxShadow: 'none' }}>
       
         {/* Premium golden accent line */}
         <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent opacity-90"></div>

@@ -19,53 +19,56 @@ export default function HeroSection() {
     <section className="relative w-full bg-white" style={{ marginTop: '0px', paddingTop: '0px' }}>
       {/* Mobile Layout */}
       <div className="lg:hidden">
-        {/* Mobile Image */}
-        <div className="relative w-full h-[50vh] min-h-[400px]">
+        {/* Mobile Image - Smaller, just decorative */}
+        <div className="relative w-full h-[30vh] min-h-[250px]">
           <Image
             src="/images/clinic-pic-may-2025.jpg"
             alt="Modern physiotherapy clinic"
             fill
             priority
             quality={85}
-            className="object-cover"
+            className="object-cover brightness-50"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
-          
-          {/* Mobile Overlay Content */}
-          <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="bg-black/30 backdrop-blur-sm rounded-lg px-4 py-3 inline-block mb-3">
-                <p className="text-xs font-medium tracking-wider uppercase opacity-90">
-                  Registered Physiotherapist
-                </p>
-              </div>
-              <h1 className="text-3xl font-bold mb-2 drop-shadow-lg">
-                The Science of Recovery.
-                <span className="block text-[#D4AF37]">The Art of Care.</span>
-              </h1>
-            </motion.div>
-          </div>
+          <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/40 to-white" />
+        </div>
+        
+        {/* Mobile Hero Content - Below Image */}
+        <div className="px-6 py-8 bg-white -mt-20 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center"
+          >
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#B08D57]/10 rounded-full mb-4">
+              <div className="w-1.5 h-1.5 bg-[#B08D57] rounded-full" />
+              <p className="text-xs font-medium tracking-wider uppercase text-gray-700">
+                Registered Physiotherapist
+              </p>
+            </div>
+            
+            <h1 className="text-3xl font-bold mb-4 text-gray-900">
+              The Science of Recovery.
+              <span className="block text-[#B08D57] mt-1">The Art of Care.</span>
+            </h1>
+            
+            <p className="text-xl font-light text-gray-800 mb-2">Kareem Hassanein</p>
+            <div className="w-16 h-px bg-[#B08D57] mx-auto mb-4" />
+            
+            <p className="text-sm text-gray-600 leading-relaxed max-w-sm mx-auto mb-8">
+              Advanced physiotherapy combining evidence-based techniques with personalized attention for lasting results.
+            </p>
+          </motion.div>
         </div>
 
-        {/* Mobile Content Below Image */}
-        <div className="px-6 py-8 bg-gradient-to-b from-gray-50 to-white">
+        {/* Mobile CTA Section */}
+        <div className="px-6 pb-8 bg-white">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="text-center mb-6">
-              <h2 className="text-2xl font-light text-gray-900 mb-2">Kareem Hassanein</h2>
-              <div className="w-16 h-px bg-[#B08D57] mx-auto mb-4" />
-              <p className="text-sm text-gray-600 leading-relaxed max-w-sm mx-auto">
-                Advanced physiotherapy combining evidence-based techniques with personalized attention for lasting results.
-              </p>
-            </div>
             
             <div className="space-y-3">
               <Link

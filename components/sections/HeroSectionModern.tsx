@@ -25,61 +25,64 @@ export default function HeroSection() {
         </div>
 
         {/* Content section */}
-        <div className="flex-1 flex flex-col justify-center px-6 py-8">
+        <div className="flex-1 flex flex-col justify-center px-8 py-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+            className="text-center"
           >
-            <p className="text-xs uppercase tracking-wider text-[#B08D57] mb-4 font-medium">
+            <p className="text-xs uppercase tracking-[0.2em] text-[#B08D57] mb-6 font-semibold">
               Registered Physiotherapist
             </p>
             
-            <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 leading-tight mb-6">
+            <h1 className="text-4xl sm:text-5xl font-bold text-slate-900 leading-[1.1] mb-8">
               The Science<br/>
               <span className="text-[#B08D57]">of Recovery.</span><br/>
-              The Art<br/>
+              <span className="inline-block mt-2">The Art</span><br/>
               <span className="text-[#B08D57]">of Care.</span>
             </h1>
             
-            <div className="mb-6">
-              <p className="text-2xl font-light text-gray-900">Kareem Hassanein</p>
-              <div className="w-20 h-0.5 bg-[#B08D57] mt-2" />
+            <div className="mb-8">
+              <p className="text-2xl font-light text-gray-900 mb-3">Kareem Hassanein</p>
+              <div className="w-20 h-0.5 bg-[#B08D57] mx-auto" />
             </div>
 
-            <p className="text-gray-600 mb-8 leading-relaxed">
+            <p className="text-gray-600 mb-10 leading-relaxed max-w-md mx-auto">
               Advanced physiotherapy combining evidence-based techniques with personalized attention for lasting results.
             </p>
 
-            <div className="space-y-3">
+            <div className="space-y-3 max-w-sm mx-auto w-full">
               <Link
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                 target="_blank"
-                className="block w-full text-center px-6 py-3.5 bg-slate-900 text-white font-medium rounded-lg hover:bg-slate-800 transition-colors"
+                className="block w-full text-center px-6 py-4 bg-slate-900 text-white font-semibold rounded-xl hover:bg-slate-800 transition-all shadow-lg"
               >
                 Book Your Assessment
               </Link>
               
               <Link
                 href="/services"
-                className="block w-full text-center px-6 py-3.5 border-2 border-slate-200 text-gray-700 font-medium rounded-lg hover:border-[#B08D57] hover:text-[#B08D57] transition-colors"
+                className="block w-full text-center px-6 py-4 border-2 border-slate-200 text-gray-700 font-semibold rounded-xl hover:border-[#B08D57] hover:text-[#B08D57] transition-all"
               >
                 Explore Services
               </Link>
             </div>
 
-            <div className="mt-10 pt-6 border-t border-gray-100 flex justify-around text-sm text-gray-600">
-              <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-[#B08D57] rounded-full" />
-                <span>Direct Billing</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-[#B08D57] rounded-full" />
-                <span>Evening Hours</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-[#B08D57] rounded-full" />
-                <span>5+ Years</span>
+            <div className="mt-12 pt-8 border-t border-gray-100">
+              <div className="flex justify-center gap-8 text-sm text-gray-600">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-[#B08D57] rounded-full" />
+                  <span className="font-medium">Direct Billing</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-[#B08D57] rounded-full" />
+                  <span className="font-medium">Evening Hours</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-[#B08D57] rounded-full" />
+                  <span className="font-medium">5+ Years</span>
+                </div>
               </div>
             </div>
           </motion.div>

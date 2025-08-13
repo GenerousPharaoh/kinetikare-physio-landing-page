@@ -278,15 +278,16 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   {/* Subtle glow effect */}
                   <div className="absolute inset-0 w-9 h-9 bg-white/10 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                <div className="flex flex-col">
-                  <div className="flex items-center leading-none">
-                    <span className="text-[20px] xl:text-[22px] text-white font-light tracking-[0.02em]">Kineti</span>
-                    <span className="text-[20px] xl:text-[22px] text-[#D4AF37] font-bold">K</span>
-                    <span className="text-[20px] xl:text-[22px] text-white font-light tracking-[0.02em]">are</span>
-                  </div>
-                  <div className="text-[10px] xl:text-[11px] text-white/70 font-light tracking-[0.12em] uppercase mt-0.5">
-                    Physiotherapy
-                  </div>
+                <div className="flex items-center">
+                  <span className="text-[20px] xl:text-[22px] text-white font-light tracking-[0.02em]">Kineti</span>
+                  <span className="text-[20px] xl:text-[22px] text-[#D4AF37] font-bold">K</span>
+                  <span className="text-[20px] xl:text-[22px] text-white font-light tracking-[0.02em]">are</span>
+                </div>
+              </div>
+              <div className="hidden lg:block w-px h-5 bg-[#D4AF37]/30 mx-3"></div>
+              <div className="hidden lg:flex flex-col justify-center">
+                <div className="text-xs xl:text-sm text-white/80 font-medium leading-tight">
+                  Kareem Hassanein Physiotherapy
                 </div>
               </div>
           </Link>

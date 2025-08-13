@@ -261,35 +261,34 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
           <div className="flex items-center justify-between h-16">
             
             {/* Logo Section */}
-            <Link href="/" className="flex items-center space-x-3 group flex-shrink-0">
-              <div className="flex items-center space-x-3">
-                <div className="relative flex items-center">
+            <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0">
+              <div className="flex items-center gap-3">
+                <div className="relative flex items-center justify-center w-9 h-9">
                   <Image
                     src="/images/kinetikare-logo-without-text.png"
                     alt="KinetiKare physiotherapy logo Burlington Waterdown Kareem Hassanein"
-                    width={28}
-                    height={28}
-                    className="w-7 h-7 object-contain transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"
+                    width={32}
+                    height={32}
+                    className="w-8 h-8 object-contain transition-all duration-300 group-hover:scale-110"
                     style={{
                       filter: 'contrast(1.2) saturate(1.3) brightness(1.1) drop-shadow(0 1px 3px rgba(255, 255, 255, 0.1))',
                       imageRendering: 'crisp-edges'
                     }}
                   />
                   {/* Subtle glow effect */}
-                  <div className="absolute inset-0 w-7 h-7 bg-white/10 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 w-9 h-9 bg-white/10 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                <div className="flex items-center">
-                  <span className="text-[22px] xl:text-[24px] text-white font-light tracking-[0.02em]">Kineti</span>
-                  <span className="text-[22px] xl:text-[24px] text-[#D4AF37] font-bold">K</span>
-                  <span className="text-[22px] xl:text-[24px] text-white font-light tracking-[0.02em]">are</span>
+                <div className="flex flex-col">
+                  <div className="flex items-center leading-none">
+                    <span className="text-[20px] xl:text-[22px] text-white font-light tracking-[0.02em]">Kineti</span>
+                    <span className="text-[20px] xl:text-[22px] text-[#D4AF37] font-bold">K</span>
+                    <span className="text-[20px] xl:text-[22px] text-white font-light tracking-[0.02em]">are</span>
+                  </div>
+                  <div className="text-[10px] xl:text-[11px] text-white/70 font-light tracking-[0.12em] uppercase mt-0.5">
+                    Physiotherapy
+                  </div>
                 </div>
               </div>
-              <div className="hidden lg:block w-px h-5 bg-[#D4AF37]/30 mx-3"></div>
-              <div className="hidden lg:flex flex-col justify-center" style={{ marginTop: '2px' }}>
-                <div className="text-[11px] xl:text-xs text-white/80 font-light tracking-[0.15em] uppercase leading-tight">
-                  Physiotherapy & Rehabilitation
-              </div>
-            </div>
           </Link>
 
             {/* Navigation */}

@@ -139,18 +139,18 @@ export default function HeroSection() {
 
               <div className="flex gap-8 text-sm text-gray-600">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-[#B08D57] rounded-full" />
+                  <div className="w-2 h-2 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-full shadow-sm" />
                   <span>Direct Billing</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-[#B08D57] rounded-full" />
+                  <div className="w-2 h-2 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-full shadow-sm" />
                   <span>Evening Hours</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-[#B08D57] rounded-full" />
+                  <div className="w-2 h-2 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-full shadow-sm" />
                   <span>5+ Years Experience</span>
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           </div>
 

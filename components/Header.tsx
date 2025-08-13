@@ -279,15 +279,15 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   <div className="absolute inset-0 w-7 h-7 bg-white/10 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <div className="flex items-center">
-                  <span className="font-serif text-xl xl:text-2xl text-white tracking-wide font-light">Kineti</span>
-                  <span className="font-serif text-xl xl:text-2xl text-white/90 tracking-wide font-semibold">K</span>
-                  <span className="font-serif text-xl xl:text-2xl text-white tracking-wide font-light">are</span>
+                  <span className="text-[22px] xl:text-[24px] text-white font-light tracking-[0.02em]">Kineti</span>
+                  <span className="text-[22px] xl:text-[24px] text-[#D4AF37] font-bold">K</span>
+                  <span className="text-[22px] xl:text-[24px] text-white font-light tracking-[0.02em]">are</span>
                 </div>
               </div>
-              <div className="hidden lg:block w-px h-5 bg-white/20 mx-3"></div>
+              <div className="hidden lg:block w-px h-5 bg-[#D4AF37]/30 mx-3"></div>
               <div className="hidden lg:flex flex-col justify-center" style={{ marginTop: '2px' }}>
-                <div className="text-xs xl:text-sm text-white/70 font-medium leading-tight">
-                  Kareem Hassanein Physiotherapy
+                <div className="text-[11px] xl:text-xs text-white/80 font-light tracking-[0.15em] uppercase leading-tight">
+                  Physiotherapy & Rehabilitation
               </div>
             </div>
           </Link>

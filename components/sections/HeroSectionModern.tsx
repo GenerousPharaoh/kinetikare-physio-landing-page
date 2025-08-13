@@ -32,20 +32,20 @@ export default function HeroSection() {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <p className="text-xs uppercase tracking-[0.2em] text-[#B08D57] mb-6 font-semibold">
+            <p className="text-xs uppercase tracking-[0.2em] text-[#B08D57] mb-6 font-medium opacity-90">
               Registered Physiotherapist
             </p>
             
-            <h1 className="text-4xl sm:text-5xl font-bold text-slate-900 leading-[1.1] mb-8">
+            <h1 className="text-[42px] sm:text-[48px] font-bold text-slate-900 leading-[1.15] mb-8">
               The Science<br/>
               <span className="text-[#B08D57]">of Recovery.</span><br/>
-              <span className="inline-block mt-2">The Art</span><br/>
+              <span className="inline-block mt-3">The Art</span><br/>
               <span className="text-[#B08D57]">of Care.</span>
             </h1>
             
             <div className="mb-8">
-              <p className="text-2xl font-light text-gray-900 mb-3">Kareem Hassanein</p>
-              <div className="w-20 h-0.5 bg-[#B08D57] mx-auto" />
+              <p className="text-[26px] font-light text-slate-800 mb-3">Kareem Hassanein</p>
+              <div className="w-24 h-[1px] bg-[#B08D57] mx-auto opacity-60" />
             </div>
 
             <p className="text-gray-600 mb-10 leading-relaxed max-w-md mx-auto">
@@ -56,14 +56,14 @@ export default function HeroSection() {
               <Link
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                 target="_blank"
-                className="block w-full text-center px-6 py-4 bg-slate-900 text-white font-semibold rounded-xl hover:bg-slate-800 transition-all shadow-lg"
+                className="block w-full text-center px-6 py-4 bg-slate-900 text-white font-medium rounded-xl hover:bg-slate-800 transition-all shadow-lg hover:shadow-xl"
               >
                 Book Your Assessment
               </Link>
               
               <Link
                 href="/services"
-                className="block w-full text-center px-6 py-4 border-2 border-slate-200 text-gray-700 font-semibold rounded-xl hover:border-[#B08D57] hover:text-[#B08D57] transition-all"
+                className="block w-full text-center px-6 py-4 bg-white border border-slate-200 text-slate-700 font-medium rounded-xl hover:border-[#B08D57]/50 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all shadow-sm hover:shadow-md"
               >
                 Explore Services
               </Link>
@@ -100,20 +100,20 @@ export default function HeroSection() {
               transition={{ duration: 0.8 }}
               className="max-w-2xl"
             >
-              <p className="text-xs uppercase tracking-[0.2em] text-[#B08D57] mb-8 font-semibold">
+              <p className="text-xs uppercase tracking-[0.25em] text-[#B08D57] mb-10 font-medium opacity-90">
                 Registered Physiotherapist
               </p>
               
-              <h1 className="text-6xl xl:text-7xl font-bold text-slate-900 leading-[0.95] mb-10">
+              <h1 className="text-[64px] xl:text-[72px] font-bold text-slate-900 leading-[0.9] mb-12">
                 The Science<br/>
                 <span className="text-[#B08D57]">of Recovery.</span><br/>
-                <span className="mt-4 block">The Art</span>
+                <span className="mt-5 block">The Art</span>
                 <span className="text-[#B08D57]">of Care.</span>
               </h1>
 
               <div className="mb-10">
-                <p className="text-3xl font-light text-gray-900 mb-2">Kareem Hassanein</p>
-                <div className="w-24 h-0.5 bg-[#B08D57]" />
+                <p className="text-[32px] font-light text-slate-800 mb-3">Kareem Hassanein</p>
+                <div className="w-28 h-[1px] bg-[#B08D57] opacity-60" />
               </div>
 
               <p className="text-lg text-gray-600 mb-12 leading-relaxed max-w-xl">
@@ -124,14 +124,14 @@ export default function HeroSection() {
                 <Link
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
-                  className="px-8 py-4 bg-slate-900 text-white font-medium rounded-lg hover:bg-slate-800 transition-all hover:shadow-xl"
+                  className="px-9 py-4 bg-slate-900 text-white font-medium rounded-xl hover:bg-slate-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
                 >
                   Book Your Assessment
                 </Link>
 
                 <Link
                   href="/services"
-                  className="px-8 py-4 border-2 border-slate-200 text-gray-700 font-medium rounded-lg hover:border-[#B08D57] hover:text-[#B08D57] transition-all"
+                  className="px-9 py-4 bg-white border border-slate-200 text-slate-700 font-medium rounded-xl hover:border-[#B08D57]/50 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
                 >
                   Explore Services
                 </Link>

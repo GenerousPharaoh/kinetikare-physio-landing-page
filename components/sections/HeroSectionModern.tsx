@@ -14,7 +14,8 @@ export default function HeroSection() {
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
             backgroundImage: `radial-gradient(circle at 20% 50%, #B08D57 0%, transparent 50%),
-                            radial-gradient(circle at 80% 80%, #B08D57 0%, transparent 50%)`
+                            radial-gradient(circle at 80% 80%, #B08D57 0%, transparent 50%),
+                            radial-gradient(circle at 40% 20%, #B08D57 0%, transparent 50%)`
           }} />
         </div>
 
@@ -39,102 +40,118 @@ export default function HeroSection() {
         </div>
 
         {/* Content section */}
-        <div className="flex-1 flex flex-col justify-center px-8 py-10 relative z-10">
+        <div className="flex-1 flex flex-col justify-center px-8 py-8 relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <motion.p 
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-[11px] uppercase tracking-[0.3em] text-[#B08D57] mb-8 font-semibold"
+            {/* Elite badge */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-3 mb-8"
             >
-              Registered Physiotherapist
-            </motion.p>
+              <div className="h-[1px] w-12 bg-[#B08D57]" />
+              <p className="text-[10px] uppercase tracking-[0.4em] text-[#B08D57] font-bold">
+                Elite Performance
+              </p>
+              <div className="h-[1px] w-12 bg-[#B08D57]" />
+            </motion.div>
             
             <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-[44px] sm:text-[52px] font-bold text-white leading-[1.08] mb-10"
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-[38px] sm:text-[44px] font-bold text-white leading-[1.1] mb-6"
             >
-              The Science<br/>
-              <span className="text-[#B08D57]">of Recovery.</span><br/>
-              <span className="inline-block mt-3">The Art</span><br/>
-              <span className="text-[#B08D57]">of Care.</span>
+              Beyond<br/>
+              <span className="text-[#B08D57] text-[48px] sm:text-[56px]">Recovery</span>
             </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-white/60 text-sm uppercase tracking-[0.3em] mb-8 font-medium"
+            >
+              Performance Redefined
+            </motion.p>
             
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="mb-10"
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="mb-8"
             >
-              <p className="text-[28px] font-extralight text-white mb-4 tracking-wide">Kareem Hassanein</p>
-              <div className="flex items-center justify-center gap-4">
-                <div className="h-[1px] w-16 bg-gradient-to-r from-transparent to-[#B08D57]/60" />
-                <div className="h-1.5 w-1.5 rounded-full bg-[#B08D57]" />
-                <div className="h-[1px] w-16 bg-gradient-to-l from-transparent to-[#B08D57]/60" />
-              </div>
+              <p className="text-[24px] font-extralight text-white mb-2">Kareem Hassanein</p>
+              <p className="text-[11px] text-[#B08D57] uppercase tracking-[0.25em]">MSc PT • CAMPT Certified</p>
             </motion.div>
 
             <motion.p 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-white/70 mb-12 leading-[1.8] max-w-md mx-auto text-[15px]"
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="text-white/70 mb-10 leading-[1.8] max-w-md mx-auto text-[14px] font-light"
             >
-              Advanced physiotherapy combining evidence-based techniques with personalized attention for lasting results.
+              Where clinical excellence meets personalized care. 
+              Experience physiotherapy elevated to an art form.
             </motion.p>
 
             <div className="space-y-3 max-w-sm mx-auto w-full">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
+                transition={{ duration: 0.5, delay: 0.6 }}
               >
                 <Link
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
-                  className="block w-full text-center px-6 py-4 bg-[#B08D57] text-slate-900 font-semibold transition-all hover:bg-[#C9A769] group overflow-hidden"
+                  className="relative block w-full text-center px-6 py-4 bg-[#B08D57] text-slate-900 font-semibold rounded-none transition-all hover:bg-[#C9A769] group overflow-hidden"
                 >
-                  Book Your Assessment
+                  <span className="relative z-10">Begin Your Journey</span>
+                  <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity" />
                 </Link>
               </motion.div>
               
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
+                transition={{ duration: 0.5, delay: 0.7 }}
               >
                 <Link
                   href="/services"
-                  className="block w-full text-center px-6 py-4 bg-transparent border border-white/20 text-white font-medium hover:bg-white/5 hover:border-white/40 transition-all"
+                  className="block w-full text-center px-6 py-4 bg-transparent border border-white/20 text-white font-medium rounded-none hover:bg-white/5 hover:border-white/40 transition-all"
                 >
-                  Explore Services
+                  Explore Excellence
                 </Link>
               </motion.div>
             </div>
 
-            <div className="mt-12 pt-8 border-t border-white/10">
-              <div className="flex justify-center gap-8 text-sm text-white/60">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-[#B08D57] rounded-full" />
-                  <span className="font-medium">Direct Billing</span>
+            {/* Elite features */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="mt-12 pt-8 border-t border-white/10"
+            >
+              <div className="grid grid-cols-3 gap-4 text-center">
+                <div>
+                  <p className="text-[#B08D57] text-2xl font-light mb-1">5+</p>
+                  <p className="text-white/50 text-[10px] uppercase tracking-wider">Years Elite</p>
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-[#B08D57] rounded-full" />
-                  <span className="font-medium">Evening Hours</span>
+                <div>
+                  <p className="text-[#B08D57] text-2xl font-light mb-1">1:1</p>
+                  <p className="text-white/50 text-[10px] uppercase tracking-wider">Focused Care</p>
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-[#B08D57] rounded-full" />
-                  <span className="font-medium">5+ Years</span>
+                <div>
+                  <p className="text-[#B08D57] text-2xl font-light mb-1">100%</p>
+                  <p className="text-white/50 text-[10px] uppercase tracking-wider">Commitment</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -153,94 +170,104 @@ export default function HeroSection() {
           {/* Left content - Dark elegant */}
           <div className="w-[45%] flex items-center justify-center px-[8%] relative z-10">
             <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1 }}
               className="max-w-xl"
             >
-              <motion.p
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-[12px] uppercase tracking-[0.35em] text-[#B08D57] mb-12 font-semibold"
+              {/* Elite badge */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="flex items-center gap-4 mb-12"
               >
-                Registered Physiotherapist
-              </motion.p>
+                <div className="h-[1px] w-16 bg-[#B08D57]" />
+                <p className="text-[11px] uppercase tracking-[0.5em] text-[#B08D57] font-bold">
+                  Elite Performance
+                </p>
+              </motion.div>
               
               <motion.h1
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.2 }}
-                className="text-[68px] xl:text-[76px] font-bold text-white leading-[0.88] mb-14"
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="text-[72px] xl:text-[84px] font-bold text-white leading-[0.85] mb-8"
               >
-                The Science<br/>
-                <span className="text-[#B08D57]">of Recovery.</span><br/>
-                <span className="mt-6 block">The Art</span>
-                <span className="text-[#B08D57]">of Care.</span>
+                Beyond<br/>
+                <span className="text-[#B08D57] text-[88px] xl:text-[96px]">Recovery</span>
               </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="text-white/60 text-sm uppercase tracking-[0.4em] mb-12 font-medium"
+              >
+                Performance Redefined
+              </motion.p>
 
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
                 className="mb-12"
               >
-                <p className="text-[34px] font-extralight text-white mb-4 tracking-wide">Kareem Hassanein</p>
-                <div className="flex items-center gap-4">
-                  <div className="h-[1px] w-20 bg-gradient-to-r from-transparent to-[#B08D57]/60" />
-                  <div className="h-2 w-2 rounded-full bg-[#B08D57]/80" />
-                  <div className="h-[1px] w-20 bg-gradient-to-l from-transparent to-[#B08D57]/60" />
-                </div>
+                <p className="text-[32px] font-extralight text-white mb-3">Kareem Hassanein</p>
+                <p className="text-[12px] text-[#B08D57] uppercase tracking-[0.3em]">MSc PT • CAMPT Certified</p>
               </motion.div>
 
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-[17px] text-white/70 mb-14 leading-[1.8] max-w-xl"
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="text-white/70 mb-14 leading-[1.9] text-[16px] font-light"
               >
-                Advanced physiotherapy combining evidence-based techniques with personalized attention for lasting results.
+                Where clinical excellence meets personalized care. 
+                Experience physiotherapy elevated to an art form.
               </motion.p>
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                className="flex gap-5 mb-14"
+                transition={{ duration: 0.5, delay: 0.7 }}
+                className="flex gap-4 mb-16"
               >
                 <Link
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
-                  className="px-10 py-[18px] bg-[#B08D57] text-slate-900 font-semibold transition-all hover:bg-[#C9A769] group overflow-hidden"
+                  className="relative px-10 py-4 bg-[#B08D57] text-slate-900 font-semibold transition-all hover:bg-[#C9A769] group overflow-hidden"
                 >
-                  Book Your Assessment
+                  <span className="relative z-10">Begin Your Journey</span>
+                  <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity" />
                 </Link>
 
                 <Link
                   href="/services"
-                  className="px-10 py-[18px] bg-transparent border border-white/20 text-white font-medium hover:bg-white/5 hover:border-white/40 transition-all"
+                  className="px-10 py-4 bg-transparent border border-white/20 text-white font-medium hover:bg-white/5 hover:border-white/40 transition-all"
                 >
-                  Explore Services
+                  Explore Excellence
                 </Link>
               </motion.div>
 
+              {/* Elite metrics */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="flex gap-10 text-[14px] text-white/60"
+                transition={{ duration: 0.6, delay: 0.8 }}
+                className="flex gap-12"
               >
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-[#B08D57] rounded-full" />
-                  <span>Direct Billing</span>
+                <div className="border-l border-white/10 pl-4">
+                  <p className="text-[#B08D57] text-3xl font-light mb-1">5+</p>
+                  <p className="text-white/40 text-[11px] uppercase tracking-wider">Years Elite</p>
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-[#B08D57] rounded-full" />
-                  <span>Evening Hours</span>
+                <div className="border-l border-white/10 pl-4">
+                  <p className="text-[#B08D57] text-3xl font-light mb-1">1:1</p>
+                  <p className="text-white/40 text-[11px] uppercase tracking-wider">Focused Care</p>
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-[#B08D57] rounded-full" />
-                  <span>5+ Years Experience</span>
+                <div className="border-l border-white/10 pl-4">
+                  <p className="text-[#B08D57] text-3xl font-light mb-1">100%</p>
+                  <p className="text-white/40 text-[11px] uppercase tracking-wider">Commitment</p>
                 </div>
               </motion.div>
             </motion.div>
@@ -253,9 +280,9 @@ export default function HeroSection() {
                  style={{ clipPath: 'polygon(0 0, 100% 0, 0 100%)' }} />
             
             <motion.div
-              initial={{ opacity: 0, scale: 1.05 }}
+              initial={{ opacity: 0, scale: 1.1 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, ease: "easeOut" }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
               className="relative h-full"
             >
               <div className="absolute inset-0 bg-slate-900/30 z-10" />
@@ -268,21 +295,24 @@ export default function HeroSection() {
                 sizes="55vw"
               />
               
-              {/* Floating accent */}
+              {/* Elite badge overlay */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 1, duration: 0.8 }}
                 className="absolute bottom-20 right-20 z-30"
               >
-                <div className="bg-slate-900/90 backdrop-blur-md px-6 py-4 border border-[#B08D57]/30">
+                <div className="bg-slate-900/90 backdrop-blur-md px-8 py-6 border border-[#B08D57]/30">
                   <Image
                     src="/images/kinetikare-logo-kareem-hassanein-physiotherapy-transparent.png"
                     alt="KinetiKare"
-                    width={50}
-                    height={50}
+                    width={60}
+                    height={60}
                     className="opacity-80"
                   />
+                  <p className="text-[10px] text-[#B08D57] uppercase tracking-[0.3em] mt-3 text-center">
+                    Excellence
+                  </p>
                 </div>
               </motion.div>
             </motion.div>

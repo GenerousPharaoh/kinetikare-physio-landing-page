@@ -359,7 +359,7 @@ export default function ConditionsPageClient({
                 Ready to <span className="text-[#D4AF37]">Move Forward?</span>
               </h2>
               <p className="text-xl text-white/80 max-w-2xl mx-auto mb-12 leading-relaxed">
-                Continue your recovery journey with a comprehensive assessment tailored to your specific needs and goals.
+                If this page matches what you are dealing with and you want a clear plan, book an assessment or send a question first.
               </p>
             
               <div className="flex flex-col sm:flex-row gap-6 justify-center">

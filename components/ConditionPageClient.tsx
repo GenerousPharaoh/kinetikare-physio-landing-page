@@ -154,6 +154,32 @@ export default function ConditionPageClient({
           </div>
         </section>
 
+        {/* Evidence Snapshot - New Section */}
+        {condition.evidenceSnapshot && (
+          <section className="bg-blue-50 border-t border-b border-blue-200">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="max-w-7xl mx-auto py-6">
+                <div className="flex items-start gap-3">
+                  <BeakerIcon className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <h2 className="font-semibold text-blue-900 mb-3">Evidence Snapshot</h2>
+                    <ul className="space-y-2 text-sm text-blue-800">
+                      <li>• {condition.evidenceSnapshot.firstLine}</li>
+                      <li>• {condition.evidenceSnapshot.imaging}</li>
+                      <li>• {condition.evidenceSnapshot.management}</li>
+                    </ul>
+                    {condition.evidenceSnapshot.sources && (
+                      <p className="text-xs text-blue-600 mt-3 italic">
+                        Sources: {condition.evidenceSnapshot.sources}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* Red Flags Alert Bar - If Present */}
         {((condition.clinicalRedFlags && condition.clinicalRedFlags.length > 0) || 
           (condition.redFlags && condition.redFlags.length > 0)) && (
@@ -239,9 +265,9 @@ export default function ConditionPageClient({
         <section className="py-8">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
-              <div className="grid lg:grid-cols-4 gap-8">
-                {/* Main Content - Takes full width on mobile, 3 cols on desktop */}
-                <div className="lg:col-span-3">
+              <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-8">
+                {/* Main Content - min-w-0 prevents overflow */}
+                <main className="relative min-w-0">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={activeTab}
@@ -608,6 +634,80 @@ export default function ConditionPageClient({
                             </div>
                           )}
 
+                          {/* Measuring Progress Section */}
+                          {condition.measuringProgress && (
+                            <div className="bg-green-50 rounded-xl p-6 border border-green-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                                Measuring Progress
+                              </h2>
+                              <div className="space-y-3">
+                                <div>
+                                  <h3 className="font-semibold text-slate-900 mb-2">Day-to-Day Tracking</h3>
+                                  <p className="text-slate-600 text-sm">{condition.measuringProgress.dayToDay}</p>
+                                </div>
+                                {condition.measuringProgress.questionnaires && (
+                                  <div>
+                                    <h3 className="font-semibold text-slate-900 mb-2">Assessment Tools</h3>
+                                    <p className="text-slate-600 text-sm">{condition.measuringProgress.questionnaires}</p>
+                                  </div>
+                                )}
+                                <div>
+                                  <h3 className="font-semibold text-slate-900 mb-2">Activity Targets</h3>
+                                  <p className="text-slate-600 text-sm">{condition.measuringProgress.activityTarget}</p>
+                                </div>
+                                <p className="text-xs text-slate-500 mt-3 italic">
+                                  Ontario quality standards encourage local outcome tracking.
+                                </p>
+                              </div>
+                            </div>
+                          )}
+
+                          {/* Access and Hours Section */}
+                          {condition.accessAndHours && (
+                            <div className="bg-white rounded-xl p-6 border border-slate-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                                Access and Hours
+                              </h2>
+                              <div className="space-y-3">
+                                <div className="flex items-start gap-3">
+                                  <CalendarIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
+                                  <div>
+                                    <p className="font-medium text-slate-900 text-sm">Location</p>
+                                    <p className="text-sm text-slate-600">{condition.accessAndHours.location}</p>
+                                  </div>
+                                </div>
+                                <div className="flex items-start gap-3">
+                                  <ClockIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
+                                  <div>
+                                    <p className="font-medium text-slate-900 text-sm">Hours</p>
+                                    <p className="text-sm text-slate-600">{condition.accessAndHours.hours}</p>
+                                  </div>
+                                </div>
+                                <div className="flex items-start gap-3">
+                                  <CheckCircleIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
+                                  <div>
+                                    <p className="font-medium text-slate-900 text-sm">Parking</p>
+                                    <p className="text-sm text-slate-600">{condition.accessAndHours.parking}</p>
+                                  </div>
+                                </div>
+                                <div className="flex items-start gap-3">
+                                  <HeartIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
+                                  <div>
+                                    <p className="font-medium text-slate-900 text-sm">Accessibility</p>
+                                    <p className="text-sm text-slate-600">{condition.accessAndHours.accessibility}</p>
+                                  </div>
+                                </div>
+                                <div className="flex items-start gap-3">
+                                  <ArrowRightIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
+                                  <div>
+                                    <p className="font-medium text-slate-900 text-sm">Booking</p>
+                                    <p className="text-sm text-slate-600">{condition.accessAndHours.booking}</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          )}
+
                           {condition.faqs && condition.faqs.length > 0 && (
                             <div className="bg-white rounded-xl p-6 border border-slate-200">
                               <h2 className="text-xl font-semibold text-slate-900 mb-4">
@@ -632,14 +732,15 @@ export default function ConditionPageClient({
                       )}
                     </motion.div>
                   </AnimatePresence>
-                </div>
+                </main>
 
-                {/* Sidebar - Sticky on desktop */}
-                <div className="lg:col-span-1">
-                  <div className="sticky top-24 space-y-6">
+                {/* Sidebar - Sticky on desktop with proper z-index */}
+                <aside className="hidden lg:block sticky top-24 self-start z-0">
+                  <div className="space-y-6">
                     {/* Quick Actions */}
                     <div className="bg-gradient-to-br from-[#B08D57]/10 to-[#D4AF37]/10 rounded-xl p-6 border border-[#B08D57]/20">
                       <h3 className="font-semibold text-slate-900 mb-4">Ready to Get Started?</h3>
+                      <p className="text-sm text-slate-600 mb-4">If this page matches what you are dealing with and you want a clear plan, book an assessment or send a question first.</p>
                       <div className="space-y-3">
                         <Link
                           href="https://endorphinshealth.janeapp.com/#/staff_member/42"
@@ -679,35 +780,35 @@ export default function ConditionPageClient({
                       </div>
                     )}
 
-                    {/* Trust Indicators - Compact */}
+                    {/* What to Expect */}
                     <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
-                      <h3 className="font-semibold text-slate-900 mb-4">Why Choose Us</h3>
+                      <h3 className="font-semibold text-slate-900 mb-4">What to Expect</h3>
                       <div className="space-y-3">
                         <div className="flex items-start gap-3">
-                          <AcademicCapIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
+                          <ClockIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
                           <div>
-                            <p className="font-medium text-slate-900 text-sm">Evidence-Based Care</p>
-                            <p className="text-xs text-slate-600 mt-0.5">Research-driven protocols</p>
+                            <p className="font-medium text-slate-900 text-sm">First Visit</p>
+                            <p className="text-xs text-slate-600 mt-0.5">Clarify patterns, test key movements, leave with 2-3 exercises</p>
                           </div>
                         </div>
                         <div className="flex items-start gap-3">
-                          <CheckCircleIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
+                          <ChartBarIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
                           <div>
-                            <p className="font-medium text-slate-900 text-sm">Direct Billing</p>
-                            <p className="text-xs text-slate-600 mt-0.5">All major insurance</p>
+                            <p className="font-medium text-slate-900 text-sm">Early Phase</p>
+                            <p className="text-xs text-slate-600 mt-0.5">Reduce symptom spikes, build tolerance for daily activities</p>
                           </div>
                         </div>
                         <div className="flex items-start gap-3">
-                          <HeartIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
+                          <ArrowRightIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
                           <div>
-                            <p className="font-medium text-slate-900 text-sm">Personalized Care</p>
-                            <p className="text-xs text-slate-600 mt-0.5">Tailored treatment plans</p>
+                            <p className="font-medium text-slate-900 text-sm">Progression</p>
+                            <p className="text-xs text-slate-600 mt-0.5">Load increases planned and reviewed based on your responses</p>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </aside>
               </div>
             </div>
           </div>

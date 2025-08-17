@@ -47,6 +47,31 @@ export interface Condition {
     relevance: string;
   }[];
   
+  // New evidence-based sections
+  evidenceSnapshot?: {
+    firstLine: string;
+    imaging: string;
+    management: string;
+    sources?: string;
+  };
+  whatToExpect?: {
+    firstVisit: string;
+    earlyPhase: string;
+    progression: string;
+  };
+  measuringProgress?: {
+    dayToDay: string;
+    questionnaires?: string;
+    activityTarget: string;
+  };
+  accessAndHours?: {
+    location: string;
+    hours: string;
+    parking: string;
+    accessibility: string;
+    booking: string;
+  };
+  
   // Legacy fields (keeping for backward compatibility)
   overview?: string;
   biomechanics?: string;

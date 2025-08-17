@@ -3982,3 +3982,46 @@ Energy storage and release during jumping creates tensile loads up to 8x body we
     ]
   }
 };
+
+// Export function to get detailed condition with fallback
+export function getDetailedCondition(slug: string, baseCondition: Condition): Condition {
+  const detailedContent = detailedConditionsContent[slug];
+  
+  if (!detailedContent) {
+    return baseCondition;
+  }
+  
+  // Merge the base condition with detailed content
+  return {
+    ...baseCondition,
+    ...detailedContent,
+    // Ensure arrays are properly merged (not replaced)
+    redFlags: detailedContent.clinicalRedFlags || baseCondition.redFlags,
+    whenToSeek: detailedContent.clinicalRedFlags?.map(flag => flag.sign) || baseCondition.whenToSeek,
+    relatedConditions: detailedContent.relatedConditions || baseCondition.relatedConditions,
+    keywords: detailedContent.keywords || baseCondition.keywords,
+    // Map new structure to old for backward compatibility if needed
+    overview: detailedContent.pathophysiology || baseCondition.overview,
+    biomechanics: detailedContent.pathophysiology || baseCondition.biomechanics,
+    treatmentApproach: detailedContent.evidenceBasedTreatment ? {
+      title: 'Evidence-Based Treatment',
+      description: 'Treatment approaches based on current research',
+      techniques: detailedContent.evidenceBasedTreatment.map(t => 
+        `${t.intervention}: ${t.description}`
+      )
+    } : baseCondition.treatmentApproach,
+    timeline: detailedContent.prognosis ? [
+      {
+        phase: 'Initial Phase',
+        duration: detailedContent.prognosis.timeline.split('.')[0],
+        description: 'Focus on pain reduction and initial rehabilitation'
+      },
+      {
+        phase: 'Progressive Phase', 
+        duration: 'Varies based on individual factors',
+        description: detailedContent.prognosis.timeline
+      }
+    ] : baseCondition.timeline,
+    faqs: baseCondition.faqs // Keep existing FAQs
+  };
+}

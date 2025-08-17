@@ -1,4 +1,4 @@
-import { onCLS, onFCP, onFID, onLCP, onTTFB, onINP, Metric } from 'web-vitals';
+import { onCLS, onFCP, onLCP, onTTFB, onINP, Metric } from 'web-vitals';
 
 /**
  * Send Web Vitals metrics to Google Analytics
@@ -38,12 +38,6 @@ function sendToGoogleAnalytics(metric: Metric) {
           name: 'cumulative_layout_shift',
         });
         break;
-      case 'FID':
-        (window as any).gtag('event', 'page_view_timing', {
-          ...eventParams,
-          name: 'first_input_delay',
-        });
-        break;
       case 'TTFB':
         (window as any).gtag('event', 'page_view_timing', {
           ...eventParams,
@@ -73,7 +67,6 @@ function sendToGoogleAnalytics(metric: Metric) {
 export function reportWebVitals() {
   onCLS(sendToGoogleAnalytics);
   onFCP(sendToGoogleAnalytics);
-  onFID(sendToGoogleAnalytics);
   onLCP(sendToGoogleAnalytics);
   onTTFB(sendToGoogleAnalytics);
   onINP(sendToGoogleAnalytics);

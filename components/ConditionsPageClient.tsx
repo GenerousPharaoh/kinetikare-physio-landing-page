@@ -19,6 +19,11 @@ interface ConditionCategory {
   gradient: string;
   textGradient: string;
   conditions: string[];
+  conditionsData?: Array<{
+    slug: string;
+    name: string;
+    description?: string;
+  }>;
 }
 
 interface AdditionalService {
@@ -31,6 +36,7 @@ interface ConditionsPageClientProps {
   additionalServices: AdditionalService[];
 }
 
+// Force rebuild - Fixed pill button cutoff and spacing issues
 export default function ConditionsPageClient({ 
   conditionCategories, 
   additionalServices
@@ -114,15 +120,16 @@ export default function ConditionsPageClient({
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* PREMIUM Navigation Tabs */}
           <div className="max-w-6xl mx-auto mb-16">
-            <div className="flex flex-wrap justify-center gap-4">
+            {/* Add padding to prevent pill button cutoff */}
+            <div className="flex flex-wrap justify-center gap-4 py-2">
               {quickNavItems.map((item, index) => (
                 <button
                   key={item.name}
                   onClick={() => setActiveTab(item.tab)}
                   className={`relative px-8 py-4 rounded-full font-bold text-base transition-all duration-500 transform hover:-translate-y-0.5 ${
                     activeTab === item.tab
-                      ? 'text-white shadow-2xl'
-                      : 'text-slate-700 bg-white hover:bg-slate-50 border-2 border-slate-200 hover:border-[#B08D57] shadow-lg hover:text-[#B08D57]'
+                      ? 'text-white shadow-2xl shadow-[#B08D57]/30'
+                      : 'text-slate-700 bg-white hover:bg-slate-50 border-2 border-slate-200 hover:border-[#B08D57] shadow-lg hover:shadow-xl hover:text-[#B08D57]'
                   }`}
                 >
                   {activeTab === item.tab && (
@@ -167,10 +174,14 @@ export default function ConditionsPageClient({
                           const mainCondition = parts[0].trim();
                           const details = parts.length > 1 ? `(${parts.slice(1).join('(')}` : '';
                           
+                          // Use the actual slug from conditionsData if available
+                          const slug = category.conditionsData?.[index]?.slug || 
+                            mainCondition.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+                          
                           return (
                             <Link 
                               key={index}
-                              href={`/conditions/${mainCondition.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`}
+                              href={`/conditions/${slug}`}
                               className="flex items-start gap-3 p-4 rounded-lg bg-slate-50 hover:bg-slate-100 transition-colors group"
                             >
                               <CheckCircleIcon className="w-5 h-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
@@ -220,6 +231,10 @@ export default function ConditionsPageClient({
                             const mainCondition = parts[0].trim();
                             const details = parts.length > 1 ? `(${parts.slice(1).join('(')}` : '';
                             
+                            // Use the actual slug from conditionsData if available
+                            const slug = conditionCategories[activeTab].conditionsData?.[index]?.slug || 
+                              mainCondition.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+                            
                             return (
                               <motion.div
                                 key={index}
@@ -229,7 +244,7 @@ export default function ConditionsPageClient({
                                 className="group"
                               >
                                 <Link 
-                                  href={`/conditions/${mainCondition.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`}
+                                  href={`/conditions/${slug}`}
                                   className="block h-full"
                                 >
                                   <div className="p-6 rounded-2xl bg-white border-2 border-slate-200 hover:border-[#B08D57] hover:bg-gradient-to-br hover:from-white hover:to-[#B08D57]/5 transition-all duration-500 h-full min-h-[120px] cursor-pointer shadow-lg hover:shadow-2xl hover:-translate-y-1 transform">

@@ -93,18 +93,18 @@ export default function ConditionPageClient({
                 )}
 
                 {/* Quick Action Buttons - PREMIUM DESIGN */}
-                <div className="flex flex-wrap gap-6">
+                <div className="flex flex-wrap gap-6 py-2">
                   <Link
                     href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                     target="_blank"
-                    className="group inline-flex items-center px-10 py-5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] hover:from-[#D4AF37] hover:to-[#B08D57] text-white rounded-full font-bold text-lg transition-all duration-500 shadow-2xl shadow-[#B08D57]/30 hover:shadow-[#B08D57]/50 hover:-translate-y-1 transform"
+                    className="group inline-flex items-center px-10 py-5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] hover:from-[#D4AF37] hover:to-[#B08D57] text-white rounded-full font-bold text-lg transition-all duration-500 shadow-2xl shadow-[#B08D57]/30 hover:shadow-[#B08D57]/40 hover:-translate-y-1 transform"
                   >
                     <span>Book Assessment Now</span>
                     <CalendarIcon className="ml-3 h-6 w-6 group-hover:rotate-12 transition-transform" />
                   </Link>
                   <Link
                     href="/#contact"
-                    className="group inline-flex items-center px-10 py-5 bg-white text-slate-900 rounded-full font-bold text-lg border-3 border-[#B08D57] hover:bg-[#B08D57] hover:text-white transition-all duration-500 shadow-xl hover:shadow-2xl hover:-translate-y-1 transform"
+                    className="group inline-flex items-center px-10 py-5 bg-white text-slate-900 rounded-full font-bold text-lg border-2 border-[#B08D57] hover:bg-[#B08D57] hover:text-white transition-all duration-500 shadow-xl hover:shadow-2xl hover:-translate-y-1 transform"
                   >
                     <span>Ask a Question</span>
                     <QuestionMarkCircleIcon className="ml-3 h-6 w-6 group-hover:scale-125 transition-transform" />
@@ -119,12 +119,13 @@ export default function ConditionPageClient({
         <section className="py-20 bg-gradient-to-b from-white via-slate-50/50 to-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+              {/* Add padding to container for hover transforms */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-10 py-2">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
-                  className="group p-8 rounded-3xl bg-white border-2 border-slate-100 hover:border-[#B08D57]/30 hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
+                  className="group p-8 rounded-3xl bg-white border-2 border-slate-100 hover:border-[#B08D57]/30 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 transform">
                   <div className="flex items-start gap-5">
                     <div className="flex-shrink-0">
                       <div className="w-16 h-16 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
@@ -141,7 +142,7 @@ export default function ConditionPageClient({
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  className="group p-8 rounded-3xl bg-white border-2 border-slate-100 hover:border-[#B08D57]/30 hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
+                  className="group p-8 rounded-3xl bg-white border-2 border-slate-100 hover:border-[#B08D57]/30 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 transform">
                   <div className="flex items-start gap-5">
                     <div className="flex-shrink-0">
                       <div className="w-16 h-16 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
@@ -158,7 +159,7 @@ export default function ConditionPageClient({
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
-                  className="group p-8 rounded-3xl bg-white border-2 border-slate-100 hover:border-[#B08D57]/30 hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
+                  className="group p-8 rounded-3xl bg-white border-2 border-slate-100 hover:border-[#B08D57]/30 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 transform">
                   <div className="flex items-start gap-5">
                     <div className="flex-shrink-0">
                       <div className="w-16 h-16 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
@@ -370,12 +371,12 @@ export default function ConditionPageClient({
                   )}
                 </div>
 
-                {/* Sidebar */}
+                {/* Sidebar - ensure no overflow cutoff */}
                 <div className="lg:col-span-1">
                   <div className="space-y-8">
                     {/* When to Seek Help */}
                     {condition.whenToSeek && condition.whenToSeek.length > 0 && (
-                      <div className="bg-white rounded-xl p-6 border border-slate-200">
+                      <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-lg">
                       <h3 className="text-base font-semibold text-slate-900 mb-4">
                         When to Seek Help
                       </h3>
@@ -390,7 +391,7 @@ export default function ConditionPageClient({
                       <Link
                         href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                         target="_blank"
-                        className="mt-6 w-full inline-flex items-center justify-center px-4 py-3 bg-[#B08D57] hover:bg-[#997A4B] text-white rounded-lg font-medium transition-all duration-300"
+                        className="mt-6 w-full inline-flex items-center justify-center px-4 py-3 bg-[#B08D57] hover:bg-[#997A4B] text-white rounded-lg font-medium transition-all duration-300 shadow-md hover:shadow-lg"
                       >
                         Book Your Assessment
                         <ArrowRightIcon className="ml-2 h-4 w-4" />
@@ -400,7 +401,7 @@ export default function ConditionPageClient({
 
                     {/* Red Flags */}
                   {condition.redFlags && condition.redFlags.length > 0 && (
-                    <div className="bg-red-50 border border-red-200 rounded-xl p-6">
+                    <div className="bg-red-50 border border-red-200 rounded-xl p-6 shadow-lg">
                       <h3 className="text-base font-semibold text-red-900 mb-4 flex items-center">
                         <ExclamationTriangleIcon className="h-5 w-5 mr-2" />
                         Seek Immediate Care If:
@@ -418,7 +419,7 @@ export default function ConditionPageClient({
 
                   {/* Related Conditions */}
                   {relatedConditions.length > 0 && (
-                    <div className="bg-white rounded-xl p-6 border border-slate-200">
+                    <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-lg">
                       <h3 className="text-base font-semibold text-slate-900 mb-4">
                         Related Conditions
                       </h3>
@@ -475,11 +476,11 @@ export default function ConditionPageClient({
                   Take the next step in managing {condition.name.toLowerCase()}. I'll work with you to develop a personalized treatment plan tailored to your specific needs and goals.
                 </p>
                 
-                <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                <div className="flex flex-col sm:flex-row gap-6 justify-center py-2">
                   <Link
                     href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                     target="_blank"
-                    className="group inline-flex items-center justify-center px-8 py-4 bg-[#B08D57] hover:bg-[#997A4B] text-white rounded-lg font-medium transition-all duration-300"
+                    className="group inline-flex items-center justify-center px-8 py-4 bg-[#B08D57] hover:bg-[#997A4B] text-white rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl"
                   >
                     <span>Book Your Assessment Today</span>
                     <ChevronRightIcon className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -487,7 +488,7 @@ export default function ConditionPageClient({
                   
                   <Link
                     href="/#contact"
-                    className="group inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/30 text-white rounded-lg font-medium hover:bg-white/20 hover:border-white/40 transition-all duration-300"
+                    className="group inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/30 text-white rounded-lg font-medium hover:bg-white/20 hover:border-white/40 transition-all duration-300 shadow-lg hover:shadow-xl"
                   >
                     <span>Have Questions?</span>
                   </Link>
@@ -514,4 +515,5 @@ export default function ConditionPageClient({
       </main>
     </>
   );
-}// Force rebuild Sun 17 Aug 2025 12:13:43 EDT
+}
+// Force rebuild - Fixed overflow and button cutoff issues

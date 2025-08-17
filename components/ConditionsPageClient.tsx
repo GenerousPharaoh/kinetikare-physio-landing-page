@@ -167,15 +167,20 @@ export default function ConditionsPageClient({
                           const details = parts.length > 1 ? `(${parts.slice(1).join('(')}` : '';
                           
                           return (
-                            <div key={index} className="flex items-start gap-3 p-4 rounded-lg bg-slate-50 hover:bg-slate-100 transition-colors">
+                            <Link 
+                              key={index}
+                              href={`/conditions/${mainCondition.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`}
+                              className="flex items-start gap-3 p-4 rounded-lg bg-slate-50 hover:bg-slate-100 transition-colors group"
+                            >
                               <CheckCircleIcon className="w-5 h-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
-                              <div>
-                                <span className="font-medium text-slate-900">{mainCondition}</span>
+                              <div className="flex-1">
+                                <span className="font-medium text-slate-900 group-hover:text-[#B08D57] transition-colors">{mainCondition}</span>
                                 {details && (
                                   <span className="text-sm text-slate-600 block mt-0.5">{details}</span>
                                 )}
                               </div>
-                            </div>
+                              <ChevronRightIcon className="w-4 h-4 text-slate-400 group-hover:text-[#B08D57] transition-all opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0" />
+                            </Link>
                           );
                         })}
                       </div>
@@ -222,21 +227,27 @@ export default function ConditionsPageClient({
                                 transition={{ delay: index * 0.02, duration: 0.3 }}
                                 className="group"
                               >
-                                <div className="p-5 rounded-xl bg-slate-50 border border-slate-200 hover:border-[#B08D57]/30 hover:bg-white hover:shadow-lg transition-all duration-300 h-full min-h-[100px]">
-                                  <div className="flex items-start gap-3">
-                                    <CheckCircleIcon className="w-5 h-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
-                                    <div className="flex-1">
-                                      <h4 className="font-semibold text-slate-900">
-                                        {mainCondition}
-                                      </h4>
-                                      {details && (
-                                        <p className="text-sm text-slate-600 mt-1">
-                                          {details}
-                                        </p>
-                                      )}
+                                <Link 
+                                  href={`/conditions/${mainCondition.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`}
+                                  className="block h-full"
+                                >
+                                  <div className="p-5 rounded-xl bg-slate-50 border border-slate-200 hover:border-[#B08D57]/30 hover:bg-white hover:shadow-lg transition-all duration-300 h-full min-h-[100px] cursor-pointer">
+                                    <div className="flex items-start gap-3">
+                                      <CheckCircleIcon className="w-5 h-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
+                                      <div className="flex-1">
+                                        <h4 className="font-semibold text-slate-900 group-hover:text-[#B08D57] transition-colors">
+                                          {mainCondition}
+                                        </h4>
+                                        {details && (
+                                          <p className="text-sm text-slate-600 mt-1">
+                                            {details}
+                                          </p>
+                                        )}
+                                      </div>
+                                      <ChevronRightIcon className="w-4 h-4 text-slate-400 group-hover:text-[#B08D57] transition-all opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0" />
                                     </div>
                                   </div>
-                                </div>
+                                </Link>
                               </motion.div>
                             );
                           })}

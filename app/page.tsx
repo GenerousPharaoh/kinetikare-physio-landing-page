@@ -8,7 +8,7 @@ import ContactSection from '@/components/sections/ContactSection';
 
 // SEO Metadata for Homepage
 export const metadata: Metadata = {
-  title: 'Kareem Hassanein Physiotherapist Burlington | Back Pain, Sports Injuries, Knee Pain Treatment',
+  title: 'Burlington Physiotherapy | Kareem Hassanein, PT',
   description: 'Kareem Hassanein - Burlington\'s expert physiotherapist specializing in back pain, sports injuries, knee pain, neck pain. Serving North Burlington, Alton Village, Palladium Way. Direct billing, evening appointments. MSc PT, CAMPT certified.',
   keywords: [
     'Kareem Hassanein',
@@ -90,7 +90,7 @@ export const metadata: Metadata = {
     'registered physiotherapist Waterdown'
   ],
   openGraph: {
-    title: 'Kareem Hassanein Physiotherapist Burlington | Back Pain & Sports Injury Expert',
+    title: 'Burlington Physiotherapy | Kareem Hassanein, PT',
     description: 'Kareem Hassanein - Burlington\'s trusted physiotherapist for back pain, sports injuries, knee pain. North Burlington, Alton Village, Palladium Way. Book online.',
     url: 'https://www.kinetikarephysio.com',
     type: 'website',
@@ -105,7 +105,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Kareem Hassanein Physiotherapist Burlington | Pain & Injury Treatment',
+    title: 'Burlington Physiotherapy | Kareem Hassanein, PT',
     description: 'Kareem Hassanein - Expert physiotherapist in Burlington. Back pain, sports injuries, direct billing.',
     images: ['https://www.kinetikarephysio.com/images/og-image.jpg'],
   },

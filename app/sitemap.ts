@@ -1,9 +1,21 @@
 import { MetadataRoute } from 'next';
+import { getAllConditions } from '@/lib/conditions-data';
 
 // Blog posts removed - will add when blog is ready
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.kinetikarephysio.com';
+  
+  // Get all conditions for individual pages
+  const conditions = getAllConditions();
+  
+  // Create sitemap entries for condition pages with higher priority for featured conditions
+  const conditionPages: MetadataRoute.Sitemap = conditions.map(condition => ({
+    url: `${baseUrl}/conditions/${condition.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: condition.featured ? 0.85 : 0.75,
+  }));
 
   const staticPages = [
     {
@@ -62,5 +74,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  return staticPages;
+  return [...staticPages, ...conditionPages];
 } 

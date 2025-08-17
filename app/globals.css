@@ -5,6 +5,9 @@
 
 /* Import premium design systems */
 @import '../styles/performance.css';
+@import '../styles/premium-design-system.css';
+@import '../styles/micro-interactions.css';
+@import '../styles/responsive-premium.css';
 
 @tailwind base;
 @tailwind components;

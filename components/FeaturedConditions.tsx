@@ -31,10 +31,10 @@ export default function FeaturedConditions() {
               </span>
             </div>
             
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
-              Conditions We <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B08D57] to-[#D4AF37]">Specialize In</span>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-slate-900 mb-4 leading-tight">
+              Conditions We <span className="text-[#B08D57]">Specialize In</span>
             </h2>
-            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
               Expert treatment for the most common musculoskeletal conditions affecting Burlington residents
             </p>
           </motion.div>
@@ -53,7 +53,7 @@ export default function FeaturedConditions() {
                   href={`/conditions/${condition.slug}`}
                   className="group block h-full"
                 >
-                  <div className="relative bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 h-full border border-slate-100 hover:border-[#B08D57]/20">
+                  <div className="relative bg-white rounded-xl p-6 border border-slate-200 hover:border-[#B08D57]/30 transition-all duration-300 h-full">
                     {/* Priority Badge */}
                     {condition.priority && condition.priority <= 3 && (
                       <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-full flex items-center justify-center shadow-lg">
@@ -63,10 +63,10 @@ export default function FeaturedConditions() {
                     
                     {/* Content */}
                     <div className="flex flex-col h-full">
-                      <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-[#B08D57] transition-colors">
+                      <h3 className="text-lg font-semibold text-slate-900 mb-2 group-hover:text-[#B08D57] transition-colors">
                         {condition.name}
                       </h3>
-                      <p className="text-slate-600 text-sm mb-4 flex-grow">
+                      <p className="text-slate-600 text-sm mb-4 flex-grow leading-relaxed">
                         {condition.description}
                       </p>
                       
@@ -92,7 +92,7 @@ export default function FeaturedConditions() {
           >
             <Link
               href="/conditions"
-              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              className="inline-flex items-center px-6 py-3 bg-[#B08D57] hover:bg-[#997A4B] text-white rounded-lg font-medium transition-all duration-300"
             >
               View All 146 Conditions
               <ArrowRightIcon className="ml-3 h-5 w-5" />

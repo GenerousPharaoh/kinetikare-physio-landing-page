@@ -80,11 +80,11 @@ export default function ConditionPageClient({
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               >
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 tracking-tight">
-                  {condition.name} <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B08D57] to-[#D4AF37]">Treatment</span>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900 mb-6 leading-tight">
+                  {condition.name} <span className="text-[#B08D57]">Treatment</span>
                 </h1>
                 {condition.description && (
-                  <p className="text-lg md:text-xl text-slate-600 mb-8">
+                  <p className="text-base md:text-lg text-slate-600 mb-8 leading-relaxed">
                     {condition.description}
                   </p>
                 )}
@@ -94,14 +94,14 @@ export default function ConditionPageClient({
                   <Link
                     href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                     target="_blank"
-                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                    className="inline-flex items-center px-6 py-3 bg-[#B08D57] hover:bg-[#997A4B] text-white rounded-lg font-medium transition-all duration-300"
                   >
                     Book Assessment
                     <CalendarIcon className="ml-2 h-5 w-5" />
                   </Link>
                   <Link
                     href="/#contact"
-                    className="inline-flex items-center px-6 py-3 bg-white text-slate-700 rounded-xl font-semibold shadow-md hover:shadow-lg border border-slate-200 transition-all duration-300"
+                    className="inline-flex items-center px-6 py-3 bg-white text-slate-700 rounded-lg font-medium border border-slate-200 hover:border-[#B08D57]/30 hover:bg-slate-50 transition-all duration-300"
                   >
                     Ask a Question
                     <QuestionMarkCircleIcon className="ml-2 h-5 w-5" />
@@ -112,30 +112,42 @@ export default function ConditionPageClient({
           </div>
         </section>
 
-        {/* Trust Indicators */}
-        <section className="py-8 border-y border-slate-200 bg-white">
+        {/* Trust Indicators - Fixed Alignment */}
+        <section className="py-10 bg-slate-50/50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                <div className="flex items-center justify-center space-x-3">
-                  <ShieldCheckIcon className="h-6 w-6 text-[#B08D57]" />
-                  <div className="text-left">
-                    <p className="font-semibold text-slate-900">Evidence-Based Care</p>
-                    <p className="text-sm text-slate-600">Research-driven treatment</p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-12 h-12 bg-[#B08D57]/10 rounded-xl flex items-center justify-center">
+                      <ShieldCheckIcon className="h-6 w-6 text-[#B08D57]" />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-slate-900 mb-1">Evidence-Based Care</h3>
+                    <p className="text-sm text-slate-600 leading-relaxed">Research-driven treatment</p>
                   </div>
                 </div>
-                <div className="flex items-center justify-center space-x-3">
-                  <AcademicCapIcon className="h-6 w-6 text-[#B08D57]" />
-                  <div className="text-left">
-                    <p className="font-semibold text-slate-900">Manual Therapy</p>
-                    <p className="text-sm text-slate-600">Hands-on techniques</p>
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-12 h-12 bg-[#B08D57]/10 rounded-xl flex items-center justify-center">
+                      <AcademicCapIcon className="h-6 w-6 text-[#B08D57]" />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-slate-900 mb-1">Manual Therapy</h3>
+                    <p className="text-sm text-slate-600 leading-relaxed">Hands-on techniques</p>
                   </div>
                 </div>
-                <div className="flex items-center justify-center space-x-3">
-                  <CheckCircleIcon className="h-6 w-6 text-[#B08D57]" />
-                  <div className="text-left">
-                    <p className="font-semibold text-slate-900">Direct Billing</p>
-                    <p className="text-sm text-slate-600">Most insurances accepted</p>
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-12 h-12 bg-[#B08D57]/10 rounded-xl flex items-center justify-center">
+                      <CheckCircleIcon className="h-6 w-6 text-[#B08D57]" />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-slate-900 mb-1">Direct Billing</h3>
+                    <p className="text-sm text-slate-600 leading-relaxed">Most insurances accepted</p>
                   </div>
                 </div>
               </div>
@@ -157,10 +169,10 @@ export default function ConditionPageClient({
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5 }}
                       viewport={{ once: true }}
-                      className="bg-white rounded-2xl p-8 shadow-lg"
+                      className="bg-white rounded-xl p-6 border border-slate-200"
                     >
-                      <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center">
-                        <LightBulbIcon className="h-6 w-6 text-[#B08D57] mr-3" />
+                      <h2 className="text-xl font-semibold text-slate-900 mb-6 flex items-center">
+                        <LightBulbIcon className="h-5 w-5 text-[#B08D57] mr-3" />
                         Understanding Your Condition
                       </h2>
                       <div className="prose prose-slate max-w-none">
@@ -180,9 +192,9 @@ export default function ConditionPageClient({
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.1 }}
                       viewport={{ once: true }}
-                      className="bg-gradient-to-br from-slate-50 to-white rounded-2xl p-8 shadow-lg border border-slate-100"
+                      className="bg-white rounded-xl p-6 border border-slate-200"
                     >
-                      <h2 className="text-2xl font-bold text-slate-900 mb-6">
+                      <h2 className="text-xl font-semibold text-slate-900 mb-6">
                         Why This Happens
                       </h2>
                       <div className="prose prose-slate max-w-none">
@@ -202,9 +214,9 @@ export default function ConditionPageClient({
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.2 }}
                       viewport={{ once: true }}
-                      className="bg-white rounded-2xl p-8 shadow-lg"
+                      className="bg-white rounded-xl p-6 border border-slate-200"
                     >
-                      <h2 className="text-2xl font-bold text-slate-900 mb-6">
+                      <h2 className="text-xl font-semibold text-slate-900 mb-6">
                         Common Misconceptions
                       </h2>
                       <div className="space-y-4">
@@ -250,9 +262,9 @@ export default function ConditionPageClient({
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.3 }}
                       viewport={{ once: true }}
-                      className="bg-gradient-to-r from-[#B08D57]/5 to-[#D4AF37]/5 rounded-2xl p-8 shadow-lg border border-[#B08D57]/20"
+                      className="bg-[#B08D57]/5 rounded-xl p-6 border border-[#B08D57]/20"
                     >
-                      <h2 className="text-2xl font-bold text-slate-900 mb-4">
+                      <h2 className="text-xl font-semibold text-slate-900 mb-4">
                         {condition.treatmentApproach.title}
                       </h2>
                       <p className="text-slate-600 mb-6">
@@ -282,10 +294,10 @@ export default function ConditionPageClient({
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.4 }}
                       viewport={{ once: true }}
-                      className="bg-white rounded-2xl p-8 shadow-lg"
+                      className="bg-white rounded-xl p-6 border border-slate-200"
                     >
-                      <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center">
-                        <ClockIcon className="h-6 w-6 text-[#B08D57] mr-3" />
+                      <h2 className="text-xl font-semibold text-slate-900 mb-6 flex items-center">
+                        <ClockIcon className="h-5 w-5 text-[#B08D57] mr-3" />
                         Expected Recovery Timeline
                       </h2>
                       <div className="space-y-6">
@@ -317,9 +329,9 @@ export default function ConditionPageClient({
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.5 }}
                       viewport={{ once: true }}
-                      className="bg-slate-50 rounded-2xl p-8 shadow-lg"
+                      className="bg-slate-50 rounded-xl p-6 border border-slate-200"
                     >
-                      <h2 className="text-2xl font-bold text-slate-900 mb-6">
+                      <h2 className="text-xl font-semibold text-slate-900 mb-6">
                         Frequently Asked Questions
                       </h2>
                       <div className="space-y-6">
@@ -342,8 +354,8 @@ export default function ConditionPageClient({
                   <div className="space-y-8">
                     {/* When to Seek Help */}
                     {condition.whenToSeek && condition.whenToSeek.length > 0 && (
-                      <div className="bg-white rounded-2xl p-6 shadow-lg">
-                      <h3 className="text-lg font-bold text-slate-900 mb-4">
+                      <div className="bg-white rounded-xl p-6 border border-slate-200">
+                      <h3 className="text-base font-semibold text-slate-900 mb-4">
                         When to Seek Help
                       </h3>
                       <ul className="space-y-3">
@@ -357,7 +369,7 @@ export default function ConditionPageClient({
                       <Link
                         href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                         target="_blank"
-                        className="mt-6 w-full inline-flex items-center justify-center px-4 py-3 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white rounded-xl font-semibold shadow-md hover:shadow-lg transition-all duration-300"
+                        className="mt-6 w-full inline-flex items-center justify-center px-4 py-3 bg-[#B08D57] hover:bg-[#997A4B] text-white rounded-lg font-medium transition-all duration-300"
                       >
                         Book Your Assessment
                         <ArrowRightIcon className="ml-2 h-4 w-4" />
@@ -367,8 +379,8 @@ export default function ConditionPageClient({
 
                     {/* Red Flags */}
                   {condition.redFlags && condition.redFlags.length > 0 && (
-                    <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
-                      <h3 className="text-lg font-bold text-red-900 mb-4 flex items-center">
+                    <div className="bg-red-50 border border-red-200 rounded-xl p-6">
+                      <h3 className="text-base font-semibold text-red-900 mb-4 flex items-center">
                         <ExclamationTriangleIcon className="h-5 w-5 mr-2" />
                         Seek Immediate Care If:
                       </h3>
@@ -385,8 +397,8 @@ export default function ConditionPageClient({
 
                   {/* Related Conditions */}
                   {relatedConditions.length > 0 && (
-                    <div className="bg-slate-50 rounded-2xl p-6">
-                      <h3 className="text-lg font-bold text-slate-900 mb-4">
+                    <div className="bg-white rounded-xl p-6 border border-slate-200">
+                      <h3 className="text-base font-semibold text-slate-900 mb-4">
                         Related Conditions
                       </h3>
                       <div className="space-y-3">
@@ -435,8 +447,8 @@ export default function ConditionPageClient({
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-                  Continue Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B08D57] to-[#D4AF37]">Care Journey</span>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-6">
+                  Continue Your <span className="text-[#D4AF37]">Care Journey</span>
                 </h2>
                 <p className="text-xl text-white/80 max-w-2xl mx-auto mb-12">
                   Take the next step in managing {condition.name.toLowerCase()}. I'll work with you to develop a personalized treatment plan tailored to your specific needs and goals.
@@ -446,7 +458,7 @@ export default function ConditionPageClient({
                   <Link
                     href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                     target="_blank"
-                    className="group inline-flex items-center justify-center px-10 py-5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white rounded-2xl font-bold shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105"
+                    className="group inline-flex items-center justify-center px-8 py-4 bg-[#B08D57] hover:bg-[#997A4B] text-white rounded-lg font-medium transition-all duration-300"
                   >
                     <span>Book Your Assessment Today</span>
                     <ChevronRightIcon className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -454,7 +466,7 @@ export default function ConditionPageClient({
                   
                   <Link
                     href="/#contact"
-                    className="group inline-flex items-center justify-center px-10 py-5 bg-white/10 backdrop-blur-sm border-2 border-white/20 text-white rounded-2xl font-bold hover:bg-white/20 hover:border-white/30 transition-all duration-300"
+                    className="group inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/30 text-white rounded-lg font-medium hover:bg-white/20 hover:border-white/40 transition-all duration-300"
                   >
                     <span>Have Questions?</span>
                   </Link>

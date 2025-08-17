@@ -80,25 +80,24 @@ export default function ConditionsPageClient({
               className="text-center mb-12"
             >
               
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 tracking-tight">
-                Conditions I <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B08D57] to-[#D4AF37]">Treat</span>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900 mb-6 leading-tight">
+                Conditions I <span className="text-[#B08D57]">Treat</span>
               </h1>
-              <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-base md:text-lg text-slate-600 mb-10 max-w-3xl mx-auto leading-relaxed">
                 From acute injuries to chronic conditions, I provide personalized care tailored to your specific needs and recovery goals
               </p>
 
-              {/* Enhanced Search Bar */}
+              {/* Clean Search Bar */}
               <div className="max-w-2xl mx-auto mb-6">
-                <div className="relative group">
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#B08D57]/20 to-[#D4AF37]/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="relative bg-white rounded-2xl shadow-xl border border-slate-200/50">
-                    <MagnifyingGlassIcon className="absolute left-6 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400" />
+                <div className="relative">
+                  <div className="relative bg-white rounded-xl border border-slate-200 hover:border-[#B08D57]/30 transition-colors">
+                    <MagnifyingGlassIcon className="absolute left-5 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400" />
                     <input
                       type="text"
                       placeholder="Search conditions (e.g., back pain, knee injury, arthritis...)"
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      className="w-full pl-14 pr-6 py-5 bg-transparent rounded-2xl focus:outline-none text-slate-700 placeholder-slate-400 font-medium"
+                      className="w-full pl-12 pr-5 py-4 bg-transparent rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B08D57]/20 text-slate-700 placeholder-slate-400"
                     />
                   </div>
                 </div>
@@ -111,23 +110,23 @@ export default function ConditionsPageClient({
       {/* Main Content with Enhanced Tabbed Interface */}
       <section className="pt-0 pb-12 relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Enhanced Navigation Tabs */}
+          {/* Clean Navigation Tabs */}
           <div className="max-w-6xl mx-auto mb-12">
             <div className="flex flex-wrap justify-center gap-3">
               {quickNavItems.map((item, index) => (
                 <button
                   key={item.name}
                   onClick={() => setActiveTab(item.tab)}
-                  className={`relative px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 ${
+                  className={`relative px-5 py-2.5 rounded-lg font-medium text-sm transition-all duration-300 ${
                     activeTab === item.tab
-                      ? 'text-white shadow-lg scale-105'
-                      : 'text-slate-700 bg-white hover:bg-slate-50 shadow-md hover:shadow-lg border border-slate-200 hover:border-[#B08D57]/20'
+                      ? 'text-white'
+                      : 'text-slate-600 bg-white hover:bg-slate-50 border border-slate-200 hover:border-[#B08D57]/30'
                   }`}
                 >
                   {activeTab === item.tab && (
                     <motion.div
                       layoutId="activeTab"
-                      className="absolute inset-0 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-xl"
+                      className="absolute inset-0 bg-[#B08D57] rounded-lg"
                       transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                     />
                   )}
@@ -200,10 +199,10 @@ export default function ConditionsPageClient({
                   className="relative"
                 >
                   {/* Clean Card Design without overflow issues */}
-                  <div className="bg-white rounded-2xl shadow-xl border border-slate-100">
+                  <div className="bg-white rounded-xl border border-slate-200">
                     {/* Header Section */}
                     <div className="text-center px-6 py-8 border-b border-slate-100">
-                      <h2 className="text-3xl lg:text-4xl font-bold mb-3 text-slate-900">
+                      <h2 className="text-2xl lg:text-3xl font-semibold mb-3 text-slate-900">
                         {conditionCategories[activeTab].title}
                       </h2>
                       <p className="text-lg text-slate-600">
@@ -231,7 +230,7 @@ export default function ConditionsPageClient({
                                   href={`/conditions/${mainCondition.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`}
                                   className="block h-full"
                                 >
-                                  <div className="p-5 rounded-xl bg-slate-50 border border-slate-200 hover:border-[#B08D57]/30 hover:bg-white hover:shadow-lg transition-all duration-300 h-full min-h-[100px] cursor-pointer">
+                                  <div className="p-5 rounded-lg bg-slate-50 border border-slate-200 hover:border-[#B08D57]/30 hover:bg-white transition-all duration-300 h-full min-h-[100px] cursor-pointer">
                                     <div className="flex items-start gap-3">
                                       <CheckCircleIcon className="w-5 h-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
                                       <div className="flex-1">
@@ -275,10 +274,10 @@ export default function ConditionsPageClient({
               className="text-center mb-16"
             >
               
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 tracking-tight">
-                Additional Treatment <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B08D57] to-[#D4AF37]">Areas</span>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-slate-900 mb-4 leading-tight">
+                Additional Treatment <span className="text-[#B08D57]">Areas</span>
               </h2>
-              <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
                 Comprehensive care for complex cases and unique rehabilitation needs
               </p>
             </motion.div>
@@ -294,20 +293,17 @@ export default function ConditionsPageClient({
                   viewport={{ once: true }}
                   className="group h-full"
                 >
-                  <div className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 h-full overflow-hidden border border-slate-100 hover:border-[#B08D57]/20">
-                    {/* Background Gradient on Hover */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/5 via-transparent to-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    
+                  <div className="relative bg-white rounded-xl p-8 border border-slate-200 hover:border-[#B08D57]/30 transition-all duration-300 h-full">
                     {/* Number Badge */}
                     <div className="relative">
-                      <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl shadow-lg mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <span className="text-white font-bold text-xl">{index + 1}</span>
+                      <div className="inline-flex items-center justify-center w-12 h-12 bg-[#B08D57]/10 rounded-lg mb-4">
+                        <span className="text-[#B08D57] font-semibold text-lg">{index + 1}</span>
                       </div>
                       
-                      <h3 className="font-bold text-xl text-slate-900 mb-3 group-hover:text-[#B08D57] transition-colors">
+                      <h3 className="font-semibold text-lg text-slate-900 mb-3 group-hover:text-[#B08D57] transition-colors">
                         {service.title}
                       </h3>
-                      <p className="text-slate-600 leading-relaxed">
+                      <p className="text-sm text-slate-600 leading-relaxed">
                         {service.description}
                       </p>
                     </div>
@@ -340,8 +336,8 @@ export default function ConditionsPageClient({
               className="text-center"
             >
               
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
-                Ready to <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B08D57] to-[#D4AF37]">Move Forward?</span>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-6 leading-tight">
+                Ready to <span className="text-[#D4AF37]">Move Forward?</span>
               </h2>
               <p className="text-xl text-white/80 max-w-2xl mx-auto mb-12 leading-relaxed">
                 Continue your recovery journey with a comprehensive assessment tailored to your specific needs and goals.
@@ -351,7 +347,7 @@ export default function ConditionsPageClient({
                 <Link
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
-                  className="group inline-flex items-center justify-center px-10 py-5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white rounded-2xl font-bold shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105"
+                  className="group inline-flex items-center justify-center px-8 py-4 bg-[#B08D57] hover:bg-[#997A4B] text-white rounded-lg font-medium transition-all duration-300"
                 >
                   <span>Book Your Assessment</span>
                   <ChevronRightIcon className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -359,7 +355,7 @@ export default function ConditionsPageClient({
                 
                 <Link
                   href="/#contact"
-                  className="group inline-flex items-center justify-center px-10 py-5 bg-white/10 backdrop-blur-sm border-2 border-white/20 text-white rounded-2xl font-bold hover:bg-white/20 hover:border-white/30 transition-all duration-300"
+                  className="group inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/30 text-white rounded-lg font-medium hover:bg-white/20 hover:border-white/40 transition-all duration-300"
                 >
                   <span>Get in Touch First</span>
                 </Link>

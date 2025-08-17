@@ -504,16 +504,6 @@ export default function ServicesPage() {
                       <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/5 to-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl pointer-events-none"></div>
             </div>
             
-                    {/* Connection Arrow (Desktop Only) */}
-                    {index < 3 && (
-                      <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-20">
-                        <div className="w-8 h-8 flex items-center justify-center">
-                          <svg className="w-6 h-6 text-[#B08D57] group-hover:text-[#D4AF37] transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                          </svg>
-                        </div>
-                      </div>
-                    )}
                   </div>
                 ))}
               </div>

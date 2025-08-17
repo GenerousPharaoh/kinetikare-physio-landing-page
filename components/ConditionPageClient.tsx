@@ -1,5 +1,7 @@
 "use client";
 
+// <!-- UI REDESIGN 2024 - COMPLETE OVERHAUL -->
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -51,13 +53,13 @@ export default function ConditionPageClient({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      <main className="bg-gradient-to-b from-white to-slate-50">
-        {/* Hero Section */}
-        <section className="relative pt-24 lg:pt-28 pb-12 overflow-hidden">
-          {/* Background Elements */}
-          <div className="absolute inset-0">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#B08D57]/10 to-transparent rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-[#D4AF37]/10 to-transparent rounded-full blur-3xl"></div>
+      <main className="bg-white">
+        {/* Hero Section - COMPLETELY REDESIGNED */}
+        <section className="relative pt-28 lg:pt-36 pb-20 bg-gradient-to-br from-slate-50 via-white to-[#B08D57]/5">
+          {/* New Premium Background Pattern */}
+          <div className="absolute inset-0 opacity-40">
+            <div className="absolute top-20 right-10 w-72 h-72 bg-[#B08D57]/25 rounded-full blur-[100px]"></div>
+            <div className="absolute bottom-10 left-10 w-96 h-96 bg-[#D4AF37]/20 rounded-full blur-[120px]"></div>
           </div>
           
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -80,8 +82,9 @@ export default function ConditionPageClient({
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               >
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900 mb-6 leading-tight">
-                  {condition.name} <span className="text-[#B08D57]">Treatment</span>
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 mb-8 leading-[1.05] tracking-tight">
+                  <span className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-700 bg-clip-text text-transparent">{condition.name}</span>
+                  <span className="block mt-3 text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent">Expert Treatment</span>
                 </h1>
                 {condition.description && (
                   <p className="text-base md:text-lg text-slate-600 mb-8 leading-relaxed">
@@ -89,22 +92,22 @@ export default function ConditionPageClient({
                   </p>
                 )}
 
-                {/* Quick Action Buttons */}
-                <div className="flex flex-wrap gap-4">
+                {/* Quick Action Buttons - PREMIUM DESIGN */}
+                <div className="flex flex-wrap gap-6">
                   <Link
                     href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                     target="_blank"
-                    className="inline-flex items-center px-6 py-3 bg-[#B08D57] hover:bg-[#997A4B] text-white rounded-lg font-medium transition-all duration-300"
+                    className="group inline-flex items-center px-10 py-5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] hover:from-[#D4AF37] hover:to-[#B08D57] text-white rounded-full font-bold text-lg transition-all duration-500 shadow-2xl shadow-[#B08D57]/30 hover:shadow-[#B08D57]/50 hover:-translate-y-1 transform"
                   >
-                    Book Assessment
-                    <CalendarIcon className="ml-2 h-5 w-5" />
+                    <span>Book Assessment Now</span>
+                    <CalendarIcon className="ml-3 h-6 w-6 group-hover:rotate-12 transition-transform" />
                   </Link>
                   <Link
                     href="/#contact"
-                    className="inline-flex items-center px-6 py-3 bg-white text-slate-700 rounded-lg font-medium border border-slate-200 hover:border-[#B08D57]/30 hover:bg-slate-50 transition-all duration-300"
+                    className="group inline-flex items-center px-10 py-5 bg-white text-slate-900 rounded-full font-bold text-lg border-3 border-[#B08D57] hover:bg-[#B08D57] hover:text-white transition-all duration-500 shadow-xl hover:shadow-2xl hover:-translate-y-1 transform"
                   >
-                    Ask a Question
-                    <QuestionMarkCircleIcon className="ml-2 h-5 w-5" />
+                    <span>Ask a Question</span>
+                    <QuestionMarkCircleIcon className="ml-3 h-6 w-6 group-hover:scale-125 transition-transform" />
                   </Link>
                 </div>
               </motion.div>
@@ -112,44 +115,62 @@ export default function ConditionPageClient({
           </div>
         </section>
 
-        {/* Trust Indicators - Fixed Alignment */}
-        <section className="py-10 bg-slate-50/50">
+        {/* Trust Indicators - COMPLETELY REDESIGNED */}
+        <section className="py-20 bg-gradient-to-b from-white via-slate-50/50 to-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-[#B08D57]/10 rounded-xl flex items-center justify-center">
-                      <ShieldCheckIcon className="h-6 w-6 text-[#B08D57]" />
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="group p-8 rounded-3xl bg-white border-2 border-slate-100 hover:border-[#B08D57]/30 hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
+                  <div className="flex items-start gap-5">
+                    <div className="flex-shrink-0">
+                      <div className="w-16 h-16 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                        <ShieldCheckIcon className="h-8 w-8 text-white" />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="font-black text-xl text-slate-900 mb-2">Evidence-Based Care</h3>
+                      <p className="text-base text-slate-600 leading-relaxed">Research-driven treatment protocols</p>
                     </div>
                   </div>
-                  <div>
-                    <h3 className="font-medium text-slate-900 mb-1">Evidence-Based Care</h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">Research-driven treatment</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-[#B08D57]/10 rounded-xl flex items-center justify-center">
-                      <AcademicCapIcon className="h-6 w-6 text-[#B08D57]" />
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="group p-8 rounded-3xl bg-white border-2 border-slate-100 hover:border-[#B08D57]/30 hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
+                  <div className="flex items-start gap-5">
+                    <div className="flex-shrink-0">
+                      <div className="w-16 h-16 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                        <AcademicCapIcon className="h-8 w-8 text-white" />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="font-black text-xl text-slate-900 mb-2">Manual Therapy</h3>
+                      <p className="text-base text-slate-600 leading-relaxed">Expert hands-on techniques</p>
                     </div>
                   </div>
-                  <div>
-                    <h3 className="font-medium text-slate-900 mb-1">Manual Therapy</h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">Hands-on techniques</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-[#B08D57]/10 rounded-xl flex items-center justify-center">
-                      <CheckCircleIcon className="h-6 w-6 text-[#B08D57]" />
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  className="group p-8 rounded-3xl bg-white border-2 border-slate-100 hover:border-[#B08D57]/30 hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
+                  <div className="flex items-start gap-5">
+                    <div className="flex-shrink-0">
+                      <div className="w-16 h-16 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                        <CheckCircleIcon className="h-8 w-8 text-white" />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="font-black text-xl text-slate-900 mb-2">Direct Billing</h3>
+                      <p className="text-base text-slate-600 leading-relaxed">All major insurances accepted</p>
                     </div>
                   </div>
-                  <div>
-                    <h3 className="font-medium text-slate-900 mb-1">Direct Billing</h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">Most insurances accepted</p>
-                  </div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>

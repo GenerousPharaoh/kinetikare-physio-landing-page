@@ -1,5 +1,7 @@
 "use client";
 
+// <!-- UI REDESIGN 2024 - PREMIUM MEDICAL AESTHETIC -->
+
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
@@ -62,13 +64,13 @@ export default function ConditionsPageClient({
   ];
 
   return (
-    <main className="bg-gradient-to-b from-white to-slate-50">
-      {/* Enhanced Hero Section */}
-      <section className="relative pt-24 lg:pt-28 pb-8 overflow-hidden">
-        {/* Background Elements */}
+    <main className="bg-white min-h-screen">
+      {/* COMPLETELY REDESIGNED Hero Section */}
+      <section className="relative pt-32 lg:pt-40 pb-16 bg-gradient-to-br from-slate-50 via-white to-[#B08D57]/5">
+        {/* Premium Background Elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#B08D57]/10 to-transparent rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-[#D4AF37]/10 to-transparent rounded-full blur-3xl"></div>
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-[#B08D57]/25 via-[#D4AF37]/15 to-transparent rounded-full blur-[150px] opacity-60"></div>
+          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[#D4AF37]/20 via-[#B08D57]/10 to-transparent rounded-full blur-[150px] opacity-50"></div>
         </div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -80,24 +82,24 @@ export default function ConditionsPageClient({
               className="text-center mb-12"
             >
               
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900 mb-6 leading-tight">
-                Conditions I <span className="text-[#B08D57]">Treat</span>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 mb-8 leading-[1.05] tracking-tight">
+                Conditions I <span className="bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent">Treat</span>
               </h1>
-              <p className="text-base md:text-lg text-slate-600 mb-10 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl md:text-2xl text-slate-700 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
                 From acute injuries to chronic conditions, I provide personalized care tailored to your specific needs and recovery goals
               </p>
 
-              {/* Clean Search Bar */}
-              <div className="max-w-2xl mx-auto mb-6">
-                <div className="relative">
-                  <div className="relative bg-white rounded-xl border border-slate-200 hover:border-[#B08D57]/30 transition-colors">
-                    <MagnifyingGlassIcon className="absolute left-5 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400" />
+              {/* PREMIUM Search Bar */}
+              <div className="max-w-2xl mx-auto mb-8">
+                <div className="relative group">
+                  <div className="relative bg-white rounded-full border-2 border-slate-200 hover:border-[#B08D57] transition-all duration-300 shadow-xl hover:shadow-2xl">
+                    <MagnifyingGlassIcon className="absolute left-6 top-1/2 transform -translate-y-1/2 h-6 w-6 text-[#B08D57]" />
                     <input
                       type="text"
                       placeholder="Search conditions (e.g., back pain, knee injury, arthritis...)"
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      className="w-full pl-12 pr-5 py-4 bg-transparent rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B08D57]/20 text-slate-700 placeholder-slate-400"
+                      className="w-full pl-14 pr-6 py-5 bg-transparent rounded-full focus:outline-none focus:ring-4 focus:ring-[#B08D57]/20 text-lg font-medium text-slate-900 placeholder-slate-500"
                     />
                   </div>
                 </div>
@@ -107,27 +109,27 @@ export default function ConditionsPageClient({
         </div>
       </section>
 
-      {/* Main Content with Enhanced Tabbed Interface */}
-      <section className="pt-0 pb-12 relative">
+      {/* Main Content - NO SCROLLING ISSUES */}
+      <section className="pt-8 pb-20 relative bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Clean Navigation Tabs */}
-          <div className="max-w-6xl mx-auto mb-12">
-            <div className="flex flex-wrap justify-center gap-3">
+          {/* PREMIUM Navigation Tabs */}
+          <div className="max-w-6xl mx-auto mb-16">
+            <div className="flex flex-wrap justify-center gap-4">
               {quickNavItems.map((item, index) => (
                 <button
                   key={item.name}
                   onClick={() => setActiveTab(item.tab)}
-                  className={`relative px-5 py-2.5 rounded-lg font-medium text-sm transition-all duration-300 ${
+                  className={`relative px-8 py-4 rounded-full font-bold text-base transition-all duration-500 transform hover:-translate-y-0.5 ${
                     activeTab === item.tab
-                      ? 'text-white'
-                      : 'text-slate-600 bg-white hover:bg-slate-50 border border-slate-200 hover:border-[#B08D57]/30'
+                      ? 'text-white shadow-2xl'
+                      : 'text-slate-700 bg-white hover:bg-slate-50 border-2 border-slate-200 hover:border-[#B08D57] shadow-lg hover:text-[#B08D57]'
                   }`}
                 >
                   {activeTab === item.tab && (
                     <motion.div
                       layoutId="activeTab"
-                      className="absolute inset-0 bg-[#B08D57] rounded-lg"
-                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                      className="absolute inset-0 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"
+                      transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
                     />
                   )}
                   <span className="relative z-10">{item.name}</span>
@@ -198,21 +200,21 @@ export default function ConditionsPageClient({
                   transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                   className="relative"
                 >
-                  {/* Clean Card Design without overflow issues */}
-                  <div className="bg-white rounded-xl border border-slate-200">
+                  {/* PREMIUM Card Design - NO OVERFLOW */}
+                  <div className="bg-gradient-to-br from-white to-slate-50 rounded-3xl border-2 border-slate-100 shadow-2xl">
                     {/* Header Section */}
-                    <div className="text-center px-6 py-8 border-b border-slate-100">
-                      <h2 className="text-2xl lg:text-3xl font-semibold mb-3 text-slate-900">
+                    <div className="text-center px-8 py-12 bg-gradient-to-r from-[#B08D57]/10 via-white to-[#D4AF37]/10 rounded-t-3xl">
+                      <h2 className="text-3xl lg:text-4xl font-black mb-4 bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
                         {conditionCategories[activeTab].title}
                       </h2>
-                      <p className="text-lg text-slate-600">
+                      <p className="text-xl text-slate-700 font-light">
                         {conditionCategories[activeTab].subtitle}
                       </p>
                     </div>
 
-                    {/* Conditions Grid - Clean Design */}
-                    <div className="p-6 lg:p-10">
-                      <div className="grid md:grid-cols-2 gap-4 items-stretch">
+                    {/* Conditions Grid - PREMIUM Design */}
+                    <div className="p-8 lg:p-12">
+                      <div className="grid md:grid-cols-2 gap-6 items-stretch">
                           {conditionCategories[activeTab].conditions.map((condition, index) => {
                             const parts = condition.split('(');
                             const mainCondition = parts[0].trim();
@@ -230,20 +232,22 @@ export default function ConditionsPageClient({
                                   href={`/conditions/${mainCondition.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`}
                                   className="block h-full"
                                 >
-                                  <div className="p-5 rounded-lg bg-slate-50 border border-slate-200 hover:border-[#B08D57]/30 hover:bg-white transition-all duration-300 h-full min-h-[100px] cursor-pointer">
-                                    <div className="flex items-start gap-3">
-                                      <CheckCircleIcon className="w-5 h-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
+                                  <div className="p-6 rounded-2xl bg-white border-2 border-slate-200 hover:border-[#B08D57] hover:bg-gradient-to-br hover:from-white hover:to-[#B08D57]/5 transition-all duration-500 h-full min-h-[120px] cursor-pointer shadow-lg hover:shadow-2xl hover:-translate-y-1 transform">
+                                    <div className="flex items-start gap-4">
+                                      <div className="w-10 h-10 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                                        <CheckCircleIcon className="w-6 h-6 text-white" />
+                                      </div>
                                       <div className="flex-1">
-                                        <h4 className="font-semibold text-slate-900 group-hover:text-[#B08D57] transition-colors">
+                                        <h4 className="font-black text-lg text-slate-900 group-hover:text-[#B08D57] transition-colors mb-1">
                                           {mainCondition}
                                         </h4>
                                         {details && (
-                                          <p className="text-sm text-slate-600 mt-1">
+                                          <p className="text-base text-slate-600 leading-relaxed">
                                             {details}
                                           </p>
                                         )}
                                       </div>
-                                      <ChevronRightIcon className="w-4 h-4 text-slate-400 group-hover:text-[#B08D57] transition-all opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0" />
+                                      <ChevronRightIcon className="w-5 h-5 text-[#B08D57] group-hover:translate-x-1 transition-transform" />
                                     </div>
                                   </div>
                                 </Link>

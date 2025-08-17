@@ -120,15 +120,15 @@ export default function ConditionPageClient({
                 <div className="flex items-center justify-center space-x-3">
                   <ShieldCheckIcon className="h-6 w-6 text-[#B08D57]" />
                   <div className="text-left">
-                    <p className="font-semibold text-slate-900">600+ Patients Treated</p>
-                    <p className="text-sm text-slate-600">Proven track record</p>
+                    <p className="font-semibold text-slate-900">Evidence-Based Care</p>
+                    <p className="text-sm text-slate-600">Research-driven treatment</p>
                   </div>
                 </div>
                 <div className="flex items-center justify-center space-x-3">
                   <AcademicCapIcon className="h-6 w-6 text-[#B08D57]" />
                   <div className="text-left">
-                    <p className="font-semibold text-slate-900">CAMPT Certified</p>
-                    <p className="text-sm text-slate-600">Advanced manual therapy</p>
+                    <p className="font-semibold text-slate-900">Manual Therapy</p>
+                    <p className="text-sm text-slate-600">Hands-on techniques</p>
                   </div>
                 </div>
                 <div className="flex items-center justify-center space-x-3">
@@ -209,7 +209,25 @@ export default function ConditionPageClient({
                       </h2>
                       <div className="space-y-4">
                         {condition.commonMisconceptions.map((misconception, index) => {
-                          const [myth, truth] = misconception.split(' - ');
+                          const colonIndex = misconception.indexOf(':');
+                          const myth = colonIndex > -1 ? misconception.substring(0, colonIndex).trim() : misconception;
+                          const truth = colonIndex > -1 ? misconception.substring(colonIndex + 1).trim() : '';
+                          
+                          // If no truth part found, display the entire text as a single misconception
+                          if (!truth && misconception) {
+                            return (
+                              <div key={index} className="p-4 bg-slate-50 rounded-xl">
+                                <p className="text-slate-600">
+                                  ❌ {misconception}
+                                </p>
+                              </div>
+                            );
+                          }
+                          
+                          if (!truth) {
+                            return null;
+                          }
+                          
                           return (
                             <div key={index} className="p-4 bg-slate-50 rounded-xl">
                               <p className="font-semibold text-slate-900 mb-2">
@@ -220,7 +238,7 @@ export default function ConditionPageClient({
                               </p>
                             </div>
                           );
-                        })}
+                        }).filter(Boolean)}
                       </div>
                     </motion.div>
                   )}
@@ -320,10 +338,11 @@ export default function ConditionPageClient({
                 </div>
 
                 {/* Sidebar */}
-                <div className="lg:col-span-1 space-y-8">
-                  {/* When to Seek Help */}
-                  {condition.whenToSeek && condition.whenToSeek.length > 0 && (
-                    <div className="bg-white rounded-2xl p-6 shadow-lg sticky top-24">
+                <div className="lg:col-span-1">
+                  <div className="space-y-8">
+                    {/* When to Seek Help */}
+                    {condition.whenToSeek && condition.whenToSeek.length > 0 && (
+                      <div className="bg-white rounded-2xl p-6 shadow-lg">
                       <h3 className="text-lg font-bold text-slate-900 mb-4">
                         When to Seek Help
                       </h3>
@@ -343,10 +362,10 @@ export default function ConditionPageClient({
                         Book Your Assessment
                         <ArrowRightIcon className="ml-2 h-4 w-4" />
                       </Link>
-                    </div>
-                  )}
+                      </div>
+                    )}
 
-                  {/* Red Flags */}
+                    {/* Red Flags */}
                   {condition.redFlags && condition.redFlags.length > 0 && (
                     <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
                       <h3 className="text-lg font-bold text-red-900 mb-4 flex items-center">
@@ -393,6 +412,7 @@ export default function ConditionPageClient({
                       </div>
                     </div>
                   )}
+                  </div>
                 </div>
               </div>
             </div>
@@ -416,10 +436,10 @@ export default function ConditionPageClient({
                 viewport={{ once: true }}
               >
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-                  Start Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B08D57] to-[#D4AF37]">Recovery Journey</span>
+                  Continue Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B08D57] to-[#D4AF37]">Care Journey</span>
                 </h2>
                 <p className="text-xl text-white/80 max-w-2xl mx-auto mb-12">
-                  Don't let {condition.name.toLowerCase()} hold you back. Get the expert care you deserve with personalized treatment tailored to your goals.
+                  Take the next step in managing {condition.name.toLowerCase()}. I'll work with you to develop a personalized treatment plan tailored to your specific needs and goals.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-6 justify-center">
@@ -451,7 +471,7 @@ export default function ConditionPageClient({
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircleIcon className="h-5 w-5" />
-                    <span>600+ Patients Treated</span>
+                    <span>Personalized Treatment Plans</span>
                   </div>
                 </div>
               </motion.div>

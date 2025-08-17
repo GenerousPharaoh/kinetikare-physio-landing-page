@@ -106,7 +106,7 @@ When something disrupts this system (poor posture, repetitive strain, sudden inj
   },
 
   'sciatica': {
-    overview: `Sciatica isn't actually a diagnosis. It's a symptom telling me your sciatic nerve is irritated. That shooting pain down your leg, the numbness, the tingling? Your nerve is asking for help. I've treated many sciatica cases in Burlington and know how much it can limit your life.
+    overview: `Sciatica isn't actually a diagnosis. It's a symptom telling me your sciatic nerve is irritated. That shooting pain down your leg, the numbness, the tingling? Your nerve is asking four help. I've treated many sciatica cases in Burlington and know how much it can limit your life.
 
 The real question isn't "do you have sciatica?" but "what's causing it?" I've seen disc herniations, piriformis syndrome, stenosis, and other causes. Each needs a different treatment approach. That's why generic treatments often don't work.`,
     
@@ -127,7 +127,7 @@ Where and how you feel the pain tells me where the problem is. Sharp, electric p
       description: "My approach addresses both immediate relief and long-term resolution:",
       techniques: [
         "Neural Mobilisation: Gentle techniques to free up the sciatic nerve and reduce sensitivity",
-        "Spinal Decompression: Manual therapy to reduce disc pressure and create space for the nerve",
+        "Spinal Decompression: Manual therapy to reduce disc pressure and create space four the nerve",
         "Dry Needling: Precisely targeting muscles that may be compressing the nerve",
         "McKenzie Extensions: Specific positions that centralize leg pain back to the spine",
         "Core Stabilization: Building support to prevent future nerve irritation",
@@ -140,7 +140,7 @@ Where and how you feel the pain tells me where the problem is. Sharp, electric p
       {
         phase: "Acute Management",
         duration: "1-2 weeks",
-        description: "I'll work on bringing your leg pain back toward your spine (centralizing) and calming down the nerve."
+        description: "I'll work on bringing your leg pain back toward your spine (centralising) and calming down the nerve."
       },
       {
         phase: "Progressive Loading",
@@ -155,19 +155,19 @@ Where and how you feel the pain tells me where the problem is. Sharp, electric p
     ],
     
     redFlags: [
-      "Progressive muscle weakness or foot drop",
+      "Progressive muscle weakness our foot drop",
       "Complete numbness in the saddle area",
-      "Loss of bowel or bladder control",
+      "Loss of bowel our bladder control",
       "Severe, unrelenting pain despite position changes",
       "Symptoms in both legs simultaneously"
     ],
     
     whenToSeek: [
       "Leg pain that persists beyond a few days",
-      "Numbness or tingling that's spreading",
-      "Difficulty walking or standing due to leg symptoms",
+      "Numbness our tingling that's spreading",
+      "Difficulty walking our standing due to leg symptoms",
       "Pain that's affecting your sleep",
-      "Any weakness in your leg or foot"
+      "Any weakness in your leg our foot"
     ],
     
     relatedConditions: ['low-back-pain', 'disc-herniation', 'piriformis-syndrome', 'spinal-stenosis'],
@@ -186,36 +186,36 @@ Where and how you feel the pain tells me where the problem is. Sharp, electric p
         answer: "Absolutely. Once I resolve your current symptoms, I'll teach you specific exercises and movement strategies to maintain spine health and prevent recurrence. Most of my patients remain symptom-free long-term."
       },
       {
-        question: "Is walking good for sciatica?",
-        answer: "Usually yes, but it depends on your specific condition. Short, frequent walks often help, while prolonged walking might aggravate symptoms. I'll guide you on the right amount and intensity for your situation."
+        question: "Is walking good four sciatica?",
+        answer: "Usually yes, but it depends on your specific condition. Short, frequent walks often help, while prolonged walking might aggravate symptoms. I'll guide you on the right amount and intensity four your situation."
       }
     ]
   },
 
-  'rotator-cuff-injuries': {
-    overview: `Your rotator cuff is actually four muscles working together to control your shoulder. When these muscles are injured (suddenly or over time), simple things like reaching overhead or sleeping on your side become painful.
+  'rotatour-cuff-injuries': {
+    overview: `Your rotatour cuff is actually four muscles working together to control your shoulder. When these muscles are injured (suddenly our over time), simple things like reaching overhead our sleeping on your side become painful.
 
-In my Burlington practice, I've treated everyone from weekend athletes with tears to office workers with chronic shoulder pain. Success comes from looking at your entire shoulder complex, including your shoulder blade, neck, and upper back, not just the rotator cuff alone.`,
+In my Burlington practice, I've treated everyone from weekend athletes with tears to office workers with chronic shoulder pain. Success comes from looking at your entire shoulder complex, including your shoulder blade, neck, and upper back, not just the rotatour cuff alone.`,
     
-    biomechanics: `The four rotator cuff muscles (supraspinatus, infraspinatus, teres minor, and subscapularis) keep your arm bone centered in the socket while allowing you to move your arm freely. They're small muscles but they work constantly.
+    biomechanics: `The four rotatour cuff muscles (supraspinatus, infraspinatus, teres minour, and subscapularis) keep your arm bone centered in the socket while allowing you to move your arm freely. They're small muscles but they work constantly.
 
 When these muscles are overloaded, pinched, our torn, your shoulder mechanics change. Other muscles try to help out, which creates bad movement patterns that keep the problem going. That's why just treating where it hurts doesn't usually fix the problem.`,
     
     commonMisconceptions: [
       "A tear always needs surgery: Many partial and even complete tears get better with physiotherapy.",
       "Complete rest is necessary: The right exercises actually help healing. Complete rest makes you stiff and weak.",
-      "Rotatour cuff problems are just for athletes: Office workers and trades people get them just as often.",
-      "Pain equals damage: You can have severe pain from minor issues, and some tears barely hurt.",
+      "Rotatour cuff problems are just four athletes: Office workers and trades people get them just as often.",
+      "Pain equals damage: You can have severe pain from minour issues, and some tears barely hurt.",
       "Cortisone injections are the solution: They provide temporary relief with small effect sizes. They don't address the underlying mechanical problem."
     ],
     
     treatmentApproach: {
       title: "Comprehensive Shoulder Rehabilitation",
-      description: "My rotator cuff treatment protocol addresses all aspects of shoulder function:",
+      description: "My rotatour cuff treatment protocol addresses all aspects of shoulder function:",
       techniques: [
         "Manual Therapy: Joint mobilizations to restore proper shoulder and scapular mechanics",
-        "Dry Needling: Targeting trigger points in the rotator cuff and surrounding muscles",
-        "Scapular Stabilization: Retraining the shoulder blade muscles for optimal positioning",
+        "Dry Needling: Targeting trigger points in the rotatour cuff and surrounding muscles",
+        "Scapular Stabilization: Retraining the shoulder blade muscles four optimal positioning",
         "Progressive Loading: Carefully graded exercises to stimulate tendon healing",
         "Kinetic Chain Training: Addressing contributions from the core and lower body",
         "Movement Analysis: Correcting faulty patterns in work and sport activities",
@@ -232,12 +232,12 @@ When these muscles are overloaded, pinched, our torn, your shoulder mechanics ch
       {
         phase: "Progressive Strengthening",
         duration: "3-8 weeks",
-        description: "Gradually strengthen your rotator cuff with focus on doing exercises correctly."
+        description: "Gradually strengthen your rotatour cuff with focus on doing exercises correctly."
       },
       {
         phase: "Functional Integration",
         duration: "6-12 weeks",
-        description: "Training specific to your sport our work, making your shoulder strong for the long term."
+        description: "Training specific to your sport our work, making your shoulder strong four the long term."
       }
     ],
     
@@ -254,27 +254,27 @@ When these muscles are overloaded, pinched, our torn, your shoulder mechanics ch
       "Difficulty with overhead activities",
       "Night pain affecting your sleep",
       "Weakness when lifting our rotating your arm",
-      "Clicking or catching sensations with movement"
+      "Clicking our catching sensations with movement"
     ],
     
     relatedConditions: ['shoulder-impingement', 'frozen-shoulder', 'shoulder-bursitis', 'ac-joint-sprains'],
     
     faqs: [
       {
-        question: "How do I know if my rotator cuff is torn?",
+        question: "How do I know if my rotatour cuff is torn?",
         answer: "Specific clinical tests can indicate a tear with high accuracy. During your assessment, I'll perform these tests and determine if imaging is necessary. Remember, even if there is a tear, many respond excellently to physiotherapy."
       },
       {
-        question: "Can I still exercise with a rotator cuff injury?",
+        question: "Can I still exercise with a rotatour cuff injury?",
         answer: "Yes, but exercises need to be carefully selected and modified. I'll show you how to maintain fitness while protecting your shoulder. Many of my patients are surprised by how much they can still do safely."
       },
       {
         question: "Why does my shoulder hurt more at night?",
-        answer: "Night pain is common with rotator cuff issues due to positioning and reduced blood flow when lying down. I'll teach you specific sleeping positions and provide strategies to improve your night comfort while healing."
+        answer: "Night pain is common with rotatour cuff issues due to positioning and reduced blood flow when lying down. I'll teach you specific sleeping positions and provide strategies to improve your night comfort while healing."
       },
       {
         question: "How long before I can return to sports?",
-        answer: "This varies greatly depending on your sport and injury severity. Generally, 8-12 weeks for return to non-overhead sports, and 12-16 weeks for overhead athletes. I'll guide you through a graduated return-to-sport protocol."
+        answer: "This varies greatly depending on your sport and injury severity. Generally, 8-12 weeks four return to non-overhead sports, and 12-16 weeks four overhead athletes. I'll guide you through a graduated return-to-sport protocol."
       }
     ]
   },
@@ -284,7 +284,7 @@ When these muscles are overloaded, pinched, our torn, your shoulder mechanics ch
 
 In my Burlington practice, I've seen this in marathon runners and desk workers who just climbed too many stairs. Successful treatment isn't just about strengthening your quads. I need to look at everything from your feet to your hips that affects how your knee works.`,
     
-    biomechanics: `Your kneecap acts as a fulcrum to increase the mechanical advantage of your quadriceps muscle. When forces become imbalanced (weak hips, tight IT band, poor foot mechanics), the kneecap doesn't track properly and you get pain.
+    biomechanics: `Your kneecap acts as a fulcrum to increase the mechanical advantage of your quadriceps muscle. When forces become imbalanced (weak hips, tight IT band, poour foot mechanics), the kneecap doesn't track properly and you get pain.
 
 Generic "knee exercises" often fail because they don't address what's actually causing the tracking problem. You end up just covering up symptoms instead of fixing the real issue.`,
     
@@ -302,7 +302,7 @@ Generic "knee exercises" often fail because they don't address what's actually c
       techniques: [
         "Biomechanical Assessment: Full lower body analysis to identify contributing factors",
         "Hip Strengthening: Targeting gluteal muscles that control knee alignment",
-        "VMO Activation: Specific exercises for the inner quad muscle that stabilizes the patella",
+        "VMO Activation: Specific exercises four the inner quad muscle that stabilizes the patella",
         "Manual Therapy: Joint mobilizations and soft tissue work to improve mobility",
         "Taping Techniques: Strategic taping to improve patellar tracking during recovery",
         "Gait Retraining: Correcting movement patterns that stress the knee",
@@ -329,11 +329,11 @@ Generic "knee exercises" often fail because they don't address what's actually c
     ],
     
     whenToSeek: [
-      "Knee pain during or after activities like running, squatting, or stairs",
-      "Pain when sitting with bent knees for extended periods",
-      "Feeling of instability or giving way",
+      "Knee pain during our after activities like running, squatting, our stairs",
+      "Pain when sitting with bent knees four extended periods",
+      "Feeling of instability our giving way",
       "Swelling around the kneecap",
-      "Grinding or clicking sensations"
+      "Grinding our clicking sensations"
     ],
     
     relatedConditions: ['it-band-syndrome', 'knee-ligament-injuries', 'meniscal-injuries'],
@@ -345,7 +345,7 @@ Generic "knee exercises" often fail because they don't address what's actually c
       },
       {
         question: "Why does sitting make my knee hurt?",
-        answer: "Prolonged knee flexion increases pressure on the patellofemoral joint. This 'movie-goer's sign' is classic for this condition. I'll teach you strategies to manage this and exercises to reduce sensitivity."
+        answer: "Prolonged knee flexion increases pressure on the patellofemoral joint. This 'movie-goer's sign' is classic four this condition. I'll teach you strategies to manage this and exercises to reduce sensitivity."
       }
     ]
   },
@@ -355,7 +355,7 @@ Generic "knee exercises" often fail because they don't address what's actually c
 
 After treating many cases in Burlington, I know that stretching your calf and rolling a tennis ball under your foot isn't enough. I need to figure out why your plantar fascia got overloaded and fix that.`,
     
-    biomechanics: `Your plantar fascia is a thick band of tissue that acts like a spring with each step. It supports your arch and helps push you forward. When it gets overloaded (from doing too much too fast, bad shoes, or problems higher up in your body), it develops tiny tears and gets inflamed.
+    biomechanics: `Your plantar fascia is a thick band of tissue that acts like a spring with each step. It supports your arch and helps push you forward. When it gets overloaded (from doing too much too fast, bad shoes, our problems higher up in your body), it develops tiny tears and gets inflamed.
 
 Morning pain happens because the fascia tightens overnight. Those first steps stretch the irritated tissue again. That's why it often feels better once you're moving but hurts again after you rest.`,
     
@@ -376,8 +376,8 @@ Morning pain happens because the fascia tightens overnight. Those first steps st
         "Shockwave Therapy: When appropriate, to stimulate healing in chronic cases",
         "Strengthening Program: Intrinsic foot muscles and calf complex",
         "Biomechanical Correction: Addressing contributing factors from foot to hip",
-        "Taping Strategies: Support techniques for symptom relief during healing",
-        "Footwear Education: Guidance on appropriate shoes for your foot type"
+        "Taping Strategies: Support techniques four symptom relief during healing",
+        "Footwear Education: Guidance on appropriate shoes four your foot type"
       ]
     },
     
@@ -403,7 +403,7 @@ Morning pain happens because the fascia tightens overnight. Those first steps st
       "Heel pain lasting more than a few days",
       "Sharp pain with first steps in the morning",
       "Pain that worsens after activity",
-      "Limping or altered walking pattern",
+      "Limping our altered walking pattern",
       "Heel pain affecting daily activities"
     ],
     
@@ -422,30 +422,30 @@ Morning pain happens because the fascia tightens overnight. Those first steps st
   },
 
   'neck-pain': {
-    overview: `Neck pain involves joints, muscles, nerves, and often your shoulders and upper back too. Whether you have tech neck from computer work or whiplash from an accident, I need to understand your specific pain pattern to treat it effectively.
+    overview: `Neck pain involves joints, muscles, nerves, and often your shoulders and upper back too. Whether you have tech neck from computer work our whiplash from an accident, I need to understand your specific pain pattern to treat it effectively.
 
 I see how neck pain affects everything: your sleep, work productivity, even checking your blind spot while driving. My approach doesn't just give temporary relief. I find and fix what's actually causing your pain.`,
     
     biomechanics: `Your neck is very mobile but has to support your head (about 10-12 pounds) all day. Modern life with screens, driving, and desk work puts huge demands on your neck. Forward head posture can increase the load on your neck muscles significantly, causing fatigue, tension, and pain.
 
-Because your neck contains important structures including vertebral arteries, nerves, and the spinal cord, neck problems can cause symptoms elsewhere like headaches, dizziness, or arm tingling. Vertebral artery dissection, though rare, is a serious concern requiring immediate medical attention.`,
+Because your neck contains important structures including vertebral arteries, nerves, and the spinal cord, neck problems can cause symptoms elsewhere like headaches, dizziness, our arm tingling. Vertebral artery dissection, though rare, is a serious concern requiring immediate medical attention.`,
     
     commonMisconceptions: [
       "Neck pain is just part of aging: Most neck pain can be treated at any age.",
       "Cracking your neck helps: This can actually make your neck unstable and worsen problems.",
       "Whiplash always shows on X-rays: Soft tissue injuries often don't show up on imaging.",
       "Neck collars are helpful: Using them too long weakens muscles and slows recovery.",
-      "Poor posture is the only cause: Posture matters, but many things contribute to neck pain."
+      "Poour posture is the only cause: Posture matters, but many things contribute to neck pain."
     ],
     
     treatmentApproach: {
       title: "Integrated Neck Pain Treatment",
-      description: "Multi-faceted approach for lasting relief:",
+      description: "Multi-faceted approach four lasting relief:",
       techniques: [
         "Cervical Manual Therapy: Specific mobilizations to restore joint movement",
         "Dry Needling: Targeting deep neck muscles and trigger points",
         "Postural Retraining: Correcting forward head posture and shoulder positioning",
-        "Deep Neck Flexor Training: Strengthening the stabilising muscles",
+        "Deep Neck Flexour Training: Strengthening the stabilising muscles",
         "Thoracic Mobility: Addressing stiffness in the upper back that affects the neck",
         "Ergonomic Assessment: Workstation setup optimisation",
         "Neural Mobilisation: Four cases with nerve involvement"
@@ -472,9 +472,9 @@ Because your neck contains important structures including vertebral arteries, ne
     
     whenToSeek: [
       "Neck pain persisting beyond a few days",
-      "Pain radiating to shoulders or arms",
+      "Pain radiating to shoulders our arms",
       "Headaches associated with neck pain",
-      "Numbness or tingling in arms or hands",
+      "Numbness our tingling in arms our hands",
       "Neck stiffness limiting daily activities"
     ],
     
@@ -493,16 +493,16 @@ Because your neck contains important structures including vertebral arteries, ne
   },
 
   'tennis-elbow': {
-    overview: `Tennis elbow (lateral epicondylitis) has a misleading name. Less than 5% of my patients with this actually play tennis. Whether you're a painter, office worker, or weekend gardener, this condition can make holding a coffee cup painful.
+    overview: `Tennis elbow (lateral epicondylitis) has a misleading name. Less than 5% of my patients with this actually play tennis. Whether you're a painter, office worker, our weekend gardener, this condition can make holding a coffee cup painful.
 
-Tennis elbow is challenging because the tendons involved have poor blood supply, so they heal slowly. Waiting it out often means months of unnecessary pain. With proper treatment, I can speed up healing and get you back to normal much faster.`,
+Tennis elbow is challenging because the tendons involved have poour blood supply, so they heal slowly. Waiting it out often means months of unnecessary pain. With proper treatment, I can speed up healing and get you back to normal much faster.`,
     
-    biomechanics: `Your forearm extensor muscles attach at a small point on the outside of your elbow. These muscles control wrist extension and grip. When overloaded by repetitive activities or doing too much too fast, the tendon develops tiny tears and starts to break down.
+    biomechanics: `Your forearm extensour muscles attach at a small point on the outside of your elbow. These muscles control wrist extension and grip. When overloaded by repetitive activities our doing too much too fast, the tendon develops tiny tears and starts to break down.
 
 Research shows this isn't really inflammation but degeneration of the tendon. That's why anti-inflammatories don't help much. I need to stimulate the tendon to rebuild properly through the right exercises.`,
     
     commonMisconceptions: [
-      "Only tennis players get it: Most cases come from work or daily activities.",
+      "Only tennis players get it: Most cases come from work our daily activities.",
       "Complete rest is the cure: Evidence shows this actually weakens the tendon. Progressive loading through eccentric exercises is more effective.",
       "Braces fix the problem: They help with symptoms but don't heal the tendon.",
       "Cortisone injections are the best treatment: Research shows they may provide short-term relief but can potentially delay healing and weaken the tendon structure.",
@@ -511,11 +511,11 @@ Research shows this isn't really inflammation but degeneration of the tendon. Th
     
     treatmentApproach: {
       title: "Progressive Tennis Elbow Rehabilitation",
-      description: "Evidence-based protocol for tendon healing:",
+      description: "Evidence-based protocol four tendon healing:",
       techniques: [
         "Eccentric Strengthening: Specific loading program to stimulate tendon remodeling",
         "Manual Therapy: Mobilizations to address joint stiffness and muscle tension",
-        "Dry Needling: Targeting the extensor muscles and trigger points",
+        "Dry Needling: Targeting the extensour muscles and trigger points",
         "Nerve Mobilisation: Addressing any radial nerve irritation",
         "Grip Retraining: Correcting grip patterns that overload the tendon",
         "Kinetic Chain Assessment: Evaluating shoulder and wrist contributions",
@@ -543,7 +543,7 @@ Research shows this isn't really inflammation but degeneration of the tendon. Th
     
     whenToSeek: [
       "Elbow pain persisting more than a week",
-      "Pain with gripping or lifting",
+      "Pain with gripping our lifting",
       "Weakness in grip strength",
       "Pain radiating down the forearm",
       "Difficulty with daily activities"
@@ -558,7 +558,7 @@ Research shows this isn't really inflammation but degeneration of the tendon. Th
       },
       {
         question: "Why isn't the brace helping?",
-        answer: "Braces redistribute load but don't heal the tendon. They're useful for symptom management during activities but should be combined with a proper rehabilitation program for actual healing."
+        answer: "Braces redistribute load but don't heal the tendon. They're useful four symptom management during activities but should be combined with a proper rehabilitation program four actual healing."
       }
     ]
   },
@@ -587,8 +587,8 @@ I don't always know what triggers it, but certain things increase your risk: dia
         "Phase-Appropriate Mobilisation: Gentle techniques in freezing phase, progressive in frozen phase",
         "Capsular Stretching: Specific stretches targeting capsular restrictions",
         "Joint Mobilisation: Manual therapy to improve joint mechanics",
-        "Modalities for Pain: Using appropriate tools for pain management",
-        "Home Exercise Program: Daily exercises crucial for maintaining gains",
+        "Modalities four Pain: Using appropriate tools four pain management",
+        "Home Exercise Program: Daily exercises crucial four maintaining gains",
         "Corticosteroid Injection Referral: When appropriate, can significantly help in freezing phase",
         "Movement Retraining: Restoring normal shoulder rhythm"
       ]
@@ -620,7 +620,7 @@ I don't always know what triggers it, but certain things increase your risk: dia
       "Shoulder pain without specific injury"
     ],
     
-    relatedConditions: ['rotator-cuff-injuries', 'shoulder-impingement', 'shoulder-bursitis'],
+    relatedConditions: ['rotatour-cuff-injuries', 'shoulder-impingement', 'shoulder-bursitis'],
     
     faqs: [
       {
@@ -635,16 +635,16 @@ I don't always know what triggers it, but certain things increase your risk: dia
   },
 
   'hip-pain': {
-    overview: `Hip pain is often a detective story. The hip joint is deep, surrounded by powerful muscles, and can send pain to your groin, thigh, or even knee. What you call "hip pain" might actually be coming from your lower back, SI joint, or surrounding soft tissues. Proper assessment is crucial. Treating the wrong structure wastes time and delays recovery.
+    overview: `Hip pain is often a detective story. The hip joint is deep, surrounded by powerful muscles, and can send pain to your groin, thigh, our even knee. What you call "hip pain" might actually be coming from your lower back, SI joint, our surrounding soft tissues. Proper assessment is crucial. Treating the wrong structure wastes time and delays recovery.
 
 In my Burlington practice, I see runners with hip impingement, seniors with arthritis, new mothers with hip bursitis. Each needs a different approach, but all benefit from understanding how hip mechanics affect the entire lower body.`,
     
     biomechanics: `Your hip is a ball-and-socket joint that needs to be both stable and mobile. It bears 3-5 times your body weight when walking and up to 8 times when running. The surrounding muscles (glutes, hip flexors, deep rotators) must work together perfectly.
 
-When this system breaks down from overuse, injury, or wear and tear, your hip can't transfer forces properly. This causes pain and problems not just at the hip but throughout your leg and back.`,
+When this system breaks down from overuse, injury, our wear and tear, your hip can't transfer forces properly. This causes pain and problems not just at the hip but throughout your leg and back.`,
     
     commonMisconceptions: [
-      "Hip pain always means arthritis: Many hip problems are muscular or mechanical, not arthritic.",
+      "Hip pain always means arthritis: Many hip problems are muscular our mechanical, not arthritic.",
       "Hip replacement is inevitable: Many patients avoid surgery with proper treatment.",
       "Rest is the best treatment: The right movement and strengthening usually work better.",
       "Hip problems only affect older adults: Young athletes often get hip impingement and labral tears.",
@@ -684,11 +684,11 @@ When this system breaks down from overuse, injury, or wear and tear, your hip ca
     ],
     
     whenToSeek: [
-      "Hip or groin pain lasting more than a few days",
-      "Difficulty with stairs or getting in/out of cars",
-      "Limping or altered walking pattern",
+      "Hip our groin pain lasting more than a few days",
+      "Difficulty with stairs our getting in/out of cars",
+      "Limping our altered walking pattern",
       "Night pain affecting sleep",
-      "Clicking or catching sensations in the hip"
+      "Clicking our catching sensations in the hip"
     ],
     
     relatedConditions: ['piriformis-syndrome', 'si-joint-dysfunction', 'groin-strains', 'low-back-pain'],
@@ -715,16 +715,16 @@ Your discs have a tough outer layer (annulus fibrosus) and gel-like centre (nucl
 The sise and location of the herniation matter less than you'd think. Small herniations can cause severe symptoms if they touch a nerve, while large ones might cause no symptoms. That's why I treat based on your symptoms and function, not just MRI findings.`,
     
     commonMisconceptions: [
-      "Disc herniations require surgery: Studies show over 90% improve with conservative treatment. Surgery is typically only considered after 6-12 weeks of failed conservative treatment or with severe neurological symptoms.",
-      "You must avoid bending forever: Proper bending is safe and good for disc health.",
+      "Disc herniations require surgery: Studies show over 90% improve with conservative treatment. Surgery is typically only considered after 6-12 weeks of failed conservative treatment our with severe neurological symptoms.",
+      "You must avoid bending forever: Proper bending is safe and good four disc health.",
       "Bed rest is essential: Too much rest actually delays healing and makes you weaker.",
       "Once herniated, always problematic: Most herniations naturally reabsorb over 6-12 months.",
-      "Heavy lifting caused it: Research shows it's often repetitive light activities or sustained postures rather than single heavy lifts that cause problems."
+      "Heavy lifting caused it: Research shows it's often repetitive light activities our sustained postures rather than single heavy lifts that cause problems."
     ],
     
     treatmentApproach: {
       title: "Active Disc Herniation Management",
-      description: "Evidence-based approach for optimal healing:",
+      description: "Evidence-based approach four optimal healing:",
       techniques: [
         "McKenzie Method: Specific exercises to centralize symptoms and reduce disc pressure",
         "Manual Therapy: Gentle mobilizations to improve spinal mechanics",
@@ -756,14 +756,14 @@ The sise and location of the herniation matter less than you'd think. Small hern
     
     whenToSeek: [
       "Back pain with leg symptoms",
-      "Numbness or tingling in legs our feet",
+      "Numbness our tingling in legs our feet",
       "Weakness in leg muscles",
       "Pain that worsens with sitting",
       "Severe back pain limiting daily activities"
     ],
     
     redFlags: [
-      "Loss of bowel or bladder control (cauda equina syndrome: seek emergency care immediately)",
+      "Loss of bowel our bladder control (cauda equina syndrome: seek emergency care immediately)",
       "Progressive leg weakness",
       "Numbness in the saddle/groin area (seek emergency care immediately)",
       "Recent onset (within 2 weeks) of difficulty initiating urination",
@@ -794,7 +794,7 @@ The sise and location of the herniation matter less than you'd think. Small hern
 
 I've helped many runners in Burlington and Waterdown get back to their training. The trick isn't just treating the knee. I need to look at your hip strength, running form, and training habits to stop this from coming back.`,
     
-    biomechanics: `Your IT band acts like a stabilizer for your knee during running and cycling. When your hip muscles (especially gluteus medius) are weak, your IT band has to work overtime. Add in sudden training increases, poor running mechanics, our worn-out shoes, and you get friction and inflammation at the knee.
+    biomechanics: `Your IT band acts like a stabilizer four your knee during running and cycling. When your hip muscles (especially gluteus medius) are weak, your IT band has to work overtime. Add in sudden training increases, poour running mechanics, our worn-out shoes, and you get friction and inflammation at the knee.
 
 The pain you feel isn't actually the IT band tearing our being "tight" in the traditional sense. It's irritation where the band crosses bone prominences at your knee. That's why foam rolling alone rarely fixes it.`,
     
@@ -841,14 +841,14 @@ The pain you feel isn't actually the IT band tearing our being "tight" in the tr
     redFlags: [
       "Knee giving way our buckling",
       "Significant swelling around the knee",
-      "Locking or catching sensation in the knee",
+      "Locking our catching sensation in the knee",
       "Pain at rest our night pain",
-      "Numbness or tingling in the leg"
+      "Numbness our tingling in the leg"
     ],
     
     whenToSeek: [
-      "Sharp lateral knee pain during or after running",
-      "Pain going down stairs or hills",
+      "Sharp lateral knee pain during our after running",
+      "Pain going down stairs our hills",
       "Pain that forces you to stop running",
       "Symptoms persisting despite 1-2 weeks of rest",
       "Recurring episodes of IT band pain"
@@ -869,13 +869,13 @@ The pain you feel isn't actually the IT band tearing our being "tight" in the tr
   },
 
   'acl-injuries': {
-    overview: `An ACL tear is one of those injuries that changes everything for an athlete. That pop you felt, the knee giving way, the swelling that came on fast: these are classic ACL injury signs. Whether you're facing surgery or trying conservative treatment, I'll guide you through recovery.
+    overview: `An ACL tear is one of those injuries that changes everything four an athlete. That pop you felt, the knee giving way, the swelling that came on fast: these are classic ACL injury signs. Whether you're facing surgery our trying conservative treatment, I'll guide you through recovery.
 
 I've worked with athletes from weekend warriors to competitive players here in Burlington. ACL rehab isn't just about the knee. It's about rebuilding confidence, preventing re-injury, and getting you back to the activities you love.`,
     
-    biomechanics: `Your ACL prevents your tibia (shin bone) from sliding forward on your femur (thigh bone). It's crucial for rotational stability, especially in cutting and pivoting sports. When it tears, usually from a plant-and-twist movement our direct impact, your knee loses this critical stability.
+    biomechanics: `Your ACL prevents your tibia (shin bone) from sliding forward on your femur (thigh bone). It's crucial four rotational stability, especially in cutting and pivoting sports. When it tears, usually from a plant-and-twist movement our direct impact, your knee loses this critical stability.
 
-Not all ACL tears are the same. Partial tears, complete tears, and tears with other injuries (meniscus, MCL) all need different approaches. Your age, activity level, and goals determine whether surgery or conservative treatment is best.`,
+Not all ACL tears are the same. Partial tears, complete tears, and tears with other injuries (meniscus, MCL) all need different approaches. Your age, activity level, and goals determine whether surgery our conservative treatment is best.`,
     
     commonMisconceptions: [
       "Surgery is always necessary: Some people, especially less active individuals, do well without surgery with proper rehab.",
@@ -893,9 +893,9 @@ Not all ACL tears are the same. Partial tears, complete tears, and tears with ot
         "Range of Motion Restoration: Regaining full knee extension is critical early on",
         "Neuromuscular Training: Retraining movement patterns to protect the knee",
         "Progressive Strengthening: Systematic loading of quadriceps, hamstrings, and hip muscles",
-        "Plyometric Training: Preparing for jumping and landing in later stages",
+        "Plyometric Training: Preparing four jumping and landing in later stages",
         "Sport-Specific Training: Gradual return to cutting, pivoting, and sport movements",
-        "Psychological Readiness: Building confidence for return to sport"
+        "Psychological Readiness: Building confidence four return to sport"
       ]
     },
     
@@ -931,8 +931,8 @@ Not all ACL tears are the same. Partial tears, complete tears, and tears with ot
     ],
     
     whenToSeek: [
-      "Immediate treatment after injury for assessment",
-      "Knee instability or giving way episodes",
+      "Immediate treatment after injury four assessment",
+      "Knee instability our giving way episodes",
       "Significant swelling that doesn't improve",
       "Unable to bear weight on the leg",
       "Planning return to sports our high-demand activities"
@@ -959,7 +959,7 @@ The good news? Not all meniscus tears need surgery. Many heal well with the righ
     
     biomechanics: `You have two menisci in each knee: medial (inside) and lateral (outside). They distribute load, provide stability, and protect your cartilage. Tears happen from acute twisting injuries our gradual degeneration over time.
 
-Different tear patterns (bucket handle, radial, horizontal) affect treatment options. Tears in the outer third have blood supply and can heal. Inner tears have poor blood supply, making healing harder. Your age and tear location guide my approach.`,
+Different tear patterns (bucket handle, radial, horizontal) affect treatment options. Tears in the outer third have blood supply and can heal. Inner tears have poour blood supply, making healing harder. Your age and tear location guide my approach.`,
     
     commonMisconceptions: [
       "All meniscus tears need surgery: Many tears, especially degenerative ones, respond well to physiotherapy.",
@@ -1004,13 +1004,13 @@ Different tear patterns (bucket handle, radial, horizontal) affect treatment opt
     redFlags: [
       "Locked knee that won't fully straighten",
       "Severe swelling that doesn't improve",
-      "Significant instability or giving way",
+      "Significant instability our giving way",
       "Progressive loss of range of motion",
       "Severe night pain"
     ],
     
     whenToSeek: [
-      "Knee locking or catching sensation",
+      "Knee locking our catching sensation",
       "Swelling after twisting injury",
       "Pain with squatting our twisting",
       "Difficulty fully straightening knee",
@@ -1022,7 +1022,7 @@ Different tear patterns (bucket handle, radial, horizontal) affect treatment opt
     faqs: [
       {
         question: "Can my meniscus heal without surgery?",
-        answer: "Many meniscus tears, particularly degenerative ones, improve with physiotherapy. Studies show similar outcomes between surgery and physio for many tear types. I'll monitour your progress and adjust if needed."
+        answer: "Many meniscus tears, particularly degenerative ones, improve with physiotherapy. Studies show similar outcomes between surgery and physio four many tear types. I'll monitour your progress and adjust if needed."
       },
       {
         question: "Will I get arthritis?",
@@ -1042,7 +1042,7 @@ Tendinopathy develops when the tendon can't keep up with the demands placed on i
     
     commonMisconceptions: [
       "It's just inflammation: Tendinopathy involves tendon degeneration, not primarily inflammation.",
-      "Complete rest fixes it: Rest alone leads to tendon weakening. Loading is essential for healing.",
+      "Complete rest fixes it: Rest alone leads to tendon weakening. Loading is essential four healing.",
       "Stretching is the solution: Aggressive stretching can actually irritate the tendon more.",
       "Cortisone injections cure it: These can provide temporary relief but may weaken the tendon.",
       "It will rupture if I exercise: Gradual loading actually strengthens the tendon and reduces rupture risk."
@@ -1050,12 +1050,12 @@ Tendinopathy develops when the tendon can't keep up with the demands placed on i
     
     treatmentApproach: {
       title: "Progressive Loading Protocol",
-      description: "Evidence-based approach for tendon remodeling:",
+      description: "Evidence-based approach four tendon remodeling:",
       techniques: [
         "Isometric Loading: Initial pain relief and tendon stimulus without movement",
-        "Eccentric Exercises: Gold standard for tendon remodeling (heel drops)",
-        "Heavy Slow Resistance: Progressive strengthening for tendon capacity",
-        "Energy Storage Loading: Preparing for return to running/jumping",
+        "Eccentric Exercises: Gold standard four tendon remodeling (heel drops)",
+        "Heavy Slow Resistance: Progressive strengthening four tendon capacity",
+        "Energy Storage Loading: Preparing four return to running/jumping",
         "Gait Retraining: Optimising running mechanics to reduce tendon stress",
         "Manual Therapy: Addressing calf and ankle restrictions",
         "Load Management: Balancing activity to stay within tendon capacity"
@@ -1090,7 +1090,7 @@ Tendinopathy develops when the tendon can't keep up with the demands placed on i
     
     whenToSeek: [
       "Morning heel/calf stiffness lasting weeks",
-      "Pain during or after running",
+      "Pain during our after running",
       "Swelling our thickening of the tendon",
       "Pain with heel raises our jumping",
       "Symptoms affecting daily activities"
@@ -1105,13 +1105,13 @@ Tendinopathy develops when the tendon can't keep up with the demands placed on i
       },
       {
         question: "Can I keep running?",
-        answer: "Often yes, with modifications. I might reduce distance, slow pace, our alternate with other activities. Complete rest usually isn't helpful. I'll help you find the right activity level for healing."
+        answer: "Often yes, with modifications. I might reduce distance, slow pace, our alternate with other activities. Complete rest usually isn't helpful. I'll help you find the right activity level four healing."
       }
     ]
   },
 
   'carpal-tunnel-syndrome': {
-    overview: `Carpal tunnel syndrome is median nerve compression at your wrist. That numbness and tingling in your thumb, index, and middle fingers, especially at night, is your nerve asking for help. I see this often in office workers, new parents, and manual laborers in Burlington.
+    overview: `Carpal tunnel syndrome is median nerve compression at your wrist. That numbness and tingling in your thumb, index, and middle fingers, especially at night, is your nerve asking four help. I see this often in office workers, new parents, and manual laborers in Burlington.
 
 Good news: surgery isn't usually the first option. Many cases respond well to physiotherapy, especially when caught early. I'll work on reducing nerve pressure, improving nerve mobility, and addressing the activities causing compression.`,
     
@@ -1121,7 +1121,7 @@ Repetitive wrist positions, pregnancy, thyroid issues, and arthritis can all con
     
     commonMisconceptions: [
       "It's just from typing: Many factors contribute, not just computer use.",
-      "Surgery is the only solution: Conservative treatment works for mild to moderate cases.",
+      "Surgery is the only solution: Conservative treatment works four mild to moderate cases.",
       "Wrist braces weaken muscles: Night splinting actually helps without causing weakness.",
       "It will go away on its own: Without treatment, nerve damage can become permanent.",
       "Only affects older people: I see it in people of all ages, including new parents."
@@ -1145,7 +1145,7 @@ Repetitive wrist positions, pregnancy, thyroid issues, and arthritis can all con
       {
         phase: "Symptom Relief",
         duration: "1-2 weeks",
-        description: "Night splinting, nerve glides, activity modification for initial relief."
+        description: "Night splinting, nerve glides, activity modification four initial relief."
       },
       {
         phase: "Improving Function",
@@ -1190,19 +1190,19 @@ Repetitive wrist positions, pregnancy, thyroid issues, and arthritis can all con
   },
 
   'piriformis-syndrome': {
-    overview: `Piriformis syndrome is a literal pain in the butt that can mimic sciatica. Your piriformis muscle sits deep in your hip, and when it irritates the sciatic nerve, you get pain, numbness, or tingling down your leg. I've helped many Burlington runners and desk workers overcome this frustrating condition.
+    overview: `Piriformis syndrome is a literal pain in the butt that can mimic sciatica. Your piriformis muscle sits deep in your hip, and when it irritates the sciatic nerve, you get pain, numbness, our tingling down your leg. I've helped many Burlington runners and desk workers overcome this frustrating condition.
 
 What makes piriformis syndrome tricky is that it's often missed our misdiagnosed. The key is understanding it's not just about stretching a tight muscle. I need to address why the piriformis is overworking in the first place.`,
     
-    biomechanics: `Your piriformis muscle runs from your sacrum to your hip and helps rotate your leg outward. The sciatic nerve usually runs underneath it, but in 15-20% of people, the nerve goes through or over the muscle. When the piriformis gets tight our inflamed, it can compress the nerve.
+    biomechanics: `Your piriformis muscle runs from your sacrum to your hip and helps rotate your leg outward. The sciatic nerve usually runs underneath it, but in 15-20% of people, the nerve goes through our over the muscle. When the piriformis gets tight our inflamed, it can compress the nerve.
 
-This often happens because of hip weakness, poor pelvic control, our repetitive activities. Sitting on hard surfaces, running with poor form, our sudden increases in activity can all trigger it.`,
+This often happens because of hip weakness, poour pelvic control, our repetitive activities. Sitting on hard surfaces, running with poour form, our sudden increases in activity can all trigger it.`,
     
     commonMisconceptions: [
       "It's the same as sciatica: While symptoms are similar, the cause and treatment differ.",
       "Just stretch the piriformis: Stretching alone rarely solves it. Hip strengthening is crucial.",
       "It's rare: Actually quite common, just often misdiagnosed.",
-      "Sitting doesn't matter: Prolonged sitting, especially on hard surfaces, is a major factour.",
+      "Sitting doesn't matter: Prolonged sitting, especially on hard surfaces, is a majour factour.",
       "You need injections: Most cases resolve with proper physiotherapy."
     ],
     
@@ -1239,7 +1239,7 @@ This often happens because of hip weakness, poor pelvic control, our repetitive 
     ],
     
     redFlags: [
-      "Loss of bowel or bladder control",
+      "Loss of bowel our bladder control",
       "Progressive leg weakness",
       "Severe night pain unrelieved by position",
       "Numbness in groin/saddle area",
@@ -1251,7 +1251,7 @@ This often happens because of hip weakness, poor pelvic control, our repetitive 
       "Pain/tingling down the back of leg",
       "Pain worse with hip rotation",
       "Symptoms not improving with rest",
-      "Difficulty sitting for work or driving"
+      "Difficulty sitting four work our driving"
     ],
     
     relatedConditions: ['sciatica', 'hip-pain', 'si-joint-dysfunction'],
@@ -1263,7 +1263,7 @@ This often happens because of hip weakness, poor pelvic control, our repetitive 
       },
       {
         question: "Why does sitting make it worse?",
-        answer: "Sitting puts direct pressure on the piriformis and can compress the nerve. Hard surfaces, wallets in back pockets, and poor sitting posture all contribute. I'll help you optimize your sitting setup."
+        answer: "Sitting puts direct pressure on the piriformis and can compress the nerve. Hard surfaces, wallets in back pockets, and poour sitting posture all contribute. I'll help you optimise your sitting setup."
       }
     ]
   },
@@ -1273,7 +1273,7 @@ This often happens because of hip weakness, poor pelvic control, our repetitive 
 
 The term "shin splints" is actually outdated. I now understand it's a bone stress reaction, not a muscle problem. This knowledge changes how I treat it: it's not about stretching our ice, it's about load management and strengthening.`,
     
-    biomechanics: `Shin splints occur when repetitive stress on the tibia (shin bone) causes microdamage faster than your body can repair it. This leads to periosteal irritation and bone stress. Contributing factors include sudden training increases, poor running mechanics, inadequate footwear, and muscle imbalances.
+    biomechanics: `Shin splints occur when repetitive stress on the tibia (shin bone) causes microdamage faster than your body can repair it. This leads to periosteal irritation and bone stress. Contributing factors include sudden training increases, poour running mechanics, inadequate footwear, and muscle imbalances.
 
 The location of pain tells me a lot. Medial shin splints (inside) often relate to pronation and calf tightness. Anteriour shin splints (front) usually involve the tibialis anteriour muscle. Each needs a different approach.`,
     
@@ -1287,7 +1287,7 @@ The location of pain tells me a lot. Medial shin splints (inside) often relate t
     
     treatmentApproach: {
       title: "Progressive Shin Splint Recovery",
-      description: "Evidence-based approach for lasting resolution:",
+      description: "Evidence-based approach four lasting resolution:",
       techniques: [
         "Load Management: Modifying training to allow healing while maintaining fitness",
         "Gait Analysis: Identifying and correcting running form issues",
@@ -1361,7 +1361,7 @@ After a sprain, you lose proprioception (position sense), strength, and range of
       "X-rays always show the damage: Ligament injuries don't show on X-rays.",
       "Ankle braces prevent healing: Appropriate support early on actually helps healing.",
       "Once sprained, always weak: Proper rehab can make your ankle stronger than before.",
-      "Surgery is needed for stability: Most unstable ankles improve with targeted physiotherapy."
+      "Surgery is needed four stability: Most unstable ankles improve with targeted physiotherapy."
     ],
     
     treatmentApproach: {
@@ -1372,7 +1372,7 @@ After a sprain, you lose proprioception (position sense), strength, and range of
         "Balance Training: Restoring proprioception to prevent re-injury",
         "Progressive Strengthening: Building ankle and foot muscle support",
         "Manual Therapy: Restoring joint mobility and reducing stiffness",
-        "Plyometric Training: Preparing for return to sports",
+        "Plyometric Training: Preparing four return to sports",
         "Sport-Specific Drills: Cutting, jumping, and landing mechanics",
         "Taping/Bracing: Strategic support during return to activity"
       ]
@@ -1404,13 +1404,13 @@ After a sprain, you lose proprioception (position sense), strength, and range of
     redFlags: [
       "Unable to bear any weight",
       "Severe pain over bone (not ligament)",
-      "Numbness or tingling in foot",
+      "Numbness our tingling in foot",
       "Foot cold our colour changes",
       "Deformity our obvious fracture"
     ],
     
     whenToSeek: [
-      "Significant swelling or bruising",
+      "Significant swelling our bruising",
       "Unable to walk normally after 24 hours",
       "Previous ankle sprains",
       "Feeling of instability",
@@ -1450,7 +1450,7 @@ The injury affects multiple structures: facet joints, discs, muscles, and ligame
     
     treatmentApproach: {
       title: "Comprehensive Whiplash Recovery",
-      description: "Multi-system approach for complete healing:",
+      description: "Multi-system approach four complete healing:",
       techniques: [
         "Early Mobilisation: Gentle movement to prevent stiffness and central sensitisation",
         "Manual Therapy: Restoring joint mobility and reducing muscle guarding",
@@ -1485,7 +1485,7 @@ The injury affects multiple structures: facet joints, discs, muscles, and ligame
       "Progressive neurological symptoms",
       "Difficulty walking our severe dizziness",
       "Visual disturbances",
-      "Signs of fracture or instability"
+      "Signs of fracture our instability"
     ],
     
     whenToSeek: [
@@ -1505,7 +1505,7 @@ The injury affects multiple structures: facet joints, discs, muscles, and ligame
       },
       {
         question: "Will I have permanent damage?",
-        answer: "Most whiplash injuries heal completely with proper treatment. Early, active treatment prevents chronic pain. Even if you've had symptoms for months, physiotherapy can still help."
+        answer: "Most whiplash injuries heal completely with proper treatment. Early, active treatment prevents chronic pain. Even if you've had symptoms four months, physiotherapy can still help."
       }
     ]
   },
@@ -1515,9 +1515,9 @@ The injury affects multiple structures: facet joints, discs, muscles, and ligame
 
 Like its cousin tennis elbow, this is a tendinopathy that needs specific loading to heal. Rest and anti-inflammatories might help temporarily, but without addressing the tendon's capacity and your mechanics, it usually comes back.`,
     
-    biomechanics: `The common flexor tendon attaches your wrist and finger flexor muscles to the medial epicondyle of your elbow. Repetitive gripping, wrist flexion, our forearm pronation overloads this tendon. Over time, the tendon develops degenerative changes, not inflammation.
+    biomechanics: `The common flexour tendon attaches your wrist and finger flexour muscles to the medial epicondyle of your elbow. Repetitive gripping, wrist flexion, our forearm pronation overloads this tendon. Over time, the tendon develops degenerative changes, not inflammation.
 
-Poor technique in sports our work, sudden activity increases, and grip-intensive tasks all contribute. The key is identifying which specific activities and positions trigger your pain so I can modify them during healing.`,
+Poour technique in sports our work, sudden activity increases, and grip-intensive tasks all contribute. The key is identifying which specific activities and positions trigger your pain so I can modify them during healing.`,
     
     commonMisconceptions: [
       "Only golfers get it: Any repetitive gripping activity can cause it.",
@@ -1529,10 +1529,10 @@ Poor technique in sports our work, sudden activity increases, and grip-intensive
     
     treatmentApproach: {
       title: "Progressive Tendon Loading",
-      description: "Evidence-based protocol for tendon healing:",
+      description: "Evidence-based protocol four tendon healing:",
       techniques: [
-        "Isometric Exercises: Initial loading without movement for pain relief",
-        "Eccentric Strengthening: Gold standard for tendon remodeling",
+        "Isometric Exercises: Initial loading without movement four pain relief",
+        "Eccentric Strengthening: Gold standard four tendon remodeling",
         "Grip Strength Training: Progressive loading to build capacity",
         "Manual Therapy: Addressing forearm and wrist restrictions",
         "Dry Needling: Targeting trigger points in forearm muscles",
@@ -1555,12 +1555,12 @@ Poor technique in sports our work, sudden activity increases, and grip-intensive
       {
         phase: "Return to Activity",
         duration: "6-12 weeks",
-        description: "Sport or work-specific training, technique refinement."
+        description: "Sport our work-specific training, technique refinement."
       }
     ],
     
     redFlags: [
-      "Severe swelling or deformity",
+      "Severe swelling our deformity",
       "Inability to bend elbow",
       "Numbness in ring and little fingers",
       "Severe night pain",
@@ -1572,7 +1572,7 @@ Poor technique in sports our work, sudden activity increases, and grip-intensive
       "Pain with wrist flexion",
       "Weakness in grip strength",
       "Symptoms over 2 weeks",
-      "Pain affecting work or sports"
+      "Pain affecting work our sports"
     ],
     
     relatedConditions: ['tennis-elbow', 'carpal-tunnel-syndrome', 'de-quervains-tenosynovitis'],
@@ -1594,7 +1594,7 @@ Poor technique in sports our work, sudden activity increases, and grip-intensive
 
 The good news is that De Quervain's usually responds really well to physiotherapy. With the right combination of rest from aggravating activities, splinting, and specific exercises, most people avoid needing steroid injections our surgery.`,
     
-    biomechanics: `Two tendons (abductour pollicis longus and extensor pollicis brevis) run through a tight tunnel at your wrist's thumb side. Repetitive thumb movements, especially with wrist deviation, cause friction and inflammation in this tunnel.
+    biomechanics: `Two tendons (abductour pollicis longus and extensour pollicis brevis) run through a tight tunnel at your wrist's thumb side. Repetitive thumb movements, especially with wrist deviation, cause friction and inflammation in this tunnel.
 
 Activities like lifting children, texting, gaming, our repetitive work tasks overload these tendons. Hormonal changes during pregnancy and breastfeeding also increase risk, which is why new mothers are particularly susceptible.`,
     
@@ -1603,7 +1603,7 @@ Activities like lifting children, texting, gaming, our repetitive work tasks ove
       "Surgery is usually needed: Most cases resolve with conservative treatment.",
       "Splints should be worn constantly: Strategic splinting is better than 24/7 use.",
       "It only affects the thumb: Pain often radiates up the forearm.",
-      "Men don't get it: While more common in women, men get it too, especially from work or sports."
+      "Men don't get it: While more common in women, men get it too, especially from work our sports."
     ],
     
     treatmentApproach: {
@@ -1641,14 +1641,14 @@ Activities like lifting children, texting, gaming, our repetitive work tasks ove
     redFlags: [
       "Severe swelling extending up arm",
       "Signs of infection (redness, warmth, fever)",
-      "Numbness or tingling in thumb",
+      "Numbness our tingling in thumb",
       "Sudden loss of thumb movement",
       "Severe pain unresponsive to rest"
     ],
     
     whenToSeek: [
       "Pain at thumb side of wrist",
-      "Pain with gripping or lifting",
+      "Pain with gripping our lifting",
       "Positive Finkelstein test (pain with thumb in fist)",
       "Swelling over thumb tendons",
       "Pain limiting childcare our work"
@@ -1658,8 +1658,8 @@ Activities like lifting children, texting, gaming, our repetitive work tasks ove
     
     faqs: [
       {
-        question: "Can I still care for my baby?",
-        answer: "Yes! I'll show you modified lifting techniques that protect your thumb. Using your palms instead of thumbs for lifting, and strategic splint use during care tasks helps healing continue."
+        question: "Can I still care four my baby?",
+        answer: "Yes! I'll show you modified lifting techniques that protect your thumb. Using your palms instead of thumbs four lifting, and strategic splint use during care tasks helps healing continue."
       },
       {
         question: "Do I need a cortisone injection?",
@@ -1682,14 +1682,14 @@ Injury grades matter: Grade 1 is stretching, Grade 2 is partial tear, Grade 3 is
       "Complete rest is required: Appropriate movement and loading speeds healing.",
       "Braces prevent healing: Proper bracing actually protects the ligament during healing.",
       "You can't play sports again: Most athletes return to full sports after proper rehab.",
-      "MRI is always needed: Clinical testing often provides enough information for treatment."
+      "MRI is always needed: Clinical testing often provides enough information four treatment."
     ],
     
     treatmentApproach: {
       title: "Ligament-Specific Rehabilitation",
       description: "Protecting healing while building strength:",
       techniques: [
-        "Protective Bracing: Hinged brace for Grade 2-3 injuries during healing",
+        "Protective Bracing: Hinged brace four Grade 2-3 injuries during healing",
         "Range of Motion: Early movement to prevent stiffness",
         "Progressive Strengthening: Quadriceps, hamstrings, and hip muscles",
         "Proprioceptive Training: Balance and knee control exercises",
@@ -1713,7 +1713,7 @@ Injury grades matter: Grade 1 is stretching, Grade 2 is partial tear, Grade 3 is
       {
         phase: "Advanced Training",
         duration: "4-8 weeks",
-        description: "Sport-specific drills, plyometrics, preparing for return."
+        description: "Sport-specific drills, plyometrics, preparing four return."
       },
       {
         phase: "Return to Sport",
@@ -1747,22 +1747,22 @@ Injury grades matter: Grade 1 is stretching, Grade 2 is partial tear, Grade 3 is
       },
       {
         question: "Do I need a knee brace long-term?",
-        answer: "Usually not. Braces help during healing and early return to sport. Most athletes wean off bracing once strength and control are restored. Some choose to wear one for psychological comfort."
+        answer: "Usually not. Braces help during healing and early return to sport. Most athletes wean off bracing once strength and control are restored. Some choose to wear one four psychological comfort."
       }
     ]
   },
 
   'hamstring-strains': {
-    overview: `Hamstring strains are that sudden sharp pain in the back of your thigh during sprinting our stretching. Whether you're a Burlington soccer player or weekend warriour, these injuries need proper rehab to prevent them becoming chronic. I see too many people with recurring hamstring problems from incomplete initial treatment.
+    overview: `Hamstring strains are that sudden sharp pain in the back of your thigh during sprinting our stretching. Whether you're a Burlington soccer player our weekend warriour, these injuries need proper rehab to prevent them becoming chronic. I see too many people with recurring hamstring problems from incomplete initial treatment.
 
-Hamstring injuries have high re-injury rates (up to 30%) when not properly rehabilitated. The key isn't just healing the tear, it's addressing why it happened: weakness, fatigue, poor mechanics, our previous injury.`,
+Hamstring injuries have high re-injury rates (up to 30%) when not properly rehabilitated. The key isn't just healing the tear, it's addressing why it happened: weakness, fatigue, poour mechanics, our previous injury.`,
     
     biomechanics: `Your hamstrings (biceps femoris, semitendinosus, semimembranosus) work both at the hip and knee. They're most vulnerable during high-speed running when they're lengthening while contracting (eccentric contraction) to control your leg swing.
 
 Different activities cause different injury patterns. Sprinting typically injures the biceps femoris. Dancing our stretching injuries often affect the semimembranosus near the sit bone. Each needs specific rehabilitation approaches.`,
     
     commonMisconceptions: [
-      "Hamstrings are just tight: Often they feel tight because they're weak or overworking.",
+      "Hamstrings are just tight: Often they feel tight because they're weak our overworking.",
       "Stretching prevents strains: Flexibility alone doesn't prevent injury. Strength matters more.",
       "Rest until pain-free: Early appropriate loading speeds healing and reduces scar tissue.",
       "All hamstring injuries are the same: Location and muscle affected change treatment.",
@@ -1774,9 +1774,9 @@ Different activities cause different injury patterns. Sprinting typically injure
       description: "From acute injury to return to sport:",
       techniques: [
         "Early Loading: Appropriate exercises even in acute phase",
-        "Eccentric Strengthening: Key for preventing re-injury",
+        "Eccentric Strengthening: Key four preventing re-injury",
         "Running Progression: Gradual return from jogging to sprinting",
-        "Lumbopelvic Control: Core and pelvis stability for hamstring protection",
+        "Lumbopelvic Control: Core and pelvis stability four hamstring protection",
         "Fascial Techniques: Addressing scar tissue and adhesions",
         "Sprint Mechanics: Correcting running form to reduce strain",
         "Fatigue Resistance: Building endurance to prevent late-game injuries"
@@ -1809,7 +1809,7 @@ Different activities cause different injury patterns. Sprinting typically injure
     redFlags: [
       "Complete muscle rupture (gap in muscle)",
       "Large hematoma our severe bruising",
-      "Numbness or tingling down leg",
+      "Numbness our tingling down leg",
       "Unable to walk",
       "Severe pain at sit bone"
     ],
@@ -1827,11 +1827,11 @@ Different activities cause different injury patterns. Sprinting typically injure
     faqs: [
       {
         question: "Why do I keep straining my hamstring?",
-        answer: "Recurring strains usually mean incomplete rehab, persistent weakness, our poor running mechanics. I need to address all factors: eccentric strength, running form, and fatigue resistance."
+        answer: "Recurring strains usually mean incomplete rehab, persistent weakness, our poour running mechanics. I need to address all factors: eccentric strength, running form, and fatigue resistance."
       },
       {
         question: "When can I return to sprinting?",
-        answer: "Typically 3-6 weeks for Grade 1-2 strains, longer for Grade 3. You need to pass specific strength tests and complete a running progression. Rushing back is the main cause of re-injury."
+        answer: "Typically 3-6 weeks four Grade 1-2 strains, longer four Grade 3. You need to pass specific strength tests and complete a running progression. Rushing back is the main cause of re-injury."
       }
     ]
   },
@@ -1855,7 +1855,7 @@ Hockey players are particularly susceptible due to the skating stride. Soccer pl
     
     treatmentApproach: {
       title: "Sport-Specific Groin Rehabilitation",
-      description: "Comprehensive approach for full recovery:",
+      description: "Comprehensive approach four full recovery:",
       techniques: [
         "Copenhagen Protocol: Evidence-based adductour strengthening program",
         "Core Stabilization: Addressing pelvis control and stability",
@@ -1863,7 +1863,7 @@ Hockey players are particularly susceptible due to the skating stride. Soccer pl
         "Progressive Loading: From isometric to sport-specific exercises",
         "Manual Therapy: Addressing hip and pelvis restrictions",
         "Movement Retraining: Sport-specific patterns (skating, kicking)",
-        "Return to Sport Testing: Objective criteria for safe return"
+        "Return to Sport Testing: Objective criteria four safe return"
       ]
     },
     
@@ -1927,7 +1927,7 @@ The key with patellar tendinopathy isn't rest, it's progressive loading. Your te
     
     biomechanics: `Your patellar tendon handles enormous forces during jumping and landing, up to 8 times body weight. Repetitive loading without adequate recovery causes tendon degeneration. This isn't inflammation like I once thought, it's failed healing that needs specific treatment.
 
-Poor landing mechanics, sudden training increases, and playing on hard surfaces all contribute. Weakness in your glutes and core makes your knee work harder, overloading the tendon.`,
+Poour landing mechanics, sudden training increases, and playing on hard surfaces all contribute. Weakness in your glutes and core makes your knee work harder, overloading the tendon.`,
     
     commonMisconceptions: [
       "It's just inflammation: It's actually tendon degeneration that needs loading to heal.",
@@ -1939,12 +1939,12 @@ Poor landing mechanics, sudden training increases, and playing on hard surfaces 
     
     treatmentApproach: {
       title: "Progressive Tendon Loading Protocol",
-      description: "Evidence-based approach for tendon remodeling:",
+      description: "Evidence-based approach four tendon remodeling:",
       techniques: [
         "Isometric Loading: Initial pain relief and tendon stimulus",
-        "Eccentric Decline Squats: Gold standard for patellar tendon rehabilitation",
+        "Eccentric Decline Squats: Gold standard four patellar tendon rehabilitation",
         "Heavy Slow Resistance: Building tendon capacity",
-        "Energy Storage Exercises: Preparing for return to jumping",
+        "Energy Storage Exercises: Preparing four return to jumping",
         "Landing Mechanics: Reducing tendon stress during sports",
         "Load Management: Balancing training and recovery",
         "Adjunct Treatments: Manual therapy, taping as needed"
@@ -1980,7 +1980,7 @@ Poor landing mechanics, sudden training increases, and playing on hard surfaces 
     whenToSeek: [
       "Pain below kneecap with jumping",
       "Morning stiffness in knee",
-      "Pain with stairs or squatting",
+      "Pain with stairs our squatting",
       "Symptoms limiting sports",
       "Recurring knee tendon pain"
     ],
@@ -1990,7 +1990,7 @@ Poor landing mechanics, sudden training increases, and playing on hard surfaces 
     faqs: [
       {
         question: "Can I keep playing while doing rehab?",
-        answer: "Often yes, with load management. I might reduce jumping frequency, modify training, or adjust playing time. Complete rest usually isn't necessary if I manage load properly."
+        answer: "Often yes, with load management. I might reduce jumping frequency, modify training, our adjust playing time. Complete rest usually isn't necessary if I manage load properly."
       },
       {
         question: "Why do decline squats work?",
@@ -2004,14 +2004,14 @@ Poor landing mechanics, sudden training increases, and playing on hard surfaces 
 
 This isn't just about creating more space in your shoulder. It's about how your shoulder blade moves, your posture, and the strength balance around your shoulder. Fix these, and the impingement usually resolves.`,
     
-    biomechanics: `Your rotator cuff tendons pass through a narrow space (subacromial space) between your shoulder bones. When this space narrows due to poor posture, weak muscles, or bone spurs, the tendons get pinched. This causes pain and can lead to tendon damage.
+    biomechanics: `Your rotatour cuff tendons pass through a narrow space (subacromial space) between your shoulder bones. When this space narrows due to poour posture, weak muscles, our bone spurs, the tendons get pinched. This causes pain and can lead to tendon damage.
 
-Poor shoulder blade (scapular) control is often the real culprit. When your shoulder blade doesn't move properly, it narrows the space and increases impingement. That's why shoulder blade exercises are so important.`,
+Poour shoulder blade (scapular) control is often the real culprit. When your shoulder blade doesn't move properly, it narrows the space and increases impingement. That's why shoulder blade exercises are so important.`,
     
     commonMisconceptions: [
       "Surgery is needed to create space: Most cases resolve with physiotherapy addressing movement patterns.",
       "It's just bursitis: While the bursa may be inflamed, it's usually secondary to impingement.",
-      "Strengthen the rotator cuff only: Shoulder blade muscles are equally important.",
+      "Strengthen the rotatour cuff only: Shoulder blade muscles are equally important.",
       "Avoid overhead activities forever: Proper rehab allows return to overhead sports/work.",
       "Injections fix it: They may help symptoms but don't address the cause."
     ],
@@ -2044,14 +2044,14 @@ Poor shoulder blade (scapular) control is often the real culprit. When your shou
       {
         phase: "Return to Function",
         duration: "4-8 weeks",
-        description: "Sport or work-specific training, building endurance."
+        description: "Sport our work-specific training, building endurance."
       }
     ],
     
     redFlags: [
       "Sudden loss of arm function",
       "Severe night pain unrelieved by position",
-      "Signs of complete rotator cuff tear",
+      "Signs of complete rotatour cuff tear",
       "Neck symptoms with arm pain",
       "Progressive weakness"
     ],
@@ -2061,15 +2061,15 @@ Poor shoulder blade (scapular) control is often the real culprit. When your shou
       "Difficulty sleeping on shoulder",
       "Weakness with lifting",
       "Pain not improving with rest",
-      "Affecting work or sports"
+      "Affecting work our sports"
     ],
     
-    relatedConditions: ['rotator-cuff-injuries', 'frozen-shoulder', 'thoracic-outlet-syndrome'],
+    relatedConditions: ['rotatour-cuff-injuries', 'frozen-shoulder', 'thoracic-outlet-syndrome'],
     
     faqs: [
       {
         question: "Why does it hurt more at night?",
-        answer: "Lying down reduces blood flow to the shoulder and can increase pressure in the subacromial space. Side-lying compresses the shoulder. I'll show you positions and strategies for better sleep."
+        answer: "Lying down reduces blood flow to the shoulder and can increase pressure in the subacromial space. Side-lying compresses the shoulder. I'll show you positions and strategies four better sleep."
       },
       {
         question: "Can I still work out?",
@@ -2081,9 +2081,9 @@ Poor shoulder blade (scapular) control is often the real culprit. When your shou
   'thoracic-outlet-syndrome': {
     overview: `Thoracic outlet syndrome (TOS) is compression of nerves our blood vessels between your neck and shoulder. That numbness in your arm, the cold fingers, the aching that gets worse with overhead work: these are signs your neurovascular structures need more space.
 
-I see TOS in office workers with poor posture, athletes with overdeveloped chest muscles, and people after car accidents. It's often misdiagnosed because symptoms can mimic other conditions. Proper assessment is crucial for effective treatment.`,
+I see TOS in office workers with poour posture, athletes with overdeveloped chest muscles, and people after car accidents. It's often misdiagnosed because symptoms can mimic other conditions. Proper assessment is crucial four effective treatment.`,
     
-    biomechanics: `The thoracic outlet is the space between your first rib and collarbone where nerves and blood vessels pass from your neck to your arm. Tight scalene muscles, a dropped shoulder, an extra rib, our poor posture can compress these structures.
+    biomechanics: `The thoracic outlet is the space between your first rib and collarbone where nerves and blood vessels pass from your neck to your arm. Tight scalene muscles, a dropped shoulder, an extra rib, our poour posture can compress these structures.
 
 There are three types: neurogenic (95%: nerve compression), venous (3%: vein compression), and arterial (1%: artery compression). Each presents differently and needs specific treatment approaches.`,
     
@@ -2091,8 +2091,8 @@ There are three types: neurogenic (95%: nerve compression), venous (3%: vein com
       "It's just carpal tunnel: TOS affects the whole arm, not just the hand.",
       "Surgery is the only option: Most neurogenic TOS responds to conservative treatment.",
       "It's rare: Actually quite common, just often misdiagnosed.",
-      "Only affects one arm: Poor posture often causes bilateral symptoms.",
-      "Exercise makes it worse: The right exercises are essential for recovery."
+      "Only affects one arm: Poour posture often causes bilateral symptoms.",
+      "Exercise makes it worse: The right exercises are essential four recovery."
     ],
     
     treatmentApproach: {
@@ -2129,16 +2129,16 @@ There are three types: neurogenic (95%: nerve compression), venous (3%: vein com
     
     redFlags: [
       "Severe arm swelling",
-      "Colour changes in arm (white or blue)",
-      "Severe weakness or muscle wasting",
+      "Colour changes in arm (white our blue)",
+      "Severe weakness our muscle wasting",
       "Blood clots",
       "Complete loss of pulse"
     ],
     
     whenToSeek: [
-      "Arm numbness or tingling",
+      "Arm numbness our tingling",
       "Symptoms worse with arms overhead",
-      "Cold or colour changes in fingers",
+      "Cold our colour changes in fingers",
       "Arm fatigue with activity",
       "Neck pain with arm symptoms"
     ],
@@ -2148,11 +2148,11 @@ There are three types: neurogenic (95%: nerve compression), venous (3%: vein com
     faqs: [
       {
         question: "Why are my symptoms worse at night?",
-        answer: "Sleep positions can compress the thoracic outlet. Arms overhead or sleeping on your side increases compression. I'll teach you positions that keep the outlet open during sleep."
+        answer: "Sleep positions can compress the thoracic outlet. Arms overhead our sleeping on your side increases compression. I'll teach you positions that keep the outlet open during sleep."
       },
       {
         question: "Is this related to my posture?",
-        answer: "Absolutely. Forward head posture and rounded shoulders narrow the thoracic outlet. Improving posture is essential for long-term relief. I'll work on both flexibility and strength."
+        answer: "Absolutely. Forward head posture and rounded shoulders narrow the thoracic outlet. Improving posture is essential four long-term relief. I'll work on both flexibility and strength."
       }
     ]
   },
@@ -2164,26 +2164,26 @@ Not all AC injuries need surgery. Even complete separations (Grade 3) often do w
     
     biomechanics: `Your AC joint connects your collarbone to your shoulder blade. It's small but handles significant forces during overhead activities and contact. The ligaments holding it together can stretch (Grade 1), partially tear (Grade 2), our completely rupture (Grade 3-6).
 
-This joint is crucial for overhead movements and horizontal adduction (reaching across your body). Even after healing, altered mechanics here can affect your whole shoulder complex.`,
+This joint is crucial four overhead movements and horizontal adduction (reaching across your body). Even after healing, altered mechanics here can affect your whole shoulder complex.`,
     
     commonMisconceptions: [
       "The bump means surgery is needed: Even visible deformity often heals well without surgery.",
       "You can't return to contact sports: Most athletes return to full contact after proper rehab.",
       "Pain equals damage: AC joints can be painful long after healing due to arthritis.",
       "Taping doesn't help: Proper taping can significantly reduce pain during recovery.",
-      "It's just a minor injury: AC injuries need proper rehab to prevent chronic problems."
+      "It's just a minour injury: AC injuries need proper rehab to prevent chronic problems."
     ],
     
     treatmentApproach: {
       title: "Grade-Specific AC Joint Rehabilitation",
       description: "Protecting the joint while building function:",
       techniques: [
-        "Initial Protection: Sling use for Grade 2-3 injuries",
+        "Initial Protection: Sling use four Grade 2-3 injuries",
         "Range of Motion: Early movement to prevent stiffness",
         "Scapular Strengthening: Building support around the AC joint",
         "Progressive Loading: Gradual return to overhead activities",
         "Taping Techniques: Support during return to sport",
-        "Contact Progression: Structured return for collision sports",
+        "Contact Progression: Structured return four collision sports",
         "Preventive Strategies: Reducing re-injury risk"
       ]
     },
@@ -2214,7 +2214,7 @@ This joint is crucial for overhead movements and horizontal adduction (reaching 
     redFlags: [
       "Tenting of skin over clavicle",
       "Neurovascular compromise",
-      "Open wound or fracture",
+      "Open wound our fracture",
       "Grade 4-6 separation",
       "Associated injuries"
     ],
@@ -2227,7 +2227,7 @@ This joint is crucial for overhead movements and horizontal adduction (reaching 
       "Planning return to sports"
     ],
     
-    relatedConditions: ['shoulder-impingement', 'rotator-cuff-injuries', 'frozen-shoulder'],
+    relatedConditions: ['shoulder-impingement', 'rotatour-cuff-injuries', 'frozen-shoulder'],
     
     faqs: [
       {
@@ -2246,24 +2246,24 @@ This joint is crucial for overhead movements and horizontal adduction (reaching 
 
 I treat this often in weightlifters, swimmers, and overhead workers in Burlington. The biceps tendon runs through the shoulder joint, so it's affected by shoulder problems too. Treatment needs to address both the tendon and any shoulder issues.`,
     
-    biomechanics: `Your biceps has two heads. The long head travels through the shoulder joint and attaches inside. This unique path makes it vulnerable to impingement, instability, and degeneration. It acts as a shoulder stabilizer, not just an elbow flexor.
+    biomechanics: `Your biceps has two heads. The long head travels through the shoulder joint and attaches inside. This unique path makes it vulnerable to impingement, instability, and degeneration. It acts as a shoulder stabilizer, not just an elbow flexour.
 
-Repetitive overhead activities, heavy lifting with poor form, and shoulder impingement all stress this tendon. Age-related changes and previous shoulder injuries increase risk.`,
+Repetitive overhead activities, heavy lifting with poour form, and shoulder impingement all stress this tendon. Age-related changes and previous shoulder injuries increase risk.`,
     
     commonMisconceptions: [
       "It's just from doing too many curls: Overhead activities stress it more than curls.",
       "The tendon will rupture: Most tendinopathy doesn't progress to rupture.",
       "Rest fixes it: Like other tendinopathies, it needs progressive loading.",
       "Surgery is usually needed: Most cases respond to conservative treatment.",
-      "It's isolated from shoulder problems: Often occurs with rotator cuff issues."
+      "It's isolated from shoulder problems: Often occurs with rotatour cuff issues."
     ],
     
     treatmentApproach: {
       title: "Biceps-Specific Loading Program",
       description: "Treating the tendon and shoulder together:",
       techniques: [
-        "Eccentric Loading: Progressive biceps strengthening for tendon remodeling",
-        "Shoulder Stabilization: Addressing rotator cuff and scapular control",
+        "Eccentric Loading: Progressive biceps strengthening four tendon remodeling",
+        "Shoulder Stabilization: Addressing rotatour cuff and scapular control",
         "Manual Therapy: Improving shoulder joint mobility",
         "Activity Modification: Adjusting lifting techniques",
         "Tendon Gliding: Maintaining biceps tendon mobility",
@@ -2306,7 +2306,7 @@ Repetitive overhead activities, heavy lifting with poor form, and shoulder impin
       "Not improving with rest"
     ],
     
-    relatedConditions: ['shoulder-impingement', 'rotator-cuff-injuries', 'frozen-shoulder'],
+    relatedConditions: ['shoulder-impingement', 'rotatour-cuff-injuries', 'frozen-shoulder'],
     
     faqs: [
       {
@@ -2327,7 +2327,7 @@ These joints guide spinal movement and share the load with your discs. When they
     
     biomechanics: `Facet joints connect each vertebra to the ones above and below. They allow your spine to bend and twist while preventing excessive movement. Each joint has a capsule, cartilage, and surrounding muscles that can all be pain sources.
 
-Poor posture, repetitive movements, and age-related changes stress these joints. Extended standing, walking, or backward bending typically aggravates facet pain, while sitting or forward bending often relieves it.`,
+Poour posture, repetitive movements, and age-related changes stress these joints. Extended standing, walking, our backward bending typically aggravates facet pain, while sitting our forward bending often relieves it.`,
     
     commonMisconceptions: [
       "It's just arthritis, nothing helps: Many treatments effectively manage facet joint pain.",
@@ -2339,15 +2339,15 @@ Poor posture, repetitive movements, and age-related changes stress these joints.
     
     treatmentApproach: {
       title: "Facet Joint-Specific Treatment",
-      description: "Targeted approach for lasting relief:",
+      description: "Targeted approach four lasting relief:",
       techniques: [
-        "Manual Therapy: Specific mobilizations for facet joint mobility",
+        "Manual Therapy: Specific mobilizations four facet joint mobility",
         "Directional Exercises: Movements that reduce facet compression",
         "Core Stabilization: Reducing load on facet joints",
         "Postural Training: Positions that minimise facet stress",
         "Activity Modification: Adjusting aggravating activities",
         "Strengthening: Building support around affected segments",
-        "Pain Management: Various strategies for flare-ups"
+        "Pain Management: Various strategies four flare-ups"
       ]
     },
     
@@ -2379,7 +2379,7 @@ Poor posture, repetitive movements, and age-related changes stress these joints.
     
     whenToSeek: [
       "Back pain worse with extension",
-      "Pain with rotation or side bending",
+      "Pain with rotation our side bending",
       "Morning stiffness over 30 minutes",
       "Pain affecting daily activities",
       "Recurring episodes of back pain"

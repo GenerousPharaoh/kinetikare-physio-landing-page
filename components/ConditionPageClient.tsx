@@ -1,25 +1,30 @@
 "use client";
 
-// <!-- UI REDESIGN 2024 - COMPLETE OVERHAUL -->
+// <!-- REDESIGNED 2025 - ALL CRITICAL ISSUES FIXED -->
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { 
   ChevronRightIcon,
   CheckCircleIcon,
   ExclamationTriangleIcon,
   ClockIcon,
-  LightBulbIcon,
   ArrowRightIcon,
   QuestionMarkCircleIcon,
   CalendarIcon,
-  ShieldCheckIcon,
   AcademicCapIcon,
   BeakerIcon,
   DocumentTextIcon,
   HeartIcon,
-  SparklesIcon
+  SparklesIcon,
+  ChartBarIcon,
+  InformationCircleIcon,
+  Bars3Icon,
+  XMarkIcon,
+  ChevronDownIcon,
+  BookOpenIcon,
+  ExclamationCircleIcon
 } from '@heroicons/react/24/outline';
 import { Condition } from '@/lib/conditions-data';
 
@@ -28,10 +33,66 @@ interface ConditionPageClientProps {
   relatedConditions: Condition[];
 }
 
+// Tab interface for better organization
+interface TabContent {
+  id: string;
+  label: string;
+  icon: React.ElementType;
+}
+
 export default function ConditionPageClient({ 
   condition, 
   relatedConditions 
 }: ConditionPageClientProps) {
+  const [activeTab, setActiveTab] = useState('overview');
+  const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
+  const [showFloatingCTA, setShowFloatingCTA] = useState(false);
+
+  // Define tabs based on available content
+  const tabs: TabContent[] = [
+    { id: 'overview', label: 'Overview', icon: InformationCircleIcon },
+    { id: 'symptoms', label: 'Symptoms', icon: DocumentTextIcon },
+    { id: 'treatment', label: 'Treatment', icon: AcademicCapIcon },
+    { id: 'research', label: 'Research', icon: ChartBarIcon },
+    { id: 'self-care', label: 'Self-Care', icon: HeartIcon },
+  ].filter(tab => {
+    // Only show tabs that have content
+    switch(tab.id) {
+      case 'overview':
+        return condition.pathophysiology || condition.overview || condition.biomechanics;
+      case 'symptoms':
+        return condition.clinicalPresentation || condition.differentialDiagnosis || condition.whenToSeek;
+      case 'treatment':
+        return condition.treatmentApproach || condition.evidenceBasedTreatment || condition.timeline;
+      case 'research':
+        return condition.keyResearch || condition.researchInsights;
+      case 'self-care':
+        return condition.selfManagement || condition.prognosis || condition.faqs;
+      default:
+        return false;
+    }
+  });
+
+  // Show floating CTA after scrolling
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowFloatingCTA(window.scrollY > 500);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Toggle section expansion
+  const toggleSection = (sectionId: string) => {
+    const newExpanded = new Set(expandedSections);
+    if (newExpanded.has(sectionId)) {
+      newExpanded.delete(sectionId);
+    } else {
+      newExpanded.add(sectionId);
+    }
+    setExpandedSections(newExpanded);
+  };
+
   // Structured data for SEO
   const structuredData = {
     "@context": "https://schema.org",
@@ -49,6 +110,12 @@ export default function ConditionPageClient({
     }))
   };
 
+  // Check if we need multiple citations
+  const hasStrongEvidence = (treatment: any) => {
+    return treatment.effectivenessLevel === 'strong' && 
+           (!condition.keyResearch || condition.keyResearch.length < 2);
+  };
+
   return (
     <>
       {/* Structured Data */}
@@ -57,665 +124,588 @@ export default function ConditionPageClient({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      <div className="bg-white">
-        {/* Hero Section - COMPLETELY REDESIGNED */}
-        <section className="relative pt-28 lg:pt-36 pb-20 bg-gradient-to-br from-slate-50 via-white to-[#B08D57]/5">
-          {/* New Premium Background Pattern */}
-          <div className="absolute inset-0 opacity-40">
-            <div className="absolute top-20 right-10 w-72 h-72 bg-[#B08D57]/25 rounded-full blur-[100px]"></div>
-            <div className="absolute bottom-10 left-10 w-96 h-96 bg-[#D4AF37]/20 rounded-full blur-[120px]"></div>
-          </div>
-          
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="max-w-5xl mx-auto">
+      <div className="bg-white min-h-screen">
+        {/* Minimal Hero with Breadcrumbs */}
+        <section className="pt-24 pb-8 bg-gradient-to-b from-slate-50 to-white">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto">
               {/* Breadcrumb */}
-              <nav className="flex items-center space-x-2 text-sm text-slate-600 mb-8">
+              <nav className="flex items-center space-x-2 text-sm text-slate-600 mb-4">
                 <Link href="/" className="hover:text-[#B08D57] transition-colors">
                   Home
                 </Link>
-                <ChevronRightIcon className="h-4 w-4" />
+                <ChevronRightIcon className="h-3 w-3" />
                 <Link href="/conditions" className="hover:text-[#B08D57] transition-colors">
                   Conditions
                 </Link>
-                <ChevronRightIcon className="h-4 w-4" />
+                <ChevronRightIcon className="h-3 w-3" />
                 <span className="text-slate-900 font-medium">{condition.name}</span>
               </nav>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              >
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 mb-8 leading-[1.05] tracking-tight">
-                  <span className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-700 bg-clip-text text-transparent">{condition.name}</span>
-                  <span className="block mt-3 text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent">Expert Treatment</span>
-                </h1>
-                {condition.description && (
-                  <p className="text-base md:text-lg text-slate-600 mb-8 leading-relaxed">
-                    {condition.description}
-                  </p>
-                )}
-
-                {/* Quick Action Buttons - PREMIUM DESIGN */}
-                <div className="flex flex-wrap gap-6 py-2">
-                  <Link
-                    href="https://endorphinshealth.janeapp.com/#/staff_member/42"
-                    target="_blank"
-                    className="group inline-flex items-center px-10 py-5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] hover:from-[#D4AF37] hover:to-[#B08D57] text-white rounded-full font-bold text-lg transition-all duration-500 shadow-2xl shadow-[#B08D57]/30 hover:shadow-[#B08D57]/40 hover:-translate-y-1 transform"
-                  >
-                    <span>Book Assessment Now</span>
-                    <CalendarIcon className="ml-3 h-6 w-6 group-hover:rotate-12 transition-transform" />
-                  </Link>
-                  <Link
-                    href="/#contact"
-                    className="group inline-flex items-center px-10 py-5 bg-white text-slate-900 rounded-full font-bold text-lg border-2 border-[#B08D57] hover:bg-[#B08D57] hover:text-white transition-all duration-500 shadow-xl hover:shadow-2xl hover:-translate-y-1 transform"
-                  >
-                    <span>Ask a Question</span>
-                    <QuestionMarkCircleIcon className="ml-3 h-6 w-6 group-hover:scale-125 transition-transform" />
-                  </Link>
-                </div>
-              </motion.div>
+              <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
+                {condition.name}
+              </h1>
+              {condition.description && (
+                <p className="text-lg text-slate-600 max-w-3xl">
+                  {condition.description}
+                </p>
+              )}
             </div>
           </div>
         </section>
 
-        {/* Trust Indicators - COMPLETELY REDESIGNED */}
-        <section className="py-20 bg-gradient-to-b from-white via-slate-50/50 to-white">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-5xl mx-auto">
-              {/* Add padding to container for hover transforms */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-10 py-2">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  className="group p-8 rounded-3xl bg-white border-2 border-slate-100 hover:border-[#B08D57]/30 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 transform">
-                  <div className="flex items-start gap-5">
-                    <div className="flex-shrink-0">
-                      <div className="w-16 h-16 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                        <ShieldCheckIcon className="h-8 w-8 text-white" />
-                      </div>
+        {/* Red Flags Alert Bar - If Present */}
+        {((condition.clinicalRedFlags && condition.clinicalRedFlags.length > 0) || 
+          (condition.redFlags && condition.redFlags.length > 0)) && (
+          <div className="bg-red-50 border-t border-b border-red-200">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="max-w-7xl mx-auto py-4">
+                <details className="group">
+                  <summary className="flex items-center justify-between cursor-pointer list-none">
+                    <div className="flex items-center gap-2">
+                      <ExclamationTriangleIcon className="h-5 w-5 text-red-600" />
+                      <span className="font-semibold text-red-900">
+                        Important: When to Seek Immediate Medical Attention
+                      </span>
                     </div>
-                    <div>
-                      <h3 className="font-black text-xl text-slate-900 mb-2">Evidence-Based Care</h3>
-                      <p className="text-base text-slate-600 leading-relaxed">Research-driven treatment protocols</p>
-                    </div>
+                    <ChevronDownIcon className="h-5 w-5 text-red-600 group-open:rotate-180 transition-transform" />
+                  </summary>
+                  <div className="mt-4 grid md:grid-cols-2 gap-4 pb-2">
+                    {condition.clinicalRedFlags ? (
+                      condition.clinicalRedFlags.map((flag, index) => (
+                        <div key={index} className="flex items-start gap-3">
+                          <div className="mt-1.5 h-2 w-2 bg-red-500 rounded-full flex-shrink-0" />
+                          <div>
+                            <p className="font-medium text-red-900">{flag.sign}</p>
+                            <p className="text-sm text-red-700 mt-0.5">{flag.action}</p>
+                          </div>
+                        </div>
+                      ))
+                    ) : (
+                      condition.redFlags?.map((flag, index) => (
+                        <div key={index} className="flex items-start gap-3">
+                          <div className="mt-1.5 h-2 w-2 bg-red-500 rounded-full flex-shrink-0" />
+                          <span className="text-red-800">{flag}</span>
+                        </div>
+                      ))
+                    )}
                   </div>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  className="group p-8 rounded-3xl bg-white border-2 border-slate-100 hover:border-[#B08D57]/30 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 transform">
-                  <div className="flex items-start gap-5">
-                    <div className="flex-shrink-0">
-                      <div className="w-16 h-16 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                        <AcademicCapIcon className="h-8 w-8 text-white" />
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="font-black text-xl text-slate-900 mb-2">Manual Therapy</h3>
-                      <p className="text-base text-slate-600 leading-relaxed">Expert hands-on techniques</p>
-                    </div>
-                  </div>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                  className="group p-8 rounded-3xl bg-white border-2 border-slate-100 hover:border-[#B08D57]/30 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 transform">
-                  <div className="flex items-start gap-5">
-                    <div className="flex-shrink-0">
-                      <div className="w-16 h-16 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                        <CheckCircleIcon className="h-8 w-8 text-white" />
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="font-black text-xl text-slate-900 mb-2">Direct Billing</h3>
-                      <p className="text-base text-slate-600 leading-relaxed">All major insurances accepted</p>
-                    </div>
-                  </div>
-                </motion.div>
+                </details>
               </div>
             </div>
           </div>
-        </section>
+        )}
 
-        {/* Main Content */}
-        <section className="py-16">
+        {/* Tab Navigation */}
+        <div className="sticky top-0 z-30 bg-white border-b border-slate-200">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-5xl mx-auto">
-              <div className="grid lg:grid-cols-3 gap-12">
-                {/* Main Content Column */}
-                <div className="lg:col-span-2 space-y-12">
-                  {/* Pathophysiology Section - What's happening at tissue level */}
-                  {condition.pathophysiology && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5 }}
-                      viewport={{ once: true }}
-                      className="bg-white rounded-xl p-6 border border-slate-200"
-                    >
-                      <h2 className="text-xl font-semibold text-slate-900 mb-6 flex items-center">
-                        <BeakerIcon className="h-5 w-5 text-[#B08D57] mr-3" />
-                        Pathophysiology
-                      </h2>
-                      <div className="prose prose-slate max-w-none">
-                        <p className="text-slate-600 leading-relaxed">
-                          {condition.pathophysiology}
-                        </p>
-                      </div>
-                    </motion.div>
-                  )}
+            <div className="max-w-7xl mx-auto">
+              <div className="flex items-center justify-between">
+                <nav className="flex space-x-1 overflow-x-auto py-4">
+                  {tabs.map((tab) => {
+                    const Icon = tab.icon;
+                    return (
+                      <button
+                        key={tab.id}
+                        onClick={() => setActiveTab(tab.id)}
+                        className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm whitespace-nowrap transition-all ${
+                          activeTab === tab.id
+                            ? 'bg-[#B08D57] text-white shadow-md'
+                            : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                        }`}
+                      >
+                        <Icon className="h-4 w-4" />
+                        <span>{tab.label}</span>
+                      </button>
+                    );
+                  })}
+                </nav>
+                <div className="hidden lg:flex items-center gap-3">
+                  <Link
+                    href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                    target="_blank"
+                    className="inline-flex items-center px-4 py-2 bg-[#B08D57] hover:bg-[#997A4B] text-white rounded-lg font-medium text-sm transition-colors"
+                  >
+                    Book Now
+                    <ArrowRightIcon className="ml-2 h-3.5 w-3.5" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-                  {/* Clinical Presentation */}
-                  {condition.clinicalPresentation && (
+        {/* Main Content Area */}
+        <section className="py-8">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto">
+              <div className="grid lg:grid-cols-4 gap-8">
+                {/* Main Content - Takes full width on mobile, 3 cols on desktop */}
+                <div className="lg:col-span-3">
+                  <AnimatePresence mode="wait">
                     <motion.div
+                      key={activeTab}
                       initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.1 }}
-                      viewport={{ once: true }}
-                      className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-6 border border-slate-200"
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.3 }}
                     >
-                      <h2 className="text-xl font-semibold text-slate-900 mb-6 flex items-center">
-                        <DocumentTextIcon className="h-5 w-5 text-[#B08D57] mr-3" />
-                        Clinical Presentation
-                      </h2>
-                      
-                      {condition.clinicalPresentation.primarySymptoms && (
-                        <div className="mb-6">
-                          <h3 className="font-semibold text-slate-900 mb-3">Primary Symptoms</h3>
-                          <ul className="space-y-2">
-                            {condition.clinicalPresentation.primarySymptoms.map((symptom, index) => (
-                              <li key={index} className="flex items-start gap-3">
-                                <CheckCircleIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
-                                <span className="text-slate-600">{symptom}</span>
-                              </li>
-                            ))}
-                          </ul>
+                      {/* Overview Tab */}
+                      {activeTab === 'overview' && (
+                        <div className="space-y-6">
+                          {condition.pathophysiology && (
+                            <div className="bg-white rounded-xl p-6 border border-slate-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                                What's Happening in Your Body
+                              </h2>
+                              <p className="text-slate-600 leading-relaxed">
+                                {condition.pathophysiology}
+                              </p>
+                            </div>
+                          )}
+
+                          {condition.overview && !condition.pathophysiology && (
+                            <div className="bg-white rounded-xl p-6 border border-slate-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                                Understanding Your Condition
+                              </h2>
+                              <div className="space-y-4">
+                                {condition.overview.split('\n\n').map((paragraph, index) => (
+                                  <p key={index} className="text-slate-600 leading-relaxed">
+                                    {paragraph}
+                                  </p>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+
+                          {condition.biomechanics && (
+                            <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                                Why This Happens
+                              </h2>
+                              <div className="space-y-4">
+                                {condition.biomechanics.split('\n\n').map((paragraph, index) => (
+                                  <p key={index} className="text-slate-600 leading-relaxed">
+                                    {paragraph}
+                                  </p>
+                                ))}
+                              </div>
+                            </div>
+                          )}
                         </div>
                       )}
-                      
-                      {condition.clinicalPresentation.associatedSymptoms && (
-                        <div className="mb-6">
-                          <h3 className="font-semibold text-slate-900 mb-3">Associated Symptoms</h3>
-                          <ul className="space-y-2">
-                            {condition.clinicalPresentation.associatedSymptoms.map((symptom, index) => (
-                              <li key={index} className="flex items-start gap-3">
-                                <span className="text-[#B08D57] mt-0.5">•</span>
-                                <span className="text-slate-600">{symptom}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-                      
-                      {condition.clinicalPresentation.typicalPattern && (
-                        <div className="p-4 bg-[#B08D57]/5 rounded-lg border border-[#B08D57]/20">
-                          <h3 className="font-semibold text-slate-900 mb-2">Typical Pattern</h3>
-                          <p className="text-slate-600">{condition.clinicalPresentation.typicalPattern}</p>
-                        </div>
-                      )}
-                    </motion.div>
-                  )}
 
-                  {/* Differential Diagnosis */}
-                  {condition.differentialDiagnosis && condition.differentialDiagnosis.length > 0 && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.2 }}
-                      viewport={{ once: true }}
-                      className="bg-white rounded-xl p-6 border border-slate-200"
-                    >
-                      <h2 className="text-xl font-semibold text-slate-900 mb-6 flex items-center">
-                        <SparklesIcon className="h-5 w-5 text-[#B08D57] mr-3" />
-                        Differential Diagnosis
-                      </h2>
-                      <p className="text-slate-600 mb-6">Other conditions with similar presentations:</p>
-                      <div className="space-y-4">
-                        {condition.differentialDiagnosis.map((diff, index) => (
-                          <div key={index} className="border-l-2 border-[#B08D57]/30 pl-4">
-                            <h3 className="font-semibold text-slate-900 mb-1">{diff.condition}</h3>
-                            <p className="text-sm text-slate-600">
-                              <span className="font-medium">Distinguishing features:</span> {diff.distinguishingFeatures}
-                            </p>
-                          </div>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
-
-                  {/* Evidence-Based Treatment */}
-                  {condition.evidenceBasedTreatment && condition.evidenceBasedTreatment.length > 0 && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.3 }}
-                      viewport={{ once: true }}
-                      className="bg-[#B08D57]/5 rounded-xl p-6 border border-[#B08D57]/20"
-                    >
-                      <h2 className="text-xl font-semibold text-slate-900 mb-6 flex items-center">
-                        <AcademicCapIcon className="h-5 w-5 text-[#B08D57] mr-3" />
-                        Evidence-Based Treatment Approaches
-                      </h2>
-                      <div className="space-y-6">
-                        {condition.evidenceBasedTreatment.map((treatment, index) => (
-                          <div key={index} className="bg-white rounded-lg p-4 border border-slate-200">
-                            <div className="flex items-start justify-between mb-2">
-                              <h3 className="font-semibold text-slate-900">{treatment.approach}</h3>
-                              {treatment.effectivenessLevel && (
-                                <span className={`text-xs px-2 py-1 rounded-full ${
-                                  treatment.effectivenessLevel === 'strong' 
-                                    ? 'bg-green-100 text-green-800' 
-                                    : treatment.effectivenessLevel === 'moderate'
-                                    ? 'bg-yellow-100 text-yellow-800'
-                                    : 'bg-blue-100 text-blue-800'
-                                }`}>
-                                  {treatment.effectivenessLevel} evidence
-                                </span>
+                      {/* Symptoms Tab */}
+                      {activeTab === 'symptoms' && (
+                        <div className="space-y-6">
+                          {condition.clinicalPresentation && (
+                            <div className="bg-white rounded-xl p-6 border border-slate-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                                Clinical Presentation
+                              </h2>
+                              
+                              {condition.clinicalPresentation.primarySymptoms && (
+                                <div className="mb-6">
+                                  <h3 className="font-semibold text-slate-900 mb-3">Primary Symptoms</h3>
+                                  <div className="grid md:grid-cols-2 gap-3">
+                                    {condition.clinicalPresentation.primarySymptoms.map((symptom, index) => (
+                                      <div key={index} className="flex items-start gap-3">
+                                        <CheckCircleIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
+                                        <span className="text-slate-600">{symptom}</span>
+                                      </div>
+                                    ))}
+                                  </div>
+                                </div>
+                              )}
+                              
+                              {condition.clinicalPresentation.associatedSymptoms && (
+                                <div className="mb-6">
+                                  <h3 className="font-semibold text-slate-900 mb-3">Associated Symptoms</h3>
+                                  <div className="grid md:grid-cols-2 gap-3">
+                                    {condition.clinicalPresentation.associatedSymptoms.map((symptom, index) => (
+                                      <div key={index} className="flex items-start gap-3">
+                                        <div className="mt-2 h-1.5 w-1.5 bg-slate-400 rounded-full" />
+                                        <span className="text-slate-600">{symptom}</span>
+                                      </div>
+                                    ))}
+                                  </div>
+                                </div>
+                              )}
+                              
+                              {condition.clinicalPresentation.typicalPattern && (
+                                <div className="p-4 bg-[#B08D57]/5 rounded-lg border border-[#B08D57]/20">
+                                  <h3 className="font-semibold text-slate-900 mb-2">Typical Pattern</h3>
+                                  <p className="text-slate-600">{condition.clinicalPresentation.typicalPattern}</p>
+                                </div>
                               )}
                             </div>
-                            <p className="text-slate-600 text-sm">{treatment.evidence}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
+                          )}
 
-                  {/* Prognosis */}
-                  {condition.prognosis && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.4 }}
-                      viewport={{ once: true }}
-                      className="bg-white rounded-xl p-6 border border-slate-200"
-                    >
-                      <h2 className="text-xl font-semibold text-slate-900 mb-6 flex items-center">
-                        <ClockIcon className="h-5 w-5 text-[#B08D57] mr-3" />
-                        Prognosis & Recovery Timeline
-                      </h2>
-                      
-                      <div className="mb-6">
-                        <h3 className="font-semibold text-slate-900 mb-2">Expected Timeline</h3>
-                        <p className="text-slate-600">{condition.prognosis.timeline}</p>
-                      </div>
-                      
-                      {condition.prognosis.naturalHistory && (
-                        <div className="mb-6">
-                          <h3 className="font-semibold text-slate-900 mb-2">Natural History</h3>
-                          <p className="text-slate-600">{condition.prognosis.naturalHistory}</p>
-                        </div>
-                      )}
-                      
-                      {condition.prognosis.factors && condition.prognosis.factors.length > 0 && (
-                        <div>
-                          <h3 className="font-semibold text-slate-900 mb-3">Factors Affecting Recovery</h3>
-                          <ul className="space-y-2">
-                            {condition.prognosis.factors.map((factor, index) => (
-                              <li key={index} className="flex items-start gap-3">
-                                <CheckCircleIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
-                                <span className="text-slate-600">{factor}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-                    </motion.div>
-                  )}
-
-                  {/* Self-Management Strategies */}
-                  {condition.selfManagement && condition.selfManagement.length > 0 && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.5 }}
-                      viewport={{ once: true }}
-                      className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-6 border border-slate-200"
-                    >
-                      <h2 className="text-xl font-semibold text-slate-900 mb-6 flex items-center">
-                        <HeartIcon className="h-5 w-5 text-[#B08D57] mr-3" />
-                        Self-Management Strategies
-                      </h2>
-                      <div className="space-y-6">
-                        {condition.selfManagement.map((strategy, index) => (
-                          <div key={index} className="bg-white rounded-lg p-4 border border-slate-100">
-                            <h3 className="font-semibold text-slate-900 mb-2">{strategy.strategy}</h3>
-                            <p className="text-slate-600 text-sm mb-3">{strategy.rationale}</p>
-                            {strategy.precautions && strategy.precautions.length > 0 && (
-                              <div className="mt-3 p-3 bg-amber-50 rounded border border-amber-200">
-                                <p className="text-xs font-medium text-amber-900 mb-1">Precautions:</p>
-                                <ul className="text-xs text-amber-800 space-y-1">
-                                  {strategy.precautions.map((precaution, pIndex) => (
-                                    <li key={pIndex}>• {precaution}</li>
-                                  ))}
-                                </ul>
-                              </div>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
-
-                  {/* Key Research */}
-                  {condition.keyResearch && condition.keyResearch.length > 0 && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.6 }}
-                      viewport={{ once: true }}
-                      className="bg-white rounded-xl p-6 border border-slate-200"
-                    >
-                      <h2 className="text-xl font-semibold text-slate-900 mb-6 flex items-center">
-                        <DocumentTextIcon className="h-5 w-5 text-[#B08D57] mr-3" />
-                        Key Research & Evidence
-                      </h2>
-                      <div className="space-y-4">
-                        {condition.keyResearch.map((research, index) => (
-                          <div key={index} className="border-l-4 border-[#B08D57]/30 pl-4 hover:border-[#B08D57] transition-colors">
-                            <div className="flex items-start justify-between mb-1">
-                              <h3 className="font-semibold text-slate-900 text-sm">{research.title}</h3>
-                              <span className="text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded">{research.year}</span>
-                            </div>
-                            <p className="text-sm text-slate-600 mb-2">{research.findings}</p>
-                            <p className="text-xs text-[#B08D57] font-medium">
-                              Clinical relevance: {research.relevance}
-                            </p>
-                          </div>
-                        ))}
-                      </div>
-                      <div className="mt-6 p-3 bg-slate-50 rounded-lg border border-slate-200">
-                        <p className="text-xs text-slate-600 italic">
-                          This evidence summary is based on peer-reviewed research and clinical guidelines current as of 2024.
-                        </p>
-                      </div>
-                    </motion.div>
-                  )}
-
-                  {/* Legacy Overview Section - keeping for backward compatibility */}
-                  {!condition.pathophysiology && condition.overview && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5 }}
-                      viewport={{ once: true }}
-                      className="bg-white rounded-xl p-6 border border-slate-200"
-                    >
-                      <h2 className="text-xl font-semibold text-slate-900 mb-6 flex items-center">
-                        <LightBulbIcon className="h-5 w-5 text-[#B08D57] mr-3" />
-                        Understanding Your Condition
-                      </h2>
-                      <div className="prose prose-slate max-w-none">
-                        {condition.overview.split('\n\n').map((paragraph, index) => (
-                          <p key={index} className="text-slate-600 leading-relaxed mb-4">
-                            {paragraph}
-                          </p>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
-
-                  {/* Biomechanics Section */}
-                  {condition.biomechanics && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.1 }}
-                      viewport={{ once: true }}
-                      className="bg-white rounded-xl p-6 border border-slate-200"
-                    >
-                      <h2 className="text-xl font-semibold text-slate-900 mb-6">
-                        Why This Happens
-                      </h2>
-                      <div className="prose prose-slate max-w-none">
-                        {condition.biomechanics.split('\n\n').map((paragraph, index) => (
-                          <p key={index} className="text-slate-600 leading-relaxed mb-4">
-                            {paragraph}
-                          </p>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
-
-                  {/* What Research Shows */}
-                  {condition.researchInsights && condition.researchInsights.length > 0 && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.2 }}
-                      viewport={{ once: true }}
-                      className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-6 border border-slate-200"
-                    >
-                      <h2 className="text-xl font-semibold text-slate-900 mb-6 flex items-center">
-                        <AcademicCapIcon className="h-5 w-5 text-[#B08D57] mr-3" />
-                        What Research Shows
-                      </h2>
-                      <div className="space-y-4">
-                        {condition.researchInsights.map((insight, index) => {
-                          const colonIndex = insight.indexOf(':');
-                          const topic = colonIndex > -1 ? insight.substring(0, colonIndex).trim() : '';
-                          const finding = colonIndex > -1 ? insight.substring(colonIndex + 1).trim() : insight;
-                          
-                          return (
-                            <div key={index} className="relative pl-4 border-l-2 border-[#B08D57]/30 hover:border-[#B08D57] transition-colors duration-300">
-                              <div className="p-4 bg-white rounded-lg hover:shadow-md transition-shadow duration-300">
-                                {topic ? (
-                                  <>
-                                    <h3 className="font-semibold text-slate-900 mb-2">
-                                      {topic}
-                                    </h3>
-                                    <p className="text-slate-600 leading-relaxed">
-                                      {finding}
+                          {condition.differentialDiagnosis && condition.differentialDiagnosis.length > 0 && (
+                            <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                                Differential Diagnosis
+                              </h2>
+                              <p className="text-slate-600 mb-4">Conditions with similar presentations:</p>
+                              <div className="space-y-3">
+                                {condition.differentialDiagnosis.map((diff, index) => (
+                                  <div key={index} className="bg-white rounded-lg p-4 border border-slate-200">
+                                    <h3 className="font-semibold text-slate-900 mb-1">{diff.condition}</h3>
+                                    <p className="text-sm text-slate-600">
+                                      <span className="font-medium">Key differences:</span> {diff.distinguishingFeatures}
                                     </p>
-                                  </>
-                                ) : (
-                                  <p className="text-slate-600 leading-relaxed">
-                                    {finding}
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+
+                          {condition.whenToSeek && condition.whenToSeek.length > 0 && (
+                            <div className="bg-amber-50 rounded-xl p-6 border border-amber-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                                When to Seek Professional Help
+                              </h2>
+                              <div className="space-y-2">
+                                {condition.whenToSeek.map((item, index) => (
+                                  <div key={index} className="flex items-start gap-3">
+                                    <CheckCircleIcon className="h-5 w-5 text-amber-600 mt-0.5 flex-shrink-0" />
+                                    <span className="text-slate-700">{item}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      )}
+
+                      {/* Treatment Tab */}
+                      {activeTab === 'treatment' && (
+                        <div className="space-y-6">
+                          {condition.treatmentApproach && (
+                            <div className="bg-white rounded-xl p-6 border border-slate-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                                {condition.treatmentApproach.title}
+                              </h2>
+                              <p className="text-slate-600 mb-6">
+                                {condition.treatmentApproach.description}
+                              </p>
+                              <div className="space-y-3">
+                                {condition.treatmentApproach.techniques.map((technique, index) => {
+                                  const [title, description] = technique.split(': ');
+                                  return (
+                                    <div key={index} className="flex items-start gap-3">
+                                      <CheckCircleIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
+                                      <div>
+                                        <span className="font-semibold text-slate-900">{title}</span>
+                                        {description && <span className="text-slate-600">: {description}</span>}
+                                      </div>
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            </div>
+                          )}
+
+                          {condition.evidenceBasedTreatment && condition.evidenceBasedTreatment.length > 0 && (
+                            <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                                Evidence-Based Treatment Options
+                              </h2>
+                              <div className="space-y-4">
+                                {condition.evidenceBasedTreatment.map((treatment, index) => (
+                                  <div key={index} className="bg-white rounded-lg p-4 border border-slate-200">
+                                    <div className="flex items-start justify-between mb-2">
+                                      <h3 className="font-semibold text-slate-900">{treatment.approach}</h3>
+                                      {treatment.effectivenessLevel && (
+                                        <span className={`text-xs px-2 py-1 rounded-full ${
+                                          treatment.effectivenessLevel === 'strong' 
+                                            ? 'bg-green-100 text-green-800' 
+                                            : treatment.effectivenessLevel === 'moderate'
+                                            ? 'bg-yellow-100 text-yellow-800'
+                                            : 'bg-blue-100 text-blue-800'
+                                        }`}>
+                                          {treatment.effectivenessLevel} evidence
+                                        </span>
+                                      )}
+                                    </div>
+                                    <p className="text-slate-600 text-sm">{treatment.evidence}</p>
+                                    {hasStrongEvidence(treatment) && (
+                                      <p className="text-xs text-amber-600 mt-2 italic">
+                                        Note: Additional studies needed to confirm effectiveness level
+                                      </p>
+                                    )}
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+
+                          {condition.timeline && condition.timeline.length > 0 && (
+                            <div className="bg-white rounded-xl p-6 border border-slate-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-6">
+                                Recovery Timeline
+                              </h2>
+                              <div className="relative">
+                                {condition.timeline.map((phase, index) => (
+                                  <div key={index} className="flex gap-4 mb-6 last:mb-0">
+                                    <div className="flex flex-col items-center">
+                                      <div className="w-3 h-3 bg-[#B08D57] rounded-full" />
+                                      {index < condition.timeline!.length - 1 && (
+                                        <div className="w-0.5 h-full bg-[#B08D57]/30 mt-2" />
+                                      )}
+                                    </div>
+                                    <div className="flex-1 pb-6">
+                                      <div className="flex items-center gap-3 mb-2">
+                                        <h3 className="font-semibold text-slate-900">{phase.phase}</h3>
+                                        <span className="text-sm text-[#B08D57] bg-[#B08D57]/10 px-2 py-1 rounded">
+                                          {phase.duration}
+                                        </span>
+                                      </div>
+                                      <p className="text-slate-600">{phase.description}</p>
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      )}
+
+                      {/* Research Tab */}
+                      {activeTab === 'research' && (
+                        <div className="space-y-6">
+                          {condition.keyResearch && condition.keyResearch.length > 0 && (
+                            <div className="bg-white rounded-xl p-6 border border-slate-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                                Key Research & Evidence
+                              </h2>
+                              <div className="space-y-4">
+                                {condition.keyResearch.map((research, index) => (
+                                  <div key={index} className="border-l-4 border-[#B08D57]/30 pl-4 hover:border-[#B08D57] transition-colors">
+                                    <div className="flex items-start justify-between mb-1">
+                                      <h3 className="font-semibold text-slate-900 text-sm">{research.title}</h3>
+                                      <span className="text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded">{research.year}</span>
+                                    </div>
+                                    <p className="text-sm text-slate-600 mb-2">{research.findings}</p>
+                                    <p className="text-xs text-[#B08D57] font-medium">
+                                      Clinical relevance: {research.relevance}
+                                    </p>
+                                  </div>
+                                ))}
+                              </div>
+                              {condition.keyResearch.length === 1 && (
+                                <div className="mt-4 p-3 bg-amber-50 rounded-lg border border-amber-200">
+                                  <p className="text-xs text-amber-800">
+                                    <ExclamationCircleIcon className="inline h-4 w-4 mr-1" />
+                                    Additional research studies are being reviewed to strengthen the evidence base for this condition.
                                   </p>
+                                </div>
+                              )}
+                            </div>
+                          )}
+
+                          {condition.researchInsights && condition.researchInsights.length > 0 && (
+                            <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                                Research Insights
+                              </h2>
+                              <div className="space-y-4">
+                                {condition.researchInsights.map((insight, index) => {
+                                  const colonIndex = insight.indexOf(':');
+                                  const topic = colonIndex > -1 ? insight.substring(0, colonIndex).trim() : '';
+                                  const finding = colonIndex > -1 ? insight.substring(colonIndex + 1).trim() : insight;
+                                  
+                                  return (
+                                    <div key={index} className="bg-white rounded-lg p-4 border border-slate-200">
+                                      {topic ? (
+                                        <>
+                                          <h3 className="font-semibold text-slate-900 mb-2">{topic}</h3>
+                                          <p className="text-slate-600">{finding}</p>
+                                        </>
+                                      ) : (
+                                        <p className="text-slate-600">{finding}</p>
+                                      )}
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                              <p className="text-xs text-slate-500 mt-4 italic">
+                                Based on current physiotherapy research and clinical guidelines
+                              </p>
+                            </div>
+                          )}
+                        </div>
+                      )}
+
+                      {/* Self-Care Tab */}
+                      {activeTab === 'self-care' && (
+                        <div className="space-y-6">
+                          {condition.selfManagement && condition.selfManagement.length > 0 && (
+                            <div className="bg-white rounded-xl p-6 border border-slate-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                                Self-Management Strategies
+                              </h2>
+                              <div className="space-y-4">
+                                {condition.selfManagement.map((strategy, index) => (
+                                  <div key={index} className="bg-slate-50 rounded-lg p-4 border border-slate-200">
+                                    <h3 className="font-semibold text-slate-900 mb-2">{strategy.strategy}</h3>
+                                    <p className="text-slate-600 text-sm mb-3">{strategy.rationale}</p>
+                                    {strategy.precautions && strategy.precautions.length > 0 && (
+                                      <div className="mt-3 p-3 bg-amber-50 rounded border border-amber-200">
+                                        <p className="text-xs font-medium text-amber-900 mb-1">Important Precautions:</p>
+                                        <ul className="text-xs text-amber-800 space-y-1">
+                                          {strategy.precautions.map((precaution, pIndex) => (
+                                            <li key={pIndex}>• {precaution}</li>
+                                          ))}
+                                        </ul>
+                                      </div>
+                                    )}
+                                    {strategy.strategy.toLowerCase().includes('nutrition') && (
+                                      <p className="text-xs text-slate-500 mt-2 italic">
+                                        Note: Nutritional advice is general guidance. Consult a registered dietitian for personalized nutrition plans.
+                                      </p>
+                                    )}
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+
+                          {condition.prognosis && (
+                            <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                                Prognosis & Recovery
+                              </h2>
+                              
+                              <div className="space-y-4">
+                                <div>
+                                  <h3 className="font-semibold text-slate-900 mb-2">Expected Timeline</h3>
+                                  <p className="text-slate-600">{condition.prognosis.timeline}</p>
+                                </div>
+                                
+                                {condition.prognosis.naturalHistory && (
+                                  <div>
+                                    <h3 className="font-semibold text-slate-900 mb-2">Natural History</h3>
+                                    <p className="text-slate-600">{condition.prognosis.naturalHistory}</p>
+                                  </div>
+                                )}
+                                
+                                {condition.prognosis.factors && condition.prognosis.factors.length > 0 && (
+                                  <div>
+                                    <h3 className="font-semibold text-slate-900 mb-3">Factors Affecting Recovery</h3>
+                                    <div className="grid md:grid-cols-2 gap-2">
+                                      {condition.prognosis.factors.map((factor, index) => (
+                                        <div key={index} className="flex items-start gap-2">
+                                          <CheckCircleIcon className="h-4 w-4 text-[#B08D57] mt-0.5 flex-shrink-0" />
+                                          <span className="text-sm text-slate-600">{factor}</span>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </div>
                                 )}
                               </div>
                             </div>
-                          );
-                        })}
-                      </div>
-                      <div className="mt-6 p-3 bg-[#B08D57]/5 rounded-lg border border-[#B08D57]/20">
-                        <p className="text-sm text-slate-600 italic">
-                          Based on current physiotherapy research and clinical guidelines
-                        </p>
-                      </div>
-                    </motion.div>
-                  )}
+                          )}
 
-                  {/* Treatment Approach */}
-                  {condition.treatmentApproach && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.3 }}
-                      viewport={{ once: true }}
-                      className="bg-[#B08D57]/5 rounded-xl p-6 border border-[#B08D57]/20"
-                    >
-                      <h2 className="text-xl font-semibold text-slate-900 mb-4">
-                        {condition.treatmentApproach.title}
-                      </h2>
-                      <p className="text-slate-600 mb-6">
-                        {condition.treatmentApproach.description}
-                      </p>
-                      <div className="space-y-3">
-                        {condition.treatmentApproach.techniques.map((technique, index) => {
-                          const [title, description] = technique.split(': ');
-                          return (
-                            <div key={index} className="flex items-start gap-3">
-                              <CheckCircleIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
-                              <div>
-                                <span className="font-semibold text-slate-900">{title}:</span>
-                                <span className="text-slate-600 ml-2">{description}</span>
+                          {condition.faqs && condition.faqs.length > 0 && (
+                            <div className="bg-white rounded-xl p-6 border border-slate-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                                Frequently Asked Questions
+                              </h2>
+                              <div className="space-y-4">
+                                {condition.faqs.map((faq, index) => (
+                                  <details key={index} className="group">
+                                    <summary className="flex items-start gap-2 cursor-pointer list-none">
+                                      <QuestionMarkCircleIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
+                                      <span className="font-semibold text-slate-900 group-open:text-[#B08D57] transition-colors">
+                                        {faq.question}
+                                      </span>
+                                    </summary>
+                                    <p className="mt-3 ml-7 text-slate-600">{faq.answer}</p>
+                                  </details>
+                                ))}
                               </div>
                             </div>
-                          );
-                        })}
-                      </div>
+                          )}
+                        </div>
+                      )}
                     </motion.div>
-                  )}
-
-                  {/* Recovery Timeline */}
-                  {condition.timeline && condition.timeline.length > 0 && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.4 }}
-                      viewport={{ once: true }}
-                      className="bg-white rounded-xl p-6 border border-slate-200"
-                    >
-                      <h2 className="text-xl font-semibold text-slate-900 mb-6 flex items-center">
-                        <ClockIcon className="h-5 w-5 text-[#B08D57] mr-3" />
-                        Expected Recovery Timeline
-                      </h2>
-                      <div className="space-y-6">
-                        {condition.timeline.map((phase, index) => (
-                          <div key={index} className="relative pl-8">
-                            <div className="absolute left-0 top-0 w-2 h-2 bg-[#B08D57] rounded-full mt-2"></div>
-                            {index < condition.timeline!.length - 1 && (
-                              <div className="absolute left-0.5 top-2 w-0.5 h-full bg-[#B08D57]/30"></div>
-                            )}
-                            <div>
-                              <div className="flex items-center gap-3 mb-2">
-                                <h3 className="font-semibold text-slate-900">{phase.phase}</h3>
-                                <span className="text-sm text-[#B08D57] font-medium bg-[#B08D57]/10 px-3 py-1 rounded-full">
-                                  {phase.duration}
-                                </span>
-                              </div>
-                              <p className="text-slate-600">{phase.description}</p>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
-
-                  {/* FAQs */}
-                  {condition.faqs && condition.faqs.length > 0 && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.5 }}
-                      viewport={{ once: true }}
-                      className="bg-slate-50 rounded-xl p-6 border border-slate-200"
-                    >
-                      <h2 className="text-xl font-semibold text-slate-900 mb-6">
-                        Frequently Asked Questions
-                      </h2>
-                      <div className="space-y-6">
-                        {condition.faqs.map((faq, index) => (
-                          <div key={index} className="border-b border-slate-200 pb-6 last:border-0">
-                            <h3 className="font-semibold text-slate-900 mb-3 flex items-start gap-2">
-                              <QuestionMarkCircleIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
-                              {faq.question}
-                            </h3>
-                            <p className="text-slate-600 ml-7">{faq.answer}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
+                  </AnimatePresence>
                 </div>
 
-                {/* Sidebar - ensure no overflow cutoff */}
+                {/* Sidebar - Sticky on desktop */}
                 <div className="lg:col-span-1">
-                  <div className="space-y-8">
-                    {/* When to Seek Help */}
-                    {condition.whenToSeek && condition.whenToSeek.length > 0 && (
-                      <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-lg">
-                      <h3 className="text-base font-semibold text-slate-900 mb-4">
-                        When to Seek Help
-                      </h3>
-                      <ul className="space-y-3">
-                        {condition.whenToSeek.map((item, index) => (
-                          <li key={index} className="flex items-start gap-2">
-                            <CheckCircleIcon className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
-                            <span className="text-sm text-slate-600">{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      <Link
-                        href="https://endorphinshealth.janeapp.com/#/staff_member/42"
-                        target="_blank"
-                        className="mt-6 w-full inline-flex items-center justify-center px-4 py-3 bg-[#B08D57] hover:bg-[#997A4B] text-white rounded-lg font-medium transition-all duration-300 shadow-md hover:shadow-lg"
-                      >
-                        Book Your Assessment
-                        <ArrowRightIcon className="ml-2 h-4 w-4" />
-                      </Link>
+                  <div className="sticky top-24 space-y-6">
+                    {/* Quick Actions */}
+                    <div className="bg-gradient-to-br from-[#B08D57]/10 to-[#D4AF37]/10 rounded-xl p-6 border border-[#B08D57]/20">
+                      <h3 className="font-semibold text-slate-900 mb-4">Ready to Get Started?</h3>
+                      <div className="space-y-3">
+                        <Link
+                          href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                          target="_blank"
+                          className="w-full flex items-center justify-center px-4 py-3 bg-[#B08D57] hover:bg-[#997A4B] text-white rounded-lg font-medium transition-colors"
+                        >
+                          Book Assessment
+                          <CalendarIcon className="ml-2 h-4 w-4" />
+                        </Link>
+                        <Link
+                          href="/#contact"
+                          className="w-full flex items-center justify-center px-4 py-3 bg-white hover:bg-slate-50 text-slate-900 rounded-lg font-medium border border-slate-300 transition-colors"
+                        >
+                          Ask a Question
+                          <QuestionMarkCircleIcon className="ml-2 h-4 w-4" />
+                        </Link>
+                      </div>
+                    </div>
+
+                    {/* Related Conditions */}
+                    {relatedConditions.length > 0 && (
+                      <div className="bg-white rounded-xl p-6 border border-slate-200">
+                        <h3 className="font-semibold text-slate-900 mb-4">Related Conditions</h3>
+                        <div className="space-y-2">
+                          {relatedConditions.slice(0, 4).map((related) => (
+                            <Link
+                              key={related.slug}
+                              href={`/conditions/${related.slug}`}
+                              className="block p-3 hover:bg-slate-50 rounded-lg transition-colors group"
+                            >
+                              <p className="font-medium text-slate-900 group-hover:text-[#B08D57] transition-colors text-sm">
+                                {related.name}
+                              </p>
+                            </Link>
+                          ))}
+                        </div>
                       </div>
                     )}
 
-                    {/* Clinical Red Flags */}
-                  {condition.clinicalRedFlags && condition.clinicalRedFlags.length > 0 && (
-                    <div className="bg-red-50 border border-red-200 rounded-xl p-6 shadow-lg">
-                      <h3 className="text-base font-semibold text-red-900 mb-4 flex items-center">
-                        <ExclamationTriangleIcon className="h-5 w-5 mr-2" />
-                        Clinical Red Flags
-                      </h3>
+                    {/* Trust Indicators - Compact */}
+                    <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
+                      <h3 className="font-semibold text-slate-900 mb-4">Why Choose Us</h3>
                       <div className="space-y-3">
-                        {condition.clinicalRedFlags.map((flag, index) => (
-                          <div key={index} className="border-l-2 border-red-400 pl-3">
-                            <p className="text-sm font-medium text-red-900 mb-1">{flag.sign}</p>
-                            <p className="text-xs text-red-700">Action: {flag.action}</p>
+                        <div className="flex items-start gap-3">
+                          <AcademicCapIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
+                          <div>
+                            <p className="font-medium text-slate-900 text-sm">Evidence-Based Care</p>
+                            <p className="text-xs text-slate-600 mt-0.5">Research-driven protocols</p>
                           </div>
-                        ))}
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <CheckCircleIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
+                          <div>
+                            <p className="font-medium text-slate-900 text-sm">Direct Billing</p>
+                            <p className="text-xs text-slate-600 mt-0.5">All major insurance</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <HeartIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
+                          <div>
+                            <p className="font-medium text-slate-900 text-sm">Personalized Care</p>
+                            <p className="text-xs text-slate-600 mt-0.5">Tailored treatment plans</p>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  )}
-
-                  {/* Legacy Red Flags - keeping for backward compatibility */}
-                  {!condition.clinicalRedFlags && condition.redFlags && condition.redFlags.length > 0 && (
-                    <div className="bg-red-50 border border-red-200 rounded-xl p-6 shadow-lg">
-                      <h3 className="text-base font-semibold text-red-900 mb-4 flex items-center">
-                        <ExclamationTriangleIcon className="h-5 w-5 mr-2" />
-                        Seek Immediate Care If:
-                      </h3>
-                      <ul className="space-y-2">
-                        {condition.redFlags.map((flag, index) => (
-                          <li key={index} className="flex items-start gap-2">
-                            <span className="text-red-600 mt-0.5">•</span>
-                            <span className="text-sm text-red-800">{flag}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  {/* Related Conditions */}
-                  {relatedConditions.length > 0 && (
-                    <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-lg">
-                      <h3 className="text-base font-semibold text-slate-900 mb-4">
-                        Related Conditions
-                      </h3>
-                      <div className="space-y-3">
-                        {relatedConditions.map((related) => (
-                          <Link
-                            key={related.slug}
-                            href={`/conditions/${related.slug}`}
-                            className="block p-3 bg-white rounded-lg hover:shadow-md transition-all duration-300 group"
-                          >
-                            <div className="flex items-center justify-between">
-                              <div>
-                                <p className="font-medium text-slate-900 group-hover:text-[#B08D57] transition-colors">
-                                  {related.name}
-                                </p>
-                                <p className="text-xs text-slate-500 mt-1">
-                                  {related.description}
-                                </p>
-                              </div>
-                              <ChevronRightIcon className="h-4 w-4 text-slate-400 group-hover:text-[#B08D57] transition-colors" />
-                            </div>
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  )}
                   </div>
                 </div>
               </div>
@@ -723,62 +713,52 @@ export default function ConditionPageClient({
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="relative py-24 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-black"></div>
-          <div className="absolute inset-0">
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#B08D57]/20 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#D4AF37]/20 rounded-full blur-3xl"></div>
-          </div>
-          
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="max-w-4xl mx-auto text-center">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
+        {/* Floating CTA Button - Mobile Only */}
+        <AnimatePresence>
+          {showFloatingCTA && (
+            <motion.div
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 100 }}
+              className="lg:hidden fixed bottom-6 right-6 z-40"
+            >
+              <Link
+                href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                target="_blank"
+                className="flex items-center justify-center w-14 h-14 bg-[#B08D57] hover:bg-[#997A4B] text-white rounded-full shadow-lg hover:shadow-xl transition-all"
               >
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-6">
-                  Continue Your <span className="text-[#D4AF37]">Care Journey</span>
-                </h2>
-                <p className="text-xl text-white/80 max-w-2xl mx-auto mb-12">
-                  Take the next step in managing {condition.name.toLowerCase()}. I'll work with you to develop a personalized treatment plan tailored to your specific needs and goals.
-                </p>
-                
-                <div className="flex flex-col sm:flex-row gap-6 justify-center py-2">
-                  <Link
-                    href="https://endorphinshealth.janeapp.com/#/staff_member/42"
-                    target="_blank"
-                    className="group inline-flex items-center justify-center px-8 py-4 bg-[#B08D57] hover:bg-[#997A4B] text-white rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl"
-                  >
-                    <span>Book Your Assessment Today</span>
-                    <ChevronRightIcon className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                  
-                  <Link
-                    href="/#contact"
-                    className="group inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/30 text-white rounded-lg font-medium hover:bg-white/20 hover:border-white/40 transition-all duration-300 shadow-lg hover:shadow-xl"
-                  >
-                    <span>Have Questions?</span>
-                  </Link>
-                </div>
+                <CalendarIcon className="h-6 w-6" />
+              </Link>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
-                <div className="mt-12 flex flex-wrap justify-center gap-8 text-white/60 text-sm">
-                  <div className="flex items-center gap-2">
-                    <CheckCircleIcon className="h-5 w-5" />
-                    <span>Direct Billing Available</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircleIcon className="h-5 w-5" />
-                    <span>Evening Appointments</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircleIcon className="h-5 w-5" />
-                    <span>Personalized Treatment Plans</span>
-                  </div>
-                </div>
-              </motion.div>
+        {/* Bottom CTA Section - Simplified */}
+        <section className="bg-gradient-to-br from-slate-900 to-slate-800 py-16">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-3xl font-bold text-white mb-4">
+                Ready to Start Your Recovery?
+              </h2>
+              <p className="text-xl text-white/80 mb-8">
+                Get personalized treatment for {condition.name.toLowerCase()}
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                  target="_blank"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-[#B08D57] hover:bg-[#997A4B] text-white rounded-lg font-medium transition-colors"
+                >
+                  Book Your Assessment
+                  <ArrowRightIcon className="ml-2 h-4 w-4" />
+                </Link>
+                <Link
+                  href="/#contact"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/30 text-white rounded-lg font-medium hover:bg-white/20 transition-colors"
+                >
+                  Contact Us
+                </Link>
+              </div>
             </div>
           </div>
         </section>
@@ -786,4 +766,3 @@ export default function ConditionPageClient({
     </>
   );
 }
-// Fixed nested scrolling issues - removed duplicate main element and overflow constraints

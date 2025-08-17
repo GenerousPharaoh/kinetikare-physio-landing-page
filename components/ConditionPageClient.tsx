@@ -15,7 +15,11 @@ import {
   QuestionMarkCircleIcon,
   CalendarIcon,
   ShieldCheckIcon,
-  AcademicCapIcon
+  AcademicCapIcon,
+  BeakerIcon,
+  DocumentTextIcon,
+  HeartIcon,
+  SparklesIcon
 } from '@heroicons/react/24/outline';
 import { Condition } from '@/lib/conditions-data';
 
@@ -184,8 +188,255 @@ export default function ConditionPageClient({
               <div className="grid lg:grid-cols-3 gap-12">
                 {/* Main Content Column */}
                 <div className="lg:col-span-2 space-y-12">
-                  {/* Overview Section */}
-                  {condition.overview && (
+                  {/* Pathophysiology Section - What's happening at tissue level */}
+                  {condition.pathophysiology && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5 }}
+                      viewport={{ once: true }}
+                      className="bg-white rounded-xl p-6 border border-slate-200"
+                    >
+                      <h2 className="text-xl font-semibold text-slate-900 mb-6 flex items-center">
+                        <BeakerIcon className="h-5 w-5 text-[#B08D57] mr-3" />
+                        Pathophysiology
+                      </h2>
+                      <div className="prose prose-slate max-w-none">
+                        <p className="text-slate-600 leading-relaxed">
+                          {condition.pathophysiology}
+                        </p>
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {/* Clinical Presentation */}
+                  {condition.clinicalPresentation && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.1 }}
+                      viewport={{ once: true }}
+                      className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-6 border border-slate-200"
+                    >
+                      <h2 className="text-xl font-semibold text-slate-900 mb-6 flex items-center">
+                        <DocumentTextIcon className="h-5 w-5 text-[#B08D57] mr-3" />
+                        Clinical Presentation
+                      </h2>
+                      
+                      {condition.clinicalPresentation.primarySymptoms && (
+                        <div className="mb-6">
+                          <h3 className="font-semibold text-slate-900 mb-3">Primary Symptoms</h3>
+                          <ul className="space-y-2">
+                            {condition.clinicalPresentation.primarySymptoms.map((symptom, index) => (
+                              <li key={index} className="flex items-start gap-3">
+                                <CheckCircleIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
+                                <span className="text-slate-600">{symptom}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                      
+                      {condition.clinicalPresentation.associatedSymptoms && (
+                        <div className="mb-6">
+                          <h3 className="font-semibold text-slate-900 mb-3">Associated Symptoms</h3>
+                          <ul className="space-y-2">
+                            {condition.clinicalPresentation.associatedSymptoms.map((symptom, index) => (
+                              <li key={index} className="flex items-start gap-3">
+                                <span className="text-[#B08D57] mt-0.5">•</span>
+                                <span className="text-slate-600">{symptom}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                      
+                      {condition.clinicalPresentation.typicalPattern && (
+                        <div className="p-4 bg-[#B08D57]/5 rounded-lg border border-[#B08D57]/20">
+                          <h3 className="font-semibold text-slate-900 mb-2">Typical Pattern</h3>
+                          <p className="text-slate-600">{condition.clinicalPresentation.typicalPattern}</p>
+                        </div>
+                      )}
+                    </motion.div>
+                  )}
+
+                  {/* Differential Diagnosis */}
+                  {condition.differentialDiagnosis && condition.differentialDiagnosis.length > 0 && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.2 }}
+                      viewport={{ once: true }}
+                      className="bg-white rounded-xl p-6 border border-slate-200"
+                    >
+                      <h2 className="text-xl font-semibold text-slate-900 mb-6 flex items-center">
+                        <SparklesIcon className="h-5 w-5 text-[#B08D57] mr-3" />
+                        Differential Diagnosis
+                      </h2>
+                      <p className="text-slate-600 mb-6">Other conditions with similar presentations:</p>
+                      <div className="space-y-4">
+                        {condition.differentialDiagnosis.map((diff, index) => (
+                          <div key={index} className="border-l-2 border-[#B08D57]/30 pl-4">
+                            <h3 className="font-semibold text-slate-900 mb-1">{diff.condition}</h3>
+                            <p className="text-sm text-slate-600">
+                              <span className="font-medium">Distinguishing features:</span> {diff.distinguishingFeatures}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {/* Evidence-Based Treatment */}
+                  {condition.evidenceBasedTreatment && condition.evidenceBasedTreatment.length > 0 && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.3 }}
+                      viewport={{ once: true }}
+                      className="bg-[#B08D57]/5 rounded-xl p-6 border border-[#B08D57]/20"
+                    >
+                      <h2 className="text-xl font-semibold text-slate-900 mb-6 flex items-center">
+                        <AcademicCapIcon className="h-5 w-5 text-[#B08D57] mr-3" />
+                        Evidence-Based Treatment Approaches
+                      </h2>
+                      <div className="space-y-6">
+                        {condition.evidenceBasedTreatment.map((treatment, index) => (
+                          <div key={index} className="bg-white rounded-lg p-4 border border-slate-200">
+                            <div className="flex items-start justify-between mb-2">
+                              <h3 className="font-semibold text-slate-900">{treatment.approach}</h3>
+                              {treatment.effectivenessLevel && (
+                                <span className={`text-xs px-2 py-1 rounded-full ${
+                                  treatment.effectivenessLevel === 'strong' 
+                                    ? 'bg-green-100 text-green-800' 
+                                    : treatment.effectivenessLevel === 'moderate'
+                                    ? 'bg-yellow-100 text-yellow-800'
+                                    : 'bg-blue-100 text-blue-800'
+                                }`}>
+                                  {treatment.effectivenessLevel} evidence
+                                </span>
+                              )}
+                            </div>
+                            <p className="text-slate-600 text-sm">{treatment.evidence}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {/* Prognosis */}
+                  {condition.prognosis && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.4 }}
+                      viewport={{ once: true }}
+                      className="bg-white rounded-xl p-6 border border-slate-200"
+                    >
+                      <h2 className="text-xl font-semibold text-slate-900 mb-6 flex items-center">
+                        <ClockIcon className="h-5 w-5 text-[#B08D57] mr-3" />
+                        Prognosis & Recovery Timeline
+                      </h2>
+                      
+                      <div className="mb-6">
+                        <h3 className="font-semibold text-slate-900 mb-2">Expected Timeline</h3>
+                        <p className="text-slate-600">{condition.prognosis.timeline}</p>
+                      </div>
+                      
+                      {condition.prognosis.naturalHistory && (
+                        <div className="mb-6">
+                          <h3 className="font-semibold text-slate-900 mb-2">Natural History</h3>
+                          <p className="text-slate-600">{condition.prognosis.naturalHistory}</p>
+                        </div>
+                      )}
+                      
+                      {condition.prognosis.factors && condition.prognosis.factors.length > 0 && (
+                        <div>
+                          <h3 className="font-semibold text-slate-900 mb-3">Factors Affecting Recovery</h3>
+                          <ul className="space-y-2">
+                            {condition.prognosis.factors.map((factor, index) => (
+                              <li key={index} className="flex items-start gap-3">
+                                <CheckCircleIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
+                                <span className="text-slate-600">{factor}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </motion.div>
+                  )}
+
+                  {/* Self-Management Strategies */}
+                  {condition.selfManagement && condition.selfManagement.length > 0 && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.5 }}
+                      viewport={{ once: true }}
+                      className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-6 border border-slate-200"
+                    >
+                      <h2 className="text-xl font-semibold text-slate-900 mb-6 flex items-center">
+                        <HeartIcon className="h-5 w-5 text-[#B08D57] mr-3" />
+                        Self-Management Strategies
+                      </h2>
+                      <div className="space-y-6">
+                        {condition.selfManagement.map((strategy, index) => (
+                          <div key={index} className="bg-white rounded-lg p-4 border border-slate-100">
+                            <h3 className="font-semibold text-slate-900 mb-2">{strategy.strategy}</h3>
+                            <p className="text-slate-600 text-sm mb-3">{strategy.rationale}</p>
+                            {strategy.precautions && strategy.precautions.length > 0 && (
+                              <div className="mt-3 p-3 bg-amber-50 rounded border border-amber-200">
+                                <p className="text-xs font-medium text-amber-900 mb-1">Precautions:</p>
+                                <ul className="text-xs text-amber-800 space-y-1">
+                                  {strategy.precautions.map((precaution, pIndex) => (
+                                    <li key={pIndex}>• {precaution}</li>
+                                  ))}
+                                </ul>
+                              </div>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {/* Key Research */}
+                  {condition.keyResearch && condition.keyResearch.length > 0 && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.6 }}
+                      viewport={{ once: true }}
+                      className="bg-white rounded-xl p-6 border border-slate-200"
+                    >
+                      <h2 className="text-xl font-semibold text-slate-900 mb-6 flex items-center">
+                        <DocumentTextIcon className="h-5 w-5 text-[#B08D57] mr-3" />
+                        Key Research & Evidence
+                      </h2>
+                      <div className="space-y-4">
+                        {condition.keyResearch.map((research, index) => (
+                          <div key={index} className="border-l-4 border-[#B08D57]/30 pl-4 hover:border-[#B08D57] transition-colors">
+                            <div className="flex items-start justify-between mb-1">
+                              <h3 className="font-semibold text-slate-900 text-sm">{research.title}</h3>
+                              <span className="text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded">{research.year}</span>
+                            </div>
+                            <p className="text-sm text-slate-600 mb-2">{research.findings}</p>
+                            <p className="text-xs text-[#B08D57] font-medium">
+                              Clinical relevance: {research.relevance}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="mt-6 p-3 bg-slate-50 rounded-lg border border-slate-200">
+                        <p className="text-xs text-slate-600 italic">
+                          This evidence summary is based on peer-reviewed research and clinical guidelines current as of 2024.
+                        </p>
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {/* Legacy Overview Section - keeping for backward compatibility */}
+                  {!condition.pathophysiology && condition.overview && (
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -400,8 +651,26 @@ export default function ConditionPageClient({
                       </div>
                     )}
 
-                    {/* Red Flags */}
-                  {condition.redFlags && condition.redFlags.length > 0 && (
+                    {/* Clinical Red Flags */}
+                  {condition.clinicalRedFlags && condition.clinicalRedFlags.length > 0 && (
+                    <div className="bg-red-50 border border-red-200 rounded-xl p-6 shadow-lg">
+                      <h3 className="text-base font-semibold text-red-900 mb-4 flex items-center">
+                        <ExclamationTriangleIcon className="h-5 w-5 mr-2" />
+                        Clinical Red Flags
+                      </h3>
+                      <div className="space-y-3">
+                        {condition.clinicalRedFlags.map((flag, index) => (
+                          <div key={index} className="border-l-2 border-red-400 pl-3">
+                            <p className="text-sm font-medium text-red-900 mb-1">{flag.sign}</p>
+                            <p className="text-xs text-red-700">Action: {flag.action}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Legacy Red Flags - keeping for backward compatibility */}
+                  {!condition.clinicalRedFlags && condition.redFlags && condition.redFlags.length > 0 && (
                     <div className="bg-red-50 border border-red-200 rounded-xl p-6 shadow-lg">
                       <h3 className="text-base font-semibold text-red-900 mb-4 flex items-center">
                         <ExclamationTriangleIcon className="h-5 w-5 mr-2" />

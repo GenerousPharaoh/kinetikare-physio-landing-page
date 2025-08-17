@@ -9,6 +9,45 @@ export interface Condition {
   priority?: number;
   metaDescription?: string;
   keywords?: string[];
+  
+  // Medical/Educational content structure
+  pathophysiology?: string;  // What's happening at tissue level
+  clinicalPresentation?: {
+    primarySymptoms: string[];
+    associatedSymptoms?: string[];
+    typicalPattern?: string;
+  };
+  differentialDiagnosis?: {
+    condition: string;
+    distinguishingFeatures: string;
+  }[];
+  evidenceBasedTreatment?: {
+    approach: string;
+    evidence: string;
+    effectivenessLevel?: 'strong' | 'moderate' | 'emerging';
+  }[];
+  prognosis?: {
+    timeline: string;
+    factors: string[];
+    naturalHistory?: string;
+  };
+  selfManagement?: {
+    strategy: string;
+    rationale: string;
+    precautions?: string[];
+  }[];
+  clinicalRedFlags?: {
+    sign: string;
+    action: string;
+  }[];
+  keyResearch?: {
+    title: string;
+    year: number;
+    findings: string;
+    relevance: string;
+  }[];
+  
+  // Legacy fields (keeping for backward compatibility)
   overview?: string;
   biomechanics?: string;
   researchInsights?: string[];

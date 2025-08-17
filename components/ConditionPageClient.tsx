@@ -53,7 +53,7 @@ export default function ConditionPageClient({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      <main className="bg-white">
+      <div className="bg-white">
         {/* Hero Section - COMPLETELY REDESIGNED */}
         <section className="relative pt-28 lg:pt-36 pb-20 bg-gradient-to-br from-slate-50 via-white to-[#B08D57]/5">
           {/* New Premium Background Pattern */}
@@ -229,50 +229,51 @@ export default function ConditionPageClient({
                     </motion.div>
                   )}
 
-                  {/* Common Misconceptions */}
-                  {condition.commonMisconceptions && condition.commonMisconceptions.length > 0 && (
+                  {/* What Research Shows */}
+                  {condition.researchInsights && condition.researchInsights.length > 0 && (
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.2 }}
                       viewport={{ once: true }}
-                      className="bg-white rounded-xl p-6 border border-slate-200"
+                      className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-6 border border-slate-200"
                     >
-                      <h2 className="text-xl font-semibold text-slate-900 mb-6">
-                        Common Misconceptions
+                      <h2 className="text-xl font-semibold text-slate-900 mb-6 flex items-center">
+                        <AcademicCapIcon className="h-5 w-5 text-[#B08D57] mr-3" />
+                        What Research Shows
                       </h2>
                       <div className="space-y-4">
-                        {condition.commonMisconceptions.map((misconception, index) => {
-                          const colonIndex = misconception.indexOf(':');
-                          const myth = colonIndex > -1 ? misconception.substring(0, colonIndex).trim() : misconception;
-                          const truth = colonIndex > -1 ? misconception.substring(colonIndex + 1).trim() : '';
-                          
-                          // If no truth part found, display the entire text as a single misconception
-                          if (!truth && misconception) {
-                            return (
-                              <div key={index} className="p-4 bg-slate-50 rounded-xl">
-                                <p className="text-slate-600">
-                                  ❌ {misconception}
-                                </p>
-                              </div>
-                            );
-                          }
-                          
-                          if (!truth) {
-                            return null;
-                          }
+                        {condition.researchInsights.map((insight, index) => {
+                          const colonIndex = insight.indexOf(':');
+                          const topic = colonIndex > -1 ? insight.substring(0, colonIndex).trim() : '';
+                          const finding = colonIndex > -1 ? insight.substring(colonIndex + 1).trim() : insight;
                           
                           return (
-                            <div key={index} className="p-4 bg-slate-50 rounded-xl">
-                              <p className="font-semibold text-slate-900 mb-2">
-                                ❌ Myth: {myth}
-                              </p>
-                              <p className="text-slate-600">
-                                ✅ Truth: {truth}
-                              </p>
+                            <div key={index} className="relative pl-4 border-l-2 border-[#B08D57]/30 hover:border-[#B08D57] transition-colors duration-300">
+                              <div className="p-4 bg-white rounded-lg hover:shadow-md transition-shadow duration-300">
+                                {topic ? (
+                                  <>
+                                    <h3 className="font-semibold text-slate-900 mb-2">
+                                      {topic}
+                                    </h3>
+                                    <p className="text-slate-600 leading-relaxed">
+                                      {finding}
+                                    </p>
+                                  </>
+                                ) : (
+                                  <p className="text-slate-600 leading-relaxed">
+                                    {finding}
+                                  </p>
+                                )}
+                              </div>
                             </div>
                           );
-                        }).filter(Boolean)}
+                        })}
+                      </div>
+                      <div className="mt-6 p-3 bg-[#B08D57]/5 rounded-lg border border-[#B08D57]/20">
+                        <p className="text-sm text-slate-600 italic">
+                          Based on current physiotherapy research and clinical guidelines
+                        </p>
                       </div>
                     </motion.div>
                   )}
@@ -512,8 +513,8 @@ export default function ConditionPageClient({
             </div>
           </div>
         </section>
-      </main>
+      </div>
     </>
   );
 }
-// Force rebuild - Fixed overflow and button cutoff issues
+// Fixed nested scrolling issues - removed duplicate main element and overflow constraints

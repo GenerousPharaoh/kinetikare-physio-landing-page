@@ -76,7 +76,7 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
         
         {/* Main content with transition wrapper */}
         <div className="main-content-wrapper">
-          <main id="main-content" className="min-h-screen flex flex-col overflow-x-hidden pt-16 xs:pt-20">
+          <main id="main-content" className="min-h-screen flex flex-col pt-16 xs:pt-20">
             {children}
           </main>
           

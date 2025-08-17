@@ -11,7 +11,7 @@ export interface Condition {
   keywords?: string[];
   overview?: string;
   biomechanics?: string;
-  commonMisconceptions?: string[];
+  researchInsights?: string[];
   treatmentApproach?: {
     title: string;
     description: string;

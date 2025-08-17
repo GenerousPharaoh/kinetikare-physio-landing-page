@@ -332,7 +332,7 @@ const kneeConditions: Condition[] = [
     slug: 'knee-pain-patellofemoral',
     name: 'Knee Pain (Patellofemoral)',
     category: 'knee',
-    description: 'Patellofemoral Pain Syndrome, runner's knee, kneecap tracking issues',
+    description: "Patellofemoral Pain Syndrome, runner's knee, kneecap tracking issues",
     featured: true,
     priority: 4,
     metaDescription: 'Expert knee pain treatment in Burlington. Specialized physiotherapy for patellofemoral pain syndrome using biomechanical assessment and targeted rehabilitation.',

@@ -56,7 +56,7 @@ export default function AboutSection() {
               
               <motion.div variants={itemVariants} className="text-lg text-gray-600 leading-relaxed mb-8 space-y-4">
                 <p>
-                  Behind every treatment plan is a physiotherapist who has stood in your shoes. My journey into physiotherapy was forged through personal experience—from competitive soccer to navigating my own significant injuries.
+                  Behind every treatment plan is a physiotherapist who has stood in your shoes. My journey into physiotherapy was shaped by personal experience, from competitive soccer to navigating my own significant injuries.
                 </p>
                 <p>
                   I don't subscribe to high-volume, prescriptive protocols; instead, I focus on individualized care with plans tailored to your unique needs, grounded in advanced manual therapy and evidence-based practice.

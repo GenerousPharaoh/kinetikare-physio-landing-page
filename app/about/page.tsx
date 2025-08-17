@@ -516,7 +516,7 @@ export default function About() {
                       <div className="absolute top-0 right-0 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br from-[#B08D57]/8 to-transparent rounded-full -translate-y-12 sm:-translate-y-16 translate-x-12 sm:translate-x-16"></div>
                       <div className="relative z-10">
                         <p className="text-base sm:text-lg lg:text-xl text-slate-700 leading-relaxed mb-4 sm:mb-6">
-                          My journey into physiotherapy wasn't merely academic—it was forged through personal experience. From competitive soccer and pursuing a Kinesiology degree at{" "}
+                          My journey into physiotherapy wasn't merely academic. It emerged from lived experience. From competitive soccer and pursuing a Kinesiology degree at{" "}
                           <span className="font-semibold text-[#B08D57]">McMaster University</span> to navigating my own significant injuries including debilitating disc herniations, I've experienced both sides of rehabilitation. This deep understanding, enriched by years of serving diverse communities including <span class="font-semibold text-slate-800">Burlington, Waterdown, and surrounding areas</span>, shapes my empathetic and effective approach to care.
                         </p>
                       </div>
@@ -667,7 +667,7 @@ export default function About() {
                         <div className="flex-1 text-center sm:text-left">
                           <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-800 mb-3 sm:mb-4">Your Healthcare Advocate</h4>
                           <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
-                            I approach care with the same rigour I would expect for myself or my loved ones. Whether it's explaining options, coordinating next steps, or thinking beyond the treatment table, I work to ensure you feel supported, informed, and genuinely cared for—at every stage of the process.
+                            I approach care with the same rigour I would expect for myself or my loved ones. Whether it's explaining options, coordinating next steps, or thinking beyond the treatment table, I work to ensure you feel supported, informed, and genuinely cared for at every stage of the process.
                           </p>
                         </div>
                       </div>

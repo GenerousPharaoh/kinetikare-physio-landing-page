@@ -240,20 +240,20 @@ export default function ConditionPageClient({
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="flex items-center justify-between">
-                <nav className="flex space-x-1 overflow-x-auto py-4">
+                <nav className="flex gap-2 overflow-x-auto py-4 scrollbar-hide">
                   {tabs.map((tab) => {
                     const Icon = tab.icon;
                     return (
                       <button
                         key={tab.id}
                         onClick={() => setActiveTab(tab.id)}
-                        className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm whitespace-nowrap transition-all ${
+                        className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm whitespace-nowrap transition-all ${
                           activeTab === tab.id
                             ? 'bg-[#B08D57] text-white shadow-md'
                             : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                         }`}
                       >
-                        <Icon className="h-4 w-4" />
+                        <Icon className="h-4 w-4 flex-shrink-0" />
                         <span>{tab.label}</span>
                       </button>
                     );
@@ -878,7 +878,7 @@ export default function ConditionPageClient({
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 100 }}
-              className="lg:hidden fixed bottom-6 right-6 z-40"
+              className="lg:hidden fixed bottom-32 right-6 z-40"
             >
               <Link
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42"

@@ -306,50 +306,137 @@ export default function ServicesPage() {
         }}
       />
 
-      {/* Hero Section */}
-      <section className="bg-primary-50 text-primary-800 py-10 pt-20 relative border-b border-neutral-200">
-        <div className="container mx-auto px-4 relative z-10 flex flex-col items-center">
-          <div className="text-center max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-heading font-bold mb-5">
-              Physiotherapy <span className="text-[#B08D57]">Services</span>
+      {/* Hero Section - Luxury Enhanced */}
+      <section className="relative bg-gradient-to-br from-primary-50 via-white to-slate-50 text-primary-800 py-16 pt-24 md:py-20 md:pt-32 overflow-hidden">
+        {/* Premium Background Elements */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#B08D57]/5 via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-[#D4AF37]/5 via-transparent to-transparent"></div>
+        
+        {/* Floating Orbs */}
+        <div className="absolute top-20 right-10 w-64 h-64 bg-gradient-to-br from-[#B08D57]/10 to-[#D4AF37]/5 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 left-10 w-96 h-96 bg-gradient-to-tr from-[#D4AF37]/10 to-[#B08D57]/5 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+        
+        {/* Content */}
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center max-w-4xl mx-auto">
+            {/* Premium Badge */}
+            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 backdrop-blur-sm rounded-full border border-[#B08D57]/20 mb-8">
+              <div className="w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full mr-3 animate-pulse"></div>
+              <span className="text-sm font-medium text-[#B08D57] tracking-wider uppercase">Expert Physiotherapy Care</span>
+            </div>
+            
+            {/* Main Title with Split Animation */}
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 leading-tight">
+              <span className="bg-gradient-to-r from-primary-800 to-primary-600 bg-clip-text text-transparent">Physiotherapy</span>
+              <span className="block mt-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent" style={{
+                backgroundSize: '200% 100%'
+              }}>Services</span>
             </h1>
-            <p className="text-lg text-primary-600 max-w-2xl mx-auto">
-              Professional care tailored to your unique needs, combining advanced techniques with personalized attention.
+            
+            {/* Premium Divider */}
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <div className="h-px w-16 bg-gradient-to-r from-transparent to-[#B08D57]/40"></div>
+              <div className="w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
+              <div className="h-px w-16 bg-gradient-to-l from-transparent to-[#D4AF37]/40"></div>
+            </div>
+            
+            {/* Refined Description */}
+            <p className="text-xl md:text-2xl text-primary-600 max-w-3xl mx-auto leading-relaxed font-light" style={{lineHeight: '1.8'}}>
+              Professional care tailored to your unique needs, combining 
+              <span className="font-medium text-primary-700"> advanced techniques </span>
+              with 
+              <span className="font-medium text-primary-700"> personalized attention</span>
             </p>
+            
+            {/* Premium CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
+              <a
+                href="#services-grid"
+                className="group relative inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white font-semibold rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+              >
+                <span className="absolute inset-0 bg-gradient-to-r from-[#D4AF37] to-[#B08D57] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                <span className="relative flex items-center">
+                  Explore Services
+                  <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </span>
+              </a>
+              <a
+                href="/#contact"
+                className="group relative inline-flex items-center justify-center px-8 py-4 bg-white/80 backdrop-blur-sm text-primary-800 font-semibold rounded-xl shadow-md hover:shadow-xl border border-primary-200 hover:border-[#B08D57]/30 transform hover:-translate-y-1 transition-all duration-300"
+              >
+                <span className="absolute inset-0 bg-gradient-to-r from-[#B08D57]/5 to-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></span>
+                <span className="relative">Book Assessment</span>
+              </a>
+            </div>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 w-full h-1 bg-[#B08D57] opacity-20"></div>
+        
+        {/* Bottom Wave Decoration */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+          <svg className="relative block w-full h-12" preserveAspectRatio="none" viewBox="0 0 1200 120">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="fill-white/50"></path>
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="fill-white"></path>
+          </svg>
+        </div>
+        
       </section>
 
-      {/* Services Grid */}
-      <section className="py-20 bg-gradient-to-br from-white to-slate-50">
+      {/* Services Grid - Luxury Enhanced */}
+      <section id="services-grid" className="py-24 bg-gradient-to-br from-white via-slate-50/30 to-white relative overflow-hidden">
+        {/* Subtle Pattern Overlay */}
+        <div className="absolute inset-0 opacity-[0.02]" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23B08D57' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+        }}></div>
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {services.map((service, index) => (
               <div key={service.id} className="group relative h-full">
-                {/* Premium Card Container - Fixed height structure */}
-                <div className="bg-white rounded-2xl shadow-lg border border-slate-200/60 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden h-full min-h-[500px]">
-                  {/* Decorative Background Elements */}
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#B08D57]/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
-                  <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-[#D4AF37]/5 to-transparent rounded-full translate-y-12 -translate-x-12"></div>
+                {/* Premium Card Container - Luxury Enhanced */}
+                <div className="group-hover:bg-gradient-to-br group-hover:from-white group-hover:to-slate-50/50 bg-white rounded-3xl shadow-lg border border-slate-200/60 hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-3 hover:scale-[1.02] relative overflow-hidden h-full min-h-[520px] backdrop-blur-sm" style={{
+                  boxShadow: '0 10px 40px -10px rgba(176, 141, 87, 0.15)',
+                  transition: 'all 0.7s cubic-bezier(0.4, 0, 0.2, 1)'
+                }}>
+                  {/* Premium Decorative Elements */}
+                  <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#B08D57]/10 via-[#D4AF37]/5 to-transparent rounded-full -translate-y-20 translate-x-20 opacity-60 group-hover:opacity-100 transition-opacity duration-700 blur-xl"></div>
+                  <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-[#D4AF37]/8 via-[#B08D57]/4 to-transparent rounded-full translate-y-16 -translate-x-16 opacity-60 group-hover:opacity-100 transition-opacity duration-700 blur-xl"></div>
+                  
+                  {/* Animated Gradient Border */}
+                  <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{
+                    background: 'linear-gradient(90deg, transparent, rgba(176, 141, 87, 0.1), transparent)'
+                  }}></div>
                   
                   {/* Grid Layout for consistent spacing */}
                   <div className="relative z-10 h-full grid grid-rows-[auto_1fr_auto]">
                     {/* Top Section */}
                     <div className="p-8 pb-4">
-                      {/* Service Icon */}
-                      <div className="w-16 h-16 bg-gradient-to-br from-[#1A2036] to-slate-700 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                        {/* Better Icons based on service */}
-                        {service.id === 'manual-therapy' && <Hand className="w-8 h-8 text-[#D4AF37]" strokeWidth={2.2} />}
-                        {service.id === 'sports-rehab' && <Dumbbell className="w-8 h-8 text-[#D4AF37]" strokeWidth={2.2} />}
-                        {service.id === 'dry-needling' && <Target className="w-8 h-8 text-[#D4AF37]" strokeWidth={2.2} />}
-                        {service.id === 'exercise-therapy' && <Activity className="w-8 h-8 text-[#D4AF37]" strokeWidth={2.2} />}
-                        {service.id === 'postural-assessment' && <Ruler className="w-8 h-8 text-[#D4AF37]" strokeWidth={2.2} />}
-                        {service.id === 'pain-management' && <Zap className="w-8 h-8 text-[#D4AF37]" strokeWidth={2.2} />}
+                      {/* Premium Service Icon */}
+                      <div className="relative w-20 h-20 mb-6">
+                        {/* Icon Glow Effect */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl opacity-20 blur-xl group-hover:opacity-40 transition-opacity duration-500 animate-pulse"></div>
+                        
+                        {/* Icon Container */}
+                        <div className="relative w-full h-full bg-gradient-to-br from-[#1A2036] via-slate-800 to-slate-700 rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-500" style={{
+                          boxShadow: '0 10px 30px -5px rgba(26, 32, 54, 0.25)'
+                        }}>
+                          {/* Premium Icons with Glow */}
+                          <div className="relative">
+                            {service.id === 'manual-therapy' && <Hand className="w-9 h-9 text-[#D4AF37] drop-shadow-lg group-hover:drop-shadow-2xl transition-all duration-500" strokeWidth={2} />}
+                            {service.id === 'sports-rehab' && <Dumbbell className="w-9 h-9 text-[#D4AF37] drop-shadow-lg group-hover:drop-shadow-2xl transition-all duration-500" strokeWidth={2} />}
+                            {service.id === 'dry-needling' && <Target className="w-9 h-9 text-[#D4AF37] drop-shadow-lg group-hover:drop-shadow-2xl transition-all duration-500" strokeWidth={2} />}
+                            {service.id === 'exercise-therapy' && <Activity className="w-9 h-9 text-[#D4AF37] drop-shadow-lg group-hover:drop-shadow-2xl transition-all duration-500" strokeWidth={2} />}
+                            {service.id === 'postural-assessment' && <Ruler className="w-9 h-9 text-[#D4AF37] drop-shadow-lg group-hover:drop-shadow-2xl transition-all duration-500" strokeWidth={2} />}
+                            {service.id === 'pain-management' && <Zap className="w-9 h-9 text-[#D4AF37] drop-shadow-lg group-hover:drop-shadow-2xl transition-all duration-500" strokeWidth={2} />}
+                          </div>
+                        </div>
                       </div>
 
-                      {/* Title - Fixed height to handle wrapping */}
-                      <h2 className="text-2xl font-bold mb-4 text-primary-800 group-hover:text-[#B08D57] transition-colors duration-300 min-h-[4rem] flex items-center">
+                      {/* Premium Title with Letter Spacing */}
+                      <h2 className="text-2xl font-bold mb-4 text-primary-800 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#B08D57] group-hover:to-[#D4AF37] group-hover:bg-clip-text transition-all duration-500 min-h-[4rem] flex items-center tracking-tight" style={{
+                        letterSpacing: '-0.02em',
+                        lineHeight: '1.2'
+                      }}>
                         {service.title}
                       </h2>
                     </div>
@@ -363,27 +450,40 @@ export default function ServicesPage() {
 
                     {/* Bottom Section - Key Benefits (fixed position) */}
                     <div className="px-8 pb-8 pt-6">
-                      <div className="flex items-center mb-4">
-                        <div className="w-6 h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mr-3"></div>
-                        <h3 className="text-sm font-bold uppercase tracking-wider text-[#B08D57]">
+                      <div className="flex items-center mb-5">
+                        <div className="w-8 h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mr-3 group-hover:w-12 transition-all duration-500"></div>
+                        <h3 className="text-xs font-bold uppercase tracking-[0.15em] bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent">
                           Key Benefits
                         </h3>
                       </div>
                       <ul className="space-y-3">
                         {service.features.map((feature, featureIndex) => (
-                          <li key={featureIndex} className="flex items-start group/item">
-                            <svg className="w-5 h-5 text-[#B08D57] mt-0.5 mr-3 flex-shrink-0 group-hover/item:text-[#D4AF37] transition-colors duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                            </svg>
-                            <span className="text-primary-700 text-sm leading-relaxed font-medium">{feature}</span>
+                          <li key={featureIndex} className="flex items-start group/item hover:translate-x-1 transition-transform duration-300" style={{
+                            animationDelay: `${featureIndex * 0.1}s`
+                          }}>
+                            <div className="relative mt-0.5 mr-3 flex-shrink-0">
+                              <div className="absolute inset-0 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full opacity-20 blur-sm group-hover/item:opacity-40 transition-opacity duration-300"></div>
+                              <svg className="relative w-5 h-5 text-[#B08D57] group-hover/item:text-[#D4AF37] transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                              </svg>
+                            </div>
+                            <span className="text-primary-700 text-sm leading-relaxed font-medium group-hover/item:text-primary-800 transition-colors duration-300">{feature}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                   </div>
 
-                  {/* Hover Effect Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/5 to-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none"></div>
+                  {/* Premium Hover Overlay with Shimmer */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/5 via-transparent to-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl pointer-events-none"></div>
+                  
+                  {/* Subtle Shimmer Effect */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none rounded-3xl overflow-hidden">
+                    <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-[2000ms] ease-in-out" style={{
+                      background: 'linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.08), transparent)',
+                      transform: 'skewX(-25deg)'
+                    }}></div>
+                  </div>
                 </div>
               </div>
             ))}
@@ -391,22 +491,46 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Process Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 to-white relative overflow-hidden">
-        {/* Background decorative elements */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-[#B08D57]/5 to-transparent rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-tl from-[#D4AF37]/5 to-transparent rounded-full blur-2xl"></div>
+      {/* Process Section - Luxury Enhanced */}
+      <section className="py-28 bg-gradient-to-br from-slate-50 via-white to-slate-50 relative overflow-hidden">
+        {/* Premium Background Effects */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(176, 141, 87, 0.05) 0%, transparent 50%)',
+        }}></div>
+        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-gradient-to-br from-[#B08D57]/8 via-[#D4AF37]/4 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDuration: '4s'}}></div>
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-gradient-to-tl from-[#D4AF37]/8 via-[#B08D57]/4 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDuration: '4s', animationDelay: '2s'}}></div>
+        
+        {/* Floating Particles */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-[#B08D57]/20 rounded-full"></div>
+          <div className="absolute top-3/4 right-1/3 w-3 h-3 bg-[#D4AF37]/20 rounded-full"></div>
+          <div className="absolute bottom-1/4 left-1/2 w-2 h-2 bg-[#B08D57]/20 rounded-full"></div>
+        </div>
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <div className="inline-block px-6 py-2 bg-[#B08D57]/10 text-[#B08D57] text-sm font-medium rounded-full mb-6">
-              Your Journey
+          <div className="max-w-4xl mx-auto text-center mb-20">
+            {/* Premium Badge with Animation */}
+            <div className="inline-flex items-center px-6 py-2.5 bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 backdrop-blur-sm text-[#B08D57] text-sm font-semibold rounded-full mb-8 border border-[#B08D57]/20 shadow-sm hover:shadow-md transition-all duration-300 cursor-default">
+              <div className="w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full mr-3 animate-pulse"></div>
+              <span className="uppercase tracking-wider">Your Journey</span>
             </div>
-            <h2 className="text-4xl font-bold mb-6 text-primary-800">
-              The Treatment Process
+            
+            {/* Premium Title */}
+            <h2 className="text-5xl md:text-6xl font-bold mb-8 text-primary-800 tracking-tight" style={{letterSpacing: '-0.02em'}}>
+              The Treatment <span className="bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent">Process</span>
             </h2>
-            <div className="w-24 h-1 bg-[#B08D57] mx-auto mb-8"></div>
-            <p className="text-xl text-primary-600 leading-relaxed">
+            
+            {/* Elegant Divider */}
+            <div className="flex items-center justify-center gap-4 mb-10">
+              <div className="h-px w-20 bg-gradient-to-r from-transparent via-[#B08D57]/40 to-transparent"></div>
+              <div className="relative">
+                <div className="w-3 h-3 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
+                <div className="absolute inset-0 w-3 h-3 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full animate-ping"></div>
+              </div>
+              <div className="h-px w-20 bg-gradient-to-r from-transparent via-[#D4AF37]/40 to-transparent"></div>
+            </div>
+            
+            <p className="text-xl md:text-2xl text-primary-600 leading-relaxed font-light max-w-3xl mx-auto" style={{lineHeight: '1.8'}}>
               What to expect during your physiotherapy journey with me
             </p>
           </div>
@@ -415,8 +539,11 @@ export default function ServicesPage() {
           <div className="max-w-7xl mx-auto">
             {/* Flow Container */}
             <div className="relative">
-              {/* Flowing Connection Line */}
-              <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#B08D57]/30 to-transparent transform -translate-y-1/2 z-0"></div>
+              {/* Premium Connection Line with Animation */}
+              <div className="hidden lg:block absolute top-1/2 left-0 right-0 transform -translate-y-1/2 z-0">
+                <div className="h-0.5 bg-gradient-to-r from-transparent via-[#B08D57]/20 to-transparent"></div>
+                <div className="h-0.5 bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent absolute inset-0"></div>
+              </div>
               
               {/* Process Steps */}
               <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-4">
@@ -463,22 +590,34 @@ export default function ServicesPage() {
                   }
                 ].map((step, index) => (
                   <div key={index} className="group relative">
-                    {/* Floating Card */}
-                    <div className="relative bg-white/80 backdrop-blur-xl rounded-3xl p-8 shadow-xl border border-white/60 hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-3 hover:scale-105 overflow-hidden h-80 flex flex-col">
-                      {/* Gradient Background Overlay */}
-                      <div className={`absolute inset-0 bg-gradient-to-br ${step.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`}></div>
+                    {/* Premium Floating Card */}
+                    <div className="relative bg-white/90 backdrop-blur-xl rounded-3xl p-8 shadow-xl border border-white/80 hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-4 hover:scale-[1.03] overflow-hidden h-[340px] flex flex-col group cursor-default" style={{
+                      boxShadow: '0 20px 40px -15px rgba(176, 141, 87, 0.15)',
+                      backdropFilter: 'blur(10px)',
+                      transition: 'all 0.7s cubic-bezier(0.4, 0, 0.2, 1)',
+                      animationDelay: `${index * 0.1}s`
+                    }}>
+                      {/* Premium Background Effects */}
+                      <div className={`absolute inset-0 bg-gradient-to-br ${step.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-700 rounded-3xl`}></div>
                       
-                      {/* Floating Orbs */}
-                      <div className="absolute top-4 right-4 w-20 h-20 bg-gradient-to-br from-[#B08D57]/10 to-[#D4AF37]/10 rounded-full blur-xl opacity-60"></div>
-                      <div className="absolute bottom-4 left-4 w-16 h-16 bg-gradient-to-tr from-[#D4AF37]/8 to-[#B08D57]/8 rounded-full blur-lg opacity-40"></div>
+                      {/* Animated Floating Orbs */}
+                      <div className="absolute top-4 right-4 w-24 h-24 bg-gradient-to-br from-[#B08D57]/15 to-[#D4AF37]/10 rounded-full blur-2xl opacity-60 group-hover:opacity-100 transition-all duration-700 group-hover:scale-110"></div>
+                      <div className="absolute bottom-4 left-4 w-20 h-20 bg-gradient-to-tr from-[#D4AF37]/12 to-[#B08D57]/8 rounded-full blur-xl opacity-40 group-hover:opacity-80 transition-all duration-700 group-hover:scale-110"></div>
+                      
+                      {/* Number Badge */}
+                      <div className="absolute top-6 left-6 w-8 h-8 bg-gradient-to-br from-[#B08D57]/10 to-[#D4AF37]/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-[#B08D57]/20">
+                        <span className="text-xs font-bold text-[#B08D57]">{index + 1}</span>
+                      </div>
                       
                       {/* Content */}
                       <div className="relative z-10 text-center flex flex-col h-full">
                         {/* Icon Container */}
                         <div className="relative mx-auto mb-6 w-20 h-20 flex items-center justify-center">
-                          {/* Icon Background */}
-                          <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-500"></div>
-                          <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl animate-pulse opacity-20"></div>
+                          {/* Premium Icon Background with Glow */}
+                          <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl shadow-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-700" style={{
+                            boxShadow: '0 10px 30px -5px rgba(176, 141, 87, 0.3)'
+                          }}></div>
+                          <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl animate-pulse opacity-30 blur-lg"></div>
                           
                           {/* Icon */}
                           <div className="relative z-10 text-white group-hover:scale-110 transition-transform duration-300">
@@ -486,8 +625,8 @@ export default function ServicesPage() {
                           </div>
             </div>
             
-                        {/* Title */}
-                        <h3 className="text-xl font-bold mb-4 text-primary-800 group-hover:text-[#B08D57] transition-colors duration-300 leading-tight">
+                        {/* Premium Title */}
+                        <h3 className="text-xl font-bold mb-4 text-primary-800 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#B08D57] group-hover:to-[#D4AF37] group-hover:bg-clip-text transition-all duration-500 leading-tight tracking-tight">
                           {step.title}
                         </h3>
                         
@@ -496,12 +635,22 @@ export default function ServicesPage() {
                           {step.description}
                         </p>
                         
-                        {/* Accent Line */}
-                        <div className="mt-6 mx-auto w-12 h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full group-hover:w-16 transition-all duration-300"></div>
+                        {/* Premium Accent Line */}
+                        <div className="mt-6 mx-auto w-12 h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full group-hover:w-20 transition-all duration-500 relative">
+                          <div className="absolute inset-0 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full blur-sm opacity-50"></div>
+                        </div>
             </div>
             
-                      {/* Hover Glow Effect */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/5 to-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl pointer-events-none"></div>
+                      {/* Premium Hover Effects */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/5 to-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl pointer-events-none"></div>
+                      
+                      {/* Shimmer Effect */}
+                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none rounded-3xl overflow-hidden">
+                        <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-[3000ms] ease-in-out" style={{
+                          background: 'linear-gradient(105deg, transparent 40%, rgba(212, 175, 55, 0.1) 50%, transparent 60%)',
+                          transform: 'skewX(-25deg)'
+                        }}></div>
+                      </div>
             </div>
             
                   </div>
@@ -512,42 +661,63 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Insurance Coverage Section - Premium Redesign */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 to-white relative overflow-hidden">
-        {/* Background decorative elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#B08D57]/5 to-transparent rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-[#D4AF37]/5 to-transparent rounded-full blur-2xl"></div>
+      {/* Insurance Coverage Section - Luxury Enhanced */}
+      <section className="py-28 bg-gradient-to-br from-white via-slate-50/50 to-white relative overflow-hidden">
+        {/* Premium Background Elements */}
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'radial-gradient(ellipse at top left, rgba(176, 141, 87, 0.03) 0%, transparent 40%)',
+        }}></div>
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-[#B08D57]/8 via-transparent to-transparent rounded-full blur-3xl animate-pulse" style={{animationDuration: '5s'}}></div>
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-[#D4AF37]/8 via-transparent to-transparent rounded-full blur-3xl animate-pulse" style={{animationDuration: '5s', animationDelay: '2.5s'}}></div>
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto">
-            {/* Header */}
-            <div className="text-center mb-16">
-              <div className="inline-block px-6 py-2 bg-[#B08D57]/10 text-[#B08D57] text-sm font-medium rounded-full mb-6">
-                Insurance & Billing
+            {/* Premium Header */}
+            <div className="text-center mb-20">
+              <div className="inline-flex items-center px-6 py-2.5 bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 backdrop-blur-sm text-[#B08D57] text-sm font-semibold rounded-full mb-8 border border-[#B08D57]/20 shadow-sm hover:shadow-md transition-all duration-300 cursor-default">
+                <div className="w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full mr-3 animate-pulse"></div>
+                <span className="uppercase tracking-wider">Insurance & Billing</span>
               </div>
-              <h2 className="text-4xl font-bold mb-6 text-primary-800">
-              Insurance Coverage
-            </h2>
-              <div className="w-24 h-1 bg-[#B08D57] mx-auto mb-8"></div>
-              <p className="text-xl text-primary-600 max-w-2xl mx-auto leading-relaxed">
+              <h2 className="text-5xl md:text-6xl font-bold mb-8 text-primary-800 tracking-tight" style={{letterSpacing: '-0.02em'}}>
+                Insurance <span className="bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent">Coverage</span>
+              </h2>
+              <div className="flex items-center justify-center gap-4 mb-10">
+                <div className="h-px w-20 bg-gradient-to-r from-transparent via-[#B08D57]/40 to-transparent"></div>
+                <div className="relative">
+                  <div className="w-3 h-3 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
+                  <div className="absolute inset-0 w-3 h-3 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full animate-ping"></div>
+                </div>
+                <div className="h-px w-20 bg-gradient-to-r from-transparent via-[#D4AF37]/40 to-transparent"></div>
+              </div>
+              <p className="text-xl md:text-2xl text-primary-600 max-w-2xl mx-auto leading-relaxed font-light" style={{lineHeight: '1.8'}}>
                 Physiotherapy services are covered by most extended health insurance plans
               </p>
             </div>
 
             {/* Main Content */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Left Side - Insurance Providers */}
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-neutral-200 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#B08D57]/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
+              {/* Left Side - Premium Insurance Card */}
+              <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-10 shadow-xl border border-neutral-200/60 relative overflow-hidden group hover:shadow-2xl transition-all duration-700" style={{
+                boxShadow: '0 20px 40px -15px rgba(176, 141, 87, 0.15)',
+                transition: 'all 0.7s cubic-bezier(0.4, 0, 0.2, 1)'
+              }}>
+                {/* Premium Decorative Elements */}
+                <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#B08D57]/15 to-transparent rounded-full -translate-y-20 translate-x-20 opacity-60 group-hover:opacity-100 transition-opacity duration-700 blur-2xl"></div>
+                <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-gradient-to-tr from-[#D4AF37]/10 to-transparent rounded-full opacity-40 group-hover:opacity-70 transition-opacity duration-700 blur-xl"></div>
                 
                 <div className="relative z-10">
-                  <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-xl flex items-center justify-center mr-4 shadow-lg">
-                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
+                  <div className="flex items-center mb-8">
+                    <div className="relative">
+                      <div className="w-14 h-14 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl flex items-center justify-center mr-4 shadow-xl group-hover:scale-110 transition-transform duration-500" style={{
+                        boxShadow: '0 10px 30px -5px rgba(176, 141, 87, 0.3)'
+                      }}>
+                        <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </div>
+                      <div className="absolute inset-0 w-14 h-14 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
                     </div>
-                    <h3 className="text-2xl font-bold text-primary-800">
+                    <h3 className="text-2xl font-bold text-primary-800 tracking-tight">
                       Direct Billing Available
                     </h3>
           </div>
@@ -565,32 +735,53 @@ export default function ServicesPage() {
                       'Blue Cross',
                       'WSIB'
                     ].map((provider, index) => (
-                      <div key={index} className="flex items-center p-4 bg-gradient-to-r from-slate-50 to-white rounded-xl border border-slate-200/60 hover:shadow-md hover:border-[#B08D57]/20 transition-all duration-300 group">
-                        <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mr-4 flex-shrink-0 group-hover:scale-110 transition-transform duration-300"></div>
-                        <span className="text-primary-700 font-medium text-lg">{provider}</span>
+                      <div key={index} className="group/item flex items-center p-4 bg-gradient-to-r from-slate-50/50 to-white rounded-xl border border-slate-200/60 hover:shadow-lg hover:border-[#B08D57]/30 hover:translate-x-1 transition-all duration-500 cursor-default" style={{
+                        animationDelay: `${index * 0.05}s`,
+                        backdropFilter: 'blur(5px)'
+                      }}>
+                        <div className="relative mr-4 flex-shrink-0">
+                          <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] group-hover/item:scale-125 transition-transform duration-300"></div>
+                          <div className="absolute inset-0 w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] opacity-30 blur-sm group-hover/item:opacity-60 transition-opacity duration-300"></div>
+                        </div>
+                        <span className="text-primary-700 font-medium text-lg group-hover/item:text-primary-800 transition-colors duration-300">{provider}</span>
                       </div>
                     ))}
                   </div>
                   
-                  <div className="bg-gradient-to-r from-[#B08D57]/5 to-[#D4AF37]/5 rounded-xl p-4 border border-[#B08D57]/20">
-                    <div className="flex items-start">
-                      <div className="w-2 h-2 rounded-full bg-[#B08D57] mt-2 mr-3 flex-shrink-0"></div>
-                      <span className="text-primary-700 font-medium">and more</span>
+                  <div className="bg-gradient-to-r from-[#B08D57]/8 to-[#D4AF37]/8 rounded-xl p-5 border border-[#B08D57]/20 backdrop-blur-sm hover:shadow-md transition-all duration-300">
+                    <div className="flex items-center">
+                      <div className="relative mr-3">
+                        <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37]"></div>
+                        <div className="absolute inset-0 w-2.5 h-2.5 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] animate-ping"></div>
+                      </div>
+                      <span className="text-primary-700 font-semibold bg-gradient-to-r from-primary-700 to-[#B08D57] bg-clip-text text-transparent">and many more providers</span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Right Side - Coverage Help */}
-              <div className="bg-gradient-to-br from-primary-800 to-slate-800 rounded-2xl p-8 text-white shadow-xl relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#D4AF37]/20 to-transparent rounded-full -translate-y-20 translate-x-20"></div>
-                <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-[#B08D57]/15 to-transparent rounded-full translate-y-16 -translate-x-16"></div>
+              {/* Right Side - Premium Coverage Card */}
+              <div className="bg-gradient-to-br from-primary-800 via-slate-800 to-primary-900 rounded-3xl p-10 text-white shadow-2xl relative overflow-hidden group hover:shadow-[0_30px_60px_-15px_rgba(26,32,54,0.5)] transition-all duration-700" style={{
+                transition: 'all 0.7s cubic-bezier(0.4, 0, 0.2, 1)'
+              }}>
+                {/* Premium Glow Effects */}
+                <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-[#D4AF37]/25 to-transparent rounded-full -translate-y-24 translate-x-24 opacity-60 group-hover:opacity-100 transition-opacity duration-700 blur-2xl"></div>
+                <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr from-[#B08D57]/20 to-transparent rounded-full translate-y-20 -translate-x-20 opacity-60 group-hover:opacity-100 transition-opacity duration-700 blur-2xl"></div>
+                
+                {/* Subtle Pattern Overlay */}
+                <div className="absolute inset-0 opacity-[0.03]" style={{
+                  backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(212, 175, 55, 0.15) 1px, transparent 1px)',
+                  backgroundSize: '30px 30px'
+                }}></div>
                 
                 <div className="relative z-10">
-                  <div className="w-16 h-16 bg-[#D4AF37] rounded-2xl flex items-center justify-center mb-6 shadow-lg">
-                    <svg className="w-8 h-8 text-primary-800" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
-                    </svg>
+                  <div className="relative w-16 h-16 mb-8">
+                    <div className="absolute inset-0 bg-[#D4AF37] rounded-2xl blur-lg opacity-50 group-hover:opacity-70 transition-opacity duration-500"></div>
+                    <div className="relative w-full h-full bg-gradient-to-br from-[#D4AF37] to-[#B08D57] rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                      <svg className="w-8 h-8 text-white drop-shadow-lg" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                      </svg>
+                    </div>
                   </div>
                   
                   <h3 className="text-2xl font-bold mb-4 text-white">
@@ -600,30 +791,34 @@ export default function ServicesPage() {
                     If you're unsure whether we can direct bill your plan, call us and we'll let you know. We're here to help verify your coverage and ensure you get the care you need.
                   </p>
                   
-                  <div className="space-y-4 mb-8">
-                    <div className="flex items-center">
-                      <div className="w-2 h-2 rounded-full bg-[#D4AF37] mr-3"></div>
-                      <span className="text-white/90">Free coverage verification</span>
-                    </div>
-                    <div className="flex items-center">
-                      <div className="w-2 h-2 rounded-full bg-[#D4AF37] mr-3"></div>
-                      <span className="text-white/90">Direct billing when possible</span>
-                    </div>
-                    <div className="flex items-center">
-                      <div className="w-2 h-2 rounded-full bg-[#D4AF37] mr-3"></div>
-                      <span className="text-white/90">Payment plan options available</span>
-                    </div>
+                  <div className="space-y-4 mb-10">
+                    {[
+                      'Free coverage verification',
+                      'Direct billing when possible',
+                      'Payment plan options available'
+                    ].map((item, idx) => (
+                      <div key={idx} className="flex items-center group/benefit hover:translate-x-1 transition-transform duration-300" style={{animationDelay: `${idx * 0.1}s`}}>
+                        <div className="relative mr-3">
+                          <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#B08D57] group-hover/benefit:scale-125 transition-transform duration-300"></div>
+                          <div className="absolute inset-0 w-2.5 h-2.5 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#B08D57] opacity-40 blur-sm"></div>
+                        </div>
+                        <span className="text-white/95 group-hover/benefit:text-white transition-colors duration-300">{item}</span>
+                      </div>
+                    ))}
                   </div>
                   
                   <div className="flex flex-col sm:flex-row gap-4 mt-8">
                     <a
                       href="tel:+16139007234"
-                      className="inline-flex items-center justify-center px-6 py-3 bg-white/20 hover:bg-white/30 text-white border border-white/30 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                      className="group/btn relative inline-flex items-center justify-center px-8 py-4 bg-white/20 hover:bg-white/30 text-white border border-white/40 rounded-xl font-semibold transition-all duration-500 shadow-lg hover:shadow-2xl transform hover:-translate-y-1 backdrop-blur-sm overflow-hidden"
                     >
-                      <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                      </svg>
-                      Call for Support
+                      <span className="absolute inset-0 bg-gradient-to-r from-[#D4AF37]/20 to-[#B08D57]/20 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500"></span>
+                      <span className="relative flex items-center">
+                        <svg className="w-5 h-5 mr-2 group-hover/btn:rotate-12 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        </svg>
+                        Call for Support
+                      </span>
                     </a>
                   </div>
                 </div>
@@ -633,25 +828,87 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 section-subtle border-t border-[#B08D57]/10">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center p-10 rounded-xl bg-white shadow-lg border border-[#B08D57]/10">
-            <h2 className="text-3xl font-heading font-bold mb-4 text-primary-800">
-              Ready to Address Your Pain?
-            </h2>
-            <p className="text-primary-800 text-lg mb-8 font-medium">
-              Partner with a physiotherapist dedicated to understanding your unique needs and achieving lasting results. Schedule your comprehensive assessment today.
-            </p>
-            <Link
-              href="/#contact"
-              className="inline-flex items-center justify-center px-8 py-3 bg-[#1A2036] hover:bg-[#252E4A] text-[#D4AF37] rounded-lg font-medium transition-colors duration-300 shadow-md hover:shadow-lg border border-[#1A2036]"
-            >
-              Book Your Assessment
-            </Link>
+      {/* CTA Section - Luxury Enhanced */}
+      <section className="py-24 bg-gradient-to-br from-slate-50 via-white to-slate-50 relative overflow-hidden">
+        {/* Premium Background Elements */}
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'radial-gradient(circle at center, rgba(176, 141, 87, 0.03) 0%, transparent 50%)',
+        }}></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-[#B08D57]/5 via-transparent to-[#D4AF37]/5 rounded-full blur-3xl opacity-60"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto">
+            {/* Premium CTA Card */}
+            <div className="relative bg-white/95 backdrop-blur-xl rounded-3xl p-12 md:p-16 shadow-2xl border border-[#B08D57]/10 overflow-hidden group hover:shadow-[0_30px_60px_-15px_rgba(176,141,87,0.25)] transition-all duration-700" style={{
+              background: 'linear-gradient(135deg, rgba(255,255,255,0.98) 0%, rgba(248,250,252,0.95) 100%)',
+              transition: 'all 0.7s cubic-bezier(0.4, 0, 0.2, 1)'
+            }}>
+              {/* Decorative Elements */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-[#B08D57]/10 via-[#D4AF37]/5 to-transparent rounded-full -translate-y-32 translate-x-32 opacity-60 group-hover:opacity-100 transition-opacity duration-700 blur-2xl"></div>
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-[#D4AF37]/10 via-[#B08D57]/5 to-transparent rounded-full translate-y-24 -translate-x-24 opacity-60 group-hover:opacity-100 transition-opacity duration-700 blur-2xl"></div>
+              
+              {/* Content */}
+              <div className="relative z-10 text-center">
+                {/* Premium Badge */}
+                <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 backdrop-blur-sm rounded-full border border-[#B08D57]/20 mb-8">
+                  <div className="w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full mr-3 animate-pulse"></div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#B08D57]">Start Your Recovery</span>
+                </div>
+                
+                {/* Title */}
+                <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-primary-800 tracking-tight" style={{letterSpacing: '-0.02em'}}>
+                  Ready to <span className="bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent">Address Your Pain?</span>
+                </h2>
+                
+                {/* Description */}
+                <p className="text-primary-600 text-xl md:text-2xl mb-10 font-light leading-relaxed max-w-3xl mx-auto" style={{lineHeight: '1.8'}}>
+                  Partner with a physiotherapist dedicated to understanding your unique needs and achieving lasting results. Schedule your comprehensive assessment today.
+                </p>
+                
+                {/* CTA Button */}
+                <Link
+                  href="/#contact"
+                  className="group/cta relative inline-flex items-center justify-center px-10 py-5 bg-gradient-to-r from-[#1A2036] to-slate-800 text-[#D4AF37] rounded-2xl font-semibold text-lg transition-all duration-500 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 overflow-hidden"
+                  style={{
+                    boxShadow: '0 20px 40px -10px rgba(26, 32, 54, 0.35)'
+                  }}
+                >
+                  <span className="absolute inset-0 bg-gradient-to-r from-slate-800 to-[#1A2036] opacity-0 group-hover/cta:opacity-100 transition-opacity duration-500"></span>
+                  <span className="relative flex items-center">
+                    Book Your Assessment
+                    <svg className="w-5 h-5 ml-2 group-hover/cta:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </span>
+                </Link>
+                
+                {/* Trust Indicators */}
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-10 pt-10 border-t border-[#B08D57]/10">
+                  <div className="flex items-center text-primary-600">
+                    <svg className="w-5 h-5 text-[#B08D57] mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-sm font-medium">Direct Insurance Billing</span>
+                  </div>
+                  <div className="flex items-center text-primary-600">
+                    <svg className="w-5 h-5 text-[#B08D57] mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-sm font-medium">Evidence-Based Treatment</span>
+                  </div>
+                  <div className="flex items-center text-primary-600">
+                    <svg className="w-5 h-5 text-[#B08D57] mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-sm font-medium">Personalized Care</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
+      
     </main>
   );
 } 

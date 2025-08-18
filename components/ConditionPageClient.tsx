@@ -162,18 +162,18 @@ export default function ConditionPageClient({
         {condition.evidenceSnapshot && (
           <section className="bg-blue-50 border-t border-b border-blue-200">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="max-w-7xl mx-auto py-6">
+              <div className="max-w-7xl mx-auto py-3">
                 <div className="flex items-start gap-3">
                   <BeakerIcon className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
                   <div>
-                    <h2 className="font-semibold text-blue-900 mb-3">Evidence Snapshot</h2>
-                    <ul className="space-y-2 text-sm text-blue-800">
+                    <h2 className="font-semibold text-blue-900 mb-2">Evidence Snapshot</h2>
+                    <ul className="space-y-1 text-sm text-blue-800">
                       <li>• {condition.evidenceSnapshot.firstLine}</li>
                       <li>• {condition.evidenceSnapshot.imaging}</li>
                       <li>• {condition.evidenceSnapshot.management}</li>
                     </ul>
                     {condition.evidenceSnapshot.sources && (
-                      <p className="text-xs text-blue-600 mt-3 italic">
+                      <p className="text-xs text-blue-600 mt-2 italic">
                         Sources: {condition.evidenceSnapshot.sources}
                       </p>
                     )}
@@ -187,20 +187,20 @@ export default function ConditionPageClient({
         {/* Red Flags Alert Bar - If Present */}
         {((condition.clinicalRedFlags && condition.clinicalRedFlags.length > 0) || 
           (condition.redFlags && condition.redFlags.length > 0)) && (
-          <div className="bg-red-50 border-t border-b border-red-200">
+          <div className="bg-red-50 border-b border-red-200">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="max-w-7xl mx-auto py-4">
+              <div className="max-w-7xl mx-auto py-3">
                 <details className="group">
                   <summary className="flex items-center justify-between cursor-pointer list-none">
                     <div className="flex items-center gap-2">
                       <ExclamationTriangleIcon className="h-5 w-5 text-red-600" />
                       <span className="font-semibold text-red-900">
-                        Important: When to Seek Immediate Medical Attention
+                        When to Seek Immediate Medical Attention
                       </span>
                     </div>
                     <ChevronDownIcon className="h-5 w-5 text-red-600 group-open:rotate-180 transition-transform" />
                   </summary>
-                  <div className="mt-4 grid md:grid-cols-2 gap-4 pb-2">
+                  <div className="mt-3 grid md:grid-cols-2 gap-3 pb-1">
                     {condition.clinicalRedFlags ? (
                       condition.clinicalRedFlags.map((flag, index) => (
                         <div key={index} className="flex items-start gap-3">

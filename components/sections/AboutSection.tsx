@@ -14,7 +14,7 @@ export default function AboutSection() {
     <motion.section 
       ref={sectionRef}
       {...animationProps}
-      className="py-12 md:py-16 bg-white"
+      className="py-16 md:py-20 bg-gradient-to-b from-gray-50/50 via-white to-white"
     >
       <div className="container mx-auto px-4">
         <div className="max-w-7xl mx-auto">

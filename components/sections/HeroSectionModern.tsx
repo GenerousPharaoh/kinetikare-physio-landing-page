@@ -4,12 +4,20 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { ChevronDownIcon } from '@heroicons/react/24/outline';
 
 export default function HeroSection() {
+  const scrollToNext = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <>
       {/* Mobile */}
-      <section className="lg:hidden min-h-screen bg-gradient-to-b from-white to-gray-50/50 flex flex-col pt-16">
+      <section className="lg:hidden min-h-screen bg-gradient-to-b from-white via-white to-gray-50/50 flex flex-col pt-16 relative">
         {/* Image section */}
         <div className="relative h-[50vh] w-full">
           <Image
@@ -126,7 +134,7 @@ export default function HeroSection() {
       </section>
 
       {/* Desktop */}
-      <section className="hidden lg:flex min-h-screen bg-gradient-to-br from-white via-gray-50/30 to-white pt-16">
+      <section className="hidden lg:flex min-h-screen bg-gradient-to-b from-white via-white to-gray-50/30 pt-16 relative">
         <div className="flex w-full">
           {/* Left content - with proper padding and centering */}
           <div className="w-1/2 flex items-center pl-[8%] pr-[6%] py-20">
@@ -240,6 +248,24 @@ export default function HeroSection() {
             </motion.div>
           </div>
         </div>
+        
+        {/* Scroll indicator */}
+        <motion.button
+          onClick={scrollToNext}
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ 
+            duration: 0.5, 
+            delay: 1.2,
+            repeat: Infinity,
+            repeatType: "reverse",
+            repeatDelay: 1
+          }}
+          className="absolute bottom-12 left-1/2 -translate-x-1/2 text-[#B08D57]/60 hover:text-[#B08D57] transition-colors cursor-pointer z-10"
+          aria-label="Scroll to next section"
+        >
+          <ChevronDownIcon className="h-8 w-8" />
+        </motion.button>
       </section>
     </>
   );

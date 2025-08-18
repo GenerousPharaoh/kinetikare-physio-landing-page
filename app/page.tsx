@@ -204,6 +204,12 @@ export default function Home() {
       <HeroSection />
       {/* SEO-optimized hidden heading for brand search */}
       <h1 className="sr-only">Kareem Hassanein Physiotherapist Burlington - Back Pain Treatment, Sports Injury Rehabilitation, Knee Pain, North Burlington, Alton Village, Palladium Way</h1>
+      
+      {/* Subtle transition element */}
+      <div className="relative h-0 overflow-visible">
+        <div className="absolute left-1/2 -translate-x-1/2 -top-1 w-24 h-[1px] bg-gradient-to-r from-transparent via-[#B08D57]/20 to-transparent" />
+      </div>
+      
       <AboutSection />
       <CareJourneySection />
       <ServicesSection />

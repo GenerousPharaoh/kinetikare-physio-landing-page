@@ -468,10 +468,10 @@ export default function ServicesPage() {
                   </div>
 
                   {/* Premium Hover Overlay with Shimmer */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/5 via-transparent to-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl pointer-events-none"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/5 via-transparent to-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-2xl pointer-events-none"></div>
                   
                   {/* Subtle Shimmer Effect */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none rounded-3xl overflow-hidden">
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none rounded-2xl overflow-hidden">
                     <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-[2000ms] ease-in-out" style={{
                       background: 'linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.08), transparent)',
                       transform: 'skewX(-25deg)'
@@ -516,10 +516,7 @@ export default function ServicesPage() {
             {/* Elegant Divider */}
             <div className="flex items-center justify-center gap-4 mb-10">
               <div className="h-px w-20 bg-gradient-to-r from-transparent via-[#B08D57]/40 to-transparent"></div>
-              <div className="relative">
-                <div className="w-3 h-3 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
-                <div className="absolute inset-0 w-3 h-3 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full animate-ping"></div>
-              </div>
+              <div className="w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
               <div className="h-px w-20 bg-gradient-to-r from-transparent via-[#D4AF37]/40 to-transparent"></div>
             </div>
             
@@ -623,16 +620,14 @@ export default function ServicesPage() {
                         </p>
                         
                         {/* Premium Accent Line */}
-                        <div className="mt-6 mx-auto w-12 h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full group-hover:w-20 transition-all duration-500 relative">
-                          <div className="absolute inset-0 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full blur-sm opacity-50"></div>
-                        </div>
+                        <div className="mt-6 mx-auto w-12 h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full group-hover:w-20 transition-all duration-500"></div>
             </div>
             
                       {/* Premium Hover Effects */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/5 to-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl pointer-events-none"></div>
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/5 to-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-2xl pointer-events-none"></div>
                       
                       {/* Shimmer Effect */}
-                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none rounded-3xl overflow-hidden">
+                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none rounded-2xl overflow-hidden">
                         <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-[3000ms] ease-in-out" style={{
                           background: 'linear-gradient(105deg, transparent 40%, rgba(212, 175, 55, 0.1) 50%, transparent 60%)',
                           transform: 'skewX(-25deg)'

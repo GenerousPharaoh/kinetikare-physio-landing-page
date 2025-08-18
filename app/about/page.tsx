@@ -953,19 +953,19 @@ export default function About() {
       </section>
       
       {/* My Commitment to You Section - Full Width */}
-      <section className="py-20 bg-white">
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <span className="inline-block px-6 py-2 bg-[#D4AF37]/10 text-[#B08D57] text-sm font-medium rounded-full mb-6">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <span className="inline-block px-4 sm:px-6 py-1.5 sm:py-2 bg-[#D4AF37]/10 text-[#B08D57] text-xs sm:text-sm font-medium rounded-full mb-3 sm:mb-6">
               My Professional Guarantee
             </span>
           
-            <h3 className="text-4xl font-light text-primary-800 mb-8 tracking-[-0.02em]">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-light text-primary-800 mb-3 sm:mb-6 md:mb-8 tracking-[-0.02em]">
               My Commitment to You
             </h3>
-            <div className="w-48 h-1 bg-[#B08D57] mx-auto mb-10"></div>
+            <div className="w-32 sm:w-40 md:w-48 h-0.5 sm:h-1 bg-[#B08D57] mx-auto mb-4 sm:mb-8 md:mb-10"></div>
             
-            <p className="text-xl text-primary-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-primary-600 max-w-3xl mx-auto leading-relaxed px-2 sm:px-0">
               Every aspect of your care is delivered with precision and attention to detail
             </p>
           </div>

@@ -82,7 +82,7 @@ export default function CommitmentCarousel({ items }: CommitmentCarouselProps) {
     <div className="max-w-5xl mx-auto">
       {/* Main carousel */}
       <div className="relative bg-gradient-to-br from-white to-slate-50 rounded-3xl shadow-xl border border-slate-200/50 overflow-hidden">
-        <div className="relative min-h-[320px] sm:min-h-[380px] md:h-96">
+        <div className="relative">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSlide}
@@ -90,20 +90,20 @@ export default function CommitmentCarousel({ items }: CommitmentCarouselProps) {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="relative sm:absolute sm:inset-0 flex items-center justify-center p-4 sm:p-8 md:p-12"
+              className="flex items-center justify-center p-4 sm:p-6 md:p-8"
             >
               <div className="text-center max-w-2xl w-full">
-                <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-xl sm:rounded-2xl mb-2 sm:mb-4 md:mb-8 shadow-lg">
-                  <div className="text-white scale-[0.65] sm:scale-75 md:scale-100">
+                <div className="inline-flex items-center justify-center w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-lg sm:rounded-xl md:rounded-2xl mb-2 sm:mb-3 md:mb-4 shadow-md">
+                  <div className="text-white scale-[0.6] sm:scale-[0.7] md:scale-[0.85]">
                     {getIcon(items[currentSlide].iconType)}
                   </div>
                 </div>
                 
-                <h4 className="text-lg sm:text-xl md:text-3xl font-bold text-slate-900 mb-2 sm:mb-3 md:mb-6 px-4 sm:px-2">
+                <h4 className="text-base sm:text-lg md:text-2xl font-bold text-slate-900 mb-1.5 sm:mb-2 md:mb-3 px-3 sm:px-2">
                   {items[currentSlide].title}
                 </h4>
                 
-                <p className="text-sm sm:text-base md:text-xl text-slate-600 leading-relaxed px-4 sm:px-2">
+                <p className="text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed px-3 sm:px-4 md:px-6">
                   {items[currentSlide].description}
                 </p>
               </div>
@@ -133,24 +133,10 @@ export default function CommitmentCarousel({ items }: CommitmentCarouselProps) {
         </button>
       </div>
 
-      {/* Dot indicators - MUCH smaller on mobile */}
-      <div className="flex justify-center mt-2 sm:mt-4 md:mt-6 space-x-1.5 sm:space-x-2">
-        {items.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-2.5 md:h-2.5 rounded-full transition-all duration-300 ${
-              index === currentSlide
-                ? 'bg-[#B08D57] shadow-sm'
-                : 'bg-slate-300 hover:bg-slate-400'
-            }`}
-            aria-label={`Go to commitment ${index + 1}`}
-          />
-        ))}
-      </div>
+      {/* Removed dot indicators - not needed */}
 
       {/* Progress bar - Minimal spacing */}
-      <div className="mt-2 sm:mt-3 md:mt-4 max-w-xs sm:max-w-md mx-auto px-4 sm:px-0">
+      <div className="mt-3 sm:mt-4 md:mt-6 max-w-xs sm:max-w-md mx-auto px-4 sm:px-0">
         <div className="h-0.5 bg-slate-200 rounded-full overflow-hidden">
           <motion.div
             className="h-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37]"
@@ -159,7 +145,7 @@ export default function CommitmentCarousel({ items }: CommitmentCarouselProps) {
             transition={{ duration: 0.5, ease: "easeInOut" }}
           />
         </div>
-        <div className="flex justify-center mt-1 text-[10px] sm:text-xs text-slate-500">
+        <div className="flex justify-center mt-1.5 text-xs text-slate-500">
           <span>{currentSlide + 1} of {items.length}</span>
         </div>
       </div>

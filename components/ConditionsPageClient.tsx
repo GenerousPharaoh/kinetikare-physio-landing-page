@@ -90,14 +90,9 @@ function ConditionsPageWithParams({
   return (
     <main className="bg-white min-h-screen overflow-x-hidden">
       {/* COMPLETELY REDESIGNED Hero Section */}
-      <section className="relative pt-32 lg:pt-40 pb-2 bg-gradient-to-br from-slate-50 via-white to-[#B08D57]/5 overflow-hidden">
-        {/* Premium Background Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-[#B08D57]/25 via-[#D4AF37]/15 to-transparent rounded-full blur-[150px] opacity-60"></div>
-          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[#D4AF37]/20 via-[#B08D57]/10 to-transparent rounded-full blur-[150px] opacity-50"></div>
-        </div>
+      <section className="relative pt-32 lg:pt-40 pb-2 bg-white">
         
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -133,8 +128,8 @@ function ConditionsPageWithParams({
         </div>
       </section>
 
-      {/* Main Content - NO SCROLLING ISSUES */}
-      <section className="pt-0 pb-12 relative bg-white">
+      {/* Main Content */}
+      <section className="pt-2 pb-12 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* PREMIUM Navigation Tabs */}
           <div className="max-w-6xl mx-auto mb-2">
@@ -235,14 +230,9 @@ function ConditionsPageWithParams({
                   <div className="bg-white rounded-2xl border border-slate-200 shadow-lg">
                     {/* Header Section - Much smaller */}
                     <div className="px-6 py-4 border-b border-slate-100">
-                      <div className="flex items-center justify-between">
-                        <h2 className="text-2xl font-bold text-slate-900">
-                          {conditionCategories[activeTab].title}
-                        </h2>
-                        <p className="text-sm text-slate-600">
-                          {conditionCategories[activeTab].subtitle}
-                        </p>
-                      </div>
+                      <h2 className="text-2xl font-bold text-slate-900">
+                        {conditionCategories[activeTab].title}
+                      </h2>
                     </div>
 
                     {/* Conditions Grid - PREMIUM Design */}

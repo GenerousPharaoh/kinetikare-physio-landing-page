@@ -848,9 +848,9 @@ export default function ServicesPage() {
                 {/* CTA Button */}
                 <Link
                   href="/#contact"
-                  className="group/cta relative inline-flex items-center justify-center px-10 py-4 bg-gradient-to-r from-[#1A2036] to-slate-800 text-[#D4AF37] rounded-xl font-medium text-lg transition-all duration-500 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 overflow-hidden"
+                  className="group/cta relative inline-flex items-center justify-center px-10 py-4 bg-gradient-to-r from-[#1A2036] to-slate-800 text-[#D4AF37] hover:text-[#F5D63D] rounded-xl font-medium text-lg transition-all duration-500 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 overflow-hidden"
                 >
-                  <span className="absolute inset-0 bg-gradient-to-r from-slate-800 to-[#1A2036] opacity-0 group-hover/cta:opacity-100 transition-opacity duration-500"></span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-[#D4AF37]/20 to-[#B08D57]/20 opacity-0 group-hover/cta:opacity-100 transition-opacity duration-500"></span>
                   <span className="relative flex items-center">
                     Book Your Assessment
                     <svg className="w-5 h-5 ml-2 group-hover/cta:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">

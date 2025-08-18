@@ -301,7 +301,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                       onClick={(e) => handleNavClick(e, item.href)}
                   className={`relative text-sm font-medium tracking-wide transition-all duration-300 py-2 group whitespace-nowrap
                           ${isCurrentPath(item.href) 
-                      ? 'text-[#D4AF37] font-semibold' 
+                      ? 'text-[#D4AF37] font-semibold hover:text-[#F5D63D]' 
                       : 'text-white hover:text-[#D4AF37]'}`}
                 >
                   {item.name}
@@ -379,7 +379,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   onClick={(e) => handleNavClick(e, item.href)}
                   className={`block px-4 py-3 rounded-lg text-base font-medium tracking-wide transition-all duration-300 flex items-center gap-2
                       ${isCurrentPath(item.href) 
-                      ? 'text-[#D4AF37] bg-[#D4AF37]/10 font-semibold' 
+                      ? 'text-[#D4AF37] bg-[#D4AF37]/10 font-semibold hover:text-[#F5D63D] hover:bg-[#D4AF37]/15' 
                       : 'text-white hover:bg-white/5 hover:text-[#D4AF37]'}`}
                   >
                     {item.name}

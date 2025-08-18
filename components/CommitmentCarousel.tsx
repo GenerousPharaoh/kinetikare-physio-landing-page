@@ -82,7 +82,7 @@ export default function CommitmentCarousel({ items }: CommitmentCarouselProps) {
     <div className="max-w-5xl mx-auto">
       {/* Main carousel */}
       <div className="relative bg-gradient-to-br from-white to-slate-50 rounded-3xl shadow-xl border border-slate-200/50 overflow-hidden">
-        <div className="relative h-80 md:h-96">
+        <div className="relative min-h-[400px] sm:min-h-[380px] md:h-96">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSlide}
@@ -90,20 +90,20 @@ export default function CommitmentCarousel({ items }: CommitmentCarouselProps) {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="absolute inset-0 flex items-center justify-center p-8 md:p-12"
+              className="relative sm:absolute sm:inset-0 flex items-center justify-center p-6 sm:p-8 md:p-12"
             >
-              <div className="text-center max-w-2xl">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl mb-8 shadow-lg">
-                  <div className="text-white">
+              <div className="text-center max-w-2xl w-full">
+                <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl mb-4 sm:mb-6 md:mb-8 shadow-lg">
+                  <div className="text-white scale-75 sm:scale-100">
                     {getIcon(items[currentSlide].iconType)}
                   </div>
                 </div>
                 
-                <h4 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
+                <h4 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 mb-3 sm:mb-4 md:mb-6 px-2">
                   {items[currentSlide].title}
                 </h4>
                 
-                <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
+                <p className="text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed px-2">
                   {items[currentSlide].description}
                 </p>
               </div>
@@ -114,32 +114,32 @@ export default function CommitmentCarousel({ items }: CommitmentCarouselProps) {
         {/* Navigation arrows */}
         <button
           onClick={prevSlide}
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group"
+          className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white/90 hover:bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group z-10"
           aria-label="Previous commitment"
         >
-          <svg className="w-6 h-6 text-slate-600 group-hover:text-[#B08D57] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5 sm:w-6 sm:h-6 text-slate-600 group-hover:text-[#B08D57] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
         </button>
 
         <button
           onClick={nextSlide}
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group"
+          className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white/90 hover:bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group z-10"
           aria-label="Next commitment"
         >
-          <svg className="w-6 h-6 text-slate-600 group-hover:text-[#B08D57] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5 sm:w-6 sm:h-6 text-slate-600 group-hover:text-[#B08D57] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
         </button>
       </div>
 
       {/* Dot indicators */}
-      <div className="flex justify-center mt-8 space-x-3">
+      <div className="flex justify-center mt-6 sm:mt-8 space-x-2 sm:space-x-3">
         {items.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+            className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
               index === currentSlide
                 ? 'bg-[#B08D57] scale-125 shadow-md'
                 : 'bg-slate-300 hover:bg-slate-400'
@@ -150,7 +150,7 @@ export default function CommitmentCarousel({ items }: CommitmentCarouselProps) {
       </div>
 
       {/* Progress bar */}
-      <div className="mt-6 max-w-md mx-auto">
+      <div className="mt-4 sm:mt-6 max-w-xs sm:max-w-md mx-auto px-4 sm:px-0">
         <div className="h-1 bg-slate-200 rounded-full overflow-hidden">
           <motion.div
             className="h-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37]"

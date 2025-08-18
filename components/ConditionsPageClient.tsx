@@ -2,9 +2,10 @@
 
 // <!-- UI REDESIGN 2024 - PREMIUM MEDICAL AESTHETIC -->
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { 
   MagnifyingGlassIcon, 
   ChevronRightIcon,
@@ -41,8 +42,49 @@ export default function ConditionsPageClient({
   conditionCategories, 
   additionalServices
 }: ConditionsPageClientProps) {
+  const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState(0);
   const [searchQuery, setSearchQuery] = useState('');
+
+  // Quick navigation sections - moved up to be available in useEffect
+  const quickNavItems = [
+    { name: "Spine & Back", tab: 0 },
+    { name: "Shoulder", tab: 1 },
+    { name: "Arm & Hand", tab: 2 },
+    { name: "Hip & Pelvis", tab: 3 },
+    { name: "Knee", tab: 4 },
+    { name: "Foot & Ankle", tab: 5 },
+  ];
+
+  // Remember the user's tab selection using localStorage and URL params
+  useEffect(() => {
+    // Check URL params first (for direct links)
+    const categoryParam = searchParams.get('category');
+    if (categoryParam) {
+      const tabIndex = quickNavItems.findIndex(item => 
+        item.name.toLowerCase().replace(/[^a-z0-9]/g, '-') === categoryParam
+      );
+      if (tabIndex !== -1) {
+        setActiveTab(tabIndex);
+        return;
+      }
+    }
+
+    // Fall back to localStorage (for returning users)
+    const savedTab = localStorage.getItem('conditionsActiveTab');
+    if (savedTab && !isNaN(Number(savedTab))) {
+      const tabNumber = Number(savedTab);
+      if (tabNumber >= 0 && tabNumber < conditionCategories.length) {
+        setActiveTab(tabNumber);
+      }
+    }
+  }, [searchParams, conditionCategories.length]);
+
+  // Save tab selection to localStorage when changed
+  const handleTabChange = (tabIndex: number) => {
+    setActiveTab(tabIndex);
+    localStorage.setItem('conditionsActiveTab', tabIndex.toString());
+  };
 
   // Filter conditions based on search query
   const filteredCategories = useMemo(() => {
@@ -58,16 +100,6 @@ export default function ConditionsPageClient({
       category.title.toLowerCase().includes(searchQuery.toLowerCase())
     );
   }, [searchQuery, conditionCategories]);
-
-  // Quick navigation sections
-  const quickNavItems = [
-    { name: "Spine & Back", tab: 0 },
-    { name: "Shoulder", tab: 1 },
-    { name: "Arm & Hand", tab: 2 },
-    { name: "Hip & Pelvis", tab: 3 },
-    { name: "Knee", tab: 4 },
-    { name: "Foot & Ankle", tab: 5 },
-  ];
 
   return (
     <main className="bg-white min-h-screen">
@@ -125,7 +157,7 @@ export default function ConditionsPageClient({
               {quickNavItems.map((item, index) => (
                 <button
                   key={item.name}
-                  onClick={() => setActiveTab(item.tab)}
+                  onClick={() => handleTabChange(item.tab)}
                   className={`relative px-8 py-4 rounded-full font-bold text-base transition-all duration-500 transform hover:-translate-y-0.5 ${
                     activeTab === item.tab
                       ? 'text-white shadow-2xl shadow-[#B08D57]/30'

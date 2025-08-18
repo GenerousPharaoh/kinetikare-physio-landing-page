@@ -8,6 +8,11 @@
 @import '../styles/premium-design-system.css';
 @import '../styles/micro-interactions.css';
 @import '../styles/responsive-premium.css';
+@import '../styles/section-flow.css';
+@import '../styles/typography-premium.css';
+@import '../styles/shadow-depth.css';
+@import '../styles/animation-polish.css';
+@import '../styles/color-harmony.css';
 
 @tailwind base;
 @tailwind components;

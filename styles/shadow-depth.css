@@ -1,0 +1,328 @@
+/* 
+ * SOPHISTICATED SHADOW SYSTEM
+ * Multi-layer shadows with color temperature for natural depth
+ * Replaces harsh single-layer shadows with premium elevation
+ */
+
+/* ============================= */
+/* SHADOW VARIABLES OVERRIDE    */
+/* ============================= */
+
+:root {
+  /* Multi-layer shadow system with color temperature */
+  --shadow-xs: 
+    0 0.5px 1px rgba(26, 32, 58, 0.024),
+    0 1px 2px rgba(26, 32, 58, 0.028),
+    0 2px 4px rgba(26, 32, 58, 0.03);
+    
+  --shadow-sm: 
+    0 1px 2px rgba(26, 32, 58, 0.024),
+    0 2px 4px rgba(26, 32, 58, 0.028),
+    0 4px 8px rgba(26, 32, 58, 0.032),
+    0 8px 16px rgba(26, 32, 58, 0.036);
+    
+  --shadow-md: 
+    0 2px 4px rgba(26, 32, 58, 0.02),
+    0 4px 8px rgba(26, 32, 58, 0.024),
+    0 8px 16px rgba(26, 32, 58, 0.028),
+    0 16px 32px rgba(26, 32, 58, 0.032),
+    0 24px 48px rgba(26, 32, 58, 0.036);
+    
+  --shadow-lg: 
+    0 4px 6px rgba(26, 32, 58, 0.016),
+    0 8px 12px rgba(26, 32, 58, 0.02),
+    0 16px 24px rgba(26, 32, 58, 0.024),
+    0 24px 36px rgba(26, 32, 58, 0.028),
+    0 32px 48px rgba(26, 32, 58, 0.032),
+    0 48px 72px rgba(26, 32, 58, 0.036);
+    
+  --shadow-xl: 
+    0 8px 10px rgba(26, 32, 58, 0.012),
+    0 16px 20px rgba(26, 32, 58, 0.016),
+    0 24px 30px rgba(26, 32, 58, 0.02),
+    0 32px 40px rgba(26, 32, 58, 0.024),
+    0 40px 50px rgba(26, 32, 58, 0.028),
+    0 48px 60px rgba(26, 32, 58, 0.032),
+    0 64px 80px rgba(26, 32, 58, 0.036);
+    
+  --shadow-2xl: 
+    0 12px 15px rgba(26, 32, 58, 0.008),
+    0 24px 30px rgba(26, 32, 58, 0.012),
+    0 36px 45px rgba(26, 32, 58, 0.016),
+    0 48px 60px rgba(26, 32, 58, 0.02),
+    0 60px 75px rgba(26, 32, 58, 0.024),
+    0 72px 90px rgba(26, 32, 58, 0.028),
+    0 96px 120px rgba(26, 32, 58, 0.032);
+    
+  /* Colored shadows with temperature */
+  --shadow-gold-sm: 
+    0 2px 4px rgba(176, 141, 87, 0.08),
+    0 4px 8px rgba(212, 175, 55, 0.06),
+    0 8px 16px rgba(176, 141, 87, 0.04);
+    
+  --shadow-gold-md: 
+    0 4px 8px rgba(176, 141, 87, 0.06),
+    0 8px 16px rgba(212, 175, 55, 0.05),
+    0 16px 32px rgba(176, 141, 87, 0.04),
+    0 24px 48px rgba(212, 175, 55, 0.03);
+    
+  --shadow-gold-lg: 
+    0 8px 16px rgba(176, 141, 87, 0.05),
+    0 16px 32px rgba(212, 175, 55, 0.04),
+    0 32px 64px rgba(176, 141, 87, 0.03),
+    0 48px 96px rgba(212, 175, 55, 0.02);
+    
+  /* Inner shadows for depth */
+  --shadow-inner-sm: 
+    inset 0 1px 2px rgba(26, 32, 58, 0.04),
+    inset 0 2px 4px rgba(26, 32, 58, 0.02);
+    
+  --shadow-inner-md: 
+    inset 0 2px 4px rgba(26, 32, 58, 0.04),
+    inset 0 4px 8px rgba(26, 32, 58, 0.03),
+    inset 0 8px 16px rgba(26, 32, 58, 0.02);
+}
+
+/* ============================= */
+/* ELEMENT SHADOW OVERRIDES     */
+/* ============================= */
+
+/* Card shadows */
+.card,
+.premium-card,
+[class*="card"] {
+  box-shadow: var(--shadow-md) !important;
+  transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover,
+.premium-card:hover,
+[class*="card"]:hover {
+  box-shadow: var(--shadow-lg) !important;
+}
+
+/* Button shadows */
+.btn,
+button,
+[type="button"],
+[type="submit"] {
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn:hover,
+button:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.btn:active,
+button:active {
+  box-shadow: var(--shadow-xs);
+  transform: translateY(0);
+}
+
+/* Primary button special treatment */
+.btn-primary {
+  box-shadow: 
+    0 2px 4px rgba(26, 32, 58, 0.12),
+    0 4px 8px rgba(26, 32, 58, 0.08),
+    0 8px 16px rgba(26, 32, 58, 0.04),
+    0 16px 32px rgba(26, 32, 58, 0.02);
+}
+
+.btn-primary:hover {
+  box-shadow: 
+    0 4px 8px rgba(26, 32, 58, 0.16),
+    0 8px 16px rgba(26, 32, 58, 0.12),
+    0 16px 32px rgba(26, 32, 58, 0.08),
+    0 32px 64px rgba(26, 32, 58, 0.04);
+}
+
+/* Gold accent shadows */
+.btn-accent,
+.gold-element {
+  box-shadow: var(--shadow-gold-md);
+}
+
+.btn-accent:hover,
+.gold-element:hover {
+  box-shadow: var(--shadow-gold-lg);
+}
+
+/* ============================= */
+/* ELEVATION CLASSES            */
+/* ============================= */
+
+.elevation-0 { box-shadow: none !important; }
+.elevation-1 { box-shadow: var(--shadow-xs) !important; }
+.elevation-2 { box-shadow: var(--shadow-sm) !important; }
+.elevation-3 { box-shadow: var(--shadow-md) !important; }
+.elevation-4 { box-shadow: var(--shadow-lg) !important; }
+.elevation-5 { box-shadow: var(--shadow-xl) !important; }
+.elevation-6 { box-shadow: var(--shadow-2xl) !important; }
+
+/* Interactive elevation */
+.elevation-hover-1:hover { box-shadow: var(--shadow-sm) !important; }
+.elevation-hover-2:hover { box-shadow: var(--shadow-md) !important; }
+.elevation-hover-3:hover { box-shadow: var(--shadow-lg) !important; }
+.elevation-hover-4:hover { box-shadow: var(--shadow-xl) !important; }
+
+/* ============================= */
+/* SPECIAL SHADOW EFFECTS       */
+/* ============================= */
+
+/* Soft glow effect */
+.glow-soft {
+  box-shadow: 
+    0 0 20px rgba(212, 175, 55, 0.1),
+    0 0 40px rgba(212, 175, 55, 0.05),
+    0 0 60px rgba(212, 175, 55, 0.025);
+}
+
+/* Premium glass shadow */
+.shadow-glass {
+  box-shadow: 
+    0 8px 32px rgba(31, 38, 135, 0.07),
+    0 2px 8px rgba(31, 38, 135, 0.04),
+    inset 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+/* Floating shadow */
+.shadow-float {
+  box-shadow: 
+    0 12px 20px -10px rgba(26, 32, 58, 0.15),
+    0 24px 40px -20px rgba(26, 32, 58, 0.1),
+    0 36px 60px -30px rgba(26, 32, 58, 0.05);
+}
+
+/* Neumorphic shadow */
+.shadow-neumorphic {
+  box-shadow: 
+    20px 20px 60px rgba(26, 32, 58, 0.05),
+    -20px -20px 60px rgba(255, 255, 255, 0.8),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.3),
+    inset -1px -1px 2px rgba(26, 32, 58, 0.05);
+}
+
+/* ============================= */
+/* DIRECTIONAL SHADOWS          */
+/* ============================= */
+
+.shadow-top {
+  box-shadow: 
+    0 -4px 8px rgba(26, 32, 58, 0.04),
+    0 -8px 16px rgba(26, 32, 58, 0.03),
+    0 -16px 32px rgba(26, 32, 58, 0.02);
+}
+
+.shadow-right {
+  box-shadow: 
+    4px 0 8px rgba(26, 32, 58, 0.04),
+    8px 0 16px rgba(26, 32, 58, 0.03),
+    16px 0 32px rgba(26, 32, 58, 0.02);
+}
+
+.shadow-bottom {
+  box-shadow: 
+    0 4px 8px rgba(26, 32, 58, 0.04),
+    0 8px 16px rgba(26, 32, 58, 0.03),
+    0 16px 32px rgba(26, 32, 58, 0.02);
+}
+
+.shadow-left {
+  box-shadow: 
+    -4px 0 8px rgba(26, 32, 58, 0.04),
+    -8px 0 16px rgba(26, 32, 58, 0.03),
+    -16px 0 32px rgba(26, 32, 58, 0.02);
+}
+
+/* ============================= */
+/* ANIMATED SHADOWS             */
+/* ============================= */
+
+@keyframes shadow-pulse {
+  0%, 100% {
+    box-shadow: var(--shadow-md);
+  }
+  50% {
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+.shadow-pulse {
+  animation: shadow-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes shadow-grow {
+  from {
+    box-shadow: var(--shadow-sm);
+  }
+  to {
+    box-shadow: var(--shadow-xl);
+  }
+}
+
+.shadow-grow-hover:hover {
+  animation: shadow-grow 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* ============================= */
+/* RESPONSIVE SHADOWS           */
+/* ============================= */
+
+/* Lighter shadows on mobile for performance */
+@media (max-width: 768px) {
+  :root {
+    --shadow-md: 
+      0 4px 8px rgba(26, 32, 58, 0.04),
+      0 8px 16px rgba(26, 32, 58, 0.03);
+      
+    --shadow-lg: 
+      0 8px 16px rgba(26, 32, 58, 0.05),
+      0 16px 32px rgba(26, 32, 58, 0.04);
+  }
+  
+  .card,
+  [class*="card"] {
+    box-shadow: var(--shadow-sm) !important;
+  }
+}
+
+/* Enhanced shadows on high-res displays */
+@media (min-resolution: 2dppx) {
+  .card,
+  [class*="card"] {
+    box-shadow: 
+      0 1px 2px rgba(26, 32, 58, 0.024),
+      0 2px 4px rgba(26, 32, 58, 0.028),
+      0 4px 8px rgba(26, 32, 58, 0.032),
+      0 8px 16px rgba(26, 32, 58, 0.036),
+      0 16px 32px rgba(26, 32, 58, 0.04),
+      0 32px 64px rgba(26, 32, 58, 0.044);
+  }
+}
+
+/* ============================= */
+/* DARK MODE SHADOWS            */
+/* ============================= */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --shadow-md: 
+      0 4px 8px rgba(0, 0, 0, 0.4),
+      0 8px 16px rgba(0, 0, 0, 0.3),
+      0 16px 32px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* ============================= */
+/* PERFORMANCE OPTIMIZATIONS    */
+/* ============================= */
+
+/* GPU acceleration for shadow animations */
+.shadow-animate {
+  will-change: box-shadow, transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}

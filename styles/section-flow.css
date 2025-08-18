@@ -1,0 +1,357 @@
+/* 
+ * PREMIUM SECTION FLOW SYSTEM
+ * Creates seamless visual continuity between page sections
+ * Eliminates harsh boundaries and disconnected blocks
+ */
+
+/* ============================= */
+/* SECTION SPACING REFINEMENT    */
+/* ============================= */
+
+/* Reduce excessive gaps between sections */
+section {
+  padding: 4rem 0; /* Reduced from 4.5rem */
+  position: relative;
+  overflow: visible; /* Allow elements to overlap */
+}
+
+@media (min-width: 768px) {
+  section {
+    padding: 5rem 0; /* Reduced from var(--section-spacing-lg) */
+  }
+}
+
+@media (min-width: 1024px) {
+  section {
+    padding: 6rem 0; /* Consistent rhythm */
+  }
+}
+
+/* Remove harsh section separators */
+section::before {
+  display: none; /* Remove existing divider lines */
+}
+
+/* ============================= */
+/* VISUAL FLOW CONNECTORS       */
+/* ============================= */
+
+/* Gradient bridge between sections */
+.section-flow {
+  position: relative;
+}
+
+.section-flow::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.03) 20%,
+    rgba(255, 255, 255, 0.05) 40%,
+    rgba(255, 255, 255, 0.03) 60%,
+    rgba(255, 255, 255, 0)
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Overlapping element connector */
+.section-overlap {
+  margin-top: -3rem !important; /* Creates visual connection */
+  position: relative;
+  z-index: 2;
+}
+
+/* Soft wave connector */
+.wave-connector {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 1;
+}
+
+.wave-connector svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 80px;
+}
+
+.wave-connector .wave-fill-light {
+  fill: rgb(250, 252, 255);
+}
+
+.wave-connector .wave-fill-dark {
+  fill: rgb(248, 250, 252);
+}
+
+/* Gradient flow lines */
+.flow-line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(176, 141, 87, 0.2) 20%,
+    rgba(212, 175, 55, 0.3) 50%,
+    rgba(176, 141, 87, 0.2) 80%,
+    transparent
+  );
+  bottom: -50px;
+  z-index: 2;
+}
+
+/* Floating connector dots */
+.flow-dots {
+  position: absolute;
+  bottom: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+  z-index: 3;
+}
+
+.flow-dots::before,
+.flow-dots::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #B08D57, #D4AF37);
+  opacity: 0.6;
+}
+
+.flow-dots::before {
+  animation: float-left 3s ease-in-out infinite;
+}
+
+.flow-dots::after {
+  animation: float-right 3s ease-in-out infinite 0.5s;
+}
+
+@keyframes float-left {
+  0%, 100% { transform: translateX(-8px) translateY(0); opacity: 0.3; }
+  50% { transform: translateX(-4px) translateY(-4px); opacity: 0.8; }
+}
+
+@keyframes float-right {
+  0%, 100% { transform: translateX(8px) translateY(0); opacity: 0.3; }
+  50% { transform: translateX(4px) translateY(-4px); opacity: 0.8; }
+}
+
+/* ============================= */
+/* BACKGROUND CONTINUITY        */
+/* ============================= */
+
+/* Smooth background transitions */
+.bg-flow-gradient {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(248, 250, 252, 0.8) 25%,
+    rgba(250, 252, 255, 0.6) 50%,
+    rgba(248, 250, 252, 0.8) 75%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
+
+/* Alternating subtle backgrounds */
+section:nth-child(even) {
+  background: linear-gradient(
+    135deg,
+    rgba(248, 250, 252, 0.3) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(248, 250, 252, 0.3) 100%
+  );
+}
+
+section:nth-child(odd) {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(250, 252, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0.5) 100%
+  );
+}
+
+/* ============================= */
+/* CONTENT FLOW ANIMATIONS      */
+/* ============================= */
+
+/* Scroll-triggered reveal with flow */
+.flow-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.flow-reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered content flow */
+.flow-stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.flow-stagger.in-view > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.flow-stagger.in-view > *:nth-child(1) { transition-delay: 0ms; }
+.flow-stagger.in-view > *:nth-child(2) { transition-delay: 100ms; }
+.flow-stagger.in-view > *:nth-child(3) { transition-delay: 200ms; }
+.flow-stagger.in-view > *:nth-child(4) { transition-delay: 300ms; }
+.flow-stagger.in-view > *:nth-child(5) { transition-delay: 400ms; }
+
+/* ============================= */
+/* SECTION TRANSITIONS          */
+/* ============================= */
+
+/* Soft fade transitions between sections */
+.section-transition {
+  position: relative;
+}
+
+.section-transition::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255, 255, 255, 0.8)
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Premium section divider */
+.premium-divider {
+  position: relative;
+  margin: 3rem 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(176, 141, 87, 0.15) 20%,
+    rgba(212, 175, 55, 0.2) 50%,
+    rgba(176, 141, 87, 0.15) 80%,
+    transparent
+  );
+}
+
+.premium-divider::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #B08D57, #D4AF37);
+  border-radius: 2px;
+  opacity: 0.4;
+}
+
+/* ============================= */
+/* HERO TO CONTENT FLOW         */
+/* ============================= */
+
+/* Special treatment for hero section flow */
+.hero-section {
+  padding-bottom: 6rem !important; /* Extra space for flow elements */
+}
+
+.hero-flow-connector {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255, 255, 255, 0.5) 30%,
+    rgba(255, 255, 255, 0.9) 60%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* First section after hero */
+.after-hero {
+  margin-top: -4rem !important;
+  position: relative;
+  z-index: 3;
+}
+
+/* ============================= */
+/* RESPONSIVE ADJUSTMENTS       */
+/* ============================= */
+
+@media (max-width: 768px) {
+  section {
+    padding: 3rem 0;
+  }
+  
+  .section-overlap {
+    margin-top: -2rem !important;
+  }
+  
+  .flow-line {
+    height: 60px;
+    bottom: -30px;
+  }
+  
+  .hero-flow-connector {
+    height: 100px;
+  }
+  
+  .after-hero {
+    margin-top: -2rem !important;
+  }
+}
+
+/* ============================= */
+/* DARK MODE SUPPORT           */
+/* ============================= */
+
+@media (prefers-color-scheme: dark) {
+  .wave-connector .wave-fill-light {
+    fill: rgb(31, 41, 55);
+  }
+  
+  .wave-connector .wave-fill-dark {
+    fill: rgb(17, 24, 39);
+  }
+  
+  .section-transition::before {
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgba(31, 41, 55, 0.8)
+    );
+  }
+}

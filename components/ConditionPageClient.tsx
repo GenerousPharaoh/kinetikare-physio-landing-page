@@ -46,7 +46,6 @@ export default function ConditionPageClient({
 }: ConditionPageClientProps) {
   const [activeTab, setActiveTab] = useState('overview');
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
-  const [showFloatingCTA, setShowFloatingCTA] = useState(false);
 
   // Check if condition has detailed content
   const hasDetailedContent = Boolean(
@@ -86,14 +85,6 @@ export default function ConditionPageClient({
     }
   });
 
-  // Show floating CTA after scrolling
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowFloatingCTA(window.scrollY > 500);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   // Toggle section expansion
   const toggleSection = (sectionId: string) => {
@@ -871,25 +862,7 @@ export default function ConditionPageClient({
           </div>
         </section>
 
-        {/* Floating CTA Button - Mobile Only */}
-        <AnimatePresence>
-          {showFloatingCTA && (
-            <motion.div
-              initial={{ opacity: 0, y: 100 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 100 }}
-              className="lg:hidden fixed bottom-32 right-6 z-40"
-            >
-              <Link
-                href="https://endorphinshealth.janeapp.com/#/staff_member/42"
-                target="_blank"
-                className="flex items-center justify-center w-14 h-14 bg-[#B08D57] hover:bg-[#997A4B] text-white rounded-full shadow-lg hover:shadow-xl transition-all"
-              >
-                <CalendarIcon className="h-6 w-6" />
-              </Link>
-            </motion.div>
-          )}
-        </AnimatePresence>
+{/* Floating CTA removed - using global FloatingButtons component instead */}
 
         {/* Bottom CTA Section - Simplified */}
         <section className="bg-gradient-to-br from-slate-900 to-slate-800 py-16">

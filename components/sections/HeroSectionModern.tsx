@@ -237,24 +237,6 @@ export default function HeroSection() {
               {/* Premium overlay for depth */}
               <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-black/8" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
-              
-              {/* Floating accent */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1, duration: 0.6 }}
-                className="absolute bottom-16 right-16"
-              >
-                <div className="bg-white/95 backdrop-blur-sm px-6 py-4 rounded-lg shadow-2xl">
-                  <Image
-                    src="/images/kinetikare-logo-kareem-hassanein-physiotherapy-transparent.png"
-                    alt="KinetiKare"
-                    width={50}
-                    height={50}
-                    className="opacity-90"
-                  />
-                </div>
-              </motion.div>
             </motion.div>
           </div>
         </div>

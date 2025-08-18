@@ -347,7 +347,7 @@ header.scrolled {
 .btn, 
 button[class*="btn"] {
   background: linear-gradient(135deg, #1A2036 0%, #3A4268 100%);
-  color: white;
+  color: white !important; /* Ensure white text visibility */
   border: none;
   padding: 0.8rem 1.75rem;
   border-radius: 10px;
@@ -368,6 +368,7 @@ button[class*="btn"]:hover {
   transform: translateY(-2px) translateZ(0);
   box-shadow: 0 6px 16px rgba(26, 32, 54, 0.18);
   background: linear-gradient(135deg, #252C45 0%, #434F7D 100%);
+  color: white !important; /* Keep white text on hover */
 }
 
 /* Gold accent styling - more pronounced */
@@ -470,7 +471,7 @@ section::before {
 /* Button styling - more contrastive */
 .btn-primary {
   background: linear-gradient(135deg, #1A2036 0%, #252E4A 100%);
-  color: #D4AF37;
+  color: white !important; /* White text for contrast */
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
   transform: translateZ(0);
   will-change: transform, background, box-shadow;
@@ -478,7 +479,7 @@ section::before {
 
 .btn-primary:hover {
   background: linear-gradient(135deg, #D4AF37 0%, #C8A52E 100%);
-  color: #1A2036;
+  color: #1A2036 !important; /* Dark text on gold background */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
   transform: translateY(-2px) translateZ(0);
 }
@@ -494,7 +495,7 @@ section::before {
 
 .btn-secondary:hover {
   background: linear-gradient(135deg, #1A2036 0%, #252E4A 100%);
-  color: white;
+  color: white !important; /* White text on dark background */
   border-color: transparent;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
   transform: translateY(-2px) translateZ(0);

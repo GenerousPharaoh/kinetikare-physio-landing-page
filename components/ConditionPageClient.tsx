@@ -283,28 +283,43 @@ export default function ConditionPageClient({
                 <main className="relative min-w-0">
                   {/* Coming Soon Message - Shown when no detailed content */}
                   {!hasDetailedContent ? (
-                    <div className="bg-amber-50 rounded-xl p-8 border-2 border-amber-200">
+                    <div className="bg-slate-50 rounded-xl p-8 border border-slate-200">
                       <div className="flex flex-col items-center text-center">
-                        <ClockIcon className="h-16 w-16 text-amber-600 mb-4" />
-                        <h2 className="text-2xl font-bold text-amber-900 mb-3">
-                          Detailed Content Coming Soon
+                        <ClockIcon className="h-16 w-16 text-slate-400 mb-4" />
+                        <h2 className="text-2xl font-bold text-slate-900 mb-3">
+                          Content Coming Soon
                         </h2>
-                        <p className="text-amber-800 max-w-2xl mb-6">
-                          We're currently developing comprehensive, evidence-based content for {condition.name}. 
-                          Our team is working to provide you with detailed information about symptoms, treatment approaches, 
-                          and the latest research for this condition.
+                        <p className="text-slate-600 max-w-2xl mb-6">
+                          Detailed information about {condition.name} is currently being developed.
                         </p>
-                        <p className="text-amber-700 mb-8">
-                          In the meantime, our experienced physiotherapists are ready to help you with personalized assessment and treatment.
-                        </p>
+                        
+                        {relatedConditions && relatedConditions.length > 0 && (
+                          <div className="w-full mb-8">
+                            <p className="text-slate-700 font-medium mb-4">
+                              In the meantime, check out these related conditions:
+                            </p>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-lg mx-auto">
+                              {relatedConditions.slice(0, 4).map((related) => (
+                                <Link
+                                  key={related.slug}
+                                  href={`/conditions/${related.slug}`}
+                                  className="bg-white hover:bg-slate-100 text-slate-700 px-4 py-2 rounded-lg border border-slate-200 transition-colors text-sm"
+                                >
+                                  {related.name}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                        
                         <Link 
                           href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-lg text-lg font-medium transition-colors inline-flex items-center gap-2"
+                          className="bg-slate-900 hover:bg-slate-800 text-white px-8 py-3 rounded-lg text-lg font-medium transition-colors inline-flex items-center gap-2"
                         >
                           <CalendarIcon className="h-5 w-5" />
-                          Book Your Consultation
+                          Book Consultation
                         </Link>
                       </div>
                     </div>

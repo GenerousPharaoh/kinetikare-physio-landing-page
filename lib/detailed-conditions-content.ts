@@ -2033,162 +2033,6 @@ The outer third has blood supply and can heal, while the inner portion has poor 
     accessAndHours: standardAccessAndHours
   },
 
-  'hip-pain': {
-    pathophysiology: `Hip pain is complex and can arise from multiple sources within the hip and pelvic region. Intra-articular pathology includes osteoarthritis (progressive cartilage breakdown), labral tears (fibrocartilage ring damage), and femoroacetabular impingement (abnormal bone contact). Extra-articular causes include tendinopathies (gluteal, hamstring, iliopsoas), bursitis, and referred pain from the lumbar spine or sacroiliac joint. The hip's deep location and extensive kinetic chain connections make accurate diagnosis challenging but essential for effective treatment.`,
-
-    clinicalPresentation: {
-      primarySymptoms: [
-        "Groin pain (suggests intra-articular pathology)",
-        "Lateral hip pain (suggests gluteal tendinopathy/bursitis)",
-        "Deep buttock pain (suggests deep gluteal syndrome or hamstring issues)",
-        "Morning stiffness lasting 30-60 minutes (suggests osteoarthritis)",
-        "Pain with weight bearing and stairs",
-        "Difficulty with hip flexion movements"
-      ],
-      associatedSymptoms: [
-        "Clicking, catching, or locking sensations",
-        "Night pain (especially with lateral hip conditions)",
-        "Radiating pain to thigh or knee",
-        "Low back or SI joint pain",
-        "Trendelenburg gait or hip drop",
-        "Functional limitations (sitting, car entry/exit)"
-      ],
-      typicalPattern: "Pain location provides diagnostic clues: groin pain suggests joint pathology, lateral pain suggests gluteal tendinopathy, anterior pain may indicate FAI or iliopsoas issues. Age, activity level, and mechanism help differentiate conditions."
-    },
-
-    evidenceSnapshot: {
-      firstLine: "Exercise therapy with manual therapy strongly recommended for most hip conditions",
-      imaging: "X-ray for suspected arthritis; MRI for labral pathology, tendinopathies, and soft tissue evaluation",
-      management: "Condition-specific strengthening, load management, and kinetic chain rehabilitation",
-      sources: "2018 JOSPT Clinical Practice Guidelines for Hip Osteoarthritis; Hip Preservation Society Guidelines"
-    },
-
-    whatToExpect: {
-      firstVisit: "I'll perform a comprehensive assessment including hip range of motion, strength testing, specific provocation tests, and kinetic chain evaluation to identify the exact source of your hip pain",
-      earlyPhase: "Focus on load management, pain reduction through appropriate activity modification, and beginning targeted exercises based on your specific condition",
-      progression: "Progressive strengthening of the entire lumbopelvic-hip complex, restoration of functional movement patterns, and gradual return to desired activities"
-    },
-
-    evidenceBasedTreatment: [
-      {
-        approach: "Targeted Hip Strengthening",
-        evidence: "Gluteal strengthening improves pain and function across multiple hip conditions. Load-capacity model guides progressive exercise prescription.",
-        effectivenessLevel: "strong"
-      },
-      {
-        approach: "Load Management",
-        evidence: "Activity modification to respect tissue capacity while maintaining function prevents symptom exacerbation",
-        effectivenessLevel: "strong"
-      },
-      {
-        approach: "Manual Therapy",
-        evidence: "Joint mobilization and soft tissue techniques provide short-term relief and enhance exercise tolerance",
-        effectivenessLevel: "moderate"
-      },
-      {
-        approach: "Movement Pattern Training",
-        evidence: "Addressing kinetic chain dysfunction improves long-term outcomes",
-        effectivenessLevel: "moderate"
-      }
-    ],
-
-    prognosis: {
-      timeline: "Highly condition-dependent: acute tendinopathies 6-12 weeks, osteoarthritis ongoing management with periodic flares, FAI 3-6 months with proper rehabilitation",
-      factors: [
-        "Specific diagnosis and tissue type",
-        "Duration and severity of symptoms",
-        "Activity demands and modifications",
-        "Body weight and metabolic health",
-        "Hip muscle strength and motor control",
-        "Kinetic chain function"
-      ],
-      naturalHistory: "Varies significantly by condition. Tendinopathies respond well to progressive loading. Osteoarthritis is progressive but symptoms can be well-managed. Early intervention improves outcomes across all conditions."
-    },
-
-    selfManagement: [
-      {
-        strategy: "Load-Capacity Balance",
-        rationale: "Hip pain often occurs when demands exceed tissue capacity. Temporarily reducing irritating loads while building capacity through exercise",
-        precautions: ["Avoid complete rest", "Progress exercises gradually", "Monitor symptom response"]
-      },
-      {
-        strategy: "Sleep Position Modification",
-        rationale: "Side-lying compression often aggravates lateral hip conditions",
-        precautions: ["Use pillow between knees", "Avoid sleeping on affected side initially"]
-      },
-      {
-        strategy: "Activity Modification",
-        rationale: "Maintain function while respecting tissue limitations",
-        precautions: ["Modify rather than eliminate activities", "Use pain as a guide"]
-      }
-    ],
-
-    clinicalRedFlags: [
-      {
-        sign: "Fever with hip pain or systemic symptoms",
-        action: "Immediate medical assessment for septic arthritis or other serious pathology"
-      },
-      {
-        sign: "Inability to bear weight after trauma",
-        action: "Emergency assessment for fracture"
-      },
-      {
-        sign: "Progressive neurological symptoms with buttock pain",
-        action: "Assessment for cauda equina or significant nerve compression"
-      },
-      {
-        sign: "Severe, constant night pain in older adults",
-        action: "Investigation for malignancy or avascular necrosis"
-      }
-    ],
-
-    keyResearch: [
-      {
-        title: "Exercise Therapy for Hip Osteoarthritis",
-        year: 2018,
-        findings: "Exercise therapy as effective as surgery for pain relief and functional improvement in many patients",
-        relevance: "Supports conservative management as first-line treatment"
-      },
-      {
-        title: "Gluteal Tendinopathy Load Management",
-        year: 2018,
-        findings: "Education and exercise program superior to corticosteroid injection for long-term outcomes",
-        relevance: "Evidence against injection-first approach, supports rehabilitation"
-      },
-      {
-        title: "Hip Strengthening for Multiple Conditions",
-        year: 2019,
-        findings: "Hip abductor and extensor strengthening effective across various hip pathologies",
-        relevance: "Supports comprehensive hip strengthening approach"
-      }
-    ],
-
-    differentialDiagnosis: [
-      {
-        condition: "Hip Osteoarthritis",
-        distinguishingFeatures: "Morning stiffness, groin pain, limited internal rotation, age >40"
-      },
-      {
-        condition: "Femoroacetabular Impingement",
-        distinguishingFeatures: "Sharp anterior pain with deep flexion, positive FADIR test, younger athletes"
-      },
-      {
-        condition: "Greater Trochanteric Pain Syndrome",
-        distinguishingFeatures: "Lateral hip pain, night pain with side-lying, positive single-leg stance test"
-      },
-      {
-        condition: "Deep Gluteal Syndrome",
-        distinguishingFeatures: "Buttock pain with radiating symptoms, negative lumbar spine tests"
-      },
-      {
-        condition: "Lumbar Referred Pain",
-        distinguishingFeatures: "Back pain history, positive neural tension tests, dermatomal distribution"
-      }
-    ],
-
-    measuringProgress: standardMeasuringProgress,
-    accessAndHours: standardAccessAndHours
-  },
 
   'hip-osteoarthritis': {
     pathophysiology: `Hip osteoarthritis is a dynamic process involving the entire joint structure, not simple "wear and tear." The most pervasive and damaging misconception about OA is that it's a simple "wear and tear" disease where the joint is worn out and nothing can be done. This is not the full picture. OA is a dynamic process involving the entire joint structure, and it does not mean your active life is over. It begins with articular cartilage breakdown (the smooth, white, slippery tissue covering bone ends), followed by subchondral bone changes, osteophyte formation ("bone spurs" - bony lumps growing in response to inflammation), and joint space narrowing. The process involves inflammatory mediators, altered biomechanics, and compensatory muscle weakness. Critically, pain is not directly proportional to radiographic changes - I have seen countless patients with "severe" OA on imaging who have minimal pain and excellent function, and vice versa. Your experience of pain is real, but it is not solely dictated by what an X-ray shows. 
@@ -2801,6 +2645,373 @@ Chronic tendon pain is frustrating because the pain is often worse with rest (li
       {
         condition: "True Bursitis",
         distinguishingFeatures: "Rare, usually post-traumatic or infectious, more diffuse swelling"
+      }
+    ],
+
+    measuringProgress: standardMeasuringProgress,
+    accessAndHours: standardAccessAndHours
+  },
+
+  'hip-labral-tears': {
+    pathophysiology: `Hip labral tears involve damage to the fibrocartilaginous ring (labrum) that deepens the acetabular socket and helps stabilize the hip joint. The labrum provides a suction seal that maintains negative pressure within the joint, contributing significantly to hip stability. When torn, this can result in mechanical symptoms and altered joint biomechanics. Labral tears often occur in conjunction with femoroacetabular impingement (FAI), where abnormal bone contact repeatedly stresses the labral tissue during hip movement. However, not all labral tears are symptomatic - many people have labral tears without pain. The development of symptoms depends on the tear's location, size, and the individual's activity demands.`,
+
+    clinicalPresentation: {
+      primarySymptoms: [
+        "Sharp, catching pain in the groin with certain movements",
+        "Clicking, catching, or locking sensations with hip movement",
+        "Deep aching pain in the groin or buttock region",
+        "Pain with pivoting, twisting, or rotational movements",
+        "Difficulty with deep hip flexion movements (squatting, sitting in low chairs)",
+        "C-sign: patients often trace a 'C' shape from groin to lateral hip to describe pain location"
+      ],
+      associatedSymptoms: [
+        "Mechanical symptoms (catching, giving way)",
+        "Pain with prolonged sitting or driving",
+        "Stiffness after periods of inactivity",
+        "Pain with sports requiring cutting or pivoting",
+        "Feeling of instability or hip 'giving way'",
+        "Night pain in some cases"
+      ],
+      typicalPattern: "Often presents in young, active adults. May have history of hip impingement symptoms. Pain is typically activity-related and may be associated with specific movements or positions. The C-sign is characteristic - patients trace pain from groin around to lateral hip."
+    },
+
+    evidenceSnapshot: {
+      firstLine: "Conservative management with physiotherapy is first-line treatment, with surgery reserved for cases failing conservative care",
+      imaging: "MRI arthrogram is gold standard for labral tear diagnosis. Standard MRI may miss tears",
+      management: "Activity modification, hip strengthening, movement pattern training. Address any underlying FAI morphology",
+      sources: "Hip Preservation Society Guidelines; International Hip Dysplasia Institute recommendations"
+    },
+
+    whatToExpect: {
+      firstVisit: "I'll assess your hip range of motion and perform specific tests for labral pathology including the FADIR test and flexion-internal rotation test. We'll discuss your symptoms pattern and activity triggers, and I'll evaluate for any underlying hip impingement that may have contributed to the tear",
+      earlyPhase: "Focus on activity modification to avoid aggravating movements while beginning gentle range of motion and muscle activation exercises. We'll work on hip stability and control",
+      progression: "Progressive strengthening program targeting the entire hip complex, with gradual return to sport-specific movements while respecting tissue healing timeframes"
+    },
+
+    evidenceBasedTreatment: [
+      {
+        approach: "Hip Strengthening Program",
+        evidence: "Targeted hip strengthening, particularly gluteal strengthening, improves symptoms and function",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Movement Pattern Training",
+        evidence: "Addressing faulty movement patterns reduces stress on the labrum",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Activity Modification",
+        evidence: "Avoiding provocative movements allows tissue adaptation",
+        effectivenessLevel: "moderate"
+      }
+    ],
+
+    prognosis: {
+      timeline: "Conservative management typically trialed for 3-6 months. Many patients respond well to physiotherapy",
+      factors: [
+        "Size and location of tear",
+        "Presence of underlying FAI",
+        "Activity demands",
+        "Age and tissue healing capacity",
+        "Compliance with rehabilitation"
+      ],
+      naturalHistory: "Many labral tears can be managed conservatively. Surgery considered if conservative management fails after appropriate trial"
+    },
+
+    selfManagement: [
+      {
+        strategy: "Avoid Provocative Movements",
+        rationale: "Deep hip flexion with rotation often aggravates labral tears",
+        precautions: ["Modify squatting depth", "Avoid extreme ranges of motion", "Use hip hinge patterns"]
+      },
+      {
+        strategy: "Hip Stability Exercises",
+        rationale: "Strong, coordinated hip muscles provide dynamic stability",
+        precautions: ["Progress gradually", "Focus on quality over quantity"]
+      }
+    ],
+
+    clinicalRedFlags: [
+      {
+        sign: "Significant mechanical locking preventing movement",
+        action: "Urgent orthopedic assessment for displaced tear or loose body"
+      },
+      {
+        sign: "Severe, constant pain not responsive to position changes",
+        action: "Assessment for other pathology or complications"
+      }
+    ],
+
+    keyResearch: [
+      {
+        title: "Conservative Management of Labral Tears",
+        year: 2019,
+        findings: "Physiotherapy effective for many patients with symptomatic labral tears",
+        relevance: "Supports conservative management as first-line treatment"
+      },
+      {
+        title: "Natural History of Labral Tears",
+        year: 2020,
+        findings: "Many asymptomatic labral tears exist; symptoms not solely related to tear presence",
+        relevance: "Emphasizes importance of clinical correlation over imaging findings"
+      }
+    ],
+
+    differentialDiagnosis: [
+      {
+        condition: "Femoroacetabular Impingement",
+        distinguishingFeatures: "May coexist; FAI often predisposes to labral tears"
+      },
+      {
+        condition: "Hip Flexor Strain",
+        distinguishingFeatures: "Anterior hip pain but usually with resisted hip flexion"
+      },
+      {
+        condition: "Adductor Strain",
+        distinguishingFeatures: "Medial groin pain, pain with adduction"
+      }
+    ],
+
+    measuringProgress: standardMeasuringProgress,
+    accessAndHours: standardAccessAndHours
+  },
+
+  'hip-bursitis': {
+    pathophysiology: `Hip bursitis involves inflammation of the fluid-filled sacs (bursae) that cushion the hip joint. The most commonly affected bursae are the trochanteric bursa (lateral hip) and iliopsoas bursa (anterior hip). However, true isolated bursitis is actually less common than previously thought. What was traditionally called "trochanteric bursitis" is now understood to be primarily gluteal tendinopathy. True bursitis typically occurs secondary to other conditions, trauma, or infection. The bursa becomes inflamed due to mechanical irritation, repetitive friction, or in rare cases, infection or inflammatory conditions.`,
+
+    clinicalPresentation: {
+      primarySymptoms: [
+        "Localized pain over the affected bursa",
+        "Pain with direct pressure on the bursa",
+        "Pain with movements that compress or stretch the bursa",
+        "Swelling or warmth over the affected area (if severe)",
+        "Pain that may radiate along the iliotibial band (trochanteric bursitis)"
+      ],
+      associatedSymptoms: [
+        "Night pain, especially when lying on affected side",
+        "Pain with prolonged walking or stair climbing",
+        "Stiffness in the hip region",
+        "Difficulty with activities requiring hip movement",
+        "May have systemic symptoms if infectious"
+      ],
+      typicalPattern: "Often develops following trauma, overuse, or as secondary to other hip conditions. Trochanteric bursitis presents with lateral hip pain, while iliopsoas bursitis causes anterior hip/groin pain."
+    },
+
+    evidenceSnapshot: {
+      firstLine: "Conservative management with activity modification, anti-inflammatory measures, and physiotherapy",
+      imaging: "Ultrasound or MRI can identify bursal inflammation and rule out other pathology",
+      management: "Address underlying causes, reduce inflammation, progressive return to activity",
+      sources: "American College of Rheumatology guidelines; Sports medicine literature"
+    },
+
+    whatToExpect: {
+      firstVisit: "I'll assess the location and nature of your pain, check for signs of infection or systemic inflammation, and evaluate for underlying conditions that may have contributed to the bursitis",
+      earlyPhase: "Focus on reducing inflammation through activity modification and appropriate loading. Begin gentle range of motion exercises",
+      progression: "Gradually increase activity as inflammation resolves, address any underlying biomechanical issues"
+    },
+
+    evidenceBasedTreatment: [
+      {
+        approach: "Activity Modification",
+        evidence: "Rest from aggravating activities allows inflammation to resolve",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Progressive Loading",
+        evidence: "Gradual return to activity prevents re-aggravation",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Address Underlying Causes",
+        evidence: "Treating predisposing factors prevents recurrence",
+        effectivenessLevel: "moderate"
+      }
+    ],
+
+    prognosis: {
+      timeline: "Acute bursitis typically resolves in 2-6 weeks with appropriate management",
+      factors: [
+        "Underlying cause",
+        "Severity of inflammation",
+        "Compliance with treatment",
+        "Presence of infection",
+        "Concurrent conditions"
+      ],
+      naturalHistory: "Generally good prognosis with conservative management. Chronic cases may require more intensive intervention"
+    },
+
+    selfManagement: [
+      {
+        strategy: "Avoid Direct Pressure",
+        rationale: "Reducing mechanical irritation allows inflammation to resolve",
+        precautions: ["Use pillow between knees when side-lying", "Avoid prolonged pressure on affected area"]
+      },
+      {
+        strategy: "Gradual Activity Progression",
+        rationale: "Prevents re-aggravation while maintaining function",
+        precautions: ["Monitor pain response", "Progress slowly"]
+      }
+    ],
+
+    clinicalRedFlags: [
+      {
+        sign: "Fever, systemic illness, or rapidly spreading redness",
+        action: "Immediate medical assessment for septic bursitis"
+      },
+      {
+        sign: "Severe swelling with marked restriction of movement",
+        action: "Assessment for complications or alternative diagnosis"
+      }
+    ],
+
+    keyResearch: [
+      {
+        title: "Trochanteric Bursitis vs Gluteal Tendinopathy",
+        year: 2018,
+        findings: "Most lateral hip pain attributed to gluteal tendinopathy rather than true bursitis",
+        relevance: "Influences diagnostic approach and treatment selection"
+      }
+    ],
+
+    differentialDiagnosis: [
+      {
+        condition: "Gluteal Tendinopathy",
+        distinguishingFeatures: "More common cause of lateral hip pain than true bursitis"
+      },
+      {
+        condition: "Hip Osteoarthritis",
+        distinguishingFeatures: "Joint-related symptoms, morning stiffness, limited ROM"
+      },
+      {
+        condition: "Stress Fracture",
+        distinguishingFeatures: "Bone pain, often related to increased activity"
+      }
+    ],
+
+    measuringProgress: standardMeasuringProgress,
+    accessAndHours: standardAccessAndHours
+  },
+
+  'deep-gluteal-syndrome': {
+    pathophysiology: `Deep gluteal syndrome encompasses a group of conditions causing sciatic nerve entrapment in the deep gluteal space. The sciatic nerve travels through the piriformis muscle or between the piriformis and other deep rotators, where it can become compressed or irritated. This can occur due to piriformis muscle spasm, anatomical variations, scar tissue, or other space-occupying lesions. The syndrome is often misdiagnosed as lumbar radiculopathy, but differs in that the nerve compression occurs in the gluteal region rather than at the spine. Understanding this distinction is crucial for appropriate treatment, as spinal treatments may not address the true source of symptoms.`,
+
+    clinicalPresentation: {
+      primarySymptoms: [
+        "Deep buttock pain, often described as aching or burning",
+        "Pain radiating down the posterior or lateral thigh",
+        "Numbness or tingling in the leg following sciatic nerve distribution",
+        "Pain worsened by sitting, especially on hard surfaces",
+        "Pain with activities requiring hip external rotation or flexion"
+      ],
+      associatedSymptoms: [
+        "Weakness in the affected leg",
+        "Pain with walking or climbing stairs",
+        "Difficulty finding comfortable sitting position",
+        "Pain may be relieved by standing or changing position",
+        "Symptoms often unilateral",
+        "May have history of hip or buttock trauma"
+      ],
+      typicalPattern: "Often presents as deep buttock pain with referred symptoms down the leg. Symptoms may mimic lumbar radiculopathy but lack typical spinal signs. Pain is often positional and may be triggered by specific movements or prolonged sitting."
+    },
+
+    evidenceSnapshot: {
+      firstLine: "Conservative management focusing on neural mobilization, piriformis stretching, and addressing contributing factors",
+      imaging: "MRI can rule out spinal pathology; specialized imaging may identify anatomical variants",
+      management: "Neural mobility exercises, deep muscle release, postural correction, activity modification",
+      sources: "Clinical practice guidelines for piriformis syndrome; peripheral nerve entrapment literature"
+    },
+
+    whatToExpect: {
+      firstVisit: "I'll perform a comprehensive assessment to differentiate deep gluteal syndrome from lumbar spine pathology. This includes specific tests for piriformis tightness, neural tension tests, and evaluation of deep hip rotator function",
+      earlyPhase: "Focus on reducing neural irritation through positioning, gentle neural mobilization, and addressing muscle tension in the deep gluteal region",
+      progression: "Progressive strengthening of hip stabilizers while maintaining neural mobility and addressing any contributing postural or movement patterns"
+    },
+
+    evidenceBasedTreatment: [
+      {
+        approach: "Neural Mobilization",
+        evidence: "Specific neural mobility exercises can reduce nerve tension and improve symptoms",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Deep Muscle Release",
+        evidence: "Manual therapy targeting piriformis and deep rotators can relieve compression",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Postural Correction",
+        evidence: "Addressing contributing postural factors reduces symptom recurrence",
+        effectivenessLevel: "moderate"
+      }
+    ],
+
+    prognosis: {
+      timeline: "Conservative management typically trialed for 6-12 weeks, with many patients experiencing improvement",
+      factors: [
+        "Duration of symptoms",
+        "Presence of anatomical variants",
+        "Contributing factors (posture, activities)",
+        "Severity of nerve compression",
+        "Response to conservative treatment"
+      ],
+      naturalHistory: "Generally responds well to conservative management when properly diagnosed. Chronic cases may require more intensive intervention"
+    },
+
+    selfManagement: [
+      {
+        strategy: "Avoid Prolonged Sitting",
+        rationale: "Reduces compression on the sciatic nerve in the gluteal region",
+        precautions: ["Take frequent breaks", "Use cushioning", "Vary sitting positions"]
+      },
+      {
+        strategy: "Gentle Neural Stretching",
+        rationale: "Maintains nerve mobility and reduces adhesions",
+        precautions: ["Avoid aggressive stretching", "Stop if symptoms worsen"]
+      }
+    ],
+
+    clinicalRedFlags: [
+      {
+        sign: "Progressive neurological deficit or weakness",
+        action: "Urgent assessment for significant nerve compression"
+      },
+      {
+        sign: "Bilateral symptoms or cauda equina signs",
+        action: "Emergency spinal assessment"
+      },
+      {
+        sign: "Severe, constant pain not responsive to position changes",
+        action: "Investigation for other pathology"
+      }
+    ],
+
+    keyResearch: [
+      {
+        title: "Deep Gluteal Syndrome Diagnosis and Management",
+        year: 2020,
+        findings: "Comprehensive approach including neural mobilization effective for most patients",
+        relevance: "Supports conservative management approach"
+      },
+      {
+        title: "Piriformis Syndrome vs Lumbar Radiculopathy",
+        year: 2019,
+        findings: "Careful differential diagnosis essential for appropriate treatment",
+        relevance: "Emphasizes importance of accurate diagnosis"
+      }
+    ],
+
+    differentialDiagnosis: [
+      {
+        condition: "Lumbar Radiculopathy",
+        distinguishingFeatures: "Spinal signs, dermatomal distribution, positive straight leg raise"
+      },
+      {
+        condition: "Proximal Hamstring Tendinopathy",
+        distinguishingFeatures: "Localized ischial tuberosity tenderness, sitting pain"
+      },
+      {
+        condition: "Sacroiliac Joint Dysfunction",
+        distinguishingFeatures: "SI joint tenderness, positive SI provocation tests"
       }
     ],
 
@@ -4103,214 +4314,6 @@ After a painful groin injury, it's common for athletes to develop a fear of re-i
     // Coming soon - comprehensive content under development
   },
 
-  'proximal-hamstring-tendinopathy': {
-    pathophysiology: `Proximal hamstring tendinopathy involves irritation and degeneration of the hamstring tendon at its origin on the ischial tuberosity (sitting bone). The most common mistake people make is treating this like a simple hamstring muscle strain. They aggressively stretch it, hoping to find relief, but this often makes it worse. A tendinopathy at the hamstring's origin is sensitive to both compressive and tensile loads. Aggressive stretching places a high tensile load on the tendon, while sitting on it directly compresses it against the ischial tuberosity. Both actions can perpetuate the pain cycle. The belief that you need to "stretch it out" is a primary barrier to recovery.
-
-Proximal hamstring tendinopathy is often linked to altered running mechanics. A common pattern is an "over-striding" gait, where the foot lands too far in front of the body's center of mass. This puts a massive braking and tensile load on the hamstring at the moment of foot strike. This gait pattern is often driven by weak gluteal muscles. If the glutes aren't powerful enough to drive hip extension, the hamstrings are forced to overwork, leading to overload at the tendon.
-
-The constant, nagging pain with a simple act like sitting can be incredibly distressing and mentally fatiguing. It can create fear and avoidance of social situations where sitting is required. The brain starts to associate the act of sitting with a threat, which can amplify the pain experience.`,
-
-    clinicalPresentation: {
-      primarySymptoms: [
-        "Deep buttock pain centered on the 'sitting bone' (ischial tuberosity) where hamstring muscles originate",
-        "Pain with prolonged sitting - hallmark symptom, especially on harder surfaces",
-        "Deep, localized ache right in crease of buttock - feeling like sitting on a rock",
-        "Pain during or after activity that stretches or loads the hamstring (running, especially uphill or at high speeds, lunging, squatting deeply)",
-        "Start-up stiffness and pain when transitioning from sitting to standing"
-      ],
-      associatedSymptoms: [
-        "Deep stiffness or tightness in upper hamstring/lower gluteal region",
-        "Pain with stretching hamstrings (touching toes often reproduces deep, localized pain)",
-        "Difficulty with prolonged driving, sitting at desk, or enjoying meals at restaurants",
-        "Need to shift weight, stand up frequently, or perch on edge of seat",
-        "Pain that forces constant position changes during sitting"
-      ],
-      typicalPattern: "Story is almost always centered around one specific, exquisitely tender spot: the ischial tuberosity. Pain is deep, localized ache right in crease of buttock. Insidious onset, frequently linked to change in activity - the long-distance runner who recently added hill repeats to training, or office worker who started new spin class. Most defining feature is pain with sitting. Prolonged driving, sitting at desk, or enjoying meal at restaurant becomes painful ordeal."
-    },
-
-    evidenceSnapshot: {
-      firstLine: "Progressive loading program based on principles from gluteal tendinopathy management",
-      imaging: "MRI or ultrasound can confirm tendinopathy if diagnosis unclear. Usually clinical diagnosis",
-      management: "Load management focusing on sitting modifications and compression avoidance, followed by progressive strengthening",
-      sources: "2015 Goom et al. JOSPT; Tendinopathy management principles"
-    },
-
-    whatToExpect: {
-      firstVisit: "When I suspect proximal hamstring tendinopathy, my questioning becomes very specific. 'Tell me about your sitting pain. What kind of chair makes it worse? Does a cushion help? Do you find yourself sitting on one side to offload it?' I'll ask about your training history in detail: 'When exactly did you add the hill sprints? What was your mileage before that?' I'm looking for the classic 'too much, too soon' narrative that often underlies tendinopathies. My objective exam includes precise palpation of the ischial tuberosity (this area will be exquisitely tender), specific tests to load the tendon like the Bent-Knee Stretch Test, and hamstring strength testing in various positions. The inability to sit comfortably is often the primary complaint, even more so than pain with running.",
-      earlyPhase: "First, we must stop irritating the tendon by managing compressive and tensile loads. This might mean temporarily reducing running mileage or avoiding specific activities that cause painful symptoms. For the next several weeks, we'll implement sitting modifications - using special cushions, sitting on higher chairs, or getting up more frequently. You must also learn to substitute deep forward bending with a proper hip hinge for daily activities like picking things up.",
-      progression: "The approach is methodical and patient. Once initial irritation calms down, we embark on progressive loading program designed to stimulate adaptation and build tendon's capacity. Journey starts with gentle isometrics and progresses to heavy, slow resistance training and eventually, energy storage exercises relevant to your sport."
-    },
-
-    evidenceBasedTreatment: [
-      {
-        approach: "Load Management and Activity Modification",
-        evidence: "Managing compressive (sitting) and tensile (stretching) loads essential for symptom reduction",
-        effectivenessLevel: "strong"
-      },
-      {
-        approach: "Progressive Loading Exercise",
-        evidence: "Systematic progression from isometric to energy storage exercises promotes tendon adaptation",
-        effectivenessLevel: "strong"
-      },
-      {
-        approach: "Posterior Chain Strengthening",
-        evidence: "Addressing weak gluteal muscles reduces hamstring overload and improves running mechanics",
-        effectivenessLevel: "strong"
-      },
-      {
-        approach: "Manual Therapy",
-        evidence: "Soft tissue work on hamstring muscle belly (not tendon) and gluteal muscles can address associated tension",
-        effectivenessLevel: "moderate"
-      }
-    ],
-
-    prognosis: {
-      timeline: "This can be a stubborn condition. Meaningful pain reduction from load management can happen in a few weeks, but building tendon strength and resilience is long process - expect 3 to 9 months to get back to desired activities without significant pain. Progression must be slow and steady; pushing through pain will set you back",
-      factors: [
-        "Duration of symptoms before appropriate treatment",
-        "Compliance with sitting modifications and load management",
-        "Running mechanics and gluteal strength",
-        "Ability to avoid aggravating stretching",
-        "Baseline activity level and goals",
-        "Understanding of tendinopathy principles"
-      ],
-      naturalHistory: "Notorious for persistence if not managed appropriately. Responds well to systematic load management and progressive strengthening when principles are followed consistently"
-    },
-
-    selfManagement: [
-      {
-        strategy: "Sitting Modifications",
-        rationale: "Direct compression of tendon against ischial tuberosity is primary aggravating factor",
-        precautions: ["Use cushion or rolled towel under thighs", "Sit on higher chairs", "Take frequent standing breaks", "Avoid hard surfaces"]
-      },
-      {
-        strategy: "Avoid Aggressive Stretching",
-        rationale: "Hamstring stretching places high tensile load on already sensitive tendon",
-        precautions: ["No toe touches or deep hamstring stretches", "Use hip hinge instead of forward bending", "Focus on strengthening over stretching"]
-      },
-      {
-        strategy: "Progressive Loading",
-        rationale: "Only way to make tendon more resilient is through carefully graded strengthening program",
-        precautions: ["Start with isometric exercises", "Progress very gradually", "Monitor symptoms closely"]
-      }
-    ],
-
-    clinicalRedFlags: [
-      {
-        sign: "Severe pain with neurological symptoms (numbness, weakness, foot drop)",
-        action: "Urgent assessment for nerve involvement or disc pathology"
-      },
-      {
-        sign: "Sudden onset with audible pop",
-        action: "Investigation for complete tendon avulsion"
-      },
-      {
-        sign: "No improvement after 3 months of appropriate management",
-        action: "Consider advanced imaging and specialist referral"
-      }
-    ],
-
-    keyResearch: [
-      {
-        title: "Gluteal Tendinopathy Rehabilitation Progression",
-        year: 2015,
-        findings: "Systematic progression from isometrics to heavy slow resistance and energy storage exercises - principles adapted for proximal hamstring tendinopathy",
-        relevance: "Guides evidence-based exercise progression"
-      },
-      {
-        title: "Load Management in Tendinopathy",
-        year: 2016,
-        findings: "Load modification essential for tendon recovery - both compression and tension must be managed",
-        relevance: "Supports sitting modification and stretch avoidance strategies"
-      },
-      {
-        title: "Running Mechanics and Hamstring Load",
-        year: 2018,
-        findings: "Over-striding gait increases hamstring load and injury risk. Gluteal strengthening improves mechanics",
-        relevance: "Links running mechanics to injury and guides treatment approach"
-      }
-    ],
-
-    specificTests: [
-      {
-        test: "Direct Palpation of Ischial Tuberosity",
-        finding: "Exquisite tenderness at tendon insertion",
-        significance: "Confirms location of pathology"
-      },
-      {
-        test: "Bent-Knee Stretch Test",
-        finding: "Reproduces specific sitting bone pain with combined hip flexion and compression",
-        significance: "Functional test that reproduces symptoms through loading mechanism"
-      },
-      {
-        test: "Resisted Knee Flexion and Hip Extension",
-        finding: "May reproduce pain and reveal strength deficits",
-        significance: "Tests hamstring function in both knee flexion and hip extension roles"
-      }
-    ],
-
-    exerciseProgression: {
-      phase1: {
-        title: "Phase 1: Calming the System & Creating a Foundation (Weeks 1-6)",
-        focus: "Goal here is pain reduction and load management. We implement sitting modifications immediately. We eliminate provocative stretching. We begin with isometric exercises which can have an analgesic (pain-relieving) effect.",
-        examples: [
-          "Isometric Hamstring Bridge: Lie on back with legs straighter than normal glute bridge. Dig heels into floor and lift hips just inch or two. Hold position, feeling tension in hamstrings. Activates hamstrings in hip extender role without taking them through large range of motion",
-          "Sitting modifications: Special cushions, higher chairs, frequent position changes",
-          "Activity modification: Avoid deep forward bending, substitute hip hinge pattern",
-          "Education about compression vs. tensile loads",
-          "No aggressive hamstring stretching"
-        ],
-        progressionCriteria: "Reduced sitting pain (can sit through 45-minute meeting without constant shifting), better understanding of aggravating factors"
-      },
-      phase2: {
-        title: "Phase 2: Building Robust Capacity (Weeks 7-20)",
-        focus: "Once tendon is less irritable, we introduce isotonic exercises (strengthening through range of motion), but we carefully control range to avoid deep hip flexion.",
-        examples: [
-          "Romanian Deadlift to Limited Range: Stand holding light weight. With slight bend in knees, hinge forward at hips, keeping back straight. Go down only as far as you can without feeling pain or deep stretch at sitting bone, then squeeze glutes and hamstrings to return upright. Fantastic exercise for entire posterior chain",
-          "Glute bridges progressing to single-leg versions",
-          "Step-downs with control",
-          "Nordic hamstring progressions (eccentric strengthening)",
-          "Walking and easy jogging progression"
-        ],
-        progressionCriteria: "Improved sitting tolerance (can drive for hour without deep ache), stronger RDL performance, less start-up pain"
-      },
-      phase3: {
-        title: "Phase 3: Restoring Full Function & Resilience (Months 4-9+)",
-        focus: "Build strength and power needed to return to sport and high-level activity. We increase loads, increase range of motion, and eventually add speed and impact.",
-        examples: [
-          "Kettlebell Swings: Powerful hip hinge movement that develops explosive strength in hamstrings and glutes. For athletes, hamstring's job is not just to bend knee; it's to store and release energy like spring",
-          "Plyometric progressions (bounding, skipping)",
-          "Sport-specific running drills",
-          "Return to full range Romanian deadlifts",
-          "High-speed running progression",
-          "Return to sport activities with proper progression"
-        ],
-        progressionCriteria: "Can complete short, easy run completely pain-free, feel stronger and more powerful in RDLs, confident return to sport activities"
-      }
-    },
-
-    differentialDiagnosis: [
-      {
-        condition: "Deep Gluteal Syndrome",
-        distinguishingFeatures: "Nerve symptoms down leg, negative lumbar spine tests, pain with hip rotation positions"
-      },
-      {
-        condition: "Lumbar Radiculopathy",
-        distinguishingFeatures: "Back pain, dermatomal distribution, positive neural tension tests"
-      },
-      {
-        condition: "Ischial Bursitis",
-        distinguishingFeatures: "More diffuse pain, less specific to tendon insertion"
-      },
-      {
-        condition: "Hamstring Muscle Strain",
-        distinguishingFeatures: "Acute onset, pain in muscle belly rather than insertion, responds to stretching"
-      }
-    ],
-
-    measuringProgress: standardMeasuringProgress,
-    accessAndHours: standardAccessAndHours
-  },
 
   'peroneal-tendinopathy': {
     // Coming soon - comprehensive content under development

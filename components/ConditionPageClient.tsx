@@ -146,54 +146,48 @@ export default function ConditionPageClient({
                 <span className="text-slate-900 font-medium">{condition.name}</span>
               </nav>
 
-              <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-3">
-                <div className="flex-1">
-                  <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-1.5">
-                    {condition.name}
-                  </h1>
-                  {condition.description && (
-                    <p className="text-sm md:text-base text-slate-500 max-w-3xl">
-                      {condition.description}
-                    </p>
-                  )}
-                </div>
-                
-                {/* Red Flags Disclaimer - positioned to the right on desktop, below on mobile */}
-                {((condition.clinicalRedFlags && condition.clinicalRedFlags.length > 0) || 
-                  (condition.redFlags && condition.redFlags.length > 0)) && (
-                  <div className="lg:ml-8 relative">
-                    <details className="group">
-                      <summary className="flex items-center gap-1.5 cursor-pointer list-none text-xs text-red-700 hover:text-red-800 transition-colors">
-                        <ExclamationTriangleIcon className="h-3.5 w-3.5" />
-                        <span className="underline">Important: When to seek immediate medical attention</span>
-                        <ChevronDownIcon className="h-3.5 w-3.5 group-open:rotate-180 transition-transform" />
-                      </summary>
-                      <div className="mt-2 p-3 bg-red-50 rounded-lg border border-red-200 absolute z-50 left-0 right-0 lg:left-auto lg:right-0 lg:w-[400px] shadow-lg">
-                        <div className="space-y-2">
-                          {condition.clinicalRedFlags ? (
-                            condition.clinicalRedFlags.map((flag, index) => (
-                              <div key={index} className="flex items-start gap-2 text-xs">
-                                <div className="mt-1 h-1.5 w-1.5 bg-red-500 rounded-full flex-shrink-0" />
-                                <div>
-                                  <p className="font-medium text-red-900">{flag.sign}</p>
-                                  <p className="text-red-700 mt-0.5">{flag.action}</p>
-                                </div>
-                              </div>
-                            ))
-                          ) : (
-                            condition.redFlags?.map((flag, index) => (
-                              <div key={index} className="flex items-start gap-2 text-xs">
-                                <div className="mt-1 h-1.5 w-1.5 bg-red-500 rounded-full flex-shrink-0" />
-                                <span className="text-red-800">{flag}</span>
-                              </div>
-                            ))
-                          )}
-                        </div>
-                      </div>
-                    </details>
+              <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-1.5">
+                {condition.name}
+              </h1>
+              {condition.description && (
+                <p className="text-sm md:text-base text-slate-500 max-w-3xl">
+                  {condition.description}
+                </p>
+              )}
+              
+              {/* Red Flags Disclaimer - Simple expandable that pushes content */}
+              {((condition.clinicalRedFlags && condition.clinicalRedFlags.length > 0) || 
+                (condition.redFlags && condition.redFlags.length > 0)) && (
+                <details className="group mt-3">
+                  <summary className="flex items-center gap-1.5 cursor-pointer list-none text-xs text-red-700 hover:text-red-800 transition-colors">
+                    <ExclamationTriangleIcon className="h-3.5 w-3.5" />
+                    <span className="underline">Important: When to seek immediate medical attention</span>
+                    <ChevronDownIcon className="h-3.5 w-3.5 group-open:rotate-180 transition-transform" />
+                  </summary>
+                  <div className="mt-2 p-3 bg-red-50 rounded-lg border border-red-200">
+                    <div className="grid md:grid-cols-2 gap-3">
+                      {condition.clinicalRedFlags ? (
+                        condition.clinicalRedFlags.map((flag, index) => (
+                          <div key={index} className="flex items-start gap-2 text-xs">
+                            <div className="mt-1 h-1.5 w-1.5 bg-red-500 rounded-full flex-shrink-0" />
+                            <div>
+                              <p className="font-medium text-red-900">{flag.sign}</p>
+                              <p className="text-red-700 mt-0.5">{flag.action}</p>
+                            </div>
+                          </div>
+                        ))
+                      ) : (
+                        condition.redFlags?.map((flag, index) => (
+                          <div key={index} className="flex items-start gap-2 text-xs">
+                            <div className="mt-1 h-1.5 w-1.5 bg-red-500 rounded-full flex-shrink-0" />
+                            <span className="text-red-800">{flag}</span>
+                          </div>
+                        ))
+                      )}
+                    </div>
                   </div>
-                )}
-              </div>
+                </details>
+              )}
             </div>
           </div>
         </section>

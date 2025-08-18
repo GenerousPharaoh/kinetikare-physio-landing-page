@@ -422,7 +422,7 @@ When the nerve is irritated, it can cause pain, numbness, or weakness anywhere a
     accessAndHours: standardAccessAndHours
   },
 
-  'rotator-cuff-injury': {
+  'rotator-cuff-injuries': {
     pathophysiology: `The rotator cuff consists of four muscles that stabilize and move your shoulder. These tendons can be injured through sudden trauma or gradual wear. The tendon tissue becomes disorganized and may develop tears.
 
 Poor blood supply to certain areas of these tendons makes healing slower. Shoulder blade positioning and muscle imbalances often contribute to ongoing irritation.`,
@@ -984,7 +984,7 @@ The exact trigger is often unknown but can follow injury, surgery, or periods of
     accessAndHours: standardAccessAndHours
   },
 
-  'acl-tear': {
+  'acl-injuries': {
     pathophysiology: `The ACL (anterior cruciate ligament) is crucial for knee stability, preventing the tibia from sliding forward. Tears usually occur during cutting, pivoting, or landing movements. The ligament has poor blood supply, limiting natural healing capacity.
 
 After injury, the knee loses rotational stability, leading to episodes of giving way and potential damage to other structures like the meniscus and cartilage.`,
@@ -3044,6 +3044,55 @@ The outer third has blood supply and can heal, while the inner portion has poor 
       activityTarget: "Return to full jumping and landing activities"
     },
     accessAndHours: standardAccessAndHours
+  },
+
+  // Placeholder entries for conditions under development
+  'knee-pain-patellofemoral': {
+    // Coming soon - comprehensive content under development
+  },
+
+  'degenerative-disc-disease': {
+    // Coming soon - comprehensive content under development
+  },
+
+  'spinal-stenosis': {
+    // Coming soon - comprehensive content under development
+  },
+
+  'postural-dysfunction': {
+    // Coming soon - comprehensive content under development
+  },
+
+  'headaches-migraines': {
+    // Coming soon - comprehensive content under development
+  },
+
+  'shoulder-instability': {
+    // Coming soon - comprehensive content under development
+  },
+
+  'shoulder-bursitis': {
+    // Coming soon - comprehensive content under development
+  },
+
+  'wrist-sprains': {
+    // Coming soon - comprehensive content under development
+  },
+
+  'repetitive-strain-injuries': {
+    // Coming soon - comprehensive content under development
+  },
+
+  'si-joint-dysfunction': {
+    // Coming soon - comprehensive content under development
+  },
+
+  'pcl-injuries': {
+    // Coming soon - comprehensive content under development
+  },
+
+  'peroneal-tendinopathy': {
+    // Coming soon - comprehensive content under development
   }
 };
 

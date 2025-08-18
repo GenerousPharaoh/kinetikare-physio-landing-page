@@ -790,8 +790,8 @@ export default function ConditionPageClient({
                   <div className="space-y-6">
                     {/* Quick Actions */}
                     <div className="bg-gradient-to-br from-[#B08D57]/10 to-[#D4AF37]/10 rounded-xl p-6 border border-[#B08D57]/20">
-                      <h3 className="font-semibold text-slate-900 mb-4">Ready to Get Started?</h3>
-                      <p className="text-sm text-slate-600 mb-4">If this page matches what you are dealing with and you want a clear plan, book an assessment or send a question first.</p>
+                      <h3 className="font-semibold text-slate-900 mb-4">Take the Next Step</h3>
+                      <p className="text-sm text-slate-600 mb-4">If this information resonates with your experience, let's work together on your recovery.</p>
                       <div className="space-y-3">
                         <Link
                           href="https://endorphinshealth.janeapp.com/#/staff_member/42"

@@ -138,36 +138,6 @@ export default function ConditionPageClient({
       />
 
       <div className="bg-white min-h-screen">
-        {/* Coming Soon Banner */}
-        {!hasDetailedContent && (
-          <div className="bg-amber-50 border-b border-amber-200">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="max-w-7xl mx-auto py-4">
-                <div className="flex items-center gap-3">
-                  <div className="flex-shrink-0">
-                    <ClockIcon className="h-6 w-6 text-amber-600" />
-                  </div>
-                  <div className="flex-1">
-                    <h2 className="text-lg font-semibold text-amber-900">
-                      Detailed Content Coming Soon
-                    </h2>
-                    <p className="text-sm text-amber-800 mt-1">
-                      We're currently developing comprehensive, evidence-based content for this condition. 
-                      In the meantime, please book a consultation for personalized assessment and treatment.
-                    </p>
-                  </div>
-                  <Link 
-                    href="/booking"
-                    className="flex-shrink-0 bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors"
-                  >
-                    Book Consultation
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-
         {/* Minimal Hero with Breadcrumbs */}
         <section className="pt-24 pb-8 bg-gradient-to-b from-slate-50 to-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -311,6 +281,34 @@ export default function ConditionPageClient({
               <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-8">
                 {/* Main Content - min-w-0 prevents overflow */}
                 <main className="relative min-w-0">
+                  {/* Coming Soon Message - Shown when no detailed content */}
+                  {!hasDetailedContent ? (
+                    <div className="bg-amber-50 rounded-xl p-8 border-2 border-amber-200">
+                      <div className="flex flex-col items-center text-center">
+                        <ClockIcon className="h-16 w-16 text-amber-600 mb-4" />
+                        <h2 className="text-2xl font-bold text-amber-900 mb-3">
+                          Detailed Content Coming Soon
+                        </h2>
+                        <p className="text-amber-800 max-w-2xl mb-6">
+                          We're currently developing comprehensive, evidence-based content for {condition.name}. 
+                          Our team is working to provide you with detailed information about symptoms, treatment approaches, 
+                          and the latest research for this condition.
+                        </p>
+                        <p className="text-amber-700 mb-8">
+                          In the meantime, our experienced physiotherapists are ready to help you with personalized assessment and treatment.
+                        </p>
+                        <Link 
+                          href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-lg text-lg font-medium transition-colors inline-flex items-center gap-2"
+                        >
+                          <CalendarIcon className="h-5 w-5" />
+                          Book Your Consultation
+                        </Link>
+                      </div>
+                    </div>
+                  ) : (
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={activeTab}
@@ -775,6 +773,7 @@ export default function ConditionPageClient({
                       )}
                     </motion.div>
                   </AnimatePresence>
+                  )}
                 </main>
 
                 {/* Sidebar - Sticky on desktop with proper z-index */}

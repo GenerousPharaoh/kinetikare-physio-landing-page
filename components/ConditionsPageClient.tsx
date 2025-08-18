@@ -90,7 +90,7 @@ function ConditionsPageWithParams({
   return (
     <main className="bg-white min-h-screen">
       {/* COMPLETELY REDESIGNED Hero Section */}
-      <section className="relative pt-32 lg:pt-40 pb-16 bg-gradient-to-br from-slate-50 via-white to-[#B08D57]/5">
+      <section className="relative pt-32 lg:pt-40 pb-8 bg-gradient-to-br from-slate-50 via-white to-[#B08D57]/5">
         {/* Premium Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-[#B08D57]/25 via-[#D4AF37]/15 to-transparent rounded-full blur-[150px] opacity-60"></div>
@@ -103,18 +103,18 @@ function ConditionsPageWithParams({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="text-center mb-12"
+              className="text-center mb-6"
             >
               
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 mb-8 leading-[1.05] tracking-tight">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 mb-6 leading-[1.05] tracking-tight">
                 Conditions I <span className="bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent">Treat</span>
               </h1>
-              <p className="text-xl md:text-2xl text-slate-700 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
+              <p className="text-xl md:text-2xl text-slate-700 mb-8 max-w-3xl mx-auto leading-relaxed font-light">
                 From acute injuries to chronic conditions, I provide personalized care tailored to your specific needs and recovery goals
               </p>
 
               {/* PREMIUM Search Bar */}
-              <div className="max-w-2xl mx-auto mb-8">
+              <div className="max-w-2xl mx-auto mb-4">
                 <div className="relative group">
                   <div className="relative bg-white rounded-full border-2 border-slate-200 hover:border-[#B08D57] transition-all duration-300 shadow-xl hover:shadow-2xl">
                     <MagnifyingGlassIcon className="absolute left-6 top-1/2 transform -translate-y-1/2 h-6 w-6 text-[#B08D57]" />
@@ -134,10 +134,10 @@ function ConditionsPageWithParams({
       </section>
 
       {/* Main Content - NO SCROLLING ISSUES */}
-      <section className="pt-8 pb-20 relative bg-white">
+      <section className="pt-4 pb-20 relative bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* PREMIUM Navigation Tabs */}
-          <div className="max-w-6xl mx-auto mb-16">
+          <div className="max-w-6xl mx-auto mb-8">
             {/* Add padding to prevent pill button cutoff */}
             <div className="flex flex-wrap justify-center gap-4 py-2">
               {quickNavItems.map((item, index) => (

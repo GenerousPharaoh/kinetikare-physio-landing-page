@@ -134,17 +134,19 @@ function ConditionsPageWithParams({
       </section>
 
       {/* Main Content - NO SCROLLING ISSUES */}
-      <section className="pt-0 pb-20 relative bg-white">
+      <section className="pt-0 pb-12 relative bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* PREMIUM Navigation Tabs */}
-          <div className="max-w-6xl mx-auto mb-4">
+          <div className="max-w-6xl mx-auto mb-2">
+            {/* Filter Label */}
+            <p className="text-center text-sm text-slate-500 mb-2 font-medium">Filter by Body Region</p>
             {/* Add padding to prevent pill button cutoff */}
-            <div className="flex flex-wrap justify-center gap-4 py-1">
+            <div className="flex flex-wrap justify-center gap-2">
               {quickNavItems.map((item, index) => (
                 <button
                   key={item.name}
                   onClick={() => handleTabChange(item.tab)}
-                  className={`relative px-8 py-4 rounded-full font-bold text-base transition-all duration-500 transform hover:-translate-y-0.5 ${
+                  className={`relative px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-500 transform hover:-translate-y-0.5 ${
                     activeTab === item.tab
                       ? 'text-white shadow-2xl shadow-[#B08D57]/30'
                       : 'text-slate-700 bg-white hover:bg-slate-50 border-2 border-slate-200 hover:border-[#B08D57] shadow-lg hover:shadow-xl hover:text-[#B08D57]'
@@ -230,20 +232,22 @@ function ConditionsPageWithParams({
                   className="relative"
                 >
                   {/* PREMIUM Card Design - NO OVERFLOW */}
-                  <div className="bg-gradient-to-br from-white to-slate-50 rounded-3xl border-2 border-slate-100 shadow-2xl">
-                    {/* Header Section */}
-                    <div className="text-center px-8 py-12 bg-gradient-to-r from-[#B08D57]/10 via-white to-[#D4AF37]/10 rounded-t-3xl">
-                      <h2 className="text-3xl lg:text-4xl font-black mb-4 bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
-                        {conditionCategories[activeTab].title}
-                      </h2>
-                      <p className="text-xl text-slate-700 font-light">
-                        {conditionCategories[activeTab].subtitle}
-                      </p>
+                  <div className="bg-white rounded-2xl border border-slate-200 shadow-lg">
+                    {/* Header Section - Much smaller */}
+                    <div className="px-6 py-4 border-b border-slate-100">
+                      <div className="flex items-center justify-between">
+                        <h2 className="text-2xl font-bold text-slate-900">
+                          {conditionCategories[activeTab].title}
+                        </h2>
+                        <p className="text-sm text-slate-600">
+                          {conditionCategories[activeTab].subtitle}
+                        </p>
+                      </div>
                     </div>
 
                     {/* Conditions Grid - PREMIUM Design */}
-                    <div className="p-8 lg:p-12">
-                      <div className="grid md:grid-cols-2 gap-6 items-stretch">
+                    <div className="p-4 lg:p-6">
+                      <div className="grid md:grid-cols-2 gap-3 items-stretch">
                           {conditionCategories[activeTab].conditions.map((condition, index) => {
                             const parts = condition.split('(');
                             const mainCondition = parts[0].trim();
@@ -265,22 +269,22 @@ function ConditionsPageWithParams({
                                   href={`/conditions/${slug}`}
                                   className="block h-full"
                                 >
-                                  <div className="p-6 rounded-2xl bg-white border-2 border-slate-200 hover:border-[#B08D57] hover:bg-gradient-to-br hover:from-white hover:to-[#B08D57]/5 transition-all duration-500 h-full min-h-[120px] cursor-pointer shadow-lg hover:shadow-2xl hover:-translate-y-1 transform">
-                                    <div className="flex items-start gap-4">
-                                      <div className="w-10 h-10 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
-                                        <CheckCircleIcon className="w-6 h-6 text-white" />
+                                  <div className="p-4 rounded-lg bg-slate-50 border border-slate-200 hover:border-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-300 h-full cursor-pointer hover:shadow-md transform hover:-translate-y-0.5">
+                                    <div className="flex items-center gap-3">
+                                      <div className="w-8 h-8 bg-[#B08D57] rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <CheckCircleIcon className="w-5 h-5 text-white" />
                                       </div>
                                       <div className="flex-1">
-                                        <h4 className="font-black text-lg text-slate-900 group-hover:text-[#B08D57] transition-colors mb-1">
+                                        <h4 className="font-semibold text-base text-slate-900 group-hover:text-[#B08D57] transition-colors">
                                           {mainCondition}
                                         </h4>
                                         {details && (
-                                          <p className="text-base text-slate-600 leading-relaxed">
+                                          <p className="text-sm text-slate-600 mt-0.5">
                                             {details}
                                           </p>
                                         )}
                                       </div>
-                                      <ChevronRightIcon className="w-5 h-5 text-[#B08D57] group-hover:translate-x-1 transition-transform" />
+                                      <ChevronRightIcon className="w-4 h-4 text-slate-400 group-hover:text-[#B08D57] transition-all" />
                                     </div>
                                   </div>
                                 </Link>

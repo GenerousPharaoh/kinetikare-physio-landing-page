@@ -1,4 +1,40 @@
-# Design Changelog - Services Page Refinement
+# Design Changelog
+
+## [2025-08-17] - Major Typography Overhaul & Trust Indicators Redesign
+
+### Typography Updates - Premium Modern Feel
+- **Changed all font-bold to font-light or font-normal** across entire site for more modern, premium appearance
+- **Updated main headers (H1-H3)** from font-bold to font-light with tighter letter-spacing (-0.02em to -0.03em)
+- **Refined button typography** from font-semibold/font-bold to font-normal/font-medium
+- **Eliminated font-black** usage, replaced with font-medium for better visual hierarchy
+- **Added tracking adjustments** to headers for more sophisticated typography
+
+### Trust Indicators Redesign (Home Page)
+- **Replaced basic dot-and-text design** with elegant pill-shaped container
+- **Added subtle gradient background** (from-[#B08D57]/5 to-[#D4AF37]/5) with backdrop blur
+- **Improved visual integration** with soft border and refined spacing
+- **Changed font weight** to font-light for more premium feel
+- **Added animation** with motion.div for smooth entrance
+
+### Files Updated
+1. **HeroSectionModern.tsx** - Complete typography overhaul, trust indicators redesign
+2. **ContactSection.tsx** - All headers updated to lighter weights
+3. **AboutSection.tsx** - Headers and CTAs refined
+4. **ServicesSection.tsx** - Service cards and headers updated
+5. **CareJourneySection.tsx** - Journey steps and CTAs refined
+6. **HealingEnvironmentSection.tsx** - All typography updated
+7. **Header.tsx** - Navigation and logo typography refined
+8. **Footer.tsx** - Section headers updated
+9. **About page** - Comprehensive typography update across all sections
+10. **Services page** - Main headers updated
+11. **FeaturedConditions.tsx** - Removed font-black, added font-light
+
+### Design Principles Applied
+- **Less is more** - Lighter font weights create more sophisticated appearance
+- **Consistent hierarchy** - Clear distinction between heading levels
+- **Premium feel** - Typography now feels like $50K+ website quality
+- **Modern aesthetic** - Aligns with 2025 design trends (light, airy, minimal)
+- **Improved readability** - Better contrast and spacing throughout - Services Page Refinement
 
 ## Date: 2025-08-18
 ## Page: /services

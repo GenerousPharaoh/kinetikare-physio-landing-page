@@ -326,7 +326,7 @@ export default function ServicesPage() {
             </div>
             
             {/* Main Title with Split Animation */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 leading-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-light mb-6 leading-tight tracking-[-0.03em]">
               <span className="bg-gradient-to-r from-primary-800 to-primary-600 bg-clip-text text-transparent">Physiotherapy</span>
               <span className="block mt-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent" style={{
                 backgroundSize: '200% 100%'
@@ -759,7 +759,7 @@ export default function ServicesPage() {
                     </div>
                   </div>
                   
-                  <h3 className="text-2xl font-bold mb-4 text-white">
+                  <h3 className="text-2xl font-normal mb-4 text-white">
                     Need Coverage Help?
                   </h3>
                   <p className="text-white/90 mb-6 leading-relaxed">

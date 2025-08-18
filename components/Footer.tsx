@@ -99,7 +99,7 @@ export default function Footer() {
           <div className="md:col-span-1 lg:col-span-4 flex flex-col justify-between">
             <div>
               <div className="mb-6">
-                <h3 className="text-sm font-semibold mb-3 text-white relative inline-flex">
+                <h3 className="text-sm font-normal mb-3 text-white relative inline-flex">
                   <span className="relative z-10">Contact Information</span>
                   <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gold/60 rounded-full -z-10"></span>
                 </h3>
@@ -120,7 +120,7 @@ export default function Footer() {
               </div>
               
               <div>
-                <h3 className="text-sm font-semibold mb-3 text-white relative inline-flex">
+                <h3 className="text-sm font-normal mb-3 text-white relative inline-flex">
                   <span className="relative z-10">Hours</span>
                   <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gold/60 rounded-full -z-10"></span>
                 </h3>

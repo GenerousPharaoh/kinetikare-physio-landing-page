@@ -58,7 +58,7 @@ export default function ContactSection() {
             className="text-center mb-12 sm:mb-16"
           >
             <div className="relative inline-block mb-6 sm:mb-8">
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 mb-6 sm:mb-8 tracking-tight leading-[0.9]">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-slate-900 mb-6 sm:mb-8 tracking-[-0.03em] leading-[0.9]">
                 Get in <span className="text-[#B08D57] relative">
                   Touch
                   <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
@@ -80,7 +80,7 @@ export default function ContactSection() {
             >
               {/* Single Consolidated Contact Card */}
               <div className="bg-white/95 backdrop-blur-2xl rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl border border-slate-200/60">
-                <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-8 sm:mb-10 tracking-tight text-center">Contact Information</h3>
+                <h3 className="text-2xl sm:text-3xl font-normal text-slate-900 mb-8 sm:mb-10 tracking-[-0.02em] text-center">Contact Information</h3>
                 
                 <div className="space-y-6 sm:space-y-8">
                   {/* Location */}
@@ -89,9 +89,9 @@ export default function ContactSection() {
                       <MapPinIcon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h4 className="text-base sm:text-lg font-bold text-slate-900 mb-2">Location</h4>
+                      <h4 className="text-base sm:text-lg font-medium text-slate-900 mb-2">Location</h4>
                       <div className="space-y-1">
-                        <p className="font-semibold text-slate-900 text-sm sm:text-base">Endorphins Health and Wellness Centre</p>
+                        <p className="font-normal text-slate-900 text-sm sm:text-base">Endorphins Health and Wellness Centre</p>
                         <p className="text-slate-600 text-sm sm:text-base">4631 Palladium Wy Unit 6</p>
                         <p className="text-slate-600 text-sm sm:text-base">Burlington, ON L7M 0W9</p>
                       </div>
@@ -104,10 +104,10 @@ export default function ContactSection() {
                       <EnvelopeIcon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h4 className="text-base sm:text-lg font-bold text-slate-900 mb-2">Email</h4>
+                      <h4 className="text-base sm:text-lg font-medium text-slate-900 mb-2">Email</h4>
                       <a 
                         href="mailto:kareem.hassanein@gmail.com"
-                        className="text-[#B08D57] hover:text-[#D4AF37] transition-colors duration-300 font-semibold text-sm sm:text-base lg:text-lg break-all"
+                        className="text-[#B08D57] hover:text-[#D4AF37] transition-colors duration-300 font-normal text-sm sm:text-base lg:text-lg break-all"
                       >
                         kareem.hassanein@gmail.com
                       </a>
@@ -120,10 +120,10 @@ export default function ContactSection() {
                       <PhoneIcon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h4 className="text-base sm:text-lg font-bold text-slate-900 mb-2">Phone</h4>
+                      <h4 className="text-base sm:text-lg font-medium text-slate-900 mb-2">Phone</h4>
                       <a 
                         href="tel:+19056346000"
-                        className="text-[#B08D57] hover:text-[#D4AF37] transition-colors duration-300 font-semibold text-sm sm:text-base lg:text-lg"
+                        className="text-[#B08D57] hover:text-[#D4AF37] transition-colors duration-300 font-normal text-sm sm:text-base lg:text-lg"
                       >
                         (905) 634-6000
                       </a>
@@ -136,19 +136,19 @@ export default function ContactSection() {
                       <ClockIcon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h4 className="text-base sm:text-lg font-bold text-slate-900 mb-2">Hours</h4>
+                      <h4 className="text-base sm:text-lg font-medium text-slate-900 mb-2">Hours</h4>
                       <div className="space-y-1">
                         <div className="flex justify-between text-sm sm:text-base">
                           <span className="text-slate-700">Monday:</span>
-                          <span className="text-slate-800 font-semibold">1:30 PM - 8:00 PM</span>
+                          <span className="text-slate-800 font-normal">1:30 PM - 8:00 PM</span>
                         </div>
                         <div className="flex justify-between text-sm sm:text-base">
                           <span className="text-slate-700">Tuesday:</span>
-                          <span className="text-slate-800 font-semibold">1:30 PM - 8:00 PM</span>
+                          <span className="text-slate-800 font-normal">1:30 PM - 8:00 PM</span>
                         </div>
                         <div className="flex justify-between text-sm sm:text-base">
                           <span className="text-slate-700">Thursday:</span>
-                          <span className="text-slate-800 font-semibold">1:30 PM - 8:00 PM</span>
+                          <span className="text-slate-800 font-normal">1:30 PM - 8:00 PM</span>
                         </div>
                       </div>
                     </div>
@@ -172,7 +172,7 @@ export default function ContactSection() {
                 
                 <div className="relative z-10 text-center">
                   <CalendarDaysIcon className="w-12 h-12 sm:w-16 sm:h-16 mb-6 sm:mb-8 mx-auto opacity-90" />
-                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 sm:mb-8 tracking-tight">Book Your Appointment</h3>
+                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-normal mb-6 sm:mb-8 tracking-[-0.02em]">Book Your Appointment</h3>
                   <p className="text-white/90 mb-8 sm:mb-12 leading-relaxed text-base sm:text-lg lg:text-xl font-light">
                     Schedule your physiotherapy consultation and start your journey to better health.
                   </p>
@@ -180,7 +180,7 @@ export default function ContactSection() {
                   <Link
                     href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                     target="_blank"
-                    className="group inline-flex items-center justify-center px-6 py-4 sm:px-8 sm:py-6 bg-white text-[#B08D57] rounded-2xl font-bold shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 text-lg sm:text-xl mb-6 sm:mb-8"
+                    className="group inline-flex items-center justify-center px-6 py-4 sm:px-8 sm:py-6 bg-white text-[#B08D57] rounded-2xl font-medium shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 text-lg sm:text-xl mb-6 sm:mb-8"
                   >
                     <span>Book Appointment</span>
                     <ArrowTopRightOnSquareIcon className="w-6 h-6 sm:w-7 sm:h-7 ml-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
@@ -190,19 +190,19 @@ export default function ContactSection() {
                   <div className="grid grid-cols-1 gap-3 sm:gap-4 text-left">
                     <div className="flex items-center text-white/90">
                       <CheckCircleIcon className="w-5 h-5 sm:w-6 sm:h-6 mr-3 sm:mr-4 flex-shrink-0" />
-                      <span className="font-semibold text-sm sm:text-base">Direct online booking</span>
+                      <span className="font-normal text-sm sm:text-base">Direct online booking</span>
                     </div>
                     <div className="flex items-center text-white/90">
                       <CheckCircleIcon className="w-5 h-5 sm:w-6 sm:h-6 mr-3 sm:mr-4 flex-shrink-0" />
-                      <span className="font-semibold text-sm sm:text-base">Same-day appointments available</span>
+                      <span className="font-normal text-sm sm:text-base">Same-day appointments available</span>
                     </div>
                     <div className="flex items-center text-white/90">
                       <CheckCircleIcon className="w-5 h-5 sm:w-6 sm:h-6 mr-3 sm:mr-4 flex-shrink-0" />
-                      <span className="font-semibold text-sm sm:text-base">Comprehensive assessment included</span>
+                      <span className="font-normal text-sm sm:text-base">Comprehensive assessment included</span>
                     </div>
                     <div className="flex items-center text-white/90">
                       <CheckCircleIcon className="w-5 h-5 sm:w-6 sm:h-6 mr-3 sm:mr-4 flex-shrink-0" />
-                      <span className="font-semibold text-sm sm:text-base">Personalized treatment plans</span>
+                      <span className="font-normal text-sm sm:text-base">Personalized treatment plans</span>
                     </div>
                   </div>
                 </div>
@@ -224,12 +224,12 @@ export default function ContactSection() {
                   <MapPinIcon className="w-8 h-8 text-white" />
                   </div>
                   
-                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 tracking-tight">
+                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-light text-slate-900 mb-4 tracking-[-0.03em]">
                   Service <span className="text-[#B08D57]">Area</span>
                   </h3>
                   
                 <div className="space-y-4 max-w-3xl mx-auto">
-                  <p className="text-2xl font-semibold text-slate-800">
+                  <p className="text-2xl font-light text-slate-800">
                     Burlington
                   </p>
                   <p className="text-lg text-slate-600 leading-relaxed">
@@ -242,7 +242,7 @@ export default function ContactSection() {
               <div className="text-center">
                 <div className="bg-slate-50 rounded-2xl p-8 sm:p-10 max-w-4xl mx-auto">
                   <p className="text-xl sm:text-2xl text-slate-700 leading-relaxed">
-                    My practice is conveniently located in <span className="font-bold text-[#B08D57]">Burlington</span>, and I'm pleased to extend my physiotherapy services to individuals and families throughout our surrounding communities.
+                    My practice is conveniently located in <span className="font-medium text-[#B08D57]">Burlington</span>, and I'm pleased to extend my physiotherapy services to individuals and families throughout our surrounding communities.
                   </p>
                 </div>
               </div>
@@ -262,7 +262,7 @@ export default function ContactSection() {
               <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-[#D4AF37]/5 to-transparent rounded-full blur-2xl"></div>
               
               <div className="relative z-10">
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 mb-6 sm:mb-8 tracking-tight">
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-normal text-slate-900 mb-6 sm:mb-8 tracking-[-0.02em]">
                   Questions About Your Treatment?
                 </h3>
                 <p className="text-base sm:text-lg lg:text-xl text-slate-600 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed font-light">
@@ -271,14 +271,14 @@ export default function ContactSection() {
                 <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
                   <Link
                     href="tel:+19056346000"
-                    className="group inline-flex items-center justify-center px-6 py-4 sm:px-8 lg:px-10 sm:py-5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white rounded-2xl font-bold shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 text-base sm:text-lg"
+                    className="group inline-flex items-center justify-center px-6 py-4 sm:px-8 lg:px-10 sm:py-5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white rounded-2xl font-medium shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 text-base sm:text-lg"
                   >
                     <PhoneIcon className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3" />
                     <span>Call Now</span>
                   </Link>
                   <Link
                     href="mailto:kareem.hassanein@gmail.com"
-                    className="group inline-flex items-center justify-center px-6 py-4 sm:px-8 lg:px-10 sm:py-5 bg-white border-2 border-slate-200 text-slate-700 rounded-2xl font-bold shadow-xl hover:bg-slate-50 hover:border-slate-300 hover:shadow-2xl transition-all duration-500 text-base sm:text-lg"
+                    className="group inline-flex items-center justify-center px-6 py-4 sm:px-8 lg:px-10 sm:py-5 bg-white border-2 border-slate-200 text-slate-700 rounded-2xl font-medium shadow-xl hover:bg-slate-50 hover:border-slate-300 hover:shadow-2xl transition-all duration-500 text-base sm:text-lg"
                   >
                     <EnvelopeIcon className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3" />
                     <span>Send Email</span>

@@ -50,7 +50,7 @@ export default function AboutSection() {
                 Meet Your Physiotherapist
               </motion.div>
               
-              <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl font-light text-gray-900 mb-6 tracking-[-0.02em]">
                 Kareem Hassanein
               </motion.h2>
               
@@ -66,13 +66,13 @@ export default function AboutSection() {
               <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Link
                   href="/about"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white rounded-lg font-normal shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   Learn More About Me
                 </Link>
                 <Link
                   href="/services"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-white text-gray-700 rounded-lg font-semibold shadow-lg border border-gray-200 hover:bg-gray-50 hover:shadow-xl transition-all duration-300"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-white text-gray-700 rounded-lg font-normal shadow-lg border border-gray-200 hover:bg-gray-50 hover:shadow-xl transition-all duration-300"
                 >
                   View Services
                 </Link>

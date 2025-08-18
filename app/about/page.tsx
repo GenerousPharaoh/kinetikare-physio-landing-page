@@ -148,7 +148,7 @@ export default function About() {
       <section className="bg-primary-50 text-primary-800 py-10 pt-20 relative border-b border-neutral-200">
         <div className="container mx-auto px-4 relative z-10 flex flex-col items-center">
           <div className="text-center max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-heading font-bold mb-5">
+            <h1 className="text-4xl md:text-5xl font-heading font-light mb-5 tracking-[-0.02em]">
               About <span className="text-[#B08D57]">Kareem</span>
             </h1>
             <p className="text-lg text-primary-600 max-w-2xl mx-auto">
@@ -179,7 +179,7 @@ export default function About() {
               
               {/* Professional Highlights - Mobile */}
               <div className="bg-gradient-to-br from-primary-50 to-white p-6 rounded-2xl border border-[#B08D57]/20 shadow-lg mb-6">
-                <h3 className="text-lg font-bold mb-4 text-primary-800 border-b border-primary-200 pb-3">Professional Highlights</h3>
+                <h3 className="text-lg font-normal mb-4 text-primary-800 border-b border-primary-200 pb-3">Professional Highlights</h3>
                 <ul className="space-y-3">
                   <li className="flex items-center justify-center sm:justify-start">
                     <div className="w-2 h-2 rounded-full bg-[#B08D57] mr-3 flex-shrink-0"></div>
@@ -202,13 +202,13 @@ export default function About() {
 
               {/* Mobile CTA - Prominent placement */}
               <div className="bg-gradient-to-br from-primary-800 to-slate-800 p-6 rounded-2xl text-white shadow-lg">
-                <h3 className="text-lg font-bold mb-3 text-white">Take the Next Step</h3>
+                <h3 className="text-lg font-normal mb-3 text-white">Take the Next Step</h3>
                 <p className="mb-4 text-sm text-white/90 leading-relaxed">Ready to work together on your recovery? Let's discuss how I can support your specific goals and challenges.</p>
                 <Link
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full text-center py-3 px-4 bg-[#B08D57] hover:bg-[#A17D47] text-white rounded-xl font-semibold transition-colors duration-300"
+                  className="block w-full text-center py-3 px-4 bg-[#B08D57] hover:bg-[#A17D47] text-white rounded-xl font-normal transition-colors duration-300"
                 >
                   Book Appointment
                 </Link>
@@ -216,7 +216,7 @@ export default function About() {
 
               {/* Professional Affiliations - Mobile */}
               <div className="bg-gradient-to-br from-slate-50 to-white p-6 rounded-2xl border border-neutral-200 shadow-lg mt-6">
-                <h3 className="text-lg font-bold mb-6 text-primary-800 border-b border-primary-200 pb-3 text-center">Professional Affiliations</h3>
+                <h3 className="text-lg font-normal mb-6 text-primary-800 border-b border-primary-200 pb-3 text-center">Professional Affiliations</h3>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                   <Link 
                     href="https://physiotherapy.ca/" 
@@ -260,7 +260,7 @@ export default function About() {
                         <svg className="w-3 h-3 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
-                        <span className="text-xs font-semibold text-green-700">Registration Verified</span>
+                        <span className="text-xs font-normal text-green-700">Registration Verified</span>
                       </div>
                       <Link
                         href="https://portal.collegept.org/en-US/public-register/display-member-contact/?id=757882d7-8c40-eb11-a813-000d3af427b4"
@@ -343,7 +343,7 @@ export default function About() {
                 
                 {/* Professional Highlights */}
                 <div className="bg-gradient-to-br from-primary-50 to-white p-6 rounded-2xl border border-[#B08D57]/20 shadow-lg">
-                  <h3 className="text-lg font-bold mb-4 text-primary-800 border-b border-primary-200 pb-3">Professional Highlights</h3>
+                  <h3 className="text-lg font-normal mb-4 text-primary-800 border-b border-primary-200 pb-3">Professional Highlights</h3>
                   <ul className="space-y-3">
                     <li className="flex items-center">
                       <div className="w-2 h-2 rounded-full bg-[#B08D57] mr-3 flex-shrink-0"></div>
@@ -366,7 +366,7 @@ export default function About() {
 
                 {/* Professional Affiliations */}
                 <div className="bg-gradient-to-br from-slate-50 to-white p-6 rounded-2xl border border-neutral-200 shadow-lg">
-                  <h3 className="text-lg font-bold mb-6 text-primary-800 border-b border-primary-200 pb-3">Professional Affiliations</h3>
+                  <h3 className="text-lg font-normal mb-6 text-primary-800 border-b border-primary-200 pb-3">Professional Affiliations</h3>
                   <div className="space-y-5">
                     <Link 
                       href="https://physiotherapy.ca/" 
@@ -410,7 +410,7 @@ export default function About() {
                           <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                           </svg>
-                          <span className="text-sm font-semibold text-green-700">Registration Verified</span>
+                          <span className="text-sm font-normal text-green-700">Registration Verified</span>
                         </div>
                         <Link
                           href="https://portal.collegept.org/en-US/public-register/display-member-contact/?id=757882d7-8c40-eb11-a813-000d3af427b4"
@@ -477,13 +477,13 @@ export default function About() {
                 
                 {/* CTA */}
                 <div className="bg-gradient-to-br from-primary-800 to-slate-800 p-6 rounded-2xl text-white shadow-lg">
-                  <h3 className="text-lg font-bold mb-3 text-white">Take the Next Step</h3>
+                  <h3 className="text-lg font-normal mb-3 text-white">Take the Next Step</h3>
                   <p className="mb-4 text-sm text-white/90 leading-relaxed">Ready to work together on your recovery? Let's discuss how I can support your specific goals and challenges.</p>
                   <Link
                     href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block w-full text-center py-3 px-4 bg-[#B08D57] hover:bg-[#A17D47] text-white rounded-xl font-semibold transition-colors duration-300"
+                    className="block w-full text-center py-3 px-4 bg-[#B08D57] hover:bg-[#A17D47] text-white rounded-xl font-normal transition-colors duration-300"
                   >
                     Book Appointment
                   </Link>
@@ -502,7 +502,7 @@ export default function About() {
                 <div className="relative bg-gradient-to-br from-white via-slate-50/30 to-white border border-slate-200/60 rounded-3xl p-6 sm:p-8 md:p-12 shadow-xl">
                   <div className="absolute top-0 left-4 sm:left-8 w-16 sm:w-24 h-1 bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] rounded-full"></div>
                   
-                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 text-slate-800 leading-tight">
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-6 sm:mb-8 text-slate-800 leading-tight tracking-[-0.03em]">
                     The Path That Shaped My{" "}
                     <span className="bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] bg-clip-text text-transparent">
                       Practice
@@ -561,7 +561,7 @@ export default function About() {
                 
                 {/* Philosophy of Practice Section */}
                 <div className="py-16">
-                  <h3 className="text-3xl lg:text-4xl font-bold text-primary-800 mb-12 text-center relative pb-4">
+                  <h3 className="text-3xl lg:text-4xl font-light text-primary-800 mb-12 text-center relative pb-4 tracking-[-0.02em]">
                     Philosophy of Practice
                     <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-[#B08D57]"></span>
                   </h3>
@@ -596,7 +596,7 @@ export default function About() {
               {/* What Drives My Practice - Enhanced Design */}
               <div className="py-16">
                 <div className="text-center mb-12 sm:mb-16">
-                  <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 mb-4 sm:mb-6 leading-tight">
+                  <h3 className="text-3xl sm:text-4xl lg:text-5xl font-light text-slate-800 mb-4 sm:mb-6 leading-tight tracking-[-0.02em]">
                     What Drives My{" "}
                     <span className="bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] bg-clip-text text-transparent">
                       Practice
@@ -684,7 +684,7 @@ export default function About() {
       <section className="py-20 bg-gradient-to-br from-slate-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h3 className="text-4xl font-bold text-primary-800 mb-6">Professional Foundation</h3>
+            <h3 className="text-4xl font-light text-primary-800 mb-6 tracking-[-0.02em]">Professional Foundation</h3>
             <div className="w-32 h-1 bg-gradient-to-r from-[#B08D57] to-[#A17D47] mx-auto mb-8"></div>
             <p className="text-xl text-primary-600 max-w-3xl mx-auto leading-relaxed">
               Built on rigorous education, advanced certifications, and extensive hands-on experience
@@ -701,7 +701,7 @@ export default function About() {
                 <div className="relative z-10 flex-1 flex flex-col">
                   <div className="flex items-center mb-10">
                     <div className="w-3 h-8 bg-gradient-to-b from-[#B08D57] to-[#A17D47] rounded-full mr-4"></div>
-                    <h4 className="text-2xl font-bold text-slate-800">Education</h4>
+                    <h4 className="text-2xl font-normal text-slate-800">Education</h4>
                   </div>
 
                   <div className="space-y-6">
@@ -807,7 +807,7 @@ export default function About() {
                 <div className="relative z-10 flex-1 flex flex-col">
                   <div className="flex items-center mb-10">
                     <div className="w-3 h-8 bg-gradient-to-b from-[#B08D57] to-[#A17D47] rounded-full mr-4"></div>
-                    <h4 className="text-2xl font-bold text-slate-800">Advanced Certifications</h4>
+                    <h4 className="text-2xl font-normal text-slate-800">Advanced Certifications</h4>
                   </div>
                   
                   <div className="space-y-6 flex-1">
@@ -859,7 +859,7 @@ export default function About() {
                 <div className="relative z-10 flex-1 flex flex-col">
                   <div className="flex items-center mb-10">
                     <div className="w-3 h-8 bg-gradient-to-b from-[#B08D57] to-[#A17D47] rounded-full mr-4"></div>
-                    <h4 className="text-2xl font-bold text-slate-800">Clinical Experience</h4>
+                    <h4 className="text-2xl font-normal text-slate-800">Clinical Experience</h4>
                   </div>
                   
                   <div className="space-y-6 flex-1">
@@ -908,7 +908,7 @@ export default function About() {
                 <div className="relative z-10 flex-1 flex flex-col">
                   <div className="flex items-center mb-10">
                     <div className="w-3 h-8 bg-gradient-to-b from-[#B08D57] to-[#A17D47] rounded-full mr-4"></div>
-                    <h4 className="text-2xl font-bold text-slate-800">Athletic Background</h4>
+                    <h4 className="text-2xl font-normal text-slate-800">Athletic Background</h4>
                   </div>
                   
                   <div className="space-y-5 flex-1">
@@ -960,7 +960,7 @@ export default function About() {
               My Professional Guarantee
             </span>
           
-            <h3 className="text-4xl font-bold text-primary-800 mb-8">
+            <h3 className="text-4xl font-light text-primary-800 mb-8 tracking-[-0.02em]">
               My Commitment to You
             </h3>
             <div className="w-48 h-1 bg-[#B08D57] mx-auto mb-10"></div>
@@ -978,7 +978,7 @@ export default function About() {
       <section className="py-16 bg-primary-50 text-primary-800 border-t border-neutral-200">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-5 text-primary-800">
+            <h2 className="text-3xl md:text-4xl font-heading font-light mb-5 text-primary-800 tracking-[-0.02em]">
               Take the Next Step in Your Recovery Journey
             </h2>
             <p className="text-lg text-primary-600 mb-10 leading-relaxed">

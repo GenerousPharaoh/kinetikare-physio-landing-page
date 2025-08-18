@@ -54,7 +54,7 @@ export default function CareJourneySection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 tracking-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-slate-900 mb-6 tracking-[-0.03em]">
             Your <span className="text-[#B08D57]">Care Journey</span>
           </h2>
           <div className="w-32 h-0.5 bg-gradient-to-r from-transparent via-[#B08D57] to-transparent mx-auto mb-8"></div>
@@ -89,12 +89,12 @@ export default function CareJourneySection() {
                   {/* Content */}
                   <div className="relative h-full flex flex-col">
                     {/* Number indicator - subtle */}
-                    <div className="absolute -top-2 -right-2 text-6xl font-bold text-[#B08D57]/5 group-hover:text-[#B08D57]/10 transition-colors duration-500">
+                    <div className="absolute -top-2 -right-2 text-6xl font-light text-[#B08D57]/5 group-hover:text-[#B08D57]/10 transition-colors duration-500">
                       {index + 1}
                     </div>
                     
                     {/* Title - premium typography */}
-                    <h3 className="text-lg lg:text-xl font-bold text-slate-900 mb-5 tracking-tight leading-none whitespace-nowrap group-hover:text-[#B08D57] transition-colors duration-300">
+                    <h3 className="text-lg lg:text-xl font-medium text-slate-900 mb-5 tracking-tight leading-none whitespace-nowrap group-hover:text-[#B08D57] transition-colors duration-300">
                       {step.title}
                     </h3>
                     
@@ -141,7 +141,7 @@ export default function CareJourneySection() {
             
             {/* Content */}
             <div className="relative z-10 text-center max-w-4xl mx-auto">
-              <h3 className="text-3xl lg:text-4xl font-bold text-white mb-6 leading-tight">
+              <h3 className="text-3xl lg:text-4xl font-normal text-white mb-6 leading-tight tracking-[-0.02em]">
                 Ready to Take the Next Step in Your Recovery?
               </h3>
               <p className="text-xl text-white/80 mb-10 leading-relaxed">
@@ -153,14 +153,14 @@ export default function CareJourneySection() {
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-10 py-4 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white rounded-2xl font-bold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 text-lg"
+                  className="inline-flex items-center justify-center px-10 py-4 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white rounded-2xl font-medium shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 text-lg"
                 >
                   Book Your Assessment
                 </a>
                 <span className="text-white/60 text-sm">or</span>
                 <a
                   href="tel:+19056346000"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-2xl font-semibold border border-white/20 hover:bg-white/20 transition-all duration-300"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-2xl font-normal border border-white/20 hover:bg-white/20 transition-all duration-300"
                 >
                   Call to Discuss
                 </a>

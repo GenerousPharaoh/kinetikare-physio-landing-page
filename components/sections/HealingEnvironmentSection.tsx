@@ -57,7 +57,7 @@ const HealingEnvironmentSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-slate-900 mb-6 tracking-[-0.03em]">
             Your <span className="text-[#B08D57]">Healing Environment</span>
           </h2>
           <div className="w-32 h-0.5 bg-gradient-to-r from-transparent via-[#B08D57] to-transparent mx-auto mb-8"></div>
@@ -108,7 +108,7 @@ const HealingEnvironmentSection = () => {
           {/* Right: Content with Features */}
           <motion.div variants={itemVariants} className="order-1 lg:order-2 space-y-8">
             <div>
-              <h3 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6 leading-tight">
+              <h3 className="text-3xl lg:text-4xl font-normal text-slate-900 mb-6 leading-tight tracking-[-0.02em]">
                 Where Your Recovery <span className="text-[#B08D57]">Continues</span>
               </h3>
               <p className="text-lg text-slate-600 leading-relaxed mb-8">
@@ -133,7 +133,7 @@ const HealingEnvironmentSection = () => {
                     </div>
                   </div>
                   <div>
-                    <h4 className="text-xl font-semibold text-slate-900 mb-1">{feature.title}</h4>
+                    <h4 className="text-xl font-normal text-slate-900 mb-1">{feature.title}</h4>
                     <p className="text-slate-600">{feature.description}</p>
                   </div>
                 </motion.div>
@@ -146,7 +146,7 @@ const HealingEnvironmentSection = () => {
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-8 py-4 bg-[#B08D57] text-white rounded-xl font-semibold shadow-lg hover:bg-[#D4AF37] transition-all duration-300 hover:shadow-xl hover:scale-105"
+                className="inline-flex items-center px-8 py-4 bg-[#B08D57] text-white rounded-xl font-normal shadow-lg hover:bg-[#D4AF37] transition-all duration-300 hover:shadow-xl hover:scale-105"
               >
                 Book Your Visit
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

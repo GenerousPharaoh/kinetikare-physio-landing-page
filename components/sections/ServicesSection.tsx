@@ -55,7 +55,7 @@ export default function ServicesSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-light text-slate-900 mb-6 tracking-[-0.02em]">
             <span className="text-[#B08D57]">Services</span>
           </h2>
           <div className="w-24 h-1 bg-[#B08D57] mx-auto mb-6"></div>
@@ -76,7 +76,7 @@ export default function ServicesSection() {
             <motion.div key={service.title} variants={itemVariants} className="group h-full">
               <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 h-full border border-gray-200 hover:border-[#B08D57]/30 flex flex-col">
                 {/* Service Content */}
-                <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-[#B08D57] transition-colors duration-300">
+                <h3 className="text-2xl font-normal text-slate-900 mb-4 group-hover:text-[#B08D57] transition-colors duration-300">
                   {service.title}
                 </h3>
                 <p className="text-slate-600 leading-relaxed mb-6 text-lg flex-grow">
@@ -97,7 +97,7 @@ export default function ServicesSection() {
                 <div className="mt-auto">
                   <Link
                     href="/services"
-                    className="inline-flex items-center text-[#B08D57] hover:text-[#D4AF37] font-semibold transition-colors duration-300"
+                    className="inline-flex items-center text-[#B08D57] hover:text-[#D4AF37] font-normal transition-colors duration-300"
                   >
                     <span>Learn More</span>
                     <ChevronRightIcon className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" />
@@ -116,7 +116,7 @@ export default function ServicesSection() {
           className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200"
         >
           <div className="text-center mb-8">
-            <h3 className="text-3xl font-bold text-slate-900 mb-4">
+            <h3 className="text-3xl font-light text-slate-900 mb-4 tracking-[-0.02em]">
               Additional <span className="text-[#B08D57]">Services</span>
             </h3>
             
@@ -135,7 +135,7 @@ export default function ServicesSection() {
                 transition={{ duration: 0.4, delay: index * 0.05 }}
               >
                 <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 hover:border-[#B08D57]/50 hover:shadow-md transition-all duration-300 text-center">
-                  <h4 className="font-semibold text-slate-900 group-hover:text-[#B08D57] transition-colors duration-300 text-lg">
+                  <h4 className="font-normal text-slate-900 group-hover:text-[#B08D57] transition-colors duration-300 text-lg">
                     {service}
                   </h4>
                 </div>

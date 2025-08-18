@@ -280,7 +280,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 </div>
                 <div className="flex items-center">
                   <span className="text-[20px] xl:text-[22px] text-white font-light tracking-[0.02em]">Kineti</span>
-                  <span className="text-[20px] xl:text-[22px] text-[#D4AF37] font-bold">K</span>
+                  <span className="text-[20px] xl:text-[22px] text-[#D4AF37] font-medium">K</span>
                   <span className="text-[20px] xl:text-[22px] text-white font-light tracking-[0.02em]">are</span>
                 </div>
               </div>
@@ -301,7 +301,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                       onClick={(e) => handleNavClick(e, item.href)}
                   className={`relative text-sm font-medium tracking-wide transition-all duration-300 py-2 group whitespace-nowrap outline-none
                           ${isCurrentPath(item.href) 
-                      ? 'text-[#D4AF37] font-semibold hover:text-[#F5D63D] active:text-[#F5D63D]' 
+                      ? 'text-[#D4AF37] font-normal hover:text-[#F5D63D] active:text-[#F5D63D]' 
                       : 'text-white hover:text-[#D4AF37] active:text-[#D4AF37] focus:text-[#D4AF37]'}`}
                 >
                   {item.name}
@@ -336,7 +336,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#D4AF37] hover:bg-[#C8A52E] text-slate-900 text-sm font-semibold tracking-wide px-3 xl:px-5 py-2.5 rounded-lg transition-all duration-300 flex items-center gap-2 whitespace-nowrap shadow-lg hover:shadow-xl"
+                className="bg-[#D4AF37] hover:bg-[#C8A52E] text-slate-900 text-sm font-medium tracking-wide px-3 xl:px-5 py-2.5 rounded-lg transition-all duration-300 flex items-center gap-2 whitespace-nowrap shadow-lg hover:shadow-xl"
               >
                 <CalendarDaysIcon className="h-4 w-4" />
                 <span className="hidden sm:inline">Book Appointment</span>
@@ -379,7 +379,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   onClick={(e) => handleNavClick(e, item.href)}
                   className={`block px-4 py-3 rounded-lg text-base font-medium tracking-wide transition-all duration-300 flex items-center gap-2 outline-none
                       ${isCurrentPath(item.href) 
-                      ? 'text-[#D4AF37] bg-[#D4AF37]/10 font-semibold hover:text-[#F5D63D] hover:bg-[#D4AF37]/15 active:text-[#F5D63D]' 
+                      ? 'text-[#D4AF37] bg-[#D4AF37]/10 font-normal hover:text-[#F5D63D] hover:bg-[#D4AF37]/15 active:text-[#F5D63D]' 
                       : 'text-white hover:bg-white/5 hover:text-[#D4AF37] active:text-[#D4AF37] focus:text-[#D4AF37]'}`}
                   >
                     {item.name}
@@ -391,7 +391,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               <div className="flex gap-3">
               <Link
                 href="tel:+19056346000"
-                  className="flex items-center justify-center gap-2 py-3 px-4 bg-white/10 text-white rounded-lg font-semibold tracking-wide border border-white/20 hover:bg-white/15 transition-all duration-300"
+                  className="flex items-center justify-center gap-2 py-3 px-4 bg-white/10 text-white rounded-lg font-normal tracking-wide border border-white/20 hover:bg-white/15 transition-all duration-300"
                 >
                   <PhoneIcon className="h-5 w-5" />
                   Call
@@ -401,7 +401,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                 target="_blank"
                 onClick={() => setMobileMenuOpen(false)}
-                  className="flex-1 flex items-center justify-center gap-2 py-3 bg-[#D4AF37] text-slate-900 rounded-lg font-semibold tracking-wide shadow-lg"
+                  className="flex-1 flex items-center justify-center gap-2 py-3 bg-[#D4AF37] text-slate-900 rounded-lg font-medium tracking-wide shadow-lg"
               >
                   <CalendarDaysIcon className="h-5 w-5" />
                   Book Appointment

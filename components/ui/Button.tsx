@@ -13,17 +13,17 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary: 
-          "bg-gradient-to-br from-[#1A2036] to-[#252E4A] text-[#D4AF37] hover:bg-gradient-to-br hover:from-[#D4AF37] hover:to-[#C8A52E] hover:text-[#1A2036] shadow-md hover:shadow-lg focus:ring-[#D4AF37]/30 border border-transparent",
+          "bg-gradient-to-br from-[#B08D57] to-[#D4AF37] text-white hover:bg-gradient-to-br hover:from-[#D4AF37] hover:to-[#E5C742] hover:text-white shadow-md hover:shadow-lg focus:ring-[#D4AF37]/30 border border-transparent",
         secondary: 
-          "bg-white/80 backdrop-blur-sm border border-[#1A2036]/10 text-[#1A2036] hover:bg-[#1A2036] hover:text-white hover:border-transparent focus:ring-[#1A2036]/30 hover:shadow-md",
+          "bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 hover:bg-slate-800 hover:text-white hover:border-transparent focus:ring-slate-500/30 hover:shadow-md",
         outline: 
-          "bg-transparent border-2 border-[#D4AF37] text-[#1A2036] hover:bg-[#D4AF37]/10 hover:border-[#D4AF37] focus:ring-[#D4AF37]/20 hover:shadow-md",
+          "bg-transparent border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white hover:border-[#D4AF37] focus:ring-[#D4AF37]/20 hover:shadow-md",
         ghost: 
-          "bg-transparent text-[#1A2036] hover:bg-[#F9F9F7] focus:ring-[#1A2036]/20",
+          "bg-transparent text-slate-700 hover:bg-slate-100 hover:text-slate-900 focus:ring-slate-500/20",
         subtle: 
           "bg-[#F9F9F7] hover:bg-[#EFEFED] text-[#455070] focus:ring-[#D4AF37]/20 border border-[#1A2036]/5 hover:border-[#1A2036]/10",
         link: 
-          "bg-transparent underline-offset-4 hover:underline text-[#1A2036] focus:ring-[#1A2036]/20 shadow-none p-0 hover:text-[#D4AF37]",
+          "bg-transparent underline-offset-4 hover:underline text-slate-700 focus:ring-slate-500/20 shadow-none p-0 hover:text-[#D4AF37]",
         gold:
           "bg-gradient-to-br from-[#B08D57] to-[#B08D57] text-white hover:bg-gradient-to-br hover:from-[#A17D47] hover:to-[#A17D47] hover:text-white shadow-md hover:shadow-lg focus:ring-[#B08D57]/30",
       },

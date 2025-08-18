@@ -87,7 +87,7 @@ export default function HeroSection() {
                 <Link
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
-                  className="block w-full text-center px-7 py-4.5 bg-gradient-to-r from-slate-900 to-slate-800 text-white font-normal tracking-wide rounded-2xl hover:from-slate-800 hover:to-slate-700 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 transform"
+                  className="block w-full text-center px-7 py-4.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white font-medium tracking-wide rounded-2xl hover:from-[#D4AF37] hover:to-[#E5C742] hover:text-white transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 transform"
                 >
                   Book Your Assessment
                 </Link>
@@ -189,7 +189,7 @@ export default function HeroSection() {
                 <Link
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
-                  className="px-10 py-[18px] bg-gradient-to-r from-slate-900 to-slate-800 text-white font-normal tracking-wide rounded-2xl hover:from-slate-800 hover:to-slate-700 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 transform"
+                  className="px-10 py-[18px] bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white font-medium tracking-wide rounded-2xl hover:from-[#D4AF37] hover:to-[#E5C742] hover:text-white transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 transform"
                 >
                   Book Your Assessment
                 </Link>

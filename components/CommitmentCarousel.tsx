@@ -82,7 +82,7 @@ export default function CommitmentCarousel({ items }: CommitmentCarouselProps) {
     <div className="max-w-5xl mx-auto">
       {/* Main carousel */}
       <div className="relative bg-gradient-to-br from-white to-slate-50 rounded-3xl shadow-xl border border-slate-200/50 overflow-hidden">
-        <div className="relative min-h-[400px] sm:min-h-[380px] md:h-96">
+        <div className="relative min-h-[320px] sm:min-h-[380px] md:h-96">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSlide}
@@ -93,7 +93,7 @@ export default function CommitmentCarousel({ items }: CommitmentCarouselProps) {
               className="relative sm:absolute sm:inset-0 flex items-center justify-center p-4 sm:p-8 md:p-12"
             >
               <div className="text-center max-w-2xl w-full">
-                <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl mb-3 sm:mb-4 md:mb-8 shadow-lg">
+                <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-xl sm:rounded-2xl mb-2 sm:mb-4 md:mb-8 shadow-lg">
                   <div className="text-white scale-[0.65] sm:scale-75 md:scale-100">
                     {getIcon(items[currentSlide].iconType)}
                   </div>
@@ -133,15 +133,15 @@ export default function CommitmentCarousel({ items }: CommitmentCarouselProps) {
         </button>
       </div>
 
-      {/* Dot indicators */}
-      <div className="flex justify-center mt-4 sm:mt-6 md:mt-8 space-x-2">
+      {/* Dot indicators - MUCH smaller on mobile */}
+      <div className="flex justify-center mt-2 sm:mt-4 md:mt-6 space-x-1.5 sm:space-x-2">
         {items.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
+            className={`w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-2.5 md:h-2.5 rounded-full transition-all duration-300 ${
               index === currentSlide
-                ? 'bg-[#B08D57] scale-110 sm:scale-125 shadow-md'
+                ? 'bg-[#B08D57] shadow-sm'
                 : 'bg-slate-300 hover:bg-slate-400'
             }`}
             aria-label={`Go to commitment ${index + 1}`}
@@ -149,9 +149,9 @@ export default function CommitmentCarousel({ items }: CommitmentCarouselProps) {
         ))}
       </div>
 
-      {/* Progress bar */}
-      <div className="mt-3 sm:mt-4 md:mt-6 max-w-xs sm:max-w-md mx-auto px-4 sm:px-0">
-        <div className="h-0.5 sm:h-1 bg-slate-200 rounded-full overflow-hidden">
+      {/* Progress bar - Minimal spacing */}
+      <div className="mt-2 sm:mt-3 md:mt-4 max-w-xs sm:max-w-md mx-auto px-4 sm:px-0">
+        <div className="h-0.5 bg-slate-200 rounded-full overflow-hidden">
           <motion.div
             className="h-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37]"
             initial={{ width: "0%" }}
@@ -159,7 +159,7 @@ export default function CommitmentCarousel({ items }: CommitmentCarouselProps) {
             transition={{ duration: 0.5, ease: "easeInOut" }}
           />
         </div>
-        <div className="flex justify-center mt-1.5 sm:mt-2 text-xs text-slate-500">
+        <div className="flex justify-center mt-1 text-[10px] sm:text-xs text-slate-500">
           <span>{currentSlide + 1} of {items.length}</span>
         </div>
       </div>

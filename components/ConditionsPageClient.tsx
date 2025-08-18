@@ -88,11 +88,11 @@ function ConditionsPageWithParams({
   }, [searchQuery, conditionCategories]);
 
   return (
-    <main className="bg-white min-h-screen">
+    <main className="bg-white min-h-screen overflow-x-hidden">
       {/* COMPLETELY REDESIGNED Hero Section */}
-      <section className="relative pt-32 lg:pt-40 pb-2 bg-gradient-to-br from-slate-50 via-white to-[#B08D57]/5">
+      <section className="relative pt-32 lg:pt-40 pb-2 bg-gradient-to-br from-slate-50 via-white to-[#B08D57]/5 overflow-hidden">
         {/* Premium Background Elements */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-[#B08D57]/25 via-[#D4AF37]/15 to-transparent rounded-full blur-[150px] opacity-60"></div>
           <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[#D4AF37]/20 via-[#B08D57]/10 to-transparent rounded-full blur-[150px] opacity-50"></div>
         </div>

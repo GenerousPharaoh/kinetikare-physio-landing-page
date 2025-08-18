@@ -2,10 +2,9 @@
 
 // <!-- UI REDESIGN 2024 - PREMIUM MEDICAL AESTHETIC -->
 
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
 import { 
   MagnifyingGlassIcon, 
   ChevronRightIcon,
@@ -37,12 +36,11 @@ interface ConditionsPageClientProps {
   additionalServices: AdditionalService[];
 }
 
-// Force rebuild - Fixed pill button cutoff and spacing issues
-export default function ConditionsPageClient({ 
+// Component to handle search params logic
+function ConditionsPageWithParams({ 
   conditionCategories, 
   additionalServices
 }: ConditionsPageClientProps) {
-  const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState(0);
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -56,20 +54,8 @@ export default function ConditionsPageClient({
     { name: "Foot & Ankle", tab: 5 },
   ];
 
-  // Remember the user's tab selection using localStorage and URL params
+  // Remember the user's tab selection using localStorage only (removed URL params to fix build)
   useEffect(() => {
-    // Check URL params first (for direct links)
-    const categoryParam = searchParams.get('category');
-    if (categoryParam) {
-      const tabIndex = quickNavItems.findIndex(item => 
-        item.name.toLowerCase().replace(/[^a-z0-9]/g, '-') === categoryParam
-      );
-      if (tabIndex !== -1) {
-        setActiveTab(tabIndex);
-        return;
-      }
-    }
-
     // Fall back to localStorage (for returning users)
     const savedTab = localStorage.getItem('conditionsActiveTab');
     if (savedTab && !isNaN(Number(savedTab))) {
@@ -78,7 +64,7 @@ export default function ConditionsPageClient({
         setActiveTab(tabNumber);
       }
     }
-  }, [searchParams, conditionCategories.length]);
+  }, [conditionCategories.length]);
 
   // Save tab selection to localStorage when changed
   const handleTabChange = (tabIndex: number) => {
@@ -416,5 +402,14 @@ export default function ConditionsPageClient({
         </div>
       </section>
     </main>
+  );
+}
+
+// Force rebuild - Fixed pill button cutoff and spacing issues
+export default function ConditionsPageClient(props: ConditionsPageClientProps) {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ConditionsPageWithParams {...props} />
+    </Suspense>
   );
 }

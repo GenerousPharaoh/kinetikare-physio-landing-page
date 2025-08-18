@@ -17,15 +17,15 @@
   --ease-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.25);
   --ease-anticipate: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   
-  /* Contextual durations */
-  --duration-instant: 50ms;
-  --duration-micro: 100ms;
-  --duration-fast: 200ms;
+  /* Contextual durations - smoother */
+  --duration-instant: 100ms;
+  --duration-micro: 150ms;
+  --duration-fast: 250ms;
   --duration-normal: 300ms;
   --duration-smooth: 400ms;
-  --duration-slow: 600ms;
-  --duration-reveal: 800ms;
-  --duration-lazy: 1200ms;
+  --duration-slow: 500ms;
+  --duration-reveal: 600ms;
+  --duration-lazy: 900ms;
 }
 
 /* ============================= */
@@ -37,35 +37,35 @@
   transition-timing-function: var(--ease-smooth) !important;
 }
 
-/* Button transitions - snappy */
+/* Button transitions - smoother */
 button,
 .btn,
 [type="button"],
 [type="submit"] {
   transition: 
-    transform var(--duration-fast) var(--ease-smooth),
-    box-shadow var(--duration-normal) var(--ease-smooth),
-    background-color var(--duration-fast) var(--ease-smooth),
-    border-color var(--duration-fast) var(--ease-smooth),
-    color var(--duration-micro) var(--ease-smooth) !important;
+    transform 200ms ease,
+    box-shadow 250ms ease,
+    background-color 250ms ease,
+    border-color 250ms ease,
+    color 200ms ease;
 }
 
 button:hover,
 .btn:hover {
-  transition-duration: var(--duration-micro), var(--duration-fast), var(--duration-micro), var(--duration-micro), var(--duration-instant) !important;
+  transition-duration: 200ms;
 }
 
-/* Link transitions - instant feedback */
+/* Link transitions - smoother feedback */
 a {
   transition: 
-    color var(--duration-micro) var(--ease-smooth),
-    background-color var(--duration-fast) var(--ease-smooth),
-    border-color var(--duration-fast) var(--ease-smooth),
-    transform var(--duration-micro) var(--ease-smooth) !important;
+    color 200ms ease,
+    background-color 250ms ease,
+    border-color 250ms ease,
+    transform 200ms ease;
 }
 
 a:hover {
-  transition-duration: var(--duration-instant) !important;
+  transition-duration: 150ms;
 }
 
 /* Card transitions - smooth float */
@@ -80,7 +80,7 @@ a:hover {
 
 .card:hover,
 [class*="card"]:hover {
-  transition-timing-function: var(--ease-anticipate) !important;
+  transition-timing-function: ease;
 }
 
 /* ============================= */

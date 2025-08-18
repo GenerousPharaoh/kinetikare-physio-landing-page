@@ -80,7 +80,7 @@ export default function ContactSection() {
             >
               {/* Single Consolidated Contact Card */}
               <div className="bg-white/95 backdrop-blur-2xl rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl border border-slate-200/60">
-                <h3 className="text-2xl sm:text-3xl font-normal text-slate-900 mb-8 sm:mb-10 tracking-[-0.02em] text-center">Contact Information</h3>
+                <h3 className="text-2xl sm:text-3xl font-light text-slate-900 mb-8 sm:mb-10 tracking-[-0.02em] text-center">Contact Information</h3>
                 
                 <div className="space-y-6 sm:space-y-8">
                   {/* Location */}
@@ -89,7 +89,7 @@ export default function ContactSection() {
                       <MapPinIcon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h4 className="text-base sm:text-lg font-medium text-slate-900 mb-2">Location</h4>
+                      <h4 className="text-base sm:text-lg font-normal text-slate-900 mb-2">Location</h4>
                       <div className="space-y-1">
                         <p className="font-normal text-slate-900 text-sm sm:text-base">Endorphins Health and Wellness Centre</p>
                         <p className="text-slate-600 text-sm sm:text-base">4631 Palladium Wy Unit 6</p>
@@ -104,7 +104,7 @@ export default function ContactSection() {
                       <EnvelopeIcon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h4 className="text-base sm:text-lg font-medium text-slate-900 mb-2">Email</h4>
+                      <h4 className="text-base sm:text-lg font-normal text-slate-900 mb-2">Email</h4>
                       <a 
                         href="mailto:kareem.hassanein@gmail.com"
                         className="text-[#B08D57] hover:text-[#D4AF37] transition-colors duration-300 font-normal text-sm sm:text-base lg:text-lg break-all"
@@ -120,7 +120,7 @@ export default function ContactSection() {
                       <PhoneIcon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h4 className="text-base sm:text-lg font-medium text-slate-900 mb-2">Phone</h4>
+                      <h4 className="text-base sm:text-lg font-normal text-slate-900 mb-2">Phone</h4>
                       <a 
                         href="tel:+19056346000"
                         className="text-[#B08D57] hover:text-[#D4AF37] transition-colors duration-300 font-normal text-sm sm:text-base lg:text-lg"
@@ -136,7 +136,7 @@ export default function ContactSection() {
                       <ClockIcon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h4 className="text-base sm:text-lg font-medium text-slate-900 mb-2">Hours</h4>
+                      <h4 className="text-base sm:text-lg font-normal text-slate-900 mb-2">Hours</h4>
                       <div className="space-y-1">
                         <div className="flex justify-between text-sm sm:text-base">
                           <span className="text-slate-700">Monday:</span>

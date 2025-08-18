@@ -58,7 +58,7 @@ const HealingEnvironmentSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-slate-900 mb-6 tracking-[-0.03em]">
-            Your <span className="text-[#B08D57]">Healing Environment</span>
+            Where Your <span className="text-[#B08D57]">Recovery Continues</span>
           </h2>
           <div className="w-32 h-0.5 bg-gradient-to-r from-transparent via-[#B08D57] to-transparent mx-auto mb-8"></div>
           <p className="text-xl lg:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-light">
@@ -92,7 +92,7 @@ const HealingEnvironmentSection = () => {
                 <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-8">
                   <div className="bg-gradient-to-r from-black/50 to-transparent">
                     <div className="px-4 py-3 sm:px-6 sm:py-4">
-                      <h3 className="text-white text-base sm:text-lg lg:text-xl font-medium mb-0.5">
+                      <h3 className="text-white text-base sm:text-lg lg:text-xl font-light mb-0.5">
                         Your Treatment Space
                       </h3>
                       <p className="text-white/85 text-xs sm:text-sm font-light">
@@ -108,9 +108,6 @@ const HealingEnvironmentSection = () => {
           {/* Right: Content with Features */}
           <motion.div variants={itemVariants} className="order-1 lg:order-2 space-y-8">
             <div>
-              <h3 className="text-3xl lg:text-4xl font-normal text-slate-900 mb-6 leading-tight tracking-[-0.02em]">
-                Where Your Recovery <span className="text-[#B08D57]">Continues</span>
-              </h3>
               <p className="text-lg text-slate-600 leading-relaxed mb-8">
                 A dedicated space for personalized, one-on-one physiotherapy care. Each session is tailored 
                 to your specific needs and recovery goals.
@@ -184,7 +181,7 @@ const HealingEnvironmentSection = () => {
                 <div className="absolute bottom-0 left-0 right-0 p-4">
                   <div className="bg-gradient-to-r from-black/50 to-transparent">
                     <div className="px-4 py-3">
-                      <h4 className="text-white text-sm sm:text-base font-medium">
+                      <h4 className="text-white text-sm sm:text-base font-light">
                         {image.title}
                       </h4>
                     </div>

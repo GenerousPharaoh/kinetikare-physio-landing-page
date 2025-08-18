@@ -126,7 +126,7 @@ export default function HeroSection() {
       </section>
 
       {/* Desktop */}
-      <section className="hidden lg:flex min-h-screen bg-gradient-to-br from-white via-gray-50/30 to-white">
+      <section className="hidden lg:flex min-h-screen bg-gradient-to-br from-white via-gray-50/30 to-white pt-16">
         <div className="flex w-full">
           {/* Left content - with proper padding and centering */}
           <div className="w-1/2 flex items-center pl-[8%] pr-[6%] py-20">

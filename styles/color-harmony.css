@@ -203,18 +203,8 @@ a:not(.btn):not([class*="btn"]):not([class*="text-white"]):hover {
   color: rgb(var(--color-gold-600));
 }
 
-/* Navigation specific - don't override white text */
-nav a:not([class*="text-white"]) {
-  transition: color 150ms var(--ease-smooth);
-}
-
-nav a:not([class*="text-white"]):hover {
-  color: rgb(var(--color-gold-600));
-}
-
-nav a.active {
-  color: rgb(var(--color-gold-500));
-}
+/* Navigation specific - removed to prevent conflicts */
+/* Navigation colors should be handled by component classes */
 
 /* ============================= */
 /* FORM ELEMENT HARMONY         */

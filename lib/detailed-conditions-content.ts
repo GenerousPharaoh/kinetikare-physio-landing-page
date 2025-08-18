@@ -2034,93 +2034,979 @@ The outer third has blood supply and can heal, while the inner portion has poor 
   },
 
   'hip-pain': {
-    pathophysiology: `Hip pain can arise from the joint itself (arthritis, labral tears), surrounding soft tissues (bursitis, tendinopathy), or referred from the back. The deep location makes specific diagnosis challenging.`,
+    pathophysiology: `Hip pain is complex and can arise from multiple sources within the hip and pelvic region. Intra-articular pathology includes osteoarthritis (progressive cartilage breakdown), labral tears (fibrocartilage ring damage), and femoroacetabular impingement (abnormal bone contact). Extra-articular causes include tendinopathies (gluteal, hamstring, iliopsoas), bursitis, and referred pain from the lumbar spine or sacroiliac joint. The hip's deep location and extensive kinetic chain connections make accurate diagnosis challenging but essential for effective treatment.`,
 
     clinicalPresentation: {
       primarySymptoms: [
-        "Groin pain or deep hip pain",
-        "Lateral hip pain",
-        "Stiffness in morning",
-        "Pain with weight bearing",
-        "Difficulty with stairs"
+        "Groin pain (suggests intra-articular pathology)",
+        "Lateral hip pain (suggests gluteal tendinopathy/bursitis)",
+        "Deep buttock pain (suggests deep gluteal syndrome or hamstring issues)",
+        "Morning stiffness lasting 30-60 minutes (suggests osteoarthritis)",
+        "Pain with weight bearing and stairs",
+        "Difficulty with hip flexion movements"
       ],
       associatedSymptoms: [
-        "Clicking or catching",
-        "Night pain",
-        "Back pain",
-        "Knee pain",
-        "Altered gait"
+        "Clicking, catching, or locking sensations",
+        "Night pain (especially with lateral hip conditions)",
+        "Radiating pain to thigh or knee",
+        "Low back or SI joint pain",
+        "Trendelenburg gait or hip drop",
+        "Functional limitations (sitting, car entry/exit)"
       ],
-      typicalPattern: "Location of pain helps identify source. Groin pain suggests joint, lateral suggests bursa/tendons."
+      typicalPattern: "Pain location provides diagnostic clues: groin pain suggests joint pathology, lateral pain suggests gluteal tendinopathy, anterior pain may indicate FAI or iliopsoas issues. Age, activity level, and mechanism help differentiate conditions."
     },
 
     evidenceSnapshot: {
-      firstLine: "Exercise therapy effective for most hip conditions",
-      imaging: "X-ray if arthritis suspected; MRI for labral pathology",
-      management: "Targeted strengthening and movement retraining",
-      sources: "Hip Pain Clinical Guidelines"
+      firstLine: "Exercise therapy with manual therapy strongly recommended for most hip conditions",
+      imaging: "X-ray for suspected arthritis; MRI for labral pathology, tendinopathies, and soft tissue evaluation",
+      management: "Condition-specific strengthening, load management, and kinetic chain rehabilitation",
+      sources: "2018 JOSPT Clinical Practice Guidelines for Hip Osteoarthritis; Hip Preservation Society Guidelines"
     },
 
     whatToExpect: {
-      firstVisit: "I'll identify the source of your hip pain and contributing factors",
-      earlyPhase: "Pain reduction and restoration of basic movements",
-      progression: "Progressive strengthening and functional training"
+      firstVisit: "I'll perform a comprehensive assessment including hip range of motion, strength testing, specific provocation tests, and kinetic chain evaluation to identify the exact source of your hip pain",
+      earlyPhase: "Focus on load management, pain reduction through appropriate activity modification, and beginning targeted exercises based on your specific condition",
+      progression: "Progressive strengthening of the entire lumbopelvic-hip complex, restoration of functional movement patterns, and gradual return to desired activities"
     },
 
     evidenceBasedTreatment: [
       {
-        approach: "Hip Strengthening",
-        evidence: "Improves pain and function across hip conditions",
+        approach: "Targeted Hip Strengthening",
+        evidence: "Gluteal strengthening improves pain and function across multiple hip conditions. Load-capacity model guides progressive exercise prescription.",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Load Management",
+        evidence: "Activity modification to respect tissue capacity while maintaining function prevents symptom exacerbation",
         effectivenessLevel: "strong"
       },
       {
         approach: "Manual Therapy",
-        evidence: "Short-term relief when combined with exercise",
+        evidence: "Joint mobilization and soft tissue techniques provide short-term relief and enhance exercise tolerance",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Movement Pattern Training",
+        evidence: "Addressing kinetic chain dysfunction improves long-term outcomes",
         effectivenessLevel: "moderate"
       }
     ],
 
     prognosis: {
-      timeline: "Varies by condition: bursitis 6-8 weeks, arthritis ongoing management",
+      timeline: "Highly condition-dependent: acute tendinopathies 6-12 weeks, osteoarthritis ongoing management with periodic flares, FAI 3-6 months with proper rehabilitation",
       factors: [
-        "Specific diagnosis",
-        "Duration of symptoms",
-        "Activity level",
-        "Body weight"
+        "Specific diagnosis and tissue type",
+        "Duration and severity of symptoms",
+        "Activity demands and modifications",
+        "Body weight and metabolic health",
+        "Hip muscle strength and motor control",
+        "Kinetic chain function"
       ],
-      naturalHistory: "Depends on underlying pathology"
+      naturalHistory: "Varies significantly by condition. Tendinopathies respond well to progressive loading. Osteoarthritis is progressive but symptoms can be well-managed. Early intervention improves outcomes across all conditions."
     },
 
     selfManagement: [
       {
-        strategy: "Activity Modification",
-        rationale: "Reduces irritation while maintaining function",
-        precautions: ["Avoid prolonged sitting or standing"]
+        strategy: "Load-Capacity Balance",
+        rationale: "Hip pain often occurs when demands exceed tissue capacity. Temporarily reducing irritating loads while building capacity through exercise",
+        precautions: ["Avoid complete rest", "Progress exercises gradually", "Monitor symptom response"]
       },
       {
-        strategy: "Hip Exercises",
-        rationale: "Maintains strength and mobility",
-        precautions: ["Progress gradually"]
+        strategy: "Sleep Position Modification",
+        rationale: "Side-lying compression often aggravates lateral hip conditions",
+        precautions: ["Use pillow between knees", "Avoid sleeping on affected side initially"]
+      },
+      {
+        strategy: "Activity Modification",
+        rationale: "Maintain function while respecting tissue limitations",
+        precautions: ["Modify rather than eliminate activities", "Use pain as a guide"]
       }
     ],
 
     clinicalRedFlags: [
       {
-        sign: "Fever with hip pain",
-        action: "Medical assessment for infection"
+        sign: "Fever with hip pain or systemic symptoms",
+        action: "Immediate medical assessment for septic arthritis or other serious pathology"
       },
       {
-        sign: "Inability to bear weight after fall",
-        action: "X-ray to rule out fracture"
+        sign: "Inability to bear weight after trauma",
+        action: "Emergency assessment for fracture"
+      },
+      {
+        sign: "Progressive neurological symptoms with buttock pain",
+        action: "Assessment for cauda equina or significant nerve compression"
+      },
+      {
+        sign: "Severe, constant night pain in older adults",
+        action: "Investigation for malignancy or avascular necrosis"
       }
     ],
 
     keyResearch: [
       {
-        title: "Exercise for Hip Osteoarthritis",
-        year: 2023,
-        findings: "Exercise as effective as surgery for many",
-        relevance: "Supports conservative management"
+        title: "Exercise Therapy for Hip Osteoarthritis",
+        year: 2018,
+        findings: "Exercise therapy as effective as surgery for pain relief and functional improvement in many patients",
+        relevance: "Supports conservative management as first-line treatment"
+      },
+      {
+        title: "Gluteal Tendinopathy Load Management",
+        year: 2018,
+        findings: "Education and exercise program superior to corticosteroid injection for long-term outcomes",
+        relevance: "Evidence against injection-first approach, supports rehabilitation"
+      },
+      {
+        title: "Hip Strengthening for Multiple Conditions",
+        year: 2019,
+        findings: "Hip abductor and extensor strengthening effective across various hip pathologies",
+        relevance: "Supports comprehensive hip strengthening approach"
+      }
+    ],
+
+    differentialDiagnosis: [
+      {
+        condition: "Hip Osteoarthritis",
+        distinguishingFeatures: "Morning stiffness, groin pain, limited internal rotation, age >40"
+      },
+      {
+        condition: "Femoroacetabular Impingement",
+        distinguishingFeatures: "Sharp anterior pain with deep flexion, positive FADIR test, younger athletes"
+      },
+      {
+        condition: "Greater Trochanteric Pain Syndrome",
+        distinguishingFeatures: "Lateral hip pain, night pain with side-lying, positive single-leg stance test"
+      },
+      {
+        condition: "Deep Gluteal Syndrome",
+        distinguishingFeatures: "Buttock pain with radiating symptoms, negative lumbar spine tests"
+      },
+      {
+        condition: "Lumbar Referred Pain",
+        distinguishingFeatures: "Back pain history, positive neural tension tests, dermatomal distribution"
+      }
+    ],
+
+    measuringProgress: standardMeasuringProgress,
+    accessAndHours: standardAccessAndHours
+  },
+
+  'hip-osteoarthritis': {
+    pathophysiology: `Hip osteoarthritis is a dynamic process involving the entire joint structure, not simple "wear and tear." The most pervasive and damaging misconception about OA is that it's a simple "wear and tear" disease where the joint is worn out and nothing can be done. This is not the full picture. OA is a dynamic process involving the entire joint structure, and it does not mean your active life is over. It begins with articular cartilage breakdown (the smooth, white, slippery tissue covering bone ends), followed by subchondral bone changes, osteophyte formation ("bone spurs" - bony lumps growing in response to inflammation), and joint space narrowing. The process involves inflammatory mediators, altered biomechanics, and compensatory muscle weakness. Critically, pain is not directly proportional to radiographic changes - I have seen countless patients with "severe" OA on imaging who have minimal pain and excellent function, and vice versa. Your experience of pain is real, but it is not solely dictated by what an X-ray shows. 
+
+The hip joint doesn't exist in isolation - when it becomes stiff and painful from OA, the body makes compensations. The most common is increased movement and strain on the lumbar spine and sacroiliac (SI) joint, which is why so many people with hip OA also develop low back pain. The knee can also take a hit - a stiff hip changes the way you walk, altering forces that travel down through the knee and ankle. Living with persistent pain is exhausting and can lead to fear of movement, anxiety, and feeling of fragility. This is where pain centralization comes in - over time, the nervous system can become sensitized, essentially "turning up the volume" on pain signals. Gentle, graded movement can help recalibrate the nervous system.`,
+
+    clinicalPresentation: {
+      primarySymptoms: [
+        "Deep, aching groin pain (most commonly felt in the groin or front of thigh)",
+        "Morning stiffness lasting 30-60 minutes (classic sign that gradually eases with gentle movement)",
+        "Pain with weight-bearing activities (walking, standing for long periods, climbing stairs)",
+        "Limited internal rotation (often first and most significant motion limitation)",
+        "Reduced range of motion (difficulty bringing knee towards chest or moving leg out to side)",
+        "Pain may refer to buttock or even the knee (which can be misleading)"
+      ],
+      associatedSymptoms: [
+        "Grinding sensation (crepitus) with hip movements, though not always present",
+        "Increased pain at end of day (suggests load-related issue)",
+        "Stiffness after periods of rest",
+        "Compensatory low back pain from altered movement patterns",
+        "Altered gait patterns and kinetic chain dysfunction",
+        "Functional limitations (putting on shoes/socks, getting out of low chairs)",
+        "Gradual closing down of their world - activities once loved now shadowed by thought of pain"
+      ],
+      typicalPattern: "The story rarely begins with a bang - it's a slow burn. Often starts as a subtle, deep, groin-area ache noticed after a long walk that might be dismissed as a muscle strain. Over months or years, that ache becomes more persistent, and stiffness takes longer to fade. Classic presentation: age >40, activity-related groin pain, morning stiffness that improves with gentle movement, limited internal rotation on examination."
+    },
+
+    evidenceSnapshot: {
+      firstLine: "The 2018 Clinical Practice Guidelines from the Journal of Orthopaedic & Sports Physical Therapy (JOSPT) for hip OA are unequivocal - they strongly recommend patient education, manual therapy, and therapeutic exercise",
+      imaging: "X-ray shows joint space narrowing, osteophytes, subchondral sclerosis. Clinical diagnosis often sufficient to begin treatment. An X-ray can confirm diagnosis but is not always necessary to begin treatment",
+      management: "Management should focus on improving function and participation in life's activities, not just on changing the structure of the joint. Load management, progressive strengthening, manual therapy. Focus on function over imaging findings",
+      sources: "2018 JOSPT Clinical Practice Guidelines for Hip Pain and Mobility Deficits"
+    },
+
+    whatToExpect: {
+      firstVisit: "My assessment starts the moment you walk into the room - I observe your gait for any subtle limp or protective patterns. When you describe your hip pain, I'm listening for subtleties: is the pain sharp and sudden, or a dull, constant ache? The latter is more characteristic of OA. I want to know about the 24-hour pattern - pain worse at the end of the day suggests a load-related issue, while severe night pain could flag other, more inflammatory conditions. The most important question is: 'What can't you do anymore that you wish you could?' This becomes our true north for goal setting. On the examination table, I'll assess limited internal rotation (often one of the first and most significant motion limitations in hip OA), test pain with passive motion (FADIR test), and assess muscle strength deficits, particularly the gluteus medius and maximus which are crucial for shock absorption and stability. We'll discuss the load-capacity model - explaining that pain occurs when the load on your hip exceeds its current capacity to handle that load.",
+      earlyPhase: "Calm the system through activity modification, not cessation. If walking for 30 minutes causes a flare-up, we find the duration you can tolerate and build from there. We begin gentle exercises to activate muscles and improve pain-free range of motion. Strong, healthy muscles around the hip act like suspension for the joint - they absorb force, provide stability, and reduce stress on the cartilage.",
+      progression: "Systematic progression from isometric exercises (like quad sets) to capacity building (glute bridges), then to functional movements (sit-to-stand exercises). We address the entire kinetic chain including core and gluteal muscles. The goal is not to eliminate all pain but to give you tools to manage flare-ups and increase the number of good days."
+    },
+
+    evidenceBasedTreatment: [
+      {
+        approach: "Therapeutic Exercise",
+        evidence: "2018 JOSPT guidelines give strong recommendation. Exercise as effective as surgery for pain relief and functional improvement in many patients",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Manual Therapy Combined with Exercise",
+        evidence: "Joint mobilization and soft tissue work provide short-term relief and enhance exercise tolerance",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Load-Capacity Management",
+        evidence: "Balancing tissue demands with capacity prevents flare-ups while building resilience",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Patient Education",
+        evidence: "Understanding pain mechanisms and prognosis reduces fear and improves outcomes",
+        effectivenessLevel: "moderate"
+      }
+    ],
+
+    prognosis: {
+      timeline: "Managing a chronic condition like OA is a long-term project, not a quick fix. You can expect to see meaningful improvements in pain and function within 6-12 weeks of consistent effort, but the true benefits come from integrating these strategies into your lifestyle permanently. There will be good days and bad days. Realistic markers of progress include: Can you walk for 5 minutes longer than last month? Do you feel more confident going up and down stairs? Is the morning stiffness lasting 15 minutes instead of 30? Did you get back to gardening for an hour without a major flare-up?",
+      factors: [
+        "Severity of symptoms (not imaging findings - many with severe imaging have minimal symptoms)",
+        "Baseline activity level and motivation",
+        "Body weight and metabolic health",
+        "Presence of kinetic chain dysfunction (compensatory patterns)",
+        "Adherence to exercise program and load management principles",
+        "Understanding of pain science and load-capacity model",
+        "Fear-avoidance beliefs and catastrophizing"
+      ],
+      naturalHistory: "Progressive structural changes, but symptoms fluctuate significantly. Many patients maintain excellent function with proper management. The key insight is that pain is not directly related to imaging findings - your experience is real but not determined by X-ray appearance. Living with persistent pain can lead to fear of movement, anxiety, and feeling of fragility, but gentle, graded movement can help recalibrate the nervous system."
+    },
+
+    selfManagement: [
+      {
+        strategy: "Load vs Capacity Balance",
+        rationale: "Pain flares when demands exceed hip's current capacity. Temporary reduction of aggravating loads while building capacity through exercise",
+        precautions: ["Avoid complete rest", "Gentle movement helps morning stiffness", "Monitor symptom response to activities"]
+      },
+      {
+        strategy: "Progressive Exercise Program",
+        rationale: "Strong muscles act as shock absorbers, reducing stress on cartilage. Exercise stimulates cartilage health",
+        precautions: ["Start with pain-free range", "Progress gradually", "Consistency more important than intensity"]
+      },
+      {
+        strategy: "Heat for Stiffness",
+        rationale: "Heat therapy helpful for morning stiffness and before exercise",
+        precautions: ["Use before activity, not for acute inflammation"]
+      }
+    ],
+
+    clinicalRedFlags: [
+      {
+        sign: "Severe night pain or constant pain",
+        action: "Investigation for inflammatory arthritis or malignancy"
+      },
+      {
+        sign: "Rapid onset or worsening symptoms",
+        action: "Assessment for avascular necrosis or fracture"
+      },
+      {
+        sign: "Systemic symptoms (fever, weight loss)",
+        action: "Medical evaluation for systemic disease"
+      }
+    ],
+
+    keyResearch: [
+      {
+        title: "Hip Osteoarthritis Clinical Practice Guidelines",
+        year: 2018,
+        findings: "Strong evidence for exercise therapy and manual therapy. Exercise can be as effective as surgery for many patients",
+        relevance: "Establishes conservative care as evidence-based first-line treatment"
+      },
+      {
+        title: "Exercise vs Surgery for Hip OA",
+        year: 2022,
+        findings: "No significant difference in outcomes between exercise therapy and total hip replacement at 2 years for appropriate candidates",
+        relevance: "Supports trying conservative management before considering surgery"
+      },
+      {
+        title: "Load-Capacity Model in OA",
+        year: 2019,
+        findings: "Understanding load-capacity relationship improves patient outcomes and reduces fear-avoidance",
+        relevance: "Guides exercise prescription and patient education"
+      }
+    ],
+
+    specificTests: [
+      {
+        test: "Hip Internal Rotation",
+        finding: "Limited internal rotation often first and most significant loss",
+        significance: "Strong indicator of hip OA, helps differentiate from other conditions"
+      },
+      {
+        test: "FADIR Test",
+        finding: "May reproduce familiar groin pain",
+        significance: "Assesses anterior joint structures, but positive in multiple conditions"
+      },
+      {
+        test: "Functional Tests",
+        finding: "Difficulty with single-leg stance, stair climbing",
+        significance: "Assesses real-world impact and guides treatment planning"
+      }
+    ],
+
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Calming the System & Creating a Foundation (Weeks 1-4)",
+        focus: "The initial goal is to reduce pain and irritability through activity modification, not cessation. Begin gentle exercises to activate muscles and improve pain-free range of motion.",
+        examples: [
+          "Quad Sets: Lying on back with leg straight, gently tighten thigh muscle and hold 5-10 seconds. This isometric exercise activates quadriceps without moving or irritating the hip joint",
+          "Gentle hip range of motion within pain-free limits",
+          "Activity modification: Find tolerable walking duration (e.g., 15 minutes instead of 30) and build from there",
+          "Heat therapy for morning stiffness",
+          "Pain education about load-capacity model"
+        ],
+        progressionCriteria: "Reduced morning stiffness duration, improved pain-free walking distance, better understanding of condition"
+      },
+      phase2: {
+        title: "Phase 2: Building Robust Capacity (Weeks 5-12)",
+        focus: "Shift focus to building strength. Choose exercises that challenge muscles without excessively compressing the joint. Strong muscles act as shock absorbers for the hip.",
+        examples: [
+          "Glute Bridges: Lying on back with knees bent, squeeze glutes and lift hips. Targets powerful gluteal muscles critical for stability without high joint compression",
+          "Side-lying clamshells for gluteus medius activation",
+          "Standing hip abduction with wall support",
+          "Wall squats to comfortable depth",
+          "Progressive walking program",
+          "Stationary bike if tolerated"
+        ],
+        progressionCriteria: "Increased muscle strength, improved functional tolerance, better movement confidence"
+      },
+      phase3: {
+        title: "Phase 3: Restoring Full Function & Resilience (Months 3-6+)",
+        focus: "Return to activities you love. Incorporate functional, weight-bearing exercises that mimic demands of your life - walking, squatting to garden, climbing stairs.",
+        examples: [
+          "Sit-to-Stand (Box Squat): Stand in front of sturdy chair, hinge at hips and lower with control, then drive through heels to stand. Builds strength in glutes and quads in way that translates to real-world activities",
+          "Single-leg stance progression",
+          "Step-ups to comfortable height",
+          "Functional movement patterns for daily activities",
+          "Return to recreational activities with proper pacing",
+          "Long-term maintenance exercise program"
+        ],
+        progressionCriteria: "Return to desired recreational activities, sustained improvements in function, confidence in hip's capabilities"
+      }
+    },
+
+    measuringProgress: standardMeasuringProgress,
+    accessAndHours: standardAccessAndHours
+  },
+
+  'femoroacetabular-impingement': {
+    pathophysiology: `Femoroacetabular Impingement (FAI) syndrome involves abnormal contact between the femoral neck and acetabular rim during hip movement, specifically during deep hip flexion and internal rotation. The biggest misconception is that having a certain hip shape (a "cam" or "pincer" morphology on an X-ray) automatically means you will have pain - this is false. Many elite athletes and pain-free individuals have these shapes. FAI is a syndrome, which means it's the combination of a specific hip shape plus symptoms plus clinical signs. The shape itself is not the problem; the problem is how you are loading that shape.
+
+Two main types exist: CAM (extra bone on femoral head-neck junction creating a "bump" that makes contact with the socket during deep flexion) and PINCER (deep acetabular socket where the socket is too deep, causing the rim to contact the femoral neck). Mixed types with both morphologies are common. The cam shape can make contact with the socket and labrum (cartilaginous ring around the socket) during deep hip flexion, leading to a pinching sensation and potential stress on the labrum.
+
+To avoid the pinching sensation, the body develops clever compensation strategies. A common one is to create extra movement through the low back and pelvis - instead of flexing at the hip to squat, a person might excessively round their lumbar spine (butt-winking). Over time, this can lead to low back pain. Similarly, a stiff and painful hip can cause the knee to collapse inwards during activities like running or landing, potentially contributing to knee pain.
+
+When a specific movement consistently causes sharp pain, the brain learns to fear and avoid it. This leads to protective muscle guarding, where muscles around the hip (like hip flexors and adductors) become chronically tense in anticipation of pain. This tension can then become a secondary source of pain itself.`,
+
+    clinicalPresentation: {
+      primarySymptoms: [
+        "Sharp, pinching groin pain with deep hip flexion (not constant, dull ache like arthritis)",
+        "Pain with squatting, getting out of cars, or prolonged sitting in low chairs",
+        "Clicking or catching sensation - palpable or audible click with certain movements",
+        "Progressive loss of hip internal rotation (difficulty bringing knee towards opposite shoulder)",
+        "Activity-related pain that appears with specific movements, particularly deep hip flexion or rotation"
+      ],
+      associatedSymptoms: [
+        "Stiffness or loss of rotation in the hip",
+        "Pain with sports requiring deep hip flexion (soccer, hockey, yoga, dance)",
+        "C-sign: hand curved from groin to lateral hip to show where they feel it",
+        "Pain may radiate to buttock or side of hip region",
+        "Feeling like 'something is getting caught in there' or 'bony block'",
+        "Progressive difficulty sinking into deep squats or yoga poses"
+      ],
+      typicalPattern: "Often a story of frustration for young, active individuals. The soccer player who feels sharp, pinching pain in groin every time they strike the ball. The yoga enthusiast who can no longer sink into deep squat without a block in front of hip. Pain is not constant but appears with specific movements - especially deep hip flexion or rotation. Patients often make a 'C' sign with their hand from front of hip to side to show exactly where they feel it."
+    },
+
+    evidenceSnapshot: {
+      firstLine: "The 2016 Warwick Agreement, an international consensus statement on FAI syndrome, emphasized that treatment should be aimed at relieving symptoms and improving function, and that conservative care, including physiotherapy, is a primary and effective management strategy",
+      imaging: "X-ray shows bony morphology (cam/pincer); MRI assesses labral and cartilage health. The diagnosis of the syndrome remains clinical - requires symptoms, clinical signs, and imaging findings",
+      management: "Philosophy is not to change your hip's structure, but to change how you control and load it. Work with your unique anatomy, not against it. Movement modification, strengthening, and progressive return to activities within safe ranges",
+      sources: "2016 Warwick Agreement on FAI Syndrome; Hip Preservation Society Guidelines"
+    },
+
+    whatToExpect: {
+      firstVisit: "When you describe your FAI-like symptoms, I'm listening for the triggers - 'It only hurts when I...' is a key phrase. I want to know about your athletic history and daily activities. Are you a hockey goalie, a dancer, or someone who sits in a low office chair for eight hours a day? These activities all involve sustained or repeated deep hip flexion, which can be provocative. I'll ask you to show me the exact movement that brings on the pain - this functional demonstration is often more revealing than any specific test. The hallmark test is the FADIR test (bringing knee towards chest and across body while rotating hip inwards) - this is highly sensitive, meaning if it's negative, it's less likely to be FAI. I'll carefully measure your hip's internal and external rotation, looking for significant loss of internal rotation compared to the other side. I'll also look for patterns of overactive and underactive muscles - often the hip flexors are tight and dominant, while the deep gluteal muscles are weak and inhibited.",
+      earlyPhase: "Learn to recognize and temporarily avoid the impingement zone (positions of deep flexion and internal rotation) while beginning basic muscle activation exercises. We'll swap deep squats for hip hinges, adjust your office chair height, and work on basic muscle activation. The first step is to stop irritating the joint through movement modification.",
+      progression: "Progressive strengthening focusing on posterior chain (glutes and hamstrings) to balance out often-dominant anterior hip muscles, while respecting your hip's unique anatomy. By strengthening the deep hip muscles, particularly the gluteal group, we can improve the way the femoral head sits and moves within the socket, creating better control and dynamic stability. Gradual return to sport-specific movements in safe ranges."
+    },
+
+    evidenceBasedTreatment: [
+      {
+        approach: "Range of Motion Modification",
+        evidence: "Avoiding provocative end-range positions allows tissue healing while maintaining function",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Posterior Chain Strengthening",
+        evidence: "Strengthening glutes and deep hip muscles improves femoral head control and creates dynamic stability",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Movement Pattern Training",
+        evidence: "Learning hip-dominant versus knee-dominant movement patterns reduces impingement stress",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Manual Therapy",
+        evidence: "Soft tissue work and joint mobilization can improve mobility and reduce protective muscle guarding",
+        effectivenessLevel: "moderate"
+      }
+    ],
+
+    prognosis: {
+      timeline: "Conservative management typically takes 3-6 months. Pain reduction often seen in 4-6 weeks with movement modification. Return to high-level activity requires building adequate strength and control",
+      factors: [
+        "Severity of bony morphology",
+        "Presence of labral pathology",
+        "Sport/activity demands",
+        "Compliance with movement modification",
+        "Hip muscle strength and control",
+        "Duration of symptoms"
+      ],
+      naturalHistory: "Many respond well to conservative care. Surgery considered only after failed conservative management for 3-4 months in appropriate candidates."
+    },
+
+    selfManagement: [
+      {
+        strategy: "Respect the Impingement Zone",
+        rationale: "Avoiding positions of deep hip flexion with internal rotation allows tissues to calm down",
+        precautions: ["Modify squats to higher box/chair", "Adjust car seat height", "Avoid deep stretching into pain"]
+      },
+      {
+        strategy: "Hip Hinge Movement Pattern",
+        rationale: "Learning to move from hips rather than knees reduces impingement stress",
+        precautions: ["Keep shins vertical during squatting", "Initiate movement by sitting back"]
+      },
+      {
+        strategy: "Posterior Chain Activation",
+        rationale: "Strong glutes provide better femoral head control and reduce compensation patterns",
+        precautions: ["Start with isometric exercises", "Progress gradually", "Focus on quality over quantity"]
+      }
+    ],
+
+    clinicalRedFlags: [
+      {
+        sign: "Mechanical locking or giving way",
+        action: "Assessment for loose body or significant labral tear"
+      },
+      {
+        sign: "Severe, constant pain not related to movement",
+        action: "Investigation for other pathology"
+      },
+      {
+        sign: "Rapid deterioration in young athlete",
+        action: "Consider imaging and specialist referral"
+      }
+    ],
+
+    keyResearch: [
+      {
+        title: "Warwick Agreement on FAI Syndrome",
+        year: 2016,
+        findings: "International consensus emphasizing FAI as a syndrome requiring symptoms, signs, and imaging findings. Conservative care is primary treatment",
+        relevance: "Establishes diagnostic criteria and treatment approach"
+      },
+      {
+        title: "Conservative vs Surgical Management",
+        year: 2019,
+        findings: "No significant difference in outcomes between physiotherapy and surgery at 12 months for many patients",
+        relevance: "Supports trying conservative management first"
+      },
+      {
+        title: "Hip Strengthening in FAI",
+        year: 2020,
+        findings: "Targeted hip strengthening programs reduce pain and improve function in FAI syndrome",
+        relevance: "Evidence for specific exercise approach"
+      }
+    ],
+
+    specificTests: [
+      {
+        test: "FADIR Test",
+        finding: "Reproduces familiar sharp anterior groin pain",
+        significance: "Highly sensitive test for FAI syndrome, though not specific"
+      },
+      {
+        test: "Hip Internal Rotation Range",
+        finding: "Significant loss compared to opposite side",
+        significance: "Common finding in FAI, helps guide treatment"
+      },
+      {
+        test: "Functional Movement Assessment",
+        finding: "Patient demonstrates movements that provoke symptoms",
+        significance: "Identifies specific activities to modify"
+      }
+    ],
+
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Calming the System & Creating a Foundation (Weeks 1-6)",
+        focus: "Stop irritating the joint by identifying and modifying provocative movements. Learn to recognize and avoid the specific positions of deep flexion and internal rotation that cause sharp, pinching pain. Begin basic muscle activation in completely unloaded, non-impinging positions.",
+        examples: [
+          "Glute Sets in Prone: Lie on stomach and gently squeeze buttock muscles without arching low back. This pure activation exercise helps re-establish mind-muscle connection with glutes, which are often 'sleepy' in FAI",
+          "Movement modification education: swap deep squats for hip hinges, adjust office chair height, avoid deep stretching into pain",
+          "Isometric hip abduction in supine to begin gluteal activation",
+          "Pain education about working with your unique anatomy",
+          "Activity modification: temporarily reduce activities that provoke symptoms"
+        ],
+        progressionCriteria: "Reduced daily pain, can perform basic activities without sharp catching, better understanding of safe movement patterns"
+      },
+      phase2: {
+        title: "Phase 2: Building Robust Capacity (Weeks 7-16)",
+        focus: "Begin to build strength in controlled, pain-free range of motion. Focus on strengthening posterior chain to balance out often-dominant anterior hip muscles. Build the tissue's capacity in safe ranges.",
+        examples: [
+          "Sidelying Clamshell: Targets gluteus medius in controlled range. Keep pelvis still and lift top knee towards ceiling - teaches you to move thigh bone without creating unwanted movement at pelvis",
+          "Side-lying hip abduction with control",
+          "Goblet squats to high box: Hold weight at chest level and squat to box high enough to prevent entering impingement zone. Promotes hip-dominant strategy while staying in safe range",
+          "Wall sits with controlled depth",
+          "Standing hip abduction progression",
+          "Posterior chain strengthening"
+        ],
+        progressionCriteria: "Improved strength, better movement control, can perform modified activities, increased confidence in hip movement"
+      },
+      phase3: {
+        title: "Phase 3: Restoring Full Function & Resilience (Months 4-6)",
+        focus: "Reintegrate more complex, functional movements. Challenge strength, control, and stability in positions relevant to sport or life goals, all while respecting hip's unique anatomy. Build robust strength for return to activity.",
+        examples: [
+          "Single-leg exercises with progression",
+          "Rotational movements in safe ranges",
+          "Sport-specific drills progressively introduced",
+          "Plyometric exercises if appropriate for sport demands",
+          "Return to cutting and pivoting movements gradually",
+          "Full return to sport with movement modifications as needed"
+        ],
+        progressionCriteria: "Return to sport without symptoms, confidence in hip stability, ability to perform sport-specific movements in safe ranges"
+      }
+    },
+
+    differentialDiagnosis: [
+      {
+        condition: "Hip Osteoarthritis",
+        distinguishingFeatures: "Older age, constant aching vs sharp catching, more morning stiffness"
+      },
+      {
+        condition: "Labral Tear (without FAI)",
+        distinguishingFeatures: "May have mechanical symptoms but normal bony morphology"
+      },
+      {
+        condition: "Hip Flexor Strain",
+        distinguishingFeatures: "Pain with resisted hip flexion, anterior thigh location"
+      },
+      {
+        condition: "Athletic Pubalgia",
+        distinguishingFeatures: "Lower abdominal pain, pain with Valsalva maneuvers"
+      }
+    ],
+
+    measuringProgress: standardMeasuringProgress,
+    accessAndHours: standardAccessAndHours
+  },
+
+  'greater-trochanteric-pain-syndrome': {
+    pathophysiology: `Greater Trochanteric Pain Syndrome (GTPS), previously called "trochanteric bursitis," is primarily a gluteal tendinopathy affecting the gluteus medius and minimus tendons at their insertion on the greater trochanter. For years, this condition was called "trochanteric bursitis," and the presumed treatment was rest, ice, and anti-inflammatory injections. We now understand this is often incorrect. Research has shown that the primary issue is frequently not an inflamed bursa, but a distressed gluteus medius or minimus tendon - a gluteal tendinopathy. The bursa can become secondarily irritated, but it's rarely the main driver. This changes everything. Treating a tendinopathy is not about rest; it's about managing load and progressively strengthening the tendon. The idea that you just need to "rest it" is perhaps the most unhelpful advice for this condition.
+
+The condition involves a load-capacity imbalance where compressive forces (from positions that bring the IT band across the trochanter) and tensile loads exceed the tendon's ability to adapt. Postures that bring your thigh across the midline of your body can cause the iliotibial (IT) band to compress the gluteal tendons against the hip bone, a key source of irritation in GTPS.
+
+Weakness in the gluteus medius and minimus doesn't just cause local pain; it degrades movement quality throughout the kinetic chain. When these muscles aren't doing their job of stabilizing the pelvis, you can develop a "hip drop" or Trendelenburg gait pattern. This leads to compensations everywhere: the tensor fascia latae (TFL) and IT band may become overworked and tight, the low back can be subjected to shearing forces, and the knee can collapse inwards (valgus), potentially contributing to patellofemoral pain.
+
+Chronic tendon pain is frustrating because the pain is often worse with rest (like at night), creating a cycle of anxiety and poor sleep. Poor sleep, in turn, is known to increase pain sensitivity.`,
+
+    clinicalPresentation: {
+      primarySymptoms: [
+        "Localized, tender, aching pain centered over the bony point on side of hip (greater trochanter)",
+        "Pain radiating down the outer thigh, sometimes as far as the knee",
+        "Severe night pain - hallmark symptom. Direct pressure of lying on affected side, or stretch from lying on opposite side can be highly irritating",
+        "Start-up pain when getting out of bed or chair after being still (sometimes called 'start-up' pain)",
+        "Pain with single-leg weight bearing activities and walking (especially up hills or uneven ground)"
+      ],
+      associatedSymptoms: [
+        "Pain with climbing stairs and standing on one leg",
+        "Difficulty lying on either side - 'I just can't get comfortable'",
+        "Trendelenburg gait or hip drop during walking",
+        "Pain with crossing legs or prolonged standing on one hip",
+        "Simple actions like getting out of car, climbing stairs, or standing up after sitting become potent triggers"
+      ],
+      typicalPattern: "Patient with GTPS typically points directly to side of their hip - the bony part you can feel, known as the greater trochanter. The story is rarely about a specific injury. Instead, it's about a pain that has crept in and become a persistent, nagging ache. Most common and frustrating complaint is night pain. Common in post-menopausal women but affects all ages. Insidious onset often linked to increase in load (new exercise program, prolonged standing, poor sleep surface)."
+    },
+
+    evidenceSnapshot: {
+      firstLine: "Education and progressive loading exercise program superior to corticosteroid injection",
+      imaging: "Usually clinical diagnosis; ultrasound or MRI can confirm tendinopathy if needed",
+      management: "Load management focusing on compression avoidance, progressive tendon strengthening",
+      sources: "2018 LEAP Trial (BMJ); Gluteal Tendinopathy Clinical Guidelines"
+    },
+
+    whatToExpect: {
+      firstVisit: "The subjective history is paramount for GTPS. The story of pain with side-lying is a huge clue. I'll dig deeper: 'When you lie on your good side, where exactly do you put your top leg?' Most people will say they just let it fall forward, which puts the hip into a position of adduction and flexion, compressing the tendons. I'll ask about exercise habits - have you recently started a new running program or 'boot camp' class with lots of single-leg work? A sudden, unaccustomed spike in load is a classic trigger. Your age and hormonal status are also relevant, as GTPS is particularly common in post-menopausal women. My physical exam includes: direct, precise palpation over the greater trochanter (significant tenderness is a key sign), single-leg stance test (standing on affected leg for 30 seconds often reproduces lateral hip pain), and resisted strength tests for hip abductors. I may also use de-loading tests - testing abductor strength with the hip in a slightly abducted position often reduces compressive force and can be less painful.",
+      earlyPhase: "Focus entirely on stopping compressive loads while beginning non-compressive strengthening exercises. Your number one job is to avoid postures and movements that compress the gluteal tendons against the greater trochanter. This means no crossing your legs, no 'hanging' on one hip when you stand, and meticulous attention to your sleeping position. Sleep modification is crucial - use pillows between knees and ankles to maintain neutral hip alignment.",
+      progression: "Our philosophy is simple: calm the tendon down, then build it up. Gradual progression from isometric exercises (which can have pain-relieving effect) to functional strengthening, slowly building tendon capacity while respecting tissue sensitivity. Tendon healing is a slow biological process - consistency is far more important than intensity."
+    },
+
+    evidenceBasedTreatment: [
+      {
+        approach: "Education and Load Management",
+        evidence: "LEAP trial showed education plus exercise superior to injection at 8 weeks and 52 weeks",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Progressive Loading Exercise",
+        evidence: "Systematic tendon loading promotes adaptation and tissue remodeling",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Compression Avoidance",
+        evidence: "Positions that compress gluteal tendons against trochanter perpetuate symptoms",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Manual Therapy",
+        evidence: "Soft tissue work for associated muscle tension, but avoid direct tendon compression",
+        effectivenessLevel: "moderate"
+      }
+    ],
+
+    prognosis: {
+      timeline: "Initial pain reduction within 2-4 weeks with load management. Full tendon capacity building takes 3-6 months or longer. Consistency is more important than intensity",
+      factors: [
+        "Duration of symptoms before treatment",
+        "Compliance with load management",
+        "Ability to modify aggravating activities",
+        "Baseline strength and motor control",
+        "Hormonal status (post-menopausal women may take longer)",
+        "Presence of other hip/pelvic conditions"
+      ],
+      naturalHistory: "Responds very well to appropriate load management and exercise. Poor response to rest alone. Injection may provide short-term relief but inferior long-term outcomes."
+    },
+
+    selfManagement: [
+      {
+        strategy: "Sleep Position Modification",
+        rationale: "Side-lying compresses gluteal tendons. Pillow between knees maintains neutral hip position",
+        precautions: ["Sleep on back if possible", "Firm pillow between knees and ankles", "Avoid sleeping on affected side"]
+      },
+      {
+        strategy: "Avoid Compressive Positions",
+        rationale: "Positions that bring thigh across midline compress tendons against bone",
+        precautions: ["No crossing legs", "Stand with weight evenly distributed", "Avoid hanging on one hip"]
+      },
+      {
+        strategy: "Progressive Loading",
+        rationale: "Tendons adapt to gradually increasing loads but need time for tissue remodeling",
+        precautions: ["Start with isometric exercises", "Progress very gradually", "Stop if sharp increase in symptoms"]
+      }
+    ],
+
+    clinicalRedFlags: [
+      {
+        sign: "Severe, constant pain not relieved by position changes",
+        action: "Investigation for stress fracture or other bone pathology"
+      },
+      {
+        sign: "Rapid onset after trauma",
+        action: "Assessment for fracture or tear"
+      },
+      {
+        sign: "Progressive neurological symptoms",
+        action: "Evaluation for nerve involvement"
+      }
+    ],
+
+    keyResearch: [
+      {
+        title: "LEAP Trial - Education and Exercise vs Injection",
+        year: 2018,
+        findings: "Education plus exercise program significantly superior to corticosteroid injection at both 8 weeks and 1 year follow-up",
+        relevance: "Establishes exercise as first-line treatment over injection"
+      },
+      {
+        title: "Gluteal Tendinopathy Load Management",
+        year: 2016,
+        findings: "Compression is primary aggravating factor. Load modification essential for recovery",
+        relevance: "Guides activity modification strategies"
+      },
+      {
+        title: "Progressive Loading in Tendinopathy",
+        year: 2019,
+        findings: "Systematic progression from isometric to isotonic to energy storage exercises optimizes tendon adaptation",
+        relevance: "Evidence-based exercise progression"
+      }
+    ],
+
+    specificTests: [
+      {
+        test: "Direct Palpation of Greater Trochanter",
+        finding: "Exquisite tenderness over the bony prominence",
+        significance: "Confirms location of pathology"
+      },
+      {
+        test: "Single-Leg Stance Test",
+        finding: "Reproduction of lateral hip pain within 30 seconds",
+        significance: "Functional test that loads gluteal tendons"
+      },
+      {
+        test: "Resisted Hip Abduction",
+        finding: "Pain and/or weakness with resisted movement",
+        significance: "Tests gluteal tendon under load"
+      }
+    ],
+
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Calming the System & Creating a Foundation (Weeks 1-6)",
+        focus: "This phase is all about load management and education. We identify every compressive posture in your day and find an alternative. We also start with very basic, non-compressive exercises to activate the gluteal muscles.",
+        examples: [
+          "Isometric Hip Abduction: Lie on back with knees bent and feet flat. Place resistance band around thighs, just above knees. Gently push knees apart against band, holding contraction without movement. This activates gluteal muscles in non-compressive position",
+          "Sleep and sitting modifications: No crossing legs, no hanging on one hip when standing, meticulous attention to sleeping position with pillows",
+          "Activity modification education: Identify and eliminate all compressive postures",
+          "Basic glute activation in prone lying",
+          "Pain education about compression vs. load"
+        ],
+        progressionCriteria: "Reduced night pain (sleeping through night without being woken by hip pain), less start-up pain, better understanding of aggravating factors"
+      },
+      phase2: {
+        title: "Phase 2: Building Robust Capacity (Weeks 7-20)",
+        focus: "Once the tendon is less irritable, we can begin to build strength through range of motion, but still with careful attention to avoiding compression.",
+        examples: [
+          "Standing Hip Abduction: Stand with affected leg away from wall for support. Keeping torso upright and pelvis level, slowly lift leg out to side without leaning. Strengthens gluteus medius in functional, weight-bearing position",
+          "Side-lying hip abduction with control and proper alignment",
+          "Wall sits with hip abduction component",
+          "Step-downs from low step with control",
+          "Progressive walking program",
+          "Isometric exercises progressed to isotonic through range"
+        ],
+        progressionCriteria: "Improved strength (can stand on one leg to put pants on without holding on), walking tolerance improved, less pain with stairs"
+      },
+      phase3: {
+        title: "Phase 3: Restoring Full Function & Resilience (Months 4-6+)",
+        focus: "Now we introduce exercises that more closely mimic the demands of walking, running, and climbing stairs. We are building a tendon that can handle the compressive and tensile loads of life.",
+        examples: [
+          "Offset Single Leg Bridge: Lie on back with feet on low step, shift one foot to middle and lift other leg off. Drive through heel to lift hips, keeping pelvis level. High-level strengthening for gluteus maximus and medius",
+          "Single-leg exercises with progression",
+          "Step-ups to comfortable height with control",
+          "Return to hiking, running, or other desired activities with proper progression",
+          "Functional movement patterns for daily activities",
+          "Long-term maintenance program"
+        ],
+        progressionCriteria: "Return to desired activities (sleeping through night, walking up hill without ache, feeling stronger and more stable), sustained improvement, confidence in hip stability"
+      }
+    },
+
+    differentialDiagnosis: [
+      {
+        condition: "Hip Osteoarthritis",
+        distinguishingFeatures: "Groin pain primary location, limited internal rotation, morning stiffness pattern"
+      },
+      {
+        condition: "Lumbar Referred Pain",
+        distinguishingFeatures: "Back pain history, dermatomal distribution, positive neural tests"
+      },
+      {
+        condition: "Stress Fracture",
+        distinguishingFeatures: "Recent increase in activity, constant bone pain, positive imaging"
+      },
+      {
+        condition: "True Bursitis",
+        distinguishingFeatures: "Rare, usually post-traumatic or infectious, more diffuse swelling"
+      }
+    ],
+
+    measuringProgress: standardMeasuringProgress,
+    accessAndHours: standardAccessAndHours
+  },
+
+  'proximal-hamstring-tendinopathy': {
+    pathophysiology: `Proximal hamstring tendinopathy is centered around one specific, exquisitely tender spot: the ischial tuberosity, or the "sitting bone." The pain is a deep, localized ache right in the crease of the buttock where the hamstring muscles originate from a thick, shared tendon. The most common mistake people make is treating this like a simple hamstring muscle strain and aggressively stretching it, which often makes it worse. A tendinopathy at the hamstring's origin is sensitive to both compressive and tensile loads. Aggressive stretching places a high tensile load on the tendon, while sitting on it directly compresses it against the ischial tuberosity. Both actions can perpetuate the pain cycle. The condition is often linked to altered running mechanics, commonly an "over-striding" gait where the foot lands too far in front of the body's center of mass, putting massive braking and tensile load on the hamstring at foot strike.`,
+
+    clinicalPresentation: {
+      primarySymptoms: [
+        "Deep buttock pain centered on the 'sitting bone' (ischial tuberosity)",
+        "Pain with prolonged sitting - hallmark symptom, especially on harder surfaces",
+        "Pain during or after activity - running (especially uphill or high speeds), lunging, or deep squatting",
+        "Deep stiffness or tightness in the upper hamstring/lower gluteal region",
+        "Pain with stretching - trying to stretch hamstrings by touching toes reproduces deep, localized pain"
+      ],
+      associatedSymptoms: [
+        "Feeling like sitting on a rock or sharp object",
+        "Need to shift weight, stand up frequently, or perch on edge of seat",
+        "Pain that forces frequent position changes during sitting",
+        "Difficulty with prolonged driving, sitting at desk, or enjoying meal at restaurant",
+        "Pain with any activities that stretch or load the hamstring significantly"
+      ],
+      typicalPattern: "Almost always centered around the specific, tender spot of the ischial tuberosity. Insidious onset frequently linked to change in activity - long-distance runner who recently added hill repeats, or office worker who started new spin class. Most defining feature is pain with sitting. Prolonged driving, sitting at desk, or enjoying meal becomes painful ordeal."
+    },
+
+    evidenceSnapshot: {
+      firstLine: "Progressive loading program emphasizing load management and strengthening",
+      imaging: "Usually clinical diagnosis; MRI or ultrasound can confirm tendinopathy if needed",
+      management: "Load management with systematic progression from isometric to heavy, slow resistance training",
+      sources: "2015 JOSPT Goom et al. rehabilitation progression; Tendinopathy research literature"
+    },
+
+    whatToExpect: {
+      firstVisit: "I'll perform specific palpation of the ischial tuberosity (this area will be exquisitely tender) and targeted load tests like the Bent-Knee Stretch Test to reproduce your specific pain. I'll ask detailed questions about your sitting pain - what kind of chair makes it worse? Does a cushion help? The inability to sit comfortably is often the primary complaint, even more so than pain with running.",
+      earlyPhase: "Focus on modifying sitting posture and eliminating provocative stretching. We begin with isometric exercises which can have an analgesic (pain-relieving) effect. You must become an expert at managing your sitting posture - this may mean using special cushion, sitting on higher chair, or getting up more frequently.",
+      progression: "Methodical and patient approach. Once the tendon is less irritable, we introduce isotonic exercises but carefully control range to avoid deep hip flexion. Progress all the way to heavy, slow resistance training and eventually energy storage exercises relevant to your sport. Consistency is everything - there are no shortcuts."
+    },
+
+    evidenceBasedTreatment: [
+      {
+        approach: "Load Management and Sitting Modification",
+        evidence: "Avoiding compressive and excessive tensile loads allows tendon healing while maintaining function",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Progressive Loading Exercise Program",
+        evidence: "Systematic progression from isometric to heavy slow resistance training promotes tendon adaptation",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Hip Hinge Movement Patterns",
+        evidence: "Learning proper hip hinge substitutes deep forward bending and reduces tendon stretch",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Posterior Chain Strengthening",
+        evidence: "Strengthening entire posterior chain, especially glutes, reduces hamstring overload",
+        effectivenessLevel: "moderate"
+      }
+    ],
+
+    prognosis: {
+      timeline: "This can be a stubborn condition. Meaningful pain reduction from load management can happen in a few weeks, but building tendon strength and resilience is long - expect 3 to 9 months to get back to desired activities without significant pain. The progression must be slow and steady; pushing through pain will set you back.",
+      factors: [
+        "Duration of symptoms before treatment",
+        "Compliance with sitting modifications",
+        "Ability to eliminate provocative stretching",
+        "Running mechanics and training errors",
+        "Baseline strength of entire posterior chain",
+        "Understanding of load management principles"
+      ],
+      naturalHistory: "Notorious for its persistence if not managed properly. Responds well to appropriate load management and progressive exercise. Poor response to rest alone or aggressive stretching."
+    },
+
+    selfManagement: [
+      {
+        strategy: "Sitting Position Modifications",
+        rationale: "Sitting compresses hamstring tendon against sharp surface of sitting bone. Modifications reduce direct pressure",
+        precautions: ["Use cushion or rolled towel behind thighs", "Sit upright rather than slouching", "Take frequent breaks from sitting", "Avoid prolonged sitting on hard surfaces"]
+      },
+      {
+        strategy: "Eliminate Provocative Stretching",
+        rationale: "Aggressive stretching places high tensile load on sensitive tendon and can perpetuate pain cycle",
+        precautions: ["No touching toes or aggressive hamstring stretches", "Substitute hip hinge movements for deep forward bending", "Learn to pick things up with proper hip hinge technique"]
+      },
+      {
+        strategy: "Progressive Loading Only",
+        rationale: "Only way to make tendon more resilient is through carefully graded loading program",
+        precautions: ["Start with isometric exercises", "Progress very gradually", "Stop if sharp increase in symptoms", "Consistency more important than intensity"]
+      }
+    ],
+
+    clinicalRedFlags: [
+      {
+        sign: "Severe, constant pain not related to sitting or activity",
+        action: "Investigation for other pathology including stress fracture"
+      },
+      {
+        sign: "Neurological symptoms (numbness, weakness, bladder/bowel changes)",
+        action: "Assessment for nerve involvement or cauda equina syndrome"
+      },
+      {
+        sign: "Rapid onset after significant trauma",
+        action: "Assessment for complete tear or avulsion injury"
+      }
+    ],
+
+    keyResearch: [
+      {
+        title: "Gluteal Tendinopathy Rehabilitation Progression",
+        year: 2015,
+        findings: "Goom et al. outlined staged progression from isometrics to heavy, slow resistance and energy storage exercises",
+        relevance: "Principles widely adapted for proximal hamstring tendinopathy management"
+      },
+      {
+        title: "Tendinopathy Load Management Principles",
+        year: 2019,
+        findings: "Load-capacity model guides exercise prescription - reduce irritating loads while building tissue capacity",
+        relevance: "Core principle underlying all tendinopathy rehabilitation"
+      },
+      {
+        title: "Running Biomechanics and Hamstring Injury",
+        year: 2018,
+        findings: "Over-striding gait pattern increases hamstring load and injury risk",
+        relevance: "Supports gait retraining as part of comprehensive rehabilitation"
+      }
+    ],
+
+    specificTests: [
+      {
+        test: "Direct Palpation of Ischial Tuberosity",
+        finding: "Exquisite tenderness at sitting bone where hamstring muscles attach",
+        significance: "Confirms location of pathology and differentiates from other buttock pain"
+      },
+      {
+        test: "Bent-Knee Stretch Test",
+        finding: "Bringing hip into deep flexion reproduces familiar sitting bone pain",
+        significance: "Combines stretching and compression, typically reproducing patient's specific pain"
+      },
+      {
+        test: "Resisted Knee Flexion",
+        finding: "Pain and/or weakness with resisted hamstring contraction",
+        significance: "Tests hamstring strength and loads tendon under controlled conditions"
+      }
+    ],
+
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Calming the System & Initial Activation (Weeks 1-6)",
+        focus: "Goal is pain reduction and load management. Implement sitting modifications immediately. Eliminate provocative stretching. Begin with isometric exercises which can have analgesic (pain-relieving) effect.",
+        examples: [
+          "Isometric Hamstring Bridge: Lie on back with legs straighter than normal glute bridge. Dig heels into floor and lift hips just inch or two. Hold position, feeling tension in hamstrings. Activates hamstring in hip extension role without taking through large range of motion",
+          "Sitting modifications: Use cushion, sit on higher chairs, get up frequently, avoid prolonged sitting on hard surfaces",
+          "Eliminate all aggressive hamstring stretching and forward bending",
+          "Basic posterior chain activation in pain-free positions",
+          "Education about load management and sitting mechanics"
+        ],
+        progressionCriteria: "Can sit for longer periods without constant shifting, reduced deep ache after sitting, better understanding of aggravating factors"
+      },
+      phase2: {
+        title: "Phase 2: Building Robust Capacity (Weeks 7-20)",
+        focus: "Once tendon is less irritable, introduce isotonic exercises but carefully control range to avoid deep hip flexion. Build strength in entire posterior chain.",
+        examples: [
+          "Romanian Deadlift to Limited Range: Stand holding light weight. With slight knee bend, hinge forward at hips keeping back straight. Go only as far as can without pain or deep stretch at sitting bone, then squeeze glutes and hamstrings to return upright. Fantastic for entire posterior chain while staying out of provocative end-range",
+          "Glute bridges with progression",
+          "Prone hamstring curls with controlled range",
+          "Single-leg deadlift progression within pain-free range",
+          "Walking program with attention to stride length",
+          "Core strengthening to support proper movement patterns"
+        ],
+        progressionCriteria: "Can sit through 45-minute meeting without constant shifting, can drive for hour without deep ache, improved strength in posterior chain exercises"
+      },
+      phase3: {
+        title: "Phase 3: Restoring Full Function & Resilience (Months 5-9)",
+        focus: "Build strength and power needed to return to sport and high-level activity. Increase loads, increase range of motion, and eventually add speed and impact for athletes.",
+        examples: [
+          "Kettlebell Swings: Powerful hip hinge movement that develops explosive strength in hamstrings and glutes. For athletes, retrain hamstring's job to store and release energy like spring",
+          "Nordic hamstring curls (advanced eccentric strengthening)",
+          "Plyometric exercises like bounding and skipping for athletes",
+          "Full range deadlift variations as tolerated",
+          "Return to running with attention to stride mechanics",
+          "Sport-specific movement patterns and demands"
+        ],
+        progressionCriteria: "Complete short, easy run completely pain-free, feel stronger and more powerful in exercises, return to desired activities without significant symptoms"
+      }
+    },
+
+    differentialDiagnosis: [
+      {
+        condition: "Deep Gluteal Syndrome",
+        distinguishingFeatures: "Buttock pain with radiating symptoms, negative lumbar spine tests, nerve-like quality"
+      },
+      {
+        condition: "Lumbar Radiculopathy (Sciatica)",
+        distinguishingFeatures: "Back pain history, dermatomal distribution, positive neural tension tests"
+      },
+      {
+        condition: "Sacroiliac Joint Dysfunction",
+        distinguishingFeatures: "Pain below L5 level, positive SI provocation tests, instability symptoms"
+      },
+      {
+        condition: "Ischial Bursitis",
+        distinguishingFeatures: "Less common, usually more diffuse tenderness, may have swelling"
       }
     ],
 
@@ -2219,92 +3105,218 @@ The outer third has blood supply and can heal, while the inner portion has poor 
     accessAndHours: standardAccessAndHours
   },
 
-  'groin-strains': {
-    pathophysiology: `Groin strains involve tears in the adductor muscles, most commonly adductor longus. These muscles are vulnerable during explosive movements combining hip flexion and abduction.`,
+  'adductor-related-groin-pain': {
+    pathophysiology: `Adductor-related groin pain is the classic "groin pull" story, but it's often more complex than a single event. The biggest misconception is that this is "just a muscle strain" that will heal with a bit of rest and ice. While that might be true for a very minor, first-time strain, recurrent or persistent groin pain is rarely that simple. It's often a sign of an underlying imbalance. The adductor muscles don't just pull your leg inwards; they play a critical role in stabilizing the pelvis. Chronic adductor issues are frequently a symptom of a broader problem, such as weakness in the abdominal muscles, glutes, or a lack of core control.
+
+The adductors are a crucial link in the kinetic chain that transfers force from the legs to the trunk. When an athlete pushes off to skate or cut, the adductors on the stance leg work in concert with the gluteus medius and the obliques to stabilize the pelvis over the leg. If any part of that system is weak (for example, the obliques on the opposite side), the adductors may be forced to take on an excessive amount of stabilizing work, leading to overload and injury.
+
+After a painful groin injury, it's common for athletes to develop a fear of re-injury. They may start to move tentatively, avoiding the powerful, explosive movements their sport requires. This can lead to protective muscle guarding, where the body subconsciously tenses the adductors and other surrounding muscles. This guarding pattern can actually alter movement mechanics and increase the risk of another injury.`,
 
     clinicalPresentation: {
       primarySymptoms: [
-        "Sharp pain in inner thigh",
-        "Pain with stretching groin",
-        "Difficulty with lateral movements",
-        "Tenderness along adductors",
-        "Possible bruising"
+        "Pain in upper inner thigh - usually felt high in groin, close to pubic bone, ranging from dull ache to very sharp, intense pain",
+        "Tenderness to touch - adductor longus tendon where it attaches to bone is often very tender to press on",
+        "Pain with specific movements - key triggers include sprinting, cutting, kicking, or any movement involving forcefully bringing legs together (adduction)",
+        "Pain with 'squeezing' - actively squeezing knees together against resistance will often reproduce the pain",
+        "Morning ache and stiffness in groin area upon waking"
       ],
       associatedSymptoms: [
-        "Hip stiffness",
-        "Compensatory back pain",
-        "Altered gait",
-        "Weakness in leg",
-        "Swelling in acute cases"
+        "Sharp twinge in inner thigh during powerful crossover stride or cut",
+        "Pain when striking ball with inside of foot",
+        "Sometimes initial memorable 'pop' or tearing sensation",
+        "Pain that builds over time, becoming progressively more limiting",
+        "Feels fine when walking, but sharp pain with push off, sprint, or change direction",
+        "Core weakness or poor pelvic control"
       ],
-      typicalPattern: "Sudden onset during sport. Sharp pain with specific movements. Gradual stiffening after initial injury."
+      typicalPattern: "Classic story is hockey player who feels sharp twinge in their inner thigh during powerful crossover stride, or soccer player who feels it when they plant foot and cut hard to change direction, or when they strike ball with inside of foot. Pain is located high up in groin, right where inner thigh muscles attach to pubic bone. Often more complex than single event - pain that builds over time, becoming progressively more limiting."
     },
 
     evidenceSnapshot: {
-      firstLine: "Progressive rehabilitation with criteria-based return to sport",
-      imaging: "MRI if diagnosis uncertain or not progressing",
-      management: "Early mobilization with progressive strengthening",
-      sources: "Sports Medicine Injury Guidelines"
+      firstLine: "The Doha agreement (2015) established adductor-related groin pain as distinct clinical entity. Active exercise approach strongly supported by evidence",
+      imaging: "Clinical diagnosis based on symptoms and examination. MRI or ultrasound if diagnosis uncertain or complete tear suspected",
+      management: "System-based approach addressing entire pelvis and core. Strengthen adductors AND surrounding kinetic chain",
+      sources: "2015 Doha Agreement on Groin Pain; 2015 Hölmich et al. therapeutic exercise study"
     },
 
     whatToExpect: {
-      firstVisit: "I'll assess injury severity and begin early rehabilitation",
-      earlyPhase: "Reduce pain and restore basic movement",
-      progression: "Progressive strengthening and return to sport program"
+      firstVisit: "When an athlete comes to me with groin pain, my first goal is to clarify the diagnosis. Groin pain is notoriously complex area with many potential sources. I'll ask you to point with one finger to exact spot of maximal pain. I'll ask about mechanism of injury: was it single event or did it build up over time? What specific movements in your sport are most provocative? Have you had this before? A history of recurrent groin strains points strongly towards unaddressed underlying stability issue. My systematic exam includes: careful palpation of groin structures starting away from painful area, squeeze test (squeezing my fist or ball between your knees), adductor muscle length and strength assessment, and importantly - thorough assessment of surrounding muscles including abdominals and gluteals.",
+      earlyPhase: "First step is to reduce activities that cause sharp pain - this doesn't mean complete rest. We start with pain-free strengthening, focusing on isometric exercises. The early stages focus heavily on motor control, re-establishing the brain-muscle connection before we start adding heavy loads.",
+      progression: "Look beyond the site of pain. We must restore balance of strength and control across entire pelvis and core. Program begins with calming sensitive tissue and progresses systematically to build foundation of strength, and finally, to restore dynamic, high-speed stability required for sport. 8-12 weeks typically required, sometimes longer. Rushing process is most common reason for re-injury."
     },
 
     evidenceBasedTreatment: [
       {
-        approach: "Copenhagen Protocol",
-        evidence: "Reduces re-injury risk by 41%",
+        approach: "System-Based Strengthening",
+        evidence: "2015 Hölmich study showed therapeutic exercise program focusing on adductor and abdominal muscles highly effective for long-standing adductor-related groin pain",
         effectivenessLevel: "strong"
       },
       {
-        approach: "Early Mobilization",
-        evidence: "Faster return than rest",
+        approach: "Copenhagen Adduction Exercise",
+        evidence: "High-level eccentric strengthening exercise for adductors. Builds specific type of strength (eccentric) critical for injury prevention",
         effectivenessLevel: "strong"
+      },
+      {
+        approach: "Core and Gluteal Integration",
+        evidence: "Adductors work with obliques and glutes to stabilize pelvis. Cannot successfully rehabilitate persistent adductor issue without addressing function of entire system",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Manual Therapy",
+        evidence: "Soft tissue release and joint mobilizations can help restore normal mobility and balance to system",
+        effectivenessLevel: "moderate"
       }
     ],
 
     prognosis: {
-      timeline: "Grade 1: 2-3 weeks, Grade 2: 4-8 weeks, Grade 3: 3+ months",
+      timeline: "Minor adductor strain might resolve in 2-4 weeks. However, more significant injury or chronic, recurring problem will require much longer, more structured approach. Comprehensive rehabilitation program to address underlying imbalances and build necessary strength for return to sport typically takes 8-12 weeks, sometimes longer. Rushing process is most common reason for re-injury",
       factors: [
-        "Severity of tear",
-        "Previous injuries",
-        "Sport requirements",
-        "Rehabilitation compliance"
+        "Previous groin injuries and recurrence pattern",
+        "Underlying core and gluteal strength",
+        "Sport demands and cutting requirements",
+        "Compliance with system-based rehabilitation approach",
+        "Understanding that it's system issue, not just muscle problem",
+        "Fear-avoidance beliefs and confidence in movement"
       ],
-      naturalHistory: "High recurrence without proper rehabilitation"
+      naturalHistory: "Most cases respond very well to physiotherapy when comprehensive, system-based approach is used. High recurrence rate if only adductors are addressed without looking at broader kinetic chain"
     },
 
     selfManagement: [
       {
-        strategy: "Progressive Loading",
-        rationale: "Promotes healing and prevents re-injury",
-        precautions: ["Don't rush return to sport"]
+        strategy: "System Approach - Not Just Adductors",
+        rationale: "True recovery comes from understanding and strengthening entire system of muscles that controls pelvis: adductors, abdominals, glutes, and hip flexors",
+        precautions: ["Don't focus only on stretching adductors", "Address core weakness", "Include gluteal strengthening"]
       },
       {
-        strategy: "Hip Flexibility",
-        rationale: "Maintains range of motion",
-        precautions: ["Gentle stretching only"]
+        strategy: "Progressive Loading Program",
+        rationale: "Pain is signal that tissue's capacity has been exceeded by demands. Most effective way to solve this is to increase capacity through targeted, progressive strengthening",
+        precautions: ["Start with isometric exercises", "Progress systematically", "Don't rush return to sport"]
+      },
+      {
+        strategy: "Movement Quality",
+        rationale: "Poor movement patterns (like landing with knee collapse) can overload adductors",
+        precautions: ["Focus on controlled movements", "Practice good landing mechanics", "Maintain pelvic stability during activities"]
       }
     ],
 
     clinicalRedFlags: [
       {
-        sign: "Complete loss of adduction strength",
-        action: "Assessment for complete rupture"
+        sign: "Complete loss of adduction strength or palpable defect",
+        action: "Investigation for complete tear (avulsion injury)"
+      },
+      {
+        sign: "Severe, unremitting pain not improving with rest",
+        action: "Assessment for other pathology including stress fracture"
+      },
+      {
+        sign: "Neurological symptoms or signs",
+        action: "Investigation for nerve involvement"
       }
     ],
 
     keyResearch: [
       {
+        title: "Doha Agreement on Terminology and Definitions in Groin Pain",
+        year: 2015,
+        findings: "Created classification system that allows clinicians to diagnose groin pain more accurately. Established adductor-related groin pain as distinct clinical entity",
+        relevance: "Establishes diagnostic criteria and modern understanding of groin pain"
+      },
+      {
+        title: "Therapeutic Exercise for Long-Standing Adductor-Related Groin Pain",
+        year: 2015,
+        findings: "Hölmich et al. demonstrated that therapeutic exercise program focusing on strengthening adductor and abdominal muscles was highly effective",
+        relevance: "Provides evidence for specific exercise approach combining adductor and core strengthening"
+      },
+      {
         title: "Copenhagen Adduction Exercise",
         year: 2019,
-        findings: "Prevents groin injuries in athletes",
-        relevance: "Evidence for prevention and treatment"
+        findings: "Eccentric adductor strengthening reduces groin injury risk by 41% in athletes",
+        relevance: "Evidence for prevention and treatment using high-level eccentric strengthening"
       }
     ],
+
+    specificTests: [
+      {
+        test: "Adductor Squeeze Test",
+        finding: "Reproduction of specific groin pain with isometric adduction",
+        significance: "Key diagnostic test. Based on Doha agreement - strong confirmation of adductor involvement"
+      },
+      {
+        test: "Palpation of Adductor Longus Origin",
+        finding: "Tenderness localized to adductor longus tendon insertion at pubic bone",
+        significance: "Helps differentiate from other groin pain sources"
+      },
+      {
+        test: "Functional Movement Assessment",
+        finding: "Pain with sport-specific movements (cutting, kicking, sprinting)",
+        significance: "Identifies specific activities to modify and guides return-to-sport criteria"
+      }
+    ],
+
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Calming the System & Initial Activation (Weeks 1-3)",
+        focus: "First step is to reduce activities that cause sharp pain. This doesn't mean complete rest. We start with pain-free strengthening, focusing on isometric exercises.",
+        examples: [
+          "Isometric Adductor Squeeze: Lie on back with knees bent. Place soft ball or rolled-up towel between knees. Gently squeeze ball, starting with only 20-30% of maximum effort, hold 30-45 seconds. Should not be painful. Begins to load tendon and muscle in controlled way",
+          "Basic core activation exercises",
+          "Pain-free range of motion",
+          "Activity modification education",
+          "Ice for acute pain management"
+        ],
+        progressionCriteria: "Pain-free squeeze test at moderate effort, reduced daily pain, better understanding of condition"
+      },
+      phase2: {
+        title: "Phase 2: Building Foundational Strength (Weeks 4-8)",
+        focus: "Introduce isotonic exercises (strengthening through movement) for adductors and surrounding kinetic chain. Build foundation before progressing to high-level exercises.",
+        examples: [
+          "Side-Lying Hip Adduction: Lie on side, propped on elbow. Bottom leg straight, top leg bent with foot on floor in front. Lift bottom leg off floor, keeping it straight. Directly targets adductor muscles through controlled range of motion",
+          "Side planks progressing from knees to feet",
+          "Glute bridges and clamshells",
+          "Basic squats and lunges with good form",
+          "Gentle adductor stretching if tight"
+        ],
+        progressionCriteria: "Squeeze test pain-free and feeling strong, can perform side plank for 30 seconds, pain-free controlled lateral lunge"
+      },
+      phase3: {
+        title: "Phase 3: High-Level Strengthening & Return to Sport (Weeks 9-12+)",
+        focus: "Return-to-sport phase. Increase load, speed, and complexity of exercises to mimic demands of your sport. Build eccentric strength critical for injury prevention.",
+        examples: [
+          "Copenhagen Adduction Exercise: Lie on side, propped on elbow. Place top leg on bench or have partner hold it. Lift hips off floor, supporting weight on elbow and top foot. Lower and lift body in slow, controlled manner. High-level, eccentric strengthening exercise for adductors",
+          "Plyometric exercises with good landing mechanics",
+          "Sport-specific cutting and agility drills",
+          "Return to running progression",
+          "Progressive return to sport activities"
+        ],
+        progressionCriteria: "Started graded running program including changes of direction without pain, confident in ability to cut and change direction, passing sport-specific functional tests"
+      }
+    },
+
+    differentialDiagnosis: [
+      {
+        condition: "Athletic Pubalgia (Sports Hernia)",
+        distinguishingFeatures: "Lower abdominal pain, pain with Valsalva maneuvers, different location of tenderness"
+      },
+      {
+        condition: "Hip Joint Pathology (FAI)",
+        distinguishingFeatures: "Groin pain with deep hip flexion, positive FADIR test, C-sign presentation"
+      },
+      {
+        condition: "Osteitis Pubis",
+        distinguishingFeatures: "Pubic bone pain, worse with running, bone scan changes"
+      },
+      {
+        condition: "Iliopsoas-Related Pain",
+        distinguishingFeatures: "Deep anterior hip pain, pain with hip flexion, possible snapping"
+      }
+    ],
+
+    measuringProgress: standardMeasuringProgress,
+    accessAndHours: standardAccessAndHours
+  },
+
+  'groin-strains': {
+    // Legacy entry - redirects to adductor-related-groin-pain for backward compatibility
+    pathophysiology: `Please see Adductor-Related Groin Pain for comprehensive, evidence-based information on groin injuries.`,
 
     measuringProgress: standardMeasuringProgress,
     accessAndHours: standardAccessAndHours
@@ -3089,6 +4101,215 @@ The outer third has blood supply and can heal, while the inner portion has poor 
 
   'pcl-injuries': {
     // Coming soon - comprehensive content under development
+  },
+
+  'proximal-hamstring-tendinopathy': {
+    pathophysiology: `Proximal hamstring tendinopathy involves irritation and degeneration of the hamstring tendon at its origin on the ischial tuberosity (sitting bone). The most common mistake people make is treating this like a simple hamstring muscle strain. They aggressively stretch it, hoping to find relief, but this often makes it worse. A tendinopathy at the hamstring's origin is sensitive to both compressive and tensile loads. Aggressive stretching places a high tensile load on the tendon, while sitting on it directly compresses it against the ischial tuberosity. Both actions can perpetuate the pain cycle. The belief that you need to "stretch it out" is a primary barrier to recovery.
+
+Proximal hamstring tendinopathy is often linked to altered running mechanics. A common pattern is an "over-striding" gait, where the foot lands too far in front of the body's center of mass. This puts a massive braking and tensile load on the hamstring at the moment of foot strike. This gait pattern is often driven by weak gluteal muscles. If the glutes aren't powerful enough to drive hip extension, the hamstrings are forced to overwork, leading to overload at the tendon.
+
+The constant, nagging pain with a simple act like sitting can be incredibly distressing and mentally fatiguing. It can create fear and avoidance of social situations where sitting is required. The brain starts to associate the act of sitting with a threat, which can amplify the pain experience.`,
+
+    clinicalPresentation: {
+      primarySymptoms: [
+        "Deep buttock pain centered on the 'sitting bone' (ischial tuberosity) where hamstring muscles originate",
+        "Pain with prolonged sitting - hallmark symptom, especially on harder surfaces",
+        "Deep, localized ache right in crease of buttock - feeling like sitting on a rock",
+        "Pain during or after activity that stretches or loads the hamstring (running, especially uphill or at high speeds, lunging, squatting deeply)",
+        "Start-up stiffness and pain when transitioning from sitting to standing"
+      ],
+      associatedSymptoms: [
+        "Deep stiffness or tightness in upper hamstring/lower gluteal region",
+        "Pain with stretching hamstrings (touching toes often reproduces deep, localized pain)",
+        "Difficulty with prolonged driving, sitting at desk, or enjoying meals at restaurants",
+        "Need to shift weight, stand up frequently, or perch on edge of seat",
+        "Pain that forces constant position changes during sitting"
+      ],
+      typicalPattern: "Story is almost always centered around one specific, exquisitely tender spot: the ischial tuberosity. Pain is deep, localized ache right in crease of buttock. Insidious onset, frequently linked to change in activity - the long-distance runner who recently added hill repeats to training, or office worker who started new spin class. Most defining feature is pain with sitting. Prolonged driving, sitting at desk, or enjoying meal at restaurant becomes painful ordeal."
+    },
+
+    evidenceSnapshot: {
+      firstLine: "Progressive loading program based on principles from gluteal tendinopathy management",
+      imaging: "MRI or ultrasound can confirm tendinopathy if diagnosis unclear. Usually clinical diagnosis",
+      management: "Load management focusing on sitting modifications and compression avoidance, followed by progressive strengthening",
+      sources: "2015 Goom et al. JOSPT; Tendinopathy management principles"
+    },
+
+    whatToExpect: {
+      firstVisit: "When I suspect proximal hamstring tendinopathy, my questioning becomes very specific. 'Tell me about your sitting pain. What kind of chair makes it worse? Does a cushion help? Do you find yourself sitting on one side to offload it?' I'll ask about your training history in detail: 'When exactly did you add the hill sprints? What was your mileage before that?' I'm looking for the classic 'too much, too soon' narrative that often underlies tendinopathies. My objective exam includes precise palpation of the ischial tuberosity (this area will be exquisitely tender), specific tests to load the tendon like the Bent-Knee Stretch Test, and hamstring strength testing in various positions. The inability to sit comfortably is often the primary complaint, even more so than pain with running.",
+      earlyPhase: "First, we must stop irritating the tendon by managing compressive and tensile loads. This might mean temporarily reducing running mileage or avoiding specific activities that cause painful symptoms. For the next several weeks, we'll implement sitting modifications - using special cushions, sitting on higher chairs, or getting up more frequently. You must also learn to substitute deep forward bending with a proper hip hinge for daily activities like picking things up.",
+      progression: "The approach is methodical and patient. Once initial irritation calms down, we embark on progressive loading program designed to stimulate adaptation and build tendon's capacity. Journey starts with gentle isometrics and progresses to heavy, slow resistance training and eventually, energy storage exercises relevant to your sport."
+    },
+
+    evidenceBasedTreatment: [
+      {
+        approach: "Load Management and Activity Modification",
+        evidence: "Managing compressive (sitting) and tensile (stretching) loads essential for symptom reduction",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Progressive Loading Exercise",
+        evidence: "Systematic progression from isometric to energy storage exercises promotes tendon adaptation",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Posterior Chain Strengthening",
+        evidence: "Addressing weak gluteal muscles reduces hamstring overload and improves running mechanics",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Manual Therapy",
+        evidence: "Soft tissue work on hamstring muscle belly (not tendon) and gluteal muscles can address associated tension",
+        effectivenessLevel: "moderate"
+      }
+    ],
+
+    prognosis: {
+      timeline: "This can be a stubborn condition. Meaningful pain reduction from load management can happen in a few weeks, but building tendon strength and resilience is long process - expect 3 to 9 months to get back to desired activities without significant pain. Progression must be slow and steady; pushing through pain will set you back",
+      factors: [
+        "Duration of symptoms before appropriate treatment",
+        "Compliance with sitting modifications and load management",
+        "Running mechanics and gluteal strength",
+        "Ability to avoid aggravating stretching",
+        "Baseline activity level and goals",
+        "Understanding of tendinopathy principles"
+      ],
+      naturalHistory: "Notorious for persistence if not managed appropriately. Responds well to systematic load management and progressive strengthening when principles are followed consistently"
+    },
+
+    selfManagement: [
+      {
+        strategy: "Sitting Modifications",
+        rationale: "Direct compression of tendon against ischial tuberosity is primary aggravating factor",
+        precautions: ["Use cushion or rolled towel under thighs", "Sit on higher chairs", "Take frequent standing breaks", "Avoid hard surfaces"]
+      },
+      {
+        strategy: "Avoid Aggressive Stretching",
+        rationale: "Hamstring stretching places high tensile load on already sensitive tendon",
+        precautions: ["No toe touches or deep hamstring stretches", "Use hip hinge instead of forward bending", "Focus on strengthening over stretching"]
+      },
+      {
+        strategy: "Progressive Loading",
+        rationale: "Only way to make tendon more resilient is through carefully graded strengthening program",
+        precautions: ["Start with isometric exercises", "Progress very gradually", "Monitor symptoms closely"]
+      }
+    ],
+
+    clinicalRedFlags: [
+      {
+        sign: "Severe pain with neurological symptoms (numbness, weakness, foot drop)",
+        action: "Urgent assessment for nerve involvement or disc pathology"
+      },
+      {
+        sign: "Sudden onset with audible pop",
+        action: "Investigation for complete tendon avulsion"
+      },
+      {
+        sign: "No improvement after 3 months of appropriate management",
+        action: "Consider advanced imaging and specialist referral"
+      }
+    ],
+
+    keyResearch: [
+      {
+        title: "Gluteal Tendinopathy Rehabilitation Progression",
+        year: 2015,
+        findings: "Systematic progression from isometrics to heavy slow resistance and energy storage exercises - principles adapted for proximal hamstring tendinopathy",
+        relevance: "Guides evidence-based exercise progression"
+      },
+      {
+        title: "Load Management in Tendinopathy",
+        year: 2016,
+        findings: "Load modification essential for tendon recovery - both compression and tension must be managed",
+        relevance: "Supports sitting modification and stretch avoidance strategies"
+      },
+      {
+        title: "Running Mechanics and Hamstring Load",
+        year: 2018,
+        findings: "Over-striding gait increases hamstring load and injury risk. Gluteal strengthening improves mechanics",
+        relevance: "Links running mechanics to injury and guides treatment approach"
+      }
+    ],
+
+    specificTests: [
+      {
+        test: "Direct Palpation of Ischial Tuberosity",
+        finding: "Exquisite tenderness at tendon insertion",
+        significance: "Confirms location of pathology"
+      },
+      {
+        test: "Bent-Knee Stretch Test",
+        finding: "Reproduces specific sitting bone pain with combined hip flexion and compression",
+        significance: "Functional test that reproduces symptoms through loading mechanism"
+      },
+      {
+        test: "Resisted Knee Flexion and Hip Extension",
+        finding: "May reproduce pain and reveal strength deficits",
+        significance: "Tests hamstring function in both knee flexion and hip extension roles"
+      }
+    ],
+
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Calming the System & Creating a Foundation (Weeks 1-6)",
+        focus: "Goal here is pain reduction and load management. We implement sitting modifications immediately. We eliminate provocative stretching. We begin with isometric exercises which can have an analgesic (pain-relieving) effect.",
+        examples: [
+          "Isometric Hamstring Bridge: Lie on back with legs straighter than normal glute bridge. Dig heels into floor and lift hips just inch or two. Hold position, feeling tension in hamstrings. Activates hamstrings in hip extender role without taking them through large range of motion",
+          "Sitting modifications: Special cushions, higher chairs, frequent position changes",
+          "Activity modification: Avoid deep forward bending, substitute hip hinge pattern",
+          "Education about compression vs. tensile loads",
+          "No aggressive hamstring stretching"
+        ],
+        progressionCriteria: "Reduced sitting pain (can sit through 45-minute meeting without constant shifting), better understanding of aggravating factors"
+      },
+      phase2: {
+        title: "Phase 2: Building Robust Capacity (Weeks 7-20)",
+        focus: "Once tendon is less irritable, we introduce isotonic exercises (strengthening through range of motion), but we carefully control range to avoid deep hip flexion.",
+        examples: [
+          "Romanian Deadlift to Limited Range: Stand holding light weight. With slight bend in knees, hinge forward at hips, keeping back straight. Go down only as far as you can without feeling pain or deep stretch at sitting bone, then squeeze glutes and hamstrings to return upright. Fantastic exercise for entire posterior chain",
+          "Glute bridges progressing to single-leg versions",
+          "Step-downs with control",
+          "Nordic hamstring progressions (eccentric strengthening)",
+          "Walking and easy jogging progression"
+        ],
+        progressionCriteria: "Improved sitting tolerance (can drive for hour without deep ache), stronger RDL performance, less start-up pain"
+      },
+      phase3: {
+        title: "Phase 3: Restoring Full Function & Resilience (Months 4-9+)",
+        focus: "Build strength and power needed to return to sport and high-level activity. We increase loads, increase range of motion, and eventually add speed and impact.",
+        examples: [
+          "Kettlebell Swings: Powerful hip hinge movement that develops explosive strength in hamstrings and glutes. For athletes, hamstring's job is not just to bend knee; it's to store and release energy like spring",
+          "Plyometric progressions (bounding, skipping)",
+          "Sport-specific running drills",
+          "Return to full range Romanian deadlifts",
+          "High-speed running progression",
+          "Return to sport activities with proper progression"
+        ],
+        progressionCriteria: "Can complete short, easy run completely pain-free, feel stronger and more powerful in RDLs, confident return to sport activities"
+      }
+    },
+
+    differentialDiagnosis: [
+      {
+        condition: "Deep Gluteal Syndrome",
+        distinguishingFeatures: "Nerve symptoms down leg, negative lumbar spine tests, pain with hip rotation positions"
+      },
+      {
+        condition: "Lumbar Radiculopathy",
+        distinguishingFeatures: "Back pain, dermatomal distribution, positive neural tension tests"
+      },
+      {
+        condition: "Ischial Bursitis",
+        distinguishingFeatures: "More diffuse pain, less specific to tendon insertion"
+      },
+      {
+        condition: "Hamstring Muscle Strain",
+        distinguishingFeatures: "Acute onset, pain in muscle belly rather than insertion, responds to stretching"
+      }
+    ],
+
+    measuringProgress: standardMeasuringProgress,
+    accessAndHours: standardAccessAndHours
   },
 
   'peroneal-tendinopathy': {

@@ -146,7 +146,7 @@ export default function HeroSection() {
         </div>
         
         {/* Left content - independently positioned */}
-        <div className="relative h-full flex items-center">
+        <div className="relative h-full flex items-center pt-20">
           <div className="w-1/2 pl-[8%] pr-[6%]">
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
@@ -158,7 +158,7 @@ export default function HeroSection() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-sm uppercase tracking-[0.2em] text-[#B08D57] mb-6 font-medium"
+                className="text-sm uppercase tracking-[0.2em] text-[#B08D57] mb-4 font-medium"
               >
                 Registered Physiotherapist
               </motion.p>
@@ -167,7 +167,7 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.2 }}
-                className="text-[60px] xl:text-[68px] font-light text-slate-900 leading-[0.95] mb-8"
+                className="text-[56px] xl:text-[64px] font-light text-slate-900 leading-[0.9] mb-6"
               >
                 The Science<br/>
                 <span className="text-[#B08D57]">of Recovery</span><br/>
@@ -179,7 +179,7 @@ export default function HeroSection() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="mb-8"
+                className="mb-6"
               >
                 <p className="text-3xl font-light text-slate-800 mb-3">Kareem Hassanein</p>
                 <div className="flex items-center gap-3">
@@ -193,7 +193,7 @@ export default function HeroSection() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-lg text-gray-600 mb-10 leading-relaxed max-w-xl"
+                className="text-lg text-gray-600 mb-8 leading-relaxed max-w-xl"
               >
                 Advanced physiotherapy combining evidence-based techniques with personalized attention for lasting results.
               </motion.p>
@@ -202,7 +202,7 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
-                className="flex gap-4 mb-10"
+                className="flex gap-4 mb-8"
               >
                 <Link
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"

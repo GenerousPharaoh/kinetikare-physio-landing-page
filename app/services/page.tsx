@@ -399,17 +399,10 @@ export default function ServicesPage() {
                   
                   {/* Content container */}
                   <div className="relative h-full flex flex-col">
-                    {/* Header section with number and title */}
+                    {/* Header section with title */}
                     <div className="p-8 pb-6">
-                      {/* Service number */}
-                      <div className="mb-6">
-                        <span className="text-6xl font-thin text-[#B08D57]/20 group-hover:text-[#B08D57]/30 transition-colors duration-500">
-                          {String(index + 1).padStart(2, '0')}
-                        </span>
-                      </div>
-
                       {/* Title with better typography */}
-                      <h2 className="text-2xl font-light text-slate-900 mb-2 group-hover:text-[#B08D57] transition-colors duration-500">
+                      <h2 className="text-2xl font-light text-slate-900 mb-3 group-hover:text-[#B08D57] transition-colors duration-500">
                         {service.title}
                       </h2>
                       

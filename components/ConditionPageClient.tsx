@@ -226,8 +226,8 @@ export default function ConditionPageClient({
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-8">
-                {/* Main Content - min-w-0 prevents overflow */}
-                <main className="relative min-w-0">
+                {/* Main Content - centered on smaller screens */}
+                <main className="relative min-w-0 lg:col-span-1 max-w-4xl mx-auto lg:max-w-none w-full">
                   {/* Coming Soon Message - Shown when no detailed content */}
                   {!hasDetailedContent ? (
                     <div className="bg-slate-50 rounded-xl p-8 border border-slate-200">

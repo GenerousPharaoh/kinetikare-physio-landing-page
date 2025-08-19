@@ -66,7 +66,7 @@ export default function ConditionPageClient({
     { id: 'symptoms', label: 'Symptoms', icon: DocumentTextIcon },
     { id: 'treatment', label: 'Treatment', icon: AcademicCapIcon },
     { id: 'research', label: 'Research', icon: ChartBarIcon },
-    { id: 'self-care', label: 'Self-Care', icon: HeartIcon },
+    { id: 'self-care', label: 'Management', icon: HeartIcon },
   ].filter(tab => {
     // Only show tabs that have content
     switch(tab.id) {
@@ -598,13 +598,13 @@ export default function ConditionPageClient({
                         </div>
                       )}
 
-                      {/* Self-Care Tab */}
+                      {/* Management Tab */}
                       {activeTab === 'self-care' && (
                         <div className="space-y-6">
                           {condition.selfManagement && condition.selfManagement.length > 0 && (
                             <div className="bg-white rounded-xl p-6 border border-slate-200">
                               <h2 className="text-xl font-semibold text-slate-900 mb-4">
-                                Self-Management Strategies
+                                Management Strategies
                               </h2>
                               <div className="space-y-4">
                                 {condition.selfManagement.map((strategy, index) => (

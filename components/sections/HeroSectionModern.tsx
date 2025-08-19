@@ -124,10 +124,30 @@ export default function HeroSection() {
       </section>
 
       {/* Desktop */}
-      <section className="hidden lg:flex h-screen bg-white relative">
-        <div className="flex w-full h-full">
-          {/* Left content */}
-          <div className="w-1/2 flex items-center pl-[8%] pr-[6%] pt-32">
+      <section className="hidden lg:block h-screen bg-white relative">
+        {/* Right image - absolute positioned, completely independent */}
+        <div className="absolute top-0 right-0 w-1/2 h-screen">
+          <motion.div
+            initial={{ opacity: 0, scale: 1.02 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="relative h-full w-full"
+          >
+            <Image
+              src="/images/clinic-pic-may-2025.jpg"
+              alt="KinetiKare Physiotherapy"
+              fill
+              priority
+              className="object-cover"
+              sizes="50vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-l from-transparent to-black/10" />
+          </motion.div>
+        </div>
+        
+        {/* Left content - independently positioned */}
+        <div className="relative h-full flex items-center">
+          <div className="w-1/2 pl-[8%] pr-[6%]">
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -212,26 +232,6 @@ export default function HeroSection() {
                 <span className="text-[#B08D57]">•</span>
                 <span>5+ Years Experience</span>
               </motion.div>
-            </motion.div>
-          </div>
-
-          {/* Right image - extends from top to bottom */}
-          <div className="w-1/2 relative h-full">
-            <motion.div
-              initial={{ opacity: 0, scale: 1.02 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-              className="absolute inset-0"
-            >
-              <Image
-                src="/images/clinic-pic-may-2025.jpg"
-                alt="KinetiKare Physiotherapy"
-                fill
-                priority
-                className="object-cover"
-                sizes="50vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-l from-transparent to-black/10" />
             </motion.div>
           </div>
         </div>

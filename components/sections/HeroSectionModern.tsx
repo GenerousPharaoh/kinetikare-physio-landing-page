@@ -4,16 +4,8 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { ChevronDownIcon } from '@heroicons/react/24/outline';
 
 export default function HeroSection() {
-  const scrollToNext = () => {
-    window.scrollTo({
-      top: window.innerHeight,
-      behavior: 'smooth'
-    });
-  };
-
   const [mousePosition, setMousePosition] = React.useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = React.useState(false);
 
@@ -183,13 +175,13 @@ export default function HeroSection() {
       </section>
 
       {/* Desktop */}
-      <section className="hidden lg:flex h-[75vh] min-h-[600px] bg-gradient-to-br from-white via-gray-50/20 to-white pt-16 relative overflow-hidden">
+      <section className="hidden lg:flex min-h-screen bg-gradient-to-br from-white via-gray-50/20 to-white relative overflow-hidden">
         {/* Floating orbs for premium depth */}
         <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-br from-[#B08D57]/5 to-transparent rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-tl from-[#D4AF37]/5 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
         <div className="flex w-full">
           {/* Left content - with proper padding and centering */}
-          <div className="w-1/2 flex items-center pl-[8%] pr-[6%] py-12">
+          <div className="w-1/2 flex items-center pl-[8%] pr-[6%] pt-32 pb-20">
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -301,12 +293,12 @@ export default function HeroSection() {
           </div>
 
           {/* Right image - full height starting from top */}
-          <div className="w-1/2 relative h-full">
+          <div className="w-1/2 relative min-h-screen">
             <motion.div
               initial={{ opacity: 0, scale: 1.02 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, ease: "easeOut" }}
-              className="relative h-full"
+              className="relative h-full min-h-screen"
             >
               <Image
                 src="/images/clinic-pic-may-2025.jpg"
@@ -329,26 +321,6 @@ export default function HeroSection() {
           </div>
         </div>
         
-        {/* Premium scroll indicator */}
-        <motion.button
-          onClick={scrollToNext}
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ 
-            duration: 0.5, 
-            delay: 1.2,
-            repeat: Infinity,
-            repeatType: "reverse",
-            repeatDelay: 1
-          }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 group cursor-pointer z-10"
-          aria-label="Scroll to next section"
-        >
-          <div className="relative">
-            <div className="absolute inset-0 bg-[#B08D57]/10 rounded-full blur-xl group-hover:bg-[#B08D57]/20 transition-all duration-500" />
-            <ChevronDownIcon className="h-8 w-8 text-[#B08D57]/60 group-hover:text-[#B08D57] transition-all duration-300" />
-          </div>
-        </motion.button>
       </section>
     </>
   );

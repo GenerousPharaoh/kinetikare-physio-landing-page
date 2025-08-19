@@ -805,7 +805,7 @@ export default function ConditionPageClient({
         </section>
 
         {/* Bottom CTA Section */}
-        <section className="bg-gradient-to-br from-slate-900 to-slate-800 py-12">
+        <section className="py-12" style={{ background: 'linear-gradient(to bottom right, #0f172a, #1e293b)' }}>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl font-bold text-white mb-4">

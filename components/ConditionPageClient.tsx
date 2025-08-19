@@ -128,7 +128,7 @@ export default function ConditionPageClient({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      <div className="bg-white min-h-screen">
+      <div className="min-h-screen">
         {/* Minimal Hero with Breadcrumbs */}
         <section className="pt-24 pb-3 bg-gradient-to-b from-slate-50 to-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -222,12 +222,12 @@ export default function ConditionPageClient({
         </div>
 
         {/* Main Content Area */}
-        <section className="pt-6 pb-4">
+        <section className="pt-6 pb-4 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-8">
                 {/* Main Content */}
-                <main className="relative min-w-0 max-w-4xl lg:max-w-none mx-auto lg:mx-0 w-full">
+                <main className="relative min-w-0 w-full">
                   {/* Coming Soon Message - Shown when no detailed content */}
                   {!hasDetailedContent ? (
                     <div className="bg-slate-50 rounded-xl p-8 border border-slate-200">

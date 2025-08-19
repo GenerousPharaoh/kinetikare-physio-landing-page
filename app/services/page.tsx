@@ -553,11 +553,6 @@ export default function ServicesPage() {
                       {/* Subtle Background */}
                       <div className="absolute top-4 right-4 w-24 h-24 bg-gradient-to-br from-[#B08D57]/5 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-60 transition-all duration-500"></div>
                       
-                      {/* Number Badge */}
-                      <div className="absolute top-6 left-6 w-8 h-8 bg-gradient-to-br from-[#B08D57]/10 to-[#D4AF37]/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-[#B08D57]/20">
-                        <span className="text-xs font-medium text-[#B08D57]">{index + 1}</span>
-                      </div>
-                      
                       {/* Content */}
                       <div className="relative z-10 text-center flex flex-col h-full">
                         {/* Icon Container */}

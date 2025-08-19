@@ -196,21 +196,21 @@ export default function ConditionPageClient({
         <div className="sticky top-0 z-30 bg-white border-b border-slate-200">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
-              <div className="flex items-center justify-between">
-                <nav className="flex gap-2 overflow-x-auto py-4 scrollbar-hide">
+              <div className="-mx-4 sm:mx-0">
+                <nav className="flex gap-1 sm:gap-2 overflow-x-auto py-3 sm:py-4 px-4 sm:px-0 scrollbar-hide">
                   {tabs.map((tab) => {
                     const Icon = tab.icon;
                     return (
                       <button
                         key={tab.id}
                         onClick={() => setActiveTab(tab.id)}
-                        className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm whitespace-nowrap transition-all ${
+                        className={`flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-lg font-medium text-xs sm:text-sm whitespace-nowrap transition-all min-w-fit ${
                           activeTab === tab.id
                             ? 'bg-[#B08D57] text-white shadow-md'
                             : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                         }`}
                       >
-                        <Icon className="h-4 w-4 flex-shrink-0" />
+                        <Icon className="h-3.5 sm:h-4 w-3.5 sm:w-4 flex-shrink-0" />
                         <span>{tab.label}</span>
                       </button>
                     );

@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 import ClientImage from '@/components/ClientImage';
 import { Metadata } from 'next';
-import { Hand, Dumbbell, Target, Activity, Ruler, Zap } from 'lucide-react';
 
 // Force static generation for better SEO
 export const dynamic = 'force-static';
@@ -394,89 +393,59 @@ export default function ServicesPage() {
             {services.map((service, index) => (
               <div key={service.id} className="group relative h-full">
                 {/* Card Container - Clean Design */}
-                <div className="group-hover:bg-gradient-to-br group-hover:from-white group-hover:to-slate-50/50 bg-white rounded-2xl shadow-sm border border-slate-200/60 hover:shadow-md transition-all duration-500 transform hover:-translate-y-1 relative overflow-hidden h-full min-h-[520px]" style={{
-                  transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)'
-                }}>
-                  {/* Subtle Decorative Elements */}
-                  <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#B08D57]/5 to-transparent rounded-full -translate-y-20 translate-x-20 opacity-0 group-hover:opacity-60 transition-opacity duration-500"></div>
-                  <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-[#D4AF37]/5 to-transparent rounded-full translate-y-16 -translate-x-16 opacity-0 group-hover:opacity-60 transition-opacity duration-500"></div>
+                <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden h-full min-h-[480px] border border-slate-100">
+                  {/* Premium gradient accent line at top */}
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#B08D57] via-[#C89F65] to-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
-                  {/* Animated Gradient Border */}
-                  <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{
-                    background: 'linear-gradient(90deg, transparent, rgba(176, 141, 87, 0.1), transparent)'
-                  }}></div>
-                  
-                  {/* Grid Layout for consistent spacing */}
-                  <div className="relative z-10 h-full grid grid-rows-[auto_1fr_auto]">
-                    {/* Top Section */}
-                    <div className="p-8 pb-4">
-                      {/* Service Icon - Clean */}
-                      <div className="relative w-20 h-20 mb-6">
-                        {/* Icon Container */}
-                        <div className="relative w-full h-full bg-gradient-to-br from-[#1A2036] via-slate-800 to-slate-700 rounded-2xl flex items-center justify-center group-hover:scale-105 transition-all duration-500">
-                          {/* Premium Icons with Glow */}
-                          <div className="relative">
-                            {service.id === 'manual-therapy' && <Hand className="w-9 h-9 text-[#D4AF37] transition-all duration-500" strokeWidth={1.5} />}
-                            {service.id === 'sports-rehab' && <Dumbbell className="w-9 h-9 text-[#D4AF37] transition-all duration-500" strokeWidth={1.5} />}
-                            {service.id === 'dry-needling' && <Target className="w-9 h-9 text-[#D4AF37] transition-all duration-500" strokeWidth={1.5} />}
-                            {service.id === 'exercise-therapy' && <Activity className="w-9 h-9 text-[#D4AF37] transition-all duration-500" strokeWidth={1.5} />}
-                            {service.id === 'postural-assessment' && <Ruler className="w-9 h-9 text-[#D4AF37] transition-all duration-500" strokeWidth={1.5} />}
-                            {service.id === 'pain-management' && <Zap className="w-9 h-9 text-[#D4AF37] transition-all duration-500" strokeWidth={1.5} />}
-                          </div>
-                        </div>
+                  {/* Content container */}
+                  <div className="relative h-full flex flex-col">
+                    {/* Header section with number and title */}
+                    <div className="p-8 pb-6">
+                      {/* Service number */}
+                      <div className="mb-6">
+                        <span className="text-6xl font-thin text-[#B08D57]/20 group-hover:text-[#B08D57]/30 transition-colors duration-500">
+                          {String(index + 1).padStart(2, '0')}
+                        </span>
                       </div>
 
-                      {/* Title - Clean Typography */}
-                      <h2 className="text-2xl font-medium mb-4 text-primary-800 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#B08D57] group-hover:to-[#D4AF37] group-hover:bg-clip-text transition-all duration-500 min-h-[4rem] flex items-center" style={{
-                        lineHeight: '1.3'
-                      }}>
+                      {/* Title with better typography */}
+                      <h2 className="text-2xl font-light text-slate-900 mb-2 group-hover:text-[#B08D57] transition-colors duration-500">
                         {service.title}
                       </h2>
+                      
+                      {/* Subtle divider */}
+                      <div className="w-12 h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] opacity-60 group-hover:w-20 transition-all duration-500"></div>
                     </div>
 
-                    {/* Middle Section - Description */}
-                    <div className="px-8">
-                      <p className="text-primary-600 leading-relaxed font-light">
+                    {/* Description section */}
+                    <div className="flex-1 px-8">
+                      <p className="text-slate-600 leading-relaxed text-base">
                         {service.description}
                       </p>
                     </div>
 
-                    {/* Bottom Section - Key Benefits (fixed position) */}
-                    <div className="px-8 pb-8 pt-6">
-                      <div className="flex items-center mb-5">
-                        <div className="w-8 h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mr-3 group-hover:w-12 transition-all duration-500"></div>
-                        <h3 className="text-xs font-medium uppercase tracking-[0.15em] bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent">
-                          Key Benefits
+                    {/* Benefits section with cleaner design */}
+                    <div className="px-8 pb-8 pt-6 mt-auto">
+                      <div className="border-t border-slate-100 pt-6">
+                        <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#B08D57] mb-4">
+                          Benefits
                         </h3>
+                        <ul className="space-y-2.5">
+                          {service.features.map((feature, featureIndex) => (
+                            <li key={featureIndex} className="flex items-start group/item">
+                              <div className="mt-1.5 mr-3 flex-shrink-0">
+                                <div className="w-1 h-1 rounded-full bg-[#B08D57] group-hover/item:scale-150 transition-transform duration-300"></div>
+                              </div>
+                              <span className="text-slate-600 text-sm leading-relaxed group-hover/item:text-slate-800 transition-colors duration-300">{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
-                      <ul className="space-y-3">
-                        {service.features.map((feature, featureIndex) => (
-                          <li key={featureIndex} className="flex items-start group/item hover:translate-x-1 transition-transform duration-300" style={{
-                            animationDelay: `${featureIndex * 0.1}s`
-                          }}>
-                            <div className="relative mt-0.5 mr-3 flex-shrink-0">
-                              <div className="absolute inset-0 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full opacity-20 blur-sm group-hover/item:opacity-40 transition-opacity duration-300"></div>
-                              <svg className="relative w-5 h-5 text-[#B08D57] group-hover/item:text-[#D4AF37] transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                              </svg>
-                            </div>
-                            <span className="text-primary-600 text-sm leading-relaxed font-normal group-hover/item:text-primary-700 transition-colors duration-300">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
                     </div>
                   </div>
 
-                  {/* Premium Hover Overlay with Shimmer */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/5 via-transparent to-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-2xl pointer-events-none"></div>
-                  
-                  {/* Subtle Shimmer Effect */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none rounded-2xl overflow-hidden">
-                    <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-[2000ms] ease-in-out" style={{
-                      background: 'linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.08), transparent)',
-                      transform: 'skewX(-25deg)'
-                    }}></div>
-                  </div>
+                  {/* Subtle hover glow */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#B08D57]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-2xl pointer-events-none"></div>
                 </div>
               </div>
             ))}

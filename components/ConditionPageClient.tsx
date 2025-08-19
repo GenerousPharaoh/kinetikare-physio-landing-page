@@ -222,7 +222,7 @@ export default function ConditionPageClient({
         </div>
 
         {/* Main Content Area */}
-        <section className="py-8">
+        <section className="py-6">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-8">
@@ -774,8 +774,8 @@ export default function ConditionPageClient({
                   <div className="space-y-6">
                     {/* Quick Actions */}
                     <div className="bg-gradient-to-br from-[#B08D57]/10 to-[#D4AF37]/10 rounded-xl p-6 border border-[#B08D57]/20">
-                      <h3 className="font-semibold text-slate-900 mb-4">Take the Next Step</h3>
-                      <p className="text-sm text-slate-600 mb-4">If this information resonates with your experience, let's work together on your recovery.</p>
+                      <h3 className="font-semibold text-slate-900 mb-4">Next Steps</h3>
+                      <p className="text-sm text-slate-600 mb-4">Book an assessment to discuss your specific situation.</p>
                       <div className="space-y-3">
                         <Link
                           href="https://endorphinshealth.janeapp.com/#/staff_member/42"
@@ -851,15 +851,15 @@ export default function ConditionPageClient({
 
 {/* Floating CTA removed - using global FloatingButtons component instead */}
 
-        {/* Bottom CTA Section - Simplified */}
-        <section className="bg-gradient-to-br from-slate-900 to-slate-800 py-16">
+        {/* Bottom CTA Section */}
+        <section className="bg-gradient-to-br from-slate-900 to-slate-800 py-12">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl font-bold text-white mb-4">
-                Ready to Start Your Recovery?
+                Get Expert Treatment
               </h2>
               <p className="text-xl text-white/80 mb-8">
-                Get personalized treatment for {condition.name.toLowerCase()}
+                Professional physiotherapy for {condition.name.toLowerCase()}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
@@ -867,7 +867,7 @@ export default function ConditionPageClient({
                   target="_blank"
                   className="inline-flex items-center justify-center px-6 py-3 bg-[#B08D57] hover:bg-[#997A4B] text-white rounded-lg font-medium transition-colors"
                 >
-                  Book Your Assessment
+                  Book Assessment
                   <ArrowRightIcon className="ml-2 h-4 w-4" />
                 </Link>
                 <Link

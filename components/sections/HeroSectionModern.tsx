@@ -124,10 +124,10 @@ export default function HeroSection() {
       </section>
 
       {/* Desktop */}
-      <section className="hidden lg:flex min-h-[calc(100vh-64px)] bg-white relative">
-        <div className="flex w-full">
+      <section className="hidden lg:flex min-h-screen bg-white relative">
+        <div className="flex w-full h-screen">
           {/* Left content */}
-          <div className="w-1/2 flex items-center pl-[8%] pr-[6%]">
+          <div className="w-1/2 flex items-center pl-[8%] pr-[6%] pt-16">
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -215,13 +215,13 @@ export default function HeroSection() {
             </motion.div>
           </div>
 
-          {/* Right image */}
-          <div className="w-1/2 relative">
+          {/* Right image - extends from top to bottom */}
+          <div className="w-1/2 relative h-screen">
             <motion.div
               initial={{ opacity: 0, scale: 1.02 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, ease: "easeOut" }}
-              className="relative h-full"
+              className="absolute inset-0"
             >
               <Image
                 src="/images/clinic-pic-may-2025.jpg"

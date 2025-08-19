@@ -48,9 +48,9 @@ export default function HeroSection() {
               className="text-[42px] font-light text-slate-900 leading-tight mb-8"
             >
               The Science<br/>
-              <span className="text-[#B08D57]">of Recovery.</span><br/>
+              <span className="text-[#B08D57]">of Recovery</span><br/>
               <span className="inline-block mt-2">The Art</span><br/>
-              <span className="text-[#B08D57]">of Care.</span>
+              <span className="text-[#B08D57]">of Care</span>
             </motion.h1>
             
             <motion.div 
@@ -127,7 +127,7 @@ export default function HeroSection() {
       <section className="hidden lg:flex h-screen bg-white relative">
         <div className="flex w-full h-full">
           {/* Left content */}
-          <div className="w-1/2 flex items-center pl-[8%] pr-[6%]">
+          <div className="w-1/2 flex items-center pl-[8%] pr-[6%] pt-20">
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -150,9 +150,9 @@ export default function HeroSection() {
                 className="text-[60px] xl:text-[68px] font-light text-slate-900 leading-[0.95] mb-8"
               >
                 The Science<br/>
-                <span className="text-[#B08D57]">of Recovery.</span><br/>
+                <span className="text-[#B08D57]">of Recovery</span><br/>
                 <span className="mt-4 block">The Art</span>
-                <span className="text-[#B08D57]">of Care.</span>
+                <span className="text-[#B08D57]">of Care</span>
               </motion.h1>
 
               <motion.div

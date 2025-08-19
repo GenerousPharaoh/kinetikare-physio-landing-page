@@ -132,7 +132,7 @@ export default function ConditionPageClient({
         {/* Minimal Hero with Breadcrumbs */}
         <section className="pt-24 pb-3 bg-gradient-to-b from-slate-50 to-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-7xl mx-auto">
+            <div className="w-full">
               {/* Breadcrumb */}
               <nav className="flex items-center space-x-2 text-sm text-slate-600 mb-3">
                 <Link href="/" className="hover:text-[#B08D57] transition-colors">
@@ -222,10 +222,10 @@ export default function ConditionPageClient({
         </div>
 
         {/* Main Content Area */}
-        <section className="pt-6 pb-4 bg-white">
+        <section className="pt-6 pb-0 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-7xl mx-auto">
-              <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-8">
+            <div className="w-full">
+              <div className="grid grid-cols-1 xl:grid-cols-[1fr_380px] gap-8">
                 {/* Main Content */}
                 <main className="relative min-w-0 w-full">
                   {/* Coming Soon Message - Shown when no detailed content */}
@@ -770,7 +770,7 @@ export default function ConditionPageClient({
                 </main>
 
                 {/* Sidebar - Sticky on desktop with proper z-index */}
-                <aside className="hidden lg:block sticky top-24 self-start z-0">
+                <aside className="hidden xl:block sticky top-24 self-start z-0">
                   <div className="space-y-6">
                     {/* Quick Actions */}
                     <div className="bg-gradient-to-br from-[#B08D57]/10 to-[#D4AF37]/10 rounded-xl p-6 border border-[#B08D57]/20">

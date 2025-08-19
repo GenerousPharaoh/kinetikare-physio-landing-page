@@ -127,7 +127,7 @@ export default function HeroSection() {
       <section className="hidden lg:flex h-screen bg-white relative">
         <div className="flex w-full h-full">
           {/* Left content */}
-          <div className="w-1/2 flex items-center pl-[8%] pr-[6%] pt-20">
+          <div className="w-1/2 flex items-center pl-[8%] pr-[6%] pt-32">
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}

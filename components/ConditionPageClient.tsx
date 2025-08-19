@@ -806,18 +806,17 @@ export default function ConditionPageClient({
 
         {/* Bottom CTA Section */}
         <section 
-          className="py-12" 
+          className="py-12 bg-slate-900" 
           style={{ 
-            backgroundColor: '#0f172a !important',
-            background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important',
-            color: 'white !important'
+            backgroundColor: '#0f172a',
+            backgroundImage: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)'
           }}>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl font-bold text-white mb-4">
+              <h2 className="text-3xl font-bold mb-4" style={{ color: 'white' }}>
                 Get Expert Treatment
               </h2>
-              <p className="text-xl text-white/80 mb-8">
+              <p className="text-xl mb-8" style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
                 Professional physiotherapy for {condition.name.toLowerCase()}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -831,7 +830,18 @@ export default function ConditionPageClient({
                 </Link>
                 <Link
                   href="/#contact"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/30 text-white rounded-lg font-medium hover:bg-white/20 transition-colors"
+                  className="inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-colors"
+                  style={{ 
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                    border: '1px solid rgba(255, 255, 255, 0.3)',
+                    color: 'white'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                  }}
                 >
                   Contact Us
                 </Link>

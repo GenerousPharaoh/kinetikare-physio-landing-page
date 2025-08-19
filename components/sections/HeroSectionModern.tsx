@@ -124,10 +124,10 @@ export default function HeroSection() {
       </section>
 
       {/* Desktop */}
-      <section className="hidden lg:flex h-screen bg-white relative pt-16">
+      <section className="hidden lg:flex h-screen bg-white relative">
         <div className="flex w-full h-full">
           {/* Left content */}
-          <div className="w-1/2 flex items-center pl-[8%] pr-[6%]">
+          <div className="w-1/2 flex items-center pl-[8%] pr-[6%] mt-16">
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}

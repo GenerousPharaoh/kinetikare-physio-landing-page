@@ -222,7 +222,7 @@ export default function ConditionPageClient({
         </div>
 
         {/* Main Content Area */}
-        <section className="py-6">
+        <section className="pt-6 pb-4">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-8">
@@ -848,8 +848,6 @@ export default function ConditionPageClient({
             </div>
           </div>
         </section>
-
-{/* Floating CTA removed - using global FloatingButtons component instead */}
 
         {/* Bottom CTA Section */}
         <section className="bg-gradient-to-br from-slate-900 to-slate-800 py-12">

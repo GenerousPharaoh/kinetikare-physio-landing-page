@@ -696,51 +696,6 @@ export default function ConditionPageClient({
                             </div>
                           )}
 
-                          {/* Access and Hours Section */}
-                          {condition.accessAndHours && (
-                            <div className="bg-white rounded-xl p-6 border border-slate-200">
-                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
-                                Access and Hours
-                              </h2>
-                              <div className="space-y-3">
-                                <div className="flex items-start gap-3">
-                                  <CalendarIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
-                                  <div>
-                                    <p className="font-medium text-slate-900 text-sm">Location</p>
-                                    <p className="text-sm text-slate-600">{condition.accessAndHours.location}</p>
-                                  </div>
-                                </div>
-                                <div className="flex items-start gap-3">
-                                  <ClockIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
-                                  <div>
-                                    <p className="font-medium text-slate-900 text-sm">Hours</p>
-                                    <p className="text-sm text-slate-600">{condition.accessAndHours.hours}</p>
-                                  </div>
-                                </div>
-                                <div className="flex items-start gap-3">
-                                  <CheckCircleIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
-                                  <div>
-                                    <p className="font-medium text-slate-900 text-sm">Parking</p>
-                                    <p className="text-sm text-slate-600">{condition.accessAndHours.parking}</p>
-                                  </div>
-                                </div>
-                                <div className="flex items-start gap-3">
-                                  <HeartIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
-                                  <div>
-                                    <p className="font-medium text-slate-900 text-sm">Accessibility</p>
-                                    <p className="text-sm text-slate-600">{condition.accessAndHours.accessibility}</p>
-                                  </div>
-                                </div>
-                                <div className="flex items-start gap-3">
-                                  <ArrowRightIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
-                                  <div>
-                                    <p className="font-medium text-slate-900 text-sm">Booking</p>
-                                    <p className="text-sm text-slate-600">{condition.accessAndHours.booking}</p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          )}
 
                           {condition.faqs && condition.faqs.length > 0 && (
                             <div className="bg-white rounded-xl p-6 border border-slate-200">

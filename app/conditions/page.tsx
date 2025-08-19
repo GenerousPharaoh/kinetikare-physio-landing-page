@@ -5,7 +5,7 @@ import { conditionCategories, additionalServices } from '@/lib/conditions-data';
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: 'Conditions I Treat | KinetiKare Physiotherapy - Kareem Hassanein',
+  title: 'Treatment Areas | KinetiKare Physiotherapy - Kareem Hassanein',
   description: 'KinetiKare Physiotherapy treats spinal health, sports injuries, chronic pain, post-surgical rehabilitation, and more. Kareem Hassanein provides care for all ages and activity levels in Burlington, Waterdown, and Oakville.',
   keywords: [
     'KinetiKare conditions',
@@ -86,7 +86,7 @@ export const metadata: Metadata = {
     'Oakville physiotherapy conditions'
   ],
   openGraph: {
-    title: 'Conditions I Treat | KinetiKare Physiotherapy',
+    title: 'Treatment Areas | KinetiKare Physiotherapy',
     description: 'Expert physiotherapy treatment for spinal health, sports injuries, chronic pain, and post-surgical rehabilitation in Burlington and surrounding areas.',
     url: 'https://www.kinetikarephysio.com/conditions',
     type: 'website',

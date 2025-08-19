@@ -105,7 +105,7 @@ function ConditionsPageWithParams({
                 Treatment <span className="bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent">Areas</span>
               </h1>
               <p className="text-xl md:text-2xl text-slate-700 mb-4 max-w-3xl mx-auto leading-relaxed font-light">
-                From acute injuries to chronic conditions, I provide personalized care tailored to your specific needs and recovery goals
+                Personalized care for acute injuries and chronic conditions, tailored to specific needs and recovery goals
               </p>
 
               {/* PREMIUM Search Bar */}

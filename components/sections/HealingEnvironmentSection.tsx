@@ -93,7 +93,7 @@ const HealingEnvironmentSection = () => {
                   <div className="bg-gradient-to-r from-black/50 to-transparent">
                     <div className="px-4 py-3 sm:px-6 sm:py-4">
                       <h3 className="text-white text-base sm:text-lg lg:text-xl font-light mb-0.5">
-                        Your Treatment Space
+                        The Treatment Space
                       </h3>
                       <p className="text-white/85 text-xs sm:text-sm font-light">
                         A calm, private environment focused on your recovery

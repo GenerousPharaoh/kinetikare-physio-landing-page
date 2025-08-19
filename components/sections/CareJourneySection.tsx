@@ -15,7 +15,7 @@ export default function CareJourneySection() {
       title: "Initial Assessment",
       description: "Comprehensive evaluation of your condition, medical history, and movement patterns to understand your unique needs.",
       link: "/about",
-      linkText: "About my approach"
+      linkText: "About the approach"
     },
     {
       number: "02", 
@@ -29,7 +29,7 @@ export default function CareJourneySection() {
       title: "Active Treatment", 
       description: "Hands-on therapy, exercise prescription, and education to address your specific condition and restore function.",
       link: "/conditions",
-      linkText: "Conditions I treat"
+      linkText: "Treatment areas"
     },
     {
       number: "04",
@@ -142,7 +142,7 @@ export default function CareJourneySection() {
             {/* Content */}
             <div className="relative z-10 text-center max-w-4xl mx-auto">
               <h3 className="text-3xl lg:text-4xl font-normal text-white mb-6 leading-tight tracking-[-0.02em]">
-                Ready to Take the Next Step in Your Recovery?
+                Ready to Take the Next Step?
               </h3>
               <p className="text-xl text-white/80 mb-10 leading-relaxed">
                 Every step is designed around your specific needs and goals. Let's start with a comprehensive assessment.

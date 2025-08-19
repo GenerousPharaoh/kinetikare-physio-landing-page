@@ -10,7 +10,7 @@ export function CTASection() {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
-            Take the Next Step in Your Recovery Journey
+            Take the Next Step
           </h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
             Ready for physiotherapy that truly understands and partners with you? Begin your recovery journey with a plan that combines evidence-based care, genuine understanding, and a commitment to your unique goals.
@@ -22,7 +22,7 @@ export function CTASection() {
               rel="noopener noreferrer"
               className="bg-[#B08D57] hover:bg-[#A17D47] text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center"
             >
-              <FaCalendarAlt className="mr-2" /> Start Your Journey Today
+              <FaCalendarAlt className="mr-2" /> Book Today
             </a>
             <Link 
               href="tel:+19056346000"

@@ -47,7 +47,7 @@ export default function AboutSection() {
               className="text-center lg:text-left"
             >
               <motion.div variants={itemVariants} className="inline-block px-4 py-2 bg-[#B08D57]/10 text-[#B08D57] text-sm font-medium rounded-full mb-6">
-                Meet Your Physiotherapist
+                Meet Kareem Hassanein
               </motion.div>
               
               <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl font-light text-gray-900 mb-6 tracking-[-0.02em]">
@@ -68,7 +68,7 @@ export default function AboutSection() {
                   href="/about"
                   className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white rounded-lg font-normal shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  Learn More About Me
+                  Learn More About Kareem
                 </Link>
                 <Link
                   href="/services"

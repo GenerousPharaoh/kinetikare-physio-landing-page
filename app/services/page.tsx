@@ -505,7 +505,7 @@ export default function ServicesPage() {
             {/* Badge */}
             <div className="inline-flex items-center px-6 py-2.5 bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 backdrop-blur-sm text-[#B08D57] text-sm font-medium rounded-full mb-8 border border-[#B08D57]/20 shadow-sm transition-all duration-300 cursor-default">
               <div className="w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full mr-3"></div>
-              <span className="uppercase tracking-wider">Your Journey</span>
+              <span className="uppercase tracking-wider">Treatment Journey</span>
             </div>
             
             {/* Title */}
@@ -701,7 +701,7 @@ export default function ServicesPage() {
           </div>
           
                   <p className="text-primary-600 mb-8 leading-relaxed">
-                    We offer direct billing with major insurance providers:
+                    Direct billing available with major insurance providers:
                   </p>
                   
                   <div className="space-y-3 mb-6">

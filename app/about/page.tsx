@@ -979,7 +979,7 @@ export default function About() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-heading font-light mb-5 text-primary-800 tracking-[-0.02em]">
-              Take the Next Step in Your Recovery Journey
+              Take the Next Step
             </h2>
             <p className="text-lg text-primary-600 mb-10 leading-relaxed">
               Book your appointment today or contact me with any questions.

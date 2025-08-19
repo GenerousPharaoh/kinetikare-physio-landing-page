@@ -174,7 +174,7 @@ export default function ServiceAreasSection() {
           >
             <div className="bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 rounded-xl p-8 border border-[#B08D57]/20">
               <h3 className="text-2xl font-bold text-slate-900 mb-4">
-                Ready to Start Your Recovery?
+                Ready to Begin Treatment?
               </h3>
               <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
                 Book your appointment online or call to discuss your needs

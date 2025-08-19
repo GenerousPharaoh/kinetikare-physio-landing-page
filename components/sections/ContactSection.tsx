@@ -263,7 +263,7 @@ export default function ContactSection() {
               
               <div className="relative z-10">
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-normal text-slate-900 mb-6 sm:mb-8 tracking-[-0.02em]">
-                  Questions About Your Treatment?
+                  Questions About Treatment?
                 </h3>
                 <p className="text-base sm:text-lg lg:text-xl text-slate-600 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed font-light">
                   I'm here to discuss your specific needs and how physiotherapy can help you achieve your recovery goals. Let's start a conversation about your health.

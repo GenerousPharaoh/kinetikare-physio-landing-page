@@ -843,7 +843,7 @@ export default function ConditionPageClient({
                     e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
                   }}
                 >
-                  Contact Us
+                  Contact
                 </Link>
               </div>
             </div>

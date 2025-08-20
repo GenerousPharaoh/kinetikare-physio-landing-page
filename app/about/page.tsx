@@ -221,7 +221,8 @@ export default function About() {
                   alt="Kareem Hassanein, Physiotherapist"
                   width={500}
                   height={600}
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-cover object-top"
+                  style={{ objectPosition: 'center 15%' }}
                 />
               </div>
               
@@ -379,13 +380,14 @@ export default function About() {
             <div className="hidden lg:block lg:col-span-1">
               <div className="sticky top-24 space-y-6">
                 {/* Profile Image */}
-                <div className="rounded-2xl overflow-hidden shadow-lg border border-neutral-200">
+                <div className="rounded-2xl overflow-hidden shadow-lg border border-neutral-200 h-96">
                   <ClientImage
                     src="/images/kareem-profile.png"
                     alt="Kareem Hassanein, Physiotherapist"
                     width={500}
                     height={600}
-                    className="w-full h-auto"
+                    className="w-full h-full object-cover object-top"
+                    style={{ objectPosition: 'center 15%' }}
                   />
                 </div>
                 

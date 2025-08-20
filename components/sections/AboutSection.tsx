@@ -32,7 +32,8 @@ export default function AboutSection() {
                     src="/images/kareem-profile.png"
                     alt="Kareem Hassanein, registered physiotherapist in Burlington, expert in manual therapy, sports rehabilitation, dry needling"
                     fill
-                    className="object-contain object-center"
+                    className="object-cover object-top"
+                    style={{ objectPosition: 'center 15%' }}
                   />
                 </div>
               </div>

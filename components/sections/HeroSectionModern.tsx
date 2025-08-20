@@ -9,16 +9,23 @@ export default function HeroSection() {
   return (
     <>
       {/* Mobile */}
-      <section className="lg:hidden min-h-screen flex flex-col pt-16 relative overflow-hidden">
-        {/* Premium background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-black">
-          <div className="absolute inset-0 bg-gradient-to-t from-[#B08D57]/20 via-transparent to-transparent opacity-60" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(176,141,87,0.15),transparent_50%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(176,141,87,0.1),transparent_50%)]" />
+      <section className="lg:hidden min-h-screen bg-white flex flex-col pt-16 relative">
+        {/* Image section */}
+        <div className="relative h-[45vh] w-full">
+          <Image
+            src="/images/clinic-pic-may-2025.jpg"
+            alt="KinetiKare Physiotherapy"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20" />
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
         </div>
 
         {/* Content section */}
-        <div className="relative flex-1 flex flex-col justify-center px-6 py-8 z-10">
+        <div className="flex-1 flex flex-col justify-center px-6 py-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -26,79 +33,72 @@ export default function HeroSection() {
             className="text-center"
           >
             <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="text-sm uppercase tracking-[0.3em] text-[#D4AF37] mb-8 font-semibold"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-xs uppercase tracking-[0.2em] text-[#B08D57] mb-6 font-medium"
             >
               Registered Physiotherapist
             </motion.p>
             
             <motion.h1 
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.3 }}
-              className="text-[52px] font-bold text-white leading-[0.9] mb-10 drop-shadow-2xl"
-              style={{
-                textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 0 40px rgba(176,141,87,0.3)'
-              }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="text-[42px] font-light text-slate-900 leading-tight mb-8"
             >
               The Science<br/>
-              <span className="text-[#D4AF37] bg-gradient-to-r from-[#D4AF37] to-[#F4E49C] bg-clip-text text-transparent">of Recovery</span><br/>
-              <span className="inline-block mt-3">The Art</span><br/>
-              <span className="text-[#D4AF37] bg-gradient-to-r from-[#D4AF37] to-[#F4E49C] bg-clip-text text-transparent">of Care</span>
+              <span className="text-[#B08D57]">of Recovery</span><br/>
+              <span className="inline-block mt-2">The Art</span><br/>
+              <span className="text-[#B08D57]">of Care</span>
             </motion.h1>
             
             <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="mb-10"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mb-8"
             >
-              <p className="text-4xl font-semibold text-white mb-4 drop-shadow-lg">Kareem Hassanein</p>
-              <div className="flex items-center justify-center gap-4">
-                <div className="h-0.5 w-16 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
-                <div className="h-2 w-2 rounded-full bg-[#D4AF37] shadow-lg shadow-[#D4AF37]/50" />
-                <div className="h-0.5 w-16 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
+              <p className="text-2xl font-light text-slate-800 mb-3">Kareem Hassanein</p>
+              <div className="flex items-center justify-center gap-3">
+                <div className="h-px w-12 bg-[#B08D57]/30" />
+                <div className="h-1 w-1 rounded-full bg-[#B08D57]" />
+                <div className="h-px w-12 bg-[#B08D57]/30" />
               </div>
             </motion.div>
 
             <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="text-xl text-slate-200 mb-12 leading-relaxed max-w-lg mx-auto drop-shadow-md"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-gray-600 mb-10 leading-relaxed max-w-md mx-auto"
             >
               Advanced physiotherapy combining evidence-based techniques with personalized attention for lasting results.
             </motion.p>
 
-            <div className="space-y-5 max-w-md mx-auto w-full">
+            <div className="space-y-3 max-w-sm mx-auto w-full">
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 1.0 }}
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
               >
                 <Link
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
-                  className="block w-full text-center px-8 py-6 bg-gradient-to-r from-[#D4AF37] to-[#B08D57] text-black font-bold text-lg rounded-2xl shadow-2xl shadow-[#D4AF37]/30 hover:shadow-[#D4AF37]/50 transition-all duration-300 transform"
+                  className="block w-full text-center px-6 py-4 bg-[#B08D57] text-white font-medium rounded-lg hover:bg-[#997A4B] transition-colors"
                 >
                   Book Your Assessment
                 </Link>
               </motion.div>
               
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 1.2 }}
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.5, delay: 0.6 }}
               >
                 <Link
                   href="/services"
-                  className="block w-full text-center px-8 py-6 bg-white/10 backdrop-blur-sm border-2 border-white/20 text-white font-semibold text-lg rounded-2xl hover:bg-white/20 hover:border-[#D4AF37]/50 transition-all duration-300 transform shadow-xl"
+                  className="block w-full text-center px-6 py-4 bg-white border border-slate-300 text-slate-700 font-medium rounded-lg hover:border-[#B08D57] hover:text-[#B08D57] transition-all"
                 >
                   Explore Services
                 </Link>
@@ -106,17 +106,17 @@ export default function HeroSection() {
             </div>
 
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.4 }}
-              className="mt-10 flex justify-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.7 }}
+              className="mt-8 flex justify-center"
             >
-              <div className="inline-flex items-center gap-6 text-sm text-slate-300 font-medium">
-                <span className="px-3 py-1 bg-white/10 rounded-full backdrop-blur-sm">Direct Billing</span>
-                <span className="text-[#D4AF37]">•</span>
-                <span className="px-3 py-1 bg-white/10 rounded-full backdrop-blur-sm">Evening Hours</span>
-                <span className="text-[#D4AF37]">•</span>
-                <span className="px-3 py-1 bg-white/10 rounded-full backdrop-blur-sm">5+ Years Experience</span>
+              <div className="inline-flex items-center gap-4 text-xs text-slate-600">
+                <span>Direct Billing</span>
+                <span className="text-[#B08D57]">•</span>
+                <span>Evening Hours</span>
+                <span className="text-[#B08D57]">•</span>
+                <span>5+ Years Experience</span>
               </div>
             </motion.div>
           </motion.div>
@@ -124,18 +124,30 @@ export default function HeroSection() {
       </section>
 
       {/* Desktop */}
-      <section className="hidden lg:block h-screen relative overflow-hidden">
-        {/* Premium full-screen background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-black">
-          <div className="absolute inset-0 bg-gradient-to-t from-[#B08D57]/20 via-transparent to-transparent opacity-60" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(176,141,87,0.2),transparent_50%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_75%,rgba(212,175,55,0.15),transparent_60%)]" />
-          <div className="absolute inset-0 bg-[linear-gradient(135deg,transparent_0%,rgba(176,141,87,0.05)_50%,transparent_100%)]" />
+      <section className="hidden lg:block h-screen bg-white relative">
+        {/* Right image - absolute positioned, completely independent */}
+        <div className="absolute top-0 right-0 w-1/2 h-screen">
+          <motion.div
+            initial={{ opacity: 0, scale: 1.02 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="relative h-full w-full"
+          >
+            <Image
+              src="/images/clinic-pic-may-2025.jpg"
+              alt="KinetiKare Physiotherapy"
+              fill
+              priority
+              className="object-cover"
+              sizes="50vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-l from-transparent to-black/10" />
+          </motion.div>
         </div>
         
-        {/* Centered content */}
-        <div className="relative h-full flex items-center justify-center pt-20 z-10">
-          <div className="max-w-5xl mx-auto px-8 text-center">
+        {/* Left content - independently positioned */}
+        <div className="relative h-full flex items-center pt-20">
+          <div className="w-1/2 pl-[8%] pr-[6%]">
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -143,175 +155,82 @@ export default function HeroSection() {
               className="max-w-2xl"
             >
               <motion.p
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.1 }}
-                className="text-lg uppercase tracking-[0.4em] text-[#D4AF37] mb-8 font-bold"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="text-sm uppercase tracking-[0.2em] text-[#B08D57] mb-4 font-medium"
               >
                 Registered Physiotherapist
               </motion.p>
               
               <motion.h1
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.3 }}
-                className="text-[80px] xl:text-[96px] font-black text-white leading-[0.85] mb-12 drop-shadow-2xl"
-                style={{
-                  textShadow: '0 6px 30px rgba(0,0,0,0.8), 0 0 60px rgba(176,141,87,0.4)'
-                }}
+                transition={{ duration: 0.7, delay: 0.2 }}
+                className="text-[56px] xl:text-[64px] font-light text-slate-900 leading-[0.9] mb-6"
               >
-                <motion.span 
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                  className="block"
-                >
-                  The Science
-                </motion.span>
-                <motion.span 
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8, delay: 0.7 }}
-                  className="bg-gradient-to-r from-[#D4AF37] via-[#F4E49C] to-[#D4AF37] bg-clip-text text-transparent block"
-                >
-                  of Recovery
-                </motion.span>
-                <motion.span 
-                  initial={{ opacity: 0, x: 30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, delay: 0.9 }}
-                  className="mt-6 block"
-                >
-                  The Art
-                </motion.span>
-                <motion.span 
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8, delay: 1.1 }}
-                  className="bg-gradient-to-r from-[#D4AF37] via-[#F4E49C] to-[#D4AF37] bg-clip-text text-transparent block"
-                >
-                  of Care
-                </motion.span>
+                The Science<br/>
+                <span className="text-[#B08D57]">of Recovery</span><br/>
+                <span className="mt-4 block">The Art</span>
+                <span className="text-[#B08D57]">of Care</span>
               </motion.h1>
 
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 1.3 }}
-                className="mb-12"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="mb-6"
               >
-                <p className="text-5xl font-bold text-white mb-6 drop-shadow-lg">Kareem Hassanein</p>
-                <div className="flex items-center justify-center gap-6">
-                  <motion.div 
-                    initial={{ width: 0 }}
-                    animate={{ width: "5rem" }}
-                    transition={{ duration: 1, delay: 1.5 }}
-                    className="h-1 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" 
-                  />
-                  <motion.div 
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ duration: 0.5, delay: 2 }}
-                    className="h-3 w-3 rounded-full bg-[#D4AF37] shadow-lg shadow-[#D4AF37]/60" 
-                  />
-                  <motion.div 
-                    initial={{ width: 0 }}
-                    animate={{ width: "5rem" }}
-                    transition={{ duration: 1, delay: 1.5 }}
-                    className="h-1 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" 
-                  />
+                <p className="text-3xl font-light text-slate-800 mb-3">Kareem Hassanein</p>
+                <div className="flex items-center gap-3">
+                  <div className="h-px w-16 bg-[#B08D57]/30" />
+                  <div className="h-1.5 w-1.5 rounded-full bg-[#B08D57]" />
+                  <div className="h-px w-16 bg-[#B08D57]/30" />
                 </div>
               </motion.div>
 
               <motion.p
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 2.2 }}
-                className="text-2xl text-slate-200 mb-16 leading-relaxed max-w-4xl mx-auto drop-shadow-md font-light"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="text-lg text-gray-600 mb-8 leading-relaxed max-w-xl"
               >
                 Advanced physiotherapy combining evidence-based techniques with personalized attention for lasting results.
               </motion.p>
 
               <motion.div
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 2.4 }}
-                className="flex gap-8 mb-16 justify-center"
+                transition={{ duration: 0.5, delay: 0.5 }}
+                className="flex gap-4 mb-8"
               >
-                <motion.div
-                  whileHover={{ scale: 1.08, y: -4 }}
-                  whileTap={{ scale: 0.98 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                <Link
+                  href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                  target="_blank"
+                  className="px-8 py-4 bg-[#B08D57] text-white font-medium rounded-lg hover:bg-[#997A4B] transition-colors shadow-sm hover:shadow-md"
                 >
-                  <Link
-                    href="https://endorphinshealth.janeapp.com/#/staff_member/42"
-                    target="_blank"
-                    className="inline-block px-12 py-6 bg-gradient-to-r from-[#D4AF37] to-[#B08D57] text-black font-bold text-xl rounded-2xl shadow-2xl shadow-[#D4AF37]/40 hover:shadow-[#D4AF37]/60 transition-all duration-300 transform"
-                  >
-                    Book Your Assessment
-                  </Link>
-                </motion.div>
+                  Book Your Assessment
+                </Link>
 
-                <motion.div
-                  whileHover={{ scale: 1.08, y: -4 }}
-                  whileTap={{ scale: 0.98 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                <Link
+                  href="/services"
+                  className="px-8 py-4 bg-white border border-slate-300 text-slate-700 font-medium rounded-lg hover:border-[#B08D57] hover:text-[#B08D57] transition-all shadow-sm hover:shadow-md"
                 >
-                  <Link
-                    href="/services"
-                    className="inline-block px-12 py-6 bg-white/15 backdrop-blur-md border-3 border-white/30 text-white font-bold text-xl rounded-2xl hover:bg-white/25 hover:border-[#D4AF37]/60 transition-all duration-300 transform shadow-2xl"
-                  >
-                    Explore Services
-                  </Link>
-                </motion.div>
+                  Explore Services
+                </Link>
               </motion.div>
 
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 2.6 }}
-                className="flex items-center justify-center gap-8 text-lg text-slate-300 font-semibold"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="inline-flex items-center gap-6 text-sm text-slate-600"
               >
-                <motion.span 
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 2.8 }}
-                  className="px-6 py-3 bg-white/15 rounded-full backdrop-blur-md shadow-lg"
-                >
-                  Direct Billing
-                </motion.span>
-                <motion.span 
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 3.0 }}
-                  className="text-[#D4AF37] text-2xl"
-                >
-                  •
-                </motion.span>
-                <motion.span 
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 3.2 }}
-                  className="px-6 py-3 bg-white/15 rounded-full backdrop-blur-md shadow-lg"
-                >
-                  Evening Hours
-                </motion.span>
-                <motion.span 
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 3.4 }}
-                  className="text-[#D4AF37] text-2xl"
-                >
-                  •
-                </motion.span>
-                <motion.span 
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 3.6 }}
-                  className="px-6 py-3 bg-white/15 rounded-full backdrop-blur-md shadow-lg"
-                >
-                  5+ Years Experience
-                </motion.span>
+                <span>Direct Billing</span>
+                <span className="text-[#B08D57]">•</span>
+                <span>Evening Hours</span>
+                <span className="text-[#B08D57]">•</span>
+                <span>5+ Years Experience</span>
               </motion.div>
             </motion.div>
           </div>

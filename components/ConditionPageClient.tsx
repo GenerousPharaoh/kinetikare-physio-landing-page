@@ -168,19 +168,19 @@ export default function ConditionPageClient({
                     <div className="grid md:grid-cols-2 gap-3">
                       {condition.clinicalRedFlags ? (
                         condition.clinicalRedFlags.map((flag, index) => (
-                          <div key={index} className="flex items-start gap-2 text-xs">
-                            <div className="mt-1 h-1.5 w-1.5 bg-red-500 rounded-full flex-shrink-0" />
-                            <div>
-                              <p className="font-medium text-red-900">{flag.sign}</p>
-                              <p className="text-red-700 mt-0.5">{flag.action}</p>
+                          <div key={index} className="flex items-start gap-2.5 text-xs">
+                            <div className="mt-[5px] h-1.5 w-1.5 bg-red-500 rounded-full flex-shrink-0" />
+                            <div className="flex-1">
+                              <p className="font-medium text-red-900 leading-tight">{flag.sign}</p>
+                              <p className="text-red-700 mt-0.5 leading-tight">{flag.action}</p>
                             </div>
                           </div>
                         ))
                       ) : (
                         condition.redFlags?.map((flag, index) => (
-                          <div key={index} className="flex items-start gap-2 text-xs">
-                            <div className="mt-1 h-1.5 w-1.5 bg-red-500 rounded-full flex-shrink-0" />
-                            <span className="text-red-800">{flag}</span>
+                          <div key={index} className="flex items-start gap-2.5 text-xs">
+                            <div className="mt-[5px] h-1.5 w-1.5 bg-red-500 rounded-full flex-shrink-0" />
+                            <span className="text-red-800 flex-1 leading-tight">{flag}</span>
                           </div>
                         ))
                       )}

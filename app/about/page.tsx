@@ -144,19 +144,67 @@ export default function About() {
 
   return (
     <main className="min-h-screen flex flex-col text-primary-700 bg-white">
-      {/* Hero Section */}
-      <section className="bg-primary-50 text-primary-800 py-10 pt-20 relative border-b border-neutral-200">
-        <div className="container mx-auto px-4 relative z-10 flex flex-col items-center">
-          <div className="text-center max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-heading font-light mb-5 tracking-[-0.02em]">
-              About <span className="text-[#B08D57]">Kareem</span>
+      {/* Hero Section - Premium Design */}
+      <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-20 bg-gradient-to-br from-white via-slate-50/50 to-white overflow-hidden">
+        {/* Premium background elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#B08D57]/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#D4AF37]/5 rounded-full blur-3xl"></div>
+        </div>
+        
+        {/* Subtle pattern overlay */}
+        <div className="absolute inset-0 opacity-[0.02]">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, #B08D57 1px, transparent 1px)`,
+            backgroundSize: '48px 48px'
+          }}></div>
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center max-w-4xl mx-auto">
+            {/* Premium badge */}
+            <div className="inline-flex items-center px-4 py-2 bg-[#B08D57]/10 text-[#B08D57] text-sm font-medium rounded-full mb-6">
+              Meet Kareem Hassanein
+            </div>
+            
+            {/* Main heading with premium typography */}
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-slate-900 mb-6 tracking-[-0.03em] leading-[0.95]">
+              Registered<br/>
+              <span className="text-[#B08D57]">Physiotherapist</span>
             </h1>
-            <p className="text-lg text-primary-600 max-w-2xl mx-auto">
-              A journey of experience, empathy, and a commitment to expertise in physiotherapy
+            
+            {/* Decorative line */}
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <div className="h-px w-20 bg-gradient-to-r from-transparent to-[#B08D57]/30"></div>
+              <div className="h-2 w-2 rounded-full bg-[#B08D57]"></div>
+              <div className="h-px w-20 bg-gradient-to-l from-transparent to-[#B08D57]/30"></div>
+            </div>
+            
+            {/* Tagline */}
+            <p className="text-xl md:text-2xl text-slate-600 font-light leading-relaxed max-w-3xl mx-auto mb-10">
+              Combining clinical expertise with genuine understanding to guide your recovery journey
             </p>
+            
+            {/* Key highlights */}
+            <div className="flex flex-wrap justify-center gap-6 text-sm text-slate-600">
+              <div className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]"></div>
+                <span>MSc Physiotherapy (Distinction)</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]"></div>
+                <span>CAMPT Certified</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]"></div>
+                <span>5+ Years Experience</span>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 w-full h-1 bg-[#B08D57] opacity-20"></div>
+        
+        {/* Bottom gradient fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
       </section>
 
       {/* Main Content with Sidebar */}
@@ -516,8 +564,8 @@ export default function About() {
                       <div className="absolute top-0 right-0 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br from-[#B08D57]/8 to-transparent rounded-full -translate-y-12 sm:-translate-y-16 translate-x-12 sm:translate-x-16"></div>
                       <div className="relative z-10">
                         <p className="text-base sm:text-lg lg:text-xl text-slate-700 leading-relaxed mb-4 sm:mb-6">
-                          My journey into physiotherapy wasn't merely academic. It emerged from lived experience. From competitive soccer and pursuing a Kinesiology degree at{" "}
-                          <span className="font-semibold text-[#B08D57]">McMaster University</span> to navigating my own significant injuries including debilitating disc herniations, I've experienced both sides of rehabilitation. This deep understanding, enriched by years of serving diverse communities including <span class="font-semibold text-slate-800">Burlington, Waterdown, and surrounding areas</span>, shapes my empathetic and effective approach to care.
+                          I became a physiotherapist after experiencing injuries firsthand. Playing competitive soccer while studying Kinesiology at{" "}
+                          <span className="font-semibold text-[#B08D57]">McMaster University</span>, I dealt with significant injuries including disc herniations that required extensive rehabilitation. Going through that recovery process myself gave me a real understanding of what patients experience. Now serving <span class="font-semibold text-slate-800">Burlington, Waterdown, and surrounding areas</span>, I bring both professional expertise and personal insight to every treatment.
                         </p>
                       </div>
                     </div>
@@ -527,8 +575,8 @@ export default function About() {
                       <div className="absolute top-0 left-0 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br from-[#D4AF37]/8 to-transparent rounded-full -translate-y-12 sm:-translate-y-16 -translate-x-12 sm:-translate-x-16"></div>
                       <div className="relative z-10">
                         <p className="text-base sm:text-lg lg:text-xl text-slate-700 leading-relaxed mb-4 sm:mb-6">
-                          These moments of vulnerability transformed my professional purpose, leading me to complete a{" "}
-                          <span className="font-semibold text-[#B08D57]">Master's in Physiotherapy from Robert Gordon University with distinction</span>. My education, combined with firsthand experience as a patient, has deeply informed my approach to care, particularly in delivering personalized treatment to those I've had the privilege to work with in <span class="font-semibold text-slate-800">Halton Region and beyond</span>.
+                          Those experiences motivated me to pursue a{" "}
+                          <span className="font-semibold text-[#B08D57]">Master's in Physiotherapy from Robert Gordon University, graduating with distinction</span>. Having been a patient myself helps me better understand and connect with those I treat throughout <span class="font-semibold text-slate-800">Halton Region and beyond</span>.
                         </p>
                       </div>
                     </div>

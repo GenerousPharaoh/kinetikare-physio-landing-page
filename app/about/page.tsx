@@ -564,8 +564,8 @@ export default function About() {
                       <div className="absolute top-0 right-0 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br from-[#B08D57]/8 to-transparent rounded-full -translate-y-12 sm:-translate-y-16 translate-x-12 sm:translate-x-16"></div>
                       <div className="relative z-10">
                         <p className="text-base sm:text-lg lg:text-xl text-slate-700 leading-relaxed mb-4 sm:mb-6">
-                          I became a physiotherapist after experiencing injuries firsthand. Playing competitive soccer while studying Kinesiology at{" "}
-                          <span className="font-semibold text-[#B08D57]">McMaster University</span>, I dealt with significant injuries including disc herniations that required extensive rehabilitation. Going through that recovery process myself gave me a real understanding of what patients experience. Now serving <span class="font-semibold text-slate-800">Burlington, Waterdown, and surrounding areas</span>, I bring both professional expertise and personal insight to every treatment.
+                          My path to physiotherapy began through personal experience. While playing competitive soccer and studying Kinesiology at{" "}
+                          <span className="font-semibold text-[#B08D57]">McMaster University</span>, I suffered significant injuries including disc herniations that required extensive rehabilitation. That challenging recovery journey gave me firsthand insight into what patients truly go through - the frustration, the setbacks, and ultimately the triumphs. Now serving <span className="font-semibold text-slate-800">Burlington, Waterdown, and surrounding areas</span>, I combine professional expertise with genuine empathy born from my own recovery experience.
                         </p>
                       </div>
                     </div>
@@ -575,8 +575,8 @@ export default function About() {
                       <div className="absolute top-0 left-0 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br from-[#D4AF37]/8 to-transparent rounded-full -translate-y-12 sm:-translate-y-16 -translate-x-12 sm:-translate-x-16"></div>
                       <div className="relative z-10">
                         <p className="text-base sm:text-lg lg:text-xl text-slate-700 leading-relaxed mb-4 sm:mb-6">
-                          Those experiences motivated me to pursue a{" "}
-                          <span className="font-semibold text-[#B08D57]">Master's in Physiotherapy from Robert Gordon University, graduating with distinction</span>. Having been a patient myself helps me better understand and connect with those I treat throughout <span class="font-semibold text-slate-800">Halton Region and beyond</span>.
+                          This experience shaped my approach when I pursued my{" "}
+                          <span className="font-semibold text-[#B08D57]">Master's in Physiotherapy at Robert Gordon University, graduating with distinction</span>. Having been through the recovery process myself, I understand the importance of clear communication, realistic expectations, and genuine support throughout <span className="font-semibold text-slate-800">Halton Region and beyond</span>.
                         </p>
                       </div>
                     </div>

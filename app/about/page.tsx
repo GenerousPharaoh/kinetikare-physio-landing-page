@@ -229,21 +229,21 @@ export default function About() {
               <div className="bg-gradient-to-br from-primary-50 to-white p-6 rounded-2xl border border-[#B08D57]/20 shadow-lg mb-6">
                 <h3 className="text-lg font-normal mb-4 text-primary-800 border-b border-primary-200 pb-3">Professional Highlights</h3>
                 <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <div className="w-2 h-2 rounded-full bg-[#B08D57] mr-3 flex-shrink-0 mt-1.5"></div>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-[#B08D57] flex-shrink-0 mt-1.5"></div>
                     <span className="text-sm font-medium">MSc Physiotherapy (Distinction)</span>
                   </li>
-                  <li className="flex items-start">
-                    <div className="w-2 h-2 rounded-full bg-[#B08D57] mr-3 flex-shrink-0 mt-1.5"></div>
-                    <span className="text-sm font-medium">Advanced Integrated Musculoskeletal (AIM) Physiotherapy Program Level 2 Upper and Lower</span>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-[#B08D57] flex-shrink-0 mt-1.5"></div>
+                    <span className="text-sm font-medium">AIM Level 2 Certified (Upper & Lower)</span>
                   </li>
-                  <li className="flex items-start">
-                    <div className="w-2 h-2 rounded-full bg-[#B08D57] mr-3 flex-shrink-0 mt-1.5"></div>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-[#B08D57] flex-shrink-0 mt-1.5"></div>
                     <span className="text-sm font-medium">5+ Years Clinical Practice</span>
                   </li>
-                  <li className="flex items-start">
-                    <div className="w-2 h-2 rounded-full bg-[#B08D57] mr-3 flex-shrink-0 mt-1.5"></div>
-                    <span className="text-sm font-medium">6,000+ hours personal training</span>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-[#B08D57] flex-shrink-0 mt-1.5"></div>
+                    <span className="text-sm font-medium">6,000+ Hours Personal Training</span>
                   </li>
                 </ul>
               </div>
@@ -393,21 +393,21 @@ export default function About() {
                 <div className="bg-gradient-to-br from-primary-50 to-white p-6 rounded-2xl border border-[#B08D57]/20 shadow-lg">
                   <h3 className="text-lg font-normal mb-4 text-primary-800 border-b border-primary-200 pb-3">Professional Highlights</h3>
                   <ul className="space-y-3">
-                    <li className="flex items-start">
-                      <div className="w-2 h-2 rounded-full bg-[#B08D57] mr-3 flex-shrink-0 mt-1.5"></div>
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 rounded-full bg-[#B08D57] flex-shrink-0 mt-1.5"></div>
                       <span className="text-sm font-medium">MSc Physiotherapy (Distinction)</span>
                     </li>
-                    <li className="flex items-start">
-                      <div className="w-2 h-2 rounded-full bg-[#B08D57] mr-3 flex-shrink-0 mt-1.5"></div>
-                      <span className="text-sm font-medium">Advanced Integrated Musculoskeletal (AIM) Physiotherapy Program Level 2 Upper and Lower</span>
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 rounded-full bg-[#B08D57] flex-shrink-0 mt-1.5"></div>
+                      <span className="text-sm font-medium">AIM Level 2 Certified (Upper & Lower)</span>
                     </li>
-                    <li className="flex items-start">
-                      <div className="w-2 h-2 rounded-full bg-[#B08D57] mr-3 flex-shrink-0 mt-1.5"></div>
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 rounded-full bg-[#B08D57] flex-shrink-0 mt-1.5"></div>
                       <span className="text-sm font-medium">5+ Years Clinical Practice</span>
                     </li>
-                    <li className="flex items-start">
-                      <div className="w-2 h-2 rounded-full bg-[#B08D57] mr-3 flex-shrink-0 mt-1.5"></div>
-                      <span className="text-sm font-medium">6,000+ hours personal training</span>
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 rounded-full bg-[#B08D57] flex-shrink-0 mt-1.5"></div>
+                      <span className="text-sm font-medium">6,000+ Hours Personal Training</span>
                     </li>
                   </ul>
                 </div>

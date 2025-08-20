@@ -193,7 +193,7 @@ export default function About() {
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]"></div>
-                <span>CAMPT Certified</span>
+                <span>Advanced Manual Therapy</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]"></div>

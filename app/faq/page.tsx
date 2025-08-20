@@ -204,8 +204,8 @@ const faqCategories: FAQCategory[] = [
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: 'FAQ | KinetiKare Physiotherapy | Kareem Hassanein Burlington & Waterdown',
-  description: 'KinetiKare Physiotherapy FAQ - Common questions about treatment with Kareem Hassanein in Burlington, Ontario. Not affiliated with KinetaCare or Kinetic Physio. Learn about our services, appointments, and approach.',
+  title: 'FAQ | Kareem Hassanein Physiotherapy | Burlington & Waterdown',
+  description: 'Answers to common questions about physiotherapy with Kareem Hassanein, serving Burlington, Waterdown, Hamilton & Oakville. Learn about treatments, appointments, and what to expect.',
   keywords: [
     'Kareem Hassanein FAQ', 
     'KinetiKare FAQ',

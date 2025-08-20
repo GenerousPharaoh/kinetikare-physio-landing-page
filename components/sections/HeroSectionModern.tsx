@@ -135,7 +135,7 @@ export default function HeroSection() {
           >
             <Image
               src="/images/clinic-pic-may-2025.jpg"
-              alt="KinetiKare Physiotherapy Burlington Ontario - Kareem Hassanein"
+              alt="KinetiKare Physiotherapy"
               fill
               priority
               className="object-cover"
@@ -160,7 +160,7 @@ export default function HeroSection() {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="text-sm uppercase tracking-[0.2em] text-[#B08D57] mb-4 font-medium"
               >
-                KinetiKare Physiotherapy • Burlington, Ontario
+                Registered Physiotherapist
               </motion.p>
               
               <motion.h1
@@ -195,7 +195,7 @@ export default function HeroSection() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="text-lg text-gray-600 mb-8 leading-relaxed max-w-xl"
               >
-                Founded in Burlington, Ontario. Advanced physiotherapy combining evidence-based techniques with personalized attention for lasting results.
+                Advanced physiotherapy combining evidence-based techniques with personalized attention for lasting results.
               </motion.p>
 
               <motion.div

@@ -245,10 +245,9 @@ export default function Footer() {
         
         {/* Bottom section */}
         <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center">
-          <div className="text-sm text-white/60 mb-3 md:mb-0">
-            <p>© {currentYear} KinetiKare Physiotherapy. All rights reserved.</p>
-            <p className="text-xs text-white/40 mt-1">Burlington, Ontario, Canada • Est. 2020 • Not affiliated with KinetaCare or similar names</p>
-          </div>
+          <p className="text-sm text-white/60 mb-3 md:mb-0">
+            © {currentYear} KinetiKare Physiotherapy. All rights reserved.
+          </p>
           <div className="flex gap-4 text-sm text-white/60">
             <Link href="/privacy" className="hover:text-gold transition-colors">Privacy Policy</Link>
             <span className="text-white/20">•</span>

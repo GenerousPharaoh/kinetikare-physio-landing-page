@@ -475,20 +475,7 @@ export default function ConditionPageClient({
                               <div className="space-y-4">
                                 {condition.evidenceBasedTreatment.map((treatment, index) => (
                                   <div key={index} className="bg-white rounded-lg p-4 border border-slate-200">
-                                    <div className="flex items-start justify-between mb-2">
-                                      <h3 className="font-semibold text-slate-900">{treatment.approach}</h3>
-                                      {treatment.effectivenessLevel && (
-                                        <span className={`text-xs px-2 py-1 rounded-full ${
-                                          treatment.effectivenessLevel === 'strong' 
-                                            ? 'bg-green-100 text-green-800' 
-                                            : treatment.effectivenessLevel === 'moderate'
-                                            ? 'bg-yellow-100 text-yellow-800'
-                                            : 'bg-blue-100 text-blue-800'
-                                        }`}>
-                                          {treatment.effectivenessLevel} evidence
-                                        </span>
-                                      )}
-                                    </div>
+                                    <h3 className="font-semibold text-slate-900 mb-2">{treatment.approach}</h3>
                                     <p className="text-slate-600 text-sm">{treatment.evidence}</p>
                                     {hasStrongEvidence(treatment) && (
                                       <p className="text-xs text-amber-600 mt-2 italic">

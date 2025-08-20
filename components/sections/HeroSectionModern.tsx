@@ -138,14 +138,16 @@ export default function HeroSection() {
               alt="KinetiKare Physiotherapy"
               fill
               priority
-              className="object-cover brightness-110 contrast-125 saturate-110"
+              className="object-cover brightness-90 contrast-150 saturate-125 hue-rotate-15"
               sizes="50vw"
             />
-            {/* Multiple dramatic overlays for depth and mood */}
-            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#B08D57]/5 to-black/25" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-[#B08D57]/10" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,black/15_100%)]" />
+            {/* Strong dramatic overlays */}
+            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#B08D57]/20 to-black/50" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/15 via-transparent to-black/30" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center_right,transparent_20%,black/40_80%)]" />
+            {/* Warm color wash */}
+            <div className="absolute inset-0 bg-[#B08D57]/15 mix-blend-overlay" />
           </motion.div>
         </div>
         

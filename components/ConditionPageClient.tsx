@@ -114,6 +114,11 @@ export default function ConditionPageClient({
     }))
   };
 
+  // Check if we need multiple citations
+  const hasStrongEvidence = (treatment: any) => {
+    return treatment.effectivenessLevel === 'strong' && 
+           (!condition.keyResearch || condition.keyResearch.length < 2);
+  };
 
   return (
     <>
@@ -187,36 +192,31 @@ export default function ConditionPageClient({
           </div>
         </section>
 
-        {/* Tab Navigation - Premium Design */}
-        <div className="sticky top-0 z-30 bg-white/95 backdrop-blur-sm border-b border-slate-200">
+        {/* Tab Navigation */}
+        <div className="sticky top-0 z-30 bg-white border-b border-slate-200">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
-              <nav className="flex gap-0 overflow-x-auto scrollbar-hide">
-                {tabs.map((tab, index) => {
-                  const Icon = tab.icon;
-                  return (
-                    <button
-                      key={tab.id}
-                      onClick={() => setActiveTab(tab.id)}
-                      className={`relative flex items-center gap-2 px-4 sm:px-6 py-4 font-medium text-sm whitespace-nowrap transition-all ${
-                        activeTab === tab.id
-                          ? 'text-[#B08D57]'
-                          : 'text-slate-500 hover:text-slate-900'
-                      }`}
-                    >
-                      <Icon className="h-4 w-4 flex-shrink-0" />
-                      <span>{tab.label}</span>
-                      {activeTab === tab.id && (
-                        <motion.div
-                          layoutId="activeTab"
-                          className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#B08D57]"
-                          transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                        />
-                      )}
-                    </button>
-                  );
-                })}
-              </nav>
+              <div className="-mx-4 sm:mx-0">
+                <nav className="flex gap-1 sm:gap-2 overflow-x-auto py-3 sm:py-4 px-4 sm:px-0 scrollbar-hide">
+                  {tabs.map((tab) => {
+                    const Icon = tab.icon;
+                    return (
+                      <button
+                        key={tab.id}
+                        onClick={() => setActiveTab(tab.id)}
+                        className={`flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-lg font-medium text-xs sm:text-sm whitespace-nowrap transition-all min-w-fit ${
+                          activeTab === tab.id
+                            ? 'bg-[#B08D57] text-white shadow-md'
+                            : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                        }`}
+                      >
+                        <Icon className="h-3.5 sm:h-4 w-3.5 sm:w-4 flex-shrink-0" />
+                        <span>{tab.label}</span>
+                      </button>
+                    );
+                  })}
+                </nav>
+              </div>
             </div>
           </div>
         </div>
@@ -283,24 +283,22 @@ export default function ConditionPageClient({
                       {activeTab === 'overview' && (
                         <div className="space-y-6">
                           {condition.pathophysiology && (
-                            <div className="mb-8">
-                              <h2 className="text-2xl font-light text-slate-900 mb-4">
+                            <div className="bg-white rounded-xl p-6 border border-slate-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
                                 What's Happening in Your Body
                               </h2>
-                              <div className="prose prose-slate max-w-none">
-                                <p className="text-slate-600 leading-relaxed whitespace-pre-line">
-                                  {condition.pathophysiology}
-                                </p>
-                              </div>
+                              <p className="text-slate-600 leading-relaxed">
+                                {condition.pathophysiology}
+                              </p>
                             </div>
                           )}
 
                           {condition.overview && !condition.pathophysiology && (
-                            <div className="mb-8">
-                              <h2 className="text-2xl font-light text-slate-900 mb-4">
+                            <div className="bg-white rounded-xl p-6 border border-slate-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
                                 Understanding Your Condition
                               </h2>
-                              <div className="prose prose-slate max-w-none">
+                              <div className="space-y-4">
                                 {condition.overview.split('\n\n').map((paragraph, index) => (
                                   <p key={index} className="text-slate-600 leading-relaxed">
                                     {paragraph}
@@ -311,11 +309,11 @@ export default function ConditionPageClient({
                           )}
 
                           {condition.biomechanics && (
-                            <div className="mb-8 pt-8 border-t border-slate-200">
-                              <h2 className="text-2xl font-light text-slate-900 mb-4">
+                            <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
                                 Why This Happens
                               </h2>
-                              <div className="prose prose-slate max-w-none">
+                              <div className="space-y-4">
                                 {condition.biomechanics.split('\n\n').map((paragraph, index) => (
                                   <p key={index} className="text-slate-600 leading-relaxed">
                                     {paragraph}
@@ -325,6 +323,36 @@ export default function ConditionPageClient({
                             </div>
                           )}
                           
+                          {/* Evidence Snapshot - Moved to Overview Tab */}
+                          {condition.evidenceSnapshot && (
+                            <div className="bg-blue-50 rounded-xl p-5 border border-blue-200">
+                              <div className="flex items-start gap-3">
+                                <BeakerIcon className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                                <div className="flex-1">
+                                  <h2 className="font-semibold text-blue-900 mb-2">Evidence Snapshot</h2>
+                                  <ul className="space-y-1.5 text-sm text-blue-800">
+                                    <li className="flex items-start">
+                                      <span className="mr-2">•</span>
+                                      <span>{condition.evidenceSnapshot.firstLine}</span>
+                                    </li>
+                                    <li className="flex items-start">
+                                      <span className="mr-2">•</span>
+                                      <span>{condition.evidenceSnapshot.imaging}</span>
+                                    </li>
+                                    <li className="flex items-start">
+                                      <span className="mr-2">•</span>
+                                      <span>{condition.evidenceSnapshot.management}</span>
+                                    </li>
+                                  </ul>
+                                  {condition.evidenceSnapshot.sources && (
+                                    <p className="text-xs text-blue-600 mt-3 italic">
+                                      Sources: {condition.evidenceSnapshot.sources}
+                                    </p>
+                                  )}
+                                </div>
+                              </div>
+                            </div>
+                          )}
                         </div>
                       )}
 
@@ -332,8 +360,8 @@ export default function ConditionPageClient({
                       {activeTab === 'symptoms' && (
                         <div className="space-y-6">
                           {condition.clinicalPresentation && (
-                            <div className="mb-8">
-                              <h2 className="text-2xl font-light text-slate-900 mb-6">
+                            <div className="bg-white rounded-xl p-6 border border-slate-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
                                 Clinical Presentation
                               </h2>
                               
@@ -375,16 +403,17 @@ export default function ConditionPageClient({
                           )}
 
                           {condition.differentialDiagnosis && condition.differentialDiagnosis.length > 0 && (
-                            <div className="mb-8 pt-8 border-t border-slate-200">
-                              <h2 className="text-2xl font-light text-slate-900 mb-4">
-                                Similar Conditions
+                            <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                                Differential Diagnosis
                               </h2>
-                              <div className="space-y-4">
+                              <p className="text-slate-600 mb-4">Conditions with similar presentations:</p>
+                              <div className="space-y-3">
                                 {condition.differentialDiagnosis.map((diff, index) => (
-                                  <div key={index} className="pl-4 border-l-2 border-[#B08D57]/30">
-                                    <h3 className="font-medium text-slate-900 mb-1">{diff.condition}</h3>
+                                  <div key={index} className="bg-white rounded-lg p-4 border border-slate-200">
+                                    <h3 className="font-semibold text-slate-900 mb-1">{diff.condition}</h3>
                                     <p className="text-sm text-slate-600">
-                                      {diff.distinguishingFeatures}
+                                      <span className="font-medium">Key differences:</span> {diff.distinguishingFeatures}
                                     </p>
                                   </div>
                                 ))}
@@ -393,18 +422,18 @@ export default function ConditionPageClient({
                           )}
 
                           {condition.whenToSeek && condition.whenToSeek.length > 0 && (
-                            <div className="mb-8 pt-8 border-t border-slate-200">
-                              <h2 className="text-2xl font-light text-slate-900 mb-4">
-                                When to Seek Help
+                            <div className="bg-amber-50 rounded-xl p-6 border border-amber-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                                When to Seek Professional Help
                               </h2>
-                              <ul className="space-y-2">
+                              <div className="space-y-2">
                                 {condition.whenToSeek.map((item, index) => (
-                                  <li key={index} className="flex items-start gap-3">
-                                    <div className="mt-1.5 h-1.5 w-1.5 bg-[#B08D57] rounded-full flex-shrink-0" />
-                                    <span className="text-slate-600">{item}</span>
-                                  </li>
+                                  <div key={index} className="flex items-start gap-3">
+                                    <CheckCircleIcon className="h-5 w-5 text-amber-600 mt-0.5 flex-shrink-0" />
+                                    <span className="text-slate-700">{item}</span>
+                                  </div>
                                 ))}
-                              </ul>
+                              </div>
                             </div>
                           )}
                         </div>
@@ -414,8 +443,8 @@ export default function ConditionPageClient({
                       {activeTab === 'treatment' && (
                         <div className="space-y-6">
                           {condition.treatmentApproach && (
-                            <div className="mb-8">
-                              <h2 className="text-2xl font-light text-slate-900 mb-4">
+                            <div className="bg-white rounded-xl p-6 border border-slate-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
                                 {condition.treatmentApproach.title}
                               </h2>
                               <p className="text-slate-600 mb-6">
@@ -439,15 +468,20 @@ export default function ConditionPageClient({
                           )}
 
                           {condition.evidenceBasedTreatment && condition.evidenceBasedTreatment.length > 0 && (
-                            <div className="mb-8 pt-8 border-t border-slate-200">
-                              <h2 className="text-2xl font-light text-slate-900 mb-6">
-                                Treatment Evidence
+                            <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                                Evidence-Based Treatment Options
                               </h2>
                               <div className="space-y-4">
                                 {condition.evidenceBasedTreatment.map((treatment, index) => (
-                                  <div key={index} className="pl-4 border-l-2 border-[#B08D57]/30">
-                                    <h3 className="font-medium text-slate-900 mb-1">{treatment.approach}</h3>
+                                  <div key={index} className="bg-white rounded-lg p-4 border border-slate-200">
+                                    <h3 className="font-semibold text-slate-900 mb-2">{treatment.approach}</h3>
                                     <p className="text-slate-600 text-sm">{treatment.evidence}</p>
+                                    {hasStrongEvidence(treatment) && (
+                                      <p className="text-xs text-amber-600 mt-2 italic">
+                                        Note: Additional studies needed to confirm effectiveness level
+                                      </p>
+                                    )}
                                   </div>
                                 ))}
                               </div>
@@ -455,17 +489,28 @@ export default function ConditionPageClient({
                           )}
 
                           {condition.timeline && condition.timeline.length > 0 && (
-                            <div className="mb-8 pt-8 border-t border-slate-200">
-                              <h2 className="text-2xl font-light text-slate-900 mb-6">
+                            <div className="bg-white rounded-xl p-6 border border-slate-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-6">
                                 Recovery Timeline
                               </h2>
-                              <div className="space-y-6">
+                              <div className="relative">
                                 {condition.timeline.map((phase, index) => (
-                                  <div key={index} className="pl-4 border-l-2 border-[#B08D57]/30">
-                                    <h3 className="font-medium text-slate-900 mb-1">
-                                      {phase.phase} <span className="font-normal text-slate-500">• {phase.duration}</span>
-                                    </h3>
-                                    <p className="text-slate-600">{phase.description}</p>
+                                  <div key={index} className="flex gap-4 mb-6 last:mb-0">
+                                    <div className="flex flex-col items-center">
+                                      <div className="w-3 h-3 bg-[#B08D57] rounded-full" />
+                                      {index < condition.timeline!.length - 1 && (
+                                        <div className="w-0.5 h-full bg-[#B08D57]/30 mt-2" />
+                                      )}
+                                    </div>
+                                    <div className="flex-1 pb-6">
+                                      <div className="flex items-center gap-3 mb-2">
+                                        <h3 className="font-semibold text-slate-900">{phase.phase}</h3>
+                                        <span className="text-sm text-[#B08D57] bg-[#B08D57]/10 px-2 py-1 rounded">
+                                          {phase.duration}
+                                        </span>
+                                      </div>
+                                      <p className="text-slate-600">{phase.description}</p>
+                                    </div>
                                   </div>
                                 ))}
                               </div>
@@ -478,30 +523,39 @@ export default function ConditionPageClient({
                       {activeTab === 'research' && (
                         <div className="space-y-6">
                           {condition.keyResearch && condition.keyResearch.length > 0 && (
-                            <div className="mb-8">
-                              <h2 className="text-2xl font-light text-slate-900 mb-6">
-                                Research Evidence
+                            <div className="bg-white rounded-xl p-6 border border-slate-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                                Key Research & Evidence
                               </h2>
-                              <div className="space-y-6">
+                              <div className="space-y-4">
                                 {condition.keyResearch.map((research, index) => (
-                                  <div key={index} className="pl-4 border-l-2 border-[#B08D57]/30">
-                                    <h3 className="font-medium text-slate-900 mb-1">
-                                      {research.title} <span className="text-slate-500 font-normal">({research.year})</span>
-                                    </h3>
+                                  <div key={index} className="border-l-4 border-[#B08D57]/30 pl-4 hover:border-[#B08D57] transition-colors">
+                                    <div className="flex items-start justify-between mb-1">
+                                      <h3 className="font-semibold text-slate-900 text-sm">{research.title}</h3>
+                                      <span className="text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded">{research.year}</span>
+                                    </div>
                                     <p className="text-sm text-slate-600 mb-2">{research.findings}</p>
-                                    <p className="text-sm text-slate-700">
-                                      {research.relevance}
+                                    <p className="text-xs text-[#B08D57] font-medium">
+                                      Clinical relevance: {research.relevance}
                                     </p>
                                   </div>
                                 ))}
                               </div>
+                              {condition.keyResearch.length === 1 && (
+                                <div className="mt-4 p-3 bg-amber-50 rounded-lg border border-amber-200">
+                                  <p className="text-xs text-amber-800">
+                                    <ExclamationCircleIcon className="inline h-4 w-4 mr-1" />
+                                    Additional research studies are being reviewed to strengthen the evidence base for this condition.
+                                  </p>
+                                </div>
+                              )}
                             </div>
                           )}
 
                           {condition.researchInsights && condition.researchInsights.length > 0 && (
-                            <div className="mb-8 pt-8 border-t border-slate-200">
-                              <h2 className="text-2xl font-light text-slate-900 mb-6">
-                                Clinical Insights
+                            <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                                Research Insights
                               </h2>
                               <div className="space-y-4">
                                 {condition.researchInsights.map((insight, index) => {
@@ -510,11 +564,11 @@ export default function ConditionPageClient({
                                   const finding = colonIndex > -1 ? insight.substring(colonIndex + 1).trim() : insight;
                                   
                                   return (
-                                    <div key={index} className="pl-4 border-l-2 border-[#B08D57]/30">
+                                    <div key={index} className="bg-white rounded-lg p-4 border border-slate-200">
                                       {topic ? (
                                         <>
-                                          <h3 className="font-medium text-slate-900 mb-1">{topic}</h3>
-                                          <p className="text-slate-600 text-sm">{finding}</p>
+                                          <h3 className="font-semibold text-slate-900 mb-2">{topic}</h3>
+                                          <p className="text-slate-600">{finding}</p>
                                         </>
                                       ) : (
                                         <p className="text-slate-600">{finding}</p>
@@ -523,6 +577,9 @@ export default function ConditionPageClient({
                                   );
                                 })}
                               </div>
+                              <p className="text-xs text-slate-500 mt-4 italic">
+                                Based on current physiotherapy research and clinical guidelines
+                              </p>
                             </div>
                           )}
                         </div>
@@ -532,24 +589,29 @@ export default function ConditionPageClient({
                       {activeTab === 'self-care' && (
                         <div className="space-y-6">
                           {condition.selfManagement && condition.selfManagement.length > 0 && (
-                            <div className="mb-8">
-                              <h2 className="text-2xl font-light text-slate-900 mb-6">
+                            <div className="bg-white rounded-xl p-6 border border-slate-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
                                 Management Strategies
                               </h2>
-                              <div className="space-y-6">
+                              <div className="space-y-4">
                                 {condition.selfManagement.map((strategy, index) => (
-                                  <div key={index} className="pl-4 border-l-2 border-[#B08D57]/30">
-                                    <h3 className="font-medium text-slate-900 mb-2">{strategy.strategy}</h3>
-                                    <p className="text-slate-600 text-sm">{strategy.rationale}</p>
+                                  <div key={index} className="bg-slate-50 rounded-lg p-4 border border-slate-200">
+                                    <h3 className="font-semibold text-slate-900 mb-2">{strategy.strategy}</h3>
+                                    <p className="text-slate-600 text-sm mb-3">{strategy.rationale}</p>
                                     {strategy.precautions && strategy.precautions.length > 0 && (
-                                      <ul className="mt-3 space-y-1 text-sm text-slate-500">
-                                        {strategy.precautions.map((precaution, pIndex) => (
-                                          <li key={pIndex} className="flex items-start gap-2">
-                                            <span className="text-amber-600 mt-0.5">•</span>
-                                            <span>{precaution}</span>
-                                          </li>
-                                        ))}
-                                      </ul>
+                                      <div className="mt-3 p-3 bg-amber-50 rounded border border-amber-200">
+                                        <p className="text-xs font-medium text-amber-900 mb-1">Important Precautions:</p>
+                                        <ul className="text-xs text-amber-800 space-y-1">
+                                          {strategy.precautions.map((precaution, pIndex) => (
+                                            <li key={pIndex}>• {precaution}</li>
+                                          ))}
+                                        </ul>
+                                      </div>
+                                    )}
+                                    {strategy.strategy.toLowerCase().includes('nutrition') && (
+                                      <p className="text-xs text-slate-500 mt-2 italic">
+                                        Note: Nutritional advice is general guidance. Consult a registered dietitian for personalized nutrition plans.
+                                      </p>
                                     )}
                                   </div>
                                 ))}
@@ -558,52 +620,85 @@ export default function ConditionPageClient({
                           )}
 
                           {condition.prognosis && (
-                            <div className="mb-8 pt-8 border-t border-slate-200">
-                              <h2 className="text-2xl font-light text-slate-900 mb-4">
-                                Prognosis
+                            <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                                Prognosis & Recovery
                               </h2>
                               
-                              <div className="prose prose-slate max-w-none">
-                                <p className="text-slate-600 mb-4">{condition.prognosis.timeline}</p>
+                              <div className="space-y-4">
+                                <div>
+                                  <h3 className="font-semibold text-slate-900 mb-2">Expected Timeline</h3>
+                                  <p className="text-slate-600">{condition.prognosis.timeline}</p>
+                                </div>
                                 
                                 {condition.prognosis.naturalHistory && (
-                                  <p className="text-slate-600 mb-4">{condition.prognosis.naturalHistory}</p>
+                                  <div>
+                                    <h3 className="font-semibold text-slate-900 mb-2">Natural History</h3>
+                                    <p className="text-slate-600">{condition.prognosis.naturalHistory}</p>
+                                  </div>
                                 )}
                                 
                                 {condition.prognosis.factors && condition.prognosis.factors.length > 0 && (
                                   <div>
-                                    <p className="font-medium text-slate-900 mb-2">Key factors for recovery:</p>
-                                    <ul className="space-y-1">
+                                    <h3 className="font-semibold text-slate-900 mb-3">Factors Affecting Recovery</h3>
+                                    <div className="grid md:grid-cols-2 gap-2">
                                       {condition.prognosis.factors.map((factor, index) => (
-                                        <li key={index} className="flex items-start gap-2 text-sm text-slate-600">
-                                          <span className="text-[#B08D57] mt-0.5">•</span>
-                                          <span>{factor}</span>
-                                        </li>
+                                        <div key={index} className="flex items-start gap-2">
+                                          <CheckCircleIcon className="h-4 w-4 text-[#B08D57] mt-0.5 flex-shrink-0" />
+                                          <span className="text-sm text-slate-600">{factor}</span>
+                                        </div>
                                       ))}
-                                    </ul>
+                                    </div>
                                   </div>
                                 )}
                               </div>
                             </div>
                           )}
 
+                          {/* Measuring Progress Section */}
+                          {condition.measuringProgress && (
+                            <div className="bg-green-50 rounded-xl p-6 border border-green-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                                Measuring Progress
+                              </h2>
+                              <div className="space-y-3">
+                                <div>
+                                  <h3 className="font-semibold text-slate-900 mb-2">Day-to-Day Tracking</h3>
+                                  <p className="text-slate-600 text-sm">{condition.measuringProgress.dayToDay}</p>
+                                </div>
+                                {condition.measuringProgress.questionnaires && (
+                                  <div>
+                                    <h3 className="font-semibold text-slate-900 mb-2">Assessment Tools</h3>
+                                    <p className="text-slate-600 text-sm">{condition.measuringProgress.questionnaires}</p>
+                                  </div>
+                                )}
+                                <div>
+                                  <h3 className="font-semibold text-slate-900 mb-2">Activity Targets</h3>
+                                  <p className="text-slate-600 text-sm">{condition.measuringProgress.activityTarget}</p>
+                                </div>
+                                <p className="text-xs text-slate-500 mt-3 italic">
+                                  Ontario quality standards encourage local outcome tracking.
+                                </p>
+                              </div>
+                            </div>
+                          )}
 
 
                           {condition.faqs && condition.faqs.length > 0 && (
-                            <div className="mb-8 pt-8 border-t border-slate-200">
-                              <h2 className="text-2xl font-light text-slate-900 mb-6">
-                                Common Questions
+                            <div className="bg-white rounded-xl p-6 border border-slate-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                                Frequently Asked Questions
                               </h2>
                               <div className="space-y-4">
                                 {condition.faqs.map((faq, index) => (
                                   <details key={index} className="group">
-                                    <summary className="flex items-start gap-3 cursor-pointer list-none">
-                                      <div className="mt-1 h-1.5 w-1.5 bg-[#B08D57] rounded-full flex-shrink-0" />
-                                      <span className="font-medium text-slate-900 group-open:text-[#B08D57] transition-colors">
+                                    <summary className="flex items-start gap-2 cursor-pointer list-none">
+                                      <QuestionMarkCircleIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
+                                      <span className="font-semibold text-slate-900 group-open:text-[#B08D57] transition-colors">
                                         {faq.question}
                                       </span>
                                     </summary>
-                                    <p className="mt-2 ml-5 text-slate-600">{faq.answer}</p>
+                                    <p className="mt-3 ml-7 text-slate-600">{faq.answer}</p>
                                   </details>
                                 ))}
                               </div>
@@ -662,6 +757,33 @@ export default function ConditionPageClient({
                       </div>
                     )}
 
+                    {/* What to Expect */}
+                    <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
+                      <h3 className="font-semibold text-slate-900 mb-4">What to Expect</h3>
+                      <div className="space-y-3">
+                        <div className="flex items-start gap-3">
+                          <ClockIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
+                          <div>
+                            <p className="font-medium text-slate-900 text-sm">First Visit</p>
+                            <p className="text-xs text-slate-600 mt-0.5">Clarify patterns, test key movements, leave with 2-3 exercises</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <ChartBarIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
+                          <div>
+                            <p className="font-medium text-slate-900 text-sm">Early Phase</p>
+                            <p className="text-xs text-slate-600 mt-0.5">Reduce symptom spikes, build tolerance for daily activities</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <ArrowRightIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
+                          <div>
+                            <p className="font-medium text-slate-900 text-sm">Progression</p>
+                            <p className="text-xs text-slate-600 mt-0.5">Load increases planned and reviewed based on your responses</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </aside>
               </div>

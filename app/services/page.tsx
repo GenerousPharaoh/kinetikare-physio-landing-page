@@ -7,8 +7,8 @@ import { Metadata } from 'next';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Physiotherapy Services Burlington | Kareem Hassanein | Back Pain, Sports Injuries',
-  description: 'Kareem Hassanein physiotherapy services: back pain treatment, sports injury rehab, knee pain, neck pain, sciatica. North Burlington, Alton Village, Palladium Way. Direct billing available.',
+  title: 'KinetiKare Physiotherapy Services Burlington | Kareem Hassanein | Back Pain & Sports',
+  description: 'KinetiKare Physiotherapy services by Kareem Hassanein in Burlington, Ontario. Back pain, sports injuries, manual therapy, dry needling. Not affiliated with KinetaCare or Kinetic Physio. Direct billing available.',
   keywords: [
     'Kareem Hassanein services',
     'Kareem Hassanein treatments',

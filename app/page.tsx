@@ -8,10 +8,17 @@ import ContactSection from '@/components/sections/ContactSection';
 
 // SEO Metadata for Homepage
 export const metadata: Metadata = {
-  title: 'Burlington Physiotherapy | Kareem Hassanein, PT',
-  description: 'Kareem Hassanein - Burlington\'s expert physiotherapist specializing in back pain, sports injuries, knee pain, neck pain. Serving North Burlington, Alton Village, Palladium Way. Direct billing, evening appointments. MSc PT, CAMPT certified.',
+  title: 'KinetiKare Physiotherapy Burlington | Kareem Hassanein, PT | Back Pain & Sports Injuries',
+  description: 'KinetiKare Physiotherapy - Founded by Kareem Hassanein in Burlington, Ontario. Expert treatment for back pain, sports injuries, knee pain. Not KinetaCare or Kinetic Physio. Serving Burlington, Waterdown, Oakville. Direct billing available.',
   keywords: [
+    'KinetiKare',
+    'KinetiKare Physiotherapy',
+    'KinetiKare Burlington',
+    'KinetiKare Physio',
+    'KinetiKare Ontario',
     'Kareem Hassanein',
+    'Kareem Hassanein KinetiKare',
+    'KinetiKare Kareem Hassanein',
     'Kareem Hassanein physiotherapist',
     'Kareem Hassanein physio',
     'Kareem Hassanein Burlington',
@@ -131,7 +138,7 @@ const personSchema = {
   "@type": "Person",
   "name": "Kareem Hassanein",
   "jobTitle": "Registered Physiotherapist",
-  "description": "CAMPT-certified physiotherapist specializing in manual therapy, sports rehabilitation, and evidence-based treatment in Burlington, Waterdown, Hamilton, and Oakville.",
+  "description": "Founder of KinetiKare Physiotherapy in Burlington, Ontario. Expert physiotherapist specializing in manual therapy, sports rehabilitation, and evidence-based treatment. Serving Burlington, Waterdown, Hamilton, and Oakville since 2020.",
   "url": "https://www.kinetikarephysio.com",
   "image": "https://www.kinetikarephysio.com/images/kareem-profile.png",
   "telephone": "+19056346000",
@@ -147,8 +154,8 @@ const personSchema = {
   "worksFor": {
     "@type": "Organization",
     "@id": "https://www.kinetikarephysio.com/#organization",
-    "name": "Kareem Hassanein Physiotherapy",
-    "alternateName": ["Kareem Hassanein Physio", "KinetiKare", "Kareem Physio Burlington"]
+    "name": "KinetiKare Physiotherapy",
+    "alternateName": ["KinetiKare", "KinetiKare Burlington", "KinetiKare Ontario", "Kareem Hassanein Physiotherapy"]
   },
   "hasCredential": [
     {

@@ -4,12 +4,18 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://www.kinetikarephysio.com'),
   title: {
-    default: 'Kareem Hassanein Physiotherapist Burlington | Back Pain & Sports Injury Treatment',
-    template: '%s | Kareem Hassanein Physiotherapy Burlington',
+    default: 'KinetiKare Physiotherapy | Kareem Hassanein Burlington Physio | Back Pain & Sports Injuries',
+    template: '%s | KinetiKare - Kareem Hassanein Physiotherapy Burlington',
   },
-  description: 'Kareem Hassanein, expert physiotherapist in Burlington treating back pain, neck pain, sports injuries, knee pain. Serving North Burlington, Alton Village, Palladium Way. MSc PT, direct billing, evening appointments available.',
+  description: 'KinetiKare Physiotherapy by Kareem Hassanein. Expert physiotherapist in Burlington, Ontario treating back pain, neck pain, sports injuries. Not affiliated with KinetaCare, Kineticore, or Kinetic Physio. Serving Burlington, Waterdown, Oakville since 2020.',
   keywords: [
+    'KinetiKare',
+    'KinetiKare Physiotherapy',
+    'KinetiKare Burlington',
+    'KinetiKare Ontario',
+    'KinetiKare Physio',
     'Kareem Hassanein',
+    'Kareem Hassanein KinetiKare',
     'Kareem Hassanein physiotherapist',
     'Kareem Hassanein Burlington',
     'physiotherapist Burlington',
@@ -55,7 +61,7 @@ export const metadata: Metadata = {
     address: true,
   },
   robots: 'index, follow',
-  applicationName: 'Kareem Hassanein Physiotherapy',
+  applicationName: 'KinetiKare Physiotherapy - Kareem Hassanein',
   alternates: {
     canonical: 'https://www.kinetikarephysio.com',
   },
@@ -63,9 +69,9 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_CA',
     url: 'https://www.kinetikarephysio.com',
-    title: 'Kareem Hassanein Physiotherapist | Burlington Back Pain & Sports Injury Expert',
-    description: 'Kareem Hassanein - Burlington\'s trusted physiotherapist. Expert treatment for back pain, sports injuries, knee pain. North Burlington, Alton Village. Book online.',
-    siteName: 'Kareem Hassanein Physiotherapy',
+    title: 'KinetiKare Physiotherapy | Kareem Hassanein Burlington Physio',
+    description: 'KinetiKare Physiotherapy - Founded by Kareem Hassanein in Burlington, Ontario. Expert treatment for back pain, sports injuries. Not affiliated with KinetaCare or other similar names. Book online.',
+    siteName: 'KinetiKare Physiotherapy - Kareem Hassanein',
     images: [
       {
         url: 'https://www.kinetikarephysio.com/images/og-image.jpg',

@@ -17,8 +17,8 @@ import CommitmentCarousel from '@/components/CommitmentCarousel';
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: 'About Kareem Hassanein | KinetiKare Physiotherapy Burlington, Waterdown & Oakville',
-  description: 'Meet Kareem Hassanein, Registered Physiotherapist at KinetiKare. MSc Physiotherapy (Distinction), CAMPT-Certified. KinetiKare provides personalized care in Burlington, Waterdown, and Oakville. Over 5 years of clinical practice focused on manual therapy and sports rehabilitation.',
+  title: 'About KinetiKare Physiotherapy | Kareem Hassanein Burlington Ontario',
+  description: 'KinetiKare Physiotherapy - Founded by Kareem Hassanein in Burlington, Ontario. MSc Physiotherapy, expert manual therapy and sports rehabilitation. Not affiliated with KinetaCare Michigan or Kinetic Physio. Established 2020, serving Burlington, Waterdown, Oakville.',
   keywords: [
     'Kareem Hassanein', 
     'Kareem Hassanein KinetiKare',

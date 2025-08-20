@@ -66,13 +66,13 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": ["PhysicalTherapy", "LocalBusiness", "MedicalBusiness"],
   "@id": "https://www.kinetikarephysio.com/#organization",
-  "name": "Kareem Hassanein Physiotherapy",
+  "name": "KinetiKare Physiotherapy",
   "legalName": "Kareem Hassanein Registered Physiotherapy Professional Corporation",
-  "alternateName": ["Kareem Hassanein Physio", "Kareem Hassanein PT", "KinetiKare Physiotherapy", "Kareem Hassanein Sports Physio", "Kareem Hassanein Burlington Physiotherapist"],
+  "alternateName": ["KinetiKare", "KinetiKare Physio", "KinetiKare Burlington", "KinetiKare Ontario", "Kareem Hassanein Physiotherapy", "Kareem Hassanein PT"],
   "brand": {
     "@type": "Brand",
-    "name": "Kareem Hassanein Physiotherapy",
-    "alternateName": ["KinetiKare", "Kareem Hassanein PT", "Kareem Physio"]
+    "name": "KinetiKare",
+    "alternateName": ["KinetiKare Physiotherapy", "KinetiKare Burlington", "KinetiKare Physio Ontario"]
   },
   "image": "https://www.kinetikarephysio.com/images/kareem-profile.png",
   "logo": "https://www.kinetikarephysio.com/images/kinetikare-logo.png",

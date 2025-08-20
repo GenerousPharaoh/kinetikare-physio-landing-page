@@ -387,7 +387,7 @@ export default function About() {
                     width={500}
                     height={600}
                     className="w-full h-full object-cover object-top"
-                    style={{ objectPosition: 'center 15%' }}
+                    style={{ objectPosition: 'center 5%' }}
                   />
                 </div>
                 

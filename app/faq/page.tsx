@@ -69,11 +69,11 @@ const faqCategories: FAQCategory[] = [
         question: `Do you offer dry needling?`,
         answer: (
           <>
-            Yes. Dry needling is one of several tools I may use to help reduce pain, release muscle tension, or improve mobility—particularly when addressing persistent trigger points, movement restrictions, or muscle imbalances. It involves the use of fine, sterile needles to target specific areas of tightness or dysfunction within muscle tissue.
+            Yes. Dry needling is one technique I use to reduce pain and improve mobility, especially for stubborn trigger points and muscle restrictions. Using fine, sterile needles, I target specific areas of muscle tightness or dysfunction.
 
-            Common uses include treating myofascial trigger points (knots), calming overactive muscle contractions, supporting postural or repetitive strain issues, and helping restore normal movement patterns when muscles are contributing to pain or joint restriction.
+            This approach works well for myofascial trigger points, overactive muscle contractions, postural issues from repetitive strain, and movement restrictions where muscles contribute to pain or limit joint mobility. 
 
-            That said, it is never a required part of treatment. If I believe dry needling could be helpful for your condition, I will explain the rationale, what to expect, and any potential risks. Your informed consent is essential, and you are always free to decline it. Many effective treatment plans do not include dry needling at all—it is simply one option among many, based on what works best for you.{' '}
+            Dry needling is never mandatory. If it could benefit your condition, I'll explain why, what to expect, and any risks involved. Your consent matters, and you can always say no. Many successful treatment plans don't include dry needling. It's simply one tool among many, chosen based on what suits you best.{' '}
             <Link href="/services" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
               View all my treatment services
             </Link>

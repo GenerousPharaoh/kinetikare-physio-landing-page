@@ -285,7 +285,7 @@ export default function ConditionPageClient({
                           {condition.pathophysiology && (
                             <div className="bg-white rounded-xl p-6 border border-slate-200">
                               <h2 className="text-xl font-semibold text-slate-900 mb-4">
-                                What's Happening in Your Body
+                                The Science of {condition.name || 'Your Condition'}
                               </h2>
                               <p className="text-slate-600 leading-relaxed">
                                 {condition.pathophysiology}
@@ -311,7 +311,7 @@ export default function ConditionPageClient({
                           {condition.biomechanics && (
                             <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
                               <h2 className="text-xl font-semibold text-slate-900 mb-4">
-                                Why This Happens
+                                Contributing Factors
                               </h2>
                               <div className="space-y-4">
                                 {condition.biomechanics.split('\n\n').map((paragraph, index) => (
@@ -329,7 +329,7 @@ export default function ConditionPageClient({
                               <div className="flex items-start gap-3">
                                 <BeakerIcon className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
                                 <div className="flex-1">
-                                  <h2 className="font-semibold text-blue-900 mb-2">Evidence Snapshot</h2>
+                                  <h2 className="font-semibold text-blue-900 mb-2">Evidence-Based Management Strategies</h2>
                                   <ul className="space-y-1.5 text-sm text-blue-800">
                                     <li className="flex items-start">
                                       <span className="mr-2">•</span>
@@ -759,7 +759,7 @@ export default function ConditionPageClient({
 
                     {/* What to Expect */}
                     <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
-                      <h3 className="font-semibold text-slate-900 mb-4">What to Expect</h3>
+                      <h3 className="font-semibold text-slate-900 mb-4">Your Treatment Journey</h3>
                       <div className="space-y-3">
                         <div className="flex items-start gap-3">
                           <ClockIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />

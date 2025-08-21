@@ -323,96 +323,105 @@ export default function ConditionPageClient({
                             </div>
                           )}
                           
-                          {/* Evidence Snapshot - Premium Sophisticated Design */}
+                          {/* Evidence Snapshot - Elevated Professional Design */}
                           {condition.evidenceSnapshot && (
-                            <div className="relative bg-gradient-to-r from-slate-50 to-white rounded-xl p-8 shadow-sm border border-slate-200 overflow-hidden">
-                              {/* Subtle decorative element */}
-                              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-50 to-transparent rounded-full -mr-16 -mt-16 opacity-50"></div>
+                            <div className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
+                              {/* Premium gradient overlay */}
+                              <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 via-transparent to-blue-50/30 pointer-events-none"></div>
                               
                               <div className="relative">
-                                <div className="flex items-center gap-3 mb-6">
-                                  <div className="p-2 bg-slate-100 rounded-lg">
-                                    <BeakerIcon className="h-5 w-5 text-slate-700" />
-                                  </div>
-                                  <div>
-                                    <h2 className="text-xl font-semibold text-slate-900">Evidence-Based Management</h2>
-                                    <p className="text-xs text-slate-500 mt-0.5">Clinical strategies with proven outcomes</p>
+                                {/* Header with gradient accent */}
+                                <div className="bg-gradient-to-r from-slate-900 to-slate-700 px-8 py-6">
+                                  <div className="flex items-center gap-3">
+                                    <div className="p-2.5 bg-white/10 backdrop-blur rounded-xl border border-white/20">
+                                      <BeakerIcon className="h-6 w-6 text-white" />
+                                    </div>
+                                    <div>
+                                      <h2 className="text-2xl font-bold text-white">Evidence-Based Management</h2>
+                                      <p className="text-sm text-slate-200 mt-1">Research-validated treatment strategies</p>
+                                    </div>
                                   </div>
                                 </div>
                                 
-                                <div className="grid gap-4">
-                                  {/* Primary Strategy */}
-                                  {(condition.evidenceSnapshot.primaryStrategy || condition.evidenceSnapshot.firstLine) && (
-                                    <div className="group relative">
-                                      <div className="absolute inset-0 bg-gradient-to-r from-emerald-50 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                      <div className="relative flex gap-4">
-                                        <div className="flex-shrink-0 mt-1">
-                                          <div className="w-8 h-8 bg-emerald-50 rounded-full flex items-center justify-center">
-                                            <span className="text-emerald-600 font-semibold text-sm">1</span>
+                                <div className="p-8">
+                                  <div className="grid gap-5">
+                                    {/* Primary Strategy Card */}
+                                    {(condition.evidenceSnapshot.primaryStrategy || condition.evidenceSnapshot.firstLine) && (
+                                      <div className="group relative bg-gradient-to-r from-emerald-50/50 to-emerald-50/20 rounded-xl p-6 border border-emerald-100 hover:shadow-md transition-all">
+                                        <div className="flex gap-4">
+                                          <div className="flex-shrink-0">
+                                            <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
+                                              <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                              </svg>
+                                            </div>
                                           </div>
-                                        </div>
-                                        <div className="flex-1">
-                                          <h3 className="text-sm font-semibold text-slate-800 mb-1.5 uppercase tracking-wide">Primary Treatment</h3>
-                                          <p className="text-slate-600 text-sm leading-relaxed">
-                                            {condition.evidenceSnapshot.primaryStrategy || condition.evidenceSnapshot.firstLine}
-                                          </p>
+                                          <div className="flex-1">
+                                            <h3 className="text-xs font-bold text-emerald-700 uppercase tracking-wider mb-2">Primary Treatment Approach</h3>
+                                            <p className="text-slate-700 text-sm leading-relaxed">
+                                              {condition.evidenceSnapshot.primaryStrategy || condition.evidenceSnapshot.firstLine}
+                                            </p>
+                                          </div>
                                         </div>
                                       </div>
-                                    </div>
-                                  )}
-                                  
-                                  {/* Secondary Strategy */}
-                                  {(condition.evidenceSnapshot.secondaryStrategy || condition.evidenceSnapshot.imaging) && (
-                                    <div className="group relative">
-                                      <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                      <div className="relative flex gap-4">
-                                        <div className="flex-shrink-0 mt-1">
-                                          <div className="w-8 h-8 bg-blue-50 rounded-full flex items-center justify-center">
-                                            <span className="text-blue-600 font-semibold text-sm">2</span>
+                                    )}
+                                    
+                                    {/* Secondary Strategy Card */}
+                                    {(condition.evidenceSnapshot.secondaryStrategy || condition.evidenceSnapshot.imaging) && (
+                                      <div className="group relative bg-gradient-to-r from-blue-50/50 to-blue-50/20 rounded-xl p-6 border border-blue-100 hover:shadow-md transition-all">
+                                        <div className="flex gap-4">
+                                          <div className="flex-shrink-0">
+                                            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
+                                              <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                              </svg>
+                                            </div>
                                           </div>
-                                        </div>
-                                        <div className="flex-1">
-                                          <h3 className="text-sm font-semibold text-slate-800 mb-1.5 uppercase tracking-wide">Complementary Approach</h3>
-                                          <p className="text-slate-600 text-sm leading-relaxed">
-                                            {condition.evidenceSnapshot.secondaryStrategy || condition.evidenceSnapshot.imaging}
-                                          </p>
+                                          <div className="flex-1">
+                                            <h3 className="text-xs font-bold text-blue-700 uppercase tracking-wider mb-2">Complementary Interventions</h3>
+                                            <p className="text-slate-700 text-sm leading-relaxed">
+                                              {condition.evidenceSnapshot.secondaryStrategy || condition.evidenceSnapshot.imaging}
+                                            </p>
+                                          </div>
                                         </div>
                                       </div>
-                                    </div>
-                                  )}
-                                  
-                                  {/* Prevention Strategy */}
-                                  {(condition.evidenceSnapshot.preventionStrategy || condition.evidenceSnapshot.management) && (
-                                    <div className="group relative">
-                                      <div className="absolute inset-0 bg-gradient-to-r from-violet-50 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                      <div className="relative flex gap-4">
-                                        <div className="flex-shrink-0 mt-1">
-                                          <div className="w-8 h-8 bg-violet-50 rounded-full flex items-center justify-center">
-                                            <span className="text-violet-600 font-semibold text-sm">3</span>
+                                    )}
+                                    
+                                    {/* Prevention Strategy Card */}
+                                    {(condition.evidenceSnapshot.preventionStrategy || condition.evidenceSnapshot.management) && (
+                                      <div className="group relative bg-gradient-to-r from-violet-50/50 to-violet-50/20 rounded-xl p-6 border border-violet-100 hover:shadow-md transition-all">
+                                        <div className="flex gap-4">
+                                          <div className="flex-shrink-0">
+                                            <div className="w-12 h-12 bg-gradient-to-br from-violet-500 to-violet-600 rounded-xl flex items-center justify-center shadow-lg">
+                                              <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                                              </svg>
+                                            </div>
+                                          </div>
+                                          <div className="flex-1">
+                                            <h3 className="text-xs font-bold text-violet-700 uppercase tracking-wider mb-2">Prevention & Long-term Management</h3>
+                                            <p className="text-slate-700 text-sm leading-relaxed">
+                                              {condition.evidenceSnapshot.preventionStrategy || condition.evidenceSnapshot.management}
+                                            </p>
                                           </div>
                                         </div>
-                                        <div className="flex-1">
-                                          <h3 className="text-sm font-semibold text-slate-800 mb-1.5 uppercase tracking-wide">Prevention & Long-term Care</h3>
-                                          <p className="text-slate-600 text-sm leading-relaxed">
-                                            {condition.evidenceSnapshot.preventionStrategy || condition.evidenceSnapshot.management}
-                                          </p>
-                                        </div>
+                                      </div>
+                                    )}
+                                  </div>
+                                  
+                                  {/* Sources with elegant styling */}
+                                  {condition.evidenceSnapshot.sources && (
+                                    <div className="mt-8 pt-6 border-t border-slate-200">
+                                      <div className="flex items-center gap-2 text-xs text-slate-600">
+                                        <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                        </svg>
+                                        <span className="font-semibold">Evidence Base:</span>
+                                        <span>{condition.evidenceSnapshot.sources}</span>
                                       </div>
                                     </div>
                                   )}
                                 </div>
-                                
-                                {/* Sources with premium styling */}
-                                {condition.evidenceSnapshot.sources && (
-                                  <div className="mt-6 pt-4 border-t border-slate-200">
-                                    <p className="text-xs text-slate-500 flex items-center gap-1.5">
-                                      <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                      </svg>
-                                      <span className="font-medium">Clinical Sources:</span> {condition.evidenceSnapshot.sources}
-                                    </p>
-                                  </div>
-                                )}
                               </div>
                             </div>
                           )}
@@ -734,15 +743,31 @@ export default function ConditionPageClient({
                                 {condition.measuringProgress.questionnaires && (
                                   <div>
                                     <h3 className="font-semibold text-slate-900 mb-2">Assessment Tools</h3>
-                                    <p className="text-slate-600 text-sm">{condition.measuringProgress.questionnaires}</p>
+                                    <p className="text-slate-600 text-sm" dangerouslySetInnerHTML={{ 
+                                      __html: condition.measuringProgress.questionnaires
+                                        .replace(/\b(DASH)\b/g, '<a href="https://www.physio-pedia.com/DASH_Outcome_Measure" target="_blank" rel="noopener noreferrer" class="underline hover:text-slate-800">$1</a>')
+                                        .replace(/\b(SPADI)\b/g, '<a href="https://www.physiotutors.com/questionnaires/shoulder-pain-disability-index-spadi/" target="_blank" rel="noopener noreferrer" class="underline hover:text-slate-800">$1</a>')
+                                        .replace(/\b(ODI|Oswestry Disability Index)\b/g, '<a href="https://www.physio-pedia.com/Oswestry_Disability_Index" target="_blank" rel="noopener noreferrer" class="underline hover:text-slate-800">$1</a>')
+                                        .replace(/\b(NPRS|Numeric Pain Rating Scale)\b/g, '<a href="https://www.physio-pedia.com/Numeric_Pain_Rating_Scale" target="_blank" rel="noopener noreferrer" class="underline hover:text-slate-800">$1</a>')
+                                        .replace(/\b(VAS|Visual Analogue Scale)\b/g, '<a href="https://www.physio-pedia.com/Visual_Analogue_Scale" target="_blank" rel="noopener noreferrer" class="underline hover:text-slate-800">$1</a>')
+                                        .replace(/\b(Roland-Morris)\b/g, '<a href="https://www.physio-pedia.com/Roland_Morris_Disability_Questionnaire" target="_blank" rel="noopener noreferrer" class="underline hover:text-slate-800">$1</a>')
+                                        .replace(/\b(KOOS)\b/g, '<a href="https://www.physio-pedia.com/Knee_injury_and_Osteoarthritis_Outcome_Score" target="_blank" rel="noopener noreferrer" class="underline hover:text-slate-800">$1</a>')
+                                        .replace(/\b(WOMAC)\b/g, '<a href="https://www.physio-pedia.com/Western_Ontario_and_McMaster_Universities_Osteoarthritis_Index_(WOMAC)" target="_blank" rel="noopener noreferrer" class="underline hover:text-slate-800">$1</a>')
+                                        .replace(/\b(LEFS|Lower Extremity Functional Scale)\b/g, '<a href="https://www.physio-pedia.com/Lower_Extremity_Functional_Scale" target="_blank" rel="noopener noreferrer" class="underline hover:text-slate-800">$1</a>')
+                                        .replace(/\b(PSFS|Patient Specific Functional Scale)\b/g, '<a href="https://www.physio-pedia.com/Patient_Specific_Functional_Scale" target="_blank" rel="noopener noreferrer" class="underline hover:text-slate-800">$1</a>')
+                                    }} />
                                   </div>
                                 )}
                                 <div>
                                   <h3 className="font-semibold text-slate-900 mb-2">Activity Targets</h3>
                                   <p className="text-slate-600 text-sm">{condition.measuringProgress.activityTarget}</p>
                                 </div>
-                                <p className="text-xs text-slate-500 mt-3 italic">
-                                  Ontario quality standards encourage local outcome tracking.
+                                <p className="text-xs text-slate-500 mt-3">
+                                  <a href="https://www.hqontario.ca/Evidence-to-Improve-Care/Quality-Standards" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-700">
+                                    Health Quality Ontario standards
+                                  </a> and <a href="https://collegept.org/standards-resources/standards/" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-700">
+                                    College of Physiotherapists of Ontario
+                                  </a> recommend systematic outcome tracking for quality care.
                                 </p>
                               </div>
                             </div>

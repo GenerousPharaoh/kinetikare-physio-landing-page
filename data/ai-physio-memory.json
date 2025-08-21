@@ -1,0 +1,63 @@
+{
+  "project_overview": {
+    "name": "KinetiKare Physiotherapy Website",
+    "location": "/Users/kareemhassanein/Desktop/code/physiotherapy-next",
+    "deployment": "kinetikarephysio.com",
+    "status": "Production - Actively Maintained",
+    "last_updated": "2025-08-21"
+  },
+  "technical_stack": {
+    "framework": "Next.js 14.0.4",
+    "runtime": "React 18.2.0",
+    "language": "TypeScript",
+    "styling": "Tailwind CSS with Framer Motion animations",
+    "deployment": "Vercel",
+    "repository": "https://github.com/GenerousPharaoh/kinetikare-physio-landing-page.git"
+  },
+  "content_system": {
+    "total_conditions": "46+",
+    "main_content_file": "/lib/detailed-conditions-content.ts",
+    "type_definitions": "/lib/conditions-data.ts",
+    "rendering_component": "/components/ConditionPageClient.tsx",
+    "homepage_section": "/components/sections/ConditionsSection.tsx",
+    "evidence_structure": "evidenceSnapshot with primaryStrategy, secondaryStrategy, preventionStrategy",
+    "cross_linking": "All conditions properly cross-linked",
+    "content_standards": "Evidence-based, no em dashes, specific percentages and timelines"
+  },
+  "design_philosophy": {
+    "approach": "Sophisticated and premium feel but NOT tacky",
+    "style": "Clean professional design with subtle premium touches",
+    "balance": "Sophistication with professionalism",
+    "recent_updates": "Redesigned Evidence-Based Management Strategies with sophisticated premium styling"
+  },
+  "user_preferences": {
+    "communication_style": "Direct and concise",
+    "development_approach": "Always push to GitHub after changes, fix issues immediately",
+    "quality_standards": "Multiple agent reviews, no duplicate content, evidence-based claims only",
+    "terminology": "Treatment Areas (not Conditions I Treat)"
+  },
+  "recent_major_updates": [
+    "Integrated shoulder research from Gemini document",
+    "Updated 12 placeholder conditions with full evidence-based content", 
+    "Fixed critical display bug with evidenceSnapshot field names",
+    "Added spacing between content sections and CTAs (mt-8)",
+    "Improved Overview section titles with standardized format"
+  ],
+  "key_files_to_remember": {
+    "content": "/lib/detailed-conditions-content.ts",
+    "types": "/lib/conditions-data.ts", 
+    "condition_renderer": "/components/ConditionPageClient.tsx",
+    "homepage_conditions": "/components/sections/ConditionsSection.tsx"
+  },
+  "overview_section_structure": {
+    "title_format": "The Science of [Condition Name]",
+    "sections": [
+      "Contributing Factors",
+      "Evidence-Based Management Strategies"
+    ]
+  },
+  "evidenceSnapshot_formats": {
+    "legacy": ["firstLine", "imaging", "management"],
+    "current": ["primaryStrategy", "secondaryStrategy", "preventionStrategy"]
+  }
+}

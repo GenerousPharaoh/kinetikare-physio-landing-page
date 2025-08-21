@@ -485,7 +485,12 @@ The most damaging factor I see is the combination of poor posture with repetitiv
     evidenceBasedTreatment: [
       {
         approach: "Progressive Loading Exercise",
-        evidence: "Equal outcomes to surgery for degenerative tears with proper rehabilitation",
+        evidence: "Equal or superior outcomes to surgery for degenerative tears. 70-90% success rate with structured program",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Scapular Stabilization",
+        evidence: "Addresses underlying movement dysfunction. Athletes with scapular dyskinesis have 43% higher risk of shoulder pain",
         effectivenessLevel: "strong"
       },
       {
@@ -494,38 +499,40 @@ The most damaging factor I see is the combination of poor posture with repetitiv
         effectivenessLevel: "moderate"
       },
       {
-        approach: "Scapular Stabilization",
-        evidence: "Improves shoulder mechanics and reduces impingement",
-        effectivenessLevel: "strong"
+        approach: "Corticosteroid Injection vs Exercise",
+        evidence: "Injection provides better relief for first 6-8 weeks, but no long-term advantage over exercise alone",
+        effectivenessLevel: "moderate"
       }
     ],
 
     prognosis: {
-      timeline: "Improvement typically seen within 6-12 weeks, full recovery 3-6 months",
+      timeline: "Recovery is typically measured in months, not weeks. Expect 5-10% improvement month-by-month. Initial changes noticeable within 6-8 weeks, but complete recovery often takes 3-6 months or longer",
       factors: [
+        "Symptom duration over 3 months predicts slower recovery",
+        "Higher baseline pain and disability levels require more intensive management",
+        "Psychosocial factors (work stress, low support) significantly impact outcomes",
+        "Age 45-54 years associated with longer recovery times",
         "Size and location of tear affects timeline",
-        "Age and activity level influence recovery",
-        "Adherence to exercise program critical",
-        "Smoking significantly impairs healing"
+        "Smoking significantly impairs tendon healing"
       ],
-      naturalHistory: "Many partial tears can heal with appropriate rehabilitation. Complete tears may not heal but can become pain-free and functional"
+      naturalHistory: "Conservative management resolves symptoms in 70-90% of patients. Many partial tears can heal with appropriate rehabilitation. Complete tears may not heal but can become pain-free and functional"
     },
 
     selfManagement: [
+      {
+        strategy: "Sleep Positioning",
+        rationale: "Proper positioning unloads the shoulder and reduces night pain. Sleep on your back with a small pillow under the affected elbow, or on the unaffected side with a pillow supporting the affected arm",
+        precautions: ["Avoid sleeping directly on the affected shoulder", "Never sleep on your stomach with shoulder problems"]
+      },
       {
         strategy: "Posture Awareness",
         rationale: "Forward shoulder position increases stress on rotator cuff",
         precautions: ["Make gradual changes to avoid other issues"]
       },
       {
-        strategy: "Load Management",
-        rationale: "Gradual return to activities allows tissue adaptation",
-        precautions: ["Avoid sudden increases in overhead activity"]
-      },
-      {
-        strategy: "Sleep Positioning",
-        rationale: "Proper support reduces night pain and promotes healing",
-        precautions: ["May need to avoid affected side initially"]
+        strategy: "Activity Pacing",
+        rationale: "Avoid the boom-bust cycle of overdoing on good days followed by flare-ups. Gradual return to activities allows tissue adaptation",
+        precautions: ["Avoid sudden increases in overhead activity", "Monitor for warning signs of overload"]
       }
     ],
 
@@ -974,31 +981,38 @@ Poor posture compounds the problem significantly. Forward head posture and round
     ],
 
     prognosis: {
-      timeline: "Total duration typically 1-3 years, though physiotherapy can shorten this significantly",
+      timeline: "Total duration typically 1-3 years. Recovery is non-linear with plateaus and flare-ups being normal. Physiotherapy can shorten duration and improve final outcome significantly",
       factors: [
-        "Diabetes associated with longer recovery",
-        "Early intervention improves timeline",
-        "Compliance with home program critical",
+        "Diabetes and thyroid conditions associated with longer recovery",
+        "Duration of symptoms before treatment affects outcome",
+        "High psychological demands and low social support predict poorer outcomes",
+        "Early intervention in freezing phase improves timeline",
+        "Compliance with daily home program critical",
         "Phase of condition affects treatment response"
       ],
-      naturalHistory: "Eventually self-limiting but can leave permanent mild restrictions without treatment"
+      naturalHistory: "Eventually self-limiting but can leave permanent mild restrictions (10-15% loss of motion) without treatment. With physiotherapy, most achieve near-normal function"
     },
 
     selfManagement: [
       {
+        strategy: "Sleep Positioning",
+        rationale: "Supporting the arm reduces capsular stress. Sleep on back or unaffected side with affected arm supported on pillows",
+        precautions: ["Build a 'pillow wall' for support", "Never force the arm into painful positions"]
+      },
+      {
         strategy: "Regular Stretching",
-        rationale: "Frequent gentle stretching maintains and improves range",
-        precautions: ["Respect pain levels", "Little and often better than aggressive stretching"]
+        rationale: "Frequent gentle stretching maintains and improves range. Little and often (3-4 times daily) is key",
+        precautions: ["Respect pain levels", "Work in 'amber zone' of tolerable discomfort, not 'red zone' of sharp pain"]
       },
       {
         strategy: "Heat Application",
-        rationale: "Heat before stretching improves tissue extensibility",
-        precautions: ["Avoid if acute inflammation present"]
+        rationale: "Heat before stretching improves tissue extensibility and reduces muscle guarding",
+        precautions: ["Apply for 10-15 minutes before exercises", "Avoid if acute inflammation present"]
       },
       {
         strategy: "Activity Modification",
-        rationale: "Adapting tasks prevents compensation injuries",
-        precautions: ["Don't completely avoid using arm"]
+        rationale: "Adapting tasks prevents compensation injuries while maintaining function",
+        precautions: ["Use aids for dressing", "Keep using arm within comfort limits to prevent complete stiffness"]
       }
     ],
 
@@ -3941,7 +3955,15 @@ After a painful groin injury, it's common for athletes to develop a fear of re-i
   },
 
   'shoulder-impingement': {
-    pathophysiology: `Shoulder impingement involves compression of rotator cuff tendons and bursa between the acromion and humeral head. Poor scapular control and posture contribute to reduced subacromial space.`,
+    pathophysiology: `Shoulder impingement (subacromial pain syndrome) involves irritation of the rotator cuff tendons and bursa in the subacromial space. Despite the name, it's now understood as more than just mechanical compression. The tendons develop degenerative changes and the bursa becomes thickened, not from simple pinching but from a complex interaction of factors.
+
+Modern understanding shifts away from blaming the shape of your acromion (the 'hooked' acromion seen on X-rays is common in pain-free shoulders too). Instead, we focus on functional problems: how your shoulder blade moves, rotator cuff strength, and posture all play crucial roles.`,
+
+    biomechanics: `Most shoulder impingement is 'secondary' or functional, meaning it's caused by movement problems rather than bone shape. Key contributors include weak or fatigued rotator cuff muscles, imbalanced scapular stabilizers (typically tight upper traps and pectoralis minor with weak serratus anterior and lower traps), and posterior capsule tightness.
+
+In overhead athletes, the kinetic chain matters enormously. Any weakness from the legs and core forces the shoulder to overwork. Poor hip stability or core strength means your shoulder compensates to generate power, leading to fatigue and eventual breakdown. This is why I assess your whole body, not just your shoulder.
+
+Common aggravating factors include the 'boom-bust' cycle of overdoing on good days, specific movements like overhead reaching or reaching behind, sleeping on the affected shoulder, and periods of increased stress which heighten muscle tension and pain sensitivity.`,
 
     clinicalPresentation: {
       primarySymptoms: [
@@ -3976,38 +3998,60 @@ After a painful groin injury, it's common for athletes to develop a fear of re-i
 
     evidenceBasedTreatment: [
       {
-        approach: "Scapular Stabilization",
-        evidence: "Improves mechanics and reduces impingement",
+        approach: "Structured Exercise Program",
+        evidence: "Resolves symptoms in 70-90% of patients. Equal to surgery for long-term outcomes with less risk and cost",
         effectivenessLevel: "strong"
       },
       {
-        approach: "Rotator Cuff Strengthening",
-        evidence: "Essential for dynamic stability",
+        approach: "Scapular Stabilization",
+        evidence: "Corrects dyskinesis present in most cases. Reduces future injury risk by 43% in athletes",
         effectivenessLevel: "strong"
+      },
+      {
+        approach: "Surgery vs Exercise",
+        evidence: "Multiple high-quality studies show NO long-term benefit of surgery over exercise. Surgery not recommended as primary treatment",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Corticosteroid Injection",
+        evidence: "Superior to exercise for first 6-8 weeks only. No long-term advantage. Best used to calm highly irritable shoulder for exercise",
+        effectivenessLevel: "moderate"
       }
     ],
 
     prognosis: {
-      timeline: "Most improve within 6-12 weeks with appropriate exercises",
+      timeline: "Recovery measured in months. Expect 5-10% improvement monthly. 40% of total improvement occurs in first 6 weeks, continuing up to 12 months",
       factors: [
-        "Duration of symptoms",
-        "Posture",
-        "Activity demands",
-        "Exercise compliance"
+        "Symptom duration over 3 months strongest predictor of slower recovery",
+        "Psychosocial factors (work stress, low support) significantly impact outcomes",
+        "Middle age (45-54 years) associated with longer recovery",
+        "Shape of acromion surprisingly NOT predictive of outcome",
+        "High baseline pain and disability require more intensive management",
+        "Exercise compliance critical for success"
       ],
-      naturalHistory: "Can progress to rotator cuff tears without management"
+      naturalHistory: "70-90% resolve with proper conservative management. Without treatment, can become chronic with central sensitization"
     },
 
     selfManagement: [
       {
-        strategy: "Posture Correction",
-        rationale: "Improves subacromial space",
-        precautions: ["Gradual changes"]
+        strategy: "Sleep Positioning",
+        rationale: "Optimal position is on your back with elbow supported, or on unaffected side with pillow support for affected arm",
+        precautions: ["Avoid sleeping on affected shoulder", "Use pillow wall for side sleeping"]
       },
       {
-        strategy: "Shoulder Exercises",
-        rationale: "Maintains strength and mobility",
-        precautions: ["Avoid painful positions initially"]
+        strategy: "Activity Pacing",
+        rationale: "Avoid boom-bust cycle. Work in 'green zone' (minimal pain) and 'amber zone' (tolerable discomfort), avoid 'red zone'",
+        precautions: ["Monitor for flare-up triggers", "Gradual return to overhead activities"]
+      },
+      {
+        strategy: "Posture Correction",
+        rationale: "Forward head and rounded shoulders narrow subacromial space. Small improvements make big differences",
+        precautions: ["Make gradual changes", "Set hourly posture reminders"]
+      },
+      {
+        strategy: "Stress Management",
+        rationale: "Stress directly increases shoulder muscle tension and pain sensitivity",
+        precautions: ["Notice stress-pain connection", "Consider relaxation techniques"]
       }
     ],
 

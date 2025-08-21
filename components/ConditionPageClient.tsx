@@ -762,13 +762,6 @@ export default function ConditionPageClient({
                                   <h3 className="font-semibold text-slate-900 mb-2">Activity Targets</h3>
                                   <p className="text-slate-600 text-sm">{condition.measuringProgress.activityTarget}</p>
                                 </div>
-                                <p className="text-xs text-slate-500 mt-3">
-                                  <a href="https://www.hqontario.ca/Evidence-to-Improve-Care/Quality-Standards" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-700">
-                                    Health Quality Ontario standards
-                                  </a> and <a href="https://collegept.org/standards-resources/standards/" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-700">
-                                    College of Physiotherapists of Ontario
-                                  </a> recommend systematic outcome tracking for quality care.
-                                </p>
                               </div>
                             </div>
                           )}

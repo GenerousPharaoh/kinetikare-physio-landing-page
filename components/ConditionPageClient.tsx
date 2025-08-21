@@ -793,7 +793,7 @@ export default function ConditionPageClient({
 
         {/* Bottom CTA Section */}
         <section 
-          className="py-12 bg-slate-900" 
+          className="mt-8 py-12 bg-slate-900" 
           style={{ 
             backgroundColor: '#0f172a',
             backgroundImage: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)'

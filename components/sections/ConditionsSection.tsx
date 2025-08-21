@@ -97,7 +97,7 @@ const ConditionsSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-primary-700 mb-4">Conditions I Treat</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-primary-700 mb-4">Treatment Areas</h2>
           <p className="text-lg text-primary-600 max-w-2xl mx-auto">
             My treatment approach is backed by years of clinical experience and evidence-based practices to address a wide range of conditions.
           </p>

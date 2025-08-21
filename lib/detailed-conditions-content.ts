@@ -506,7 +506,7 @@ The most damaging factor I see is the combination of poor posture with repetitiv
     ],
 
     prognosis: {
-      timeline: "Recovery is typically measured in months, not weeks. Expect 5-10% improvement month-by-month. Initial changes noticeable within 6-8 weeks, but complete recovery often takes 3-6 months or longer",
+      timeline: "Recovery is typically measured in months, not weeks. Most patients notice initial improvement within 2-4 weeks, significant improvement by 6-8 weeks, with complete recovery typically taking 3-6 months",
       factors: [
         "Symptom duration over 3 months predicts slower recovery",
         "Higher baseline pain and disability levels require more intensive management",
@@ -4020,7 +4020,7 @@ Common aggravating factors include the 'boom-bust' cycle of overdoing on good da
     ],
 
     prognosis: {
-      timeline: "Recovery measured in months. Expect 5-10% improvement monthly. 40% of total improvement occurs in first 6 weeks, continuing up to 12 months",
+      timeline: "Recovery measured in months. Initial improvement often within 2 weeks, significant progress by 6-8 weeks, with most patients improving over 3-6 months",
       factors: [
         "Symptom duration over 3 months strongest predictor of slower recovery",
         "Psychosocial factors (work stress, low support) significantly impact outcomes",

@@ -323,34 +323,99 @@ export default function ConditionPageClient({
                             </div>
                           )}
                           
-                          {/* Evidence Snapshot - Moved to Overview Tab */}
+                          {/* Evidence Snapshot - Premium Sophisticated Design */}
                           {condition.evidenceSnapshot && (
-                            <div className="bg-blue-50 rounded-xl p-5 border border-blue-200">
-                              <div className="flex items-start gap-3">
-                                <BeakerIcon className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                                <div className="flex-1">
-                                  <h2 className="font-semibold text-blue-900 mb-2">Evidence-Based Management Strategies</h2>
-                                  <ul className="space-y-1.5 text-sm text-blue-800">
-                                    <li className="flex items-start">
-                                      <span className="mr-2">•</span>
-                                      <span>{condition.evidenceSnapshot.primaryStrategy || condition.evidenceSnapshot.firstLine}</span>
-                                    </li>
-                                    <li className="flex items-start">
-                                      <span className="mr-2">•</span>
-                                      <span>{condition.evidenceSnapshot.secondaryStrategy || condition.evidenceSnapshot.imaging}</span>
-                                    </li>
-                                    <li className="flex items-start">
-                                      <span className="mr-2">•</span>
-                                      <span>{condition.evidenceSnapshot.preventionStrategy || condition.evidenceSnapshot.management}</span>
-                                    </li>
-                                  </ul>
-                                  {condition.evidenceSnapshot.sources && (
-                                    <p className="text-xs text-blue-600 mt-3 italic">
-                                      Sources: {condition.evidenceSnapshot.sources}
-                                    </p>
+                            <div className="relative bg-gradient-to-r from-slate-50 to-white rounded-xl p-8 shadow-sm border border-slate-200 overflow-hidden">
+                              {/* Subtle decorative element */}
+                              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-50 to-transparent rounded-full -mr-16 -mt-16 opacity-50"></div>
+                              
+                              <div className="relative">
+                                <div className="flex items-center gap-3 mb-6">
+                                  <div className="p-2 bg-slate-100 rounded-lg">
+                                    <BeakerIcon className="h-5 w-5 text-slate-700" />
+                                  </div>
+                                  <div>
+                                    <h2 className="text-xl font-semibold text-slate-900">Evidence-Based Management</h2>
+                                    <p className="text-xs text-slate-500 mt-0.5">Clinical strategies with proven outcomes</p>
+                                  </div>
+                                </div>
+                                
+                                <div className="grid gap-4">
+                                  {/* Primary Strategy */}
+                                  {(condition.evidenceSnapshot.primaryStrategy || condition.evidenceSnapshot.firstLine) && (
+                                    <div className="group relative">
+                                      <div className="absolute inset-0 bg-gradient-to-r from-emerald-50 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                      <div className="relative flex gap-4">
+                                        <div className="flex-shrink-0 mt-1">
+                                          <div className="w-8 h-8 bg-emerald-50 rounded-full flex items-center justify-center">
+                                            <span className="text-emerald-600 font-semibold text-sm">1</span>
+                                          </div>
+                                        </div>
+                                        <div className="flex-1">
+                                          <h3 className="text-sm font-semibold text-slate-800 mb-1.5 uppercase tracking-wide">Primary Treatment</h3>
+                                          <p className="text-slate-600 text-sm leading-relaxed">
+                                            {condition.evidenceSnapshot.primaryStrategy || condition.evidenceSnapshot.firstLine}
+                                          </p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  )}
+                                  
+                                  {/* Secondary Strategy */}
+                                  {(condition.evidenceSnapshot.secondaryStrategy || condition.evidenceSnapshot.imaging) && (
+                                    <div className="group relative">
+                                      <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                      <div className="relative flex gap-4">
+                                        <div className="flex-shrink-0 mt-1">
+                                          <div className="w-8 h-8 bg-blue-50 rounded-full flex items-center justify-center">
+                                            <span className="text-blue-600 font-semibold text-sm">2</span>
+                                          </div>
+                                        </div>
+                                        <div className="flex-1">
+                                          <h3 className="text-sm font-semibold text-slate-800 mb-1.5 uppercase tracking-wide">Complementary Approach</h3>
+                                          <p className="text-slate-600 text-sm leading-relaxed">
+                                            {condition.evidenceSnapshot.secondaryStrategy || condition.evidenceSnapshot.imaging}
+                                          </p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  )}
+                                  
+                                  {/* Prevention Strategy */}
+                                  {(condition.evidenceSnapshot.preventionStrategy || condition.evidenceSnapshot.management) && (
+                                    <div className="group relative">
+                                      <div className="absolute inset-0 bg-gradient-to-r from-violet-50 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                      <div className="relative flex gap-4">
+                                        <div className="flex-shrink-0 mt-1">
+                                          <div className="w-8 h-8 bg-violet-50 rounded-full flex items-center justify-center">
+                                            <span className="text-violet-600 font-semibold text-sm">3</span>
+                                          </div>
+                                        </div>
+                                        <div className="flex-1">
+                                          <h3 className="text-sm font-semibold text-slate-800 mb-1.5 uppercase tracking-wide">Prevention & Long-term Care</h3>
+                                          <p className="text-slate-600 text-sm leading-relaxed">
+                                            {condition.evidenceSnapshot.preventionStrategy || condition.evidenceSnapshot.management}
+                                          </p>
+                                        </div>
+                                      </div>
+                                    </div>
                                   )}
                                 </div>
+                                
+                                {/* Sources with premium styling */}
+                                {condition.evidenceSnapshot.sources && (
+                                  <div className="mt-6 pt-4 border-t border-slate-200">
+                                    <p className="text-xs text-slate-500 flex items-center gap-1.5">
+                                      <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                      </svg>
+                                      <span className="font-medium">Clinical Sources:</span> {condition.evidenceSnapshot.sources}
+                                    </p>
+                                  </div>
+                                )}
                               </div>
+                            </div>
+                          )}
                             </div>
                           )}
                         </div>

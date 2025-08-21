@@ -37,7 +37,7 @@ export const detailedConditionsContent: Record<string, Partial<Condition>> = {
 
 The deep stabilizing muscles like multifidus and transverse abdominis often show delayed activation patterns, compromising segmental stability. Over time, this can lead to movement pattern changes that perpetuate the problem.
 
-When pain persists beyond 3 months, changes in the nervous system can amplify pain perception, making previously non-painful movements uncomfortable.`,
+When pain persists beyond 3 months, changes in the nervous system can amplify pain perception, making previously non-painful movements uncomfortable. When disc dysfunction progresses significantly, it may lead to disc herniation with potential nerve root compression (sciatica). Similarly, when facet joints become primary pain generators, this can develop into facet joint syndrome, while sacroiliac joint dysfunction may become a distinct condition requiring specific treatment approaches.`,
 
     biomechanics: `Poor posture and prolonged sitting create significant loads on your spine, particularly when you slouch or crane your head forward. Your core muscles - the deep abdominals and back extensors that act like an internal corset - often become weakened from inactivity, reducing the support they provide to your spine.
 
@@ -309,9 +309,9 @@ Sleep position plays a role too - pillows that are too high or too flat force yo
   },
 
   'sciatica': {
-    pathophysiology: `Sciatica describes pain along the sciatic nerve path, usually from compression or irritation at the spine level. The nerve can be affected by disc material, bone spurs, or tight muscles along its path.
+    pathophysiology: `Sciatica describes pain along the sciatic nerve path, usually from compression or irritation at the spine level. The nerve can be affected by disc material, bone spurs, or tight muscles along its path. Similar to general low back pain, sciatica often involves disc dysfunction, but with the added complexity of nerve root compression or irritation.
 
-When the nerve is irritated, it can cause pain, numbness, or weakness anywhere along its path from the back to the foot. The location and type of symptoms help identify where the problem originates.`,
+When the nerve is irritated, it can cause pain, numbness, or weakness anywhere along its path from the back to the foot. The location and type of symptoms help identify where the problem originates. In some cases, sciatica may occur alongside degenerative disc disease or spinal stenosis, requiring careful assessment to address all contributing factors.`,
 
     biomechanics: `Prolonged sitting is one of the biggest culprits I see with sciatica. When you sit, especially with poor posture, you increase the pressure on your lumbar discs by up to 40% compared to standing. This forward-slumped position narrows the spaces where nerves exit your spine, potentially compressing the nerve roots that form your sciatic nerve.
 
@@ -443,7 +443,7 @@ Your movement patterns throughout the day matter tremendously. Tight hip flexors
   'rotator-cuff-injuries': {
     pathophysiology: `The rotator cuff consists of four muscles that stabilize and move your shoulder. These tendons can be injured through sudden trauma or gradual wear. The tendon tissue becomes disorganized and may develop tears.
 
-Poor blood supply to certain areas of these tendons makes healing slower. Shoulder blade positioning and muscle imbalances often contribute to ongoing irritation.`,
+Poor blood supply to certain areas of these tendons makes healing slower. Shoulder blade positioning and muscle imbalances often contribute to ongoing irritation. Rotator cuff injuries frequently occur alongside shoulder impingement, as both conditions share similar biomechanical contributors. In some cases, rotator cuff dysfunction can lead to compensatory patterns that contribute to frozen shoulder or shoulder instability.`,
 
     biomechanics: `Forward head posture and rounded shoulders create the perfect storm for rotator cuff problems. When your head sits forward of your shoulders, it pulls your shoulder blades into a protracted position, reducing the space under your acromion where the rotator cuff tendons pass through. This sets up impingement with every arm movement, particularly overhead activities.
 
@@ -522,7 +522,7 @@ The most damaging factor I see is the combination of poor posture with repetitiv
       {
         strategy: "Sleep Positioning",
         rationale: "Proper positioning unloads the shoulder and reduces night pain. Sleep on your back with a small pillow under the affected elbow, or on the unaffected side with a pillow supporting the affected arm",
-        precautions: ["Avoid sleeping directly on the affected shoulder", "Never sleep on your stomach with shoulder problems"]
+        precautions: ["Avoid sleeping directly on the affected shoulder", "Avoid sleeping on your stomach with shoulder problems, as this typically worsens symptoms"]
       },
       {
         strategy: "Posture Awareness",
@@ -567,7 +567,7 @@ The most damaging factor I see is the combination of poor posture with repetitiv
   'tennis-elbow': {
     pathophysiology: `Tennis elbow involves degeneration of the tendons on the outside of your elbow, primarily the extensor carpi radialis brevis. Despite the name, it's rarely from tennis. The tendon develops small tears and becomes disorganized rather than inflamed.
 
-Repetitive gripping and wrist movements overload the tendon beyond its capacity to repair, leading to pain and weakness.`,
+Repetitive gripping and wrist movements overload the tendon beyond its capacity to repair, leading to pain and weakness. Similar to golfers elbow (medial epicondylitis), tennis elbow is a degenerative tendinopathy rather than an inflammatory condition, though it affects the opposite side of the elbow and involves different movement patterns.`,
 
     biomechanics: `Poor wrist and grip mechanics are the primary drivers of tennis elbow. When you grip objects with your wrist bent back (extended) rather than in a neutral position, you place massive stress on the extensor tendons at your elbow. This is exactly what happens during computer use when you rest your wrist on a pad while typing, or when gripping tools with your wrist cocked back.
 
@@ -684,7 +684,7 @@ Repetitive activities compound the problem. Whether it's painting, using hand to
   'plantar-fasciitis': {
     pathophysiology: `The plantar fascia is a thick band of tissue supporting your foot arch. With plantar fasciitis, this tissue develops small tears and becomes thickened. It's not true inflammation but rather degeneration of the tissue.
 
-Contributing factors include calf tightness, foot mechanics, and sudden changes in activity levels. The fascia is particularly vulnerable where it attaches to the heel bone.`,
+Contributing factors include calf tightness, foot mechanics, and sudden changes in activity levels. The fascia is particularly vulnerable where it attaches to the heel bone. Plantar fasciitis often develops alongside or contributes to other lower leg conditions such as Achilles tendinopathy, as both conditions share biomechanical contributors including calf tightness and altered foot mechanics. Previous ankle sprains may also predispose to plantar fasciitis by altering normal foot mechanics and loading patterns.`,
 
     clinicalPresentation: {
       primarySymptoms: [
@@ -736,7 +736,7 @@ Contributing factors include calf tightness, foot mechanics, and sudden changes 
     ],
 
     prognosis: {
-      timeline: "Most people improve within 3-6 months, though complete resolution can take up to a year",
+      timeline: "Recovery patterns vary significantly. Most improvement typically occurs within the first 3 months, with recovery plateauing after this period. While many people improve within 3-6 months, approximately 30% may develop persistent symptoms requiring ongoing management",
       factors: [
         "Duration of symptoms affects recovery",
         "BMI influences healing time",
@@ -990,14 +990,14 @@ Poor posture compounds the problem significantly. Forward head posture and round
         "Compliance with daily home program critical",
         "Phase of condition affects treatment response"
       ],
-      naturalHistory: "Eventually self-limiting but can leave permanent mild restrictions (10-15% loss of motion) without treatment. With physiotherapy, most achieve near-normal function"
+      naturalHistory: "Eventually self-limiting but recovery may be incomplete - approximately 40% of patients may have some residual restriction even after 3 years. Without treatment, permanent mild restrictions (10-15% loss of motion) are common. With physiotherapy, many achieve near-normal function, though complete resolution is not always achieved"
     },
 
     selfManagement: [
       {
         strategy: "Sleep Positioning",
         rationale: "Supporting the arm reduces capsular stress. Sleep on back or unaffected side with affected arm supported on pillows",
-        precautions: ["Build a 'pillow wall' for support", "Never force the arm into painful positions"]
+        precautions: ["Build a 'pillow wall' for support", "Avoid forcing the arm into painful positions, as this can worsen inflammation"]
       },
       {
         strategy: "Regular Stretching",
@@ -1047,7 +1047,7 @@ Poor posture compounds the problem significantly. Forward head posture and round
   'acl-injuries': {
     pathophysiology: `The ACL (anterior cruciate ligament) is crucial for knee stability, preventing the tibia from sliding forward. Tears usually occur during cutting, pivoting, or landing movements. The ligament has poor blood supply, limiting natural healing capacity.
 
-After injury, the knee loses rotational stability, leading to episodes of giving way and potential damage to other structures like the meniscus and cartilage.`,
+After injury, the knee loses rotational stability, leading to episodes of giving way and potential damage to other structures like the meniscus and cartilage. ACL injuries significantly increase the long-term risk of developing knee osteoarthritis, even with successful surgical reconstruction. Concurrent injuries such as meniscus tears or MCL/LCL sprains are common and require comprehensive management alongside ACL rehabilitation.`,
 
     biomechanics: `The majority of ACL injuries happen without any direct contact to the knee - they're usually the result of poor movement mechanics during cutting, jumping, and landing. The classic injury pattern I see involves a combination of knee valgus (knee caving inward), limited knee flexion (landing stiff-legged), and foot positioned too far from the body's center of mass. This creates massive rotational and shearing forces that exceed the ACL's capacity.
 
@@ -1074,9 +1074,9 @@ The "position of no return" happens during cutting movements when your foot plan
     },
 
     evidenceSnapshot: {
-      firstLine: "Conservative management successful for many, especially lower-demand individuals",
+      firstLine: "Both conservative and surgical management have merit depending on individual circumstances and goals",
       imaging: "MRI confirms diagnosis and identifies associated injuries",
-      management: "Decision between surgery and conservative management based on activity level and instability",
+      management: "Conservative management may be suitable for lower-demand patients, while surgical reconstruction provides better mechanical stability for those requiring high-level cutting activities. Both approaches can achieve good functional outcomes when appropriately matched to patient needs",
       sources: "JOSPT ACL Guidelines; British Journal of Sports Medicine Consensus"
     },
 
@@ -1178,7 +1178,7 @@ Prolonged sitting followed by sudden movement is another classic pattern. When y
 
     evidenceSnapshot: {
       firstLine: "Most disc herniations resolve with conservative management; surgery for progressive neurological deficit",
-      imaging: "MRI shows herniation but doesn't always correlate with symptoms",
+      imaging: "MRI shows herniation but may not always correlate with symptoms",
       management: "Education, targeted exercises, and gradual return to activity",
       sources: "Spine Journal Guidelines; Cochrane Reviews"
     },
@@ -1251,7 +1251,7 @@ Prolonged sitting followed by sudden movement is another classic pattern. When y
   },
 
   'knee-osteoarthritis': {
-    pathophysiology: `Osteoarthritis involves breakdown of cartilage, changes in underlying bone, and inflammation of the joint lining. It's not just wear and tear but an active process involving the whole joint. Muscle weakness, particularly quadriceps, accelerates progression.`,
+    pathophysiology: `Osteoarthritis involves breakdown of cartilage, changes in underlying bone, and inflammation of the joint lining. It's not just wear and tear but an active process involving the whole joint. Muscle weakness, particularly quadriceps, accelerates progression. Previous injuries such as ACL tears or meniscus tears significantly increase the risk of developing knee osteoarthritis, as these injuries often lead to altered biomechanics and joint instability. Like other degenerative conditions, knee osteoarthritis may coexist with patellofemoral pain syndrome, particularly when both involve similar movement pattern dysfunctions.`,
 
     biomechanics: `Knee osteoarthritis isn't simply "wear and tear" but rather the result of abnormal loading patterns that overwhelm your joint's ability to maintain healthy cartilage. The most significant biomechanical factor is quadriceps weakness, which creates a devastating cycle: weak quads fail to adequately absorb impact forces during walking, stairs, and daily activities, placing greater stress on your knee cartilage. As the cartilage breaks down and becomes painful, you naturally become less active, leading to even greater muscle weakness.
 
@@ -1471,7 +1471,7 @@ Poor movement mechanics significantly contribute to meniscus problems. Weak glut
   'it-band-syndrome': {
     pathophysiology: `IT band syndrome involves irritation where the iliotibial band crosses the lateral knee. It's not friction but compression of sensitive fat pad beneath the band. Contributing factors include hip weakness, training errors, and biomechanical issues.`,
 
-    biomechanics: `IT band syndrome is almost always a hip problem disguised as a knee problem. Weak glutes, particularly the gluteus medius, fail to control your thigh position during running and walking. When your hip drops on one side during single-leg activities, it causes your thigh to angle inward (hip adduction), which increases tension in the IT band and compresses the sensitive tissue underneath it at the knee.
+    biomechanics: `IT band syndrome is typically a hip problem disguised as a knee problem. Weak glutes, particularly the gluteus medius, fail to control your thigh position during running and walking. When your hip drops on one side during single-leg activities, it causes your thigh to angle inward (hip adduction), which increases tension in the IT band and compresses the sensitive tissue underneath it at the knee.
 
 Running mechanics play a huge role in developing IT band syndrome. Overstriding (landing with your foot too far in front of your body), excessive crossover gait (feet landing across the midline), and running with too much vertical oscillation all increase IT band tension. Downhill running is particularly problematic because it encourages longer stride lengths and places greater demands on your hip stabilizers. When your hip muscles fatigue, your running form deteriorates, creating even more IT band stress.
 
@@ -2163,7 +2163,7 @@ Occupational activities involving repetitive pinching, gripping, or twisting whi
   'hip-osteoarthritis': {
     pathophysiology: `Hip osteoarthritis is a dynamic process involving the entire joint structure, not simple "wear and tear." The story of hip osteoarthritis rarely begins with a bang - it's a slow burn that often starts as a subtle, deep, groin-area ache noticed after a long walk that might be dismissed as a simple muscle strain. The most pervasive and damaging misconception about OA is that it's a simple "wear and tear" disease where the joint is worn out and nothing can be done. This is not the full picture. OA is a dynamic process involving the entire joint structure, and it does not mean your active life is over. It begins with articular cartilage breakdown (the smooth, white, slippery tissue covering bone ends), followed by subchondral bone changes, osteophyte formation ("bone spurs" - bony lumps growing in response to inflammation), and joint space narrowing. The process involves inflammatory mediators, altered biomechanics, and compensatory muscle weakness. Critically, pain is not directly proportional to radiographic changes - I have seen countless patients with "severe" OA on imaging who have minimal pain and excellent function, and vice versa. Your experience of pain is real, but it is not solely dictated by what an X-ray shows. 
 
-The hip joint doesn't exist in isolation - when it becomes stiff and painful from OA, the body makes compensations. The most common is increased movement and strain on the lumbar spine and sacroiliac (SI) joint, which is why so many people with hip OA also develop low back pain. The knee can also take a hit - a stiff hip changes the way you walk, altering forces that travel down through the knee and ankle. Living with persistent pain is exhausting and can lead to fear of movement, anxiety, and feeling of fragility. This is where pain centralization comes in - over time, the nervous system can become sensitized, essentially "turning up the volume" on pain signals. Gentle, graded movement can help recalibrate the nervous system.`,
+The hip joint doesn't exist in isolation - when it becomes stiff and painful from OA, the body makes compensations. The most common is increased movement and strain on the lumbar spine and sacroiliac (SI) joint, which is why so many people with hip OA also develop low back pain. The knee can also take a hit - a stiff hip changes the way you walk, altering forces that travel down through the knee and ankle. Living with persistent pain is exhausting and can lead to fear of movement, anxiety, and feeling of fragility. This is where pain centralization comes in - over time, the nervous system can become sensitized, essentially "turning up the volume" on pain signals. Gentle, graded movement can help recalibrate the nervous system. Hip osteoarthritis may coexist with other hip conditions such as greater trochanteric pain syndrome or hip bursitis, and can develop secondary to previous conditions like femoroacetabular impingement (FAI) or hip labral tears.`,
 
     clinicalPresentation: {
       primarySymptoms: [
@@ -3957,7 +3957,7 @@ After a painful groin injury, it's common for athletes to develop a fear of re-i
   'shoulder-impingement': {
     pathophysiology: `Shoulder impingement (subacromial pain syndrome) involves irritation of the rotator cuff tendons and bursa in the subacromial space. Despite the name, it's now understood as more than just mechanical compression. The tendons develop degenerative changes and the bursa becomes thickened, not from simple pinching but from a complex interaction of factors.
 
-Modern understanding shifts away from blaming the shape of your acromion (the 'hooked' acromion seen on X-rays is common in pain-free shoulders too). Instead, we focus on functional problems: how your shoulder blade moves, rotator cuff strength, and posture all play crucial roles.`,
+Modern understanding shifts away from blaming the shape of your acromion (the 'hooked' acromion seen on X-rays is common in pain-free shoulders too). Instead, we focus on functional problems: how your shoulder blade moves, rotator cuff strength, and posture all play crucial roles. Shoulder impingement frequently coexists with rotator cuff injuries, as both conditions share similar underlying biomechanical issues. In some cases, untreated impingement may contribute to the development of shoulder bursitis, and chronic impingement can lead to compensatory patterns that contribute to frozen shoulder.`,
 
     biomechanics: `Most shoulder impingement is 'secondary' or functional, meaning it's caused by movement problems rather than bone shape. Key contributors include weak or fatigued rotator cuff muscles, imbalanced scapular stabilizers (typically tight upper traps and pectoralis minor with weak serratus anterior and lower traps), and posterior capsule tightness.
 
@@ -4576,7 +4576,9 @@ Your foot mechanics also play a role - excessive pronation can create internal r
 
 As discs age, they lose water content and the nucleus pulposus becomes less gel-like, reducing the disc's ability to distribute loads evenly. This dehydration process leads to decreased disc height and can result in small tears in the annulus fibrosus. When the disc loses height, it alters the biomechanics of the entire spinal segment.
 
-The facet joints, which normally share load with the discs, begin to bear a greater proportion of the forces passing through that level of the spine. This can lead to accelerated wear of these joints and may contribute to the development of bone spurs and other arthritic changes. Despite the name, degenerative disc disease isn't truly a disease but rather a description of the structural changes that occur over time.`,
+The facet joints, which normally share load with the discs, begin to bear a greater proportion of the forces passing through that level of the spine. This can lead to accelerated wear of these joints and may contribute to the development of bone spurs and other arthritic changes. Despite the name, degenerative disc disease isn't truly a disease but rather a description of the structural changes that occur over time.
+
+It's important to understand that these structural changes don't always predict pain levels - many people have significant disc degeneration visible on imaging scans but experience no symptoms whatsoever. Conversely, some individuals with minimal structural changes may have considerable pain. This disconnect between imaging findings and symptoms highlights why treatment focuses on function and symptoms rather than structural abnormalities.`,
 
     biomechanics: `Your spine functions as an integrated system where each level works with adjacent levels to allow movement while maintaining stability. When disc degeneration occurs, this system becomes altered in ways that can contribute to symptoms.
 

@@ -425,8 +425,6 @@ export default function ConditionPageClient({
                               </div>
                             </div>
                           )}
-                            </div>
-                          )}
                         </div>
                       )}
 

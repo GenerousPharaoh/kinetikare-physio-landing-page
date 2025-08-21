@@ -333,15 +333,15 @@ export default function ConditionPageClient({
                                   <ul className="space-y-1.5 text-sm text-blue-800">
                                     <li className="flex items-start">
                                       <span className="mr-2">•</span>
-                                      <span>{condition.evidenceSnapshot.firstLine}</span>
+                                      <span>{condition.evidenceSnapshot.primaryStrategy || condition.evidenceSnapshot.firstLine}</span>
                                     </li>
                                     <li className="flex items-start">
                                       <span className="mr-2">•</span>
-                                      <span>{condition.evidenceSnapshot.imaging}</span>
+                                      <span>{condition.evidenceSnapshot.secondaryStrategy || condition.evidenceSnapshot.imaging}</span>
                                     </li>
                                     <li className="flex items-start">
                                       <span className="mr-2">•</span>
-                                      <span>{condition.evidenceSnapshot.management}</span>
+                                      <span>{condition.evidenceSnapshot.preventionStrategy || condition.evidenceSnapshot.management}</span>
                                     </li>
                                   </ul>
                                   {condition.evidenceSnapshot.sources && (

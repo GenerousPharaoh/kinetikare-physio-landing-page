@@ -49,9 +49,12 @@ export interface Condition {
   
   // New evidence-based sections
   evidenceSnapshot?: {
-    firstLine: string;
-    imaging: string;
-    management: string;
+    firstLine?: string;  // Old format - deprecated
+    imaging?: string;    // Old format - deprecated
+    management?: string; // Old format - deprecated
+    primaryStrategy?: string;    // New format
+    secondaryStrategy?: string;  // New format
+    preventionStrategy?: string; // New format
     sources?: string;
   };
   whatToExpect?: {

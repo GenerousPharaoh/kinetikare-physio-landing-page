@@ -558,8 +558,8 @@ export default function ConditionPageClient({
                       {/* Management Tab */}
                       {activeTab === 'self-care' && (
                         <div className="space-y-6">
-                          {/* Evidence Snapshot - Elevated Professional Design */}
-                          {condition.evidenceSnapshot && (
+                          {/* Integrated Evidence-Based Management - Premium Design */}
+                          {(condition.evidenceSnapshot || condition.selfManagement) && (
                             <div className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
                               {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 via-transparent to-blue-50/30 pointer-events-none"></div>
@@ -573,121 +573,159 @@ export default function ConditionPageClient({
                                     </div>
                                     <div>
                                       <h2 className="text-2xl font-bold text-white">Evidence-Based Management</h2>
-                                      <p className="text-sm text-slate-200 mt-1">Research-validated treatment strategies</p>
+                                      <p className="text-sm text-slate-200 mt-1">Comprehensive treatment strategies with proven outcomes</p>
                                     </div>
                                   </div>
                                 </div>
                                 
                                 <div className="p-8">
-                                  <div className="grid gap-5">
-                                    {/* Primary Strategy Card */}
-                                    {(condition.evidenceSnapshot.primaryStrategy || condition.evidenceSnapshot.firstLine) && (
-                                      <div className="group relative bg-gradient-to-r from-emerald-50/50 to-emerald-50/20 rounded-xl p-6 border border-emerald-100 hover:shadow-md transition-all">
-                                        <div className="flex gap-4">
-                                          <div className="flex-shrink-0">
-                                            <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
-                                              <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                                              </svg>
+                                  <div className="space-y-6">
+                                    {/* Evidence Snapshot Cards */}
+                                    {condition.evidenceSnapshot && (
+                                      <div className="space-y-5">
+                                        {/* Primary Strategy Card */}
+                                        {(condition.evidenceSnapshot.primaryStrategy || condition.evidenceSnapshot.firstLine) && (
+                                          <div className="group relative bg-gradient-to-r from-emerald-50/50 to-emerald-50/20 rounded-xl p-6 border border-emerald-100 hover:shadow-md transition-all">
+                                            <div className="flex gap-4">
+                                              <div className="flex-shrink-0">
+                                                <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
+                                                  <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                                  </svg>
+                                                </div>
+                                              </div>
+                                              <div className="flex-1">
+                                                <h3 className="text-xs font-bold text-emerald-700 uppercase tracking-wider mb-2">Primary Treatment Approach</h3>
+                                                <p className="text-slate-700 text-sm leading-relaxed">
+                                                  {condition.evidenceSnapshot.primaryStrategy || condition.evidenceSnapshot.firstLine}
+                                                </p>
+                                              </div>
                                             </div>
                                           </div>
-                                          <div className="flex-1">
-                                            <h3 className="text-xs font-bold text-emerald-700 uppercase tracking-wider mb-2">Primary Treatment Approach</h3>
-                                            <p className="text-slate-700 text-sm leading-relaxed">
-                                              {condition.evidenceSnapshot.primaryStrategy || condition.evidenceSnapshot.firstLine}
-                                            </p>
+                                        )}
+                                        
+                                        {/* Secondary Strategy Card */}
+                                        {(condition.evidenceSnapshot.secondaryStrategy || condition.evidenceSnapshot.imaging) && (
+                                          <div className="group relative bg-gradient-to-r from-blue-50/50 to-blue-50/20 rounded-xl p-6 border border-blue-100 hover:shadow-md transition-all">
+                                            <div className="flex gap-4">
+                                              <div className="flex-shrink-0">
+                                                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
+                                                  <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                                  </svg>
+                                                </div>
+                                              </div>
+                                              <div className="flex-1">
+                                                <h3 className="text-xs font-bold text-blue-700 uppercase tracking-wider mb-2">Complementary Interventions</h3>
+                                                <p className="text-slate-700 text-sm leading-relaxed">
+                                                  {condition.evidenceSnapshot.secondaryStrategy || condition.evidenceSnapshot.imaging}
+                                                </p>
+                                              </div>
+                                            </div>
                                           </div>
-                                        </div>
+                                        )}
+                                        
+                                        {/* Prevention Strategy Card */}
+                                        {(condition.evidenceSnapshot.preventionStrategy || condition.evidenceSnapshot.management) && (
+                                          <div className="group relative bg-gradient-to-r from-violet-50/50 to-violet-50/20 rounded-xl p-6 border border-violet-100 hover:shadow-md transition-all">
+                                            <div className="flex gap-4">
+                                              <div className="flex-shrink-0">
+                                                <div className="w-12 h-12 bg-gradient-to-br from-violet-500 to-violet-600 rounded-xl flex items-center justify-center shadow-lg">
+                                                  <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                                                  </svg>
+                                                </div>
+                                              </div>
+                                              <div className="flex-1">
+                                                <h3 className="text-xs font-bold text-violet-700 uppercase tracking-wider mb-2">Prevention & Long-term Care</h3>
+                                                <p className="text-slate-700 text-sm leading-relaxed">
+                                                  {condition.evidenceSnapshot.preventionStrategy || condition.evidenceSnapshot.management}
+                                                </p>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        )}
                                       </div>
                                     )}
                                     
-                                    {/* Secondary Strategy Card */}
-                                    {(condition.evidenceSnapshot.secondaryStrategy || condition.evidenceSnapshot.imaging) && (
-                                      <div className="group relative bg-gradient-to-r from-blue-50/50 to-blue-50/20 rounded-xl p-6 border border-blue-100 hover:shadow-md transition-all">
-                                        <div className="flex gap-4">
-                                          <div className="flex-shrink-0">
-                                            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
-                                              <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                                              </svg>
+                                    {/* Self-Management Strategies with Premium Design */}
+                                    {condition.selfManagement && condition.selfManagement.length > 0 && (
+                                      <div className="space-y-5">
+                                        {condition.evidenceSnapshot && (
+                                          <div className="flex items-center gap-3 mt-8 mb-6">
+                                            <div className="h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent flex-1"></div>
+                                            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Detailed Management Strategies</span>
+                                            <div className="h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent flex-1"></div>
+                                          </div>
+                                        )}
+                                        {condition.selfManagement.map((strategy, index) => {
+                                          const colors = [
+                                            { bg: 'from-amber-50/50 to-amber-50/20', border: 'border-amber-100', icon: 'from-amber-500 to-amber-600', text: 'text-amber-700' },
+                                            { bg: 'from-teal-50/50 to-teal-50/20', border: 'border-teal-100', icon: 'from-teal-500 to-teal-600', text: 'text-teal-700' },
+                                            { bg: 'from-rose-50/50 to-rose-50/20', border: 'border-rose-100', icon: 'from-rose-500 to-rose-600', text: 'text-rose-700' },
+                                            { bg: 'from-indigo-50/50 to-indigo-50/20', border: 'border-indigo-100', icon: 'from-indigo-500 to-indigo-600', text: 'text-indigo-700' },
+                                          ];
+                                          const color = colors[index % colors.length];
+                                          
+                                          return (
+                                            <div key={index} className={`group relative bg-gradient-to-r ${color.bg} rounded-xl p-6 border ${color.border} hover:shadow-md transition-all`}>
+                                              <div className="flex gap-4">
+                                                <div className="flex-shrink-0">
+                                                  <div className={`w-12 h-12 bg-gradient-to-br ${color.icon} rounded-xl flex items-center justify-center shadow-lg`}>
+                                                    <span className="text-white font-bold text-lg">{index + 1}</span>
+                                                  </div>
+                                                </div>
+                                                <div className="flex-1">
+                                                  <h3 className={`text-xs font-bold ${color.text} uppercase tracking-wider mb-2`}>{strategy.strategy}</h3>
+                                                  <p className="text-slate-700 text-sm leading-relaxed mb-3">
+                                                    {strategy.rationale}
+                                                  </p>
+                                                  {strategy.precautions && strategy.precautions.length > 0 && (
+                                                    <div className="mt-3 p-3 bg-amber-50/70 backdrop-blur rounded-lg border border-amber-200">
+                                                      <div className="flex items-start gap-2">
+                                                        <ExclamationCircleIcon className="h-4 w-4 text-amber-600 mt-0.5 flex-shrink-0" />
+                                                        <div className="flex-1">
+                                                          <p className="text-xs font-semibold text-amber-900 mb-1">Important Precautions</p>
+                                                          <ul className="text-xs text-amber-800 space-y-1">
+                                                            {strategy.precautions.map((precaution, pIndex) => (
+                                                              <li key={pIndex} className="flex items-start">
+                                                                <span className="mr-1.5">•</span>
+                                                                <span>{precaution}</span>
+                                                              </li>
+                                                            ))}
+                                                          </ul>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  )}
+                                                  {strategy.strategy.toLowerCase().includes('nutrition') && (
+                                                    <p className="text-xs text-slate-500 mt-3 italic flex items-center gap-1">
+                                                      <InformationCircleIcon className="h-3 w-3" />
+                                                      Nutritional advice is general guidance. Consult a registered dietitian for personalized plans.
+                                                    </p>
+                                                  )}
+                                                </div>
+                                              </div>
                                             </div>
-                                          </div>
-                                          <div className="flex-1">
-                                            <h3 className="text-xs font-bold text-blue-700 uppercase tracking-wider mb-2">Complementary Interventions</h3>
-                                            <p className="text-slate-700 text-sm leading-relaxed">
-                                              {condition.evidenceSnapshot.secondaryStrategy || condition.evidenceSnapshot.imaging}
-                                            </p>
-                                          </div>
-                                        </div>
+                                          );
+                                        })}
                                       </div>
                                     )}
                                     
-                                    {/* Prevention Strategy Card */}
-                                    {(condition.evidenceSnapshot.preventionStrategy || condition.evidenceSnapshot.management) && (
-                                      <div className="group relative bg-gradient-to-r from-violet-50/50 to-violet-50/20 rounded-xl p-6 border border-violet-100 hover:shadow-md transition-all">
-                                        <div className="flex gap-4">
-                                          <div className="flex-shrink-0">
-                                            <div className="w-12 h-12 bg-gradient-to-br from-violet-500 to-violet-600 rounded-xl flex items-center justify-center shadow-lg">
-                                              <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-                                              </svg>
-                                            </div>
-                                          </div>
-                                          <div className="flex-1">
-                                            <h3 className="text-xs font-bold text-violet-700 uppercase tracking-wider mb-2">Prevention & Long-term Management</h3>
-                                            <p className="text-slate-700 text-sm leading-relaxed">
-                                              {condition.evidenceSnapshot.preventionStrategy || condition.evidenceSnapshot.management}
-                                            </p>
-                                          </div>
+                                    {/* Sources Footer */}
+                                    {condition.evidenceSnapshot?.sources && (
+                                      <div className="mt-8 pt-6 border-t border-slate-200">
+                                        <div className="flex items-center gap-2 text-xs text-slate-600">
+                                          <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                          </svg>
+                                          <span className="font-semibold">Evidence Base:</span>
+                                          <span>{condition.evidenceSnapshot.sources}</span>
                                         </div>
                                       </div>
                                     )}
                                   </div>
-                                  
-                                  {/* Sources with elegant styling */}
-                                  {condition.evidenceSnapshot.sources && (
-                                    <div className="mt-8 pt-6 border-t border-slate-200">
-                                      <div className="flex items-center gap-2 text-xs text-slate-600">
-                                        <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                                        </svg>
-                                        <span className="font-semibold">Evidence Base:</span>
-                                        <span>{condition.evidenceSnapshot.sources}</span>
-                                      </div>
-                                    </div>
-                                  )}
                                 </div>
-                              </div>
-                            </div>
-                          )}
-                          
-                          {condition.selfManagement && condition.selfManagement.length > 0 && (
-                            <div className="bg-white rounded-xl p-6 border border-slate-200">
-                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
-                                Management Strategies
-                              </h2>
-                              <div className="space-y-4">
-                                {condition.selfManagement.map((strategy, index) => (
-                                  <div key={index} className="bg-slate-50 rounded-lg p-4 border border-slate-200">
-                                    <h3 className="font-semibold text-slate-900 mb-2">{strategy.strategy}</h3>
-                                    <p className="text-slate-600 text-sm mb-3">{strategy.rationale}</p>
-                                    {strategy.precautions && strategy.precautions.length > 0 && (
-                                      <div className="mt-3 p-3 bg-amber-50 rounded border border-amber-200">
-                                        <p className="text-xs font-medium text-amber-900 mb-1">Important Precautions:</p>
-                                        <ul className="text-xs text-amber-800 space-y-1">
-                                          {strategy.precautions.map((precaution, pIndex) => (
-                                            <li key={pIndex}>• {precaution}</li>
-                                          ))}
-                                        </ul>
-                                      </div>
-                                    )}
-                                    {strategy.strategy.toLowerCase().includes('nutrition') && (
-                                      <p className="text-xs text-slate-500 mt-2 italic">
-                                        Note: Nutritional advice is general guidance. Consult a registered dietitian for personalized nutrition plans.
-                                      </p>
-                                    )}
-                                  </div>
-                                ))}
                               </div>
                             </div>
                           )}

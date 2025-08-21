@@ -39,6 +39,12 @@ The deep stabilizing muscles like multifidus and transverse abdominis often show
 
 When pain persists beyond 3 months, changes in the nervous system can amplify pain perception, making previously non-painful movements uncomfortable.`,
 
+    biomechanics: `Poor posture and prolonged sitting create significant loads on your spine, particularly when you slouch or crane your head forward. Your core muscles - the deep abdominals and back extensors that act like an internal corset - often become weakened from inactivity, reducing the support they provide to your spine.
+
+Heavy lifting with poor technique multiplies the forces through your discs. When you bend at the waist rather than squatting, you can increase disc pressure by up to 300%. Repetitive bending and twisting movements, especially under load, create the perfect storm for tissue overload.
+
+Modern lifestyle factors play a huge role: prolonged sitting increases disc pressure by 40% compared to standing, and forward head posture from screen time changes how forces distribute through your entire spine. Even factors like tight hip flexors from sitting can alter your lumbar curve, forcing your back muscles to work overtime to maintain upright posture.`,
+
     clinicalPresentation: {
       primarySymptoms: [
         "Deep, aching pain in the lower back",
@@ -175,6 +181,12 @@ When pain persists beyond 3 months, changes in the nervous system can amplify pa
 
 The upper part of your neck is responsible for half of all neck rotation and can refer pain to the head. This explains why neck problems often cause headaches.`,
 
+    biomechanics: `Forward head posture is the biggest culprit I see in my clinic. When your head sits forward of your shoulders, it multiplies the weight your neck muscles must support - every inch forward doubles the effective weight of your head. Your average head weighs about 10 pounds, but with forward posture, your neck muscles work as if supporting 20-40 pounds.
+
+Screen work compounds this by requiring you to look down or crane forward, while your upper shoulders creep up toward your ears. This creates a cascade where your deep neck stabilizers weaken while your larger, more superficial muscles overwork and become tight.
+
+Sleep position plays a role too - pillows that are too high or too flat force your neck into awkward positions for hours. Combined with stress-related muscle tension and the repetitive nature of modern work, these factors create the perfect environment for neck pain to develop and persist.`,
+
     clinicalPresentation: {
       primarySymptoms: [
         "Pain and stiffness in the neck",
@@ -300,6 +312,12 @@ The upper part of your neck is responsible for half of all neck rotation and can
     pathophysiology: `Sciatica describes pain along the sciatic nerve path, usually from compression or irritation at the spine level. The nerve can be affected by disc material, bone spurs, or tight muscles along its path.
 
 When the nerve is irritated, it can cause pain, numbness, or weakness anywhere along its path from the back to the foot. The location and type of symptoms help identify where the problem originates.`,
+
+    biomechanics: `Prolonged sitting is one of the biggest culprits I see with sciatica. When you sit, especially with poor posture, you increase the pressure on your lumbar discs by up to 40% compared to standing. This forward-slumped position narrows the spaces where nerves exit your spine, potentially compressing the nerve roots that form your sciatic nerve.
+
+Poor lifting mechanics multiply the problem. When you bend at your waist with a rounded back instead of squatting down, you can increase disc pressure by 300%. Combined with lifting weight away from your body, this creates massive compressive and shearing forces on your lower spine. Repetitive bending, twisting, and lifting - especially first thing in the morning when your discs are most hydrated and vulnerable - sets up the perfect storm for disc problems.
+
+Your movement patterns throughout the day matter tremendously. Tight hip flexors from prolonged sitting pull on your lower back, forcing your lumbar spine into excessive extension. Weak glutes fail to stabilize your pelvis during walking and stair climbing, placing extra demands on your spine. Even something as simple as how you get out of bed or your car can repeatedly stress the exact structures that are already irritated.`,
 
     clinicalPresentation: {
       primarySymptoms: [
@@ -427,6 +445,12 @@ When the nerve is irritated, it can cause pain, numbness, or weakness anywhere a
 
 Poor blood supply to certain areas of these tendons makes healing slower. Shoulder blade positioning and muscle imbalances often contribute to ongoing irritation.`,
 
+    biomechanics: `Forward head posture and rounded shoulders create the perfect storm for rotator cuff problems. When your head sits forward of your shoulders, it pulls your shoulder blades into a protracted position, reducing the space under your acromion where the rotator cuff tendons pass through. This sets up impingement with every arm movement, particularly overhead activities.
+
+Repetitive overhead movements in work or sports place massive demands on these small stabilizing muscles. Your rotator cuff has to work overtime when your shoulder blade doesn't move properly - and poor desk posture weakens the muscles that control your shoulder blade position. Over time, this creates a cycle where the stronger, superficial muscles like your deltoid compensate for weak rotator cuff muscles, leading to altered movement patterns.
+
+The most damaging factor I see is the combination of poor posture with repetitive activities. Whether you're reaching overhead to stock shelves, swimming, or even just reaching for items in high cupboards, if your shoulder blade isn't positioned correctly and moving smoothly, your rotator cuff tendons get pinched and compressed with every movement. Age compounds this problem as the tendons naturally lose some of their elasticity and blood supply, making them more vulnerable to these mechanical stresses.`,
+
     clinicalPresentation: {
       primarySymptoms: [
         "Shoulder pain, especially with overhead activities",
@@ -537,6 +561,12 @@ Poor blood supply to certain areas of these tendons makes healing slower. Should
     pathophysiology: `Tennis elbow involves degeneration of the tendons on the outside of your elbow, primarily the extensor carpi radialis brevis. Despite the name, it's rarely from tennis. The tendon develops small tears and becomes disorganized rather than inflamed.
 
 Repetitive gripping and wrist movements overload the tendon beyond its capacity to repair, leading to pain and weakness.`,
+
+    biomechanics: `Poor wrist and grip mechanics are the primary drivers of tennis elbow. When you grip objects with your wrist bent back (extended) rather than in a neutral position, you place massive stress on the extensor tendons at your elbow. This is exactly what happens during computer use when you rest your wrist on a pad while typing, or when gripping tools with your wrist cocked back.
+
+The grip itself matters enormously. Activities requiring sustained, forceful gripping - like using a screwdriver, carrying shopping bags by the handles, or squeezing a computer mouse - create eccentric loading on the extensor carpi radialis brevis tendon. This tendon has to work overtime to stabilize your wrist while you grip, especially when the load is held away from your body with your elbow extended.
+
+Repetitive activities compound the problem. Whether it's painting, using hand tools, or even playing tennis with poor technique, the constant contraction and relaxation of these small forearm muscles creates microtrauma faster than the tissue can repair. Computer work is a massive contributor - hours of mouse clicking and typing with poor wrist positioning creates the perfect recipe for overload. Even the way you lift objects matters: lifting with your palm down (pronated) and elbow straight places much higher demands on these tendons than lifting with your palm up and elbow bent.`,
 
     clinicalPresentation: {
       primarySymptoms: [
@@ -747,6 +777,10 @@ Contributing factors include calf tightness, foot mechanics, and sudden changes 
       }
     ],
 
+    biomechanics: `Several biomechanical factors can contribute to plantar fasciitis development. Tight calf muscles limit ankle flexibility, increasing stress on the plantar fascia. Altered foot mechanics like excessive pronation or high arches change how forces distribute through your foot.
+
+Sudden increases in activity, changes in footwear, or prolonged standing on hard surfaces can overload the tissue. Body weight also influences the load on your feet - each pound of body weight translates to about 3-4 pounds of force through the plantar fascia during walking.`,
+
     measuringProgress: {
       dayToDay: "I track morning pain levels, ability to stand/walk duration, and functional activities",
       questionnaires: "Foot Function Index helps monitor overall progress",
@@ -762,6 +796,12 @@ Contributing factors include calf tightness, foot mechanics, and sudden changes 
     pathophysiology: `Whiplash involves rapid acceleration-deceleration forces affecting neck structures. Multiple tissues can be injured including muscles, ligaments, joints, and discs. The initial inflammatory response is followed by muscle guarding and altered movement patterns.
 
 Central nervous system changes can occur, leading to heightened pain sensitivity and slower recovery in some cases.`,
+
+    biomechanics: `The biomechanics of whiplash are more complex than simple "back and forth" head movement. In a rear-end collision, your body gets pushed forward by the seat while your head initially stays put due to inertia. This creates a dangerous S-shaped curve in your neck - your lower cervical vertebrae extend backward while your upper neck flexes forward. This unnatural position occurs in just 50-75 milliseconds, faster than your muscles can react to protect you.
+
+What makes whiplash particularly damaging is the combination of forces involved. There's not just extension and flexion, but also compression, shearing, and potentially rotation if you were turned when the impact occurred. Your head can weigh 10-12 pounds, but during the whiplash motion, the forces on your neck structures can multiply dramatically. The small facet joints, ligaments, and muscles that normally provide stability are overwhelmed by these rapid, excessive forces.
+
+The speed of impact doesn't have to be high to cause injury - whiplash can occur at speeds as low as 5-10 mph. This is because the change in velocity (delta-V) matters more than absolute speed. Even minor fender-benders can generate enough force to stress neck tissues beyond their normal limits. Position matters too: if your head was turned, your seat wasn't properly adjusted, or you weren't braced for impact, the forces distribute unevenly, potentially causing more localized damage to one side of your neck.`,
 
     clinicalPresentation: {
       primarySymptoms: [
@@ -878,6 +918,12 @@ Central nervous system changes can occur, leading to heightened pain sensitivity
 
 The exact trigger is often unknown but can follow injury, surgery, or periods of immobilization.`,
 
+    biomechanics: `The development of frozen shoulder often follows a pattern of disuse and protective guarding. When your shoulder hurts, your natural response is to avoid moving it, which seems logical but unfortunately sets up a destructive cycle. The less you move your shoulder, the more the joint capsule tightens and adheres to itself, creating the "frozen" sensation.
+
+Compensation patterns play a huge role in both the development and perpetuation of frozen shoulder. When your shoulder becomes stiff, you'll unconsciously start using your neck, upper back, and other shoulder to perform daily tasks. This creates massive overuse in these areas while your affected shoulder becomes progressively stiffer from disuse. I see this pattern constantly - patients come in with secondary neck pain and upper back tension from months of compensating for their frozen shoulder.
+
+Poor posture compounds the problem significantly. Forward head posture and rounded shoulders, common from desk work or general poor posture habits, place the shoulder capsule in a shortened position. When the capsule becomes inflamed and begins to tighten, it contracts into this already shortened position, making the restriction even more severe. Risk factors like diabetes, thyroid conditions, or previous shoulder injuries seem to predispose the capsule to this inflammatory and fibrotic response, turning what might be minor irritation into a major restriction.`,
+
     clinicalPresentation: {
       primarySymptoms: [
         "Progressive loss of shoulder movement",
@@ -989,6 +1035,12 @@ The exact trigger is often unknown but can follow injury, surgery, or periods of
 
 After injury, the knee loses rotational stability, leading to episodes of giving way and potential damage to other structures like the meniscus and cartilage.`,
 
+    biomechanics: `The majority of ACL injuries happen without any direct contact to the knee - they're usually the result of poor movement mechanics during cutting, jumping, and landing. The classic injury pattern I see involves a combination of knee valgus (knee caving inward), limited knee flexion (landing stiff-legged), and foot positioned too far from the body's center of mass. This creates massive rotational and shearing forces that exceed the ACL's capacity.
+
+Landing mechanics are absolutely critical. When you land from a jump with straight or minimally bent knees, your ACL has to absorb enormous forces that should be distributed through your entire leg. Female athletes are particularly vulnerable to this pattern because they tend to land in more knee valgus and with less hip and knee flexion compared to males. Add in lateral trunk lean (shifting your body weight over one leg) and you create the perfect storm for ACL failure.
+
+The "position of no return" happens during cutting movements when your foot plants and your knee starts to collapse inward while your body continues moving in a different direction. This typically occurs in the first 50 milliseconds of the movement - faster than you can consciously react. Poor hip strength, particularly weak glutes, contributes significantly because your glutes should control your thigh position and prevent excessive knee valgus. Fatigue makes everything worse, as tired muscles can't maintain proper alignment, especially late in games or training sessions.`,
+
     clinicalPresentation: {
       primarySymptoms: [
         "Immediate swelling after injury",
@@ -1086,6 +1138,12 @@ After injury, the knee loses rotational stability, leading to episodes of giving
 
 Most herniations occur at L4-5 and L5-S1 levels in the lower back, or C5-6 and C6-7 in the neck.`,
 
+    biomechanics: `Disc herniations are strongly linked to specific loading patterns and movement mechanics. The most dangerous combination is forward bending with rotation while lifting - this creates asymmetric loading that can cause the disc's outer ring to fail. When you bend forward and twist at the same time, you create massive shearing forces through the disc that are particularly damaging to the posterior and posterolateral aspects where most herniations occur.
+
+Morning activities are particularly risky because your discs absorb fluid overnight, making them larger and more vulnerable to injury in the first hour after waking. Something as simple as bending over to pick up a sock or reaching for a toothbrush can be the final straw if your disc is already compromised. This is why many people report their disc injury happened during a seemingly minor activity.
+
+Prolonged sitting followed by sudden movement is another classic pattern. When you sit for extended periods, your discs experience increased pressure and your hip flexors tighten. When you suddenly stand and bend forward, you combine high disc pressure with poor movement mechanics from tight hips and weak glutes. Poor lifting technique compounds this - lifting with a rounded back, lifting away from your body, or lifting while seated all dramatically increase the forces through your discs and make herniation more likely.`,
+
     clinicalPresentation: {
       primarySymptoms: [
         "Back or neck pain with radiation",
@@ -1180,6 +1238,12 @@ Most herniations occur at L4-5 and L5-S1 levels in the lower back, or C5-6 and C
 
   'knee-osteoarthritis': {
     pathophysiology: `Osteoarthritis involves breakdown of cartilage, changes in underlying bone, and inflammation of the joint lining. It's not just wear and tear but an active process involving the whole joint. Muscle weakness, particularly quadriceps, accelerates progression.`,
+
+    biomechanics: `Knee osteoarthritis isn't simply "wear and tear" but rather the result of abnormal loading patterns that overwhelm your joint's ability to maintain healthy cartilage. The most significant biomechanical factor is quadriceps weakness, which creates a devastating cycle: weak quads fail to adequately absorb impact forces during walking, stairs, and daily activities, placing greater stress on your knee cartilage. As the cartilage breaks down and becomes painful, you naturally become less active, leading to even greater muscle weakness.
+
+Poor movement patterns compound the problem significantly. When your glutes are weak, you lose control of your thigh position, often leading to knee valgus (knee caving inward) during weight-bearing activities. This shifts the loading away from the healthy center of your knee joint to the edges, accelerating cartilage breakdown in these areas. Similarly, tight hip flexors from prolonged sitting alter your walking pattern, reducing knee extension during push-off and creating abnormal shearing forces through the knee.
+
+Previous injuries create lasting biomechanical changes that predispose you to osteoarthritis. An old ACL injury, meniscus tear, or even a significant ankle sprain can subtly alter how you move, creating compensatory patterns that overload your knee joint in ways it wasn't designed to handle. Obesity significantly accelerates this process - not just from the extra weight, but because excess weight often leads to muscle weakness and altered movement patterns that multiply the mechanical stress on your knees during daily activities like stair climbing and getting up from chairs.`,
 
     clinicalPresentation: {
       primarySymptoms: [
@@ -1292,6 +1356,12 @@ Most herniations occur at L4-5 and L5-S1 levels in the lower back, or C5-6 and C
 
 The outer third has blood supply and can heal, while the inner portion has poor healing capacity.`,
 
+    biomechanics: `Meniscus tears happen through two distinct mechanical patterns. Traumatic tears in younger athletes typically occur during cutting or pivoting movements when the foot is planted and the knee twists, trapping the meniscus between the femur and tibia. This mechanism is particularly dangerous when the knee is slightly bent and rotates under load - like when you plant your foot to change direction in sports.
+
+Degenerative tears follow a different pattern and are much more common after age 40. These develop gradually from repetitive compressive and rotational forces during normal activities. As we age, the meniscus becomes less elastic and more prone to tearing from everyday movements like squatting, kneeling, or even getting up from a low chair. The wear and tear is often accelerated by previous knee injuries, muscle imbalances, or activities involving repeated knee rotation under load.
+
+Poor movement mechanics significantly contribute to meniscus problems. Weak glutes and hip muscles fail to control your thigh position, allowing excessive inward collapse of the knee during activities. This altered loading pattern places abnormal stresses on specific areas of the meniscus rather than distributing forces evenly. Tight IT bands or hamstrings can also alter knee mechanics, creating uneven wear patterns on the meniscus over time. Once the meniscus is damaged, it can catch or pinch during normal knee movement, creating mechanical symptoms like clicking, locking, or catching.`,
+
     clinicalPresentation: {
       primarySymptoms: [
         "Knee pain along joint line",
@@ -1386,6 +1456,12 @@ The outer third has blood supply and can heal, while the inner portion has poor 
 
   'it-band-syndrome': {
     pathophysiology: `IT band syndrome involves irritation where the iliotibial band crosses the lateral knee. It's not friction but compression of sensitive fat pad beneath the band. Contributing factors include hip weakness, training errors, and biomechanical issues.`,
+
+    biomechanics: `IT band syndrome is almost always a hip problem disguised as a knee problem. Weak glutes, particularly the gluteus medius, fail to control your thigh position during running and walking. When your hip drops on one side during single-leg activities, it causes your thigh to angle inward (hip adduction), which increases tension in the IT band and compresses the sensitive tissue underneath it at the knee.
+
+Running mechanics play a huge role in developing IT band syndrome. Overstriding (landing with your foot too far in front of your body), excessive crossover gait (feet landing across the midline), and running with too much vertical oscillation all increase IT band tension. Downhill running is particularly problematic because it encourages longer stride lengths and places greater demands on your hip stabilizers. When your hip muscles fatigue, your running form deteriorates, creating even more IT band stress.
+
+Training errors compound the biomechanical issues. Sudden increases in mileage, running primarily on cambered roads (which creates uneven leg lengths), or consistently running in the same direction on tracks forces your body to adapt to asymmetric loading patterns. Tight hip flexors from prolonged sitting limit hip extension during running, forcing your IT band to work harder to stabilize your pelvis. Even factors like leg length differences or old ankle injuries can alter your gait pattern enough to overload one IT band. The key insight is that the IT band itself is rarely the problem - it's usually responding to poor control from the hip above.`,
 
     clinicalPresentation: {
       primarySymptoms: [
@@ -1482,6 +1558,12 @@ The outer third has blood supply and can heal, while the inner portion has poor 
   'ankle-sprains': {
     pathophysiology: `Ankle sprains involve stretching or tearing of ligaments, usually the lateral ligaments (ATFL, CFL). This damages mechanoreceptors, affecting proprioception. Without proper rehabilitation, chronic instability can develop.`,
 
+    biomechanics: `Most ankle sprains happen when your foot lands in an inverted position (turned inward) with your body weight shifted over the outside edge of your ankle. This classic mechanism occurs because your lateral ankle ligaments are much weaker than the medial ones, making them vulnerable when your center of gravity moves over the lateral border of your foot. The dangerous moment happens when your foot makes contact with the ground while inverted - there's simply not enough time for your muscles to react and correct the position.
+
+Poor landing mechanics significantly increase your risk. When you land on an unstable surface or with poor body control, your foot may contact the ground in excessive inversion before your peroneal muscles can fire to correct it. Your peroneal muscles normally act as a protective mechanism, but they need about 60-80 milliseconds to respond to a sudden inversion force. Unfortunately, an ankle sprain can occur in as little as 20-40 milliseconds - much faster than your muscles can react.
+
+Previous ankle sprains create a vicious cycle of instability. The initial injury damages the mechanoreceptors in your ligaments that provide balance and position feedback to your brain. Without this proprioceptive input, you're much more likely to land awkwardly or lose balance, leading to repeat sprains. This is why people often say their ankle "gives out" or they have a "weak ankle" - it's not actually weakness, but rather poor balance control and position sense from the damaged ligament receptors.`,
+
     clinicalPresentation: {
       primarySymptoms: [
         "Pain on outside of ankle",
@@ -1576,6 +1658,12 @@ The outer third has blood supply and can heal, while the inner portion has poor 
 
   'achilles-tendinopathy': {
     pathophysiology: `Achilles tendinopathy involves degenerative changes in the tendon rather than inflammation. The tendon's collagen becomes disorganized and new blood vessels grow into the tendon. This can occur at the mid-portion or insertion.`,
+
+    biomechanics: `Achilles tendinopathy typically develops from a combination of training load mismanagement and poor biomechanics. Your Achilles tendon has to handle forces up to 8-12 times your body weight during activities like running and jumping, making it incredibly sensitive to changes in load. The classic pattern I see is someone who increases their training volume or intensity too quickly, or returns to activity after a break without gradually building up their tendon capacity.
+
+Running mechanics significantly influence Achilles tendon loading. A forefoot or midfoot strike pattern generally loads the Achilles more than heel striking, which can be problematic if your tendon isn't adapted to higher loads. Overpronation (excessive foot flattening) creates a whipping action in the tendon that can contribute to overload, particularly at the insertion point. Tight calf muscles or poor ankle flexibility force your Achilles to work harder during push-off and limit your ability to absorb impact forces effectively.
+
+Footwear and training surface changes can trigger Achilles problems even in experienced athletes. Switching to more minimalist shoes or zero-drop footwear significantly increases the load on your Achilles. Running on hills, particularly uphill running which requires more plantar flexion power, or sudden increases in plyometric or jumping activities can overload the tendon. Age compounds these factors because the tendon naturally becomes less elastic and has reduced blood supply, making it more vulnerable to developing the degenerative changes characteristic of tendinopathy rather than healing normally from micro-damage.`,
 
     clinicalPresentation: {
       primarySymptoms: [
@@ -1672,6 +1760,12 @@ The outer third has blood supply and can heal, while the inner portion has poor 
   'shin-splints': {
     pathophysiology: `Medial tibial stress syndrome involves periosteal irritation and microtears where muscles attach to the tibia. It represents bone stress on a continuum that can progress to stress fracture without proper management.`,
 
+    biomechanics: `Shin splints typically develop from a combination of training errors and biomechanical factors that overload the muscles and bone along your tibia. The classic scenario is too much, too soon - suddenly increasing your running mileage, intensity, or frequency without allowing your body to adapt. Your muscles, tendons, and bone all adapt to increased loads at different rates, with bone being the slowest to strengthen. When you progress faster than your bone can adapt, you get the painful periosteal irritation characteristic of shin splints.
+
+Running surface and footwear changes are major contributors. Switching from grass or trail running to concrete or asphalt dramatically increases the impact forces your legs must absorb. Similarly, running in worn-out shoes or switching to shoes with different cushioning properties can alter the loads placed on your shins. Many people develop shin splints when they start a new running program on hard surfaces after being sedentary, because their bones haven't had the gradual loading needed to strengthen appropriately.
+
+Biomechanical factors significantly influence shin splint development. Overpronation (excessive flattening of your foot) increases the eccentric load on the muscles along the inside of your shin as they work to control the foot's motion. Tight calves force these muscles to work harder to lift your foot during the swing phase of running. Hip weakness, particularly weak glutes, can alter your entire leg alignment, creating abnormal stresses throughout your lower leg. Even factors like running primarily on cambered roads or always running the same direction on a track can create asymmetric loading patterns that predispose one leg to developing shin splints.`,
+
     clinicalPresentation: {
       primarySymptoms: [
         "Pain along inner shin bone",
@@ -1762,6 +1856,12 @@ The outer third has blood supply and can heal, while the inner portion has poor 
 
   'golfers-elbow': {
     pathophysiology: `Medial epicondylitis involves degeneration of the flexor-pronator tendons at the medial elbow. Like tennis elbow, it's degenerative rather than inflammatory, with disorganized collagen and neovascularization.`,
+
+    biomechanics: `Golfers elbow develops from repetitive gripping activities combined with wrist flexion and forearm rotation. Unlike tennis elbow, this affects the tendons on the inside of your elbow that control wrist flexion and gripping. The classic mechanism involves forceful gripping while your wrist is bent forward (flexed) - think about gripping a golf club during the downswing, using a hammer, or even carrying heavy bags with your wrist bent.
+
+Computer work and manual activities are common causes outside of sports. Prolonged typing with your wrists bent down (rather than in a neutral position), using tools that require sustained gripping with wrist flexion, or carrying heavy objects with your palms facing down all overload these tendons. The position is particularly stressful when you combine gripping with forearm rotation - like turning a wrench or opening tight jar lids.
+
+Golf technique issues are the classic sports-related cause, hence the name. Poor swing mechanics that create excessive wrist action during the downswing, gripping the club too tightly, or hitting the ground repeatedly during practice sessions all overload the flexor tendons. However, I see this condition more often from occupational activities than golf. Activities like carpentry, plumbing, cooking, or any job requiring sustained gripping while the wrist is flexed forward can gradually overload these tendons beyond their repair capacity, leading to the degenerative changes characteristic of golfers elbow.`,
 
     clinicalPresentation: {
       primarySymptoms: [
@@ -1854,6 +1954,12 @@ The outer third has blood supply and can heal, while the inner portion has poor 
   'carpal-tunnel-syndrome': {
     pathophysiology: `Carpal tunnel syndrome involves compression of the median nerve as it passes through the wrist. Increased pressure in the tunnel from swelling, repetitive use, or anatomical factors affects nerve function.`,
 
+    biomechanics: `Carpal tunnel syndrome typically develops from sustained or repetitive activities that increase pressure within the narrow carpal tunnel where your median nerve passes through your wrist. The key biomechanical factor is wrist position - any activity that keeps your wrist bent (either forward or backward) for extended periods increases pressure in the tunnel and compresses the nerve. Computer work is a classic culprit, especially when your keyboard and mouse are positioned too high or too low, forcing your wrists into sustained extension.
+
+Repetitive hand movements, particularly those involving forceful gripping or pinching, significantly contribute to the problem. Assembly line work, using vibrating tools, playing musical instruments, or any activity requiring repeated flexion and extension of your fingers while gripping increases the mechanical stress on the median nerve. The combination of sustained wrist deviation with repetitive finger movements is particularly problematic because it maximizes the pressure within the carpal tunnel.
+
+Poor ergonomics in daily activities compound the issue. Sleeping with your wrists curled under your pillow, holding your phone with a bent wrist for extended periods, or activities like knitting or crafts that require sustained pinch grip with wrist flexion all contribute to nerve compression. The position of your entire arm matters too - when your shoulders are rounded forward and your arms are internally rotated (common with poor desk posture), it can create tension throughout your entire arm that affects nerve function all the way down to your wrist.`,
+
     clinicalPresentation: {
       primarySymptoms: [
         "Numbness/tingling in thumb and first 3 fingers",
@@ -1944,6 +2050,12 @@ The outer third has blood supply and can heal, while the inner portion has poor 
 
   'de-quervains-tenosynovitis': {
     pathophysiology: `De Quervain's involves thickening of the tendon sheath around the thumb tendons (APL and EPB). This creates a stenosis that irritates the tendons with thumb and wrist movement.`,
+
+    biomechanics: `De Quervain's tenosynovitis typically develops from repetitive thumb movements combined with ulnar deviation (bending your wrist toward your little finger). The classic movement pattern that triggers this condition is lifting or grasping with your thumb while simultaneously bending your wrist sideways. This combination creates maximum stress on the APL and EPB tendons as they pass through the narrow tunnel at your wrist.
+
+New parent activities are a notorious trigger - repeatedly lifting a baby while supporting their head creates the perfect storm of thumb abduction and wrist deviation. The "baby lift" movement, where you scoop up an infant with your thumbs extended and wrists bent, places enormous strain on these tendons. Text messaging, smartphone use, and gaming can also contribute, especially when you use your thumb for extended periods while your wrist is in an awkward position.
+
+Occupational activities involving repetitive pinching, gripping, or twisting while using your thumb are major contributors. Activities like hairdressing (using scissors), gardening (pruning with secateurs), or any job requiring sustained pinch grip with wrist deviation can gradually irritate the tendon sheath. Even seemingly minor activities like wringing out washcloths, opening jars, or using a computer mouse for extended periods can trigger symptoms if done repeatedly with poor wrist and thumb positioning. The condition is particularly common in women, possibly due to hormonal factors that affect tendon healing, combined with activities like childcare that involve repetitive thumb loading.`,
 
     clinicalPresentation: {
       primarySymptoms: [
@@ -4357,7 +4469,7 @@ export function getDetailedCondition(slug: string, baseCondition: Condition): Co
     keywords: detailedContent.keywords || baseCondition.keywords,
     // Map new structure to old for backward compatibility if needed
     overview: detailedContent.pathophysiology || baseCondition.overview,
-    biomechanics: detailedContent.pathophysiology || baseCondition.biomechanics,
+    biomechanics: detailedContent.biomechanics || baseCondition.biomechanics,
     treatmentApproach: detailedContent.evidenceBasedTreatment ? {
       title: 'Evidence-Based Treatment',
       description: 'Treatment approaches supported by current research and clinical guidelines',

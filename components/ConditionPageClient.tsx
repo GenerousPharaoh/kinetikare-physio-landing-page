@@ -23,6 +23,7 @@ import {
   Bars3Icon,
   XMarkIcon,
   ChevronDownIcon,
+  ChevronUpIcon,
   BookOpenIcon,
   ExclamationCircleIcon
 } from '@heroicons/react/24/outline';
@@ -46,6 +47,21 @@ export default function ConditionPageClient({
 }: ConditionPageClientProps) {
   const [activeTab, setActiveTab] = useState('overview');
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
+  
+  // Management tab collapsible sections
+  const [expandedManagementSections, setExpandedManagementSections] = useState<{ [key: string]: boolean }>({
+    'evidence-based': true, // Start with first section expanded
+    'prognosis': false,
+    'measuring': false,
+    'faqs': false
+  });
+  
+  const toggleManagementSection = (section: string) => {
+    setExpandedManagementSections(prev => ({
+      ...prev,
+      [section]: !prev[section]
+    }));
+  };
 
   // Check if condition has detailed content
   const hasDetailedContent = Boolean(
@@ -565,20 +581,41 @@ export default function ConditionPageClient({
                               <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 via-transparent to-blue-50/30 pointer-events-none"></div>
                               
                               <div className="relative">
-                                {/* Header with gradient accent */}
-                                <div className="bg-gradient-to-r from-slate-900 to-slate-700 px-8 py-6">
-                                  <div className="flex items-center gap-3">
-                                    <div className="p-2.5 bg-white/10 backdrop-blur rounded-xl border border-white/20">
-                                      <BeakerIcon className="h-6 w-6 text-white" />
+                                {/* Header with gradient accent - Now clickable */}
+                                <div 
+                                  className="bg-gradient-to-r from-slate-900 to-slate-700 px-8 py-6 cursor-pointer hover:from-slate-800 hover:to-slate-600 transition-all"
+                                  onClick={() => toggleManagementSection('evidence-based')}
+                                >
+                                  <div className="flex items-center justify-between">
+                                    <div className="flex items-center gap-3">
+                                      <div className="p-2.5 bg-white/10 backdrop-blur rounded-xl border border-white/20">
+                                        <BeakerIcon className="h-6 w-6 text-white" />
+                                      </div>
+                                      <div>
+                                        <h2 className="text-2xl font-bold text-white">Evidence-Based Management</h2>
+                                        <p className="text-sm text-slate-200 mt-1">Comprehensive treatment strategies with proven outcomes</p>
+                                      </div>
                                     </div>
-                                    <div>
-                                      <h2 className="text-2xl font-bold text-white">Evidence-Based Management</h2>
-                                      <p className="text-sm text-slate-200 mt-1">Comprehensive treatment strategies with proven outcomes</p>
+                                    <div className="p-2 bg-white/10 backdrop-blur rounded-lg">
+                                      {expandedManagementSections['evidence-based'] ? (
+                                        <ChevronUpIcon className="h-5 w-5 text-white" />
+                                      ) : (
+                                        <ChevronDownIcon className="h-5 w-5 text-white" />
+                                      )}
                                     </div>
                                   </div>
                                 </div>
                                 
-                                <div className="p-8">
+                                <AnimatePresence>
+                                  {expandedManagementSections['evidence-based'] && (
+                                    <motion.div 
+                                      initial={{ height: 0, opacity: 0 }}
+                                      animate={{ height: 'auto', opacity: 1 }}
+                                      exit={{ height: 0, opacity: 0 }}
+                                      transition={{ duration: 0.3 }}
+                                      className="overflow-hidden"
+                                    >
+                                      <div className="p-8">
                                   <div className="space-y-6">
                                     {/* Evidence Snapshot Cards */}
                                     {condition.evidenceSnapshot && (
@@ -725,7 +762,10 @@ export default function ConditionPageClient({
                                       </div>
                                     )}
                                   </div>
-                                </div>
+                                      </div>
+                                    </motion.div>
+                                  )}
+                                </AnimatePresence>
                               </div>
                             </div>
                           )}
@@ -736,22 +776,43 @@ export default function ConditionPageClient({
                               <div className="absolute inset-0 bg-gradient-to-br from-purple-50/30 via-transparent to-pink-50/20 pointer-events-none"></div>
                               
                               <div className="relative">
-                                {/* Header with gradient accent */}
-                                <div className="bg-gradient-to-r from-purple-900 to-purple-700 px-8 py-6">
-                                  <div className="flex items-center gap-3">
-                                    <div className="p-2.5 bg-white/10 backdrop-blur rounded-xl border border-white/20">
-                                      <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                                      </svg>
+                                {/* Header with gradient accent - Clickable */}
+                                <div 
+                                  className="bg-gradient-to-r from-purple-900 to-purple-700 px-8 py-6 cursor-pointer hover:from-purple-800 hover:to-purple-600 transition-all"
+                                  onClick={() => toggleManagementSection('prognosis')}
+                                >
+                                  <div className="flex items-center justify-between">
+                                    <div className="flex items-center gap-3">
+                                      <div className="p-2.5 bg-white/10 backdrop-blur rounded-xl border border-white/20">
+                                        <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                          <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                                        </svg>
+                                      </div>
+                                      <div>
+                                        <h2 className="text-2xl font-bold text-white">Prognosis & Recovery</h2>
+                                        <p className="text-sm text-purple-200 mt-1">Expected outcomes and recovery factors</p>
+                                      </div>
                                     </div>
-                                    <div>
-                                      <h2 className="text-2xl font-bold text-white">Prognosis & Recovery</h2>
-                                      <p className="text-sm text-purple-200 mt-1">Expected outcomes and recovery factors</p>
+                                    <div className="p-2 bg-white/10 backdrop-blur rounded-lg">
+                                      {expandedManagementSections['prognosis'] ? (
+                                        <ChevronUpIcon className="h-5 w-5 text-white" />
+                                      ) : (
+                                        <ChevronDownIcon className="h-5 w-5 text-white" />
+                                      )}
                                     </div>
                                   </div>
                                 </div>
                                 
-                                <div className="p-8">
+                                <AnimatePresence>
+                                  {expandedManagementSections['prognosis'] && (
+                                    <motion.div
+                                      initial={{ height: 0, opacity: 0 }}
+                                      animate={{ height: 'auto', opacity: 1 }}
+                                      exit={{ height: 0, opacity: 0 }}
+                                      transition={{ duration: 0.3 }}
+                                      className="overflow-hidden"
+                                    >
+                                      <div className="p-8">
                                   <div className="space-y-5">
                                     {/* Timeline Card */}
                                     <div className="group relative bg-gradient-to-r from-purple-50/50 to-purple-50/20 rounded-xl p-6 border border-purple-100 hover:shadow-md transition-all">
@@ -815,7 +876,10 @@ export default function ConditionPageClient({
                                       </div>
                                     )}
                                   </div>
-                                </div>
+                                      </div>
+                                    </motion.div>
+                                  )}
+                                </AnimatePresence>
                               </div>
                             </div>
                           )}
@@ -828,21 +892,42 @@ export default function ConditionPageClient({
                               
                               <div className="relative">
                                 {/* Header with gradient accent */}
-                                <div className="bg-gradient-to-r from-green-900 to-green-700 px-8 py-6">
-                                  <div className="flex items-center gap-3">
-                                    <div className="p-2.5 bg-white/10 backdrop-blur rounded-xl border border-white/20">
-                                      <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                                      </svg>
+                                <div 
+                                  className="bg-gradient-to-r from-green-900 to-green-700 px-8 py-6 cursor-pointer hover:from-green-800 hover:to-green-600 transition-all"
+                                  onClick={() => toggleManagementSection('measuring')}
+                                >
+                                  <div className="flex items-center justify-between">
+                                    <div className="flex items-center gap-3">
+                                      <div className="p-2.5 bg-white/10 backdrop-blur rounded-xl border border-white/20">
+                                        <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                        </svg>
+                                      </div>
+                                      <div>
+                                        <h2 className="text-2xl font-bold text-white">Measuring Progress</h2>
+                                        <p className="text-sm text-green-200 mt-1">Track your recovery journey</p>
+                                      </div>
                                     </div>
-                                    <div>
-                                      <h2 className="text-2xl font-bold text-white">Measuring Progress</h2>
-                                      <p className="text-sm text-green-200 mt-1">Track your recovery journey</p>
+                                    <div className="p-2 bg-white/10 backdrop-blur rounded-lg">
+                                      {expandedManagementSections['measuring'] ? (
+                                        <ChevronUpIcon className="h-5 w-5 text-white" />
+                                      ) : (
+                                        <ChevronDownIcon className="h-5 w-5 text-white" />
+                                      )}
                                     </div>
                                   </div>
                                 </div>
                                 
-                                <div className="p-8">
+                                <AnimatePresence>
+                                  {expandedManagementSections['measuring'] && (
+                                    <motion.div
+                                      initial={{ height: 0, opacity: 0 }}
+                                      animate={{ height: 'auto', opacity: 1 }}
+                                      exit={{ height: 0, opacity: 0 }}
+                                      transition={{ duration: 0.3 }}
+                                      className="overflow-hidden"
+                                    >
+                                      <div className="p-8">
                                   <div className="space-y-5">
                                     {/* Day-to-Day Tracking Card */}
                                     <div className="group relative bg-gradient-to-r from-green-50/50 to-green-50/20 rounded-xl p-6 border border-green-100 hover:shadow-md transition-all">
@@ -909,7 +994,10 @@ export default function ConditionPageClient({
                                       </div>
                                     </div>
                                   </div>
-                                </div>
+                                      </div>
+                                    </motion.div>
+                                  )}
+                                </AnimatePresence>
                               </div>
                             </div>
                           )}
@@ -922,19 +1010,40 @@ export default function ConditionPageClient({
                               
                               <div className="relative">
                                 {/* Header with gradient accent */}
-                                <div className="bg-gradient-to-r from-blue-900 to-blue-700 px-8 py-6">
-                                  <div className="flex items-center gap-3">
-                                    <div className="p-2.5 bg-white/10 backdrop-blur rounded-xl border border-white/20">
-                                      <QuestionMarkCircleIcon className="h-6 w-6 text-white" />
+                                <div 
+                                  className="bg-gradient-to-r from-blue-900 to-blue-700 px-8 py-6 cursor-pointer hover:from-blue-800 hover:to-blue-600 transition-all"
+                                  onClick={() => toggleManagementSection('faqs')}
+                                >
+                                  <div className="flex items-center justify-between">
+                                    <div className="flex items-center gap-3">
+                                      <div className="p-2.5 bg-white/10 backdrop-blur rounded-xl border border-white/20">
+                                        <QuestionMarkCircleIcon className="h-6 w-6 text-white" />
+                                      </div>
+                                      <div>
+                                        <h2 className="text-2xl font-bold text-white">Frequently Asked Questions</h2>
+                                        <p className="text-sm text-blue-200 mt-1">Common concerns and answers</p>
+                                      </div>
                                     </div>
-                                    <div>
-                                      <h2 className="text-2xl font-bold text-white">Frequently Asked Questions</h2>
-                                      <p className="text-sm text-blue-200 mt-1">Common concerns and answers</p>
+                                    <div className="p-2 bg-white/10 backdrop-blur rounded-lg">
+                                      {expandedManagementSections['faqs'] ? (
+                                        <ChevronUpIcon className="h-5 w-5 text-white" />
+                                      ) : (
+                                        <ChevronDownIcon className="h-5 w-5 text-white" />
+                                      )}
                                     </div>
                                   </div>
                                 </div>
                                 
-                                <div className="p-8">
+                                <AnimatePresence>
+                                  {expandedManagementSections['faqs'] && (
+                                    <motion.div
+                                      initial={{ height: 0, opacity: 0 }}
+                                      animate={{ height: 'auto', opacity: 1 }}
+                                      exit={{ height: 0, opacity: 0 }}
+                                      transition={{ duration: 0.3 }}
+                                      className="overflow-hidden"
+                                    >
+                                      <div className="p-8">
                                   <div className="space-y-5">
                                     {condition.faqs.map((faq, index) => {
                                       const colors = [
@@ -968,7 +1077,10 @@ export default function ConditionPageClient({
                                       );
                                     })}
                                   </div>
-                                </div>
+                                      </div>
+                                    </motion.div>
+                                  )}
+                                </AnimatePresence>
                               </div>
                             </div>
                           )}

@@ -4445,52 +4445,1646 @@ Common aggravating factors include the 'boom-bust' cycle of overdoing on good da
 
   // Placeholder entries for conditions under development
   'knee-pain-patellofemoral': {
-    // Coming soon - comprehensive content under development
+    pathophysiology: `Patellofemoral pain syndrome involves dysfunction at the interface where your kneecap (patella) meets your thigh bone (femur). The condition typically develops when your patella doesn't track properly in its groove during knee movement, creating abnormal pressure and stress on the joint cartilage.
+
+The patella normally glides smoothly in the trochlear groove of the femur, but when muscle imbalances or structural factors alter this tracking, certain areas of cartilage experience increased compression. This can lead to irritation of pain-sensitive structures including the joint capsule, synovium, and subchondral bone.
+
+Research shows that people with patellofemoral pain often have altered biomechanics during functional activities, with changes in how forces are distributed across the joint during weight-bearing movements like squatting, stair climbing, and landing from jumps.`,
+
+    biomechanics: `Your patella acts like a pulley to increase the mechanical advantage of your quadriceps muscles. When this system isn't working optimally, several biomechanical factors contribute to the problem.
+
+Hip weakness, particularly in the gluteus medius and gluteus maximus, often allows your thigh to collapse inward during activities. This creates a valgus angle at the knee that pulls your patella laterally, increasing stress on the lateral facet.
+
+Quadriceps imbalances, especially weakness in the vastus medialis oblique (VMO) relative to the vastus lateralis, can contribute to poor patellar tracking. The VMO is crucial for pulling the patella medially and preventing lateral drift.
+
+Your foot mechanics also play a role - excessive pronation can create internal rotation of the tibia, which alters the angle of pull from your quadriceps and affects patellar tracking. Tight structures like the iliotibial band, lateral retinaculum, or hip flexors can create additional forces that pull the patella out of optimal alignment.`,
+
+    clinicalPresentation: {
+      primarySymptoms: [
+        "Dull, aching pain around or under the kneecap (often described as 'behind' the kneecap)",
+        "Pain that worsens with knee flexion under load (squatting, stairs, prolonged sitting)",
+        "Movie theater sign (pain after prolonged sitting with knees bent)",
+        "Catching or grinding sensation with knee movement",
+        "Pain during activities like running, jumping, or pivoting"
+      ],
+      associatedSymptoms: [
+        "Swelling around the kneecap area",
+        "Sensation of knee giving way or instability",
+        "Stiffness after prolonged inactivity",
+        "Difficulty kneeling or direct pressure on kneecap",
+        "Pain with descending stairs worse than ascending"
+      ],
+      typicalPattern: "I typically see pain that develops gradually without a specific injury. It's often worse with activities that load the knee in flexion - my patients frequently tell me about pain climbing stairs, getting up from sitting, or after long car rides. The pain tends to be more noticeable during and after activity rather than at rest."
+    },
+
+    evidenceSnapshot: {
+      firstLine: "Exercise therapy targeting hip and knee strengthening is the primary evidence-based treatment approach",
+      imaging: "Imaging is typically not required for diagnosis; clinical assessment and response to treatment guide management",
+      management: "Multimodal approach combining exercise with education; adjunctive treatments like taping may help short-term",
+      sources: "JOSPT Clinical Practice Guidelines (2019); Cochrane systematic reviews; APTA Academy guidelines"
+    },
+
+    whatToExpect: {
+      firstVisit: "I'll assess your movement patterns during functional activities like squatting and single-leg tasks, identify factors contributing to poor patellar tracking, and start you with targeted exercises that address your specific impairments",
+      earlyPhase: "Initial focus is on pain management and beginning to address muscle imbalances, particularly hip and quadriceps strengthening",
+      progression: "Exercise difficulty increases systematically based on your response - we progress from basic strengthening to functional movement patterns and sport-specific activities as appropriate"
+    },
+
+    evidenceBasedTreatment: [
+      {
+        approach: "Hip and Knee Strengthening Exercise",
+        evidence: "Strong evidence shows exercise targeting hip abductors, external rotators, and quadriceps reduces pain and improves function",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Movement Retraining with Feedback",
+        evidence: "Moderate evidence for teaching optimal movement patterns during functional activities to address biomechanical factors",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Patellar Taping (Short-term)",
+        evidence: "May provide immediate pain relief and enhance exercise therapy outcomes when used as an adjunct to exercise",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Foot Orthoses (Select Cases)",
+        evidence: "Prefabricated orthoses may help patients with excessive pronation when combined with exercise therapy",
+        effectivenessLevel: "moderate"
+      }
+    ],
+
+    prognosis: {
+      timeline: "Most people see meaningful improvement in 6-12 weeks with appropriate exercise therapy. Full recovery typically takes 3-4 months",
+      factors: [
+        "Early intervention leads to better outcomes",
+        "Compliance with exercise program is crucial",
+        "Addressing contributing biomechanical factors improves prognosis",
+        "Younger, more active individuals often respond faster",
+        "Bilateral symptoms may take longer to resolve"
+      ],
+      naturalHistory: "Without appropriate treatment, symptoms often persist and can become chronic, potentially limiting participation in physical activities and affecting quality of life"
+    },
+
+    selfManagement: [
+      {
+        strategy: "Activity Modification",
+        rationale: "Temporarily reducing aggravating activities allows tissues to settle while maintaining fitness through alternative activities",
+        precautions: ["Avoid complete rest", "Monitor for symptoms spreading to other areas"]
+      },
+      {
+        strategy: "Progressive Loading Program",
+        rationale: "Gradual increase in activity helps build tissue tolerance and addresses underlying weakness patterns",
+        precautions: ["Progress based on symptoms", "Ensure proper form before increasing intensity"]
+      },
+      {
+        strategy: "Movement Awareness",
+        rationale: "Learning to recognize and modify movement patterns that aggravate symptoms helps prevent flare-ups",
+        precautions: ["Focus on quality over quantity", "Seek guidance if unsure about techniques"]
+      },
+      {
+        strategy: "Pain Monitoring",
+        rationale: "Understanding your pain patterns helps guide activity levels and identifies when to seek additional help",
+        precautions: ["Persistent increase in pain warrants reassessment", "Night pain is not typical"]
+      }
+    ],
+
+    clinicalRedFlags: [
+      {
+        sign: "Significant swelling with warmth and redness",
+        action: "Rule out infection or other inflammatory conditions - seek medical assessment"
+      },
+      {
+        sign: "Locking or true giving way of the knee",
+        action: "May indicate meniscal tear or other structural damage - require imaging and orthopedic consultation"
+      },
+      {
+        sign: "Severe pain at rest or night pain",
+        action: "Atypical for patellofemoral pain - investigate other causes"
+      }
+    ],
+
+    measuringProgress: {
+      dayToDay: "I track changes in your pain during specific activities like stairs and squatting, your ability to perform daily tasks without limitation, and improvements in movement quality during functional tests",
+      questionnaires: "Anterior Knee Pain Scale to quantify functional limitations and monitor improvement over time",
+      activityTarget: "Return to your desired activities - whether that's running, sports participation, or simply navigating stairs without discomfort"
+    },
+    accessAndHours: standardAccessAndHours
   },
 
   'degenerative-disc-disease': {
-    // Coming soon - comprehensive content under development
+    pathophysiology: `Degenerative disc disease represents the natural aging process of your intervertebral discs, though it can occur prematurely due to various factors. Your discs are composed of an outer fibrous ring (annulus fibrosus) and an inner gel-like core (nucleus pulposus) that normally acts as a shock absorber between vertebrae.
+
+As discs age, they lose water content and the nucleus pulposus becomes less gel-like, reducing the disc's ability to distribute loads evenly. This dehydration process leads to decreased disc height and can result in small tears in the annulus fibrosus. When the disc loses height, it alters the biomechanics of the entire spinal segment.
+
+The facet joints, which normally share load with the discs, begin to bear a greater proportion of the forces passing through that level of the spine. This can lead to accelerated wear of these joints and may contribute to the development of bone spurs and other arthritic changes. Despite the name, degenerative disc disease isn't truly a disease but rather a description of the structural changes that occur over time.`,
+
+    biomechanics: `Your spine functions as an integrated system where each level works with adjacent levels to allow movement while maintaining stability. When disc degeneration occurs, this system becomes altered in ways that can contribute to symptoms.
+
+The disc and two facet joints at each level form what we call the three-joint complex. Normally, the disc bears approximately 80% of the compressive load, while the facet joints guide movement and prevent excessive rotation. When disc height decreases due to degeneration, the facet joints begin to bear more load than they're designed for - sometimes up to 50% of the total force.
+
+This increased load on the facet joints can lead to inflammation and pain. Additionally, loss of disc height can narrow the spaces where nerve roots exit the spine, potentially causing nerve-related symptoms. The supporting muscles often respond to these changes by increasing tension to provide additional stability, which can contribute to muscle-related pain and stiffness.`,
+
+    clinicalPresentation: {
+      primarySymptoms: [
+        "Variable pain that can range from mild aching to severe episodes",
+        "Pain that worsens with prolonged sitting or forward bending",
+        "Stiffness and reduced mobility, especially in the morning",
+        "Pain relief with walking or changing positions",
+        "Intermittent pain flares that may last days to weeks"
+      ],
+      associatedSymptoms: [
+        "Referred pain to buttocks or thighs (without leg symptoms)",
+        "Muscle spasms in the back",
+        "Sensation of instability or weakness",
+        "Difficulty finding comfortable sleeping positions",
+        "Fatigue from compensatory movement patterns"
+      ],
+      typicalPattern: "I often see patients who describe good days and bad days with their symptoms. The pain may be minimal for weeks, then flare significantly with activities like prolonged sitting, lifting, or even something as simple as a sneeze. Many tell me their pain is worse in the morning until they 'get moving' and often improves with walking."
+    },
+
+    evidenceSnapshot: {
+      firstLine: "Exercise therapy focusing on spinal stability and mobility; education about the condition's natural course",
+      imaging: "MRI findings of disc degeneration are common in asymptomatic individuals; symptoms don't correlate with imaging severity",
+      management: "Conservative care addresses symptoms and function; structural changes are normal aging and don't predict outcomes",
+      sources: "JOSPT Low Back Pain Guidelines (2021); Cochrane systematic reviews; clinical practice guidelines"
+    },
+
+    whatToExpect: {
+      firstVisit: "I'll help you understand what degenerative disc disease means, assess your current functional limitations, and begin addressing movement patterns that may be contributing to symptom flares",
+      earlyPhase: "Focus on symptom management and introducing safe movement patterns while building confidence in your spine's ability to handle normal activities",
+      progression: "Gradually increase loading and functional demands while teaching you to recognize and manage symptom patterns"
+    },
+
+    evidenceBasedTreatment: [
+      {
+        approach: "Spinal Stabilization Exercise",
+        evidence: "Strong evidence for exercises targeting deep spinal muscles to improve segmental stability and reduce pain",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Manual Therapy with Exercise",
+        evidence: "Moderate evidence that combining spinal manipulation or mobilization with exercise improves outcomes over exercise alone",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "General Exercise and Movement",
+        evidence: "Regular physical activity and varied movement patterns help maintain disc nutrition and overall spinal health",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Cognitive Functional Approach",
+        evidence: "Addressing beliefs about the spine and pain, combined with movement retraining, improves long-term outcomes",
+        effectivenessLevel: "moderate"
+      }
+    ],
+
+    prognosis: {
+      timeline: "Acute flares typically settle within 2-6 weeks. Learning to manage the condition effectively usually takes 3-6 months",
+      factors: [
+        "Understanding the benign nature of disc degeneration improves outcomes",
+        "Staying active prevents deconditioning and maintains function",
+        "Previous episodes don't predict future severity",
+        "Overall health and fitness level influence recovery",
+        "Psychological factors like fear-avoidance affect prognosis"
+      ],
+      naturalHistory: "Disc degeneration is a normal aging process; most people with imaging findings have no symptoms. With appropriate management, function can be maintained despite structural changes"
+    },
+
+    selfManagement: [
+      {
+        strategy: "Movement Variety",
+        rationale: "Regular position changes and varied activities help maintain disc nutrition and prevent stiffness",
+        precautions: ["Listen to your body's signals", "Avoid prolonged static positions"]
+      },
+      {
+        strategy: "Activity Pacing",
+        rationale: "Gradually increasing activity levels helps build tolerance while preventing symptom flares",
+        precautions: ["Progress gradually", "Expect some normal variability in symptoms"]
+      },
+      {
+        strategy: "Understanding Pain Flares",
+        rationale: "Recognizing that flares are common and don't indicate damage helps maintain confidence and activity levels",
+        precautions: ["Severe, persistent changes warrant reassessment", "Leg symptoms require evaluation"]
+      },
+      {
+        strategy: "Stress Management",
+        rationale: "Physical and emotional stress can trigger symptom flares; managing stress improves overall outcomes",
+        precautions: ["Consider professional support if stress is overwhelming", "Sleep quality affects pain sensitivity"]
+      }
+    ],
+
+    clinicalRedFlags: [
+      {
+        sign: "New weakness in legs or changes in reflexes",
+        action: "May indicate nerve compression - requires urgent medical evaluation"
+      },
+      {
+        sign: "Bowel or bladder dysfunction with back pain",
+        action: "Potential cauda equina syndrome - emergency medical attention required"
+      },
+      {
+        sign: "Progressive leg pain below the knee",
+        action: "May indicate nerve root compression - requires assessment and possible imaging"
+      },
+      {
+        sign: "Constant, severe pain unrelieved by position changes",
+        action: "Atypical presentation - investigate other causes"
+      }
+    ],
+
+    measuringProgress: {
+      dayToDay: "I monitor your functional capacity during daily activities, the frequency and intensity of pain flares, and your confidence in managing symptoms when they occur",
+      questionnaires: "Oswestry Disability Index to track functional limitations and assess improvement over time",
+      activityTarget: "Maintaining your desired activity level while effectively managing symptom variability"
+    },
+    accessAndHours: standardAccessAndHours
   },
 
   'spinal-stenosis': {
-    // Coming soon - comprehensive content under development
+    pathophysiology: `Spinal stenosis involves narrowing of the spaces within your spinal canal, creating compression of neural structures. This narrowing can occur in the central canal (central stenosis) where the spinal cord or cauda equina travels, or in the lateral recesses and foramina where individual nerve roots exit.
+
+The narrowing typically develops gradually through multiple mechanisms. Degenerative changes in the discs can cause bulging into the spinal canal, while arthritis of the facet joints leads to bone spur formation and joint enlargement. The ligamentum flavum, which runs along the back of the spinal canal, can thicken and buckle inward, further reducing available space.
+
+As these structures encroach on the neural space, they create a mismatch between the space available and the space needed for optimal neural function. The compression may be positional - worsening when your spine is extended and improving with flexion, which explains why many people find relief when leaning forward or sitting.`,
+
+    biomechanics: `Your spine's position significantly affects the amount of space available within the spinal canal. When you extend your back or stand upright, the canal diameter decreases due to buckling of the ligamentum flavum and narrowing of the lateral recesses. This positioning can worsen compression of already compromised neural structures.
+
+Flexing your spine has the opposite effect - it increases canal dimensions by stretching the ligamentum flavum and opening up the lateral recesses. This is why many people with spinal stenosis naturally adopt a slightly flexed posture when walking or find relief when leaning on a shopping cart.
+
+Walking on an incline often feels easier than walking on flat ground because the incline naturally puts you in a slightly flexed position. Similarly, cycling is usually tolerated better than walking because the cycling position maintains spinal flexion while allowing cardiovascular exercise.`,
+
+    clinicalPresentation: {
+      primarySymptoms: [
+        "Leg pain, numbness, or weakness that develops with walking (neurogenic claudication)",
+        "Symptoms that worsen with standing or walking upright",
+        "Relief of symptoms when sitting or leaning forward",
+        "Difficulty walking distances due to leg symptoms rather than back pain",
+        "Sensation of heaviness or fatigue in legs during activity"
+      ],
+      associatedSymptoms: [
+        "Back pain that may be less prominent than leg symptoms",
+        "Cramping sensations in calves or thighs",
+        "Balance problems or unsteadiness",
+        "Numbness or tingling in feet",
+        "Bladder urgency or frequency (in severe cases)"
+      ],
+      typicalPattern: "The classic pattern I see is someone who can sit comfortably for long periods but develops leg symptoms within minutes of standing or walking. They often tell me they can walk much further in a grocery store while leaning on a cart, or that they can bike for miles but struggle to walk to the mailbox."
+    },
+
+    evidenceSnapshot: {
+      firstLine: "Conservative management with exercise therapy focusing on spinal flexion and cardiovascular fitness",
+      imaging: "MRI can confirm stenosis but findings don't always correlate with symptoms; imaging guides treatment when conservative care fails",
+      management: "Multimodal approach including exercise, activity modification, and sometimes epidural injections for severe cases",
+      sources: "Clinical practice guidelines; Cochrane reviews; North American Spine Society recommendations"
+    },
+
+    whatToExpect: {
+      firstVisit: "I'll confirm your symptom pattern is consistent with stenosis, assess your walking tolerance and functional limitations, and introduce strategies to help you maintain activity within your current capacities",
+      earlyPhase: "Focus on exercises that maintain spinal flexion mobility, improve cardiovascular fitness within your tolerance, and teach positioning strategies",
+      progression: "Gradually work to improve walking distance and endurance while maintaining gains in flexibility and strength"
+    },
+
+    evidenceBasedTreatment: [
+      {
+        approach: "Spinal Flexion Exercise Program",
+        evidence: "Moderate evidence that exercises promoting spinal flexion can improve walking distance and reduce symptoms",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Cardiovascular Conditioning",
+        evidence: "Maintaining cardiovascular fitness through modified activities helps preserve function and may improve walking tolerance",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Postural and Gait Training",
+        evidence: "Teaching optimal positioning and walking strategies can help maximize functional capacity within limitations",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Activity Modification and Assistive Devices",
+        evidence: "Using walking aids and modifying activities allows maintenance of independence and quality of life",
+        effectivenessLevel: "strong"
+      }
+    ],
+
+    prognosis: {
+      timeline: "Symptoms often remain stable or progress slowly over years; significant improvement with conservative care is possible in 6-12 weeks",
+      factors: [
+        "Severity of anatomical narrowing influences symptoms but doesn't predict outcomes",
+        "Maintaining cardiovascular fitness improves overall function",
+        "Early intervention may prevent rapid functional decline",
+        "Overall health status affects tolerance to symptoms",
+        "Psychological factors influence perceived disability"
+      ],
+      naturalHistory: "Stenosis often progresses slowly; some people maintain stable function for years while others experience gradual decline requiring surgical intervention"
+    },
+
+    selfManagement: [
+      {
+        strategy: "Position Management",
+        rationale: "Learning to use spinal flexion positions during activities can significantly increase walking tolerance and reduce symptoms",
+        precautions: ["Avoid prolonged extension positions", "Use support when needed"]
+      },
+      {
+        strategy: "Adaptive Equipment",
+        rationale: "Walking aids like canes or rollators can help maintain independence by providing support and encouraging beneficial postures",
+        precautions: ["Ensure proper fitting and training", "Don't delay use if it helps function"]
+      },
+      {
+        strategy: "Activity Pacing",
+        rationale: "Breaking activities into manageable segments with rest periods allows completion of necessary tasks",
+        precautions: ["Plan activities around symptom patterns", "Don't push through severe symptoms"]
+      },
+      {
+        strategy: "Alternative Exercise",
+        rationale: "Activities like swimming, cycling, or recumbent exercise can maintain fitness when walking is limited",
+        precautions: ["Choose activities that keep spine in neutral or flexed positions", "Monitor for any worsening symptoms"]
+      }
+    ],
+
+    clinicalRedFlags: [
+      {
+        sign: "New or worsening bowel or bladder problems",
+        action: "May indicate cauda equina syndrome - requires immediate medical evaluation"
+      },
+      {
+        sign: "Rapidly progressive weakness in legs",
+        action: "Suggests significant neural compromise - urgent neurosurgical consultation needed"
+      },
+      {
+        sign: "Severe pain at rest or night pain",
+        action: "Atypical for mechanical stenosis - investigate other causes"
+      },
+      {
+        sign: "Falls or significant balance problems",
+        action: "May indicate myelopathy - requires neurological assessment"
+      }
+    ],
+
+    measuringProgress: {
+      dayToDay: "I track your walking distance before symptoms begin, how long you can stand before needing to sit, and your confidence with daily activities that require mobility",
+      questionnaires: "Swiss Spinal Stenosis Questionnaire to monitor symptom severity and functional impact over time",
+      activityTarget: "Maximizing your walking capacity and maintaining independence with daily activities"
+    },
+    accessAndHours: standardAccessAndHours
   },
 
   'postural-dysfunction': {
-    // Coming soon - comprehensive content under development
+    pathophysiology: `Postural dysfunction, particularly upper crossed syndrome, develops from prolonged positioning that creates predictable patterns of muscle imbalance. When you maintain positions like forward head posture or rounded shoulders for extended periods, certain muscles adapt by shortening while others become lengthened and weakened.
+
+The muscles that commonly become tight and overactive include the upper trapezius, levator scapulae, sternocleidomastoid, and pectoral muscles. Meanwhile, the deep cervical flexors, middle and lower trapezius, and serratus anterior become weakened and underactive. This creates a characteristic "crossed" pattern of imbalances.
+
+These imbalances create joint dysfunction, particularly at the upper cervical spine, mid-cervical region, cervicothoracic junction, and thoracic spine. The altered biomechanics place increased stress on joint surfaces and can lead to pain, stiffness, and eventually degenerative changes if left unaddressed. The nervous system also adapts to these patterns, making them feel "normal" even when they're mechanically inefficient.`,
+
+    biomechanics: `Modern lifestyle factors create the perfect storm for postural dysfunction. Prolonged computer work, smartphone use, and desk-based activities all encourage forward head posture and rounded shoulders. When your head moves forward just 2-3 inches from its optimal position, the load on your cervical spine can increase by 2-3 times.
+
+Your thoracic spine responds to forward head posture by increasing its kyphotic curve, which places additional stress on the thoracic vertebrae and can contribute to compression fractures over time. The scapulae wing outward and elevate, changing the mechanics of shoulder movement and potentially leading to impingement syndromes.
+
+The deeper stabilizing muscles of your neck - the deep cervical flexors - become inhibited in this posture, while the superficial muscles like the upper trapezius work overtime to support your head's weight. This creates tension patterns that can contribute to headaches, neck pain, and shoulder dysfunction.`,
+
+    clinicalPresentation: {
+      primarySymptoms: [
+        "Neck and upper back pain that worsens throughout the day",
+        "Headaches, often described as tension-type starting at the base of the skull",
+        "Shoulder and upper trap tension or aching",
+        "Fatigue with maintaining upright posture",
+        "Stiffness and reduced mobility in neck and upper back"
+      ],
+      associatedSymptoms: [
+        "Rounded shoulder appearance",
+        "Forward head position when viewed from the side",
+        "Upper back hunching or increased thoracic curve",
+        "Tingling or numbness in arms (occasional)",
+        "Jaw tension or temporomandibular dysfunction"
+      ],
+      typicalPattern: "I typically see people who work at computers or use devices frequently. They often describe feeling fine in the morning but developing neck and shoulder tension as the day progresses. Many notice their symptoms are worse during busy work periods and improve on weekends or vacations."
+    },
+
+    evidenceSnapshot: {
+      firstLine: "Exercise therapy combining strengthening of weak muscles with stretching of tight structures; postural education",
+      imaging: "Generally not required unless neurological symptoms are present; clinical assessment guides treatment",
+      management: "Multimodal approach addressing muscle imbalances, workplace ergonomics, and movement habits",
+      sources: "Systematic reviews on upper crossed syndrome; evidence on exercise therapy for postural dysfunction"
+    },
+
+    whatToExpect: {
+      firstVisit: "I'll assess your posture in various positions, identify the specific muscle imbalances present, and begin addressing the most significant contributing factors while teaching you about optimal positioning",
+      earlyPhase: "Initial focus on stretching tight muscles, activating weakened muscles, and making immediate ergonomic improvements to prevent further aggravation",
+      progression: "Gradually progress strengthening exercises while integrating better postural habits into your daily routine"
+    },
+
+    evidenceBasedTreatment: [
+      {
+        approach: "Targeted Strengthening and Stretching",
+        evidence: "Strong evidence for exercise programs that strengthen deep neck flexors, middle/lower trapezius while stretching pectorals and upper trapezius",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Manual Therapy",
+        evidence: "Moderate evidence for manual techniques including joint mobilization and soft tissue release as adjunct to exercise",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Postural Training with Feedback",
+        evidence: "Moderate evidence for training optimal posture with visual or tactile feedback to retrain movement patterns",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Ergonomic Modification",
+        evidence: "Workplace and lifestyle modifications can reduce postural stress and support therapeutic gains",
+        effectivenessLevel: "moderate"
+      }
+    ],
+
+    prognosis: {
+      timeline: "Initial improvements in pain and muscle tension typically occur within 4-6 weeks; significant postural changes require 3-6 months of consistent effort",
+      factors: [
+        "Degree of postural deviation affects recovery time",
+        "Compliance with home exercises is crucial",
+        "Workplace demands may slow progress if not addressed",
+        "Younger individuals often respond faster",
+        "Concurrent ergonomic improvements accelerate recovery"
+      ],
+      naturalHistory: "Without intervention, postural dysfunction typically worsens gradually, potentially leading to degenerative changes and chronic pain syndromes"
+    },
+
+    selfManagement: [
+      {
+        strategy: "Frequent Position Changes",
+        rationale: "Regular breaks from sustained postures prevent muscles from adapting to shortened positions and reduce accumulated stress",
+        precautions: ["Set reminders initially", "Even small movements help"]
+      },
+      {
+        strategy: "Workstation Optimization",
+        rationale: "Proper monitor height, keyboard position, and chair setup reduce postural stress during prolonged work periods",
+        precautions: ["Consider professional ergonomic assessment", "Adjust gradually to new positions"]
+      },
+      {
+        strategy: "Daily Stretching Routine",
+        rationale: "Regular stretching of tight muscles helps counteract the effects of prolonged positioning and maintains mobility",
+        precautions: ["Focus on quality over quantity", "Avoid aggressive stretching"]
+      },
+      {
+        strategy: "Strengthening Integration",
+        rationale: "Incorporating postural muscle strengthening into daily activities helps build endurance for maintaining better posture",
+        precautions: ["Start with basic exercises", "Progress intensity gradually"]
+      }
+    ],
+
+    clinicalRedFlags: [
+      {
+        sign: "Neurological symptoms like numbness, tingling, or weakness in arms",
+        action: "May indicate nerve compression - requires neurological assessment"
+      },
+      {
+        sign: "Severe headaches with neck stiffness and fever",
+        action: "Rule out meningitis or other serious conditions - seek immediate medical care"
+      },
+      {
+        sign: "Progressive weakness or coordination problems",
+        action: "May indicate cervical myelopathy - requires urgent medical evaluation"
+      },
+      {
+        sign: "Sudden onset of severe neck pain after trauma",
+        action: "Rule out fracture or ligamentous injury - emergency assessment needed"
+      }
+    ],
+
+    measuringProgress: {
+      dayToDay: "I monitor changes in your pain levels throughout the day, improvements in how long you can maintain good posture, and reductions in muscle tension and fatigue",
+      questionnaires: "Neck Disability Index and posture-specific outcome measures to track functional improvements",
+      activityTarget: "Being able to work or perform daily activities for extended periods without developing pain or excessive fatigue"
+    },
+    accessAndHours: standardAccessAndHours
   },
 
   'headaches-migraines': {
-    // Coming soon - comprehensive content under development
+    pathophysiology: `Cervicogenic headaches originate from dysfunction in your upper cervical spine and associated musculature. Unlike primary headaches (migraines or tension-type), these headaches are caused by problems in your neck that refer pain to your head through complex neural pathways.
+
+The trigeminocervical nucleus in your brainstem receives input from both your trigeminal nerve (which supplies your head and face) and the upper cervical nerves (C1-C3). This convergence means that dysfunction in your neck can create headache pain that feels identical to other headache types.
+
+Common cervical contributors include upper cervical joint restrictions, particularly at the C1-C2 segment, muscle imbalances in the suboccipital muscles, and altered biomechanics from forward head posture. The greater occipital nerve, which emerges between C1 and C2, often becomes sensitized when these structures are dysfunctional.
+
+While true migraines have a neurological basis involving brain chemistry changes, many people with "migraine" symptoms actually have cervicogenic headaches that respond well to musculoskeletal treatment.`,
+
+    biomechanics: `Your upper cervical spine has unique biomechanics that make it vulnerable to dysfunction. The atlantooccipital joint (C0-C1) provides primarily flexion and extension, while the atlantoaxial joint (C1-C2) allows for approximately 50% of your neck's rotation.
+
+When these joints lose their normal mobility patterns, compensation occurs throughout the cervical spine. Forward head posture, common in our digital age, places the upper cervical spine in extension while the lower cervical spine moves into flexion. This creates increased tension in the suboccipital muscles and altered load distribution across the upper cervical joints.
+
+The deep neck flexors (longus capitis and longus colli) often become inhibited, while superficial muscles like the upper trapezius and levator scapulae become overactive. This muscle imbalance pattern can create trigger points that refer pain to the head in characteristic patterns - suboccipital trigger points often refer to the forehead and temple areas.
+
+Poor scapular positioning affects cervical mechanics by altering the base of support for neck muscles. When your shoulder blades are protracted and elevated, it changes the length-tension relationships of muscles that attach to both the scapula and the cervical spine.`,
+
+    clinicalPresentation: {
+      primarySymptoms: [
+        "Unilateral head pain that typically starts at the back of the skull and spreads forward",
+        "Associated neck pain and stiffness, particularly in the upper cervical region",
+        "Headaches triggered by specific neck movements or sustained postures",
+        "Pain that improves with neck mobilization or specific positioning",
+        "Headaches that develop after neck trauma or with poor posture"
+      ],
+      associatedSymptoms: [
+        "Reduced range of motion in the upper cervical spine",
+        "Muscle tenderness in the suboccipital region",
+        "Sensitivity to light or sound (though less common than in migraines)",
+        "Dizziness or balance issues related to neck movement",
+        "Shoulder and upper back tension"
+      ],
+      typicalPattern: "I often see patients who describe headaches that start at the base of their skull and travel forward over their head. Many tell me their headaches are worse after long hours at the computer or first thing in the morning. The pain often improves when they move their neck or apply heat to the upper neck area, which helps distinguish it from other headache types."
+    },
+
+    evidenceSnapshot: {
+      firstLine: "Manual therapy combined with exercise therapy shows the strongest evidence for reducing headache intensity and frequency",
+      imaging: "Imaging typically not required; clinical assessment using validated criteria is sufficient for diagnosis",
+      management: "Multimodal approach combining manual therapy, specific exercises, and postural correction with ergonomic education",
+      sources: "JOSPT systematic reviews; PMC evidence-based guidelines; Physical Therapy Oxford Academic meta-analyses"
+    },
+
+    whatToExpect: {
+      firstVisit: "I'll differentiate your headaches from other types using specific tests, assess your upper cervical mobility and muscle function, and begin treatment to address the most significant contributing factors",
+      earlyPhase: "Initial focus on reducing headache frequency and intensity through manual therapy techniques and specific upper cervical mobilization",
+      progression: "Progressive exercise program targeting deep neck flexor strength and postural correction, with education about headache triggers and management strategies"
+    },
+
+    evidenceBasedTreatment: [
+      {
+        approach: "Manual Therapy Combined with Exercise",
+        evidence: "Highest-ranked intervention showing mean reduction of 4.87 points in headache intensity and 3.09 in frequency compared to control groups",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Upper Cervical Mobilization",
+        evidence: "Spinal mobilization and manipulation show significant effectiveness for cervicogenic headaches in high-quality RCTs",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Deep Neck Flexor Training",
+        evidence: "Craniocervical flexion exercises and endurance training show 81% of patients achieving 50% headache reduction",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Postural Correction Program",
+        evidence: "Addressing upper crossed syndrome patterns significantly reduces headache frequency and improves function",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Trigger Point Release",
+        evidence: "Dry needling and soft tissue techniques effective when combined with other interventions",
+        effectivenessLevel: "moderate"
+      }
+    ],
+
+    prognosis: {
+      timeline: "Significant improvement typically occurs within 4-6 weeks, with most patients experiencing 50% reduction in headache frequency and intensity",
+      factors: [
+        "Early intervention leads to better outcomes",
+        "Compliance with exercise program crucial for long-term success",
+        "Addressing ergonomic factors prevents recurrence",
+        "Duration of symptoms affects recovery time - chronic cases may take longer",
+        "Concurrent stress management improves outcomes"
+      ],
+      naturalHistory: "Up to 90% of patients with cervicogenic headaches report significant benefits from evidence-based physiotherapy treatment"
+    },
+
+    selfManagement: [
+      {
+        strategy: "Upper Cervical Mobility",
+        rationale: "Gentle range of motion exercises help maintain joint mobility and reduce muscle tension in the upper neck",
+        precautions: ["Avoid forceful stretching", "Stop if dizziness occurs"]
+      },
+      {
+        strategy: "Ergonomic Optimization",
+        rationale: "Proper workstation setup reduces sustained postural stress that triggers cervicogenic headaches",
+        precautions: ["Make gradual changes", "Consider professional ergonomic assessment"]
+      },
+      {
+        strategy: "Deep Neck Flexor Strengthening",
+        rationale: "Strengthening these muscles helps support proper cervical alignment and reduces headache frequency",
+        precautions: ["Start gently", "Focus on endurance rather than strength"]
+      },
+      {
+        strategy: "Stress and Sleep Management",
+        rationale: "Physical and emotional stress can increase muscle tension and headache sensitivity",
+        precautions: ["Address sleep disorders", "Consider relaxation techniques"]
+      },
+      {
+        strategy: "Activity Pacing",
+        rationale: "Regular breaks from sustained postures prevent muscle fatigue and headache triggers",
+        precautions: ["Set reminders for position changes", "Include gentle neck movements"]
+      }
+    ],
+
+    clinicalRedFlags: [
+      {
+        sign: "Sudden onset of severe headache unlike any previous",
+        action: "May indicate serious pathology like subarachnoid hemorrhage - seek immediate medical attention"
+      },
+      {
+        sign: "Headache with fever, neck stiffness, and altered consciousness",
+        action: "Possible meningitis - emergency medical evaluation required"
+      },
+      {
+        sign: "Progressive headaches with neurological symptoms",
+        action: "May indicate space-occupying lesion - urgent medical assessment needed"
+      },
+      {
+        sign: "New headache in someone over 50 with systemic symptoms",
+        action: "Could indicate temporal arteritis - requires immediate medical evaluation"
+      },
+      {
+        sign: "Headache following significant head trauma",
+        action: "Rule out intracranial injury - emergency assessment required"
+      }
+    ],
+
+    measuringProgress: {
+      dayToDay: "I monitor headache frequency, intensity on a 0-10 scale, functional disability using headache-specific questionnaires, and your ability to perform work and daily activities without triggering symptoms",
+      questionnaires: "Headache Impact Test (HIT-6) and Neck Disability Index to track functional improvements and headache-related disability",
+      activityTarget: "Reducing headache frequency to manageable levels while maintaining full participation in work and recreational activities"
+    },
+    accessAndHours: standardAccessAndHours
   },
 
   'shoulder-instability': {
-    // Coming soon - comprehensive content under development
+    pathophysiology: `Shoulder instability occurs when the structures that normally keep your shoulder joint stable are compromised, allowing excessive movement or displacement of the humeral head within the glenoid socket. Your shoulder joint sacrifices stability for mobility, making it inherently vulnerable to instability.
+
+The stability of your shoulder depends on both static restraints (joint capsule, ligaments, labrum, and bony architecture) and dynamic restraints (muscle activation patterns and proprioceptive feedback). When these systems fail, your shoulder may sublux (partially dislocate) or fully dislocate.
+
+Atraumatic instability typically develops gradually due to repetitive microtrauma, generalized ligamentous laxity, or muscle imbalances. This type often affects multiple directions and responds well to conservative treatment. Traumatic instability usually results from a specific injury that damages static restraints, most commonly anterior dislocations that tear the anterior capsule and labrum.
+
+The neuromuscular system plays a crucial role in dynamic stabilization. When proprioceptive feedback is impaired or muscle activation patterns are altered, your shoulder may feel unstable even without structural damage.`,
+
+    biomechanics: `Your shoulder's stability depends on the coordinated function of multiple muscle groups working together. The rotator cuff muscles provide dynamic compression and centering of the humeral head, while larger muscles like the latissimus dorsi and pectoralis major generate power for movement.
+
+Scapular positioning and movement are critical for shoulder stability. Your scapula must provide a stable platform for the glenohumeral joint while allowing for coordinated movement during arm elevation. When scapular dyskinesis occurs, it alters the mechanics of the entire shoulder complex and can contribute to instability.
+
+In multidirectional instability, the joint capsule is often enlarged, allowing excessive translation in multiple directions. This creates a mechanical disadvantage for the dynamic stabilizers and requires enhanced neuromuscular control to maintain joint stability during functional activities.
+
+The kinetic chain from your feet to your fingertips influences shoulder stability. Poor core stability, hip weakness, or altered movement patterns can create compensatory stresses that contribute to shoulder instability, particularly in overhead athletes.`,
+
+    clinicalPresentation: {
+      primarySymptoms: [
+        "Sensation of the shoulder 'giving way' or feeling loose during activities",
+        "Apprehension or fear during overhead movements or specific positions",
+        "Episodes of subluxation (partial dislocation) or complete dislocation",
+        "Pain that is often activity-related rather than constant",
+        "Difficulty with overhead activities, throwing, or swimming motions"
+      ],
+      associatedSymptoms: [
+        "Muscle fatigue in the shoulder region during activities",
+        "Clicking, popping, or grinding sensations with movement",
+        "Weakness in external rotation or abduction",
+        "Compensatory movement patterns in other body regions",
+        "Sleep disturbance when lying on the affected side"
+      ],
+      typicalPattern: "I typically see two distinct patterns: young athletes with traumatic injuries who experience recurrent dislocations, and individuals with atraumatic instability who describe a gradual onset of shoulder looseness and apprehension. Many patients tell me they avoid certain positions or activities because their shoulder feels like it might 'pop out.'"
+    },
+
+    evidenceSnapshot: {
+      firstLine: "Conservative physiotherapy management is the recommended first-line treatment, particularly for atraumatic instability",
+      imaging: "MRI may be used to identify structural damage, but clinical assessment and response to treatment guide management decisions",
+      management: "Evidence-based exercise programs focusing on strengthening dynamic stabilizers and improving neuromuscular control",
+      sources: "Derby Shoulder Instability Programme; Watson Instability Program; systematic reviews on rehabilitation effectiveness"
+    },
+
+    whatToExpect: {
+      firstVisit: "I'll assess the type and direction of your instability, identify contributing factors in your movement patterns, and begin a targeted strengthening program designed for your specific instability pattern",
+      earlyPhase: "Initial focus on pain management and beginning controlled strengthening exercises while avoiding provocative positions",
+      progression: "Systematic progression through strengthening phases, proprioceptive training, and gradual return to functional activities over 3-6 months"
+    },
+
+    evidenceBasedTreatment: [
+      {
+        approach: "Structured Exercise Programs",
+        evidence: "Derby Shoulder Instability Programme shows significant improvement in all outcome measures (p=0.001) for atraumatic instability",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Rotator Cuff and Scapular Strengthening",
+        evidence: "Progressive strengthening targeting dynamic stabilizers shows improved functional status, strength, and scapular positioning",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Proprioceptive and Neuromuscular Training",
+        evidence: "Enhanced proprioceptive training combined with strengthening yields greatest improvement in joint stability and control",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Movement Pattern Correction",
+        evidence: "Addressing kinetic chain dysfunction and compensatory patterns improves outcomes when combined with local treatments",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Gradual Return to Activity",
+        evidence: "Systematic progression to sport-specific activities with proper load management prevents recurrence",
+        effectivenessLevel: "moderate"
+      }
+    ],
+
+    prognosis: {
+      timeline: "Conservative treatment requires 6 months trial before considering surgery. Improvement often occurs gradually with patients reaching threshold points where symptoms suddenly improve",
+      factors: [
+        "Type of instability (atraumatic responds better than traumatic)",
+        "Early referral to physiotherapy improves outcomes",
+        "Patient compliance with exercise program is crucial",
+        "Age and activity level influence treatment success",
+        "Presence of generalized joint hypermobility may require longer treatment"
+      ],
+      naturalHistory: "Atraumatic instability often responds well to conservative management. If unsuccessful after 6 months, surgical options may be considered"
+    },
+
+    selfManagement: [
+      {
+        strategy: "Graduated Exercise Progression",
+        rationale: "Systematic strengthening allows tissues to adapt and build stability gradually without overloading healing structures",
+        precautions: ["Mild pain during exercise is normal", "Avoid positions that trigger instability initially"]
+      },
+      {
+        strategy: "Activity Modification",
+        rationale: "Temporarily avoiding provocative activities allows dynamic stabilizers to strengthen while preventing recurrent episodes",
+        precautions: ["Don't avoid all activity", "Gradually return to desired activities"]
+      },
+      {
+        strategy: "Movement Awareness Training",
+        rationale: "Learning to recognize and control shoulder position helps prevent instability episodes during daily activities",
+        precautions: ["Focus on quality of movement", "Use mirrors or feedback when possible"]
+      },
+      {
+        strategy: "Stress and Anxiety Management",
+        rationale: "Fear and anxiety about instability can create muscle guarding and altered movement patterns that perpetuate the problem",
+        precautions: ["Address fear-avoidance behaviors", "Build confidence gradually"]
+      }
+    ],
+
+    clinicalRedFlags: [
+      {
+        sign: "Vascular compromise with discoloration or absent pulse",
+        action: "May indicate vascular injury - requires immediate medical attention"
+      },
+      {
+        sign: "Neurological symptoms including numbness, weakness, or paralysis",
+        action: "Possible nerve injury - urgent medical evaluation needed"
+      },
+      {
+        sign: "Unable to reduce a dislocation or severe deformity",
+        action: "Requires immediate medical intervention for reduction and assessment"
+      },
+      {
+        sign: "Signs of infection following injury",
+        action: "Medical evaluation required to rule out septic arthritis"
+      }
+    ],
+
+    measuringProgress: {
+      dayToDay: "I track your confidence with daily activities, episodes of instability or apprehension, strength improvements in key muscle groups, and your ability to perform activities that previously caused symptoms",
+      questionnaires: "Western Ontario Shoulder Instability Index (WOSI) and Oxford Shoulder Instability Score (OSIS) to monitor functional improvements",
+      activityTarget: "Return to your desired activities with confidence and without episodes of instability or significant apprehension"
+    },
+    accessAndHours: standardAccessAndHours
   },
 
   'shoulder-bursitis': {
-    // Coming soon - comprehensive content under development
+    pathophysiology: `Shoulder bursitis, specifically subacromial bursitis, involves inflammation of the small fluid-filled sac (bursa) that sits between your rotator cuff tendons and the bony roof of your shoulder (acromion). This bursa normally allows smooth gliding of the rotator cuff tendons beneath the acromion during arm movement.
+
+When the subacromial space becomes narrowed due to bone spurs, poor posture, muscle imbalances, or repetitive overhead activities, the bursa becomes compressed and irritated. This compression leads to inflammation, thickening of the bursa walls, and production of excess synovial fluid, creating a cycle of swelling and further compression.
+
+The condition often coexists with rotator cuff tendinopathy and shoulder impingement syndrome, as they share similar mechanical causes. The inflamed bursa can contribute to pain and dysfunction, but it's usually a secondary problem rather than the primary issue. Understanding this relationship is crucial because treating only the bursitis without addressing underlying mechanical problems often leads to recurrence.
+
+Acute bursitis may result from direct trauma or sudden overuse, while chronic bursitis typically develops gradually from repetitive microtrauma and sustained mechanical irritation.`,
+
+    biomechanics: `The subacromial space is a narrow area between your humeral head and the undersurface of the acromion. During arm elevation, this space normally maintains about 6-14mm of clearance, but various factors can reduce this critical space.
+
+Poor scapular mechanics significantly contribute to subacromial crowding. When your scapula doesn't rotate properly during arm elevation, it fails to maintain optimal clearance between the acromion and the underlying structures. This is often seen with weakness in the serratus anterior and lower trapezius muscles.
+
+Forward head posture and rounded shoulders, common in our computer-based society, alter the orientation of the acromion and reduce subacromial space. This postural pattern also changes the resting length and activation patterns of the rotator cuff muscles, making them less effective at maintaining proper humeral head position.
+
+Rotator cuff weakness, particularly in the posterior and inferior aspects, allows superior migration of the humeral head during arm elevation. This upward translation narrows the subacromial space and increases compression forces on the bursa and surrounding structures.`,
+
+    clinicalPresentation: {
+      primarySymptoms: [
+        "Deep, aching shoulder pain that worsens with overhead activities",
+        "Pain along the outer aspect of the shoulder and upper arm",
+        "Difficulty sleeping on the affected side due to increased pressure on the bursa",
+        "Morning stiffness that improves with gentle movement",
+        "Pain with reaching behind the back or overhead"
+      ],
+      associatedSymptoms: [
+        "Shoulder weakness, particularly with elevation activities",
+        "Clicking or grinding sensations during movement",
+        "Reduced range of motion, especially overhead",
+        "Compensatory neck and upper back tension",
+        "Swelling or warmth over the shoulder (in acute cases)"
+      ],
+      typicalPattern: "I typically see patients who describe a gradual onset of shoulder pain that started after a period of increased overhead activity or following a change in their usual routine. The pain is often worse at night and first thing in the morning, improving somewhat as they move around during the day."
+    },
+
+    evidenceSnapshot: {
+      firstLine: "Conservative physiotherapy management is the primary evidence-based approach, focusing on addressing underlying mechanical factors",
+      imaging: "Usually not required for initial diagnosis; ultrasound may show bursal thickening but clinical assessment guides treatment",
+      management: "Comprehensive approach addressing posture, scapular mechanics, and rotator cuff function rather than isolated bursa treatment",
+      sources: "Cleveland Clinic guidelines; Mayo Clinic recommendations; Physiopedia systematic reviews"
+    },
+
+    whatToExpect: {
+      firstVisit: "I'll assess your shoulder mechanics, identify contributing postural and movement factors, and begin treatment to reduce pain while addressing the underlying causes of bursal irritation",
+      earlyPhase: "Initial focus on pain management and restoring normal scapular and rotator cuff function through targeted exercises",
+      progression: "Progressive strengthening and movement retraining to prevent recurrence, with gradual return to aggravating activities"
+    },
+
+    evidenceBasedTreatment: [
+      {
+        approach: "Exercise Therapy Targeting Scapular Mechanics",
+        evidence: "Correcting scapular dyskinesis addresses the mechanical cause of subacromial crowding and shows superior long-term outcomes",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Postural Correction Program",
+        evidence: "Addressing forward head posture and rounded shoulders improves subacromial space and reduces symptom recurrence",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Progressive Rotator Cuff Strengthening",
+        evidence: "Strengthening posterior and inferior rotator cuff helps maintain proper humeral head position and reduces impingement",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Manual Therapy as Adjunct",
+        evidence: "Joint mobilization and soft tissue techniques may provide short-term pain relief when combined with exercise",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Activity Modification and Education",
+        evidence: "Teaching proper movement patterns and temporary activity modification allows healing while maintaining function",
+        effectivenessLevel: "moderate"
+      }
+    ],
+
+    prognosis: {
+      timeline: "Most patients see improvement within 4-6 weeks with appropriate treatment. Full recovery typically takes 8-12 weeks depending on chronicity",
+      factors: [
+        "Addressing underlying mechanical factors is crucial for long-term success",
+        "Chronic cases may take longer due to secondary changes in surrounding tissues",
+        "Compliance with postural correction significantly affects outcomes",
+        "Concurrent rotator cuff pathology may prolong recovery",
+        "Early intervention prevents progression to chronic bursitis"
+      ],
+      naturalHistory: "With appropriate mechanical correction, most cases resolve completely. Without addressing underlying causes, symptoms tend to recur"
+    },
+
+    selfManagement: [
+      {
+        strategy: "Posture Awareness and Correction",
+        rationale: "Maintaining proper shoulder blade position reduces subacromial crowding and prevents ongoing irritation of the bursa",
+        precautions: ["Make gradual postural changes", "Set regular posture check reminders"]
+      },
+      {
+        strategy: "Activity Modification",
+        rationale: "Temporarily avoiding or modifying overhead activities allows the inflamed bursa to settle while maintaining overall shoulder function",
+        precautions: ["Don't completely stop moving your shoulder", "Gradually return to full activities"]
+      },
+      {
+        strategy: "Gentle Range of Motion",
+        rationale: "Maintaining shoulder mobility prevents stiffness while avoiding positions that compress the inflamed bursa",
+        precautions: ["Stay within comfortable range initially", "Avoid forceful stretching"]
+      },
+      {
+        strategy: "Ice Application",
+        rationale: "Cold therapy can help reduce acute inflammation and provide temporary pain relief during flare-ups",
+        precautions: ["Limit to 15-20 minutes", "Use barrier to protect skin"]
+      },
+      {
+        strategy: "Sleep Position Modification",
+        rationale: "Avoiding sleeping on the affected shoulder reduces direct pressure on the inflamed bursa and improves sleep quality",
+        precautions: ["Use pillow support for positioning", "May take time to adjust to new positions"]
+      }
+    ],
+
+    clinicalRedFlags: [
+      {
+        sign: "Sudden onset of severe shoulder pain with fever",
+        action: "May indicate septic bursitis - requires immediate medical evaluation and possible antibiotic treatment"
+      },
+      {
+        sign: "Progressive weakness without pain improvement",
+        action: "Could suggest rotator cuff tear - requires imaging and orthopedic consultation"
+      },
+      {
+        sign: "Significant shoulder deformity or inability to move arm",
+        action: "May indicate fracture or complete rotator cuff rupture - urgent medical assessment needed"
+      },
+      {
+        sign: "Symptoms not improving after 6-8 weeks of appropriate treatment",
+        action: "Consider imaging to rule out other pathology or need for injection therapy"
+      }
+    ],
+
+    measuringProgress: {
+      dayToDay: "I track your pain levels during specific activities like reaching overhead or sleeping, improvements in shoulder range of motion, and your ability to perform daily tasks without significant discomfort",
+      questionnaires: "Shoulder Pain and Disability Index (SPADI) to monitor functional improvements and pain reduction over time",
+      activityTarget: "Return to full overhead activities and sleeping comfortably without recurring shoulder pain"
+    },
+    accessAndHours: standardAccessAndHours
   },
 
   'wrist-sprains': {
-    // Coming soon - comprehensive content under development
+    pathophysiology: `Wrist sprains involve damage to the ligaments that connect the bones of your wrist, most commonly affecting the scapholunate ligament complex or the triangular fibrocartilage complex (TFCC). These structures are crucial for maintaining proper carpal bone alignment and allowing coordinated wrist movement.
+
+The scapholunate interosseous ligament is particularly vulnerable to injury during falls on an outstretched hand or rotational movements under load. When this ligament is damaged, it can lead to abnormal movement patterns between the scaphoid and lunate bones, potentially causing long-term instability if not properly managed.
+
+TFCC injuries affect the complex of ligaments and cartilage on the pinky side of your wrist. This structure acts as a shock absorber and stabilizer for the distal radioulnar joint, allowing smooth rotation of your forearm while maintaining wrist stability.
+
+The healing potential of wrist ligaments varies significantly depending on their blood supply. Some areas have excellent healing capacity, while others, particularly the central portions of certain ligaments, have limited blood flow and may heal slowly or incompletely without proper treatment.`,
+
+    biomechanics: `Your wrist functions as a complex joint system where eight small carpal bones must work together to provide both stability and mobility. The scapholunate ligament acts as a critical link that maintains the relationship between the scaphoid and lunate during all wrist movements.
+
+During normal wrist extension, the scaphoid tends to flex while the lunate extends, creating a complex motion that requires intact ligamentous restraints. When the scapholunate ligament is injured, this coordinated movement is disrupted, leading to altered mechanics and potential for progressive instability.
+
+The dart throwing motion (DTM) represents a path of movement where the wrist moves from radial extension to ulnar flexion, following the natural alignment of the carpal bones. This movement pattern places less stress on the scapholunate interval and is often used therapeutically in rehabilitation programs.
+
+TFCC injuries affect the biomechanics of forearm rotation and ulnar-sided wrist stability. The complex must maintain proper relationship between the radius, ulna, and carpal bones during activities that involve gripping combined with rotation, such as using a screwdriver or opening jars.`,
+
+    clinicalPresentation: {
+      primarySymptoms: [
+        "Pain localized to specific areas of the wrist depending on which ligaments are involved",
+        "Swelling and tenderness over the injured ligament complex",
+        "Pain that worsens with specific movements or loading patterns",
+        "Sensation of instability or 'giving way' during gripping activities",
+        "Stiffness and reduced range of motion in certain directions"
+      ],
+      associatedSymptoms: [
+        "Weakness with gripping or pinching activities",
+        "Clicking, popping, or clunking sensations during movement",
+        "Pain with weight-bearing on the hands (push-ups, yoga poses)",
+        "Difficulty with rotational activities (turning doorknobs, keys)",
+        "Compensatory movements in the forearm or shoulder"
+      ],
+      typicalPattern: "I often see two patterns: acute injuries from falls or sports where patients remember the exact moment of injury, and gradual onset cases from repetitive stress. Patients frequently describe pain with specific activities like push-ups or difficulty gripping objects firmly."
+    },
+
+    evidenceSnapshot: {
+      firstLine: "Conservative management with immobilization followed by progressive rehabilitation focusing on specific movement patterns",
+      imaging: "Clinical diagnosis often sufficient initially; MRI or specialized imaging may be needed if conservative treatment fails",
+      management: "Structured rehabilitation programs emphasizing dart throwing motion and targeted strengthening of wrist stabilizers",
+      sources: "Hand surgery literature; systematic reviews on scapholunate and TFCC rehabilitation; evidence-based exercise protocols"
+    },
+
+    whatToExpect: {
+      firstVisit: "I'll identify which ligaments are involved, assess the severity of the injury, and begin appropriate immobilization or protected movement depending on the findings",
+      earlyPhase: "Initial focus on protecting the injured tissues while maintaining safe range of motion and beginning gentle strengthening",
+      progression: "Systematic progression through movement patterns that promote healing while gradually restoring function for daily activities"
+    },
+
+    evidenceBasedTreatment: [
+      {
+        approach: "Structured Immobilization Protocol",
+        evidence: "8 weeks of wrist orthosis immobilization reduces stress on healing ligaments and decreases inflammation in acute stages",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Dart Throwing Motion Exercises",
+        evidence: "DTM decreases stress on scapholunate interval and is considered one of the best exercises for early rehabilitation",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Targeted Muscle Strengthening",
+        evidence: "Strengthening 'SL-friendly' muscles (ECRL, FCR, APL) that support scapholunate stability shows improved outcomes",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Proprioceptive Training",
+        evidence: "Balance and proprioceptive exercises improve dynamic joint stability and prevent re-injury",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "TFCC-Specific Rehabilitation",
+        evidence: "Four-stage sensorimotor program addressing ECU and pronator quadratus function improves DRUJ stability",
+        effectivenessLevel: "moderate"
+      }
+    ],
+
+    prognosis: {
+      timeline: "Acute injuries typically show improvement within 6-8 weeks with appropriate treatment. Complete recovery may take 3-4 months depending on severity",
+      factors: [
+        "Severity of ligament damage affects healing time",
+        "Early appropriate treatment improves long-term outcomes",
+        "Compliance with immobilization and exercise protocols is crucial",
+        "Concurrent injuries to multiple structures may prolong recovery",
+        "Age and general health influence healing capacity"
+      ],
+      naturalHistory: "Partial injuries often heal well with conservative treatment. Complete ligament disruptions may develop chronic instability if not properly managed"
+    },
+
+    selfManagement: [
+      {
+        strategy: "Protected Movement in Early Stages",
+        rationale: "Following prescribed immobilization periods allows ligament healing while preventing excessive stiffness",
+        precautions: ["Respect healing timeframes", "Don't rush return to full activity"]
+      },
+      {
+        strategy: "Gradual Loading Progression",
+        rationale: "Systematic increase in activity helps tissues adapt and rebuild strength while preventing re-injury",
+        precautions: ["Progress based on symptoms", "Avoid high-impact activities initially"]
+      },
+      {
+        strategy: "Activity Modification",
+        rationale: "Temporarily avoiding positions that stress healing ligaments allows proper tissue repair",
+        precautions: ["Modify rather than completely avoid activities", "Use adaptive equipment when helpful"]
+      },
+      {
+        strategy: "Movement Pattern Awareness",
+        rationale: "Learning to use beneficial movement patterns like dart throwing motion promotes healing and function",
+        precautions: ["Focus on quality over quantity", "Stop if pain increases significantly"]
+      }
+    ],
+
+    clinicalRedFlags: [
+      {
+        sign: "Sudden onset of severe deformity or inability to move wrist",
+        action: "May indicate fracture or complete ligament rupture - requires immediate medical evaluation"
+      },
+      {
+        sign: "Signs of infection including fever, red streaking, or severe swelling",
+        action: "Possible septic arthritis - urgent medical assessment needed"
+      },
+      {
+        sign: "Progressive neurological symptoms or numbness",
+        action: "May indicate nerve compression - requires prompt medical evaluation"
+      },
+      {
+        sign: "No improvement after 6-8 weeks of appropriate conservative treatment",
+        action: "Consider advanced imaging and specialist consultation for possible surgical intervention"
+      }
+    ],
+
+    measuringProgress: {
+      dayToDay: "I monitor your pain during specific activities, improvements in grip strength and range of motion, and your ability to perform daily tasks that require wrist stability",
+      questionnaires: "Patient-Rated Wrist Evaluation (PRWE) and Disabilities of Arm, Shoulder and Hand (DASH) questionnaire to track functional improvements",
+      activityTarget: "Return to full gripping and weight-bearing activities on the hands without pain or instability"
+    },
+    accessAndHours: standardAccessAndHours
   },
 
   'repetitive-strain-injuries': {
-    // Coming soon - comprehensive content under development
+    pathophysiology: `Repetitive strain injuries (RSI) develop when tissues are subjected to repeated low-level stress over extended periods, exceeding their capacity to recover between episodes of use. This creates a cycle of microtrauma and incomplete healing that gradually leads to tissue breakdown and sensitization of pain pathways.
+
+The pathophysiology involves multiple systems: musculoskeletal tissues experience microscopic damage from repetitive loading, while the nervous system becomes increasingly sensitive to normal stimuli. This process, called peripheral and central sensitization, means that activities which were once painless now trigger significant discomfort.
+
+Computer-related RSI typically affects the upper limbs through sustained postures combined with repetitive small movements. The muscles that stabilize your shoulder blade, neck, and forearm work continuously to maintain positions required for keyboard and mouse use, leading to fatigue and eventual breakdown of normal tissue architecture.
+
+Psychological factors play a significant role in RSI development and persistence. Work stress, time pressure, and fear of job security can increase muscle tension and delay recovery. The condition often becomes a complex interaction between physical tissue changes and psychological stress responses.`,
+
+    biomechanics: `Modern computer work creates the perfect biomechanical storm for RSI development. Your shoulder blade muscles must work continuously to stabilize your arm in space while small intrinsic muscles perform thousands of precise finger movements each day.
+
+Forward head posture, common during computer use, places your cervical spine in extension while loading the upper trapezius and levator scapulae muscles excessively. This altered posture changes the mechanics of your entire upper limb, affecting how forces are transmitted from your neck to your fingertips.
+
+Static muscle contractions required for sustained postures reduce blood flow to working muscles, limiting oxygen and nutrient delivery while allowing waste products to accumulate. This metabolic stress contributes to muscle fatigue and the development of trigger points that can refer pain throughout the upper extremity.
+
+The repetitive nature of typing and mouse use creates cumulative loading on tendons and ligaments that may exceed their adaptive capacity. Small movements repeated thousands of times can cause more tissue damage than larger movements performed less frequently, particularly when combined with poor posture and inadequate recovery time.`,
+
+    clinicalPresentation: {
+      primarySymptoms: [
+        "Gradual onset of aching, burning, or sharp pain in the neck, shoulders, arms, or hands",
+        "Symptoms that worsen during or after computer work and improve with rest",
+        "Morning stiffness that may improve with movement throughout the day",
+        "Increased sensitivity to activities that were previously painless",
+        "Fatigue and reduced endurance with repetitive tasks"
+      ],
+      associatedSymptoms: [
+        "Muscle tension and trigger points in the neck and shoulder region",
+        "Numbness or tingling in the hands or fingers",
+        "Weakness or clumsiness with fine motor tasks",
+        "Sleep disturbance due to pain or discomfort",
+        "Headaches related to neck and shoulder tension"
+      ],
+      typicalPattern: "I typically see patients who describe a gradual onset of symptoms that started during a busy work period or after changes to their workstation setup. The pain often begins as mild discomfort that they initially ignored, progressively worsening until it interferes with both work and daily activities."
+    },
+
+    evidenceSnapshot: {
+      firstLine: "Multimodal approach combining exercise therapy, ergonomic modification, and stress management shows best evidence for treatment",
+      imaging: "Generally not required for diagnosis; clinical assessment focuses on movement patterns and workplace factors",
+      management: "Conservative management addressing biomechanical, psychosocial, and workplace factors provides long-term solutions",
+      sources: "NHS guidelines; Cleveland Clinic recommendations; systematic reviews on RSI interventions; occupational health research"
+    },
+
+    whatToExpect: {
+      firstVisit: "I'll assess your work setup, movement patterns, and identify the specific factors contributing to your symptoms while beginning immediate interventions to reduce pain and inflammation",
+      earlyPhase: "Initial focus on symptom management through activity modification, postural correction, and targeted exercises to address muscle imbalances",
+      progression: "Systematic workplace assessment and modification, strengthening program, and gradual return to full work capacity with proper ergonomic principles"
+    },
+
+    evidenceBasedTreatment: [
+      {
+        approach: "Exercise Therapy Program",
+        evidence: "Structured exercise combining strengthening and stretching shows strong association with decreased RSI risk and improved outcomes",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Ergonomic Workplace Modification",
+        evidence: "Adjusting workstation setup and providing proper equipment significantly reduces symptom severity and prevents recurrence",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Postural Training and Movement Re-education",
+        evidence: "Teaching optimal postures and movement patterns addresses the biomechanical root causes of RSI",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Activity Pacing and Break Scheduling",
+        evidence: "Regular breaks and task rotation prevent cumulative tissue loading and allow for recovery",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Stress Management and Cognitive Approaches",
+        evidence: "Addressing psychological factors improves outcomes and prevents chronicity in RSI conditions",
+        effectivenessLevel: "moderate"
+      }
+    ],
+
+    prognosis: {
+      timeline: "Most people see improvement within 3-6 months with appropriate management. Early intervention leads to better outcomes",
+      factors: [
+        "Early intervention before symptoms become chronic improves prognosis significantly",
+        "Workplace modifications and support from employers facilitate recovery",
+        "Compliance with exercise programs and ergonomic principles crucial for long-term success",
+        "Addressing psychosocial factors prevents development of chronic pain patterns",
+        "Severity and duration of symptoms before treatment affects recovery time"
+      ],
+      naturalHistory: "Without appropriate management, RSI can become chronic and significantly impact quality of life and work capacity"
+    },
+
+    selfManagement: [
+      {
+        strategy: "Regular Break Schedule",
+        rationale: "Frequent short breaks prevent cumulative tissue loading and allow muscles to recover from sustained contractions",
+        precautions: ["Set reminders initially", "Include active movements during breaks"]
+      },
+      {
+        strategy: "Workplace Ergonomic Optimization",
+        rationale: "Proper workstation setup reduces biomechanical stress and allows more neutral postures during computer work",
+        precautions: ["Make gradual changes", "Consider professional ergonomic assessment"]
+      },
+      {
+        strategy: "Stretching and Mobility Program",
+        rationale: "Regular stretching counteracts the effects of sustained postures and maintains tissue flexibility",
+        precautions: ["Perform gently", "Focus on areas of tension"]
+      },
+      {
+        strategy: "Strengthening Exercises",
+        rationale: "Building endurance in postural muscles helps them cope with the demands of prolonged computer work",
+        precautions: ["Start gradually", "Focus on quality over quantity"]
+      },
+      {
+        strategy: "Activity Modification",
+        rationale: "Temporarily reducing or modifying aggravating activities allows tissues to heal while maintaining work productivity",
+        precautions: ["Use voice recognition software if needed", "Modify technique rather than avoiding work completely"]
+      }
+    ],
+
+    clinicalRedFlags: [
+      {
+        sign: "Progressive weakness or muscle wasting",
+        action: "May indicate nerve compression or neurological condition - requires medical evaluation"
+      },
+      {
+        sign: "Severe neurological symptoms including numbness and significant weakness",
+        action: "Could suggest conditions like carpal tunnel syndrome or cervical radiculopathy - needs specialist assessment"
+      },
+      {
+        sign: "Symptoms not responding to appropriate treatment after 3 months",
+        action: "Consider additional investigations or specialist referral to rule out other conditions"
+      },
+      {
+        sign: "Signs of systemic inflammatory conditions",
+        action: "Joint swelling, fever, or multiple joint involvement may indicate rheumatological conditions requiring medical assessment"
+      }
+    ],
+
+    measuringProgress: {
+      dayToDay: "I monitor your pain levels during work activities, endurance with computer tasks, improvements in posture and movement patterns, and your ability to work productively without symptoms",
+      questionnaires: "Disabilities of Arm, Shoulder and Hand (DASH) questionnaire and work-specific functional assessments to track improvement",
+      activityTarget: "Return to full work capacity with proper ergonomic practices and without recurring symptoms"
+    },
+    accessAndHours: standardAccessAndHours
   },
 
   'si-joint-dysfunction': {
-    // Coming soon - comprehensive content under development
+    pathophysiology: `Sacroiliac (SI) joint dysfunction involves abnormal movement or positioning of the joint between your sacrum and ilium bones. This joint normally allows only small amounts of movement (2-4mm translation and 2-4 degrees rotation) but plays a crucial role in transferring forces between your spine and lower extremities.
+
+The SI joint is surrounded by some of the strongest ligaments in the body, which can become either too loose (hypermobile) or too tight (hypomobile), both of which can cause pain and dysfunction. The joint surfaces are irregular and interlocking, designed more for stability than mobility, which makes them vulnerable to dysfunction when normal mechanics are disturbed.
+
+Muscle imbalances around the pelvis significantly contribute to SI joint problems. When muscles like the deep abdominals, multifidus, gluteus maximus, or latissimus dorsi don't function properly, it alters the force distribution across the joint and can lead to compensatory stress patterns.
+
+The joint is richly innervated with pain receptors, which explains why SI dysfunction can be extremely painful. The pain pattern often involves the posterior pelvis but can refer to the groin, hip, thigh, and even down to the foot, making diagnosis challenging.`,
+
+    biomechanics: `Your SI joint functions as part of the closed kinetic chain that includes your lumbar spine, pelvis, and hip joints. During walking, the SI joint must allow small rotational movements while maintaining stability to transfer forces effectively from your legs to your spine.
+
+The joint's movement pattern is complex and involves nutation (sacrum tilting forward) and counter-nutation (sacrum tilting backward) that must be coordinated with hip and spine movement. When this coordination is disrupted, abnormal stresses develop that can lead to joint irritation and surrounding muscle guarding.
+
+Form closure refers to the passive stability provided by the joint's bony architecture and ligaments, while force closure describes the active stability created by muscle activation. Problems can develop in either system, but force closure dysfunction is more common and typically responds well to physiotherapy intervention.
+
+The posterior oblique sling (latissimus dorsi and opposite gluteus maximus connected through the thoracolumbar fascia) and anterior oblique sling (internal oblique and opposite adductor muscles) are crucial muscle chains that provide dynamic stability to the SI joint during functional activities.`,
+
+    clinicalPresentation: {
+      primarySymptoms: [
+        "Unilateral lower back pain, typically below L5 and around the posterior superior iliac spine",
+        "Pain that may radiate to the buttock, groin, or posterior thigh",
+        "Pain with transitional movements like rolling in bed, getting up from sitting, or climbing stairs",
+        "Asymmetrical pain patterns - often worse on one side",
+        "Morning stiffness that improves with movement"
+      ],
+      associatedSymptoms: [
+        "Sensation of pelvic instability or 'giving way'",
+        "Difficulty with single-leg activities like putting on pants",
+        "Pain with prolonged sitting or standing",
+        "Sleep disturbance due to difficulty finding comfortable positions",
+        "Compensatory movement patterns affecting gait"
+      ],
+      typicalPattern: "I often see patients who can pinpoint their pain to a specific area just below their belt line on one side. Many describe difficulty with activities that involve single-leg support or transitioning between positions. The pain pattern can be confusing because it often refers away from the actual joint."
+    },
+
+    evidenceSnapshot: {
+      firstLine: "Multimodal physiotherapy program combining manual therapy with targeted exercise shows strongest evidence for SI joint dysfunction",
+      imaging: "Diagnosis primarily clinical using pain provocation tests; imaging rarely changes treatment approach",
+      management: "Evidence supports manual therapy, exercise therapy, and motor control training for addressing both pain and underlying dysfunction",
+      sources: "Systematic reviews on SI joint interventions; AAFP clinical guidelines; evidence-based rehabilitation protocols"
+    },
+
+    whatToExpect: {
+      firstVisit: "I'll confirm your SI joint is the source of symptoms using specific tests, assess muscle function and movement patterns, and begin treatment with manual therapy and targeted exercises",
+      earlyPhase: "Initial focus on pain relief through manual therapy techniques and beginning motor control exercises to improve joint stability",
+      progression: "Progressive strengthening of deep stabilizers and movement retraining to address underlying biomechanical factors"
+    },
+
+    evidenceBasedTreatment: [
+      {
+        approach: "Manual Therapy and Joint Mobilization",
+        evidence: "Most effective intervention showing significant reduction in pain and disability with VAS and NPRS improvements of 91% sensitivity and 78% specificity",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Targeted Exercise Therapy",
+        evidence: "Exercise therapy including posterior innominate mobilization, stretching, and spinal stabilization shows remarkable improvement in functional disability",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Motor Control and Stability Training",
+        evidence: "Core stability exercises and pelvic girdle stabilization restore normal movement patterns and reduce recurrence",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Kinesio Taping",
+        evidence: "Combined with exercise and manipulation, kinesio taping is effective in restoring pelvic symmetry and reducing pain",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Movement Pattern Correction",
+        evidence: "Addressing gait abnormalities and compensatory patterns improves long-term outcomes",
+        effectivenessLevel: "moderate"
+      }
+    ],
+
+    prognosis: {
+      timeline: "Most patients see significant improvement within 6-8 weeks of appropriate treatment, with pain reduction often occurring within the first few sessions",
+      factors: [
+        "Three or more positive SI joint provocation tests correlate with better treatment response",
+        "Early intervention prevents development of chronic pain patterns",
+        "Compliance with home exercise program crucial for maintaining gains",
+        "Addressing contributing factors like hip mobility improves outcomes",
+        "Pregnancy-related SI dysfunction may require modified approach but generally responds well"
+      ],
+      naturalHistory: "SI joint dysfunction often responds excellently to conservative treatment when properly diagnosed and managed with multimodal approach"
+    },
+
+    selfManagement: [
+      {
+        strategy: "Pelvic Stabilization Exercises",
+        rationale: "Strengthening deep abdominal and pelvic floor muscles improves force closure and joint stability",
+        precautions: ["Focus on quality over quantity", "Avoid breath holding during exercises"]
+      },
+      {
+        strategy: "Movement Modification Techniques",
+        rationale: "Learning to move in ways that minimize SI joint stress helps prevent symptom flares during daily activities",
+        precautions: ["Practice new movement patterns slowly", "Use log rolling technique in bed"]
+      },
+      {
+        strategy: "Postural Awareness",
+        rationale: "Maintaining neutral pelvic alignment reduces asymmetrical loading on the SI joint",
+        precautions: ["Avoid prolonged static positions", "Use supportive seating when possible"]
+      },
+      {
+        strategy: "Hip and Spine Mobility",
+        rationale: "Maintaining mobility in adjacent joints prevents excessive stress on the SI joint",
+        precautions: ["Perform gentle stretches within comfortable range", "Avoid aggressive stretching"]
+      },
+      {
+        strategy: "Activity Pacing",
+        rationale: "Gradually increasing activity levels allows tissues to adapt while preventing overloading of healing structures",
+        precautions: ["Listen to your body's response", "Balance activity with adequate rest"]
+      }
+    ],
+
+    clinicalRedFlags: [
+      {
+        sign: "Progressive neurological symptoms or leg weakness",
+        action: "May indicate nerve compression or cauda equina syndrome - requires urgent medical evaluation"
+      },
+      {
+        sign: "Severe pain with fever or systemic symptoms",
+        action: "Could suggest infection or inflammatory condition - needs immediate medical assessment"
+      },
+      {
+        sign: "Bowel or bladder dysfunction with back pain",
+        action: "Possible cauda equina syndrome - emergency medical attention required"
+      },
+      {
+        sign: "No improvement after 8-10 weeks of appropriate conservative treatment",
+        action: "Consider imaging and specialist referral to rule out other pathology or need for injection therapy"
+      }
+    ],
+
+    measuringProgress: {
+      dayToDay: "I track your pain during specific activities like single-leg standing and transitional movements, improvements in functional tasks, and reductions in compensatory movement patterns",
+      questionnaires: "Oswestry Disability Index and pain scales to monitor functional improvements and pain reduction over time",
+      activityTarget: "Return to full functional activities including sports and exercise without recurring SI joint symptoms"
+    },
+    accessAndHours: standardAccessAndHours
   },
 
   'pcl-injuries': {
-    // Coming soon - comprehensive content under development
+    pathophysiology: `Posterior cruciate ligament (PCL) injuries involve damage to the ligament that prevents excessive backward movement of your tibia relative to your femur. The PCL is the strongest ligament in your knee and has a better blood supply than the ACL, giving it superior healing potential when injured.
+
+PCL injuries are graded from I to III based on severity: Grade I involves stretching with microscopic tears, Grade II involves partial tearing with some functional loss, and Grade III represents complete rupture. Unlike ACL injuries, isolated PCL tears have an excellent capacity for healing due to their rich vascular supply.
+
+The mechanism of injury typically involves a posteriorly directed force on the proximal tibia, such as falling onto a bent knee or dashboard injuries in motor vehicle accidents. Sports injuries often occur during hyperflexion or hyperextension movements, particularly in contact sports.
+
+The PCL works in conjunction with other knee structures to provide stability. When injured, the quadriceps muscle becomes crucial as it can partially compensate for PCL function by preventing excessive posterior tibial translation during functional activities.`,
+
+    biomechanics: `Your PCL serves as the primary restraint against posterior translation of the tibia, particularly when your knee is flexed beyond 30 degrees. Unlike the ACL, which is tight in extension, the PCL becomes increasingly tight as the knee flexes, with maximum tension occurring at 90 degrees of flexion.
+
+The quadriceps muscle group, particularly the vastus medialis and vastus lateralis, can provide some functional replacement for a damaged PCL by preventing the femur from sliding forward on the tibia. This is why quadriceps strengthening is the cornerstone of PCL rehabilitation.
+
+During normal gait, the PCL experiences loads of 0.5-1 times body weight, but during activities like squatting or climbing stairs, these forces can increase to 2-3 times body weight. Understanding these loading patterns is crucial for designing appropriate rehabilitation programs.
+
+The posterior drawer test demonstrates the primary dysfunction in PCL injuries - when you sit with your knee bent and someone pushes your shin backward, there's excessive movement compared to the uninjured side. However, this instability may not translate to significant functional problems in daily activities.`,
+
+    clinicalPresentation: {
+      primarySymptoms: [
+        "Posterior knee pain that may be vague and difficult to localize",
+        "Sensation of knee instability, particularly with deceleration or downhill activities",
+        "Difficulty with activities requiring deep knee flexion like squatting or kneeling",
+        "Pain and stiffness after prolonged sitting or inactivity",
+        "Swelling that may be minimal compared to other knee injuries"
+      ],
+      associatedSymptoms: [
+        "Quadriceps muscle weakness and atrophy",
+        "Compensatory hip or ankle dysfunction",
+        "Patellofemoral pain from altered knee mechanics",
+        "General sense of knee 'looseness' during activity",
+        "Difficulty with activities requiring sudden directional changes"
+      ],
+      typicalPattern: "I often see patients who describe a specific injury mechanism but may have relatively mild initial symptoms. Many don't realize the severity of their injury initially because PCL tears can be less dramatically symptomatic than ACL injuries. The instability becomes apparent during activities that stress the posterior structures of the knee."
+    },
+
+    evidenceSnapshot: {
+      firstLine: "Conservative treatment with structured rehabilitation focusing on quadriceps strengthening is first-line for isolated Grade I-II injuries",
+      imaging: "MRI confirms diagnosis and grades severity, but clinical assessment and functional response guide treatment decisions",
+      management: "Evidence strongly supports non-operative management for most isolated PCL injuries with excellent functional outcomes",
+      sources: "Sports medicine literature; systematic reviews on PCL rehabilitation; return-to-play algorithms emphasizing conservative treatment"
+    },
+
+    whatToExpect: {
+      firstVisit: "I'll assess the degree of posterior instability, evaluate associated injuries, and begin a quadriceps-focused strengthening program while protecting the healing ligament",
+      earlyPhase: "Initial 2-4 weeks focus on controlling swelling, maintaining range of motion, and beginning gentle quadriceps activation while avoiding hamstring contractions",
+      progression: "Systematic progression through strengthening phases with emphasis on quadriceps development and gradual return to functional activities"
+    },
+
+    evidenceBasedTreatment: [
+      {
+        approach: "Quadriceps-Focused Strengthening Program",
+        evidence: "Quadriceps strengthening is key factor for successful recovery as these muscles can partially replace PCL function with excellent outcomes reported",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Conservative Non-Operative Management",
+        evidence: "Current research shows excellent outcomes and return to play with conservative treatment of isolated PCL injuries in athletes and non-athletes",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Progressive Functional Training",
+        evidence: "Return to play algorithms emphasize inclusion of plyometrics and sport-specific training with good success rates",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Support Bracing in Early Phase",
+        evidence: "PCL support braces providing anterior tibial force during first 12 weeks improve outcomes and patient confidence",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Hamstring Avoidance Protocol",
+        evidence: "Avoiding active hamstring contraction in early stages prevents posteriorly directed forces that stress the healing PCL",
+        effectivenessLevel: "moderate"
+      }
+    ],
+
+    prognosis: {
+      timeline: "Return to sport typically possible after 3 months for conservative treatment. Full functional recovery often achieved within 4-6 months",
+      factors: [
+        "Grade I and II isolated injuries have excellent prognosis with conservative treatment",
+        "Quadriceus strength recovery to >90% Leg Symmetry Index crucial for return to sport",
+        "Early intervention with appropriate rehabilitation improves outcomes",
+        "Compliance with strengthening program is critical for success",
+        "Associated meniscal or other ligament injuries may affect timeline"
+      ],
+      naturalHistory: "Unlike ACL injuries, PCL has natural healing ability. Chronic tears with less than 8mm posterior subluxation can heal with restoration of ligament continuity"
+    },
+
+    selfManagement: [
+      {
+        strategy: "Quadriceps Strengthening Focus",
+        rationale: "Strong quadriceps can functionally replace much of the PCL's role in preventing posterior tibial translation during activities",
+        precautions: ["Avoid hamstring-dominant exercises initially", "Focus on quality of contraction"]
+      },
+      {
+        strategy: "Range of Motion Maintenance",
+        rationale: "Maintaining knee flexibility prevents stiffness while avoiding positions that stress the healing PCL",
+        precautions: ["Avoid hyperflexion initially", "Gentle progression as tolerated"]
+      },
+      {
+        strategy: "Activity Modification",
+        rationale: "Temporarily avoiding high-risk activities allows ligament healing while maintaining overall fitness",
+        precautions: ["Avoid deep squatting initially", "Gradually return to sports after strength goals met"]
+      },
+      {
+        strategy: "Progressive Loading",
+        rationale: "Systematic increase in activity helps both the healing ligament and compensating muscles adapt to functional demands",
+        precautions: ["Respect healing timeframes", "Monitor for increased swelling or pain"]
+      }
+    ],
+
+    clinicalRedFlags: [
+      {
+        sign: "Multiple ligament injury signs or severe instability",
+        action: "May indicate combined ligament injuries requiring surgical intervention - needs orthopedic consultation"
+      },
+      {
+        sign: "Vascular compromise or neurological symptoms",
+        action: "Could suggest damage to popliteal vessels or peroneal nerve - requires urgent medical evaluation"
+      },
+      {
+        sign: "Locked knee or inability to bear weight",
+        action: "May indicate meniscal tear or other structural damage requiring immediate assessment"
+      },
+      {
+        sign: "No functional improvement after 3 months of appropriate rehabilitation",
+        action: "Consider MRI reassessment and orthopedic consultation for possible surgical intervention"
+      }
+    ],
+
+    measuringProgress: {
+      dayToDay: "I track your quadriceps strength development, knee stability during functional activities, and your confidence with activities that previously caused instability symptoms",
+      questionnaires: "Lysholm Knee Score and Tegner Activity Scale to monitor functional improvements and activity level progression",
+      activityTarget: "Return to your desired sport or activity level with >90% quadriceps strength and confidence in knee stability"
+    },
+    accessAndHours: standardAccessAndHours
   },
 
 
   'peroneal-tendinopathy': {
-    // Coming soon - comprehensive content under development
+    pathophysiology: `Peroneal tendinopathy affects the fibularis longus and brevis tendons that run behind your lateral malleolus (outer ankle bone). These tendons are crucial for ankle stability, particularly during walking on uneven surfaces, and help prevent ankle sprains by providing lateral stability.
+
+The peroneal tendons are subject to significant mechanical stress as they navigate around the sharp posterior edge of the fibula, held in place by the superior peroneal retinaculum. This anatomical arrangement makes them vulnerable to friction and degenerative changes, particularly when the retinaculum is damaged or when there are underlying biomechanical issues.
+
+Tendinopathy develops when the cumulative load on these tendons exceeds their adaptive capacity. This leads to a failed healing response characterized by disorganized collagen, increased ground substance, and neovascularization. The result is a painful, thickened tendon with reduced mechanical properties.
+
+The condition often develops in conjunction with chronic ankle instability, where recurrent ankle sprains lead to peroneal muscle weakness and altered biomechanics. This creates a cycle where weak peroneals increase ankle instability, leading to further tendon stress and degeneration.`,
+
+    biomechanics: `Your peroneal muscles serve dual roles as foot everters and ankle lateral stabilizers. The fibularis longus also supports your medial longitudinal arch, while the fibularis brevis provides dynamic stability against ankle inversion.
+
+During the stance phase of walking, your peroneal muscles work eccentrically to control inversion and provide lateral stability. On uneven surfaces or during cutting movements in sports, these demands increase dramatically, making the tendons vulnerable to overuse injury.
+
+The peroneal tendons must navigate a sharp turn around the lateral malleolus, similar to a rope moving around a pulley. This creates high friction forces, especially when ankle motion increases or when there are anatomical variations like a prominent peroneal tubercle.
+
+When ankle proprioception is impaired following sprains, the peroneal muscles must work harder to provide conscious and subconscious stability. This increased demand, combined with potential weakness from previous injuries, creates the perfect environment for tendinopathy development.`,
+
+    clinicalPresentation: {
+      primarySymptoms: [
+        "Pain along the outer aspect of the ankle, particularly behind and below the lateral malleolus",
+        "Pain that worsens with activity, especially walking on uneven surfaces or pushing off during running",
+        "Tenderness with direct pressure over the peroneal tendons",
+        "Pain with resisted eversion (turning foot outward) of the ankle",
+        "Stiffness and pain after periods of rest, particularly in the morning"
+      ],
+      associatedSymptoms: [
+        "Swelling along the tendon pathway",
+        "Sensation of ankle instability or 'giving way'",
+        "Difficulty with single-leg standing or balance activities",
+        "Compensatory movement patterns in the hip or knee",
+        "History of recurrent ankle sprains"
+      ],
+      typicalPattern: "I typically see patients with a history of ankle sprains who develop gradual onset lateral ankle pain. Many describe difficulty with activities like hiking on trails or sports requiring quick direction changes. The pain often improves with rest but returns quickly when activity resumes."
+    },
+
+    evidenceSnapshot: {
+      firstLine: "Conservative management with progressive loading exercises is first-line treatment, though evidence base is primarily Level IV-V case series",
+      imaging: "Ultrasound can show tendon thickening and tears; MRI may be used for surgical planning if conservative treatment fails",
+      management: "Evidence-guided treatment includes activity modification, progressive exercise, and addressing underlying ankle instability",
+      sources: "Case series and clinical experience; limited high-quality RCT evidence; expert consensus on rehabilitation approaches"
+    },
+
+    whatToExpect: {
+      firstVisit: "I'll assess your peroneal tendon function, evaluate for underlying ankle instability, and begin a structured loading program while addressing contributing biomechanical factors",
+      earlyPhase: "Initial focus on reducing tendon irritation through activity modification while beginning gentle loading and proprioceptive exercises",
+      progression: "Systematic progression through loading phases with emphasis on eccentric strengthening and functional activities"
+    },
+
+    evidenceBasedTreatment: [
+      {
+        approach: "Progressive Loading Exercise Program",
+        evidence: "Rehabilitation focusing on peroneal function tolerance and strength shows improvement, though based on limited evidence",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Proprioceptive and Balance Training",
+        evidence: "Addressing ankle instability and proprioceptive deficits reduces tendon stress and prevents recurrence",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Activity Modification with Gradual Return",
+        evidence: "Temporary modification of aggravating activities allows tendon adaptation while maintaining fitness",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Eccentric and Isotonic Strengthening",
+        evidence: "Progressive strengthening with theraband and eccentric exercises promotes tendon remodeling",
+        effectivenessLevel: "limited"
+      },
+      {
+        approach: "Manual Therapy and Mobilization",
+        evidence: "May help address ankle stiffness and optimize mechanics, though evidence specific to peroneal tendinopathy is limited",
+        effectivenessLevel: "limited"
+      }
+    ],
+
+    prognosis: {
+      timeline: "Symptoms often improve within 6-12 weeks with appropriate loading program, though complete resolution may take 3-4 months",
+      factors: [
+        "Duration of symptoms affects recovery time - chronic cases take longer",
+        "Addressing underlying ankle instability improves outcomes",
+        "Compliance with exercise program crucial for tendon adaptation",
+        "Biomechanical factors like foot posture influence recovery",
+        "Activity demands and sport requirements affect timeline"
+      ],
+      naturalHistory: "Most cases respond well to conservative management when underlying instability is addressed. Failure to improve may require surgical evaluation"
+    },
+
+    selfManagement: [
+      {
+        strategy: "Progressive Loading Program",
+        rationale: "Systematic loading helps tendons adapt and remodel while rebuilding strength and endurance of peroneal muscles",
+        precautions: ["Progress based on tendon response", "Some discomfort during exercise is acceptable"]
+      },
+      {
+        strategy: "Balance and Proprioceptive Training",
+        rationale: "Improving ankle stability reduces excessive demands on peroneal tendons during functional activities",
+        precautions: ["Start with stable surfaces", "Progress to unstable surfaces gradually"]
+      },
+      {
+        strategy: "Activity Modification",
+        rationale: "Temporarily reducing high-stress activities allows tendon healing while maintaining cardiovascular fitness",
+        precautions: ["Modify rather than completely avoid activity", "Use supportive footwear"]
+      },
+      {
+        strategy: "Ankle Mobility Maintenance",
+        rationale: "Maintaining ankle range of motion prevents stiffness that could alter biomechanics and increase tendon stress",
+        precautions: ["Gentle stretching within comfortable range", "Focus on all planes of movement"]
+      }
+    ],
+
+    clinicalRedFlags: [
+      {
+        sign: "Acute severe pain with inability to bear weight following trauma",
+        action: "May indicate peroneal tendon rupture or fracture - requires immediate medical evaluation"
+      },
+      {
+        sign: "Progressive weakness or loss of eversion strength",
+        action: "Could suggest tendon rupture or neurological involvement - needs urgent assessment"
+      },
+      {
+        sign: "Signs of infection including fever, red streaking, or severe swelling",
+        action: "May indicate septic tenosynovitis - requires immediate medical attention"
+      },
+      {
+        sign: "No improvement after 12 weeks of appropriate conservative treatment",
+        action: "Consider advanced imaging and orthopedic consultation for possible surgical intervention"
+      }
+    ],
+
+    measuringProgress: {
+      dayToDay: "I monitor your pain during weight-bearing activities, improvements in single-leg balance, ankle stability during functional movements, and your ability to perform activities that previously caused symptoms",
+      questionnaires: "Foot and Ankle Ability Measure (FAAM) and Victorian Institute of Sport Assessment-Achilles (VISA-A) adapted for peroneal tendons",
+      activityTarget: "Return to your desired activities including sports and uneven terrain walking without recurring lateral ankle pain"
+    },
+    accessAndHours: standardAccessAndHours
   }
 };
 

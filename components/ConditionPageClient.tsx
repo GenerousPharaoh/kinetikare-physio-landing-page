@@ -505,67 +505,197 @@ export default function ConditionPageClient({
                         </div>
                       )}
 
-                      {/* Research Tab */}
+                      {/* Research Tab - Premium Design */}
                       {activeTab === 'research' && (
                         <div className="space-y-6">
                           {condition.keyResearch && condition.keyResearch.length > 0 && (
-                            <div className="bg-white rounded-xl p-6 border border-slate-200">
-                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
-                                Key Research & Evidence
-                              </h2>
-                              <div className="space-y-4">
-                                {condition.keyResearch.map((research, index) => (
-                                  <div key={index} className="border-l-4 border-[#B08D57]/30 pl-4 hover:border-[#B08D57] transition-colors">
-                                    <div className="flex items-start justify-between mb-1">
-                                      <h3 className="font-semibold text-slate-900 text-sm">{research.title}</h3>
-                                      <span className="text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded">{research.year}</span>
+                            <div className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
+                              {/* Premium gradient overlay */}
+                              <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/30 via-transparent to-teal-50/20 pointer-events-none"></div>
+                              
+                              <div className="relative">
+                                {/* Header with gradient accent */}
+                                <div className="bg-gradient-to-r from-emerald-900 to-emerald-700 px-8 py-6">
+                                  <div className="flex items-center gap-3">
+                                    <div className="p-2.5 bg-white/10 backdrop-blur rounded-xl border border-white/20">
+                                      <BeakerIcon className="h-6 w-6 text-white" />
                                     </div>
-                                    <p className="text-sm text-slate-600 mb-2">{research.findings}</p>
-                                    <p className="text-xs text-[#B08D57] font-medium">
-                                      Clinical relevance: {research.relevance}
-                                    </p>
+                                    <div>
+                                      <h2 className="text-2xl font-bold text-white">Key Research & Evidence</h2>
+                                      <p className="text-sm text-emerald-200 mt-1">Peer-reviewed studies supporting treatment approaches</p>
+                                    </div>
                                   </div>
-                                ))}
-                              </div>
-                              {condition.keyResearch.length === 1 && (
-                                <div className="mt-4 p-3 bg-amber-50 rounded-lg border border-amber-200">
-                                  <p className="text-xs text-amber-800">
-                                    <ExclamationCircleIcon className="inline h-4 w-4 mr-1" />
-                                    Additional research studies are being reviewed to strengthen the evidence base for this condition.
-                                  </p>
                                 </div>
-                              )}
+                                
+                                <div className="p-8">
+                                  <div className="space-y-6">
+                                    {condition.keyResearch.map((research, index) => {
+                                      const colors = [
+                                        { bg: 'from-emerald-50/50 to-emerald-50/20', border: 'border-emerald-100', icon: 'from-emerald-500 to-emerald-600', text: 'text-emerald-700' },
+                                        { bg: 'from-blue-50/50 to-blue-50/20', border: 'border-blue-100', icon: 'from-blue-500 to-blue-600', text: 'text-blue-700' },
+                                        { bg: 'from-purple-50/50 to-purple-50/20', border: 'border-purple-100', icon: 'from-purple-500 to-purple-600', text: 'text-purple-700' },
+                                        { bg: 'from-teal-50/50 to-teal-50/20', border: 'border-teal-100', icon: 'from-teal-500 to-teal-600', text: 'text-teal-700' },
+                                      ];
+                                      const color = colors[index % colors.length];
+                                      
+                                      return (
+                                        <div key={index} className={`group relative bg-gradient-to-r ${color.bg} rounded-xl p-6 border ${color.border} hover:shadow-md transition-all`}>
+                                          <div className="flex gap-4">
+                                            <div className="flex-shrink-0">
+                                              <div className={`w-12 h-12 bg-gradient-to-br ${color.icon} rounded-xl flex items-center justify-center shadow-lg`}>
+                                                <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                                                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                                </svg>
+                                              </div>
+                                            </div>
+                                            <div className="flex-1">
+                                              <div className="flex items-start justify-between mb-3">
+                                                <h3 className={`text-xs font-bold ${color.text} uppercase tracking-wider mb-2`}>
+                                                  {research.authors && `${research.authors} (${research.year})`}
+                                                  {!research.authors && research.title}
+                                                </h3>
+                                                {research.year && (
+                                                  <span className="text-xs text-slate-500 bg-white/80 backdrop-blur px-3 py-1.5 rounded-full font-medium">
+                                                    {research.year}
+                                                  </span>
+                                                )}
+                                              </div>
+                                              
+                                              {research.authors && (
+                                                <h4 className="font-semibold text-slate-900 mb-3 text-lg leading-tight">
+                                                  {research.title}
+                                                </h4>
+                                              )}
+                                              
+                                              {research.journal && (
+                                                <p className="text-sm text-slate-600 italic mb-3">
+                                                  Published in: {research.journal}
+                                                  {research.sampleSize && ` • Sample Size: ${research.sampleSize}`}
+                                                </p>
+                                              )}
+                                              
+                                              <div className="mb-3">
+                                                <h5 className="text-sm font-semibold text-slate-900 mb-1">Key Findings:</h5>
+                                                <p className="text-slate-700 text-sm leading-relaxed">{research.findings}</p>
+                                              </div>
+                                              
+                                              <div className="p-3 bg-white/60 backdrop-blur rounded-lg border border-white/40">
+                                                <h5 className="text-sm font-semibold text-slate-900 mb-1">Clinical Relevance:</h5>
+                                                <p className="text-slate-700 text-sm leading-relaxed">{research.relevance}</p>
+                                              </div>
+                                              
+                                              {research.citation && (
+                                                <div className="mt-3 pt-3 border-t border-slate-200/60">
+                                                  <p className="text-xs text-slate-500 font-mono">{research.citation}</p>
+                                                </div>
+                                              )}
+                                            </div>
+                                          </div>
+                                        </div>
+                                      );
+                                    })}
+                                  </div>
+                                  
+                                  {condition.keyResearch.length < 3 && (
+                                    <div className="mt-6 p-4 bg-amber-50/70 backdrop-blur rounded-xl border border-amber-200">
+                                      <div className="flex items-start gap-3">
+                                        <ExclamationCircleIcon className="h-5 w-5 text-amber-600 mt-0.5 flex-shrink-0" />
+                                        <div>
+                                          <p className="text-sm font-semibold text-amber-900 mb-1">Research Database Expanding</p>
+                                          <p className="text-sm text-amber-800">
+                                            Additional peer-reviewed studies are being reviewed and will be added to strengthen the evidence base for this condition.
+                                          </p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  )}
+                                  
+                                  {/* Evidence Quality Disclaimer */}
+                                  <div className="mt-6 pt-6 border-t border-slate-200">
+                                    <div className="flex items-center gap-2 text-xs text-slate-600">
+                                      <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                      </svg>
+                                      <span className="font-semibold">Evidence Quality:</span>
+                                      <span>Studies selected based on methodological rigor and clinical applicability</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                           )}
 
                           {condition.researchInsights && condition.researchInsights.length > 0 && (
-                            <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
-                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
-                                Research Insights
-                              </h2>
-                              <div className="space-y-4">
-                                {condition.researchInsights.map((insight, index) => {
-                                  const colonIndex = insight.indexOf(':');
-                                  const topic = colonIndex > -1 ? insight.substring(0, colonIndex).trim() : '';
-                                  const finding = colonIndex > -1 ? insight.substring(colonIndex + 1).trim() : insight;
-                                  
-                                  return (
-                                    <div key={index} className="bg-white rounded-lg p-4 border border-slate-200">
-                                      {topic ? (
-                                        <>
-                                          <h3 className="font-semibold text-slate-900 mb-2">{topic}</h3>
-                                          <p className="text-slate-600">{finding}</p>
-                                        </>
-                                      ) : (
-                                        <p className="text-slate-600">{finding}</p>
-                                      )}
+                            <div className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
+                              {/* Premium gradient overlay */}
+                              <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-transparent to-indigo-50/20 pointer-events-none"></div>
+                              
+                              <div className="relative">
+                                {/* Header with gradient accent */}
+                                <div className="bg-gradient-to-r from-blue-900 to-blue-700 px-8 py-6">
+                                  <div className="flex items-center gap-3">
+                                    <div className="p-2.5 bg-white/10 backdrop-blur rounded-xl border border-white/20">
+                                      <ChartBarIcon className="h-6 w-6 text-white" />
                                     </div>
-                                  );
-                                })}
+                                    <div>
+                                      <h2 className="text-2xl font-bold text-white">Research Insights</h2>
+                                      <p className="text-sm text-blue-200 mt-1">Clinical implications and practice recommendations</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                
+                                <div className="p-8">
+                                  <div className="space-y-5">
+                                    {condition.researchInsights.map((insight, index) => {
+                                      const colonIndex = insight.indexOf(':');
+                                      const topic = colonIndex > -1 ? insight.substring(0, colonIndex).trim() : '';
+                                      const finding = colonIndex > -1 ? insight.substring(colonIndex + 1).trim() : insight;
+                                      
+                                      const colors = [
+                                        { bg: 'from-blue-50/50 to-blue-50/20', border: 'border-blue-100', icon: 'from-blue-500 to-blue-600', text: 'text-blue-700' },
+                                        { bg: 'from-indigo-50/50 to-indigo-50/20', border: 'border-indigo-100', icon: 'from-indigo-500 to-indigo-600', text: 'text-indigo-700' },
+                                        { bg: 'from-violet-50/50 to-violet-50/20', border: 'border-violet-100', icon: 'from-violet-500 to-violet-600', text: 'text-violet-700' },
+                                        { bg: 'from-cyan-50/50 to-cyan-50/20', border: 'border-cyan-100', icon: 'from-cyan-500 to-cyan-600', text: 'text-cyan-700' },
+                                      ];
+                                      const color = colors[index % colors.length];
+                                      
+                                      return (
+                                        <div key={index} className={`group relative bg-gradient-to-r ${color.bg} rounded-xl p-6 border ${color.border} hover:shadow-md transition-all`}>
+                                          <div className="flex gap-4">
+                                            <div className="flex-shrink-0">
+                                              <div className={`w-12 h-12 bg-gradient-to-br ${color.icon} rounded-xl flex items-center justify-center shadow-lg`}>
+                                                <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                                                  <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                                </svg>
+                                              </div>
+                                            </div>
+                                            <div className="flex-1">
+                                              {topic ? (
+                                                <>
+                                                  <h3 className={`text-xs font-bold ${color.text} uppercase tracking-wider mb-2`}>{topic}</h3>
+                                                  <p className="text-slate-700 text-sm leading-relaxed">{finding}</p>
+                                                </>
+                                              ) : (
+                                                <p className="text-slate-700 text-sm leading-relaxed">{finding}</p>
+                                              )}
+                                            </div>
+                                          </div>
+                                        </div>
+                                      );
+                                    })}
+                                  </div>
+                                  
+                                  <div className="mt-6 pt-6 border-t border-slate-200">
+                                    <div className="flex items-center gap-2 text-xs text-slate-600">
+                                      <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                      </svg>
+                                      <span className="font-semibold">Evidence Base:</span>
+                                      <span>Based on current physiotherapy research and clinical practice guidelines</span>
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
-                              <p className="text-xs text-slate-500 mt-4 italic">
-                                Based on current physiotherapy research and clinical guidelines
-                              </p>
                             </div>
                           )}
                         </div>

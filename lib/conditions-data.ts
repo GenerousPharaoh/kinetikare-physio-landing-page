@@ -42,9 +42,13 @@ export interface Condition {
   }[];
   keyResearch?: {
     title: string;
+    authors?: string;
     year: number;
+    journal?: string;
+    sampleSize?: string;
     findings: string;
     relevance: string;
+    citation?: string;
   }[];
   
   // New evidence-based sections

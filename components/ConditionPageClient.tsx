@@ -731,73 +731,184 @@ export default function ConditionPageClient({
                           )}
 
                           {condition.prognosis && (
-                            <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
-                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
-                                Prognosis & Recovery
-                              </h2>
+                            <div className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
+                              {/* Premium gradient overlay */}
+                              <div className="absolute inset-0 bg-gradient-to-br from-purple-50/30 via-transparent to-pink-50/20 pointer-events-none"></div>
                               
-                              <div className="space-y-4">
-                                <div>
-                                  <h3 className="font-semibold text-slate-900 mb-2">Expected Timeline</h3>
-                                  <p className="text-slate-600">{condition.prognosis.timeline}</p>
-                                </div>
-                                
-                                {condition.prognosis.naturalHistory && (
-                                  <div>
-                                    <h3 className="font-semibold text-slate-900 mb-2">Natural History</h3>
-                                    <p className="text-slate-600">{condition.prognosis.naturalHistory}</p>
-                                  </div>
-                                )}
-                                
-                                {condition.prognosis.factors && condition.prognosis.factors.length > 0 && (
-                                  <div>
-                                    <h3 className="font-semibold text-slate-900 mb-3">Factors Affecting Recovery</h3>
-                                    <div className="grid md:grid-cols-2 gap-2">
-                                      {condition.prognosis.factors.map((factor, index) => (
-                                        <div key={index} className="flex items-start gap-2">
-                                          <CheckCircleIcon className="h-4 w-4 text-[#B08D57] mt-0.5 flex-shrink-0" />
-                                          <span className="text-sm text-slate-600">{factor}</span>
-                                        </div>
-                                      ))}
+                              <div className="relative">
+                                {/* Header with gradient accent */}
+                                <div className="bg-gradient-to-r from-purple-900 to-purple-700 px-8 py-6">
+                                  <div className="flex items-center gap-3">
+                                    <div className="p-2.5 bg-white/10 backdrop-blur rounded-xl border border-white/20">
+                                      <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                                      </svg>
+                                    </div>
+                                    <div>
+                                      <h2 className="text-2xl font-bold text-white">Prognosis & Recovery</h2>
+                                      <p className="text-sm text-purple-200 mt-1">Expected outcomes and recovery factors</p>
                                     </div>
                                   </div>
-                                )}
+                                </div>
+                                
+                                <div className="p-8">
+                                  <div className="space-y-5">
+                                    {/* Timeline Card */}
+                                    <div className="group relative bg-gradient-to-r from-purple-50/50 to-purple-50/20 rounded-xl p-6 border border-purple-100 hover:shadow-md transition-all">
+                                      <div className="flex gap-4">
+                                        <div className="flex-shrink-0">
+                                          <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
+                                            <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                                              <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                          </div>
+                                        </div>
+                                        <div className="flex-1">
+                                          <h3 className="text-xs font-bold text-purple-700 uppercase tracking-wider mb-2">Expected Timeline</h3>
+                                          <p className="text-slate-700 text-sm leading-relaxed">{condition.prognosis.timeline}</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    
+                                    {/* Natural History Card */}
+                                    {condition.prognosis.naturalHistory && (
+                                      <div className="group relative bg-gradient-to-r from-pink-50/50 to-pink-50/20 rounded-xl p-6 border border-pink-100 hover:shadow-md transition-all">
+                                        <div className="flex gap-4">
+                                          <div className="flex-shrink-0">
+                                            <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-pink-600 rounded-xl flex items-center justify-center shadow-lg">
+                                              <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                              </svg>
+                                            </div>
+                                          </div>
+                                          <div className="flex-1">
+                                            <h3 className="text-xs font-bold text-pink-700 uppercase tracking-wider mb-2">Natural History</h3>
+                                            <p className="text-slate-700 text-sm leading-relaxed">{condition.prognosis.naturalHistory}</p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    )}
+                                    
+                                    {/* Recovery Factors */}
+                                    {condition.prognosis.factors && condition.prognosis.factors.length > 0 && (
+                                      <div className="group relative bg-gradient-to-r from-indigo-50/50 to-indigo-50/20 rounded-xl p-6 border border-indigo-100 hover:shadow-md transition-all">
+                                        <div className="flex gap-4">
+                                          <div className="flex-shrink-0">
+                                            <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
+                                              <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                                              </svg>
+                                            </div>
+                                          </div>
+                                          <div className="flex-1">
+                                            <h3 className="text-xs font-bold text-indigo-700 uppercase tracking-wider mb-3">Factors Affecting Recovery</h3>
+                                            <div className="grid md:grid-cols-2 gap-3">
+                                              {condition.prognosis.factors.map((factor, index) => (
+                                                <div key={index} className="flex items-start gap-2">
+                                                  <CheckCircleIcon className="h-4 w-4 text-indigo-500 mt-0.5 flex-shrink-0" />
+                                                  <span className="text-sm text-slate-700">{factor}</span>
+                                                </div>
+                                              ))}
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    )}
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           )}
 
-                          {/* Measuring Progress Section */}
+                          {/* Measuring Progress Section - Premium Design */}
                           {condition.measuringProgress && (
-                            <div className="bg-green-50 rounded-xl p-6 border border-green-200">
-                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
-                                Measuring Progress
-                              </h2>
-                              <div className="space-y-3">
-                                <div>
-                                  <h3 className="font-semibold text-slate-900 mb-2">Day-to-Day Tracking</h3>
-                                  <p className="text-slate-600 text-sm">{condition.measuringProgress.dayToDay}</p>
-                                </div>
-                                {condition.measuringProgress.questionnaires && (
-                                  <div>
-                                    <h3 className="font-semibold text-slate-900 mb-2">Assessment Tools</h3>
-                                    <p className="text-slate-600 text-sm" dangerouslySetInnerHTML={{ 
-                                      __html: condition.measuringProgress.questionnaires
-                                        .replace(/\b(DASH)\b/g, '<a href="https://www.physio-pedia.com/DASH_Outcome_Measure" target="_blank" rel="noopener noreferrer" class="underline hover:text-slate-800">$1</a>')
-                                        .replace(/\b(SPADI)\b/g, '<a href="https://www.physiotutors.com/questionnaires/shoulder-pain-disability-index-spadi/" target="_blank" rel="noopener noreferrer" class="underline hover:text-slate-800">$1</a>')
-                                        .replace(/\b(ODI|Oswestry Disability Index)\b/g, '<a href="https://www.physio-pedia.com/Oswestry_Disability_Index" target="_blank" rel="noopener noreferrer" class="underline hover:text-slate-800">$1</a>')
-                                        .replace(/\b(NPRS|Numeric Pain Rating Scale)\b/g, '<a href="https://www.physio-pedia.com/Numeric_Pain_Rating_Scale" target="_blank" rel="noopener noreferrer" class="underline hover:text-slate-800">$1</a>')
-                                        .replace(/\b(VAS|Visual Analogue Scale)\b/g, '<a href="https://www.physio-pedia.com/Visual_Analogue_Scale" target="_blank" rel="noopener noreferrer" class="underline hover:text-slate-800">$1</a>')
-                                        .replace(/\b(Roland-Morris)\b/g, '<a href="https://www.physio-pedia.com/Roland_Morris_Disability_Questionnaire" target="_blank" rel="noopener noreferrer" class="underline hover:text-slate-800">$1</a>')
-                                        .replace(/\b(KOOS)\b/g, '<a href="https://www.physio-pedia.com/Knee_injury_and_Osteoarthritis_Outcome_Score" target="_blank" rel="noopener noreferrer" class="underline hover:text-slate-800">$1</a>')
-                                        .replace(/\b(WOMAC)\b/g, '<a href="https://www.physio-pedia.com/Western_Ontario_and_McMaster_Universities_Osteoarthritis_Index_(WOMAC)" target="_blank" rel="noopener noreferrer" class="underline hover:text-slate-800">$1</a>')
-                                        .replace(/\b(LEFS|Lower Extremity Functional Scale)\b/g, '<a href="https://www.physio-pedia.com/Lower_Extremity_Functional_Scale" target="_blank" rel="noopener noreferrer" class="underline hover:text-slate-800">$1</a>')
-                                        .replace(/\b(PSFS|Patient Specific Functional Scale)\b/g, '<a href="https://www.physio-pedia.com/Patient_Specific_Functional_Scale" target="_blank" rel="noopener noreferrer" class="underline hover:text-slate-800">$1</a>')
-                                    }} />
+                            <div className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
+                              {/* Premium gradient overlay */}
+                              <div className="absolute inset-0 bg-gradient-to-br from-green-50/30 via-transparent to-emerald-50/20 pointer-events-none"></div>
+                              
+                              <div className="relative">
+                                {/* Header with gradient accent */}
+                                <div className="bg-gradient-to-r from-green-900 to-green-700 px-8 py-6">
+                                  <div className="flex items-center gap-3">
+                                    <div className="p-2.5 bg-white/10 backdrop-blur rounded-xl border border-white/20">
+                                      <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                      </svg>
+                                    </div>
+                                    <div>
+                                      <h2 className="text-2xl font-bold text-white">Measuring Progress</h2>
+                                      <p className="text-sm text-green-200 mt-1">Track your recovery journey</p>
+                                    </div>
                                   </div>
-                                )}
-                                <div>
-                                  <h3 className="font-semibold text-slate-900 mb-2">Activity Targets</h3>
-                                  <p className="text-slate-600 text-sm">{condition.measuringProgress.activityTarget}</p>
+                                </div>
+                                
+                                <div className="p-8">
+                                  <div className="space-y-5">
+                                    {/* Day-to-Day Tracking Card */}
+                                    <div className="group relative bg-gradient-to-r from-green-50/50 to-green-50/20 rounded-xl p-6 border border-green-100 hover:shadow-md transition-all">
+                                      <div className="flex gap-4">
+                                        <div className="flex-shrink-0">
+                                          <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg">
+                                            <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                                              <path strokeLinecap="round" strokeLinejoin="round" d="M6 2v20m0-10h4m4 0h4m-4-5v10" />
+                                            </svg>
+                                          </div>
+                                        </div>
+                                        <div className="flex-1">
+                                          <h3 className="text-xs font-bold text-green-700 uppercase tracking-wider mb-2">Day-to-Day Tracking</h3>
+                                          <p className="text-slate-700 text-sm leading-relaxed">{condition.measuringProgress.dayToDay}</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    
+                                    {/* Assessment Tools Card */}
+                                    {condition.measuringProgress.questionnaires && (
+                                      <div className="group relative bg-gradient-to-r from-emerald-50/50 to-emerald-50/20 rounded-xl p-6 border border-emerald-100 hover:shadow-md transition-all">
+                                        <div className="flex gap-4">
+                                          <div className="flex-shrink-0">
+                                            <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
+                                              <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                              </svg>
+                                            </div>
+                                          </div>
+                                          <div className="flex-1">
+                                            <h3 className="text-xs font-bold text-emerald-700 uppercase tracking-wider mb-2">Assessment Tools</h3>
+                                            <p className="text-slate-700 text-sm leading-relaxed" dangerouslySetInnerHTML={{ 
+                                              __html: condition.measuringProgress.questionnaires
+                                                .replace(/\b(DASH)\b/g, '<a href="https://www.physio-pedia.com/DASH_Outcome_Measure" target="_blank" rel="noopener noreferrer" class="text-emerald-600 underline hover:text-emerald-800 font-medium">$1</a>')
+                                                .replace(/\b(SPADI)\b/g, '<a href="https://www.physiotutors.com/questionnaires/shoulder-pain-disability-index-spadi/" target="_blank" rel="noopener noreferrer" class="text-emerald-600 underline hover:text-emerald-800 font-medium">$1</a>')
+                                                .replace(/\b(ODI|Oswestry Disability Index)\b/g, '<a href="https://www.physio-pedia.com/Oswestry_Disability_Index" target="_blank" rel="noopener noreferrer" class="text-emerald-600 underline hover:text-emerald-800 font-medium">$1</a>')
+                                                .replace(/\b(NPRS|Numeric Pain Rating Scale)\b/g, '<a href="https://www.physio-pedia.com/Numeric_Pain_Rating_Scale" target="_blank" rel="noopener noreferrer" class="text-emerald-600 underline hover:text-emerald-800 font-medium">$1</a>')
+                                                .replace(/\b(VAS|Visual Analogue Scale)\b/g, '<a href="https://www.physio-pedia.com/Visual_Analogue_Scale" target="_blank" rel="noopener noreferrer" class="text-emerald-600 underline hover:text-emerald-800 font-medium">$1</a>')
+                                                .replace(/\b(Roland-Morris)\b/g, '<a href="https://www.physio-pedia.com/Roland_Morris_Disability_Questionnaire" target="_blank" rel="noopener noreferrer" class="text-emerald-600 underline hover:text-emerald-800 font-medium">$1</a>')
+                                                .replace(/\b(KOOS)\b/g, '<a href="https://www.physio-pedia.com/Knee_injury_and_Osteoarthritis_Outcome_Score" target="_blank" rel="noopener noreferrer" class="text-emerald-600 underline hover:text-emerald-800 font-medium">$1</a>')
+                                                .replace(/\b(WOMAC)\b/g, '<a href="https://www.physio-pedia.com/Western_Ontario_and_McMaster_Universities_Osteoarthritis_Index_(WOMAC)" target="_blank" rel="noopener noreferrer" class="text-emerald-600 underline hover:text-emerald-800 font-medium">$1</a>')
+                                                .replace(/\b(LEFS|Lower Extremity Functional Scale)\b/g, '<a href="https://www.physio-pedia.com/Lower_Extremity_Functional_Scale" target="_blank" rel="noopener noreferrer" class="text-emerald-600 underline hover:text-emerald-800 font-medium">$1</a>')
+                                                .replace(/\b(PSFS|Patient Specific Functional Scale)\b/g, '<a href="https://www.physio-pedia.com/Patient_Specific_Functional_Scale" target="_blank" rel="noopener noreferrer" class="text-emerald-600 underline hover:text-emerald-800 font-medium">$1</a>')
+                                            }} />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    )}
+                                    
+                                    {/* Activity Targets Card */}
+                                    <div className="group relative bg-gradient-to-r from-teal-50/50 to-teal-50/20 rounded-xl p-6 border border-teal-100 hover:shadow-md transition-all">
+                                      <div className="flex gap-4">
+                                        <div className="flex-shrink-0">
+                                          <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl flex items-center justify-center shadow-lg">
+                                            <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                                              <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                            </svg>
+                                          </div>
+                                        </div>
+                                        <div className="flex-1">
+                                          <h3 className="text-xs font-bold text-teal-700 uppercase tracking-wider mb-2">Activity Targets</h3>
+                                          <p className="text-slate-700 text-sm leading-relaxed">{condition.measuringProgress.activityTarget}</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -805,22 +916,59 @@ export default function ConditionPageClient({
 
 
                           {condition.faqs && condition.faqs.length > 0 && (
-                            <div className="bg-white rounded-xl p-6 border border-slate-200">
-                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
-                                Frequently Asked Questions
-                              </h2>
-                              <div className="space-y-4">
-                                {condition.faqs.map((faq, index) => (
-                                  <details key={index} className="group">
-                                    <summary className="flex items-start gap-2 cursor-pointer list-none">
-                                      <QuestionMarkCircleIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
-                                      <span className="font-semibold text-slate-900 group-open:text-[#B08D57] transition-colors">
-                                        {faq.question}
-                                      </span>
-                                    </summary>
-                                    <p className="mt-3 ml-7 text-slate-600">{faq.answer}</p>
-                                  </details>
-                                ))}
+                            <div className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
+                              {/* Premium gradient overlay */}
+                              <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-transparent to-cyan-50/20 pointer-events-none"></div>
+                              
+                              <div className="relative">
+                                {/* Header with gradient accent */}
+                                <div className="bg-gradient-to-r from-blue-900 to-blue-700 px-8 py-6">
+                                  <div className="flex items-center gap-3">
+                                    <div className="p-2.5 bg-white/10 backdrop-blur rounded-xl border border-white/20">
+                                      <QuestionMarkCircleIcon className="h-6 w-6 text-white" />
+                                    </div>
+                                    <div>
+                                      <h2 className="text-2xl font-bold text-white">Frequently Asked Questions</h2>
+                                      <p className="text-sm text-blue-200 mt-1">Common concerns and answers</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                
+                                <div className="p-8">
+                                  <div className="space-y-5">
+                                    {condition.faqs.map((faq, index) => {
+                                      const colors = [
+                                        { bg: 'from-blue-50/50 to-blue-50/20', border: 'border-blue-100', icon: 'from-blue-500 to-blue-600', text: 'text-blue-700', open: 'text-blue-800' },
+                                        { bg: 'from-cyan-50/50 to-cyan-50/20', border: 'border-cyan-100', icon: 'from-cyan-500 to-cyan-600', text: 'text-cyan-700', open: 'text-cyan-800' },
+                                        { bg: 'from-sky-50/50 to-sky-50/20', border: 'border-sky-100', icon: 'from-sky-500 to-sky-600', text: 'text-sky-700', open: 'text-sky-800' },
+                                        { bg: 'from-indigo-50/50 to-indigo-50/20', border: 'border-indigo-100', icon: 'from-indigo-500 to-indigo-600', text: 'text-indigo-700', open: 'text-indigo-800' },
+                                      ];
+                                      const color = colors[index % colors.length];
+                                      
+                                      return (
+                                        <details key={index} className={`group relative bg-gradient-to-r ${color.bg} rounded-xl p-6 border ${color.border} hover:shadow-md transition-all`}>
+                                          <summary className="flex gap-4 cursor-pointer list-none">
+                                            <div className="flex-shrink-0">
+                                              <div className={`w-12 h-12 bg-gradient-to-br ${color.icon} rounded-xl flex items-center justify-center shadow-lg transition-transform group-open:rotate-12`}>
+                                                <span className="text-white font-bold text-lg">Q{index + 1}</span>
+                                              </div>
+                                            </div>
+                                            <div className="flex-1">
+                                              <h3 className={`text-xs font-bold ${color.text} group-open:${color.open} uppercase tracking-wider transition-colors`}>
+                                                {faq.question}
+                                              </h3>
+                                            </div>
+                                          </summary>
+                                          <div className="mt-4 ml-16">
+                                            <p className="text-slate-700 text-sm leading-relaxed">
+                                              {faq.answer}
+                                            </p>
+                                          </div>
+                                        </details>
+                                      );
+                                    })}
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           )}

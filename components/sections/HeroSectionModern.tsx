@@ -45,14 +45,14 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-[36px] sm:text-[42px] font-light text-slate-900 leading-[1.2] mb-8 font-serif"
-              style={{ fontFamily: "'Playfair Display', serif" }}
+              className="leading-[1.15] mb-8"
+              style={{ fontFamily: "'Cormorant Garamond', 'Playfair Display', serif" }}
             >
               <div className="flex flex-col items-center">
-                <span className="text-slate-900 font-medium tracking-wide">The Science of Recovery</span>
-                <span className="text-[#D4AF37] font-medium ml-6 mt-2 relative tracking-wide">
+                <span className="text-[32px] sm:text-[36px] text-slate-800 font-normal tracking-[0.01em] italic">The Science of Recovery</span>
+                <span className="text-[36px] sm:text-[42px] text-[#8B6914] font-medium ml-8 mt-2 relative tracking-[0.005em]">
                   The Art of <span className="relative inline-block">Care
-                    <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[#D4AF37] to-[#B08D57] origin-left transform scale-x-0 animate-[taperedSlide_1s_ease-out_0.6s_forwards]" style={{
+                    <span className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#8B6914] to-[#6B5B10] origin-left transform scale-x-0 animate-[taperedSlide_1s_ease-out_0.6s_forwards]" style={{
                       clipPath: 'polygon(0% 100%, 100% 0%, 100% 100%, 0% 100%)'
                     }}></span>
                   </span>
@@ -66,7 +66,7 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="mb-8"
             >
-              <p className="text-3xl font-medium text-slate-800 mb-3">Kareem Hassanein</p>
+              <p className="text-3xl font-light text-slate-700 mb-3 tracking-wide" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: '300' }}>Kareem Hassanein</p>
               <div className="flex items-center justify-center gap-3">
                 <div className="h-px w-16 bg-[#B08D57]/40" />
                 <div className="h-1.5 w-1.5 rounded-full bg-[#B08D57]" />
@@ -178,14 +178,14 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.2 }}
-                className="text-[52px] xl:text-[58px] font-light text-slate-900 leading-[1.2] mb-8 font-serif"
-                style={{ fontFamily: "'Playfair Display', serif" }}
+                className="leading-[1.15] mb-8"
+                style={{ fontFamily: "'Cormorant Garamond', 'Playfair Display', serif" }}
               >
                 <div className="flex flex-col">
-                  <span className="text-slate-900 font-medium tracking-wide">The Science of Recovery</span>
-                  <span className="text-[#D4AF37] font-medium ml-16 mt-3 relative tracking-wide">
+                  <span className="text-[48px] xl:text-[52px] text-slate-800 font-normal tracking-[0.01em] italic">The Science of Recovery</span>
+                  <span className="text-[52px] xl:text-[58px] text-[#8B6914] font-medium ml-20 mt-3 relative tracking-[0.005em]">
                     The Art of <span className="relative inline-block">Care
-                      <span className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#D4AF37] to-[#B08D57] origin-left transform scale-x-0 animate-[taperedSlide_1s_ease-out_0.6s_forwards]" style={{
+                      <span className="absolute -bottom-1 left-0 w-full h-1.5 bg-gradient-to-r from-transparent via-[#8B6914] to-[#6B5B10] origin-left transform scale-x-0 animate-[taperedSlide_1s_ease-out_0.6s_forwards]" style={{
                         clipPath: 'polygon(0% 100%, 100% 0%, 100% 100%, 0% 100%)'
                       }}></span>
                     </span>
@@ -199,7 +199,7 @@ export default function HeroSection() {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="mb-6"
               >
-                <p className="text-4xl font-medium text-slate-800 mb-4">Kareem Hassanein</p>
+                <p className="text-4xl font-light text-slate-700 mb-4 tracking-wide" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: '300' }}>Kareem Hassanein</p>
                 <div className="flex items-center gap-3">
                   <div className="h-px w-20 bg-[#B08D57]/40" />
                   <div className="h-2 w-2 rounded-full bg-[#B08D57]" />

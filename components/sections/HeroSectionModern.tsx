@@ -176,12 +176,12 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-[56px] xl:text-[62px] leading-[1.1] mb-8 font-normal"
+                className="leading-[1.1] mb-8 font-normal"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
                 <div className="flex flex-col">
-                  <span className="text-slate-900 font-light tracking-[-0.02em]">The Science of Recovery</span>
-                  <span className="text-[#DAA520] font-medium ml-16 mt-2 relative tracking-[-0.01em]">
+                  <span className="text-[44px] xl:text-[48px] text-slate-900 font-light tracking-[-0.02em]">The Science of Recovery</span>
+                  <span className="text-[56px] xl:text-[62px] text-[#DAA520] font-medium ml-16 mt-2 relative tracking-[-0.01em]">
                     The Art of <span className="relative inline-block">Care
                       <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#DAA520] origin-left transform scale-x-0 animate-[taperedSlide_0.6s_ease-out_0.4s_forwards]"></span>
                     </span>

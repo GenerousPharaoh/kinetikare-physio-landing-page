@@ -206,12 +206,20 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
       
       if (matchesBodyPart) {
         // Find matching conditions in the actual condition database
-        const actualConditions = getAllConditions().filter(condition => 
-          conditionList.some(condName => 
+        const actualConditions = getAllConditions().filter(condition => {
+          // Check if condition category matches body part
+          const categoryMatch = condition.category.includes(bodyPart) || 
+                               (bodyPart === 'back' && condition.category.includes('spinal')) ||
+                               (bodyPart === 'hip' && condition.category.includes('hip-pelvis'));
+          
+          // Check if condition name matches the list
+          const nameMatch = conditionList.some(condName => 
             condition.name.toLowerCase().includes(condName.toLowerCase()) ||
             condName.toLowerCase().includes(condition.name.toLowerCase())
-          )
-        ).slice(0, 3);
+          );
+          
+          return categoryMatch || nameMatch;
+        }).slice(0, 4); // Get more results
         
         actualConditions.forEach((condition, index) => {
           searchResults.push({
@@ -224,15 +232,18 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
           });
         });
         
-        // Add generic body part help
-        searchResults.push({
-          type: 'service',
-          title: `${bodyPart.charAt(0).toUpperCase() + bodyPart.slice(1)} Treatment`,
-          description: `Specialized physiotherapy for ${bodyPart} issues`,
-          url: '/services',
-          category: 'treatment',
-          score: 280
-        });
+        // If we found actual conditions, don't add generic treatment link
+        if (actualConditions.length === 0) {
+          // Only add if no specific conditions were found
+          searchResults.push({
+            type: 'page',
+            title: `View All ${bodyPart.charAt(0).toUpperCase() + bodyPart.slice(1)} Conditions`,
+            description: `Browse all ${bodyPart} conditions we treat`,
+            url: '/conditions',
+            category: 'conditions',
+            score: 250
+          });
+        }
       }
     });
     

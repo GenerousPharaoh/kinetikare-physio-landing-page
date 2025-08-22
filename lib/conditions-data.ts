@@ -100,6 +100,14 @@ export interface Condition {
     question: string;
     answer: string;
   }[];
+  
+  // New intelligent cross-linking system
+  intelligentRelatedConditions?: {
+    slug: string;
+    relationshipType: 'anatomical' | 'symptomatic' | 'causal' | 'biomechanical' | 'treatment';
+    explanation: string;
+    relevanceScore: number; // 1-10 scale
+  }[];
 }
 
 export interface ConditionCategory {
@@ -653,14 +661,388 @@ export const getConditionBySlug = (slug: string): Condition | undefined => {
   return getAllConditions().find(condition => condition.slug === slug);
 };
 
-// Get related conditions
+// Intelligent relationship mapping system
+const intelligentRelationships: Record<string, Array<{
+  slug: string;
+  relationshipType: 'anatomical' | 'symptomatic' | 'causal' | 'biomechanical' | 'treatment';
+  explanation: string;
+  relevanceScore: number;
+}>> = {
+  'low-back-pain': [
+    { slug: 'sciatica', relationshipType: 'anatomical', explanation: 'Both involve the lumbar spine; disc dysfunction can progress to nerve root compression', relevanceScore: 9 },
+    { slug: 'disc-herniation', relationshipType: 'causal', explanation: 'Disc problems often underlying cause of mechanical low back pain', relevanceScore: 8 },
+    { slug: 'si-joint-dysfunction', relationshipType: 'biomechanical', explanation: 'SI joint dysfunction commonly coexists with lumbar spine issues due to shared load transfer', relevanceScore: 7 },
+    { slug: 'facet-joint-syndrome', relationshipType: 'anatomical', explanation: 'Both affect spinal segments; facet joints can become overloaded when discs degenerate', relevanceScore: 7 },
+    { slug: 'hip-osteoarthritis', relationshipType: 'biomechanical', explanation: 'Hip stiffness alters lumbar mechanics and can contribute to back pain', relevanceScore: 6 }
+  ],
+  'neck-pain': [
+    { slug: 'headaches-migraines', relationshipType: 'anatomical', explanation: 'Cervical spine dysfunction commonly causes tension-type and cervicogenic headaches', relevanceScore: 8 },
+    { slug: 'whiplash', relationshipType: 'causal', explanation: 'Whiplash is a common cause of chronic neck pain and dysfunction', relevanceScore: 8 },
+    { slug: 'thoracic-outlet-syndrome', relationshipType: 'anatomical', explanation: 'Both involve cervical spine region; neck posture affects thoracic outlet space', relevanceScore: 7 },
+    { slug: 'shoulder-impingement', relationshipType: 'biomechanical', explanation: 'Forward head posture and neck pain often coexist with shoulder impingement', relevanceScore: 6 },
+    { slug: 'postural-dysfunction', relationshipType: 'causal', explanation: 'Poor posture is a primary contributing factor to chronic neck pain', relevanceScore: 7 }
+  ],
+  'sciatica': [
+    { slug: 'low-back-pain', relationshipType: 'anatomical', explanation: 'Sciatica often originates from lumbar spine pathology causing back pain', relevanceScore: 9 },
+    { slug: 'disc-herniation', relationshipType: 'causal', explanation: 'Disc herniation is the most common cause of sciatica symptoms', relevanceScore: 9 },
+    { slug: 'piriformis-syndrome', relationshipType: 'symptomatic', explanation: 'Both cause sciatic-type pain; piriformis syndrome can mimic lumbar radiculopathy', relevanceScore: 7 },
+    { slug: 'spinal-stenosis', relationshipType: 'causal', explanation: 'Spinal stenosis can cause nerve root compression leading to sciatica', relevanceScore: 8 },
+    { slug: 'deep-gluteal-syndrome', relationshipType: 'symptomatic', explanation: 'Both cause posterior leg pain; deep gluteal syndrome involves sciatic nerve entrapment', relevanceScore: 6 }
+  ],
+  'rotator-cuff-injuries': [
+    { slug: 'shoulder-impingement', relationshipType: 'causal', explanation: 'Shoulder impingement often leads to rotator cuff damage over time', relevanceScore: 9 },
+    { slug: 'frozen-shoulder', relationshipType: 'symptomatic', explanation: 'Both cause shoulder pain and stiffness; can develop sequentially', relevanceScore: 7 },
+    { slug: 'biceps-tendinopathy', relationshipType: 'anatomical', explanation: 'Biceps tendon closely related to rotator cuff; injuries often coexist', relevanceScore: 7 },
+    { slug: 'ac-joint-injuries', relationshipType: 'biomechanical', explanation: 'AC joint dysfunction can alter shoulder mechanics and stress rotator cuff', relevanceScore: 6 },
+    { slug: 'neck-pain', relationshipType: 'biomechanical', explanation: 'Neck posture affects shoulder blade position and rotator cuff function', relevanceScore: 5 }
+  ],
+  'shoulder-impingement': [
+    { slug: 'rotator-cuff-injuries', relationshipType: 'causal', explanation: 'Chronic impingement leads to rotator cuff tendon damage and tears', relevanceScore: 9 },
+    { slug: 'frozen-shoulder', relationshipType: 'symptomatic', explanation: 'Both cause overhead movement restriction; impingement can progress to adhesive capsulitis', relevanceScore: 7 },
+    { slug: 'thoracic-outlet-syndrome', relationshipType: 'biomechanical', explanation: 'Both involve poor shoulder blade mechanics and postural dysfunction', relevanceScore: 6 },
+    { slug: 'neck-pain', relationshipType: 'biomechanical', explanation: 'Forward head posture contributes to scapular dysfunction and impingement', relevanceScore: 6 },
+    { slug: 'biceps-tendinopathy', relationshipType: 'anatomical', explanation: 'Biceps tendon can be affected by subacromial impingement process', relevanceScore: 6 }
+  ],
+  'frozen-shoulder': [
+    { slug: 'rotator-cuff-injuries', relationshipType: 'symptomatic', explanation: 'Both cause shoulder pain and movement restriction; can coexist or develop sequentially', relevanceScore: 7 },
+    { slug: 'shoulder-impingement', relationshipType: 'causal', explanation: 'Impingement can progress to capsular inflammation and adhesive capsulitis', relevanceScore: 7 },
+    { slug: 'diabetes-related-conditions', relationshipType: 'causal', explanation: 'Diabetes significantly increases risk of developing adhesive capsulitis', relevanceScore: 8 },
+    { slug: 'shoulder-bursitis', relationshipType: 'symptomatic', explanation: 'Both cause shoulder pain and stiffness with inflammatory components', relevanceScore: 6 },
+    { slug: 'ac-joint-injuries', relationshipType: 'biomechanical', explanation: 'Compensatory movements from frozen shoulder can stress AC joint', relevanceScore: 5 }
+  ],
+  'tennis-elbow': [
+    { slug: 'golfers-elbow', relationshipType: 'anatomical', explanation: 'Both are elbow tendinopathies affecting opposite sides of the joint', relevanceScore: 8 },
+    { slug: 'repetitive-strain-injuries', relationshipType: 'causal', explanation: 'Tennis elbow is a type of repetitive strain injury from overuse', relevanceScore: 8 },
+    { slug: 'carpal-tunnel-syndrome', relationshipType: 'biomechanical', explanation: 'Both can result from poor wrist/forearm ergonomics and repetitive motions', relevanceScore: 6 },
+    { slug: 'neck-pain', relationshipType: 'biomechanical', explanation: 'Cervical radiculopathy can mimic lateral elbow pain symptoms', relevanceScore: 5 },
+    { slug: 'shoulder-impingement', relationshipType: 'biomechanical', explanation: 'Shoulder dysfunction can alter elbow mechanics and contribute to lateral epicondylitis', relevanceScore: 5 }
+  ],
+  'golfers-elbow': [
+    { slug: 'tennis-elbow', relationshipType: 'anatomical', explanation: 'Both are elbow tendinopathies affecting opposite epicondyles', relevanceScore: 8 },
+    { slug: 'repetitive-strain-injuries', relationshipType: 'causal', explanation: 'Medial epicondylitis is a repetitive strain injury from overuse', relevanceScore: 8 },
+    { slug: 'carpal-tunnel-syndrome', relationshipType: 'biomechanical', explanation: 'Both involve median nerve pathway; wrist flexor tension can contribute to carpal tunnel', relevanceScore: 6 },
+    { slug: 'thoracic-outlet-syndrome', relationshipType: 'symptomatic', explanation: 'Both can cause medial arm/forearm symptoms and nerve-related pain', relevanceScore: 5 },
+    { slug: 'de-quervains-tenosynovitis', relationshipType: 'causal', explanation: 'Both involve overuse of wrist and forearm muscles from similar activities', relevanceScore: 5 }
+  ],
+  'carpal-tunnel-syndrome': [
+    { slug: 'de-quervains-tenosynovitis', relationshipType: 'anatomical', explanation: 'Both affect the wrist; can coexist due to similar risk factors', relevanceScore: 7 },
+    { slug: 'repetitive-strain-injuries', relationshipType: 'causal', explanation: 'Carpal tunnel syndrome is a type of repetitive strain injury', relevanceScore: 8 },
+    { slug: 'tennis-elbow', relationshipType: 'biomechanical', explanation: 'Both can result from poor ergonomics and repetitive wrist/forearm motions', relevanceScore: 6 },
+    { slug: 'thoracic-outlet-syndrome', relationshipType: 'symptomatic', explanation: 'Both cause hand/arm numbness and tingling; TOS affects more proximal nerve compression', relevanceScore: 6 },
+    { slug: 'neck-pain', relationshipType: 'symptomatic', explanation: 'Cervical radiculopathy can mimic carpal tunnel symptoms', relevanceScore: 5 }
+  ],
+  'de-quervains-tenosynovitis': [
+    { slug: 'carpal-tunnel-syndrome', relationshipType: 'anatomical', explanation: 'Both affect wrist structures; similar risk factors and can coexist', relevanceScore: 7 },
+    { slug: 'repetitive-strain-injuries', relationshipType: 'causal', explanation: 'De Quervains is a repetitive strain injury affecting thumb tendons', relevanceScore: 8 },
+    { slug: 'golfers-elbow', relationshipType: 'biomechanical', explanation: 'Both involve overuse of wrist/forearm muscles from gripping activities', relevanceScore: 5 },
+    { slug: 'tennis-elbow', relationshipType: 'biomechanical', explanation: 'Wrist extension activities can stress both lateral elbow and thumb tendons', relevanceScore: 5 },
+    { slug: 'wrist-sprains', relationshipType: 'anatomical', explanation: 'Both affect wrist region; acute injuries can predispose to De Quervains', relevanceScore: 6 }
+  ],
+  'hip-osteoarthritis': [
+    { slug: 'knee-osteoarthritis', relationshipType: 'biomechanical', explanation: 'Hip stiffness alters gait and can increase knee joint stress leading to arthritis', relevanceScore: 8 },
+    { slug: 'low-back-pain', relationshipType: 'biomechanical', explanation: 'Hip stiffness from arthritis alters lumbar spine mechanics', relevanceScore: 6 },
+    { slug: 'greater-trochanteric-pain-syndrome', relationshipType: 'anatomical', explanation: 'Both affect hip region; GTPS often coexists with hip OA', relevanceScore: 7 },
+    { slug: 'femoroacetabular-impingement', relationshipType: 'causal', explanation: 'FAI can lead to cartilage damage and secondary osteoarthritis', relevanceScore: 8 },
+    { slug: 'hip-bursitis', relationshipType: 'symptomatic', explanation: 'Both cause hip pain; bursitis often secondary to altered mechanics from OA', relevanceScore: 6 }
+  ],
+  'femoroacetabular-impingement': [
+    { slug: 'hip-osteoarthritis', relationshipType: 'causal', explanation: 'FAI causes cartilage damage and predisposes to early hip arthritis', relevanceScore: 8 },
+    { slug: 'hip-labral-tears', relationshipType: 'causal', explanation: 'FAI is the primary cause of hip labral tears in young adults', relevanceScore: 9 },
+    { slug: 'greater-trochanteric-pain-syndrome', relationshipType: 'biomechanical', explanation: 'Hip impingement alters mechanics and can stress gluteal tendons', relevanceScore: 6 },
+    { slug: 'groin-strains', relationshipType: 'symptomatic', explanation: 'Both cause groin/hip flexor pain; FAI can predispose to muscle strains', relevanceScore: 7 },
+    { slug: 'low-back-pain', relationshipType: 'biomechanical', explanation: 'Hip impingement limits hip mobility affecting lumbar spine mechanics', relevanceScore: 5 }
+  ],
+  'greater-trochanteric-pain-syndrome': [
+    { slug: 'hip-osteoarthritis', relationshipType: 'anatomical', explanation: 'Both affect hip region; GTPS often develops secondary to hip OA', relevanceScore: 7 },
+    { slug: 'hip-bursitis', relationshipType: 'symptomatic', explanation: 'GTPS was formerly called trochanteric bursitis; both cause lateral hip pain', relevanceScore: 8 },
+    { slug: 'it-band-syndrome', relationshipType: 'anatomical', explanation: 'Both involve lateral hip/thigh structures; IT band tightness can contribute to GTPS', relevanceScore: 7 },
+    { slug: 'low-back-pain', relationshipType: 'biomechanical', explanation: 'Gluteal weakness from GTPS can contribute to back pain and instability', relevanceScore: 6 },
+    { slug: 'knee-pain-patellofemoral', relationshipType: 'biomechanical', explanation: 'Gluteal weakness affects knee mechanics and patellofemoral tracking', relevanceScore: 6 }
+  ],
+  'hip-labral-tears': [
+    { slug: 'femoroacetabular-impingement', relationshipType: 'causal', explanation: 'FAI is the primary mechanism causing hip labral tears', relevanceScore: 9 },
+    { slug: 'hip-osteoarthritis', relationshipType: 'causal', explanation: 'Labral tears can lead to joint instability and secondary arthritis', relevanceScore: 7 },
+    { slug: 'groin-strains', relationshipType: 'symptomatic', explanation: 'Both cause groin pain; labral tears can be mistaken for muscle strains', relevanceScore: 7 },
+    { slug: 'greater-trochanteric-pain-syndrome', relationshipType: 'biomechanical', explanation: 'Hip instability from labral tears can stress gluteal tendons', relevanceScore: 5 },
+    { slug: 'si-joint-dysfunction', relationshipType: 'biomechanical', explanation: 'Hip instability affects pelvic mechanics and SI joint function', relevanceScore: 5 }
+  ],
+  'piriformis-syndrome': [
+    { slug: 'sciatica', relationshipType: 'symptomatic', explanation: 'Both cause sciatic-type pain; piriformis syndrome can mimic lumbar radiculopathy', relevanceScore: 7 },
+    { slug: 'deep-gluteal-syndrome', relationshipType: 'anatomical', explanation: 'Piriformis syndrome is part of the broader deep gluteal syndrome spectrum', relevanceScore: 8 },
+    { slug: 'si-joint-dysfunction', relationshipType: 'anatomical', explanation: 'Both affect sacral/pelvic region; piriformis dysfunction can affect SI joint mechanics', relevanceScore: 6 },
+    { slug: 'greater-trochanteric-pain-syndrome', relationshipType: 'anatomical', explanation: 'Both involve deep hip/gluteal muscles and can cause overlapping symptoms', relevanceScore: 6 },
+    { slug: 'hamstring-strains', relationshipType: 'biomechanical', explanation: 'Piriformis tightness can affect hamstring mechanics and predispose to strains', relevanceScore: 5 }
+  ],
+  'groin-strains': [
+    { slug: 'hip-labral-tears', relationshipType: 'symptomatic', explanation: 'Both cause groin pain; important to differentiate muscle strain from labral pathology', relevanceScore: 7 },
+    { slug: 'femoroacetabular-impingement', relationshipType: 'symptomatic', explanation: 'Both cause groin/hip flexor pain; FAI can predispose to muscle strains', relevanceScore: 7 },
+    { slug: 'hamstring-strains', relationshipType: 'biomechanical', explanation: 'Both are common sports injuries affecting hip/thigh muscles with similar mechanisms', relevanceScore: 7 },
+    { slug: 'proximal-hamstring-tendinopathy', relationshipType: 'anatomical', explanation: 'Both affect proximal thigh muscles; can have overlapping symptoms in posterior hip', relevanceScore: 6 },
+    { slug: 'si-joint-dysfunction', relationshipType: 'biomechanical', explanation: 'Adductor muscle imbalances can affect pelvic stability and SI joint function', relevanceScore: 5 }
+  ],
+  'hamstring-strains': [
+    { slug: 'groin-strains', relationshipType: 'biomechanical', explanation: 'Both are common sports injuries with similar mechanisms and recovery approaches', relevanceScore: 7 },
+    { slug: 'proximal-hamstring-tendinopathy', relationshipType: 'anatomical', explanation: 'Both affect hamstring muscles; acute strains can lead to chronic tendinopathy', relevanceScore: 8 },
+    { slug: 'low-back-pain', relationshipType: 'biomechanical', explanation: 'Hamstring tightness can contribute to lumbar spine stress and back pain', relevanceScore: 6 },
+    { slug: 'knee-pain-patellofemoral', relationshipType: 'biomechanical', explanation: 'Hamstring dysfunction affects knee mechanics and patellofemoral joint stress', relevanceScore: 5 },
+    { slug: 'piriformis-syndrome', relationshipType: 'biomechanical', explanation: 'Both affect posterior hip/thigh; muscle imbalances can be interconnected', relevanceScore: 5 }
+  ],
+  'knee-pain-patellofemoral': [
+    { slug: 'patellar-tendinopathy', relationshipType: 'anatomical', explanation: 'Both affect the patellofemoral region; biomechanical factors often overlap', relevanceScore: 8 },
+    { slug: 'it-band-syndrome', relationshipType: 'biomechanical', explanation: 'Both common in runners; IT band tightness can affect patellofemoral tracking', relevanceScore: 7 },
+    { slug: 'greater-trochanteric-pain-syndrome', relationshipType: 'biomechanical', explanation: 'Gluteal weakness contributes to both lateral hip pain and poor knee tracking', relevanceScore: 6 },
+    { slug: 'knee-osteoarthritis', relationshipType: 'causal', explanation: 'Chronic patellofemoral dysfunction can lead to cartilage wear and arthritis', relevanceScore: 6 },
+    { slug: 'hip-osteoarthritis', relationshipType: 'biomechanical', explanation: 'Hip stiffness alters knee mechanics and patellofemoral joint stress', relevanceScore: 5 }
+  ],
+  'acl-injuries': [
+    { slug: 'meniscus-tears', relationshipType: 'anatomical', explanation: 'ACL and meniscus injuries often occur together; shared injury mechanisms', relevanceScore: 8 },
+    { slug: 'mcl-lcl-sprains', relationshipType: 'anatomical', explanation: 'Multi-ligament knee injuries common; ACL tears often involve collateral ligaments', relevanceScore: 7 },
+    { slug: 'knee-osteoarthritis', relationshipType: 'causal', explanation: 'ACL injuries increase risk of early knee arthritis due to altered mechanics', relevanceScore: 7 },
+    { slug: 'patellar-tendinopathy', relationshipType: 'biomechanical', explanation: 'Both common in jumping sports; altered knee mechanics can affect patellar tendon', relevanceScore: 6 },
+    { slug: 'ankle-sprains', relationshipType: 'biomechanical', explanation: 'Both involve knee/ankle stability; ankle instability can predispose to ACL injury', relevanceScore: 5 }
+  ],
+  'meniscus-tears': [
+    { slug: 'acl-injuries', relationshipType: 'anatomical', explanation: 'Often occur together; both involve knee stability and similar injury mechanisms', relevanceScore: 8 },
+    { slug: 'knee-osteoarthritis', relationshipType: 'causal', explanation: 'Meniscus tears can lead to joint degeneration and arthritis', relevanceScore: 8 },
+    { slug: 'mcl-lcl-sprains', relationshipType: 'anatomical', explanation: 'Meniscus tears can occur with ligament injuries in complex knee trauma', relevanceScore: 6 },
+    { slug: 'it-band-syndrome', relationshipType: 'symptomatic', explanation: 'Both can cause lateral knee pain and may be confused diagnostically', relevanceScore: 5 },
+    { slug: 'patellar-tendinopathy', relationshipType: 'biomechanical', explanation: 'Altered knee mechanics from meniscus injury can stress patellar tendon', relevanceScore: 5 }
+  ],
+  'it-band-syndrome': [
+    { slug: 'knee-pain-patellofemoral', relationshipType: 'biomechanical', explanation: 'Both common in runners; IT band tightness affects patellofemoral mechanics', relevanceScore: 7 },
+    { slug: 'greater-trochanteric-pain-syndrome', relationshipType: 'anatomical', explanation: 'Both involve lateral hip/thigh structures; IT band connects to trochanteric region', relevanceScore: 7 },
+    { slug: 'shin-splints', relationshipType: 'causal', explanation: 'Both are common running injuries with overlapping biomechanical causes', relevanceScore: 6 },
+    { slug: 'ankle-sprains', relationshipType: 'biomechanical', explanation: 'Ankle instability can alter lower limb mechanics contributing to IT band stress', relevanceScore: 5 },
+    { slug: 'plantar-fasciitis', relationshipType: 'biomechanical', explanation: 'Both involve lower limb overuse; foot dysfunction can affect IT band mechanics', relevanceScore: 5 }
+  ],
+  'patellar-tendinopathy': [
+    { slug: 'knee-pain-patellofemoral', relationshipType: 'anatomical', explanation: 'Both affect patellofemoral region; share many biomechanical risk factors', relevanceScore: 8 },
+    { slug: 'achilles-tendinopathy', relationshipType: 'treatment', explanation: 'Both are tendinopathies with similar pathophysiology and treatment approaches', relevanceScore: 7 },
+    { slug: 'tennis-elbow', relationshipType: 'treatment', explanation: 'Both are tendinopathies responding to similar loading protocols and treatment', relevanceScore: 6 },
+    { slug: 'acl-injuries', relationshipType: 'biomechanical', explanation: 'Both common in jumping sports; altered landing mechanics affect both structures', relevanceScore: 6 },
+    { slug: 'hip-osteoarthritis', relationshipType: 'biomechanical', explanation: 'Hip stiffness can alter knee mechanics and increase patellar tendon stress', relevanceScore: 5 }
+  ],
+  'knee-osteoarthritis': [
+    { slug: 'hip-osteoarthritis', relationshipType: 'biomechanical', explanation: 'Hip stiffness alters gait and can accelerate knee joint degeneration', relevanceScore: 8 },
+    { slug: 'meniscus-tears', relationshipType: 'causal', explanation: 'Meniscus damage can lead to accelerated cartilage loss and arthritis', relevanceScore: 8 },
+    { slug: 'acl-injuries', relationshipType: 'causal', explanation: 'ACL injuries significantly increase risk of early knee osteoarthritis', relevanceScore: 7 },
+    { slug: 'ankle-sprains', relationshipType: 'biomechanical', explanation: 'Chronic ankle instability alters knee mechanics and can contribute to OA', relevanceScore: 5 },
+    { slug: 'plantar-fasciitis', relationshipType: 'biomechanical', explanation: 'Foot/ankle dysfunction affects knee loading patterns', relevanceScore: 5 }
+  ],
+  'ankle-sprains': [
+    { slug: 'peroneal-tendinopathy', relationshipType: 'causal', explanation: 'Chronic ankle instability from sprains can lead to peroneal tendon overuse', relevanceScore: 8 },
+    { slug: 'achilles-tendinopathy', relationshipType: 'biomechanical', explanation: 'Ankle instability affects Achilles tendon mechanics and loading patterns', relevanceScore: 6 },
+    { slug: 'shin-splints', relationshipType: 'biomechanical', explanation: 'Ankle instability can alter lower leg mechanics contributing to shin splints', relevanceScore: 6 },
+    { slug: 'it-band-syndrome', relationshipType: 'biomechanical', explanation: 'Ankle dysfunction affects entire lower limb chain including IT band stress', relevanceScore: 5 },
+    { slug: 'knee-osteoarthritis', relationshipType: 'biomechanical', explanation: 'Chronic ankle instability alters knee loading patterns over time', relevanceScore: 5 }
+  ],
+  'plantar-fasciitis': [
+    { slug: 'achilles-tendinopathy', relationshipType: 'biomechanical', explanation: 'Both involve posterior chain tightness; Achilles stiffness contributes to plantar fasciitis', relevanceScore: 8 },
+    { slug: 'shin-splints', relationshipType: 'biomechanical', explanation: 'Both are overuse injuries with shared biomechanical factors in runners', relevanceScore: 6 },
+    { slug: 'ankle-sprains', relationshipType: 'biomechanical', explanation: 'Ankle dysfunction can alter foot mechanics and contribute to plantar fasciitis', relevanceScore: 5 },
+    { slug: 'it-band-syndrome', relationshipType: 'biomechanical', explanation: 'Both are running-related overuse injuries with interconnected lower limb mechanics', relevanceScore: 5 },
+    { slug: 'knee-pain-patellofemoral', relationshipType: 'biomechanical', explanation: 'Foot dysfunction affects entire lower limb kinetic chain including knee mechanics', relevanceScore: 5 }
+  ],
+  'achilles-tendinopathy': [
+    { slug: 'plantar-fasciitis', relationshipType: 'biomechanical', explanation: 'Both involve posterior chain; Achilles stiffness is major risk factor for plantar fasciitis', relevanceScore: 8 },
+    { slug: 'patellar-tendinopathy', relationshipType: 'treatment', explanation: 'Both are tendinopathies with similar pathophysiology and evidence-based treatments', relevanceScore: 7 },
+    { slug: 'shin-splints', relationshipType: 'causal', explanation: 'Both are common running injuries; Achilles dysfunction can contribute to shin splints', relevanceScore: 6 },
+    { slug: 'tennis-elbow', relationshipType: 'treatment', explanation: 'Both are tendinopathies responding to similar loading and exercise protocols', relevanceScore: 6 },
+    { slug: 'ankle-sprains', relationshipType: 'biomechanical', explanation: 'Ankle instability affects Achilles tendon loading and mechanics', relevanceScore: 6 }
+  ],
+  'shin-splints': [
+    { slug: 'plantar-fasciitis', relationshipType: 'biomechanical', explanation: 'Both are overuse injuries in runners with shared biomechanical risk factors', relevanceScore: 6 },
+    { slug: 'achilles-tendinopathy', relationshipType: 'causal', explanation: 'Both common running injuries; Achilles dysfunction can contribute to shin splints', relevanceScore: 6 },
+    { slug: 'it-band-syndrome', relationshipType: 'causal', explanation: 'Both are running-related overuse injuries with similar training error causes', relevanceScore: 6 },
+    { slug: 'ankle-sprains', relationshipType: 'biomechanical', explanation: 'Ankle instability can alter lower leg mechanics contributing to shin splints', relevanceScore: 6 },
+    { slug: 'stress-fractures', relationshipType: 'causal', explanation: 'Untreated shin splints can progress to tibial stress fractures', relevanceScore: 7 }
+  ],
+  'peroneal-tendinopathy': [
+    { slug: 'ankle-sprains', relationshipType: 'causal', explanation: 'Chronic ankle instability leads to peroneal tendon overuse and tendinopathy', relevanceScore: 8 },
+    { slug: 'achilles-tendinopathy', relationshipType: 'treatment', explanation: 'Both are tendinopathies with similar pathophysiology and treatment approaches', relevanceScore: 6 },
+    { slug: 'it-band-syndrome', relationshipType: 'biomechanical', explanation: 'Both involve lateral structures; ankle dysfunction can affect entire lateral chain', relevanceScore: 5 },
+    { slug: 'shin-splints', relationshipType: 'biomechanical', explanation: 'Both involve lower leg overuse; shared biomechanical factors in athletes', relevanceScore: 5 },
+    { slug: 'plantar-fasciitis', relationshipType: 'biomechanical', explanation: 'Peroneal dysfunction affects foot mechanics and can contribute to plantar fasciitis', relevanceScore: 5 }
+  ],
+  'whiplash': [
+    { slug: 'neck-pain', relationshipType: 'causal', explanation: 'Whiplash is a common cause of chronic neck pain and cervical dysfunction', relevanceScore: 8 },
+    { slug: 'headaches-migraines', relationshipType: 'symptomatic', explanation: 'Post-whiplash headaches are common due to cervical spine and muscle injury', relevanceScore: 7 },
+    { slug: 'thoracic-outlet-syndrome', relationshipType: 'anatomical', explanation: 'Whiplash can affect cervical spine positioning contributing to thoracic outlet symptoms', relevanceScore: 6 },
+    { slug: 'shoulder-impingement', relationshipType: 'biomechanical', explanation: 'Post-whiplash neck stiffness can alter shoulder blade mechanics', relevanceScore: 5 },
+    { slug: 'postural-dysfunction', relationshipType: 'causal', explanation: 'Whiplash often leads to protective posturing and chronic postural problems', relevanceScore: 6 }
+  ],
+  'disc-herniation': [
+    { slug: 'sciatica', relationshipType: 'causal', explanation: 'Disc herniation is the most common cause of sciatica and nerve root compression', relevanceScore: 9 },
+    { slug: 'low-back-pain', relationshipType: 'causal', explanation: 'Disc herniation is often the underlying pathology in mechanical low back pain', relevanceScore: 8 },
+    { slug: 'spinal-stenosis', relationshipType: 'causal', explanation: 'Large disc herniations can contribute to spinal canal narrowing', relevanceScore: 7 },
+    { slug: 'degenerative-disc-disease', relationshipType: 'causal', explanation: 'Disc degeneration often precedes and predisposes to herniation', relevanceScore: 8 },
+    { slug: 'facet-joint-syndrome', relationshipType: 'biomechanical', explanation: 'Disc pathology alters spinal mechanics increasing facet joint stress', relevanceScore: 6 }
+  ],
+  'facet-joint-syndrome': [
+    { slug: 'low-back-pain', relationshipType: 'anatomical', explanation: 'Facet joints are common source of mechanical low back pain', relevanceScore: 7 },
+    { slug: 'degenerative-disc-disease', relationshipType: 'causal', explanation: 'Disc degeneration increases load on facet joints leading to arthritis', relevanceScore: 7 },
+    { slug: 'spinal-stenosis', relationshipType: 'causal', explanation: 'Facet joint hypertrophy can contribute to spinal canal narrowing', relevanceScore: 6 },
+    { slug: 'disc-herniation', relationshipType: 'biomechanical', explanation: 'Disc pathology alters spinal mechanics affecting facet joint loading', relevanceScore: 6 },
+    { slug: 'si-joint-dysfunction', relationshipType: 'biomechanical', explanation: 'Both affect spinal movement patterns and can have overlapping symptoms', relevanceScore: 5 }
+  ],
+  'thoracic-outlet-syndrome': [
+    { slug: 'neck-pain', relationshipType: 'anatomical', explanation: 'Both involve cervical spine region; neck posture affects thoracic outlet space', relevanceScore: 7 },
+    { slug: 'carpal-tunnel-syndrome', relationshipType: 'symptomatic', explanation: 'Both cause arm numbness and tingling; TOS affects more proximal nerve compression', relevanceScore: 6 },
+    { slug: 'shoulder-impingement', relationshipType: 'biomechanical', explanation: 'Both involve poor shoulder blade mechanics and postural dysfunction', relevanceScore: 6 },
+    { slug: 'postural-dysfunction', relationshipType: 'causal', explanation: 'Forward head posture and rounded shoulders are primary causes of TOS', relevanceScore: 7 },
+    { slug: 'whiplash', relationshipType: 'causal', explanation: 'Whiplash can alter cervical positioning contributing to thoracic outlet compression', relevanceScore: 6 }
+  ],
+  'ac-joint-injuries': [
+    { slug: 'rotator-cuff-injuries', relationshipType: 'biomechanical', explanation: 'AC joint dysfunction alters shoulder mechanics and can stress rotator cuff', relevanceScore: 6 },
+    { slug: 'shoulder-impingement', relationshipType: 'biomechanical', explanation: 'AC joint pathology can contribute to subacromial impingement', relevanceScore: 6 },
+    { slug: 'frozen-shoulder', relationshipType: 'symptomatic', explanation: 'Both cause shoulder pain; AC joint injury can lead to protective stiffness', relevanceScore: 5 },
+    { slug: 'biceps-tendinopathy', relationshipType: 'anatomical', explanation: 'AC joint inflammation can affect nearby biceps tendon', relevanceScore: 5 },
+    { slug: 'neck-pain', relationshipType: 'biomechanical', explanation: 'Compensatory neck movements from shoulder pain can cause cervical dysfunction', relevanceScore: 4 }
+  ],
+  'biceps-tendinopathy': [
+    { slug: 'rotator-cuff-injuries', relationshipType: 'anatomical', explanation: 'Biceps tendon closely related to rotator cuff; injuries often coexist', relevanceScore: 7 },
+    { slug: 'shoulder-impingement', relationshipType: 'anatomical', explanation: 'Biceps tendon can be affected by subacromial impingement process', relevanceScore: 6 },
+    { slug: 'frozen-shoulder', relationshipType: 'symptomatic', explanation: 'Both cause anterior shoulder pain and can develop sequentially', relevanceScore: 5 },
+    { slug: 'ac-joint-injuries', relationshipType: 'anatomical', explanation: 'Biceps tendon proximity to AC joint can cause overlapping symptoms', relevanceScore: 5 },
+    { slug: 'tennis-elbow', relationshipType: 'treatment', explanation: 'Both are tendinopathies with similar pathophysiology and loading protocols', relevanceScore: 5 }
+  ],
+  'mcl-lcl-sprains': [
+    { slug: 'acl-injuries', relationshipType: 'anatomical', explanation: 'Multi-ligament knee injuries common; often occur together in trauma', relevanceScore: 7 },
+    { slug: 'meniscus-tears', relationshipType: 'anatomical', explanation: 'Complex knee injuries often involve both ligaments and meniscus', relevanceScore: 6 },
+    { slug: 'knee-osteoarthritis', relationshipType: 'causal', explanation: 'Ligament injuries can lead to joint instability and secondary arthritis', relevanceScore: 6 },
+    { slug: 'pcl-injuries', relationshipType: 'anatomical', explanation: 'Part of knee ligament complex; can occur together in high-energy trauma', relevanceScore: 6 },
+    { slug: 'ankle-sprains', relationshipType: 'biomechanical', explanation: 'Both are ligament injuries with similar healing phases and rehabilitation', relevanceScore: 5 }
+  ],
+  'pcl-injuries': [
+    { slug: 'acl-injuries', relationshipType: 'anatomical', explanation: 'Both are cruciate ligaments; can occur together in high-energy knee trauma', relevanceScore: 7 },
+    { slug: 'mcl-lcl-sprains', relationshipType: 'anatomical', explanation: 'Part of knee ligament complex; multi-ligament injuries common', relevanceScore: 6 },
+    { slug: 'meniscus-tears', relationshipType: 'anatomical', explanation: 'Complex knee trauma often involves multiple structures', relevanceScore: 5 },
+    { slug: 'knee-osteoarthritis', relationshipType: 'causal', explanation: 'PCL injuries can lead to altered knee mechanics and secondary arthritis', relevanceScore: 6 },
+    { slug: 'patella-fractures', relationshipType: 'causal', explanation: 'Dashboard injuries can cause both PCL tears and patellar fractures', relevanceScore: 5 }
+  ],
+  'degenerative-disc-disease': [
+    { slug: 'facet-joint-syndrome', relationshipType: 'causal', explanation: 'Disc degeneration increases load on facet joints leading to arthritis', relevanceScore: 7 },
+    { slug: 'disc-herniation', relationshipType: 'causal', explanation: 'Disc degeneration predisposes to herniation and rupture', relevanceScore: 8 },
+    { slug: 'spinal-stenosis', relationshipType: 'causal', explanation: 'Disc degeneration contributes to spinal canal narrowing', relevanceScore: 7 },
+    { slug: 'low-back-pain', relationshipType: 'causal', explanation: 'Degenerative disc disease is a common cause of chronic back pain', relevanceScore: 7 },
+    { slug: 'neck-pain', relationshipType: 'causal', explanation: 'Cervical disc degeneration commonly causes chronic neck pain', relevanceScore: 6 }
+  ],
+  'spinal-stenosis': [
+    { slug: 'degenerative-disc-disease', relationshipType: 'causal', explanation: 'Disc degeneration contributes to canal narrowing and stenosis', relevanceScore: 7 },
+    { slug: 'facet-joint-syndrome', relationshipType: 'causal', explanation: 'Facet joint hypertrophy from arthritis contributes to stenosis', relevanceScore: 6 },
+    { slug: 'sciatica', relationshipType: 'causal', explanation: 'Spinal stenosis can cause nerve root compression and sciatica', relevanceScore: 8 },
+    { slug: 'disc-herniation', relationshipType: 'causal', explanation: 'Large disc herniations can contribute to canal narrowing', relevanceScore: 7 },
+    { slug: 'low-back-pain', relationshipType: 'symptomatic', explanation: 'Stenosis commonly presents with back pain and leg symptoms', relevanceScore: 6 }
+  ],
+  'postural-dysfunction': [
+    { slug: 'neck-pain', relationshipType: 'causal', explanation: 'Poor posture is primary cause of chronic neck pain and cervical dysfunction', relevanceScore: 7 },
+    { slug: 'thoracic-outlet-syndrome', relationshipType: 'causal', explanation: 'Forward head posture and rounded shoulders cause thoracic outlet compression', relevanceScore: 7 },
+    { slug: 'headaches-migraines', relationshipType: 'causal', explanation: 'Postural dysfunction commonly causes tension headaches and cervicogenic headaches', relevanceScore: 6 },
+    { slug: 'shoulder-impingement', relationshipType: 'causal', explanation: 'Poor posture contributes to scapular dysfunction and shoulder impingement', relevanceScore: 6 },
+    { slug: 'low-back-pain', relationshipType: 'causal', explanation: 'Prolonged poor posture contributes to lumbar spine dysfunction', relevanceScore: 6 }
+  ],
+  'headaches-migraines': [
+    { slug: 'neck-pain', relationshipType: 'anatomical', explanation: 'Cervical spine dysfunction commonly causes cervicogenic and tension headaches', relevanceScore: 8 },
+    { slug: 'whiplash', relationshipType: 'symptomatic', explanation: 'Post-whiplash headaches common due to cervical spine injury', relevanceScore: 7 },
+    { slug: 'postural-dysfunction', relationshipType: 'causal', explanation: 'Poor posture frequently causes tension headaches and neck strain', relevanceScore: 6 },
+    { slug: 'thoracic-outlet-syndrome', relationshipType: 'symptomatic', explanation: 'Both can involve neck and shoulder tension with overlapping symptoms', relevanceScore: 5 },
+    { slug: 'temporomandibular-dysfunction', relationshipType: 'anatomical', explanation: 'TMJ dysfunction often coexists with cervicogenic headaches', relevanceScore: 6 }
+  ],
+  'shoulder-instability': [
+    { slug: 'rotator-cuff-injuries', relationshipType: 'causal', explanation: 'Shoulder instability can lead to rotator cuff damage from repeated dislocations', relevanceScore: 7 },
+    { slug: 'shoulder-impingement', relationshipType: 'biomechanical', explanation: 'Instability can cause secondary impingement from altered shoulder mechanics', relevanceScore: 6 },
+    { slug: 'ac-joint-injuries', relationshipType: 'anatomical', explanation: 'Traumatic dislocations can involve both glenohumeral and AC joints', relevanceScore: 5 },
+    { slug: 'biceps-tendinopathy', relationshipType: 'biomechanical', explanation: 'Shoulder instability can stress biceps tendon as secondary stabilizer', relevanceScore: 5 },
+    { slug: 'frozen-shoulder', relationshipType: 'symptomatic', explanation: 'Post-dislocation stiffness can develop into adhesive capsulitis', relevanceScore: 5 }
+  ],
+  'shoulder-bursitis': [
+    { slug: 'shoulder-impingement', relationshipType: 'causal', explanation: 'Subacromial impingement commonly causes secondary bursitis', relevanceScore: 8 },
+    { slug: 'rotator-cuff-injuries', relationshipType: 'symptomatic', explanation: 'Both cause shoulder pain and can coexist with similar presentations', relevanceScore: 7 },
+    { slug: 'frozen-shoulder', relationshipType: 'symptomatic', explanation: 'Both cause shoulder pain and stiffness with inflammatory components', relevanceScore: 6 },
+    { slug: 'biceps-tendinopathy', relationshipType: 'anatomical', explanation: 'Subacromial bursitis can affect nearby biceps tendon', relevanceScore: 5 },
+    { slug: 'ac-joint-injuries', relationshipType: 'symptomatic', explanation: 'Both cause shoulder pain and can be confused diagnostically', relevanceScore: 5 }
+  ],
+  'wrist-sprains': [
+    { slug: 'carpal-tunnel-syndrome', relationshipType: 'causal', explanation: 'Wrist trauma can lead to swelling and median nerve compression', relevanceScore: 6 },
+    { slug: 'de-quervains-tenosynovitis', relationshipType: 'causal', explanation: 'Wrist injuries can predispose to De Quervains tendinopathy', relevanceScore: 6 },
+    { slug: 'repetitive-strain-injuries', relationshipType: 'causal', explanation: 'Acute wrist injury can lead to chronic overuse patterns', relevanceScore: 5 },
+    { slug: 'scaphoid-fractures', relationshipType: 'anatomical', explanation: 'Wrist sprains and scaphoid fractures have similar mechanisms and presentations', relevanceScore: 7 },
+    { slug: 'tennis-elbow', relationshipType: 'biomechanical', explanation: 'Wrist dysfunction can alter forearm mechanics contributing to elbow problems', relevanceScore: 4 }
+  ],
+  'repetitive-strain-injuries': [
+    { slug: 'carpal-tunnel-syndrome', relationshipType: 'causal', explanation: 'CTS is a type of repetitive strain injury from overuse', relevanceScore: 8 },
+    { slug: 'tennis-elbow', relationshipType: 'causal', explanation: 'Tennis elbow is a repetitive strain injury of the lateral elbow', relevanceScore: 8 },
+    { slug: 'de-quervains-tenosynovitis', relationshipType: 'causal', explanation: 'De Quervains is a repetitive strain injury of thumb tendons', relevanceScore: 8 },
+    { slug: 'golfers-elbow', relationshipType: 'causal', explanation: 'Golfers elbow is a repetitive strain injury of the medial elbow', relevanceScore: 8 },
+    { slug: 'thoracic-outlet-syndrome', relationshipType: 'causal', explanation: 'Poor ergonomics contributing to RSI can also cause thoracic outlet syndrome', relevanceScore: 6 }
+  ],
+  'si-joint-dysfunction': [
+    { slug: 'low-back-pain', relationshipType: 'biomechanical', explanation: 'SI joint dysfunction commonly coexists with lumbar spine issues', relevanceScore: 7 },
+    { slug: 'hip-labral-tears', relationshipType: 'biomechanical', explanation: 'Hip instability affects pelvic mechanics and SI joint function', relevanceScore: 5 },
+    { slug: 'piriformis-syndrome', relationshipType: 'anatomical', explanation: 'Both affect sacral/pelvic region with overlapping symptoms', relevanceScore: 6 },
+    { slug: 'groin-strains', relationshipType: 'biomechanical', explanation: 'Muscle imbalances affecting SI joint can also predispose to groin strains', relevanceScore: 5 },
+    { slug: 'facet-joint-syndrome', relationshipType: 'biomechanical', explanation: 'Both affect spinal movement patterns with potential symptom overlap', relevanceScore: 5 }
+  ],
+  'hip-bursitis': [
+    { slug: 'greater-trochanteric-pain-syndrome', relationshipType: 'symptomatic', explanation: 'Hip bursitis often part of GTPS; both cause lateral hip pain', relevanceScore: 8 },
+    { slug: 'hip-osteoarthritis', relationshipType: 'symptomatic', explanation: 'Bursitis often secondary to altered mechanics from hip OA', relevanceScore: 6 },
+    { slug: 'it-band-syndrome', relationshipType: 'anatomical', explanation: 'IT band tightness can contribute to trochanteric bursitis', relevanceScore: 6 },
+    { slug: 'femoroacetabular-impingement', relationshipType: 'biomechanical', explanation: 'Hip impingement can cause secondary bursitis from altered mechanics', relevanceScore: 5 },
+    { slug: 'piriformis-syndrome', relationshipType: 'symptomatic', explanation: 'Both cause deep hip pain and can be confused diagnostically', relevanceScore: 5 }
+  ],
+  'deep-gluteal-syndrome': [
+    { slug: 'piriformis-syndrome', relationshipType: 'anatomical', explanation: 'Piriformis syndrome is part of deep gluteal syndrome spectrum', relevanceScore: 8 },
+    { slug: 'sciatica', relationshipType: 'symptomatic', explanation: 'Both cause sciatic-type pain; DGS involves peripheral nerve entrapment', relevanceScore: 6 },
+    { slug: 'greater-trochanteric-pain-syndrome', relationshipType: 'anatomical', explanation: 'Both involve deep gluteal muscles and hip region', relevanceScore: 5 },
+    { slug: 'hamstring-strains', relationshipType: 'biomechanical', explanation: 'Deep gluteal dysfunction can affect hamstring mechanics', relevanceScore: 5 },
+    { slug: 'si-joint-dysfunction', relationshipType: 'anatomical', explanation: 'Both affect posterior pelvic region with potential symptom overlap', relevanceScore: 5 }
+  ],
+  'proximal-hamstring-tendinopathy': [
+    { slug: 'hamstring-strains', relationshipType: 'anatomical', explanation: 'Both affect hamstring muscles; acute strains can lead to chronic tendinopathy', relevanceScore: 8 },
+    { slug: 'groin-strains', relationshipType: 'anatomical', explanation: 'Both affect proximal thigh muscles with overlapping symptoms', relevanceScore: 6 },
+    { slug: 'piriformis-syndrome', relationshipType: 'symptomatic', explanation: 'Both can cause posterior hip/buttock pain and sitting difficulties', relevanceScore: 6 },
+    { slug: 'ischial-bursitis', relationshipType: 'anatomical', explanation: 'Both affect sitting bone region and can be confused diagnostically', relevanceScore: 7 },
+    { slug: 'deep-gluteal-syndrome', relationshipType: 'anatomical', explanation: 'Both involve posterior hip structures with potential symptom overlap', relevanceScore: 5 }
+  ]
+};
+
+// Get related conditions using intelligent algorithm
 export const getRelatedConditions = (currentSlug: string, category: string, limit: number = 3): Condition[] => {
-  return getAllConditions()
-    .filter(condition => 
-      condition.slug !== currentSlug && 
-      condition.category === category
-    )
-    .slice(0, limit);
+  const allConditions = getAllConditions();
+  
+  // Get intelligent relationships for this condition
+  const relationships = intelligentRelationships[currentSlug] || [];
+  
+  // Sort by relevance score and filter out non-existent conditions
+  const relatedSlugs = relationships
+    .sort((a, b) => b.relevanceScore - a.relevanceScore)
+    .slice(0, limit)
+    .map(rel => rel.slug);
+  
+  // Get the actual condition objects
+  const relatedConditions = relatedSlugs
+    .map(slug => allConditions.find(condition => condition.slug === slug))
+    .filter((condition): condition is Condition => condition !== undefined);
+  
+  // If we don't have enough intelligent relationships, fall back to category-based
+  if (relatedConditions.length < limit) {
+    const categoryFallback = allConditions
+      .filter(condition => 
+        condition.slug !== currentSlug && 
+        condition.category === category &&
+        !relatedSlugs.includes(condition.slug)
+      )
+      .slice(0, limit - relatedConditions.length);
+    
+    relatedConditions.push(...categoryFallback);
+  }
+  
+  return relatedConditions.slice(0, limit);
+};
+
+// Get detailed relationship information for a condition
+export const getDetailedRelationships = (conditionSlug: string) => {
+  return intelligentRelationships[conditionSlug] || [];
 };
 
 // Additional service areas (not individual pages)

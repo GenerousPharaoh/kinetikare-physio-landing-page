@@ -900,3 +900,15 @@ body {
   0% { background-position: 0% 50%; }
   100% { background-position: 200% 50%; }
 }
+
+/* Slide in animation for underline effect */
+@keyframes slideIn {
+  0% { 
+    transform: scaleX(0); 
+    opacity: 0; 
+  }
+  100% { 
+    transform: scaleX(1); 
+    opacity: 1; 
+  }
+}

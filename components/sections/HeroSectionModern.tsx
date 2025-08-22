@@ -45,13 +45,14 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-[40px] sm:text-[48px] leading-[1.1] mb-8 text-center font-serif"
+              className="text-[42px] sm:text-[52px] leading-[1.05] mb-8 text-center"
+              style={{ fontFamily: "'Georgia', serif" }}
             >
-              <div className="space-y-3">
-                <div className="text-slate-900 font-bold tracking-tight">The Science of Recovery</div>
-                <div className="text-slate-900 font-bold relative tracking-tight">
-                  The Art of <span className="relative inline-block text-red-500 font-black text-[60px] sm:text-[70px]">CARE
-                    <span className="absolute -bottom-2 left-0 w-full h-[5px] bg-red-500 origin-left transform scale-x-0 animate-[taperedSlide_0.6s_ease-out_0.4s_forwards] rounded-full"></span>
+              <div className="space-y-4">
+                <div className="text-slate-900 font-normal tracking-tight">The Science of Recovery</div>
+                <div className="text-slate-900 font-medium relative tracking-tight">
+                  The Art of <span className="relative inline-block text-[#B08D57] font-bold text-[48px] sm:text-[58px] italic">Care
+                    <span className="absolute -bottom-1 left-0 w-full h-[3px] bg-gradient-to-r from-[#B08D57] to-[#D4AF37] origin-left transform scale-x-0 animate-[taperedSlide_0.6s_ease-out_0.4s_forwards] rounded-sm"></span>
                   </span>
                 </div>
               </div>
@@ -175,13 +176,14 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="leading-[1.1] mb-8 font-serif"
+                className="leading-[1.05] mb-8"
+                style={{ fontFamily: "'Georgia', serif" }}
               >
-                <div className="space-y-4">
-                  <div className="text-[46px] xl:text-[52px] text-slate-900 font-bold tracking-tight">The Science of Recovery</div>
-                  <div className="text-[46px] xl:text-[52px] text-slate-900 font-bold relative tracking-tight">
-                    The Art of <span className="relative inline-block text-red-500 font-black text-[70px] xl:text-[80px]">CARE
-                      <span className="absolute -bottom-2 left-0 w-full h-[5px] bg-red-500 origin-left transform scale-x-0 animate-[taperedSlide_0.6s_ease-out_0.4s_forwards] rounded-full"></span>
+                <div className="space-y-5">
+                  <div className="text-[48px] xl:text-[56px] text-slate-900 font-normal tracking-tight">The Science of Recovery</div>
+                  <div className="text-[48px] xl:text-[56px] text-slate-900 font-medium relative tracking-tight">
+                    The Art of <span className="relative inline-block text-[#B08D57] font-bold text-[54px] xl:text-[64px] italic">Care
+                      <span className="absolute -bottom-1 left-0 w-full h-[3px] bg-gradient-to-r from-[#B08D57] to-[#D4AF37] origin-left transform scale-x-0 animate-[taperedSlide_0.6s_ease-out_0.4s_forwards] rounded-sm"></span>
                     </span>
                   </div>
                 </div>

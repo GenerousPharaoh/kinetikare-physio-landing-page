@@ -274,14 +274,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
       });
       
       if (activityMatch) {
-        searchResults.push({
-          type: 'condition',
-          title: `${activity.activity.charAt(0).toUpperCase() + activity.activity.slice(1)} Injuries`,
-          description: activity.advice,
-          url: '/conditions',
-          category: 'activity-specific',
-          score: 320
-        });
+        // Don't add generic activity injury link - specific conditions below are better
         
         // Add specific conditions for this activity
         activity.conditions.forEach((conditionName, index) => {
@@ -305,21 +298,44 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
       }
     });
     
-    // PRIORITY 5: Treatment & Service searches
+    // PRIORITY 5: Treatment & Service searches - find related conditions instead
     treatmentModalities.forEach(treatment => {
       const treatmentMatch = treatment.keywords.some(keyword => 
         termLower.includes(keyword) || fuzzyMatch(termLower, keyword).score > 60
       );
       
       if (treatmentMatch) {
-        searchResults.push({
-          type: 'service',
-          title: treatment.name,
-          description: treatment.description,
-          url: '/services',
-          category: 'treatment',
-          score: 250
+        // Find conditions that this treatment helps with
+        const relatedConditions = getAllConditions().filter(condition => 
+          treatment.conditions.some(treatedCondition =>
+            condition.name.toLowerCase().includes(treatedCondition.toLowerCase()) ||
+            treatedCondition.toLowerCase().includes(condition.name.toLowerCase())
+          )
+        ).slice(0, 2);
+        
+        // Add specific conditions instead of generic service page
+        relatedConditions.forEach((condition, index) => {
+          searchResults.push({
+            type: 'condition',
+            title: condition.name,
+            description: `Treated with ${treatment.name.toLowerCase()}`,
+            url: `/conditions/${condition.slug}`,
+            category: 'treatment-specific',
+            score: 250 - (index * 5)
+          });
         });
+        
+        // Only add generic service link if no specific conditions found
+        if (relatedConditions.length === 0) {
+          searchResults.push({
+            type: 'service',
+            title: treatment.name,
+            description: treatment.description,
+            url: '/services#' + treatment.name.toLowerCase().replace(/\s+/g, '-'),
+            category: 'treatment',
+            score: 240
+          });
+        }
       }
     });
     

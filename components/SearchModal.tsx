@@ -29,7 +29,6 @@ interface SearchResult {
   url: string;
   category?: string;
   score: number;
-  highlights?: string[];
 }
 
 // Fuzzy search helper
@@ -136,20 +135,13 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
       );
       
       if (totalScore > 15) {
-        const highlights = [];
-        if (nameMatch.matches) highlights.push('Name match');
-        if (categoryMatch.matches) highlights.push('Category match');
-        if (symptomsMatch.matches) highlights.push('Symptoms match');
-        if (treatmentsMatch.matches) highlights.push('Treatments match');
-        
         searchResults.push({
           type: 'condition',
           title: condition.name,
-          description: condition.overview?.split('.')[0] + '.' || condition.shortDescription,
+          description: condition.overview?.substring(0, 150) || condition.shortDescription,
           url: `/conditions/${condition.slug}`,
           category: condition.category,
-          score: totalScore,
-          highlights
+          score: totalScore
         });
       }
     });
@@ -329,14 +321,14 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
             className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50"
           />
 
-          {/* Modal - Responsive */}
+          {/* Modal - Fully Responsive */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: -20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -20 }}
-            className="fixed inset-x-4 top-4 sm:top-20 sm:left-1/2 sm:-translate-x-1/2 sm:w-full sm:max-w-2xl z-50"
+            className="fixed inset-x-4 top-[5%] md:top-[10%] md:left-1/2 md:-translate-x-1/2 md:w-[90%] lg:w-[80%] xl:w-[70%] max-w-4xl z-50"
           >
-            <div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] sm:max-h-[80vh] flex flex-col">
+            <div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden max-h-[85vh] flex flex-col">
               {/* Premium gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/5 via-transparent to-[#D4AF37]/5 pointer-events-none"></div>
               
@@ -411,15 +403,6 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                                   <p className="text-xs sm:text-sm text-gray-600 mt-1 line-clamp-2">
                                     {result.description}
                                   </p>
-                                )}
-                                {result.highlights && result.highlights.length > 0 && (
-                                  <div className="flex flex-wrap gap-1 mt-1">
-                                    {result.highlights.map((h, i) => (
-                                      <span key={i} className="text-xs text-gray-500">
-                                        • {h}
-                                      </span>
-                                    ))}
-                                  </div>
                                 )}
                               </div>
                               {index === selectedIndex && (

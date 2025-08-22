@@ -301,13 +301,13 @@ export default function ConditionPageClient({
                       </div>
                     </div>
                   ) : (
-                  <AnimatePresence mode="wait">
+                  <AnimatePresence mode="wait" initial={false}>
                     <motion.div
                       key={activeTab}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      transition={{ duration: 0.3 }}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.15, ease: "easeInOut" }}
                     >
                       {/* Overview Tab */}
                       {activeTab === 'overview' && (
@@ -553,13 +553,13 @@ export default function ConditionPageClient({
                                   </div>
                                 </div>
                                 
-                                <AnimatePresence>
+                                <AnimatePresence initial={false}>
                                   {expandedResearchSections['key-research'] && (
                                     <motion.div 
                                       initial={{ height: 0, opacity: 0 }}
                                       animate={{ height: 'auto', opacity: 1 }}
                                       exit={{ height: 0, opacity: 0 }}
-                                      transition={{ duration: 0.3 }}
+                                      transition={{ duration: 0.2, ease: "easeInOut" }}
                                       className="overflow-hidden"
                                     >
                                       <div className="p-8">
@@ -694,13 +694,13 @@ export default function ConditionPageClient({
                                   </div>
                                 </div>
                                 
-                                <AnimatePresence>
+                                <AnimatePresence initial={false}>
                                   {expandedResearchSections['research-insights'] && (
                                     <motion.div 
                                       initial={{ height: 0, opacity: 0 }}
                                       animate={{ height: 'auto', opacity: 1 }}
                                       exit={{ height: 0, opacity: 0 }}
-                                      transition={{ duration: 0.3 }}
+                                      transition={{ duration: 0.2, ease: "easeInOut" }}
                                       className="overflow-hidden"
                                     >
                                       <div className="p-8">
@@ -798,13 +798,13 @@ export default function ConditionPageClient({
                                   </div>
                                 </div>
                                 
-                                <AnimatePresence>
+                                <AnimatePresence initial={false}>
                                   {expandedManagementSections['evidence-based'] && (
                                     <motion.div 
                                       initial={{ height: 0, opacity: 0 }}
                                       animate={{ height: 'auto', opacity: 1 }}
                                       exit={{ height: 0, opacity: 0 }}
-                                      transition={{ duration: 0.3 }}
+                                      transition={{ duration: 0.2, ease: "easeInOut" }}
                                       className="overflow-hidden"
                                     >
                                       <div className="p-8">
@@ -994,13 +994,13 @@ export default function ConditionPageClient({
                                   </div>
                                 </div>
                                 
-                                <AnimatePresence>
+                                <AnimatePresence initial={false}>
                                   {expandedManagementSections['treatment-techniques'] && (
                                     <motion.div 
                                       initial={{ height: 0, opacity: 0 }}
                                       animate={{ height: 'auto', opacity: 1 }}
                                       exit={{ height: 0, opacity: 0 }}
-                                      transition={{ duration: 0.3 }}
+                                      transition={{ duration: 0.2, ease: "easeInOut" }}
                                       className="overflow-hidden"
                                     >
                                       <div className="p-8">
@@ -1061,13 +1061,13 @@ export default function ConditionPageClient({
                                   </div>
                                 </div>
                                 
-                                <AnimatePresence>
+                                <AnimatePresence initial={false}>
                                   {expandedManagementSections['timeline'] && (
                                     <motion.div 
                                       initial={{ height: 0, opacity: 0 }}
                                       animate={{ height: 'auto', opacity: 1 }}
                                       exit={{ height: 0, opacity: 0 }}
-                                      transition={{ duration: 0.3 }}
+                                      transition={{ duration: 0.2, ease: "easeInOut" }}
                                       className="overflow-hidden"
                                     >
                                       <div className="p-8">

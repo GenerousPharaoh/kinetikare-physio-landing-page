@@ -197,14 +197,20 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
       );
       
       if (matchesBodyPart) {
-        // Add the most common conditions for this body part
-        const topConditions = conditionList.slice(0, 3);
-        topConditions.forEach((condition, index) => {
+        // Find matching conditions in the actual condition database
+        const actualConditions = getAllConditions().filter(condition => 
+          conditionList.some(condName => 
+            condition.name.toLowerCase().includes(condName.toLowerCase()) ||
+            condName.toLowerCase().includes(condition.name.toLowerCase())
+          )
+        ).slice(0, 3);
+        
+        actualConditions.forEach((condition, index) => {
           searchResults.push({
             type: 'condition',
-            title: condition,
+            title: condition.name,
             description: `Common ${bodyPart} condition - Click to learn more`,
-            url: `/conditions/${condition.toLowerCase().replace(/\s+/g, '-').replace(/'/g, '')}`,
+            url: `/conditions/${condition.slug}`,
             category: bodyPart,
             score: 350 - (index * 10) // First condition has highest score
           });
@@ -245,15 +251,23 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
         });
         
         // Add specific conditions for this activity
-        activity.conditions.forEach((condition, index) => {
-          searchResults.push({
-            type: 'condition',
-            title: condition,
-            description: `Common in ${activity.activity}`,
-            url: `/conditions/${condition.toLowerCase().replace(/\s+/g, '-').replace(/'/g, '')}`,
-            category: activity.activity,
-            score: 300 - (index * 5)
-          });
+        activity.conditions.forEach((conditionName, index) => {
+          // Find the actual condition in our database
+          const actualCondition = getAllConditions().find(c => 
+            c.name.toLowerCase().includes(conditionName.toLowerCase()) ||
+            conditionName.toLowerCase().includes(c.name.toLowerCase())
+          );
+          
+          if (actualCondition) {
+            searchResults.push({
+              type: 'condition',
+              title: actualCondition.name,
+              description: `Common in ${activity.activity}`,
+              url: `/conditions/${actualCondition.slug}`,
+              category: activity.activity,
+              score: 300 - (index * 5)
+            });
+          }
         });
       }
     });

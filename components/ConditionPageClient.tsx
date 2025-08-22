@@ -255,7 +255,7 @@ export default function ConditionPageClient({
         <section className="pt-6 pb-0 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="w-full">
-              <div className="grid grid-cols-1 xl:grid-cols-[1fr_380px] gap-8">
+              <div className="grid grid-cols-1 xl:grid-cols-[1fr_380px] gap-8 xl:items-start">
                 {/* Main Content */}
                 <main className="relative min-w-0 w-full">
                   {/* Coming Soon Message - Shown when no detailed content */}
@@ -1422,7 +1422,7 @@ export default function ConditionPageClient({
                 </main>
 
                 {/* Sidebar - Sticky on desktop with proper z-index */}
-                <aside className="hidden xl:block sticky top-24 self-start z-0">
+                <aside className="hidden xl:block sticky top-24 self-start z-10 h-fit">
                   <div className="space-y-6">
                     {/* Quick Actions */}
                     <div className="bg-gradient-to-br from-[#B08D57]/10 to-[#D4AF37]/10 rounded-xl p-6 border border-[#B08D57]/20">

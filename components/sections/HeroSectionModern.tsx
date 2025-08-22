@@ -45,14 +45,14 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-[44px] sm:text-[48px] leading-[1.1] mb-8 text-center font-light"
+              className="text-[36px] sm:text-[40px] leading-[1.1] mb-8 text-center"
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
-              <div className="space-y-2">
-                <div className="text-slate-700 font-light tracking-[-0.02em]">The Science of Recovery</div>
-                <div className="text-slate-700 font-normal relative tracking-[-0.01em]">
-                  The Art of <span className="relative inline-block bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent font-semibold">Care
-                    <span className="absolute -bottom-0.5 left-0 w-full h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] origin-left transform scale-x-0 animate-[taperedSlide_0.6s_ease-out_0.4s_forwards]"></span>
+              <div className="space-y-1">
+                <div className="text-slate-900 font-bold tracking-[-0.03em] uppercase text-[28px] sm:text-[32px]">The Science of Recovery</div>
+                <div className="text-slate-900 font-black relative tracking-[-0.02em] text-[42px] sm:text-[48px]">
+                  THE ART OF <span className="relative inline-block bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] bg-clip-text text-transparent">CARE
+                    <span className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] origin-left transform scale-x-0 animate-[taperedSlide_0.6s_ease-out_0.4s_forwards] shadow-lg"></span>
                   </span>
                 </div>
               </div>
@@ -176,14 +176,14 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="leading-[1.1] mb-8 font-light"
+                className="leading-[1.1] mb-8"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
-                <div className="space-y-3">
-                  <div className="text-[46px] xl:text-[50px] text-slate-700 font-light tracking-[-0.02em]">The Science of Recovery</div>
-                  <div className="text-[46px] xl:text-[50px] text-slate-700 font-normal relative tracking-[-0.01em]">
-                    The Art of <span className="relative inline-block bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent font-semibold">Care
-                      <span className="absolute -bottom-0.5 left-0 w-full h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] origin-left transform scale-x-0 animate-[taperedSlide_0.6s_ease-out_0.4s_forwards]"></span>
+                <div className="space-y-2">
+                  <div className="text-[36px] xl:text-[40px] text-slate-900 font-bold tracking-[-0.03em] uppercase">The Science of Recovery</div>
+                  <div className="text-[48px] xl:text-[54px] text-slate-900 font-black relative tracking-[-0.02em]">
+                    THE ART OF <span className="relative inline-block bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] bg-clip-text text-transparent">CARE
+                      <span className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] origin-left transform scale-x-0 animate-[taperedSlide_0.6s_ease-out_0.4s_forwards] shadow-lg"></span>
                     </span>
                   </div>
                 </div>

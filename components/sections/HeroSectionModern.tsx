@@ -45,14 +45,14 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-[42px] sm:text-[52px] leading-[1.05] mb-8 text-center"
-              style={{ fontFamily: "'Georgia', serif" }}
+              className="text-[44px] sm:text-[48px] leading-[1.1] mb-8 text-center font-light"
+              style={{ fontFamily: "'Inter', sans-serif" }}
             >
-              <div className="space-y-4">
-                <div className="text-slate-900 font-normal tracking-tight">The Science of Recovery</div>
-                <div className="text-slate-900 font-medium relative tracking-tight">
-                  The Art of <span className="relative inline-block text-[#B08D57] font-bold text-[48px] sm:text-[58px] italic">Care
-                    <span className="absolute -bottom-1 left-0 w-full h-[3px] bg-gradient-to-r from-[#B08D57] to-[#D4AF37] origin-left transform scale-x-0 animate-[taperedSlide_0.6s_ease-out_0.4s_forwards] rounded-sm"></span>
+              <div className="space-y-2">
+                <div className="text-slate-700 font-light tracking-[-0.02em]">The Science of Recovery</div>
+                <div className="text-slate-700 font-normal relative tracking-[-0.01em]">
+                  The Art of <span className="relative inline-block bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent font-semibold">Care
+                    <span className="absolute -bottom-0.5 left-0 w-full h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] origin-left transform scale-x-0 animate-[taperedSlide_0.6s_ease-out_0.4s_forwards]"></span>
                   </span>
                 </div>
               </div>
@@ -90,7 +90,7 @@ export default function HeroSection() {
                 <Link
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
-                  className="block w-full text-center px-8 py-5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] hover:from-[#C99A65] hover:to-[#E6B84A] text-white font-semibold rounded-xl hover:shadow-xl transition-all duration-300 shadow-lg transform hover:-translate-y-0.5"
+                  className="block w-full text-center px-8 py-5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] hover:from-[#C99A65] hover:to-[#E6B84A] text-white hover:text-white font-semibold rounded-xl hover:shadow-xl transition-all duration-300 shadow-lg transform hover:-translate-y-0.5"
                 >
                   Book Your Assessment
                 </Link>
@@ -176,14 +176,14 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="leading-[1.05] mb-8"
-                style={{ fontFamily: "'Georgia', serif" }}
+                className="leading-[1.1] mb-8 font-light"
+                style={{ fontFamily: "'Inter', sans-serif" }}
               >
-                <div className="space-y-5">
-                  <div className="text-[48px] xl:text-[56px] text-slate-900 font-normal tracking-tight">The Science of Recovery</div>
-                  <div className="text-[48px] xl:text-[56px] text-slate-900 font-medium relative tracking-tight">
-                    The Art of <span className="relative inline-block text-[#B08D57] font-bold text-[54px] xl:text-[64px] italic">Care
-                      <span className="absolute -bottom-1 left-0 w-full h-[3px] bg-gradient-to-r from-[#B08D57] to-[#D4AF37] origin-left transform scale-x-0 animate-[taperedSlide_0.6s_ease-out_0.4s_forwards] rounded-sm"></span>
+                <div className="space-y-3">
+                  <div className="text-[46px] xl:text-[50px] text-slate-700 font-light tracking-[-0.02em]">The Science of Recovery</div>
+                  <div className="text-[46px] xl:text-[50px] text-slate-700 font-normal relative tracking-[-0.01em]">
+                    The Art of <span className="relative inline-block bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent font-semibold">Care
+                      <span className="absolute -bottom-0.5 left-0 w-full h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] origin-left transform scale-x-0 animate-[taperedSlide_0.6s_ease-out_0.4s_forwards]"></span>
                     </span>
                   </div>
                 </div>
@@ -221,7 +221,7 @@ export default function HeroSection() {
                 <Link
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
-                  className="px-10 py-5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] hover:from-[#C99A65] hover:to-[#E6B84A] text-white font-semibold rounded-xl hover:shadow-xl transition-all duration-300 shadow-lg transform hover:-translate-y-1"
+                  className="px-10 py-5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] hover:from-[#C99A65] hover:to-[#E6B84A] text-white hover:text-white font-semibold rounded-xl hover:shadow-xl transition-all duration-300 shadow-lg transform hover:-translate-y-1"
                 >
                   Book Your Assessment
                 </Link>

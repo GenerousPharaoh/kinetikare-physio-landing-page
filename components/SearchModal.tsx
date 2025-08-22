@@ -16,6 +16,14 @@ import {
 } from '@heroicons/react/24/outline';
 import { getAllConditions } from '@/lib/conditions-data';
 import Link from 'next/link';
+import { 
+  symptomMappings, 
+  bodyPartConditions, 
+  exerciseDatabase, 
+  quickActions,
+  treatmentModalities,
+  activityInjuries 
+} from '@/lib/search-content';
 
 interface SearchModalProps {
   isOpen: boolean;
@@ -114,6 +122,88 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
     const searchResults: SearchResult[] = [];
     const conditions = getAllConditions();
+    const termLower = searchTerm.toLowerCase();
+    
+    // Priority 1: Check for quick actions (booking, emergency, etc.)
+    quickActions.forEach(action => {
+      const matches = action.query.some(q => termLower.includes(q));
+      if (matches) {
+        searchResults.push({
+          type: 'page',
+          title: action.action,
+          description: action.description || (action.phone ? `Call: ${action.phone}` : ''),
+          url: action.url || '#',
+          score: 200 + action.priority // Highest priority
+        });
+      }
+    });
+    
+    // Priority 2: Check for symptom-based searching
+    symptomMappings.forEach(mapping => {
+      const symptomMatch = mapping.symptoms.some(symptom => 
+        termLower.includes(symptom) || fuzzyMatch(termLower, symptom).score > 60
+      );
+      
+      if (symptomMatch) {
+        searchResults.push({
+          type: 'condition',
+          title: `${mapping.urgency === 'emergency' ? '🚨 ' : ''}${mapping.action}`,
+          description: `Possible: ${mapping.conditions.join(', ')}`,
+          url: mapping.urgency === 'emergency' ? 'tel:905-634-6000' : 'https://endorphinshealth.janeapp.com/#/staff_member/42',
+          category: mapping.urgency,
+          score: mapping.urgency === 'emergency' ? 250 : 180
+        });
+      }
+    });
+    
+    // Priority 3: Body part specific conditions
+    Object.entries(bodyPartConditions).forEach(([bodyPart, conditions]) => {
+      if (termLower.includes(bodyPart)) {
+        conditions.forEach(condition => {
+          searchResults.push({
+            type: 'condition',
+            title: condition,
+            description: `Common ${bodyPart} condition`,
+            url: `/conditions/${condition.toLowerCase().replace(/\s+/g, '-')}`,
+            category: bodyPart,
+            score: 150
+          });
+        });
+      }
+    });
+    
+    // Priority 4: Exercise and treatment searches
+    exerciseDatabase.forEach(exercise => {
+      const match = exercise.keywords.some(keyword => 
+        termLower.includes(keyword) || fuzzyMatch(termLower, keyword).score > 50
+      );
+      
+      if (match) {
+        searchResults.push({
+          type: 'service',
+          title: exercise.name,
+          description: exercise.description,
+          url: '/services#exercises',
+          category: `Difficulty: ${exercise.difficulty}`,
+          score: 120
+        });
+      }
+    });
+    
+    // Priority 5: Activity-specific injuries
+    activityInjuries.forEach(activity => {
+      const match = activity.keywords.some(keyword => termLower.includes(keyword));
+      if (match) {
+        searchResults.push({
+          type: 'condition',
+          title: `${activity.activity.charAt(0).toUpperCase() + activity.activity.slice(1)} Injuries`,
+          description: activity.advice,
+          url: '/conditions',
+          category: 'Sport/Activity',
+          score: 130
+        });
+      }
+    });
 
     // Search conditions with detailed matching
     conditions.forEach(condition => {

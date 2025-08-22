@@ -382,24 +382,21 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
   }, [isOpen, results, selectedIndex, onClose]);
 
   const getIcon = (type: string, category?: string) => {
-    // Emergency gets special treatment
+    // Special icons for specific categories
     if (category === 'emergency') {
-      return <span className="text-lg">🚨</span>;
+      return <FireIcon className="h-5 w-5" />;
     }
     
-    // Booking gets calendar
     if (category === 'booking') {
-      return <span className="text-lg">📅</span>;
+      return <ClockIcon className="h-5 w-5" />;
     }
     
-    // Insurance gets money
     if (category === 'billing') {
-      return <span className="text-lg">💳</span>;
+      return <QuestionMarkCircleIcon className="h-5 w-5" />;
     }
     
-    // Location gets map
     if (category === 'location') {
-      return <span className="text-lg">📍</span>;
+      return <SparklesIcon className="h-5 w-5" />;
     }
     
     switch (type) {
@@ -658,7 +655,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                             className="flex items-center gap-3 p-3 bg-gradient-to-r from-green-50 to-green-100 border border-green-200 rounded-lg hover:border-green-300 transition-colors group"
                             onClick={onClose}
                           >
-                            <span className="text-lg">📅</span>
+                            <ClockIcon className="h-5 w-5" />
                             <div>
                               <div className="font-medium text-green-800 text-sm">Book Assessment</div>
                               <div className="text-xs text-green-600">Available today</div>
@@ -671,7 +668,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                             className="flex items-center gap-3 p-3 bg-gradient-to-r from-red-50 to-red-100 border border-red-200 rounded-lg hover:border-red-300 transition-colors group"
                             onClick={onClose}
                           >
-                            <span className="text-lg">📞</span>
+                            <FireIcon className="h-5 w-5" />
                             <div>
                               <div className="font-medium text-red-800 text-sm">Call Clinic</div>
                               <div className="text-xs text-red-600">905-634-6000</div>
@@ -688,20 +685,13 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                           Popular Searches
                         </h3>
                         <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2">
-                          {[
-                            { term: 'back pain', emoji: '🔥' },
-                            { term: 'knee injury', emoji: '⚡' },
-                            { term: 'neck pain', emoji: '😣' },
-                            { term: 'shoulder pain', emoji: '💢' },
-                            { term: 'insurance', emoji: '💳' }
-                          ].map(item => (
+                          {['back pain', 'knee injury', 'neck pain', 'shoulder pain', 'insurance'].map(term => (
                             <button
-                              key={item.term}
-                              onClick={() => setSearchTerm(item.term)}
-                              className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 border border-[#B08D57]/20 rounded-lg hover:border-[#B08D57]/40 transition-colors text-xs sm:text-sm font-medium text-gray-700"
+                              key={term}
+                              onClick={() => setSearchTerm(term)}
+                              className="px-3 sm:px-4 py-2 bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 border border-[#B08D57]/20 rounded-lg hover:border-[#B08D57]/40 transition-colors text-xs sm:text-sm font-medium text-gray-700"
                             >
-                              <span>{item.emoji}</span>
-                              {item.term}
+                              {term}
                             </button>
                           ))}
                         </div>

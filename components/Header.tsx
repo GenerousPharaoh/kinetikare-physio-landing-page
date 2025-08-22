@@ -271,26 +271,26 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
             
             {/* Logo Section */}
             <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0">
-              <div className="flex items-center gap-3">
-                <div className="relative flex items-center justify-center w-10 h-10">
+              <div className="flex items-center gap-2">
+                <div className="relative flex items-center justify-center w-11 h-11">
                   <Image
                     src="/images/kinetikare-logo-without-text.png"
                     alt="KinetiKare physiotherapy logo Burlington Waterdown Kareem Hassanein"
-                    width={36}
-                    height={36}
-                    className="w-9 h-9 object-contain transition-all duration-300 group-hover:scale-110"
+                    width={40}
+                    height={40}
+                    className="w-10 h-10 object-contain transition-all duration-300 group-hover:scale-110"
                     style={{
                       filter: 'contrast(1.2) saturate(1.3) brightness(1.1) drop-shadow(0 2px 4px rgba(255, 255, 255, 0.15))',
                       imageRendering: 'crisp-edges'
                     }}
                   />
                   {/* Enhanced glow effect */}
-                  <div className="absolute inset-0 w-10 h-10 bg-[#D4AF37]/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 w-11 h-11 bg-[#D4AF37]/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                <div className="flex items-baseline">
-                  <span className="text-[21px] xl:text-[23px] text-white font-light tracking-[0.015em] leading-none" style={{ fontFamily: "'Inter', sans-serif" }}>Kineti</span>
-                  <span className="text-[21px] xl:text-[23px] text-[#D4AF37] font-semibold leading-none" style={{ fontFamily: "'Inter', sans-serif" }}>K</span>
-                  <span className="text-[21px] xl:text-[23px] text-white font-light tracking-[0.015em] leading-none" style={{ fontFamily: "'Inter', sans-serif" }}>are</span>
+                <div className="flex items-center -ml-0.5">
+                  <span className="text-[22px] xl:text-[24px] text-white font-extralight tracking-[0.12em] leading-none uppercase" style={{ fontFamily: "'Montserrat', sans-serif", letterSpacing: '0.12em' }}>Kineti</span>
+                  <span className="text-[22px] xl:text-[24px] text-[#D4AF37] font-bold leading-none uppercase" style={{ fontFamily: "'Montserrat', sans-serif" }}>K</span>
+                  <span className="text-[22px] xl:text-[24px] text-white font-extralight tracking-[0.12em] leading-none uppercase" style={{ fontFamily: "'Montserrat', sans-serif", letterSpacing: '0.12em' }}>are</span>
                 </div>
               </div>
               <div className="hidden lg:block w-px h-5 bg-[#D4AF37]/30 mx-3"></div>

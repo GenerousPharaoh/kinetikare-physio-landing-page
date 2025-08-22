@@ -183,7 +183,14 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
     });
     
     // PRIORITY 3: Body part intelligence - understand "my knee hurts"
-    Object.entries(bodyPartConditions).forEach(([bodyPart, conditionList]) => {
+    // Sort body parts by specificity (longer terms first) to avoid duplicates
+    const sortedBodyParts = Object.entries(bodyPartConditions).sort(([a], [b]) => b.length - a.length);
+    
+    const processedBodyParts = new Set();
+    sortedBodyParts.forEach(([bodyPart, conditionList]) => {
+      // Skip if we already processed a more specific or general version
+      if (processedBodyParts.has(bodyPart)) return;
+      if (bodyPart === 'back' && (processedBodyParts.has('upper back') || processedBodyParts.has('lower back'))) return;
       const bodyPartVariations = [
         bodyPart,
         `${bodyPart} pain`,
@@ -231,6 +238,13 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
             score: 350 - (index * 10) // First condition has highest score
           });
         });
+        
+        // Mark this body part as processed
+        processedBodyParts.add(bodyPart);
+        // Also mark less specific versions as processed
+        if (bodyPart === 'upper back' || bodyPart === 'lower back') {
+          processedBodyParts.add('back');
+        }
         
         // If we found actual conditions, don't add generic treatment link
         if (actualConditions.length === 0) {

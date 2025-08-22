@@ -36,7 +36,7 @@ export default function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-sm uppercase tracking-[0.3em] text-[#B08D57] mb-6 font-semibold"
+              className="text-sm uppercase tracking-[0.3em] bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent mb-6 font-semibold"
             >
               Registered Physiotherapist
             </motion.p>
@@ -50,9 +50,9 @@ export default function HeroSection() {
             >
               <div className="space-y-1">
                 <div className="text-slate-900 font-light tracking-[-0.02em]">The Science of Recovery</div>
-                <div className="text-[#B8860B] font-medium relative tracking-[-0.01em]">
+                <div className="bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent font-medium relative tracking-[-0.01em]">
                   The Art of <span className="relative inline-block">Care
-                    <span className="absolute -bottom-0.5 left-0 w-full h-0.5 bg-[#B8860B] origin-left transform scale-x-0 animate-[taperedSlide_0.6s_ease-out_0.4s_forwards]"></span>
+                    <span className="absolute -bottom-0.5 left-0 w-full h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] origin-left transform scale-x-0 animate-[taperedSlide_0.6s_ease-out_0.4s_forwards]"></span>
                   </span>
                 </div>
               </div>
@@ -66,9 +66,9 @@ export default function HeroSection() {
             >
               <p className="text-3xl font-normal text-slate-700 mb-3 tracking-wide" style={{ fontFamily: "'Inter', sans-serif" }}>Kareem Hassanein</p>
               <div className="flex items-center justify-center gap-3">
-                <div className="h-px w-16 bg-[#B08D57]/40" />
-                <div className="h-1.5 w-1.5 rounded-full bg-[#B08D57]" />
-                <div className="h-px w-16 bg-[#B08D57]/40" />
+                <div className="h-px w-16 bg-gradient-to-r from-transparent via-[#B08D57] to-[#D4AF37]/40" />
+                <div className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37]" />
+                <div className="h-px w-16 bg-gradient-to-r from-[#D4AF37]/40 via-[#B08D57] to-transparent" />
               </div>
             </motion.div>
 
@@ -90,7 +90,7 @@ export default function HeroSection() {
                 <Link
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
-                  className="block w-full text-center px-8 py-5 bg-[#B08D57] text-white font-semibold rounded-xl hover:bg-[#997A4B] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                  className="block w-full text-center px-8 py-5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white font-semibold rounded-xl hover:shadow-xl transition-all duration-300 shadow-lg transform hover:-translate-y-0.5"
                 >
                   Book Your Assessment
                 </Link>
@@ -103,7 +103,7 @@ export default function HeroSection() {
               >
                 <Link
                   href="/services"
-                  className="block w-full text-center px-8 py-5 bg-white border-2 border-slate-200 text-slate-700 font-semibold rounded-xl hover:border-[#B08D57] hover:text-[#B08D57] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                  className="block w-full text-center px-8 py-5 bg-white border-2 border-slate-200 text-slate-700 font-semibold rounded-xl hover:border-[#B08D57] hover:bg-gradient-to-r hover:from-[#B08D57] hover:to-[#D4AF37] hover:bg-clip-text hover:text-transparent transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                 >
                   Explore Services
                 </Link>
@@ -118,9 +118,9 @@ export default function HeroSection() {
             >
               <div className="inline-flex items-center gap-4 text-xs text-slate-600">
                 <span>Direct Billing</span>
-                <span className="text-[#B08D57]">•</span>
+                <span className="bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent">•</span>
                 <span>Evening Hours</span>
-                <span className="text-[#B08D57]">•</span>
+                <span className="bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent">•</span>
                 <span>5+ Years Experience</span>
               </div>
             </motion.div>
@@ -167,7 +167,7 @@ export default function HeroSection() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-base uppercase tracking-[0.3em] text-[#B08D57] mb-6 font-semibold"
+                className="text-base uppercase tracking-[0.3em] bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent mb-6 font-semibold"
               >
                 Registered Physiotherapist
               </motion.p>
@@ -181,9 +181,9 @@ export default function HeroSection() {
               >
                 <div className="space-y-2">
                   <div className="text-[44px] xl:text-[48px] text-slate-900 font-light tracking-[-0.02em]">The Science of Recovery</div>
-                  <div className="text-[44px] xl:text-[48px] text-[#B8860B] font-medium relative tracking-[-0.01em]">
+                  <div className="text-[44px] xl:text-[48px] bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent font-medium relative tracking-[-0.01em]">
                     The Art of <span className="relative inline-block">Care
-                      <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#B8860B] origin-left transform scale-x-0 animate-[taperedSlide_0.6s_ease-out_0.4s_forwards]"></span>
+                      <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] origin-left transform scale-x-0 animate-[taperedSlide_0.6s_ease-out_0.4s_forwards]"></span>
                     </span>
                   </div>
                 </div>
@@ -197,9 +197,9 @@ export default function HeroSection() {
               >
                 <p className="text-4xl font-normal text-slate-700 mb-4 tracking-wide" style={{ fontFamily: "'Inter', sans-serif" }}>Kareem Hassanein</p>
                 <div className="flex items-center gap-3">
-                  <div className="h-px w-20 bg-[#B08D57]/40" />
-                  <div className="h-2 w-2 rounded-full bg-[#B08D57]" />
-                  <div className="h-px w-20 bg-[#B08D57]/40" />
+                  <div className="h-px w-20 bg-gradient-to-r from-transparent via-[#B08D57] to-[#D4AF37]/40" />
+                  <div className="h-2 w-2 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37]" />
+                  <div className="h-px w-20 bg-gradient-to-r from-[#D4AF37]/40 via-[#B08D57] to-transparent" />
                 </div>
               </motion.div>
 
@@ -221,14 +221,14 @@ export default function HeroSection() {
                 <Link
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
-                  className="px-10 py-5 bg-[#B08D57] text-white font-semibold rounded-xl hover:bg-[#997A4B] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                  className="px-10 py-5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white font-semibold rounded-xl hover:shadow-xl transition-all duration-300 shadow-lg transform hover:-translate-y-1"
                 >
                   Book Your Assessment
                 </Link>
 
                 <Link
                   href="/services"
-                  className="px-10 py-5 bg-white border-2 border-slate-200 text-slate-700 font-semibold rounded-xl hover:border-[#B08D57] hover:text-[#B08D57] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                  className="px-10 py-5 bg-white border-2 border-slate-200 text-slate-700 font-semibold rounded-xl hover:border-[#B08D57] hover:bg-gradient-to-r hover:from-[#B08D57] hover:to-[#D4AF37] hover:bg-clip-text hover:text-transparent transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                 >
                   Explore Services
                 </Link>
@@ -241,9 +241,9 @@ export default function HeroSection() {
                 className="inline-flex items-center gap-6 text-base text-slate-600 font-medium"
               >
                 <span>Direct Billing</span>
-                <span className="text-[#B08D57]">•</span>
+                <span className="bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent">•</span>
                 <span>Evening Hours</span>
-                <span className="text-[#B08D57]">•</span>
+                <span className="bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent">•</span>
                 <span>5+ Years Experience</span>
               </motion.div>
             </motion.div>

@@ -50,9 +50,9 @@ export default function HeroSection() {
             >
               <div className="space-y-3">
                 <div className="text-slate-800 font-light tracking-wide text-[28px] sm:text-[30px]">The Science of Recovery</div>
-                <div className="text-slate-800 font-medium relative tracking-wide text-[34px] sm:text-[38px]">
-                  The Art of <span className="relative inline-block bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent font-semibold italic">Care
-                    <span className="absolute -bottom-0.5 left-0 w-full h-[2px] bg-gradient-to-r from-[#B08D57] to-[#D4AF37] origin-left transform scale-x-0 animate-[taperedSlide_0.6s_ease-out_0.4s_forwards] rounded-full"></span>
+                <div className="text-slate-800 font-medium relative tracking-wide text-[34px] sm:text-[38px] overflow-visible">
+                  The Art of <span className="relative inline-block bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent font-semibold italic pr-1">Care
+                    <span className="absolute -bottom-0.5 left-0 right-0 h-[2px] bg-gradient-to-r from-[#B08D57] to-[#D4AF37] origin-left transform scale-x-0 animate-[taperedSlide_0.6s_ease-out_0.4s_forwards] rounded-full"></span>
                   </span>
                 </div>
               </div>
@@ -183,9 +183,9 @@ export default function HeroSection() {
               >
                 <div className="space-y-4">
                   <div className="text-[34px] xl:text-[36px] text-slate-800 font-light tracking-wide">The Science of Recovery</div>
-                  <div className="text-[40px] xl:text-[44px] text-slate-800 font-medium relative tracking-wide">
-                    The Art of <span className="relative inline-block bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent font-semibold italic">Care
-                      <span className="absolute -bottom-0.5 left-0 w-full h-[2px] bg-gradient-to-r from-[#B08D57] to-[#D4AF37] origin-left transform scale-x-0 animate-[taperedSlide_0.6s_ease-out_0.4s_forwards] rounded-full"></span>
+                  <div className="text-[40px] xl:text-[44px] text-slate-800 font-medium relative tracking-wide overflow-visible">
+                    The Art of <span className="relative inline-block bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent font-semibold italic pr-1">Care
+                      <span className="absolute -bottom-0.5 left-0 right-0 h-[2px] bg-gradient-to-r from-[#B08D57] to-[#D4AF37] origin-left transform scale-x-0 animate-[taperedSlide_0.6s_ease-out_0.4s_forwards] rounded-full"></span>
                     </span>
                   </div>
                 </div>

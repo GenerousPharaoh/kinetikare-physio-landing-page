@@ -64,7 +64,9 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="mb-8"
             >
-              <p className="text-3xl font-normal text-slate-800 mb-3" style={{ fontFamily: "'Cormorant Garamond', serif", letterSpacing: "0.03em" }}>Kareem Hassanein</p>
+              <div className="mb-3">
+                <p className="text-[32px] font-extralight text-slate-900 tracking-[0.15em] uppercase" style={{ fontFamily: "'Inter', sans-serif" }}>Kareem Hassanein</p>
+              </div>
               <div className="flex items-center justify-center gap-3">
                 <div className="h-px w-16 bg-gradient-to-r from-transparent via-[#B08D57] to-[#D4AF37]/40" />
                 <div className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37]" />
@@ -195,7 +197,9 @@ export default function HeroSection() {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="mb-6"
               >
-                <p className="text-4xl font-normal text-slate-800 mb-4" style={{ fontFamily: "'Cormorant Garamond', serif", letterSpacing: "0.03em" }}>Kareem Hassanein</p>
+                <div className="mb-4">
+                  <p className="text-[38px] font-extralight text-slate-900 tracking-[0.15em] uppercase" style={{ fontFamily: "'Inter', sans-serif" }}>Kareem Hassanein</p>
+                </div>
                 <div className="flex items-center gap-3">
                   <div className="h-px w-20 bg-gradient-to-r from-transparent via-[#B08D57] to-[#D4AF37]/40" />
                   <div className="h-2 w-2 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37]" />

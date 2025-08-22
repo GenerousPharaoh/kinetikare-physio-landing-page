@@ -190,11 +190,18 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
         `${bodyPart} injury`,
         `${bodyPart} hurt`,
         `my ${bodyPart}`,
-        `${bodyPart} problem`
+        `${bodyPart} problem`,
+        `${bodyPart} issues`
       ];
       
+      // More flexible matching - if term contains body part name
       const matchesBodyPart = bodyPartVariations.some(variation => 
-        termLower.includes(variation) || fuzzyMatch(termLower, variation).score > 60
+        termLower.includes(variation) || 
+        variation.includes(termLower) ||
+        fuzzyMatch(termLower, variation).score > 60
+      ) || (
+        // Direct body part match ("knee" matches "knee injury")
+        termLower.includes(bodyPart) || bodyPart.includes(termLower.split(' ')[0])
       );
       
       if (matchesBodyPart) {
@@ -626,7 +633,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                           Popular Searches
                         </h3>
                         <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2">
-                          {['back pain', 'knee injury', 'neck pain', 'shoulder pain', 'insurance'].map(term => (
+                          {['back pain', 'knee injury', 'hip pain', 'neck pain', 'shoulder pain', 'insurance'].map(term => (
                             <button
                               key={term}
                               onClick={() => setSearchTerm(term)}

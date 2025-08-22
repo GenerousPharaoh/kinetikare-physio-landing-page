@@ -477,15 +477,6 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                     </button>
                   </div>
                   
-                  {/* Quick Tips - Hide on mobile when typing */}
-                  {(!searchTerm || searchTerm.length < 2) && (
-                    <div className="flex items-center gap-2 mt-3">
-                      <FireIcon className="h-4 w-4 text-[#D4AF37] flex-shrink-0" />
-                      <p className="text-xs sm:text-sm text-white/80">
-                        Popular Searches: back pain, knee injury, insurance
-                      </p>
-                    </div>
-                  )}
                 </div>
 
                 {/* Results - Scrollable */}
@@ -613,6 +604,25 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                     </div>
                   ) : (
                     <div className="p-4 sm:p-8">
+                      {/* Popular Searches */}
+                      <div className="mb-6">
+                        <h3 className="font-semibold text-gray-900 mb-3 text-sm sm:text-base flex items-center gap-2">
+                          <FireIcon className="h-4 sm:h-5 w-4 sm:w-5 text-[#D4AF37]" />
+                          Popular Searches
+                        </h3>
+                        <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2">
+                          {['back pain', 'knee injury', 'neck pain', 'shoulder pain', 'insurance'].map(term => (
+                            <button
+                              key={term}
+                              onClick={() => setSearchTerm(term)}
+                              className="px-3 sm:px-4 py-2 bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 border border-[#B08D57]/20 rounded-lg hover:border-[#B08D57]/40 transition-colors text-xs sm:text-sm font-medium text-gray-700"
+                            >
+                              {term}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                      
                       {/* Recent Searches */}
                       {recentSearches.length > 0 && (
                         <div className="mb-6">
@@ -678,24 +688,6 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                         </div>
                       </div>
                       
-                      {/* Popular Searches */}
-                      <div>
-                        <h3 className="font-semibold text-gray-900 mb-3 text-sm sm:text-base flex items-center gap-2">
-                          <FireIcon className="h-4 sm:h-5 w-4 sm:w-5 text-[#D4AF37]" />
-                          Popular Searches
-                        </h3>
-                        <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2">
-                          {['back pain', 'knee injury', 'neck pain', 'shoulder pain', 'insurance'].map(term => (
-                            <button
-                              key={term}
-                              onClick={() => setSearchTerm(term)}
-                              className="px-3 sm:px-4 py-2 bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 border border-[#B08D57]/20 rounded-lg hover:border-[#B08D57]/40 transition-colors text-xs sm:text-sm font-medium text-gray-700"
-                            >
-                              {term}
-                            </button>
-                          ))}
-                        </div>
-                      </div>
                     </div>
                   )}
                 </div>

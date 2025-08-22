@@ -51,6 +51,8 @@ export default function ConditionPageClient({
   // Management tab collapsible sections
   const [expandedManagementSections, setExpandedManagementSections] = useState<{ [key: string]: boolean }>({
     'evidence-based': true, // Start with first section expanded
+    'treatment-techniques': false,
+    'timeline': false,
     'prognosis': false,
     'measuring': false,
     'faqs': false
@@ -58,6 +60,19 @@ export default function ConditionPageClient({
   
   const toggleManagementSection = (section: string) => {
     setExpandedManagementSections(prev => ({
+      ...prev,
+      [section]: !prev[section]
+    }));
+  };
+
+  // Research tab collapsible sections
+  const [expandedResearchSections, setExpandedResearchSections] = useState<{ [key: string]: boolean }>({
+    'key-research': true, // Start with first section expanded
+    'research-insights': false
+  });
+  
+  const toggleResearchSection = (section: string) => {
+    setExpandedResearchSections(prev => ({
       ...prev,
       [section]: !prev[section]
     }));
@@ -80,7 +95,6 @@ export default function ConditionPageClient({
   const tabs: TabContent[] = [
     { id: 'overview', label: 'Overview', icon: InformationCircleIcon },
     { id: 'symptoms', label: 'Symptoms', icon: DocumentTextIcon },
-    { id: 'treatment', label: 'Treatment', icon: AcademicCapIcon },
     { id: 'self-care', label: 'Management', icon: HeartIcon },
     { id: 'research', label: 'Research', icon: ChartBarIcon },
   ].filter(tab => {
@@ -90,12 +104,12 @@ export default function ConditionPageClient({
         return condition.pathophysiology || condition.overview || condition.biomechanics;
       case 'symptoms':
         return condition.clinicalPresentation || condition.differentialDiagnosis || condition.whenToSeek;
-      case 'treatment':
-        return condition.treatmentApproach || condition.evidenceBasedTreatment || condition.timeline;
       case 'research':
         return condition.keyResearch || condition.researchInsights;
       case 'self-care':
-        return condition.selfManagement || condition.prognosis || condition.faqs;
+        // Now includes treatment approach and timeline content
+        return condition.selfManagement || condition.prognosis || condition.faqs || 
+               condition.treatmentApproach || condition.timeline || condition.evidenceBasedTreatment;
       default:
         return false;
     }
@@ -514,20 +528,41 @@ export default function ConditionPageClient({
                               <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/30 via-transparent to-teal-50/20 pointer-events-none"></div>
                               
                               <div className="relative">
-                                {/* Header with gradient accent */}
-                                <div className="bg-gradient-to-r from-emerald-900 to-emerald-700 px-8 py-6">
-                                  <div className="flex items-center gap-3">
-                                    <div className="p-2.5 bg-white/10 backdrop-blur rounded-xl border border-white/20">
-                                      <BeakerIcon className="h-6 w-6 text-white" />
+                                {/* Header with gradient accent - Clickable */}
+                                <div 
+                                  className="bg-gradient-to-r from-emerald-900 to-emerald-700 px-8 py-6 cursor-pointer hover:from-emerald-800 hover:to-emerald-600 transition-all"
+                                  onClick={() => toggleResearchSection('key-research')}
+                                >
+                                  <div className="flex items-center justify-between">
+                                    <div className="flex items-center gap-3">
+                                      <div className="p-2.5 bg-white/10 backdrop-blur rounded-xl border border-white/20">
+                                        <BeakerIcon className="h-6 w-6 text-white" />
+                                      </div>
+                                      <div>
+                                        <h2 className="text-2xl font-bold text-white">Key Research & Evidence</h2>
+                                        <p className="text-sm text-emerald-200 mt-1">Peer-reviewed studies supporting treatment approaches</p>
+                                      </div>
                                     </div>
-                                    <div>
-                                      <h2 className="text-2xl font-bold text-white">Key Research & Evidence</h2>
-                                      <p className="text-sm text-emerald-200 mt-1">Peer-reviewed studies supporting treatment approaches</p>
+                                    <div className="p-2 bg-white/10 backdrop-blur rounded-lg">
+                                      {expandedResearchSections['key-research'] ? (
+                                        <ChevronUpIcon className="h-5 w-5 text-white" />
+                                      ) : (
+                                        <ChevronDownIcon className="h-5 w-5 text-white" />
+                                      )}
                                     </div>
                                   </div>
                                 </div>
                                 
-                                <div className="p-8">
+                                <AnimatePresence>
+                                  {expandedResearchSections['key-research'] && (
+                                    <motion.div 
+                                      initial={{ height: 0, opacity: 0 }}
+                                      animate={{ height: 'auto', opacity: 1 }}
+                                      exit={{ height: 0, opacity: 0 }}
+                                      transition={{ duration: 0.3 }}
+                                      className="overflow-hidden"
+                                    >
+                                      <div className="p-8">
                                   <div className="space-y-6">
                                     {condition.keyResearch.map((research, index) => {
                                       const colors = [
@@ -620,7 +655,10 @@ export default function ConditionPageClient({
                                       <span>Studies selected based on methodological rigor and clinical applicability</span>
                                     </div>
                                   </div>
-                                </div>
+                                      </div>
+                                    </motion.div>
+                                  )}
+                                </AnimatePresence>
                               </div>
                             </div>
                           )}
@@ -631,20 +669,41 @@ export default function ConditionPageClient({
                               <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-transparent to-indigo-50/20 pointer-events-none"></div>
                               
                               <div className="relative">
-                                {/* Header with gradient accent */}
-                                <div className="bg-gradient-to-r from-blue-900 to-blue-700 px-8 py-6">
-                                  <div className="flex items-center gap-3">
-                                    <div className="p-2.5 bg-white/10 backdrop-blur rounded-xl border border-white/20">
-                                      <ChartBarIcon className="h-6 w-6 text-white" />
+                                {/* Header with gradient accent - Clickable */}
+                                <div 
+                                  className="bg-gradient-to-r from-blue-900 to-blue-700 px-8 py-6 cursor-pointer hover:from-blue-800 hover:to-blue-600 transition-all"
+                                  onClick={() => toggleResearchSection('research-insights')}
+                                >
+                                  <div className="flex items-center justify-between">
+                                    <div className="flex items-center gap-3">
+                                      <div className="p-2.5 bg-white/10 backdrop-blur rounded-xl border border-white/20">
+                                        <ChartBarIcon className="h-6 w-6 text-white" />
+                                      </div>
+                                      <div>
+                                        <h2 className="text-2xl font-bold text-white">Research Insights</h2>
+                                        <p className="text-sm text-blue-200 mt-1">Clinical implications and practice recommendations</p>
+                                      </div>
                                     </div>
-                                    <div>
-                                      <h2 className="text-2xl font-bold text-white">Research Insights</h2>
-                                      <p className="text-sm text-blue-200 mt-1">Clinical implications and practice recommendations</p>
+                                    <div className="p-2 bg-white/10 backdrop-blur rounded-lg">
+                                      {expandedResearchSections['research-insights'] ? (
+                                        <ChevronUpIcon className="h-5 w-5 text-white" />
+                                      ) : (
+                                        <ChevronDownIcon className="h-5 w-5 text-white" />
+                                      )}
                                     </div>
                                   </div>
                                 </div>
                                 
-                                <div className="p-8">
+                                <AnimatePresence>
+                                  {expandedResearchSections['research-insights'] && (
+                                    <motion.div 
+                                      initial={{ height: 0, opacity: 0 }}
+                                      animate={{ height: 'auto', opacity: 1 }}
+                                      exit={{ height: 0, opacity: 0 }}
+                                      transition={{ duration: 0.3 }}
+                                      className="overflow-hidden"
+                                    >
+                                      <div className="p-8">
                                   <div className="space-y-5">
                                     {condition.researchInsights.map((insight, index) => {
                                       const colonIndex = insight.indexOf(':');
@@ -694,7 +753,10 @@ export default function ConditionPageClient({
                                       <span>Based on current physiotherapy research and clinical practice guidelines</span>
                                     </div>
                                   </div>
-                                </div>
+                                      </div>
+                                    </motion.div>
+                                  )}
+                                </AnimatePresence>
                               </div>
                             </div>
                           )}
@@ -892,6 +954,144 @@ export default function ConditionPageClient({
                                       </div>
                                     )}
                                   </div>
+                                      </div>
+                                    </motion.div>
+                                  )}
+                                </AnimatePresence>
+                              </div>
+                            </div>
+                          )}
+
+                          {/* Treatment Techniques Section - Collapsible */}
+                          {condition.treatmentApproach && (
+                            <div className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
+                              {/* Premium gradient overlay */}
+                              <div className="absolute inset-0 bg-gradient-to-br from-orange-50/30 via-transparent to-amber-50/20 pointer-events-none"></div>
+                              
+                              <div className="relative">
+                                {/* Header with gradient accent - Clickable */}
+                                <div 
+                                  className="bg-gradient-to-r from-orange-900 to-amber-700 px-8 py-6 cursor-pointer hover:from-orange-800 hover:to-amber-600 transition-all"
+                                  onClick={() => toggleManagementSection('treatment-techniques')}
+                                >
+                                  <div className="flex items-center justify-between">
+                                    <div className="flex items-center gap-3">
+                                      <div className="p-2.5 bg-white/10 backdrop-blur rounded-xl border border-white/20">
+                                        <AcademicCapIcon className="h-6 w-6 text-white" />
+                                      </div>
+                                      <div>
+                                        <h2 className="text-2xl font-bold text-white">Treatment Techniques</h2>
+                                        <p className="text-sm text-orange-200 mt-1">Specialized manual therapy and intervention approaches</p>
+                                      </div>
+                                    </div>
+                                    <div className="p-2 bg-white/10 backdrop-blur rounded-lg">
+                                      {expandedManagementSections['treatment-techniques'] ? (
+                                        <ChevronUpIcon className="h-5 w-5 text-white" />
+                                      ) : (
+                                        <ChevronDownIcon className="h-5 w-5 text-white" />
+                                      )}
+                                    </div>
+                                  </div>
+                                </div>
+                                
+                                <AnimatePresence>
+                                  {expandedManagementSections['treatment-techniques'] && (
+                                    <motion.div 
+                                      initial={{ height: 0, opacity: 0 }}
+                                      animate={{ height: 'auto', opacity: 1 }}
+                                      exit={{ height: 0, opacity: 0 }}
+                                      transition={{ duration: 0.3 }}
+                                      className="overflow-hidden"
+                                    >
+                                      <div className="p-8">
+                                        <p className="text-slate-600 mb-6">
+                                          {condition.treatmentApproach.description}
+                                        </p>
+                                        <div className="space-y-3">
+                                          {condition.treatmentApproach.techniques.map((technique, index) => {
+                                            const [title, description] = technique.split(': ');
+                                            return (
+                                              <div key={index} className="flex items-start gap-3 p-4 bg-gradient-to-r from-orange-50/50 to-amber-50/30 rounded-lg border border-orange-100">
+                                                <CheckCircleIcon className="h-5 w-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                                                <div>
+                                                  <span className="font-semibold text-slate-900">{title}</span>
+                                                  {description && <span className="text-slate-600">: {description}</span>}
+                                                </div>
+                                              </div>
+                                            );
+                                          })}
+                                        </div>
+                                      </div>
+                                    </motion.div>
+                                  )}
+                                </AnimatePresence>
+                              </div>
+                            </div>
+                          )}
+
+                          {/* Recovery Timeline Section - Collapsible */}
+                          {condition.timeline && condition.timeline.length > 0 && (
+                            <div className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
+                              {/* Premium gradient overlay */}
+                              <div className="absolute inset-0 bg-gradient-to-br from-teal-50/30 via-transparent to-cyan-50/20 pointer-events-none"></div>
+                              
+                              <div className="relative">
+                                {/* Header with gradient accent - Clickable */}
+                                <div 
+                                  className="bg-gradient-to-r from-teal-900 to-cyan-700 px-8 py-6 cursor-pointer hover:from-teal-800 hover:to-cyan-600 transition-all"
+                                  onClick={() => toggleManagementSection('timeline')}
+                                >
+                                  <div className="flex items-center justify-between">
+                                    <div className="flex items-center gap-3">
+                                      <div className="p-2.5 bg-white/10 backdrop-blur rounded-xl border border-white/20">
+                                        <ClockIcon className="h-6 w-6 text-white" />
+                                      </div>
+                                      <div>
+                                        <h2 className="text-2xl font-bold text-white">Recovery Timeline</h2>
+                                        <p className="text-sm text-teal-200 mt-1">Expected phases and milestones in your recovery journey</p>
+                                      </div>
+                                    </div>
+                                    <div className="p-2 bg-white/10 backdrop-blur rounded-lg">
+                                      {expandedManagementSections['timeline'] ? (
+                                        <ChevronUpIcon className="h-5 w-5 text-white" />
+                                      ) : (
+                                        <ChevronDownIcon className="h-5 w-5 text-white" />
+                                      )}
+                                    </div>
+                                  </div>
+                                </div>
+                                
+                                <AnimatePresence>
+                                  {expandedManagementSections['timeline'] && (
+                                    <motion.div 
+                                      initial={{ height: 0, opacity: 0 }}
+                                      animate={{ height: 'auto', opacity: 1 }}
+                                      exit={{ height: 0, opacity: 0 }}
+                                      transition={{ duration: 0.3 }}
+                                      className="overflow-hidden"
+                                    >
+                                      <div className="p-8">
+                                        <div className="relative">
+                                          {condition.timeline.map((phase, index) => (
+                                            <div key={index} className="flex gap-4 mb-6 last:mb-0">
+                                              <div className="flex flex-col items-center">
+                                                <div className="w-3 h-3 bg-teal-600 rounded-full" />
+                                                {index < condition.timeline!.length - 1 && (
+                                                  <div className="w-0.5 h-full bg-teal-600/30 mt-2" />
+                                                )}
+                                              </div>
+                                              <div className="flex-1 pb-6">
+                                                <div className="flex items-center gap-3 mb-2">
+                                                  <h3 className="font-semibold text-slate-900">{phase.phase}</h3>
+                                                  <span className="text-sm text-teal-700 bg-teal-100 px-3 py-1 rounded-full">
+                                                    {phase.duration}
+                                                  </span>
+                                                </div>
+                                                <p className="text-slate-600">{phase.description}</p>
+                                              </div>
+                                            </div>
+                                          ))}
+                                        </div>
                                       </div>
                                     </motion.div>
                                   )}

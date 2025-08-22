@@ -7,7 +7,8 @@ import {
   Bars3Icon, 
   XMarkIcon, 
   PhoneIcon, 
-  CalendarDaysIcon
+  CalendarDaysIcon,
+  MagnifyingGlassIcon
 } from '@heroicons/react/24/outline'; // Using outline for header icons
 
 import { 
@@ -20,6 +21,7 @@ import {
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
+import SearchModal from './SearchModal';
 
 interface HeaderProps {
   onNavLinkClick?: (href: string) => void;
@@ -31,6 +33,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [activeItem, setActiveItem] = useState<string | null>(null);
+  const [searchModalOpen, setSearchModalOpen] = useState(false);
   const pathname = usePathname();
 
   // Optimize scroll handler with throttling
@@ -73,12 +76,18 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     const handleEscKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         if (mobileMenuOpen) setMobileMenuOpen(false);
+        if (searchModalOpen) setSearchModalOpen(false);
+      }
+      // Add CMD+K or CTRL+K for search
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        setSearchModalOpen(true);
       }
     };
 
     window.addEventListener('keydown', handleEscKey);
     return () => window.removeEventListener('keydown', handleEscKey);
-  }, [mobileMenuOpen]);
+  }, [mobileMenuOpen, searchModalOpen]);
 
   // Add additional useEffect to update header height on window resize and DOM changes
   useEffect(() => {
@@ -324,6 +333,15 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 <span className="hidden xl:inline">905-634-6000</span>
               </Link>
 
+              {/* Search Button */}
+              <button
+                onClick={() => setSearchModalOpen(true)}
+                className="p-2.5 bg-white/10 hover:bg-white/20 text-white hover:text-[#D4AF37] rounded-lg transition-all duration-300 border border-white/20"
+                aria-label="Search"
+              >
+                <MagnifyingGlassIcon className="h-5 w-5" />
+              </button>
+
               {/* Phone icon for smaller screens */}
               <Link
                 href="tel:+19056346000"
@@ -411,6 +429,12 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
           </motion.div>
       )}
       </AnimatePresence>
+      
+      {/* Search Modal */}
+      <SearchModal 
+        isOpen={searchModalOpen} 
+        onClose={() => setSearchModalOpen(false)} 
+      />
     </header>
   );
 });

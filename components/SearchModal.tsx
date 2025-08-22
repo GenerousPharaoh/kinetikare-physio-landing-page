@@ -326,15 +326,15 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
             initial={{ opacity: 0, scale: 0.95, y: -20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -20 }}
-            className="fixed inset-x-4 top-[5%] md:top-[10%] md:left-1/2 md:-translate-x-1/2 md:w-[90%] lg:w-[80%] xl:w-[70%] max-w-4xl z-50"
+            className="fixed left-1/2 -translate-x-1/2 top-[5%] w-[calc(100%-2rem)] sm:w-[calc(100%-4rem)] md:w-[calc(100%-8rem)] lg:w-[calc(100%-16rem)] xl:w-[calc(100%-24rem)] max-w-4xl z-50"
           >
-            <div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden max-h-[85vh] flex flex-col">
+            <div className="relative bg-white rounded-2xl shadow-2xl max-h-[85vh] flex flex-col">
               {/* Premium gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/5 via-transparent to-[#D4AF37]/5 pointer-events-none"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/5 via-transparent to-[#D4AF37]/5 pointer-events-none rounded-2xl"></div>
               
-              <div className="relative flex flex-col h-full">
+              <div className="relative flex flex-col h-full max-h-[85vh]">
                 {/* Search Header */}
-                <div className="bg-gradient-to-r from-slate-800 to-slate-900 p-4 sm:p-6">
+                <div className="bg-gradient-to-r from-slate-800 to-slate-900 p-4 sm:p-6 rounded-t-2xl flex-shrink-0">
                   <div className="flex items-center gap-3">
                     <div className="flex-1 relative">
                       <MagnifyingGlassIcon className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 h-5 sm:h-6 w-5 sm:w-6 text-white/60" />
@@ -367,10 +367,10 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                 </div>
 
                 {/* Results - Scrollable */}
-                <div className="flex-1 overflow-y-auto">
+                <div className="flex-1 overflow-y-auto overflow-x-hidden min-h-0">
                   {searchTerm.length >= 2 ? (
                     results.length > 0 ? (
-                      <div className="p-2">
+                      <div className="p-2 pb-4">
                         {results.map((result, index) => (
                           <button
                             key={`${result.type}-${result.title}-${index}`}

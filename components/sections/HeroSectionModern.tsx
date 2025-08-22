@@ -45,14 +45,13 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-[36px] sm:text-[42px] leading-[1.15] mb-8 text-center"
-              style={{ fontFamily: "'Playfair Display', serif" }}
+              className="text-[40px] sm:text-[48px] leading-[1.1] mb-8 text-center font-serif"
             >
-              <div className="space-y-2">
-                <div className="text-slate-800 font-medium tracking-wide">The Science of Recovery</div>
-                <div className="text-slate-800 font-semibold relative tracking-wide">
-                  The Art of <span className="relative inline-block text-[#B08D57] font-bold">Care
-                    <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-gradient-to-r from-[#B08D57] to-[#D4AF37] origin-left transform scale-x-0 animate-[taperedSlide_0.6s_ease-out_0.4s_forwards]"></span>
+              <div className="space-y-3">
+                <div className="text-slate-900 font-normal tracking-tight">The Science of Recovery</div>
+                <div className="text-slate-900 font-medium relative tracking-tight">
+                  The Art of <span className="relative inline-block text-[#B08D57] font-semibold italic">Care
+                    <span className="absolute -bottom-1 left-0 w-full h-[3px] bg-gradient-to-r from-[#B08D57] to-[#D4AF37] origin-left transform scale-x-0 animate-[taperedSlide_0.6s_ease-out_0.4s_forwards] rounded-full"></span>
                   </span>
                 </div>
               </div>
@@ -176,14 +175,13 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="leading-[1.15] mb-8"
-                style={{ fontFamily: "'Playfair Display', serif" }}
+                className="leading-[1.1] mb-8 font-serif"
               >
-                <div className="space-y-3">
-                  <div className="text-[42px] xl:text-[46px] text-slate-800 font-medium tracking-wide">The Science of Recovery</div>
-                  <div className="text-[42px] xl:text-[46px] text-slate-800 font-semibold relative tracking-wide">
-                    The Art of <span className="relative inline-block text-[#B08D57] font-bold">Care
-                      <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-gradient-to-r from-[#B08D57] to-[#D4AF37] origin-left transform scale-x-0 animate-[taperedSlide_0.6s_ease-out_0.4s_forwards]"></span>
+                <div className="space-y-4">
+                  <div className="text-[46px] xl:text-[52px] text-slate-900 font-normal tracking-tight">The Science of Recovery</div>
+                  <div className="text-[46px] xl:text-[52px] text-slate-900 font-medium relative tracking-tight">
+                    The Art of <span className="relative inline-block text-[#B08D57] font-semibold italic">Care
+                      <span className="absolute -bottom-1 left-0 w-full h-[3px] bg-gradient-to-r from-[#B08D57] to-[#D4AF37] origin-left transform scale-x-0 animate-[taperedSlide_0.6s_ease-out_0.4s_forwards] rounded-full"></span>
                     </span>
                   </div>
                 </div>

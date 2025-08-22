@@ -45,10 +45,17 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-[48px] font-normal text-slate-900 leading-tight mb-8"
+              className="text-[48px] font-normal text-slate-900 leading-[1.1] mb-8"
             >
-              <span className="text-slate-900 font-medium">The Science<br/>of Recovery</span><br/>
-              <span className="text-[#D4AF37] font-medium inline-block mt-2">The Art<br/>of <span className="relative inline-block">Care<span className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#D4AF37] origin-left transform scale-x-0 animate-[slideIn_2s_ease-out_1s_forwards]"></span></span></span>
+              <div className="flex flex-col items-center">
+                <span className="text-slate-900 font-medium">The Science of Recovery</span>
+                <span className="text-[#D4AF37] font-medium ml-8 mt-1 relative">
+                  The Art of <span className="relative inline-block">Care
+                    <span className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-[#D4AF37] to-[#B08D57] origin-left transform scale-x-0 animate-[sparkleSlide_1.2s_ease-out_0.8s_forwards] rounded-full shadow-lg"></span>
+                    <span className="absolute -top-2 -right-1 w-2 h-2 bg-[#D4AF37] rounded-full animate-[sparkle_1.5s_ease-in-out_1.2s_infinite] opacity-0"></span>
+                  </span>
+                </span>
+              </div>
             </motion.h1>
             
             <motion.div 
@@ -169,10 +176,17 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.2 }}
-                className="text-[64px] xl:text-[72px] font-normal text-slate-900 leading-[0.9] mb-8"
+                className="text-[64px] xl:text-[72px] font-normal text-slate-900 leading-[1.1] mb-8"
               >
-                <span className="text-slate-900 font-medium">The Science<br/>of Recovery</span><br/>
-                <span className="text-[#D4AF37] font-medium mt-4 block">The Art<br/>of <span className="relative inline-block">Care<span className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#D4AF37] origin-left transform scale-x-0 animate-[slideIn_2s_ease-out_1s_forwards]"></span></span></span>
+                <div className="flex flex-col">
+                  <span className="text-slate-900 font-medium">The Science of Recovery</span>
+                  <span className="text-[#D4AF37] font-medium ml-12 mt-2 relative">
+                    The Art of <span className="relative inline-block">Care
+                      <span className="absolute -bottom-2 left-0 w-full h-1.5 bg-gradient-to-r from-[#D4AF37] to-[#B08D57] origin-left transform scale-x-0 animate-[sparkleSlide_1.2s_ease-out_0.8s_forwards] rounded-full shadow-lg"></span>
+                      <span className="absolute -top-3 -right-2 w-3 h-3 bg-[#D4AF37] rounded-full animate-[sparkle_1.5s_ease-in-out_1.2s_infinite] opacity-0"></span>
+                    </span>
+                  </span>
+                </div>
               </motion.h1>
 
               <motion.div

@@ -116,224 +116,222 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
     }
   }, [isOpen]);
 
-  // Improved search logic with fuzzy matching and scoring
+  // Intelligent search with contextual understanding
   const searchResults = useMemo(() => {
     if (!searchTerm || searchTerm.length < 2) return [];
 
     const searchResults: SearchResult[] = [];
     const conditions = getAllConditions();
-    const termLower = searchTerm.toLowerCase();
+    const termLower = searchTerm.toLowerCase().trim();
     
-    // Priority 1: Check for quick actions (booking, emergency, etc.)
-    quickActions.forEach(action => {
-      const matches = action.query.some(q => termLower.includes(q));
-      if (matches) {
-        searchResults.push({
-          type: 'page',
-          title: action.action,
-          description: action.description || (action.phone ? `Call: ${action.phone}` : ''),
-          url: action.url || '#',
-          score: 200 + action.priority // Highest priority
-        });
-      }
-    });
+    // IMMEDIATE PRIORITY: Emergency & urgent situations
+    const emergencyTerms = ['emergency', 'urgent', 'severe pain', 'can\'t walk', 'can\'t move', 'help now', 'emergency'];
+    const hasEmergency = emergencyTerms.some(term => termLower.includes(term));
     
-    // Priority 2: Check for symptom-based searching
+    if (hasEmergency) {
+      searchResults.push({
+        type: 'page',
+        title: '🚨 URGENT CARE NEEDED',
+        description: 'Call immediately: 905-634-6000 or visit emergency room',
+        url: 'tel:905-634-6000',
+        category: 'emergency',
+        score: 1000
+      });
+    }
+    
+    // PRIORITY 1: Booking & Appointment requests
+    const bookingTerms = ['book', 'appointment', 'schedule', 'see someone', 'visit', 'come in'];
+    const hasBooking = bookingTerms.some(term => termLower.includes(term));
+    
+    if (hasBooking) {
+      searchResults.push({
+        type: 'page',
+        title: '📅 Book Your Assessment',
+        description: 'Click to schedule with Kareem - Evening appointments available',
+        url: 'https://endorphinshealth.janeapp.com/#/staff_member/42',
+        category: 'booking',
+        score: 500
+      });
+    }
+    
+    // PRIORITY 2: Symptom-based intelligent matching
     symptomMappings.forEach(mapping => {
-      const symptomMatch = mapping.symptoms.some(symptom => 
-        termLower.includes(symptom) || fuzzyMatch(termLower, symptom).score > 60
-      );
+      const strongMatch = mapping.symptoms.some(symptom => {
+        // Exact match or very close fuzzy match
+        const exact = termLower.includes(symptom);
+        const fuzzy = fuzzyMatch(termLower, symptom).score > 70;
+        return exact || fuzzy;
+      });
       
-      if (symptomMatch) {
+      if (strongMatch) {
+        const urgencyIcon = mapping.urgency === 'emergency' ? '🚨' : 
+                           mapping.urgency === 'high' ? '⚡' : 
+                           mapping.urgency === 'moderate' ? '⏰' : '📋';
+        
         searchResults.push({
           type: 'condition',
-          title: `${mapping.urgency === 'emergency' ? '🚨 ' : ''}${mapping.action}`,
-          description: `Possible: ${mapping.conditions.join(', ')}`,
+          title: `${urgencyIcon} ${mapping.action}`,
+          description: `Common with: ${mapping.conditions.slice(0, 2).join(', ')}${mapping.conditions.length > 2 ? '...' : ''}`,
           url: mapping.urgency === 'emergency' ? 'tel:905-634-6000' : 'https://endorphinshealth.janeapp.com/#/staff_member/42',
-          category: mapping.urgency,
-          score: mapping.urgency === 'emergency' ? 250 : 180
+          category: `${mapping.urgency} priority`,
+          score: mapping.urgency === 'emergency' ? 800 : 
+                 mapping.urgency === 'high' ? 400 : 
+                 mapping.urgency === 'moderate' ? 300 : 200
         });
       }
     });
     
-    // Priority 3: Body part specific conditions
-    Object.entries(bodyPartConditions).forEach(([bodyPart, conditions]) => {
-      if (termLower.includes(bodyPart)) {
-        conditions.forEach(condition => {
+    // PRIORITY 3: Body part intelligence - understand "my knee hurts"
+    Object.entries(bodyPartConditions).forEach(([bodyPart, conditionList]) => {
+      const bodyPartVariations = [
+        bodyPart,
+        `${bodyPart} pain`,
+        `${bodyPart} injury`,
+        `${bodyPart} hurt`,
+        `my ${bodyPart}`,
+        `${bodyPart} problem`
+      ];
+      
+      const matchesBodyPart = bodyPartVariations.some(variation => 
+        termLower.includes(variation) || fuzzyMatch(termLower, variation).score > 60
+      );
+      
+      if (matchesBodyPart) {
+        // Add the most common conditions for this body part
+        const topConditions = conditionList.slice(0, 3);
+        topConditions.forEach((condition, index) => {
           searchResults.push({
             type: 'condition',
             title: condition,
-            description: `Common ${bodyPart} condition`,
-            url: `/conditions/${condition.toLowerCase().replace(/\s+/g, '-')}`,
+            description: `Common ${bodyPart} condition - Click to learn more`,
+            url: `/conditions/${condition.toLowerCase().replace(/\s+/g, '-').replace(/'/g, '')}`,
             category: bodyPart,
-            score: 150
+            score: 350 - (index * 10) // First condition has highest score
           });
         });
-      }
-    });
-    
-    // Priority 4: Exercise and treatment searches
-    exerciseDatabase.forEach(exercise => {
-      const match = exercise.keywords.some(keyword => 
-        termLower.includes(keyword) || fuzzyMatch(termLower, keyword).score > 50
-      );
-      
-      if (match) {
+        
+        // Add generic body part help
         searchResults.push({
           type: 'service',
-          title: exercise.name,
-          description: exercise.description,
-          url: '/services#exercises',
-          category: `Difficulty: ${exercise.difficulty}`,
-          score: 120
+          title: `${bodyPart.charAt(0).toUpperCase() + bodyPart.slice(1)} Treatment`,
+          description: `Specialized physiotherapy for ${bodyPart} issues`,
+          url: '/services',
+          category: 'treatment',
+          score: 280
         });
       }
     });
     
-    // Priority 5: Activity-specific injuries
+    // PRIORITY 4: Activity-based searches ("running injury", "golf pain")
     activityInjuries.forEach(activity => {
-      const match = activity.keywords.some(keyword => termLower.includes(keyword));
-      if (match) {
+      const activityMatch = activity.keywords.some(keyword => {
+        const variations = [
+          keyword,
+          `${keyword} injury`,
+          `${keyword} pain`,
+          `${keyword} problem`
+        ];
+        return variations.some(v => termLower.includes(v));
+      });
+      
+      if (activityMatch) {
         searchResults.push({
           type: 'condition',
           title: `${activity.activity.charAt(0).toUpperCase() + activity.activity.slice(1)} Injuries`,
           description: activity.advice,
           url: '/conditions',
-          category: 'Sport/Activity',
-          score: 130
+          category: 'activity-specific',
+          score: 320
+        });
+        
+        // Add specific conditions for this activity
+        activity.conditions.forEach((condition, index) => {
+          searchResults.push({
+            type: 'condition',
+            title: condition,
+            description: `Common in ${activity.activity}`,
+            url: `/conditions/${condition.toLowerCase().replace(/\s+/g, '-').replace(/'/g, '')}`,
+            category: activity.activity,
+            score: 300 - (index * 5)
+          });
         });
       }
     });
-
-    // Search conditions with detailed matching
-    conditions.forEach(condition => {
-      const nameMatch = fuzzyMatch(condition.name, searchTerm);
-      const categoryMatch = condition.category ? fuzzyMatch(condition.category, searchTerm) : { matches: false, score: 0 };
-      const overviewMatch = condition.overview ? fuzzyMatch(condition.overview, searchTerm) : { matches: false, score: 0 };
-      const symptomsMatch = condition.symptoms ? 
-        fuzzyMatch(condition.symptoms.join(' '), searchTerm) : { matches: false, score: 0 };
-      const treatmentsMatch = condition.treatments ? 
-        fuzzyMatch(condition.treatments.map(t => t.name).join(' '), searchTerm) : { matches: false, score: 0 };
-      
-      // Calculate total score
-      const totalScore = Math.max(
-        nameMatch.score * 2, // Name matches are most important
-        categoryMatch.score * 1.5,
-        overviewMatch.score,
-        symptomsMatch.score * 0.8,
-        treatmentsMatch.score * 0.7
+    
+    // PRIORITY 5: Treatment & Service searches
+    treatmentModalities.forEach(treatment => {
+      const treatmentMatch = treatment.keywords.some(keyword => 
+        termLower.includes(keyword) || fuzzyMatch(termLower, keyword).score > 60
       );
       
-      if (totalScore > 15) {
-        searchResults.push({
-          type: 'condition',
-          title: condition.name,
-          description: condition.overview?.substring(0, 150) || condition.shortDescription,
-          url: `/conditions/${condition.slug}`,
-          category: condition.category,
-          score: totalScore
-        });
-      }
-    });
-
-    // Add FAQ matches
-    const faqItems = [
-      { q: 'How do I book an appointment?', keywords: ['book', 'appointment', 'schedule', 'booking'] },
-      { q: 'Is physiotherapy covered by insurance?', keywords: ['insurance', 'coverage', 'ohip', 'billing'] },
-      { q: 'What should I wear to my appointment?', keywords: ['wear', 'clothing', 'clothes', 'dress'] },
-      { q: 'How many sessions will I need?', keywords: ['sessions', 'how many', 'duration', 'treatment length'] },
-      { q: 'Do I need a referral?', keywords: ['referral', 'doctor', 'prescription'] },
-      { q: 'What is direct billing?', keywords: ['direct billing', 'insurance', 'payment'] }
-    ];
-
-    faqItems.forEach(faq => {
-      const questionMatch = fuzzyMatch(faq.q, searchTerm);
-      const keywordMatch = fuzzyMatch(faq.keywords.join(' '), searchTerm);
-      const score = Math.max(questionMatch.score, keywordMatch.score * 0.8);
-      
-      if (score > 20) {
-        searchResults.push({
-          type: 'faq',
-          title: faq.q,
-          url: '/faq',
-          score
-        });
-      }
-    });
-
-    // Add service pages
-    const services = [
-      { 
-        title: 'Manual Therapy',
-        keywords: ['manual', 'hands on', 'manipulation', 'mobilization', 'massage'],
-        description: 'Hands-on treatment techniques'
-      },
-      { 
-        title: 'Dry Needling / IMS',
-        keywords: ['dry needling', 'ims', 'needle', 'trigger point', 'acupuncture'],
-        description: 'Intramuscular stimulation for pain relief'
-      },
-      { 
-        title: 'Exercise Therapy',
-        keywords: ['exercise', 'strengthening', 'rehab', 'rehabilitation', 'workout'],
-        description: 'Customized exercise programs'
-      },
-      { 
-        title: 'Sports Rehabilitation',
-        keywords: ['sports', 'athlete', 'injury', 'performance', 'return to sport'],
-        description: 'Get back to your sport safely'
-      }
-    ];
-
-    services.forEach(service => {
-      const titleMatch = fuzzyMatch(service.title, searchTerm);
-      const keywordMatch = fuzzyMatch(service.keywords.join(' '), searchTerm);
-      const score = Math.max(titleMatch.score * 1.5, keywordMatch.score);
-      
-      if (score > 20) {
+      if (treatmentMatch) {
         searchResults.push({
           type: 'service',
-          title: service.title,
-          description: service.description,
+          title: treatment.name,
+          description: treatment.description,
           url: '/services',
-          score
+          category: 'treatment',
+          score: 250
         });
       }
     });
-
-    // Static pages
-    const staticPages = [
-      { 
-        title: 'About Kareem Hassanein',
-        keywords: ['about', 'kareem', 'hassanein', 'physiotherapist', 'experience', 'credentials', 'bio'],
-        url: '/about'
-      },
-      { 
-        title: 'Contact & Location',
-        keywords: ['contact', 'location', 'address', 'phone', 'email', 'burlington', 'palladium'],
-        url: '/#contact'
-      }
-    ];
-
-    staticPages.forEach(page => {
-      const titleMatch = fuzzyMatch(page.title, searchTerm);
-      const keywordMatch = fuzzyMatch(page.keywords.join(' '), searchTerm);
-      const score = Math.max(titleMatch.score, keywordMatch.score);
-      
-      if (score > 20) {
-        searchResults.push({
-          type: 'page',
-          title: page.title,
-          url: page.url,
-          score
-        });
-      }
-    });
-
-    // Sort by score (highest first) and limit results
-    return searchResults
+    
+    // PRIORITY 6: Insurance & billing questions
+    const insuranceTerms = ['insurance', 'coverage', 'cost', 'price', 'billing', 'ohip', 'benefits'];
+    const hasInsurance = insuranceTerms.some(term => termLower.includes(term));
+    
+    if (hasInsurance) {
+      searchResults.push({
+        type: 'faq',
+        title: '💳 Insurance & Direct Billing',
+        description: 'We bill most insurance companies directly - no upfront payment needed',
+        url: '/faq#insurance',
+        category: 'billing',
+        score: 450
+      });
+    }
+    
+    // PRIORITY 7: Location & hours
+    const locationTerms = ['where', 'location', 'address', 'directions', 'hours', 'when open', 'parking'];
+    const hasLocation = locationTerms.some(term => termLower.includes(term));
+    
+    if (hasLocation) {
+      searchResults.push({
+        type: 'page',
+        title: '📍 Clinic Location & Hours',
+        description: '4631 Palladium Way, Burlington - Evening appointments available',
+        url: '/#contact',
+        category: 'location',
+        score: 400
+      });
+    }
+    
+    // FALLBACK: Search actual conditions with stricter matching
+    if (searchResults.length < 3) {
+      conditions.forEach(condition => {
+        const nameMatch = fuzzyMatch(condition.name, searchTerm);
+        
+        if (nameMatch.score > 50) { // Much stricter threshold
+          searchResults.push({
+            type: 'condition',
+            title: condition.name,
+            description: condition.overview?.substring(0, 120) || condition.shortDescription || 'Learn about this condition',
+            url: `/conditions/${condition.slug}`,
+            category: condition.category || 'condition',
+            score: nameMatch.score + 100 // Boost actual conditions
+          });
+        }
+      });
+    }
+    
+    // Remove duplicates and sort by relevance
+    const uniqueResults = searchResults.filter((result, index, self) => 
+      index === self.findIndex(r => r.title === result.title)
+    );
+    
+    return uniqueResults
       .sort((a, b) => b.score - a.score)
-      .slice(0, 10);
+      .slice(0, 8); // Fewer, more relevant results
   }, [searchTerm]);
 
   // Update results when search changes
@@ -383,7 +381,27 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, results, selectedIndex, onClose]);
 
-  const getIcon = (type: string) => {
+  const getIcon = (type: string, category?: string) => {
+    // Emergency gets special treatment
+    if (category === 'emergency') {
+      return <span className="text-lg">🚨</span>;
+    }
+    
+    // Booking gets calendar
+    if (category === 'booking') {
+      return <span className="text-lg">📅</span>;
+    }
+    
+    // Insurance gets money
+    if (category === 'billing') {
+      return <span className="text-lg">💳</span>;
+    }
+    
+    // Location gets map
+    if (category === 'location') {
+      return <span className="text-lg">📍</span>;
+    }
+    
     switch (type) {
       case 'condition':
         return <HeartIcon className="h-5 w-5" />;
@@ -395,6 +413,23 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
         return <SparklesIcon className="h-5 w-5" />;
       default:
         return <DocumentTextIcon className="h-5 w-5" />;
+    }
+  };
+  
+  const getCategoryColor = (category?: string) => {
+    switch (category) {
+      case 'emergency':
+        return 'bg-red-100 text-red-700 border-red-200';
+      case 'high priority':
+        return 'bg-orange-100 text-orange-700 border-orange-200';
+      case 'booking':
+        return 'bg-green-100 text-green-700 border-green-200';
+      case 'billing':
+        return 'bg-blue-100 text-blue-700 border-blue-200';
+      case 'location':
+        return 'bg-purple-100 text-purple-700 border-purple-200';
+      default:
+        return 'bg-[#B08D57]/10 text-[#B08D57] border-[#B08D57]/20';
     }
   };
 
@@ -462,44 +497,108 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                     results.length > 0 ? (
                       <div className="p-2 pb-4">
                         {results.map((result, index) => (
-                          <button
+                          <div
                             key={`${result.type}-${result.title}-${index}`}
-                            onClick={() => handleResultClick(result)}
-                            className={`w-full text-left p-3 sm:p-4 rounded-xl transition-all ${
+                            className={`w-full rounded-xl transition-all border ${
                               index === selectedIndex 
-                                ? 'bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 border border-[#B08D57]/30' 
-                                : 'hover:bg-gray-50'
+                                ? 'bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 border-[#B08D57]/30 shadow-md' 
+                                : 'hover:bg-gray-50 border-gray-200 hover:border-gray-300'
                             }`}
                             onMouseEnter={() => setSelectedIndex(index)}
                           >
-                            <div className="flex items-start gap-3 sm:gap-4">
-                              <div className={`p-1.5 sm:p-2 rounded-lg flex-shrink-0 ${
-                                index === selectedIndex 
-                                  ? 'bg-gradient-to-br from-[#B08D57] to-[#D4AF37] text-white' 
-                                  : 'bg-gray-100 text-gray-600'
-                              }`}>
-                                {getIcon(result.type)}
-                              </div>
-                              <div className="flex-1 min-w-0">
-                                <div className="flex items-start sm:items-center gap-2 flex-col sm:flex-row">
-                                  <h3 className="font-semibold text-gray-900 text-sm sm:text-base">{result.title}</h3>
-                                  {result.category && (
-                                    <span className="text-xs px-2 py-0.5 bg-[#B08D57]/10 text-[#B08D57] rounded-full">
-                                      {result.category}
-                                    </span>
-                                  )}
+                            <button
+                              onClick={() => handleResultClick(result)}
+                              className="w-full text-left p-3 sm:p-4"
+                            >
+                              <div className="flex items-start gap-3 sm:gap-4">
+                                <div className={`p-1.5 sm:p-2 rounded-lg flex-shrink-0 ${
+                                  result.category === 'emergency' ? 'bg-red-500 text-white' :
+                                  result.category === 'booking' ? 'bg-green-500 text-white' :
+                                  result.category === 'billing' ? 'bg-blue-500 text-white' :
+                                  result.category === 'location' ? 'bg-purple-500 text-white' :
+                                  index === selectedIndex 
+                                    ? 'bg-gradient-to-br from-[#B08D57] to-[#D4AF37] text-white' 
+                                    : 'bg-gray-100 text-gray-600'
+                                }`}>
+                                  {getIcon(result.type, result.category)}
                                 </div>
-                                {result.description && (
-                                  <p className="text-xs sm:text-sm text-gray-600 mt-1 line-clamp-2">
-                                    {result.description}
-                                  </p>
-                                )}
+                                <div className="flex-1 min-w-0">
+                                  <div className="flex items-start justify-between">
+                                    <div className="flex-1">
+                                      <div className="flex items-start sm:items-center gap-2 flex-col sm:flex-row">
+                                        <h3 className="font-semibold text-gray-900 text-sm sm:text-base">{result.title}</h3>
+                                        {result.category && (
+                                          <span className={`text-xs px-2 py-0.5 rounded-full border ${getCategoryColor(result.category)}`}>
+                                            {result.category}
+                                          </span>
+                                        )}
+                                      </div>
+                                      {result.description && (
+                                        <p className="text-xs sm:text-sm text-gray-600 mt-1 line-clamp-2">
+                                          {result.description}
+                                        </p>
+                                      )}
+                                    </div>
+                                    <div className="flex items-center gap-2 ml-3">
+                                      {/* Action buttons for specific result types */}
+                                      {(result.category === 'booking' || result.url.includes('janeapp.com')) && (
+                                        <div className="text-xs text-green-600 font-medium hidden sm:block">
+                                          Click to book
+                                        </div>
+                                      )}
+                                      {result.url.startsWith('tel:') && (
+                                        <div className="text-xs text-red-600 font-medium hidden sm:block">
+                                          Tap to call
+                                        </div>
+                                      )}
+                                      <ArrowRightIcon className={`h-4 sm:h-5 w-4 sm:w-5 flex-shrink-0 transition-transform ${
+                                        index === selectedIndex ? 'translate-x-1 text-[#B08D57]' : 'text-gray-400'
+                                      }`} />
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
-                              {index === selectedIndex && (
-                                <ArrowRightIcon className="h-4 sm:h-5 w-4 sm:w-5 text-[#B08D57] flex-shrink-0 mt-1 hidden sm:block" />
-                              )}
-                            </div>
-                          </button>
+                            </button>
+                            
+                            {/* Quick action for emergency results */}
+                            {result.category === 'emergency' && (
+                              <div className="px-3 sm:px-4 pb-3 sm:pb-4">
+                                <div className="flex gap-2 pt-2 border-t border-red-200">
+                                  <Link
+                                    href="tel:905-634-6000"
+                                    className="flex-1 px-3 py-2 bg-red-500 text-white text-center text-sm font-medium rounded-lg hover:bg-red-600 transition-colors"
+                                    onClick={onClose}
+                                  >
+                                    Call Now
+                                  </Link>
+                                  <button
+                                    onClick={() => {
+                                      setSearchTerm('emergency room directions');
+                                    }}
+                                    className="px-3 py-2 bg-red-100 text-red-700 text-sm font-medium rounded-lg hover:bg-red-200 transition-colors"
+                                  >
+                                    Find ER
+                                  </button>
+                                </div>
+                              </div>
+                            )}
+                            
+                            {/* Quick booking for high priority conditions */}
+                            {result.category?.includes('priority') && result.category !== 'emergency' && (
+                              <div className="px-3 sm:px-4 pb-3 sm:pb-4">
+                                <div className="pt-2 border-t border-orange-200">
+                                  <Link
+                                    href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                                    target="_blank"
+                                    className="block w-full px-3 py-2 bg-orange-500 text-white text-center text-sm font-medium rounded-lg hover:bg-orange-600 transition-colors"
+                                    onClick={onClose}
+                                  >
+                                    Book Urgent Assessment
+                                  </Link>
+                                </div>
+                              </div>
+                            )}
+                          </div>
                         ))}
                       </div>
                     ) : (
@@ -538,17 +637,57 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                         </div>
                       )}
                       
+                      {/* Quick Actions */}
+                      <div className="mb-6">
+                        <h3 className="font-semibold text-gray-900 mb-3 text-sm sm:text-base">Quick Actions</h3>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                          <Link
+                            href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                            target="_blank"
+                            className="flex items-center gap-3 p-3 bg-gradient-to-r from-green-50 to-green-100 border border-green-200 rounded-lg hover:border-green-300 transition-colors group"
+                            onClick={onClose}
+                          >
+                            <span className="text-lg">📅</span>
+                            <div>
+                              <div className="font-medium text-green-800 text-sm">Book Assessment</div>
+                              <div className="text-xs text-green-600">Available today</div>
+                            </div>
+                            <ArrowRightIcon className="h-4 w-4 text-green-600 ml-auto group-hover:translate-x-1 transition-transform" />
+                          </Link>
+                          
+                          <Link
+                            href="tel:905-634-6000"
+                            className="flex items-center gap-3 p-3 bg-gradient-to-r from-red-50 to-red-100 border border-red-200 rounded-lg hover:border-red-300 transition-colors group"
+                            onClick={onClose}
+                          >
+                            <span className="text-lg">📞</span>
+                            <div>
+                              <div className="font-medium text-red-800 text-sm">Call Clinic</div>
+                              <div className="text-xs text-red-600">905-634-6000</div>
+                            </div>
+                            <ArrowRightIcon className="h-4 w-4 text-red-600 ml-auto group-hover:translate-x-1 transition-transform" />
+                          </Link>
+                        </div>
+                      </div>
+                      
                       {/* Popular Searches */}
                       <div>
-                        <h3 className="font-semibold text-gray-900 mb-3 text-sm sm:text-base">Popular Searches</h3>
+                        <h3 className="font-semibold text-gray-900 mb-3 text-sm sm:text-base">Common Issues</h3>
                         <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2">
-                          {['Back Pain', 'Knee Injury', 'Dry Needling', 'Insurance', 'Booking'].map(term => (
+                          {[
+                            { term: 'back pain', emoji: '🦴' },
+                            { term: 'knee injury', emoji: '🦵' },
+                            { term: 'neck pain', emoji: '🤕' },
+                            { term: 'shoulder pain', emoji: '💪' },
+                            { term: 'insurance', emoji: '💳' }
+                          ].map(item => (
                             <button
-                              key={term}
-                              onClick={() => setSearchTerm(term.toLowerCase())}
-                              className="px-3 sm:px-4 py-2 bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 border border-[#B08D57]/20 rounded-lg hover:border-[#B08D57]/40 transition-colors text-xs sm:text-sm font-medium text-gray-700"
+                              key={item.term}
+                              onClick={() => setSearchTerm(item.term)}
+                              className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 border border-[#B08D57]/20 rounded-lg hover:border-[#B08D57]/40 transition-colors text-xs sm:text-sm font-medium text-gray-700"
                             >
-                              {term}
+                              <span>{item.emoji}</span>
+                              {item.term}
                             </button>
                           ))}
                         </div>

@@ -81,8 +81,8 @@ export default function ConditionPageClient({
     { id: 'overview', label: 'Overview', icon: InformationCircleIcon },
     { id: 'symptoms', label: 'Symptoms', icon: DocumentTextIcon },
     { id: 'treatment', label: 'Treatment', icon: AcademicCapIcon },
-    { id: 'research', label: 'Research', icon: ChartBarIcon },
     { id: 'self-care', label: 'Management', icon: HeartIcon },
+    { id: 'research', label: 'Research', icon: ChartBarIcon },
   ].filter(tab => {
     // Only show tabs that have content
     switch(tab.id) {

@@ -47,8 +47,8 @@ export default function HeroSection() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="text-[48px] font-normal text-slate-900 leading-tight mb-8"
             >
-              <span className="text-[#B08D57] font-medium">The Science<br/>of Recovery</span><br/>
-              <span className="text-[#D4AF37] font-medium inline-block mt-2">The Art<br/>of <span className="relative inline-block">Care<span className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#D4AF37] origin-left transform scale-x-0 animate-[slideIn_2s_ease-out_1s_forwards]"></span></span></span>
+              <span className="text-slate-900 font-medium">The Science<br/>of Recovery</span><br/>
+              <span className="text-emerald-600 font-medium inline-block mt-2">The Art<br/>of <span className="relative inline-block">Care<span className="absolute -bottom-1 left-0 w-full h-0.5 bg-emerald-600 origin-left transform scale-x-0 animate-[slideIn_2s_ease-out_1s_forwards]"></span></span></span>
             </motion.h1>
             
             <motion.div 
@@ -171,8 +171,8 @@ export default function HeroSection() {
                 transition={{ duration: 0.7, delay: 0.2 }}
                 className="text-[64px] xl:text-[72px] font-normal text-slate-900 leading-[0.9] mb-8"
               >
-                <span className="text-[#B08D57] font-medium">The Science<br/>of Recovery</span><br/>
-                <span className="text-[#D4AF37] font-medium mt-4 block">The Art<br/>of <span className="relative inline-block">Care<span className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#D4AF37] origin-left transform scale-x-0 animate-[slideIn_2s_ease-out_1s_forwards]"></span></span></span>
+                <span className="text-slate-900 font-medium">The Science<br/>of Recovery</span><br/>
+                <span className="text-emerald-600 font-medium mt-4 block">The Art<br/>of <span className="relative inline-block">Care<span className="absolute -bottom-1 left-0 w-full h-0.5 bg-emerald-600 origin-left transform scale-x-0 animate-[slideIn_2s_ease-out_1s_forwards]"></span></span></span>
               </motion.h1>
 
               <motion.div

@@ -924,3 +924,19 @@ body {
     opacity: 1; 
   }
 }
+
+/* Luxury double-layer underline animation */
+@keyframes luxurySlide {
+  0% { 
+    transform: scaleX(0) translateY(2px); 
+    opacity: 0; 
+  }
+  60% {
+    transform: scaleX(0.8) translateY(0px);
+    opacity: 0.9;
+  }
+  100% { 
+    transform: scaleX(1) translateY(0px); 
+    opacity: 1; 
+  }
+}

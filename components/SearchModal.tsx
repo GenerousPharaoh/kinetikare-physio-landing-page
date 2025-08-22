@@ -483,9 +483,9 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                   {/* Quick Tips - Hide on mobile when typing */}
                   {(!searchTerm || searchTerm.length < 2) && (
                     <div className="flex items-center gap-2 mt-3">
-                      <FireIcon className="h-4 w-4 text-[#D4AF37]" />
+                      <FireIcon className="h-4 w-4 text-[#D4AF37] flex-shrink-0" />
                       <p className="text-xs sm:text-sm text-white/80">
-                        Popular: back pain, knee, insurance
+                        Popular Searches: back pain, knee injury, insurance
                       </p>
                     </div>
                   )}
@@ -619,10 +619,21 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                       {/* Recent Searches */}
                       {recentSearches.length > 0 && (
                         <div className="mb-6">
-                          <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm sm:text-base">
-                            <ClockIcon className="h-4 sm:h-5 w-4 sm:w-5" />
-                            Recent Searches
-                          </h3>
+                          <div className="flex items-center justify-between mb-3">
+                            <h3 className="font-semibold text-gray-900 flex items-center gap-2 text-sm sm:text-base">
+                              <ClockIcon className="h-4 sm:h-5 w-4 sm:w-5" />
+                              Recent Searches
+                            </h3>
+                            <button
+                              onClick={() => {
+                                setRecentSearches([]);
+                                localStorage.removeItem('recentSearches');
+                              }}
+                              className="text-xs text-gray-500 hover:text-gray-700 px-2 py-1 hover:bg-gray-100 rounded transition-colors"
+                            >
+                              Clear
+                            </button>
+                          </div>
                           <div className="flex flex-wrap gap-2">
                             {recentSearches.map(term => (
                               <button
@@ -672,13 +683,16 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                       
                       {/* Popular Searches */}
                       <div>
-                        <h3 className="font-semibold text-gray-900 mb-3 text-sm sm:text-base">Common Issues</h3>
+                        <h3 className="font-semibold text-gray-900 mb-3 text-sm sm:text-base flex items-center gap-2">
+                          <FireIcon className="h-4 sm:h-5 w-4 sm:w-5 text-[#D4AF37]" />
+                          Popular Searches
+                        </h3>
                         <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2">
                           {[
-                            { term: 'back pain', emoji: '🦴' },
-                            { term: 'knee injury', emoji: '🦵' },
-                            { term: 'neck pain', emoji: '🤕' },
-                            { term: 'shoulder pain', emoji: '💪' },
+                            { term: 'back pain', emoji: '🔥' },
+                            { term: 'knee injury', emoji: '⚡' },
+                            { term: 'neck pain', emoji: '😣' },
+                            { term: 'shoulder pain', emoji: '💢' },
                             { term: 'insurance', emoji: '💳' }
                           ].map(item => (
                             <button

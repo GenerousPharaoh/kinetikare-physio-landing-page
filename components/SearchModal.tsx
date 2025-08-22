@@ -697,15 +697,15 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                           
                           <Link
                             href="tel:905-634-6000"
-                            className="flex items-center gap-3 p-3 bg-gradient-to-r from-red-50 to-red-100 border border-red-200 rounded-lg hover:border-red-300 transition-colors group"
+                            className="flex items-center gap-3 p-3 bg-gradient-to-r from-gray-50 to-gray-100 border border-gray-200 rounded-lg hover:border-gray-300 transition-colors group"
                             onClick={onClose}
                           >
-                            <PhoneIcon className="h-5 w-5" />
+                            <PhoneIcon className="h-5 w-5 text-gray-600" />
                             <div>
-                              <div className="font-medium text-red-800 text-sm">Call Clinic</div>
-                              <div className="text-xs text-red-600">905-634-6000</div>
+                              <div className="font-medium text-gray-800 text-sm">Call Clinic</div>
+                              <div className="text-xs text-gray-600">905-634-6000</div>
                             </div>
-                            <ArrowRightIcon className="h-4 w-4 text-red-600 ml-auto group-hover:translate-x-1 transition-transform" />
+                            <ArrowRightIcon className="h-4 w-4 text-gray-600 ml-auto group-hover:translate-x-1 transition-transform" />
                           </Link>
                         </div>
                       </div>

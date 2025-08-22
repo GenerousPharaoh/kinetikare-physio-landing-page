@@ -49,9 +49,9 @@ export default function HeroSection() {
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
               <div className="space-y-1">
-                <div className="text-slate-900 font-light tracking-[-0.02em]">The Science of Recovery</div>
-                <div className="bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent font-medium relative tracking-[-0.01em]">
-                  The Art of <span className="relative inline-block">Care
+                <div className="text-slate-900 font-semibold tracking-[-0.02em]">The Science of Recovery</div>
+                <div className="text-slate-900 font-bold relative tracking-[-0.01em]">
+                  The Art of <span className="relative inline-block bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent font-black">Care
                     <span className="absolute -bottom-0.5 left-0 w-full h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] origin-left transform scale-x-0 animate-[taperedSlide_0.6s_ease-out_0.4s_forwards]"></span>
                   </span>
                 </div>
@@ -180,9 +180,9 @@ export default function HeroSection() {
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
                 <div className="space-y-2">
-                  <div className="text-[44px] xl:text-[48px] text-slate-900 font-light tracking-[-0.02em]">The Science of Recovery</div>
-                  <div className="text-[44px] xl:text-[48px] bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent font-medium relative tracking-[-0.01em]">
-                    The Art of <span className="relative inline-block">Care
+                  <div className="text-[44px] xl:text-[48px] text-slate-900 font-semibold tracking-[-0.02em]">The Science of Recovery</div>
+                  <div className="text-[44px] xl:text-[48px] text-slate-900 font-bold relative tracking-[-0.01em]">
+                    The Art of <span className="relative inline-block bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent font-black">Care
                       <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] origin-left transform scale-x-0 animate-[taperedSlide_0.6s_ease-out_0.4s_forwards]"></span>
                     </span>
                   </div>

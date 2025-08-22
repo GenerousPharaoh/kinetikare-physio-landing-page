@@ -326,7 +326,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
             initial={{ opacity: 0, scale: 0.95, y: -20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -20 }}
-            className="fixed left-1/2 -translate-x-1/2 top-[5%] w-[calc(100%-2rem)] sm:w-[calc(100%-4rem)] md:w-[calc(100%-8rem)] lg:w-[calc(100%-16rem)] xl:w-[calc(100%-24rem)] max-w-4xl z-50"
+            className="fixed inset-x-4 top-[5%] sm:inset-x-8 md:inset-x-12 lg:inset-x-20 xl:inset-x-32 2xl:inset-x-48 z-50"
           >
             <div className="relative bg-white rounded-2xl shadow-2xl max-h-[85vh] flex flex-col">
               {/* Premium gradient overlay */}

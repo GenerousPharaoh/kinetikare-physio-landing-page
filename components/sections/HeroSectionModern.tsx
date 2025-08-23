@@ -157,32 +157,37 @@ export default function HeroSection() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,black/15_100%)]" />
             
             {/* Elegant overlay badges */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 1 }}
-              className="absolute bottom-20 left-10 flex flex-col gap-3"
-            >
-              <div className="group flex items-center gap-3 px-5 py-3 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 hover:bg-white/15 transition-all duration-300">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#D4AF37]/30 to-[#B08D57]/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <CreditCardIcon className="w-5 h-5 text-white" />
+            <div className="absolute bottom-20 left-10 flex flex-col gap-3">
+              <motion.div
+                initial={{ x: -40, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.6, delay: 1, ease: "easeOut" }}
+                className="group flex items-center gap-3 px-5 py-3 bg-black/20 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-black/25 transition-colors duration-300"
+              >
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#D4AF37]/40 to-[#B08D57]/40 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <CreditCardIcon className="w-5 h-5 text-white drop-shadow-lg" />
                 </div>
                 <div>
-                  <div className="text-white/90 text-xs font-medium uppercase tracking-wider">Direct</div>
+                  <div className="text-white/80 text-xs font-medium uppercase tracking-wider">Direct</div>
                   <div className="text-white text-sm font-semibold">Insurance Billing</div>
                 </div>
-              </div>
+              </motion.div>
               
-              <div className="group flex items-center gap-3 px-5 py-3 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 hover:bg-white/15 transition-all duration-300">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#D4AF37]/30 to-[#B08D57]/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <ClockIcon className="w-5 h-5 text-white" />
+              <motion.div
+                initial={{ x: -40, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.6, delay: 1.2, ease: "easeOut" }}
+                className="group flex items-center gap-3 px-5 py-3 bg-black/20 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-black/25 transition-colors duration-300"
+              >
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#D4AF37]/40 to-[#B08D57]/40 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <ClockIcon className="w-5 h-5 text-white drop-shadow-lg" />
                 </div>
                 <div>
-                  <div className="text-white/90 text-xs font-medium uppercase tracking-wider">Flexible</div>
+                  <div className="text-white/80 text-xs font-medium uppercase tracking-wider">Flexible</div>
                   <div className="text-white text-sm font-semibold">Evening Hours</div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
           </motion.div>
         </div>
         

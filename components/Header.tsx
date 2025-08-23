@@ -324,7 +324,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
           </nav>
 
             {/* Action Buttons */}
-            <div className="flex items-center space-x-3 xl:space-x-4 flex-shrink-0">
+            <div className="flex items-center space-x-2 sm:space-x-3 xl:space-x-4 flex-shrink-0">
               <Link
                 href="tel:+19056346000"
                 className="hidden lg:flex items-center text-sm font-medium tracking-wide text-white/80 hover:text-white transition-colors duration-300 whitespace-nowrap"
@@ -333,10 +333,10 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 <span className="hidden xl:inline">905-634-6000</span>
               </Link>
 
-              {/* Search Button */}
+              {/* Search Button - Desktop Only */}
               <button
                 onClick={() => setSearchModalOpen(true)}
-                className="p-2.5 bg-white/10 hover:bg-white/20 text-white hover:text-[#D4AF37] rounded-lg transition-all duration-300 border border-white/20"
+                className="hidden sm:block p-2.5 bg-white/10 hover:bg-white/20 text-white hover:text-[#D4AF37] rounded-lg transition-all duration-300 border border-white/20"
                 aria-label="Search"
               >
                 <MagnifyingGlassIcon className="h-5 w-5" />
@@ -345,7 +345,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               {/* Phone icon for smaller screens */}
               <Link
                 href="tel:+19056346000"
-                className="lg:hidden p-2.5 bg-white/10 hover:bg-white/20 text-white hover:text-[#D4AF37] rounded-lg transition-all duration-300 border border-white/20"
+                className="sm:hidden p-2 bg-white/10 hover:bg-white/20 text-white hover:text-[#D4AF37] rounded-lg transition-all duration-300 border border-white/20"
               >
                 <PhoneIcon className="h-4 w-4" />
               </Link>
@@ -354,26 +354,26 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#D4AF37] hover:bg-slate-900 text-slate-900 hover:text-[#D4AF37] text-sm font-medium tracking-wide px-3 xl:px-5 py-2.5 rounded-lg transition-all duration-300 flex items-center gap-2 whitespace-nowrap shadow-lg hover:shadow-xl"
+                className="bg-[#D4AF37] hover:bg-slate-900 text-slate-900 hover:text-[#D4AF37] text-sm font-medium tracking-wide px-2 sm:px-3 xl:px-5 py-2 sm:py-2.5 rounded-lg transition-all duration-300 flex items-center gap-1 sm:gap-2 whitespace-nowrap shadow-lg hover:shadow-xl"
               >
                 <CalendarDaysIcon className="h-4 w-4" />
                 <span className="hidden sm:inline">Book Appointment</span>
                 <span className="sm:hidden">Book</span>
               </Link>
 
-          {/* Mobile Menu Button */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              type="button"
+              {/* Mobile Menu Button */}
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                type="button"
                 className="lg:hidden p-2 text-white hover:text-[#D4AF37] transition-colors duration-300"
               >
-              {mobileMenuOpen ? (
+                {mobileMenuOpen ? (
                   <XMarkIcon className="h-6 w-6" />
-              ) : (
+                ) : (
                   <Bars3Icon className="h-6 w-6" />
-              )}
-            </button>
-          </div>
+                )}
+              </button>
+            </div>
         </div>
       </div>
 
@@ -390,6 +390,18 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
             className="lg:hidden bg-slate-900/95 backdrop-blur-xl border-b border-[#D4AF37]/30"
         >
             <div className="px-6 py-4 space-y-1">
+              {/* Search Button for Mobile */}
+              <button
+                onClick={() => {
+                  setSearchModalOpen(true);
+                  setMobileMenuOpen(false);
+                }}
+                className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-base font-medium tracking-wide transition-all duration-300 outline-none !text-white hover:bg-white/5 hover:!text-[#D4AF37]"
+              >
+                <MagnifyingGlassIcon className="h-5 w-5" />
+                Search
+              </button>
+              
               {mainNavItems.map((item) => (
                 <Link
                   key={item.name}

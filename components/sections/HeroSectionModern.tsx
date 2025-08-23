@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { CreditCardIcon, ClockIcon } from '@heroicons/react/24/outline';
 
 export default function HeroSection() {
   return (
@@ -116,14 +117,15 @@ export default function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.7 }}
-              className="mt-8 flex justify-center"
+              className="mt-8 flex justify-center gap-4"
             >
-              <div className="inline-flex items-center gap-4 text-xs text-slate-600">
-                <span>Direct Billing</span>
-                <span className="bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent">•</span>
-                <span>Evening Hours</span>
-                <span className="bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent">•</span>
-                <span>5+ Years Experience</span>
+              <div className="flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full shadow-md border border-slate-200/50">
+                <CreditCardIcon className="w-4 h-4 text-[#B08D57]" />
+                <span className="text-xs font-medium text-slate-700">Direct Billing</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full shadow-md border border-slate-200/50">
+                <ClockIcon className="w-4 h-4 text-[#B08D57]" />
+                <span className="text-xs font-medium text-slate-700">Evening Hours</span>
               </div>
             </motion.div>
           </motion.div>
@@ -242,13 +244,16 @@ export default function HeroSection() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
-                className="inline-flex items-center gap-6 text-base text-slate-600 font-medium"
+                className="flex gap-5 mt-2"
               >
-                <span>Direct Billing</span>
-                <span className="bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent">•</span>
-                <span>Evening Hours</span>
-                <span className="bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent">•</span>
-                <span>5+ Years Experience</span>
+                <div className="flex items-center gap-3 px-5 py-3 bg-gradient-to-r from-white/95 to-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-slate-200/50 hover:shadow-xl transition-shadow duration-300">
+                  <CreditCardIcon className="w-5 h-5 text-[#B08D57]" />
+                  <span className="text-sm font-semibold text-slate-700">Direct Billing</span>
+                </div>
+                <div className="flex items-center gap-3 px-5 py-3 bg-gradient-to-r from-white/95 to-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-slate-200/50 hover:shadow-xl transition-shadow duration-300">
+                  <ClockIcon className="w-5 h-5 text-[#B08D57]" />
+                  <span className="text-sm font-semibold text-slate-700">Evening Hours</span>
+                </div>
               </motion.div>
             </motion.div>
           </div>

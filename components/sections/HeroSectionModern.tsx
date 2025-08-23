@@ -23,6 +23,39 @@ export default function HeroSection() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20" />
           <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
+          
+          {/* Mobile overlay badges */}
+          <div className="absolute bottom-4 left-4 right-4 flex gap-2">
+            <motion.div
+              initial={{ x: -30, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.8, ease: "easeOut" }}
+              className="flex-1 flex items-center gap-2 px-3 py-2 bg-black/20 backdrop-blur-sm rounded-xl border border-white/10"
+            >
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#D4AF37]/40 to-[#B08D57]/40 flex items-center justify-center flex-shrink-0">
+                <CreditCardIcon className="w-4 h-4 text-white drop-shadow-lg" />
+              </div>
+              <div>
+                <div className="text-white/80 text-[10px] font-medium uppercase tracking-wider">Direct</div>
+                <div className="text-white text-xs font-semibold">Billing</div>
+              </div>
+            </motion.div>
+            
+            <motion.div
+              initial={{ x: 30, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 1, ease: "easeOut" }}
+              className="flex-1 flex items-center gap-2 px-3 py-2 bg-black/20 backdrop-blur-sm rounded-xl border border-white/10"
+            >
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#D4AF37]/40 to-[#B08D57]/40 flex items-center justify-center flex-shrink-0">
+                <ClockIcon className="w-4 h-4 text-white drop-shadow-lg" />
+              </div>
+              <div>
+                <div className="text-white/80 text-[10px] font-medium uppercase tracking-wider">Evening</div>
+                <div className="text-white text-xs font-semibold">Hours</div>
+              </div>
+            </motion.div>
+          </div>
         </div>
 
         {/* Content section */}
@@ -112,22 +145,6 @@ export default function HeroSection() {
                 </Link>
               </motion.div>
             </div>
-
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.7 }}
-              className="mt-8 flex justify-center gap-4"
-            >
-              <div className="flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full shadow-md border border-slate-200/50">
-                <CreditCardIcon className="w-4 h-4 text-[#B08D57]" />
-                <span className="text-xs font-medium text-slate-700">Direct Billing</span>
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full shadow-md border border-slate-200/50">
-                <ClockIcon className="w-4 h-4 text-[#B08D57]" />
-                <span className="text-xs font-medium text-slate-700">Evening Hours</span>
-              </div>
-            </motion.div>
           </motion.div>
         </div>
       </section>

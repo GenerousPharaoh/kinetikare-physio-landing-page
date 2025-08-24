@@ -186,6 +186,7 @@ const spinalConditions: Condition[] = [
     name: 'Degenerative Disc Disease',
     category: 'spinal-health',
     description: 'Degenerative Joint Disease (Spondylosis)',
+    metaDescription: 'Degenerative disc disease treatment in Burlington. Kareem Hassanein provides specialized physiotherapy for spine degeneration, using manual therapy and targeted exercises for pain relief.',
   },
   {
     id: 'spinal-stenosis',
@@ -193,6 +194,7 @@ const spinalConditions: Condition[] = [
     name: 'Spinal Stenosis',
     category: 'spinal-health',
     description: 'Narrowing of spinal canal management',
+    metaDescription: 'Spinal stenosis treatment in Burlington. Expert physiotherapy for spinal canal narrowing with Kareem Hassanein, using decompression techniques and mobility exercises.',
   },
   {
     id: 'facet-joint-syndrome',
@@ -210,6 +212,7 @@ const spinalConditions: Condition[] = [
     name: 'Postural Dysfunction',
     category: 'spinal-health',
     description: 'Related pain and movement issues',
+    metaDescription: 'Postural dysfunction treatment in Burlington. Expert physiotherapy with Kareem Hassanein for poor posture, forward head position, and related pain using corrective exercises.',
   },
   {
     id: 'headaches',
@@ -217,6 +220,7 @@ const spinalConditions: Condition[] = [
     name: 'Headaches & Migraines',
     category: 'spinal-health',
     description: 'cervicogenic or tension-type',
+    metaDescription: 'Headache and migraine treatment in Burlington. Kareem Hassanein specializes in cervicogenic headaches, tension headaches, and migraine management through manual therapy.',
   },
 ];
 
@@ -257,6 +261,7 @@ const shoulderConditions: Condition[] = [
     name: 'Shoulder Instability / Dislocations',
     category: 'shoulder',
     description: 'conservative management & post-surgical',
+    metaDescription: 'Shoulder instability and dislocation treatment in Burlington. Expert physiotherapy with Kareem Hassanein for shoulder stability training and post-surgical rehabilitation.',
   },
   {
     id: 'thoracic-outlet',
@@ -282,6 +287,7 @@ const shoulderConditions: Condition[] = [
     name: 'Bursitis / Tendinitis',
     category: 'shoulder',
     description: 'Inflammatory shoulder conditions',
+    metaDescription: 'Shoulder bursitis and tendinitis treatment in Burlington. Kareem Hassanein provides expert physiotherapy for shoulder inflammation using manual therapy and anti-inflammatory techniques.',
   },
   {
     id: 'ac-joint',

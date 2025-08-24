@@ -214,14 +214,6 @@ const spinalConditions: Condition[] = [
     description: 'Related pain and movement issues',
     metaDescription: 'Postural dysfunction treatment in Burlington. Expert physiotherapy with Kareem Hassanein for poor posture, forward head position, and related pain using corrective exercises.',
   },
-  {
-    id: 'headaches',
-    slug: 'headaches-migraines',
-    name: 'Headaches & Migraines',
-    category: 'spinal-health',
-    description: 'cervicogenic or tension-type',
-    metaDescription: 'Headache and migraine treatment in Burlington. Kareem Hassanein specializes in cervicogenic headaches, tension headaches, and migraine management through manual therapy.',
-  },
 ];
 
 const shoulderConditions: Condition[] = [
@@ -682,7 +674,6 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'hip-osteoarthritis', relationshipType: 'biomechanical', explanation: 'Hip stiffness alters lumbar mechanics and can contribute to back pain', relevanceScore: 6 }
   ],
   'neck-pain': [
-    { slug: 'headaches-migraines', relationshipType: 'anatomical', explanation: 'Cervical spine dysfunction commonly causes tension-type and cervicogenic headaches', relevanceScore: 8 },
     { slug: 'whiplash', relationshipType: 'causal', explanation: 'Whiplash is a common cause of chronic neck pain and dysfunction', relevanceScore: 8 },
     { slug: 'thoracic-outlet-syndrome', relationshipType: 'anatomical', explanation: 'Both involve cervical spine region; neck posture affects thoracic outlet space', relevanceScore: 7 },
     { slug: 'shoulder-impingement', relationshipType: 'biomechanical', explanation: 'Forward head posture and neck pain often coexist with shoulder impingement', relevanceScore: 6 },
@@ -872,7 +863,6 @@ const intelligentRelationships: Record<string, Array<{
   ],
   'whiplash': [
     { slug: 'neck-pain', relationshipType: 'causal', explanation: 'Whiplash is a common cause of chronic neck pain and cervical dysfunction', relevanceScore: 8 },
-    { slug: 'headaches-migraines', relationshipType: 'symptomatic', explanation: 'Post-whiplash headaches are common due to cervical spine and muscle injury', relevanceScore: 7 },
     { slug: 'thoracic-outlet-syndrome', relationshipType: 'anatomical', explanation: 'Whiplash can affect cervical spine positioning contributing to thoracic outlet symptoms', relevanceScore: 6 },
     { slug: 'shoulder-impingement', relationshipType: 'biomechanical', explanation: 'Post-whiplash neck stiffness can alter shoulder blade mechanics', relevanceScore: 5 },
     { slug: 'postural-dysfunction', relationshipType: 'causal', explanation: 'Whiplash often leads to protective posturing and chronic postural problems', relevanceScore: 6 }
@@ -943,16 +933,8 @@ const intelligentRelationships: Record<string, Array<{
   'postural-dysfunction': [
     { slug: 'neck-pain', relationshipType: 'causal', explanation: 'Poor posture is primary cause of chronic neck pain and cervical dysfunction', relevanceScore: 7 },
     { slug: 'thoracic-outlet-syndrome', relationshipType: 'causal', explanation: 'Forward head posture and rounded shoulders cause thoracic outlet compression', relevanceScore: 7 },
-    { slug: 'headaches-migraines', relationshipType: 'causal', explanation: 'Postural dysfunction commonly causes tension headaches and cervicogenic headaches', relevanceScore: 6 },
     { slug: 'shoulder-impingement', relationshipType: 'causal', explanation: 'Poor posture contributes to scapular dysfunction and shoulder impingement', relevanceScore: 6 },
     { slug: 'low-back-pain', relationshipType: 'causal', explanation: 'Prolonged poor posture contributes to lumbar spine dysfunction', relevanceScore: 6 }
-  ],
-  'headaches-migraines': [
-    { slug: 'neck-pain', relationshipType: 'anatomical', explanation: 'Cervical spine dysfunction commonly causes cervicogenic and tension headaches', relevanceScore: 8 },
-    { slug: 'whiplash', relationshipType: 'symptomatic', explanation: 'Post-whiplash headaches common due to cervical spine injury', relevanceScore: 7 },
-    { slug: 'postural-dysfunction', relationshipType: 'causal', explanation: 'Poor posture frequently causes tension headaches and neck strain', relevanceScore: 6 },
-    { slug: 'thoracic-outlet-syndrome', relationshipType: 'symptomatic', explanation: 'Both can involve neck and shoulder tension with overlapping symptoms', relevanceScore: 5 },
-    { slug: 'temporomandibular-dysfunction', relationshipType: 'anatomical', explanation: 'TMJ dysfunction often coexists with cervicogenic headaches', relevanceScore: 6 }
   ],
   'shoulder-instability': [
     { slug: 'rotator-cuff-injuries', relationshipType: 'causal', explanation: 'Shoulder instability can lead to rotator cuff damage from repeated dislocations', relevanceScore: 7 },

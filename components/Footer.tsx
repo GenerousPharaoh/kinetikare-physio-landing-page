@@ -225,21 +225,22 @@ export default function Footer() {
                 CPO Verified Registration
               </Link>
               
-              {/* Small Map Preview */}
-              <div className="rounded-lg overflow-hidden h-[120px] relative border border-white/10 bg-slate-800">
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2898.518670972588!2d-79.84252758449518!3d43.40798887912723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b61568c54cbff%3A0x433767b454bd4446!2sEndorphins%20Health%20and%20Wellness%20Centre!5e0!3m2!1sen!2sca!4v1737856647823!5m2!1sen!2sca" 
-                  width="100%" 
-                  height="120" 
-                  style={{ border: 0, display: 'block' }} 
-                  allowFullScreen={false} 
-                  loading="lazy" 
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Clinic location map"
-                  className="opacity-80 hover:opacity-100 transition-opacity"
-                  aria-label="Map showing clinic location at 4631 Palladium Way, Burlington"
-                ></iframe>
-              </div>
+              {/* Map Link Card */}
+              <a 
+                href="https://maps.app.goo.gl/syZN4FUBgACrtqgK9"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block rounded-lg h-[120px] relative border border-white/10 bg-gradient-to-br from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 transition-all duration-300 group"
+                aria-label="View clinic location on Google Maps"
+              >
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-white/80 group-hover:text-white">
+                  <MapPin className="w-8 h-8 mb-2 text-gold" weight="duotone" />
+                  <span className="text-xs font-medium">View on Google Maps</span>
+                  <svg className="w-4 h-4 mt-1 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </div>
+              </a>
             </div>
           </div>
         </div>

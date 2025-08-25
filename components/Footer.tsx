@@ -225,22 +225,19 @@ export default function Footer() {
                 CPO Verified Registration
               </Link>
               
-              {/* Map Link Card */}
-              <a 
-                href="https://maps.app.goo.gl/syZN4FUBgACrtqgK9"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block rounded-lg h-[120px] relative border border-white/10 bg-gradient-to-br from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 transition-all duration-300 group"
-                aria-label="View clinic location on Google Maps"
-              >
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-white/80 group-hover:text-white">
-                  <MapPin className="w-8 h-8 mb-2 text-gold" weight="duotone" />
-                  <span className="text-xs font-medium">View on Google Maps</span>
-                  <svg className="w-4 h-4 mt-1 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </div>
-              </a>
+              {/* Small Map Preview */}
+              <div className="rounded-lg overflow-hidden h-[120px] relative border border-white/10">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d724.6296677431473!2d-79.8403506!3d43.4079889!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b61568c54cbff%3A0x433767b454bd4446!2sEndorphins%20Health%20and%20Wellness%20Centre!5e0!3m2!1sen!2sca" 
+                  width="100%" 
+                  height="120" 
+                  style={{ border: 0 }} 
+                  allowFullScreen={false} 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Clinic location"
+                ></iframe>
+              </div>
             </div>
           </div>
         </div>

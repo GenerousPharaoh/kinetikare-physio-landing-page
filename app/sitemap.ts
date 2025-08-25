@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { getAllConditions } from '@/lib/conditions-data';
+import { getAllTreatments } from '@/lib/treatments-data';
 
 // Blog posts removed - will add when blog is ready
 
@@ -9,12 +10,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Get all conditions for individual pages
   const conditions = getAllConditions();
   
+  // Get all treatments for individual pages
+  const treatments = getAllTreatments();
+  
   // Create sitemap entries for condition pages with higher priority for featured conditions
   const conditionPages: MetadataRoute.Sitemap = conditions.map(condition => ({
     url: `${baseUrl}/conditions/${condition.slug}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: condition.featured ? 0.85 : 0.75,
+  }));
+  
+  // Create sitemap entries for treatment pages
+  const treatmentPages: MetadataRoute.Sitemap = treatments.map(treatment => ({
+    url: `${baseUrl}/treatments/${treatment.id}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
   }));
 
   const staticPages = [
@@ -35,6 +47,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/treatments`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.85,
     },
     {
       url: `${baseUrl}/conditions`,
@@ -74,5 +92,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  return [...staticPages, ...conditionPages];
+  return [...staticPages, ...conditionPages, ...treatmentPages];
 } 

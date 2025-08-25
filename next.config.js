@@ -46,10 +46,11 @@ const nextConfig = {
       {
         source: '/(.*)',
         headers: [
-          {
-            key: 'Content-Security-Policy',
-            value: "default-src 'self'; img-src 'self' data: https://www.kinetikarephysio.com https://endorphinshealth.janeapp.com https://maps.googleapis.com https://maps.gstatic.com https://*.google.com https://*.googleusercontent.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://maps.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://maps.googleapis.com; frame-src 'self' https://www.google.com https://maps.google.com https://www.google.com/maps/ https://www.google.com/maps/embed https://*.google.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';",
-          },
+          // Temporarily disabled CSP to debug Google Maps issue
+          // {
+          //   key: 'Content-Security-Policy',
+          //   value: "default-src 'self'; img-src 'self' data: https://www.kinetikarephysio.com https://endorphinshealth.janeapp.com https://maps.googleapis.com https://maps.gstatic.com https://*.google.com https://*.googleusercontent.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://maps.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://maps.googleapis.com; frame-src 'self' https://www.google.com https://maps.google.com https://www.google.com/maps/ https://www.google.com/maps/embed https://*.google.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';",
+          // },
           {
             key: 'Strict-Transport-Security',
             value: 'max-age=63072000; includeSubDomains; preload',

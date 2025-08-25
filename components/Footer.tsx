@@ -228,7 +228,7 @@ export default function Footer() {
               {/* Small Map Preview */}
               <div className="rounded-lg overflow-hidden h-[120px] relative border border-white/10">
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2898.518670972593!2d-79.82630139999999!3d43.4079889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b61568c54cbff%3A0x433767b454bd4446!2sEndorphins%20Health%20and%20Wellness%20Centre!5e0!3m2!1sen!2sca!4v1745456201323!5m2!1sen!2sca" 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2898.5140929832196!2d-79.8282826238558!3d43.408084568249784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b61c9d9d9c40f%3A0xadd452d206e4b1b3!2sKareem%20Hassanein%20-%20Registered%20Physiotherapist!5e0!3m2!1sen!2sca!4v1756087881450!5m2!1sen!2sca" 
                   width="100%" 
                   height="120" 
                   style={{ border: 0 }} 

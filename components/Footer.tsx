@@ -228,15 +228,11 @@ export default function Footer() {
               {/* Small Map Preview */}
               <div className="rounded-lg overflow-hidden h-[120px] relative border border-white/10 bg-slate-800">
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2898.5140929832196!2d-79.8282826238558!3d43.408084568249784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b61c9d9d9c40f%3A0xadd452d206e4b1b3!2sKareem%20Hassanein%20-%20Registered%20Physiotherapist!5e0!3m2!1sen!2sca!4v1756087881450!5m2!1sen!2sca" 
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=-79.84444141387941%2C43.40127803103912%2C-79.81212258338928%2C43.41490098267481&amp;layer=mapnik&amp;marker=43.40809012011449%2C-79.82828199863434" 
                   width="100%" 
                   height="120" 
-                  style={{ border: 0 }} 
-                  allowFullScreen
-                  loading="lazy" 
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Clinic location"
-                />
+                  style={{ border: 0 }}
+                ></iframe>
               </div>
             </div>
           </div>

@@ -228,7 +228,7 @@ export default function Footer() {
               {/* Small Map Preview */}
               <div className="rounded-lg overflow-hidden h-[120px] relative border border-white/10 bg-slate-800">
                 <iframe 
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=-79.84444141387941%2C43.40127803103912%2C-79.81212258338928%2C43.41490098267481&amp;layer=mapnik&amp;marker=43.40809012011449%2C-79.82828199863434" 
+                  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Kareem%20Hassanein%20Physiotherapy%2C4631%20Palladium%20Way%20Unit%206%2CBurlington%2CON&zoom=14&maptype=roadmap" 
                   width="100%" 
                   height="120" 
                   style={{ border: 0 }}

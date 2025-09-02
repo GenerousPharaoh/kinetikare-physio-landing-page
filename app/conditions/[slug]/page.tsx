@@ -92,10 +92,94 @@ export default function ConditionPage({ params }: PageProps) {
     3
   );
 
+  // Generate MedicalCondition schema for SEO
+  const medicalConditionSchema = {
+    "@context": "https://schema.org",
+    "@type": "MedicalCondition",
+    "name": condition.name,
+    "description": condition.description,
+    "associatedAnatomy": {
+      "@type": "AnatomicalStructure",
+      "name": condition.affectedArea || condition.category
+    },
+    "possibleTreatment": [
+      {
+        "@type": "MedicalTherapy",
+        "name": "Physiotherapy",
+        "description": "Evidence-based physiotherapy treatment including manual therapy, exercise prescription, and education"
+      },
+      {
+        "@type": "MedicalTherapy",
+        "name": "Manual Therapy",
+        "description": "Hands-on techniques to improve mobility and reduce pain"
+      },
+      {
+        "@type": "MedicalTherapy",
+        "name": "Exercise Therapy",
+        "description": "Targeted exercises to strengthen and rehabilitate"
+      }
+    ],
+    "signOrSymptom": condition.symptoms?.map(symptom => ({
+      "@type": "MedicalSymptom",
+      "name": symptom
+    })) || [],
+    "riskFactor": condition.causes?.map(cause => ({
+      "@type": "MedicalRiskFactor",
+      "name": cause
+    })) || [],
+    "typicalTest": [
+      {
+        "@type": "MedicalTest",
+        "name": "Physical Examination",
+        "description": "Comprehensive assessment of movement, strength, and function"
+      },
+      {
+        "@type": "MedicalTest",
+        "name": "Functional Movement Assessment",
+        "description": "Analysis of movement patterns and biomechanics"
+      }
+    ]
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.kinetikarephysio.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Conditions",
+        "item": "https://www.kinetikarephysio.com/conditions"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": condition.name,
+        "item": `https://www.kinetikarephysio.com/conditions/${params.slug}`
+      }
+    ]
+  };
+
   return (
-    <ConditionPageClient 
-      condition={condition} 
-      relatedConditions={relatedConditions}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalConditionSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <ConditionPageClient 
+        condition={condition} 
+        relatedConditions={relatedConditions}
+      />
+    </>
   );
 }

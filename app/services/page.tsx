@@ -269,6 +269,67 @@ export default function ServicesPage() {
     }
   };
 
+  // Add MedicalProcedure schema for each specific treatment
+  const medicalProceduresSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "MedicalProcedure",
+        "name": "Joint Mobilization",
+        "description": "Skilled manual therapy technique to restore joint movement and reduce pain",
+        "procedureType": "Physical Therapy",
+        "bodyLocation": "Joints",
+        "followup": "Exercise prescription and movement re-education",
+        "preparation": "Physical assessment and movement analysis"
+      },
+      {
+        "@type": "MedicalProcedure",
+        "name": "Dry Needling",
+        "description": "Therapeutic technique using thin needles to release trigger points and reduce muscle tension",
+        "procedureType": "Physical Therapy",
+        "bodyLocation": "Trigger points in muscles",
+        "followup": "Stretching and strengthening exercises",
+        "preparation": "Identification of trigger points through palpation"
+      },
+      {
+        "@type": "MedicalProcedure",
+        "name": "Cupping Therapy",
+        "description": "Myofascial decompression technique to improve blood flow and reduce muscle tension",
+        "procedureType": "Physical Therapy",
+        "bodyLocation": "Soft tissues",
+        "followup": "Movement exercises and self-care instructions",
+        "preparation": "Skin assessment and treatment area preparation"
+      },
+      {
+        "@type": "MedicalProcedure",
+        "name": "IASTM (Instrument Assisted Soft Tissue Mobilization)",
+        "description": "Specialized instruments to detect and treat soft tissue dysfunction",
+        "procedureType": "Physical Therapy",
+        "bodyLocation": "Fascia and soft tissues",
+        "followup": "Therapeutic exercises and movement patterns",
+        "preparation": "Tissue assessment and movement screening"
+      },
+      {
+        "@type": "MedicalProcedure",
+        "name": "Trigger Point Release",
+        "description": "Manual pressure technique to deactivate painful trigger points",
+        "procedureType": "Physical Therapy",
+        "bodyLocation": "Trigger points in muscles",
+        "followup": "Stretching and postural exercises",
+        "preparation": "Trigger point mapping and assessment"
+      },
+      {
+        "@type": "MedicalProcedure",
+        "name": "Movement Analysis",
+        "description": "Comprehensive assessment of movement patterns and biomechanics",
+        "procedureType": "Diagnostic Physical Therapy",
+        "bodyLocation": "Full body kinetic chain",
+        "followup": "Personalized exercise program based on findings",
+        "preparation": "Patient history and symptom review"
+      }
+    ]
+  };
+
   // Breadcrumb schema for SEO
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -302,6 +363,14 @@ export default function ServicesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(servicesStructuredData),
+        }}
+      />
+
+      {/* Medical Procedures Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(medicalProceduresSchema),
         }}
       />
 

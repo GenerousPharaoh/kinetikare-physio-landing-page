@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 const PLACE_ID = 'ChIJD8TZ2clhK4gRs7HkBtJS1K0';
-const API_KEY = process.env.GOOGLE_PLACES_API_KEY;
+const API_KEY = process.env.GOOGLE_PLACES_API_KEY || 'AIzaSyDVEoSMYuRHs9BHRRWasTeqEzPZNrzGrpg';
 
 // In-memory cache
 let cachedData: any = null;

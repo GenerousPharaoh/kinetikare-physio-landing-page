@@ -16,39 +16,17 @@ export async function GET() {
       return NextResponse.json(cachedData);
     }
 
-    // If no API key, return mock data for development
+    // If no API key, return error with details
     if (!API_KEY) {
-      const mockData = {
-        rating: 4.9,
-        user_ratings_total: 8,
-        reviews: [
-          {
-            author_name: "Sarah M.",
-            rating: 5,
-            text: "Kareem is an exceptional physiotherapist. His thorough assessment and personalized treatment plan helped me recover from chronic back pain that I'd been dealing with for years.",
-            relative_time_description: "2 weeks ago"
-          },
-          {
-            author_name: "Mike T.",
-            rating: 5,
-            text: "Professional, knowledgeable, and genuinely cares about his patients. The clinic is clean and well-equipped. Highly recommend!",
-            relative_time_description: "1 month ago"
-          },
-          {
-            author_name: "Jennifer L.",
-            rating: 5,
-            text: "After my knee surgery, Kareem's rehabilitation program got me back to running faster than expected. His expertise in sports injuries is outstanding.",
-            relative_time_description: "2 months ago"
-          },
-          {
-            author_name: "David R.",
-            rating: 5,
-            text: "The dry needling treatment was incredibly effective for my shoulder pain. Kareem explains everything clearly and makes you feel comfortable throughout.",
-            relative_time_description: "3 months ago"
-          }
-        ]
-      };
-      return NextResponse.json(mockData);
+      console.error('GOOGLE_PLACES_API_KEY not found in environment variables');
+      return NextResponse.json(
+        { 
+          error: 'Configuration error',
+          details: 'API key not found. Please add GOOGLE_PLACES_API_KEY to Vercel environment variables.',
+          hasKey: false
+        },
+        { status: 500 }
+      );
     }
 
     // Fetch from Google Places API
@@ -67,7 +45,8 @@ export async function GET() {
     const data = await response.json();
 
     if (data.status !== 'OK') {
-      throw new Error(`Google API error: ${data.status}`);
+      console.error('Google Places API error:', data.status, data.error_message || '');
+      throw new Error(`Google API error: ${data.status}. ${data.error_message || ''}`);
     }
 
     // Cache the successful response

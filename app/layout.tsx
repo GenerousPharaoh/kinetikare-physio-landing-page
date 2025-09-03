@@ -7,6 +7,7 @@ import GoogleAnalytics from '@/components/GoogleAnalytics';
 import WebVitals from '@/components/WebVitals';
 import ErrorBoundary from '@/components/ErrorBoundary';
 import { PerformanceProvider } from '@/context/PerformanceContext';
+import ClientLayoutWrapper from '@/components/ClientLayoutWrapper';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -409,14 +410,16 @@ export default function RootLayout({
         
         {/* Performance optimization provider */}
         <PerformanceProvider>
-          {/* Global site header */}
-          <Header />
-          {/* Page content wrapped in ErrorBoundary */}
-          <ErrorBoundary>
-            {children}
-          </ErrorBoundary>
-          {/* Global site footer */}
-          <Footer />
+          <ClientLayoutWrapper>
+            {/* Global site header */}
+            <Header />
+            {/* Page content wrapped in ErrorBoundary */}
+            <ErrorBoundary>
+              {children}
+            </ErrorBoundary>
+            {/* Global site footer */}
+            <Footer />
+          </ClientLayoutWrapper>
         </PerformanceProvider>
       </body>
     </html>

@@ -1,15 +1,4 @@
-'use client';
-
-import { useEffect } from 'react';
-
 export default function TrustindexReviews() {
-  useEffect(() => {
-    // Trigger Trustindex widget reload if needed
-    if (typeof window !== 'undefined' && (window as any).Trustindex) {
-      (window as any).Trustindex.init();
-    }
-  }, []);
-
   return (
     <section className="py-20 px-4 bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-7xl mx-auto">
@@ -20,7 +9,11 @@ export default function TrustindexReviews() {
         </div>
         
         {/* Trustindex Widget Container - DO NOT MODIFY */}
-        <div src="83f7807534fc4047ba26c92e0ca"></div>
+        <div 
+          data-src="83f7807534fc4047ba26c92e0ca" 
+          src="83f7807534fc4047ba26c92e0ca"
+          className="ti-widget"
+        ></div>
       </div>
     </section>
   );

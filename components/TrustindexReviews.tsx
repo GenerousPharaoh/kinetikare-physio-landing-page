@@ -19,10 +19,8 @@ export default function TrustindexReviews() {
           </h2>
         </div>
         
-        {/* Trustindex Widget Container */}
-        <div id="trustindex-widget" className="trustindex-widget">
-          {/* The Trustindex script will automatically populate this div */}
-        </div>
+        {/* Trustindex Widget Container - DO NOT MODIFY */}
+        <div src="83f7807534fc4047ba26c92e0ca"></div>
       </div>
     </section>
   );

@@ -1,3 +1,7 @@
+'use client';
+
+import Script from 'next/script';
+
 export default function TrustindexReviews() {
   return (
     <section className="py-20 px-4 bg-gradient-to-b from-white to-gray-50">
@@ -8,12 +12,14 @@ export default function TrustindexReviews() {
           </h2>
         </div>
         
-        {/* Trustindex Widget Container - DO NOT MODIFY */}
-        <div 
-          data-src="83f7807534fc4047ba26c92e0ca" 
-          src="83f7807534fc4047ba26c92e0ca"
-          className="ti-widget"
-        ></div>
+        {/* Trustindex Widget - Place the script right before the container */}
+        <Script 
+          src="https://cdn.trustindex.io/loader.js?83f7807534fc4047ba26c92e0ca"
+          strategy="afterInteractive"
+        />
+        
+        {/* Try just an empty div - let Trustindex create everything */}
+        <div></div>
       </div>
     </section>
   );

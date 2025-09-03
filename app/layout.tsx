@@ -407,12 +407,6 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
         />
         
-        {/* Trustindex Google Reviews Widget */}
-        <Script 
-          src="https://cdn.trustindex.io/loader.js?83f7807534fc4047ba26c92e0ca"
-          strategy="lazyOnload"
-        />
-        
         {/* Performance optimization provider */}
         <PerformanceProvider>
           {/* Global site header */}

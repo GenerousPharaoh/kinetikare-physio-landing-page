@@ -1,5 +1,6 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
+import Script from 'next/script';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
@@ -404,6 +405,12 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        />
+        
+        {/* Trustindex Google Reviews Widget */}
+        <Script 
+          src="https://cdn.trustindex.io/loader.js?83f7807534fc4047ba26c92e0ca"
+          strategy="lazyOnload"
         />
         
         {/* Performance optimization provider */}

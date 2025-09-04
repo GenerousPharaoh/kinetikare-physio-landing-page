@@ -407,11 +407,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
         />
 
-        {/* Trustindex Reviews Script */}
+        {/* Trustindex Reviews Script - Without ID for React compatibility */}
         <script
           defer
           async
-          src="https://cdn.trustindex.io/loader.js?83f7807534fc4047ba26c92e0ca"
+          src="https://cdn.trustindex.io/loader.js"
         />
         
         {/* Performance optimization provider */}

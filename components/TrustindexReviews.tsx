@@ -18,8 +18,8 @@ export default function TrustindexReviews() {
           strategy="afterInteractive"
         />
         
-        {/* Try just an empty div - let Trustindex create everything */}
-        <div></div>
+        {/* Trustindex widget container with required data-src attribute */}
+        <div data-src="83f7807534fc4047ba26c92e0ca"></div>
       </div>
     </section>
   );

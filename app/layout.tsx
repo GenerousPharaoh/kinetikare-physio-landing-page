@@ -406,6 +406,13 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
         />
+
+        {/* Trustindex Reviews Script */}
+        <script
+          defer
+          async
+          src="https://cdn.trustindex.io/loader.js?83f7807534fc4047ba26c92e0ca"
+        />
         
         {/* Performance optimization provider */}
         <PerformanceProvider>

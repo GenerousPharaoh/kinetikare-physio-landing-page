@@ -265,7 +265,19 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
       }}
     >
       {/* Single Unified Navigation Bar */}
-      <div className={`relative w-full bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 transition-all duration-300 border-0 outline-none`} style={{ boxShadow: 'none' }}>
+      <div 
+        className={`relative w-full transition-all duration-[400ms] border-0 outline-none`} 
+        style={{ 
+          background: 'linear-gradient(90deg, rgb(15, 23, 42) 0%, rgb(23, 37, 84) 50%, rgb(15, 23, 42) 100%)',
+          backgroundSize: '200% 100%',
+          animation: 'shimmer 20s ease-in-out infinite',
+          boxShadow: '0 1px 0 rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.15)',
+          borderTop: '1px solid rgba(212, 175, 55, 0.08)',
+          transform: 'translateZ(0)',
+          backfaceVisibility: 'hidden' as const,
+          willChange: 'transform, background-position'
+        }}
+      >
       
         <div className="container mx-auto px-6 relative">
           <div className="flex items-center justify-between h-16">
@@ -279,14 +291,19 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                     alt="KinetiKare physiotherapy logo Burlington Waterdown Kareem Hassanein"
                     width={36}
                     height={36}
-                    className="w-9 h-9 object-contain transition-all duration-300 group-hover:scale-110"
+                    className="w-9 h-9 object-contain transition-all duration-[400ms] ease-out group-hover:scale-110"
                     style={{
-                      filter: 'contrast(1.2) saturate(1.3) brightness(1.1) drop-shadow(0 2px 4px rgba(255, 255, 255, 0.15))',
-                      imageRendering: 'crisp-edges'
+                      filter: 'contrast(1.2) saturate(1.3) brightness(1.1) drop-shadow(0 2px 4px rgba(255, 255, 255, 0.15)) drop-shadow(0 0 8px rgba(212, 175, 55, 0.2))',
+                      imageRendering: 'crisp-edges',
+                      transform: 'translateZ(0)',
+                      willChange: 'transform'
                     }}
                   />
-                  {/* Enhanced glow effect */}
-                  <div className="absolute inset-0 w-10 h-10 bg-[#D4AF37]/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  {/* Enhanced glow effect with pulse */}
+                  <div className="absolute inset-0 w-10 h-10 bg-[#D4AF37]/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-all duration-[600ms] ease-out"
+                    style={{
+                      animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                    }}></div>
                 </div>
                 <div className="flex items-center">
                   <span className="text-[22px] xl:text-[24px] text-white font-extralight tracking-[0.12em] leading-none uppercase" style={{ fontFamily: "'Montserrat', sans-serif", letterSpacing: '0.12em' }}>Kineti</span>
@@ -309,17 +326,36 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   key={item.name}
                       href={item.href}
                       onClick={(e) => handleNavClick(e, item.href)}
-                  className={`relative text-sm font-medium tracking-wide transition-all duration-300 py-2 group whitespace-nowrap outline-none
+                  className={`relative text-sm font-medium transition-all duration-[400ms] ease-out py-2 group whitespace-nowrap outline-none
                           ${isCurrentPath(item.href) 
-                      ? '!text-[#D4AF37] font-normal hover:!text-[#F5D63D]' 
+                      ? '!text-[#D4AF37] font-normal hover:!text-[#E6C157]' 
                       : '!text-white hover:!text-[#D4AF37]'}`}
+                  style={{
+                    letterSpacing: '0.08em',
+                    fontVariantLigatures: 'common-ligatures',
+                    WebkitFontSmoothing: 'antialiased',
+                    MozOsxFontSmoothing: 'grayscale',
+                    transform: 'translateZ(0)',
+                    willChange: 'transform, color'
+                  }}
                 >
                   {item.name}
                   
-                  {/* Underline indicator */}
-                  <span className={`absolute bottom-0 left-0 right-0 h-0.5 bg-[#D4AF37] transform origin-left transition-all duration-300
-                        ${isCurrentPath(item.href) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}>
+                  {/* Underline indicator with glow */}
+                  <span className={`absolute bottom-0 left-0 right-0 h-0.5 transform origin-left transition-all duration-[400ms] ease-out
+                        ${isCurrentPath(item.href) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}
+                    style={{
+                      background: 'linear-gradient(90deg, #D4AF37, #E6C157, #D4AF37)',
+                      filter: 'drop-shadow(0 0 3px rgba(212, 175, 55, 0.4))'
+                    }}>
                       </span>
+                  
+                  {/* Hover backdrop glow */}
+                  <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-[400ms] pointer-events-none"
+                    style={{
+                      background: 'radial-gradient(ellipse at center, rgba(212, 175, 55, 0.05), transparent)',
+                      filter: 'blur(8px)'
+                    }}></span>
                     </Link>
               ))}
           </nav>
@@ -355,7 +391,14 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#D4AF37] hover:bg-slate-900 text-slate-900 hover:text-[#D4AF37] text-sm font-medium tracking-wide px-2 sm:px-3 xl:px-5 py-2 sm:py-2.5 rounded-lg transition-all duration-300 flex items-center gap-1 sm:gap-2 whitespace-nowrap shadow-lg hover:shadow-xl"
+                className="bg-[#D4AF37] hover:bg-slate-900 text-slate-900 hover:text-[#D4AF37] text-sm font-medium px-2 sm:px-3 xl:px-5 py-2 sm:py-2.5 rounded-lg transition-all duration-[400ms] ease-out flex items-center gap-1 sm:gap-2 whitespace-nowrap shadow-lg hover:shadow-xl"
+                style={{
+                  letterSpacing: '0.08em',
+                  filter: 'drop-shadow(0 0 8px rgba(212, 175, 55, 0.3))',
+                  transform: 'translateZ(0)',
+                  animation: 'breathe 3s ease-in-out infinite',
+                  willChange: 'transform'
+                }}
               >
                 <CalendarDaysIcon className="h-4 w-4" />
                 <span className="hidden sm:inline">Book Appointment</span>

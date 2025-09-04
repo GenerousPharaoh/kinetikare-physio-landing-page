@@ -270,7 +270,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
         style={{ 
           background: 'linear-gradient(90deg, rgb(15, 23, 42) 0%, rgb(23, 37, 84) 50%, rgb(15, 23, 42) 100%)',
           backgroundSize: '200% 100%',
-          animation: 'shimmer 20s ease-in-out infinite',
+          animation: 'shimmer 25s ease-in-out infinite',
           boxShadow: '0 1px 0 rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.15)',
           borderTop: '1px solid rgba(212, 175, 55, 0.08)',
           transform: 'translateZ(0)',

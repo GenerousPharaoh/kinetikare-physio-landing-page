@@ -266,45 +266,18 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     >
       {/* Single Unified Navigation Bar */}
       <div 
-        className={`relative w-full transition-all duration-[400ms] border-0 outline-none overflow-hidden`} 
+        className={`relative w-full transition-all duration-[400ms] border-0 outline-none`} 
         style={{ 
           background: 'linear-gradient(90deg, rgb(15, 23, 42) 0%, rgb(23, 37, 84) 50%, rgb(15, 23, 42) 100%)',
           backgroundSize: '200% 100%',
           animation: 'shimmer 25s ease-in-out infinite',
-          boxShadow: '0 1px 0 rgba(0, 0, 0, 0.5), 0 6px 20px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(212, 175, 55, 0.05)',
-          borderTop: '1px solid rgba(212, 175, 55, 0.1)',
-          transform: `translateZ(0) translateY(${scrolled ? '0' : '0'})`,
+          boxShadow: '0 1px 0 rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.15)',
+          borderTop: '1px solid rgba(212, 175, 55, 0.08)',
+          transform: 'translateZ(0)',
           backfaceVisibility: 'hidden' as const,
           willChange: 'transform, background-position'
         }}
       >
-        {/* Premium noise texture overlay */}
-        <div 
-          className="absolute inset-0 opacity-[0.02] pointer-events-none"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E")`,
-            mixBlendMode: 'overlay'
-          }}
-        />
-        
-        {/* Glass reflection effect */}
-        <div 
-          className="absolute inset-x-0 top-0 h-[50%] opacity-10 pointer-events-none"
-          style={{
-            background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%)',
-          }}
-        />
-        
-        {/* Animated light beam */}
-        <div 
-          className="absolute inset-0 opacity-20 pointer-events-none"
-          style={{
-            background: 'linear-gradient(105deg, transparent 40%, rgba(212, 175, 55, 0.03) 50%, transparent 60%)',
-            backgroundSize: '200% 200%',
-            animation: 'lightBeam 8s ease-in-out infinite',
-          }}
-        />
-      
       
         <div className="container mx-auto px-6 relative">
           <div className="flex items-center justify-between h-16">
@@ -333,24 +306,9 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                     }}></div>
                 </div>
                 <div className="flex items-center">
-                  <span className="text-[22px] xl:text-[24px] text-white font-extralight tracking-[0.12em] leading-none uppercase" 
-                    style={{ 
-                      fontFamily: "'Montserrat', sans-serif", 
-                      letterSpacing: '0.12em',
-                      textShadow: '0 0 20px rgba(212, 175, 55, 0.15)'
-                    }}>Kineti</span>
-                  <span className="text-[22px] xl:text-[24px] text-[#D4AF37] font-bold leading-none uppercase" 
-                    style={{ 
-                      fontFamily: "'Montserrat', sans-serif",
-                      textShadow: '0 0 25px rgba(212, 175, 55, 0.5), 0 0 50px rgba(212, 175, 55, 0.25)',
-                      animation: 'goldenPulse 3s ease-in-out infinite'
-                    }}>K</span>
-                  <span className="text-[22px] xl:text-[24px] text-white font-extralight tracking-[0.12em] leading-none uppercase" 
-                    style={{ 
-                      fontFamily: "'Montserrat', sans-serif", 
-                      letterSpacing: '0.12em',
-                      textShadow: '0 0 20px rgba(212, 175, 55, 0.15)'
-                    }}>are</span>
+                  <span className="text-[22px] xl:text-[24px] text-white font-extralight tracking-[0.12em] leading-none uppercase" style={{ fontFamily: "'Montserrat', sans-serif", letterSpacing: '0.12em' }}>Kineti</span>
+                  <span className="text-[22px] xl:text-[24px] text-[#D4AF37] font-bold leading-none uppercase" style={{ fontFamily: "'Montserrat', sans-serif" }}>K</span>
+                  <span className="text-[22px] xl:text-[24px] text-white font-extralight tracking-[0.12em] leading-none uppercase" style={{ fontFamily: "'Montserrat', sans-serif", letterSpacing: '0.12em' }}>are</span>
                 </div>
               </div>
               <div className="hidden lg:block w-px h-5 bg-[#D4AF37]/30 mx-3"></div>
@@ -363,7 +321,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
 
             {/* Navigation */}
             <nav className="hidden lg:flex items-center space-x-4 xl:space-x-8 flex-shrink-0">
-              {mainNavItems.map((item, index) => (
+              {mainNavItems.map((item) => (
                 <Link
                   key={item.name}
                       href={item.href}
@@ -378,8 +336,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                     WebkitFontSmoothing: 'antialiased',
                     MozOsxFontSmoothing: 'grayscale',
                     transform: 'translateZ(0)',
-                    willChange: 'transform, color',
-                    animation: `fadeInUp 0.5s ease-out ${index * 0.1}s both`
+                    willChange: 'transform, color'
                   }}
                 >
                   {item.name}
@@ -434,27 +391,18 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#D4AF37] hover:bg-slate-900 text-slate-900 hover:text-[#D4AF37] text-sm font-medium px-2 sm:px-3 xl:px-5 py-2 sm:py-2.5 rounded-lg transition-all duration-[400ms] ease-out flex items-center gap-1 sm:gap-2 whitespace-nowrap shadow-lg hover:shadow-xl relative overflow-hidden group"
+                className="bg-[#D4AF37] hover:bg-slate-900 text-slate-900 hover:text-[#D4AF37] text-sm font-medium px-2 sm:px-3 xl:px-5 py-2 sm:py-2.5 rounded-lg transition-all duration-[400ms] ease-out flex items-center gap-1 sm:gap-2 whitespace-nowrap shadow-lg hover:shadow-xl"
                 style={{
                   letterSpacing: '0.08em',
-                  filter: 'drop-shadow(0 0 12px rgba(212, 175, 55, 0.4))',
+                  filter: 'drop-shadow(0 0 8px rgba(212, 175, 55, 0.3))',
                   transform: 'translateZ(0)',
                   animation: 'breathe 3s ease-in-out infinite',
-                  willChange: 'transform',
-                  background: 'linear-gradient(135deg, #D4AF37, #E6C157)',
+                  willChange: 'transform'
                 }}
               >
-                {/* Ripple effect */}
-                <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-[600ms]"></span>
-                
-                {/* Shine effect */}
-                <span 
-                  className="absolute inset-y-0 -left-12 w-12 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 group-hover:left-full transition-all duration-[800ms] ease-out"
-                ></span>
-                
-                <CalendarDaysIcon className="h-4 w-4 relative z-10" />
-                <span className="hidden sm:inline relative z-10">Book Appointment</span>
-                <span className="sm:hidden relative z-10">Book</span>
+                <CalendarDaysIcon className="h-4 w-4" />
+                <span className="hidden sm:inline">Book Appointment</span>
+                <span className="sm:hidden">Book</span>
               </Link>
 
               {/* Mobile Menu Button */}

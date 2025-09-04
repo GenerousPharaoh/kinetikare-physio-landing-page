@@ -49,6 +49,35 @@
   }
 }
 
+@keyframes lightBeam {
+  0%, 100% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes goldenPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
 /* 
  * CSS IMPORT ORDER - CAREFULLY MANAGED:
  * Only importing essential styles to avoid conflicts

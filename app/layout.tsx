@@ -144,7 +144,8 @@ const organizationSchema = {
     "longitude": -79.838055
   },
   "openingHoursSpecification": [
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Thursday"], "opens": "13:30", "closes": "20:00" }
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Thursday"], "opens": "13:30", "closes": "20:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Wednesday", "Friday"], "opens": "14:00", "closes": "19:30" }
   ],
   "priceRange": "$$",
   "aggregateRating": {
@@ -227,6 +228,27 @@ const organizationSchema = {
     "Credit Card", 
     "Debit Card",
     "Insurance Direct Billing"
+  ],
+  "acceptsInsurance": true,
+  "healthPlanAccepted": [
+    {"@type": "HealthInsurancePlan", "name": "Canada Life"},
+    {"@type": "HealthInsurancePlan", "name": "Sun Life"},
+    {"@type": "HealthInsurancePlan", "name": "Manulife"},
+    {"@type": "HealthInsurancePlan", "name": "Green Shield Canada"},
+    {"@type": "HealthInsurancePlan", "name": "Blue Cross"},
+    {"@type": "HealthInsurancePlan", "name": "WSIB"},
+    {"@type": "HealthInsurancePlan", "name": "Desjardins Insurance"},
+    {"@type": "HealthInsurancePlan", "name": "Empire Life"},
+    {"@type": "HealthInsurancePlan", "name": "Equitable Life"},
+    {"@type": "HealthInsurancePlan", "name": "Industrial Alliance"},
+    {"@type": "HealthInsurancePlan", "name": "Cowan Insurance"},
+    {"@type": "HealthInsurancePlan", "name": "ClaimSecure"},
+    {"@type": "HealthInsurancePlan", "name": "GroupHEALTH"},
+    {"@type": "HealthInsurancePlan", "name": "Johnston Group"},
+    {"@type": "HealthInsurancePlan", "name": "Maximum Benefit"},
+    {"@type": "HealthInsurancePlan", "name": "People Corporation"},
+    {"@type": "HealthInsurancePlan", "name": "RWAM Insurance"},
+    {"@type": "HealthInsurancePlan", "name": "TELUS Health"}
   ],
   "currenciesAccepted": "CAD",
   "serviceArea": {

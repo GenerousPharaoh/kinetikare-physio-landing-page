@@ -146,7 +146,12 @@ const organizationSchema = {
   "openingHoursSpecification": [
     { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Thursday"], "opens": "13:30", "closes": "20:00" }
   ],
-  "priceRange": "Contact for details",
+  "priceRange": "$$",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "8"
+  },
   "founder": {
     "@type": "Person",
     "@id": "https://www.kinetikarephysio.com/#person",

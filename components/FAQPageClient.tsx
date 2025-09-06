@@ -349,12 +349,12 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
       <div className="max-w-3xl mx-auto mb-16 relative z-10">
         <div className="relative group">
           {/* Subtle glow effect */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-[#B08D57]/20 to-[#D4AF37]/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="absolute -inset-2 bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-all duration-700" />
           
-          <div className="relative bg-white rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-neutral-100">
+          <div className="relative bg-white rounded-full shadow-[0_4px_20px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.1)] border border-slate-200/60 group-hover:border-[#B08D57]/30 transition-all duration-300">
             <div className="flex items-center">
-              <div className="pl-6 pr-2">
-                <MagnifyingGlassIcon className="h-5 w-5 text-[#B08D57]" />
+              <div className="pl-6 pr-3">
+                <MagnifyingGlassIcon className="h-5 w-5 text-slate-400 group-hover:text-[#B08D57] transition-colors duration-300" />
               </div>
               
               <input
@@ -362,18 +362,18 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="What would you like to know?" 
-                className="flex-1 py-4 pr-4 text-base placeholder-neutral-400 focus:outline-none bg-transparent"
+                className="flex-1 py-5 pr-4 text-base placeholder-slate-400 focus:outline-none bg-transparent text-slate-800 font-light"
               />
               
               {searchQuery && (
                 <motion.button
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  exit={{ scale: 0 }}
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0, opacity: 0 }}
                   whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={() => setSearchQuery('')}
-                  className="mr-2 p-2 rounded-full bg-neutral-100 text-neutral-500 hover:bg-neutral-200 transition-colors"
+                  className="mr-3 p-2 rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-700 transition-all duration-200"
                   aria-label="Clear search"
                 >
                   <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -383,22 +383,27 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
               )}
               
               {/* Search button */}
-              <button className="bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white px-6 py-2 rounded-full mr-2 font-medium hover:shadow-lg transition-all duration-300">
-                Search
+              <button className="bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white hover:text-white px-7 py-3 rounded-full mr-3 font-medium hover:shadow-lg hover:shadow-[#B08D57]/25 hover:scale-105 transition-all duration-300">
+                <span className="flex items-center gap-2">
+                  Search
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </span>
               </button>
             </div>
           </div>
         </div>
         
         {/* Helpful search suggestions */}
-        <div className="mt-4 text-center">
-          <p className="text-sm text-neutral-500 mb-2">Popular searches:</p>
+        <div className="mt-6 text-center">
+          <p className="text-sm text-slate-500 mb-3 font-light">Popular searches:</p>
           <div className="flex flex-wrap justify-center gap-2">
             {['Direct billing', 'Manual therapy', 'Dry needling', 'Exercise programs', 'Cupping therapy', 'Sports injuries'].map((suggestion) => (
               <button
                 key={suggestion}
                 onClick={() => setSearchQuery(suggestion)}
-                className="text-xs px-3 py-1 rounded-full bg-neutral-100 text-neutral-600 hover:bg-[#B08D57]/10 hover:text-[#B08D57] transition-all duration-200"
+                className="text-xs px-4 py-1.5 rounded-full bg-white border border-slate-200 text-slate-600 hover:border-[#B08D57]/40 hover:bg-[#B08D57]/5 hover:text-[#B08D57] transition-all duration-200 shadow-sm hover:shadow-md"
               >
                 {suggestion}
               </button>

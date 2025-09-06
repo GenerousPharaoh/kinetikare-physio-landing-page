@@ -96,7 +96,7 @@ export default function FeaturedConditions() {
           >
             <Link
               href="/conditions"
-              className="group inline-flex items-center px-10 py-5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] hover:from-[#D4AF37] hover:to-[#B08D57] text-white rounded-full font-medium text-lg transition-all duration-500 shadow-2xl shadow-[#B08D57]/30 hover:shadow-[#B08D57]/50 hover:-translate-y-1 transform"
+              className="group inline-flex items-center px-10 py-5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] hover:from-[#D4AF37] hover:to-[#B08D57] text-white hover:text-white rounded-full font-medium text-lg transition-all duration-500 shadow-2xl shadow-[#B08D57]/30 hover:shadow-[#B08D57]/50 hover:-translate-y-1 transform"
             >
               View All 146 Conditions
               <ArrowRightIcon className="ml-4 h-6 w-6 group-hover:translate-x-1 transition-transform" />

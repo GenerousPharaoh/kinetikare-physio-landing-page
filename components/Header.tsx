@@ -391,7 +391,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#D4AF37] hover:bg-slate-900 text-slate-900 hover:text-[#D4AF37] text-sm font-medium px-2 sm:px-3 xl:px-5 py-2 sm:py-2.5 rounded-lg transition-all duration-[400ms] ease-out flex items-center gap-1 sm:gap-2 whitespace-nowrap shadow-lg hover:shadow-xl"
+                className="bg-[#D4AF37] hover:bg-[#B08D57] text-slate-900 hover:text-white text-sm font-medium px-2 sm:px-3 xl:px-5 py-2 sm:py-2.5 rounded-lg transition-all duration-[400ms] ease-out flex items-center gap-1 sm:gap-2 whitespace-nowrap shadow-lg hover:shadow-xl"
                 style={{
                   letterSpacing: '0.08em',
                   filter: 'drop-shadow(0 0 8px rgba(212, 175, 55, 0.3))',
@@ -475,7 +475,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                 target="_blank"
                 onClick={() => setMobileMenuOpen(false)}
-                  className="flex-1 flex items-center justify-center gap-2 py-3 bg-[#D4AF37] hover:bg-slate-900 text-slate-900 hover:text-[#D4AF37] rounded-lg font-medium tracking-wide shadow-lg transition-all duration-300"
+                  className="flex-1 flex items-center justify-center gap-2 py-3 bg-[#D4AF37] hover:bg-[#B08D57] text-slate-900 hover:text-white rounded-lg font-medium tracking-wide shadow-lg transition-all duration-300"
               >
                   <CalendarDaysIcon className="h-5 w-5" />
                   Book Appointment

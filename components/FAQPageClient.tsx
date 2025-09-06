@@ -345,48 +345,34 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
       </AnimatePresence>
 
 
-      {/* Beautiful modern search bar */}
+      {/* Beautiful modern search bar - matching conditions page */}
       <div className="max-w-3xl mx-auto mb-16 relative z-10">
         <div className="relative group">
-          {/* Subtle glow effect */}
-          <div className="absolute -inset-2 bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-all duration-700" />
-          
-          <div className="relative bg-white rounded-full shadow-[0_4px_20px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.1)] border border-slate-200/60 group-hover:border-[#B08D57]/30 transition-all duration-300">
-            <div className="flex items-center">
-              <div className="pl-6 pr-3">
-                <MagnifyingGlassIcon className="h-5 w-5 text-slate-400 group-hover:text-[#B08D57] transition-colors duration-300" />
-              </div>
-              
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="What would you like to know?" 
-                className="flex-1 py-4 pr-4 text-base placeholder-slate-400 focus:outline-none bg-transparent text-slate-800 font-light"
-              />
-              
-              {searchQuery && (
-                <motion.button
-                  initial={{ scale: 0, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  exit={{ scale: 0, opacity: 0 }}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => setSearchQuery('')}
-                  className="mr-3 p-2 rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-700 transition-all duration-200"
-                  aria-label="Clear search"
-                >
-                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </motion.button>
-              )}
-              
-              {/* Search button */}
-              <button className="bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white hover:text-white px-8 py-3 rounded-full -mr-1 font-medium hover:shadow-lg hover:shadow-[#B08D57]/25 transition-all duration-300">
-                Search
-              </button>
-            </div>
+          <div className="relative bg-white rounded-full border-2 border-slate-200 hover:border-[#B08D57] transition-all duration-300 shadow-xl hover:shadow-2xl">
+            <MagnifyingGlassIcon className="absolute left-6 top-1/2 transform -translate-y-1/2 h-6 w-6 text-[#B08D57]" />
+            <input
+              type="text"
+              placeholder="Search FAQs (e.g., insurance, dry needling, treatment duration...)"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-14 pr-6 py-5 bg-transparent rounded-full focus:outline-none focus:ring-4 focus:ring-[#B08D57]/20 text-lg font-medium text-slate-900 placeholder-slate-500"
+            />
+            {searchQuery && (
+              <motion.button
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0, opacity: 0 }}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setSearchQuery('')}
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-700 transition-all duration-200"
+                aria-label="Clear search"
+              >
+                <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </motion.button>
+            )}
           </div>
         </div>
         

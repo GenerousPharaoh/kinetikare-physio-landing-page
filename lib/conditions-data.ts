@@ -589,9 +589,9 @@ const footAnkleConditions: Condition[] = [
     name: 'Posterior Tibial Tendon Dysfunction',
     category: 'foot-ankle',
     description: 'Adult-acquired flatfoot, progressive foot deformity',
+    metaDescription: 'PTTD treatment in Burlington. Expert physiotherapy for adult-acquired flatfoot using orthotics, strengthening exercises, and activity modification.',
     featured: true,
     priority: 32,
-    metaDescription: 'PTTD treatment in Burlington. Expert physiotherapy for posterior tibial tendon dysfunction and adult-acquired flatfoot using progressive strengthening.',
   },
   {
     id: 'mortons-neuroma',
@@ -643,6 +643,7 @@ const footAnkleConditions: Condition[] = [
     name: "Sever's Disease",
     category: 'foot-ankle',
     description: 'Calcaneal apophysitis, pediatric heel pain in growing athletes',
+    metaDescription: "Sever's disease treatment in Burlington. Expert pediatric physiotherapy for heel pain in young athletes using activity modification and stretching.",
     featured: true,
     priority: 35,
     metaDescription: "Sever's disease treatment in Burlington. Pediatric physiotherapy for growing heel pain using activity modification and strengthening.",

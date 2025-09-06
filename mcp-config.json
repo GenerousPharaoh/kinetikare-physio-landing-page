@@ -6,7 +6,7 @@
         "-y",
         "mcp-knowledge-graph",
         "--memory-path",
-        "/Users/kareemhassanein/Desktop/code/physiotherapy-next/data/knowledge-graph.jsonl"
+        "/Users/kareemhassanein/Desktop/kinetikare-physio-landing-page/data/knowledge-graph.jsonl"
       ],
       "autoapprove": [
         "create_entities",
@@ -26,9 +26,9 @@
         "-y",
         "@modelcontextprotocol/server-filesystem",
         "--allow-dirs",
-        "/Users/kareemhassanein/Desktop/code/physiotherapy-next/data",
+        "/Users/kareemhassanein/Desktop/kinetikare-physio-landing-page/data",
         "--allow-dirs", 
-        "/Users/kareemhassanein/Desktop/code/physiotherapy-next/ai-conversations"
+        "/Users/kareemhassanein/Desktop/kinetikare-physio-landing-page/ai-conversations"
       ]
     },
     "ai-physio-context": {
@@ -38,7 +38,7 @@
         "@modelcontextprotocol/server-memory"
       ],
       "env": {
-        "MEMORY_FILE_PATH": "/Users/kareemhassanein/Desktop/code/physiotherapy-next/data/ai-physio-memory.json"
+        "MEMORY_FILE_PATH": "/Users/kareemhassanein/Desktop/kinetikare-physio-landing-page/data/ai-physio-memory.json"
       }
     }
   }

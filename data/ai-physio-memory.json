@@ -1,10 +1,10 @@
 {
   "project_overview": {
     "name": "KinetiKare Physiotherapy Website",
-    "location": "/Users/kareemhassanein/Desktop/code/physiotherapy-next",
+    "location": "/Users/kareemhassanein/Desktop/kinetikare-physio-landing-page",
     "deployment": "kinetikarephysio.com",
     "status": "Production - Actively Maintained",
-    "last_updated": "2025-08-21"
+    "last_updated": "2025-09-05"
   },
   "technical_stack": {
     "framework": "Next.js 14.0.4",
@@ -15,7 +15,7 @@
     "repository": "https://github.com/GenerousPharaoh/kinetikare-physio-landing-page.git"
   },
   "content_system": {
-    "total_conditions": "46+",
+    "total_conditions": "47",
     "main_content_file": "/lib/detailed-conditions-content.ts",
     "type_definitions": "/lib/conditions-data.ts",
     "rendering_component": "/components/ConditionPageClient.tsx",
@@ -37,6 +37,11 @@
     "terminology": "Treatment Areas (not Conditions I Treat)"
   },
   "recent_major_updates": [
+    "SEO Schema.org enhancements completed (September 2025)",
+    "Added aggregateRating: 5.0 stars with 8 reviews from Trustindex",
+    "Updated priceRange to $$ (mid-range pricing)",
+    "Added comprehensive insurance provider list for direct billing",
+    "Added Wednesday/Friday opening hours for Headon Physio location",
     "Integrated shoulder research from Gemini document",
     "Updated 12 placeholder conditions with full evidence-based content", 
     "Fixed critical display bug with evidenceSnapshot field names",
@@ -59,5 +64,40 @@
   "evidenceSnapshot_formats": {
     "legacy": ["firstLine", "imaging", "management"],
     "current": ["primaryStrategy", "secondaryStrategy", "preventionStrategy"]
+  },
+  "seo_enhancements_sept_2025": {
+    "schema_org_updates": {
+      "aggregate_rating": "5.0 stars with 8 reviews from Trustindex",
+      "price_range": "$$ (mid-range pricing)",
+      "pricing_details": "$90 for 30 min, $145/hour follow-up, $130 initial assessment",
+      "insurance_providers": "Canada Life, Sun Life, Manulife, Green Shield Canada, Blue Cross, WSIB, Desjardins Insurance, Empire Life, Equitable Life, Industrial Alliance, Cowan Insurance, ClaimSecure, GroupHEALTH, Johnston Group, Maximum Benefit, People Corporation, RWAM Insurance, TELUS Health",
+      "additional_location": "Headon Physio (Wed/Fri 14:00-19:30) - 1387 Walkers Line Unit B, Burlington"
+    },
+    "seo_status": {
+      "google_analytics": "GA4: G-65FN5BN480 properly configured",
+      "trustindex_widget": "Successfully displaying 5.0 star reviews",
+      "medical_condition_schema": "All 47 condition pages have MedicalCondition schema",
+      "medical_procedure_schema": "Services page has MedicalProcedure schema",
+      "sitemap": "Properly configured (ai-physio page intentionally removed)",
+      "og_images": "Properly implemented on individual pages"
+    },
+    "branding_hierarchy": {
+      "primary_brand": "Kareem Hassanein Physiotherapy",
+      "secondary_seo_brand": "KinetiKare Physio / Kinetikare Physio",
+      "domain_note": "kinetikarephysio.com (includes 're' - differs from search term)",
+      "avoid_branding": "KH Physiotherapy"
+    },
+    "competitor_intelligence": [
+      "Burlington Sports & Spine",
+      "Mainway Physiotherapy",
+      "Cornerstone Physiotherapy",
+      "Eramosa Physiotherapy"
+    ],
+    "important_notes": [
+      "ai-physio page intentionally removed from sitemap (was causing 404s)",
+      "No location-specific landing pages needed (user preference)",
+      "Condition pages are comprehensive (47 conditions)",
+      "Core structured data complete and validated"
+    ]
   }
 }

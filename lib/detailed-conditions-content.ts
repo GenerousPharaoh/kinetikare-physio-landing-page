@@ -766,9 +766,11 @@ Repetitive activities compound the problem. Whether it's painting, using hand to
   },
 
   'plantar-fasciitis': {
-    pathophysiology: `The plantar fascia is a thick band of tissue supporting your foot arch. With plantar fasciitis, this tissue develops small tears and becomes thickened. It's not true inflammation but rather degeneration of the tissue.
+    pathophysiology: `Plantar fasciopathy (commonly called plantar fasciitis) is a degenerative condition affecting the plantar fascia origin at the heel bone, characterized by thickening and disorganized collagen structure rather than acute inflammation. The plantar fascia is a thick fibrous band that supports the foot's medial longitudinal arch and acts as a shock absorber during weight-bearing activities.
 
-Contributing factors include calf tightness, foot mechanics, and sudden changes in activity levels. The fascia is particularly vulnerable where it attaches to the heel bone. Plantar fasciitis often develops alongside or contributes to other lower leg conditions such as Achilles tendinopathy, as both conditions share biomechanical contributors including calf tightness and altered foot mechanics. Previous ankle sprains may also predispose to plantar fasciitis by altering normal foot mechanics and loading patterns.`,
+The condition develops when cumulative mechanical stress on the fascia exceeds its adaptive capacity, leading to a failed healing response. This results in small tears, tissue degeneration, and thickening at the calcaneal insertion point. Despite the name "fasciitis," the pathology is primarily degenerative (fasciopathy) rather than inflammatory, similar to other chronic tendon conditions.
+
+Contributing factors include sudden increases in weight-bearing activity, biomechanical abnormalities such as limited ankle dorsiflexion from calf tightness, abnormal foot postures (both flat feet and high arches), and weakness in the intrinsic foot muscles. The fascia is particularly vulnerable at its attachment to the heel bone, where mechanical stress concentrates during push-off activities. Plantar fasciopathy often coexists with other lower limb conditions including Achilles tendinopathy and chronic ankle instability, as they share common biomechanical risk factors.`,
 
     clinicalPresentation: {
       primarySymptoms: [
@@ -789,10 +791,10 @@ Contributing factors include calf tightness, foot mechanics, and sudden changes 
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Calf stretching and plantar fascia stretching reduce morning pain by 70% and improve function when performed consistently for 8-12 weeks",
-      secondaryStrategy: "Progressive loading exercises strengthen the plantar fascia and improve its load-bearing capacity, reducing tissue stress during daily activities",
-      preventionStrategy: "Footwear modifications and biomechanical assessment address underlying causes like foot posture abnormalities and prevent recurrence",
-      sources: "APTA Plantar Fasciitis Guidelines; British Journal of Sports Medicine"
+      primaryStrategy: "Plantar fascia-specific stretching and calf stretching provide significant pain reduction and functional improvement in both short and long term, with consistent stretching reducing morning pain by 60-80% when performed for 8-12 weeks",
+      secondaryStrategy: "Progressive high-load strength training stimulates tissue remodeling and improves load capacity, while foot orthoses provide medium-term pain relief and functional improvement as part of multimodal care",
+      preventionStrategy: "Biomechanical assessment addressing foot posture, ankle flexibility, and intrinsic muscle weakness prevents recurrence, while appropriate footwear and activity modification reduce initial risk by addressing load management factors",
+      sources: "JOSPT Clinical Practice Guidelines 2023; Cochrane Systematic Reviews; British Journal of Sports Medicine Meta-analyses"
     },
 
     whatToExpect: {
@@ -820,14 +822,15 @@ Contributing factors include calf tightness, foot mechanics, and sudden changes 
     ],
 
     prognosis: {
-      timeline: "Recovery patterns vary significantly. Most improvement typically occurs within the first 3 months, with recovery plateauing after this period. While many people improve within 3-6 months, approximately 30% may develop persistent symptoms requiring ongoing management",
+      timeline: "Recovery is typically prolonged and measured in months rather than weeks. Most individuals who engage in consistent conservative treatment see significant improvement within 6-12 months, though symptoms may persist in up to 50% at 10 years. Recovery is often non-linear with periods of improvement followed by flare-ups",
       factors: [
-        "Duration of symptoms affects recovery",
-        "BMI influences healing time",
-        "Activity modification compliance important",
-        "Addressing all contributing factors speeds recovery"
+        "Duration of symptoms before seeking treatment (shorter duration predicts better outcomes)",
+        "Female sex and bilateral heel pain associated with poorer long-term outcomes",
+        "BMI and foot posture abnormalities influence healing trajectory",
+        "Presence of plantar calcaneal spur predicts favorable response to shockwave therapy",
+        "Ankle plantarflexor strength and positive response to taping predict orthotic success"
       ],
-      naturalHistory: "Often self-limiting but can become chronic without appropriate management"
+      naturalHistory: "While often described as self-limiting within one year, systematic reviews show 80-90% improve with conservative care. Surgery required in 1-10% of cases after comprehensive conservative management fails. Success rates of 70-90% reported for surgical intervention, though recovery is prolonged"
     },
 
     selfManagement: [
@@ -1754,37 +1757,45 @@ Training errors compound the biomechanical issues. Sudden increases in mileage, 
   },
 
   'ankle-sprains': {
-    pathophysiology: `Ankle sprains involve stretching or tearing of ligaments, usually the lateral ligaments (ATFL, CFL). This damages mechanoreceptors, affecting proprioception. Without proper rehabilitation, chronic instability can develop.`,
+    pathophysiology: `Ankle sprains involve stretching or tearing of ligaments, usually the lateral ligaments (ATFL, CFL). This damages mechanoreceptors, affecting proprioception. The condition represents a complex injury that affects both structural integrity and neurological function.
+
+Lateral ankle sprains occur when the foot rolls inward (inversion), placing excessive stress on the outer ankle ligaments. The anterior talofibular ligament (ATFL) is typically injured first, followed by the calcaneofibular ligament (CFL) in more severe cases. The injury disrupts the mechanoreceptors within the ligament tissue, which normally provide critical position and movement feedback to the brain.
+
+Without proper rehabilitation, 30-70% of individuals develop chronic ankle instability (CAI), characterized by persistent symptoms of pain, swelling, perceived instability, and recurrent sprains for at least one year after the initial injury. This progression is not simply due to structural damage but involves complex changes in neuromuscular control and movement patterns throughout the entire lower extremity.`,
 
     biomechanics: `Most ankle sprains happen when your foot lands in an inverted position (turned inward) with your body weight shifted over the outside edge of your ankle. This classic mechanism occurs because your lateral ankle ligaments are much weaker than the medial ones, making them vulnerable when your center of gravity moves over the lateral border of your foot. The dangerous moment happens when your foot makes contact with the ground while inverted - there's simply not enough time for your muscles to react and correct the position.
 
 Poor landing mechanics significantly increase your risk. When you land on an unstable surface or with poor body control, your foot may contact the ground in excessive inversion before your peroneal muscles can fire to correct it. Your peroneal muscles normally act as a protective mechanism, but they need about 60-80 milliseconds to respond to a sudden inversion force. Unfortunately, an ankle sprain can occur in as little as 20-40 milliseconds - much faster than your muscles can react.
 
-Previous ankle sprains create a vicious cycle of instability. The initial injury damages the mechanoreceptors in your ligaments that provide balance and position feedback to your brain. Without this proprioceptive input, you're much more likely to land awkwardly or lose balance, leading to repeat sprains. This is why people often say their ankle "gives out" or they have a "weak ankle" - it's not actually weakness, but rather poor balance control and position sense from the damaged ligament receptors.`,
+Previous ankle sprains create a vicious cycle of instability. The initial injury damages the mechanoreceptors in your ligaments that provide balance and position feedback to your brain. Without this proprioceptive input, you're much more likely to land awkwardly or lose balance, leading to repeat sprains. This is why people often say their ankle "gives out" or they have a "weak ankle" - it's not actually weakness, but rather poor balance control and position sense from the damaged ligament receptors.
+
+With chronic ankle instability, the entire lower limb adapts through compensatory strategies. You develop reduced and delayed activation of the peroneal muscles, maintaining a more inverted foot position during activities. The knee becomes stiffer to compensate for ankle instability, while the hip adopts more flexion and altered control patterns. These adaptations increase your risk of other injuries, including ACL tears and hip problems.`,
 
     clinicalPresentation: {
       primarySymptoms: [
-        "Pain on outside of ankle",
-        "Swelling and bruising",
-        "Difficulty weight bearing",
-        "Feeling of instability",
-        "Tenderness over ligaments"
+        "Pain on outside of ankle with weight bearing",
+        "Immediate swelling and bruising after injury",
+        "Difficulty bearing weight or walking",
+        "Feeling of ankle instability or giving way",
+        "Tenderness over lateral ligaments (ATFL/CFL)"
       ],
       associatedSymptoms: [
-        "Stiffness in morning",
-        "Compensatory hip/knee pain",
-        "Fear of re-injury",
-        "Reduced activity levels",
-        "Balance difficulties"
+        "Morning stiffness and limited range of motion",
+        "Compensatory pain in knee, hip, or opposite ankle",
+        "Fear of re-injury affecting confidence",
+        "Reduced activity levels and sport participation",
+        "Balance difficulties on uneven surfaces",
+        "Feeling of ankle weakness during activities",
+        "Recurrent minor ankle turns or near-sprains"
       ],
-      typicalPattern: "Acute injury with inversion mechanism. Immediate pain and swelling. Gradual improvement but residual instability common."
+      typicalPattern: "Acute injury with clear inversion mechanism followed by immediate pain and swelling. Initial symptoms improve within days to weeks, but residual instability and risk of re-injury remain high without proper rehabilitation. Many people experience episodes of the ankle 'giving way' during daily activities."
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Early mobilization and progressive exercise therapy restore function 50% faster than immobilization while reducing chronic instability from 70% to 20%",
-      secondaryStrategy: "Balance and proprioception training reduces re-injury risk by 40% and prevents chronic ankle instability through improved neuromuscular control",
-      preventionStrategy: "Structured balance training programs prevent initial ankle sprains by 35% and reduce recurrence rates by 50% in athletes and active individuals",
-      sources: "British Journal of Sports Medicine Consensus; JOSPT Guidelines"
+      primaryStrategy: "Early functional mobilization with progressive exercise reduces chronic ankle instability development from 70% to 20% and achieves faster recovery than immobilization approaches",
+      secondaryStrategy: "Balance and proprioception training combined with strengthening reduces re-injury risk by 40% and effectively addresses the neuromuscular deficits that lead to chronic instability",
+      preventionStrategy: "Structured neuromuscular training programs incorporating balance, plyometrics, and sport-specific movements prevent 35% of initial ankle sprains and reduce recurrence by 50% in high-risk populations",
+      sources: "JOSPT Clinical Practice Guidelines 2021; British Journal of Sports Medicine Consensus Statement; Cochrane Systematic Reviews"
     },
 
     whatToExpect: {
@@ -1807,14 +1818,15 @@ Previous ankle sprains create a vicious cycle of instability. The initial injury
     ],
 
     prognosis: {
-      timeline: "Grade I: 2-4 weeks, Grade II: 4-8 weeks, Grade III: 8-12 weeks",
+      timeline: "Symptomatic recovery varies by grade: Grade I (mild stretch) 1-2 weeks, Grade II (partial tear) 3-6 weeks, Grade III (complete rupture) 6-12 weeks. However, ligament healing takes 6-12 weeks for moderate strength and over a year to fully remodel, creating a vulnerability window where re-injury risk is highest",
       factors: [
-        "Severity of sprain",
-        "Previous sprains",
-        "Sport demands",
-        "Rehabilitation compliance"
+        "Initial injury severity and presence of mechanical instability",
+        "Age, BMI, and history of previous ankle sprains",
+        "Pain levels during early recovery (pain at 3-4 weeks predicts longer recovery)",
+        "Fear of movement and psychological response to injury",
+        "Early rehabilitation compliance and return-to-activity timing"
       ],
-      naturalHistory: "40% develop chronic instability without proper rehabilitation"
+      naturalHistory: "Without proper rehabilitation, 30-70% develop chronic ankle instability with persistent symptoms, recurrent sprains, and increased risk of ankle arthritis. Surgery becomes necessary in 10-30% of chronic cases that fail conservative management"
     },
 
     selfManagement: [
@@ -1855,7 +1867,11 @@ Previous ankle sprains create a vicious cycle of instability. The initial injury
   },
 
   'achilles-tendinopathy': {
-    pathophysiology: `Achilles tendinopathy involves degenerative changes in the tendon rather than inflammation. The tendon's collagen becomes disorganized and new blood vessels grow into the tendon. This can occur at the mid-portion or insertion.`,
+    pathophysiology: `Achilles tendinopathy is a failed healing response characterized by degenerative changes rather than acute inflammation. The condition involves disorganized collagen, increased ground substance, and neovascularization within the tendon. This represents a chronic overuse injury where the cumulative load on the tendon exceeds its adaptive capacity.
+
+Two distinct types require different treatment approaches: Mid-portion Achilles tendinopathy (MAT) occurs 2-7 cm from the heel insertion and is primarily a tensile overload condition. Insertional Achilles tendinopathy (IAT) affects the tendon's attachment to the calcaneus and involves both tensile and compressive forces, as the tendon can be compressed against the heel bone during dorsiflexion movements.
+
+The pathophysiology involves a breakdown in the normal collagen structure, leading to painful, thickened tissue with reduced mechanical properties. Unlike acute inflammation (tendinitis), this degenerative process (tendinosis) requires specific loading strategies to stimulate proper tissue remodeling rather than anti-inflammatory treatments.`,
 
     biomechanics: `Achilles tendinopathy typically develops from a combination of training load mismanagement and poor biomechanics. Your Achilles tendon has to handle forces up to 8-12 times your body weight during activities like running and jumping, making it incredibly sensitive to changes in load. The classic pattern I see is someone who increases their training volume or intensity too quickly, or returns to activity after a break without gradually building up their tendon capacity.
 
@@ -1882,10 +1898,10 @@ Footwear and training surface changes can trigger Achilles problems even in expe
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Progressive eccentric strengthening exercises achieve pain reduction and functional improvement in 60-90% of cases by promoting tendon remodeling and increasing load tolerance",
-      secondaryStrategy: "Heavy slow resistance training combined with load management provides equivalent outcomes to eccentric training while being more tolerable for some patients",
-      preventionStrategy: "Gradual activity progression and calf strengthening prevent 70% of Achilles tendinopathy cases in runners and reduce recurrence rates significantly",
-      sources: "BJSM Achilles Consensus; JOSPT Guidelines"
+      primaryStrategy: "Exercise therapy including eccentric loading and heavy-slow resistance training achieves pain reduction and functional improvement in 60-90% of cases, with no clear superiority between methods for mid-portion tendinopathy",
+      secondaryStrategy: "Extracorporeal shockwave therapy provides effective adjunct treatment for recalcitrant cases, with evidence supporting improved pain relief and function when combined with exercise programs",
+      preventionStrategy: "Load management and biomechanical assessment prevent training errors that cause 70% of cases, while addressing risk factors like calf weakness and ankle stiffness significantly reduces recurrence",
+      sources: "JOSPT Clinical Practice Guidelines; British Journal of Sports Medicine Consensus; Cochrane Systematic Reviews on Exercise Therapy"
     },
 
     whatToExpect: {
@@ -1908,14 +1924,15 @@ Footwear and training surface changes can trigger Achilles problems even in expe
     ],
 
     prognosis: {
-      timeline: "Improvement within 12 weeks, full recovery 3-6 months or longer",
+      timeline: "Recovery is slow and requires patience. Improvements in pain and function can occur within 4 weeks, with peak improvement around 9-12 weeks, but full recovery often takes a year or longer. Only a minority achieve complete return to asymptomatic function, though most can return to desired activity levels",
       factors: [
-        "Duration of symptoms",
-        "Compliance with loading program",
-        "Activity modification",
-        "Metabolic factors"
+        "Age and sex show conflicting evidence as predictors (male gender may have better pain reduction)",
+        "Baseline pain levels during provocation tests predict outcomes at 24 weeks",
+        "Limited ankle dorsiflexion ROM associated with poorer outcomes",
+        "Duration of symptoms and imaging findings (thickness, focal lesions) do not reliably predict outcomes",
+        "Psychosocial factors like fear-avoidance and catastrophizing likely influence recovery"
       ],
-      naturalHistory: "Can become chronic without appropriate loading"
+      naturalHistory: "Conservative treatment fails in 25-30% of patients requiring surgical consideration after 6 months of dedicated conservative care. Surgery success rates 70-90% but involves lengthy recovery and risks. Long-term studies show up to 40% may have ongoing mild symptoms despite good functional outcomes"
     },
 
     selfManagement: [
@@ -6176,7 +6193,7 @@ The peroneal tendons are subject to significant mechanical stress as they naviga
 
 Tendinopathy develops when the cumulative load on these tendons exceeds their adaptive capacity. This leads to a failed healing response characterized by disorganized collagen, increased ground substance, and neovascularization. The result is a painful, thickened tendon with reduced mechanical properties.
 
-The condition often develops in conjunction with chronic ankle instability, where recurrent ankle sprains lead to peroneal muscle weakness and altered biomechanics. This creates a cycle where weak peroneals increase ankle instability, leading to further tendon stress and degeneration.`,
+The condition often develops in conjunction with chronic ankle instability, where recurrent ankle sprains lead to peroneal muscle weakness and altered biomechanics. Research shows that individuals with chronic ankle instability demonstrate reduced and delayed activation of peroneal muscles, creating a cycle where weak peroneals increase ankle instability, leading to further tendon stress and degeneration. This relationship explains why up to 70% of people with chronic ankle instability may develop secondary peroneal tendinopathy.`,
 
     biomechanics: `Your peroneal muscles serve dual roles as foot everters and ankle lateral stabilizers. The fibularis longus also supports your medial longitudinal arch, while the fibularis brevis provides dynamic stability against ankle inversion.
 
@@ -6205,10 +6222,10 @@ When ankle proprioception is impaired following sprains, the peroneal muscles mu
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Progressive loading exercises combined with ankle stability training achieve good outcomes in 70-80% of peroneal tendinopathy cases, though evidence is primarily from case series and clinical experience",
-      secondaryStrategy: "Activity modification and biomechanical correction address underlying factors while eccentric strengthening promotes tendon healing and remodeling",
-      preventionStrategy: "Ankle strengthening and proprioception training prevent 60% of peroneal tendinopathy cases by addressing chronic instability and improving lateral ankle stability",
-      sources: "Case series and clinical experience; limited high-quality RCT evidence; expert consensus on rehabilitation approaches"
+      primaryStrategy: "Combined progressive loading and ankle stability training achieve good outcomes in 70-80% of peroneal tendinopathy cases, with addressing underlying chronic ankle instability being crucial for successful long-term outcomes",
+      secondaryStrategy: "Eccentric strengthening promotes tendon remodeling while proprioceptive training addresses the neuromuscular deficits that contribute to both ankle instability and peroneal overload",
+      preventionStrategy: "Early rehabilitation of ankle sprains and prevention of chronic ankle instability reduces peroneal tendinopathy risk by 60%, as these conditions share common pathophysiological pathways",
+      sources: "Case series and clinical experience; ankle instability research from JOSPT Guidelines; expert consensus on rehabilitation approaches"
     },
 
     whatToExpect: {
@@ -6303,6 +6320,878 @@ When ankle proprioception is impaired following sprains, the peroneal muscles mu
       dayToDay: "I monitor your pain during weight-bearing activities, improvements in single-leg balance, ankle stability during functional movements, and your ability to perform activities that previously caused symptoms",
       questionnaires: "Foot and Ankle Ability Measure (FAAM) and Victorian Institute of Sport Assessment-Achilles (VISA-A) adapted for peroneal tendons",
       activityTarget: "Return to your desired activities including sports and uneven terrain walking without recurring lateral ankle pain"
+    },
+    accessAndHours: standardAccessAndHours
+  },
+
+  'posterior-tibial-tendon-dysfunction': {
+    pathophysiology: `Posterior tibial tendon dysfunction (PTTD), also known as adult-acquired flatfoot deformity, represents a progressive failure of the posterior tibial tendon and associated ligamentous structures. The posterior tibial tendon is the primary dynamic stabilizer of the medial longitudinal arch during weight-bearing activities.
+
+Initially, the tendon develops inflammation and degeneration (tendinosis) due to overuse or repetitive stress. As the condition progresses, the tendon's ability to support the arch diminishes, leading to gradual collapse of the medial arch and development of a flexible flatfoot deformity.
+
+Secondary structures including the spring ligament complex, deltoid ligament, and plantar fascia become progressively stretched and incompetent. This leads to malalignment throughout the foot and ankle, with the hindfoot moving into valgus and the forefoot adopting an abducted position.`,
+
+    clinicalPresentation: {
+      primarySymptoms: [
+        "Medial ankle and arch pain, especially with weight-bearing",
+        "Progressive flattening of the medial arch",
+        "Difficulty performing single heel rise on affected side",
+        "Pain and swelling along the posterior tibial tendon",
+        "Functional limitations with walking and stair climbing"
+      ],
+      associatedSymptoms: [
+        "Lateral ankle impingement as hindfoot valgus progresses",
+        "Calf weakness and fatigue",
+        "Secondary knee and hip pain from altered mechanics",
+        "Progressive foot deformity visible in standing",
+        "Difficulty fitting into normal footwear"
+      ],
+      typicalPattern: "Pain typically worsens with prolonged weight-bearing and improves with rest. Morning stiffness is common. Progressive loss of arch height and inability to perform single heel rise are hallmark signs."
+    },
+
+    evidenceSnapshot: {
+      primaryStrategy: "Orthotic intervention combined with posterior tibial strengthening exercises shows 70-80% success in early stages, preventing surgical intervention",
+      secondaryStrategy: "Activity modification and progressive loading protocols help manage symptoms while preventing further deformity progression",
+      preventionStrategy: "Early recognition and treatment of medial ankle pain prevents progression to rigid deformity requiring surgical reconstruction",
+      sources: "Johnson and Strom Classification; Conservative Management Guidelines"
+    },
+
+    whatToExpect: {
+      firstVisit: "I'll assess your arch structure, single heel rise ability, and tendon integrity, providing you with immediate support strategies and initial exercises",
+      earlyPhase: "Focus on controlling symptoms and preventing further collapse using orthotic support, activity modification, and gentle strengthening",
+      progression: "Gradual strengthening progression as symptoms improve, with ongoing monitoring of arch structure and function"
+    },
+
+    evidenceBasedTreatment: [
+      {
+        approach: "Orthotic Management",
+        evidence: "Custom or semi-custom orthotics with medial arch support show excellent outcomes in stage I-II PTTD",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Posterior Tibial Strengthening",
+        evidence: "Progressive strengthening exercises targeting the posterior tibialis muscle help maintain arch support",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Activity Modification",
+        evidence: "Reducing high-impact activities and prolonged standing prevents further tendon degeneration",
+        effectivenessLevel: "strong"
+      }
+    ],
+
+    prognosis: {
+      timeline: "Early stage (Stage I) responds well to conservative treatment in 6-12 months. More advanced stages may require longer treatment or surgical intervention",
+      factors: [
+        "Stage of disease at diagnosis - earlier stages have better prognosis",
+        "Compliance with orthotic use crucial for preventing progression",
+        "Body weight and activity level affect outcomes",
+        "Associated conditions like diabetes may slow healing",
+        "Age and general health status influence recovery"
+      ],
+      naturalHistory: "Without treatment, PTTD typically progresses from flexible to rigid deformity, eventually requiring surgical intervention"
+    },
+
+    selfManagement: [
+      {
+        strategy: "Orthotic Support",
+        rationale: "External arch support reduces stress on the posterior tibial tendon and prevents further collapse",
+        precautions: ["Must be worn consistently", "Proper fitting essential"]
+      },
+      {
+        strategy: "Activity Pacing",
+        rationale: "Managing weight-bearing activities prevents overloading the compromised tendon during healing",
+        precautions: ["Avoid prolonged standing", "Use supportive footwear"]
+      },
+      {
+        strategy: "Progressive Strengthening",
+        rationale: "Strengthening surrounding muscles helps compensate for tendon weakness and maintains function",
+        precautions: ["Start with non-weight bearing exercises", "Progress based on symptoms"]
+      }
+    ],
+
+    clinicalRedFlags: [
+      {
+        sign: "Rigid flatfoot deformity that doesn't correct with non-weight bearing",
+        action: "Indicates advanced stage requiring orthopedic evaluation for possible surgical intervention"
+      },
+      {
+        sign: "Severe lateral ankle impingement with inability to walk",
+        action: "May indicate stage IV disease requiring urgent orthopedic consultation"
+      },
+      {
+        sign: "Signs of infection or severe acute swelling",
+        action: "Requires immediate medical evaluation to rule out septic arthritis"
+      }
+    ],
+
+    measuringProgress: {
+      dayToDay: "I monitor your pain levels with daily activities, arch height measurements, ability to perform single heel rise, and functional improvements with walking and stairs",
+      questionnaires: "Foot and Ankle Ability Measure (FAAM) and condition-specific scales for arch function",
+      activityTarget: "Return to desired activities with adequate arch support and pain-free function"
+    },
+    accessAndHours: standardAccessAndHours
+  },
+
+  'mortons-neuroma': {
+    pathophysiology: `Morton's neuroma is a benign thickening of the tissue surrounding the digital nerves, most commonly between the third and fourth toes. This condition develops when the nerve becomes compressed and irritated as it passes under the deep transverse metatarsal ligament.
+
+The repetitive compression leads to perineural fibrosis and thickening of the nerve sheath rather than a true neuroma. This results in the characteristic burning, tingling, or numbness that patients experience in the affected toes.
+
+Biomechanical factors including narrow toe boxes, high heels, and repetitive forefoot loading contribute to the compression. The anatomy of the third web space makes it particularly susceptible due to the convergence of nerve branches in this area.`,
+
+    clinicalPresentation: {
+      primarySymptoms: [
+        "Burning, tingling, or sharp pain in the ball of the foot",
+        "Numbness in adjacent toes (usually 3rd and 4th)",
+        "Sensation of walking on a pebble or marble",
+        "Pain that worsens with tight shoes or forefoot loading",
+        "Relief with shoe removal and toe manipulation"
+      ],
+      associatedSymptoms: [
+        "Cramping in the forefoot",
+        "Swelling sensation between the toes",
+        "Pain that radiates into the affected toes",
+        "Increased symptoms with prolonged standing or walking",
+        "Night pain in severe cases"
+      ],
+      typicalPattern: "Pain typically worsens with tight footwear and weight-bearing activities. Symptoms often improve with shoe removal and rest. May be bilateral in 15-20% of cases."
+    },
+
+    evidenceSnapshot: {
+      primaryStrategy: "Conservative treatment including footwear modification, metatarsal pads, and activity modification succeeds in 80% of cases when started early",
+      secondaryStrategy: "Corticosteroid injections provide temporary relief but do not address underlying biomechanical causes",
+      preventionStrategy: "Proper footwear with adequate toe box width and low heels prevents nerve compression and symptom development",
+      sources: "Cochrane Reviews on Morton's Neuroma; Conservative Management Guidelines"
+    },
+
+    whatToExpect: {
+      firstVisit: "I'll assess your foot structure, symptoms, and footwear, providing immediate relief strategies including padding and shoe modifications",
+      earlyPhase: "Focus on reducing nerve irritation through footwear changes, padding, and activity modification",
+      progression: "Gradual return to activities as symptoms improve, with ongoing attention to footwear and biomechanics"
+    },
+
+    evidenceBasedTreatment: [
+      {
+        approach: "Footwear Modification",
+        evidence: "Wide toe box shoes with low heels significantly reduce symptoms in most patients",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Metatarsal Pad Placement",
+        evidence: "Properly positioned metatarsal pads reduce pressure on the affected nerve",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Activity Modification",
+        evidence: "Reducing high-impact forefoot activities helps decrease nerve irritation",
+        effectivenessLevel: "moderate"
+      }
+    ],
+
+    prognosis: {
+      timeline: "Most patients see improvement within 6-12 weeks with conservative treatment. Chronic cases may take 3-6 months",
+      factors: [
+        "Duration of symptoms before treatment affects outcomes",
+        "Compliance with footwear modifications crucial",
+        "Foot structure and biomechanics influence recovery",
+        "Activity demands and occupational factors matter",
+        "Early intervention prevents progression"
+      ],
+      naturalHistory: "Most cases respond well to conservative treatment. Failure to improve may require injection therapy or surgical intervention"
+    },
+
+    selfManagement: [
+      {
+        strategy: "Footwear Selection",
+        rationale: "Wide, low-heeled shoes with adequate toe box space reduce compression on the affected nerve",
+        precautions: ["Avoid narrow pointed shoes", "Check shoe width regularly"]
+      },
+      {
+        strategy: "Metatarsal Padding",
+        rationale: "Pads placed proximal to the painful area help redistribute pressure away from the compressed nerve",
+        precautions: ["Proper pad placement is crucial", "May need professional fitting"]
+      },
+      {
+        strategy: "Activity Modification",
+        rationale: "Reducing high-impact forefoot activities allows nerve irritation to settle",
+        precautions: ["Temporary modification, not permanent avoidance", "Gradual return to activities"]
+      }
+    ],
+
+    clinicalRedFlags: [
+      {
+        sign: "Progressive weakness of toe muscles",
+        action: "May indicate significant nerve compromise requiring urgent neurological evaluation"
+      },
+      {
+        sign: "Complete numbness extending beyond typical distribution",
+        action: "Could suggest other neurological conditions - requires medical assessment"
+      },
+      {
+        sign: "No improvement after 12 weeks of appropriate conservative treatment",
+        action: "Consider injection therapy or orthopedic consultation for possible surgical intervention"
+      }
+    ],
+
+    measuringProgress: {
+      dayToDay: "I monitor your pain levels during walking, improvements in symptom-free activity duration, and your ability to wear appropriate footwear comfortably",
+      questionnaires: "Foot and Ankle Ability Measure (FAAM) and Manchester-Oxford Foot Questionnaire (MOXFQ)",
+      activityTarget: "Return to desired activities and comfortable footwear without forefoot pain or numbness"
+    },
+    accessAndHours: standardAccessAndHours
+  },
+
+  'metatarsalgia': {
+    pathophysiology: `Metatarsalgia is a general term describing pain in the ball of the foot, typically involving increased pressure under the metatarsal heads during weight-bearing. This condition represents a mechanical overload syndrome where forces exceed the tissues' capacity to adapt.
+
+The metatarsal heads normally share load during push-off, but various factors can cause uneven distribution. When certain metatarsals bear excessive load, the surrounding soft tissues including fat pads, joint capsules, and skin develop pain and inflammation.
+
+Common contributing factors include altered foot biomechanics, metatarsal length discrepancies, hammer toe deformities, loss of fat pad thickness with age, and repetitive high-impact activities. The second and third metatarsal heads are most commonly affected due to their central location and load-bearing role.`,
+
+    clinicalPresentation: {
+      primarySymptoms: [
+        "Aching or burning pain in the ball of the foot",
+        "Pain that worsens with weight-bearing and push-off",
+        "Tenderness under the metatarsal heads",
+        "Callus formation under affected metatarsals",
+        "Pain that improves with rest and shoe removal"
+      ],
+      associatedSymptoms: [
+        "Sharp or shooting pains occasionally",
+        "Feeling of walking on stones or pebbles",
+        "Stiffness in the forefoot",
+        "Secondary toe deformities",
+        "Compensatory gait changes"
+      ],
+      typicalPattern: "Pain typically increases during the push-off phase of walking and with prolonged standing. Symptoms often worsen toward the end of the day and improve with rest."
+    },
+
+    evidenceSnapshot: {
+      primaryStrategy: "Load redistribution through orthotic devices and metatarsal padding provides significant pain relief in 70-85% of patients",
+      secondaryStrategy: "Strengthening of intrinsic foot muscles and calf flexibility exercises address underlying biomechanical factors",
+      preventionStrategy: "Proper footwear selection and gradual activity progression prevent forefoot overload and symptom development",
+      sources: "Evidence-based foot orthotic guidelines; Biomechanical research on forefoot loading"
+    },
+
+    whatToExpect: {
+      firstVisit: "I'll assess your foot structure, gait, and pressure distribution, providing immediate relief through padding and footwear advice",
+      earlyPhase: "Focus on reducing forefoot pressure through load redistribution techniques and activity modification",
+      progression: "Progressive strengthening and return to activities as symptoms improve, with ongoing biomechanical optimization"
+    },
+
+    evidenceBasedTreatment: [
+      {
+        approach: "Metatarsal Pad Placement",
+        evidence: "Properly positioned metatarsal pads effectively redistribute pressure and reduce symptoms",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Orthotic Intervention",
+        evidence: "Custom or over-the-counter orthotics with metatarsal support show good outcomes",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Intrinsic Foot Strengthening",
+        evidence: "Strengthening small muscles of the foot improves load distribution and reduces symptoms",
+        effectivenessLevel: "moderate"
+      }
+    ],
+
+    prognosis: {
+      timeline: "Most patients experience significant improvement within 6-12 weeks with appropriate load management",
+      factors: [
+        "Underlying foot structure affects treatment response",
+        "Activity level and demands influence recovery time",
+        "Compliance with load redistribution strategies crucial",
+        "Associated conditions like diabetes may slow healing",
+        "Footwear compliance significantly impacts outcomes"
+      ],
+      naturalHistory: "Most cases respond well to conservative load management. Persistent cases may require investigation for structural abnormalities"
+    },
+
+    selfManagement: [
+      {
+        strategy: "Load Redistribution",
+        rationale: "Using metatarsal pads and appropriate footwear reduces excessive pressure on painful areas",
+        precautions: ["Pad placement requires proper positioning", "Start with softer materials"]
+      },
+      {
+        strategy: "Activity Modification",
+        rationale: "Reducing high-impact activities allows inflamed tissues to settle while maintaining fitness",
+        precautions: ["Modify rather than eliminate activities", "Gradual return to full activity"]
+      },
+      {
+        strategy: "Foot Strengthening",
+        rationale: "Strengthening intrinsic foot muscles improves natural shock absorption and load distribution",
+        precautions: ["Start with simple exercises", "Progress based on tolerance"]
+      }
+    ],
+
+    clinicalRedFlags: [
+      {
+        sign: "Severe pain with any weight-bearing",
+        action: "May indicate stress fracture or other structural damage requiring imaging"
+      },
+      {
+        sign: "Signs of infection including redness, warmth, or fever",
+        action: "Requires immediate medical evaluation for possible cellulitis or osteomyelitis"
+      },
+      {
+        sign: "Progressive deformity or loss of toe function",
+        action: "May indicate underlying structural problems requiring orthopedic consultation"
+      }
+    ],
+
+    measuringProgress: {
+      dayToDay: "I monitor your pain levels during walking and daily activities, improvements in weight-bearing tolerance, and your ability to perform activities without forefoot discomfort",
+      questionnaires: "Foot and Ankle Ability Measure (FAAM) and visual analog scales for forefoot pain",
+      activityTarget: "Return to desired activities including walking, exercise, and occupational tasks without ball of foot pain"
+    },
+    accessAndHours: standardAccessAndHours
+  },
+
+  'hallux-valgus': {
+    pathophysiology: `Hallux valgus, commonly known as a bunion, is a progressive deformity of the first metatarsophalangeal (MTP) joint characterized by lateral deviation of the great toe and medial deviation of the first metatarsal. This creates the characteristic bony prominence on the medial aspect of the foot.
+
+The deformity develops gradually due to a combination of intrinsic factors (genetics, foot structure, ligament laxity) and extrinsic factors (footwear, activity). As the great toe deviates laterally, it may overlap or underlap the second toe, creating secondary deformities.
+
+The altered mechanics affect the entire forefoot, potentially leading to transfer metatarsalgia, lesser toe deformities, and changes in gait patterns. The bursa over the bunion prominence may become inflamed, causing additional pain and swelling.`,
+
+    clinicalPresentation: {
+      primarySymptoms: [
+        "Visible bony prominence on the inner side of the foot",
+        "Pain and tenderness over the bunion",
+        "Difficulty finding comfortable footwear",
+        "Great toe pointing toward second toe",
+        "Stiffness in the great toe joint"
+      ],
+      associatedSymptoms: [
+        "Swelling and redness over the bunion",
+        "Callus formation on the side of the great toe",
+        "Pain under the ball of the foot (transfer metatarsalgia)",
+        "Secondary hammer toe deformities",
+        "Intermittent sharp pain with shoe pressure"
+      ],
+      typicalPattern: "Pain often related to shoe pressure and prolonged standing. May be asymptomatic in early stages but becomes progressively more painful as deformity increases."
+    },
+
+    evidenceSnapshot: {
+      primaryStrategy: "Conservative management including footwear modification, padding, and exercises can effectively manage symptoms in 70% of patients",
+      secondaryStrategy: "Orthotic devices help redistribute forces and slow progression while managing pain",
+      preventionStrategy: "Early intervention with proper footwear and foot exercises can slow progression and maintain function",
+      sources: "Systematic reviews on hallux valgus conservative management; Footwear intervention studies"
+    },
+
+    whatToExpect: {
+      firstVisit: "I'll assess your deformity severity, joint mobility, and pain patterns, providing immediate relief strategies including padding and footwear advice",
+      earlyPhase: "Focus on symptom management through load redistribution, joint mobility, and inflammation control",
+      progression: "Ongoing maintenance program to preserve function and prevent further deformity progression"
+    },
+
+    evidenceBasedTreatment: [
+      {
+        approach: "Footwear Modification",
+        evidence: "Wide, low-heeled shoes with adequate toe box space significantly reduce symptoms",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Padding and Taping",
+        evidence: "Bunion pads and toe spacers can reduce pressure and temporarily improve alignment",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Joint Mobilization and Exercises",
+        evidence: "Maintaining great toe joint mobility and strength may slow progression",
+        effectivenessLevel: "moderate"
+      }
+    ],
+
+    prognosis: {
+      timeline: "Symptoms can be managed effectively with conservative treatment, though deformity progression varies greatly between individuals",
+      factors: [
+        "Severity of deformity affects treatment success",
+        "Age and growth status influence progression rate",
+        "Footwear compliance crucial for symptom management",
+        "Genetics play a significant role in progression",
+        "Activity level and demands affect outcomes"
+      ],
+      naturalHistory: "Progressive condition that typically worsens over time without intervention. Conservative treatment focuses on symptom management rather than deformity correction"
+    },
+
+    selfManagement: [
+      {
+        strategy: "Appropriate Footwear",
+        rationale: "Wide shoes with low heels and soft materials reduce pressure on the bunion and accommodate deformity",
+        precautions: ["Avoid pointed toe shoes", "Check shoe width and depth"]
+      },
+      {
+        strategy: "Bunion Protection",
+        rationale: "Padding over the prominence reduces friction and pressure from footwear",
+        precautions: ["Change pads regularly", "Monitor for skin irritation"]
+      },
+      {
+        strategy: "Toe Exercises and Stretching",
+        rationale: "Maintaining joint mobility and toe strength helps preserve function and may slow progression",
+        precautions: ["Gentle range of motion", "Don't force painful movements"]
+      }
+    ],
+
+    clinicalRedFlags: [
+      {
+        sign: "Severe pain preventing weight-bearing",
+        action: "May indicate acute inflammation, infection, or other complications requiring medical evaluation"
+      },
+      {
+        sign: "Signs of infection including fever, red streaking, or purulent drainage",
+        action: "Requires immediate medical attention for possible septic arthritis"
+      },
+      {
+        sign: "Complete loss of great toe function affecting balance",
+        action: "Significant functional impairment may warrant orthopedic consultation for surgical options"
+      }
+    ],
+
+    measuringProgress: {
+      dayToDay: "I monitor your pain levels during daily activities, joint mobility measurements, and your ability to wear appropriate footwear comfortably",
+      questionnaires: "Manchester-Oxford Foot Questionnaire (MOXFQ) and Foot and Ankle Ability Measure (FAAM)",
+      activityTarget: "Maintain pain-free function for desired activities while managing deformity progression"
+    },
+    accessAndHours: standardAccessAndHours
+  },
+
+  'hallux-rigidus': {
+    pathophysiology: `Hallux rigidus is a degenerative arthritis of the first metatarsophalangeal (MTP) joint, resulting in progressive loss of motion and pain in the great toe. This condition represents wear-and-tear damage to the cartilage surfaces of the joint, often beginning on the dorsal aspect.
+
+The degenerative process leads to cartilage loss, bone spur formation (particularly dorsally), and progressive joint stiffness. As the condition advances, the joint space narrows and subchondral bone changes develop, causing significant functional limitations.
+
+The loss of great toe extension (dorsiflexion) particularly affects the push-off phase of gait, leading to compensatory movements throughout the lower extremity. This can result in secondary problems including transfer metatarsalgia, altered gait patterns, and overuse injuries elsewhere.`,
+
+    clinicalPresentation: {
+      primarySymptoms: [
+        "Pain and stiffness in the great toe joint",
+        "Limited upward bending of the great toe",
+        "Pain that worsens with walking and push-off",
+        "Swelling around the great toe joint",
+        "Difficulty wearing shoes due to dorsal prominence"
+      ],
+      associatedSymptoms: [
+        "Morning stiffness that may improve with movement",
+        "Aching in the great toe joint at rest",
+        "Compensatory gait changes",
+        "Pain under the ball of the foot",
+        "Difficulty with activities requiring toe extension"
+      ],
+      typicalPattern: "Pain typically worsens with walking, especially during push-off. Morning stiffness is common. Symptoms may improve with rest but return with activity."
+    },
+
+    evidenceSnapshot: {
+      primaryStrategy: "Activity modification combined with joint mobilization and supportive footwear provides significant pain relief in early to moderate stages",
+      secondaryStrategy: "Intra-articular injections may provide temporary relief but should be combined with conservative measures",
+      preventionStrategy: "Early recognition and treatment can slow progression and maintain function longer",
+      sources: "Hallux rigidus management guidelines; Conservative treatment outcome studies"
+    },
+
+    whatToExpect: {
+      firstVisit: "I'll assess your joint mobility, pain patterns, and functional limitations, providing strategies to reduce pain and maintain available motion",
+      earlyPhase: "Focus on pain management, preserving joint mobility, and optimizing foot function within current limitations",
+      progression: "Ongoing management to prevent further stiffening while adapting activities and footwear as needed"
+    },
+
+    evidenceBasedTreatment: [
+      {
+        approach: "Joint Mobilization",
+        evidence: "Manual therapy techniques can help maintain available joint motion and reduce stiffness",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Activity and Footwear Modification",
+        evidence: "Supportive shoes with rigid soles and rocker bottom design reduce joint stress",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Range of Motion Exercises",
+        evidence: "Gentle mobilizing exercises help preserve available joint motion",
+        effectivenessLevel: "moderate"
+      }
+    ],
+
+    prognosis: {
+      timeline: "Symptoms can often be managed conservatively for many years, though progression varies significantly between individuals",
+      factors: [
+        "Stage of arthritis at diagnosis affects treatment success",
+        "Activity demands and occupation influence symptoms",
+        "Compliance with footwear modifications crucial",
+        "Age and general health affect progression",
+        "Previous trauma may accelerate degeneration"
+      ],
+      naturalHistory: "Progressive degenerative condition that typically worsens over time. Conservative treatment focuses on symptom management and function preservation"
+    },
+
+    selfManagement: [
+      {
+        strategy: "Supportive Footwear",
+        rationale: "Rigid-soled shoes with rocker bottom design reduce bending forces on the arthritic joint",
+        precautions: ["May take time to adjust to new shoes", "Ensure proper fit"]
+      },
+      {
+        strategy: "Activity Modification",
+        rationale: "Avoiding activities that force toe extension reduces pain and joint stress",
+        precautions: ["Modify activities rather than completely avoid", "Maintain overall fitness"]
+      },
+      {
+        strategy: "Joint Mobility Exercises",
+        rationale: "Gentle range of motion exercises help maintain available movement and reduce stiffness",
+        precautions: ["Work within comfortable range", "Don't force painful movements"]
+      }
+    ],
+
+    clinicalRedFlags: [
+      {
+        sign: "Severe, constant pain preventing weight-bearing",
+        action: "May indicate acute flare or other complications requiring medical evaluation"
+      },
+      {
+        sign: "Signs of infection including fever, redness, or severe swelling",
+        action: "Requires immediate medical attention to rule out septic arthritis"
+      },
+      {
+        sign: "Complete loss of great toe motion severely affecting function",
+        action: "Significant functional limitation may warrant orthopedic consultation for surgical options"
+      }
+    ],
+
+    measuringProgress: {
+      dayToDay: "I monitor your pain levels during daily activities, joint range of motion measurements, and your ability to perform functional tasks like walking and climbing stairs",
+      questionnaires: "Foot and Ankle Ability Measure (FAAM) and visual analog scales for joint pain",
+      activityTarget: "Maintain pain-free function for desired activities while preserving available joint motion"
+    },
+    accessAndHours: standardAccessAndHours
+  },
+
+  'turf-toe': {
+    pathophysiology: `Turf toe is a sprain of the first metatarsophalangeal (MTP) joint, involving injury to the joint capsule and surrounding ligamentous structures. This injury occurs when the great toe is forced into excessive dorsiflexion (upward bending), typically during sports activities.
+
+The injury can range from mild stretching of the joint capsule (Grade I) to partial tears of the ligaments (Grade II) to complete ruptures with possible sesamoid bone involvement (Grade III). The plantar plate and joint capsule are the primary structures affected.
+
+The mechanism typically involves forced hyperextension when the foot is planted and the body moves forward over the toe, common on artificial turf surfaces. The injury compromises the stability and function of the great toe, which is crucial for push-off during walking and running.`,
+
+    clinicalPresentation: {
+      primarySymptoms: [
+        "Pain at the base of the great toe",
+        "Swelling around the great toe joint",
+        "Limited and painful toe movement",
+        "Tenderness with pressure on the joint",
+        "Difficulty with push-off during walking"
+      ],
+      associatedSymptoms: [
+        "Bruising around the joint",
+        "Stiffness, especially in the morning",
+        "Pain that worsens with toe extension",
+        "Limping or altered gait pattern",
+        "Difficulty wearing normal shoes"
+      ],
+      typicalPattern: "Pain typically worsens with activities requiring toe push-off such as walking, running, or jumping. Symptoms may improve with rest but return with activity."
+    },
+
+    evidenceSnapshot: {
+      primaryStrategy: "Early immobilization and gradual progressive loading based on injury grade provides optimal healing outcomes",
+      secondaryStrategy: "Manual therapy and strengthening exercises restore joint mobility and function once initial healing occurs",
+      preventionStrategy: "Proper footwear with adequate toe support and avoiding excessive toe dorsiflexion prevents initial injury",
+      sources: "Sports medicine guidelines for toe injuries; Return-to-sport protocols"
+    },
+
+    whatToExpect: {
+      firstVisit: "I'll assess the injury severity, provide initial protection strategies, and outline the expected recovery timeline based on your injury grade",
+      earlyPhase: "Focus on protection and pain management while allowing initial tissue healing",
+      progression: "Progressive loading and mobility exercises to restore full function and prepare for return to sport"
+    },
+
+    evidenceBasedTreatment: [
+      {
+        approach: "Graded Activity Progression",
+        evidence: "Systematic progression from protection through functional activities optimizes healing and prevents re-injury",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Joint Mobilization",
+        evidence: "Manual therapy techniques help restore normal joint motion once acute phase resolves",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Strengthening and Proprioceptive Training",
+        evidence: "Progressive strengthening and balance training prepare the joint for return to sport demands",
+        effectivenessLevel: "moderate"
+      }
+    ],
+
+    prognosis: {
+      timeline: "Grade I injuries typically heal in 1-2 weeks, Grade II in 3-6 weeks, and Grade III may require 6-12 weeks or longer",
+      factors: [
+        "Injury grade is the primary predictor of recovery time",
+        "Early appropriate treatment improves outcomes",
+        "Return to sport demands affect recovery timeline",
+        "Compliance with activity restrictions crucial",
+        "Previous injuries may complicate recovery"
+      ],
+      naturalHistory: "Most injuries heal completely with appropriate treatment. Inadequate initial management may lead to chronic instability"
+    },
+
+    selfManagement: [
+      {
+        strategy: "Activity Modification",
+        rationale: "Avoiding activities that stress the healing joint prevents further damage and promotes healing",
+        precautions: ["Complete rest may not be necessary for mild injuries", "Gradual return based on symptoms"]
+      },
+      {
+        strategy: "Protective Footwear",
+        rationale: "Stiff-soled shoes or taping can protect the joint during healing while allowing some function",
+        precautions: ["Ensure protection doesn't cause other problems", "Progress to normal shoes as healing occurs"]
+      },
+      {
+        strategy: "Ice and Elevation",
+        rationale: "Controlling swelling and inflammation promotes healing and reduces pain in acute phase",
+        precautions: ["Use ice for 15-20 minutes", "Don't apply ice directly to skin"]
+      }
+    ],
+
+    clinicalRedFlags: [
+      {
+        sign: "Severe pain with inability to bear weight",
+        action: "May indicate Grade III injury or fracture requiring immediate medical evaluation"
+      },
+      {
+        sign: "Signs of infection including fever, red streaking, or severe swelling",
+        action: "Requires immediate medical attention"
+      },
+      {
+        sign: "No improvement after 2 weeks of appropriate treatment",
+        action: "May indicate more severe injury requiring imaging and specialist consultation"
+      }
+    ],
+
+    measuringProgress: {
+      dayToDay: "I monitor your pain levels during daily activities, joint range of motion, and your ability to perform functional movements like walking and toe push-off",
+      questionnaires: "Foot and Ankle Ability Measure (FAAM) and return-to-sport readiness scales",
+      activityTarget: "Full return to desired activities and sports without pain or functional limitation"
+    },
+    accessAndHours: standardAccessAndHours
+  },
+
+  'severs-disease': {
+    pathophysiology: `Sever's disease, technically known as calcaneal apophysitis, is an inflammatory condition affecting the growth plate (apophysis) at the back of the heel bone in growing children. This condition occurs when repetitive stress and tension from the Achilles tendon and plantar fascia exceed the tolerance of the developing bone.
+
+The calcaneal apophysis is the secondary growth center of the heel bone, typically appearing around age 8 and fusing by age 16. During periods of rapid growth, this area is particularly vulnerable to stress because bone growth often outpaces the lengthening of muscles and tendons.
+
+The condition is essentially a stress reaction of the growth plate, causing localized inflammation and pain. It's most common during periods of rapid growth and increased activity, particularly in sports involving running and jumping.`,
+
+    clinicalPresentation: {
+      primarySymptoms: [
+        "Heel pain during and after activity",
+        "Pain that's worse with running and jumping",
+        "Tenderness when squeezing both sides of the heel",
+        "Limping or altered gait, especially in the morning",
+        "Pain that improves with rest"
+      ],
+      associatedSymptoms: [
+        "Stiffness in the ankle and calf",
+        "Pain that may affect both heels",
+        "Increased symptoms during growth spurts",
+        "Reluctance to participate in sports",
+        "Pain that's worse with barefoot walking"
+      ],
+      typicalPattern: "Pain typically occurs during or after activity and improves with rest. Morning stiffness and pain are common. Symptoms often correlate with activity level and growth spurts."
+    },
+
+    evidenceSnapshot: {
+      primaryStrategy: "Activity modification combined with heel padding and stretching exercises resolves symptoms in 90% of cases within 2-6 months",
+      secondaryStrategy: "Addressing biomechanical factors like tight calf muscles and providing supportive footwear accelerates recovery",
+      preventionStrategy: "Gradual activity progression during growth spurts and maintaining calf flexibility prevent symptom development",
+      sources: "Pediatric sports medicine guidelines; Growth plate injury management protocols"
+    },
+
+    whatToExpect: {
+      firstVisit: "I'll assess your child's growth stage, activity level, and biomechanics, providing immediate relief strategies and education about the condition",
+      earlyPhase: "Focus on symptom management through activity modification, supportive measures, and addressing tight muscles",
+      progression: "Gradual return to full activity as symptoms resolve and growth plate maturity approaches"
+    },
+
+    evidenceBasedTreatment: [
+      {
+        approach: "Activity Modification",
+        evidence: "Reducing high-impact activities while maintaining fitness through alternative exercises promotes healing",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Heel Padding and Support",
+        evidence: "Heel cups or padding reduce impact forces and provide symptom relief",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Calf Stretching Program",
+        evidence: "Regular stretching of gastrocnemius and soleus muscles reduces tension on the growth plate",
+        effectivenessLevel: "moderate"
+      }
+    ],
+
+    prognosis: {
+      timeline: "Most cases resolve within 2-6 months with appropriate management. Symptoms typically don't return once growth plate fusion occurs",
+      factors: [
+        "Growth stage - symptoms resolve with skeletal maturity",
+        "Activity level and compliance with modifications",
+        "Biomechanical factors like foot type and flexibility",
+        "Sport demands and training intensity",
+        "Proper footwear and support use"
+      ],
+      naturalHistory: "Self-limiting condition that resolves with growth plate closure. No long-term complications when managed appropriately"
+    },
+
+    selfManagement: [
+      {
+        strategy: "Activity Pacing",
+        rationale: "Modifying rather than completely stopping activity allows continued participation while reducing stress on the growth plate",
+        precautions: ["Complete rest rarely necessary", "Return to activity should be gradual"]
+      },
+      {
+        strategy: "Supportive Footwear",
+        rationale: "Proper athletic shoes with heel padding reduce impact forces and provide cushioning",
+        precautions: ["Ensure proper fit", "Replace worn shoes regularly"]
+      },
+      {
+        strategy: "Stretching Program",
+        rationale: "Daily calf stretching reduces tension on the Achilles tendon attachment to the growth plate",
+        precautions: ["Stretch should be comfortable", "Consistency more important than intensity"]
+      }
+    ],
+
+    clinicalRedFlags: [
+      {
+        sign: "Severe pain preventing all weight-bearing activities",
+        action: "May indicate stress fracture or other serious injury requiring imaging"
+      },
+      {
+        sign: "Signs of infection including fever, redness, or severe swelling",
+        action: "Requires immediate medical evaluation"
+      },
+      {
+        sign: "Persistent symptoms beyond expected growth plate closure",
+        action: "May indicate other pathology requiring further investigation"
+      }
+    ],
+
+    measuringProgress: {
+      dayToDay: "I monitor your child's pain levels during activities, functional improvements in walking and running, and ability to participate in desired sports",
+      questionnaires: "Pediatric-specific functional scales and activity-based questionnaires",
+      activityTarget: "Full return to sports and activities without heel pain as growth plate maturity approaches"
+    },
+    accessAndHours: standardAccessAndHours
+  },
+
+  'tarsal-tunnel-syndrome': {
+    pathophysiology: `Tarsal tunnel syndrome involves compression of the posterior tibial nerve as it passes through the tarsal tunnel, a fibro-osseous space behind the medial ankle. The tunnel is formed by the flexor retinaculum (laciniate ligament) superficially and the bones of the ankle joint deeply.
+
+The posterior tibial nerve divides into medial and lateral plantar nerves within or just distal to the tunnel. Compression can occur at various locations and may affect the main trunk or individual branches. Common causes include space-occupying lesions, inflammation, biomechanical factors, or idiopathic swelling.
+
+The condition shares similarities with carpal tunnel syndrome in the wrist but is less common and more challenging to diagnose. Symptoms result from compromised nerve function due to pressure, ischemia, and subsequent inflammatory changes within the confined space.`,
+
+    clinicalPresentation: {
+      primarySymptoms: [
+        "Burning, tingling, or numbness in the sole of the foot",
+        "Pain along the medial ankle and arch",
+        "Symptoms that worsen with prolonged standing or walking",
+        "Night pain that may wake the patient",
+        "Positive Tinel's sign behind the medial ankle"
+      ],
+      associatedSymptoms: [
+        "Weakness of small muscles in the foot",
+        "Cramping in the foot, especially at night",
+        "Symptoms that may extend into the toes",
+        "Relief with rest and elevation",
+        "Possible swelling behind the medial ankle"
+      ],
+      typicalPattern: "Symptoms typically worsen with prolonged weight-bearing activities and improve with rest. Night symptoms are common. May be bilateral in some cases."
+    },
+
+    evidenceSnapshot: {
+      primaryStrategy: "Conservative treatment including activity modification, orthotic support, and neural mobilization succeeds in 60-80% of cases when started early",
+      secondaryStrategy: "Addressing underlying biomechanical factors and inflammation helps prevent symptom recurrence",
+      preventionStrategy: "Early recognition of symptoms and prompt treatment prevent progression to chronic nerve compression",
+      sources: "Peripheral nerve compression guidelines; Conservative management outcome studies"
+    },
+
+    whatToExpect: {
+      firstVisit: "I'll assess your symptoms, perform nerve tests, and identify potential contributing factors, providing strategies to reduce nerve compression",
+      earlyPhase: "Focus on reducing nerve irritation through activity modification, positioning, and addressing inflammation",
+      progression: "Gradual return to activities as nerve symptoms improve, with ongoing attention to biomechanical factors"
+    },
+
+    evidenceBasedTreatment: [
+      {
+        approach: "Neural Mobilization",
+        evidence: "Gentle nerve gliding exercises may help reduce adhesions and improve nerve mobility",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Biomechanical Correction",
+        evidence: "Orthotic devices that control excessive pronation may reduce nerve compression",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Activity and Position Modification",
+        evidence: "Avoiding prolonged weight-bearing and positions that compress the nerve promotes healing",
+        effectivenessLevel: "moderate"
+      }
+    ],
+
+    prognosis: {
+      timeline: "Early cases often improve within 6-12 weeks with conservative treatment. Chronic cases may take longer or require other interventions",
+      factors: [
+        "Duration of symptoms before treatment affects outcomes",
+        "Underlying causes influence response to treatment",
+        "Compliance with activity modifications crucial",
+        "Associated conditions like diabetes may affect healing",
+        "Severity of nerve compression impacts recovery time"
+      ],
+      naturalHistory: "Early intervention prevents progression to permanent nerve damage. Chronic cases may develop persistent numbness and weakness"
+    },
+
+    selfManagement: [
+      {
+        strategy: "Activity Modification",
+        rationale: "Reducing prolonged weight-bearing and avoiding positions that compress the nerve allows inflammation to settle",
+        precautions: ["Complete rest rarely necessary", "Modify activities rather than avoid them"]
+      },
+      {
+        strategy: "Positioning and Support",
+        rationale: "Supportive footwear and orthotic devices may reduce biomechanical stress on the nerve",
+        precautions: ["Professional fitting may be needed", "Start with softer support"]
+      },
+      {
+        strategy: "Neural Mobility Exercises",
+        rationale: "Gentle nerve gliding exercises may help reduce adhesions and improve nerve function",
+        precautions: ["Exercises should not increase symptoms", "Stop if numbness worsens"]
+      }
+    ],
+
+    clinicalRedFlags: [
+      {
+        sign: "Progressive weakness of foot muscles",
+        action: "May indicate significant nerve damage requiring urgent neurological evaluation"
+      },
+      {
+        sign: "Complete numbness in the distribution of the nerve",
+        action: "Suggests severe compression requiring immediate medical attention"
+      },
+      {
+        sign: "No improvement after 12 weeks of appropriate conservative treatment",
+        action: "May require nerve conduction studies and consideration of surgical decompression"
+      }
+    ],
+
+    measuringProgress: {
+      dayToDay: "I monitor your nerve-related symptoms, functional improvements in walking and standing, and your ability to perform daily activities without foot numbness or pain",
+      questionnaires: "Neuropathy-specific scales and Foot and Ankle Ability Measure (FAAM)",
+      activityTarget: "Return to desired activities without nerve-related symptoms and restoration of normal foot sensation"
     },
     accessAndHours: standardAccessAndHours
   }

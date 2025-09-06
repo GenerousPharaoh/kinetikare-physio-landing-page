@@ -279,8 +279,8 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
         }}
       >
       
-        <div className="container mx-auto px-6 relative">
-          <div className="flex items-center justify-between h-16">
+        <div className="container mx-auto px-4 lg:px-6 relative">
+          <div className="flex items-center justify-between h-16 gap-4">
             
             {/* Logo Section */}
             <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0">
@@ -306,27 +306,27 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                     }}></div>
                 </div>
                 <div className="flex items-center">
-                  <span className="text-[22px] xl:text-[24px] text-white font-extralight tracking-[0.12em] leading-none uppercase" style={{ fontFamily: "'Montserrat', sans-serif", letterSpacing: '0.12em' }}>Kineti</span>
-                  <span className="text-[22px] xl:text-[24px] text-[#D4AF37] font-bold leading-none uppercase" style={{ fontFamily: "'Montserrat', sans-serif" }}>K</span>
-                  <span className="text-[22px] xl:text-[24px] text-white font-extralight tracking-[0.12em] leading-none uppercase" style={{ fontFamily: "'Montserrat', sans-serif", letterSpacing: '0.12em' }}>are</span>
+                  <span className="text-[18px] lg:text-[20px] xl:text-[22px] 2xl:text-[24px] text-white font-extralight tracking-[0.12em] leading-none uppercase" style={{ fontFamily: "'Montserrat', sans-serif", letterSpacing: '0.12em' }}>Kineti</span>
+                  <span className="text-[18px] lg:text-[20px] xl:text-[22px] 2xl:text-[24px] text-[#D4AF37] font-bold leading-none uppercase" style={{ fontFamily: "'Montserrat', sans-serif" }}>K</span>
+                  <span className="text-[18px] lg:text-[20px] xl:text-[22px] 2xl:text-[24px] text-white font-extralight tracking-[0.12em] leading-none uppercase" style={{ fontFamily: "'Montserrat', sans-serif", letterSpacing: '0.12em' }}>are</span>
                 </div>
               </div>
-              <div className="hidden lg:block w-px h-5 bg-[#D4AF37]/30 mx-3"></div>
-              <div className="hidden lg:flex flex-col justify-center">
-                <div className="text-xs xl:text-sm text-white/80 font-medium leading-tight">
+              <div className="hidden xl:block w-px h-5 bg-[#D4AF37]/30 mx-3"></div>
+              <div className="hidden xl:flex flex-col justify-center">
+                <div className="text-xs 2xl:text-sm text-white/80 font-medium leading-tight">
                   Kareem Hassanein Physiotherapy
                 </div>
               </div>
           </Link>
 
             {/* Navigation */}
-            <nav className="hidden lg:flex items-center space-x-4 xl:space-x-8 flex-shrink-0">
+            <nav className="hidden lg:flex items-center gap-2 xl:gap-4 2xl:gap-8 flex-1 justify-center px-4">
               {mainNavItems.map((item) => (
                 <Link
                   key={item.name}
                       href={item.href}
                       onClick={(e) => handleNavClick(e, item.href)}
-                  className={`relative text-sm font-medium transition-all duration-[400ms] ease-out py-2 group whitespace-nowrap outline-none
+                  className={`relative text-xs lg:text-sm font-medium transition-all duration-[400ms] ease-out py-2 group whitespace-nowrap outline-none
                           ${isCurrentPath(item.href) 
                       ? '!text-[#D4AF37] font-normal hover:!text-[#E6C157]' 
                       : '!text-white hover:!text-[#D4AF37]'}`}
@@ -361,13 +361,13 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
           </nav>
 
             {/* Action Buttons */}
-            <div className="flex items-center space-x-2 sm:space-x-3 xl:space-x-4 flex-shrink-0">
+            <div className="flex items-center gap-2 lg:gap-3 flex-shrink-0">
               <Link
                 href="tel:+19056346000"
-                className="hidden lg:flex items-center text-sm font-medium tracking-wide text-white/80 hover:text-white transition-colors duration-300 whitespace-nowrap"
+                className="hidden xl:flex items-center text-sm font-medium tracking-wide text-white/80 hover:text-white transition-colors duration-300 whitespace-nowrap"
               >
-                <PhoneIcon className="h-4 w-4 xl:mr-2" />
-                <span className="hidden xl:inline">905-634-6000</span>
+                <PhoneIcon className="h-4 w-4 2xl:mr-2" />
+                <span className="hidden 2xl:inline">905-634-6000</span>
               </Link>
 
               {/* Search Button - Desktop Only */}
@@ -391,7 +391,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#D4AF37] hover:bg-[#B08D57] text-slate-900 hover:text-white text-sm font-medium px-2 sm:px-3 xl:px-5 py-2 sm:py-2.5 rounded-lg transition-all duration-[400ms] ease-out flex items-center gap-1 sm:gap-2 whitespace-nowrap shadow-lg hover:shadow-xl"
+                className="bg-[#D4AF37] hover:bg-[#B08D57] text-slate-900 hover:text-white text-xs lg:text-sm font-medium px-2 sm:px-3 lg:px-4 xl:px-5 py-2 sm:py-2.5 rounded-lg transition-all duration-[400ms] ease-out flex items-center gap-1 lg:gap-2 whitespace-nowrap shadow-lg hover:shadow-xl"
                 style={{
                   letterSpacing: '0.08em',
                   filter: 'drop-shadow(0 0 8px rgba(212, 175, 55, 0.3))',
@@ -400,9 +400,9 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   willChange: 'transform'
                 }}
               >
-                <CalendarDaysIcon className="h-4 w-4" />
-                <span className="hidden sm:inline">Book Appointment</span>
-                <span className="sm:hidden">Book</span>
+                <CalendarDaysIcon className="h-3.5 lg:h-4 w-3.5 lg:w-4" />
+                <span className="hidden sm:inline lg:hidden xl:inline">Book Appointment</span>
+                <span className="sm:hidden lg:inline xl:hidden">Book</span>
               </Link>
 
               {/* Mobile Menu Button */}

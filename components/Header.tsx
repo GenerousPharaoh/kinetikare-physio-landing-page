@@ -311,22 +311,22 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   <span className="text-[18px] lg:text-[20px] xl:text-[22px] 2xl:text-[24px] text-white font-extralight tracking-[0.12em] leading-none uppercase" style={{ fontFamily: "'Montserrat', sans-serif", letterSpacing: '0.12em' }}>are</span>
                 </div>
               </div>
-              <div className="hidden xl:block w-px h-5 bg-[#D4AF37]/30 mx-3"></div>
-              <div className="hidden xl:flex flex-col justify-center">
-                <div className="text-xs 2xl:text-sm text-white/80 font-medium leading-tight">
+              <div className="hidden lg:block w-px h-5 bg-[#D4AF37]/30 mx-2 xl:mx-3"></div>
+              <div className="hidden lg:flex flex-col justify-center">
+                <div className="text-[10px] xl:text-xs 2xl:text-sm text-white/80 font-medium leading-tight">
                   Kareem Hassanein Physiotherapy
                 </div>
               </div>
           </Link>
 
             {/* Navigation */}
-            <nav className="hidden lg:flex items-center gap-2 xl:gap-4 2xl:gap-8 flex-1 justify-center px-4">
+            <nav className="hidden lg:flex items-center gap-1 lg:gap-2 xl:gap-4 2xl:gap-6 flex-1 justify-center px-2 xl:px-4">
               {mainNavItems.map((item) => (
                 <Link
                   key={item.name}
                       href={item.href}
                       onClick={(e) => handleNavClick(e, item.href)}
-                  className={`relative text-xs lg:text-sm font-medium transition-all duration-[400ms] ease-out py-2 group whitespace-nowrap outline-none
+                  className={`relative text-[11px] lg:text-xs xl:text-sm font-medium transition-all duration-[400ms] ease-out py-2 group whitespace-nowrap outline-none
                           ${isCurrentPath(item.href) 
                       ? '!text-[#D4AF37] font-normal hover:!text-[#E6C157]' 
                       : '!text-white hover:!text-[#D4AF37]'}`}
@@ -364,10 +364,10 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
             <div className="flex items-center gap-2 lg:gap-3 flex-shrink-0">
               <Link
                 href="tel:+19056346000"
-                className="hidden xl:flex items-center text-sm font-medium tracking-wide text-white/80 hover:text-white transition-colors duration-300 whitespace-nowrap"
+                className="hidden lg:flex items-center text-xs xl:text-sm font-medium tracking-wide text-white/80 hover:text-white transition-colors duration-300 whitespace-nowrap"
               >
-                <PhoneIcon className="h-4 w-4 2xl:mr-2" />
-                <span className="hidden 2xl:inline">905-634-6000</span>
+                <PhoneIcon className="h-3.5 xl:h-4 w-3.5 xl:w-4 xl:mr-1 2xl:mr-2" />
+                <span className="hidden xl:inline text-xs 2xl:text-sm">905-634-6000</span>
               </Link>
 
               {/* Search Button - Desktop Only */}
@@ -401,8 +401,8 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 }}
               >
                 <CalendarDaysIcon className="h-3.5 lg:h-4 w-3.5 lg:w-4" />
-                <span className="hidden sm:inline lg:hidden xl:inline">Book Appointment</span>
-                <span className="sm:hidden lg:inline xl:hidden">Book</span>
+                <span className="hidden sm:inline">Book Appointment</span>
+                <span className="sm:hidden">Book</span>
               </Link>
 
               {/* Mobile Menu Button */}

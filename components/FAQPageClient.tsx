@@ -362,7 +362,7 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="What would you like to know?" 
-                className="flex-1 py-5 pr-4 text-base placeholder-slate-400 focus:outline-none bg-transparent text-slate-800 font-light"
+                className="flex-1 py-4 pr-4 text-base placeholder-slate-400 focus:outline-none bg-transparent text-slate-800 font-light"
               />
               
               {searchQuery && (
@@ -383,13 +383,8 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
               )}
               
               {/* Search button */}
-              <button className="bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white hover:text-white px-7 py-3 rounded-full mr-3 font-medium hover:shadow-lg hover:shadow-[#B08D57]/25 hover:scale-105 transition-all duration-300">
-                <span className="flex items-center gap-2">
-                  Search
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </span>
+              <button className="bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white hover:text-white px-8 py-3 rounded-full -mr-1 font-medium hover:shadow-lg hover:shadow-[#B08D57]/25 transition-all duration-300">
+                Search
               </button>
             </div>
           </div>

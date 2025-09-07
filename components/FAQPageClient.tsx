@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { ChevronRightIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import { ChevronRightIcon, MagnifyingGlassIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import FAQAccordion, { FaqItem } from '@/components/FAQAccordion';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -31,7 +31,7 @@ interface FAQPageClientProps {
 
 // Helper function to get icon component based on type
 const getIcon = (iconType: string) => {
-  const iconProps = { className: "w-6 h-6" };
+  const iconProps = { className: "w-6 h-6 lg:w-7 lg:h-7" };
   
   switch (iconType) {
     case 'question':
@@ -57,9 +57,33 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
   const [isMounted, setIsMounted] = useState(false);
   const [showStickyNav, setShowStickyNav] = useState(false);
   const [showFloatingSearch, setShowFloatingSearch] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
 
   // Refs for each section
   const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+  const searchResultsRef = useRef<HTMLDivElement>(null);
+  
+  // Helper function to highlight search terms
+  const highlightSearchTerms = (text: string, query: string) => {
+    if (!query.trim()) return text;
+    
+    const terms = query.toLowerCase().split(' ').filter(t => t.length > 2);
+    if (terms.length === 0) return text;
+    
+    const regex = new RegExp(`(${terms.join('|')})`, 'gi');
+    const parts = text.split(regex);
+    
+    return parts.map((part, index) => {
+      if (terms.some(term => part.toLowerCase() === term.toLowerCase())) {
+        return (
+          <mark key={index} className="bg-[#D4AF37]/30 px-0.5 rounded">
+            {part}
+          </mark>
+        );
+      }
+      return part;
+    });
+  };
 
   // Set mounted state once component mounts in browser
   useEffect(() => {
@@ -77,6 +101,9 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
       
       // Show floating search when scrolled past the main search bar
       setShowFloatingSearch(scrollY > 300);
+      
+      // Show back to top button
+      setShowBackToTop(scrollY > 800);
       
       // Hide navigation when close to footer (within 300px of bottom)
       const distanceFromBottom = documentHeight - (scrollY + windowHeight);
@@ -228,6 +255,13 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
       .map(({ score, ...item }) => item);
     
     setFilteredQuestions(filtered);
+    
+    // Scroll to search results when searching
+    if (filtered.length > 0 && searchResultsRef.current) {
+      setTimeout(() => {
+        searchResultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
   }, [searchQuery, isMounted, faqCategories]);
 
   // Get current questions to display
@@ -246,6 +280,30 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
 
   return (
     <>
+      {/* Breadcrumbs */}
+      <div className="max-w-6xl mx-auto px-4 mb-6 mt-4">
+        <nav className="flex items-center space-x-2 text-sm text-gray-600">
+          <Link href="/" className="hover:text-[#B08D57] transition-colors">
+            Home
+          </Link>
+          <ChevronRightIcon className="w-4 h-4 text-gray-400" />
+          <span className="text-gray-900 font-medium">FAQ</span>
+          {activeCategory && !isSearching && (
+            <>
+              <ChevronRightIcon className="w-4 h-4 text-gray-400" />
+              <span className="text-[#B08D57] font-medium">
+                {faqCategories.find(c => c.id === activeCategory)?.name}
+              </span>
+            </>
+          )}
+          {isSearching && (
+            <>
+              <ChevronRightIcon className="w-4 h-4 text-gray-400" />
+              <span className="text-[#B08D57] font-medium">Search Results</span>
+            </>
+          )}
+        </nav>
+      </div>
       {/* Minimalist Floating Search - Collapsed by default */}
       <AnimatePresence>
         {showFloatingSearch && (
@@ -365,10 +423,10 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setSearchQuery('')}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-700 transition-all duration-200"
+                className="absolute right-12 top-1/2 transform -translate-y-1/2 p-1.5 rounded-full bg-slate-100 text-slate-400 hover:bg-slate-200 hover:text-slate-600 transition-all duration-200"
                 aria-label="Clear search"
               >
-                <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </motion.button>
@@ -380,7 +438,7 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
         <div className="mt-6 text-center">
           <p className="text-sm text-slate-500 mb-3 font-light">Popular searches:</p>
           <div className="flex flex-wrap justify-center gap-2">
-            {['Direct billing', 'Manual therapy', 'Dry needling', 'Exercise programs', 'Cupping therapy', 'Sports injuries'].map((suggestion) => (
+            {['Direct billing', 'Insurance coverage', 'First appointment', 'Treatment duration', 'Manual therapy', 'Dry needling', 'Cupping therapy', 'Exercise programs', 'Sports injuries', 'Back pain', 'Neck pain', 'Referral needed'].map((suggestion) => (
               <button
                 key={suggestion}
                 onClick={() => setSearchQuery(suggestion)}
@@ -397,23 +455,35 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
       <div className="max-w-6xl mx-auto">
         {/* Search Results */}
         {isSearching && (
-          <div className="max-w-4xl mx-auto">
+          <div ref={searchResultsRef} className="max-w-4xl mx-auto scroll-mt-24">
             <div className="mb-10 bg-white shadow-lg rounded-2xl p-8 border border-neutral-100">
               <h2 className="text-2xl font-bold text-primary-900 mb-3 tracking-tight">
                 Search Results
               </h2>
-              <p className="text-primary-600 text-lg">
-                {filteredQuestions.length === 0 
-                  ? 'No questions found matching your search.' 
-                  : `Found ${filteredQuestions.length} question${filteredQuestions.length === 1 ? '' : 's'} matching "${searchQuery}"`}
-              </p>
+              <div className="flex items-center justify-between">
+                <p className="text-primary-600 text-lg">
+                  {filteredQuestions.length === 0 
+                    ? 'No questions found matching your search.' 
+                    : `Found ${filteredQuestions.length} question${filteredQuestions.length === 1 ? '' : 's'} matching "${searchQuery}"`}
+                </p>
+                {filteredQuestions.length > 0 && (
+                  <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-[#B08D57]/10 text-[#B08D57]">
+                    {filteredQuestions.length} result{filteredQuestions.length !== 1 ? 's' : ''}
+                  </span>
+                )}
+              </div>
               {filteredQuestions.length === 0 && (
-                <button 
-                  onClick={() => setSearchQuery('')}
-                  className="mt-6 px-6 py-3 bg-gradient-to-r from-accent to-accent-dark hover:from-accent-dark hover:to-accent text-white font-medium rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
-                >
-                  Clear search and view all questions
-                </button>
+                <div className="mt-6">
+                  <p className="text-sm text-gray-600 mb-4">
+                    Try searching for: <span className="font-medium">insurance</span>, <span className="font-medium">treatment</span>, or <span className="font-medium">appointment</span>
+                  </p>
+                  <button 
+                    onClick={() => setSearchQuery('')}
+                    className="px-6 py-3 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] hover:from-[#D4AF37] hover:to-[#B08D57] text-white font-medium rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                  >
+                    Clear search and view all questions
+                  </button>
+                </div>
               )}
             </div>
             
@@ -448,21 +518,21 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
         {/* Category Navigation (when not searching) */}
         {!isSearching && (
           <>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8 mb-16">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8 mb-16 sticky top-20 bg-white/95 backdrop-blur-sm z-30 p-4 -mx-4 rounded-xl">
               {faqCategories.map((category) => (
                 <button
                   key={category.id}
                   onClick={() => scrollToSection(category.id)}
-                  className={`group flex flex-col items-center justify-center p-6 rounded-2xl transition-all duration-500 
+                  className={`group flex flex-col items-center justify-center p-6 lg:p-8 rounded-2xl transition-all duration-500 
                     transform hover:scale-105 hover:-translate-y-1 ${
                     activeCategory === category.id
-                      ? 'bg-gradient-to-br from-primary-50 to-primary-100 text-primary-900 border-2 border-primary-200 shadow-xl shadow-primary-100/50'
+                      ? 'bg-gradient-to-br from-[#B08D57]/20 to-[#D4AF37]/20 text-primary-900 border-2 border-[#B08D57] shadow-xl shadow-[#B08D57]/20 ring-4 ring-[#B08D57]/10'
                       : 'bg-white hover:bg-gradient-to-br hover:from-white hover:to-neutral-50 text-primary-700 border border-neutral-200 hover:border-neutral-300 shadow-lg hover:shadow-xl'
                   }`}
                 >
-                  <div className={`p-4 rounded-xl mb-4 transition-all duration-300 ${
+                  <div className={`p-4 lg:p-5 rounded-xl mb-4 transition-all duration-300 ${
                     activeCategory === category.id 
-                      ? 'bg-gradient-to-br from-primary-100 to-primary-200 text-primary-900 shadow-lg' 
+                      ? 'bg-gradient-to-br from-[#B08D57] to-[#D4AF37] text-white shadow-lg scale-110' 
                       : 'bg-gradient-to-br from-neutral-50 to-neutral-100 text-primary-600 group-hover:from-primary-50 group-hover:to-primary-100 group-hover:text-primary-700'
                   }`}>
                     {getIcon(category.iconType)}
@@ -487,6 +557,22 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
           </>
         )}
       </div>
+      
+      {/* Back to Top Button */}
+      <AnimatePresence>
+        {showBackToTop && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="fixed bottom-8 right-8 z-50 p-3 bg-[#B08D57] hover:bg-[#D4AF37] text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+            aria-label="Back to top"
+          >
+            <ChevronUpIcon className="w-6 h-6" />
+          </motion.button>
+        )}
+      </AnimatePresence>
     </>
   );
 } 

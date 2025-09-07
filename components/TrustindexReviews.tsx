@@ -24,7 +24,7 @@ export default function TrustindexReviews() {
   }, []);
 
   return (
-    <section className="py-12 px-4 bg-gradient-to-b from-white to-gray-50">
+    <section className="pt-12 pb-8 px-4 bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-7xl mx-auto">
         <div className="mb-12">
           <div className="flex items-center justify-center space-x-8">

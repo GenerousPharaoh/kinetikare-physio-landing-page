@@ -460,14 +460,14 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
               <h2 className="text-2xl font-bold text-primary-900 mb-3 tracking-tight">
                 Search Results
               </h2>
-              <div className="flex items-center justify-between">
-                <p className="text-primary-600 text-lg">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+                <p className="text-primary-600 text-base md:text-lg">
                   {filteredQuestions.length === 0 
                     ? 'No questions found matching your search.' 
                     : `Found ${filteredQuestions.length} question${filteredQuestions.length === 1 ? '' : 's'} matching "${searchQuery}"`}
                 </p>
                 {filteredQuestions.length > 0 && (
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-[#B08D57]/10 text-[#B08D57]">
+                  <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs md:text-sm font-medium bg-[#B08D57]/10 text-[#B08D57]">
                     {filteredQuestions.length} result{filteredQuestions.length !== 1 ? 's' : ''}
                   </span>
                 )}
@@ -501,7 +501,7 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
                       {/* Show category label */}
                       {'category' in item && (
                         <div className="mb-2">
-                          <span className="text-xs font-medium text-[#B08D57] bg-[#B08D57]/10 px-3 py-1 rounded-full">
+                          <span className="text-xs font-medium text-[#B08D57] bg-[#B08D57]/10 px-2 py-0.5 rounded-full">
                             {item.category}
                           </span>
                         </div>

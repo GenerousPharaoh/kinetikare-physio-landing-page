@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 
   return {
-    title: `${treatment.name} | Physiotherapy Treatment in Ottawa | KinetiKare`,
+    title: `${treatment.name} | Physiotherapy Treatment in Burlington | KinetiKare`,
     description: treatment.metaDescription,
     keywords: treatment.keywords.join(', '),
     openGraph: {

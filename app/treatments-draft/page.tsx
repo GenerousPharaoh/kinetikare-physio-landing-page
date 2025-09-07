@@ -5,11 +5,11 @@ import TreatmentsCTA from '@/components/treatments/TreatmentsCTA';
 
 export const metadata: Metadata = {
   title: 'Physiotherapy Treatments | Evidence-Based Therapy | KinetiKare',
-  description: 'Explore our comprehensive range of physiotherapy treatments in Ottawa. From manual therapy to specialized rehabilitation, we offer evidence-based solutions for your recovery.',
-  keywords: 'physiotherapy treatments, manual therapy, dry needling, exercise therapy, sports rehabilitation, Ottawa physiotherapy',
+  description: 'Explore our comprehensive range of physiotherapy treatments in Burlington. From manual therapy to specialized rehabilitation, we offer evidence-based solutions for your recovery.',
+  keywords: 'physiotherapy treatments, manual therapy, dry needling, exercise therapy, sports rehabilitation, Burlington physiotherapy',
   openGraph: {
     title: 'Physiotherapy Treatments - KinetiKare',
-    description: 'Comprehensive physiotherapy treatments in Ottawa. Expert care with proven techniques for lasting recovery.',
+    description: 'Comprehensive physiotherapy treatments in Burlington. Expert care with proven techniques for lasting recovery.',
     type: 'website',
     url: 'https://kinetikarephysio.com/treatments',
     siteName: 'KinetiKare Physiotherapy',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Physiotherapy Treatments | KinetiKare',
-    description: 'Explore our evidence-based physiotherapy treatments in Ottawa.',
+    description: 'Explore our evidence-based physiotherapy treatments in Burlington.',
     images: ['https://kinetikarephysio.com/images/og-image.jpg'],
   },
   alternates: {

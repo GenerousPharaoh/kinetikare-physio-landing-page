@@ -28,6 +28,7 @@ import {
   ExclamationCircleIcon
 } from '@heroicons/react/24/outline';
 import { Condition } from '@/lib/conditions-data';
+import { MedicalGlossaryWrapper, EnhancedParagraph } from '@/components/medical-glossary/MedicalTermProvider';
 
 interface ConditionPageClientProps {
   condition: Condition;
@@ -151,7 +152,7 @@ export default function ConditionPageClient({
   };
 
   return (
-    <>
+    <MedicalGlossaryWrapper>
       {/* Structured Data */}
       <script
         type="application/ld+json"
@@ -317,9 +318,9 @@ export default function ConditionPageClient({
                               <h2 className="text-xl font-semibold text-slate-900 mb-4">
                                 The Science of {condition.name || 'Your Condition'}
                               </h2>
-                              <p className="text-slate-600 leading-relaxed">
+                              <EnhancedParagraph className="text-slate-600 leading-relaxed">
                                 {condition.pathophysiology}
-                              </p>
+                              </EnhancedParagraph>
                             </div>
                           )}
 
@@ -330,9 +331,9 @@ export default function ConditionPageClient({
                               </h2>
                               <div className="space-y-4">
                                 {condition.overview.split('\n\n').map((paragraph, index) => (
-                                  <p key={index} className="text-slate-600 leading-relaxed">
+                                  <EnhancedParagraph key={index} className="text-slate-600 leading-relaxed">
                                     {paragraph}
-                                  </p>
+                                  </EnhancedParagraph>
                                 ))}
                               </div>
                             </div>
@@ -345,9 +346,9 @@ export default function ConditionPageClient({
                               </h2>
                               <div className="space-y-4">
                                 {condition.biomechanics.split('\n\n').map((paragraph, index) => (
-                                  <p key={index} className="text-slate-600 leading-relaxed">
+                                  <EnhancedParagraph key={index} className="text-slate-600 leading-relaxed">
                                     {paragraph}
-                                  </p>
+                                  </EnhancedParagraph>
                                 ))}
                               </div>
                             </div>
@@ -1547,6 +1548,6 @@ export default function ConditionPageClient({
           </div>
         </section>
       </div>
-    </>
+    </MedicalGlossaryWrapper>
   );
 }

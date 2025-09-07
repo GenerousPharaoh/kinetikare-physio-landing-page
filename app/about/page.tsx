@@ -17,7 +17,7 @@ import CommitmentCarousel from '@/components/CommitmentCarousel';
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: 'About Kareem Hassanein | KinetiKare Physiotherapy Burlington, Waterdown & Oakville',
+  title: 'About Kareem Hassanein | Burlington Physiotherapist',
   description: 'Meet Kareem Hassanein, Registered Physiotherapist at KinetiKare. MSc Physiotherapy (Distinction), CAMPT-Certified. KinetiKare provides personalized care in Burlington, Waterdown, and Oakville. Over 5 years of clinical practice focused on manual therapy and sports rehabilitation.',
   keywords: [
     'Kareem Hassanein', 

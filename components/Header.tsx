@@ -326,7 +326,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   key={item.name}
                       href={item.href}
                       onClick={(e) => handleNavClick(e, item.href)}
-                  className={`relative text-[11px] lg:text-xs xl:text-sm font-medium transition-all duration-[400ms] ease-out py-2 group whitespace-nowrap outline-none
+                  className={`relative text-xs lg:text-sm xl:text-base font-medium transition-all duration-[400ms] ease-out py-2 group whitespace-nowrap outline-none
                           ${isCurrentPath(item.href) 
                       ? '!text-[#D4AF37] font-normal hover:!text-[#E6C157]' 
                       : '!text-white hover:!text-[#D4AF37]'}`}

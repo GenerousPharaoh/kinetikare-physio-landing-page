@@ -18,7 +18,7 @@ import CommitmentCarousel from '@/components/CommitmentCarousel';
 // SEO Metadata
 export const metadata: Metadata = {
   title: 'About Kareem Hassanein | Burlington Physiotherapist',
-  description: 'Meet Kareem Hassanein, Registered Physiotherapist at KinetiKare. MSc Physiotherapy (Distinction), CAMPT-Certified. KinetiKare provides personalized care in Burlington, Waterdown, and Oakville. Over 5 years of clinical practice focused on manual therapy and sports rehabilitation.',
+  description: 'Meet Kareem Hassanein, MSc PT (Distinction), CAMPT-Certified Physiotherapist in Burlington. Expert in manual therapy, sports rehabilitation, and evidence-based treatment.',
   keywords: [
     'Kareem Hassanein', 
     'Kareem Hassanein KinetiKare',
@@ -97,12 +97,81 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'About Kareem Hassanein | Physiotherapist | Burlington & Waterdown',
     description: 'Learn about Kareem Hassanein, MSc (Physiotherapy), CAMPT-Certified. Dedicated to providing personalized physiotherapy and manual therapy in Burlington, serving Waterdown, Hamilton, and Oakville.',
-    url: '/about',
+    url: 'https://www.kinetikarephysio.com/about',
     type: 'website',
+    images: [{
+      url: 'https://www.kinetikarephysio.com/images/og-image.jpg',
+      width: 1200,
+      height: 630,
+      alt: 'Kareem Hassanein - Registered Physiotherapist Burlington'
+    }]
+  },
+  alternates: {
+    canonical: 'https://www.kinetikarephysio.com/about'
   },
 };
 
 export default function About() {
+  // Person schema for Kareem Hassanein
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://www.kinetikarephysio.com/about#kareem-hassanein",
+    "name": "Kareem Hassanein",
+    "honorificPrefix": "RPT",
+    "honorificSuffix": "MSc PT",
+    "jobTitle": "Registered Physiotherapist",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Kareem Hassanein Physiotherapy",
+      "alternateName": "KinetiKare Physio"
+    },
+    "alumniOf": [
+      {
+        "@type": "EducationalOrganization",
+        "name": "University of Western Ontario",
+        "department": "School of Physical Therapy"
+      },
+      {
+        "@type": "EducationalOrganization",
+        "name": "University of Toronto",
+        "department": "Faculty of Kinesiology and Physical Education"
+      }
+    ],
+    "knowsAbout": [
+      "Physiotherapy",
+      "Manual Therapy",
+      "Sports Rehabilitation",
+      "Dry Needling",
+      "Back Pain Treatment",
+      "Sports Injuries",
+      "Post-Surgical Rehabilitation"
+    ],
+    "memberOf": [
+      {
+        "@type": "Organization",
+        "name": "College of Physiotherapists of Ontario",
+        "identifier": "20079"
+      },
+      {
+        "@type": "Organization",
+        "name": "Canadian Physiotherapy Association"
+      }
+    ],
+    "image": "https://www.kinetikarephysio.com/images/kareem-profile.png",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "4631 Palladium Way, Unit 6",
+      "addressLocality": "Burlington",
+      "addressRegion": "ON",
+      "postalCode": "L7M 0W9",
+      "addressCountry": "CA"
+    },
+    "telephone": "+19056346000",
+    "email": "kareem.hassanein@gmail.com",
+    "url": "https://www.kinetikarephysio.com/about"
+  };
+
   const commitmentItems = [
     {
       id: 'assessment',
@@ -143,7 +212,14 @@ export default function About() {
   ];
 
   return (
-    <main className="min-h-screen flex flex-col text-primary-700 bg-white">
+    <>
+      {/* Person Schema for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+      />
+      
+      <main className="min-h-screen flex flex-col text-primary-700 bg-white">
       {/* Hero Section - Premium Design */}
       <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-20 bg-gradient-to-br from-white via-slate-50/50 to-white overflow-hidden">
         {/* Premium background elements */}
@@ -1054,5 +1130,6 @@ export default function About() {
         </div>
       </section>
     </main>
+    </>
   );
 } 

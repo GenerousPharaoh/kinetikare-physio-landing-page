@@ -88,7 +88,16 @@ export const metadata: Metadata = {
     title: 'Physiotherapy Services | Kareem Hassanein',
     description: 'Advanced physiotherapy services including sports rehabilitation, manual therapy, dry needling, and more for better movement and pain-free living.',
     type: 'website',
-    url: '/services',
+    url: 'https://www.kinetikarephysio.com/services',
+    images: [{
+      url: 'https://www.kinetikarephysio.com/images/og-image.jpg',
+      width: 1200,
+      height: 630,
+      alt: 'Kareem Hassanein Physiotherapy Services'
+    }]
+  },
+  alternates: {
+    canonical: 'https://www.kinetikarephysio.com/services'
   },
   robots: {
     index: true,

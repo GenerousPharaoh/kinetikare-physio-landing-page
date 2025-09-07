@@ -312,7 +312,7 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed top-4 right-4 z-40"
+            className="fixed top-20 md:top-4 right-4 z-40"
           >
             {searchQuery || isSearching ? (
               // Expanded search bar when active
@@ -338,11 +338,11 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
                   
                   <button
                     onClick={() => setSearchQuery('')}
-                    className="absolute inset-y-0 right-0 mr-3 flex items-center"
+                    className="absolute inset-y-0 right-0 mr-3 flex items-center p-1 hover:bg-neutral-100 rounded-full transition-colors"
                     aria-label="Clear search"
                   >
-                    <svg className="h-4 w-4 text-neutral-400 hover:text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    <svg className="h-5 w-5 text-neutral-500 hover:text-neutral-700 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
                     </svg>
                   </button>
                 </div>
@@ -413,7 +413,7 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
               placeholder="Search FAQs (e.g., insurance, dry needling, treatment duration...)"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-14 pr-6 py-5 bg-transparent rounded-full focus:outline-none focus:ring-4 focus:ring-[#B08D57]/20 text-lg font-medium text-slate-900 placeholder-slate-500"
+              className="w-full pl-14 pr-14 py-5 bg-transparent rounded-full focus:outline-none focus:ring-4 focus:ring-[#B08D57]/20 text-lg font-medium text-slate-900 placeholder-slate-500"
             />
             {searchQuery && (
               <motion.button
@@ -423,11 +423,11 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setSearchQuery('')}
-                className="absolute right-12 top-1/2 transform -translate-y-1/2 p-1.5 rounded-full bg-slate-100 text-slate-400 hover:bg-slate-200 hover:text-slate-600 transition-all duration-200"
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 p-2 rounded-full hover:bg-slate-100 text-slate-500 hover:text-slate-700 transition-all duration-200"
                 aria-label="Clear search"
               >
-                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </motion.button>
             )}
@@ -437,7 +437,7 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
         {/* Helpful search suggestions */}
         <div className="mt-6 text-center">
           <p className="text-sm text-slate-500 mb-3 font-light">Popular searches:</p>
-          <div className="flex flex-wrap justify-center gap-2">
+          <div className="flex flex-wrap justify-center gap-2 px-4 md:px-0">
             {['Direct billing', 'Insurance coverage', 'First appointment', 'Treatment duration', 'Manual therapy', 'Dry needling', 'Cupping therapy', 'Exercise programs', 'Sports injuries', 'Back pain', 'Neck pain', 'Referral needed'].map((suggestion) => (
               <button
                 key={suggestion}
@@ -518,26 +518,26 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
         {/* Category Navigation (when not searching) */}
         {!isSearching && (
           <>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8 mb-16 sticky top-20 bg-white/95 backdrop-blur-sm z-30 p-4 -mx-4 rounded-xl">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-6 lg:gap-8 mb-8 md:mb-16 md:sticky md:top-20 bg-white md:bg-white/95 md:backdrop-blur-sm z-30 p-2 md:p-4 -mx-2 md:-mx-4 rounded-xl">
               {faqCategories.map((category) => (
                 <button
                   key={category.id}
                   onClick={() => scrollToSection(category.id)}
-                  className={`group flex flex-col items-center justify-center p-6 lg:p-8 rounded-2xl transition-all duration-500 
-                    transform hover:scale-105 hover:-translate-y-1 ${
+                  className={`group flex flex-col items-center justify-center p-3 md:p-6 lg:p-8 rounded-xl md:rounded-2xl transition-all duration-500 
+                    transform md:hover:scale-105 md:hover:-translate-y-1 ${
                     activeCategory === category.id
                       ? 'bg-gradient-to-br from-[#B08D57]/20 to-[#D4AF37]/20 text-primary-900 border-2 border-[#B08D57] shadow-xl shadow-[#B08D57]/20 ring-4 ring-[#B08D57]/10'
                       : 'bg-white hover:bg-gradient-to-br hover:from-white hover:to-neutral-50 text-primary-700 border border-neutral-200 hover:border-neutral-300 shadow-lg hover:shadow-xl'
                   }`}
                 >
-                  <div className={`p-4 lg:p-5 rounded-xl mb-4 transition-all duration-300 ${
+                  <div className={`p-2 md:p-4 lg:p-5 rounded-xl mb-2 md:mb-4 transition-all duration-300 ${
                     activeCategory === category.id 
                       ? 'bg-gradient-to-br from-[#B08D57] to-[#D4AF37] text-white shadow-lg scale-110' 
                       : 'bg-gradient-to-br from-neutral-50 to-neutral-100 text-primary-600 group-hover:from-primary-50 group-hover:to-primary-100 group-hover:text-primary-700'
                   }`}>
                     {getIcon(category.iconType)}
                   </div>
-                  <span className="text-sm font-semibold text-center leading-tight">{category.name}</span>
+                  <span className="text-xs md:text-sm font-semibold text-center leading-tight">{category.name}</span>
                 </button>
               ))}
             </div>

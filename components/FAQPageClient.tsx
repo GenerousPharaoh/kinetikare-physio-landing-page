@@ -338,11 +338,11 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
                   
                   <button
                     onClick={() => setSearchQuery('')}
-                    className="absolute inset-y-0 right-0 mr-3 flex items-center p-1 hover:bg-neutral-100 rounded-full transition-colors"
+                    className="absolute right-2 top-1/2 transform -translate-y-1/2 p-1.5 hover:bg-neutral-100 rounded-full transition-colors"
                     aria-label="Clear search"
                   >
-                    <svg className="h-5 w-5 text-neutral-500 hover:text-neutral-700 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+                    <svg className="h-4 w-4 text-neutral-500 hover:text-neutral-700 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                     </svg>
                   </button>
                 </div>

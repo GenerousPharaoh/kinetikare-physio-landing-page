@@ -138,7 +138,7 @@ const spinalConditions: Condition[] = [
     description: 'acute and chronic, mechanical, disc-related',
     featured: true,
     priority: 1,
-    metaDescription: 'Expert low back pain treatment in Burlington with Kareem Hassanein. CAMPT-certified physiotherapy using manual therapy, dry needling, and personalized exercise programs for lasting relief.',
+    metaDescription: 'Expert low back pain treatment in Burlington with Kareem Hassanein. Advanced manual therapy physiotherapy using manual techniques, dry needling, and personalized exercise programs for lasting relief.',
   },
   {
     id: 'neck-pain',

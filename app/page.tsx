@@ -10,7 +10,7 @@ import TrustindexReviews from '@/components/TrustindexReviews';
 // SEO Metadata for Homepage
 export const metadata: Metadata = {
   title: 'Burlington Physiotherapy | Kareem Hassanein, PT',
-  description: 'Kareem Hassanein - Burlington\'s expert physiotherapist specializing in back pain, sports injuries, knee pain, neck pain. Serving North Burlington, Alton Village, Palladium Way. Direct billing, evening appointments. MSc PT, CAMPT certified.',
+  description: 'Kareem Hassanein - Burlington\'s expert physiotherapist specializing in back pain, sports injuries, knee pain, neck pain. Serving North Burlington, Alton Village, Palladium Way. Direct billing, evening appointments. Registered Physiotherapist, MSc PT, BSc Kin.',
   keywords: [
     'Kareem Hassanein',
     'Kareem Hassanein physiotherapist',
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     'manual therapy Burlington',
     'dry needling Burlington',
     'IMS Burlington',
-    'CAMPT physiotherapist',
+    'advanced manual therapy physiotherapist',
     'registered physiotherapist Burlington',
     'best physiotherapist Burlington',
     'physiotherapist near me',
@@ -85,8 +85,8 @@ export const metadata: Metadata = {
     'neck pain treatment Burlington',
     'sports injury Burlington',
     'sports injury Waterdown',
-    'CAMPT certified physiotherapist',
-    'CAMPT physiotherapist Burlington',
+    'advanced manual therapy Burlington',
+    'manual therapy physiotherapist Burlington',
     'registered physiotherapist Burlington',
     'registered physiotherapist Waterdown'
   ],
@@ -132,7 +132,7 @@ const personSchema = {
   "@type": "Person",
   "name": "Kareem Hassanein",
   "jobTitle": "Registered Physiotherapist",
-  "description": "CAMPT-certified physiotherapist specializing in manual therapy, sports rehabilitation, and evidence-based treatment in Burlington, Waterdown, Hamilton, and Oakville.",
+  "description": "Registered physiotherapist specializing in manual therapy, sports rehabilitation, and evidence-based treatment in Burlington, Waterdown, Hamilton, and Oakville.",
   "url": "https://www.kinetikarephysio.com",
   "image": "https://www.kinetikarephysio.com/images/kareem-profile.png",
   "telephone": "+19056346000",

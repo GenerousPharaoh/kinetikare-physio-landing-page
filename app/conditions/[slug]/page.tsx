@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     ...locations.map(loc => `${condition.name} treatment ${loc}`),
     ...locations.map(loc => `${condition.name} physiotherapy ${loc}`),
     'Kareem Hassanein',
-    'CAMPT physiotherapy',
+    'advanced manual therapy',
     'manual therapy',
     'dry needling',
     ...(condition.keywords || [])
@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const title = `${condition.name} Treatment Burlington | Kareem Hassanein Physiotherapy`;
   const description = condition.metaDescription || 
-    `Expert ${condition.name.toLowerCase()} treatment in Burlington with Kareem Hassanein. CAMPT-certified physiotherapy using evidence-based techniques for lasting relief. Direct billing available.`;
+    `Expert ${condition.name.toLowerCase()} treatment in Burlington with Kareem Hassanein. Advanced manual therapy physiotherapy using evidence-based techniques for lasting relief. Direct billing available.`;
 
   return {
     title,

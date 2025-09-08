@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     'best physiotherapist Burlington',
     'registered physiotherapist Burlington',
     'MSc physiotherapy Burlington',
-    'CAMPT physiotherapist Burlington',
+    'advanced manual therapy Burlington',
     'evening physio Burlington',
     'direct billing physiotherapy Burlington',
     'Waterdown',

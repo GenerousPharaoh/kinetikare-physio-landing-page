@@ -20,7 +20,7 @@ export const viewport = {
 export const metadata = {
   title: 'Kareem Hassanein Physiotherapist Burlington | Sports Physio | Back Pain Treatment',
   description: 'Kareem Hassanein, Registered Physiotherapist in Burlington. Expert treatment for back pain, sports injuries, knee pain, neck pain, sciatica. Serving North Burlington, Alton Village, Palladium Way. Direct billing, evening appointments.',
-  keywords: ['Kareem Hassanein', 'Kareem Hassanein physiotherapist', 'Kareem Hassanein physio', 'Kareem Hassanein Burlington', 'physiotherapist Burlington', 'physiotherapy Burlington', 'physio Burlington', 'Burlington physiotherapist', 'North Burlington physiotherapy', 'Alton Village physiotherapy', 'Alton Village physio', 'physiotherapy Palladium Way', 'physiotherapist Palladium Way', 'sports physiotherapist Burlington', 'sports physio Burlington', 'sports injury clinic Burlington', 'back pain Burlington', 'back pain treatment Burlington', 'lower back pain physio', 'chronic back pain Burlington', 'acute back pain Burlington', 'neck pain Burlington', 'neck pain treatment', 'whiplash Burlington', 'whiplash treatment Burlington', 'knee pain Burlington', 'knee injury physiotherapy', 'arthritis Burlington', 'knee arthritis Burlington', 'shoulder pain Burlington', 'rotator cuff injury', 'frozen shoulder Burlington', 'shoulder impingement Burlington', 'sciatica Burlington', 'sciatica treatment', 'herniated disc Burlington', 'disc bulge Burlington', 'pinched nerve Burlington', 'nerve pain Burlington', 'plantar fasciitis Burlington', 'heel pain Burlington', 'tennis elbow Burlington', 'golfers elbow Burlington', 'hip pain Burlington', 'hip arthritis Burlington', 'hip bursitis Burlington', 'ankle sprain Burlington', 'ankle injury Burlington', 'achilles tendonitis Burlington', 'achilles pain Burlington', 'running injuries Burlington', 'marathon training injuries Burlington', 'ACL rehabilitation Burlington', 'ACL tear Burlington', 'MCL injury Burlington', 'meniscus tear Burlington', 'post surgery physio Burlington', 'post surgical rehabilitation Burlington', 'MVA physiotherapy Burlington', 'car accident physio Burlington', 'chronic pain Burlington', 'started running knee pain Burlington', 'couch to 5k injury Burlington', 'new runner pain Burlington', 'first time runner injury Burlington', 'started gym hurt back Burlington', 'crossfit injury Burlington', 'workout injury Burlington', 'hurt at gym Burlington', 'deadlift back pain Burlington', 'squat knee pain Burlington', 'bench press shoulder pain Burlington', 'weekend warrior injury Burlington', 'golf back pain Burlington', 'golf elbow Burlington', 'hockey injury Burlington', 'hockey groin Burlington', 'soccer injury Burlington', 'soccer ankle Burlington', 'basketball knee injury Burlington', 'volleyball shoulder Burlington', 'tennis shoulder Burlington', 'pickleball injury Burlington', 'cycling knee pain Burlington', 'bike seat pain Burlington', 'spin class injury Burlington', 'yoga injury Burlington', 'pulled muscle at gym Burlington', 'first workout injury Burlington', 'orange theory injury Burlington', 'F45 injury Burlington', 'bootcamp injury Burlington', 'hurt shoveling snow Burlington', 'gardening back pain Burlington', 'painting shoulder pain Burlington', 'moving injury Burlington', 'lifting boxes hurt back Burlington', 'sitting too long back pain Burlington', 'desk job neck pain Burlington', 'work from home pain Burlington', 'computer neck Burlington', 'text neck Burlington', 'mom carrying baby pain Burlington', 'pregnancy back pain Burlington', 'postpartum pain Burlington', 'manual therapy Burlington', 'dry needling Burlington', 'IMS Burlington', 'CAMPT physiotherapist', 'MSc physiotherapy', 'registered physiotherapist Burlington', 'best physiotherapist Burlington', 'physiotherapist near me', 'physio near me', 'evening physiotherapy Burlington', 'weekend physio Burlington', 'direct billing physiotherapy', 'insurance physiotherapy Burlington'],
+  keywords: ['Kareem Hassanein', 'Kareem Hassanein physiotherapist', 'Kareem Hassanein physio', 'Kareem Hassanein Burlington', 'physiotherapist Burlington', 'physiotherapy Burlington', 'physio Burlington', 'Burlington physiotherapist', 'North Burlington physiotherapy', 'Alton Village physiotherapy', 'Alton Village physio', 'physiotherapy Palladium Way', 'physiotherapist Palladium Way', 'sports physiotherapist Burlington', 'sports physio Burlington', 'sports injury clinic Burlington', 'back pain Burlington', 'back pain treatment Burlington', 'lower back pain physio', 'chronic back pain Burlington', 'acute back pain Burlington', 'neck pain Burlington', 'neck pain treatment', 'whiplash Burlington', 'whiplash treatment Burlington', 'knee pain Burlington', 'knee injury physiotherapy', 'arthritis Burlington', 'knee arthritis Burlington', 'shoulder pain Burlington', 'rotator cuff injury', 'frozen shoulder Burlington', 'shoulder impingement Burlington', 'sciatica Burlington', 'sciatica treatment', 'herniated disc Burlington', 'disc bulge Burlington', 'pinched nerve Burlington', 'nerve pain Burlington', 'plantar fasciitis Burlington', 'heel pain Burlington', 'tennis elbow Burlington', 'golfers elbow Burlington', 'hip pain Burlington', 'hip arthritis Burlington', 'hip bursitis Burlington', 'ankle sprain Burlington', 'ankle injury Burlington', 'achilles tendonitis Burlington', 'achilles pain Burlington', 'running injuries Burlington', 'marathon training injuries Burlington', 'ACL rehabilitation Burlington', 'ACL tear Burlington', 'MCL injury Burlington', 'meniscus tear Burlington', 'post surgery physio Burlington', 'post surgical rehabilitation Burlington', 'MVA physiotherapy Burlington', 'car accident physio Burlington', 'chronic pain Burlington', 'started running knee pain Burlington', 'couch to 5k injury Burlington', 'new runner pain Burlington', 'first time runner injury Burlington', 'started gym hurt back Burlington', 'crossfit injury Burlington', 'workout injury Burlington', 'hurt at gym Burlington', 'deadlift back pain Burlington', 'squat knee pain Burlington', 'bench press shoulder pain Burlington', 'weekend warrior injury Burlington', 'golf back pain Burlington', 'golf elbow Burlington', 'hockey injury Burlington', 'hockey groin Burlington', 'soccer injury Burlington', 'soccer ankle Burlington', 'basketball knee injury Burlington', 'volleyball shoulder Burlington', 'tennis shoulder Burlington', 'pickleball injury Burlington', 'cycling knee pain Burlington', 'bike seat pain Burlington', 'spin class injury Burlington', 'yoga injury Burlington', 'pulled muscle at gym Burlington', 'first workout injury Burlington', 'orange theory injury Burlington', 'F45 injury Burlington', 'bootcamp injury Burlington', 'hurt shoveling snow Burlington', 'gardening back pain Burlington', 'painting shoulder pain Burlington', 'moving injury Burlington', 'lifting boxes hurt back Burlington', 'sitting too long back pain Burlington', 'desk job neck pain Burlington', 'work from home pain Burlington', 'computer neck Burlington', 'text neck Burlington', 'mom carrying baby pain Burlington', 'pregnancy back pain Burlington', 'postpartum pain Burlington', 'manual therapy Burlington', 'dry needling Burlington', 'IMS Burlington', 'advanced manual therapy physiotherapist', 'MSc physiotherapy', 'registered physiotherapist Burlington', 'best physiotherapist Burlington', 'physiotherapist near me', 'physio near me', 'evening physiotherapy Burlington', 'weekend physio Burlington', 'direct billing physiotherapy', 'insurance physiotherapy Burlington'],
   authors: [{ name: 'Kareem Hassanein', url: 'https://www.kinetikarephysio.com/about' }],
   creator: 'Kareem Hassanein',
   publisher: 'Kareem Hassanein Physiotherapy',
@@ -275,7 +275,7 @@ const brandSchema = {
     "https://www.facebook.com/kinetikarephysio",
     "https://www.instagram.com/kinetikarephysio"
   ],
-  "description": "Kareem Hassanein Physiotherapy - Expert treatment for back pain, sports injuries, knee pain in Burlington. Serving North Burlington, Alton Village, Palladium Way. MSc PT, CAMPT certified."
+  "description": "Kareem Hassanein Physiotherapy - Expert treatment for back pain, sports injuries, knee pain in Burlington. Serving North Burlington, Alton Village, Palladium Way. Registered Physiotherapist, MSc PT, BSc Kin."
 };
 
 // Website Schema for improved search presence
@@ -304,7 +304,7 @@ const personSchema = {
   "name": "Kareem Hassanein",
   "alternateName": ["Kareem Hassanein PT", "Kareem Hassanein Physiotherapist", "Kareem Hassanein MSc PT"],
   "jobTitle": "Registered Physiotherapist",
-  "description": "Kareem Hassanein is a registered physiotherapist in Burlington, Ontario specializing in back pain treatment, sports injury rehabilitation, and manual therapy. MSc PT, BSc Kin, CAMPT certified.",
+  "description": "Kareem Hassanein is a registered physiotherapist in Burlington, Ontario specializing in back pain treatment, sports injury rehabilitation, and manual therapy. Registered Physiotherapist, MSc PT, BSc Kin.",
   "image": "https://www.kinetikarephysio.com/images/kareem-profile.png",
   "url": "https://www.kinetikarephysio.com/about",
   "sameAs": [
@@ -323,13 +323,23 @@ const personSchema = {
         "addressLocality": "Aberdeen",
         "addressCountry": "UK"
       }
+    },
+    {
+      "@type": "EducationalOrganization",
+      "name": "McMaster University",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Hamilton",
+        "addressRegion": "ON",
+        "addressCountry": "CA"
+      }
     }
   ],
   "hasCredential": [
     {
       "@type": "EducationalOccupationalCredential",
       "credentialCategory": "degree",
-      "name": "Master of Science in Physiotherapy (Distinction)"
+      "name": "Master of Science in Physiotherapy"
     },
     {
       "@type": "EducationalOccupationalCredential",
@@ -339,7 +349,7 @@ const personSchema = {
     {
       "@type": "EducationalOccupationalCredential",
       "credentialCategory": "certification",
-      "name": "CAMPT Certified"
+      "name": "Advanced Manual Therapy Training"
     },
     {
       "@type": "EducationalOccupationalCredential",
@@ -347,6 +357,15 @@ const personSchema = {
       "name": "Dry Needling Certified"
     }
   ],
+  "memberOf": [
+    {
+      "@type": "Organization",
+      "@id": "https://collegept.org/",
+      "name": "College of Physiotherapists of Ontario",
+      "identifier": "20079"
+    }
+  ],
+  "honorificSuffix": "Registered Physiotherapist, MSc PT, BSc Kin",
   "knowsAbout": [
     "Back Pain Treatment",
     "Sports Injury Rehabilitation",

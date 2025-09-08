@@ -18,7 +18,7 @@ import CommitmentCarousel from '@/components/CommitmentCarousel';
 // SEO Metadata
 export const metadata: Metadata = {
   title: 'About Kareem Hassanein | Burlington Physiotherapist',
-  description: 'Meet Kareem Hassanein, MSc PT (Distinction), CAMPT-Certified Physiotherapist in Burlington. Expert in manual therapy, sports rehabilitation, and evidence-based treatment.',
+  description: 'Meet Kareem Hassanein, Registered Physiotherapist, MSc PT, BSc Kin in Burlington. Expert in manual therapy, sports rehabilitation, and evidence-based treatment.',
   keywords: [
     'Kareem Hassanein', 
     'Kareem Hassanein KinetiKare',
@@ -42,10 +42,10 @@ export const metadata: Metadata = {
     'Hamilton physiotherapy Kareem Hassanein',
     'Oakville physiotherapy Kareem Hassanein',
     'KinetiKare Kareem Hassanein', 
-    'CAMPT certified physiotherapist Burlington',
-    'CAMPT certified physiotherapist Waterdown',
-    'CAMPT certified physiotherapist Hamilton',
-    'CAMPT certified physiotherapist Oakville',
+    'advanced manual therapy Burlington',
+    'advanced manual therapy Waterdown',
+    'advanced manual therapy Hamilton',
+    'advanced manual therapy Oakville',
     'manual therapy Burlington Kareem',
     'manual therapy Waterdown Kareem',
     'manual therapy Hamilton Kareem',
@@ -96,7 +96,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.kinetikarephysio.com'),
   openGraph: {
     title: 'About Kareem Hassanein | Physiotherapist | Burlington & Waterdown',
-    description: 'Learn about Kareem Hassanein, MSc (Physiotherapy), CAMPT-Certified. Dedicated to providing personalized physiotherapy and manual therapy in Burlington, serving Waterdown, Hamilton, and Oakville.',
+    description: 'Learn about Kareem Hassanein, Registered Physiotherapist, MSc PT, BSc Kin. Dedicated to providing personalized physiotherapy and manual therapy in Burlington. Serving patients from Waterdown, Hamilton, Oakville and beyond.',
     url: 'https://www.kinetikarephysio.com/about',
     type: 'website',
     images: [{
@@ -118,13 +118,34 @@ export default function About() {
     "@type": "Person",
     "@id": "https://www.kinetikarephysio.com/about#kareem-hassanein",
     "name": "Kareem Hassanein",
-    "honorificSuffix": "RPT, MSc PT",
+    "honorificSuffix": "Registered Physiotherapist, MSc PT, BSc Kin",
     "jobTitle": "Registered Physiotherapist",
     "worksFor": {
       "@type": "Organization",
       "name": "Kareem Hassanein Physiotherapy",
       "alternateName": "KinetiKare Physio"
     },
+    "alumniOf": [
+      {
+        "@type": "EducationalOrganization",
+        "name": "Robert Gordon University",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Aberdeen",
+          "addressCountry": "Scotland"
+        }
+      },
+      {
+        "@type": "EducationalOrganization",
+        "name": "McMaster University",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Hamilton",
+          "addressRegion": "ON",
+          "addressCountry": "CA"
+        }
+      }
+    ],
     "knowsAbout": [
       "Physiotherapy",
       "Manual Therapy",
@@ -139,10 +160,6 @@ export default function About() {
         "@type": "Organization",
         "name": "College of Physiotherapists of Ontario",
         "identifier": "20079"
-      },
-      {
-        "@type": "Organization",
-        "name": "Canadian Physiotherapy Association"
       }
     ],
     "image": "https://www.kinetikarephysio.com/images/kareem-profile.png",
@@ -252,7 +269,7 @@ export default function About() {
             <div className="flex flex-wrap justify-center gap-6 text-sm text-slate-600">
               <div className="flex items-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]"></div>
-                <span>MSc Physiotherapy (Distinction)</span>
+                <span>MSc Physiotherapy</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]"></div>
@@ -295,11 +312,11 @@ export default function About() {
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 rounded-full bg-[#B08D57] flex-shrink-0 mt-1.5"></div>
-                    <span className="text-sm font-medium">MSc Physiotherapy (Distinction)</span>
+                    <span className="text-sm font-medium">MSc Physiotherapy</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 rounded-full bg-[#B08D57] flex-shrink-0 mt-1.5"></div>
-                    <span className="text-sm font-medium">AIM Level 2 Certified (Upper & Lower)</span>
+                    <span className="text-sm font-medium">Advanced Manual Therapy Training</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 rounded-full bg-[#B08D57] flex-shrink-0 mt-1.5"></div>
@@ -329,25 +346,7 @@ export default function About() {
               {/* Professional Affiliations - Mobile */}
               <div className="bg-gradient-to-br from-slate-50 to-white p-6 rounded-2xl border border-neutral-200 shadow-lg mt-6">
                 <h3 className="text-lg font-normal mb-6 text-primary-800 border-b border-primary-200 pb-3 text-center">Professional Affiliations</h3>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                  <Link 
-                    href="https://physiotherapy.ca/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center bg-white p-4 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300 h-24 sm:h-auto"
-                  >
-                    <ClientImage
-                      src="/images/canadian-physio-association-logo.png"
-                      alt="Canadian Physiotherapy Association"
-                      width={140}
-                      height={70}
-                      className="object-contain h-full max-h-16 sm:max-h-12 w-auto mx-auto filter contrast-110 brightness-105"
-                      style={{ 
-                        filter: 'contrast(1.1) brightness(1.05) saturate(1.1) unsharp-mask(amount=1.5, radius=1, threshold=0)',
-                        imageRendering: 'crisp-edges'
-                      }}
-                    />
-                  </Link>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                   
                   {/* Enhanced CPO section - simplified for mobile */}
                   <div className="flex flex-col bg-white rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300 h-24 sm:h-auto overflow-hidden">
@@ -460,11 +459,11 @@ export default function About() {
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3">
                       <div className="w-2 h-2 rounded-full bg-[#B08D57] flex-shrink-0 mt-1.5"></div>
-                      <span className="text-sm font-medium">MSc Physiotherapy (Distinction)</span>
+                      <span className="text-sm font-medium">MSc Physiotherapy</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <div className="w-2 h-2 rounded-full bg-[#B08D57] flex-shrink-0 mt-1.5"></div>
-                      <span className="text-sm font-medium">AIM Level 2 Certified (Upper & Lower)</span>
+                      <span className="text-sm font-medium">Advanced Manual Therapy Training</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <div className="w-2 h-2 rounded-full bg-[#B08D57] flex-shrink-0 mt-1.5"></div>
@@ -481,24 +480,6 @@ export default function About() {
                 <div className="bg-gradient-to-br from-slate-50 to-white p-6 rounded-2xl border border-neutral-200 shadow-lg">
                   <h3 className="text-lg font-normal mb-6 text-primary-800 border-b border-primary-200 pb-3">Professional Affiliations</h3>
                   <div className="space-y-5">
-                    <Link 
-                      href="https://physiotherapy.ca/" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="block bg-white p-5 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300"
-                    >
-                      <ClientImage
-                        src="/images/canadian-physio-association-logo.png"
-                        alt="Canadian Physiotherapy Association"
-                        width={140}
-                        height={70}
-                        className="object-contain h-auto max-h-14 mx-auto filter contrast-110 brightness-105"
-                        style={{ 
-                          filter: 'contrast(1.1) brightness(1.05) saturate(1.1) unsharp-mask(amount=1.5, radius=1, threshold=0)',
-                          imageRendering: 'crisp-edges'
-                        }}
-                      />
-                    </Link>
                     
                     {/* Enhanced CPO section with verification link */}
                     <div className="bg-white p-5 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300">
@@ -641,7 +622,7 @@ export default function About() {
                       <div className="relative z-10">
                         <p className="text-base sm:text-lg lg:text-xl text-slate-700 leading-relaxed mb-4 sm:mb-6">
                           This experience shaped my approach when I pursued my{" "}
-                          <span className="font-semibold text-[#B08D57]">Master's in Physiotherapy at Robert Gordon University, graduating with distinction</span>. Having been through the recovery process myself, I understand the importance of clear communication, realistic expectations, and genuine support throughout <span className="font-semibold text-slate-800">Halton Region and beyond</span>.
+                          <span className="font-semibold text-[#B08D57]">Master's in Physiotherapy at Robert Gordon University</span>. Having been through the recovery process myself, I understand the importance of clear communication, realistic expectations, and genuine support throughout <span className="font-semibold text-slate-800">Halton Region and beyond</span>.
                         </p>
                       </div>
                     </div>
@@ -845,9 +826,6 @@ export default function About() {
                               <h5 className="font-bold text-slate-800 text-lg sm:text-xl group-hover:text-[#B08D57] transition-colors duration-300">
                                 Master of Science in Physiotherapy
                               </h5>
-                              <span className="inline-flex items-center px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs font-semibold bg-[#B08D57]/10 text-[#B08D57] border border-[#B08D57]/20 whitespace-nowrap">
-                                Distinction
-                              </span>
                             </div>
                             <p className="text-slate-600 font-medium text-base mb-2">Robert Gordon University, Aberdeen, Scotland</p>
                             <div className="mt-3 flex items-center text-xs text-slate-400">
@@ -928,8 +906,8 @@ export default function About() {
                       <div className="flex items-start space-x-4">
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
                         <div className="flex-1">
-                          <div className="font-bold text-slate-800 text-xl mb-2">Advanced Integrated Musculoskeletal (AIM) Physiotherapy Program Level 2 Upper and Lower</div>
-                          <div className="text-[#B08D57] font-semibold text-base mb-1">Manual & Manipulative Therapy (Upper and Lower Quadrants)</div>
+                          <div className="font-bold text-slate-800 text-xl mb-2">Advanced Manual Therapy Training</div>
+                          <div className="text-[#B08D57] font-semibold text-base mb-1">Manual Therapy Techniques</div>
                           <div className="text-slate-600 text-sm leading-relaxed">Advanced certification in orthopedic manual physical therapy</div>
                         </div>
                       </div>

@@ -256,12 +256,8 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
     
     setFilteredQuestions(filtered);
     
-    // Scroll to search results when searching
-    if (filtered.length > 0 && searchResultsRef.current) {
-      setTimeout(() => {
-        searchResultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 100);
-    }
+    // Remove auto-scroll - let user control when to scroll
+    // User can manually scroll or press Enter to see results
   }, [searchQuery, isMounted, faqCategories]);
 
   // Get current questions to display
@@ -518,7 +514,7 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
         {/* Category Navigation (when not searching) */}
         {!isSearching && (
           <>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-6 lg:gap-8 mb-8 md:mb-16 md:sticky md:top-20 bg-white md:bg-white/95 md:backdrop-blur-sm z-30 p-2 md:p-4 -mx-2 md:-mx-4 rounded-xl">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-6 lg:gap-8 mb-8 md:mb-16 sticky top-16 md:top-20 bg-white/95 backdrop-blur-sm z-30 p-2 md:p-4 -mx-2 md:-mx-4 rounded-xl shadow-sm">
               {faqCategories.map((category) => (
                 <button
                   key={category.id}

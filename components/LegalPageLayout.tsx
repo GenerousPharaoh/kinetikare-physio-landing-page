@@ -14,7 +14,7 @@ export default function LegalPageLayout({ title, effectiveDate, children }: Lega
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       {/* Modern Header with KinetiKare branding */}
-      <section className="relative bg-black text-white py-12 md:py-16">
+      <section className="relative py-12 md:py-16" style={{ backgroundColor: '#0f172a' }}>
         {/* Subtle background pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
@@ -28,23 +28,23 @@ export default function LegalPageLayout({ title, effectiveDate, children }: Lega
             {/* Back to home link */}
             <Link 
               href="/"
-              className="inline-flex items-center text-white/70 hover:text-white transition-colors duration-200 mb-8 group"
+              className="inline-flex items-center text-white/90 hover:text-white transition-colors duration-200 mb-8 group"
             >
               <FiArrowLeft className="mr-2 group-hover:-translate-x-1 transition-transform duration-200" />
               Back to Home
             </Link>
             
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight legal-page-title">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight text-white">
               {title}
             </h1>
-            <div className="space-y-2 text-white/80">
-              <p className="text-lg">
-                <span className="text-white/80">Effective Date:</span> <span className="text-white">{effectiveDate}</span>
+            <div className="space-y-2">
+              <p className="text-lg text-white/90">
+                <span className="text-white/70">Effective Date:</span> <span className="text-white font-medium">{effectiveDate}</span>
               </p>
               <div className="pt-4 border-t border-white/20">
                 <p className="text-xl font-semibold text-white mb-1">Kareem Hassanein, Registered Physiotherapist</p>
-                <p className="text-white/70">Endorphins Health and Wellness Centre</p>
-                <p className="text-white/70">4631 Palladium Way, Unit 6, Burlington, ON L7M 0W9</p>
+                <p className="text-white/80">Endorphins Health and Wellness Centre</p>
+                <p className="text-white/80">4631 Palladium Way, Unit 6, Burlington, ON L7M 0W9</p>
               </div>
             </div>
           </div>
@@ -61,9 +61,6 @@ export default function LegalPageLayout({ title, effectiveDate, children }: Lega
             <div className="prose prose-lg max-w-none">
               {/* Custom prose styling */}
               <style jsx global>{`
-                .legal-page-title {
-                  color: #ffffff !important;
-                }
                 
                 .legal-content h2 {
                   font-size: 1.75rem;

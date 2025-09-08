@@ -118,26 +118,13 @@ export default function About() {
     "@type": "Person",
     "@id": "https://www.kinetikarephysio.com/about#kareem-hassanein",
     "name": "Kareem Hassanein",
-    "honorificPrefix": "RPT",
-    "honorificSuffix": "MSc PT",
+    "honorificSuffix": "RPT, MSc PT",
     "jobTitle": "Registered Physiotherapist",
     "worksFor": {
       "@type": "Organization",
       "name": "Kareem Hassanein Physiotherapy",
       "alternateName": "KinetiKare Physio"
     },
-    "alumniOf": [
-      {
-        "@type": "EducationalOrganization",
-        "name": "University of Western Ontario",
-        "department": "School of Physical Therapy"
-      },
-      {
-        "@type": "EducationalOrganization",
-        "name": "University of Toronto",
-        "department": "Faculty of Kinesiology and Physical Education"
-      }
-    ],
     "knowsAbout": [
       "Physiotherapy",
       "Manual Therapy",

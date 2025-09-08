@@ -514,28 +514,30 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
         {/* Category Navigation (when not searching) */}
         {!isSearching && (
           <>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-6 lg:gap-8 mb-8 md:mb-16 sticky top-16 md:top-20 bg-white/95 backdrop-blur-sm z-30 p-2 md:p-4 -mx-2 md:-mx-4 rounded-xl shadow-sm">
-              {faqCategories.map((category) => (
-                <button
-                  key={category.id}
-                  onClick={() => scrollToSection(category.id)}
-                  className={`group flex flex-col items-center justify-center p-3 md:p-6 lg:p-8 rounded-xl md:rounded-2xl transition-all duration-500 
-                    transform md:hover:scale-105 md:hover:-translate-y-1 ${
-                    activeCategory === category.id
-                      ? 'bg-gradient-to-br from-[#B08D57]/20 to-[#D4AF37]/20 text-primary-900 border-2 border-[#B08D57] shadow-xl shadow-[#B08D57]/20 ring-4 ring-[#B08D57]/10'
-                      : 'bg-white hover:bg-gradient-to-br hover:from-white hover:to-neutral-50 text-primary-700 border border-neutral-200 hover:border-neutral-300 shadow-lg hover:shadow-xl'
-                  }`}
-                >
-                  <div className={`p-2 md:p-4 lg:p-5 rounded-xl mb-2 md:mb-4 transition-all duration-300 ${
-                    activeCategory === category.id 
-                      ? 'bg-gradient-to-br from-[#B08D57] to-[#D4AF37] text-white shadow-lg scale-110' 
-                      : 'bg-gradient-to-br from-neutral-50 to-neutral-100 text-primary-600 group-hover:from-primary-50 group-hover:to-primary-100 group-hover:text-primary-700'
-                  }`}>
-                    {getIcon(category.iconType)}
-                  </div>
-                  <span className="text-xs md:text-sm font-semibold text-center leading-tight">{category.name}</span>
-                </button>
-              ))}
+            <div className="sticky top-14 md:top-20 z-30 -mx-4 md:-mx-6 lg:-mx-8 px-4 md:px-6 lg:px-8 py-3 md:py-4 mb-8 md:mb-12 bg-white/90 md:bg-white/95 backdrop-blur-md border-b border-neutral-200/50 shadow-sm">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-4 lg:gap-6 max-w-6xl mx-auto">
+                {faqCategories.map((category) => (
+                  <button
+                    key={category.id}
+                    onClick={() => scrollToSection(category.id)}
+                    className={`group flex flex-col items-center justify-center p-2 md:p-4 lg:p-6 rounded-lg md:rounded-xl transition-all duration-300 
+                      md:transform md:hover:scale-105 ${
+                      activeCategory === category.id
+                        ? 'bg-gradient-to-br from-[#B08D57]/15 to-[#D4AF37]/15 text-primary-900 border-2 border-[#B08D57] shadow-md'
+                        : 'bg-white hover:bg-gradient-to-br hover:from-white hover:to-neutral-50 text-primary-700 border border-neutral-200 hover:border-neutral-300 shadow-sm hover:shadow-md'
+                    }`}
+                  >
+                    <div className={`p-1.5 md:p-3 lg:p-4 rounded-lg mb-1 md:mb-2 transition-all duration-300 ${
+                      activeCategory === category.id 
+                        ? 'bg-gradient-to-br from-[#B08D57] to-[#D4AF37] text-white shadow-sm scale-105' 
+                        : 'bg-gradient-to-br from-neutral-50 to-neutral-100 text-primary-600 group-hover:from-primary-50 group-hover:to-primary-100 group-hover:text-primary-700'
+                    }`}>
+                      {getIcon(category.iconType)}
+                    </div>
+                    <span className="text-[10px] md:text-xs lg:text-sm font-semibold text-center leading-tight">{category.name}</span>
+                  </button>
+                ))}
+              </div>
             </div>
 
             {/* FAQ Sections */}
@@ -544,7 +546,7 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
                 <div
                   key={category.id}
                   ref={(el) => sectionRefs.current[category.id] = el}
-                  className="scroll-mt-32"
+                  className="scroll-mt-40 md:scroll-mt-48"
                 >
                   <FAQAccordion items={category.questions} />
                 </div>

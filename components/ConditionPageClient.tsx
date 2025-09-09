@@ -317,9 +317,13 @@ export default function ConditionPageClient({
                               <h2 className="text-xl font-semibold text-slate-900 mb-4">
                                 The Science of {condition.name || 'Your Condition'}
                               </h2>
-                              <p className="text-slate-600 leading-relaxed">
-                                {condition.pathophysiology}
-                              </p>
+                              <div className="space-y-4">
+                                {condition.pathophysiology.split('\n\n').map((paragraph, index) => (
+                                  <p key={index} className="text-slate-600 leading-relaxed">
+                                    {paragraph}
+                                  </p>
+                                ))}
+                              </div>
                             </div>
                           )}
 

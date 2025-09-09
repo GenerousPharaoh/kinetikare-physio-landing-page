@@ -323,7 +323,7 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Search questions..." 
+                    placeholder="Search..." 
                     className="w-full bg-transparent py-3 pl-12 pr-10 text-sm placeholder-neutral-400 focus:outline-none"
                     autoFocus
                   />
@@ -335,12 +335,14 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
                   {searchQuery && (
                     <button
                       onClick={() => setSearchQuery('')}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 p-1 hover:bg-neutral-100 rounded-full transition-colors"
+                      className="absolute right-3 top-0 bottom-0 flex items-center justify-center"
                       aria-label="Clear search"
                     >
-                      <svg className="h-4 w-4 text-neutral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
+                      <span className="p-1 hover:bg-neutral-100 rounded-full transition-colors">
+                        <svg className="h-4 w-4 text-neutral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                      </span>
                     </button>
                   )}
                 </div>
@@ -408,26 +410,23 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
             <MagnifyingGlassIcon className="absolute left-6 top-1/2 transform -translate-y-1/2 h-6 w-6 text-[#B08D57]" />
             <input
               type="text"
-              placeholder="Search FAQs (e.g., insurance, dry needling, treatment duration...)"
+              placeholder="Search FAQs (e.g., insurance, dry needling...)"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-14 pr-14 py-5 bg-transparent rounded-full focus:outline-none focus:ring-4 focus:ring-[#B08D57]/20 text-lg font-medium text-slate-900 placeholder-slate-500"
+              className="w-full pl-14 pr-14 py-5 bg-transparent rounded-full focus:outline-none focus:ring-4 focus:ring-[#B08D57]/20 text-sm md:text-lg font-medium text-slate-900 placeholder-slate-400 md:placeholder-slate-500"
             />
             {searchQuery && (
-              <motion.button
-                initial={{ scale: 0, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0, opacity: 0 }}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
+              <button
                 onClick={() => setSearchQuery('')}
-                className="absolute right-5 top-1/2 -translate-y-1/2 p-1.5 rounded-full hover:bg-slate-100 text-slate-500 hover:text-slate-700 transition-all duration-200"
+                className="absolute right-4 top-0 bottom-0 flex items-center justify-center"
                 aria-label="Clear search"
               >
-                <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </motion.button>
+                <span className="p-2 hover:bg-slate-100 rounded-full transition-colors">
+                  <svg className="h-5 w-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </span>
+              </button>
             )}
           </div>
         </div>

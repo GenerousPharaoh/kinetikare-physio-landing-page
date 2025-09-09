@@ -28,7 +28,6 @@ import {
   ExclamationCircleIcon
 } from '@heroicons/react/24/outline';
 import { Condition } from '@/lib/conditions-data';
-import OverviewSection from '@/components/conditions/OverviewSection';
 
 interface ConditionPageClientProps {
   condition: Condition;
@@ -314,27 +313,44 @@ export default function ConditionPageClient({
                       {activeTab === 'overview' && (
                         <div className="space-y-6">
                           {condition.pathophysiology && (
-                            <OverviewSection 
-                              title={`The Science of ${condition.name || 'Your Condition'}`}
-                              content={condition.pathophysiology}
-                              conditionName={condition.name}
-                            />
+                            <div className="bg-white rounded-xl p-6 border border-slate-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                                The Science of {condition.name || 'Your Condition'}
+                              </h2>
+                              <p className="text-slate-600 leading-relaxed">
+                                {condition.pathophysiology}
+                              </p>
+                            </div>
                           )}
 
                           {condition.overview && !condition.pathophysiology && (
-                            <OverviewSection 
-                              title="Understanding Your Condition"
-                              content={condition.overview}
-                              conditionName={condition.name}
-                            />
+                            <div className="bg-white rounded-xl p-6 border border-slate-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                                Understanding Your Condition
+                              </h2>
+                              <div className="space-y-4">
+                                {condition.overview.split('\n\n').map((paragraph, index) => (
+                                  <p key={index} className="text-slate-600 leading-relaxed">
+                                    {paragraph}
+                                  </p>
+                                ))}
+                              </div>
+                            </div>
                           )}
 
                           {condition.biomechanics && (
-                            <OverviewSection 
-                              title="Contributing Factors"
-                              content={condition.biomechanics}
-                              conditionName={condition.name}
-                            />
+                            <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                                Contributing Factors
+                              </h2>
+                              <div className="space-y-4">
+                                {condition.biomechanics.split('\n\n').map((paragraph, index) => (
+                                  <p key={index} className="text-slate-600 leading-relaxed">
+                                    {paragraph}
+                                  </p>
+                                ))}
+                              </div>
+                            </div>
                           )}
                           
                         </div>

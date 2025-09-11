@@ -5,7 +5,7 @@ import HealingEnvironmentSection from '@/components/sections/HealingEnvironmentS
 import CareJourneySection from '@/components/sections/CareJourneySection';
 import ServicesSection from '@/components/sections/ServicesSection';
 import ContactSection from '@/components/sections/ContactSection';
-import GoogleReviews from '@/components/GoogleReviews';
+import TrustindexReviews from '@/components/TrustindexReviews';
 
 // SEO Metadata for Homepage
 export const metadata: Metadata = {
@@ -214,7 +214,7 @@ export default function Home() {
       <AboutSection />
       <CareJourneySection />
       <ServicesSection />
-      <GoogleReviews />
+      <TrustindexReviews />
       <HealingEnvironmentSection />
       <ContactSection />
     </main>

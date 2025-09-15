@@ -137,18 +137,39 @@ export default function ContactSection() {
                     </div>
                     <div className="min-w-0 flex-1">
                       <h4 className="text-base sm:text-lg font-normal text-slate-900 mb-2">Hours</h4>
-                      <div className="space-y-1">
-                        <div className="flex justify-between text-sm sm:text-base">
-                          <span className="text-slate-700">Monday:</span>
-                          <span className="text-slate-800 font-normal">1:30 PM - 8:00 PM</span>
+                      <div className="space-y-3">
+                        {/* Endorphins Location */}
+                        <div>
+                          <p className="text-xs text-[#B08D57] font-medium mb-1">Endorphins Health & Wellness</p>
+                          <div className="space-y-1 pl-2">
+                            <div className="flex justify-between text-sm sm:text-base">
+                              <span className="text-slate-700">Monday:</span>
+                              <span className="text-slate-800 font-normal">1:30 PM - 8:00 PM</span>
+                            </div>
+                            <div className="flex justify-between text-sm sm:text-base">
+                              <span className="text-slate-700">Tuesday:</span>
+                              <span className="text-slate-800 font-normal">1:30 PM - 8:00 PM</span>
+                            </div>
+                            <div className="flex justify-between text-sm sm:text-base">
+                              <span className="text-slate-700">Thursday:</span>
+                              <span className="text-slate-800 font-normal">1:30 PM - 8:00 PM</span>
+                            </div>
+                          </div>
                         </div>
-                        <div className="flex justify-between text-sm sm:text-base">
-                          <span className="text-slate-700">Tuesday:</span>
-                          <span className="text-slate-800 font-normal">1:30 PM - 8:00 PM</span>
-                        </div>
-                        <div className="flex justify-between text-sm sm:text-base">
-                          <span className="text-slate-700">Thursday:</span>
-                          <span className="text-slate-800 font-normal">1:30 PM - 8:00 PM</span>
+                        
+                        {/* Headon Physio Location */}
+                        <div className="pt-2 border-t border-slate-200">
+                          <p className="text-xs text-[#B08D57] font-medium mb-1">Headon Physio</p>
+                          <div className="space-y-1 pl-2">
+                            <div className="flex justify-between text-sm sm:text-base">
+                              <span className="text-slate-700">Wednesday:</span>
+                              <span className="text-slate-800 font-normal">2:00 PM - 7:30 PM</span>
+                            </div>
+                            <div className="flex justify-between text-sm sm:text-base">
+                              <span className="text-slate-700">Friday:</span>
+                              <span className="text-slate-800 font-normal">2:00 PM - 7:30 PM</span>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>

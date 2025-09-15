@@ -159,7 +159,14 @@ export default function ContactSection() {
                         
                         {/* Headon Physio Location */}
                         <div className="pt-2 border-t border-slate-200">
-                          <p className="text-xs text-[#B08D57] font-medium mb-1">Headon Physio</p>
+                          <a 
+                            href="https://maps.app.goo.gl/FgoOS1fyz6woM4WDU"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-xs text-[#B08D57] font-medium mb-1 hover:text-[#D4AF37] transition-colors inline-block"
+                          >
+                            Headon Physio
+                          </a>
                           <div className="space-y-1 pl-2">
                             <div className="flex justify-between text-sm sm:text-base">
                               <span className="text-slate-700">Wednesday:</span>
@@ -169,6 +176,7 @@ export default function ContactSection() {
                               <span className="text-slate-700">Friday:</span>
                               <span className="text-slate-800 font-normal">2:00 PM - 7:30 PM</span>
                             </div>
+                            <p className="text-xs text-slate-500 mt-1">1387 Walkers Line Unit B, Burlington</p>
                           </div>
                         </div>
                       </div>

@@ -42,7 +42,9 @@ export default function Footer() {
   const businessHours = [
     { day: 'Monday', hours: '1:30 PM - 8:00 PM' },
     { day: 'Tuesday', hours: '1:30 PM - 8:00 PM' },
-    { day: 'Thursday', hours: '1:30 PM - 8:00 PM' }
+    { day: 'Wednesday*', hours: '2:00 PM - 7:30 PM' },
+    { day: 'Thursday', hours: '1:30 PM - 8:00 PM' },
+    { day: 'Friday*', hours: '2:00 PM - 7:30 PM' }
   ];
 
   const socialLinks = [
@@ -155,7 +157,7 @@ export default function Footer() {
                 </li>
               ))}
               <li className="pt-2 border-t border-white/10 mt-2">
-                <span className="text-white/50 text-xs italic">Closed: Wed, Fri-Sun</span>
+                <span className="text-white/50 text-xs italic">* Headon Physio location</span>
               </li>
             </ul>
           </div>

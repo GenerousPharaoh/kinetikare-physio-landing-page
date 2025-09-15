@@ -185,6 +185,16 @@ export default function ConditionPageClient({
                 </p>
               )}
               
+              {/* Medical Disclaimer */}
+              <div className="mt-4 p-3 bg-amber-50/70 border border-amber-200/50 rounded-lg">
+                <div className="flex items-start gap-2.5">
+                  <InformationCircleIcon className="h-4 w-4 text-amber-600 mt-0.5 flex-shrink-0" />
+                  <p className="text-xs text-amber-800 leading-relaxed">
+                    The information provided here is for educational purposes only and should not replace professional medical advice. Every person's condition is unique, and what works for one individual may not be appropriate for another. Always consult with a qualified healthcare provider for proper diagnosis and treatment. If you experience sudden or severe symptoms, seek immediate medical attention.
+                  </p>
+                </div>
+              </div>
+              
               {/* Red Flags Disclaimer - Simple expandable that pushes content */}
               {((condition.clinicalRedFlags && condition.clinicalRedFlags.length > 0) || 
                 (condition.redFlags && condition.redFlags.length > 0)) && (
@@ -981,7 +991,7 @@ export default function ConditionPageClient({
                                       </div>
                                       <div>
                                         <h2 className="text-2xl font-bold text-white">Treatment Techniques</h2>
-                                        <p className="text-sm text-orange-200 mt-1">Specialized manual therapy and intervention approaches</p>
+                                        <p className="text-sm text-orange-200 mt-1">Manual therapy and intervention approaches</p>
                                       </div>
                                     </div>
                                     <div className="p-2 bg-white/10 backdrop-blur rounded-lg">

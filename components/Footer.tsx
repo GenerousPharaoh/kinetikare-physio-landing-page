@@ -156,8 +156,9 @@ export default function Footer() {
                   <span className="text-white/60">{schedule.hours}</span>
                 </li>
               ))}
-              <li className="pt-2 border-t border-white/10 mt-2">
-                <span className="text-white/50 text-xs italic">* Headon Physio location</span>
+              <li className="pt-2 border-t border-white/10 mt-2 space-y-1">
+                <span className="text-white/50 text-xs italic block">* Headon Physio location</span>
+                <span className="text-white/40 text-xs italic block">Direct billing only at Endorphins</span>
               </li>
             </ul>
           </div>

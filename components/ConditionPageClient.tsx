@@ -50,7 +50,7 @@ export default function ConditionPageClient({
   
   // Management tab collapsible sections
   const [expandedManagementSections, setExpandedManagementSections] = useState<{ [key: string]: boolean }>({
-    'evidence-based': true, // Start with first section expanded
+    'evidence-based': false, // All sections start collapsed
     'treatment-techniques': false,
     'timeline': false,
     'prognosis': false,

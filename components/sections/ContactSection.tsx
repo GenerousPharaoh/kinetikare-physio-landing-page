@@ -168,7 +168,7 @@ export default function ContactSection() {
                               <span>Friday*:</span>
                               <span>2:00 PM - 7:30 PM</span>
                             </div>
-                            <p className="text-xs text-slate-400 italic mt-1">*Also available at Headon Physio</p>
+                            <p className="text-xs text-slate-400 italic mt-1">*Headon Physio location</p>
                           </div>
                         </div>
                       </div>

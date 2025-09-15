@@ -256,13 +256,13 @@ input[type="radio"]:checked {
 /* ============================= */
 
 ::selection {
-  background-color: rgba(var(--color-gold-500), 0.4);
-  color: rgb(var(--color-primary-900));
+  background-color: rgb(var(--color-gold-500));
+  color: white;
 }
 
 ::-moz-selection {
-  background-color: rgba(var(--color-gold-500), 0.4);
-  color: rgb(var(--color-primary-900));
+  background-color: rgb(var(--color-gold-500));
+  color: white;
 }
 
 /* ============================= */

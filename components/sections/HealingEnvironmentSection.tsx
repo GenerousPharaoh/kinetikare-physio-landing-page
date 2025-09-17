@@ -16,12 +16,14 @@ const HealingEnvironmentSection = () => {
     {
       src: '/images/facebook-image.jpg',
       alt: 'Clinic Building',
-      title: 'Our Location'
+      title: 'Our Location',
+      className: ''
     },
     {
-      src: '/images/clinic-reception-new-may-2025.webp',
+      src: '/images/clinic-reception-new-may-2025.jpg',
       alt: 'Reception Area',
-      title: 'Welcoming Reception'
+      title: 'Welcoming Reception',
+      className: ''
     }
   ];
 
@@ -174,8 +176,9 @@ const HealingEnvironmentSection = () => {
                   src={image.src}
                   alt={image.alt}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  className={`object-cover transition-transform duration-700 group-hover:scale-110 ${image.className}`}
                   sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-4">

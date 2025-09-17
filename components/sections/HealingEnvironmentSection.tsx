@@ -19,7 +19,7 @@ const HealingEnvironmentSection = () => {
       title: 'Our Location'
     },
     {
-      src: '/images/clinic-reception-new-may-2025.jpg',
+      src: '/images/clinic-reception-rotated.jpg',
       alt: 'Reception Area',
       title: 'Welcoming Reception'
     }

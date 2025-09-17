@@ -177,7 +177,7 @@ const HealingEnvironmentSection = () => {
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-4">
                   <div className="bg-gradient-to-r from-black/50 to-transparent">
                     <div className="px-4 py-3">

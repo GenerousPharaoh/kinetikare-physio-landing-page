@@ -20,10 +20,10 @@ const HealingEnvironmentSection = () => {
       className: ''
     },
     {
-      src: '/images/clinic-reception-new-may-2025.jpg',
+      src: '/images/clinic-reception-new-may-2025.webp',
       alt: 'Reception Area',
       title: 'Welcoming Reception',
-      className: ''
+      className: 'rotate-90'
     }
   ];
 

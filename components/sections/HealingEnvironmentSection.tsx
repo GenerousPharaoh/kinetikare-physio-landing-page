@@ -19,7 +19,7 @@ const HealingEnvironmentSection = () => {
       title: 'Our Location'
     },
     {
-      src: '/images/clinic-reception-rotated.jpg',
+      src: '/images/clinic-reception-fixed.jpg',
       alt: 'Reception Area',
       title: 'Welcoming Reception'
     }
@@ -174,10 +174,9 @@ const HealingEnvironmentSection = () => {
                   src={image.src}
                   alt={image.alt}
                   fill
-                  className={`object-cover transition-transform duration-700 group-hover:scale-110 ${image.className || ''}`}
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, 50vw"
                   priority
-                  style={image.alt === 'Reception Area' ? { transform: 'rotate(-90deg)' } : {}}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-4">

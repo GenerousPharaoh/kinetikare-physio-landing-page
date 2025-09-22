@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useScrollAnimation, useStaggeredAnimation } from '@/hooks/useScrollAnimation';
 
@@ -123,52 +122,6 @@ export default function CareJourneySection() {
             ))}
           </motion.div>
         </div>
-
-        {/* Treatment in Action Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-16 mb-16"
-        >
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Image */}
-            <div className="relative group overflow-hidden rounded-3xl shadow-xl order-2 lg:order-1">
-              <div className="aspect-[4/3] relative">
-                <Image
-                  src="/icons/manual-therapy-physiotherapy-treatment-stretching.png"
-                  alt="Manual therapy knee treatment - passive stretching technique"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
-              </div>
-            </div>
-            
-            {/* Content */}
-            <div className="order-1 lg:order-2">
-              <h3 className="text-2xl lg:text-3xl font-light text-slate-900 mb-4">
-                Experience <span className="text-[#B08D57]">Hands-On Care</span>
-              </h3>
-              <p className="text-lg text-slate-600 leading-relaxed mb-6">
-                Each treatment session combines evidence-based manual therapy techniques with targeted exercises. 
-                From joint mobilization to soft tissue work, every technique is selected specifically for your condition and recovery goals.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/services"
-                  className="inline-flex items-center text-[#B08D57] hover:text-[#D4AF37] transition-colors font-medium"
-                >
-                  Explore treatment techniques
-                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </motion.div>
 
         {/* Bottom CTA - Redesigned */}
         <motion.div 

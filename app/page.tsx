@@ -4,12 +4,13 @@ import AboutSection from '@/components/sections/AboutSection';
 import HealingEnvironmentSection from '@/components/sections/HealingEnvironmentSection';
 import CareJourneySection from '@/components/sections/CareJourneySection';
 import ServicesSection from '@/components/sections/ServicesSection';
+import GoogleReviews from '@/components/GoogleReviews';
 import ContactSection from '@/components/sections/ContactSection';
 
 // SEO Metadata for Homepage
 export const metadata: Metadata = {
-  title: 'Burlington Physiotherapy | Kareem Hassanein, PT',
-  description: 'Kareem Hassanein - Burlington\'s expert physiotherapist specializing in back pain, sports injuries, knee pain, neck pain. Serving North Burlington, Alton Village, Palladium Way. Direct billing, evening appointments. MSc PT, CAMPT certified.',
+  title: 'Kareem Hassanein Physiotherapy Burlington | Near Waterdown',
+  description: 'Kareem Hassanein - Registered Physiotherapist in Burlington. Expert treatment for back pain, sports injuries, knee pain. Convenient for Waterdown & Flamborough residents. Direct billing, evening appointments available.',
   keywords: [
     'Kareem Hassanein',
     'Kareem Hassanein physiotherapist',
@@ -213,6 +214,7 @@ export default function Home() {
       <AboutSection />
       <CareJourneySection />
       <ServicesSection />
+      <GoogleReviews />
       <HealingEnvironmentSection />
       <ContactSection />
     </main>

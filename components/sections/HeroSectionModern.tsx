@@ -108,13 +108,22 @@ export default function HeroSection() {
               </div>
             </motion.div>
 
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-lg text-slate-600 mb-10 leading-relaxed max-w-lg mx-auto font-light"
+              className="text-lg text-slate-600 mb-2 leading-relaxed max-w-lg mx-auto font-light"
             >
               Advanced physiotherapy combining evidence-based techniques with personalized attention for lasting results.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.45 }}
+              className="text-sm text-slate-400 mb-10 max-w-lg mx-auto font-light"
+            >
+              Burlington clinic • Serving Burlington, Waterdown & Flamborough
             </motion.p>
 
             <div className="space-y-3 max-w-sm mx-auto w-full">
@@ -263,9 +272,18 @@ export default function HeroSection() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl font-light"
+                className="text-xl text-slate-600 mb-2 leading-relaxed max-w-2xl font-light"
               >
                 Advanced physiotherapy combining evidence-based techniques with personalized attention for lasting results.
+              </motion.p>
+
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.45 }}
+                className="text-sm text-slate-400 mb-10 max-w-2xl font-light"
+              >
+                Burlington clinic • Conveniently serving Burlington, Waterdown & Flamborough residents
               </motion.p>
 
               <motion.div

@@ -184,7 +184,12 @@ export default function ConditionPageClient({
                   {condition.description}
                 </p>
               )}
-              
+
+              {/* Regional Service Area - Subtle mention */}
+              <p className="text-xs text-slate-400 mt-2">
+                Treating {condition.name.toLowerCase()} at our Burlington clinic • Convenient for Waterdown and Flamborough residents
+              </p>
+
               {/* Red Flags Disclaimer - Simple expandable that pushes content */}
               {((condition.clinicalRedFlags && condition.clinicalRedFlags.length > 0) || 
                 (condition.redFlags && condition.redFlags.length > 0)) && (
@@ -1427,7 +1432,12 @@ export default function ConditionPageClient({
                     {/* Quick Actions */}
                     <div className="bg-gradient-to-br from-[#B08D57]/10 to-[#D4AF37]/10 rounded-xl p-6 border border-[#B08D57]/20">
                       <h3 className="font-semibold text-slate-900 mb-4">Next Steps</h3>
-                      <p className="text-sm text-slate-600 mb-4">Book an assessment to discuss your specific situation.</p>
+                      <p className="text-sm text-slate-600 mb-4">
+                        Book an assessment to discuss your specific situation.
+                      </p>
+                      <p className="text-xs text-slate-500 mb-4">
+                        Serving Burlington, Waterdown, Flamborough and surrounding areas
+                      </p>
                       <div className="space-y-3">
                         <Link
                           href="https://endorphinshealth.janeapp.com/#/staff_member/42"

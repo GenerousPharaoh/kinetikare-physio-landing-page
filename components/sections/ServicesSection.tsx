@@ -189,19 +189,19 @@ export default function ServicesSection() {
                 </h4>
                 <div className="space-y-3">
                   <div className="flex gap-3 items-start">
-                    <div className="w-1.5 h-1.5 bg-[#B08D57] rounded-full mt-[7px] flex-shrink-0"></div>
+                    <div className="w-1.5 h-1.5 bg-[#B08D57] rounded-full mt-2 flex-shrink-0"></div>
                     <p className="text-sm text-slate-700 leading-relaxed">
                       <span className="font-medium">Evidence-Based:</span> Every technique backed by current research
                     </p>
                   </div>
                   <div className="flex gap-3 items-start">
-                    <div className="w-1.5 h-1.5 bg-[#B08D57] rounded-full mt-[7px] flex-shrink-0"></div>
+                    <div className="w-1.5 h-1.5 bg-[#B08D57] rounded-full mt-2 flex-shrink-0"></div>
                     <p className="text-sm text-slate-700 leading-relaxed">
                       <span className="font-medium">Patient-Centered:</span> Your goals guide every aspect of treatment
                     </p>
                   </div>
                   <div className="flex gap-3 items-start">
-                    <div className="w-1.5 h-1.5 bg-[#B08D57] rounded-full mt-[7px] flex-shrink-0"></div>
+                    <div className="w-1.5 h-1.5 bg-[#B08D57] rounded-full mt-2 flex-shrink-0"></div>
                     <p className="text-sm text-slate-700 leading-relaxed">
                       <span className="font-medium">Outcome-Focused:</span> Regular assessments track your progress
                     </p>

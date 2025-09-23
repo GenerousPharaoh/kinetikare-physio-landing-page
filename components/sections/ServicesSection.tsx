@@ -116,21 +116,22 @@ export default function ServicesSection() {
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="relative h-full min-h-[400px] lg:min-h-[500px]"
+            className="flex flex-col"
           >
-            <div className="relative h-full w-full rounded-2xl overflow-hidden shadow-lg">
-              <Image
-                src="/images/treatment-photos/treatment-passive-stretching-knee-manual-therapy.jpg"
-                alt="Manual therapy treatment - knee mobilization and stretching technique"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/20 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-8">
-                <h3 className="text-2xl font-light text-white mb-2">Hands-On Treatment</h3>
-                <p className="text-gray-200 text-lg">
+            <div className="relative h-full w-full rounded-2xl overflow-hidden shadow-lg bg-white">
+              <div className="relative h-[400px] lg:h-[450px]">
+                <Image
+                  src="/images/treatment-photos/treatment-passive-stretching-knee-manual-therapy.jpg"
+                  alt="Manual therapy treatment - knee mobilization and stretching technique"
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                  priority
+                />
+              </div>
+              <div className="p-6 bg-white">
+                <h3 className="text-2xl font-light text-slate-900 mb-2">Hands-On Treatment</h3>
+                <p className="text-slate-600 text-base">
                   Personalized manual therapy techniques to restore movement and reduce pain
                 </p>
               </div>

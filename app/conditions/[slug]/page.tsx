@@ -146,7 +146,8 @@ export default function ConditionPage({ params }: PageProps) {
           {"@type": "City", "name": "Burlington"},
           {"@type": "City", "name": "Waterdown"},
           {"@type": "City", "name": "Oakville"},
-          {"@type": "City", "name": "Flamborough"}
+          {"@type": "City", "name": "Flamborough"},
+          {"@type": "City", "name": "Carlisle"}
         ],
         "aggregateRating": {
           "@type": "AggregateRating",

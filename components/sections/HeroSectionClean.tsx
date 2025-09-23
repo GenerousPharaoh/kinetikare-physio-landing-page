@@ -77,7 +77,7 @@ export default function HeroSection() {
 
               <p className="text-2xl font-light text-gray-900 mb-1">Kareem Hassanein</p>
               <p className="text-gray-600 mb-10">
-                Advanced physiotherapy combining evidence-based techniques with personalized attention.
+                Evidence-based physiotherapy combining proven techniques with personalized attention.
               </p>
 
               <div className="flex gap-4">

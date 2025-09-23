@@ -114,7 +114,7 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-lg text-slate-600 mb-2 leading-relaxed max-w-lg mx-auto font-light"
             >
-              Advanced physiotherapy combining evidence-based techniques with personalized attention for lasting results.
+              Evidence-based physiotherapy combining proven techniques with personalized attention for lasting results.
             </motion.p>
 
             <motion.p
@@ -274,7 +274,7 @@ export default function HeroSection() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="text-xl text-slate-600 mb-2 leading-relaxed max-w-2xl font-light"
               >
-                Advanced physiotherapy combining evidence-based techniques with personalized attention for lasting results.
+                Evidence-based physiotherapy combining proven techniques with personalized attention for lasting results.
               </motion.p>
 
               <motion.p

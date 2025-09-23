@@ -147,25 +147,24 @@ export default function ServicesSection() {
             </div>
           </motion.div>
 
-          {/* Additional Services - Expanded Layout */}
+          {/* Additional Services - Matched Height Container */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col gap-6 h-full"
+            className="h-[600px] lg:h-[700px]"
           >
-            {/* Top Card - Additional Services */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 flex-grow">
-              <div className="mb-8">
-                <h3 className="text-3xl font-light text-[#B08D57] mb-4 tracking-[-0.02em]">
+            <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-lg border border-gray-200 h-full flex flex-col">
+              <div className="mb-6">
+                <h3 className="text-2xl lg:text-3xl font-light text-[#B08D57] mb-3 tracking-[-0.02em]">
                   Additional Services
                 </h3>
-                <p className="text-lg text-slate-600 leading-relaxed">
-                  Comprehensive care extending beyond core services to support every aspect of your recovery journey
+                <p className="text-base text-slate-600 leading-relaxed">
+                  Comprehensive care extending beyond core services
                 </p>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-4 mb-8">
+              <div className="grid sm:grid-cols-2 gap-3 mb-6">
                 {additionalServices.map((service, index) => (
                   <motion.div
                     key={service}
@@ -174,8 +173,8 @@ export default function ServicesSection() {
                     animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.4, delay: index * 0.05 }}
                   >
-                    <div className="bg-gray-50 rounded-xl p-4 border border-gray-200 hover:border-[#B08D57]/50 hover:shadow-md transition-all duration-300">
-                      <h4 className="font-normal text-slate-900 group-hover:text-[#B08D57] transition-colors duration-300 text-base">
+                    <div className="bg-gray-50 rounded-lg p-3 border border-gray-200 hover:border-[#B08D57]/50 hover:shadow-md transition-all duration-300">
+                      <h4 className="font-normal text-slate-900 group-hover:text-[#B08D57] transition-colors duration-300 text-sm">
                         {service}
                       </h4>
                     </div>
@@ -184,32 +183,32 @@ export default function ServicesSection() {
               </div>
 
               {/* Treatment Approach Section */}
-              <div className="border-t border-gray-200 pt-8">
-                <h4 className="text-xl font-light text-[#B08D57] mb-4">
-                  My Approach
+              <div className="border-t border-gray-200 pt-6 flex-grow">
+                <h4 className="text-lg font-light text-[#B08D57] mb-3">
+                  Treatment Approach
                 </h4>
-                <div className="space-y-4">
-                  <div className="flex gap-4">
-                    <div className="w-2 h-2 bg-[#B08D57] rounded-full mt-2 flex-shrink-0"></div>
+                <div className="space-y-3">
+                  <div className="flex gap-3">
+                    <div className="w-1.5 h-1.5 bg-[#B08D57] rounded-full mt-1.5 flex-shrink-0"></div>
                     <div>
-                      <p className="text-slate-700 leading-relaxed">
-                        <span className="font-medium">Evidence-Based:</span> Every treatment technique is backed by current research and clinical guidelines
+                      <p className="text-sm text-slate-700 leading-relaxed">
+                        <span className="font-medium">Evidence-Based:</span> Every technique backed by current research
                       </p>
                     </div>
                   </div>
-                  <div className="flex gap-4">
-                    <div className="w-2 h-2 bg-[#B08D57] rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="flex gap-3">
+                    <div className="w-1.5 h-1.5 bg-[#B08D57] rounded-full mt-1.5 flex-shrink-0"></div>
                     <div>
-                      <p className="text-slate-700 leading-relaxed">
-                        <span className="font-medium">Patient-Centered:</span> Your goals and preferences guide every aspect of your treatment plan
+                      <p className="text-sm text-slate-700 leading-relaxed">
+                        <span className="font-medium">Patient-Centered:</span> Your goals guide every aspect of treatment
                       </p>
                     </div>
                   </div>
-                  <div className="flex gap-4">
-                    <div className="w-2 h-2 bg-[#B08D57] rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="flex gap-3">
+                    <div className="w-1.5 h-1.5 bg-[#B08D57] rounded-full mt-1.5 flex-shrink-0"></div>
                     <div>
-                      <p className="text-slate-700 leading-relaxed">
-                        <span className="font-medium">Outcome-Focused:</span> Regular assessments ensure you're progressing toward your recovery goals
+                      <p className="text-sm text-slate-700 leading-relaxed">
+                        <span className="font-medium">Outcome-Focused:</span> Regular assessments track your progress
                       </p>
                     </div>
                   </div>
@@ -217,17 +216,17 @@ export default function ServicesSection() {
               </div>
 
               {/* Booking Button */}
-              <div className="mt-8 text-center">
+              <div className="mt-6 text-center">
                 <a
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-[#B08D57] hover:bg-[#9A7A4F] text-white px-8 py-3 rounded-full font-medium transition-all duration-300 hover:shadow-lg"
+                  className="inline-flex items-center gap-2 bg-[#B08D57] hover:bg-[#9A7A4F] text-white px-6 py-2.5 rounded-full font-medium transition-all duration-300 hover:shadow-lg text-sm"
                 >
                   Book Your Assessment
-                  <ChevronRightIcon className="w-5 h-5" />
+                  <ChevronRightIcon className="w-4 h-4" />
                 </a>
-                <p className="text-sm text-slate-500 mt-3">Direct insurance billing available</p>
+                <p className="text-xs text-slate-500 mt-2">Direct insurance billing available</p>
               </div>
             </div>
           </motion.div>

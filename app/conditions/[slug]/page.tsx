@@ -92,51 +92,67 @@ export default function ConditionPage({ params }: PageProps) {
     3
   );
 
-  // Generate MedicalCondition schema for SEO
-  const medicalConditionSchema = {
+  // Enhanced schema with LocalBusiness and Person for SEO
+  const enhancedSchema = {
     "@context": "https://schema.org",
-    "@type": "MedicalCondition",
-    "name": condition.name,
-    "description": condition.description,
-    "associatedAnatomy": {
-      "@type": "AnatomicalStructure",
-      "name": condition.affectedArea || condition.category
-    },
-    "possibleTreatment": [
+    "@graph": [
       {
-        "@type": "MedicalTherapy",
-        "name": "Physiotherapy",
-        "description": "Evidence-based physiotherapy treatment including manual therapy, exercise prescription, and education"
+        "@type": "MedicalCondition",
+        "@id": "#condition",
+        "name": condition.name,
+        "description": condition.description,
+        "associatedAnatomy": {
+          "@type": "AnatomicalStructure",
+          "name": condition.affectedArea || condition.category
+        },
+        "possibleTreatment": {
+          "@type": "MedicalTherapy",
+          "name": "Physiotherapy Treatment",
+          "description": "Evidence-based physiotherapy treatment including manual therapy, exercise prescription, and education",
+          "provider": {
+            "@type": "Person",
+            "@id": "#kareem",
+            "name": "Kareem Hassanein",
+            "jobTitle": "Registered Physiotherapist",
+            "alumniOf": ["Robert Gordon University", "McMaster University"],
+            "memberOf": {
+              "@type": "Organization",
+              "name": "College of Physiotherapists of Ontario",
+              "identifier": "20079"
+            }
+          }
+        },
+        "signOrSymptom": condition.symptoms?.map(symptom => ({
+          "@type": "MedicalSymptom",
+          "name": symptom
+        })) || [],
+        "riskFactor": condition.causes?.map(cause => ({
+          "@type": "MedicalRiskFactor",
+          "name": cause
+        })) || []
       },
       {
-        "@type": "MedicalTherapy",
-        "name": "Manual Therapy",
-        "description": "Hands-on techniques to improve mobility and reduce pain"
-      },
-      {
-        "@type": "MedicalTherapy",
-        "name": "Exercise Therapy",
-        "description": "Targeted exercises to strengthen and rehabilitate"
-      }
-    ],
-    "signOrSymptom": condition.symptoms?.map(symptom => ({
-      "@type": "MedicalSymptom",
-      "name": symptom
-    })) || [],
-    "riskFactor": condition.causes?.map(cause => ({
-      "@type": "MedicalRiskFactor",
-      "name": cause
-    })) || [],
-    "typicalTest": [
-      {
-        "@type": "MedicalTest",
-        "name": "Physical Examination",
-        "description": "Comprehensive assessment of movement, strength, and function"
-      },
-      {
-        "@type": "MedicalTest",
-        "name": "Functional Movement Assessment",
-        "description": "Analysis of movement patterns and biomechanics"
+        "@type": "LocalBusiness",
+        "@id": "#clinic",
+        "name": "Kareem Hassanein Physiotherapy",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "4631 Palladium Way, Unit 6",
+          "addressLocality": "Burlington",
+          "addressRegion": "ON",
+          "addressCountry": "CA"
+        },
+        "areaServed": [
+          {"@type": "City", "name": "Burlington"},
+          {"@type": "City", "name": "Waterdown"},
+          {"@type": "City", "name": "Oakville"},
+          {"@type": "City", "name": "Flamborough"}
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "8"
+        }
       }
     ]
   };
@@ -170,7 +186,7 @@ export default function ConditionPage({ params }: PageProps) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalConditionSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(enhancedSchema) }}
       />
       <script
         type="application/ld+json"

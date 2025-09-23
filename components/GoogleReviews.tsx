@@ -94,9 +94,9 @@ export default function GoogleReviews() {
             <span className="text-2xl font-semibold text-gray-800">5.0</span>
             <span className="text-gray-600">on Google</span>
           </div>
-          <h2 className="text-4xl font-bold text-gray-900 mb-2">Patient Success Stories</h2>
+          <h2 className="text-4xl font-bold text-gray-900 mb-2">Google Reviews</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Real experiences from patients who have regained their mobility and overcome pain
+            What patients are saying
           </p>
         </div>
 

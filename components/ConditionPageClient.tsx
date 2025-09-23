@@ -159,6 +159,11 @@ export default function ConditionPageClient({
       />
 
       <div className="min-h-screen">
+        {/* Screen-reader-only H1 for SEO */}
+        <h1 className="sr-only">
+          {condition.name} Treatment Burlington | Kareem Hassanein Physiotherapy | Waterdown Oakville Physiotherapist
+        </h1>
+
         {/* Minimal Hero with Breadcrumbs */}
         <section className="pt-24 pb-3 bg-gradient-to-b from-slate-50 to-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">

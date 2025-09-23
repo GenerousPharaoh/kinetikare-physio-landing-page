@@ -215,32 +215,23 @@ export default function ServicesSection() {
                   </div>
                 </div>
               </div>
+
+              {/* Booking Button */}
+              <div className="mt-8 text-center">
+                <a
+                  href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#B08D57] hover:bg-[#9A7A4F] text-white px-8 py-3 rounded-full font-medium transition-all duration-300 hover:shadow-lg"
+                >
+                  Book Your Assessment
+                  <ChevronRightIcon className="w-5 h-5" />
+                </a>
+                <p className="text-sm text-slate-500 mt-3">Direct insurance billing available</p>
+              </div>
             </div>
           </motion.div>
         </div>
-
-        {/* Full-width Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-8 bg-gradient-to-br from-[#B08D57]/10 to-[#B08D57]/5 rounded-2xl p-6 border border-[#B08D57]/20"
-        >
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div>
-              <h4 className="text-xl font-medium text-slate-900 mb-1">Ready to take the next step in your recovery?</h4>
-              <p className="text-slate-600">Book your initial assessment today</p>
-            </div>
-            <a
-              href="https://endorphinshealth.janeapp.com/#/staff_member/42"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#B08D57] hover:bg-[#9A7A4F] text-white px-8 py-3 rounded-full font-medium transition-colors duration-300 inline-block"
-            >
-              Book Now
-            </a>
-          </div>
-        </motion.div>
       </div>
     </motion.section>
   );

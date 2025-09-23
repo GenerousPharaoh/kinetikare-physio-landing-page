@@ -157,8 +157,8 @@ export default function ServicesSection() {
             {/* Top Card - Additional Services */}
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 flex-grow">
               <div className="mb-8">
-                <h3 className="text-3xl font-light text-slate-900 mb-4 tracking-[-0.02em]">
-                  Additional <span className="text-[#B08D57]">Services</span>
+                <h3 className="text-3xl font-light text-[#B08D57] mb-4 tracking-[-0.02em]">
+                  Additional Services
                 </h3>
                 <p className="text-lg text-slate-600 leading-relaxed">
                   Comprehensive care extending beyond core services to support every aspect of your recovery journey
@@ -185,8 +185,8 @@ export default function ServicesSection() {
 
               {/* Treatment Approach Section */}
               <div className="border-t border-gray-200 pt-8">
-                <h4 className="text-xl font-light text-slate-900 mb-4">
-                  My <span className="text-[#B08D57]">Approach</span>
+                <h4 className="text-xl font-light text-[#B08D57] mb-4">
+                  My Approach
                 </h4>
                 <div className="space-y-4">
                   <div className="flex gap-4">
@@ -228,11 +228,11 @@ export default function ServicesSection() {
         >
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
-              <h4 className="text-xl font-medium text-slate-900 mb-1">Ready to start your recovery?</h4>
+              <h4 className="text-xl font-medium text-slate-900 mb-1">Ready to take the next step in your recovery?</h4>
               <p className="text-slate-600">Book your initial assessment today</p>
             </div>
             <a
-              href="https://kinetikare.janeapp.com/"
+              href="https://endorphinshealth.janeapp.com/#/staff_member/42"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#B08D57] hover:bg-[#9A7A4F] text-white px-8 py-3 rounded-full font-medium transition-colors duration-300 inline-block"

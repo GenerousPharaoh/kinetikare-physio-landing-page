@@ -162,7 +162,7 @@ export default function About() {
         "identifier": "20079"
       }
     ],
-    "image": "https://www.kinetikarephysio.com/images/kareem-profile.png",
+    "image": "https://www.kinetikarephysio.com/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "4631 Palladium Way, Unit 6",
@@ -297,7 +297,7 @@ export default function About() {
             <div className="text-center">
               <div className="w-48 h-56 mx-auto rounded-2xl overflow-hidden shadow-lg border border-neutral-200 mb-6">
                 <ClientImage
-                  src="/images/kareem-profile.png"
+                  src="/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png"
                   alt="Kareem Hassanein, Physiotherapist"
                   width={500}
                   height={600}
@@ -444,7 +444,7 @@ export default function About() {
                 {/* Profile Image */}
                 <div className="rounded-2xl overflow-hidden shadow-lg border border-neutral-200 h-96">
                   <ClientImage
-                    src="/images/kareem-profile.png"
+                    src="/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png"
                     alt="Kareem Hassanein, Physiotherapist"
                     width={500}
                     height={600}

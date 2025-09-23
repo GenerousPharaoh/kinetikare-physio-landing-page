@@ -23,10 +23,58 @@ export async function generateStaticParams() {
   }));
 }
 
+// Helper function to generate dynamic meta descriptions based on condition category
+function generateDynamicMetaDescription(condition: any): string {
+  const conditionNameLower = condition.name.toLowerCase();
+
+  // Category-specific templates for more targeted SEO
+  const categoryTemplates: Record<string, string[]> = {
+    'spinal-health': [
+      `Specialized ${conditionNameLower} treatment in Burlington. Manual therapy and targeted exercises for spine rehabilitation. Direct billing available.`,
+      `Evidence-based ${conditionNameLower} physiotherapy with Kareem Hassanein. Expert spinal assessment and personalized treatment plans.`,
+      `Get relief from ${conditionNameLower} with proven manual therapy techniques. Burlington physiotherapy clinic with evening hours.`
+    ],
+    'shoulder': [
+      `Expert ${conditionNameLower} physiotherapy in Burlington. Restore shoulder function with manual therapy and progressive exercises.`,
+      `Comprehensive ${conditionNameLower} treatment with Kareem Hassanein. Specialized shoulder rehabilitation for lasting recovery.`,
+      `Professional ${conditionNameLower} assessment and treatment. Evidence-based shoulder therapy in Burlington with direct billing.`
+    ],
+    'knee': [
+      `Effective ${conditionNameLower} treatment in Burlington. Specialized knee rehabilitation with manual therapy and exercise prescription.`,
+      `Get back to activity with expert ${conditionNameLower} physiotherapy. Comprehensive knee assessment and personalized treatment.`,
+      `Professional ${conditionNameLower} rehabilitation with Kareem Hassanein. Evidence-based knee therapy for optimal recovery.`
+    ],
+    'hip-pelvis': [
+      `Specialized ${conditionNameLower} physiotherapy in Burlington. Expert hip and pelvic rehabilitation for improved mobility.`,
+      `Comprehensive ${conditionNameLower} treatment with manual therapy. Professional hip assessment and targeted exercises.`,
+      `Evidence-based ${conditionNameLower} rehabilitation with Kareem Hassanein. Restore hip function with personalized treatment.`
+    ],
+    'foot-ankle': [
+      `Expert ${conditionNameLower} treatment in Burlington. Specialized foot and ankle rehabilitation for optimal recovery.`,
+      `Professional ${conditionNameLower} physiotherapy with Kareem Hassanein. Comprehensive ankle assessment and manual therapy.`,
+      `Get relief from ${conditionNameLower} with evidence-based treatment. Burlington clinic with direct billing and evening hours.`
+    ],
+    'elbow-wrist-hand': [
+      `Specialized ${conditionNameLower} treatment in Burlington. Expert upper extremity rehabilitation with manual therapy.`,
+      `Comprehensive ${conditionNameLower} physiotherapy with Kareem Hassanein. Restore hand and wrist function effectively.`,
+      `Professional ${conditionNameLower} assessment and treatment. Evidence-based therapy for elbow, wrist, and hand conditions.`
+    ]
+  };
+
+  // Get templates for this category or use default
+  const templates = categoryTemplates[condition.category] || [
+    `Expert ${conditionNameLower} treatment in Burlington with Kareem Hassanein. Evidence-based physiotherapy using manual therapy for lasting relief.`
+  ];
+
+  // Select template based on condition name hash (for consistency)
+  const templateIndex = condition.name.length % templates.length;
+  return templates[templateIndex];
+}
+
 // Generate metadata for each condition page
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const baseCondition = getConditionBySlug(params.slug);
-  
+
   if (!baseCondition) {
     return {
       title: 'Condition Not Found | KinetiKare Physiotherapy',
@@ -35,9 +83,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const condition = getDetailedCondition(params.slug, baseCondition);
-  
+
   // Generate location-specific keywords
-  const locations = ['Burlington', 'Waterdown', 'Hamilton', 'Oakville'];
+  const locations = ['Burlington', 'Waterdown', 'Hamilton', 'Oakville', 'Carlisle'];
   const keywords = [
     `${condition.name} treatment`,
     `${condition.name} physiotherapy`,
@@ -46,15 +94,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     ...locations.map(loc => `${condition.name} treatment ${loc}`),
     ...locations.map(loc => `${condition.name} physiotherapy ${loc}`),
     'Kareem Hassanein',
-    'advanced manual therapy',
     'manual therapy',
     'dry needling',
+    'exercise therapy',
     ...(condition.keywords || [])
   ];
 
   const title = `${condition.name} Treatment Burlington | Kareem Hassanein Physiotherapy`;
-  const description = condition.metaDescription || 
-    `Expert ${condition.name.toLowerCase()} treatment in Burlington with Kareem Hassanein. Advanced manual therapy physiotherapy using evidence-based techniques for lasting relief. Direct billing available.`;
+
+  // Use dynamic meta description based on category if no custom one exists
+  const description = condition.metaDescription || generateDynamicMetaDescription(condition);
 
   return {
     title,
@@ -183,6 +232,68 @@ export default function ConditionPage({ params }: PageProps) {
     ]
   };
 
+  // Generate FAQ schema based on condition type - common questions patients ask
+  const generateFAQSchema = () => {
+    const faqs = [];
+
+    // Add condition-specific FAQs
+    faqs.push({
+      "@type": "Question",
+      "name": `What causes ${condition.name.toLowerCase()}?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": condition.causes ? `Common causes include ${condition.causes.slice(0, 3).join(', ')}. A thorough assessment can identify your specific contributing factors.` : `${condition.name} can have various causes. A physiotherapy assessment will help identify the specific factors contributing to your condition.`
+      }
+    });
+
+    faqs.push({
+      "@type": "Question",
+      "name": `How long does ${condition.name.toLowerCase()} treatment take?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `Recovery time varies based on severity and individual factors. Most patients see improvement within 4-6 weeks of consistent physiotherapy treatment, though complete recovery may take longer.`
+      }
+    });
+
+    faqs.push({
+      "@type": "Question",
+      "name": `Can physiotherapy help with ${condition.name.toLowerCase()}?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `Yes, physiotherapy is highly effective for ${condition.name.toLowerCase()}. Treatment includes manual therapy, targeted exercises, and education to address both symptoms and underlying causes.`
+      }
+    });
+
+    // Add category-specific FAQs
+    if (condition.category === 'spinal-health') {
+      faqs.push({
+        "@type": "Question",
+        "name": "Do I need imaging (X-ray, MRI) before physiotherapy?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most spinal conditions can be effectively assessed and treated without imaging. Your physiotherapist will determine if imaging is necessary based on your clinical presentation."
+        }
+      });
+    } else if (condition.category === 'knee' || condition.category === 'shoulder') {
+      faqs.push({
+        "@type": "Question",
+        "name": "Can I avoid surgery with physiotherapy?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Many patients successfully manage their condition with physiotherapy alone. Conservative treatment is often the first recommended approach, with surgery considered only if conservative measures don't provide adequate relief."
+        }
+      });
+    }
+
+    return {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs
+    };
+  };
+
+  const faqSchema = generateFAQSchema();
+
   return (
     <>
       <script
@@ -193,8 +304,12 @@ export default function ConditionPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <ConditionPageClient 
-        condition={condition} 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <ConditionPageClient
+        condition={condition}
         relatedConditions={relatedConditions}
       />
     </>

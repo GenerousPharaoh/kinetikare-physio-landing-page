@@ -29,7 +29,7 @@ export default function AboutSection() {
               <div className="relative w-full max-w-lg mx-auto lg:mx-0">
                 <div className="aspect-[4/5] relative rounded-3xl overflow-hidden shadow-lg">
                   <Image
-                    src="/images/kareem-profile.png"
+                    src="/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png"
                     alt="Kareem Hassanein, registered physiotherapist in Burlington, expert in manual therapy, sports rehabilitation, dry needling"
                     fill
                     className="object-cover object-top"

@@ -1,12 +1,16 @@
-# *
+# Robots.txt for KinetiKare Physiotherapy
+# Allow all crawlers to access public content
+
 User-agent: *
 Allow: /
-
-# *
-User-agent: *
 Disallow: /api/
 Disallow: /admin/
 Disallow: /_next/
+Disallow: /treatments-draft/
+
+# Allow search engines to crawl images
+User-agent: Googlebot-Image
+Allow: /images/
 
 # Host
 Host: https://www.kinetikarephysio.com

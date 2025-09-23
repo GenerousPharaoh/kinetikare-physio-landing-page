@@ -31,6 +31,10 @@ const reviews = [
   {
     name: "Nader S",
     text: "I took my elderly father to Kareem for his mobility issues and hip/back pain. He took his time to assess his my father's issue to determine the appropriate care. My father had a wonderful experience under Kareem's care, his issues immediately improved."
+  },
+  {
+    name: "Marko Vasilic",
+    text: "I had been struggling with achilles tendinitis and plantar fasciitis for months, and it was holding me back from playing basketball the way I wanted. Kareem did a full movement analysis and tested all of the surrounding joints and muscles, which really showed me where the extra stress was coming from. Treatment included deep trigger point release with dry needling, cupping to ease the tightness, and exercises that were specific to building the strength and mobility I needed on the court. The progress was steady, and before long the pain and stiffness had eased up and I felt confident moving again. I'm now back to playing comfortably without worrying about my Achilles or heel flaring up. I highly recommend Kareem for any athletes trying to get back to playing comfortably."
   }
 ];
 

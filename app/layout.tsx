@@ -26,8 +26,8 @@ export const metadata = {
   publisher: 'Kareem Hassanein Physiotherapy',
   applicationName: 'Kareem Hassanein Physiotherapy',
   openGraph: {
-    title: 'Kareem Hassanein Physiotherapist | Burlington Sports Physio | Back Pain Expert',
-    description: 'Kareem Hassanein - Burlington\'s trusted physiotherapist for back pain, sports injuries, knee pain. North Burlington, Alton Village, Palladium Way. Book online.',
+    title: 'Kareem Hassanein Physiotherapy | Burlington',
+    description: 'Registered Physiotherapist offering manual therapy, dry needling, cupping, and exercise rehabilitation for chronic pain, post-surgical recovery, and movement restoration.',
     url: 'https://www.kinetikarephysio.com',
     siteName: 'Kareem Hassanein Physiotherapy',
     type: 'website',
@@ -151,7 +151,7 @@ const organizationSchema = {
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "5.0",
-    "reviewCount": "8"
+    "reviewCount": "9"
   },
   "founder": {
     "@type": "Person",

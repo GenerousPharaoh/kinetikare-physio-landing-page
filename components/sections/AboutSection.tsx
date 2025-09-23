@@ -26,7 +26,7 @@ export default function AboutSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative"
             >
-              <div className="relative w-full max-w-lg mx-auto lg:mx-0">
+              <div className="relative w-full max-w-sm mx-auto lg:mx-0">
                 <div className="aspect-[3/4] relative rounded-3xl overflow-hidden shadow-lg bg-gray-50">
                   <Image
                     src="/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png"

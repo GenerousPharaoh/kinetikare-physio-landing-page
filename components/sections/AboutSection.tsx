@@ -27,13 +27,12 @@ export default function AboutSection() {
               className="relative"
             >
               <div className="relative w-full max-w-lg mx-auto lg:mx-0">
-                <div className="aspect-[4/5] relative rounded-3xl overflow-hidden shadow-lg">
+                <div className="aspect-[3/4] relative rounded-3xl overflow-hidden shadow-lg bg-gray-50">
                   <Image
                     src="/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png"
                     alt="Kareem Hassanein, registered physiotherapist in Burlington, expert in manual therapy, sports rehabilitation, dry needling"
                     fill
-                    className="object-cover object-top"
-                    style={{ objectPosition: 'center 5%' }}
+                    className="object-contain"
                   />
                 </div>
               </div>

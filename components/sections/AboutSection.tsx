@@ -59,7 +59,7 @@ export default function AboutSection() {
                   Behind every treatment plan is a physiotherapist who has stood in your shoes. My journey into physiotherapy was shaped by personal experience, from competitive soccer to navigating my own significant injuries.
                 </p>
                 <p>
-                  I don't subscribe to high-volume, prescriptive protocols; instead, I focus on individualized care with plans tailored to your unique needs, grounded in advanced manual therapy and evidence-based practice.
+                  I don't subscribe to high-volume, prescriptive protocols; instead, I focus on individualized care with plans tailored to your unique needs, grounded in targeted manual therapy and evidence-based practice.
                 </p>
               </motion.div>
               

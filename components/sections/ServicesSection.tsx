@@ -2,9 +2,10 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useScrollAnimation, useStaggeredAnimation } from '@/hooks/useScrollAnimation';
-import { 
+import {
   ChevronRightIcon,
   CheckCircleIcon
 } from '@heroicons/react/24/outline';
@@ -108,41 +109,70 @@ export default function ServicesSection() {
           ))}
         </motion.div>
 
-        {/* Additional Services */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200"
-        >
-          <div className="text-center mb-8">
-            <h3 className="text-3xl font-light text-slate-900 mb-4 tracking-[-0.02em]">
-              Additional <span className="text-[#B08D57]">Services</span>
-            </h3>
-            
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed mb-8">
-              Comprehensive care extending beyond core services to support every aspect of your recovery journey
-            </p>
-          </div>
-          
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
-            {additionalServices.map((service, index) => (
-              <motion.div 
-                key={service} 
-                className="group"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-              >
-                <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 hover:border-[#B08D57]/50 hover:shadow-md transition-all duration-300 text-center">
-                  <h4 className="font-normal text-slate-900 group-hover:text-[#B08D57] transition-colors duration-300 text-lg">
-                    {service}
-                  </h4>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+        {/* Treatment Image and Additional Services */}
+        <div className="grid lg:grid-cols-2 gap-8">
+          {/* Manual Therapy Image */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="relative h-full min-h-[400px] lg:min-h-[500px]"
+          >
+            <div className="relative h-full w-full rounded-2xl overflow-hidden shadow-lg">
+              <Image
+                src="/images/treatment-photos/treatment-passive-stretching-knee-manual-therapy.jpg"
+                alt="Manual therapy treatment - knee mobilization and stretching technique"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/20 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-8">
+                <h3 className="text-2xl font-light text-white mb-2">Hands-On Treatment</h3>
+                <p className="text-gray-200 text-lg">
+                  Personalized manual therapy techniques to restore movement and reduce pain
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Additional Services */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200"
+          >
+            <div className="mb-8">
+              <h3 className="text-3xl font-light text-slate-900 mb-4 tracking-[-0.02em]">
+                Additional <span className="text-[#B08D57]">Services</span>
+              </h3>
+
+              <p className="text-lg text-slate-600 leading-relaxed mb-8">
+                Comprehensive care extending beyond core services to support every aspect of your recovery journey
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-4">
+              {additionalServices.map((service, index) => (
+                <motion.div
+                  key={service}
+                  className="group"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                >
+                  <div className="bg-gray-50 rounded-xl p-4 border border-gray-200 hover:border-[#B08D57]/50 hover:shadow-md transition-all duration-300">
+                    <h4 className="font-normal text-slate-900 group-hover:text-[#B08D57] transition-colors duration-300 text-base">
+                      {service}
+                    </h4>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
       </div>
     </motion.section>
   );

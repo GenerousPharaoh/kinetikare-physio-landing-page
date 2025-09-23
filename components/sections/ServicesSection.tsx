@@ -118,14 +118,14 @@ export default function ServicesSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="relative group"
           >
-            <div className="relative h-[400px] lg:h-[500px] w-full rounded-2xl overflow-hidden shadow-xl">
-              {/* Image with max quality settings */}
+            <div className="relative h-[500px] lg:h-[600px] w-full rounded-2xl overflow-hidden shadow-xl">
+              {/* Image with adjusted scaling to show more content */}
               <div className="relative h-full w-full">
                 <Image
                   src="/images/treatment-photos/treatment-passive-stretching-knee-manual-therapy.jpg"
                   alt="Manual therapy treatment - knee mobilization and stretching technique"
                   fill
-                  className="object-cover object-center scale-95 group-hover:scale-100 transition-transform duration-700"
+                  className="object-cover object-center scale-90 group-hover:scale-95 transition-transform duration-700"
                   style={{ filter: 'contrast(1.05) saturate(1.1)', imageRendering: 'crisp-edges' }}
                   sizes="(max-width: 768px) 100vw, 1200px"
                   priority

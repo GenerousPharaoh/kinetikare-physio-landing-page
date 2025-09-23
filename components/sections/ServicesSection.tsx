@@ -135,15 +135,15 @@ export default function ServicesSection() {
               {/* Gradient overlay - subtle at top, stronger at bottom */}
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-900/80"></div>
 
-              {/* Text container overlay with glassmorphic effect */}
-              <div className="absolute bottom-0 left-0 right-0 p-8">
-                <div className="bg-white/95 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/50">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="w-12 h-[2px] bg-[#B08D57]"></div>
-                    <h3 className="text-2xl font-light text-slate-900">Hands-On Treatment</h3>
+              {/* Text container overlay - minimal and unobtrusive */}
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-lg border border-white/50 max-w-md">
+                  <div className="flex items-center gap-2 mb-1">
+                    <div className="w-8 h-[2px] bg-[#B08D57]"></div>
+                    <h3 className="text-xl font-light text-slate-900">Hands-On Treatment</h3>
                   </div>
-                  <p className="text-slate-700 text-base pl-[60px]">
-                    Personalized manual therapy techniques to restore movement and reduce pain
+                  <p className="text-slate-600 text-sm pl-10">
+                    Personalized manual therapy techniques
                   </p>
                 </div>
               </div>

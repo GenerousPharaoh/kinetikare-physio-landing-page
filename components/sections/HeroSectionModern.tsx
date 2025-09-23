@@ -283,7 +283,7 @@ export default function HeroSection() {
                 transition={{ duration: 0.6, delay: 0.45 }}
                 className="text-sm text-slate-400 mb-10 max-w-2xl font-light"
               >
-                Burlington clinic • Conveniently serving Burlington, Waterdown & Flamborough residents
+                Burlington clinic • Conveniently serving Burlington, Oakville, Waterdown & Flamborough residents
               </motion.p>
 
               <motion.div

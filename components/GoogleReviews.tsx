@@ -78,8 +78,8 @@ export default function GoogleReviews() {
     <section className="py-20 bg-gradient-to-b from-white to-gray-50">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-12">
-          <div className="flex items-center justify-center gap-2 mb-4">
+        <div className="text-center mb-8">
+          <div className="flex items-center justify-center gap-2 mb-3">
             <div className="flex gap-1">
               {[...Array(5)].map((_, i) => (
                 <svg
@@ -215,7 +215,7 @@ export default function GoogleReviews() {
         </div>
 
         {/* Google Reviews Link */}
-        <div className="text-center mt-8">
+        <div className="text-center mt-6">
           <a
             href="https://www.google.com/search?q=kareem+hassanein+physiotherapy+burlington"
             target="_blank"

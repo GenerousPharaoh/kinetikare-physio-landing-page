@@ -18,7 +18,7 @@ export default function AboutSection() {
     >
       <div className="container mx-auto px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-4 items-center">
             {/* Left side - Image */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -26,7 +26,7 @@ export default function AboutSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative"
             >
-              <div className="relative w-full max-w-sm mx-auto lg:mx-0">
+              <div className="relative w-full max-w-sm mx-auto lg:mx-0 lg:ml-auto">
                 <div className="aspect-[3/4] relative rounded-3xl overflow-hidden shadow-lg bg-gray-50">
                   <Image
                     src="/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png"

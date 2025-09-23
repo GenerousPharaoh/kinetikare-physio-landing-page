@@ -32,8 +32,8 @@ export default function AboutSection() {
                     src="/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png"
                     alt="Kareem Hassanein, registered physiotherapist in Burlington, expert in manual therapy, sports rehabilitation, dry needling"
                     fill
-                    className="object-cover object-top"
-                    style={{ objectPosition: 'center 15%' }}
+                    className="object-cover"
+                    style={{ objectPosition: 'center 20%' }}
                   />
                 </div>
               </div>

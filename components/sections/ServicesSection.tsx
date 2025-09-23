@@ -119,16 +119,17 @@ export default function ServicesSection() {
             className="relative group"
           >
             <div className="relative h-[400px] lg:h-[500px] w-full rounded-2xl overflow-hidden shadow-xl">
-              {/* Image with subtle zoom effect on hover */}
+              {/* Image with max quality settings */}
               <div className="relative h-full w-full">
                 <Image
                   src="/images/treatment-photos/treatment-passive-stretching-knee-manual-therapy.jpg"
                   alt="Manual therapy treatment - knee mobilization and stretching technique"
                   fill
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                  className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 768px) 100vw, 1200px"
                   priority
-                  quality={90}
+                  quality={100}
+                  unoptimized
                 />
               </div>
 

@@ -126,6 +126,7 @@ export default function ServicesSection() {
                   alt="Manual therapy treatment - knee mobilization and stretching technique"
                   fill
                   className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                  style={{ filter: 'contrast(1.05) saturate(1.1)', imageRendering: 'crisp-edges' }}
                   sizes="(max-width: 768px) 100vw, 1200px"
                   priority
                   quality={100}

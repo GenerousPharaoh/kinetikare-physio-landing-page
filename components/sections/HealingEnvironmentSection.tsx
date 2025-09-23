@@ -19,7 +19,7 @@ const HealingEnvironmentSection = () => {
       title: 'Our Location'
     },
     {
-      src: '/images/clinic-reception-new-may-2025.jpg',
+      src: '/images/clinic-reception-fixed.jpg',
       alt: 'Reception Area',
       title: 'Welcoming Reception'
     }
@@ -47,7 +47,7 @@ const HealingEnvironmentSection = () => {
     <motion.section 
       ref={sectionRef}
       {...animationProps}
-      className="py-20 md:py-24 bg-gradient-to-b from-white to-gray-50"
+      className="pt-16 pb-20 md:pt-20 md:pb-24 bg-gradient-to-b from-white to-gray-50"
     >
       <div className="container mx-auto px-6 max-w-7xl">
         {/* Section Header - More prominent */}
@@ -176,8 +176,9 @@ const HealingEnvironmentSection = () => {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-4">
                   <div className="bg-gradient-to-r from-black/50 to-transparent">
                     <div className="px-4 py-3">

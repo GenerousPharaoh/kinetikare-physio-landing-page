@@ -67,7 +67,7 @@ export default function AboutSection() {
               <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Link
                   href="/about"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white rounded-lg font-normal shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white hover:text-white rounded-lg font-normal shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   Learn More About Kareem
                 </Link>

@@ -18,6 +18,37 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Premium Navigation Bar Animations */
+@keyframes shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: translateZ(0) scale(1);
+  }
+  50% {
+    transform: translateZ(0) scale(1.02);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
 /* 
  * CSS IMPORT ORDER - CAREFULLY MANAGED:
  * Only importing essential styles to avoid conflicts

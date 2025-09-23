@@ -247,8 +247,17 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'FAQ | Kareem Hassanein | KinetiKare Physiotherapy',
     description: 'Find answers to your physiotherapy questions. Serving Burlington, Waterdown, and surrounding areas.',
-    url: '/faq',
+    url: 'https://www.kinetikarephysio.com/faq',
     type: 'website',
+    images: [{
+      url: 'https://www.kinetikarephysio.com/images/og-image.jpg',
+      width: 1200,
+      height: 630,
+      alt: 'Kareem Hassanein Physiotherapy FAQ'
+    }]
+  },
+  alternates: {
+    canonical: 'https://www.kinetikarephysio.com/faq'
   },
 };
 

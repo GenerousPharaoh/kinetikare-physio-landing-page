@@ -137,18 +137,39 @@ export default function ContactSection() {
                     </div>
                     <div className="min-w-0 flex-1">
                       <h4 className="text-base sm:text-lg font-normal text-slate-900 mb-2">Hours</h4>
-                      <div className="space-y-1">
-                        <div className="flex justify-between text-sm sm:text-base">
-                          <span className="text-slate-700">Monday:</span>
-                          <span className="text-slate-800 font-normal">1:30 PM - 8:00 PM</span>
+                      <div className="space-y-3">
+                        {/* Endorphins Location */}
+                        <div>
+                          <p className="text-xs text-[#B08D57] font-medium mb-1">Endorphins Health & Wellness</p>
+                          <div className="space-y-1 pl-2">
+                            <div className="flex justify-between text-sm sm:text-base">
+                              <span className="text-slate-700">Monday:</span>
+                              <span className="text-slate-800 font-normal">1:30 PM - 8:00 PM</span>
+                            </div>
+                            <div className="flex justify-between text-sm sm:text-base">
+                              <span className="text-slate-700">Tuesday:</span>
+                              <span className="text-slate-800 font-normal">1:30 PM - 8:00 PM</span>
+                            </div>
+                            <div className="flex justify-between text-sm sm:text-base">
+                              <span className="text-slate-700">Thursday:</span>
+                              <span className="text-slate-800 font-normal">1:30 PM - 8:00 PM</span>
+                            </div>
+                          </div>
                         </div>
-                        <div className="flex justify-between text-sm sm:text-base">
-                          <span className="text-slate-700">Tuesday:</span>
-                          <span className="text-slate-800 font-normal">1:30 PM - 8:00 PM</span>
-                        </div>
-                        <div className="flex justify-between text-sm sm:text-base">
-                          <span className="text-slate-700">Thursday:</span>
-                          <span className="text-slate-800 font-normal">1:30 PM - 8:00 PM</span>
+                        
+                        {/* Additional availability - more subtle */}
+                        <div className="pt-2 border-t border-slate-100">
+                          <div className="space-y-1">
+                            <div className="flex justify-between text-xs text-slate-500">
+                              <span>Wednesday*:</span>
+                              <span>2:00 PM - 7:30 PM</span>
+                            </div>
+                            <div className="flex justify-between text-xs text-slate-500">
+                              <span>Friday*:</span>
+                              <span>2:00 PM - 7:30 PM</span>
+                            </div>
+                            <p className="text-xs text-slate-400 italic mt-1">*Headon Physio location</p>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -271,7 +292,7 @@ export default function ContactSection() {
                 <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
                   <Link
                     href="tel:+19056346000"
-                    className="group inline-flex items-center justify-center px-6 py-4 sm:px-8 lg:px-10 sm:py-5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white rounded-2xl font-medium shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 text-base sm:text-lg"
+                    className="group inline-flex items-center justify-center px-6 py-4 sm:px-8 lg:px-10 sm:py-5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white hover:text-white rounded-2xl font-medium shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 text-base sm:text-lg"
                   >
                     <PhoneIcon className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3" />
                     <span>Call Now</span>

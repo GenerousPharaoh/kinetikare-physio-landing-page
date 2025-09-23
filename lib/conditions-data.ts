@@ -138,7 +138,7 @@ const spinalConditions: Condition[] = [
     description: 'acute and chronic, mechanical, disc-related',
     featured: true,
     priority: 1,
-    metaDescription: 'Expert low back pain treatment in Burlington with Kareem Hassanein. CAMPT-certified physiotherapy using manual therapy, dry needling, and personalized exercise programs for lasting relief.',
+    metaDescription: 'Expert low back pain treatment in Burlington with Kareem Hassanein. Advanced manual therapy physiotherapy using manual techniques, dry needling, and personalized exercise programs for lasting relief.',
   },
   {
     id: 'neck-pain',
@@ -583,6 +583,79 @@ const footAnkleConditions: Condition[] = [
     description: 'Lateral ankle tendon issues',
     metaDescription: 'Peroneal tendinopathy treatment in Burlington. Specialized care for lateral ankle pain with targeted strengthening and balance training.',
   },
+  {
+    id: 'posterior-tibial-tendon-dysfunction',
+    slug: 'posterior-tibial-tendon-dysfunction',
+    name: 'Posterior Tibial Tendon Dysfunction',
+    category: 'foot-ankle',
+    description: 'Adult-acquired flatfoot, progressive foot deformity',
+    metaDescription: 'PTTD treatment in Burlington. Expert physiotherapy for adult-acquired flatfoot using orthotics, strengthening exercises, and activity modification.',
+    featured: true,
+    priority: 32,
+  },
+  {
+    id: 'mortons-neuroma',
+    slug: 'mortons-neuroma',
+    name: "Morton's Neuroma",
+    category: 'foot-ankle',
+    description: 'Forefoot nerve compression causing numbness and burning pain',
+    featured: true,
+    priority: 33,
+    metaDescription: "Morton's neuroma treatment in Burlington. Conservative physiotherapy for forefoot pain using activity modification and footwear advice.",
+  },
+  {
+    id: 'metatarsalgia',
+    slug: 'metatarsalgia',
+    name: 'Metatarsalgia',
+    category: 'foot-ankle',
+    description: 'Ball of foot pain, forefoot overload syndrome',
+    metaDescription: 'Metatarsalgia treatment in Burlington. Expert care for ball of foot pain using load redistribution and strengthening exercises.',
+  },
+  {
+    id: 'hallux-valgus',
+    slug: 'hallux-valgus',
+    name: 'Hallux Valgus (Bunions)',
+    category: 'foot-ankle',
+    description: 'Big toe joint deformity, bunion pain and stiffness',
+    featured: true,
+    priority: 34,
+    metaDescription: 'Bunion treatment in Burlington. Conservative physiotherapy for hallux valgus using exercises, taping, and footwear modification.',
+  },
+  {
+    id: 'hallux-rigidus',
+    slug: 'hallux-rigidus',
+    name: 'Hallux Rigidus',
+    category: 'foot-ankle',
+    description: 'Big toe arthritis, stiff great toe joint',
+    metaDescription: 'Hallux rigidus treatment in Burlington. Physiotherapy for big toe arthritis using mobility exercises and activity modification.',
+  },
+  {
+    id: 'turf-toe',
+    slug: 'turf-toe',
+    name: 'Turf Toe',
+    category: 'foot-ankle',
+    description: 'Great toe joint sprain, first MTP joint injury',
+    metaDescription: 'Turf toe treatment in Burlington. Sports physiotherapy for great toe sprains using progressive loading and return-to-sport protocols.',
+  },
+  {
+    id: 'severs-disease',
+    slug: 'severs-disease',
+    name: "Sever's Disease",
+    category: 'foot-ankle',
+    description: 'Calcaneal apophysitis, pediatric heel pain in growing athletes',
+    metaDescription: "Sever's disease treatment in Burlington. Expert pediatric physiotherapy for heel pain in young athletes using activity modification and stretching.",
+    featured: true,
+    priority: 35,
+    metaDescription: "Sever's disease treatment in Burlington. Pediatric physiotherapy for growing heel pain using activity modification and strengthening.",
+  },
+  {
+    id: 'tarsal-tunnel-syndrome',
+    slug: 'tarsal-tunnel-syndrome',
+    name: 'Tarsal Tunnel Syndrome',
+    category: 'foot-ankle',
+    description: 'Posterior tibial nerve compression, medial ankle numbness',
+    metaDescription: 'Tarsal tunnel syndrome treatment in Burlington. Physiotherapy for nerve compression using neural mobilization and activity modification.',
+  },
 ];
 
 export const conditionCategories: ConditionCategory[] = [
@@ -838,21 +911,26 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'shin-splints', relationshipType: 'biomechanical', explanation: 'Both are overuse injuries with shared biomechanical factors in runners', relevanceScore: 6 },
     { slug: 'ankle-sprains', relationshipType: 'biomechanical', explanation: 'Ankle dysfunction can alter foot mechanics and contribute to plantar fasciitis', relevanceScore: 5 },
     { slug: 'it-band-syndrome', relationshipType: 'biomechanical', explanation: 'Both are running-related overuse injuries with interconnected lower limb mechanics', relevanceScore: 5 },
-    { slug: 'knee-pain-patellofemoral', relationshipType: 'biomechanical', explanation: 'Foot dysfunction affects entire lower limb kinetic chain including knee mechanics', relevanceScore: 5 }
+    { slug: 'knee-pain-patellofemoral', relationshipType: 'biomechanical', explanation: 'Foot dysfunction affects entire lower limb kinetic chain including knee mechanics', relevanceScore: 5 },
+    { slug: 'posterior-tibial-tendon-dysfunction', relationshipType: 'biomechanical', explanation: 'Both involve medial arch support; PTTD can lead to plantar fascia overload', relevanceScore: 8 },
+    { slug: 'severs-disease', relationshipType: 'anatomical', explanation: 'Both involve heel pain; plantar fascia attaches near calcaneal apophysis', relevanceScore: 7 }
   ],
   'achilles-tendinopathy': [
     { slug: 'plantar-fasciitis', relationshipType: 'biomechanical', explanation: 'Both involve posterior chain; Achilles stiffness is major risk factor for plantar fasciitis', relevanceScore: 8 },
     { slug: 'patellar-tendinopathy', relationshipType: 'treatment', explanation: 'Both are tendinopathies with similar pathophysiology and evidence-based treatments', relevanceScore: 7 },
     { slug: 'shin-splints', relationshipType: 'causal', explanation: 'Both are common running injuries; Achilles dysfunction can contribute to shin splints', relevanceScore: 6 },
     { slug: 'tennis-elbow', relationshipType: 'treatment', explanation: 'Both are tendinopathies responding to similar loading and exercise protocols', relevanceScore: 6 },
-    { slug: 'ankle-sprains', relationshipType: 'biomechanical', explanation: 'Ankle instability affects Achilles tendon loading and mechanics', relevanceScore: 6 }
+    { slug: 'ankle-sprains', relationshipType: 'biomechanical', explanation: 'Ankle instability affects Achilles tendon loading and mechanics', relevanceScore: 6 },
+    { slug: 'severs-disease', relationshipType: 'anatomical', explanation: 'Both involve Achilles tendon attachment issues, though in different age groups', relevanceScore: 8 },
+    { slug: 'posterior-tibial-tendon-dysfunction', relationshipType: 'biomechanical', explanation: 'Achilles tightness can increase stress on posterior tibial tendon', relevanceScore: 6 }
   ],
   'shin-splints': [
     { slug: 'plantar-fasciitis', relationshipType: 'biomechanical', explanation: 'Both are overuse injuries in runners with shared biomechanical risk factors', relevanceScore: 6 },
     { slug: 'achilles-tendinopathy', relationshipType: 'causal', explanation: 'Both common running injuries; Achilles dysfunction can contribute to shin splints', relevanceScore: 6 },
     { slug: 'it-band-syndrome', relationshipType: 'causal', explanation: 'Both are running-related overuse injuries with similar training error causes', relevanceScore: 6 },
     { slug: 'ankle-sprains', relationshipType: 'biomechanical', explanation: 'Ankle instability can alter lower leg mechanics contributing to shin splints', relevanceScore: 6 },
-    { slug: 'stress-fractures', relationshipType: 'causal', explanation: 'Untreated shin splints can progress to tibial stress fractures', relevanceScore: 7 }
+    { slug: 'stress-fractures', relationshipType: 'causal', explanation: 'Untreated shin splints can progress to tibial stress fractures', relevanceScore: 7 },
+    { slug: 'severs-disease', relationshipType: 'causal', explanation: 'Both are common overuse injuries in young athletes with similar causes', relevanceScore: 6 }
   ],
   'peroneal-tendinopathy': [
     { slug: 'ankle-sprains', relationshipType: 'causal', explanation: 'Chronic ankle instability leads to peroneal tendon overuse and tendinopathy', relevanceScore: 8 },
@@ -991,6 +1069,62 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'piriformis-syndrome', relationshipType: 'symptomatic', explanation: 'Both can cause posterior hip/buttock pain and sitting difficulties', relevanceScore: 6 },
     { slug: 'ischial-bursitis', relationshipType: 'anatomical', explanation: 'Both affect sitting bone region and can be confused diagnostically', relevanceScore: 7 },
     { slug: 'deep-gluteal-syndrome', relationshipType: 'anatomical', explanation: 'Both involve posterior hip structures with potential symptom overlap', relevanceScore: 5 }
+  ],
+  'posterior-tibial-tendon-dysfunction': [
+    { slug: 'plantar-fasciitis', relationshipType: 'biomechanical', explanation: 'Both involve medial arch support; PTTD can lead to plantar fascia overload', relevanceScore: 8 },
+    { slug: 'ankle-sprains', relationshipType: 'causal', explanation: 'Chronic ankle instability can contribute to posterior tibial tendon overuse', relevanceScore: 7 },
+    { slug: 'achilles-tendinopathy', relationshipType: 'biomechanical', explanation: 'Achilles tightness can increase stress on posterior tibial tendon', relevanceScore: 6 },
+    { slug: 'knee-osteoarthritis', relationshipType: 'biomechanical', explanation: 'Flatfoot deformity from PTTD alters knee mechanics and loading patterns', relevanceScore: 6 },
+    { slug: 'tarsal-tunnel-syndrome', relationshipType: 'anatomical', explanation: 'Both involve structures around medial ankle; swelling from PTTD can compress nerves', relevanceScore: 5 }
+  ],
+  'mortons-neuroma': [
+    { slug: 'metatarsalgia', relationshipType: 'symptomatic', explanation: 'Both cause forefoot pain; neuroma can be mistaken for metatarsalgia', relevanceScore: 8 },
+    { slug: 'hallux-valgus', relationshipType: 'biomechanical', explanation: 'Bunion deformity can alter forefoot mechanics contributing to neuroma development', relevanceScore: 7 },
+    { slug: 'plantar-fasciitis', relationshipType: 'biomechanical', explanation: 'Both involve forefoot loading issues; altered mechanics can affect both conditions', relevanceScore: 5 },
+    { slug: 'hammer-toe-deformities', relationshipType: 'causal', explanation: 'Toe deformities can contribute to neuroma formation through altered mechanics', relevanceScore: 6 },
+    { slug: 'tarsal-tunnel-syndrome', relationshipType: 'symptomatic', explanation: 'Both cause foot numbness and tingling but in different distributions', relevanceScore: 5 }
+  ],
+  'metatarsalgia': [
+    { slug: 'mortons-neuroma', relationshipType: 'symptomatic', explanation: 'Both cause forefoot pain and can be confused diagnostically', relevanceScore: 8 },
+    { slug: 'hallux-valgus', relationshipType: 'biomechanical', explanation: 'Bunions can cause transfer metatarsalgia due to altered weight distribution', relevanceScore: 8 },
+    { slug: 'hallux-rigidus', relationshipType: 'biomechanical', explanation: 'Stiff great toe causes transfer of forces to other metatarsals', relevanceScore: 7 },
+    { slug: 'plantar-fasciitis', relationshipType: 'biomechanical', explanation: 'Both involve forefoot loading and can share common biomechanical factors', relevanceScore: 6 },
+    { slug: 'hammer-toe-deformities', relationshipType: 'causal', explanation: 'Toe deformities alter forefoot mechanics leading to metatarsalgia', relevanceScore: 7 }
+  ],
+  'hallux-valgus': [
+    { slug: 'metatarsalgia', relationshipType: 'causal', explanation: 'Bunions commonly cause transfer metatarsalgia due to altered forefoot mechanics', relevanceScore: 8 },
+    { slug: 'mortons-neuroma', relationshipType: 'biomechanical', explanation: 'Bunion deformity can contribute to forefoot nerve compression', relevanceScore: 7 },
+    { slug: 'hallux-rigidus', relationshipType: 'anatomical', explanation: 'Both affect the great toe joint; bunions can predispose to arthritis', relevanceScore: 6 },
+    { slug: 'hammer-toe-deformities', relationshipType: 'causal', explanation: 'Hallux valgus commonly leads to lesser toe deformities', relevanceScore: 7 },
+    { slug: 'plantar-fasciitis', relationshipType: 'biomechanical', explanation: 'Altered forefoot mechanics from bunions can affect arch function', relevanceScore: 5 }
+  ],
+  'hallux-rigidus': [
+    { slug: 'metatarsalgia', relationshipType: 'causal', explanation: 'Limited great toe motion causes increased loading of other metatarsals', relevanceScore: 7 },
+    { slug: 'hallux-valgus', relationshipType: 'anatomical', explanation: 'Both affect great toe joint; arthritis can develop in bunion joints', relevanceScore: 6 },
+    { slug: 'severs-disease', relationshipType: 'biomechanical', explanation: 'Both involve altered toe function affecting push-off mechanics', relevanceScore: 5 },
+    { slug: 'achilles-tendinopathy', relationshipType: 'biomechanical', explanation: 'Limited toe extension can alter calf muscle function and Achilles loading', relevanceScore: 5 },
+    { slug: 'plantar-fasciitis', relationshipType: 'biomechanical', explanation: 'Altered great toe function affects plantar fascia loading during push-off', relevanceScore: 5 }
+  ],
+  'turf-toe': [
+    { slug: 'hallux-rigidus', relationshipType: 'causal', explanation: 'Severe turf toe injuries can lead to post-traumatic arthritis of great toe', relevanceScore: 7 },
+    { slug: 'hallux-valgus', relationshipType: 'biomechanical', explanation: 'Both affect great toe joint function and stability', relevanceScore: 5 },
+    { slug: 'metatarsalgia', relationshipType: 'symptomatic', explanation: 'Turf toe can cause compensatory loading of other metatarsals', relevanceScore: 6 },
+    { slug: 'ankle-sprains', relationshipType: 'treatment', explanation: 'Both are sports injuries with similar graded rehabilitation approaches', relevanceScore: 6 },
+    { slug: 'plantar-fasciitis', relationshipType: 'biomechanical', explanation: 'Great toe injury can affect plantar fascia loading patterns', relevanceScore: 4 }
+  ],
+  'severs-disease': [
+    { slug: 'achilles-tendinopathy', relationshipType: 'anatomical', explanation: 'Both involve Achilles tendon attachment issues, though in different age groups', relevanceScore: 8 },
+    { slug: 'plantar-fasciitis', relationshipType: 'anatomical', explanation: 'Both involve heel pain; plantar fascia attaches near calcaneal apophysis', relevanceScore: 7 },
+    { slug: 'shin-splints', relationshipType: 'causal', explanation: 'Both are common overuse injuries in young athletes with similar causes', relevanceScore: 6 },
+    { slug: 'ankle-sprains', relationshipType: 'biomechanical', explanation: 'Heel pain can alter gait increasing ankle injury risk', relevanceScore: 5 },
+    { slug: 'growth-plate-injuries', relationshipType: 'anatomical', explanation: 'Part of pediatric growth plate injury spectrum', relevanceScore: 8 }
+  ],
+  'tarsal-tunnel-syndrome': [
+    { slug: 'posterior-tibial-tendon-dysfunction', relationshipType: 'anatomical', explanation: 'Both involve medial ankle structures; PTTD swelling can compress nerve', relevanceScore: 5 },
+    { slug: 'plantar-fasciitis', relationshipType: 'symptomatic', explanation: 'Both can cause medial arch and heel pain symptoms', relevanceScore: 6 },
+    { slug: 'mortons-neuroma', relationshipType: 'symptomatic', explanation: 'Both cause foot numbness but in different nerve distributions', relevanceScore: 5 },
+    { slug: 'carpal-tunnel-syndrome', relationshipType: 'treatment', explanation: 'Both are peripheral nerve compressions with similar pathophysiology', relevanceScore: 7 },
+    { slug: 'shin-splints', relationshipType: 'biomechanical', explanation: 'Both can be caused by excessive pronation and altered foot mechanics', relevanceScore: 4 }
   ]
 };
 

@@ -153,7 +153,7 @@ export default function CareJourneySection() {
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-10 py-4 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white rounded-2xl font-medium shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 text-lg"
+                  className="inline-flex items-center justify-center px-10 py-4 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white hover:text-white rounded-2xl font-medium shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 text-lg"
                 >
                   Book Your Assessment
                 </a>

@@ -8,7 +8,7 @@ export default function HeroOverlay() {
   const trustPoints = [
     { icon: ShieldCheckIcon, text: "Direct Billing Available" },
     { icon: ClockIcon, text: "Evening & Weekend Hours" },
-    { icon: CheckCircleIcon, text: "MSc PT, CAMPT Certified" }
+    { icon: CheckCircleIcon, text: "Registered Physiotherapist, MSc PT" }
   ];
 
   return (

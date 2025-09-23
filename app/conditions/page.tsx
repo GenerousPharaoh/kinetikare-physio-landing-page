@@ -90,6 +90,15 @@ export const metadata: Metadata = {
     description: 'Expert physiotherapy treatment for spinal health, sports injuries, chronic pain, and post-surgical rehabilitation in Burlington and surrounding areas.',
     url: 'https://www.kinetikarephysio.com/conditions',
     type: 'website',
+    images: [{
+      url: 'https://www.kinetikarephysio.com/images/og-image.jpg',
+      width: 1200,
+      height: 630,
+      alt: 'Conditions Treated - Kareem Hassanein Physiotherapy'
+    }]
+  },
+  alternates: {
+    canonical: 'https://www.kinetikarephysio.com/conditions'
   },
 };
 

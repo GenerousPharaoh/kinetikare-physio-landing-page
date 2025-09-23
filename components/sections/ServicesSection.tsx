@@ -147,39 +147,90 @@ export default function ServicesSection() {
             </div>
           </motion.div>
 
-          {/* Additional Services */}
+          {/* Additional Services - Expanded Layout */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200"
+            className="flex flex-col gap-6 h-full"
           >
-            <div className="mb-8">
-              <h3 className="text-3xl font-light text-slate-900 mb-4 tracking-[-0.02em]">
-                Additional <span className="text-[#B08D57]">Services</span>
-              </h3>
+            {/* Top Card - Additional Services */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 flex-grow">
+              <div className="mb-8">
+                <h3 className="text-3xl font-light text-slate-900 mb-4 tracking-[-0.02em]">
+                  Additional <span className="text-[#B08D57]">Services</span>
+                </h3>
+                <p className="text-lg text-slate-600 leading-relaxed">
+                  Comprehensive care extending beyond core services to support every aspect of your recovery journey
+                </p>
+              </div>
 
-              <p className="text-lg text-slate-600 leading-relaxed mb-8">
-                Comprehensive care extending beyond core services to support every aspect of your recovery journey
-              </p>
+              <div className="grid sm:grid-cols-2 gap-4 mb-8">
+                {additionalServices.map((service, index) => (
+                  <motion.div
+                    key={service}
+                    className="group"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.4, delay: index * 0.05 }}
+                  >
+                    <div className="bg-gray-50 rounded-xl p-4 border border-gray-200 hover:border-[#B08D57]/50 hover:shadow-md transition-all duration-300">
+                      <h4 className="font-normal text-slate-900 group-hover:text-[#B08D57] transition-colors duration-300 text-base">
+                        {service}
+                      </h4>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Treatment Approach Section */}
+              <div className="border-t border-gray-200 pt-8">
+                <h4 className="text-xl font-light text-slate-900 mb-4">
+                  Our <span className="text-[#B08D57]">Approach</span>
+                </h4>
+                <div className="space-y-4">
+                  <div className="flex gap-4">
+                    <div className="w-2 h-2 bg-[#B08D57] rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <p className="text-slate-700 leading-relaxed">
+                        <span className="font-medium">Evidence-Based:</span> Every treatment technique is backed by current research and clinical guidelines
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <div className="w-2 h-2 bg-[#B08D57] rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <p className="text-slate-700 leading-relaxed">
+                        <span className="font-medium">Patient-Centered:</span> Your goals and preferences guide every aspect of your treatment plan
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <div className="w-2 h-2 bg-[#B08D57] rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <p className="text-slate-700 leading-relaxed">
+                        <span className="font-medium">Outcome-Focused:</span> Regular assessments ensure you're progressing toward your recovery goals
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-4">
-              {additionalServices.map((service, index) => (
-                <motion.div
-                  key={service}
-                  className="group"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.4, delay: index * 0.05 }}
+            {/* Bottom Card - Call to Action */}
+            <div className="bg-gradient-to-br from-[#B08D57]/10 to-[#B08D57]/5 rounded-2xl p-6 border border-[#B08D57]/20">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h4 className="text-lg font-medium text-slate-900 mb-1">Ready to start your recovery?</h4>
+                  <p className="text-slate-600">Book your initial assessment today</p>
+                </div>
+                <Link
+                  href="/contact"
+                  className="bg-[#B08D57] hover:bg-[#9A7A4F] text-white px-6 py-3 rounded-full font-medium transition-colors duration-300"
                 >
-                  <div className="bg-gray-50 rounded-xl p-4 border border-gray-200 hover:border-[#B08D57]/50 hover:shadow-md transition-all duration-300">
-                    <h4 className="font-normal text-slate-900 group-hover:text-[#B08D57] transition-colors duration-300 text-base">
-                      {service}
-                    </h4>
-                  </div>
-                </motion.div>
-              ))}
+                  Get Started
+                </Link>
+              </div>
             </div>
           </motion.div>
         </div>

@@ -132,26 +132,14 @@ export default function ServicesSection() {
                 />
               </div>
 
-              {/* Gradient overlay - subtle at top, stronger at bottom */}
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-900/80"></div>
+              {/* Very subtle gradient overlay just at bottom */}
+              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/30 to-transparent"></div>
 
-              {/* Text container overlay - minimal and unobtrusive */}
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-lg border border-white/50 max-w-md">
-                  <div className="flex items-center gap-2 mb-1">
-                    <div className="w-8 h-[2px] bg-[#B08D57]"></div>
-                    <h3 className="text-xl font-light text-slate-900">Hands-On Treatment</h3>
-                  </div>
-                  <p className="text-slate-600 text-sm pl-10">
-                    Personalized manual therapy techniques
-                  </p>
-                </div>
-              </div>
-
-              {/* Corner accent badge */}
-              <div className="absolute top-6 right-6">
-                <div className="bg-[#B08D57]/90 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium">
-                  Manual Therapy
+              {/* Minimal text badge at bottom */}
+              <div className="absolute bottom-6 left-6">
+                <div className="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
+                  <div className="w-2 h-2 bg-[#B08D57] rounded-full"></div>
+                  <span className="text-sm font-medium text-slate-900">Hands-On Manual Therapy</span>
                 </div>
               </div>
             </div>

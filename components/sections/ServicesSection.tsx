@@ -186,7 +186,7 @@ export default function ServicesSection() {
               {/* Treatment Approach Section */}
               <div className="border-t border-gray-200 pt-8">
                 <h4 className="text-xl font-light text-slate-900 mb-4">
-                  Our <span className="text-[#B08D57]">Approach</span>
+                  My <span className="text-[#B08D57]">Approach</span>
                 </h4>
                 <div className="space-y-4">
                   <div className="flex gap-4">
@@ -216,24 +216,31 @@ export default function ServicesSection() {
                 </div>
               </div>
             </div>
-
-            {/* Bottom Card - Call to Action */}
-            <div className="bg-gradient-to-br from-[#B08D57]/10 to-[#B08D57]/5 rounded-2xl p-6 border border-[#B08D57]/20">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h4 className="text-lg font-medium text-slate-900 mb-1">Ready to start your recovery?</h4>
-                  <p className="text-slate-600">Book your initial assessment today</p>
-                </div>
-                <Link
-                  href="/contact"
-                  className="bg-[#B08D57] hover:bg-[#9A7A4F] text-white px-6 py-3 rounded-full font-medium transition-colors duration-300"
-                >
-                  Get Started
-                </Link>
-              </div>
-            </div>
           </motion.div>
         </div>
+
+        {/* Full-width Call to Action */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-8 bg-gradient-to-br from-[#B08D57]/10 to-[#B08D57]/5 rounded-2xl p-6 border border-[#B08D57]/20"
+        >
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div>
+              <h4 className="text-xl font-medium text-slate-900 mb-1">Ready to start your recovery?</h4>
+              <p className="text-slate-600">Book your initial assessment today</p>
+            </div>
+            <a
+              href="https://kinetikare.janeapp.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#B08D57] hover:bg-[#9A7A4F] text-white px-8 py-3 rounded-full font-medium transition-colors duration-300 inline-block"
+            >
+              Book Now
+            </a>
+          </div>
+        </motion.div>
       </div>
     </motion.section>
   );

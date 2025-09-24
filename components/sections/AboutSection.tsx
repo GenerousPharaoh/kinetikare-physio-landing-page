@@ -44,7 +44,7 @@ export default function AboutSection() {
               variants={containerVariants}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
-              className="text-center lg:text-left lg:-ml-4"
+              className="text-center lg:text-left lg:-ml-12"
             >
               <motion.div variants={itemVariants} className="inline-block px-4 py-2 bg-[#B08D57]/10 text-[#B08D57] text-sm font-medium rounded-full mb-6">
                 Meet Kareem Hassanein

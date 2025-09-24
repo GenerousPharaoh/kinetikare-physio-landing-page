@@ -152,7 +152,7 @@ export default function ServicesSection() {
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="h-[600px] lg:h-[700px]"
+            className="h-auto lg:h-[700px]"
           >
             <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-lg border border-gray-200 h-full flex flex-col">
               <div className="mb-6">

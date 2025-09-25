@@ -7,6 +7,10 @@
 @import 'background-temperatures.css';
 @import 'typography-refinements.css';
 @import 'color-temperature-refinements.css';
+@import 'refined-accent-colors.css';
+@import 'mobile-polish.css';
+@import 'accessibility-enhancements.css';
+@import 'subtle-parallax.css';
 
 /* Smooth scrolling */
 html {

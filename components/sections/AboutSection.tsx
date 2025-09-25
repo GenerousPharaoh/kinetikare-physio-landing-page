@@ -27,13 +27,23 @@ export default function AboutSection() {
               className="relative"
             >
               <div className="relative w-full max-w-sm mx-auto lg:ml-0 lg:mr-auto">
-                <div className="aspect-[3/4] relative rounded-3xl overflow-hidden shadow-premium-2 shadow-transition bg-gray-50">
-                  <Image
-                    src="/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png"
-                    alt="Kareem Hassanein, registered physiotherapist in Burlington, expert in manual therapy, sports rehabilitation, dry needling"
-                    fill
-                    className="object-contain"
-                  />
+                {/* Photo container with subtle enhancements */}
+                <div className="relative">
+                  <div className="aspect-[3/4] relative rounded-2xl overflow-hidden shadow-premium-2 hover:shadow-premium-3 shadow-transition bg-gradient-to-br from-gray-50 to-gray-100 group">
+                    <Image
+                      src="/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png"
+                      alt="Kareem Hassanein, registered physiotherapist in Burlington, expert in manual therapy, sports rehabilitation, dry needling"
+                      fill
+                      className="object-contain group-hover:scale-[1.02] transition-transform duration-700"
+                      priority
+                      quality={95}
+                    />
+                    {/* Subtle professional overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  </div>
+
+                  {/* Subtle accent border */}
+                  <div className="absolute -inset-2 bg-gradient-to-br from-[#B08D57]/10 via-transparent to-[#B08D57]/5 rounded-3xl -z-10 opacity-60"></div>
                 </div>
               </div>
             </motion.div>
@@ -54,7 +64,7 @@ export default function AboutSection() {
                 Kareem Hassanein
               </motion.h2>
               
-              <motion.div variants={itemVariants} className="text-lg text-gray-600 mb-8 space-y-4 text-body-large">
+              <motion.div variants={itemVariants} className="text-lg text-accent-warm-gray mb-8 space-y-4 text-body-large">
                 <p>
                   Behind every treatment plan is a physiotherapist who has stood in your shoes. My journey into physiotherapy was shaped by personal experience, from competitive soccer to navigating my own significant injuries.
                 </p>

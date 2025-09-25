@@ -41,7 +41,7 @@ export default function ContactSection() {
     <motion.section 
       ref={sectionRef}
       {...animationProps}
-      className="py-16 md:py-20 section-temperature-a relative overflow-hidden" 
+      className="section-luxury-spacing section-temperature-a relative overflow-hidden texture-luxury" 
       id="contact"
     >
       {/* Clean background elements with subtle parallax */}
@@ -58,15 +58,15 @@ export default function ContactSection() {
             className="text-center mb-12 sm:mb-16"
           >
             <div className="relative inline-block mb-6 sm:mb-8">
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-slate-900 mb-6 sm:mb-8 tracking-[-0.03em] leading-[0.9]">
-                Get in <span className="text-[#B08D57] relative">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-slate-900 mb-6 sm:mb-8 heading-luxury-1">
+                Get in <span className="text-luxury-gradient relative">
                   Touch
                   <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
                 </span>
               </h2>
             </div>
             
-            <p className="text-2xl lg:text-3xl font-light text-slate-600 mb-8 leading-relaxed">
+            <p className="text-2xl lg:text-3xl mb-8 text-luxury-subtle">
               Ready to move forward in your recovery journey? Experience personalized physiotherapy care designed to help you move and feel your best.
             </p>
           </motion.div>
@@ -79,7 +79,7 @@ export default function ContactSection() {
               transition={{ duration: 0.2, delay: 0 }}
             >
               {/* Single Consolidated Contact Card */}
-              <div className="bg-white/95 backdrop-blur-2xl rounded-3xl p-6 sm:p-8 lg:p-12 shadow-premium-2 hover:shadow-premium-2-hover shadow-transition border border-slate-200/60">
+              <div className="glass-luxury rounded-3xl p-6 sm:p-8 lg:p-12 shadow-luxury-deep hover:shadow-luxury-float transition-all duration-600 border-luxury-subtle premium-hover-glow">
                 <h3 className="text-2xl sm:text-3xl font-light text-slate-900 mb-8 sm:mb-10 tracking-[-0.02em] text-center">Contact Information</h3>
                 
                 <div className="space-y-6 sm:space-y-8">

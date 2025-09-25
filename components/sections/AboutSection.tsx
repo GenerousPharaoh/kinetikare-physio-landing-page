@@ -11,10 +11,10 @@ export default function AboutSection() {
   const { ref: contentRef, containerVariants, itemVariants, isInView } = useStaggeredAnimation({ delay: 0.1 });
 
   return (
-    <motion.section 
+    <motion.section
       ref={sectionRef}
       {...animationProps}
-      className="py-16 md:py-20 section-temperature-b"
+      className="section-luxury-spacing section-temperature-b texture-luxury"
     >
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
@@ -29,7 +29,7 @@ export default function AboutSection() {
               <div className="relative w-full max-w-sm mx-auto lg:ml-0 lg:mr-auto">
                 {/* Photo container with subtle enhancements */}
                 <div className="relative">
-                  <div className="aspect-[3/4] relative rounded-2xl overflow-hidden shadow-premium-2 hover:shadow-premium-3 shadow-transition bg-gradient-to-br from-gray-50 to-gray-100 group">
+                  <div className="aspect-[3/4] relative rounded-2xl overflow-hidden shadow-luxury-deep hover:shadow-luxury-float transition-all duration-700 bg-gradient-to-br from-gray-50 to-gray-100 image-luxury-frame group">
                     <Image
                       src="/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png"
                       alt="Kareem Hassanein, registered physiotherapist in Burlington, expert in manual therapy, sports rehabilitation, dry needling"
@@ -60,11 +60,11 @@ export default function AboutSection() {
                 Meet Kareem Hassanein
               </motion.div>
               
-              <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl text-primary-warm mb-6 heading-secondary">
+              <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl text-primary-warm mb-6 heading-luxury-2">
                 Kareem Hassanein
               </motion.h2>
               
-              <motion.div variants={itemVariants} className="text-lg text-accent-warm-gray mb-8 space-y-4 text-body-large">
+              <motion.div variants={itemVariants} className="text-lg mb-8 space-y-4 text-luxury-subtle">
                 <p>
                   Behind every treatment plan is a physiotherapist who has stood in your shoes. My journey into physiotherapy was shaped by personal experience, from competitive soccer to navigating my own significant injuries.
                 </p>
@@ -76,13 +76,13 @@ export default function AboutSection() {
               <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Link
                   href="/about"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white hover:text-white rounded-lg font-normal shadow-premium-1 hover:shadow-premium-1-hover shadow-transition transition-all duration-300"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white hover:text-white rounded-lg button-luxury-primary shadow-luxury-soft hover:shadow-luxury-medium transition-all duration-500 premium-hover-lift"
                 >
                   Learn More About Kareem
                 </Link>
                 <Link
                   href="/services"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-white text-gray-700 rounded-lg font-normal shadow-premium-1 hover:shadow-premium-1-hover shadow-transition border border-gray-200 hover:bg-gray-50 transition-all duration-300"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-white text-gray-700 rounded-lg button-luxury-primary shadow-luxury-soft hover:shadow-luxury-medium border-luxury-subtle hover:bg-gray-50 transition-all duration-500 premium-hover-lift"
                 >
                   View Services
                 </Link>

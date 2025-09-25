@@ -10,7 +10,7 @@ export default function HeroSection() {
   return (
     <>
       {/* Mobile */}
-      <section className="lg:hidden min-h-screen section-temperature-a flex flex-col pt-16 relative">
+      <section className="lg:hidden min-h-screen section-temperature-a flex flex-col pt-16 relative luxury-reveal">
         {/* Image section */}
         <div className="relative h-[45vh] w-full">
           <Image
@@ -70,7 +70,7 @@ export default function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-sm uppercase tracking-[0.3em] bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent mb-6 font-semibold"
+              className="text-sm uppercase tracking-[0.3em] text-luxury-gradient mb-6 font-semibold"
             >
               Registered Physiotherapist
             </motion.p>
@@ -79,12 +79,12 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-[32px] sm:text-[36px] leading-[1.2] mb-8 text-center heading-hero"
+              className="text-[32px] sm:text-[36px] leading-[1.2] mb-8 text-center heading-luxury-1"
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
               <div className="space-y-3">
-                <div className="text-primary-cool font-light tracking-wide text-[28px] sm:text-[30px]">The Science of Recovery</div>
-                <div className="text-primary-warm font-medium relative tracking-wide text-[34px] sm:text-[38px] overflow-visible">
+                <div className="text-primary-cool font-light tracking-wide text-[28px] sm:text-[30px] heading-luxury-2">The Science of Recovery</div>
+                <div className="text-primary-warm font-medium relative tracking-wide text-[34px] sm:text-[38px] overflow-visible heading-luxury-2">
                   The Art of <span className="relative inline-block bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent font-semibold italic pr-1">Care
                     <span className="absolute -bottom-0.5 left-0 right-0 h-[2px] bg-gradient-to-r from-[#B08D57] to-[#D4AF37] origin-left transform scale-x-0 animate-[taperedSlide_0.6s_ease-out_0.4s_forwards] rounded-full"></span>
                   </span>
@@ -148,7 +148,7 @@ export default function HeroSection() {
               >
                 <Link
                   href="/services"
-                  className="block w-full text-center px-8 py-5 bg-white border-2 border-slate-200 text-slate-700 font-semibold rounded-xl hover:border-[#B08D57] hover:text-[#B08D57] shadow-premium-1 hover:shadow-premium-1-hover shadow-transition transition-all duration-300 transform hover:-translate-y-0.5"
+                  className="block w-full text-center px-8 py-5 bg-white border-luxury-subtle text-slate-700 font-semibold rounded-xl hover:text-[#B08D57] shadow-luxury-soft hover:shadow-luxury-medium transition-all duration-500 premium-hover-lift button-luxury-primary"
                 >
                   Explore Services
                 </Link>
@@ -159,7 +159,7 @@ export default function HeroSection() {
       </section>
 
       {/* Desktop */}
-      <section className="hidden lg:block h-screen section-temperature-a relative">
+      <section className="hidden lg:block h-screen section-temperature-a relative luxury-reveal texture-luxury">
         {/* Right image - absolute positioned, completely independent */}
         <div className="absolute top-0 right-0 w-1/2 h-screen">
           <motion.div
@@ -230,7 +230,7 @@ export default function HeroSection() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-base uppercase tracking-[0.3em] bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent mb-6 font-semibold"
+                className="text-base uppercase tracking-[0.3em] text-luxury-gradient mb-6 font-semibold"
               >
                 Registered Physiotherapist
               </motion.p>
@@ -243,8 +243,8 @@ export default function HeroSection() {
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
                 <div className="space-y-4">
-                  <div className="text-[34px] xl:text-[36px] text-slate-800 font-light tracking-wide">The Science of Recovery</div>
-                  <div className="text-[40px] xl:text-[44px] text-slate-800 font-medium relative tracking-wide overflow-visible">
+                  <div className="text-[34px] xl:text-[36px] text-slate-800 heading-luxury-2">The Science of Recovery</div>
+                  <div className="text-[40px] xl:text-[44px] text-slate-800 heading-luxury-1 relative overflow-visible">
                     The Art of <span className="relative inline-block bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent font-semibold italic pr-1">Care
                       <span className="absolute -bottom-0.5 left-0 right-0 h-[2px] bg-gradient-to-r from-[#B08D57] to-[#D4AF37] origin-left transform scale-x-0 animate-[taperedSlide_0.6s_ease-out_0.4s_forwards] rounded-full"></span>
                     </span>

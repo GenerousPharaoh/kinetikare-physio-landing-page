@@ -41,10 +41,10 @@ export default function CareJourneySection() {
   ];
 
   return (
-    <motion.section 
+    <motion.section
       ref={sectionRef}
       {...animationProps}
-      className="py-12 md:py-16 section-temperature-a"
+      className="section-luxury-spacing section-temperature-a texture-luxury"
     >
       <div className="container mx-auto px-4 max-w-7xl">
         {/* Section Header */}
@@ -54,11 +54,11 @@ export default function CareJourneySection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-slate-900 mb-6 tracking-[-0.03em]">
-            Your <span className="text-[#B08D57]">Care Journey</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl text-slate-900 mb-6 heading-luxury-1">
+            Your <span className="text-luxury-gradient">Care Journey</span>
           </h2>
           <div className="w-32 h-0.5 bg-gradient-to-r from-transparent via-[#B08D57] to-transparent mx-auto mb-8"></div>
-          <p className="text-xl lg:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed font-light">
+          <p className="text-xl lg:text-2xl max-w-4xl mx-auto text-luxury-subtle">
             A structured, personalized approach to your recovery designed to deliver measurable results
           </p>
         </motion.div>
@@ -82,7 +82,7 @@ export default function CareJourneySection() {
             {steps.map((step, index) => (
               <motion.div key={step.number} variants={itemVariants} className="relative group h-full">
                 {/* Step Card - Premium glass design */}
-                <div className="h-full bg-white/95 backdrop-blur-sm rounded-3xl p-8 shadow-premium-2 hover:shadow-premium-2-hover shadow-transition transition-all duration-500 relative overflow-hidden border border-white/60 group-hover:border-[#B08D57]/20 group-hover:-translate-y-1">
+                <div className="h-full glass-luxury rounded-3xl p-8 shadow-luxury-medium hover:shadow-luxury-deep transition-all duration-600 relative overflow-hidden border-luxury-subtle premium-hover-lift">
                   {/* Premium gradient background */}
                   <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 via-transparent to-[#B08D57]/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                   
@@ -94,7 +94,7 @@ export default function CareJourneySection() {
                     </div>
                     
                     {/* Title - premium typography */}
-                    <h3 className="text-lg lg:text-xl font-medium text-slate-900 mb-5 tracking-tight leading-none whitespace-nowrap group-hover:text-[#B08D57] transition-colors duration-300">
+                    <h3 className="text-lg lg:text-xl text-slate-900 mb-5 whitespace-nowrap group-hover:text-[#B08D57] transition-colors duration-300 heading-luxury-3">
                       {step.title}
                     </h3>
                     

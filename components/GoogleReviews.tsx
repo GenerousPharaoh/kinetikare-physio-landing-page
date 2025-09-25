@@ -79,7 +79,7 @@ export default function GoogleReviews() {
   };
 
   return (
-    <section className="py-12 bg-gradient-to-b from-white to-gray-50">
+    <section className="section-luxury-spacing bg-gradient-to-b from-white to-gray-50 texture-luxury">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-8">
@@ -98,8 +98,8 @@ export default function GoogleReviews() {
             <span className="text-2xl font-semibold text-gray-800">5.0</span>
             <span className="text-gray-600">on Google</span>
           </div>
-          <h2 className="text-4xl font-bold text-gray-900 mb-2">Google Reviews</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-4xl text-gray-900 mb-2 heading-luxury-1">Google Reviews</h2>
+          <p className="max-w-2xl mx-auto text-luxury-subtle">
             What patients are saying
           </p>
         </div>

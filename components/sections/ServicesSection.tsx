@@ -74,10 +74,10 @@ export default function ServicesSection() {
           className="grid lg:grid-cols-3 gap-8 mb-12"
         >
           {mainServices.map((service, index) => (
-            <motion.div key={service.title} variants={itemVariants} className="group h-full">
-              <div className="bg-white rounded-lg shadow-premium-2 hover:shadow-premium-2-hover shadow-transition transition-all duration-300 p-8 h-full border border-gray-200 hover:border-[#B08D57]/30 flex flex-col">
+            <motion.div key={service.title} variants={itemVariants} className="group h-full premium-hover-lift">
+              <div className="card-luxury shadow-luxury-medium hover:shadow-luxury-deep transition-all duration-600 h-full flex flex-col premium-hover-glow">
                 {/* Service Content */}
-                <h3 className="text-2xl text-slate-900 mb-4 group-hover:text-[#B08D57] transition-colors duration-300 font-normal">
+                <h3 className="text-2xl text-slate-900 mb-4 group-hover:text-[#B08D57] transition-colors duration-300 heading-luxury-3">
                   {service.title}
                 </h3>
                 <p className="text-slate-600 leading-relaxed mb-6 text-lg flex-grow">
@@ -118,7 +118,7 @@ export default function ServicesSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="relative group"
           >
-            <div className="relative h-[600px] lg:h-[700px] w-full rounded-2xl overflow-hidden shadow-premium-3 bg-gray-50">
+            <div className="relative h-[600px] lg:h-[700px] w-full rounded-2xl overflow-hidden shadow-luxury-deep bg-gray-50 image-luxury-frame">
               {/* Image with contain to show full image */}
               <div className="relative h-full w-full">
                 <Image
@@ -154,7 +154,7 @@ export default function ServicesSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="h-auto lg:h-[700px]"
           >
-            <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-premium-2 shadow-transition border border-gray-200 h-full flex flex-col">
+            <div className="card-luxury rounded-2xl shadow-luxury-medium border-luxury-subtle h-full flex flex-col">
               <div className="mb-6">
                 <h3 className="text-2xl lg:text-3xl font-light text-[#B08D57] mb-3 tracking-[-0.02em]">
                   Additional Services

@@ -337,9 +337,10 @@ export default function About() {
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full text-center py-3 px-4 bg-[#B08D57] hover:bg-[#A17D47] text-white rounded-xl font-normal transition-colors duration-300"
+                  className="block w-full text-center py-3 px-4 bg-[#B08D57] hover:bg-[#A17D47] text-white hover:text-white rounded-xl font-normal transition-all duration-300 shadow-premium-1 hover:shadow-premium-2 hover:scale-[1.01] group relative overflow-hidden"
                 >
-                  Book Appointment
+                  <span className="relative z-10">Book Appointment</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37] to-[#B08D57] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </Link>
               </div>
 
@@ -577,9 +578,10 @@ export default function About() {
                     href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block w-full text-center py-3 px-4 bg-[#B08D57] hover:bg-[#A17D47] text-white rounded-xl font-normal transition-colors duration-300"
+                    className="block w-full text-center py-3 px-4 bg-[#B08D57] hover:bg-[#A17D47] text-white hover:text-white rounded-xl font-normal transition-all duration-300 shadow-premium-1 hover:shadow-premium-2 hover:scale-[1.01] group relative overflow-hidden"
                   >
-                    Book Appointment
+                    <span className="relative z-10">Book Appointment</span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37] to-[#B08D57] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </Link>
                 </div>
               </div>
@@ -1080,7 +1082,7 @@ export default function About() {
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="py-3.5 px-8 bg-[#B08D57] hover:bg-[#A17D47] text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
+                className="py-3.5 px-8 bg-[#B08D57] hover:bg-[#A17D47] text-white hover:text-white font-semibold rounded-lg shadow-premium-1 hover:shadow-premium-2 transition-all duration-300 hover:scale-[1.02] group relative overflow-hidden"
               >
                 Book an Appointment
               </Link>

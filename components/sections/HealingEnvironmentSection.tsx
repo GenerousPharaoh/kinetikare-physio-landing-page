@@ -7,7 +7,7 @@ import { useScrollAnimation, useStaggeredAnimation } from '@/hooks/useScrollAnim
 import { MapPinIcon, ClockIcon, PhoneIcon } from '@heroicons/react/24/outline';
 
 const HealingEnvironmentSection = () => {
-  const [swappedImages, setSwappedImages] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const { ref: sectionRef, animationProps } = useScrollAnimation({ yOffset: 30 });
   const { ref: contentRef, containerVariants, itemVariants, isInView } = useStaggeredAnimation({
@@ -15,10 +15,10 @@ const HealingEnvironmentSection = () => {
     duration: 0.5
   });
 
-  // Swap images every 5 seconds
+  // Cycle through images every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      setSwappedImages(prev => !prev);
+      setCurrentImageIndex(prev => (prev + 1) % 2);
     }, 5000);
 
     return () => clearInterval(interval);
@@ -166,19 +166,19 @@ const HealingEnvironmentSection = () => {
           </motion.div>
         </motion.div>
 
-        {/* Supporting Images - Swapping every 5 seconds */}
+        {/* Supporting Images - Cycling every 5 seconds */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          className="grid md:grid-cols-1 gap-8 max-w-3xl mx-auto"
         >
-          {/* First image container */}
-          <div className="relative group overflow-hidden rounded-2xl shadow-premium-1 hover:shadow-premium-1-hover shadow-transition">
+          {/* Single image container that cycles through both images */}
+          <div className="relative group overflow-hidden rounded-2xl shadow-luxury-deep hover:shadow-luxury-float shadow-transition">
             <div className="aspect-[1/1] relative">
               <AnimatePresence mode="wait">
                 <motion.div
-                  key={swappedImages ? 'reception' : 'location'}
+                  key={currentImageIndex}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
@@ -186,8 +186,8 @@ const HealingEnvironmentSection = () => {
                   className="absolute inset-0"
                 >
                   <Image
-                    src={swappedImages ? supportingImages[1].src : supportingImages[0].src}
-                    alt={swappedImages ? supportingImages[1].alt : supportingImages[0].alt}
+                    src={supportingImages[currentImageIndex].src}
+                    alt={supportingImages[currentImageIndex].alt}
                     fill
                     className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 50vw"
@@ -200,42 +200,7 @@ const HealingEnvironmentSection = () => {
                 <div className="bg-gradient-to-r from-black/50 to-transparent">
                   <div className="px-4 py-3">
                     <h4 className="text-white text-sm sm:text-base font-light">
-                      {swappedImages ? supportingImages[1].title : supportingImages[0].title}
-                    </h4>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Second image container */}
-          <div className="relative group overflow-hidden rounded-2xl shadow-premium-1 hover:shadow-premium-1-hover shadow-transition">
-            <div className="aspect-[1/1] relative">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={swappedImages ? 'location' : 'reception'}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5 }}
-                  className="absolute inset-0"
-                >
-                  <Image
-                    src={swappedImages ? supportingImages[0].src : supportingImages[1].src}
-                    alt={swappedImages ? supportingImages[0].alt : supportingImages[1].alt}
-                    fill
-                    className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    priority
-                  />
-                </motion.div>
-              </AnimatePresence>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-4">
-                <div className="bg-gradient-to-r from-black/50 to-transparent">
-                  <div className="px-4 py-3">
-                    <h4 className="text-white text-sm sm:text-base font-light">
-                      {swappedImages ? supportingImages[0].title : supportingImages[1].title}
+                      {supportingImages[currentImageIndex].title}
                     </h4>
                   </div>
                 </div>

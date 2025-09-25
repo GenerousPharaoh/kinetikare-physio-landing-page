@@ -159,7 +159,7 @@ const HealingEnvironmentSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto"
+          className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto"
         >
           {supportingImages.map((image, index) => (
             <motion.div
@@ -169,7 +169,7 @@ const HealingEnvironmentSection = () => {
               transition={{ duration: 0.5, delay: 0.5 + (index * 0.1) }}
               className="relative group overflow-hidden rounded-2xl shadow-premium-1 hover:shadow-premium-1-hover shadow-transition"
             >
-              <div className="aspect-[16/9] relative">
+              <div className="aspect-[16/10] relative">
                 <Image
                   src={image.src}
                   alt={image.alt}

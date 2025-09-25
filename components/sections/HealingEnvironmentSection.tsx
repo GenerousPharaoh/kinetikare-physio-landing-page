@@ -174,8 +174,8 @@ const HealingEnvironmentSection = () => {
           className="grid md:grid-cols-1 gap-8 max-w-3xl mx-auto"
         >
           {/* Single image container that cycles through both images */}
-          <div className="relative group overflow-hidden rounded-2xl shadow-luxury-deep hover:shadow-luxury-float shadow-transition">
-            <div className="aspect-[4/3] relative">
+          <div className="relative group overflow-hidden rounded-2xl shadow-luxury-deep hover:shadow-luxury-float shadow-transition bg-gray-50">
+            <div className="relative" style={{ minHeight: '400px' }}>
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentImageIndex}
@@ -189,7 +189,7 @@ const HealingEnvironmentSection = () => {
                     src={supportingImages[currentImageIndex].src}
                     alt={supportingImages[currentImageIndex].alt}
                     fill
-                    className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                    className="object-contain transition-transform duration-700 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 50vw"
                     priority
                   />

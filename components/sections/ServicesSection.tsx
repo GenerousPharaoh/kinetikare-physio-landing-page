@@ -75,7 +75,7 @@ export default function ServicesSection() {
         >
           {mainServices.map((service, index) => (
             <motion.div key={service.title} variants={itemVariants} className="group h-full">
-              <div className="bg-white rounded-2xl shadow-premium-2 hover:shadow-premium-2-hover shadow-transition transition-all duration-300 p-8 h-full border border-gray-200 hover:border-[#B08D57]/30 flex flex-col">
+              <div className="h-full flex flex-col">
                 {/* Service Content */}
                 <h3 className="text-2xl text-primary-warm mb-4 group-hover:text-[#B08D57] transition-colors duration-300 card-title">
                   {service.title}
@@ -83,7 +83,7 @@ export default function ServicesSection() {
                 <p className="text-slate-600 leading-relaxed mb-6 text-lg flex-grow">
                   {service.description}
                 </p>
-                
+
                 {/* Features List */}
                 <div className="space-y-3 mb-8">
                   {service.features.map((feature, idx) => (
@@ -93,7 +93,7 @@ export default function ServicesSection() {
                     </div>
                   ))}
                 </div>
-                
+
                 {/* Learn More Link */}
                 <div className="mt-auto">
                   <Link
@@ -173,8 +173,7 @@ export default function ServicesSection() {
                     animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.4, delay: index * 0.05 }}
                   >
-                    <div className="flex items-center">
-                      <div className="w-2 h-2 bg-[#B08D57] rounded-full mr-3 flex-shrink-0"></div>
+                    <div className="bg-gray-50 rounded-lg p-3 border border-gray-200 hover:border-[#B08D57]/50 hover:shadow-md transition-all duration-300">
                       <h4 className="font-normal text-slate-900 group-hover:text-[#B08D57] transition-colors duration-300 text-sm">
                         {service}
                       </h4>

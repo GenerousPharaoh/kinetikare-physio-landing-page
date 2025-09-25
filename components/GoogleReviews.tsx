@@ -107,7 +107,7 @@ export default function GoogleReviews() {
         {/* Reviews Carousel */}
         <div className="relative max-w-6xl mx-auto">
           <div className="overflow-hidden rounded-2xl">
-            <div className="relative h-[600px] md:h-[550px]">
+            <div className="relative" style={{ minHeight: 'auto' }}>
               <AnimatePresence mode="wait">
                 {getVisibleReviews().map((review, index) => (
                   <motion.div
@@ -132,8 +132,8 @@ export default function GoogleReviews() {
                       review.position === 'current' ? 'z-20' : 'z-10 hidden md:block'
                     }`}
                   >
-                    <div className="h-full flex items-center justify-center px-4">
-                      <div className="bg-white rounded-xl shadow-premium-2 hover:shadow-premium-2-hover shadow-transition p-8 max-w-3xl w-full border border-gray-100 h-[550px] md:h-[500px] flex flex-col">
+                    <div className="flex items-center justify-center px-4 py-12">
+                      <div className="bg-white rounded-xl shadow-luxury-medium hover:shadow-luxury-deep transition-all duration-600 p-8 max-w-3xl w-full border-luxury-subtle">
                         {/* Google Badge */}
                         <div className="flex items-center gap-2 mb-3 flex-shrink-0">
                           <div className="w-5 h-5 relative">
@@ -160,15 +160,27 @@ export default function GoogleReviews() {
                           ))}
                         </div>
 
-                        {/* Review Text - Scrollable */}
-                        <div className="flex-grow overflow-y-auto mb-4 pr-2 custom-scrollbar">
-                          <p className="text-gray-700 leading-relaxed">
+                        {/* Review Text */}
+                        <div className="mb-6">
+                          <p className="text-gray-700 leading-[1.8] text-base" style={{
+                            display: '-webkit-box',
+                            WebkitLineClamp: review.text.length > 800 ? '12' : 'unset',
+                            WebkitBoxOrient: 'vertical',
+                            overflow: review.text.length > 800 ? 'hidden' : 'visible',
+                            textOverflow: 'ellipsis',
+                            minHeight: review.text.length < 250 ? '120px' : 'auto'
+                          }}>
                             {review.text}
                           </p>
+                          {review.text.length > 800 && (
+                            <button className="text-[#B08D57] text-sm mt-2 hover:text-[#997A4B] transition-colors duration-300 font-medium">
+                              Read full review →
+                            </button>
+                          )}
                         </div>
 
                         {/* Reviewer Name */}
-                        <div className="flex items-center justify-between flex-shrink-0 pt-2 border-t border-gray-100">
+                        <div className="flex items-center justify-between pt-4 border-t border-gray-100 mt-auto">
                           <div className="font-semibold text-gray-900">{review.name}</div>
                           <div className="text-sm text-gray-500">Verified Patient</div>
                         </div>

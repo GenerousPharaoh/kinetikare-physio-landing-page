@@ -215,10 +215,10 @@ export default function ServicesSection() {
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-[#B08D57] hover:bg-[#9A7A4F] text-white px-6 py-2.5 rounded-full font-medium transition-all duration-300 hover:shadow-lg text-sm"
+                  className="inline-flex items-center gap-2 bg-[#B08D57] hover:bg-[#9A7A4F] text-white hover:text-white px-6 py-2.5 rounded-full font-medium transition-all duration-300 hover:shadow-premium-2 shadow-premium-1 text-sm group"
                 >
                   Book Your Assessment
-                  <ChevronRightIcon className="w-4 h-4" />
+                  <ChevronRightIcon className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-300" />
                 </a>
                 <p className="text-xs text-slate-500 mt-2">Direct insurance billing available</p>
               </div>

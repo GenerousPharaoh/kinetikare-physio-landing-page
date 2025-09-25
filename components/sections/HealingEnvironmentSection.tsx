@@ -77,7 +77,7 @@ const HealingEnvironmentSection = () => {
           {/* Left: Hero Image - Focal Point */}
           <motion.div variants={itemVariants} className="order-2 lg:order-1">
             <div className="relative group overflow-hidden rounded-3xl shadow-premium-3 hover:shadow-premium-3-hover shadow-transition">
-              <div className="aspect-[5/4] relative">
+              <div className="aspect-[1/1] relative">
                 <Image
                   src="/images/clinic-pic-may-2025.jpg"
                   alt="Modern Treatment Room at KinetiKare"
@@ -169,7 +169,7 @@ const HealingEnvironmentSection = () => {
               transition={{ duration: 0.5, delay: 0.5 + (index * 0.1) }}
               className="relative group overflow-hidden rounded-2xl shadow-premium-1 hover:shadow-premium-1-hover shadow-transition"
             >
-              <div className="aspect-[5/4] relative">
+              <div className="aspect-[1/1] relative">
                 <Image
                   src={image.src}
                   alt={image.alt}

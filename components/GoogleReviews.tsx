@@ -133,7 +133,7 @@ export default function GoogleReviews() {
                     }`}
                   >
                     <div className="h-full flex items-center justify-center px-4">
-                      <div className="bg-white rounded-xl shadow-xl p-8 max-w-3xl w-full border border-gray-100 h-[350px] md:h-[310px] flex flex-col">
+                      <div className="bg-white rounded-xl shadow-premium-2 hover:shadow-premium-2-hover shadow-transition p-8 max-w-3xl w-full border border-gray-100 h-[350px] md:h-[310px] flex flex-col">
                         {/* Google Badge */}
                         <div className="flex items-center gap-2 mb-3 flex-shrink-0">
                           <div className="w-5 h-5 relative">
@@ -183,7 +183,7 @@ export default function GoogleReviews() {
           {/* Navigation Arrows */}
           <button
             onClick={handlePrevious}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-30 bg-white rounded-full p-2 md:p-3 shadow-lg hover:shadow-xl transition-all duration-200 group"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-30 bg-white rounded-full p-2 md:p-3 shadow-premium-1 hover:shadow-premium-1-hover shadow-transition group"
             aria-label="Previous review"
           >
             <svg className="w-4 h-4 md:w-5 md:h-5 text-gray-600 group-hover:text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -193,7 +193,7 @@ export default function GoogleReviews() {
 
           <button
             onClick={handleNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-30 bg-white rounded-full p-2 md:p-3 shadow-lg hover:shadow-xl transition-all duration-200 group"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-30 bg-white rounded-full p-2 md:p-3 shadow-premium-1 hover:shadow-premium-1-hover shadow-transition group"
             aria-label="Next review"
           >
             <svg className="w-4 h-4 md:w-5 md:h-5 text-gray-600 group-hover:text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">

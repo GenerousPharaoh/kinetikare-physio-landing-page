@@ -135,7 +135,7 @@ export default function HeroSection() {
                 <Link
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
-                  className="block w-full text-center px-8 py-5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] hover:from-[#C99A65] hover:to-[#E6B84A] text-white hover:text-white font-semibold rounded-xl hover:shadow-xl transition-all duration-300 shadow-lg transform hover:-translate-y-0.5"
+                  className="block w-full text-center px-8 py-5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] hover:from-[#C99A65] hover:to-[#E6B84A] text-white hover:text-white font-semibold rounded-xl shadow-premium-2 hover:shadow-premium-2-hover shadow-transition transition-all duration-300 transform hover:-translate-y-0.5"
                 >
                   Book Your Assessment
                 </Link>
@@ -148,7 +148,7 @@ export default function HeroSection() {
               >
                 <Link
                   href="/services"
-                  className="block w-full text-center px-8 py-5 bg-white border-2 border-slate-200 text-slate-700 font-semibold rounded-xl hover:border-[#B08D57] hover:text-[#B08D57] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                  className="block w-full text-center px-8 py-5 bg-white border-2 border-slate-200 text-slate-700 font-semibold rounded-xl hover:border-[#B08D57] hover:text-[#B08D57] shadow-premium-1 hover:shadow-premium-1-hover shadow-transition transition-all duration-300 transform hover:-translate-y-0.5"
                 >
                   Explore Services
                 </Link>
@@ -295,14 +295,14 @@ export default function HeroSection() {
                 <Link
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
-                  className="px-10 py-5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] hover:from-[#C99A65] hover:to-[#E6B84A] text-white hover:text-white font-semibold rounded-xl hover:shadow-xl transition-all duration-300 shadow-lg transform hover:-translate-y-1"
+                  className="px-10 py-5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] hover:from-[#C99A65] hover:to-[#E6B84A] text-white hover:text-white font-semibold rounded-xl shadow-premium-2 hover:shadow-premium-2-hover shadow-transition transition-all duration-300 transform hover:-translate-y-1"
                 >
                   Book Your Assessment
                 </Link>
 
                 <Link
                   href="/services"
-                  className="px-10 py-5 bg-white border-2 border-slate-200 text-slate-700 font-semibold rounded-xl hover:border-[#B08D57] hover:text-[#B08D57] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                  className="px-10 py-5 bg-white border-2 border-slate-200 text-slate-700 font-semibold rounded-xl hover:border-[#B08D57] hover:text-[#B08D57] shadow-premium-1 hover:shadow-premium-1-hover shadow-transition transition-all duration-300 transform hover:-translate-y-1"
                 >
                   Explore Services
                 </Link>

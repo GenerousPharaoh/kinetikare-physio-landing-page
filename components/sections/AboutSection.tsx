@@ -27,7 +27,7 @@ export default function AboutSection() {
               className="relative"
             >
               <div className="relative w-full max-w-sm mx-auto lg:ml-0 lg:mr-auto">
-                <div className="aspect-[3/4] relative rounded-3xl overflow-hidden shadow-lg bg-gray-50">
+                <div className="aspect-[3/4] relative rounded-3xl overflow-hidden shadow-premium-2 shadow-transition bg-gray-50">
                   <Image
                     src="/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png"
                     alt="Kareem Hassanein, registered physiotherapist in Burlington, expert in manual therapy, sports rehabilitation, dry needling"
@@ -66,13 +66,13 @@ export default function AboutSection() {
               <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Link
                   href="/about"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white hover:text-white rounded-lg font-normal shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white hover:text-white rounded-lg font-normal shadow-premium-1 hover:shadow-premium-1-hover shadow-transition transition-all duration-300"
                 >
                   Learn More About Kareem
                 </Link>
                 <Link
                   href="/services"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-white text-gray-700 rounded-lg font-normal shadow-lg border border-gray-200 hover:bg-gray-50 hover:shadow-xl transition-all duration-300"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-white text-gray-700 rounded-lg font-normal shadow-premium-1 hover:shadow-premium-1-hover shadow-transition border border-gray-200 hover:bg-gray-50 transition-all duration-300"
                 >
                   View Services
                 </Link>

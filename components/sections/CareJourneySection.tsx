@@ -82,7 +82,7 @@ export default function CareJourneySection() {
             {steps.map((step, index) => (
               <motion.div key={step.number} variants={itemVariants} className="relative group h-full">
                 {/* Step Card - Premium glass design */}
-                <div className="h-full bg-white/95 backdrop-blur-sm rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_40px_rgb(0,0,0,0.1)] transition-all duration-500 relative overflow-hidden border border-white/60 group-hover:border-[#B08D57]/20 group-hover:-translate-y-1">
+                <div className="h-full bg-white/95 backdrop-blur-sm rounded-3xl p-8 shadow-premium-2 hover:shadow-premium-2-hover shadow-transition transition-all duration-500 relative overflow-hidden border border-white/60 group-hover:border-[#B08D57]/20 group-hover:-translate-y-1">
                   {/* Premium gradient background */}
                   <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 via-transparent to-[#B08D57]/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                   

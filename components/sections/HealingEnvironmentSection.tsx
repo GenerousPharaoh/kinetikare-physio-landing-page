@@ -76,7 +76,7 @@ const HealingEnvironmentSection = () => {
         >
           {/* Left: Hero Image - Focal Point */}
           <motion.div variants={itemVariants} className="order-2 lg:order-1">
-            <div className="relative group overflow-hidden rounded-3xl shadow-2xl">
+            <div className="relative group overflow-hidden rounded-3xl shadow-premium-3 hover:shadow-premium-3-hover shadow-transition">
               <div className="aspect-[4/3] relative">
                 <Image
                   src="/images/clinic-pic-may-2025.jpg"
@@ -143,7 +143,7 @@ const HealingEnvironmentSection = () => {
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-8 py-4 bg-[#B08D57] text-white rounded-xl font-normal shadow-lg hover:bg-[#D4AF37] transition-all duration-300 hover:shadow-xl hover:scale-105"
+                className="inline-flex items-center px-8 py-4 bg-[#B08D57] text-white rounded-xl font-normal shadow-premium-2 hover:shadow-premium-2-hover hover:bg-[#D4AF37] shadow-transition hover:scale-105"
               >
                 Book Your Visit
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -167,7 +167,7 @@ const HealingEnvironmentSection = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.5, delay: 0.5 + (index * 0.1) }}
-              className="relative group overflow-hidden rounded-2xl shadow-lg"
+              className="relative group overflow-hidden rounded-2xl shadow-premium-1 hover:shadow-premium-1-hover shadow-transition"
             >
               <div className="aspect-[16/10] relative">
                 <Image

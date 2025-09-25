@@ -75,7 +75,7 @@ export default function ServicesSection() {
         >
           {mainServices.map((service, index) => (
             <motion.div key={service.title} variants={itemVariants} className="group h-full">
-              <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 h-full border border-gray-200 hover:border-[#B08D57]/30 flex flex-col">
+              <div className="bg-white rounded-2xl shadow-premium-2 hover:shadow-premium-2-hover shadow-transition transition-all duration-300 p-8 h-full border border-gray-200 hover:border-[#B08D57]/30 flex flex-col">
                 {/* Service Content */}
                 <h3 className="text-2xl font-normal text-slate-900 mb-4 group-hover:text-[#B08D57] transition-colors duration-300">
                   {service.title}
@@ -118,7 +118,7 @@ export default function ServicesSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="relative group"
           >
-            <div className="relative h-[600px] lg:h-[700px] w-full rounded-2xl overflow-hidden shadow-xl bg-gray-50">
+            <div className="relative h-[600px] lg:h-[700px] w-full rounded-2xl overflow-hidden shadow-premium-3 bg-gray-50">
               {/* Image with contain to show full image */}
               <div className="relative h-full w-full">
                 <Image
@@ -154,7 +154,7 @@ export default function ServicesSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="h-auto lg:h-[700px]"
           >
-            <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-lg border border-gray-200 h-full flex flex-col">
+            <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-premium-2 shadow-transition border border-gray-200 h-full flex flex-col">
               <div className="mb-6">
                 <h3 className="text-2xl lg:text-3xl font-light text-[#B08D57] mb-3 tracking-[-0.02em]">
                   Additional Services

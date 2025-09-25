@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Premium Design System Imports */
+@import 'premium-shadows.css';
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;

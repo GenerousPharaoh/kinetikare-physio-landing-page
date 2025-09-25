@@ -75,9 +75,9 @@ export default function ServicesSection() {
         >
           {mainServices.map((service, index) => (
             <motion.div key={service.title} variants={itemVariants} className="group h-full">
-              <div className="h-full flex flex-col">
+              <div className="bg-white rounded-lg shadow-premium-2 hover:shadow-premium-2-hover shadow-transition transition-all duration-300 p-8 h-full border border-gray-200 hover:border-[#B08D57]/30 flex flex-col">
                 {/* Service Content */}
-                <h3 className="text-2xl text-primary-warm mb-4 group-hover:text-[#B08D57] transition-colors duration-300 card-title">
+                <h3 className="text-2xl text-slate-900 mb-4 group-hover:text-[#B08D57] transition-colors duration-300 font-normal">
                   {service.title}
                 </h3>
                 <p className="text-slate-600 leading-relaxed mb-6 text-lg flex-grow">

@@ -21,7 +21,7 @@ export default function ServicesSection() {
       features: ["Joint Mobilization", "Soft Tissue Techniques", "Myofascial Release"]
     },
     {
-      title: "Exercise Therapy", 
+      title: "Exercise Rehab",
       description: "Personalized movement programs designed to restore function, build strength, and prevent re-injury.",
       features: ["Strength Training", "Movement Correction", "Injury Prevention"]
     },
@@ -173,7 +173,8 @@ export default function ServicesSection() {
                     animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.4, delay: index * 0.05 }}
                   >
-                    <div className="bg-gray-50 rounded-lg p-3 border border-gray-200 hover:border-[#B08D57]/50 hover:shadow-md transition-all duration-300">
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-[#B08D57] rounded-full mr-3 flex-shrink-0"></div>
                       <h4 className="font-normal text-slate-900 group-hover:text-[#B08D57] transition-colors duration-300 text-sm">
                         {service}
                       </h4>

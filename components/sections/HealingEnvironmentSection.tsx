@@ -1,41 +1,22 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useScrollAnimation, useStaggeredAnimation } from '@/hooks/useScrollAnimation';
 import { MapPinIcon, ClockIcon, PhoneIcon } from '@heroicons/react/24/outline';
 
 const HealingEnvironmentSection = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
   const { ref: sectionRef, animationProps } = useScrollAnimation({ yOffset: 30 });
   const { ref: contentRef, containerVariants, itemVariants, isInView } = useStaggeredAnimation({
     delay: 0.2,
     duration: 0.5
   });
 
-  // Cycle through images every 5 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex(prev => (prev + 1) % 2);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const supportingImages = [
-    {
-      src: '/images/facebook-image.jpg',
-      alt: 'Clinic Building',
-      title: 'Our Location'
-    },
-    {
-      src: '/images/clinic-reception-fixed.jpg',
-      alt: 'Reception Area',
-      title: 'Welcoming Reception'
-    }
-  ];
+  const locationImage = {
+    src: '/images/facebook-image.jpg',
+    alt: 'Clinic Building',
+    title: 'Our Location'
+  };
 
   const clinicFeatures = [
     {
@@ -166,41 +147,29 @@ const HealingEnvironmentSection = () => {
           </motion.div>
         </motion.div>
 
-        {/* Supporting Images - Cycling every 5 seconds */}
+        {/* Location Image */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="grid md:grid-cols-1 gap-8 max-w-3xl mx-auto"
+          className="max-w-2xl mx-auto"
         >
-          {/* Single image container that cycles through both images */}
-          <div className="relative group overflow-hidden rounded-2xl shadow-luxury-deep hover:shadow-luxury-float shadow-transition bg-gray-50">
-            <div className="relative" style={{ minHeight: '400px' }}>
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={currentImageIndex}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5 }}
-                  className="absolute inset-0"
-                >
-                  <Image
-                    src={supportingImages[currentImageIndex].src}
-                    alt={supportingImages[currentImageIndex].alt}
-                    fill
-                    className="object-contain transition-transform duration-700 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    priority
-                  />
-                </motion.div>
-              </AnimatePresence>
+          <div className="relative group overflow-hidden rounded-2xl shadow-luxury-deep hover:shadow-luxury-float shadow-transition">
+            <div className="aspect-[16/10] relative">
+              <Image
+                src={locationImage.src}
+                alt={locationImage.alt}
+                fill
+                className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-4">
                 <div className="bg-gradient-to-r from-black/50 to-transparent">
                   <div className="px-4 py-3">
                     <h4 className="text-white text-sm sm:text-base font-light">
-                      {supportingImages[currentImageIndex].title}
+                      {locationImage.title}
                     </h4>
                   </div>
                 </div>

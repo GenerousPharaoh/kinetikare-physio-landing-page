@@ -586,7 +586,7 @@ export default function ServicesPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
                       </svg>
                     ),
-                    gradient: "from-blue-500 to-blue-600"
+                    gradient: "from-[#B08D57] to-[#D4AF37]"
                   },
                   {
                     title: "Assessment",
@@ -596,7 +596,7 @@ export default function ServicesPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                       </svg>
                     ),
-                    gradient: "from-emerald-500 to-emerald-600"
+                    gradient: "from-[#B08D57] to-[#D4AF37]"
                   },
                   {
                     title: "Treatment",
@@ -606,7 +606,7 @@ export default function ServicesPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
                       </svg>
                     ),
-                    gradient: "from-purple-500 to-purple-600"
+                    gradient: "from-[#B08D57] to-[#D4AF37]"
                   },
                   {
                     title: "Adaptive Progress",
@@ -616,17 +616,16 @@ export default function ServicesPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
                       </svg>
                     ),
-                    gradient: "from-amber-500 to-amber-600"
+                    gradient: "from-[#B08D57] to-[#D4AF37]"
                   }
                 ].map((step, index) => (
                   <div key={index} className="group relative">
                     {/* Process Card */}
-                    <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-sm border border-slate-200/60 hover:shadow-md transition-all duration-500 transform hover:-translate-y-1 overflow-hidden h-[340px] flex flex-col group cursor-default" style={{
+                    <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-premium-1 hover:shadow-premium-2 border border-slate-200/60 hover:border-[#B08D57]/40 transition-all duration-500 transform hover:-translate-y-1 overflow-hidden h-[340px] flex flex-col group cursor-default" style={{
                       transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
                       animationDelay: `${index * 0.1}s`
                     }}>
-                      {/* Premium Background Effects */}
-                      <div className={`absolute inset-0 bg-gradient-to-br ${step.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-700 rounded-3xl`}></div>
+                      {/* Premium Background Effects - Removed tacky colored overlay */}
                       
                       {/* Subtle Background */}
                       <div className="absolute top-4 right-4 w-24 h-24 bg-gradient-to-br from-[#B08D57]/5 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-60 transition-all duration-500"></div>

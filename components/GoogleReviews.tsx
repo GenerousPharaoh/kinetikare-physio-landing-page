@@ -107,7 +107,7 @@ export default function GoogleReviews() {
         {/* Reviews Carousel */}
         <div className="relative max-w-6xl mx-auto">
           <div className="overflow-hidden rounded-2xl">
-            <div className="relative h-[500px] md:h-[450px]">
+            <div className="relative h-[600px] md:h-[550px]">
               <AnimatePresence mode="wait">
                 {getVisibleReviews().map((review, index) => (
                   <motion.div
@@ -133,7 +133,7 @@ export default function GoogleReviews() {
                     }`}
                   >
                     <div className="h-full flex items-center justify-center px-4">
-                      <div className="bg-white rounded-xl shadow-premium-2 hover:shadow-premium-2-hover shadow-transition p-8 max-w-4xl w-full border border-gray-100 h-[450px] md:h-[400px] flex flex-col">
+                      <div className="bg-white rounded-xl shadow-premium-2 hover:shadow-premium-2-hover shadow-transition p-8 max-w-3xl w-full border border-gray-100 h-[550px] md:h-[500px] flex flex-col">
                         {/* Google Badge */}
                         <div className="flex items-center gap-2 mb-3 flex-shrink-0">
                           <div className="w-5 h-5 relative">

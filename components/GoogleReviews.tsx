@@ -13,10 +13,6 @@ const reviews = [
     text: "I've been seeing Kareem for physiotherapy and I can honestly say the experience has been outstanding. I came in with an ankle injury and from the very first session, Kareem was thorough, knowledgeable, and incredibly attentive. He took the time to explain the root of the issue, set clear goals, and crafted a personalized treatment plan that included hands-on therapy and guided exercises. What I really appreciated was how funny, kindhearted and compassionate he was, it made each session something I looked forward to. I saw consistent progress and now feel stronger and pain free. Highly recommend Kareem to anyone looking for an experienced physiotherapist who takes the time to listen and deliver results."
   },
   {
-    name: "Margot Rae",
-    text: "So glad to have connected with Kareem! He's been treating me for a variety of issues for just over two years and has been consistently so thorough, professional and knowledgeable every step of the way!"
-  },
-  {
     name: "Tami Murzin",
     text: "I had a fantastic experience working with Kareem Hassanein for a shoulder injury. From the start, Kareem took the time to really understand the issue and developed a treatment plan that was both effective and manageable. Kareem's knowledge, encouragement, and hands-on approach helped me regain strength and mobility much faster than I expected. I always felt listened to and supported, and he provided great guidance on exercises I could do at home to keep progressing. I'm so grateful for Kareem's care and would highly recommend him to anyone dealing with an injury—especially if you're looking for someone who combines expertise with genuine compassion."
   },
@@ -107,7 +103,7 @@ export default function GoogleReviews() {
         {/* Reviews Carousel */}
         <div className="relative max-w-6xl mx-auto">
           <div className="overflow-hidden rounded-2xl">
-            <div className="relative" style={{ minHeight: 'auto' }}>
+            <div className="relative h-[600px] md:h-[550px]">
               <AnimatePresence mode="wait">
                 {getVisibleReviews().map((review, index) => (
                   <motion.div
@@ -132,8 +128,8 @@ export default function GoogleReviews() {
                       review.position === 'current' ? 'z-20' : 'z-10 hidden md:block'
                     }`}
                   >
-                    <div className="flex items-center justify-center px-4 py-12">
-                      <div className="bg-white rounded-xl shadow-luxury-medium hover:shadow-luxury-deep transition-all duration-600 p-8 max-w-3xl w-full border-luxury-subtle">
+                    <div className="h-full flex items-center justify-center px-4">
+                      <div className="bg-white rounded-xl shadow-luxury-medium hover:shadow-luxury-deep transition-all duration-600 p-8 max-w-3xl w-full border-luxury-subtle h-[550px] md:h-[500px] flex flex-col">
                         {/* Google Badge */}
                         <div className="flex items-center gap-2 mb-3 flex-shrink-0">
                           <div className="w-5 h-5 relative">
@@ -160,27 +156,15 @@ export default function GoogleReviews() {
                           ))}
                         </div>
 
-                        {/* Review Text */}
-                        <div className="mb-6">
-                          <p className="text-gray-700 leading-[1.8] text-base" style={{
-                            display: '-webkit-box',
-                            WebkitLineClamp: review.text.length > 800 ? '12' : 'unset',
-                            WebkitBoxOrient: 'vertical',
-                            overflow: review.text.length > 800 ? 'hidden' : 'visible',
-                            textOverflow: 'ellipsis',
-                            minHeight: review.text.length < 250 ? '120px' : 'auto'
-                          }}>
+                        {/* Review Text - Scrollable */}
+                        <div className="flex-grow overflow-y-auto mb-4 pr-2">
+                          <p className="text-gray-700 leading-relaxed">
                             {review.text}
                           </p>
-                          {review.text.length > 800 && (
-                            <button className="text-[#B08D57] text-sm mt-2 hover:text-[#997A4B] transition-colors duration-300 font-medium">
-                              Read full review →
-                            </button>
-                          )}
                         </div>
 
                         {/* Reviewer Name */}
-                        <div className="flex items-center justify-between pt-4 border-t border-gray-100 mt-auto">
+                        <div className="flex items-center justify-between flex-shrink-0 pt-2 border-t border-gray-100">
                           <div className="font-semibold text-gray-900">{review.name}</div>
                           <div className="text-sm text-gray-500">Verified Patient</div>
                         </div>

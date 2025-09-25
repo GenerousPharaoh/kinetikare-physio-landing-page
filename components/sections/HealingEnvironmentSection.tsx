@@ -169,12 +169,12 @@ const HealingEnvironmentSection = () => {
               transition={{ duration: 0.5, delay: 0.5 + (index * 0.1) }}
               className="relative group overflow-hidden rounded-2xl shadow-premium-1 hover:shadow-premium-1-hover shadow-transition"
             >
-              <div className="relative bg-gray-50" style={{ minHeight: '280px' }}>
+              <div className="aspect-[16/9] relative">
                 <Image
                   src={image.src}
                   alt={image.alt}
                   fill
-                  className="object-contain transition-transform duration-700 group-hover:scale-105"
+                  className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 50vw"
                   priority
                 />

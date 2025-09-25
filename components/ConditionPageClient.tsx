@@ -1447,10 +1447,10 @@ export default function ConditionPageClient({
                         <Link
                           href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                           target="_blank"
-                          className="w-full flex items-center justify-center px-4 py-3 bg-[#B08D57] hover:bg-[#997A4B] text-white rounded-lg font-medium transition-colors"
+                          className="w-full flex items-center justify-center px-4 py-3 bg-[#B08D57] hover:bg-[#997A4B] text-white hover:text-white rounded-lg font-medium transition-all duration-300 shadow-premium-1 hover:shadow-premium-2 group"
                         >
                           Book Assessment
-                          <CalendarIcon className="ml-2 h-4 w-4" />
+                          <CalendarIcon className="ml-2 h-4 w-4 group-hover:rotate-12 transition-transform duration-300" />
                         </Link>
                         <Link
                           href="/#contact"
@@ -1535,10 +1535,10 @@ export default function ConditionPageClient({
                 <Link
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-[#B08D57] hover:bg-[#997A4B] text-white rounded-lg font-medium transition-colors"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-[#B08D57] hover:bg-[#997A4B] text-white hover:text-white rounded-lg font-medium transition-all duration-300 shadow-premium-1 hover:shadow-premium-2 hover:scale-[1.02] group"
                 >
                   Book Assessment
-                  <ArrowRightIcon className="ml-2 h-4 w-4" />
+                  <ArrowRightIcon className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </Link>
                 <Link
                   href="/#contact"

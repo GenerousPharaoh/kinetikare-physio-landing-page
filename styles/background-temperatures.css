@@ -1,0 +1,107 @@
+/* Background Temperature System - Subtle warmth and depth */
+
+/* Cool temperatures - for primary content areas */
+.bg-temperature-cool {
+  background: linear-gradient(135deg,
+    hsl(210, 20%, 98%) 0%,
+    hsl(215, 25%, 97%) 50%,
+    hsl(220, 20%, 96%) 100%);
+}
+
+.bg-temperature-cool-subtle {
+  background: linear-gradient(145deg,
+    hsl(215, 15%, 99%) 0%,
+    hsl(210, 18%, 98%) 100%);
+}
+
+/* Neutral temperatures - for balanced sections */
+.bg-temperature-neutral {
+  background: linear-gradient(135deg,
+    hsl(0, 0%, 99%) 0%,
+    hsl(30, 5%, 98%) 30%,
+    hsl(45, 8%, 97%) 70%,
+    hsl(0, 0%, 98%) 100%);
+}
+
+.bg-temperature-neutral-warm {
+  background: linear-gradient(145deg,
+    hsl(35, 8%, 98%) 0%,
+    hsl(40, 12%, 97%) 50%,
+    hsl(45, 15%, 96%) 100%);
+}
+
+/* Warm temperatures - for accent and CTA sections */
+.bg-temperature-warm {
+  background: linear-gradient(135deg,
+    hsl(45, 20%, 97%) 0%,
+    hsl(50, 25%, 96%) 30%,
+    hsl(55, 30%, 95%) 70%,
+    hsl(60, 20%, 96%) 100%);
+}
+
+.bg-temperature-warm-subtle {
+  background: linear-gradient(145deg,
+    hsl(50, 12%, 98%) 0%,
+    hsl(55, 18%, 97%) 100%);
+}
+
+/* Very subtle brand-tinted temperatures */
+.bg-temperature-brand-cool {
+  background: linear-gradient(135deg,
+    hsl(45, 15%, 98%) 0%,
+    hsl(40, 20%, 97%) 50%,
+    hsl(35, 18%, 96%) 100%);
+}
+
+.bg-temperature-brand-warm {
+  background: linear-gradient(135deg,
+    hsl(42, 25%, 97%) 0%,
+    hsl(45, 30%, 96%) 30%,
+    hsl(48, 28%, 95%) 70%,
+    hsl(50, 22%, 96%) 100%);
+}
+
+/* Alternating section backgrounds for subtle rhythm */
+.section-temperature-a {
+  background: linear-gradient(135deg,
+    hsl(210, 15%, 99%) 0%,
+    hsl(45, 8%, 98%) 100%);
+}
+
+.section-temperature-b {
+  background: linear-gradient(145deg,
+    hsl(45, 10%, 98%) 0%,
+    hsl(210, 12%, 97%) 100%);
+}
+
+.section-temperature-c {
+  background: linear-gradient(135deg,
+    hsl(0, 0%, 99%) 0%,
+    hsl(40, 15%, 97%) 50%,
+    hsl(215, 10%, 98%) 100%);
+}
+
+/* Glass effect with temperature */
+.bg-glass-cool {
+  background: linear-gradient(135deg,
+    hsla(210, 25%, 98%, 0.95) 0%,
+    hsla(215, 30%, 96%, 0.92) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.bg-glass-warm {
+  background: linear-gradient(135deg,
+    hsla(45, 20%, 98%, 0.95) 0%,
+    hsla(50, 25%, 96%, 0.92) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.bg-glass-neutral {
+  background: linear-gradient(135deg,
+    hsla(30, 8%, 98%, 0.95) 0%,
+    hsla(35, 12%, 96%, 0.92) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}

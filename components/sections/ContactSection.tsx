@@ -41,7 +41,7 @@ export default function ContactSection() {
     <motion.section 
       ref={sectionRef}
       {...animationProps}
-      className="py-16 md:py-20 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden" 
+      className="py-16 md:py-20 section-temperature-a relative overflow-hidden" 
       id="contact"
     >
       {/* Clean background elements */}

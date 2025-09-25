@@ -45,7 +45,7 @@ export default function ServicesSection() {
     <motion.section 
       ref={sectionRef}
       {...animationProps}
-      className="py-12 md:py-16 bg-gray-50" 
+      className="py-12 md:py-16 section-temperature-c" 
       id="services"
     >
       <div className="container mx-auto px-4 max-w-6xl">
@@ -56,7 +56,7 @@ export default function ServicesSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-light text-slate-900 mb-6 tracking-[-0.02em]">
+          <h2 className="text-4xl md:text-5xl text-primary-cool mb-6 heading-primary">
             <span className="text-[#B08D57]">Services</span>
           </h2>
           <div className="w-24 h-1 bg-[#B08D57] mx-auto mb-6"></div>
@@ -77,7 +77,7 @@ export default function ServicesSection() {
             <motion.div key={service.title} variants={itemVariants} className="group h-full">
               <div className="bg-white rounded-2xl shadow-premium-2 hover:shadow-premium-2-hover shadow-transition transition-all duration-300 p-8 h-full border border-gray-200 hover:border-[#B08D57]/30 flex flex-col">
                 {/* Service Content */}
-                <h3 className="text-2xl font-normal text-slate-900 mb-4 group-hover:text-[#B08D57] transition-colors duration-300">
+                <h3 className="text-2xl text-primary-warm mb-4 group-hover:text-[#B08D57] transition-colors duration-300 card-title">
                   {service.title}
                 </h3>
                 <p className="text-slate-600 leading-relaxed mb-6 text-lg flex-grow">

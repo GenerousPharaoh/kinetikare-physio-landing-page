@@ -44,7 +44,7 @@ export default function CareJourneySection() {
     <motion.section 
       ref={sectionRef}
       {...animationProps}
-      className="py-12 md:py-16 bg-gradient-to-br from-slate-50 via-white to-slate-50"
+      className="py-12 md:py-16 section-temperature-a"
     >
       <div className="container mx-auto px-4 max-w-7xl">
         {/* Section Header */}

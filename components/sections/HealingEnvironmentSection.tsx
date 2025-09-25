@@ -47,7 +47,7 @@ const HealingEnvironmentSection = () => {
     <motion.section 
       ref={sectionRef}
       {...animationProps}
-      className="pt-8 pb-20 md:pt-12 md:pb-24 bg-gradient-to-b from-white to-gray-50"
+      className="pt-8 pb-20 md:pt-12 md:pb-24 section-temperature-c"
     >
       <div className="container mx-auto px-6 max-w-7xl">
         {/* Section Header - More prominent */}

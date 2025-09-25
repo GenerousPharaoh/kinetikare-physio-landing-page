@@ -10,7 +10,7 @@ export default function HeroSection() {
   return (
     <>
       {/* Mobile */}
-      <section className="lg:hidden min-h-screen bg-white flex flex-col pt-16 relative">
+      <section className="lg:hidden min-h-screen section-temperature-a flex flex-col pt-16 relative">
         {/* Image section */}
         <div className="relative h-[45vh] w-full">
           <Image
@@ -79,12 +79,12 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-[32px] sm:text-[36px] leading-[1.2] mb-8 text-center"
+              className="text-[32px] sm:text-[36px] leading-[1.2] mb-8 text-center heading-hero"
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
               <div className="space-y-3">
-                <div className="text-slate-800 font-light tracking-wide text-[28px] sm:text-[30px]">The Science of Recovery</div>
-                <div className="text-slate-800 font-medium relative tracking-wide text-[34px] sm:text-[38px] overflow-visible">
+                <div className="text-primary-cool font-light tracking-wide text-[28px] sm:text-[30px]">The Science of Recovery</div>
+                <div className="text-primary-warm font-medium relative tracking-wide text-[34px] sm:text-[38px] overflow-visible">
                   The Art of <span className="relative inline-block bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent font-semibold italic pr-1">Care
                     <span className="absolute -bottom-0.5 left-0 right-0 h-[2px] bg-gradient-to-r from-[#B08D57] to-[#D4AF37] origin-left transform scale-x-0 animate-[taperedSlide_0.6s_ease-out_0.4s_forwards] rounded-full"></span>
                   </span>
@@ -99,7 +99,7 @@ export default function HeroSection() {
               className="mb-8"
             >
               <div className="mb-3">
-                <p className="text-[32px] font-extralight text-slate-900 tracking-[0.15em] uppercase" style={{ fontFamily: "'Inter', sans-serif" }}>Kareem Hassanein</p>
+                <p className="text-[32px] text-slate-900 brand-name" style={{ fontFamily: "'Inter', sans-serif" }}>Kareem Hassanein</p>
               </div>
               <div className="flex items-center justify-center gap-3">
                 <div className="h-px w-16 bg-gradient-to-r from-transparent via-[#B08D57] to-[#D4AF37]/40" />
@@ -112,7 +112,7 @@ export default function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-lg text-slate-600 mb-2 leading-relaxed max-w-lg mx-auto font-light"
+              className="text-lg text-slate-600 mb-2 leading-relaxed max-w-lg mx-auto text-body-large"
             >
               Evidence-based physiotherapy combining proven techniques with personalized attention for lasting results.
             </motion.p>
@@ -159,7 +159,7 @@ export default function HeroSection() {
       </section>
 
       {/* Desktop */}
-      <section className="hidden lg:block h-screen bg-white relative">
+      <section className="hidden lg:block h-screen section-temperature-a relative">
         {/* Right image - absolute positioned, completely independent */}
         <div className="absolute top-0 right-0 w-1/2 h-screen">
           <motion.div

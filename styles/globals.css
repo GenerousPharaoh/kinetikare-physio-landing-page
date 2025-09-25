@@ -4,6 +4,9 @@
 
 /* Premium Design System Imports */
 @import 'premium-shadows.css';
+@import 'background-temperatures.css';
+@import 'typography-refinements.css';
+@import 'color-temperature-refinements.css';
 
 /* Smooth scrolling */
 html {

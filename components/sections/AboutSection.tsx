@@ -14,7 +14,7 @@ export default function AboutSection() {
     <motion.section 
       ref={sectionRef}
       {...animationProps}
-      className="py-16 md:py-20 bg-gradient-to-b from-gray-50/50 via-white to-white"
+      className="py-16 md:py-20 section-temperature-b"
     >
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
@@ -50,11 +50,11 @@ export default function AboutSection() {
                 Meet Kareem Hassanein
               </motion.div>
               
-              <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl font-light text-gray-900 mb-6 tracking-[-0.02em]">
+              <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl text-primary-warm mb-6 heading-secondary">
                 Kareem Hassanein
               </motion.h2>
               
-              <motion.div variants={itemVariants} className="text-lg text-gray-600 leading-relaxed mb-8 space-y-4">
+              <motion.div variants={itemVariants} className="text-lg text-gray-600 mb-8 space-y-4 text-body-large">
                 <p>
                   Behind every treatment plan is a physiotherapist who has stood in your shoes. My journey into physiotherapy was shaped by personal experience, from competitive soccer to navigating my own significant injuries.
                 </p>

@@ -1,16 +1,28 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useScrollAnimation, useStaggeredAnimation } from '@/hooks/useScrollAnimation';
 import { MapPinIcon, ClockIcon, PhoneIcon } from '@heroicons/react/24/outline';
 
 const HealingEnvironmentSection = () => {
+  const [swappedImages, setSwappedImages] = useState(false);
+
   const { ref: sectionRef, animationProps } = useScrollAnimation({ yOffset: 30 });
-  const { ref: contentRef, containerVariants, itemVariants, isInView } = useStaggeredAnimation({ 
+  const { ref: contentRef, containerVariants, itemVariants, isInView } = useStaggeredAnimation({
     delay: 0.2,
-    duration: 0.5 
+    duration: 0.5
   });
+
+  // Swap images every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSwappedImages(prev => !prev);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const supportingImages = [
     {
@@ -154,43 +166,82 @@ const HealingEnvironmentSection = () => {
           </motion.div>
         </motion.div>
 
-        {/* Supporting Images - Smaller, secondary focus */}
-        <motion.div 
+        {/* Supporting Images - Swapping every 5 seconds */}
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
         >
-          {supportingImages.map((image, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.5, delay: 0.5 + (index * 0.1) }}
-              className="relative group overflow-hidden rounded-2xl shadow-premium-1 hover:shadow-premium-1-hover shadow-transition"
-            >
-              <div className="aspect-[1/1] relative">
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <div className="bg-gradient-to-r from-black/50 to-transparent">
-                    <div className="px-4 py-3">
-                      <h4 className="text-white text-sm sm:text-base font-light">
-                        {image.title}
-                      </h4>
-                    </div>
+          {/* First image container */}
+          <div className="relative group overflow-hidden rounded-2xl shadow-premium-1 hover:shadow-premium-1-hover shadow-transition">
+            <div className="aspect-[1/1] relative">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={swappedImages ? 'reception' : 'location'}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="absolute inset-0"
+                >
+                  <Image
+                    src={swappedImages ? supportingImages[1].src : supportingImages[0].src}
+                    alt={swappedImages ? supportingImages[1].alt : supportingImages[0].alt}
+                    fill
+                    className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    priority
+                  />
+                </motion.div>
+              </AnimatePresence>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <div className="bg-gradient-to-r from-black/50 to-transparent">
+                  <div className="px-4 py-3">
+                    <h4 className="text-white text-sm sm:text-base font-light">
+                      {swappedImages ? supportingImages[1].title : supportingImages[0].title}
+                    </h4>
                   </div>
                 </div>
               </div>
-            </motion.div>
-          ))}
+            </div>
+          </div>
+
+          {/* Second image container */}
+          <div className="relative group overflow-hidden rounded-2xl shadow-premium-1 hover:shadow-premium-1-hover shadow-transition">
+            <div className="aspect-[1/1] relative">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={swappedImages ? 'location' : 'reception'}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="absolute inset-0"
+                >
+                  <Image
+                    src={swappedImages ? supportingImages[0].src : supportingImages[1].src}
+                    alt={swappedImages ? supportingImages[0].alt : supportingImages[1].alt}
+                    fill
+                    className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    priority
+                  />
+                </motion.div>
+              </AnimatePresence>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <div className="bg-gradient-to-r from-black/50 to-transparent">
+                  <div className="px-4 py-3">
+                    <h4 className="text-white text-sm sm:text-base font-light">
+                      {swappedImages ? supportingImages[0].title : supportingImages[1].title}
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </motion.div>
       </div>
     </motion.section>

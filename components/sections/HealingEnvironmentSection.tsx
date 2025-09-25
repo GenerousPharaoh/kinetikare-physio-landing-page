@@ -175,7 +175,7 @@ const HealingEnvironmentSection = () => {
         >
           {/* Single image container that cycles through both images */}
           <div className="relative group overflow-hidden rounded-2xl shadow-luxury-deep hover:shadow-luxury-float shadow-transition">
-            <div className="aspect-[1/1] relative">
+            <div className="aspect-[4/3] relative">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentImageIndex}

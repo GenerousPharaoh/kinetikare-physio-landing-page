@@ -56,8 +56,7 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
   const [isSearching, setIsSearching] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const [showStickyNav, setShowStickyNav] = useState(false);
-  const [showFloatingSearch, setShowFloatingSearch] = useState(false);
-  const [showBackToTop, setShowBackToTop] = useState(false);
+  // Removed floating search and back to top - not needed
 
   // Refs for each section
   const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
@@ -99,11 +98,7 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
       
-      // Show floating search when scrolled past the main search bar
-      setShowFloatingSearch(scrollY > 300);
-      
-      // Show back to top button
-      setShowBackToTop(scrollY > 800);
+      // Removed floating search and back to top - not needed
       
       // Hide navigation when close to footer (within 300px of bottom)
       const distanceFromBottom = documentHeight - (scrollY + windowHeight);
@@ -300,9 +295,9 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
           )}
         </nav>
       </div>
-      {/* Minimalist Floating Search - Collapsed by default */}
-      <AnimatePresence>
-        {showFloatingSearch && (
+      {/* Removed floating search - not needed on mobile */}
+      {/* <AnimatePresence>
+        {false && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -370,7 +365,7 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
             )}
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
 
       {/* Progress Indicator Bar */}
       <AnimatePresence>
@@ -557,21 +552,7 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
         )}
       </div>
       
-      {/* Back to Top Button */}
-      <AnimatePresence>
-        {showBackToTop && (
-          <motion.button
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.8 }}
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="fixed bottom-8 right-8 z-50 p-3 bg-[#B08D57] hover:bg-[#D4AF37] text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-            aria-label="Back to top"
-          >
-            <ChevronUpIcon className="w-6 h-6" />
-          </motion.button>
-        )}
-      </AnimatePresence>
+      {/* Removed Back to Top Button - already have one */}
     </>
   );
 } 

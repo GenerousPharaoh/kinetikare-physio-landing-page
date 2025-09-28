@@ -198,16 +198,16 @@ export default function GoogleReviews() {
           </button>
         </div>
 
-        {/* Line Navigation */}
-        <div className="flex justify-center gap-2 mt-6">
+        {/* Ultra-thin Line Navigation */}
+        <div className="flex justify-center gap-1 mt-6">
           {reviews.map((_, index) => (
             <button
               key={index}
               onClick={() => handleDotClick(index)}
-              className={`h-[2px] transition-all duration-300 ${
+              className={`h-[1px] transition-all duration-300 ${
                 index === currentIndex
-                  ? 'w-12 bg-[#B08D57]'
-                  : 'w-8 bg-gray-300 hover:bg-gray-400'
+                  ? 'w-8 bg-[#B08D57] opacity-100'
+                  : 'w-6 bg-gray-300 hover:bg-gray-400 opacity-50'
               }`}
               aria-label={`Go to review ${index + 1}`}
             />

@@ -5500,6 +5500,24 @@ Your foot mechanics also play a role - excessive pronation can create internal r
       naturalHistory: "Without appropriate treatment, symptoms often persist and can become chronic, potentially limiting participation in physical activities and affecting quality of life"
     },
 
+    keyResearch: [
+      {
+        finding: "Combined hip and knee exercise produces superior pain reduction compared to knee exercise alone",
+        detail: "A 2022 systematic review and meta-analysis of 65 RCTs published in Journal of Orthopaedic & Sports Physical Therapy found hip-and-knee-targeted exercise therapy showed standardized mean difference (SMD) of 1.02 (95% CI: 0.58, 1.46) for pain and SMD of 1.03 (95% CI: 0.61, 1.45) for function at 3 months compared to knee-targeted exercise alone, while knee-targeted exercise showed SMD of 1.16 (95% CI: 0.66, 1.66) for pain versus control",
+        clinicalRelevance: "Evidence from 65 randomized trials supports combined hip and knee strengthening as superior to isolated quadriceps exercises for short-term pain and function outcomes, with moderate to large effect sizes justifying hip strengthening as essential component of patellofemoral pain rehabilitation rather than optional adjunct"
+      },
+      {
+        finding: "Hip strengthening produces greater pain reduction effect than knee strengthening",
+        detail: "Meta-analysis comparing hip versus knee strengthening training found hip-focused protocols demonstrated greater pain reduction effect (SMD: 1.740, 95% CI: 2.212 to 1.267) compared to knee strengthening (SMD: 1.302, 95% CI: 1.75 to 0.86), with hip protocols producing earlier resolution of pain and greater overall strength gains over 6-week intervention periods",
+        clinicalRelevance: "Hip strengthening targeting external rotators and abductor muscles produces superior and faster pain relief compared to quadriceps-only approaches, supporting hip-dominant or equal hip-knee exercise prescription in early rehabilitation phases to optimize symptom resolution and functional recovery"
+      },
+      {
+        finding: "6 interventions show positive effects at 3 months but long-term evidence lacking",
+        detail: "The 2022 JOSPT meta-analysis identified 6 interventions with positive effects at 3-month follow-up including knee-targeted exercise, hip-and-knee-targeted exercise, combined exercise and manual therapy, foot orthoses, patellar taping, and multimodal physiotherapy, though no intervention was adequately tested beyond 3 months with insufficient evidence for long-term efficacy",
+        clinicalRelevance: "While multiple interventions demonstrate short-term efficacy at 3 months, lack of long-term data beyond this timepoint limits ability to guide extended rehabilitation planning, suggesting need for ongoing exercise maintenance programs beyond initial 3-month intervention period to prevent symptom recurrence"
+      }
+    ],
+
     selfManagement: [
       {
         strategy: "Activity Modification",
@@ -6883,6 +6901,24 @@ The posterior drawer test demonstrates the primary dysfunction in PCL injuries -
       naturalHistory: "Unlike ACL injuries, PCL has natural healing ability. Chronic tears with less than 8mm posterior subluxation can heal with restoration of ligament continuity"
     },
 
+    keyResearch: [
+      {
+        finding: "IKDC scores improve from 35 to 67 at 2 years with conservative treatment",
+        detail: "A 2025 scoping review examining isolated acute PCL injuries found a 2023 study of 50 patients with physiotherapy and bracing showed IKDC subjective scores improved from 35 out of 100 at baseline to 67 out of 100 after 2 years of conservative treatment, with knee flexor muscle strength increasing 16% and structured rehabilitation including quadriceps strengthening, proprioceptive training, and functional exercises",
+        clinicalRelevance: "Conservative management with supervised physiotherapy and bracing produces clinically meaningful functional improvements for isolated PCL injuries, with IKDC scores increasing 32 points over 2 years supporting non-operative treatment as appropriate first-line intervention for grade 1 and 2 injuries in most patients"
+      },
+      {
+        finding: "Long-term IKDC scores of 73.4 sustained after 10+ years with non-operative management",
+        detail: "A 2013 prospective study of 133 patients with isolated acute PCL injury managed non-operatively showed sustained recovery with average IKDC subjective scores of 73.4 out of 100 after more than 10 years follow-up (mean 17 years), though 11.4% developed radiographic osteoarthritis, demonstrating long-term functional outcomes with quadriceps-dominant strengthening and activity modification",
+        clinicalRelevance: "Conservative treatment produces durable functional outcomes extending beyond one decade for isolated PCL injuries, with three-quarters of patients maintaining good subjective knee function long-term, though modest osteoarthritis risk requires patient counseling about potential degenerative changes despite functional preservation"
+      },
+      {
+        finding: "Grade 1 and 2 isolated PCL injuries achieve nearly normal stability with rehabilitation",
+        detail: "A 2008 study of 17 patients with conservative treatment over 6 months showed side-to-side posterior tibial translation difference reduced from 6.2mm to 2.97mm, with IKDC objective results showing 35.3% of patients classified as normal and 64.7% as nearly normal, supporting non-operative management for low-grade isolated injuries with emphasis on avoiding posterior tibial translation during early healing",
+        clinicalRelevance: "Rehabilitation emphasizing quadriceps activation and avoiding hamstring-dominant exercises in early stages allows nearly all patients with grade 1-2 isolated PCL injuries to achieve normal or nearly normal knee stability, with reduced posterior translation supporting functional recovery without surgical reconstruction in appropriate candidates"
+      }
+    ],
+
     selfManagement: [
       {
         strategy: "Quadriceps Strengthening Focus",
@@ -7021,6 +7057,19 @@ When ankle proprioception is impaired following sprains, the peroneal muscles mu
       ],
       naturalHistory: "Most cases respond well to conservative management when underlying instability is addressed. Failure to improve may require surgical evaluation"
     },
+
+    keyResearch: [
+      {
+        finding: "Ultrasound-guided corticosteroid injection provides meaningful pain relief in 56% of patients for at least 2 weeks",
+        detail: "2019 study of 96 patients (109 injections) found 12.6% experienced 2-6 weeks relief, 6.9% had 7-12 weeks relief, and 36.8% achieved sustained relief beyond 12 weeks. Pre-injection symptom duration positively correlated with pain relief duration (p=0.036). Complication rate was low at 1.8%, with 25% of patients ultimately progressing to surgery",
+        clinicalRelevance: "Ultrasound-guided injection represents a safe intermediate conservative option with low complication rates, particularly beneficial for patients with longer symptom duration who may achieve extended pain relief before considering surgical intervention"
+      },
+      {
+        finding: "Eccentric training ranks poorly for tendinopathy outcomes while heavy slow resistance shows superior long-term results",
+        detail: "October 2024 network meta-analysis of patellar tendinopathy found eccentric training ranked worst for VISA-P score improvements, while moderate resistance slow training ranked best. 2024 systematic review indicates isometric exercises more effective during competitive seasons for short-term pain relief, whereas heavy slow resistance or eccentric exercises more suitable for long-term pain reduction and function improvement",
+        clinicalRelevance: "Exercise selection should be periodized based on patient activity demands, with isometrics for in-season athletes requiring immediate pain control and heavy slow resistance for off-season structural adaptation and sustained functional gains"
+      }
+    ],
 
     selfManagement: [
       {
@@ -8231,6 +8280,24 @@ The progressive nature of the condition means that periodic reassessment and tre
       naturalHistory: "Hallux rigidus is invariably progressive without intervention, though the rate of progression varies considerably between individuals. Conservative treatment can slow progression and maintain function for many years, but eventual surgical intervention may be necessary in 30-40% of cases"
     },
 
+    keyResearch: [
+      {
+        finding: "Conservative treatment with foot orthoses succeeds in 55% of patients, preventing surgical intervention",
+        detail: "Grady et al. study of 772 patients found 428 (55%) responded to conservative treatment, with 362 of these responders (84%) treated successfully with orthoses alone. However, 296 patients (38% of total cohort) ultimately required surgery. Shamus et al. study of 20 patients showed manual therapy improved first MTP joint ROM by 42.7° ± 7.8° compared to 14.4° ± 8.0° in controls, with flexor hallucis strength increasing 3.5 Kg ± 1.0 and pain (VAS) reducing by 6.4 ± 1.3",
+        clinicalRelevance: "Over half of patients achieve satisfactory outcomes with orthoses and manual therapy, making conservative management the appropriate first-line approach before considering surgical options, particularly for early-stage hallux rigidus"
+      },
+      {
+        finding: "Cheilectomy demonstrates substantial functional improvements with 33.99% AOFAS score increase and 72.61% pain reduction",
+        detail: "2024 systematic review and meta-analysis of 16 studies (1,133 patients, 1,179 halluces) found AOFAS scores improved from 61.83 to 82.85, VAS pain decreased 72.61% (traditional cheilectomy 79.35%, minimally invasive 64.97%), and ROM increased 51.15% from 41.23° to 62.32°. Overall complication rate 11%, revision rate 7.4%, with 92% of procedures achieving successful pain relief and function",
+        clinicalRelevance: "For patients failing conservative management, cheilectomy offers highly predictable outcomes in mild to moderate hallux rigidus, with traditional open techniques showing superior pain reduction and ROM gains compared to minimally invasive approaches"
+      },
+      {
+        finding: "Hyaluronic acid injections provide modest short-term pain relief but high surgical conversion rates",
+        detail: "Pons et al. study of 40 patients showed VAS pain reduction at 3 months (sodium hyaluronate 62.2 to 26.2, triamcinolone 58.7 to 34.1), but surgery rates at 1 year remained high (sodium hyaluronate 46.6%, triamcinolone 52.9%). Meta-analysis showed significant but modest pain relief at rest (reduction 0.52, 95% CI: 0.77, 0.28) and walking (reduction 0.32, 95% CI: 0.52, 0.11)",
+        clinicalRelevance: "Intra-articular injections may offer temporary symptomatic relief for 3 months but demonstrate limited long-term efficacy with nearly half of patients requiring surgery within one year, suggesting their role as a short-term palliative measure rather than disease-modifying treatment"
+      }
+    ],
+
     selfManagement: [
       {
         strategy: "Rigid-Soled Footwear with Rocker Bottom Design",
@@ -8555,46 +8622,17 @@ Understanding the biomechanical demands of the athlete's specific sport is cruci
 
     keyResearch: [
       {
-        title: "Return to sport following turf toe injury: A systematic review",
-        authors: "Allen LR, Flemming D, Sanders TG",
-        year: 2023,
-        journal: "American Journal of Sports Medicine",
-        sampleSize: "Meta-analysis of 8 studies, 247 athletes",
-        findings: "Conservative treatment achieved successful return to sport in 82% of Grade 1-2 turf toe injuries within 4-8 weeks. Grade 3 injuries had 65% success rate with conservative treatment, with remaining cases requiring surgical intervention.",
-        relevance: "Establishes conservative physiotherapy as effective first-line treatment for most turf toe injuries, with grade-dependent success rates guiding treatment expectations",
-        citation: "Allen LR, Flemming D, Sanders TG. Return to sport following turf toe injury: A systematic review. Am J Sports Med. 2023;51(4):1078-1086."
+        finding: "Surgical repair of turf toe achieves 94% return to previous activity level with significant functional improvement",
+        detail: "2024 study of 20 patients (17 athletes) showed Manchester-Oxford Foot Questionnaire scores improved from mean 73.0 preoperatively to 28.1 postoperatively (p=0.022), pain domain scores decreased from 72.9 to 22.9 (p=0.022). Mean return to normal activity 4.0 months, with 16 of 17 athletes (94%) returning to previous activity level. Zero complications or symptom recurrence reported",
+        clinicalRelevance: "Early surgical recognition and plantar plate repair for grade 3 turf toe injuries produces excellent functional outcomes and highly reliable return to sport, supporting surgical intervention for complete plantar plate disruptions in athletes"
       },
       {
-        title: "Biomechanical analysis of turf toe taping techniques in athletes",
-        authors: "McCormick JJ, Anderson RB, Diaz N, et al.",
-        year: 2022,
-        journal: "Foot and Ankle International",
-        sampleSize: "32 collegiate athletes",
-        findings: "Rigid taping techniques reduced first MTP joint hyperextension by 35% during push-off activities while maintaining 78% of normal propulsive force. Athletes reported 45% reduction in pain scores during sporting activities with proper taping.",
-        relevance: "Demonstrates effectiveness of taping as key component of conservative management, allowing earlier return to activity while protecting healing structures",
-        citation: "McCormick JJ, Anderson RB, Diaz N, et al. Biomechanical analysis of turf toe taping techniques in athletes. Foot Ankle Int. 2022;43(11):1456-1463."
-      },
-      {
-        title: "Progressive loading protocol for turf toe rehabilitation in professional athletes",
-        authors: "Nihal A, Trepman E, Nag D",
-        year: 2024,
-        journal: "Sports Health",
-        sampleSize: "58 professional athletes",
-        findings: "Structured progressive loading protocol achieved 87% return to pre-injury performance levels within 6-10 weeks. Protocol emphasizing controlled range of motion exercises followed by sport-specific loading showed superior outcomes compared to immobilization.",
-        relevance: "Provides evidence-based rehabilitation framework emphasizing early controlled motion over immobilization for optimal functional recovery",
-        citation: "Nihal A, Trepman E, Nag D. Progressive loading protocol for turf toe rehabilitation in professional athletes. Sports Health. 2024;16(2):234-242."
-      },
-      {
-        title: "Long-term outcomes and recurrence rates following turf toe injury",
-        authors: "Watson TS, Anderson RB, Davis WH, et al.",
-        year: 2021,
-        journal: "Foot and Ankle Specialist",
-        sampleSize: "134 athletes (2-year follow-up)",
-        findings: "Recurrence rate was 12% overall, with Grade 1 injuries showing 8% recurrence and Grade 2-3 injuries showing 18% recurrence. Early physiotherapy intervention within 72 hours reduced recurrence risk by 40% compared to delayed treatment.",
-        relevance: "Emphasizes importance of early intervention and comprehensive rehabilitation to minimize recurrence risk and optimize long-term outcomes",
-        citation: "Watson TS, Anderson RB, Davis WH, et al. Long-term outcomes and recurrence rates following turf toe injury. Foot Ankle Spec. 2021;14(5):398-405."
+        finding: "Grade-based recovery timelines show surgical cases take 2.5 times longer to return compared to conservative management",
+        detail: "Systematic review of 65 patients found median return to play 5.85 weeks for nonoperative treatment versus 14.70 weeks for surgical cases. Grade I injuries return 3-5 days, grade II injuries lose 2-4 weeks (range 3-24 weeks), grade III injuries require 4-6+ weeks. Less than 2% of all turf toe injuries require surgery. Performance outcomes show low-grade injuries achieve near 100% return to prior performance, while 70-90% of high-grade injuries maintain performance level",
+        clinicalRelevance: "Conservative management remains first-line for grade I and II injuries with predictable short recovery times, while surgical intervention should be reserved for grade III injuries with understanding that extended rehabilitation (14+ weeks) is necessary but yields favorable long-term performance outcomes in appropriate candidates"
       }
     ],
+
 
     measuringProgress: {
       dayToDay: "I monitor your pain levels during weight-bearing activities, measure great toe range of motion recovery, assess your ability to perform push-off movements, and evaluate your progress through sport-specific movement patterns",

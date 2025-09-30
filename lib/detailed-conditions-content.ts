@@ -3447,6 +3447,24 @@ Prolonged nerve compression creates a cascade of pathophysiological changes beyo
       naturalHistory: "Generally responds well to conservative management when properly diagnosed. Chronic cases may require more intensive intervention"
     },
 
+    keyResearch: [
+      {
+        finding: "High diagnostic accuracy with combined clinical tests",
+        detail: "Combination of seated piriformis stretch test with piriformis active test demonstrates sensitivity of 91% and specificity of 80% for endoscopic finding of sciatic nerve entrapment in deep gluteal space, providing reliable clinical diagnosis without imaging",
+        clinicalRelevance: "Supports clinical diagnosis based on physical examination findings rather than requiring expensive imaging for initial assessment and treatment planning"
+      },
+      {
+        finding: "Physiotherapy recommended as first-line treatment",
+        detail: "Clinical guidelines recommend physiotherapy as first-line management following general guidelines on back pain and sciatica, with surgery considered only after failed conservative management in 50% of studies, though limited information details successful conservative management outcomes",
+        clinicalRelevance: "Evidence supports conservative trial for 6-12 weeks before considering surgical options, though more research needed on specific physiotherapy protocols and outcomes"
+      },
+      {
+        finding: "Condition affects 6-17% of secondary care sciatica patients",
+        detail: "Between 6% and 17% of patients with sciatica presenting to secondary care meet diagnostic criteria for deep gluteal syndrome, indicating it represents significant proportion of non-discogenic sciatica cases often overlooked in clinical practice",
+        clinicalRelevance: "Highlights importance of considering deep gluteal syndrome in differential diagnosis for patients with sciatica symptoms who don't demonstrate clear disc pathology on imaging"
+      }
+    ],
+
     selfManagement: [
       {
         strategy: "Avoid Prolonged Sitting",
@@ -4434,6 +4452,24 @@ The facet joints' orientation in the lumbar spine makes them particularly vulner
       naturalHistory: "Can become chronic without addressing contributing factors"
     },
 
+    keyResearch: [
+      {
+        finding: "Facet joints cause 27-40% of chronic low back pain cases",
+        detail: "Facet joint pain occurs in 27% to 40% of patients with low back pain but is often overlooked or misdiagnosed, with no clear correlation between clinical examination, radiological findings, and clinical presentation complicating diagnosis",
+        clinicalRelevance: "High prevalence emphasizes importance of considering facet joint pathology in differential diagnosis for chronic low back pain, particularly when imaging doesn't correlate with presentation"
+      },
+      {
+        finding: "Conservative management effective in majority of cases",
+        detail: "Most episodes of low back pain respond well to brief rest, activity modification, and physical therapy, with approximately 50% of cases improving within 1-2 weeks and up to 90% showing resolution within 6-12 weeks",
+        clinicalRelevance: "Supports conservative physiotherapy approach as first-line treatment before considering interventional procedures, with expectation that most patients improve without invasive intervention"
+      },
+      {
+        finding: "Clinical examination guides treatment selection",
+        detail: "2020 comprehensive guidelines indicate Level II evidence with strong strength of recommendation for physical examination and clinical assessment in selecting patients for facet joint interventions at least 3 months after onset and failure of conservative management",
+        clinicalRelevance: "Emphasizes thorough clinical assessment to identify appropriate candidates for physiotherapy versus those requiring more advanced interventions after adequate conservative trial"
+      }
+    ],
+
     selfManagement: [
       {
         strategy: "Movement Variety",
@@ -4540,6 +4576,24 @@ Respiratory patterns significantly influence thoracic outlet mechanics. Upper ch
       ],
       naturalHistory: "Can lead to permanent nerve damage if untreated"
     },
+
+    keyResearch: [
+      {
+        finding: "Pain science-informed physiotherapy shows good outcomes",
+        detail: "2024 review in Journal of Athletic Training reports patients can experience good outcomes with conservative management using pain science-informed physical therapy combined with biomechanical approaches addressing contributing impairments, with retraining movement patterns while maintaining patency allowing greater tolerance to functional activities",
+        clinicalRelevance: "Supports multimodal physiotherapy approach integrating pain education with biomechanical corrections rather than focusing solely on structural interventions for neurogenic thoracic outlet syndrome"
+      },
+      {
+        finding: "Limited high-quality evidence guides clinical decisions",
+        detail: "Neurogenic thoracic outlet syndrome described as complex and challenging condition to manage with lack of high-quality evidence to guide clinical decision making, though multiple 2023-2024 publications emphasize conservative management remains first-line recommendation",
+        clinicalRelevance: "Treatment decisions require individualized clinical reasoning based on examination findings and functional limitations rather than relying on standardized protocols given evidence limitations"
+      },
+      {
+        finding: "Quality of life improvements possible with conservative care",
+        detail: "Research indicates retraining movement patterns and maintaining thoracic outlet patency can have positive impact on quality of life even when structural compression factors persist, suggesting functional adaptation possible without surgical decompression in many cases",
+        clinicalRelevance: "Emphasizes functional goals and symptom management over structural normalization, supporting conservative trial even when imaging demonstrates anatomical compromise"
+      }
+    ],
 
     selfManagement: [
       {
@@ -4803,6 +4857,24 @@ Scapular dyskinesis alters AC joint loading patterns by disrupting normal scapul
       naturalHistory: "Can develop arthritis long-term, especially Grade III+"
     },
 
+    keyResearch: [
+      {
+        finding: "Conservative management effective for Grade III AC separations",
+        detail: "2019 Cochrane review found surgery compared with conservative treatment may not improve shoulder function, return to former activities, or quality of life at one year for Rockwood types 3 through 6 AC joint separations",
+        clinicalRelevance: "Supports physiotherapy as first-line treatment even for complete AC separations with appropriate rehabilitation protocols"
+      },
+      {
+        finding: "Grade-based rehabilitation protocols show consistent outcomes",
+        detail: "Nonoperative treatment protocols involving progressive phases of mobility, scapular strengthening, shoulder strengthening, and kinetic chain exercises demonstrate favorable outcomes across injury grades when matched to tissue healing timeframes",
+        clinicalRelevance: "Evidence supports structured 6-12 week rehabilitation programs with supervision 1.5-3 hours per week depending on injury severity and healing phase"
+      },
+      {
+        finding: "Rockwood classification limited for treatment decisions",
+        detail: "2023 systematic review by de Groot et al found the Rockwood classification cannot differentiate between patients who will benefit from surgery versus conservative management, though consensus supports conservative treatment for low-grade injuries",
+        clinicalRelevance: "Clinical decision-making should incorporate functional demands and patient goals rather than relying solely on radiographic grading"
+      }
+    ],
+
     selfManagement: [
       {
         strategy: "Activity Modification",
@@ -4910,6 +4982,24 @@ The biceps tendon's intra-articular portion experiences unique mechanical challe
       naturalHistory: "Can progress to rupture in older adults"
     },
 
+    keyResearch: [
+      {
+        finding: "Eccentric exercise effective but evidence quality limited",
+        detail: "2024 scoping review found interventions for long head of biceps tendon tendinopathy include eccentric training, general exercise, stretching, and manual therapy, with contemporary research describing mechanical loading including eccentric exercise as effective for promoting tendon healing, though intervention details and dosing specific to biceps remain limited in literature",
+        clinicalRelevance: "Eccentric exercise shows promise but requires individualization based on tissue capacity and pain severity rather than standardized protocols due to lack of specific dosing guidelines"
+      },
+      {
+        finding: "Multimodal approach recommended over single interventions",
+        detail: "Literature reviews and clinical commentaries describe multimodal approaches including manual therapy, patient education, exercise, and dry needling as more comprehensive than isolated modality treatment, with progressive loading matched to tissue capacity emphasized across interventions",
+        clinicalRelevance: "Supports combining exercise therapy with manual techniques and education rather than relying on eccentric exercise alone for optimal outcomes"
+      },
+      {
+        finding: "High association with rotator cuff pathology",
+        detail: "Research shows biceps tendinopathy develops in 40-50% of patients with rotator cuff tears within 2-3 years, indicating secondary biceps pathology results from altered glenohumeral mechanics when rotator cuff fails to properly depress and centralize humeral head",
+        clinicalRelevance: "Assessment and treatment must address potential concurrent rotator cuff dysfunction as biceps symptoms may be secondary to primary cuff pathology"
+      }
+    ],
+
     selfManagement: [
       {
         strategy: "Progressive Loading",
@@ -5016,6 +5106,24 @@ Contact sports create the highest risk for MCL injuries through direct trauma me
       ],
       naturalHistory: "Good healing potential with appropriate management"
     },
+
+    keyResearch: [
+      {
+        finding: "Conservative management effective for isolated MCL injuries",
+        detail: "2024 systematic review titled 'Shedding light on the non-operative treatment of the forgotten side of the knee' found conservative rehabilitation of medial collateral ligament injuries achieves excellent outcomes with structured progressive protocols, supporting non-surgical approach for isolated MCL tears including Grade III injuries",
+        clinicalRelevance: "Evidence supports conservative physiotherapy as primary treatment even for complete MCL tears when ligament remains in anatomical position and no associated injuries present"
+      },
+      {
+        finding: "MCL has superior healing capacity compared to LCL",
+        detail: "Medial collateral ligament demonstrates high tensile strength of 4000 Newtons before failure and excellent healing potential with conservative care, while lateral collateral ligament shows lower tensile strength at approximately 750 Newtons and often requires surgical intervention for Grade III injuries due to poorer healing capacity",
+        clinicalRelevance: "Different healing potentials guide treatment decisions - MCL injuries amenable to conservative care while LCL complete tears may require surgical consideration"
+      },
+      {
+        finding: "Athletes with weak hip abductors show 30-40% higher injury risk",
+        detail: "Motion capture studies in soccer players demonstrate that poorly controlled cutting maneuvers with weak hip abductors generate 30-40% greater dynamic knee valgus during pivoting movements, creating medial collateral ligament forces approaching injury thresholds",
+        clinicalRelevance: "Hip strengthening forms critical component of MCL rehabilitation and injury prevention programs to address proximal control deficits contributing to knee valgus loading"
+      }
+    ],
 
     selfManagement: [
       {

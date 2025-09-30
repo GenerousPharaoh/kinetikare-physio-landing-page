@@ -15,13 +15,23 @@
     "repository": "https://github.com/GenerousPharaoh/kinetikare-physio-landing-page.git"
   },
   "content_system": {
-    "total_conditions": "67",
+    "total_conditions": "55",
+    "conditions_by_category": {
+      "spinal_health": 9,
+      "shoulder": 8,
+      "elbow_wrist_hand": 6,
+      "hip_pelvis": 11,
+      "knee": 8,
+      "foot_ankle": 13
+    },
+    "detailed_content_status": "All 55 conditions have comprehensive detailed content",
+    "hidden_conditions_with_content": ["adductor-related-groin-pain", "headaches-migraines"],
     "main_content_file": "/lib/detailed-conditions-content.ts",
     "type_definitions": "/lib/conditions-data.ts",
     "rendering_component": "/components/ConditionPageClient.tsx",
-    "homepage_section": "/components/sections/ConditionsSection.tsx",
+    "conditions_page": "/app/conditions/page.tsx",
     "evidence_structure": "evidenceSnapshot with primaryStrategy, secondaryStrategy, preventionStrategy",
-    "cross_linking": "All conditions properly cross-linked",
+    "cross_linking": "All conditions properly cross-linked with intelligent relationship system",
     "content_standards": "Evidence-based, no em dashes, specific percentages and timelines"
   },
   "design_philosophy": {
@@ -38,21 +48,22 @@
   },
   "recent_major_updates": [
     "SEO Schema.org enhancements completed (September 2025)",
-    "Added aggregateRating: 5.0 stars with 8 reviews from Trustindex",
+    "Added aggregateRating: 5.0 stars with 9 reviews (manually implemented)",
     "Updated priceRange to $$ (mid-range pricing)",
     "Added comprehensive insurance provider list for direct billing",
     "Added Wednesday/Friday opening hours for Headon Physio location",
     "Integrated shoulder research from Gemini document",
-    "Updated 12 placeholder conditions with full evidence-based content", 
+    "All 55 conditions now have comprehensive detailed content",
     "Fixed critical display bug with evidenceSnapshot field names",
     "Added spacing between content sections and CTAs (mt-8)",
-    "Improved Overview section titles with standardized format"
+    "Improved Overview section titles with standardized format",
+    "Removed unused ConditionsSection.tsx component (January 2025)"
   ],
   "key_files_to_remember": {
     "content": "/lib/detailed-conditions-content.ts",
-    "types": "/lib/conditions-data.ts", 
-    "condition_renderer": "/components/ConditionPageClient.tsx",
-    "homepage_conditions": "/components/sections/ConditionsSection.tsx"
+    "types": "/lib/conditions-data.ts",
+    "conditions_page": "/components/ConditionsPageClient.tsx",
+    "individual_condition_page": "/app/conditions/[slug]/page.tsx"
   },
   "overview_section_structure": {
     "title_format": "The Science of [Condition Name]",
@@ -76,7 +87,7 @@
     "seo_status": {
       "google_analytics": "GA4: G-65FN5BN480 properly configured",
       "google_reviews": "Manually implemented with 9 reviews in carousel format",
-      "medical_condition_schema": "All 67 condition pages have MedicalCondition schema",
+      "medical_condition_schema": "All 55 condition pages have MedicalCondition schema",
       "medical_procedure_schema": "Services page has MedicalProcedure schema",
       "sitemap": "Properly configured (ai-physio page intentionally removed)",
       "og_images": "Properly implemented on individual pages"
@@ -96,8 +107,10 @@
     "important_notes": [
       "ai-physio page intentionally removed from sitemap (was causing 404s)",
       "No location-specific landing pages needed (user preference)",
-      "Condition pages are comprehensive (67 conditions)",
-      "Core structured data complete and validated"
+      "Condition pages are comprehensive (55 conditions, all with detailed content)",
+      "Core structured data complete and validated",
+      "Headaches/migraines intentionally excluded (outside treatment comfort zone)",
+      "Homepage does NOT have a conditions section - only dedicated /conditions page"
     ]
   }
 }

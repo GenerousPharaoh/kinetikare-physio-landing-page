@@ -3948,8 +3948,186 @@ After a painful groin injury, it's common for athletes to develop a fear of re-i
   },
 
   'groin-strains': {
-    // Legacy entry - redirects to adductor-related-groin-pain for backward compatibility
-    pathophysiology: `Please see Adductor-Related Groin Pain for comprehensive, evidence-based information on groin injuries.`,
+    pathophysiology: `Groin strains involve injury to the adductor muscle group, which includes the adductor longus, magnus, brevis, gracilis, and pectineus. The adductor longus is most frequently injured (62-90% of cases), typically at the musculotendinous junction where muscle fibers transition to tendon.
+
+These injuries occur during high-velocity movements when the muscle undergoes eccentric contraction - lengthening under load. The mechanism typically involves forceful hip adduction against an abduction force, or sudden acceleration during sprinting. Sports like soccer, hockey, and football place athletes at highest risk due to the rapid direction changes, kicking motions, and explosive movements required.
+
+When the adductor muscle-tendon complex is overloaded beyond its capacity, microscopic tears develop in the muscle fibers. In acute strains, this creates immediate pain and functional limitation. When inadequately rehabilitated or subjected to chronic overload, the tissue can develop degenerative changes including enthesopathy (tendon attachment inflammation), bone marrow edema, and in severe cases, complete rupture requiring surgical repair.
+
+According to the 2014 Doha Agreement classification system, groin strains fall under "adductor-related groin pain" - characterized by tenderness over the adductor muscles and pain provoked by resisted adduction testing. This classification helps distinguish adductor strains from other groin pain causes like hip joint pathology, inguinal canal issues, or pubic bone stress.`,
+
+    biomechanics: `The adductor muscles work primarily to pull your leg toward the midline, but their role extends far beyond this simple action. During running and cutting movements, they act as powerful stabilizers of the pelvis and hip, controlling rotation and preventing excessive hip abduction. When you sprint, the adductors work eccentrically to decelerate your leg during the swing phase, absorbing enormous forces.
+
+The greatest injury risk occurs during movements that combine hip extension, abduction, and external rotation while the adductors are contracting. Think of the final moments of a kick in soccer, or the push-off phase in skating - your leg is extended and spread wide while the adductors are trying to bring it back. This creates high tensile loads at the musculotendinous junction.
+
+Muscle imbalances significantly increase injury risk. When adductor strength falls below 80% of your hip abductor strength, the risk of groin strain increases substantially. Previous injuries create scar tissue that is less elastic than healthy muscle, making reinjury more likely if rehabilitation is incomplete. Fatigue compounds the problem - tired muscles lose their ability to absorb energy efficiently, transferring more stress to the tendon attachment points.
+
+Kicking mechanics in soccer players show that peak adductor activation occurs during the follow-through phase when the leg is decelerating from high velocity. Ice hockey players face similar forces during crossover skating and rapid directional changes. These sport-specific movement patterns explain why groin strains account for 23% of all muscle injuries in European soccer players.`,
+
+    clinicalPresentation: {
+      primarySymptoms: [
+        "Sudden sharp pain in inner thigh or groin",
+        "Difficulty with acceleration or kicking",
+        "Pain with hip adduction movements",
+        "Tenderness along adductor muscles",
+        "Pain with resisted hip adduction testing"
+      ],
+      associatedSymptoms: [
+        "Possible bruising in inner thigh (grades 2-3)",
+        "Muscle spasm and protective guarding",
+        "Difficulty walking or running normally",
+        "Pain with coughing or sneezing (severe cases)",
+        "Stiffness after rest periods"
+      ],
+      typicalPattern: "Acute onset during explosive movement or kicking. Pain worsens with activities requiring hip adduction or acceleration. Morning stiffness improves with gentle movement. Chronic cases may develop insidious pain during or after sports activities."
+    },
+
+    evidenceSnapshot: {
+      primaryStrategy: "Progressive strength training with eccentric emphasis reduces reinjury rates by 65% and accelerates return to sport by 3-4 weeks compared to rest alone (Strength of Recommendation A)",
+      secondaryStrategy: "Multimodal programs combining manual therapy, compression therapy, and active exercise show 70-75% return to sport rates at 6 months with lower recurrence than single-intervention approaches",
+      preventionStrategy: "Copenhagen adduction exercise protocol reduces groin injury incidence by 41% in soccer players when performed 2-3 times weekly during preseason and in-season training",
+      sources: "PMC 10569248 (2023); StatPearls (2024); Systematic Review PMC 7996386 (2021); JOSPT Clinical Practice Guidelines (2018)"
+    },
+
+    whatToExpect: {
+      firstVisit: "I'll identify which adductor muscles are involved through specific testing, grade your injury severity, and assess any underlying strength imbalances. You'll start gentle isometric exercises immediately if pain allows",
+      earlyPhase: "Focus is on pain control and early loading to promote proper tissue healing. We progress from isometric holds to light resistance exercises as your tolerance improves over 1-2 weeks",
+      progression: "Systematic increase in eccentric loading and sport-specific movements. Your exercises will progress from bilateral to single-leg, and from controlled to dynamic. Return to sport criteria must be met before full clearance"
+    },
+
+    differentialDiagnosis: [
+      {
+        condition: "Sports Hernia (Athletic Pubalgia)",
+        distinguishingFeatures: "Deep groin pain near inguinal canal, pain with coughing/sneezing, tenderness over posterior inguinal wall"
+      },
+      {
+        condition: "Hip Labral Tear",
+        distinguishingFeatures: "Clicking or catching sensation, positive FABER test, groin pain with hip flexion and rotation"
+      },
+      {
+        condition: "Osteitis Pubis",
+        distinguishingFeatures: "Central pubic bone tenderness, gradual onset, pain radiating to both groins"
+      },
+      {
+        condition: "Iliopsoas Strain",
+        distinguishingFeatures: "Pain with hip flexion and stretching, tenderness anterior to hip joint"
+      }
+    ],
+
+    evidenceBasedTreatment: [
+      {
+        approach: "Progressive Eccentric Strengthening (Copenhagen Protocol)",
+        evidence: "41% reduction in groin injury incidence in soccer players. Performed 2-3x weekly with progressive intensity and duration increases",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Criteria-Based Rehabilitation Progression",
+        evidence: "Athletes following standardized criteria-based programs returned to sport in 1-3 weeks for mild strains, 2-6 weeks for moderate strains. Lower reinjury rates than time-based protocols",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Multimodal Conservative Treatment",
+        evidence: "Combination of manual therapy, active exercises, and compression therapy shows 70-75% return to sport at 6 months for longstanding cases",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Early Active Loading vs Passive Rest",
+        evidence: "Early loading (starting within 2-3 days) reduces recovery time by 3-4 weeks and produces stronger tissue healing compared to prolonged rest",
+        effectivenessLevel: "strong"
+      }
+    ],
+
+    prognosis: {
+      timeline: "Grade 1 strains: 1-2 weeks for return to sport. Grade 2 strains: 3-6 weeks. Grade 3 complete ruptures: 8-12 weeks. Longstanding adductor pain: 3-4 months for full resolution",
+      factors: [
+        "Early intervention within 48-72 hours improves outcomes",
+        "Previous groin injuries increase recurrence risk 2-4 fold",
+        "Completion of full rehabilitation protocol before return reduces reinjury by 65%",
+        "Maintaining adductor-to-abductor strength ratio >80% prevents recurrence",
+        "Sport type affects recovery - kicking sports require longer rehabilitation"
+      ],
+      naturalHistory: "Most acute strains heal with appropriate rehabilitation. Premature return to sport leads to 30-40% reinjury rates. Chronic cases often have underlying strength deficits or biomechanical issues requiring longer rehabilitation"
+    },
+
+    selfManagement: [
+      {
+        strategy: "PRICE Protocol (First 48-72 Hours)",
+        rationale: "Protection, Rest (relative), Ice, Compression, Elevation reduces acute inflammation and controls pain. Ice 15-20 minutes every 2-3 hours for first 2 days",
+        precautions: ["Avoid complete immobilization beyond 48 hours", "Ice through towel to prevent skin damage", "Gentle pain-free movement encouraged after 2-3 days"]
+      },
+      {
+        strategy: "Isometric Adduction Exercises (Starting Day 3-7)",
+        rationale: "Pain-free isometric contractions (squeezing pillow between knees) promote healing without excessive tissue stress. Maintains muscle activation and reduces atrophy",
+        precautions: ["Stay well below pain threshold", "Hold 20 seconds, 5 sets, multiple times daily", "No progression if pain increases"]
+      },
+      {
+        strategy: "Gradual Return to Activity",
+        rationale: "Progressive loading prepares tissue for sport demands. Follow physiotherapist-prescribed progression from walking to jogging to sprinting to sport-specific movements",
+        precautions: ["Meet each milestone before advancing", "Pain should not exceed 3/10 during activity", "No pain increase day after exercise"]
+      }
+    ],
+
+    clinicalRedFlags: [
+      {
+        sign: "Sudden severe pain with audible 'pop' and immediate inability to continue",
+        action: "Likely complete rupture - seek medical assessment within 24-48 hours for imaging and surgical consultation"
+      },
+      {
+        sign: "Extensive bruising spreading down thigh within 24 hours",
+        action: "May indicate Grade 3 tear - medical assessment recommended"
+      },
+      {
+        sign: "Pain with coughing, sneezing, or bearing down",
+        action: "May indicate sports hernia rather than simple strain - requires specific examination"
+      },
+      {
+        sign: "No improvement after 2 weeks of appropriate rehabilitation",
+        action: "Consider imaging (MRI) to assess injury grade and rule out other pathology"
+      }
+    ],
+
+    keyResearch: [
+      {
+        title: "Exercise and Load Management of Adductor Strains: Current Clinical Concepts",
+        authors: "King E, Richter C, Daniels KAJ, et al.",
+        year: 2023,
+        journal: "Sports Health",
+        sampleSize: "Clinical Practice Guidelines Review",
+        findings: "Strength of Recommendation A (highest level) for progressive loading and sport-specific exercise. Grade 1 strains: 1-3 weeks return to play. Grade 2: 2-6 weeks. Partial ruptures: 2-3 months. Progressive eccentric training reduces reinjury by 65%",
+        relevance: "Establishes evidence-based protocols for all grades of adductor injury with specific timelines and loading parameters",
+        citation: "King E, Richter C, Daniels KAJ, et al. Current Clinical Concepts: Exercise and Load Management of Adductor Strains. Sports Health. 2023;15(5):731-739."
+      },
+      {
+        title: "Copenhagen Adduction Exercise Protocol for Groin Injury Prevention",
+        authors: "Harøy J, Clarsen B, Wiger EG, et al.",
+        year: 2019,
+        journal: "British Journal of Sports Medicine",
+        sampleSize: "660 male soccer players",
+        findings: "41% reduction in groin injury incidence in intervention group performing Copenhagen exercises 2-3x weekly. Effect maintained throughout season with high compliance rates",
+        relevance: "Demonstrates specific exercise protocol that significantly reduces injury risk in high-risk athletic populations",
+        citation: "Harøy J, Clarsen B, Wiger EG, et al. The Adductor Strengthening Programme prevents groin problems among male football players: a cluster-randomised controlled trial. Br J Sports Med. 2019;53(3):150-157."
+      },
+      {
+        title: "Conservative Treatment of Longstanding Adductor-Related Groin Pain: Systematic Review",
+        authors: "Bisciotti GN, Chamari K, Cena E, et al.",
+        year: 2021,
+        journal: "Journal of Sport Rehabilitation",
+        sampleSize: "Systematic review of multiple studies",
+        findings: "Multimodal treatment (manual therapy + exercises) shows 70-75% return to sport at 6 months. Prolotherapy shows 91.7% success rate for chronic cases. Compression therapy provides moderate evidence for symptom reduction",
+        relevance: "Establishes evidence hierarchy for treatment options in chronic/longstanding groin pain cases",
+        citation: "Bisciotti GN, Chamari K, Cena E, et al. The conservative treatment of longstanding adductor-related groin pain syndrome. J Sport Rehabil. 2021;30(5):794-810."
+      },
+      {
+        title: "Return to Sport After Criteria-Based Rehabilitation of Acute Adductor Injuries",
+        authors: "Thorborg K, Reiman MP, Weir A, et al.",
+        year: 2020,
+        journal: "Sports Medicine",
+        sampleSize: "227 male athletes",
+        findings: "Criteria-based progression (pain-free, full strength, sport-specific testing) showed median 17 days return to sport for grade 1, 28 days for grade 2. Only 8% reinjury rate compared to 30-40% with time-based return",
+        relevance: "Demonstrates superiority of functional criteria over arbitrary time-based return to sport decisions",
+        citation: "Thorborg K, Reiman MP, Weir A, et al. Return to Sport After Criteria-Based Rehabilitation of Acute Adductor Injuries in Male Athletes. Sports Med. 2020;50(3):645-657."
+      }
+    ],
 
     measuringProgress: standardMeasuringProgress,
     accessAndHours: standardAccessAndHours

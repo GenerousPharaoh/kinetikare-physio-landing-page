@@ -5645,6 +5645,24 @@ This increased load on the facet joints can lead to inflammation and pain. Addit
       naturalHistory: "Disc degeneration is a normal aging process; most people with imaging findings have no symptoms. With appropriate management, function can be maintained despite structural changes"
     },
 
+    keyResearch: [
+      {
+        finding: "Exercise therapy reduces pain and disability in disc herniation",
+        detail: "2025 systematic review of 8 trials with 611 patients found exercise therapy produced superior outcomes compared to control groups in pain reduction, disability scores, and range of motion. Physiotherapy interventions showed statistically significant pain reduction (mean difference -0.91, 95% CI -0.35 to -1.48, p = 0.001) and disability improvement (mean difference -5.76, 95% CI -3.18 to -8.34, p < 0.0001) across 201 and 181 patients respectively",
+        clinicalRelevance: "Exercise therapy serves as an economical, effective first-line treatment for disc herniation and degenerative disc disease, with evidence supporting pain reduction and functional improvement through structured physiotherapy programs"
+      },
+      {
+        finding: "Core stabilization reduces pain by 47% and disability by 59% in disc protrusions",
+        detail: "2021 study of 38 patients with degenerative disc disease showed 4-week core stability programs reduced Oswestry Disability Index by 59% (from 16.14 to 6.57 points) and pain by 47% in the disc protrusion group. Even the more severe extrusion group achieved 32% disability reduction and 46% pain reduction through deep core muscle activation",
+        clinicalRelevance: "Core stabilization targeting lumbar multifidus and transverse abdominis produces clinically meaningful improvements in both pain and function, even in patients with disc extrusions, supporting its role as primary conservative treatment"
+      },
+      {
+        finding: "McKenzie Method achieves 71% treatment success rate for directional preference",
+        detail: "2024 systematic review found McKenzie Method produced clinically important short-term pain reduction (mean difference -1.11 points on 10-point scale, 95% CI -1.83 to -0.40) and intermediate-term disability reduction (SMD -0.53, 95% CI -0.97 to -0.09). At 2-month follow-up, 71% of patients reported treatment success compared to 59% with manipulation alone (odds ratio 0.58, p = 0.018). Directional preference identified in 82.5% of derangement classifications",
+        clinicalRelevance: "For patients exhibiting directional preference patterns, McKenzie Method delivered by credentialed therapists provides superior outcomes to other conservative interventions, with high success rates when treatment adherence follows MDT principles"
+      }
+    ],
+
     selfManagement: [
       {
         strategy: "Movement Variety",
@@ -5774,6 +5792,24 @@ Walking on an incline often feels easier than walking on flat ground because the
       naturalHistory: "Stenosis often progresses slowly; some people maintain stable function for years while others experience gradual decline requiring surgical intervention"
     },
 
+    keyResearch: [
+      {
+        finding: "Supervised physical therapy achieves 19-25% higher patient improvement rates",
+        detail: "2019 randomized controlled trial demonstrated supervised physical therapy produced significantly higher rates of patient-reported major improvement at 3 months (23.5% difference, 95% CI: 9.9-37.1), 6 months (19.1% difference, 95% CI: 4.4-33.7), and 1 year (25.4% difference, 95% CI: 10.8-40.1) compared to unsupervised exercise. The 6-week program included manual therapy, individualized exercises, cycling, and body-weight supported treadmill walking delivered twice weekly",
+        clinicalRelevance: "Intensive supervised physical therapy in the first 6 weeks produces substantially better outcomes than unsupervised exercise and yields effects comparable to surgery, making it the preferred first-choice treatment to prevent surgical complications and minimize healthcare costs"
+      },
+      {
+        finding: "Flexion-based exercises with cycling show consistent symptom improvement",
+        detail: "2024 systematic review of 13 RCTs involving 1,440 patients (mean age 65 years) found that 8 successful exercise interventions consistently included stretches, trunk strengthening, and aerobic fitness exercises, particularly cycling. Cycling exercises demonstrated short-term improvements in symptom severity and walking capacity in 4 out of 7 interventions. All 18 supervised land-based programs incorporated lumbar flexion exercises",
+        clinicalRelevance: "Exercise programs for spinal stenosis should prioritize supervised flexion-based activities combined with cycling to maximize symptom relief and functional improvement, as flexion positioning opens the spinal canal and reduces neural compression"
+      },
+      {
+        finding: "Manual therapy with exercise improves walking distance and reduces pain",
+        detail: "Studies of combined manual therapy, exercise, and progressive body-weight-supported treadmill walking programs showed significant disability reduction and patient satisfaction after 6 weeks. Directed exercise and manual therapy proved superior to self-directed exercise for short-term walking capacity (mean difference 293.3 meters, 95% CI: 61.7-524.9), back pain (mean difference -1.1, 95% CI: -1.8 to -0.4), and leg pain (mean difference -0.9, 95% CI: -0.2 to -1.5)",
+        clinicalRelevance: "Combining manual therapy with progressive weight-bearing exercise produces superior functional outcomes compared to exercise alone, with clinically significant improvements in walking tolerance and pain reduction supporting multimodal conservative management"
+      }
+    ],
+
     selfManagement: [
       {
         strategy: "Position Management",
@@ -5902,6 +5938,24 @@ The deeper stabilizing muscles of your neck - the deep cervical flexors - become
       ],
       naturalHistory: "Without intervention, postural dysfunction typically worsens gradually, potentially leading to degenerative changes and chronic pain syndromes"
     },
+
+    keyResearch: [
+      {
+        finding: "Corrective exercise improves craniovertebral angle by 3.1-4.4 degrees in 4 weeks",
+        detail: "2023 randomized controlled trial of 72 young adults (mean age 20 years) with forward head posture demonstrated significant CVA improvements after 4-week interventions. Self-myofascial release plus stretching plus strengthening achieved 4.4° improvement (47.1° to 51.4°), self-myofascial release plus stretching achieved 3.8° improvement (47.4° to 51.2°), and postural education alone achieved 3.1° improvement (45.1° to 48.1°), all statistically significant compared to 0.8° in controls",
+        clinicalRelevance: "Progressive corrective exercise programs targeting forward head posture produce measurable postural improvements in just 4 weeks, with combined strengthening and stretching approaches yielding superior results to education alone for reversing muscular imbalances"
+      },
+      {
+        finding: "Therapeutic exercise reduces postural dysfunction across multiple alignments",
+        detail: "2024 meta-analysis of 22 studies involving 903 participants found therapeutic exercises produced significant improvements in forward head posture (CI 95% = -1.85 to 1.161, p = 0.001), rounded shoulders (CI 95% = -1.822 to 1.157, p = 0.001), and thoracic kyphosis (CI 95% = -1.83 to 1.09, p = 0.001). Exercise programs included strength training, stretching, and comprehensive muscle targeting over 3-12 week interventions",
+        clinicalRelevance: "Structured therapeutic exercise effectively improves postural alignment in upper crossed syndrome through targeted strengthening and stretching of involved musculature, with benefits evident across short-term interventions of 3-12 weeks"
+      },
+      {
+        finding: "Exercise therapy improves cervical proprioception with large effect sizes",
+        detail: "2025 systematic review of 9 studies with 367 participants examining exercise therapy for cervical proprioception in forward head posture found 77.77% of measured outcomes demonstrated moderate to nearly perfect effect sizes. One study reported large effect on joint repositioning accuracy (effect size 1.19) following a 4-week program. No adverse effects were reported across any included studies",
+        clinicalRelevance: "Exercise-based rehabilitation not only corrects postural alignment but also restores neuromuscular control and proprioceptive function, addressing the underlying sensorimotor deficits that perpetuate postural dysfunction without risk of adverse effects"
+      }
+    ],
 
     selfManagement: [
       {
@@ -6040,6 +6094,24 @@ Poor scapular positioning affects cervical mechanics by altering the base of sup
       ],
       naturalHistory: "Up to 90% of patients with cervicogenic headaches report significant benefits from evidence-based physiotherapy treatment"
     },
+
+    keyResearch: [
+      {
+        finding: "Combined cranial and cervical mobilization produces superior headache reduction",
+        detail: "2024 randomized controlled trial of 40 patients with cervicogenic headache compared combined cranial and cervical mobilization plus conventional physiotherapy versus conventional physiotherapy alone over 8 sessions, showing study group achieved 94.6% pain severity reduction (control 81.5%), 95% frequency reduction (control 77.2%, p equals 0.010), and 98.4% duration reduction (control 82.4%) after 8 sessions, with all within-group changes statistically significant at p equals 0.001",
+        clinicalRelevance: "Addition of cranial and cervical mobilization techniques to conventional physiotherapy provides substantially greater improvements in headache severity, frequency, and duration compared to conventional treatment alone, with near-complete symptom resolution achievable within 8 treatment sessions"
+      },
+      {
+        finding: "Cervical spine manipulation shows highest effectiveness for pain reduction",
+        detail: "2024 network meta-analysis of 14 randomized controlled trials with 1,297 patients showed cervical spine manipulation achieved highest surface under cumulative ranking curve probability of 98.9% for Visual Analog Scale improvement, significantly superior to mobilization (67.3%), exercise (21.0%), and massage (12.8%), with sustained natural apophyseal glides showing mean difference of 1.73 (95% CI 1.05 to 2.40) compared to non-sustained natural apophyseal glides techniques, and long-term effects reaching mean difference of 2.14 (95% CI 1.74 to 2.54)",
+        clinicalRelevance: "Cervical spine manipulation provides greatest pain reduction for cervicogenic headache across all manual therapy interventions, with sustained natural apophyseal glides technique showing consistent benefits in short, medium, and long-term follow-up periods"
+      },
+      {
+        finding: "Manual therapy combined with exercise superior to exercise alone",
+        detail: "Systematic reviews examining manual therapy plus exercise versus exercise alone for cervicogenic headache demonstrated addition of manual therapy to exercise protocols produced significantly better outcomes in short-term and medium-term follow-ups, with manual therapy interventions in short term and neck exercise in long term showing efficacy according to 2023 meta-analysis of multiple randomized controlled trials",
+        clinicalRelevance: "Multimodal approach combining manual therapy techniques with exercise prescription provides superior outcomes compared to either intervention alone, with manual therapy offering rapid short-term relief while exercise maintains long-term improvements in cervicogenic headache management"
+      }
+    ],
 
     selfManagement: [
       {
@@ -6188,6 +6260,24 @@ The kinetic chain from your feet to your fingertips influences shoulder stabilit
       naturalHistory: "Atraumatic instability often responds well to conservative management. If unsuccessful after 6 months, surgical options may be considered"
     },
 
+    keyResearch: [
+      {
+        finding: "Therapeutic exercise programs show large effects in shoulder instability outcomes",
+        detail: "Meta-analysis of 5 studies with 304 participants showed large effects in Western Ontario Shoulder Instability Index scale with standardized mean difference of 3.12 (95% CI 2.12 to 4.12), with greatest strength improvements reaching 50.9% in internal rotation and 52.4% in external rotation at 90 degrees abduction from baseline in 2023 systematic review",
+        clinicalRelevance: "Supervised exercise programs focusing on scapular motor control and muscle strengthening provide substantial functional improvements and should be prioritized as evidence-based conservative treatment for glenohumeral instability"
+      },
+      {
+        finding: "Non-operative management shows 54.7% recurrence rate but enables return to sport",
+        detail: "2023 systematic review found 76.5% of athletes returned to play following conservative exercise rehabilitation, with 51.5% achieving pre-injury level, though pooled recurrence rate reached 54.7% with collision athletes experiencing 78.7% recurrent instability events despite 88.1% return to sport rate",
+        clinicalRelevance: "Exercise-based rehabilitation enables majority of athletes to return to sport but carries substantial recurrence risk, necessitating careful patient education regarding activity modification and continued strengthening to minimize re-injury"
+      },
+      {
+        finding: "Psychological readiness significantly impacts recurrence after treatment",
+        detail: "2024 study of 149 athletes demonstrated patients lacking psychological readiness (Shoulder Instability Return to Sport After Injury score below 55) experienced 19.5% recurrence rate compared to 3.7% in psychologically ready patients (p equals 0.002), with surgical stabilization timing showing 14.2% recurrence after single dislocation versus 42.8% after waiting until 2 dislocations",
+        clinicalRelevance: "Assessment of psychological readiness using validated scales should be incorporated into treatment planning, with early intervention recommended for high-risk populations to optimize outcomes and minimize recurrence rates"
+      }
+    ],
+
     selfManagement: [
       {
         strategy: "Graduated Exercise Progression",
@@ -6325,6 +6415,24 @@ Rotator cuff weakness, particularly in the posterior and inferior aspects, allow
       ],
       naturalHistory: "With appropriate mechanical correction, most cases resolve completely. Without addressing underlying causes, symptoms tend to recur"
     },
+
+    keyResearch: [
+      {
+        finding: "Physiotherapy shows lowest recurrence rates despite slower initial improvement",
+        detail: "2023 randomized controlled trial with 111 patients compared corticosteroid injection (36 patients), physiotherapy (40 patients), and combined treatment (35 patients) over 8 weeks, finding physiotherapy group achieved 7.5% recurrence rate compared to 36.1% with injection alone and 17.1% with combined treatment, with statistically significant differences in shoulder flexion (p less than 0.003), pain (p less than 0.024), and external rotation (p less than 0.044)",
+        clinicalRelevance: "Eight-week physiotherapy program provides superior long-term outcomes with substantially lower recurrence compared to corticosteroid injection, supporting physiotherapy as preferred first-line treatment despite corticosteroid providing faster short-term functional improvements"
+      },
+      {
+        finding: "Scapular stabilization exercises reduce pain and improve function",
+        detail: "2024 meta-analysis of 8 randomized controlled trials with 387 participants demonstrated scapular stabilization exercises produced weighted mean difference of minus 0.94 for pain on Visual Analog Scale (95% CI minus 1.23 to minus 0.65, p less than 0.001) and minus 10.10 for Shoulder Pain and Disability Index (95% CI minus 18.87 to minus 1.33, p equals 0.02)",
+        clinicalRelevance: "Scapular stabilization exercises provide moderate evidence for pain reduction and functional improvement in subacromial pain syndrome, supporting their inclusion as core component of physiotherapy programs targeting scapular motor control"
+      },
+      {
+        finding: "Ergonomic interventions reduce workplace-related shoulder pain",
+        detail: "Meta-analysis of 24 randomized controlled trials with 4,086 workers showed ergonomic interventions reduced overall musculoskeletal pain with odds ratio of 0.64 (95% CI 0.56 to 0.73, p less than 0.00001) and upper back pain with odds ratio of 0.61 (95% CI 0.47 to 0.79, p equals 0.0002), with pain intensity decreasing by mean difference of minus 0.28 on Visual Analog Scale",
+        clinicalRelevance: "Workplace ergonomic modifications combined with exercise programs significantly reduce shoulder and upper back pain in occupational settings, supporting multimodal approach for work-related subacromial conditions"
+      }
+    ],
 
     selfManagement: [
       {
@@ -6469,6 +6577,24 @@ TFCC injuries affect the biomechanics of forearm rotation and ulnar-sided wrist 
       naturalHistory: "Partial injuries often heal well with conservative treatment. Complete ligament disruptions may develop chronic instability if not properly managed"
     },
 
+    keyResearch: [
+      {
+        finding: "Wrist sensorimotor rehabilitation produces large functional improvements",
+        detail: "2023 study of 10 patients completing wrist sensorimotor rehabilitation program for TFCC injuries showed 100% achieved minimal clinically important difference for pain (large effect size 2.81, mean reduction from 2.50 to 0.00, p less than 0.01), 70% achieved minimal clinically important difference for grip strength (large effect size 1.35, mean increase from 17.80 kg to 27.33 kg, p less than 0.001), and 70% for wrist function with PRWHE improving from 35.70 to 10.45 points (large effect size 2.47, p less than 0.001)",
+        clinicalRelevance: "Sensorimotor rehabilitation program targeting proprioception and motor control produces clinically meaningful improvements in pain, strength, and function for wrist injuries, with 70% of patients achieving minimal clinically important differences across multiple outcome measures"
+      },
+      {
+        finding: "Conservative treatment for stable TFCC tears produces excellent outcomes",
+        detail: "Study of 16 patients with TFCC lesions treated conservatively over mean 22.2 months follow-up achieved 53% excellent and 47% good results on Modified Mayo Wrist Score with mean score of 94.3, pain at rest of 0.1 (range 0 to 1), pain on exertion of 1.8 (range 0 to 4), and grip strength recovery to 88% of contralateral side, with DASH score of 16.8 and range of motion 99 to 100% of opposite wrist",
+        clinicalRelevance: "Conservative management of stable triangular fibrocartilage complex lesions produces excellent functional outcomes comparable to surgical intervention, supporting non-operative approach as first-line treatment for stable injuries without distal radioulnar joint instability"
+      },
+      {
+        finding: "Structured 5-phase rehabilitation significantly reduces wrist pain and improves function",
+        detail: "2023 quasi-experimental study of 32 subjects with traumatic TFCC tears completing structured non-operative treatment program showed Numeric Pain Rating Scale decreased from 5.3 out of 10 to 0.5 out of 10 and Activities of Daily Living pain score improved from 10 out of 20 to 19.1 out of 20, with progress monitored every 3 weeks throughout program",
+        clinicalRelevance: "Structured progressive rehabilitation program following defined phases produces substantial pain reduction and functional restoration for traumatic wrist injuries, with regular monitoring ensuring appropriate progression through treatment stages"
+      }
+    ],
+
     selfManagement: [
       {
         strategy: "Protected Movement in Early Stages",
@@ -6606,6 +6732,24 @@ The repetitive nature of typing and mouse use creates cumulative loading on tend
       ],
       naturalHistory: "Without appropriate management, RSI can become chronic and significantly impact quality of life and work capacity"
     },
+
+    keyResearch: [
+      {
+        finding: "Workplace ergonomic interventions substantially reduce musculoskeletal pain",
+        detail: "2024 meta-analysis of 24 randomized controlled trials with 4,086 workers demonstrated ergonomic interventions reduced overall musculoskeletal pain with odds ratio of 0.64 (95% CI 0.56 to 0.73, p less than 0.00001), lower back pain with odds ratio of 0.53 (95% CI 0.40 to 0.70, p less than 0.00001), neck pain with odds ratio of 0.59 (95% CI 0.39 to 0.89, p equals 0.01), and wrist pain with odds ratio of 0.66 (95% CI 0.53 to 0.82), with mean pain intensity reduction of minus 0.28 on Visual Analog Scale",
+        clinicalRelevance: "Ergonomic workplace modifications produce significant reductions in musculoskeletal pain across multiple body regions commonly affected by repetitive strain, supporting workplace assessment and modification as essential component of comprehensive RSI management"
+      },
+      {
+        finding: "Structured stretching programs reduce office worker musculoskeletal symptoms",
+        detail: "Randomized controlled trial of 142 office workers aged 20 to 50 years with neck, shoulder, and lower back pain showed exercise group performing 13 stretching exercises 3 times weekly for 10 to 15 minutes achieved statistically significant reductions at 6 months compared to control, including neck pain reduction of minus 10.55 (95% CI minus 14.36 to minus 6.74), right shoulder pain reduction of minus 12.17 (95% CI minus 16.87 to minus 7.47), and lower back pain reduction of minus 7.8 (95% CI minus 11.08 to minus 4.53)",
+        clinicalRelevance: "Regular workplace stretching programs of moderate duration performed 3 times weekly produce clinically significant pain reductions in upper extremity and trunk regions, with exercise interventions most effective for long-term symptom management in office workers"
+      },
+      {
+        finding: "Combined grip strength and wrist stability training improves chronic wrist pain",
+        detail: "2024 randomized controlled trial of 31 patients with non-specific chronic wrist pain showed experimental group receiving combined grip strengthening and wrist stabilization exercises twice weekly for 4 weeks achieved pain reduction from 4.23 to 1.87 (p less than 0.001), grip strength increase from 27.01 kg to 35.40 kg representing 31% improvement (p less than 0.001), and Patient-Rated Wrist Evaluation score reduction from 39.33 to 19.87 (p less than 0.001), while control group showed minimal non-significant changes",
+        clinicalRelevance: "Combined grip strengthening and wrist stability training protocol produces substantial improvements in pain, strength, and function for chronic wrist pain from repetitive activities, with measurable benefits achieved within 4-week intervention period"
+      }
+    ],
 
     selfManagement: [
       {
@@ -6757,6 +6901,24 @@ Asymmetrical movement patterns in sports create rotational forces that challenge
       ],
       naturalHistory: "SI joint dysfunction often responds excellently to conservative treatment when properly diagnosed and managed with multimodal approach"
     },
+
+    keyResearch: [
+      {
+        finding: "Manual therapy produces moderate effect on disability but not pain",
+        detail: "2024 systematic review and meta-analysis of 16 RCTs involving 421 adults (mean age 37.7 years) found SI joint manual therapy produced statistically significant moderate effect on disability reduction (SMD -0.67, 95% CI: -1.32 to -0.03, p = 0.0418) compared to non-manual physiotherapy or sham interventions. However, pain reduction was not statistically significant (SMD -0.88, 95% CI: -1.84 to 0.08, p = 0.0686), with 56% of studies rated good quality",
+        clinicalRelevance: "Manual therapy for SI joint dysfunction effectively reduces disability and improves function, though its direct effect on pain remains uncertain. This supports manual therapy as component of multimodal treatment targeting functional restoration rather than sole pain reduction"
+      },
+      {
+        finding: "Core stability exercises combined with mobilization improve pelvic alignment",
+        detail: "2024 study of 39 patients with SIJD divided into control, core stability exercise (CSE), and CSE plus Mulligan mobilization with movement (MWM) groups found significant improvements in pain scores and range of motion. The combined CSE plus MWM group showed superior outcomes in left lateral flexion ROM compared to control and better left axial rotation ROM compared to CSE alone, with improvements in pelvic tilt asymmetry",
+        clinicalRelevance: "Combining core stability exercises targeting deep abdominal and gluteal muscles with mobilization techniques produces superior functional outcomes compared to either intervention alone, addressing both muscular stability and joint mobility deficits in SIJD"
+      },
+      {
+        finding: "Long-term manual therapy with specific exercises increases treatment effectiveness",
+        detail: "Research demonstrates manual therapy proves effective in long-term management of sacroiliac joint dysfunction syndrome, with studies showing adding specific sacroiliac joint exercises to manipulation treatment further increases effectiveness. Conservative multimodal programs combining patient education, pelvic girdle stabilization with focused stretching, and manipulative therapy show consistent benefits",
+        clinicalRelevance: "Optimal SI joint dysfunction management requires multimodal approach combining manual therapy with targeted exercise prescription rather than passive treatment alone, with exercise-enhanced programs producing superior long-term outcomes"
+      }
+    ],
 
     selfManagement: [
       {
@@ -8062,46 +8224,21 @@ It's important for patients to understand that conservative treatment cannot cor
       }
     ],
 
-    keyResearch: [
+        keyResearch: [
       {
-        title: "Conservative treatment of hallux valgus: systematic review and meta-analysis",
-        authors: "Torkki M, Malmivaara A, Seitsalo S, et al.",
-        year: 2020,
-        journal: "Foot and Ankle International",
-        sampleSize: "12 studies, 1,174 patients",
-        findings: "Conservative treatment with orthotic devices and footwear modifications provides significant pain relief in 73-80% of patients. Custom orthotics show superior outcomes compared to over-the-counter devices for symptom management and deformity progression control.",
-        relevance: "Establishes evidence base for conservative management as first-line treatment for hallux valgus, supporting non-surgical approach before considering operative intervention",
-        citation: "Torkki M, Malmivaara A, Seitsalo S, et al. Surgery vs orthotic therapy for hallux valgus: a randomized controlled trial. JAMA. 2020;285(19):2474-2480."
+        finding: "Foot mobilization with exercise and toe separator reduces hallux valgus angle by 8.9° over 3 months with sustained 1-year results",
+        detail: "Randomized clinical trial of 56 women receiving 36 sessions over 3 months showed hallux valgus angle decreased from 32.7° ± 4.2° to 23.8° ± 3.1° post-treatment (p<0.001), remaining stable at 25.8° ± 2.1° at 1-year follow-up (p<0.001). First-second intermetatarsal angle improved from 14° ± 1° to 11.8° ± 0.5° (p<0.001), maintained at 12° ± 0.9° at one year. Treatment included joint mobilization, strengthening exercises, and continuous toe separator use",
+        clinicalRelevance: "Intensive multimodal conservative therapy combining mobilization, strengthening, and toe separator achieves clinically meaningful structural correction that persists long-term, offering evidence-based alternative to surgery for motivated patients with moderate hallux valgus"
       },
       {
-        title: "Footwear and orthotic interventions for hallux valgus: biomechanical analysis",
-        authors: "Menz HB, Auhl M, Ristevski B, et al.",
-        year: 2021,
-        journal: "Journal of Foot and Ankle Research",
-        sampleSize: "78 patients with hallux valgus",
-        findings: "Wide toe box shoes with low heels significantly reduce first metatarsophalangeal joint pressures and improve comfort scores. Orthotic devices with first ray posting can slow deformity progression by up to 35% over 2-year follow-up.",
-        relevance: "Provides biomechanical evidence supporting specific footwear recommendations and orthotic designs for hallux valgus management",
-        citation: "Menz HB, Auhl M, Ristevski B, et al. Effectiveness of off-the-shelf, extra-depth footwear in reducing foot pain in people with hallux valgus: a randomized controlled trial. J Foot Ankle Res. 2021;14(1):41."
+        finding: "Toe-spread-out exercise combined with orthosis produces 3.41° angle reduction and 23.5% muscle hypertrophy in 8 weeks",
+        detail: "Study of 24 subjects (19-29 years) performing 20 minutes daily, 4 days weekly for 8 weeks showed hallux valgus angle decreased from 18.33° to 14.92° (3.41° reduction) and abductor hallucis muscle cross-sectional area increased from 2.04 cm² to 2.52 cm² (0.48 cm² increase, 23.5% hypertrophy) in exercise group. During active abduction, angle decreased from 15.17° to 8.75° (6.42° reduction). Orthosis-only group showed no significant changes",
+        clinicalRelevance: "Targeted intrinsic foot muscle strengthening drives both structural correction and muscle adaptation, with active exercise essential as orthosis alone produces no measurable improvement, emphasizing active rehabilitation over passive correction"
       },
       {
-        title: "Intrinsic foot muscle strengthening for hallux valgus: clinical trial outcomes",
-        authors: "Unver B, Erdem EU, Akbas E",
-        year: 2022,
-        journal: "Foot and Ankle Surgery",
-        sampleSize: "60 patients with flexible hallux valgus",
-        findings: "8-week intrinsic foot muscle strengthening program significantly improved hallux valgus angles and pain scores compared to control group. Greatest benefits seen in flexible deformities with early intervention.",
-        relevance: "Demonstrates effectiveness of exercise-based interventions for hallux valgus, particularly when initiated before deformity becomes rigid",
-        citation: "Unver B, Erdem EU, Akbas E. Effects of short-foot exercises on foot posture, pain, disability, and plantar pressure in pes planus. J Sport Rehabil. 2022;29(4):436-440."
-      },
-      {
-        title: "Long-term outcomes of conservative versus surgical treatment for hallux valgus",
-        authors: "Schrier JC, Palladino SJ, Brilhault J, et al.",
-        year: 2023,
-        journal: "Foot and Ankle International",
-        sampleSize: "5-year follow-up study, 245 patients",
-        findings: "Conservative treatment maintains good functional outcomes in 70% of patients at 5-year follow-up. Surgery provides greater correction but involves higher complication rates and longer recovery periods.",
-        relevance: "Provides long-term outcome data comparing conservative and surgical management, supporting informed patient decision-making regarding treatment options",
-        citation: "Schrier JC, Palladino SJ, Brilhault J, et al. Osteotomy versus arthrodesis: a systematic review of treatment for hallux rigidus. Foot Ankle Int. 2023;44(8):765-773."
+        finding: "Orthoses with toe separators show medium effect size for angle correction but limited overall efficacy",
+        detail: "2021 systematic review and meta-analysis of 9 studies found overall small effect size (SMD 0.31, 95% CI: 0.075 to 0.547) for hallux valgus angle reduction, with orthoses containing toe separator showing medium effect size (SMD 0.50, 95% CI: 0.189 to 0.803). Specific studies demonstrated angle reductions: Tang et al. 5.79°, Moulodi et al. 2.67°, Chadchavalpanichaya et al. 2.1°. 2-year prospective study found pain VAS scores decreased from median 52 at baseline to 21 at 12 months, maintained at 27 at 24 months (p<0.001)",
+        clinicalRelevance: "While orthoses provide modest structural improvement and meaningful pain reduction sustained over 2 years, toe separator element is critical for optimal outcomes, and patients should maintain realistic expectations regarding degree of correction achievable with non-surgical management"
       }
     ],
 
@@ -8866,46 +9003,21 @@ The condition serves as an important lesson in listening to the body's signals a
       }
     ],
 
-    keyResearch: [
+        keyResearch: [
       {
-        title: "Conservative treatment of calcaneal apophysitis (Sever's disease): A systematic review",
-        authors: "Wiegerinck JI, Yntema C, Brouwer HJ, Struijs PA",
-        year: 2022,
-        journal: "Journal of Pediatric Orthopaedics",
-        sampleSize: "Meta-analysis of 11 studies, 376 children",
-        findings: "Conservative treatment including activity modification, calf stretching, and heel padding achieved complete pain resolution in 89% of cases within 8-12 weeks. Treatment was most effective when initiated early and included comprehensive calf flexibility programs.",
-        relevance: "Establishes conservative physiotherapy as highly effective first-line treatment with excellent success rates when properly implemented",
-        citation: "Wiegerinck JI, Yntema C, Brouwer HJ, Struijs PA. Conservative treatment of calcaneal apophysitis (Sever's disease): A systematic review. J Pediatr Orthop. 2022;42(8):e876-e883."
+        finding: "Custom foot orthoses reduce pain by 68.6% and increase pressure pain threshold by 53.4%",
+        detail: "A 2021 randomized controlled trial of 208 children aged 9-12 with calcaneal apophysitis found custom-made polypropylene foot orthoses produced a 68.6% reduction in VAS pain scores (95% CI: 74.5% to 62.7%) and 53.4% increase in pressure pain threshold (95% CI: 47.1% to 59.7%) compared to heel lifts over 12 weeks, with statistically significant improvements (p < 0.001)",
+        clinicalRelevance: "Custom orthoses demonstrate superior outcomes compared to off-the-shelf heel lifts, supporting first-line treatment with properly fitted foot orthoses for pediatric patients with Sever's disease, with measurable improvements in both subjective pain and objective pressure tolerance"
       },
       {
-        title: "Exercise therapy versus heel cups for pediatric calcaneal apophysitis: Randomized controlled trial",
-        authors: "James AM, Williams CM, Haines TP",
-        year: 2023,
-        journal: "Physical Therapy",
-        sampleSize: "84 children aged 8-14",
-        findings: "Structured calf stretching and strengthening program showed 73% greater improvement in pain and function scores compared to heel cups alone at 6-week follow-up. Exercise group maintained benefits at 6-month follow-up while heel cup group showed partial symptom recurrence.",
-        relevance: "Demonstrates superiority of active exercise therapy over passive treatments, supporting physiotherapy as primary intervention",
-        citation: "James AM, Williams CM, Haines TP. Exercise therapy versus heel cups for pediatric calcaneal apophysitis: Randomized controlled trial. Phys Ther. 2023;103(4):pzad012."
+        finding: "Physical therapy achieves return to sport in 2 months with gender differences in recovery",
+        detail: "A 2025 systematic review of 17 studies found average return to sport of 2 months with physical therapy and orthotic management, with boys averaging 2.2 months recovery time and girls 1.6 months, though bilateral cases took significantly longer (209.5 days) compared to unilateral presentations (45.9 days)",
+        clinicalRelevance: "Conservative management with physical therapy and orthoses provides predictable recovery timelines for athletic populations, with treatment planning requiring consideration of bilateral involvement as a negative prognostic factor requiring extended rehabilitation duration"
       },
       {
-        title: "Risk factors and prevention of calcaneal apophysitis in young athletes",
-        authors: "Micheli LJ, Ireland ML, Roscoe K, et al.",
-        year: 2021,
-        journal: "Sports Medicine",
-        sampleSize: "Prospective cohort of 312 young athletes",
-        findings: "Limited ankle dorsiflexion (less than 10 degrees) increased Sever's disease risk by 4.2 times. Athletes with structured flexibility programs had 67% lower incidence compared to controls. Training load increases >30% per week doubled injury risk.",
-        relevance: "Identifies key modifiable risk factors, emphasizing importance of flexibility maintenance and gradual training progression in prevention",
-        citation: "Micheli LJ, Ireland ML, Roscoe K, et al. Risk factors and prevention of calcaneal apophysitis in young athletes. Sports Med. 2021;51(12):2595-2608."
-      },
-      {
-        title: "Long-term outcomes following Sever's disease in adolescent athletes",
-        authors: "Rachel JN, Williams JB, Sawyer JR, et al.",
-        year: 2024,
-        journal: "American Journal of Sports Medicine",
-        sampleSize: "156 athletes (5-year follow-up)",
-        findings: "Complete symptom resolution occurred in 98% of cases by skeletal maturity. No long-term complications or growth disturbances were observed. Athletes who received early physiotherapy intervention had 45% shorter symptom duration and better long-term sport participation rates.",
-        relevance: "Provides reassurance about excellent long-term prognosis while emphasizing benefits of early comprehensive treatment",
-        citation: "Rachel JN, Williams JB, Sawyer JR, et al. Long-term outcomes following Sever's disease in adolescent athletes. Am J Sports Med. 2024;52(3):678-685."
+        finding: "8 randomized controlled trials support multi-modal conservative approach",
+        detail: "A 2024 systematic review examining 8 RCTs (average PEDro methodological quality score 6.75/10) evaluated common treatments including custom orthoses, therapeutic exercise, kinesio taping, and foot orthoses, with a tiered treatment framework emerging that prioritizes custom foot orthoses and physical therapy as Tier 1 interventions based on strongest evidence",
+        clinicalRelevance: "Evidence supports structured treatment hierarchy with custom orthoses and supervised exercise as primary interventions, reserving other modalities as adjuncts, allowing clinicians to follow evidence-based treatment progressions when initial interventions prove insufficient"
       }
     ],
 
@@ -9141,46 +9253,21 @@ Understanding the relationship between foot biomechanics and nerve compression h
       }
     ],
 
-    keyResearch: [
+        keyResearch: [
       {
-        title: "Conservative management of tarsal tunnel syndrome: A systematic review and meta-analysis",
-        authors: "Ahmad M, Tsang K, Mackenney PJ, Adedapo AO",
-        year: 2023,
-        journal: "Foot and Ankle International",
-        sampleSize: "Meta-analysis of 14 studies, 389 patients",
-        findings: "Conservative treatment achieved significant symptom improvement in 67% of patients within 12-16 weeks. Success rates were highest (78%) when treatment was initiated within 6 months of symptom onset and included neural mobilization, orthotic management, and activity modification.",
-        relevance: "Establishes conservative physiotherapy as effective first-line treatment with good success rates, particularly when implemented early in the condition's course",
-        citation: "Ahmad M, Tsang K, Mackenney PJ, Adedapo AO. Conservative management of tarsal tunnel syndrome: A systematic review and meta-analysis. Foot Ankle Int. 2023;44(8):768-778."
+        finding: "Surgical decompression achieves 75.3% excellent or good outcomes across 32 studies",
+        detail: "A 2024 scoping review of 32 studies with 1,115 patients (weighted mean age 45.2 years) found 518 of 688 patients (75.3%) achieved excellent or good surgical outcomes, while 170 patients (24.7%) had fair or poor results, with overall complication rate of 11.2% and recurrence rate of 11.2%, though evidence quality remained low with only 1 level 3 study",
+        clinicalRelevance: "While three-quarters of patients achieve good surgical outcomes, one-quarter experience suboptimal results with meaningful complication and recurrence rates, supporting conservative management as appropriate first-line treatment with surgery reserved for refractory cases after adequate trial of 4-6 months"
       },
       {
-        title: "Neural mobilization and manual therapy for tarsal tunnel syndrome: Randomized controlled trial",
-        authors: "Flanigan RM, DiGiovanni BF, O'Brien FP, et al.",
-        year: 2022,
-        journal: "Manual Therapy",
-        sampleSize: "96 patients",
-        findings: "Combined neural mobilization and manual therapy resulted in 58% greater improvement in symptom severity scores and 43% better functional outcomes compared to standard care alone at 8-week follow-up. Night symptoms showed particularly marked improvement (72% reduction).",
-        relevance: "Demonstrates effectiveness of specific manual therapy techniques in addressing nerve entrapment, supporting hands-on physiotherapy approach",
-        citation: "Flanigan RM, DiGiovanni BF, O'Brien FP, et al. Neural mobilization and manual therapy for tarsal tunnel syndrome: Randomized controlled trial. Man Ther. 2022;62:103689."
+        finding: "Conservative treatment successful in 30.4% of patients before surgical intervention",
+        detail: "A 2022 systematic review examining conservative versus surgical management found conservative treatment including activity modification, NSAIDs, corticosteroid injections, physical therapy, and custom orthotics produced successful outcomes in 17 of 56 patients (30.4%), with statistically significant improvements in pain intensity, functional foot scores, symptom severity, and ankle mobility over 4-6 week periods",
+        clinicalRelevance: "Approximately one-third of patients respond to conservative management, justifying 4-6 month trial of non-operative treatment including manual therapy, strengthening, neural mobilization, and orthotic management before considering surgical decompression, particularly in lower-demand patients"
       },
       {
-        title: "Role of custom foot orthoses in tarsal tunnel syndrome management",
-        authors: "Kinoshita M, Okuda R, Morikawa J, et al.",
-        year: 2021,
-        journal: "Journal of Orthopaedic Science",
-        sampleSize: "73 patients",
-        findings: "Custom foot orthoses addressing biomechanical factors reduced symptoms by 54% and improved functional scores by 47% over 12 weeks. Greatest benefits observed in patients with excessive foot pronation and those with mild to moderate symptom severity.",
-        relevance: "Supports orthotic intervention as key component of comprehensive treatment, particularly for biomechanically-driven cases",
-        citation: "Kinoshita M, Okuda R, Morikawa J, et al. Role of custom foot orthoses in tarsal tunnel syndrome management. J Orthop Sci. 2021;26(6):1048-1054."
-      },
-      {
-        title: "Predictors of conservative treatment success in tarsal tunnel syndrome",
-        authors: "Patel AT, Gaines K, Malamut R, et al.",
-        year: 2024,
-        journal: "Muscle and Nerve",
-        sampleSize: "142 patients (18-month follow-up)",
-        findings: "Symptom duration less than 12 months, mild nerve conduction study abnormalities, and absence of space-occupying lesions predicted 85% success rate with conservative treatment. Early physiotherapy intervention within 3 months doubled success rates compared to delayed treatment.",
-        relevance: "Identifies key prognostic factors that help determine when conservative treatment is most likely to succeed, supporting early physiotherapy referral",
-        citation: "Patel AT, Gaines K, Malamut R, et al. Predictors of conservative treatment success in tarsal tunnel syndrome. Muscle Nerve. 2024;69(4):512-519."
+        finding: "17 of 32 surgical studies reported failed conservative treatment prior to surgery",
+        detail: "The 2024 scoping review documented that 17 studies specifically reported failure of conservative treatment before proceeding to surgical nerve decompression, with factors influencing surgical outcomes including patient age, symptom duration, etiology, comorbidities, pre-treatment symptom severity, and nerve fibrosis, highlighting importance of patient selection and timing",
+        clinicalRelevance: "Surgical decision-making requires consideration of multiple prognostic factors beyond simple failure of conservative care, with duration of conservative treatment, underlying etiology, and baseline symptom severity affecting likelihood of surgical success and supporting thorough conservative trial before operative intervention"
       }
     ],
 

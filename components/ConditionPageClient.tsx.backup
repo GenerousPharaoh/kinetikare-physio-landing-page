@@ -28,7 +28,6 @@ import {
   ExclamationCircleIcon
 } from '@heroicons/react/24/outline';
 import { Condition } from '@/lib/conditions-data';
-import RelatedConditionsSection from '@/components/sections/RelatedConditionsSection';
 
 interface ConditionPageClientProps {
   condition: Condition;
@@ -45,7 +44,7 @@ interface TabContent {
 export default function ConditionPageClient({ 
   condition, 
   relatedConditions 
-}: ConditionPageClientProps): JSX.Element {
+}: ConditionPageClientProps) {
   const [activeTab, setActiveTab] = useState('overview');
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
   
@@ -97,20 +96,35 @@ export default function ConditionPageClient({
     { id: 'overview', label: 'Overview', icon: InformationCircleIcon },
     { id: 'symptoms', label: 'Symptoms', icon: DocumentTextIcon },
     { id: 'self-care', label: 'Management', icon: HeartIcon },
-    { id: 'research', label: 'Research', icon: ChartBarIcon }
-  ];
+    { id: 'research', label: 'Research', icon: ChartBarIcon },
+  ].filter(tab => {
+    // Only show tabs that have content
+    switch(tab.id) {
+      case 'overview':
+        return condition.pathophysiology || condition.overview || condition.biomechanics;
+      case 'symptoms':
+        return condition.clinicalPresentation || condition.differentialDiagnosis || condition.whenToSeek;
+      case 'research':
+        return condition.keyResearch || condition.researchInsights;
+      case 'self-care':
+        // Now includes treatment approach and timeline content
+        return condition.selfManagement || condition.prognosis || condition.faqs || 
+               condition.treatmentApproach || condition.timeline || condition.evidenceBasedTreatment;
+      default:
+        return false;
+    }
+  });
+
 
   // Toggle section expansion
   const toggleSection = (sectionId: string) => {
-    setExpandedSections((prev) => {
-      const newExpanded = new Set(prev);
-      if (newExpanded.has(sectionId)) {
-        newExpanded.delete(sectionId);
-      } else {
-        newExpanded.add(sectionId);
-      }
-      return newExpanded;
-    });
+    const newExpanded = new Set(expandedSections);
+    if (newExpanded.has(sectionId)) {
+      newExpanded.delete(sectionId);
+    } else {
+      newExpanded.add(sectionId);
+    }
+    setExpandedSections(newExpanded);
   };
 
   // Structured data for SEO
@@ -118,7 +132,22 @@ export default function ConditionPageClient({
     "@context": "https://schema.org",
     "@type": "MedicalCondition",
     "name": condition.name,
-    "description": condition.overview || condition.description
+    "description": condition.overview || condition.description,
+    "possibleTreatment": {
+      "@type": "MedicalTherapy",
+      "name": "Physiotherapy",
+      "description": condition.treatmentApproach?.description
+    },
+    "signOrSymptom": condition.redFlags?.map(flag => ({
+      "@type": "MedicalSymptom",
+      "name": flag
+    }))
+  };
+
+  // Check if we need multiple citations
+  const hasStrongEvidence = (treatment: any) => {
+    return treatment.effectivenessLevel === 'strong' && 
+           (!condition.keyResearch || condition.keyResearch.length < 2);
   };
 
   return (
@@ -130,6 +159,11 @@ export default function ConditionPageClient({
       />
 
       <div className="min-h-screen">
+        {/* Screen-reader-only H1 for SEO */}
+        <h1 className="sr-only">
+          {condition.name} Treatment Burlington | Kareem Hassanein Physiotherapy | Waterdown Oakville Physiotherapist
+        </h1>
+
         {/* Minimal Hero with Breadcrumbs */}
         <section className="pt-24 pb-3 bg-gradient-to-b from-slate-50 to-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -147,15 +181,20 @@ export default function ConditionPageClient({
                 <span className="text-slate-900 font-medium">{condition.name}</span>
               </nav>
 
-              <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-1.5">
+              <h1 className="text-3xl md:text-4xl font-medium tracking-tight leading-tight text-slate-900 mb-3">
                 {condition.name}
               </h1>
               {condition.description && (
-                <p className="text-sm md:text-base text-slate-500 max-w-3xl">
+                <p className="text-base md:text-lg text-slate-700 leading-relaxed max-w-3xl">
                   {condition.description}
                 </p>
               )}
-              
+
+              {/* Regional Service Area - Subtle mention */}
+              <p className="text-xs text-slate-400 mt-2">
+                Treating {condition.name.toLowerCase()} at our Burlington clinic • Convenient for Waterdown and Flamborough residents
+              </p>
+
               {/* Red Flags Disclaimer - Simple expandable that pushes content */}
               {((condition.clinicalRedFlags && condition.clinicalRedFlags.length > 0) || 
                 (condition.redFlags && condition.redFlags.length > 0)) && (
@@ -226,7 +265,7 @@ export default function ConditionPageClient({
         <section className="pt-6 pb-0 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="w-full">
-              <div className="grid grid-cols-1 xl:grid-cols-[1fr_380px] gap-8">
+              <div className="grid grid-cols-1 xl:grid-cols-[1fr_380px] gap-8 xl:items-start">
                 {/* Main Content */}
                 <main className="relative min-w-0 w-full">
                   {/* Coming Soon Message - Shown when no detailed content */}
@@ -234,10 +273,10 @@ export default function ConditionPageClient({
                     <div className="bg-slate-50 rounded-xl p-8 border border-slate-200">
                       <div className="flex flex-col items-center text-center">
                         <ClockIcon className="h-16 w-16 text-slate-400 mb-4" />
-                        <h2 className="text-2xl font-bold text-slate-900 mb-3">
+                        <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-4">
                           Content Coming Soon
                         </h2>
-                        <p className="text-slate-600 max-w-2xl mb-6">
+                        <p className="text-base text-slate-700 leading-relaxed max-w-2xl mb-8">
                           Detailed information about {condition.name} is currently being developed.
                         </p>
                         
@@ -272,289 +311,136 @@ export default function ConditionPageClient({
                       </div>
                     </div>
                   ) : (
-                  <AnimatePresence mode="wait">
+                  <AnimatePresence mode="wait" initial={false}>
                     <motion.div
                       key={activeTab}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      transition={{ duration: 0.3 }}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.15, ease: "easeInOut" }}
                     >
                       {/* Overview Tab */}
                       {activeTab === 'overview' && (
-                        <div className="space-y-6">
-                          {/* Main Overview Card with Hero Style */}
-                          {(condition.pathophysiology || condition.overview) && (
-                            <div className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
-                              {/* Premium gradient overlay with animated effect */}
-                              <div className="absolute inset-0 bg-gradient-to-br from-blue-50/40 via-transparent to-cyan-50/30 pointer-events-none"></div>
-                              
-                              <div className="relative">
-                                {/* Header with eye-catching gradient */}
-                                <div className="bg-gradient-to-r from-blue-900 to-cyan-700 px-8 py-8">
-                                  <div className="flex items-center gap-4">
-                                    <div className="p-3 bg-white/10 backdrop-blur rounded-xl border border-white/20">
-                                      <InformationCircleIcon className="h-8 w-8 text-white" />
-                                    </div>
-                                    <div>
-                                      <h2 className="text-3xl font-bold text-white">
-                                        {condition.pathophysiology ? `The Science of ${condition.name || 'Your Condition'}` : 'Understanding Your Condition'}
-                                      </h2>
-                                      <p className="text-sm text-blue-200 mt-2">Evidence-based insights and clinical understanding</p>
-                                    </div>
-                                  </div>
-                                </div>
-                                
-                                {/* Content with visual hierarchy */}
-                                <div className="p-8">
-                                  {/* Key Points Highlight Box */}
-                                  <div className="mb-8 p-6 bg-gradient-to-r from-blue-50/50 to-cyan-50/30 rounded-xl border border-blue-100">
-                                    <div className="flex items-start gap-3">
-                                      <SparklesIcon className="h-6 w-6 text-blue-600 flex-shrink-0 mt-0.5" />
-                                      <div>
-                                        <h3 className="text-sm font-bold text-blue-900 uppercase tracking-wider mb-2">Key Understanding</h3>
-                                        <p className="text-slate-700 leading-relaxed text-lg">
-                                          {condition.pathophysiology ? 
-                                            condition.pathophysiology.split('.')[0] + '.' : 
-                                            condition.overview ? condition.overview.split('.')[0] + '.' : ''}
-                                        </p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  
-                                  {/* Main Content with Enhanced Typography */}
-                                  <div className="space-y-6">
-                                    {condition.pathophysiology && (
-                                      <div className="prose prose-lg max-w-none">
-                                        <p className="text-slate-700 leading-relaxed first-letter:text-5xl first-letter:font-bold first-letter:text-blue-700 first-letter:mr-3 first-letter:float-left">
-                                          {condition.pathophysiology}
-                                        </p>
-                                      </div>
-                                    )}
-                                    
-                                    {condition.overview && !condition.pathophysiology && (
-                                      <div className="space-y-5">
-                                        {condition.overview.split('\n\n').map((paragraph, index) => (
-                                          <div key={index} className="relative">
-                                            {index === 0 ? (
-                                              <p className="text-slate-700 leading-relaxed text-lg first-letter:text-5xl first-letter:font-bold first-letter:text-blue-700 first-letter:mr-3 first-letter:float-left">
-                                                {paragraph}
-                                              </p>
-                                            ) : (
-                                              <p className="text-slate-700 leading-relaxed">
-                                                {paragraph}
-                                              </p>
-                                            )}
-                                          </div>
-                                        ))}
-                                      </div>
-                                    )}
-                                  </div>
-                                </div>
+                        <div className="space-y-8">
+                          {condition.pathophysiology && (
+                            <div className="bg-white rounded-xl p-8 md:p-8 border border-slate-200">
+                              <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
+                                The Science of {condition.name || 'Your Condition'}
+                              </h2>
+                              <p className="text-base text-slate-700 leading-relaxed">
+                                {condition.pathophysiology}
+                              </p>
+                            </div>
+                          )}
+
+                          {condition.overview && !condition.pathophysiology && (
+                            <div className="bg-white rounded-xl p-8 md:p-8 border border-slate-200">
+                              <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
+                                Understanding Your Condition
+                              </h2>
+                              <div className="space-y-4">
+                                {condition.overview.split('\n\n').map((paragraph, index) => (
+                                  <p key={index} className="text-base text-slate-700 leading-relaxed">
+                                    {paragraph}
+                                  </p>
+                                ))}
                               </div>
                             </div>
                           )}
 
-                          {/* Contributing Factors with Visual Interest */}
                           {condition.biomechanics && (
-                            <div className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
-                              <div className="absolute inset-0 bg-gradient-to-br from-green-50/30 via-transparent to-emerald-50/20 pointer-events-none"></div>
-                              
-                              <div className="relative">
-                                <div className="bg-gradient-to-r from-green-900 to-emerald-700 px-8 py-6">
-                                  <div className="flex items-center gap-3">
-                                    <div className="p-2.5 bg-white/10 backdrop-blur rounded-xl border border-white/20">
-                                      <BeakerIcon className="h-6 w-6 text-white" />
-                                    </div>
-                                    <div>
-                                      <h2 className="text-2xl font-bold text-white">Contributing Factors</h2>
-                                      <p className="text-sm text-green-200 mt-1">Biomechanical and physiological influences</p>
-                                    </div>
-                                  </div>
-                                </div>
-                                
-                                <div className="p-8">
-                                  <div className="grid md:grid-cols-2 gap-6">
-                                    {condition.biomechanics.split('\n\n').map((paragraph, index) => (
-                                      <div key={index} className="group relative bg-gradient-to-r from-green-50/40 to-emerald-50/30 rounded-xl p-5 border border-green-100 hover:shadow-md transition-all">
-                                        <div className="flex gap-4">
-                                          <div className="flex-shrink-0">
-                                            <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center shadow-lg">
-                                              <span className="text-white font-bold">{index + 1}</span>
-                                            </div>
-                                          </div>
-                                          <div className="flex-1">
-                                            <p className="text-slate-700 text-sm leading-relaxed">
-                                              {paragraph}
-                                            </p>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    ))}
-                                  </div>
-                                </div>
+                            <div className="bg-slate-50 rounded-xl p-8 md:p-8 border border-slate-200">
+                              <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
+                                Contributing Factors
+                              </h2>
+                              <div className="space-y-4">
+                                {condition.biomechanics.split('\n\n').map((paragraph, index) => (
+                                  <p key={index} className="text-base text-slate-700 leading-relaxed">
+                                    {paragraph}
+                                  </p>
+                                ))}
                               </div>
                             </div>
                           )}
                           
-                          {/* Visual Stats or Quick Facts if available */}
-                          {(condition.commonAge || condition.prevalence) && (
-                            <div className="grid md:grid-cols-2 gap-6">
-                              {condition.commonAge && (
-                                <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl p-6 border border-purple-100 shadow-md">
-                                  <div className="flex items-center gap-3 mb-3">
-                                    <CalendarIcon className="h-6 w-6 text-purple-600" />
-                                    <h3 className="font-bold text-purple-900">Common Age</h3>
-                                  </div>
-                                  <p className="text-2xl font-bold text-purple-700">{condition.commonAge}</p>
-                                </div>
-                              )}
-                              
-                              {condition.prevalence && (
-                                <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-6 border border-orange-100 shadow-md">
-                                  <div className="flex items-center gap-3 mb-3">
-                                    <ChartBarIcon className="h-6 w-6 text-orange-600" />
-                                    <h3 className="font-bold text-orange-900">Prevalence</h3>
-                                  </div>
-                                  <p className="text-2xl font-bold text-orange-700">{condition.prevalence}</p>
-                                </div>
-                              )}
-                            </div>
-                          )}
                         </div>
                       )}
 
                       {/* Symptoms Tab */}
                       {activeTab === 'symptoms' && (
-                        <div className="space-y-6">
+                        <div className="space-y-8">
                           {condition.clinicalPresentation && (
-                            <div className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
-                              {/* Premium gradient overlay */}
-                              <div className="absolute inset-0 bg-gradient-to-br from-purple-50/30 via-transparent to-indigo-50/20 pointer-events-none"></div>
-                              
-                              <div className="relative">
-                                {/* Header with gradient accent */}
-                                <div className="bg-gradient-to-r from-purple-900 to-indigo-700 px-8 py-6">
-                                  <div className="flex items-center gap-3">
-                                    <div className="p-2.5 bg-white/10 backdrop-blur rounded-xl border border-white/20">
-                                      <DocumentTextIcon className="h-6 w-6 text-white" />
-                                    </div>
-                                    <div>
-                                      <h2 className="text-2xl font-bold text-white">Clinical Presentation</h2>
-                                      <p className="text-sm text-purple-200 mt-1">Symptoms and diagnostic patterns</p>
-                                    </div>
-                                  </div>
-                                </div>
-                                
-                                <div className="p-8">
-                                  {condition.clinicalPresentation.primarySymptoms && (
-                                    <div className="mb-8">
-                                      <div className="flex items-center gap-2 mb-5">
-                                        <ExclamationCircleIcon className="h-5 w-5 text-purple-600" />
-                                        <h3 className="text-sm font-bold text-purple-900 uppercase tracking-wider">Primary Symptoms</h3>
-                                      </div>
-                                      <div className="grid md:grid-cols-2 gap-4">
-                                        {condition.clinicalPresentation.primarySymptoms.map((symptom, index) => (
-                                          <div key={index} className="group relative bg-gradient-to-r from-purple-50/50 to-indigo-50/30 rounded-lg p-4 border border-purple-100 hover:shadow-md transition-all">
-                                            <div className="flex items-start gap-3">
-                                              <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-lg flex items-center justify-center shadow-md flex-shrink-0">
-                                                <CheckCircleIcon className="h-4 w-4 text-white" />
-                                              </div>
-                                              <span className="text-slate-700 text-sm leading-relaxed">{symptom}</span>
-                                            </div>
-                                          </div>
-                                        ))}
-                                      </div>
-                                    </div>
-                                  )}
-                                  
-                                  {condition.clinicalPresentation.associatedSymptoms && (
-                                    <div className="mb-8">
-                                      <div className="flex items-center gap-2 mb-5">
-                                        <SparklesIcon className="h-5 w-5 text-indigo-600" />
-                                        <h3 className="text-sm font-bold text-indigo-900 uppercase tracking-wider">Associated Symptoms</h3>
-                                      </div>
-                                      <div className="grid md:grid-cols-2 gap-4">
-                                        {condition.clinicalPresentation.associatedSymptoms.map((symptom, index) => (
-                                          <div key={index} className="group relative bg-gradient-to-r from-indigo-50/40 to-purple-50/30 rounded-lg p-4 border border-indigo-100 hover:shadow-md transition-all">
-                                            <div className="flex items-start gap-3">
-                                              <div className="mt-1 w-6 h-6 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                                <div className="w-2 h-2 bg-white rounded-full" />
-                                              </div>
-                                              <span className="text-slate-700 text-sm leading-relaxed">{symptom}</span>
-                                            </div>
-                                          </div>
-                                        ))}
-                                      </div>
-                                    </div>
-                                  )}
-                                  
-                                  {condition.clinicalPresentation.typicalPattern && (
-                                    <div className="relative bg-gradient-to-r from-purple-900/5 to-indigo-900/5 rounded-xl p-6 border border-purple-200">
-                                      <div className="absolute -top-2 -left-2 w-8 h-8 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-lg flex items-center justify-center shadow-lg">
-                                        <BookOpenIcon className="h-4 w-4 text-white" />
-                                      </div>
-                                      <h3 className="text-sm font-bold text-purple-900 uppercase tracking-wider mb-3 ml-6">Typical Pattern</h3>
-                                      <p className="text-slate-700 leading-relaxed">{condition.clinicalPresentation.typicalPattern}</p>
-                                    </div>
-                                  )}
-                                </div>
-                              </div>
-                            </div>
-                          )}
+                            <div className="bg-white rounded-xl p-8 md:p-8 border border-slate-200">
+                              <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
+                                Clinical Presentation
+                              </h2>
 
-                          {condition.differentialDiagnosis && condition.differentialDiagnosis.length > 0 && (
-                            <div className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
-                              <div className="absolute inset-0 bg-gradient-to-br from-amber-50/30 via-transparent to-yellow-50/20 pointer-events-none"></div>
-                              
-                              <div className="relative">
-                                <div className="bg-gradient-to-r from-amber-900 to-yellow-700 px-8 py-6">
-                                  <div className="flex items-center gap-3">
-                                    <div className="p-2.5 bg-white/10 backdrop-blur rounded-xl border border-white/20">
-                                      <ExclamationTriangleIcon className="h-6 w-6 text-white" />
-                                    </div>
-                                    <div>
-                                      <h2 className="text-2xl font-bold text-white">Differential Diagnosis</h2>
-                                      <p className="text-sm text-amber-200 mt-1">Similar conditions to consider</p>
-                                    </div>
-                                  </div>
-                                </div>
-                                
-                                <div className="p-8">
-                                  <div className="space-y-4">
-                                    {condition.differentialDiagnosis.map((diff, index) => (
-                                      <div key={index} className="group relative bg-gradient-to-r from-amber-50/40 to-yellow-50/30 rounded-xl p-5 border border-amber-100 hover:shadow-md transition-all">
-                                        <div className="flex gap-4">
-                                          <div className="flex-shrink-0">
-                                            <div className="w-10 h-10 bg-gradient-to-br from-amber-500 to-yellow-600 rounded-lg flex items-center justify-center shadow-lg">
-                                              <span className="text-white font-bold text-sm">{index + 1}</span>
-                                            </div>
-                                          </div>
-                                          <div className="flex-1">
-                                            <h3 className="text-sm font-bold text-amber-900 uppercase tracking-wider mb-2">{diff.condition}</h3>
-                                            <p className="text-slate-700 text-sm leading-relaxed">
-                                              <span className="font-semibold text-amber-700">Key differences:</span> {diff.distinguishingFeatures}
-                                            </p>
-                                          </div>
-                                        </div>
+                              {condition.clinicalPresentation.primarySymptoms && (
+                                <div className="mb-8">
+                                  <h3 className="text-xl font-medium leading-tight text-slate-900 mb-4">Primary Symptoms</h3>
+                                  <div className="grid md:grid-cols-2 gap-4">
+                                    {condition.clinicalPresentation.primarySymptoms.map((symptom, index) => (
+                                      <div key={index} className="flex items-start gap-3">
+                                        <CheckCircleIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
+                                        <span className="text-base text-slate-700 leading-relaxed">{symptom}</span>
                                       </div>
                                     ))}
                                   </div>
                                 </div>
+                              )}
+
+                              {condition.clinicalPresentation.associatedSymptoms && (
+                                <div className="mb-8">
+                                  <h3 className="text-xl font-medium leading-tight text-slate-900 mb-4">Associated Symptoms</h3>
+                                  <div className="grid md:grid-cols-2 gap-4">
+                                    {condition.clinicalPresentation.associatedSymptoms.map((symptom, index) => (
+                                      <div key={index} className="flex items-start gap-3">
+                                        <div className="mt-2 h-1.5 w-1.5 bg-slate-400 rounded-full" />
+                                        <span className="text-base text-slate-700 leading-relaxed">{symptom}</span>
+                                      </div>
+                                    ))}
+                                  </div>
+                                </div>
+                              )}
+
+                              {condition.clinicalPresentation.typicalPattern && (
+                                <div className="p-6 bg-[#B08D57]/5 rounded-lg border border-[#B08D57]/20">
+                                  <h3 className="text-xl font-medium leading-tight text-slate-900 mb-3">Typical Pattern</h3>
+                                  <p className="text-base text-slate-700 leading-relaxed">{condition.clinicalPresentation.typicalPattern}</p>
+                                </div>
+                              )}
+                            </div>
+                          )}
+
+                          {condition.differentialDiagnosis && condition.differentialDiagnosis.length > 0 && (
+                            <div className="bg-slate-50 rounded-xl p-8 md:p-8 border border-slate-200">
+                              <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-4">
+                                Differential Diagnosis
+                              </h2>
+                              <p className="text-base text-slate-700 leading-relaxed mb-6">Conditions with similar presentations:</p>
+                              <div className="space-y-4">
+                                {condition.differentialDiagnosis.map((diff, index) => (
+                                  <div key={index} className="bg-white rounded-lg p-6 border border-slate-200">
+                                    <h3 className="text-xl font-medium leading-tight text-slate-900 mb-2">{diff.condition}</h3>
+                                    <p className="text-base text-slate-700 leading-relaxed">
+                                      <span className="font-medium">Key differences:</span> {diff.distinguishingFeatures}
+                                    </p>
+                                  </div>
+                                ))}
                               </div>
                             </div>
                           )}
 
                           {condition.whenToSeek && condition.whenToSeek.length > 0 && (
-                            <div className="bg-amber-50 rounded-xl p-6 border border-amber-200">
-                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                            <div className="bg-amber-50 rounded-xl p-8 md:p-8 border border-amber-200">
+                              <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
                                 When to Seek Professional Help
                               </h2>
-                              <div className="space-y-2">
+                              <div className="space-y-3">
                                 {condition.whenToSeek.map((item, index) => (
                                   <div key={index} className="flex items-start gap-3">
                                     <CheckCircleIcon className="h-5 w-5 text-amber-600 mt-0.5 flex-shrink-0" />
-                                    <span className="text-slate-700">{item}</span>
+                                    <span className="text-base text-slate-700 leading-relaxed">{item}</span>
                                   </div>
                                 ))}
                               </div>
@@ -563,11 +449,89 @@ export default function ConditionPageClient({
                         </div>
                       )}
 
+                      {/* Treatment Tab */}
+                      {activeTab === 'treatment' && (
+                        <div className="space-y-8">
+                          {condition.treatmentApproach && (
+                            <div className="bg-white rounded-xl p-8 md:p-8 border border-slate-200">
+                              <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
+                                {condition.treatmentApproach.title}
+                              </h2>
+                              <p className="text-base text-slate-700 leading-relaxed mb-8">
+                                {condition.treatmentApproach.description}
+                              </p>
+                              <div className="space-y-3">
+                                {condition.treatmentApproach.techniques.map((technique, index) => {
+                                  const [title, description] = technique.split(': ');
+                                  return (
+                                    <div key={index} className="flex items-start gap-3">
+                                      <CheckCircleIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
+                                      <div>
+                                        <span className="font-medium text-slate-900">{title}</span>
+                                        {description && <span className="text-slate-600">: {description}</span>}
+                                      </div>
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            </div>
+                          )}
 
-                      {/* Research Tab - Premium Design with Collapsible Sections */}
+                          {condition.evidenceBasedTreatment && condition.evidenceBasedTreatment.length > 0 && (
+                            <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
+                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                                Evidence-Based Treatment Options
+                              </h2>
+                              <div className="space-y-4">
+                                {condition.evidenceBasedTreatment.map((treatment, index) => (
+                                  <div key={index} className="bg-white rounded-lg p-4 border border-slate-200">
+                                    <h3 className="text-xl font-medium leading-tight text-slate-900 mb-3">{treatment.approach}</h3>
+                                    <p className="text-slate-600 text-sm">{treatment.evidence}</p>
+                                    {hasStrongEvidence(treatment) && (
+                                      <p className="text-xs text-amber-600 mt-2 italic">
+                                        Note: Additional studies needed to confirm effectiveness level
+                                      </p>
+                                    )}
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+
+                          {condition.timeline && condition.timeline.length > 0 && (
+                            <div className="bg-white rounded-xl p-6 border border-slate-200">
+                              <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
+                                Recovery Timeline
+                              </h2>
+                              <div className="relative">
+                                {condition.timeline.map((phase, index) => (
+                                  <div key={index} className="flex gap-4 mb-6 last:mb-0">
+                                    <div className="flex flex-col items-center">
+                                      <div className="w-3 h-3 bg-[#B08D57] rounded-full" />
+                                      {index < condition.timeline!.length - 1 && (
+                                        <div className="w-0.5 h-full bg-[#B08D57]/30 mt-2" />
+                                      )}
+                                    </div>
+                                    <div className="flex-1 pb-6">
+                                      <div className="flex items-center gap-3 mb-2">
+                                        <h3 className="text-xl font-medium leading-tight text-slate-900">{phase.phase}</h3>
+                                        <span className="text-sm text-[#B08D57] bg-[#B08D57]/10 px-2 py-1 rounded">
+                                          {phase.duration}
+                                        </span>
+                                      </div>
+                                      <p className="text-slate-600">{phase.description}</p>
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      )}
+
+                      {/* Research Tab - Premium Design */}
                       {activeTab === 'research' && (
                         <div className="space-y-6">
-                          {/* Key Research Section - Collapsible */}
                           {condition.keyResearch && condition.keyResearch.length > 0 && (
                             <div className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
                               {/* Premium gradient overlay */}
@@ -599,17 +563,17 @@ export default function ConditionPageClient({
                                   </div>
                                 </div>
                                 
-                                <AnimatePresence>
+                                <AnimatePresence initial={false}>
                                   {expandedResearchSections['key-research'] && (
                                     <motion.div 
                                       initial={{ height: 0, opacity: 0 }}
                                       animate={{ height: 'auto', opacity: 1 }}
                                       exit={{ height: 0, opacity: 0 }}
-                                      transition={{ duration: 0.3 }}
+                                      transition={{ duration: 0.2, ease: "easeInOut" }}
                                       className="overflow-hidden"
                                     >
                                       <div className="p-8">
-                                        <div className="space-y-6">
+                                  <div className="space-y-6">
                                     {condition.keyResearch.map((research, index) => {
                                       const colors = [
                                         { bg: 'from-emerald-50/50 to-emerald-50/20', border: 'border-emerald-100', icon: 'from-emerald-500 to-emerald-600', text: 'text-emerald-700' },
@@ -618,7 +582,10 @@ export default function ConditionPageClient({
                                         { bg: 'from-teal-50/50 to-teal-50/20', border: 'border-teal-100', icon: 'from-teal-500 to-teal-600', text: 'text-teal-700' },
                                       ];
                                       const color = colors[index % colors.length];
-                                      
+
+                                      // Check if this is NEW FORMAT (finding/detail/clinicalRelevance) or OLD FORMAT (title/authors/findings)
+                                      const isNewFormat = research.finding && research.detail && research.clinicalRelevance;
+
                                       return (
                                         <div key={index} className={`group relative bg-gradient-to-r ${color.bg} rounded-xl p-6 border ${color.border} hover:shadow-md transition-all`}>
                                           <div className="flex gap-4">
@@ -630,45 +597,69 @@ export default function ConditionPageClient({
                                               </div>
                                             </div>
                                             <div className="flex-1">
-                                              <div className="flex items-start justify-between mb-3">
-                                                <h3 className={`text-xs font-bold ${color.text} uppercase tracking-wider mb-2`}>
-                                                  {research.authors && `${research.authors} (${research.year})`}
-                                                  {!research.authors && research.title}
-                                                </h3>
-                                                {research.year && (
-                                                  <span className="text-xs text-slate-500 bg-white/80 backdrop-blur px-3 py-1.5 rounded-full font-medium">
-                                                    {research.year}
-                                                  </span>
-                                                )}
-                                              </div>
-                                              
-                                              {research.authors && (
-                                                <h4 className="font-semibold text-slate-900 mb-3 text-lg leading-tight">
-                                                  {research.title}
-                                                </h4>
-                                              )}
-                                              
-                                              {research.journal && (
-                                                <p className="text-sm text-slate-600 italic mb-3">
-                                                  Published in: {research.journal}
-                                                  {research.sampleSize && ` • Sample Size: ${research.sampleSize}`}
-                                                </p>
-                                              )}
-                                              
-                                              <div className="mb-3">
-                                                <h5 className="text-sm font-semibold text-slate-900 mb-1">Key Findings:</h5>
-                                                <p className="text-slate-700 text-sm leading-relaxed">{research.findings}</p>
-                                              </div>
-                                              
-                                              <div className="p-3 bg-white/60 backdrop-blur rounded-lg border border-white/40">
-                                                <h5 className="text-sm font-semibold text-slate-900 mb-1">Clinical Relevance:</h5>
-                                                <p className="text-slate-700 text-sm leading-relaxed">{research.relevance}</p>
-                                              </div>
-                                              
-                                              {research.citation && (
-                                                <div className="mt-3 pt-3 border-t border-slate-200/60">
-                                                  <p className="text-xs text-slate-500 font-mono">{research.citation}</p>
-                                                </div>
+                                              {isNewFormat ? (
+                                                // NEW FORMAT RENDERING
+                                                <>
+                                                  <div className="mb-3">
+                                                    <h3 className={`text-base font-bold ${color.text} mb-2 leading-tight`}>
+                                                      {research.finding}
+                                                    </h3>
+                                                  </div>
+
+                                                  <div className="mb-3">
+                                                    <h5 className="text-sm font-semibold text-slate-900 mb-1">Research Details:</h5>
+                                                    <p className="text-slate-700 text-sm leading-relaxed">{research.detail}</p>
+                                                  </div>
+
+                                                  <div className="p-3 bg-white/60 backdrop-blur rounded-lg border border-white/40">
+                                                    <h5 className="text-sm font-semibold text-slate-900 mb-1">Clinical Relevance:</h5>
+                                                    <p className="text-slate-700 text-sm leading-relaxed">{research.clinicalRelevance}</p>
+                                                  </div>
+                                                </>
+                                              ) : (
+                                                // OLD FORMAT RENDERING
+                                                <>
+                                                  <div className="flex items-start justify-between mb-3">
+                                                    <h3 className={`text-xs font-bold ${color.text} uppercase tracking-wider mb-2`}>
+                                                      {research.authors && `${research.authors} (${research.year})`}
+                                                      {!research.authors && research.title}
+                                                    </h3>
+                                                    {research.year && (
+                                                      <span className="text-xs text-slate-500 bg-white/80 backdrop-blur px-3 py-1.5 rounded-full font-medium">
+                                                        {research.year}
+                                                      </span>
+                                                    )}
+                                                  </div>
+
+                                                  {research.authors && (
+                                                    <h4 className="font-semibold text-slate-900 mb-3 text-lg leading-tight">
+                                                      {research.title}
+                                                    </h4>
+                                                  )}
+
+                                                  {research.journal && (
+                                                    <p className="text-sm text-slate-600 italic mb-3">
+                                                      Published in: {research.journal}
+                                                      {research.sampleSize && ` • Sample Size: ${research.sampleSize}`}
+                                                    </p>
+                                                  )}
+
+                                                  <div className="mb-3">
+                                                    <h5 className="text-sm font-semibold text-slate-900 mb-1">Key Findings:</h5>
+                                                    <p className="text-slate-700 text-sm leading-relaxed">{research.findings}</p>
+                                                  </div>
+
+                                                  <div className="p-3 bg-white/60 backdrop-blur rounded-lg border border-white/40">
+                                                    <h5 className="text-sm font-semibold text-slate-900 mb-1">Clinical Relevance:</h5>
+                                                    <p className="text-slate-700 text-sm leading-relaxed">{research.relevance}</p>
+                                                  </div>
+
+                                                  {research.citation && (
+                                                    <div className="mt-3 pt-3 border-t border-slate-200/60">
+                                                      <p className="text-xs text-slate-500 font-mono">{research.citation}</p>
+                                                    </div>
+                                                  )}
+                                                </>
                                               )}
                                             </div>
                                           </div>
@@ -701,16 +692,14 @@ export default function ConditionPageClient({
                                       <span>Studies selected based on methodological rigor and clinical applicability</span>
                                     </div>
                                   </div>
-                                </div>
+                                      </div>
+                                    </motion.div>
+                                  )}
+                                </AnimatePresence>
                               </div>
-                            </motion.div>
+                            </div>
                           )}
-                        </AnimatePresence>
-                      </div>
-                    </div>
-                  )}
 
-                          {/* Research Insights Section - Collapsible */}
                           {condition.researchInsights && condition.researchInsights.length > 0 && (
                             <div className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
                               {/* Premium gradient overlay */}
@@ -742,17 +731,17 @@ export default function ConditionPageClient({
                                   </div>
                                 </div>
                                 
-                                <AnimatePresence>
+                                <AnimatePresence initial={false}>
                                   {expandedResearchSections['research-insights'] && (
                                     <motion.div 
                                       initial={{ height: 0, opacity: 0 }}
                                       animate={{ height: 'auto', opacity: 1 }}
                                       exit={{ height: 0, opacity: 0 }}
-                                      transition={{ duration: 0.3 }}
+                                      transition={{ duration: 0.2, ease: "easeInOut" }}
                                       className="overflow-hidden"
                                     >
                                       <div className="p-8">
-                                        <div className="space-y-5">
+                                  <div className="space-y-5">
                                     {condition.researchInsights.map((insight, index) => {
                                       const colonIndex = insight.indexOf(':');
                                       const topic = colonIndex > -1 ? insight.substring(0, colonIndex).trim() : '';
@@ -801,14 +790,13 @@ export default function ConditionPageClient({
                                       <span>Based on current physiotherapy research and clinical practice guidelines</span>
                                     </div>
                                   </div>
-                                </div>
+                                      </div>
+                                    </motion.div>
+                                  )}
+                                </AnimatePresence>
                               </div>
-                            </motion.div>
+                            </div>
                           )}
-                        </AnimatePresence>
-                      </div>
-                    </div>
-                  )}
                         </div>
                       )}
 
@@ -847,13 +835,13 @@ export default function ConditionPageClient({
                                   </div>
                                 </div>
                                 
-                                <AnimatePresence>
+                                <AnimatePresence initial={false}>
                                   {expandedManagementSections['evidence-based'] && (
                                     <motion.div 
                                       initial={{ height: 0, opacity: 0 }}
                                       animate={{ height: 'auto', opacity: 1 }}
                                       exit={{ height: 0, opacity: 0 }}
-                                      transition={{ duration: 0.3 }}
+                                      transition={{ duration: 0.2, ease: "easeInOut" }}
                                       className="overflow-hidden"
                                     >
                                       <div className="p-8">
@@ -1011,14 +999,16 @@ export default function ConditionPageClient({
                             </div>
                           )}
 
-                          {/* Treatment Techniques Section - Moved from Treatment Tab */}
+                          {/* Treatment Techniques Section - Collapsible */}
                           {condition.treatmentApproach && (
                             <div className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
+                              {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-orange-50/30 via-transparent to-amber-50/20 pointer-events-none"></div>
                               
                               <div className="relative">
+                                {/* Header with gradient accent - Clickable */}
                                 <div 
-                                  className="bg-gradient-to-r from-orange-900 to-orange-700 px-8 py-6 cursor-pointer hover:from-orange-800 hover:to-orange-600 transition-all"
+                                  className="bg-gradient-to-r from-orange-900 to-amber-700 px-8 py-6 cursor-pointer hover:from-orange-800 hover:to-amber-600 transition-all"
                                   onClick={() => toggleManagementSection('treatment-techniques')}
                                 >
                                   <div className="flex items-center justify-between">
@@ -1028,7 +1018,7 @@ export default function ConditionPageClient({
                                       </div>
                                       <div>
                                         <h2 className="text-2xl font-bold text-white">Treatment Techniques</h2>
-                                        <p className="text-sm text-orange-200 mt-1">Professional therapeutic interventions</p>
+                                        <p className="text-sm text-orange-200 mt-1">Specialized manual therapy and intervention approaches</p>
                                       </div>
                                     </div>
                                     <div className="p-2 bg-white/10 backdrop-blur rounded-lg">
@@ -1041,48 +1031,28 @@ export default function ConditionPageClient({
                                   </div>
                                 </div>
                                 
-                                <AnimatePresence>
+                                <AnimatePresence initial={false}>
                                   {expandedManagementSections['treatment-techniques'] && (
                                     <motion.div 
                                       initial={{ height: 0, opacity: 0 }}
                                       animate={{ height: 'auto', opacity: 1 }}
                                       exit={{ height: 0, opacity: 0 }}
-                                      transition={{ duration: 0.3 }}
+                                      transition={{ duration: 0.2, ease: "easeInOut" }}
                                       className="overflow-hidden"
                                     >
                                       <div className="p-8">
-                                        <div className="mb-6">
-                                          <h3 className="text-lg font-semibold text-gray-900 mb-3">{condition.treatmentApproach.title}</h3>
-                                          <p className="text-slate-700 leading-relaxed">
-                                            {condition.treatmentApproach.description}
-                                          </p>
-                                        </div>
-                                        
-                                        <div className="space-y-4">
+                                        <p className="text-slate-600 mb-6">
+                                          {condition.treatmentApproach.description}
+                                        </p>
+                                        <div className="space-y-3">
                                           {condition.treatmentApproach.techniques.map((technique, index) => {
                                             const [title, description] = technique.split(': ');
-                                            const colors = [
-                                              { bg: 'from-orange-50/50 to-orange-50/20', border: 'border-orange-100', icon: 'from-orange-500 to-orange-600', text: 'text-orange-700' },
-                                              { bg: 'from-amber-50/50 to-amber-50/20', border: 'border-amber-100', icon: 'from-amber-500 to-amber-600', text: 'text-amber-700' },
-                                              { bg: 'from-red-50/50 to-red-50/20', border: 'border-red-100', icon: 'from-red-500 to-red-600', text: 'text-red-700' },
-                                              { bg: 'from-yellow-50/50 to-yellow-50/20', border: 'border-yellow-100', icon: 'from-yellow-500 to-yellow-600', text: 'text-yellow-700' },
-                                            ];
-                                            const color = colors[index % colors.length];
-                                            
                                             return (
-                                              <div key={index} className={`group relative bg-gradient-to-r ${color.bg} rounded-xl p-5 border ${color.border} hover:shadow-md transition-all`}>
-                                                <div className="flex gap-4">
-                                                  <div className="flex-shrink-0">
-                                                    <div className={`w-10 h-10 bg-gradient-to-br ${color.icon} rounded-lg flex items-center justify-center shadow-lg`}>
-                                                      <CheckCircleIcon className="h-5 w-5 text-white" />
-                                                    </div>
-                                                  </div>
-                                                  <div className="flex-1">
-                                                    <h3 className={`text-xs font-bold ${color.text} uppercase tracking-wider mb-1`}>{title}</h3>
-                                                    {description && (
-                                                      <p className="text-slate-700 text-sm leading-relaxed">{description}</p>
-                                                    )}
-                                                  </div>
+                                              <div key={index} className="flex items-start gap-3 p-4 bg-gradient-to-r from-orange-50/50 to-amber-50/30 rounded-lg border border-orange-100">
+                                                <CheckCircleIcon className="h-5 w-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                                                <div>
+                                                  <span className="font-medium text-slate-900">{title}</span>
+                                                  {description && <span className="text-slate-600">: {description}</span>}
                                                 </div>
                                               </div>
                                             );
@@ -1096,14 +1066,16 @@ export default function ConditionPageClient({
                             </div>
                           )}
 
-                          {/* Recovery Timeline Section - Moved from Treatment Tab */}
+                          {/* Recovery Timeline Section - Collapsible */}
                           {condition.timeline && condition.timeline.length > 0 && (
                             <div className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
+                              {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-teal-50/30 via-transparent to-cyan-50/20 pointer-events-none"></div>
                               
                               <div className="relative">
+                                {/* Header with gradient accent - Clickable */}
                                 <div 
-                                  className="bg-gradient-to-r from-teal-900 to-teal-700 px-8 py-6 cursor-pointer hover:from-teal-800 hover:to-teal-600 transition-all"
+                                  className="bg-gradient-to-r from-teal-900 to-cyan-700 px-8 py-6 cursor-pointer hover:from-teal-800 hover:to-cyan-600 transition-all"
                                   onClick={() => toggleManagementSection('timeline')}
                                 >
                                   <div className="flex items-center justify-between">
@@ -1113,7 +1085,7 @@ export default function ConditionPageClient({
                                       </div>
                                       <div>
                                         <h2 className="text-2xl font-bold text-white">Recovery Timeline</h2>
-                                        <p className="text-sm text-teal-200 mt-1">Expected recovery phases and milestones</p>
+                                        <p className="text-sm text-teal-200 mt-1">Expected phases and milestones in your recovery journey</p>
                                       </div>
                                     </div>
                                     <div className="p-2 bg-white/10 backdrop-blur rounded-lg">
@@ -1126,13 +1098,13 @@ export default function ConditionPageClient({
                                   </div>
                                 </div>
                                 
-                                <AnimatePresence>
+                                <AnimatePresence initial={false}>
                                   {expandedManagementSections['timeline'] && (
                                     <motion.div 
                                       initial={{ height: 0, opacity: 0 }}
                                       animate={{ height: 'auto', opacity: 1 }}
                                       exit={{ height: 0, opacity: 0 }}
-                                      transition={{ duration: 0.3 }}
+                                      transition={{ duration: 0.2, ease: "easeInOut" }}
                                       className="overflow-hidden"
                                     >
                                       <div className="p-8">
@@ -1140,32 +1112,19 @@ export default function ConditionPageClient({
                                           {condition.timeline.map((phase, index) => (
                                             <div key={index} className="flex gap-4 mb-6 last:mb-0">
                                               <div className="flex flex-col items-center">
-                                                <div className="w-4 h-4 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-full shadow-md" />
+                                                <div className="w-3 h-3 bg-teal-600 rounded-full" />
                                                 {index < condition.timeline!.length - 1 && (
-                                                  <div className="w-0.5 h-full bg-gradient-to-b from-teal-300 to-cyan-300 mt-2" />
+                                                  <div className="w-0.5 h-full bg-teal-600/30 mt-2" />
                                                 )}
                                               </div>
                                               <div className="flex-1 pb-6">
                                                 <div className="flex items-center gap-3 mb-2">
-                                                  <h3 className="font-bold text-teal-900">{phase.phase}</h3>
-                                                  <span className="text-xs px-3 py-1 bg-teal-100 text-teal-700 rounded-full font-medium">
+                                                  <h3 className="text-xl font-medium leading-tight text-slate-900">{phase.phase}</h3>
+                                                  <span className="text-sm text-teal-700 bg-teal-100 px-3 py-1 rounded-full">
                                                     {phase.duration}
                                                   </span>
                                                 </div>
-                                                <p className="text-slate-700 text-sm mb-3">{phase.focus}</p>
-                                                {phase.goals && phase.goals.length > 0 && (
-                                                  <div className="bg-gradient-to-r from-teal-50 to-cyan-50 rounded-lg p-4 border border-teal-100">
-                                                    <p className="text-xs font-semibold text-teal-800 uppercase tracking-wider mb-2">Goals</p>
-                                                    <ul className="space-y-1">
-                                                      {phase.goals.map((goal, goalIndex) => (
-                                                        <li key={goalIndex} className="flex items-start gap-2">
-                                                          <ArrowRightIcon className="h-3 w-3 text-teal-600 mt-0.5 flex-shrink-0" />
-                                                          <span className="text-xs text-slate-700">{goal}</span>
-                                                        </li>
-                                                      ))}
-                                                    </ul>
-                                                  </div>
-                                                )}
+                                                <p className="text-slate-600">{phase.description}</p>
                                               </div>
                                             </div>
                                           ))}
@@ -1500,20 +1459,25 @@ export default function ConditionPageClient({
                 </main>
 
                 {/* Sidebar - Sticky on desktop with proper z-index */}
-                <aside className="hidden xl:block sticky top-24 self-start z-0">
+                <aside className="hidden xl:block sticky top-24 self-start z-10 h-fit">
                   <div className="space-y-6">
                     {/* Quick Actions */}
                     <div className="bg-gradient-to-br from-[#B08D57]/10 to-[#D4AF37]/10 rounded-xl p-6 border border-[#B08D57]/20">
                       <h3 className="font-semibold text-slate-900 mb-4">Next Steps</h3>
-                      <p className="text-sm text-slate-600 mb-4">Book an assessment to discuss your specific situation.</p>
+                      <p className="text-sm text-slate-600 mb-4">
+                        Book an assessment to discuss your specific situation.
+                      </p>
+                      <p className="text-xs text-slate-500 mb-4">
+                        Serving Burlington, Waterdown, Flamborough and surrounding areas
+                      </p>
                       <div className="space-y-3">
                         <Link
                           href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                           target="_blank"
-                          className="w-full flex items-center justify-center px-4 py-3 bg-[#B08D57] hover:bg-[#997A4B] text-white rounded-lg font-medium transition-colors"
+                          className="w-full flex items-center justify-center px-4 py-3 bg-[#B08D57] hover:bg-[#997A4B] text-white hover:text-white rounded-lg font-medium transition-all duration-300 shadow-premium-1 hover:shadow-premium-2 group"
                         >
                           Book Assessment
-                          <CalendarIcon className="ml-2 h-4 w-4" />
+                          <CalendarIcon className="ml-2 h-4 w-4 group-hover:rotate-12 transition-transform duration-300" />
                         </Link>
                         <Link
                           href="/#contact"
@@ -1525,13 +1489,12 @@ export default function ConditionPageClient({
                       </div>
                     </div>
 
-                    {/* Quick Related Conditions */}
+                    {/* Related Conditions */}
                     {relatedConditions.length > 0 && (
                       <div className="bg-white rounded-xl p-6 border border-slate-200">
-                        <h3 className="font-semibold text-slate-900 mb-4">Quick Links</h3>
-                        <p className="text-xs text-slate-600 mb-3">Commonly related conditions</p>
+                        <h3 className="font-semibold text-slate-900 mb-4">Related Conditions</h3>
                         <div className="space-y-2">
-                          {relatedConditions.slice(0, 3).map((related) => (
+                          {relatedConditions.slice(0, 4).map((related) => (
                             <Link
                               key={related.slug}
                               href={`/conditions/${related.slug}`}
@@ -1543,12 +1506,6 @@ export default function ConditionPageClient({
                             </Link>
                           ))}
                         </div>
-                        <Link
-                          href="#related-conditions"
-                          className="block mt-3 text-xs text-[#B08D57] hover:text-[#997A4B] font-medium transition-colors"
-                        >
-                          View detailed relationships ↓
-                        </Link>
                       </div>
                     )}
 
@@ -1586,18 +1543,6 @@ export default function ConditionPageClient({
           </div>
         </section>
 
-        {/* Related Conditions Section */}
-        <section id="related-conditions" className="py-8 bg-slate-50/50">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-5xl mx-auto">
-              <RelatedConditionsSection 
-                currentCondition={condition}
-                relatedConditions={relatedConditions}
-              />
-            </div>
-          </div>
-        </section>
-
         {/* Bottom CTA Section */}
         <section 
           className="mt-8 py-12 bg-slate-900" 
@@ -1617,10 +1562,10 @@ export default function ConditionPageClient({
                 <Link
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-[#B08D57] hover:bg-[#997A4B] text-white rounded-lg font-medium transition-colors"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-[#B08D57] hover:bg-[#997A4B] text-white hover:text-white rounded-lg font-medium transition-all duration-300 shadow-premium-1 hover:shadow-premium-2 hover:scale-[1.02] group"
                 >
                   Book Assessment
-                  <ArrowRightIcon className="ml-2 h-4 w-4" />
+                  <ArrowRightIcon className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </Link>
                 <Link
                   href="/#contact"

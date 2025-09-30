@@ -181,11 +181,11 @@ export default function ConditionPageClient({
                 <span className="text-slate-900 font-medium">{condition.name}</span>
               </nav>
 
-              <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-1.5">
+              <h1 className="text-3xl md:text-4xl font-medium tracking-tight leading-tight text-slate-900 mb-3">
                 {condition.name}
               </h1>
               {condition.description && (
-                <p className="text-sm md:text-base text-slate-500 max-w-3xl">
+                <p className="text-base md:text-lg text-slate-700 leading-relaxed max-w-3xl">
                   {condition.description}
                 </p>
               )}
@@ -273,10 +273,10 @@ export default function ConditionPageClient({
                     <div className="bg-slate-50 rounded-xl p-8 border border-slate-200">
                       <div className="flex flex-col items-center text-center">
                         <ClockIcon className="h-16 w-16 text-slate-400 mb-4" />
-                        <h2 className="text-2xl font-bold text-slate-900 mb-3">
+                        <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-4">
                           Content Coming Soon
                         </h2>
-                        <p className="text-slate-600 max-w-2xl mb-6">
+                        <p className="text-base text-slate-700 leading-relaxed max-w-2xl mb-8">
                           Detailed information about {condition.name} is currently being developed.
                         </p>
                         
@@ -321,26 +321,26 @@ export default function ConditionPageClient({
                     >
                       {/* Overview Tab */}
                       {activeTab === 'overview' && (
-                        <div className="space-y-6">
+                        <div className="space-y-8">
                           {condition.pathophysiology && (
-                            <div className="bg-white rounded-xl p-6 border border-slate-200">
-                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                            <div className="bg-white rounded-xl p-8 md:p-8 border border-slate-200">
+                              <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
                                 The Science of {condition.name || 'Your Condition'}
                               </h2>
-                              <p className="text-slate-600 leading-relaxed">
+                              <p className="text-base text-slate-700 leading-relaxed">
                                 {condition.pathophysiology}
                               </p>
                             </div>
                           )}
 
                           {condition.overview && !condition.pathophysiology && (
-                            <div className="bg-white rounded-xl p-6 border border-slate-200">
-                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                            <div className="bg-white rounded-xl p-8 md:p-8 border border-slate-200">
+                              <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
                                 Understanding Your Condition
                               </h2>
                               <div className="space-y-4">
                                 {condition.overview.split('\n\n').map((paragraph, index) => (
-                                  <p key={index} className="text-slate-600 leading-relaxed">
+                                  <p key={index} className="text-base text-slate-700 leading-relaxed">
                                     {paragraph}
                                   </p>
                                 ))}
@@ -349,13 +349,13 @@ export default function ConditionPageClient({
                           )}
 
                           {condition.biomechanics && (
-                            <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
-                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                            <div className="bg-slate-50 rounded-xl p-8 md:p-8 border border-slate-200">
+                              <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
                                 Contributing Factors
                               </h2>
                               <div className="space-y-4">
                                 {condition.biomechanics.split('\n\n').map((paragraph, index) => (
-                                  <p key={index} className="text-slate-600 leading-relaxed">
+                                  <p key={index} className="text-base text-slate-700 leading-relaxed">
                                     {paragraph}
                                   </p>
                                 ))}
@@ -368,63 +368,72 @@ export default function ConditionPageClient({
 
                       {/* Symptoms Tab */}
                       {activeTab === 'symptoms' && (
-                        <div className="space-y-6">
+                        <div className="space-y-8">
                           {condition.clinicalPresentation && (
-                            <div className="bg-white rounded-xl p-6 border border-slate-200">
-                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                            <div className="bg-white rounded-xl p-8 md:p-8 border border-slate-200">
+                              <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
                                 Clinical Presentation
                               </h2>
-                              
+
                               {condition.clinicalPresentation.primarySymptoms && (
-                                <div className="mb-6">
-                                  <h3 className="font-semibold text-slate-900 mb-3">Primary Symptoms</h3>
-                                  <div className="grid md:grid-cols-2 gap-3">
+                                <div className="mb-8">
+                                  <h3 className="text-xl font-medium leading-tight text-slate-900 mb-4">Primary Symptoms</h3>
+                                  <div className="grid md:grid-cols-2 gap-4">
                                     {condition.clinicalPresentation.primarySymptoms.map((symptom, index) => (
                                       <div key={index} className="flex items-start gap-3">
                                         <CheckCircleIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
-                                        <span className="text-slate-600">{symptom}</span>
+                                        <span className="text-base text-slate-700 leading-relaxed">{symptom}</span>
                                       </div>
                                     ))}
                                   </div>
                                 </div>
                               )}
-                              
+
                               {condition.clinicalPresentation.associatedSymptoms && (
-                                <div className="mb-6">
-                                  <h3 className="font-semibold text-slate-900 mb-3">Associated Symptoms</h3>
-                                  <div className="grid md:grid-cols-2 gap-3">
+                                <div className="mb-8">
+                                  <h3 className="text-xl font-medium leading-tight text-slate-900 mb-4">Associated Symptoms</h3>
+                                  <div className="grid md:grid-cols-2 gap-4">
                                     {condition.clinicalPresentation.associatedSymptoms.map((symptom, index) => (
                                       <div key={index} className="flex items-start gap-3">
                                         <div className="mt-2 h-1.5 w-1.5 bg-slate-400 rounded-full" />
-                                        <span className="text-slate-600">{symptom}</span>
+                                        <span className="text-base text-slate-700 leading-relaxed">{symptom}</span>
                                       </div>
                                     ))}
                                   </div>
                                 </div>
                               )}
-                              
+
                               {condition.clinicalPresentation.typicalPattern && (
-                                <div className="p-4 bg-[#B08D57]/5 rounded-lg border border-[#B08D57]/20">
-                                  <h3 className="font-semibold text-slate-900 mb-2">Typical Pattern</h3>
-                                  <p className="text-slate-600">{condition.clinicalPresentation.typicalPattern}</p>
+                                <div className="p-6 bg-[#B08D57]/5 rounded-lg border border-[#B08D57]/20">
+                                  <h3 className="text-xl font-medium leading-tight text-slate-900 mb-3">Typical Pattern</h3>
+                                  <p className="text-base text-slate-700 leading-relaxed">{condition.clinicalPresentation.typicalPattern}</p>
                                 </div>
                               )}
                             </div>
                           )}
 
                           {condition.differentialDiagnosis && condition.differentialDiagnosis.length > 0 && (
-                            <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
-                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                            <div className="bg-slate-50 rounded-xl p-8 md:p-8 border border-slate-200">
+                              <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-4">
                                 Differential Diagnosis
                               </h2>
-                              <p className="text-slate-600 mb-4">Conditions with similar presentations:</p>
-                              <div className="space-y-3">
+                              <p className="text-base text-slate-700 leading-relaxed mb-6">Conditions with similar presentations:</p>
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                                 {condition.differentialDiagnosis.map((diff, index) => (
-                                  <div key={index} className="bg-white rounded-lg p-4 border border-slate-200">
-                                    <h3 className="font-semibold text-slate-900 mb-1">{diff.condition}</h3>
-                                    <p className="text-sm text-slate-600">
-                                      <span className="font-medium">Key differences:</span> {diff.distinguishingFeatures}
-                                    </p>
+                                  <div key={index} className="group relative bg-white/80 backdrop-blur-xl rounded-2xl p-6 border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                                    <div className="flex items-start gap-4">
+                                      <div className="flex-shrink-0">
+                                        <div className="w-10 h-10 bg-gradient-to-br from-slate-500 to-slate-600 rounded-xl flex items-center justify-center shadow-lg">
+                                          <span className="text-white font-bold text-sm">{index + 1}</span>
+                                        </div>
+                                      </div>
+                                      <div className="flex-1">
+                                        <h3 className="text-lg font-semibold text-slate-900 mb-2">{diff.condition}</h3>
+                                        <p className="text-sm text-slate-700 leading-relaxed">
+                                          <span className="font-medium">Key differences:</span> {diff.distinguishingFeatures}
+                                        </p>
+                                      </div>
+                                    </div>
                                   </div>
                                 ))}
                               </div>
@@ -432,15 +441,15 @@ export default function ConditionPageClient({
                           )}
 
                           {condition.whenToSeek && condition.whenToSeek.length > 0 && (
-                            <div className="bg-amber-50 rounded-xl p-6 border border-amber-200">
-                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                            <div className="bg-amber-50 rounded-xl p-8 md:p-8 border border-amber-200">
+                              <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
                                 When to Seek Professional Help
                               </h2>
-                              <div className="space-y-2">
+                              <div className="space-y-3">
                                 {condition.whenToSeek.map((item, index) => (
                                   <div key={index} className="flex items-start gap-3">
                                     <CheckCircleIcon className="h-5 w-5 text-amber-600 mt-0.5 flex-shrink-0" />
-                                    <span className="text-slate-700">{item}</span>
+                                    <span className="text-base text-slate-700 leading-relaxed">{item}</span>
                                   </div>
                                 ))}
                               </div>
@@ -451,13 +460,13 @@ export default function ConditionPageClient({
 
                       {/* Treatment Tab */}
                       {activeTab === 'treatment' && (
-                        <div className="space-y-6">
+                        <div className="space-y-8">
                           {condition.treatmentApproach && (
-                            <div className="bg-white rounded-xl p-6 border border-slate-200">
-                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                            <div className="bg-white rounded-xl p-8 md:p-8 border border-slate-200">
+                              <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
                                 {condition.treatmentApproach.title}
                               </h2>
-                              <p className="text-slate-600 mb-6">
+                              <p className="text-base text-slate-700 leading-relaxed mb-8">
                                 {condition.treatmentApproach.description}
                               </p>
                               <div className="space-y-3">
@@ -467,8 +476,8 @@ export default function ConditionPageClient({
                                     <div key={index} className="flex items-start gap-3">
                                       <CheckCircleIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
                                       <div>
-                                        <span className="font-semibold text-slate-900">{title}</span>
-                                        {description && <span className="text-slate-600">: {description}</span>}
+                                        <span className="font-medium text-slate-900">{title}</span>
+                                        {description && <span className="text-slate-700 leading-relaxed">: {description}</span>}
                                       </div>
                                     </div>
                                   );
@@ -478,15 +487,15 @@ export default function ConditionPageClient({
                           )}
 
                           {condition.evidenceBasedTreatment && condition.evidenceBasedTreatment.length > 0 && (
-                            <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
+                            <div className="bg-slate-50 rounded-xl p-6 md:p-8 border border-slate-200">
                               <h2 className="text-xl font-semibold text-slate-900 mb-4">
                                 Evidence-Based Treatment Options
                               </h2>
                               <div className="space-y-4">
                                 {condition.evidenceBasedTreatment.map((treatment, index) => (
                                   <div key={index} className="bg-white rounded-lg p-4 border border-slate-200">
-                                    <h3 className="font-semibold text-slate-900 mb-2">{treatment.approach}</h3>
-                                    <p className="text-slate-600 text-sm">{treatment.evidence}</p>
+                                    <h3 className="text-xl font-medium leading-tight text-slate-900 mb-3">{treatment.approach}</h3>
+                                    <p className="text-base text-slate-700 leading-relaxed">{treatment.evidence}</p>
                                     {hasStrongEvidence(treatment) && (
                                       <p className="text-xs text-amber-600 mt-2 italic">
                                         Note: Additional studies needed to confirm effectiveness level
@@ -499,8 +508,8 @@ export default function ConditionPageClient({
                           )}
 
                           {condition.timeline && condition.timeline.length > 0 && (
-                            <div className="bg-white rounded-xl p-6 border border-slate-200">
-                              <h2 className="text-xl font-semibold text-slate-900 mb-6">
+                            <div className="bg-white rounded-xl p-6 md:p-8 border border-slate-200">
+                              <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
                                 Recovery Timeline
                               </h2>
                               <div className="relative">
@@ -514,12 +523,12 @@ export default function ConditionPageClient({
                                     </div>
                                     <div className="flex-1 pb-6">
                                       <div className="flex items-center gap-3 mb-2">
-                                        <h3 className="font-semibold text-slate-900">{phase.phase}</h3>
+                                        <h3 className="text-xl font-medium leading-tight text-slate-900">{phase.phase}</h3>
                                         <span className="text-sm text-[#B08D57] bg-[#B08D57]/10 px-2 py-1 rounded">
                                           {phase.duration}
                                         </span>
                                       </div>
-                                      <p className="text-slate-600">{phase.description}</p>
+                                      <p className="text-base text-slate-700 leading-relaxed">{phase.description}</p>
                                     </div>
                                   </div>
                                 ))}
@@ -531,7 +540,7 @@ export default function ConditionPageClient({
 
                       {/* Research Tab - Premium Design */}
                       {activeTab === 'research' && (
-                        <div className="space-y-6">
+                        <div className="space-y-8">
                           {condition.keyResearch && condition.keyResearch.length > 0 && (
                             <div className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
                               {/* Premium gradient overlay */}
@@ -549,7 +558,7 @@ export default function ConditionPageClient({
                                         <BeakerIcon className="h-6 w-6 text-white" />
                                       </div>
                                       <div>
-                                        <h2 className="text-2xl font-bold text-white">Key Research & Evidence</h2>
+                                        <h2 className="text-2xl font-medium tracking-tight leading-tight text-white">Key Research & Evidence</h2>
                                         <p className="text-sm text-emerald-200 mt-1">Peer-reviewed studies supporting treatment approaches</p>
                                       </div>
                                     </div>
@@ -573,7 +582,7 @@ export default function ConditionPageClient({
                                       className="overflow-hidden"
                                     >
                                       <div className="p-8">
-                                  <div className="space-y-6">
+                                  <div className="columns-1 md:columns-2 gap-6 space-y-6">
                                     {condition.keyResearch.map((research, index) => {
                                       const colors = [
                                         { bg: 'from-emerald-50/50 to-emerald-50/20', border: 'border-emerald-100', icon: 'from-emerald-500 to-emerald-600', text: 'text-emerald-700' },
@@ -587,7 +596,7 @@ export default function ConditionPageClient({
                                       const isNewFormat = research.finding && research.detail && research.clinicalRelevance;
 
                                       return (
-                                        <div key={index} className={`group relative bg-gradient-to-r ${color.bg} rounded-xl p-6 border ${color.border} hover:shadow-md transition-all`}>
+                                        <div key={index} className="group relative bg-white/80 backdrop-blur-xl rounded-2xl p-6 border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 break-inside-avoid mb-6">
                                           <div className="flex gap-4">
                                             <div className="flex-shrink-0">
                                               <div className={`w-12 h-12 bg-gradient-to-br ${color.icon} rounded-xl flex items-center justify-center shadow-lg`}>
@@ -601,18 +610,18 @@ export default function ConditionPageClient({
                                                 // NEW FORMAT RENDERING
                                                 <>
                                                   <div className="mb-3">
-                                                    <h3 className={`text-base font-bold ${color.text} mb-2 leading-tight`}>
+                                                    <h3 className={`text-base font-semibold ${color.text} mb-2 leading-tight`}>
                                                       {research.finding}
                                                     </h3>
                                                   </div>
 
                                                   <div className="mb-3">
-                                                    <h5 className="text-sm font-semibold text-slate-900 mb-1">Research Details:</h5>
+                                                    <h5 className="text-sm font-medium text-slate-900 mb-1">Research Details:</h5>
                                                     <p className="text-slate-700 text-sm leading-relaxed">{research.detail}</p>
                                                   </div>
 
                                                   <div className="p-3 bg-white/60 backdrop-blur rounded-lg border border-white/40">
-                                                    <h5 className="text-sm font-semibold text-slate-900 mb-1">Clinical Relevance:</h5>
+                                                    <h5 className="text-sm font-medium text-slate-900 mb-1">Clinical Relevance:</h5>
                                                     <p className="text-slate-700 text-sm leading-relaxed">{research.clinicalRelevance}</p>
                                                   </div>
                                                 </>
@@ -620,7 +629,7 @@ export default function ConditionPageClient({
                                                 // OLD FORMAT RENDERING
                                                 <>
                                                   <div className="flex items-start justify-between mb-3">
-                                                    <h3 className={`text-xs font-bold ${color.text} uppercase tracking-wider mb-2`}>
+                                                    <h3 className={`text-xs font-semibold ${color.text} uppercase tracking-wider mb-2`}>
                                                       {research.authors && `${research.authors} (${research.year})`}
                                                       {!research.authors && research.title}
                                                     </h3>
@@ -632,7 +641,7 @@ export default function ConditionPageClient({
                                                   </div>
 
                                                   {research.authors && (
-                                                    <h4 className="font-semibold text-slate-900 mb-3 text-lg leading-tight">
+                                                    <h4 className="font-medium text-slate-900 mb-3 text-lg leading-tight">
                                                       {research.title}
                                                     </h4>
                                                   )}
@@ -645,12 +654,12 @@ export default function ConditionPageClient({
                                                   )}
 
                                                   <div className="mb-3">
-                                                    <h5 className="text-sm font-semibold text-slate-900 mb-1">Key Findings:</h5>
+                                                    <h5 className="text-sm font-medium text-slate-900 mb-1">Key Findings:</h5>
                                                     <p className="text-slate-700 text-sm leading-relaxed">{research.findings}</p>
                                                   </div>
 
                                                   <div className="p-3 bg-white/60 backdrop-blur rounded-lg border border-white/40">
-                                                    <h5 className="text-sm font-semibold text-slate-900 mb-1">Clinical Relevance:</h5>
+                                                    <h5 className="text-sm font-medium text-slate-900 mb-1">Clinical Relevance:</h5>
                                                     <p className="text-slate-700 text-sm leading-relaxed">{research.relevance}</p>
                                                   </div>
 
@@ -673,7 +682,7 @@ export default function ConditionPageClient({
                                       <div className="flex items-start gap-3">
                                         <ExclamationCircleIcon className="h-5 w-5 text-amber-600 mt-0.5 flex-shrink-0" />
                                         <div>
-                                          <p className="text-sm font-semibold text-amber-900 mb-1">Research Database Expanding</p>
+                                          <p className="text-sm font-medium text-amber-900 mb-1">Research Database Expanding</p>
                                           <p className="text-sm text-amber-800">
                                             Additional peer-reviewed studies are being reviewed and will be added to strengthen the evidence base for this condition.
                                           </p>
@@ -688,7 +697,7 @@ export default function ConditionPageClient({
                                       <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                       </svg>
-                                      <span className="font-semibold">Evidence Quality:</span>
+                                      <span className="font-medium">Evidence Quality:</span>
                                       <span>Studies selected based on methodological rigor and clinical applicability</span>
                                     </div>
                                   </div>
@@ -717,7 +726,7 @@ export default function ConditionPageClient({
                                         <ChartBarIcon className="h-6 w-6 text-white" />
                                       </div>
                                       <div>
-                                        <h2 className="text-2xl font-bold text-white">Research Insights</h2>
+                                        <h2 className="text-2xl font-medium tracking-tight leading-tight text-white">Research Insights</h2>
                                         <p className="text-sm text-blue-200 mt-1">Clinical implications and practice recommendations</p>
                                       </div>
                                     </div>
@@ -768,7 +777,7 @@ export default function ConditionPageClient({
                                             <div className="flex-1">
                                               {topic ? (
                                                 <>
-                                                  <h3 className={`text-xs font-bold ${color.text} uppercase tracking-wider mb-2`}>{topic}</h3>
+                                                  <h3 className={`text-xs font-semibold ${color.text} uppercase tracking-wider mb-2`}>{topic}</h3>
                                                   <p className="text-slate-700 text-sm leading-relaxed">{finding}</p>
                                                 </>
                                               ) : (
@@ -786,7 +795,7 @@ export default function ConditionPageClient({
                                       <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                       </svg>
-                                      <span className="font-semibold">Evidence Base:</span>
+                                      <span className="font-medium">Evidence Base:</span>
                                       <span>Based on current physiotherapy research and clinical practice guidelines</span>
                                     </div>
                                   </div>
@@ -802,7 +811,7 @@ export default function ConditionPageClient({
 
                       {/* Management Tab */}
                       {activeTab === 'self-care' && (
-                        <div className="space-y-6">
+                        <div className="space-y-8">
                           {/* Integrated Evidence-Based Management - Premium Design */}
                           {(condition.evidenceSnapshot || condition.selfManagement) && (
                             <div className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
@@ -821,7 +830,7 @@ export default function ConditionPageClient({
                                         <BeakerIcon className="h-6 w-6 text-white" />
                                       </div>
                                       <div>
-                                        <h2 className="text-2xl font-bold text-white">Evidence-Based Management</h2>
+                                        <h2 className="text-2xl font-medium tracking-tight leading-tight text-white">Evidence-Based Management</h2>
                                         <p className="text-sm text-slate-200 mt-1">Comprehensive treatment strategies with proven outcomes</p>
                                       </div>
                                     </div>
@@ -845,23 +854,23 @@ export default function ConditionPageClient({
                                       className="overflow-hidden"
                                     >
                                       <div className="p-8">
-                                  <div className="space-y-6">
-                                    {/* Evidence Snapshot Cards */}
+                                  <div className="space-y-8">
+                                    {/* Evidence Snapshot Cards - 3 COLUMN GRID */}
                                     {condition.evidenceSnapshot && (
-                                      <div className="space-y-5">
+                                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                                         {/* Primary Strategy Card */}
                                         {(condition.evidenceSnapshot.primaryStrategy || condition.evidenceSnapshot.firstLine) && (
-                                          <div className="group relative bg-gradient-to-r from-emerald-50/50 to-emerald-50/20 rounded-xl p-6 border border-emerald-100 hover:shadow-md transition-all">
-                                            <div className="flex gap-4">
-                                              <div className="flex-shrink-0">
-                                                <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
-                                                  <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                                          <div className="group relative bg-white/80 backdrop-blur-xl rounded-2xl p-6 border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                                            <div className="space-y-4">
+                                              <div className="flex justify-center">
+                                                <div className="w-14 h-14 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center shadow-lg">
+                                                  <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                                                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                                   </svg>
                                                 </div>
                                               </div>
-                                              <div className="flex-1">
-                                                <h3 className="text-xs font-bold text-emerald-700 uppercase tracking-wider mb-2">Primary Treatment Approach</h3>
+                                              <div className="text-center">
+                                                <h3 className="text-xs font-semibold text-emerald-700 uppercase tracking-wider mb-3">Primary Treatment Approach</h3>
                                                 <p className="text-slate-700 text-sm leading-relaxed">
                                                   {condition.evidenceSnapshot.primaryStrategy || condition.evidenceSnapshot.firstLine}
                                                 </p>
@@ -872,17 +881,17 @@ export default function ConditionPageClient({
                                         
                                         {/* Secondary Strategy Card */}
                                         {(condition.evidenceSnapshot.secondaryStrategy || condition.evidenceSnapshot.imaging) && (
-                                          <div className="group relative bg-gradient-to-r from-blue-50/50 to-blue-50/20 rounded-xl p-6 border border-blue-100 hover:shadow-md transition-all">
-                                            <div className="flex gap-4">
-                                              <div className="flex-shrink-0">
-                                                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
-                                                  <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                                          <div className="group relative bg-white/80 backdrop-blur-xl rounded-2xl p-6 border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                                            <div className="space-y-4">
+                                              <div className="flex justify-center">
+                                                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg">
+                                                  <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                                                     <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                                                   </svg>
                                                 </div>
                                               </div>
-                                              <div className="flex-1">
-                                                <h3 className="text-xs font-bold text-blue-700 uppercase tracking-wider mb-2">Complementary Interventions</h3>
+                                              <div className="text-center">
+                                                <h3 className="text-xs font-bold text-blue-700 uppercase tracking-wider mb-3">Complementary Interventions</h3>
                                                 <p className="text-slate-700 text-sm leading-relaxed">
                                                   {condition.evidenceSnapshot.secondaryStrategy || condition.evidenceSnapshot.imaging}
                                                 </p>
@@ -890,20 +899,20 @@ export default function ConditionPageClient({
                                             </div>
                                           </div>
                                         )}
-                                        
+
                                         {/* Prevention Strategy Card */}
                                         {(condition.evidenceSnapshot.preventionStrategy || condition.evidenceSnapshot.management) && (
-                                          <div className="group relative bg-gradient-to-r from-violet-50/50 to-violet-50/20 rounded-xl p-6 border border-violet-100 hover:shadow-md transition-all">
-                                            <div className="flex gap-4">
-                                              <div className="flex-shrink-0">
-                                                <div className="w-12 h-12 bg-gradient-to-br from-violet-500 to-violet-600 rounded-xl flex items-center justify-center shadow-lg">
-                                                  <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                                          <div className="group relative bg-white/80 backdrop-blur-xl rounded-2xl p-6 border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                                            <div className="space-y-4">
+                                              <div className="flex justify-center">
+                                                <div className="w-14 h-14 bg-gradient-to-br from-violet-500 to-violet-600 rounded-2xl flex items-center justify-center shadow-lg">
+                                                  <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                                                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
                                                   </svg>
                                                 </div>
                                               </div>
-                                              <div className="flex-1">
-                                                <h3 className="text-xs font-bold text-violet-700 uppercase tracking-wider mb-2">Prevention & Long-term Care</h3>
+                                              <div className="text-center">
+                                                <h3 className="text-xs font-bold text-violet-700 uppercase tracking-wider mb-3">Prevention & Long-term Care</h3>
                                                 <p className="text-slate-700 text-sm leading-relaxed">
                                                   {condition.evidenceSnapshot.preventionStrategy || condition.evidenceSnapshot.management}
                                                 </p>
@@ -914,16 +923,17 @@ export default function ConditionPageClient({
                                       </div>
                                     )}
                                     
-                                    {/* Self-Management Strategies with Premium Design */}
+                                    {/* Self-Management Strategies - 2 COLUMN GRID */}
                                     {condition.selfManagement && condition.selfManagement.length > 0 && (
-                                      <div className="space-y-5">
+                                      <div className="space-y-6">
                                         {condition.evidenceSnapshot && (
                                           <div className="flex items-center gap-3 mt-8 mb-6">
                                             <div className="h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent flex-1"></div>
-                                            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Detailed Management Strategies</span>
+                                            <span className="text-xs font-medium text-slate-500 uppercase tracking-wider">Detailed Management Strategies</span>
                                             <div className="h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent flex-1"></div>
                                           </div>
                                         )}
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                                         {condition.selfManagement.map((strategy, index) => {
                                           const colors = [
                                             { bg: 'from-amber-50/50 to-amber-50/20', border: 'border-amber-100', icon: 'from-amber-500 to-amber-600', text: 'text-amber-700' },
@@ -934,15 +944,15 @@ export default function ConditionPageClient({
                                           const color = colors[index % colors.length];
                                           
                                           return (
-                                            <div key={index} className={`group relative bg-gradient-to-r ${color.bg} rounded-xl p-6 border ${color.border} hover:shadow-md transition-all`}>
+                                            <div key={index} className="group relative bg-white/80 backdrop-blur-xl rounded-2xl p-6 border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
                                               <div className="flex gap-4">
                                                 <div className="flex-shrink-0">
                                                   <div className={`w-12 h-12 bg-gradient-to-br ${color.icon} rounded-xl flex items-center justify-center shadow-lg`}>
-                                                    <span className="text-white font-bold text-lg">{index + 1}</span>
+                                                    <span className="text-white font-semibold text-lg">{index + 1}</span>
                                                   </div>
                                                 </div>
                                                 <div className="flex-1">
-                                                  <h3 className={`text-xs font-bold ${color.text} uppercase tracking-wider mb-2`}>{strategy.strategy}</h3>
+                                                  <h3 className={`text-xs font-semibold ${color.text} uppercase tracking-wider mb-2`}>{strategy.strategy}</h3>
                                                   <p className="text-slate-700 text-sm leading-relaxed mb-3">
                                                     {strategy.rationale}
                                                   </p>
@@ -951,7 +961,7 @@ export default function ConditionPageClient({
                                                       <div className="flex items-start gap-2">
                                                         <ExclamationCircleIcon className="h-4 w-4 text-amber-600 mt-0.5 flex-shrink-0" />
                                                         <div className="flex-1">
-                                                          <p className="text-xs font-semibold text-amber-900 mb-1">Important Precautions</p>
+                                                          <p className="text-xs font-medium text-amber-900 mb-1">Important Precautions</p>
                                                           <ul className="text-xs text-amber-800 space-y-1">
                                                             {strategy.precautions.map((precaution, pIndex) => (
                                                               <li key={pIndex} className="flex items-start">
@@ -975,6 +985,7 @@ export default function ConditionPageClient({
                                             </div>
                                           );
                                         })}
+                                        </div>
                                       </div>
                                     )}
                                     
@@ -985,7 +996,7 @@ export default function ConditionPageClient({
                                           <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                                           </svg>
-                                          <span className="font-semibold">Evidence Base:</span>
+                                          <span className="font-medium">Evidence Base:</span>
                                           <span>{condition.evidenceSnapshot.sources}</span>
                                         </div>
                                       </div>
@@ -1017,7 +1028,7 @@ export default function ConditionPageClient({
                                         <AcademicCapIcon className="h-6 w-6 text-white" />
                                       </div>
                                       <div>
-                                        <h2 className="text-2xl font-bold text-white">Treatment Techniques</h2>
+                                        <h2 className="text-2xl font-medium tracking-tight leading-tight text-white">Treatment Techniques</h2>
                                         <p className="text-sm text-orange-200 mt-1">Specialized manual therapy and intervention approaches</p>
                                       </div>
                                     </div>
@@ -1041,7 +1052,7 @@ export default function ConditionPageClient({
                                       className="overflow-hidden"
                                     >
                                       <div className="p-8">
-                                        <p className="text-slate-600 mb-6">
+                                        <p className="text-base text-slate-700 leading-relaxed mb-6">
                                           {condition.treatmentApproach.description}
                                         </p>
                                         <div className="space-y-3">
@@ -1051,8 +1062,8 @@ export default function ConditionPageClient({
                                               <div key={index} className="flex items-start gap-3 p-4 bg-gradient-to-r from-orange-50/50 to-amber-50/30 rounded-lg border border-orange-100">
                                                 <CheckCircleIcon className="h-5 w-5 text-orange-600 mt-0.5 flex-shrink-0" />
                                                 <div>
-                                                  <span className="font-semibold text-slate-900">{title}</span>
-                                                  {description && <span className="text-slate-600">: {description}</span>}
+                                                  <span className="font-medium text-slate-900">{title}</span>
+                                                  {description && <span className="text-slate-700 leading-relaxed">: {description}</span>}
                                                 </div>
                                               </div>
                                             );
@@ -1084,7 +1095,7 @@ export default function ConditionPageClient({
                                         <ClockIcon className="h-6 w-6 text-white" />
                                       </div>
                                       <div>
-                                        <h2 className="text-2xl font-bold text-white">Recovery Timeline</h2>
+                                        <h2 className="text-2xl font-medium tracking-tight leading-tight text-white">Recovery Timeline</h2>
                                         <p className="text-sm text-teal-200 mt-1">Expected phases and milestones in your recovery journey</p>
                                       </div>
                                     </div>
@@ -1119,12 +1130,12 @@ export default function ConditionPageClient({
                                               </div>
                                               <div className="flex-1 pb-6">
                                                 <div className="flex items-center gap-3 mb-2">
-                                                  <h3 className="font-semibold text-slate-900">{phase.phase}</h3>
+                                                  <h3 className="text-xl font-medium leading-tight text-slate-900">{phase.phase}</h3>
                                                   <span className="text-sm text-teal-700 bg-teal-100 px-3 py-1 rounded-full">
                                                     {phase.duration}
                                                   </span>
                                                 </div>
-                                                <p className="text-slate-600">{phase.description}</p>
+                                                <p className="text-base text-slate-700 leading-relaxed">{phase.description}</p>
                                               </div>
                                             </div>
                                           ))}
@@ -1156,7 +1167,7 @@ export default function ConditionPageClient({
                                         </svg>
                                       </div>
                                       <div>
-                                        <h2 className="text-2xl font-bold text-white">Prognosis & Recovery</h2>
+                                        <h2 className="text-2xl font-medium tracking-tight leading-tight text-white">Prognosis & Recovery</h2>
                                         <p className="text-sm text-purple-200 mt-1">Expected outcomes and recovery factors</p>
                                       </div>
                                     </div>
@@ -1192,7 +1203,7 @@ export default function ConditionPageClient({
                                           </div>
                                         </div>
                                         <div className="flex-1">
-                                          <h3 className="text-xs font-bold text-purple-700 uppercase tracking-wider mb-2">Expected Timeline</h3>
+                                          <h3 className="text-xs font-semibold text-purple-700 uppercase tracking-wider mb-2">Expected Timeline</h3>
                                           <p className="text-slate-700 text-sm leading-relaxed">{condition.prognosis.timeline}</p>
                                         </div>
                                       </div>
@@ -1210,7 +1221,7 @@ export default function ConditionPageClient({
                                             </div>
                                           </div>
                                           <div className="flex-1">
-                                            <h3 className="text-xs font-bold text-pink-700 uppercase tracking-wider mb-2">Natural History</h3>
+                                            <h3 className="text-xs font-semibold text-pink-700 uppercase tracking-wider mb-2">Natural History</h3>
                                             <p className="text-slate-700 text-sm leading-relaxed">{condition.prognosis.naturalHistory}</p>
                                           </div>
                                         </div>
@@ -1229,7 +1240,7 @@ export default function ConditionPageClient({
                                             </div>
                                           </div>
                                           <div className="flex-1">
-                                            <h3 className="text-xs font-bold text-indigo-700 uppercase tracking-wider mb-3">Factors Affecting Recovery</h3>
+                                            <h3 className="text-xs font-semibold text-indigo-700 uppercase tracking-wider mb-3">Factors Affecting Recovery</h3>
                                             <div className="grid md:grid-cols-2 gap-3">
                                               {condition.prognosis.factors.map((factor, index) => (
                                                 <div key={index} className="flex items-start gap-2">
@@ -1271,7 +1282,7 @@ export default function ConditionPageClient({
                                         </svg>
                                       </div>
                                       <div>
-                                        <h2 className="text-2xl font-bold text-white">Measuring Progress</h2>
+                                        <h2 className="text-2xl font-medium tracking-tight leading-tight text-white">Measuring Progress</h2>
                                         <p className="text-sm text-green-200 mt-1">Track your recovery journey</p>
                                       </div>
                                     </div>
@@ -1307,7 +1318,7 @@ export default function ConditionPageClient({
                                           </div>
                                         </div>
                                         <div className="flex-1">
-                                          <h3 className="text-xs font-bold text-green-700 uppercase tracking-wider mb-2">Day-to-Day Tracking</h3>
+                                          <h3 className="text-xs font-semibold text-green-700 uppercase tracking-wider mb-2">Day-to-Day Tracking</h3>
                                           <p className="text-slate-700 text-sm leading-relaxed">{condition.measuringProgress.dayToDay}</p>
                                         </div>
                                       </div>
@@ -1325,7 +1336,7 @@ export default function ConditionPageClient({
                                             </div>
                                           </div>
                                           <div className="flex-1">
-                                            <h3 className="text-xs font-bold text-emerald-700 uppercase tracking-wider mb-2">Assessment Tools</h3>
+                                            <h3 className="text-xs font-semibold text-emerald-700 uppercase tracking-wider mb-2">Assessment Tools</h3>
                                             <p className="text-slate-700 text-sm leading-relaxed" dangerouslySetInnerHTML={{ 
                                               __html: condition.measuringProgress.questionnaires
                                                 .replace(/\b(DASH)\b/g, '<a href="https://www.physio-pedia.com/DASH_Outcome_Measure" target="_blank" rel="noopener noreferrer" class="text-emerald-600 underline hover:text-emerald-800 font-medium">$1</a>')
@@ -1355,7 +1366,7 @@ export default function ConditionPageClient({
                                           </div>
                                         </div>
                                         <div className="flex-1">
-                                          <h3 className="text-xs font-bold text-teal-700 uppercase tracking-wider mb-2">Activity Targets</h3>
+                                          <h3 className="text-xs font-semibold text-teal-700 uppercase tracking-wider mb-2">Activity Targets</h3>
                                           <p className="text-slate-700 text-sm leading-relaxed">{condition.measuringProgress.activityTarget}</p>
                                         </div>
                                       </div>
@@ -1387,7 +1398,7 @@ export default function ConditionPageClient({
                                         <QuestionMarkCircleIcon className="h-6 w-6 text-white" />
                                       </div>
                                       <div>
-                                        <h2 className="text-2xl font-bold text-white">Frequently Asked Questions</h2>
+                                        <h2 className="text-2xl font-medium tracking-tight leading-tight text-white">Frequently Asked Questions</h2>
                                         <p className="text-sm text-blue-200 mt-1">Common concerns and answers</p>
                                       </div>
                                     </div>
@@ -1426,11 +1437,11 @@ export default function ConditionPageClient({
                                           <summary className="flex gap-4 cursor-pointer list-none">
                                             <div className="flex-shrink-0">
                                               <div className={`w-12 h-12 bg-gradient-to-br ${color.icon} rounded-xl flex items-center justify-center shadow-lg transition-transform group-open:rotate-12`}>
-                                                <span className="text-white font-bold text-lg">Q{index + 1}</span>
+                                                <span className="text-white font-semibold text-lg">Q{index + 1}</span>
                                               </div>
                                             </div>
                                             <div className="flex-1">
-                                              <h3 className={`text-xs font-bold ${color.text} group-open:${color.open} uppercase tracking-wider transition-colors`}>
+                                              <h3 className={`text-xs font-semibold ${color.text} group-open:${color.open} uppercase tracking-wider transition-colors`}>
                                                 {faq.question}
                                               </h3>
                                             </div>
@@ -1463,7 +1474,7 @@ export default function ConditionPageClient({
                   <div className="space-y-6">
                     {/* Quick Actions */}
                     <div className="bg-gradient-to-br from-[#B08D57]/10 to-[#D4AF37]/10 rounded-xl p-6 border border-[#B08D57]/20">
-                      <h3 className="font-semibold text-slate-900 mb-4">Next Steps</h3>
+                      <h3 className="text-xl font-medium leading-tight text-slate-900 mb-6">Next Steps</h3>
                       <p className="text-sm text-slate-600 mb-4">
                         Book an assessment to discuss your specific situation.
                       </p>
@@ -1492,7 +1503,7 @@ export default function ConditionPageClient({
                     {/* Related Conditions */}
                     {relatedConditions.length > 0 && (
                       <div className="bg-white rounded-xl p-6 border border-slate-200">
-                        <h3 className="font-semibold text-slate-900 mb-4">Related Conditions</h3>
+                        <h3 className="text-xl font-medium leading-tight text-slate-900 mb-6">Related Conditions</h3>
                         <div className="space-y-2">
                           {relatedConditions.slice(0, 4).map((related) => (
                             <Link
@@ -1511,7 +1522,7 @@ export default function ConditionPageClient({
 
                     {/* What to Expect */}
                     <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
-                      <h3 className="font-semibold text-slate-900 mb-4">Your Treatment Journey</h3>
+                      <h3 className="text-xl font-medium leading-tight text-slate-900 mb-6">Your Treatment Journey</h3>
                       <div className="space-y-3">
                         <div className="flex items-start gap-3">
                           <ClockIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />

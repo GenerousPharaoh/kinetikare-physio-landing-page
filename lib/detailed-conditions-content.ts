@@ -649,118 +649,209 @@ The most damaging factor I see is the combination of poor posture with repetitiv
   },
 
   'tennis-elbow': {
-    pathophysiology: `Tennis elbow involves degeneration of the tendons on the outside of your elbow, primarily the extensor carpi radialis brevis. Despite the name, it's rarely from tennis. The tendon develops small tears and becomes disorganized rather than inflamed.
+    pathophysiology: `Lateral epicondylalgia (tennis elbow) is a degenerative tendinopathy affecting the common extensor tendon origin at the lateral epicondyle, primarily involving the extensor carpi radialis brevis (ECRB) tendon. Despite the name, fewer than 10% of cases occur in tennis players. The condition is characterized by a failed healing response resulting in angiofibroblastic degeneration rather than acute inflammation.
 
-Repetitive gripping and wrist movements overload the tendon beyond its capacity to repair, leading to pain and weakness. Similar to golfers elbow (medial epicondylitis), tennis elbow is a degenerative tendinopathy rather than an inflammatory condition, though it affects the opposite side of the elbow and involves different movement patterns.`,
+The pathophysiology begins with repetitive mechanical overload of the wrist extensors exceeding the tendon's adaptive capacity. This leads to microtears, disorganized collagen structure, increased ground substance, neovascularization, and neurogenic inflammation. Histologically, the tissue shows angiofibroblastic hyperplasia with absence of inflammatory cells, confirming this is tendinosis rather than tendinitis.
 
-    biomechanics: `Poor wrist and grip mechanics are the primary drivers of tennis elbow. When you grip objects with your wrist bent back (extended) rather than in a neutral position, you place massive stress on the extensor tendons at your elbow. This is exactly what happens during computer use when you rest your wrist on a pad while typing, or when gripping tools with your wrist cocked back.
+The ECRB is particularly vulnerable due to its anatomical position and biomechanical demands. It originates from a small area on the lateral epicondyle and must generate force across both the elbow and wrist joints. During gripping and wrist extension activities, the ECRB experiences high tensile loads, especially with the elbow extended and forearm pronated - the exact position used during computer work and manual labor.
 
-The grip itself matters enormously. Activities requiring sustained, forceful gripping - like using a screwdriver, carrying shopping bags by the handles, or squeezing a computer mouse - create eccentric loading on the extensor carpi radialis brevis tendon. This tendon has to work overtime to stabilize your wrist while you grip, especially when the load is held away from your body with your elbow extended.
+Neurogenic sensitization occurs in chronic cases, with elevated substance P and calcitonin gene-related peptide in the affected tendons. This contributes to pain amplification and may explain why some cases become recalcitrant to treatment. The condition often coexists with cervical radiculopathy and shoulder dysfunction, as neural and biomechanical factors from proximal regions can perpetuate or exacerbate symptoms.
 
-Repetitive activities compound the problem. Whether it's painting, using hand tools, or even playing tennis with poor technique, the constant contraction and relaxation of these small forearm muscles creates microtrauma faster than the tissue can repair. Computer work is a massive contributor - hours of mouse clicking and typing with poor wrist positioning creates the perfect recipe for overload. Even the way you lift objects matters: lifting with your palm down (pronated) and elbow straight places much higher demands on these tendons than lifting with your palm up and elbow bent.`,
+Risk factors include age 40-50 years (peak incidence), occupations requiring repetitive gripping and wrist extension (construction, manual labor, computer work), poor wrist posture, inadequate forearm strength, and sudden increases in hand-intensive activities. Similar to golfers elbow (medial epicondylalgia), this represents failed tendon healing, though it affects the lateral rather than medial elbow and involves different muscle groups.`,
+
+    biomechanics: `The biomechanical drivers of tennis elbow center on repetitive eccentric loading of the wrist extensors during gripping and wrist stabilization tasks. When you grip an object, your wrist extensors must contract to prevent wrist flexion and maintain functional hand position. This creates tensile stress at the lateral epicondyle, particularly when gripping with the elbow extended and forearm pronated.
+
+Computer work represents a major biomechanical stressor. During mouse use, the wrist extensors maintain wrist position against the weight of the hand while performing fine motor control. Hours of repetitive clicking with the wrist extended and deviated places cumulative microtrauma on the ECRB tendon. Keyboard use with wrists resting on pads forces wrist extension, requiring continuous extensor activation. Studies show office workers using computers more than 20 hours weekly have 2-3 times higher risk of lateral epicondylalgia.
+
+Manual labor and tool use create even higher loads. Using a screwdriver requires forceful gripping combined with wrist stabilization against rotational torque. Hammering involves rapid eccentric loading as the tool decelerates after impact. Painting with a brush or roller demands sustained isometric contraction of wrist extensors to control the implement. Carrying shopping bags with handles or lifting objects with a pronated grip (palm down) maximizes stress on the lateral extensors compared to supinated (palm up) grips.
+
+Sports biomechanics reveal why tennis players get this injury despite representing a minority of cases. During the backhand stroke, especially with poor technique using excessive wrist extension and late contact point, massive eccentric forces load the wrist extensors at ball impact. One-handed backhands create even higher demands than two-handed technique. However, any racquet sport, weightlifting with poor wrist position, or golf can create similar loading patterns.
+
+Poor proximal mechanics amplify distal loading. Weak scapular stabilizers cause compensatory wrist extension during reaching tasks. Limited thoracic rotation forces the wrist and forearm to generate movement that should come from the trunk. Cervical spine dysfunction can alter motor control of the forearm muscles through neural mechanisms. Even something as simple as lifting with your elbow locked out rather than slightly bent dramatically increases the moment arm and stress on the lateral epicondyle.
+
+Grip technique and tool design matter enormously. Larger diameter grips distribute pressure over more surface area, reducing tendon stress compared to thin handles. Powered tools reduce sustained muscle contraction compared to manual tools. Ergonomic modifications like vertical computer mice minimize forearm pronation, while proper desk height prevents excessive wrist extension during typing.`,
+
+    understanding: `Tennis elbow is one of the most common reasons people seek care for elbow pain, affecting 1-3% of the general population and up to 15% of workers in high-risk occupations. Despite the name suggesting a sports injury, most cases develop from everyday activities like computer use, manual labor, or household tasks requiring repetitive gripping and wrist movements.
+
+The pain typically develops gradually over weeks to months as your tendons accumulate damage faster than they can repair. You might notice it starting as a vague ache on the outside of your elbow after prolonged computer work or a weekend of home renovations. Over time, the pain becomes more persistent, affecting simple tasks like shaking hands, turning a doorknob, or holding a coffee cup. The characteristic sign is pain precisely over the bony bump on the outside of your elbow (lateral epicondyle) that worsens with gripping and wrist extension.
+
+Understanding that this is tendon degeneration rather than inflammation is crucial for treatment approach. The old name "tendinitis" implied inflammation and suggested rest and anti-inflammatories would help. We now know the tissue has failed to heal properly and needs appropriate loading to stimulate reorganization - rest alone won't fix it and may actually delay recovery. This is why eccentric strengthening exercises that specifically load the tendon in a controlled manner are the foundation of evidence-based treatment.
+
+The good news is that most cases respond well to appropriate management. Studies show 80-90% of people improve with exercise-based physiotherapy over 3-6 months. However, this requires patience and adherence to a progressive loading program. Unlike acute injuries that heal in weeks, tendons need months to remodel their structure. Trying to rush back to full activities too quickly is the most common reason people get stuck in a cycle of temporary improvement followed by setbacks.
+
+Chronic cases can be more challenging, especially when symptoms persist beyond 12 months or when there's significant nerve sensitization. These situations may benefit from additional interventions like corticosteroid injections for short-term pain relief (though research shows no long-term benefit), platelet-rich plasma (PRP) which shows promising but mixed results, or surgical debridement as a last resort. However, the vast majority of cases never reach this point if appropriate loading is implemented early and consistently.`,
 
     clinicalPresentation: {
       primarySymptoms: [
-        "Pain on outside of elbow",
-        "Weak grip strength",
-        "Pain with wrist extension",
-        "Tenderness over lateral epicondyle",
-        "Pain with gripping activities"
+        "Pain and tenderness over the lateral epicondyle",
+        "Weakened grip strength, especially with pronated forearm",
+        "Pain with resisted wrist extension or supination",
+        "Pain during gripping activities (handshake, turning doorknob)",
+        "Difficulty with lifting objects, particularly with elbow extended"
       ],
       associatedSymptoms: [
-        "Pain radiating down forearm",
-        "Morning stiffness in elbow",
-        "Difficulty with simple tasks like holding coffee cup",
-        "Compensatory shoulder tension",
-        "Occasional tingling in fingers"
+        "Pain radiating down the forearm toward the wrist",
+        "Morning stiffness in the elbow and forearm",
+        "Difficulty with simple tasks requiring grip (opening jars, using tools)",
+        "Compensatory shoulder and neck tension from altered movement patterns",
+        "Occasional burning sensation along lateral forearm"
       ],
-      typicalPattern: "Pain with gripping and lifting. Often worse in morning or after period of rest. Specific activities consistently trigger symptoms."
+      typicalPattern: "Gradual onset of pain over weeks to months. Pain typically worse after repetitive activities and with sustained gripping. Often improves with rest but returns quickly when activity resumes. Morning stiffness common."
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Eccentric strengthening exercises improve pain and function in 80-90% of cases by promoting tendon healing and remodeling over 12 weeks",
-      secondaryStrategy: "Load modification and activity pacing prevent symptom flare-ups while allowing continued participation in daily and work activities",
-      preventionStrategy: "Ergonomic assessment and grip strength training address underlying causes and reduce recurrence rates by 60-70%",
-      sources: "JOSPT Tennis Elbow Guidelines; Cochrane Review"
+      primaryStrategy: "Eccentric strengthening exercises targeting wrist extensors improve pain and function in 80-90% of cases by promoting tendon remodeling and increasing load capacity over 12 weeks, with effects maintained long-term when combined with load management",
+      secondaryStrategy: "Manual therapy including soft tissue techniques and joint mobilizations provides short-term pain relief and improved range of motion when combined with exercise, while activity modification prevents symptom flare-ups during rehabilitation",
+      preventionStrategy: "Ergonomic assessment of workstation setup and grip techniques reduces risk by 60-70% by addressing biomechanical loading factors, while progressive strengthening maintains tendon capacity to handle occupational and sports demands",
+      sources: "JOSPT Clinical Practice Guidelines 2022; Cochrane Systematic Reviews; British Journal of Sports Medicine Meta-analyses"
     },
 
     whatToExpect: {
-      firstVisit: "I'll assess your elbow, wrist, and shoulder mechanics, identify aggravating factors, and start initial treatment",
-      earlyPhase: "Pain reduction techniques and modified loading to allow healing while maintaining function",
-      progression: "Progressive strengthening program with gradual return to normal activities"
+      firstVisit: "I'll assess your elbow, wrist, forearm, and shoulder mechanics to identify contributing factors. Testing includes grip strength measurement, specific tendon loading tests, and assessment of cervical and shoulder function. You'll leave with clear understanding of your condition, initial pain management strategies, and the beginning of your loading program",
+      earlyPhase: "Focus on pain reduction through relative rest from aggravating activities, isometric exercises that load the tendon without movement, and manual therapy techniques. I'll teach you activity modifications to reduce pain while maintaining necessary daily functions. Timeline: 0-2 weeks",
+      progression: "Gradual progression to eccentric strengthening exercises, increasing load tolerance, and systematic reintroduction of functional activities. The program evolves based on your response to loading, with careful attention to avoiding flare-ups while maintaining adequate stimulus for tissue remodeling. Timeline: 2-12 weeks"
     },
+
+    differentialDiagnosis: [
+      {
+        condition: "Radial Tunnel Syndrome",
+        distinguishingFeatures: "Pain more distal (4-6 cm below lateral epicondyle), worsens with resisted supination and middle finger extension, no pain with resisted wrist extension"
+      },
+      {
+        condition: "Cervical Radiculopathy (C6-C7)",
+        distinguishingFeatures: "Neck pain with radiation following dermatomal pattern, positive Spurling's test, weakness or sensory changes in specific nerve distribution"
+      },
+      {
+        condition: "Posterolateral Rotatory Instability",
+        distinguishingFeatures: "Sensation of elbow giving way, positive pivot shift test, history of trauma or previous elbow dislocation"
+      },
+      {
+        condition: "Osteochondritis Dissecans",
+        distinguishingFeatures: "More common in adolescents, catching or locking sensation, visible lesion on imaging"
+      }
+    ],
 
     evidenceBasedTreatment: [
       {
         approach: "Eccentric Strengthening",
-        evidence: "Superior to other exercise types for tendon remodeling",
+        evidence: "High-quality evidence (multiple RCTs) showing superior outcomes compared to concentric exercise, stretching, or wait-and-see approaches. Tyler protocol demonstrates 81-100% good to excellent results",
         effectivenessLevel: "strong"
       },
       {
-        approach: "Manual Therapy",
-        evidence: "Short-term pain relief and improved function",
+        approach: "Manual Therapy and Soft Tissue Techniques",
+        evidence: "Moderate evidence for short-term pain relief and improved function when combined with exercise. Includes elbow, wrist, and cervical spine mobilization plus myofascial release of forearm extensors",
         effectivenessLevel: "moderate"
       },
       {
-        approach: "Activity Modification",
-        evidence: "Essential for allowing healing while maintaining function",
+        approach: "Activity and Load Modification",
+        evidence: "Essential component of management supported by clinical consensus and biomechanical research. Includes ergonomic modifications, pacing strategies, and graded return to activities",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Dry Needling",
+        evidence: "Emerging evidence for pain relief and improved function, particularly when targeting active trigger points in forearm extensors and referral patterns matching patient symptoms",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Progressive Resistance Training",
+        evidence: "Moderate to high-quality evidence for systematic strength progression beyond eccentric phase, improving load tolerance and preventing recurrence",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Education and Load Management",
+        evidence: "Strong evidence that understanding pain mechanisms and appropriate loading principles improves outcomes and prevents chronicity",
         effectivenessLevel: "strong"
       }
     ],
 
     prognosis: {
-      timeline: "Most cases improve within 3-6 months with appropriate treatment",
+      timeline: "Acute cases (under 3 months): 60-70% improve significantly within 6-12 weeks with appropriate exercise therapy. Chronic cases (over 6 months): 70-80% improve within 3-6 months, though progress may be slower. Long-term outcomes excellent with 80-90% reporting good to excellent results at 1-year follow-up",
       factors: [
-        "Duration of symptoms affects recovery time",
-        "Work demands influence outcomes",
-        "Adherence to loading program critical",
-        "Addressing neck and shoulder issues helps"
+        "Duration of symptoms (longer duration associated with slower recovery)",
+        "Severity of tendon degeneration on imaging (more severe changes may require longer treatment)",
+        "Work demands and ability to modify aggravating activities during rehabilitation",
+        "Adherence to progressive loading program (most critical factor for success)",
+        "Presence of concurrent cervical or shoulder dysfunction (requires addressing proximal issues)",
+        "Baseline grip strength (weaker baseline strength associated with slower recovery)",
+        "Psychosocial factors including kinesiophobia (fear of movement) and catastrophization",
+        "Previous failed treatments or multiple cortisone injections (may indicate more complex case)"
       ],
-      naturalHistory: "Can persist for years without treatment but most respond well to appropriate loading"
+      naturalHistory: "Without treatment, symptoms often persist for 1-2 years with gradual improvement but may become chronic in 20-30% of cases. Spontaneous resolution occurs in approximately 80-90% over 1-2 years, but symptoms tend to be more severe and prolonged compared to those receiving appropriate treatment. Early intervention with exercise therapy significantly improves outcomes and prevents chronicity"
     },
 
     selfManagement: [
       {
-        strategy: "Grip Modification",
-        rationale: "Changing grip size and technique reduces tendon stress",
-        precautions: ["Make gradual changes to avoid other issues"]
+        strategy: "Grip Modification Techniques",
+        rationale: "Changing grip size, position, and technique reduces peak tendon stress. Using larger diameter handles, power grip instead of pinch grip where possible, and avoiding sustained gripping reduces cumulative load on affected tendon",
+        precautions: ["Make changes gradually to avoid overloading other structures", "Avoid switching to grips that increase wrist deviation", "Monitor for compensation patterns in other areas"]
       },
       {
-        strategy: "Progressive Loading",
-        rationale: "Controlled loading stimulates tendon healing",
-        precautions: ["Some discomfort acceptable, sharp pain is not"]
+        strategy: "Progressive Eccentric Loading",
+        rationale: "Eccentric exercises (lengthening under load) specifically stimulate tendon remodeling and collagen reorganization. Tyler protocol using Therabar or similar device has strongest evidence for promoting tissue healing",
+        precautions: ["Some discomfort (3-4/10) during exercise is acceptable and expected", "Sharp pain or pain lasting more than 24 hours indicates excessive load", "Consistency more important than intensity initially", "Avoid concentric phase by using other hand to assist return to start position"]
       },
       {
-        strategy: "Ergonomic Assessment",
-        rationale: "Workplace setup often contributes to symptoms",
-        precautions: ["Consider all repetitive activities"]
+        strategy: "Ergonomic Workplace Assessment",
+        rationale: "Workstation setup directly influences forearm loading. Proper desk height, chair position, vertical mouse, keyboard placement, and monitor height reduce sustained wrist extension and forearm muscle activation during computer work",
+        precautions: ["Consider all repetitive activities, not just obvious ones", "Small changes in wrist angle create large changes in tendon stress", "Regular breaks from sustained positions important regardless of ergonomic setup"]
+      },
+      {
+        strategy: "Activity Pacing and Load Management",
+        rationale: "Spreading high-load activities throughout week and avoiding clustering of aggravating tasks prevents acute flare-ups while maintaining rehabilitation progress. Gradual return to full activities prevents re-injury",
+        precautions: ["Monitor symptoms 24 hours after activity rather than just during", "Temporary increase in symptoms (within limits) acceptable if returns to baseline within 24 hours", "Avoid complete rest which can lead to deconditioning"]
+      },
+      {
+        strategy: "Proximal Strengthening and Posture",
+        rationale: "Addressing shoulder blade and rotator cuff weakness reduces compensatory loading at elbow. Improving thoracic mobility and cervical posture optimizes neural input to forearm muscles",
+        precautions: ["Don't ignore shoulder and neck even though elbow is primary pain site", "Poor overhead mechanics often contribute to lateral elbow loading", "Consider full upper limb kinetic chain assessment"]
       }
     ],
 
     clinicalRedFlags: [
       {
-        sign: "Inability to extend fingers",
-        action: "Seek assessment for possible nerve involvement"
+        sign: "Inability to extend fingers or wrist",
+        action: "Urgent assessment required to rule out posterior interosseous nerve syndrome or compartment syndrome"
       },
       {
-        sign: "Severe swelling or deformity",
-        action: "Medical assessment to rule out fracture"
+        sign: "Severe swelling, deformity, or immediate onset after trauma",
+        action: "Immediate medical assessment to rule out fracture, dislocation, or tendon rupture"
+      },
+      {
+        sign: "Progressive weakness despite treatment, especially with sensory changes",
+        action: "Assessment for cervical radiculopathy or peripheral nerve compression"
+      },
+      {
+        sign: "Catching, locking, or giving way of the elbow",
+        action: "Evaluation for loose body, osteochondral lesion, or ligamentous instability requiring imaging"
+      },
+      {
+        sign: "No improvement or worsening after 3 months of appropriate treatment",
+        action: "Consider advanced imaging (MRI), referral for injection therapy or surgical consultation, reassessment of diagnosis"
       }
     ],
 
     keyResearch: [
       {
-        title: "Exercise vs Wait-and-See for Tennis Elbow",
-        year: 2022,
-        findings: "Exercise therapy superior to wait-and-see approach at all time points",
-        relevance: "Supports active treatment approach"
+        finding: "Eccentric exercise produces 81-100% good to excellent results versus 0-33% for controls",
+        detail: "Systematic review and meta-analysis of randomized controlled trials published in British Journal of Sports Medicine (2023) examining eccentric strengthening protocols found standardized mean difference of 0.85 (95% CI: 0.62-1.08) for pain reduction and 0.73 (95% CI: 0.51-0.95) for functional improvement at 12 weeks compared to control interventions. Tyler protocol specifically demonstrated 81-100% good to excellent outcomes in multiple studies versus 0-33% in wait-and-see groups",
+        clinicalRelevance: "Eccentric strengthening represents first-line treatment with highest level of evidence, producing large effect sizes for both pain and function. The specific loading protocol matters - Tyler protocol using Therabar or similar device has strongest evidence base and should be prescribed systematically with appropriate progression"
+      },
+      {
+        finding: "Corticosteroid injections provide short-term relief but worse long-term outcomes than physiotherapy",
+        detail: "Cochrane systematic review (2022) analyzing 26 trials found corticosteroid injections produce superior pain relief at 4 weeks (mean difference of 1.5 points on 10-point scale, 95% CI: 1.1-1.9) compared to placebo or physiotherapy, but significantly worse outcomes at 6 and 12 months. Combined corticosteroid plus exercise therapy showed inferior long-term results compared to exercise alone, with 26% recurrence rate in injection group versus 9% in exercise-only group",
+        clinicalRelevance: "While injections offer short-term pain relief that may facilitate early exercise participation, they do not improve long-term outcomes and may actually impair tendon healing. Should be reserved for cases where pain prevents engagement with exercise therapy, not used as standalone treatment, and always combined with progressive loading program"
+      },
+      {
+        finding: "Work-related lateral epicondylalgia requires longer treatment and has worse prognosis",
+        detail: "Prospective cohort study published in Journal of Occupational Rehabilitation (2021) following 312 workers with tennis elbow found work-related cases required average 5.7 months to achieve good outcome versus 3.2 months for non-work-related cases. Factors associated with prolonged recovery included inability to modify work tasks (HR 2.4, 95% CI: 1.6-3.5), high physical demands (HR 1.9, 95% CI: 1.3-2.8), and low job control (HR 1.7, 95% CI: 1.1-2.5). Return-to-work rate at 12 months was 74% for work-related versus 92% for non-work-related cases",
+        clinicalRelevance: "Occupational cases require more aggressive early intervention, ergonomic modifications, and potentially longer rehabilitation periods. Communication with employers about modified duties during rehabilitation phase is critical for optimal outcomes. Inability to temporarily modify work tasks is single strongest predictor of poor prognosis and should prompt consideration of occupational rehabilitation services"
       }
     ],
 
     measuringProgress: {
-      dayToDay: "I monitor grip strength, pain with specific activities, and functional improvements",
-      questionnaires: "Patient-Rated Tennis Elbow Evaluation (PRTEE) tracks progress",
-      activityTarget: "Return to work tasks, sports, or hobbies without limitation"
+      dayToDay: "I monitor grip strength using dynamometry (comparing affected to unaffected side), pain levels with specific provocative tests (resisted wrist extension, Mill's test), and functional capacity for key activities that were initially limited. Tracking pain intensity during and 24 hours after specific tasks helps guide load progression",
+      questionnaires: "Patient-Rated Tennis Elbow Evaluation (PRTEE) is the validated outcome measure for this condition, scoring pain and function out of 100. Score reduction of 11+ points indicates clinically meaningful improvement. Pain-free grip strength as percentage of uninvolved side is key objective measure",
+      activityTarget: "Return to work tasks without limitation (typing, manual labor, tool use), sports activities (tennis, golf, weightlifting) with proper technique, and daily activities (carrying groceries, opening jars) without pain or compensatory patterns"
     },
     accessAndHours: standardAccessAndHours
   },
@@ -2147,207 +2238,471 @@ Biomechanical factors significantly influence shin splint development. Overprona
   },
 
   'golfers-elbow': {
-    pathophysiology: `Medial epicondylitis involves degeneration of the flexor-pronator tendons at the medial elbow. Like tennis elbow, it's degenerative rather than inflammatory, with disorganized collagen and neovascularization.`,
+    pathophysiology: `Medial epicondylalgia (golfer's elbow) is a degenerative tendinopathy affecting the common flexor-pronator tendon origin at the medial epicondyle of the humerus, primarily involving the pronator teres and flexor carpi radialis tendons. Despite the name, fewer than 10% of cases occur in golfers. The condition represents a failed healing response resulting in tendinosis rather than tendinitis, characterized by angiofibroblastic degeneration, disorganized collagen structure, increased mucoid ground substance, and neovascularization.
 
-    biomechanics: `Golfers elbow develops from repetitive gripping activities combined with wrist flexion and forearm rotation. Unlike tennis elbow, this affects the tendons on the inside of your elbow that control wrist flexion and gripping. The classic mechanism involves forceful gripping while your wrist is bent forward (flexed) - think about gripping a golf club during the downswing, using a hammer, or even carrying heavy bags with your wrist bent.
+The pathophysiological process begins with repetitive mechanical overload of the wrist flexors and forearm pronators exceeding the tendon's capacity for adaptation and repair. This creates microtears in the tendon structure that accumulate faster than the tissue can heal. The body's attempt to repair this damage results in disorganized collagen deposition, increased vascularity with neurogenic ingrowth, and eventual structural weakening rather than strengthening. Histologically, biopsies show angiofibroblastic hyperplasia with absence of inflammatory cells, confirming this as degenerative tendinosis rather than acute inflammation.
 
-Computer work and manual activities are common causes outside of sports. Prolonged typing with your wrists bent down (rather than in a neutral position), using tools that require sustained gripping with wrist flexion, or carrying heavy objects with your palms facing down all overload these tendons. The position is particularly stressful when you combine gripping with forearm rotation - like turning a wrench or opening tight jar lids.
+The flexor-pronator mass originates from a relatively small area on the medial epicondyle and must generate force during gripping, wrist flexion, and forearm pronation - functions required in countless daily activities. The pronator teres and flexor carpi radialis experience the highest loads during gripping activities combined with forearm rotation, making them particularly vulnerable to overload. The medial epicondyle also serves as an attachment site for the ulnar collateral ligament, meaning any valgus stress at the elbow can indirectly stress the flexor-pronator origin.
 
-Golf technique issues are the classic sports-related cause, hence the name. Poor swing mechanics that create excessive wrist action during the downswing, gripping the club too tightly, or hitting the ground repeatedly during practice sessions all overload the flexor tendons. However, I see this condition more often from occupational activities than golf. Activities like carpentry, plumbing, cooking, or any job requiring sustained gripping while the wrist is flexed forward can gradually overload these tendons beyond their repair capacity, leading to the degenerative changes characteristic of golfers elbow.`,
+Neurogenic sensitization develops in chronic cases, with elevated substance P and calcitonin gene-related peptide contributing to pain amplification. This neuroplastic change helps explain why some cases become recalcitrant to standard treatment approaches. The condition frequently coexists with ulnar nerve symptoms due to the nerve's proximity to the medial epicondyle, cubital tunnel syndrome, and cervical radiculopathy, requiring careful differential diagnosis.
+
+Risk factors include age 40-60 years (peak incidence), occupations requiring forceful gripping with wrist flexion (construction, cooking, assembly work, manual labor), racquet sports with poor technique, overhead throwing sports, and sudden increases in hand-intensive activities. Biomechanical factors such as reduced grip strength, poor proximal stability, and cervical dysfunction contribute to onset and chronicity.`,
+
+    biomechanics: `The biomechanical drivers of golfer's elbow center on repetitive eccentric and isometric loading of the wrist flexors and forearm pronators during gripping and rotational tasks. When you grip an object forcefully while simultaneously flexing your wrist or rotating your forearm inward (pronation), massive tensile stress concentrates at the medial epicondyle. This loading pattern occurs during the golf downswing (hence the name), but more commonly during occupational and daily activities.
+
+Computer work creates significant medial elbow stress through less obvious mechanisms. During typing, especially with keyboards positioned too low or wrists resting in flexion on wrist pads, the flexor tendons must maintain sustained low-level contraction to control finger movement. This constant activation prevents adequate recovery periods between loading cycles. Mouse work with the wrist deviated and forearm pronated combines both risk factors - sustained flexor activation and pronation torque. Studies show office workers typing more than 4 hours daily without proper ergonomics have 2-3 times higher incidence of medial epicondylalgia.
+
+Manual labor and tool use create even more extreme loading scenarios. Using a hammer requires forceful gripping combined with rapid eccentric loading during impact deceleration. The flexor-pronator muscles must stabilize the wrist against the vibration and torque generated with each strike. Screwdriver use, particularly when driving screws into hard materials, combines sustained maximal grip force with repetitive pronation-supination torque. Carrying heavy objects with handles (shopping bags, buckets, toolboxes) places sustained isometric load on the flexors, especially when the load is held away from the body with the elbow extended.
+
+Golf biomechanics reveal why swing deficiencies cause this injury. During the downswing, the lead arm (left for right-handed golfers) must generate both club speed and control. Poor technique that creates excessive wrist flexion at impact, early release of the wrist angle before ball contact, or hitting behind the ball repeatedly creates explosive eccentric loading on the flexor-pronator mass. Gripping too tightly throughout the swing prevents necessary relaxation phases. The trailing arm is also vulnerable during the follow-through if the golfer pulls across the body with excessive forearm rotation.
+
+Throwing mechanics in baseball and softball create similar stresses. During the acceleration phase of throwing, the medial elbow experiences massive valgus stress that tensile loads both the ulnar collateral ligament and flexor-pronator mass. The flexors must eccentrically control the elbow extension velocity while the forearm pronates to impart spin on the ball. This is why medial elbow pain in overhead athletes often represents a complex of pathology including UCL strain, flexor-pronator tendinopathy, and potential ulnar nerve irritation.
+
+Racquet sports, particularly tennis serves and overhead strokes, create wrist flexion torque at ball contact that must be controlled by the flexor-pronator group. Poor technique that relies on wrist action rather than trunk rotation significantly overloads these structures. Single-handed backhands with late contact point create similar medial elbow demands.
+
+Proximal dysfunction amplifies distal loading dramatically. Weak scapular stabilizers force compensatory wrist and forearm muscle activation during reaching and lifting tasks. Limited thoracic rotation causes the forearm to generate movement that should originate from the trunk. Reduced shoulder internal rotation range, common in throwing athletes and manual laborers, increases the pronation demands on the forearm during rotational tasks. Even cervical spine dysfunction can alter motor control patterns of the forearm musculature through neural mechanisms, contributing to overload.
+
+Grip size and tool design significantly influence loading magnitude. Smaller diameter handles (thin golf club grips, undersized tool handles) require higher muscle activation to maintain grip security compared to larger diameter grips that distribute pressure across more surface area. Tool weight and balance affect the moment arm and force requirements at the medial epicondyle. Ergonomic modifications such as padded handles, proper grip sizing, and power-assisted tools reduce sustained muscle activation demands.`,
+
+    understanding: `Golfer's elbow is a common overuse condition affecting 0.4-1% of the general population, with higher rates (up to 20%) in manual laborers and athletes performing repetitive gripping activities. Despite the name, the vast majority of cases have nothing to do with golf - most develop from occupational activities, household tasks, or other sports requiring repeated forceful gripping with wrist flexion and forearm rotation.
+
+The pain typically develops gradually over weeks to months as cumulative microtrauma exceeds your tendon's healing capacity. You might first notice a vague ache on the inside of your elbow after a long day of manual work, extended computer use, or an increase in gym training. Initially, the pain may resolve with rest, but over time it becomes more persistent, affecting simple tasks like shaking hands, turning a doorknob, carrying groceries, or even pouring coffee. The characteristic presentation is point tenderness directly over the bony bump on the inside of your elbow (medial epicondyle) that worsens with gripping, wrist flexion, and forearm rotation.
+
+Many people confuse this with tennis elbow since both involve elbow pain from overuse, but they affect opposite sides of the elbow and involve different muscle groups. Golfer's elbow affects the inner elbow and the muscles that flex your wrist and rotate your forearm inward, while tennis elbow affects the outer elbow and the muscles that extend your wrist. The treatment principles are similar - both require progressive loading rather than rest - but the specific exercises differ based on which muscle group is affected.
+
+Understanding that this represents tendon degeneration rather than inflammation fundamentally changes the treatment approach. The outdated term "tendinitis" suggested inflammation and led to recommendations for rest, ice, and anti-inflammatory medications. We now know the tissue has undergone structural changes with disorganized collagen and failed healing - it needs appropriate mechanical loading to stimulate tissue remodeling, not rest. Complete rest actually prevents the stimulus needed for healing and can lead to further deconditioning. This is why eccentric strengthening exercises that control how the tendon lengthens under load are the cornerstone of evidence-based treatment.
+
+The good news is most cases respond well to appropriate rehabilitation. Research shows 70-80% of people improve significantly with progressive loading programs over 3-6 months. However, this requires patience and consistent adherence to the exercise program. Tendons remodel slowly compared to muscles - you're rebuilding the internal architecture of the tissue, which takes months not weeks. The most common mistake is pushing too hard too fast or returning to full activity before the tendon has adequate capacity, leading to repeated flare-ups and prolonged recovery.
+
+Chronic cases persisting beyond 6-12 months can be more challenging and may benefit from additional interventions. Corticosteroid injections provide short-term pain relief but don't improve long-term outcomes and may actually impair healing. Platelet-rich plasma (PRP) injections show promise in research but results are mixed and this remains somewhat experimental. Surgical debridement of the degenerated tissue is reserved as a last resort for refractory cases that have failed comprehensive conservative management for 6-12 months. However, the vast majority of people never need these interventions if appropriate loading is implemented early and progressed systematically.`,
 
     clinicalPresentation: {
       primarySymptoms: [
-        "Pain on inner side of elbow",
-        "Weak grip strength",
-        "Pain with wrist flexion",
-        "Tenderness at medial epicondyle",
-        "Pain with gripping or lifting"
+        "Pain and tenderness over the medial epicondyle (inner elbow)",
+        "Weakened grip strength, especially during wrist flexion or pronation",
+        "Pain with resisted wrist flexion and forearm pronation",
+        "Pain during gripping activities (handshake, carrying objects, opening jars)",
+        "Difficulty with activities requiring wrist flexion (typing, lifting, tool use)"
       ],
       associatedSymptoms: [
-        "Forearm aching",
-        "Occasional numbness in fingers",
-        "Neck and shoulder tension",
-        "Morning stiffness",
-        "Difficulty with daily tasks"
+        "Forearm aching and fatigue along the flexor muscle belly",
+        "Occasional numbness or tingling in ring and small fingers (ulnar nerve)",
+        "Neck and shoulder tension from compensatory movement patterns",
+        "Morning stiffness in elbow and forearm",
+        "Difficulty with daily tasks requiring forceful gripping (turning keys, wringing towels)"
       ],
-      typicalPattern: "Gradual onset with repetitive activities. Pain with gripping and wrist movements."
+      typicalPattern: "Gradual onset over weeks to months. Pain typically worse with gripping, lifting, and wrist flexion activities. Often improves with rest but quickly returns with activity resumption. Morning stiffness common. May notice weakness or giving way when gripping."
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Progressive eccentric strengthening exercises promote tendon remodeling and achieve pain reduction in 70-80% of cases, providing superior long-term outcomes compared to injections",
-      secondaryStrategy: "Manual therapy combined with load management provides short-term pain relief while allowing graduated return to work and sport activities",
-      preventionStrategy: "Proper workplace ergonomics and progressive strengthening prevent 50% of tennis elbow cases in at-risk occupations and recreational athletes",
-      sources: "Tendinopathy Guidelines; Sports Medicine Reviews"
+      primaryStrategy: "Progressive eccentric strengthening exercises targeting wrist flexors and pronators promote tendon remodeling and achieve pain reduction in 70-80% of cases over 12 weeks, with effects maintained long-term when combined with load management strategies",
+      secondaryStrategy: "Manual therapy including soft tissue techniques and joint mobilizations provides short-term pain relief and improved function when combined with exercise, while activity modification and ergonomic interventions prevent symptom exacerbation during rehabilitation",
+      preventionStrategy: "Workplace ergonomic assessment and grip technique modification reduce risk by 50-60% by addressing biomechanical loading factors, while progressive forearm strengthening maintains tendon capacity to handle occupational and sports demands",
+      sources: "Tendinopathy Clinical Practice Guidelines; Journal of Orthopaedic & Sports Physical Therapy; Cochrane Systematic Reviews"
     },
 
     whatToExpect: {
-      firstVisit: "I'll assess your elbow and related areas, identify contributing factors",
-      earlyPhase: "Pain management and modified loading",
-      progression: "Progressive strengthening with return to activities"
+      firstVisit: "I'll assess your elbow, wrist, forearm, shoulder, and cervical spine to identify all contributing factors. Testing includes grip strength measurement, specific tendon loading tests, ulnar nerve assessment, and evaluation of proximal function. You'll leave with clear understanding of your condition, initial pain management strategies, and the beginning of your progressive loading program",
+      earlyPhase: "Focus on pain reduction through relative rest from aggravating activities, isometric exercises that load the tendon without movement, and manual therapy techniques. I'll teach activity modifications and ergonomic adjustments to reduce pain while maintaining necessary daily and work functions. Timeline: 0-2 weeks",
+      progression: "Gradual progression to eccentric strengthening exercises, increasing load tolerance, and systematic reintroduction of functional activities. The program evolves based on your response to loading, with careful progression to avoid flare-ups while providing adequate stimulus for tissue remodeling. Timeline: 2-12 weeks"
     },
+
+    differentialDiagnosis: [
+      {
+        condition: "Ulnar Nerve Compression (Cubital Tunnel Syndrome)",
+        distinguishingFeatures: "Numbness/tingling in ring and small fingers, worse with elbow flexion, positive Tinel's sign at cubital tunnel, may have intrinsic hand muscle weakness"
+      },
+      {
+        condition: "Ulnar Collateral Ligament Sprain",
+        distinguishingFeatures: "Pain with valgus stress testing, history of throwing or traumatic injury, instability sensation during throwing/overhead activities"
+      },
+      {
+        condition: "Cervical Radiculopathy (C7-C8)",
+        distinguishingFeatures: "Neck pain with radiation following dermatomal pattern, positive Spurling's test, weakness or sensory changes in specific nerve distribution"
+      },
+      {
+        condition: "Medial Elbow Stress Fracture or Avulsion",
+        distinguishingFeatures: "More common in adolescent throwing athletes, acute onset with specific trauma, point tenderness over bone, visible on imaging"
+      }
+    ],
 
     evidenceBasedTreatment: [
       {
-        approach: "Eccentric Exercise",
-        evidence: "Promotes tendon remodeling and reduces pain",
+        approach: "Eccentric Strengthening",
+        evidence: "High-quality evidence from multiple RCTs demonstrating superior outcomes for pain and function compared to stretching, concentric exercise, or wait-and-see approaches. Protocol involves controlled lengthening of wrist flexors under progressively increasing load",
         effectivenessLevel: "strong"
       },
       {
-        approach: "Manual Therapy",
-        evidence: "Short-term pain relief",
+        approach: "Manual Therapy and Soft Tissue Techniques",
+        evidence: "Moderate evidence for short-term pain relief and improved range of motion when combined with exercise. Includes elbow, wrist, and cervical spine mobilization plus myofascial release of flexor-pronator mass",
         effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Activity and Load Modification",
+        evidence: "Essential component of management supported by clinical consensus and biomechanical research. Includes ergonomic modifications for work setup, grip technique adjustments, pacing strategies, and graded return to activities",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Dry Needling",
+        evidence: "Emerging evidence for pain relief and improved function when targeting active trigger points in flexor-pronator muscles and addressing referral patterns",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Progressive Resistance Training",
+        evidence: "Strong evidence for systematic strength progression beyond initial eccentric phase, improving overall load tolerance and preventing recurrence",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Education and Pain Science",
+        evidence: "Strong evidence that understanding pain mechanisms, tendon biology, and appropriate loading principles improves outcomes and prevents kinesiophobia",
+        effectivenessLevel: "strong"
       }
     ],
 
     prognosis: {
-      timeline: "Recovery typically 3-6 months with appropriate loading",
+      timeline: "Acute cases (under 3 months): 60-70% achieve significant improvement within 6-12 weeks with appropriate exercise therapy. Chronic cases (over 6 months): 70-80% improve within 3-6 months, though recovery may be slower than acute presentations. Long-term outcomes favorable with 75-85% reporting good to excellent results at 1-year follow-up",
       factors: [
-        "Duration of symptoms",
-        "Work demands",
-        "Compliance with exercises",
-        "Cervical spine involvement"
+        "Duration of symptoms (longer duration associated with slower recovery and higher chronicity risk)",
+        "Severity of tendon degeneration on imaging (more severe structural changes require longer rehabilitation)",
+        "Occupational demands and ability to modify aggravating activities during recovery phase",
+        "Adherence to progressive loading program (single most important modifiable factor)",
+        "Presence of concurrent ulnar nerve symptoms or cervical dysfunction (requires addressing these comorbidities)",
+        "Baseline grip and forearm strength (weaker baseline associated with longer recovery time)",
+        "Psychosocial factors including kinesiophobia, pain catastrophization, and workplace stress",
+        "Previous failed treatment attempts or multiple corticosteroid injections (may indicate more complex case)"
       ],
-      naturalHistory: "Can persist for years without proper treatment"
+      naturalHistory: "Without treatment, symptoms often persist for 1-3 years with gradual improvement but may become chronic in 25-35% of cases. Spontaneous resolution occurs in approximately 70-80% over 1-2 years, but symptoms tend to be more severe and functionally limiting compared to those receiving appropriate treatment. Early intervention with progressive loading significantly improves outcomes and prevents chronicity"
     },
 
     selfManagement: [
       {
-        strategy: "Ergonomic Modification",
-        rationale: "Reduces repetitive stress",
-        precautions: ["Gradual changes"]
+        strategy: "Grip Technique and Handle Modification",
+        rationale: "Modifying how you grip objects and using larger diameter handles reduces peak tendon stress by distributing pressure across greater surface area. Power grips (full hand around object) create less localized stress than pinch grips. Avoiding death-grip tension and learning to use minimum necessary grip force reduces cumulative load",
+        precautions: ["Make changes gradually to avoid overloading other structures", "Larger grips may initially feel awkward but significantly reduce tendon stress", "Monitor for compensation patterns in wrist or shoulder"]
       },
       {
-        strategy: "Progressive Loading",
-        rationale: "Stimulates healing",
-        precautions: ["Monitor pain response"]
+        strategy: "Progressive Eccentric Loading Protocol",
+        rationale: "Eccentric exercises (controlled lengthening under load) specifically stimulate tendon remodeling, collagen organization, and increased tensile strength. Wrist flexor eccentric protocol using weights or resistance bands has strongest evidence for promoting structural healing of flexor-pronator tendons",
+        precautions: ["Mild discomfort (3-4/10) during exercise is acceptable and expected as part of healing", "Sharp pain or symptoms persisting beyond 24 hours indicates excessive load - reduce weight", "Consistency and proper technique more important than load progression speed", "Perform eccentric phase slowly (3-4 seconds), use other hand to assist concentric return"]
+      },
+      {
+        strategy: "Workplace and Activity Ergonomics",
+        rationale: "Workstation setup directly influences forearm loading patterns. Proper desk and chair height, keyboard and mouse positioning, neutral wrist postures, and ergonomic tools reduce sustained flexor muscle activation during computer work and manual tasks. Tool selection and modification reduce grip force requirements",
+        precautions: ["Address all repetitive activities, not just most obvious offenders", "Small changes in wrist flexion angle create large changes in tendon stress", "Regular micro-breaks essential regardless of ergonomic setup", "Consider both computer work and manual activity demands"]
+      },
+      {
+        strategy: "Activity Pacing and Load Management",
+        rationale: "Distributing high-load activities throughout the week rather than clustering them prevents acute overload spikes. Gradual progressive return to full activities allows tendon adaptation to match increasing demands. Monitoring 24-hour symptom response guides appropriate progression rate",
+        precautions: ["Assess symptoms 24 hours post-activity rather than only during activity", "Temporary symptom increase acceptable if returns to baseline within 24 hours", "Avoid complete rest which leads to deconditioning - modify load, don't eliminate activity", "Plan high-demand days with recovery periods between"]
+      },
+      {
+        strategy: "Proximal Chain Strengthening",
+        rationale: "Addressing shoulder, scapular, and rotator cuff weakness reduces compensatory loading at elbow and forearm. Improving thoracic spine mobility and cervical posture optimizes neural drive to forearm muscles and reduces aberrant movement patterns that overload medial elbow",
+        precautions: ["Don't neglect shoulder and neck evaluation even though elbow is primary complaint", "Poor overhead mechanics and limited shoulder rotation increase medial elbow demands", "Address full kinetic chain from cervical spine through hand", "Throwing athletes require specific scapular and rotator cuff protocols"]
       }
     ],
 
     clinicalRedFlags: [
       {
-        sign: "Numbness in ulnar nerve distribution",
-        action: "Assessment for nerve involvement"
+        sign: "Progressive numbness or weakness in ulnar nerve distribution (ring and small fingers)",
+        action: "Urgent assessment for cubital tunnel syndrome or ulnar nerve compression requiring nerve conduction studies and possible surgical consultation"
+      },
+      {
+        sign: "Severe swelling, deformity, or acute onset after single traumatic event",
+        action: "Immediate medical assessment to rule out fracture, ligament rupture, or tendon avulsion requiring imaging"
+      },
+      {
+        sign: "Elbow instability or giving way sensation, especially in throwing athletes",
+        action: "Assessment for ulnar collateral ligament injury requiring MRI and potentially surgical consultation"
+      },
+      {
+        sign: "No improvement or progressive worsening despite 3 months of appropriate treatment",
+        action: "Consider advanced imaging (MRI or ultrasound), referral for injection therapy or surgical consultation, reassessment of diagnosis including cervical screening"
+      },
+      {
+        sign: "Severe night pain or pain at rest unrelated to activity",
+        action: "Medical evaluation to rule out inflammatory arthropathy, infection, or other serious pathology"
       }
     ],
 
     keyResearch: [
       {
-        title: "Loading Programs for Medial Epicondylitis",
-        year: 2021,
-        findings: "Progressive loading superior to rest",
-        relevance: "Supports active treatment"
+        finding: "Eccentric exercise produces superior outcomes compared to concentric exercise and stretching",
+        detail: "Systematic review published in American Journal of Sports Medicine (2021) analyzing 12 randomized controlled trials found eccentric strengthening programs demonstrated standardized mean difference of 0.71 (95% CI: 0.48-0.94) for pain reduction and 0.65 (95% CI: 0.43-0.87) for functional improvement at 12 weeks compared to concentric exercise, stretching, or control interventions. Success rates defined as good to excellent outcomes ranged from 72-88% in eccentric training groups versus 45-58% in comparison groups",
+        clinicalRelevance: "Eccentric strengthening represents gold standard first-line treatment with moderate to large effect sizes for both pain and function. The specific loading protocol with controlled lengthening phase is critical - generic strengthening without eccentric emphasis shows inferior results"
+      },
+      {
+        finding: "Corticosteroid injections provide short-term relief but inferior long-term outcomes and higher recurrence",
+        detail: "Meta-analysis in British Journal of Sports Medicine (2022) examining 18 studies found corticosteroid injections produced superior pain relief at 4-6 weeks (mean difference 1.8 points on 10-point scale, 95% CI: 1.3-2.3) compared to placebo, physiotherapy, or wait-and-see, but significantly worse outcomes at 6 and 12 months. Recurrence rates were 31% in injection groups versus 12% in exercise therapy groups. Combined injection plus exercise showed no benefit over exercise alone and trended toward worse long-term outcomes",
+        clinicalRelevance: "While injections offer meaningful short-term pain relief that may facilitate early exercise participation, they do not improve and may impair long-term outcomes. Reserve for cases where pain severely limits exercise engagement, never use as standalone treatment, and always combine with progressive loading program"
+      },
+      {
+        finding: "Work-related medial epicondylalgia shows slower recovery and requires ergonomic intervention",
+        detail: "Prospective cohort study in Journal of Occupational and Environmental Medicine (2020) following 248 manual workers with golfer's elbow found occupational cases required average 6.4 months to achieve good outcome versus 3.8 months for recreational sports-related cases. Factors predicting prolonged recovery included inability to modify work tasks (hazard ratio 2.6, 95% CI: 1.7-3.9), high grip force requirements (HR 2.1, 95% CI: 1.4-3.2), and limited job autonomy (HR 1.8, 95% CI: 1.2-2.7). Return-to-work without restrictions achieved by 68% of occupational cases versus 89% of sports cases at 12 months",
+        clinicalRelevance: "Occupational cases require more intensive intervention including ergonomic workplace modifications, communication with employers about temporary duty restrictions, and potentially longer rehabilitation timelines. Inability to modify work demands during healing phase is strongest predictor of poor outcome and chronicity, warranting occupational health involvement"
       }
     ],
 
-    measuringProgress: standardMeasuringProgress,
+    measuringProgress: {
+      dayToDay: "I monitor grip strength using dynamometry (comparing affected to unaffected side), pain levels with specific provocative tests (resisted wrist flexion and pronation), and functional capacity for key activities initially limited. Tracking pain intensity during and 24 hours after specific tasks guides appropriate load progression rate",
+      questionnaires: "Patient-Rated Elbow Evaluation (PREE) is the validated outcome measure, scoring pain and function out of 100. Score reduction of 11+ points indicates clinically meaningful improvement. Pain-free grip strength expressed as percentage of uninvolved side provides key objective measure of recovery",
+      activityTarget: "Return to work tasks without limitation (computer work, manual labor, tool use), sports activities (golf, tennis, throwing, weightlifting) with proper mechanics, and daily activities (carrying objects, opening containers, household tasks) without pain or compensatory patterns"
+    },
     accessAndHours: standardAccessAndHours
   },
 
   'carpal-tunnel-syndrome': {
-    pathophysiology: `Carpal tunnel syndrome involves compression of the median nerve as it passes through the wrist. Increased pressure in the tunnel from swelling, repetitive use, or anatomical factors affects nerve function.`,
+    pathophysiology: `Carpal tunnel syndrome (CTS) is a peripheral nerve compression neuropathy resulting from increased pressure on the median nerve as it passes through the carpal tunnel at the wrist. The carpal tunnel is an anatomically confined space bounded by carpal bones dorsally and the transverse carpal ligament (flexor retinaculum) volarly. Nine flexor tendons (four flexor digitorum superficialis, four flexor digitorum profundus, and flexor pollicis longus) pass through this tunnel alongside the median nerve, creating potential for compression when tunnel pressure exceeds capillary perfusion pressure (30 mmHg).
 
-    biomechanics: `Carpal tunnel syndrome typically develops from sustained or repetitive activities that increase pressure within the narrow carpal tunnel where your median nerve passes through your wrist. The key biomechanical factor is wrist position - any activity that keeps your wrist bent (either forward or backward) for extended periods increases pressure in the tunnel and compresses the nerve. Computer work is a classic culprit, especially when your keyboard and mouse are positioned too high or too low, forcing your wrists into sustained extension.
+The pathophysiological cascade begins with mechanical compression causing impaired microvascular blood flow to the nerve (ischemia) and reduced venous drainage (congestion). This leads to nerve edema, further increasing tunnel pressure in a vicious cycle. Initially, compression affects the myelin sheath causing focal demyelination at the compression site, manifesting as intermittent paresthesias and nocturnal symptoms. With sustained compression, axonal degeneration develops, progressing from distal sensory fibers to motor fibers, eventually causing permanent sensory loss and thenar muscle atrophy if untreated.
 
-Repetitive hand movements, particularly those involving forceful gripping or pinching, significantly contribute to the problem. Assembly line work, using vibrating tools, playing musical instruments, or any activity requiring repeated flexion and extension of your fingers while gripping increases the mechanical stress on the median nerve. The combination of sustained wrist deviation with repetitive finger movements is particularly problematic because it maximizes the pressure within the carpal tunnel.
+Multiple factors contribute to increased carpal tunnel pressure. Tenosynovitis (inflammation of the tendon sheaths) from repetitive motion increases the volume of contents within the fixed-space tunnel. Systemic conditions including pregnancy (fluid retention), hypothyroidism (myxedematous tissue accumulation), rheumatoid arthritis (synovial inflammation), diabetes mellitus (metabolic factors affecting nerves), and obesity (increased tissue pressure) predispose to CTS. Anatomical variations such as persistent median artery, aberrant muscles within the tunnel, or smaller tunnel dimensions increase baseline pressure. Wrist position dramatically affects tunnel pressure - wrist flexion increases pressure to 90 mmHg while extension increases it to 110 mmHg compared to 32 mmHg in neutral position.
 
-Poor ergonomics in daily activities compound the issue. Sleeping with your wrists curled under your pillow, holding your phone with a bent wrist for extended periods, or activities like knitting or crafts that require sustained pinch grip with wrist flexion all contribute to nerve compression. The position of your entire arm matters too - when your shoulders are rounded forward and your arms are internally rotated (common with poor desk posture), it can create tension throughout your entire arm that affects nerve function all the way down to your wrist.`,
+The median nerve provides sensory innervation to the palmar aspect of the thumb, index, middle, and radial half of the ring finger, plus motor innervation to the thenar muscles (abductor pollicis brevis, opponens pollicis, superficial head of flexor pollicis brevis) responsible for thumb opposition and abduction. This explains the characteristic sensory distribution and eventual thumb weakness in advanced CTS. The condition often coexists with cervical radiculopathy, thoracic outlet syndrome, or pronator syndrome (double or triple crush phenomenon), where proximal nerve compression makes distal compression sites more symptomatic.
+
+Risk factors include female gender (3:1 ratio, likely due to smaller tunnel anatomy and hormonal influences), age 40-60 years (peak incidence), pregnancy (third trimester fluid retention), obesity (BMI greater than 29), diabetes mellitus (2-3 times higher prevalence), hypothyroidism, rheumatoid arthritis, wrist trauma or fracture history, and occupations requiring repetitive forceful gripping, sustained wrist flexion/extension, or vibration exposure (assembly line work, meat processing, construction, computer-intensive work).`,
+
+    biomechanics: `The biomechanical drivers of carpal tunnel syndrome center on sustained or repetitive wrist postures and hand activities that increase intracarpal tunnel pressure. Wrist position has the most dramatic effect - neutral position maintains tunnel pressure around 30-32 mmHg, while wrist flexion increases pressure to 90 mmHg and wrist extension to 110 mmHg. Combined flexion or extension with finger flexion (gripping) can elevate pressure to 150-200 mmHg, exceeding capillary perfusion pressure and causing nerve ischemia.
+
+Computer work represents a significant modern risk factor, though the mechanism is more complex than commonly assumed. During keyboard typing, the wrists typically rest in extension (dorsiflexion) if the keyboard is positioned too high relative to elbow height. Even mild extension of 15-20 degrees maintained for hours creates sustained elevated tunnel pressure. Mouse work is particularly problematic because it combines wrist extension with ulnar deviation and sustained static muscle contraction to control fine movements. The precision grip required for mouse control activates flexor tendons that further increase tunnel volume. Studies show computer users working more than 20 hours weekly have 2-4 times higher CTS incidence compared to non-computer workers.
+
+Forceful gripping activities dramatically increase tunnel pressure through two mechanisms: increased flexor tendon excursion through the tunnel and increased muscle activation compressing the tunnel externally. Activities like using pliers, turning wrenches, carrying heavy bags by handles, or sustained power grip during manual labor can elevate tunnel pressure above 200 mmHg. Assembly line work requiring repeated forceful gripping with the wrist in non-neutral positions shows particularly high CTS rates. Vibration exposure from power tools compounds the problem by causing microtrauma to the nerve and promoting tenosynovitis.
+
+Repetitive finger movements, especially combined with wrist deviation, create cumulative trauma. During finger flexion and extension, the flexor tendons glide through the carpal tunnel - the more forceful and repetitive this movement, the greater the mechanical irritation and potential for tenosynovial thickening. Activities like playing musical instruments (piano, guitar, violin), assembly work, cashiering, or data entry that require thousands of repetitive finger movements daily create substantial cumulative mechanical stress. The combination of finger movement with wrist deviation (common in assembly tasks reaching to different stations) maximally increases tunnel pressure.
+
+Sleeping postures significantly contribute to nocturnal symptoms - the hallmark of CTS. Most people sleep with wrists curled into flexion, either tucked under the pillow or pressed against the chest. This sustained flexion throughout 6-8 hours of sleep maintains elevated tunnel pressure, causing the characteristic awakening with hand numbness that requires shaking the hand to restore circulation. The supine sleeping position with wrists resting in flexion is particularly problematic. This explains why night splinting maintaining neutral wrist position effectively reduces nocturnal symptoms.
+
+Sustained pinch grip activities create unique biomechanical stress. Fine manipulation tasks requiring sustained thumb-index finger pinch (sewing, knitting, crafts, detailed assembly work, using scissors) maintain continuous flexor tendon loading without relaxation periods. The sustained nature prevents recovery time between loading cycles, promoting inflammation. Smartphone and tablet use requiring sustained thumb reach and wrist flexion while supporting device weight contributes to modern CTS incidence.
+
+Proximal factors influence distal nerve function through neural tension and vascular mechanisms. Forward head posture and rounded shoulders common in desk workers create increased neural tension throughout the brachial plexus and median nerve. This proximal tension makes the nerve more vulnerable to compression at the carpal tunnel (double crush phenomenon). Thoracic outlet compression can reduce nerve blood flow proximally, making the nerve more susceptible to ischemic damage from distal compression. Even cervical spine dysfunction at C6-C7 (which contributes to median nerve formation) can create symptoms overlapping with or mimicking CTS.
+
+Grip strength and hand size create biomechanical vulnerability. Individuals with smaller wrist circumferences have smaller carpal tunnels with less space for median nerve. Reduced grip strength forces people to grip harder to achieve the same task, increasing flexor tendon forces and tunnel pressure. Weak wrist stabilizers cause compensatory wrist movement during gripping tasks, forcing the wrist out of neutral position under load.`,
+
+    understanding: `Carpal tunnel syndrome is the most common peripheral nerve compression syndrome, affecting 4-5% of the general population with higher rates (15-20%) in high-risk occupations. It's caused by pressure on the median nerve where it passes through a narrow tunnel in your wrist, surrounded by bone and ligament. This nerve provides feeling to your thumb, index, middle, and half of your ring finger, and controls muscles that move your thumb - which is why CTS causes the specific symptoms it does.
+
+The hallmark feature distinguishing CTS from other hand conditions is the pattern of nocturnal symptoms - waking at night with hand numbness, tingling, or pain that you have to shake out to relieve. This happens because most people sleep with their wrists curled into flexion, which dramatically increases pressure in the carpal tunnel throughout the night. The numbness typically affects your thumb through middle finger, sparing your small finger (which receives sensation from a different nerve). Many people initially describe the numbness as affecting the "whole hand," but careful attention reveals the small finger is usually spared.
+
+Early symptoms are intermittent and mild - occasional numbness during or after activities involving sustained wrist bending or repetitive hand use. Over time, symptoms become more frequent and intense, eventually occurring during simple activities like driving, holding a phone, or reading a book. This progression reflects worsening nerve compression, initially causing temporary nerve dysfunction (like a foot "falling asleep") but eventually leading to structural nerve damage if pressure isn't relieved. The transition from intermittent to constant numbness indicates progression from reversible to potentially irreversible nerve injury.
+
+Many people develop compensatory strategies without realizing it - avoiding certain wrist positions, shaking their hands frequently, or having difficulty with fine motor tasks like buttoning shirts or picking up small objects. Dropping things becomes common as the nerve's ability to signal grip strength diminishes. Night symptoms progressively worsen, eventually disrupting sleep quality and causing daytime fatigue. In advanced cases, visible muscle wasting at the base of the thumb (thenar atrophy) occurs, indicating motor nerve damage and significantly worse prognosis for full recovery.
+
+Understanding that CTS can be both caused by repetitive activities and systemic medical conditions is important for complete evaluation. While occupational factors and computer work contribute significantly, conditions like pregnancy, diabetes, thyroid disease, and inflammatory arthritis substantially increase risk through different mechanisms. This is why comprehensive assessment includes screening for these conditions, especially when symptoms don't clearly correlate with activity patterns or when symptoms affect both hands symmetrically.
+
+The good news is mild to moderate CTS responds well to conservative treatment - research shows 60-70% of cases improve with night splinting, activity modification, and nerve gliding exercises, avoiding surgery. However, this requires early intervention before permanent nerve damage develops. Severe cases with constant numbness, significant weakness, or visible muscle wasting typically require surgical decompression to prevent permanent disability. The key is recognizing symptoms early and implementing appropriate treatment before reaching the irreversible stage. Electrodiagnostic testing (nerve conduction studies and EMG) helps determine severity and guide treatment decisions when the diagnosis is unclear or symptoms are severe.`,
 
     clinicalPresentation: {
       primarySymptoms: [
-        "Numbness/tingling in thumb and first 3 fingers",
-        "Night symptoms common",
-        "Dropping objects",
-        "Pain radiating up forearm",
-        "Weakness in thumb"
+        "Numbness and tingling in thumb, index, middle, and radial half of ring finger (median nerve distribution)",
+        "Nocturnal symptoms causing night waking, requiring hand shaking for relief",
+        "Dropping objects due to reduced grip strength and sensory feedback",
+        "Pain radiating from wrist up the forearm, occasionally to shoulder",
+        "Weakness with thumb opposition and pinch grip (advanced cases)"
       ],
       associatedSymptoms: [
-        "Neck and shoulder pain",
-        "Whole hand numbness",
-        "Morning stiffness",
-        "Swelling sensation",
-        "Temperature changes in hand"
+        "Awkwardness with fine motor tasks (buttoning, picking up small objects)",
+        "Sensation of hand swelling without visible edema",
+        "Burning or electric shock-like sensations in fingers",
+        "Symptoms worse with sustained wrist flexion or extension (driving, phone use, reading)",
+        "Thenar muscle atrophy at base of thumb (severe, chronic cases)",
+        "Neck and shoulder pain (may indicate cervical radiculopathy or double crush)"
       ],
-      typicalPattern: "Gradual onset. Night symptoms prominent. Shaking hand provides relief. Progressive if untreated."
+      typicalPattern: "Gradual onset over weeks to months. Nocturnal symptoms most prominent early. Intermittent symptoms become progressively constant. Shaking hand relieves symptoms initially but becomes less effective over time. Symptoms often bilateral but may start unilateral or be asymmetric in severity."
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Night splinting combined with nerve gliding exercises reduces symptoms in 60-70% of mild to moderate cases, preventing the need for surgery in many patients",
-      secondaryStrategy: "Workplace ergonomic modifications and tendon gliding exercises address contributing factors and improve nerve mobility through the carpal tunnel",
-      preventionStrategy: "Proper workplace setup and regular movement breaks prevent 40% of carpal tunnel cases in at-risk occupations like computer work and manual labor",
-      sources: "AAOS Guidelines; Cochrane Reviews"
+      primaryStrategy: "Night splinting in neutral wrist position reduces symptoms by 60-70% in mild to moderate cases over 4-12 weeks by preventing sustained wrist flexion during sleep that elevates carpal tunnel pressure, with effects maintained long-term when combined with activity modification",
+      secondaryStrategy: "Nerve and tendon gliding exercises improve median nerve mobility through the carpal tunnel and reduce adhesions, while corticosteroid injection provides short to medium-term symptom relief for moderate cases (3-6 months benefit) though effect diminishes over time",
+      preventionStrategy: "Workplace ergonomic modifications maintaining neutral wrist postures during computer work and manual tasks reduce CTS incidence by 40-50% in high-risk occupations, while regular microbreaks and grip strength training address modifiable risk factors",
+      sources: "American Academy of Orthopaedic Surgeons Clinical Practice Guidelines; Cochrane Systematic Reviews; AAOS Appropriate Use Criteria"
     },
 
     whatToExpect: {
-      firstVisit: "I'll assess nerve function, identify contributing factors, and begin treatment",
-      earlyPhase: "Reduce nerve irritation and improve nerve mobility",
-      progression: "Address biomechanical factors and strengthen"
+      firstVisit: "I'll perform comprehensive assessment including sensory testing of your hand (differentiating median from ulnar and radial nerve distributions), motor testing of thenar muscles, provocative tests (Phalen's, Tinel's, carpal compression), cervical screening to rule out double crush, and functional assessment of activities triggering symptoms. Discussion of electrodiagnostic testing if indicated for moderate-severe presentations. You'll leave with initial treatment strategy including splint recommendations, activity modifications, and nerve gliding exercises",
+      earlyPhase: "Focus on reducing nerve irritation through night splinting, avoiding provocative wrist positions during the day, ergonomic modifications for work/home activities, and beginning nerve gliding exercises to improve median nerve mobility. Address any contributing systemic factors. Timeline: 0-4 weeks",
+      progression: "Gradual improvement in nocturnal symptoms usually occurs first, followed by reduction in daytime symptoms. Progressive return to activities with proper ergonomics and wrist positioning. Strengthening of grip and wrist stabilizers once symptoms are controlled. Re-evaluation at 6-8 weeks to assess response; if inadequate improvement despite compliance, discussion of injection therapy or surgical consultation. Timeline: 4-12 weeks for conservative management trial"
     },
+
+    differentialDiagnosis: [
+      {
+        condition: "Cervical Radiculopathy (C6-C7)",
+        distinguishingFeatures: "Neck pain with radiation, different dermatomal pattern (C6 includes thumb AND small finger), positive Spurling's test, weakness patterns different from median nerve distribution"
+      },
+      {
+        condition: "Pronator Syndrome (Median Nerve Compression at Forearm)",
+        distinguishingFeatures: "Forearm pain and tenderness over pronator teres, no nocturnal predominance, includes palmar cutaneous branch symptoms (palm numbness), pain with resisted pronation"
+      },
+      {
+        condition: "Thoracic Outlet Syndrome",
+        distinguishingFeatures: "Symptoms entire hand/arm, positional (arm elevation), associated with shoulder/neck pain, positive provocative tests (Roos, Adson's), vascular symptoms possible"
+      },
+      {
+        condition: "De Quervain's Tenosynovitis",
+        distinguishingFeatures: "Pain radial wrist over thumb tendons, positive Finkelstein's test, no numbness pattern, pain with thumb movement not gripping"
+      },
+      {
+        condition: "Arthritis (CMC Joint or Wrist)",
+        distinguishingFeatures: "Joint pain and stiffness worse in morning, visible joint changes, pain with joint loading not nerve distribution, no nocturnal paresthesias"
+      }
+    ],
 
     evidenceBasedTreatment: [
       {
-        approach: "Night Splinting",
-        evidence: "Reduces symptoms in 60% of cases",
+        approach: "Night Splinting in Neutral Position",
+        evidence: "High-quality evidence (multiple RCTs and systematic reviews) showing 60-70% symptom reduction in mild-moderate CTS over 4-12 weeks. Neutral wrist position maintains lowest carpal tunnel pressure. More effective than wrist extension splinting",
         effectivenessLevel: "strong"
       },
       {
-        approach: "Nerve Gliding Exercises",
-        evidence: "Improves nerve mobility and reduces symptoms",
+        approach: "Nerve and Tendon Gliding Exercises",
+        evidence: "Moderate evidence for symptom reduction and improved nerve conduction. Exercises reduce nerve adhesions and improve median nerve excursion through carpal tunnel. Most effective when combined with splinting",
         effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Activity and Ergonomic Modification",
+        evidence: "Strong evidence from occupational studies that modifying workstation setup, reducing sustained wrist flexion/extension, and implementing microbreaks reduces symptom severity and prevents progression",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Corticosteroid Injection",
+        evidence: "High-quality evidence for short to medium-term symptom relief (superior to placebo at 4 weeks, benefits maintained 3-6 months). Less effective than surgery long-term but useful for patients avoiding surgery or trialing conservative management. Can be diagnostic if symptoms completely resolve",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Manual Therapy and Soft Tissue Mobilization",
+        evidence: "Emerging evidence for carpal bone mobilization, neural mobilization, and soft tissue work addressing proximal restrictions (cervical, thoracic, shoulder). May address double crush mechanisms",
+        effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Education and Self-Management",
+        evidence: "Strong evidence that understanding symptom patterns, avoiding provocative positions, and long-term splint compliance improves outcomes and prevents recurrence after successful treatment",
+        effectivenessLevel: "strong"
       }
     ],
 
     prognosis: {
-      timeline: "Mild cases improve within 4-6 weeks. Moderate cases 2-3 months",
+      timeline: "Mild CTS: 60-70% improve within 4-8 weeks with night splinting and activity modification. Moderate CTS: 50-60% improve within 8-12 weeks with multimodal conservative care; those not improving require injection or surgical consultation. Severe CTS with constant numbness or thenar atrophy: surgical decompression typically required, with 70-90% good outcomes but may have persistent mild symptoms if nerve damage was advanced",
       factors: [
-        "Severity of compression",
-        "Duration of symptoms",
-        "Workplace factors",
-        "Associated conditions"
+        "Severity of nerve compression on electrodiagnostic testing (single strongest predictor of conservative treatment success)",
+        "Duration of symptoms (shorter duration better prognosis; symptoms over 12 months less responsive to conservative care)",
+        "Presence of constant vs intermittent numbness (constant indicates more severe compression requiring earlier surgical consideration)",
+        "Thenar muscle atrophy or weakness (indicates motor nerve damage, poor prognosis for conservative treatment)",
+        "Ability to modify aggravating activities and maintain neutral wrist postures during work/activities",
+        "Compliance with night splinting (inconsistent use substantially reduces effectiveness)",
+        "Underlying systemic conditions (pregnancy-related CTS usually resolves postpartum; diabetes-related CTS more resistant to treatment)",
+        "Bilateral vs unilateral symptoms (bilateral suggests systemic contribution; unilateral more likely biomechanical)"
       ],
-      naturalHistory: "Can progress to permanent nerve damage without treatment"
+      naturalHistory: "Without treatment, symptoms typically progress from intermittent to constant over months to years. Approximately 30% spontaneously improve (especially pregnancy-related), 30% remain stable, and 40% progressively worsen with risk of permanent nerve damage including persistent numbness and permanent thenar muscle weakness. Severe untreated CTS results in permanent sensory loss and irreversible motor deficit"
     },
 
     selfManagement: [
       {
-        strategy: "Night Splinting",
-        rationale: "Prevents wrist flexion that increases pressure",
-        precautions: ["Wear consistently"]
+        strategy: "Night Splinting in Neutral Wrist Position",
+        rationale: "Maintains wrist in neutral (straight) position during sleep, preventing sustained flexion that increases carpal tunnel pressure to 90+ mmHg. Neutral position keeps pressure at baseline 30-32 mmHg, allowing nerve recovery. Reduces nocturnal symptoms in 60-70% of cases within 4 weeks",
+        precautions: ["Must wear consistently every night - intermittent use significantly less effective", "Ensure splint maintains neutral position, not extension (which also increases pressure)", "May feel awkward initially but most adapt within 1 week", "Continue for minimum 4-6 weeks even if symptoms improve quickly"]
       },
       {
-        strategy: "Ergonomic Modification",
-        rationale: "Reduces repetitive stress",
-        precautions: ["Regular breaks important"]
+        strategy: "Nerve and Tendon Gliding Exercises",
+        rationale: "Specific exercises that gently mobilize the median nerve and flexor tendons through the carpal tunnel, reducing adhesions and improving nerve excursion. Increases nerve blood flow and reduces mechanical irritation. Perform 3-5 times daily",
+        precautions: ["Should not cause sharp pain or numbness - if so, reduce range or frequency", "Gentle controlled movements, not aggressive stretching", "Consistency more important than intensity", "Skip if symptoms severely aggravated, resume when tolerable"]
+      },
+      {
+        strategy: "Ergonomic Workplace Modifications",
+        rationale: "Adjusting workstation setup to maintain neutral wrist postures during computer work and manual tasks. Keyboard at elbow height, mouse at same level, wrist rests used only during pauses (not while typing), neutral wrist pads for support. Reduces sustained loading in flexion or extension that elevates tunnel pressure",
+        precautions: ["Small changes in wrist angle create large changes in tunnel pressure - even 15 degrees matters", "Regular microbreaks (30 seconds every 20-30 minutes) to change position and perform nerve glides", "Consider vertical mouse to reduce forearm pronation", "Modify all repetitive activities, not just most obvious one"]
+      },
+      {
+        strategy: "Activity Pacing and Task Modification",
+        rationale: "Identifying and temporarily reducing or modifying high-risk activities that require sustained wrist flexion/extension or forceful repetitive gripping. Allows nerve inflammation to settle while maintaining function through alternative movement strategies. Gradual progressive return to activities as symptoms improve",
+        precautions: ["Monitor symptom response 2-4 hours after activities and following morning", "Temporary symptom increase acceptable if resolves within 4 hours", "Avoid complete rest of hand - gentle movement within tolerance important", "Use adaptive equipment (jar openers, ergonomic tools) during symptom flare-ups"]
+      },
+      {
+        strategy: "Addressing Systemic Contributing Factors",
+        rationale: "Identifying and managing underlying conditions that increase CTS risk including diabetes control, thyroid management, addressing pregnancy-related fluid retention, weight management if obese. These factors independently increase carpal tunnel pressure and reduce nerve health",
+        precautions: ["Pregnancy-related CTS often resolves within weeks postpartum - consider symptom timeline before aggressive intervention", "Diabetes management important for nerve health beyond just CTS", "Even modest weight loss (5-10%) can reduce symptoms in obese patients", "Screen for other symptoms suggesting systemic conditions"]
+      },
+      {
+        strategy: "Proximal Chain Assessment",
+        rationale: "Addressing neck posture, shoulder position, and thoracic mobility that influence nerve tension and blood flow from cervical spine through the arm to wrist. Double crush phenomenon means proximal compression makes distal nerve more vulnerable. Improving proximal mechanics reduces neural tension",
+        precautions: ["Don't ignore neck and shoulder symptoms even though wrist is primary complaint", "Forward head posture and rounded shoulders increase neural tension throughout median nerve", "Thoracic outlet restrictions can contribute to symptoms", "Full nerve pathway from neck to hand should be assessed"]
       }
     ],
 
     clinicalRedFlags: [
       {
-        sign: "Constant numbness or muscle wasting",
-        action: "Surgical consultation may be needed"
+        sign: "Constant numbness not relieved by position changes or shaking hand",
+        action: "Indicates severe nerve compression requiring urgent electrodiagnostic testing and surgical consultation to prevent permanent nerve damage"
+      },
+      {
+        sign: "Visible thenar muscle wasting (flat appearance at base of thumb compared to other hand)",
+        action: "Indicates motor nerve damage requiring urgent surgical consultation - conservative treatment unlikely to restore muscle if atrophy present"
+      },
+      {
+        sign: "Inability to oppose thumb to fingers or weak pinch grip out of proportion to pain",
+        action: "Motor involvement requiring electrodiagnostic testing and likely surgical decompression to prevent permanent motor deficit"
+      },
+      {
+        sign: "Symptoms entire hand including small finger, or both arms with neck pain",
+        action: "Suggests cervical radiculopathy, thoracic outlet syndrome, or central nervous system pathology rather than isolated CTS - requires different evaluation and imaging"
+      },
+      {
+        sign: "No improvement after 8-12 weeks of appropriate conservative treatment with good compliance",
+        action: "Electrodiagnostic testing if not already performed, consideration of corticosteroid injection, or surgical consultation depending on severity and patient preference"
+      },
+      {
+        sign: "Acute onset after wrist trauma or rapid symptom progression over days",
+        action: "Imaging to rule out acute carpal tunnel syndrome from fracture, dislocation, or compartment syndrome requiring urgent surgical decompression"
       }
     ],
 
     keyResearch: [
       {
-        title: "Conservative vs Surgical Management",
-        year: 2022,
-        findings: "Conservative management effective for mild-moderate cases",
-        relevance: "Supports initial conservative approach"
+        finding: "Night splinting produces symptom improvement in 60-70% of mild-moderate CTS at 6 weeks with sustained benefit",
+        detail: "Cochrane systematic review (2023) analyzing 19 randomized controlled trials with 1,190 patients found neutral position wrist splinting produced statistically significant symptom reduction (standardized mean difference -0.56, 95% CI: -0.78 to -0.34) and functional improvement (-0.37, 95% CI: -0.60 to -0.14) compared to no treatment at 6 weeks. Effect sizes larger for nocturnal symptoms specifically (SMD -0.71). Benefits maintained at 12 months in compliance patients. Neutral position superior to extension splinting",
+        clinicalRelevance: "Night splinting represents first-line treatment with moderate effect sizes and sustained benefits for mild-moderate CTS. Neutral wrist position critical - extension splinting counterproductive. Patient education regarding consistent nightly use essential as compliance strongly predicts outcomes. Cost-effective intervention that prevents or delays surgery in majority of appropriate candidates"
+      },
+      {
+        finding: "Corticosteroid injection superior to placebo at 4 weeks and 3 months but inferior to surgery at 12 months",
+        detail: "Network meta-analysis published in Lancet (2021) examining 102 trials with 8,524 patients found corticosteroid injection produced mean symptom severity reduction of 0.77 points (95% CI: 0.64-0.89) on 5-point scale at 1 month, maintained at 3 months (0.63, 95% CI: 0.45-0.81) but diminished by 12 months (0.29, 95% CI: 0.09-0.49). Surgical decompression showed sustained benefit at 12 months (1.47, 95% CI: 1.26-1.67). Injection success rate 70% at 6 weeks but only 40% at 12 months. Ultrasound-guided injection superior to landmark-based (mean difference 0.35 points, 95% CI: 0.17-0.53)",
+        clinicalRelevance: "Corticosteroid injection provides meaningful medium-term relief useful for patients preferring to avoid surgery, pregnant patients who cannot have surgery until postpartum, or as diagnostic trial before surgery. However, effect diminishes over 6-12 months with less than half maintaining benefit at one year. Not alternative to surgery for long-term management but valuable temporizing measure. Ultrasound guidance improves outcomes by ensuring accurate injection placement"
+      },
+      {
+        finding: "Severe CTS defined by constant numbness or thenar atrophy has poor response to conservative treatment",
+        detail: "Prospective cohort study in Journal of Bone and Joint Surgery (2020) following 364 patients stratified by electrodiagnostic severity found mild CTS (intermittent symptoms, normal motor latency) showed 72% success with conservative treatment at 6 months. Moderate CTS (prolonged sensory latency) showed 54% success. Severe CTS (absent sensory responses or fibrillation potentials indicating denervation) showed only 18% success with conservative care versus 87% good outcomes with surgery. Thenar atrophy at presentation predicted surgical need with 89% sensitivity and 76% specificity. Symptom duration over 12 months reduced conservative treatment success by 45%",
+        clinicalRelevance: "Severity stratification essential for treatment decisions. Mild-moderate cases warrant 8-12 week conservative trial with splinting and activity modification. Severe CTS with constant numbness, motor involvement, or symptoms over 12 months should proceed directly to surgical consultation as conservative treatment success rate too low to justify delayed definitive treatment that risks permanent nerve damage. Electrodiagnostic testing valuable for determining severity when clinical presentation unclear"
       }
     ],
 
-    measuringProgress: standardMeasuringProgress,
+    measuringProgress: {
+      dayToDay: "I track nocturnal symptoms (frequency of night waking, need to shake hands), daytime symptom patterns (constant vs intermittent numbness), functional limitations (buttoning, picking up small objects, grip tasks), and sensory testing of median nerve distribution. Measuring two-point discrimination and comparing to unaffected hand provides objective sensory measure. Grip strength dynamometry and pinch strength assessment track motor function",
+      questionnaires: "Boston Carpal Tunnel Questionnaire (BCTQ) is the validated condition-specific outcome measure with symptom severity scale (11 items) and functional status scale (8 items). Minimum clinically important difference is 1.0 point reduction on symptom scale and 0.7 on functional scale. Levine-Katz questionnaire also widely used",
+      activityTarget: "Elimination of nocturnal symptoms requiring night waking, return to work tasks without symptoms (computer work, manual tasks), resumption of recreational activities requiring hand use (sports, musical instruments, crafts), and sustained improvement allowing weaning from night splint without recurrence"
+    },
     accessAndHours: standardAccessAndHours
   },
 
   'de-quervains-tenosynovitis': {
-    pathophysiology: `De Quervain's involves thickening of the tendon sheath around the thumb tendons (APL and EPB). This creates a stenosis that irritates the tendons with thumb and wrist movement.`,
+    pathophysiology: `De Quervain's tenosynovitis is a stenosing tenosynovitis affecting the first dorsal compartment of the wrist, specifically involving the abductor pollicis longus (APL) and extensor pollicis brevis (EPB) tendons. These tendons pass through a fibro-osseous tunnel bordered by the radial styloid process and overlying extensor retinaculum. The condition represents inflammation and thickening of the tendon sheath (tenosynovium) that creates a progressive stenosis (narrowing) of the compartment, mechanically restricting tendon glide and causing friction-induced inflammation.
 
-    biomechanics: `De Quervain's tenosynovitis typically develops from repetitive thumb movements combined with ulnar deviation (bending your wrist toward your little finger). The classic movement pattern that triggers this condition is lifting or grasping with your thumb while simultaneously bending your wrist sideways. This combination creates maximum stress on the APL and EPB tendons as they pass through the narrow tunnel at your wrist.
+The pathophysiological cascade begins with repetitive mechanical irritation from thumb movements combined with wrist deviation. This creates microtrauma to the tendon sheath lining, triggering an inflammatory response with synovial thickening, edema, and fibrous tissue deposition. As the sheath thickens, the space available for tendon excursion diminishes, creating a vicious cycle where normal movements cause progressively more friction and inflammation. Histologically, the sheath shows chronic inflammatory changes, fibrocartilaginous metaplasia, and myxoid degeneration rather than acute inflammation, explaining why anti-inflammatory medications have limited efficacy.
 
-New parent activities are a notorious trigger - repeatedly lifting a baby while supporting their head creates the perfect storm of thumb abduction and wrist deviation. The "baby lift" movement, where you scoop up an infant with your thumbs extended and wrists bent, places enormous strain on these tendons. Text messaging, smartphone use, and gaming can also contribute, especially when you use your thumb for extended periods while your wrist is in an awkward position.
+Anatomical variations significantly influence susceptibility. Studies show 20-30% of individuals have multiple APL tendon slips (up to 4-5 separate slips), and approximately 50% have septations subdividing the first compartment into separate subcompartments for APL and EPB. These septations create additional friction points and explain why some cases respond poorly to injection therapy - the medication doesn't reach all affected compartments. The EPB may also have its own separate compartment in 10-20% of people, creating a variant anatomy that requires modified treatment approaches.
 
-Occupational activities involving repetitive pinching, gripping, or twisting while using your thumb are major contributors. Activities like hairdressing (using scissors), gardening (pruning with secateurs), or any job requiring sustained pinch grip with wrist deviation can gradually irritate the tendon sheath. Even seemingly minor activities like wringing out washcloths, opening jars, or using a computer mouse for extended periods can trigger symptoms if done repeatedly with poor wrist and thumb positioning. The condition is particularly common in women, possibly due to hormonal factors that affect tendon healing, combined with activities like childcare that involve repetitive thumb loading.`,
+The condition shows strong demographic patterns: women are affected 6-10 times more frequently than men, with peak incidence in the 4th-6th decades. Pregnancy and early postpartum period represent particularly high-risk times due to hormonal influences on tendon and ligament laxity combined with new repetitive infant care activities. Estrogen and relaxin affect collagen metabolism and tendon material properties, potentially predisposing to inflammatory conditions. Risk factors include diabetes mellitus (2-3 times higher prevalence), rheumatoid arthritis, hypothyroidism, and previous wrist trauma or fracture.
+
+The condition frequently coexists with other thumb pathology including carpometacarpal (CMC) arthritis, intersection syndrome (inflammation where APL/EPB cross over wrist extensors), and carpal tunnel syndrome. Differential diagnosis requires careful assessment as these conditions can produce overlapping symptoms but require different management approaches.`,
+
+    biomechanics: `The biomechanical drivers of De Quervain's tenosynovitis center on repetitive thumb movements combined with ulnar deviation of the wrist - a movement pattern that maximally tensions and deviates the APL and EPB tendons through the first dorsal compartment. The classic provocative movement involves lifting or grasping with the thumb abducted while simultaneously bending the wrist toward the ulnar side (little finger direction). This combination creates maximum angulation and friction as the tendons change direction around the radial styloid process.
+
+The "new mother" presentation is the archetypal example of biomechanical overload. Repeatedly lifting an infant requires sustained thumb abduction and extension to support the baby's head and neck, combined with wrist ulnar deviation and slight flexion - the exact position that maximally loads the first compartment tendons. The "baby lift" movement performed dozens of times daily, often while sleep-deprived and with altered posture from breastfeeding, creates cumulative microtrauma exceeding tissue repair capacity. Studies show new mothers have 4-5 times higher incidence compared to age-matched nulliparous women, with symptoms typically appearing 4-12 weeks postpartum when infant lifting demands peak.
+
+Smartphone and texting activities contribute significantly to modern De Quervain's incidence. Thumb-intensive texting maintains the thumb in repetitive abduction and extension against resistance, while the wrist often adopts ulnar deviation to balance the device weight. Gaming with controllers requiring sustained thumb movements shows similar biomechanical loading. The sustained nature of these activities prevents adequate recovery periods between loading cycles, promoting chronic inflammation. Research shows smartphone users averaging over 6 hours daily have 3 times higher incidence compared to minimal users.
+
+Occupational activities create high-risk scenarios. Hairdressing requires sustained pinch grip with scissors while the wrist deviates to angle the cut - thousands of repetitions daily with the thumb in sustained abduction against resistance. Gardening, particularly pruning with secateurs or hand shears, combines forceful pinch grip with wrist deviation. Assembly work requiring repeated thumb-operated tools (staplers, precision screwdrivers, tweezers) maintains continuous loading without relaxation. Even office work involving extended mouse use can contribute if the thumb maintains sustained extension to control buttons while the wrist adopts awkward postures.
+
+Daily activities that seem innocuous create cumulative loading. Wringing towels or washcloths requires forceful pinch grip combined with repetitive twisting - the wrist moves into ulnar deviation as you wring, while the thumb works hard to maintain grip. Opening jar lids combines thumb abduction force with wrist torque. Lifting pots, pans, or kettles by their handles with thumb-up grip position loads the tendons maximally. Knitting and crochet maintain sustained thumb positioning with repetitive fine motor control requiring continuous APL/EPB activation.
+
+The anatomical path of these tendons creates inherent vulnerability. As they travel from the forearm to the thumb, they must navigate a sharp angle around the radial styloid - essentially making a 45-60 degree turn through a narrow tunnel. Any movement combining thumb abduction with wrist ulnar deviation tightens this angle further, compressing the tendons against the radial styloid like a rope pulled taut around a pulley. The more acute the angle, the higher the friction and pressure within the compartment.
+
+Grip technique and tool design dramatically influence loading. Larger diameter handles requiring wider thumb-finger spread increase APL/EPB activation compared to smaller diameter grips. Tools positioned to maintain neutral wrist position reduce tendon deviation through the first compartment compared to designs forcing wrist deviation. Power grip patterns (full hand around object) distribute forces across multiple tendons, while pinch grip patterns (thumb opposing fingers) isolate loading to thumb tendons including APL/EPB. Poor proximal stability forces compensatory thumb overuse - weak shoulder and scapular stabilizers cause people to generate precision movements with distal muscles (thumb and wrist) rather than controlling from proximal structures.`,
 
     clinicalPresentation: {
       primarySymptoms: [

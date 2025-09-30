@@ -4,7 +4,7 @@
     "location": "/Users/kareemhassanein/Desktop/kinetikare-physio-landing-page",
     "deployment": "kinetikarephysio.com",
     "status": "Production - Actively Maintained",
-    "last_updated": "2025-09-24"
+    "last_updated": "2025-09-30"
   },
   "technical_stack": {
     "framework": "Next.js 14.0.4",
@@ -15,16 +15,18 @@
     "repository": "https://github.com/GenerousPharaoh/kinetikare-physio-landing-page.git"
   },
   "content_system": {
-    "total_conditions": "55",
+    "total_conditions": "57",
     "conditions_by_category": {
       "spinal_health": 9,
       "shoulder": 8,
       "elbow_wrist_hand": 6,
       "hip_pelvis": 11,
       "knee": 8,
-      "foot_ankle": 13
+      "foot_ankle": 15
     },
-    "detailed_content_status": "All 55 conditions have comprehensive detailed content",
+    "detailed_content_status": "All 57 conditions have comprehensive detailed content",
+    "biomechanics_sections": "All 57 conditions have biomechanics sections (completed Sept 2025)",
+    "key_research_sections": "All 57 conditions have keyResearch sections with 2-3 peer-reviewed citations from 2020-2025 (completed Sept 30, 2025)",
     "hidden_conditions_with_content": ["adductor-related-groin-pain", "headaches-migraines"],
     "main_content_file": "/lib/detailed-conditions-content.ts",
     "type_definitions": "/lib/conditions-data.ts",
@@ -47,13 +49,16 @@
     "terminology": "Treatment Areas (not Conditions I Treat)"
   },
   "recent_major_updates": [
+    "keyResearch sections completed for all 57 conditions (September 30, 2025)",
+    "Added 10 keyResearch sections: ac-joint-injuries, biceps-tendinopathy, deep-gluteal-syndrome, facet-joint-syndrome, thoracic-outlet-syndrome, mcl-lcl-sprains, patellar-tendinopathy, peroneal-tendinopathy, hallux-rigidus, turf-toe",
+    "All conditions now have 2-3 peer-reviewed research citations from 2020-2025 with specific outcomes and clinical relevance",
     "SEO Schema.org enhancements completed (September 2025)",
     "Added aggregateRating: 5.0 stars with 9 reviews (manually implemented)",
     "Updated priceRange to $$ (mid-range pricing)",
     "Added comprehensive insurance provider list for direct billing",
     "Added Wednesday/Friday opening hours for Headon Physio location",
     "Integrated shoulder research from Gemini document",
-    "All 55 conditions now have comprehensive detailed content",
+    "All 57 conditions now have comprehensive detailed content",
     "Fixed critical display bug with evidenceSnapshot field names",
     "Added spacing between content sections and CTAs (mt-8)",
     "Improved Overview section titles with standardized format",
@@ -107,10 +112,32 @@
     "important_notes": [
       "ai-physio page intentionally removed from sitemap (was causing 404s)",
       "No location-specific landing pages needed (user preference)",
-      "Condition pages are comprehensive (55 conditions, all with detailed content)",
+      "Condition pages are comprehensive (57 conditions, all with detailed content)",
       "Core structured data complete and validated",
       "Headaches/migraines intentionally excluded (outside treatment comfort zone)",
       "Homepage does NOT have a conditions section - only dedicated /conditions page"
     ]
+  },
+  "sept_30_2025_updates": {
+    "task": "Complete keyResearch sections for remaining 10 conditions",
+    "conditions_updated": [
+      "ac-joint-injuries",
+      "biceps-tendinopathy",
+      "deep-gluteal-syndrome",
+      "facet-joint-syndrome",
+      "thoracic-outlet-syndrome",
+      "mcl-lcl-sprains",
+      "patellar-tendinopathy",
+      "peroneal-tendinopathy",
+      "hallux-rigidus",
+      "turf-toe"
+    ],
+    "research_quality": "All keyResearch sections include 2-3 findings with specific quantitative data (percentages, outcomes, effect sizes) from 2020-2025 peer-reviewed sources",
+    "research_structure": "Each finding includes: brief summary, detailed explanation with specific data, clinical relevance for treatment decisions",
+    "commits": [
+      "606208a: Added keyResearch to first 6 conditions",
+      "7c5fcc7: Added keyResearch sections to final 4 conditions - All 57 conditions now complete"
+    ],
+    "completion_status": "100% - All 57 conditions now have comprehensive biomechanics AND keyResearch sections"
   }
 }

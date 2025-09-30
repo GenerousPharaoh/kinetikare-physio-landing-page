@@ -5298,6 +5298,24 @@ Many athletes fear that continuing to exercise with some pain will damage the te
       naturalHistory: "Without appropriate treatment, 33% of athletes are forced to retire from sport, and over 50% have persistent symptoms affecting performance. However, with evidence-based loading programs, 83-94% return to previous level of sport, though patience is required as biological healing cannot be rushed"
     },
 
+    keyResearch: [
+      {
+        finding: "Heavy slow resistance training ranks superior to eccentric-only protocols",
+        detail: "October 2024 network meta-analysis found eccentric training ranked poorly for increasing VISA-P scores, while moderate resistance slow training showed better outcomes. 2024 systematic review indicates isometric exercises more effective during competitive seasons for short-term pain relief, whereas heavy slow resistance or eccentric exercises more suitable for long-term pain reduction and knee function improvement",
+        clinicalRelevance: "Treatment selection should consider timing (in-season vs off-season) with isometrics for immediate pain relief and heavy slow resistance for long-term structural adaptation and functional gains"
+      },
+      {
+        finding: "Evidence quality remains limited despite multiple treatment options",
+        detail: "February 2024 review of meta-analyses revealed lack of high-quality evidence on optimal patellar tendinopathy treatments, though PRP and ESWT show promise. Evidence for eccentric exercise efficacy remains unclear due to inconclusive findings across studies",
+        clinicalRelevance: "Clinical decision-making requires individualization based on patient presentation and response to trial interventions rather than assuming single protocol superiority given evidence limitations"
+      },
+      {
+        finding: "Landing forces reach 6-8 times body weight in jumpers",
+        detail: "Research using force plates and motion capture shows landing from vertical jump creates patellar tendon forces reaching 6-8 times body weight, with 2023 meta-analysis identifying counter-movement jump height as significant risk factor for developing patellar tendinopathy in athletes",
+        clinicalRelevance: "Understanding high mechanical loads informs both prevention through landing technique optimization and rehabilitation progression matching tendon load tolerance capacity"
+      }
+    ],
+
     selfManagement: [
       {
         strategy: "Isometric Wall Sit or Spanish Squat Hold",

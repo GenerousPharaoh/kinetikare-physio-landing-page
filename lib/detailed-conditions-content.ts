@@ -4051,9 +4051,9 @@ Kicking mechanics in soccer players show that peak adductor activation occurs du
 
     selfManagement: [
       {
-        strategy: "PRICE Protocol (First 48-72 Hours)",
-        rationale: "Protection, Rest (relative), Ice, Compression, Elevation reduces acute inflammation and controls pain. Ice 15-20 minutes every 2-3 hours for first 2 days",
-        precautions: ["Avoid complete immobilization beyond 48 hours", "Ice through towel to prevent skin damage", "Gentle pain-free movement encouraged after 2-3 days"]
+        strategy: "POLICE Protocol (First 48-72 Hours)",
+        rationale: "Protection, Optimal Loading, Ice, Compression, Elevation. Early optimal loading (gentle pain-free movement) within 2-3 days promotes better healing than complete rest. Ice 15-20 minutes every 2-3 hours for first 2 days",
+        precautions: ["Avoid complete immobilization - gentle loading encouraged early", "Ice through towel to prevent skin damage", "Pain-free movement starts within 48-72 hours"]
       },
       {
         strategy: "Isometric Adduction Exercises (Starting Day 3-7)",

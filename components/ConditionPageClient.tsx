@@ -582,7 +582,10 @@ export default function ConditionPageClient({
                                         { bg: 'from-teal-50/50 to-teal-50/20', border: 'border-teal-100', icon: 'from-teal-500 to-teal-600', text: 'text-teal-700' },
                                       ];
                                       const color = colors[index % colors.length];
-                                      
+
+                                      // Check if this is NEW FORMAT (finding/detail/clinicalRelevance) or OLD FORMAT (title/authors/findings)
+                                      const isNewFormat = research.finding && research.detail && research.clinicalRelevance;
+
                                       return (
                                         <div key={index} className={`group relative bg-gradient-to-r ${color.bg} rounded-xl p-6 border ${color.border} hover:shadow-md transition-all`}>
                                           <div className="flex gap-4">
@@ -594,45 +597,69 @@ export default function ConditionPageClient({
                                               </div>
                                             </div>
                                             <div className="flex-1">
-                                              <div className="flex items-start justify-between mb-3">
-                                                <h3 className={`text-xs font-bold ${color.text} uppercase tracking-wider mb-2`}>
-                                                  {research.authors && `${research.authors} (${research.year})`}
-                                                  {!research.authors && research.title}
-                                                </h3>
-                                                {research.year && (
-                                                  <span className="text-xs text-slate-500 bg-white/80 backdrop-blur px-3 py-1.5 rounded-full font-medium">
-                                                    {research.year}
-                                                  </span>
-                                                )}
-                                              </div>
-                                              
-                                              {research.authors && (
-                                                <h4 className="font-semibold text-slate-900 mb-3 text-lg leading-tight">
-                                                  {research.title}
-                                                </h4>
-                                              )}
-                                              
-                                              {research.journal && (
-                                                <p className="text-sm text-slate-600 italic mb-3">
-                                                  Published in: {research.journal}
-                                                  {research.sampleSize && ` • Sample Size: ${research.sampleSize}`}
-                                                </p>
-                                              )}
-                                              
-                                              <div className="mb-3">
-                                                <h5 className="text-sm font-semibold text-slate-900 mb-1">Key Findings:</h5>
-                                                <p className="text-slate-700 text-sm leading-relaxed">{research.findings}</p>
-                                              </div>
-                                              
-                                              <div className="p-3 bg-white/60 backdrop-blur rounded-lg border border-white/40">
-                                                <h5 className="text-sm font-semibold text-slate-900 mb-1">Clinical Relevance:</h5>
-                                                <p className="text-slate-700 text-sm leading-relaxed">{research.relevance}</p>
-                                              </div>
-                                              
-                                              {research.citation && (
-                                                <div className="mt-3 pt-3 border-t border-slate-200/60">
-                                                  <p className="text-xs text-slate-500 font-mono">{research.citation}</p>
-                                                </div>
+                                              {isNewFormat ? (
+                                                // NEW FORMAT RENDERING
+                                                <>
+                                                  <div className="mb-3">
+                                                    <h3 className={`text-base font-bold ${color.text} mb-2 leading-tight`}>
+                                                      {research.finding}
+                                                    </h3>
+                                                  </div>
+
+                                                  <div className="mb-3">
+                                                    <h5 className="text-sm font-semibold text-slate-900 mb-1">Research Details:</h5>
+                                                    <p className="text-slate-700 text-sm leading-relaxed">{research.detail}</p>
+                                                  </div>
+
+                                                  <div className="p-3 bg-white/60 backdrop-blur rounded-lg border border-white/40">
+                                                    <h5 className="text-sm font-semibold text-slate-900 mb-1">Clinical Relevance:</h5>
+                                                    <p className="text-slate-700 text-sm leading-relaxed">{research.clinicalRelevance}</p>
+                                                  </div>
+                                                </>
+                                              ) : (
+                                                // OLD FORMAT RENDERING
+                                                <>
+                                                  <div className="flex items-start justify-between mb-3">
+                                                    <h3 className={`text-xs font-bold ${color.text} uppercase tracking-wider mb-2`}>
+                                                      {research.authors && `${research.authors} (${research.year})`}
+                                                      {!research.authors && research.title}
+                                                    </h3>
+                                                    {research.year && (
+                                                      <span className="text-xs text-slate-500 bg-white/80 backdrop-blur px-3 py-1.5 rounded-full font-medium">
+                                                        {research.year}
+                                                      </span>
+                                                    )}
+                                                  </div>
+
+                                                  {research.authors && (
+                                                    <h4 className="font-semibold text-slate-900 mb-3 text-lg leading-tight">
+                                                      {research.title}
+                                                    </h4>
+                                                  )}
+
+                                                  {research.journal && (
+                                                    <p className="text-sm text-slate-600 italic mb-3">
+                                                      Published in: {research.journal}
+                                                      {research.sampleSize && ` • Sample Size: ${research.sampleSize}`}
+                                                    </p>
+                                                  )}
+
+                                                  <div className="mb-3">
+                                                    <h5 className="text-sm font-semibold text-slate-900 mb-1">Key Findings:</h5>
+                                                    <p className="text-slate-700 text-sm leading-relaxed">{research.findings}</p>
+                                                  </div>
+
+                                                  <div className="p-3 bg-white/60 backdrop-blur rounded-lg border border-white/40">
+                                                    <h5 className="text-sm font-semibold text-slate-900 mb-1">Clinical Relevance:</h5>
+                                                    <p className="text-slate-700 text-sm leading-relaxed">{research.relevance}</p>
+                                                  </div>
+
+                                                  {research.citation && (
+                                                    <div className="mt-3 pt-3 border-t border-slate-200/60">
+                                                      <p className="text-xs text-slate-500 font-mono">{research.citation}</p>
+                                                    </div>
+                                                  )}
+                                                </>
                                               )}
                                             </div>
                                           </div>

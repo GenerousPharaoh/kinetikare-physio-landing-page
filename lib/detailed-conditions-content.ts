@@ -41,9 +41,9 @@ When pain persists beyond 3 months, changes in the nervous system can amplify pa
 
     biomechanics: `Poor posture and prolonged sitting create significant loads on your spine, particularly when you slouch or crane your head forward. Your core muscles - the deep abdominals and back extensors that act like an internal corset - often become weakened from inactivity, reducing the support they provide to your spine.
 
-Heavy lifting with poor technique multiplies the forces through your discs. When you bend at the waist rather than squatting, you can increase disc pressure by up to 300%. Repetitive bending and twisting movements, especially under load, create the perfect storm for tissue overload.
+Heavy lifting with poor technique multiplies the forces through your discs. When you bend at the waist rather than squatting, you can increase dangerous bending stress on your discs by 75%, with an additional 30% increase if you twist while bending. Repetitive bending and twisting movements, especially under load, create the perfect storm for tissue overload.
 
-Modern lifestyle factors play a huge role: prolonged sitting increases disc pressure by 40% compared to standing, and forward head posture from screen time changes how forces distribute through your entire spine. Even factors like tight hip flexors from sitting can alter your lumbar curve, forcing your back muscles to work overtime to maintain upright posture.`,
+Modern lifestyle factors play a huge role: prolonged sitting, particularly with poor posture, increases disc pressure by approximately 30% compared to standing (though the difference is minimal with proper upright posture), and forward head posture from screen time changes how forces distribute through your entire spine. Even factors like tight hip flexors from sitting can alter your lumbar curve, forcing your back muscles to work overtime to maintain upright posture.`,
 
     clinicalPresentation: {
       primarySymptoms: [
@@ -217,7 +217,7 @@ Modern lifestyle factors play a huge role: prolonged sitting increases disc pres
 
 The upper part of your neck is responsible for half of all neck rotation and can refer pain to the head. This explains why neck problems often cause headaches.`,
 
-    biomechanics: `Forward head posture is the biggest culprit I see in my clinic. When your head sits forward of your shoulders, it multiplies the weight your neck muscles must support - every inch forward doubles the effective weight of your head. Your average head weighs about 10 pounds, but with forward posture, your neck muscles work as if supporting 20-40 pounds.
+    biomechanics: `Forward head posture is the biggest culprit I see in my clinic. When your head sits forward of your shoulders, it dramatically multiplies the weight your neck muscles must support - your average 10-pound head can create forces of 20-40 pounds on neck structures depending on the degree of forward posture. This increased loading creates greater neck muscle demands and altered force distribution through the cervical spine.
 
 Screen work compounds this by requiring you to look down or crane forward, while your upper shoulders creep up toward your ears. This creates a cascade where your deep neck stabilizers weaken while your larger, more superficial muscles overwork and become tight.
 
@@ -373,9 +373,9 @@ Sleep position plays a role too - pillows that are too high or too flat force yo
 
 When the nerve is irritated, it can cause pain, numbness, or weakness anywhere along its path from the back to the foot. The location and type of symptoms help identify where the problem originates. In some cases, sciatica may occur alongside degenerative disc disease or spinal stenosis, requiring careful assessment to address all contributing factors.`,
 
-    biomechanics: `Prolonged sitting is one of the biggest culprits I see with sciatica. When you sit, especially with poor posture, you increase the pressure on your lumbar discs by up to 40% compared to standing. This forward-slumped position narrows the spaces where nerves exit your spine, potentially compressing the nerve roots that form your sciatic nerve.
+    biomechanics: `Prolonged sitting is one of the biggest culprits I see with sciatica. When you sit, especially with poor posture, you increase the pressure on your lumbar discs by approximately 30% compared to standing (though the difference is minimal with proper upright posture). This forward-slumped position narrows the spaces where nerves exit your spine, potentially compressing the nerve roots that form your sciatic nerve.
 
-Poor lifting mechanics multiply the problem. When you bend at your waist with a rounded back instead of squatting down, you can increase disc pressure by 300%. Combined with lifting weight away from your body, this creates massive compressive and shearing forces on your lower spine. Repetitive bending, twisting, and lifting - especially first thing in the morning when your discs are most hydrated and vulnerable - sets up the perfect storm for disc problems.
+Poor lifting mechanics multiply the problem. When you bend at your waist with a rounded back instead of squatting down, you can increase dangerous bending stress on your discs by 75%, with an additional 30% increase if you twist while bending. Combined with lifting weight away from your body, this creates massive compressive and shearing forces on your lower spine. Repetitive bending, twisting, and lifting - especially first thing in the morning when your discs are most hydrated and vulnerable - sets up the perfect storm for disc problems.
 
 Your movement patterns throughout the day matter tremendously. Tight hip flexors from prolonged sitting pull on your lower back, forcing your lumbar spine into excessive extension. Weak glutes fail to stabilize your pelvis during walking and stair climbing, placing extra demands on your spine. Even something as simple as how you get out of bed or your car can repeatedly stress the exact structures that are already irritated.`,
 
@@ -905,9 +905,9 @@ Contributing factors include sudden increases in weight-bearing activity, biomec
       }
     ],
 
-    biomechanics: `Several biomechanical factors can contribute to plantar fasciitis development. Tight calf muscles limit ankle flexibility, increasing stress on the plantar fascia. Altered foot mechanics like excessive pronation or high arches change how forces distribute through your foot.
+    biomechanics: `Several biomechanical factors can contribute to plantar fasciitis development. Tight calf muscles (particularly the plantarflexors) limit ankle dorsiflexion flexibility, which is the most important biomechanical impairment - this forces increased stress transmission through the plantar fascia during gait. Altered foot mechanics like excessive pronation or high arches change how forces distribute through your foot.
 
-Sudden increases in activity, changes in footwear, or prolonged standing on hard surfaces can overload the tissue. Body weight also influences the load on your feet - each pound of body weight translates to about 3-4 pounds of force through the plantar fascia during walking.`,
+Sudden increases in activity, changes in footwear, or prolonged standing on hard surfaces can overload the tissue. Body weight significantly influences the load on your feet, with higher BMI being the most common identified risk factor for plantar fasciitis in non-athletes. Ground reaction forces multiply during walking and running, particularly affecting the plantar fascia during push-off phases.`,
 
     measuringProgress: {
       dayToDay: "I track morning pain levels, ability to stand/walk duration, and functional activities",
@@ -6883,7 +6883,7 @@ Conservative treatment success depends heavily on early intervention and patient
       },
       {
         strategy: "Weight Management",
-        rationale: "Every pound of body weight creates 3-4 pounds of force through the foot during walking. Weight reduction significantly reduces tendon stress and improves outcomes",
+        rationale: "Body weight significantly influences forces through the foot, with higher BMI increasing stress on the posterior tibial tendon. Weight reduction through appropriate means significantly reduces tendon stress and improves outcomes",
         precautions: ["Avoid high-impact weight loss activities initially", "Focus on low-impact cardiovascular exercise"]
       },
       {

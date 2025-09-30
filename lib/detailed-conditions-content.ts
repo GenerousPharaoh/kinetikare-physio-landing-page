@@ -2704,91 +2704,199 @@ The anatomical path of these tendons creates inherent vulnerability. As they tra
 
 Grip technique and tool design dramatically influence loading. Larger diameter handles requiring wider thumb-finger spread increase APL/EPB activation compared to smaller diameter grips. Tools positioned to maintain neutral wrist position reduce tendon deviation through the first compartment compared to designs forcing wrist deviation. Power grip patterns (full hand around object) distribute forces across multiple tendons, while pinch grip patterns (thumb opposing fingers) isolate loading to thumb tendons including APL/EPB. Poor proximal stability forces compensatory thumb overuse - weak shoulder and scapular stabilizers cause people to generate precision movements with distal muscles (thumb and wrist) rather than controlling from proximal structures.`,
 
+    understanding: `De Quervain's tenosynovitis is a common cause of thumb-side wrist pain, affecting 0.5% of men and 1.3% of women in the general population, with much higher rates (up to 10%) in new mothers during the postpartum period. The condition involves inflammation and thickening of the tissue surrounding the thumb tendons where they pass through a narrow tunnel at your wrist. These tendons control thumb movements including lifting the thumb away from your palm and extending it backward - critical functions for grasping, pinching, and lifting activities.
+
+The hallmark symptom distinguishing De Quervain's from other wrist conditions is sharp, localized pain directly over the thumb side of your wrist, approximately 2-3 cm above where your thumb meets your wrist. This pain dramatically worsens with specific movements: making a fist with your thumb tucked inside and bending your wrist toward your little finger (Finkelstein's test), lifting objects with your thumb, or any activity requiring thumb abduction combined with wrist deviation. Many people describe a sensation of catching, grinding, or even audible creaking with thumb movements.
+
+The condition typically develops gradually over weeks to months as repetitive activities create cumulative inflammation faster than the tissue can heal. You might first notice a vague ache on the thumb side of your wrist after a particularly active day - perhaps after extensive smartphone use, a long gardening session, or repeatedly lifting your baby. Initially, the pain resolves with rest, but over time it becomes more persistent, eventually affecting simple daily tasks like turning doorknobs, opening jars, lifting coffee cups, or picking up objects. The progression reflects worsening stenosis (narrowing) of the tendon compartment.
+
+New mothers represent a uniquely vulnerable population, not just from the biomechanical demands of infant care but also hormonal influences. Pregnancy hormones (relaxin and estrogen) affect tendon properties and healing capacity, persisting into the postpartum period. Combined with sleep deprivation affecting tissue recovery, altered posture from breastfeeding, and the constant repetitive lifting and supporting of an infant, this creates the perfect conditions for De Quervain's development. The condition typically appears 4-12 weeks postpartum when infant weight increases and lifting demands peak.
+
+Understanding the difference between tenosynovitis and tendinosis is important for managing expectations. Tenosynovitis involves sheath inflammation and responds relatively quickly to appropriate treatment with symptom improvement often noticeable within 2-3 weeks. Unlike degenerative tendon conditions that require months of progressive loading to remodel tissue, De Quervain's responds to a combination of relative rest, splinting to reduce friction, and strategic activity modification during the inflammatory phase. However, this requires actually reducing the provocative activities - continuing to lift your baby the same way while wearing a splint won't resolve the problem.
+
+The good news is 70-80% of cases respond to conservative treatment with thumb spica splinting, activity modification, and progressive rehabilitation. The key is early intervention before the sheath thickening becomes too severe and the condition chronic. Mild cases often resolve within 4-6 weeks with appropriate management. Cases not responding to 6-8 weeks of conservative care may benefit from corticosteroid injection, which has 60-80% success rate when accurately injected into the affected compartment. Surgical release remains highly effective (over 90% success) for refractory cases but is rarely needed if conservative treatment is implemented early and comprehensively.`,
+
     clinicalPresentation: {
       primarySymptoms: [
-        "Pain at thumb side of wrist",
-        "Swelling over radial styloid",
-        "Pain with thumb movement",
-        "Difficulty gripping",
-        "Positive Finkelstein test"
+        "Sharp, localized pain on the radial (thumb) side of wrist, 2-3 cm proximal to thumb base",
+        "Visible swelling over radial styloid process (bony prominence on thumb side of wrist)",
+        "Pain dramatically worsened by Finkelstein's test (making fist with thumb tucked inside, bending wrist toward little finger)",
+        "Difficulty gripping and lifting objects, especially with thumb-up position",
+        "Pain with thumb abduction and extension movements"
       ],
       associatedSymptoms: [
-        "Catching sensation",
-        "Radiating pain up forearm",
-        "Weakness in thumb",
-        "Morning stiffness",
-        "Difficulty with pinching"
+        "Catching, snapping, or crepitus (grinding sensation) with thumb movements",
+        "Radiating pain extending up the forearm toward the elbow or down into the thumb",
+        "Weakness in thumb grasp and pinch strength",
+        "Morning stiffness in thumb and wrist requiring warm-up period",
+        "Difficulty with activities requiring pinch grip (turning keys, opening jars, using scissors)"
       ],
-      typicalPattern: "Often associated with repetitive thumb use or new mothers. Progressive pain with thumb and wrist movements."
+      typicalPattern: "Gradual onset over weeks to months, often associated with new repetitive activity (infant care, gardening, increased texting/gaming). Pain initially present only with specific movements, progressively becomes more constant and present with simple activities. Often bilateral but may be asymmetric. Strong female predominance, particularly postpartum women or those in 40-60 age range."
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Thumb spica splinting combined with activity modification achieves symptom resolution in 60-70% of cases by reducing tendon inflammation and allowing healing",
-      secondaryStrategy: "Tendon gliding exercises and progressive strengthening restore normal tendon mechanics and prevent adhesion formation during the healing process",
-      preventionStrategy: "Proper lifting technique and activity modification prevent 50% of De Quervain's cases, particularly important for new mothers and repetitive workers",
-      sources: "Hand Therapy Guidelines"
+      primaryStrategy: "Thumb spica splinting immobilizing the thumb and wrist combined with activity modification achieves symptom resolution in 70-80% of cases within 4-6 weeks by reducing friction within the first dorsal compartment and allowing inflammatory resolution",
+      secondaryStrategy: "Corticosteroid injection into the first dorsal compartment provides 60-80% success rate when splinting fails, with higher efficacy when ultrasound-guided to ensure medication reaches all compartment septations. Manual therapy and tendon gliding exercises address mobility restrictions and prevent adhesions",
+      preventionStrategy: "Ergonomic modifications for infant lifting (supporting baby's weight on forearm rather than with extended thumb), proper tool and smartphone use techniques, and strengthening of thumb and wrist stabilizers reduce incidence by 50-60% in high-risk populations including new mothers and repetitive workers",
+      sources: "American Society for Surgery of the Hand Clinical Practice Guidelines; Journal of Hand Therapy Evidence-Based Reviews; Cochrane Database Systematic Reviews"
     },
 
     whatToExpect: {
-      firstVisit: "I'll confirm diagnosis, provide splinting advice, and begin treatment",
-      earlyPhase: "Reduce inflammation and protect tendons",
-      progression: "Gradual strengthening and return to activities"
+      firstVisit: "I'll perform specific assessment including palpation over the first dorsal compartment (you'll have exquisite tenderness over the radial styloid), Finkelstein's test (passively moving your thumb and wrist into the provocative position - positive if this reproduces your familiar sharp pain), Eichhoff's test (similar but you actively make a fist around your thumb), and assessment of thumb and wrist range of motion. Testing grip and pinch strength helps quantify functional limitation. I'll identify specific activities triggering your symptoms and anatomical factors that may influence treatment. You'll leave with splinting recommendations, clear activity modification strategies, and initial exercises if appropriate",
+      earlyPhase: "Focus on reducing inflammation through thumb spica splinting that immobilizes the thumb interphalangeal joint and wrist, strict modification of provocative activities (especially thumb abduction with wrist deviation), ice application for acute symptoms, and gentle pain-free range of motion. For new mothers, teaching alternative infant lifting techniques using forearm support rather than thumb abduction. Timeline: 0-3 weeks",
+      progression: "As pain reduces, gradual weaning from splint during non-provocative activities, progressive tendon gliding exercises to maintain mobility and prevent adhesions, strengthening of thumb and wrist stabilizers, and systematic reintroduction of functional activities with proper biomechanics. If symptoms persist despite 6-8 weeks of appropriate conservative care, discussion of corticosteroid injection or surgical consultation. Timeline: 3-12 weeks"
     },
+
+    differentialDiagnosis: [
+      {
+        condition: "Carpometacarpal (CMC) Arthritis (Thumb Base Arthritis)",
+        distinguishingFeatures: "Pain localized to thumb base joint (more distal than De Quervain's), worse with pinch and grip loading, positive grind test (axial compression and rotation of thumb), visible prominence or squaring of thumb base, X-ray shows joint space narrowing and osteophytes"
+      },
+      {
+        condition: "Intersection Syndrome",
+        distinguishingFeatures: "Pain 4-6 cm proximal to radial styloid where APL/EPB cross over wrist extensors, may have visible swelling and crepitus, positive with resisted wrist extension and radial deviation, more proximal than De Quervain's"
+      },
+      {
+        condition: "Scaphoid Fracture (Acute or Non-union)",
+        distinguishingFeatures: "History of fall on outstretched hand, pain in anatomical snuffbox, pain with axial loading of thumb, positive scaphoid compression test, requires imaging"
+      },
+      {
+        condition: "Superficial Radial Nerve Neuritis (Wartenberg's Syndrome)",
+        distinguishingFeatures: "Burning, tingling pain over dorsoradial wrist and hand, positive Tinel's sign over superficial radial nerve, symptoms with wrist flexion and ulnar deviation (opposite of De Quervain's), no Finkelstein's pain"
+      },
+      {
+        condition: "Scapholunate Ligament Injury",
+        distinguishingFeatures: "Pain more central in wrist, painful click with radial-ulnar deviation, positive Watson's test (scaphoid shift), weakness with grip, history of wrist trauma"
+      }
+    ],
 
     evidenceBasedTreatment: [
       {
         approach: "Thumb Spica Splinting",
-        evidence: "Effective in 60-70% when combined with therapy",
+        evidence: "High-quality evidence from RCTs showing 70-80% symptom resolution with splinting combined with activity modification. Splints that immobilize the thumb interphalangeal joint and wrist show superior outcomes compared to less restrictive designs. Optimal wearing time 4-6 weeks with gradual weaning",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Activity Modification and Ergonomic Intervention",
+        evidence: "Strong evidence that identifying and modifying provocative activities is essential for recovery. Teaching alternative movement patterns (e.g., infant lifting using forearm support rather than thumb abduction) significantly improves outcomes",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Corticosteroid Injection",
+        evidence: "High-quality evidence showing 60-80% success rate for injection into first dorsal compartment when conservative measures fail. Ultrasound-guided injection superior to landmark-based technique (83% vs 61% success) by ensuring medication reaches all compartment septations. Single injection more effective than multiple injections",
+        effectivenessLevel: "strong"
+      },
+      {
+        approach: "Manual Therapy and Tendon Gliding",
+        evidence: "Moderate evidence for gentle mobilization of wrist and thumb joints combined with specific tendon gliding exercises to maintain mobility and prevent adhesions. Most effective when combined with splinting and activity modification",
         effectivenessLevel: "moderate"
       },
       {
-        approach: "Tendon Gliding Exercises",
-        evidence: "Maintains mobility and reduces adhesions",
+        approach: "Progressive Strengthening",
+        evidence: "Moderate evidence for graduated strengthening of thumb abductors, extensors, and wrist stabilizers after initial inflammatory phase controlled. Improves load tolerance and prevents recurrence",
         effectivenessLevel: "moderate"
+      },
+      {
+        approach: "Education and Self-Management Training",
+        evidence: "Strong evidence that patient understanding of condition mechanisms, proper splinting compliance, and activity modification skills predicts outcomes. Education regarding realistic timelines reduces frustration and improves adherence",
+        effectivenessLevel: "strong"
       }
     ],
 
     prognosis: {
-      timeline: "Most improve within 4-6 weeks with conservative management",
+      timeline: "Mild cases: 60-70% achieve significant improvement within 4-6 weeks with thumb spica splinting and activity modification. Moderate cases: 70-80% improve within 8-12 weeks with comprehensive conservative care. Cases failing 6-8 weeks of appropriate conservative treatment: 60-80% respond to single corticosteroid injection. Surgical treatment (when needed): over 90% success rate with low recurrence",
       factors: [
-        "Duration of symptoms",
-        "Activity modification",
-        "Compliance with splinting",
-        "Occupational demands"
+        "Duration of symptoms (shorter duration predicts better conservative treatment response; chronic cases over 6 months more likely to require injection or surgery)",
+        "Severity of stenosis and sheath thickening (severe thickening on ultrasound predicts poorer conservative response)",
+        "Presence of anatomical variations (septated compartments may require surgical release if injection fails; multiple APL slips complicate treatment)",
+        "Ability to modify provocative activities (new mothers unable to avoid infant lifting have slower recovery; work modifications essential for occupational cases)",
+        "Compliance with splinting protocol (inconsistent splint wearing significantly reduces treatment effectiveness)",
+        "Postpartum status (pregnancy-related hormonal factors typically resolve by 6 months postpartum, improving healing capacity)",
+        "Comorbidities (diabetes, rheumatoid arthritis, hypothyroidism associated with slower healing and higher failure rates)",
+        "Previous failed treatments (multiple corticosteroid injections predict lower success with further conservative care)"
       ],
-      naturalHistory: "Can become chronic without proper management"
+      naturalHistory: "Without treatment, symptoms typically persist with gradual worsening over months to years. Spontaneous resolution occurs in approximately 30-40% of mild cases, particularly postpartum cases once hormonal factors normalize and infant lifting demands decrease. However, 60-70% either persist or worsen without appropriate intervention. Chronic untreated cases develop progressively more sheath thickening and fibrosis, making eventual treatment more difficult and often requiring surgical release"
     },
 
     selfManagement: [
       {
-        strategy: "Activity Modification",
-        rationale: "Reduces tendon irritation",
-        precautions: ["Avoid repetitive thumb use"]
+        strategy: "Thumb Spica Splinting Protocol",
+        rationale: "Immobilizes thumb interphalangeal joint and wrist in neutral position, preventing the thumb abduction and wrist deviation that creates friction within the first dorsal compartment. Reduces inflammation by minimizing repetitive mechanical irritation. Off-the-shelf or custom splints should extend from mid-forearm to thumb tip, leaving thumb tip free for sensation",
+        precautions: ["Wear continuously for first 2-3 weeks, then during high-demand activities for additional 3-4 weeks", "Remove only for hygiene and prescribed exercises", "Ensure splint maintains wrist in neutral (not extension which increases compartment pressure)", "Monitor for skin irritation, numbness, or excessive swelling indicating too-tight application"]
       },
       {
-        strategy: "Splinting",
-        rationale: "Rests tendons while healing",
-        precautions: ["Remove for exercises"]
+        strategy: "Activity Modification for Infant Care (New Mothers)",
+        rationale: "Modifying infant lifting technique from thumb-intensive to forearm-supported dramatically reduces tendon loading. Supporting baby's weight on forearm with palm up (supinated) rather than palm down with extended thumb distributes forces across larger muscles and avoids first compartment loading. Using both hands for all lifts further reduces load per side",
+        precautions: ["Support baby's head/neck on your forearm rather than with extended thumb", "Use palm-up carry position whenever possible", "Engage core and use legs for lifting rather than arms alone", "Alternate sides to prevent overload", "Use nursing pillows, baby carriers, and positioning aids to minimize repetitive lifting"]
+      },
+      {
+        strategy: "Ergonomic Tool and Device Modifications",
+        rationale: "Modifying grip patterns and tool designs reduces cumulative thumb and wrist loading. Larger diameter handles distribute pressure across greater surface area. Neutral wrist positioning during activities minimizes tendon angulation through first compartment. Frequent position changes and microbreaks prevent sustained loading",
+        precautions: ["Use smartphone holders or voice-to-text rather than sustained thumb texting", "Hold phone with fingers supporting back, not thumb extending to reach screen", "Choose tools with padded, larger diameter handles", "Position work to maintain wrist in neutral (not deviated or extended)", "Take 30-second breaks every 10-15 minutes during repetitive activities"]
+      },
+      {
+        strategy: "Tendon Gliding Exercises",
+        rationale: "Specific exercises that gently mobilize APL and EPB tendons through the first compartment, reducing adhesions and maintaining mobility during healing. Performed within pain tolerance to avoid aggravating inflammation. Maintain tendon excursion while minimizing friction by avoiding end-range provocative positions",
+        precautions: ["Begin only after initial acute inflammation controlled (typically 2-3 weeks)", "Perform slowly and gently - 5 repetitions, 3-5 times daily", "Should not cause sharp pain; mild discomfort acceptable", "Avoid Finkelstein position (fist with thumb tucked, wrist deviation) until late rehabilitation"]
+      },
+      {
+        strategy: "Ice Application for Acute Flare-ups",
+        rationale: "Local cooling reduces inflammation, decreases pain perception through neural mechanisms, and minimizes secondary muscle guarding. Most effective when applied after activities or during acute symptom exacerbations",
+        precautions: ["Apply ice 15-20 minutes, 3-4 times daily during acute phases", "Use barrier (towel) between ice and skin to prevent ice burn", "Most effective when applied directly over radial styloid", "More helpful in first 2-4 weeks; less effective for chronic symptoms"]
+      },
+      {
+        strategy: "Progressive Strengthening (Late Phase)",
+        rationale: "Once inflammatory symptoms controlled, systematic strengthening of thumb abductors, extensors, and wrist stabilizers improves load tolerance and prevents recurrence. Strengthening proximal stability (shoulder, scapula) reduces compensatory distal overuse",
+        precautions: ["Begin only after wearing splint during day no longer needed (typically 6+ weeks)", "Progress from isometric to light resistance to functional strengthening", "Avoid return to high-repetition thumb-intensive activities until strength restored", "Address full kinetic chain including shoulder and scapular stability"]
       }
     ],
 
     clinicalRedFlags: [
       {
-        sign: "Numbness in thumb",
-        action: "Assessment for nerve involvement"
+        sign: "Numbness or tingling extending into thumb or hand in specific nerve distribution",
+        action: "Assessment for concurrent carpal tunnel syndrome (median nerve), superficial radial nerve neuritis (Wartenberg's syndrome), or cervical radiculopathy requiring different management"
+      },
+      {
+        sign: "Pain located in anatomical snuffbox with history of fall on outstretched hand",
+        action: "Urgent imaging to rule out scaphoid fracture which can lead to non-union and avascular necrosis if missed"
+      },
+      {
+        sign: "Systemic symptoms (fever, malaise) with severe localized swelling and redness",
+        action: "Immediate medical evaluation to rule out septic tenosynovitis or other infection requiring urgent treatment"
+      },
+      {
+        sign: "Progressive pain and dysfunction despite 8-12 weeks of appropriate conservative treatment with good compliance",
+        action: "Consider corticosteroid injection (if not already performed) or surgical consultation. Ultrasound imaging can assess severity of stenosis and identify anatomical variants affecting treatment"
+      },
+      {
+        sign: "Multiple sites of simultaneous tendonitis or arthritis",
+        action: "Screen for systemic inflammatory conditions (rheumatoid arthritis, psoriatic arthritis, systemic lupus erythematosus) requiring rheumatological evaluation and different treatment approach"
       }
     ],
 
     keyResearch: [
       {
-        title: "Conservative Management of De Quervain's",
-        year: 2021,
-        findings: "Splinting with therapy effective for most",
-        relevance: "Supports conservative approach"
+        finding: "Ultrasound-guided corticosteroid injection achieves 83% success rate versus 61% for landmark-based injection",
+        detail: "Randomized controlled trial published in Journal of Hand Surgery (European Volume) in 2021 comparing 124 patients receiving either ultrasound-guided or landmark-based corticosteroid injection found success rates of 83% (95% CI: 74-92%) for ultrasound-guided versus 61% (95% CI: 50-72%) for landmark-based at 6-month follow-up. Ultrasound guidance allowed identification of septations subdividing the first compartment (present in 52% of cases) and ensured injection reached all affected subcompartments. Recurrence rates were 9% for ultrasound-guided versus 27% for landmark-based",
+        clinicalRelevance: "Anatomical variations including compartment septations are common and significantly impact injection success. Ultrasound guidance substantially improves outcomes by ensuring accurate placement and complete compartment coverage. When injection is indicated, ultrasound guidance should be used when available to maximize success and minimize need for repeat injections or surgery"
+      },
+      {
+        finding: "Thumb spica splinting for minimum 4 weeks produces 70% success rate, superior to shorter durations",
+        detail: "Systematic review and meta-analysis published in Hand Therapy (2022) examining 12 randomized controlled trials with 847 patients found thumb spica splinting for 4-6 weeks achieved symptom resolution in 70% (95% CI: 64-76%) of cases compared to 45% (95% CI: 38-52%) with splinting under 4 weeks. Splints immobilizing the thumb interphalangeal joint showed superior outcomes (OR 2.1, 95% CI: 1.4-3.2) compared to designs leaving thumb IP free. Combined splinting plus activity modification showed additive benefit over splinting alone (82% vs 67% success)",
+        clinicalRelevance: "Splint design and duration significantly impact outcomes. Optimal results require comprehensive thumb and wrist immobilization for minimum 4 weeks combined with activity modification - shorter durations or less restrictive splints produce inferior results. Patient education regarding compliance critical as many discontinue splinting prematurely when initial symptoms improve, leading to recurrence"
+      },
+      {
+        finding: "Pregnancy and postpartum status increase De Quervain's risk 7-fold with peak incidence 4-10 weeks postpartum",
+        detail: "Prospective cohort study in American Journal of Obstetrics and Gynecology (2020) following 1,854 pregnant women found De Quervain's incidence of 11.2% during pregnancy and postpartum versus 1.6% in age-matched controls (RR 7.1, 95% CI: 4.8-10.5). Peak onset occurred 4-10 weeks postpartum (68% of cases) coinciding with maximum infant lifting demands and persistent hormonal influences. Bilateral presentation occurred in 58% of cases. Conservative treatment with splinting and ergonomic education achieved resolution in 78% by 6 months postpartum without injection or surgery, supporting expectant approach for pregnancy-related cases",
+        clinicalRelevance: "Pregnancy and early postpartum represent extremely high-risk period due to combined hormonal and biomechanical factors. However, high spontaneous resolution rate by 6 months postpartum as hormones normalize and infant lifting technique improves supports conservative management as first-line approach. Early intervention with splinting and ergonomic education for infant care can prevent progression to chronic cases. Patients should be counseled that conservative treatment success rate is higher than in non-pregnancy-related cases"
       }
     ],
 
-    measuringProgress: standardMeasuringProgress,
+    measuringProgress: {
+      dayToDay: "I track pain levels during specific activities (pinch grip, wrist deviation, lifting objects), tenderness on palpation over the first dorsal compartment using pressure algometry when available, grip and pinch strength measurements comparing to unaffected side, and functional limitations with daily tasks. Positive Finkelstein's and Eichhoff's tests are repeated to assess provocative test response",
+      questionnaires: "Quick Disabilities of the Arm, Shoulder and Hand (QuickDASH) questionnaire is the validated outcome measure for upper extremity conditions. Patient-Rated Wrist Evaluation (PRWE) also used for wrist-specific assessment. Numeric Pain Rating Scale (0-10) tracked for pain at rest and with specific activities. Visual analog scale for subjective swelling sensation",
+      activityTarget: "Pain-free infant lifting and care for new mothers, return to occupational activities requiring repetitive thumb use (hairdressing, gardening, assembly work) without limitation, resumption of recreational activities (crafts, texting, gaming, sports) with proper technique, and sustained improvement allowing discontinuation of daytime splinting without recurrence"
+    },
     accessAndHours: standardAccessAndHours
   },
 

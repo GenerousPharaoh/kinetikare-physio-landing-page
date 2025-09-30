@@ -340,7 +340,7 @@ export default function ConditionPageClient({
           <div className="flex gap-8">
             {/* Sidebar Navigation - Desktop */}
             <aside className="hidden lg:block w-72 flex-shrink-0">
-              <div className="sticky top-24 space-y-6">
+              <div className="sticky top-24 space-y-6 max-h-[calc(100vh-7rem)] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-slate-300 scrollbar-track-transparent hover:scrollbar-thumb-slate-400">
                 {/* Search */}
                 <div className="relative">
                   <MagnifyingGlassIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />

@@ -45,7 +45,7 @@ interface TabContent {
 }
 
 // Smooth scroll utility with custom easing
-const smoothScrollTo = (targetPosition: number, duration: number = 500) => {
+const smoothScrollTo = (targetPosition: number, duration: number = 350) => {
   const startPosition = window.pageYOffset;
   const distance = targetPosition - startPosition;
   let startTime: number | null = null;
@@ -375,8 +375,8 @@ export default function ConditionPageClient({
                             <BeakerIcon className="h-4 w-4 flex-shrink-0" />
                             <span>Science</span>
                           </div>
-                          {activeTab === 'overview' && (
-                            <div className="w-1.5 h-1.5 rounded-full bg-white" />
+                          {(condition.pathophysiology || condition.biomechanics) && (
+                            <ChevronDownIcon className={`h-4 w-4 transition-transform duration-200 ${activeTab === 'overview' ? 'rotate-180' : ''}`} />
                           )}
                         </button>
 
@@ -440,8 +440,8 @@ export default function ConditionPageClient({
                             <FireIcon className="h-4 w-4 flex-shrink-0" />
                             <span>Clinical</span>
                           </div>
-                          {activeTab === 'symptoms' && (
-                            <div className="w-1.5 h-1.5 rounded-full bg-white" />
+                          {(condition.clinicalPresentation || (condition.differentialDiagnosis && condition.differentialDiagnosis.length > 0) || (condition.whenToSeek && condition.whenToSeek.length > 0)) && (
+                            <ChevronDownIcon className={`h-4 w-4 transition-transform duration-200 ${activeTab === 'symptoms' ? 'rotate-180' : ''}`} />
                           )}
                         </button>
 
@@ -519,9 +519,7 @@ export default function ConditionPageClient({
                             <ShieldCheckIcon className="h-4 w-4 flex-shrink-0" />
                             <span>Management</span>
                           </div>
-                          {activeTab === 'self-care' && (
-                            <div className="w-1.5 h-1.5 rounded-full bg-white" />
-                          )}
+                          <ChevronDownIcon className={`h-4 w-4 transition-transform duration-200 ${activeTab === 'self-care' ? 'rotate-180' : ''}`} />
                         </button>
 
                         {/* Sub-navigation - shows when Management is active */}
@@ -662,8 +660,8 @@ export default function ConditionPageClient({
                             <ChartBarIcon className="h-4 w-4 flex-shrink-0" />
                             <span>Research</span>
                           </div>
-                          {activeTab === 'research' && (
-                            <div className="w-1.5 h-1.5 rounded-full bg-white" />
+                          {((condition.keyResearch && condition.keyResearch.length > 0) || (condition.researchInsights && condition.researchInsights.length > 0)) && (
+                            <ChevronDownIcon className={`h-4 w-4 transition-transform duration-200 ${activeTab === 'research' ? 'rotate-180' : ''}`} />
                           )}
                         </button>
 

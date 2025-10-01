@@ -287,12 +287,12 @@ export default function ConditionPageClient({
         </div>
 
         {/* Main Content Area with Sidebar */}
-        <section className="pt-6 pb-16 bg-white">
+        <section className="pt-6 pb-16 bg-white min-h-screen">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex gap-8 items-start">
+            <div className="flex gap-8 items-start relative">
               {/* Sidebar Navigation - Desktop - TRULY STICKY */}
               <aside className="hidden lg:block w-64 flex-shrink-0">
-                <nav className="sticky top-24 space-y-4 overflow-y-auto pr-4" style={{ maxHeight: 'calc(100vh - 7rem)' }}>
+                <nav className="sticky top-6 space-y-4 overflow-y-auto pr-4" style={{ maxHeight: 'calc(100vh - 4rem)' }}>
                   {/* Scroll Progress */}
                   <div className="h-0.5 bg-slate-100 rounded-full overflow-hidden">
                     <div

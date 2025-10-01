@@ -338,8 +338,8 @@ export default function ConditionPageClient({
 
         {/* Main Content Area with Sidebar */}
         <section className="pt-6 pb-16 bg-white min-h-screen">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex gap-10 items-start relative">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <div className="flex gap-6 items-start relative">
               {/* Sidebar Navigation - Desktop - JAVASCRIPT STICKY */}
               <aside id="sidebar-container" className="hidden lg:block w-56 flex-shrink-0">
                 <nav className="space-y-3 pr-3" style={{...sidebarStyle, transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'}}>

@@ -319,62 +319,140 @@ export default function ConditionPageClient({
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex gap-8 items-start relative">
               {/* Sidebar Navigation - Desktop - JAVASCRIPT STICKY */}
-              <aside id="sidebar-container" className="hidden lg:block w-64 flex-shrink-0">
-                <nav className="space-y-3 pr-4" style={{...sidebarStyle, transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'}}>
+              <aside id="sidebar-container" className="hidden lg:block w-72 flex-shrink-0">
+                <nav className="space-y-4 pr-4" style={{...sidebarStyle, transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'}}>
                   {/* Scroll Progress - Enhanced */}
-                  <div className="h-1 bg-slate-100/50 rounded-full overflow-hidden backdrop-blur-sm">
+                  <div className="h-1.5 bg-slate-100/50 rounded-full overflow-hidden backdrop-blur-sm">
                     <div
-                      className="h-full bg-gradient-to-r from-[#B08D57] via-[#C9A769] to-[#D4AF37] transition-all duration-500 ease-out"
+                      className="h-full bg-gradient-to-r from-[#B08D57] via-[#C9A769] to-[#D4AF37] transition-all duration-500 ease-out shadow-sm"
                       style={{ width: `${scrollProgress}%` }}
                     />
                   </div>
 
                   {/* Navigation Sections - Ultra Smooth */}
-                  <div className="space-y-1.5">
-                    {/* Overview/Science Section */}
+                  <div className="space-y-2">
+                    {/* Overview/Science Section with Sub-navigation */}
                     {tabs.find(t => t.id === 'overview') && (
-                      <button
-                        onClick={() => {
-                          setActiveTab('overview');
-                          document.getElementById('section-overview')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }}
-                        className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ease-out transform ${
-                          activeTab === 'overview'
-                            ? 'bg-gradient-to-r from-[#B08D57] to-[#9A7B4F] text-white shadow-md scale-[1.02]'
-                            : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900 hover:translate-x-0.5'
-                        }`}
-                      >
-                        <div className="flex items-center gap-2.5">
-                          <BeakerIcon className="h-4 w-4 flex-shrink-0" />
-                          <span>Science</span>
-                        </div>
+                      <div>
+                        <button
+                          onClick={() => {
+                            setActiveTab('overview');
+                            document.getElementById('section-overview')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                          }}
+                          className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ease-out transform ${
+                            activeTab === 'overview'
+                              ? 'bg-gradient-to-r from-[#B08D57] to-[#9A7B4F] text-white shadow-md scale-[1.02]'
+                              : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900 hover:translate-x-0.5'
+                          }`}
+                        >
+                          <div className="flex items-center gap-2.5">
+                            <BeakerIcon className="h-4 w-4 flex-shrink-0" />
+                            <span>Science</span>
+                          </div>
+                          {activeTab === 'overview' && (
+                            <div className="w-1.5 h-1.5 rounded-full bg-white" />
+                          )}
+                        </button>
+
+                        {/* Sub-navigation for Overview */}
                         {activeTab === 'overview' && (
-                          <div className="w-1.5 h-1.5 rounded-full bg-white" />
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                            className="ml-6 mt-2 space-y-1 border-l-2 border-slate-200/60 pl-3"
+                          >
+                            {condition.pathophysiology && (
+                              <button
+                                onClick={() => {
+                                  document.querySelector('[data-section="pathophysiology"]')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                }}
+                                className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
+                              >
+                                Pathophysiology
+                              </button>
+                            )}
+                            {condition.biomechanics && (
+                              <button
+                                onClick={() => {
+                                  document.querySelector('[data-section="biomechanics"]')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                }}
+                                className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
+                              >
+                                Contributing Factors
+                              </button>
+                            )}
+                          </motion.div>
                         )}
-                      </button>
+                      </div>
                     )}
 
-                    {/* Symptoms/Clinical Section */}
+                    {/* Symptoms/Clinical Section with Sub-navigation */}
                     {tabs.find(t => t.id === 'symptoms') && (
-                      <button
-                        onClick={() => {
-                          setActiveTab('symptoms');
-                          document.getElementById('section-symptoms')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }}
-                        className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ease-out transform ${
-                          activeTab === 'symptoms'
-                            ? 'bg-gradient-to-r from-[#B08D57] to-[#9A7B4F] text-white shadow-md scale-[1.02]'
-                            : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900 hover:translate-x-0.5'
-                        }`}
-                      >
-                        <div className="flex items-center gap-2.5">
-                          <FireIcon className="h-4 w-4 flex-shrink-0" />
-                          <span>Clinical</span>
-                        </div>
+                      <div>
+                        <button
+                          onClick={() => {
+                            setActiveTab('symptoms');
+                            document.getElementById('section-symptoms')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                          }}
+                          className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ease-out transform ${
+                            activeTab === 'symptoms'
+                              ? 'bg-gradient-to-r from-[#B08D57] to-[#9A7B4F] text-white shadow-md scale-[1.02]'
+                              : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900 hover:translate-x-0.5'
+                          }`}
+                        >
+                          <div className="flex items-center gap-2.5">
+                            <FireIcon className="h-4 w-4 flex-shrink-0" />
+                            <span>Clinical</span>
+                          </div>
+                          {activeTab === 'symptoms' && (
+                            <div className="w-1.5 h-1.5 rounded-full bg-white" />
+                          )}
+                        </button>
+
+                        {/* Sub-navigation for Symptoms */}
                         {activeTab === 'symptoms' && (
-                          <div className="w-1.5 h-1.5 rounded-full bg-white" />
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                            className="ml-6 mt-2 space-y-1 border-l-2 border-slate-200/60 pl-3"
+                          >
+                            {condition.clinicalPresentation && (
+                              <button
+                                onClick={() => {
+                                  document.querySelector('[data-section="clinical-presentation"]')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                }}
+                                className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
+                              >
+                                Clinical Presentation
+                              </button>
+                            )}
+                            {condition.differentialDiagnosis && condition.differentialDiagnosis.length > 0 && (
+                              <button
+                                onClick={() => {
+                                  document.querySelector('[data-section="differential"]')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                }}
+                                className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
+                              >
+                                Differential Diagnosis
+                              </button>
+                            )}
+                            {condition.whenToSeek && condition.whenToSeek.length > 0 && (
+                              <button
+                                onClick={() => {
+                                  document.querySelector('[data-section="when-to-seek"]')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                }}
+                                className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
+                              >
+                                When to Seek Help
+                              </button>
+                            )}
+                          </motion.div>
                         )}
-                      </button>
+                      </div>
                     )}
 
                     {/* Management Section with Sub-navigation */}
@@ -496,27 +574,67 @@ export default function ConditionPageClient({
                       </div>
                     )}
 
-                    {/* Research Section */}
+                    {/* Research Section with Sub-navigation */}
                     {tabs.find(t => t.id === 'research') && (
-                      <button
-                        onClick={() => {
-                          setActiveTab('research');
-                          document.getElementById('section-research')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }}
-                        className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ease-out transform ${
-                          activeTab === 'research'
-                            ? 'bg-gradient-to-r from-[#B08D57] to-[#9A7B4F] text-white shadow-md scale-[1.02]'
-                            : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900 hover:translate-x-0.5'
-                        }`}
-                      >
-                        <div className="flex items-center gap-2.5">
-                          <ChartBarIcon className="h-4 w-4 flex-shrink-0" />
-                          <span>Research</span>
-                        </div>
+                      <div>
+                        <button
+                          onClick={() => {
+                            setActiveTab('research');
+                            document.getElementById('section-research')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                          }}
+                          className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ease-out transform ${
+                            activeTab === 'research'
+                              ? 'bg-gradient-to-r from-[#B08D57] to-[#9A7B4F] text-white shadow-md scale-[1.02]'
+                              : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900 hover:translate-x-0.5'
+                          }`}
+                        >
+                          <div className="flex items-center gap-2.5">
+                            <ChartBarIcon className="h-4 w-4 flex-shrink-0" />
+                            <span>Research</span>
+                          </div>
+                          {activeTab === 'research' && (
+                            <div className="w-1.5 h-1.5 rounded-full bg-white" />
+                          )}
+                        </button>
+
+                        {/* Sub-navigation for Research */}
                         {activeTab === 'research' && (
-                          <div className="w-1.5 h-1.5 rounded-full bg-white" />
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                            className="ml-6 mt-2 space-y-1 border-l-2 border-slate-200/60 pl-3"
+                          >
+                            {condition.keyResearch && condition.keyResearch.length > 0 && (
+                              <button
+                                onClick={() => {
+                                  setExpandedResearchSections(prev => ({ ...prev, 'key-research': true }));
+                                  setTimeout(() => {
+                                    document.querySelector('[data-section="key-research"]')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                  }, 100);
+                                }}
+                                className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
+                              >
+                                Key Research & Evidence
+                              </button>
+                            )}
+                            {condition.researchInsights && condition.researchInsights.length > 0 && (
+                              <button
+                                onClick={() => {
+                                  setExpandedResearchSections(prev => ({ ...prev, 'research-insights': true }));
+                                  setTimeout(() => {
+                                    document.querySelector('[data-section="research-insights"]')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                  }, 100);
+                                }}
+                                className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
+                              >
+                                Research Insights
+                              </button>
+                            )}
+                          </motion.div>
                         )}
-                      </button>
+                      </div>
                     )}
                   </div>
                 </nav>
@@ -687,7 +805,7 @@ export default function ConditionPageClient({
                       {activeTab === 'overview' && (
                         <div id="section-overview" className="space-y-8 scroll-mt-24">
                           {condition.pathophysiology && (
-                            <div className="bg-white rounded-xl p-8 md:p-8 border border-slate-200">
+                            <div data-section="pathophysiology" className="bg-white rounded-xl p-8 md:p-8 border border-slate-200 scroll-mt-24">
                               <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
                                 The Science of {condition.name || 'Your Condition'}
                               </h2>
@@ -713,7 +831,7 @@ export default function ConditionPageClient({
                           )}
 
                           {condition.biomechanics && (
-                            <div className="bg-slate-50 rounded-xl p-8 md:p-8 border border-slate-200">
+                            <div data-section="biomechanics" className="bg-slate-50 rounded-xl p-8 md:p-8 border border-slate-200 scroll-mt-24">
                               <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
                                 Contributing Factors
                               </h2>
@@ -734,7 +852,7 @@ export default function ConditionPageClient({
                       {activeTab === 'symptoms' && (
                         <div id="section-symptoms" className="space-y-8 scroll-mt-24">
                           {condition.clinicalPresentation && (
-                            <div className="bg-white rounded-xl p-8 md:p-8 border border-slate-200">
+                            <div data-section="clinical-presentation" className="bg-white rounded-xl p-8 md:p-8 border border-slate-200 scroll-mt-24">
                               <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
                                 Clinical Presentation
                               </h2>
@@ -777,7 +895,7 @@ export default function ConditionPageClient({
                           )}
 
                           {condition.differentialDiagnosis && condition.differentialDiagnosis.length > 0 && (
-                            <div className="bg-slate-50 rounded-xl p-8 md:p-8 border border-slate-200">
+                            <div data-section="differential" className="bg-slate-50 rounded-xl p-8 md:p-8 border border-slate-200 scroll-mt-24">
                               <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-4">
                                 Differential Diagnosis
                               </h2>
@@ -805,7 +923,7 @@ export default function ConditionPageClient({
                           )}
 
                           {condition.whenToSeek && condition.whenToSeek.length > 0 && (
-                            <div className="bg-amber-50 rounded-xl p-8 md:p-8 border border-amber-200">
+                            <div data-section="when-to-seek" className="bg-amber-50 rounded-xl p-8 md:p-8 border border-amber-200 scroll-mt-24">
                               <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
                                 When to Seek Professional Help
                               </h2>
@@ -906,10 +1024,10 @@ export default function ConditionPageClient({
                       {activeTab === 'research' && (
                         <div id="section-research" className="space-y-8 scroll-mt-24">
                           {condition.keyResearch && condition.keyResearch.length > 0 && (
-                            <div className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
+                            <div data-section="key-research" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-24">
                               {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/30 via-transparent to-teal-50/20 pointer-events-none"></div>
-                              
+
                               <div className="relative">
                                 {/* Header with gradient accent - Clickable */}
                                 <div 
@@ -1074,10 +1192,10 @@ export default function ConditionPageClient({
                           )}
 
                           {condition.researchInsights && condition.researchInsights.length > 0 && (
-                            <div className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
+                            <div data-section="research-insights" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-24">
                               {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-transparent to-indigo-50/20 pointer-events-none"></div>
-                              
+
                               <div className="relative">
                                 {/* Header with gradient accent - Clickable */}
                                 <div 

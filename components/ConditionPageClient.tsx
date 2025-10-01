@@ -44,32 +44,6 @@ interface TabContent {
   icon: React.ElementType;
 }
 
-// Smooth scroll utility with custom easing
-const smoothScrollTo = (targetPosition: number, duration: number = 350) => {
-  const startPosition = window.pageYOffset;
-  const distance = targetPosition - startPosition;
-  let startTime: number | null = null;
-
-  const easeInOutQuad = (t: number): number => {
-    return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
-  };
-
-  const animation = (currentTime: number) => {
-    if (startTime === null) startTime = currentTime;
-    const timeElapsed = currentTime - startTime;
-    const progress = Math.min(timeElapsed / duration, 1);
-    const ease = easeInOutQuad(progress);
-
-    window.scrollTo(0, startPosition + distance * ease);
-
-    if (timeElapsed < duration) {
-      requestAnimationFrame(animation);
-    }
-  };
-
-  requestAnimationFrame(animation);
-};
-
 export default function ConditionPageClient({
   condition,
   relatedConditions
@@ -363,13 +337,13 @@ export default function ConditionPageClient({
                         <button
                           onClick={() => {
                             setActiveTab('overview');
-                            setTimeout(() => {
+                            requestAnimationFrame(() => {
                               const element = document.getElementById('section-overview');
                               if (element) {
-                                const top = element.getBoundingClientRect().top + window.pageYOffset - 120;
-                                smoothScrollTo(top);
+                                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                
                               }
-                            }, 50);
+                            });
                           }}
                           className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ease-out transform ${
                             activeTab === 'overview'
@@ -400,8 +374,8 @@ export default function ConditionPageClient({
                                 onClick={() => {
                                   const element = document.querySelector('[data-section="pathophysiology"]');
                                   if (element) {
-                                    const top = element.getBoundingClientRect().top + window.pageYOffset - 120;
-                                    smoothScrollTo(top);
+                                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                    
                                   }
                                 }}
                                 className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
@@ -414,8 +388,8 @@ export default function ConditionPageClient({
                                 onClick={() => {
                                   const element = document.querySelector('[data-section="biomechanics"]');
                                   if (element) {
-                                    const top = element.getBoundingClientRect().top + window.pageYOffset - 120;
-                                    smoothScrollTo(top);
+                                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                    
                                   }
                                 }}
                                 className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
@@ -434,13 +408,13 @@ export default function ConditionPageClient({
                         <button
                           onClick={() => {
                             setActiveTab('symptoms');
-                            setTimeout(() => {
+                            requestAnimationFrame(() => {
                               const element = document.getElementById('section-symptoms');
                               if (element) {
-                                const top = element.getBoundingClientRect().top + window.pageYOffset - 120;
-                                smoothScrollTo(top);
+                                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                
                               }
-                            }, 50);
+                            });
                           }}
                           className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ease-out transform ${
                             activeTab === 'symptoms'
@@ -471,8 +445,8 @@ export default function ConditionPageClient({
                                 onClick={() => {
                                   const element = document.querySelector('[data-section="clinical-presentation"]');
                                   if (element) {
-                                    const top = element.getBoundingClientRect().top + window.pageYOffset - 120;
-                                    smoothScrollTo(top);
+                                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                    
                                   }
                                 }}
                                 className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
@@ -485,8 +459,8 @@ export default function ConditionPageClient({
                                 onClick={() => {
                                   const element = document.querySelector('[data-section="differential"]');
                                   if (element) {
-                                    const top = element.getBoundingClientRect().top + window.pageYOffset - 120;
-                                    smoothScrollTo(top);
+                                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                    
                                   }
                                 }}
                                 className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
@@ -499,8 +473,8 @@ export default function ConditionPageClient({
                                 onClick={() => {
                                   const element = document.querySelector('[data-section="when-to-seek"]');
                                   if (element) {
-                                    const top = element.getBoundingClientRect().top + window.pageYOffset - 120;
-                                    smoothScrollTo(top);
+                                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                    
                                   }
                                 }}
                                 className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
@@ -519,13 +493,13 @@ export default function ConditionPageClient({
                         <button
                           onClick={() => {
                             setActiveTab('self-care');
-                            setTimeout(() => {
+                            requestAnimationFrame(() => {
                               const element = document.getElementById('section-self-care');
                               if (element) {
-                                const top = element.getBoundingClientRect().top + window.pageYOffset - 120;
-                                smoothScrollTo(top);
+                                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                
                               }
-                            }, 50);
+                            });
                           }}
                           className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ease-out transform ${
                             activeTab === 'self-care'
@@ -553,13 +527,13 @@ export default function ConditionPageClient({
                               onClick={() => {
                                 setActiveTab('self-care');
                                 setExpandedManagementSections(prev => ({ ...prev, 'evidence-based': true }));
-                                setTimeout(() => {
+                                requestAnimationFrame(() => {
                                   const element = document.querySelector('[data-section="evidence-based"]');
                                   if (element) {
-                                    const top = element.getBoundingClientRect().top + window.pageYOffset - 120;
-                                    smoothScrollTo(top);
+                                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                    
                                   }
-                                }, 100);
+                                });
                               }}
                               className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
                             >
@@ -570,13 +544,13 @@ export default function ConditionPageClient({
                                 onClick={() => {
                                   setActiveTab('self-care');
                                   setExpandedManagementSections(prev => ({ ...prev, 'treatment-techniques': true }));
-                                  setTimeout(() => {
+                                  requestAnimationFrame(() => {
                                     const element = document.querySelector('[data-section="treatment-techniques"]');
                                     if (element) {
-                                      const top = element.getBoundingClientRect().top + window.pageYOffset - 120;
-                                      smoothScrollTo(top);
+                                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                      
                                     }
-                                  }, 100);
+                                  });
                                 }}
                                 className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
                               >
@@ -588,13 +562,13 @@ export default function ConditionPageClient({
                                 onClick={() => {
                                   setActiveTab('self-care');
                                   setExpandedManagementSections(prev => ({ ...prev, 'timeline': true }));
-                                  setTimeout(() => {
+                                  requestAnimationFrame(() => {
                                     const element = document.querySelector('[data-section="timeline"]');
                                     if (element) {
-                                      const top = element.getBoundingClientRect().top + window.pageYOffset - 120;
-                                      smoothScrollTo(top);
+                                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                      
                                     }
-                                  }, 100);
+                                  });
                                 }}
                                 className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
                               >
@@ -606,13 +580,13 @@ export default function ConditionPageClient({
                                 onClick={() => {
                                   setActiveTab('self-care');
                                   setExpandedManagementSections(prev => ({ ...prev, 'prognosis': true }));
-                                  setTimeout(() => {
+                                  requestAnimationFrame(() => {
                                     const element = document.querySelector('[data-section="prognosis"]');
                                     if (element) {
-                                      const top = element.getBoundingClientRect().top + window.pageYOffset - 120;
-                                      smoothScrollTo(top);
+                                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                      
                                     }
-                                  }, 100);
+                                  });
                                 }}
                                 className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
                               >
@@ -624,13 +598,13 @@ export default function ConditionPageClient({
                                 onClick={() => {
                                   setActiveTab('self-care');
                                   setExpandedManagementSections(prev => ({ ...prev, 'measuring': true }));
-                                  setTimeout(() => {
+                                  requestAnimationFrame(() => {
                                     const element = document.querySelector('[data-section="measuring"]');
                                     if (element) {
-                                      const top = element.getBoundingClientRect().top + window.pageYOffset - 120;
-                                      smoothScrollTo(top);
+                                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                      
                                     }
-                                  }, 100);
+                                  });
                                 }}
                                 className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
                               >
@@ -642,13 +616,13 @@ export default function ConditionPageClient({
                                 onClick={() => {
                                   setActiveTab('self-care');
                                   setExpandedManagementSections(prev => ({ ...prev, 'faqs': true }));
-                                  setTimeout(() => {
+                                  requestAnimationFrame(() => {
                                     const element = document.querySelector('[data-section="faqs"]');
                                     if (element) {
-                                      const top = element.getBoundingClientRect().top + window.pageYOffset - 120;
-                                      smoothScrollTo(top);
+                                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                      
                                     }
-                                  }, 100);
+                                  });
                                 }}
                                 className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
                               >
@@ -666,13 +640,13 @@ export default function ConditionPageClient({
                         <button
                           onClick={() => {
                             setActiveTab('research');
-                            setTimeout(() => {
+                            requestAnimationFrame(() => {
                               const element = document.getElementById('section-research');
                               if (element) {
-                                const top = element.getBoundingClientRect().top + window.pageYOffset - 120;
-                                smoothScrollTo(top);
+                                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                
                               }
-                            }, 50);
+                            });
                           }}
                           className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ease-out transform ${
                             activeTab === 'research'
@@ -702,13 +676,13 @@ export default function ConditionPageClient({
                               <button
                                 onClick={() => {
                                   setExpandedResearchSections(prev => ({ ...prev, 'key-research': true }));
-                                  setTimeout(() => {
+                                  requestAnimationFrame(() => {
                                     const element = document.querySelector('[data-section="key-research"]');
                                     if (element) {
-                                      const top = element.getBoundingClientRect().top + window.pageYOffset - 120;
-                                      smoothScrollTo(top);
+                                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                      
                                     }
-                                  }, 100);
+                                  });
                                 }}
                                 className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
                               >
@@ -719,13 +693,13 @@ export default function ConditionPageClient({
                               <button
                                 onClick={() => {
                                   setExpandedResearchSections(prev => ({ ...prev, 'research-insights': true }));
-                                  setTimeout(() => {
+                                  requestAnimationFrame(() => {
                                     const element = document.querySelector('[data-section="research-insights"]');
                                     if (element) {
-                                      const top = element.getBoundingClientRect().top + window.pageYOffset - 120;
-                                      smoothScrollTo(top);
+                                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                      
                                     }
-                                  }, 100);
+                                  });
                                 }}
                                 className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
                               >

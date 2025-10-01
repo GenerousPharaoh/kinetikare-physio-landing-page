@@ -290,9 +290,9 @@ export default function ConditionPageClient({
         <section className="pt-6 pb-16 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex gap-8 items-start">
-              {/* Sidebar Navigation - Desktop */}
-              <aside className="hidden lg:block w-64 flex-shrink-0 self-start">
-                <div className="sticky top-6 space-y-4 max-h-[calc(100vh-3rem)] overflow-y-auto pr-4 pb-4">
+              {/* Sidebar Navigation - Desktop - TRULY STICKY */}
+              <aside className="hidden lg:block w-64 flex-shrink-0">
+                <nav className="sticky top-24 space-y-4 overflow-y-auto pr-4" style={{ maxHeight: 'calc(100vh - 7rem)' }}>
                   {/* Scroll Progress */}
                   <div className="h-0.5 bg-slate-100 rounded-full overflow-hidden">
                     <div
@@ -302,7 +302,7 @@ export default function ConditionPageClient({
                   </div>
 
                   {/* Navigation Sections - Minimal & Modern */}
-                  <nav className="space-y-1">
+                  <div className="space-y-1">
                     {/* Overview/Science Section */}
                     {tabs.find(t => t.id === 'overview') && (
                       <button
@@ -394,8 +394,8 @@ export default function ConditionPageClient({
                         )}
                       </button>
                     )}
-                  </nav>
-                </div>
+                  </div>
+                </nav>
               </aside>
 
               {/* Mobile Sidebar Drawer */}

@@ -55,6 +55,7 @@ export default function ConditionPageClient({
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [sidebarStyle, setSidebarStyle] = useState<React.CSSProperties>({});
   
   // Management tab collapsible sections
   const [expandedManagementSections, setExpandedManagementSections] = useState<{ [key: string]: boolean }>({
@@ -146,6 +147,29 @@ export default function ConditionPageClient({
       const progress = (scrollTop / (documentHeight - windowHeight)) * 100;
       setScrollProgress(progress);
 
+      // MAKE SIDEBAR TRULY STICKY WITH JAVASCRIPT
+      const sidebarContainer = document.getElementById('sidebar-container');
+      if (sidebarContainer) {
+        const containerTop = sidebarContainer.getBoundingClientRect().top + scrollTop;
+        const headerHeight = 96; // Your header height
+
+        if (scrollTop > containerTop - headerHeight) {
+          // Sidebar should be fixed
+          setSidebarStyle({
+            position: 'fixed',
+            top: `${headerHeight}px`,
+            width: '256px', // w-64 = 16rem = 256px
+            maxHeight: `calc(100vh - ${headerHeight + 24}px)`,
+            overflowY: 'auto'
+          });
+        } else {
+          // Sidebar should be static
+          setSidebarStyle({
+            position: 'static'
+          });
+        }
+      }
+
       // Determine active section based on scroll position
       const sections = ['overview', 'symptoms', 'self-care', 'research'];
       const sectionElements = sections.map(id => document.getElementById(`section-${id}`));
@@ -160,8 +184,12 @@ export default function ConditionPageClient({
     };
 
     window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);
     handleScroll(); // Initialize on mount
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
   }, []);
 
   // Structured data for SEO
@@ -290,9 +318,9 @@ export default function ConditionPageClient({
         <section className="pt-6 pb-16 bg-white min-h-screen">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex gap-8 items-start relative">
-              {/* Sidebar Navigation - Desktop - TRULY STICKY */}
-              <aside className="hidden lg:block w-64 flex-shrink-0">
-                <nav className="sticky top-6 space-y-4 overflow-y-auto pr-4" style={{ maxHeight: 'calc(100vh - 4rem)' }}>
+              {/* Sidebar Navigation - Desktop - JAVASCRIPT STICKY */}
+              <aside id="sidebar-container" className="hidden lg:block w-64 flex-shrink-0">
+                <nav className="space-y-4 pr-4" style={sidebarStyle}>
                   {/* Scroll Progress */}
                   <div className="h-0.5 bg-slate-100 rounded-full overflow-hidden">
                     <div

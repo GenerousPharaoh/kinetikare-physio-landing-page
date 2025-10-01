@@ -366,7 +366,11 @@ export default function ConditionPageClient({
                             {condition.pathophysiology && (
                               <button
                                 onClick={() => {
-                                  document.querySelector('[data-section="pathophysiology"]')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                  const element = document.querySelector('[data-section="pathophysiology"]');
+                                  if (element) {
+                                    const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
+                                    window.scrollTo({ top, behavior: 'smooth' });
+                                  }
                                 }}
                                 className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
                               >
@@ -376,7 +380,11 @@ export default function ConditionPageClient({
                             {condition.biomechanics && (
                               <button
                                 onClick={() => {
-                                  document.querySelector('[data-section="biomechanics"]')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                  const element = document.querySelector('[data-section="biomechanics"]');
+                                  if (element) {
+                                    const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
+                                    window.scrollTo({ top, behavior: 'smooth' });
+                                  }
                                 }}
                                 className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
                               >
@@ -423,7 +431,11 @@ export default function ConditionPageClient({
                             {condition.clinicalPresentation && (
                               <button
                                 onClick={() => {
-                                  document.querySelector('[data-section="clinical-presentation"]')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                  const element = document.querySelector('[data-section="clinical-presentation"]');
+                                  if (element) {
+                                    const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
+                                    window.scrollTo({ top, behavior: 'smooth' });
+                                  }
                                 }}
                                 className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
                               >
@@ -433,7 +445,11 @@ export default function ConditionPageClient({
                             {condition.differentialDiagnosis && condition.differentialDiagnosis.length > 0 && (
                               <button
                                 onClick={() => {
-                                  document.querySelector('[data-section="differential"]')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                  const element = document.querySelector('[data-section="differential"]');
+                                  if (element) {
+                                    const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
+                                    window.scrollTo({ top, behavior: 'smooth' });
+                                  }
                                 }}
                                 className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
                               >
@@ -443,7 +459,11 @@ export default function ConditionPageClient({
                             {condition.whenToSeek && condition.whenToSeek.length > 0 && (
                               <button
                                 onClick={() => {
-                                  document.querySelector('[data-section="when-to-seek"]')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                  const element = document.querySelector('[data-section="when-to-seek"]');
+                                  if (element) {
+                                    const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
+                                    window.scrollTo({ top, behavior: 'smooth' });
+                                  }
                                 }}
                                 className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
                               >
@@ -492,7 +512,11 @@ export default function ConditionPageClient({
                                 setActiveTab('self-care');
                                 setExpandedManagementSections(prev => ({ ...prev, 'evidence-based': true }));
                                 setTimeout(() => {
-                                  document.querySelector('[data-section="evidence-based"]')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                  const element = document.querySelector('[data-section="evidence-based"]');
+                                  if (element) {
+                                    const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
+                                    window.scrollTo({ top, behavior: 'smooth' });
+                                  }
                                 }, 100);
                               }}
                               className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
@@ -505,7 +529,11 @@ export default function ConditionPageClient({
                                   setActiveTab('self-care');
                                   setExpandedManagementSections(prev => ({ ...prev, 'treatment-techniques': true }));
                                   setTimeout(() => {
-                                    document.querySelector('[data-section="treatment-techniques"]')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                    const element = document.querySelector('[data-section="treatment-techniques"]');
+                                    if (element) {
+                                      const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
+                                      window.scrollTo({ top, behavior: 'smooth' });
+                                    }
                                   }, 100);
                                 }}
                                 className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
@@ -519,7 +547,11 @@ export default function ConditionPageClient({
                                   setActiveTab('self-care');
                                   setExpandedManagementSections(prev => ({ ...prev, 'timeline': true }));
                                   setTimeout(() => {
-                                    document.querySelector('[data-section="timeline"]')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                    const element = document.querySelector('[data-section="timeline"]');
+                                    if (element) {
+                                      const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
+                                      window.scrollTo({ top, behavior: 'smooth' });
+                                    }
                                   }, 100);
                                 }}
                                 className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
@@ -533,7 +565,11 @@ export default function ConditionPageClient({
                                   setActiveTab('self-care');
                                   setExpandedManagementSections(prev => ({ ...prev, 'prognosis': true }));
                                   setTimeout(() => {
-                                    document.querySelector('[data-section="prognosis"]')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                    const element = document.querySelector('[data-section="prognosis"]');
+                                    if (element) {
+                                      const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
+                                      window.scrollTo({ top, behavior: 'smooth' });
+                                    }
                                   }, 100);
                                 }}
                                 className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
@@ -547,7 +583,11 @@ export default function ConditionPageClient({
                                   setActiveTab('self-care');
                                   setExpandedManagementSections(prev => ({ ...prev, 'measuring': true }));
                                   setTimeout(() => {
-                                    document.querySelector('[data-section="measuring"]')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                    const element = document.querySelector('[data-section="measuring"]');
+                                    if (element) {
+                                      const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
+                                      window.scrollTo({ top, behavior: 'smooth' });
+                                    }
                                   }, 100);
                                 }}
                                 className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
@@ -561,7 +601,11 @@ export default function ConditionPageClient({
                                   setActiveTab('self-care');
                                   setExpandedManagementSections(prev => ({ ...prev, 'faqs': true }));
                                   setTimeout(() => {
-                                    document.querySelector('[data-section="faqs"]')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                    const element = document.querySelector('[data-section="faqs"]');
+                                    if (element) {
+                                      const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
+                                      window.scrollTo({ top, behavior: 'smooth' });
+                                    }
                                   }, 100);
                                 }}
                                 className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
@@ -611,7 +655,11 @@ export default function ConditionPageClient({
                                 onClick={() => {
                                   setExpandedResearchSections(prev => ({ ...prev, 'key-research': true }));
                                   setTimeout(() => {
-                                    document.querySelector('[data-section="key-research"]')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                    const element = document.querySelector('[data-section="key-research"]');
+                                    if (element) {
+                                      const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
+                                      window.scrollTo({ top, behavior: 'smooth' });
+                                    }
                                   }, 100);
                                 }}
                                 className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
@@ -624,7 +672,11 @@ export default function ConditionPageClient({
                                 onClick={() => {
                                   setExpandedResearchSections(prev => ({ ...prev, 'research-insights': true }));
                                   setTimeout(() => {
-                                    document.querySelector('[data-section="research-insights"]')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                    const element = document.querySelector('[data-section="research-insights"]');
+                                    if (element) {
+                                      const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
+                                      window.scrollTo({ top, behavior: 'smooth' });
+                                    }
                                   }, 100);
                                 }}
                                 className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"

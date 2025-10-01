@@ -138,12 +138,29 @@ export default function ConditionPageClient({
 
   // Active section tracking based on scroll position
   const [activeSection, setActiveSection] = useState('overview');
+  const [activeSubSection, setActiveSubSection] = useState<string>('');
 
   useEffect(() => {
     const handleScroll = () => {
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
       const scrollTop = window.scrollY;
+
+      // Track active subsection with IntersectionObserver approach
+      const subsectionElements = document.querySelectorAll('[data-section]');
+      const headerOffset = 140;
+
+      subsectionElements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        const sectionId = el.getAttribute('data-section');
+
+        // Check if section is in viewport (accounting for header)
+        if (rect.top <= headerOffset && rect.bottom > headerOffset) {
+          if (sectionId) {
+            setActiveSubSection(sectionId);
+          }
+        }
+      });
       const progress = (scrollTop / (documentHeight - windowHeight)) * 100;
       setScrollProgress(progress);
 
@@ -366,8 +383,8 @@ export default function ConditionPageClient({
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                            className="ml-6 mt-2 space-y-1 border-l-2 border-slate-200/60 pl-3"
+                            transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+                            className="ml-4 mt-2.5 space-y-1.5 border-l-2 border-slate-300 pl-4"
                           >
                             {condition.pathophysiology && (
                               <button
@@ -378,7 +395,11 @@ export default function ConditionPageClient({
                                     
                                   }
                                 }}
-                                className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
+                                className={`w-full text-left px-3 py-2 text-sm transition-all duration-200 ease-out rounded ${
+                                  activeSubSection === 'pathophysiology'
+                                    ? 'bg-[#B08D57] text-white font-medium shadow-sm'
+                                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                                }`}
                               >
                                 Pathophysiology
                               </button>
@@ -389,10 +410,14 @@ export default function ConditionPageClient({
                                   const element = document.querySelector('[data-section="biomechanics"]');
                                   if (element) {
                                     element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                    
+
                                   }
                                 }}
-                                className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
+                                className={`w-full text-left px-3 py-2 text-sm transition-all duration-200 ease-out rounded ${
+                                  activeSubSection === 'biomechanics'
+                                    ? 'bg-[#B08D57] text-white font-medium shadow-sm'
+                                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                                }`}
                               >
                                 Contributing Factors
                               </button>
@@ -438,7 +463,7 @@ export default function ConditionPageClient({
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                            className="ml-6 mt-2 space-y-1 border-l-2 border-slate-200/60 pl-3"
+                            className="ml-4 mt-2.5 space-y-1.5 border-l-2 border-slate-300 pl-4"
                           >
                             {condition.clinicalPresentation && (
                               <button
@@ -449,7 +474,11 @@ export default function ConditionPageClient({
                                     
                                   }
                                 }}
-                                className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
+                                className={`w-full text-left px-3 py-2 text-sm transition-all duration-200 ease-out rounded ${
+                                  activeSubSection === 'clinical-presentation'
+                                    ? 'bg-[#B08D57] text-white font-medium shadow-sm'
+                                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                                }`}
                               >
                                 Clinical Presentation
                               </button>
@@ -460,10 +489,14 @@ export default function ConditionPageClient({
                                   const element = document.querySelector('[data-section="differential"]');
                                   if (element) {
                                     element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                    
+
                                   }
                                 }}
-                                className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
+                                className={`w-full text-left px-3 py-2 text-sm transition-all duration-200 ease-out rounded ${
+                                  activeSubSection === 'differential'
+                                    ? 'bg-[#B08D57] text-white font-medium shadow-sm'
+                                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                                }`}
                               >
                                 Differential Diagnosis
                               </button>
@@ -474,10 +507,14 @@ export default function ConditionPageClient({
                                   const element = document.querySelector('[data-section="when-to-seek"]');
                                   if (element) {
                                     element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                    
+
                                   }
                                 }}
-                                className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
+                                className={`w-full text-left px-3 py-2 text-sm transition-all duration-200 ease-out rounded ${
+                                  activeSubSection === 'when-to-seek'
+                                    ? 'bg-[#B08D57] text-white font-medium shadow-sm'
+                                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                                }`}
                               >
                                 When to Seek Help
                               </button>
@@ -521,7 +558,7 @@ export default function ConditionPageClient({
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                            className="ml-6 mt-2 space-y-1 border-l-2 border-slate-200/60 pl-3"
+                            className="ml-4 mt-2.5 space-y-1.5 border-l-2 border-slate-300 pl-4"
                           >
                             <button
                               onClick={() => {
@@ -531,11 +568,15 @@ export default function ConditionPageClient({
                                   const element = document.querySelector('[data-section="evidence-based"]');
                                   if (element) {
                                     element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                    
+
                                   }
                                 });
                               }}
-                              className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
+                              className={`w-full text-left px-3 py-2 text-sm transition-all duration-200 ease-out rounded ${
+                                activeSubSection === 'evidence-based'
+                                  ? 'bg-[#B08D57] text-white font-medium shadow-sm'
+                                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                              }`}
                             >
                               Evidence-Based Treatment
                             </button>
@@ -548,11 +589,15 @@ export default function ConditionPageClient({
                                     const element = document.querySelector('[data-section="treatment-techniques"]');
                                     if (element) {
                                       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                      
+
                                     }
                                   });
                                 }}
-                                className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
+                                className={`w-full text-left px-3 py-2 text-sm transition-all duration-200 ease-out rounded ${
+                                  activeSubSection === 'treatment-techniques'
+                                    ? 'bg-[#B08D57] text-white font-medium shadow-sm'
+                                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                                }`}
                               >
                                 Treatment Techniques
                               </button>
@@ -566,11 +611,15 @@ export default function ConditionPageClient({
                                     const element = document.querySelector('[data-section="timeline"]');
                                     if (element) {
                                       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                      
+
                                     }
                                   });
                                 }}
-                                className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
+                                className={`w-full text-left px-3 py-2 text-sm transition-all duration-200 ease-out rounded ${
+                                  activeSubSection === 'timeline'
+                                    ? 'bg-[#B08D57] text-white font-medium shadow-sm'
+                                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                                }`}
                               >
                                 Recovery Timeline
                               </button>
@@ -584,11 +633,15 @@ export default function ConditionPageClient({
                                     const element = document.querySelector('[data-section="prognosis"]');
                                     if (element) {
                                       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                      
+
                                     }
                                   });
                                 }}
-                                className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
+                                className={`w-full text-left px-3 py-2 text-sm transition-all duration-200 ease-out rounded ${
+                                  activeSubSection === 'prognosis'
+                                    ? 'bg-[#B08D57] text-white font-medium shadow-sm'
+                                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                                }`}
                               >
                                 Prognosis & Outcomes
                               </button>
@@ -602,11 +655,15 @@ export default function ConditionPageClient({
                                     const element = document.querySelector('[data-section="measuring"]');
                                     if (element) {
                                       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                      
+
                                     }
                                   });
                                 }}
-                                className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
+                                className={`w-full text-left px-3 py-2 text-sm transition-all duration-200 ease-out rounded ${
+                                  activeSubSection === 'measuring'
+                                    ? 'bg-[#B08D57] text-white font-medium shadow-sm'
+                                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                                }`}
                               >
                                 Measuring Progress
                               </button>
@@ -620,11 +677,15 @@ export default function ConditionPageClient({
                                     const element = document.querySelector('[data-section="faqs"]');
                                     if (element) {
                                       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                      
+
                                     }
                                   });
                                 }}
-                                className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
+                                className={`w-full text-left px-3 py-2 text-sm transition-all duration-200 ease-out rounded ${
+                                  activeSubSection === 'faqs'
+                                    ? 'bg-[#B08D57] text-white font-medium shadow-sm'
+                                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                                }`}
                               >
                                 FAQs
                               </button>
@@ -670,7 +731,7 @@ export default function ConditionPageClient({
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                            className="ml-6 mt-2 space-y-1 border-l-2 border-slate-200/60 pl-3"
+                            className="ml-4 mt-2.5 space-y-1.5 border-l-2 border-slate-300 pl-4"
                           >
                             {condition.keyResearch && condition.keyResearch.length > 0 && (
                               <button
@@ -680,11 +741,15 @@ export default function ConditionPageClient({
                                     const element = document.querySelector('[data-section="key-research"]');
                                     if (element) {
                                       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                      
+
                                     }
                                   });
                                 }}
-                                className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
+                                className={`w-full text-left px-3 py-2 text-sm transition-all duration-200 ease-out rounded ${
+                                  activeSubSection === 'key-research'
+                                    ? 'bg-[#B08D57] text-white font-medium shadow-sm'
+                                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                                }`}
                               >
                                 Key Research & Evidence
                               </button>
@@ -697,11 +762,15 @@ export default function ConditionPageClient({
                                     const element = document.querySelector('[data-section="research-insights"]');
                                     if (element) {
                                       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                      
+
                                     }
                                   });
                                 }}
-                                className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
+                                className={`w-full text-left px-3 py-2 text-sm transition-all duration-200 ease-out rounded ${
+                                  activeSubSection === 'research-insights'
+                                    ? 'bg-[#B08D57] text-white font-medium shadow-sm'
+                                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                                }`}
                               >
                                 Research Insights
                               </button>

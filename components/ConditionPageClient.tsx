@@ -803,9 +803,9 @@ export default function ConditionPageClient({
                     >
                       {/* Overview Tab */}
                       {activeTab === 'overview' && (
-                        <div id="section-overview" className="space-y-8 scroll-mt-24">
+                        <div id="section-overview" className="space-y-8 scroll-mt-32">
                           {condition.pathophysiology && (
-                            <div data-section="pathophysiology" className="bg-white rounded-xl p-8 md:p-8 border border-slate-200 scroll-mt-24">
+                            <div data-section="pathophysiology" className="bg-white rounded-xl p-8 md:p-8 border border-slate-200 scroll-mt-32">
                               <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
                                 The Science of {condition.name || 'Your Condition'}
                               </h2>
@@ -831,7 +831,7 @@ export default function ConditionPageClient({
                           )}
 
                           {condition.biomechanics && (
-                            <div data-section="biomechanics" className="bg-slate-50 rounded-xl p-8 md:p-8 border border-slate-200 scroll-mt-24">
+                            <div data-section="biomechanics" className="bg-slate-50 rounded-xl p-8 md:p-8 border border-slate-200 scroll-mt-32">
                               <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
                                 Contributing Factors
                               </h2>
@@ -850,9 +850,9 @@ export default function ConditionPageClient({
 
                       {/* Symptoms Tab */}
                       {activeTab === 'symptoms' && (
-                        <div id="section-symptoms" className="space-y-8 scroll-mt-24">
+                        <div id="section-symptoms" className="space-y-8 scroll-mt-32">
                           {condition.clinicalPresentation && (
-                            <div data-section="clinical-presentation" className="bg-white rounded-xl p-8 md:p-8 border border-slate-200 scroll-mt-24">
+                            <div data-section="clinical-presentation" className="bg-white rounded-xl p-8 md:p-8 border border-slate-200 scroll-mt-32">
                               <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
                                 Clinical Presentation
                               </h2>
@@ -895,7 +895,7 @@ export default function ConditionPageClient({
                           )}
 
                           {condition.differentialDiagnosis && condition.differentialDiagnosis.length > 0 && (
-                            <div data-section="differential" className="bg-slate-50 rounded-xl p-8 md:p-8 border border-slate-200 scroll-mt-24">
+                            <div data-section="differential" className="bg-slate-50 rounded-xl p-8 md:p-8 border border-slate-200 scroll-mt-32">
                               <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-4">
                                 Differential Diagnosis
                               </h2>
@@ -923,7 +923,7 @@ export default function ConditionPageClient({
                           )}
 
                           {condition.whenToSeek && condition.whenToSeek.length > 0 && (
-                            <div data-section="when-to-seek" className="bg-amber-50 rounded-xl p-8 md:p-8 border border-amber-200 scroll-mt-24">
+                            <div data-section="when-to-seek" className="bg-amber-50 rounded-xl p-8 md:p-8 border border-amber-200 scroll-mt-32">
                               <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
                                 When to Seek Professional Help
                               </h2>
@@ -1022,9 +1022,9 @@ export default function ConditionPageClient({
 
                       {/* Research Tab - Premium Design */}
                       {activeTab === 'research' && (
-                        <div id="section-research" className="space-y-8 scroll-mt-24">
+                        <div id="section-research" className="space-y-8 scroll-mt-32">
                           {condition.keyResearch && condition.keyResearch.length > 0 && (
-                            <div data-section="key-research" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-24">
+                            <div data-section="key-research" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-32">
                               {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/30 via-transparent to-teal-50/20 pointer-events-none"></div>
 
@@ -1192,7 +1192,7 @@ export default function ConditionPageClient({
                           )}
 
                           {condition.researchInsights && condition.researchInsights.length > 0 && (
-                            <div data-section="research-insights" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-24">
+                            <div data-section="research-insights" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-32">
                               {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-transparent to-indigo-50/20 pointer-events-none"></div>
 
@@ -1293,10 +1293,10 @@ export default function ConditionPageClient({
 
                       {/* Management Tab */}
                       {activeTab === 'self-care' && (
-                        <div id="section-self-care" className="space-y-8 scroll-mt-24">
+                        <div id="section-self-care" className="space-y-8 scroll-mt-32">
                           {/* Integrated Evidence-Based Management - Premium Design */}
                           {(condition.evidenceSnapshot || condition.selfManagement) && (
-                            <div data-section="evidence-based" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-24">
+                            <div data-section="evidence-based" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-32">
                               {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 via-transparent to-blue-50/30 pointer-events-none"></div>
                               
@@ -1494,7 +1494,7 @@ export default function ConditionPageClient({
 
                           {/* Treatment Techniques Section - Collapsible */}
                           {condition.treatmentApproach && (
-                            <div data-section="treatment-techniques" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-24">
+                            <div data-section="treatment-techniques" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-32">
                               {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-orange-50/30 via-transparent to-amber-50/20 pointer-events-none"></div>
                               
@@ -1561,7 +1561,7 @@ export default function ConditionPageClient({
 
                           {/* Recovery Timeline Section - Collapsible */}
                           {condition.timeline && condition.timeline.length > 0 && (
-                            <div data-section="timeline" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-24">
+                            <div data-section="timeline" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-32">
                               {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-teal-50/30 via-transparent to-cyan-50/20 pointer-events-none"></div>
                               
@@ -1631,7 +1631,7 @@ export default function ConditionPageClient({
                           )}
 
                           {condition.prognosis && (
-                            <div data-section="prognosis" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-24">
+                            <div data-section="prognosis" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-32">
                               {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-purple-50/30 via-transparent to-pink-50/20 pointer-events-none"></div>
                               
@@ -1746,7 +1746,7 @@ export default function ConditionPageClient({
 
                           {/* Measuring Progress Section - Premium Design */}
                           {condition.measuringProgress && (
-                            <div data-section="measuring" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-24">
+                            <div data-section="measuring" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-32">
                               {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-green-50/30 via-transparent to-emerald-50/20 pointer-events-none"></div>
                               
@@ -1864,7 +1864,7 @@ export default function ConditionPageClient({
 
 
                           {condition.faqs && condition.faqs.length > 0 && (
-                            <div data-section="faqs" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-24">
+                            <div data-section="faqs" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-32">
                               {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-transparent to-cyan-50/20 pointer-events-none"></div>
                               

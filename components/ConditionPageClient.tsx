@@ -320,17 +320,17 @@ export default function ConditionPageClient({
             <div className="flex gap-8 items-start relative">
               {/* Sidebar Navigation - Desktop - JAVASCRIPT STICKY */}
               <aside id="sidebar-container" className="hidden lg:block w-64 flex-shrink-0">
-                <nav className="space-y-4 pr-4" style={sidebarStyle}>
-                  {/* Scroll Progress */}
-                  <div className="h-0.5 bg-slate-100 rounded-full overflow-hidden">
+                <nav className="space-y-3 pr-4" style={{...sidebarStyle, transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'}}>
+                  {/* Scroll Progress - Enhanced */}
+                  <div className="h-1 bg-slate-100/50 rounded-full overflow-hidden backdrop-blur-sm">
                     <div
-                      className="h-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] transition-all duration-300"
+                      className="h-full bg-gradient-to-r from-[#B08D57] via-[#C9A769] to-[#D4AF37] transition-all duration-500 ease-out"
                       style={{ width: `${scrollProgress}%` }}
                     />
                   </div>
 
-                  {/* Navigation Sections - Minimal & Modern */}
-                  <div className="space-y-1">
+                  {/* Navigation Sections - Ultra Smooth */}
+                  <div className="space-y-1.5">
                     {/* Overview/Science Section */}
                     {tabs.find(t => t.id === 'overview') && (
                       <button
@@ -338,10 +338,10 @@ export default function ConditionPageClient({
                           setActiveTab('overview');
                           document.getElementById('section-overview')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                         }}
-                        className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
+                        className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ease-out transform ${
                           activeTab === 'overview'
-                            ? 'bg-gradient-to-r from-[#B08D57] to-[#9A7B4F] text-white shadow-sm'
-                            : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                            ? 'bg-gradient-to-r from-[#B08D57] to-[#9A7B4F] text-white shadow-md scale-[1.02]'
+                            : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900 hover:translate-x-0.5'
                         }`}
                       >
                         <div className="flex items-center gap-2.5">
@@ -361,10 +361,10 @@ export default function ConditionPageClient({
                           setActiveTab('symptoms');
                           document.getElementById('section-symptoms')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                         }}
-                        className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
+                        className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ease-out transform ${
                           activeTab === 'symptoms'
-                            ? 'bg-gradient-to-r from-[#B08D57] to-[#9A7B4F] text-white shadow-sm'
-                            : 'text-slate-700 hover:bg-slate-100'
+                            ? 'bg-gradient-to-r from-[#B08D57] to-[#9A7B4F] text-white shadow-md scale-[1.02]'
+                            : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900 hover:translate-x-0.5'
                         }`}
                       >
                         <div className="flex items-center gap-2.5">
@@ -385,10 +385,10 @@ export default function ConditionPageClient({
                             setActiveTab('self-care');
                             document.getElementById('section-self-care')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                           }}
-                          className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
+                          className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ease-out transform ${
                             activeTab === 'self-care'
-                              ? 'bg-gradient-to-r from-[#B08D57] to-[#9A7B4F] text-white shadow-sm'
-                              : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                              ? 'bg-gradient-to-r from-[#B08D57] to-[#9A7B4F] text-white shadow-md scale-[1.02]'
+                              : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900 hover:translate-x-0.5'
                           }`}
                         >
                           <div className="flex items-center gap-2.5">
@@ -402,7 +402,13 @@ export default function ConditionPageClient({
 
                         {/* Sub-navigation - shows when Management is active */}
                         {activeTab === 'self-care' && (
-                          <div className="ml-6 mt-1 space-y-0.5 border-l-2 border-slate-200 pl-3">
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                            className="ml-6 mt-2 space-y-1 border-l-2 border-slate-200/60 pl-3"
+                          >
                             <button
                               onClick={() => {
                                 setActiveTab('self-care');
@@ -411,7 +417,7 @@ export default function ConditionPageClient({
                                   document.querySelector('[data-section="evidence-based"]')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
                                 }, 100);
                               }}
-                              className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] transition-colors rounded"
+                              className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
                             >
                               Evidence-Based Treatment
                             </button>
@@ -424,7 +430,7 @@ export default function ConditionPageClient({
                                     document.querySelector('[data-section="treatment-techniques"]')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
                                   }, 100);
                                 }}
-                                className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] transition-colors rounded"
+                                className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
                               >
                                 Treatment Techniques
                               </button>
@@ -438,7 +444,7 @@ export default function ConditionPageClient({
                                     document.querySelector('[data-section="timeline"]')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
                                   }, 100);
                                 }}
-                                className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] transition-colors rounded"
+                                className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
                               >
                                 Recovery Timeline
                               </button>
@@ -452,7 +458,7 @@ export default function ConditionPageClient({
                                     document.querySelector('[data-section="prognosis"]')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
                                   }, 100);
                                 }}
-                                className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] transition-colors rounded"
+                                className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
                               >
                                 Prognosis & Outcomes
                               </button>
@@ -466,7 +472,7 @@ export default function ConditionPageClient({
                                     document.querySelector('[data-section="measuring"]')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
                                   }, 100);
                                 }}
-                                className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] transition-colors rounded"
+                                className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
                               >
                                 Measuring Progress
                               </button>
@@ -480,12 +486,12 @@ export default function ConditionPageClient({
                                     document.querySelector('[data-section="faqs"]')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
                                   }, 100);
                                 }}
-                                className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] transition-colors rounded"
+                                className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-200 ease-out rounded transform hover:translate-x-1"
                               >
                                 FAQs
                               </button>
                             )}
-                          </div>
+                          </motion.div>
                         )}
                       </div>
                     )}
@@ -497,10 +503,10 @@ export default function ConditionPageClient({
                           setActiveTab('research');
                           document.getElementById('section-research')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                         }}
-                        className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
+                        className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ease-out transform ${
                           activeTab === 'research'
-                            ? 'bg-gradient-to-r from-[#B08D57] to-[#9A7B4F] text-white shadow-sm'
-                            : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                            ? 'bg-gradient-to-r from-[#B08D57] to-[#9A7B4F] text-white shadow-md scale-[1.02]'
+                            : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900 hover:translate-x-0.5'
                         }`}
                       >
                         <div className="flex items-center gap-2.5">

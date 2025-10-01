@@ -295,7 +295,7 @@ export default function ConditionPageClient({
                     <div className="grid md:grid-cols-2 gap-3">
                       {condition.clinicalRedFlags ? (
                         condition.clinicalRedFlags.map((flag, index) => (
-                          <div key={index} className="flex items-start gap-2.5 text-xs">
+                          <div key={index} className="flex items-start gap-2 text-xs">
                             <div className="mt-[5px] h-1.5 w-1.5 bg-red-500 rounded-full flex-shrink-0" />
                             <div className="flex-1">
                               <p className="font-medium text-red-900 leading-tight">{flag.sign}</p>
@@ -305,7 +305,7 @@ export default function ConditionPageClient({
                         ))
                       ) : (
                         condition.redFlags?.map((flag, index) => (
-                          <div key={index} className="flex items-start gap-2.5 text-xs">
+                          <div key={index} className="flex items-start gap-2 text-xs">
                             <div className="mt-[5px] h-1.5 w-1.5 bg-red-500 rounded-full flex-shrink-0" />
                             <span className="text-red-800 flex-1 leading-tight">{flag}</span>
                           </div>
@@ -339,12 +339,12 @@ export default function ConditionPageClient({
         {/* Main Content Area with Sidebar */}
         <section className="pt-6 pb-16 bg-white min-h-screen">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex gap-8 items-start relative">
+            <div className="flex gap-10 items-start relative">
               {/* Sidebar Navigation - Desktop - JAVASCRIPT STICKY */}
-              <aside id="sidebar-container" className="hidden lg:block w-64 flex-shrink-0">
-                <nav className="space-y-4 pr-4" style={{...sidebarStyle, transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'}}>
+              <aside id="sidebar-container" className="hidden lg:block w-56 flex-shrink-0">
+                <nav className="space-y-3 pr-3" style={{...sidebarStyle, transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'}}>
                   {/* Scroll Progress - Enhanced */}
-                  <div className="h-1.5 bg-slate-100/50 rounded-full overflow-hidden backdrop-blur-sm">
+                  <div className="h-1 bg-slate-100/50 rounded-full overflow-hidden backdrop-blur-sm">
                     <div
                       className="h-full bg-gradient-to-r from-[#B08D57] via-[#C9A769] to-[#D4AF37] transition-all duration-500 ease-out shadow-sm"
                       style={{ width: `${scrollProgress}%` }}
@@ -352,7 +352,7 @@ export default function ConditionPageClient({
                   </div>
 
                   {/* Navigation Sections - Ultra Smooth */}
-                  <div className="space-y-2">
+                  <div className="space-y-1.5">
                     {/* Overview/Science Section with Sub-navigation */}
                     {tabs.find(t => t.id === 'overview') && (
                       <div>
@@ -367,13 +367,13 @@ export default function ConditionPageClient({
                               }
                             });
                           }}
-                          className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ease-out transform ${
+                          className={`w-full flex items-center justify-between px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
                             activeTab === 'overview'
-                              ? 'bg-gradient-to-r from-[#B08D57] to-[#9A7B4F] text-white shadow-md scale-[1.02]'
-                              : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900 hover:translate-x-0.5'
+                              ? 'bg-[#B08D57] text-white'
+                              : 'text-slate-700 hover:bg-slate-50 hover:text-slate-900'
                           }`}
                         >
-                          <div className="flex items-center gap-2.5">
+                          <div className="flex items-center gap-2">
                             <BeakerIcon className="h-4 w-4 flex-shrink-0" />
                             <span>Science</span>
                           </div>
@@ -389,7 +389,7 @@ export default function ConditionPageClient({
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
-                            className="ml-4 mt-2.5 space-y-1.5 border-l-2 border-slate-300 pl-4"
+                            className="ml-3 mt-1.5 space-y-1 border-l-2 border-slate-200 pl-3"
                           >
                             {condition.pathophysiology && (
                               <button
@@ -400,7 +400,7 @@ export default function ConditionPageClient({
                                     
                                   }
                                 }}
-                                className={`w-full text-left px-3 py-2 text-sm transition-all duration-200 ease-out rounded ${
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'pathophysiology'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
                                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
@@ -418,7 +418,7 @@ export default function ConditionPageClient({
 
                                   }
                                 }}
-                                className={`w-full text-left px-3 py-2 text-sm transition-all duration-200 ease-out rounded ${
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'biomechanics'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
                                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
@@ -446,13 +446,13 @@ export default function ConditionPageClient({
                               }
                             });
                           }}
-                          className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ease-out transform ${
+                          className={`w-full flex items-center justify-between px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
                             activeTab === 'symptoms'
-                              ? 'bg-gradient-to-r from-[#B08D57] to-[#9A7B4F] text-white shadow-md scale-[1.02]'
-                              : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900 hover:translate-x-0.5'
+                              ? 'bg-[#B08D57] text-white'
+                              : 'text-slate-700 hover:bg-slate-50 hover:text-slate-900'
                           }`}
                         >
-                          <div className="flex items-center gap-2.5">
+                          <div className="flex items-center gap-2">
                             <FireIcon className="h-4 w-4 flex-shrink-0" />
                             <span>Clinical</span>
                           </div>
@@ -468,7 +468,7 @@ export default function ConditionPageClient({
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                            className="ml-4 mt-2.5 space-y-1.5 border-l-2 border-slate-300 pl-4"
+                            className="ml-3 mt-1.5 space-y-1 border-l-2 border-slate-200 pl-3"
                           >
                             {condition.clinicalPresentation && (
                               <button
@@ -479,7 +479,7 @@ export default function ConditionPageClient({
                                     
                                   }
                                 }}
-                                className={`w-full text-left px-3 py-2 text-sm transition-all duration-200 ease-out rounded ${
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'clinical-presentation'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
                                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
@@ -497,7 +497,7 @@ export default function ConditionPageClient({
 
                                   }
                                 }}
-                                className={`w-full text-left px-3 py-2 text-sm transition-all duration-200 ease-out rounded ${
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'differential'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
                                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
@@ -515,7 +515,7 @@ export default function ConditionPageClient({
 
                                   }
                                 }}
-                                className={`w-full text-left px-3 py-2 text-sm transition-all duration-200 ease-out rounded ${
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'when-to-seek'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
                                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
@@ -543,13 +543,13 @@ export default function ConditionPageClient({
                               }
                             });
                           }}
-                          className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ease-out transform ${
+                          className={`w-full flex items-center justify-between px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
                             activeTab === 'self-care'
-                              ? 'bg-gradient-to-r from-[#B08D57] to-[#9A7B4F] text-white shadow-md scale-[1.02]'
-                              : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900 hover:translate-x-0.5'
+                              ? 'bg-[#B08D57] text-white'
+                              : 'text-slate-700 hover:bg-slate-50 hover:text-slate-900'
                           }`}
                         >
-                          <div className="flex items-center gap-2.5">
+                          <div className="flex items-center gap-2">
                             <ShieldCheckIcon className="h-4 w-4 flex-shrink-0" />
                             <span>Management</span>
                           </div>
@@ -563,7 +563,7 @@ export default function ConditionPageClient({
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                            className="ml-4 mt-2.5 space-y-1.5 border-l-2 border-slate-300 pl-4"
+                            className="ml-3 mt-1.5 space-y-1 border-l-2 border-slate-200 pl-3"
                           >
                             <button
                               onClick={() => {
@@ -577,7 +577,7 @@ export default function ConditionPageClient({
                                   }
                                 });
                               }}
-                              className={`w-full text-left px-3 py-2 text-sm transition-all duration-200 ease-out rounded ${
+                              className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                 activeSubSection === 'evidence-based'
                                   ? 'bg-[#B08D57] text-white font-medium shadow-sm'
                                   : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
@@ -598,7 +598,7 @@ export default function ConditionPageClient({
                                     }
                                   });
                                 }}
-                                className={`w-full text-left px-3 py-2 text-sm transition-all duration-200 ease-out rounded ${
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'treatment-techniques'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
                                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
@@ -620,7 +620,7 @@ export default function ConditionPageClient({
                                     }
                                   });
                                 }}
-                                className={`w-full text-left px-3 py-2 text-sm transition-all duration-200 ease-out rounded ${
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'timeline'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
                                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
@@ -642,7 +642,7 @@ export default function ConditionPageClient({
                                     }
                                   });
                                 }}
-                                className={`w-full text-left px-3 py-2 text-sm transition-all duration-200 ease-out rounded ${
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'prognosis'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
                                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
@@ -664,7 +664,7 @@ export default function ConditionPageClient({
                                     }
                                   });
                                 }}
-                                className={`w-full text-left px-3 py-2 text-sm transition-all duration-200 ease-out rounded ${
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'measuring'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
                                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
@@ -686,7 +686,7 @@ export default function ConditionPageClient({
                                     }
                                   });
                                 }}
-                                className={`w-full text-left px-3 py-2 text-sm transition-all duration-200 ease-out rounded ${
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'faqs'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
                                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
@@ -714,13 +714,13 @@ export default function ConditionPageClient({
                               }
                             });
                           }}
-                          className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ease-out transform ${
+                          className={`w-full flex items-center justify-between px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
                             activeTab === 'research'
-                              ? 'bg-gradient-to-r from-[#B08D57] to-[#9A7B4F] text-white shadow-md scale-[1.02]'
-                              : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900 hover:translate-x-0.5'
+                              ? 'bg-[#B08D57] text-white'
+                              : 'text-slate-700 hover:bg-slate-50 hover:text-slate-900'
                           }`}
                         >
-                          <div className="flex items-center gap-2.5">
+                          <div className="flex items-center gap-2">
                             <ChartBarIcon className="h-4 w-4 flex-shrink-0" />
                             <span>Research</span>
                           </div>
@@ -736,7 +736,7 @@ export default function ConditionPageClient({
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                            className="ml-4 mt-2.5 space-y-1.5 border-l-2 border-slate-300 pl-4"
+                            className="ml-3 mt-1.5 space-y-1 border-l-2 border-slate-200 pl-3"
                           >
                             {condition.keyResearch && condition.keyResearch.length > 0 && (
                               <button
@@ -750,7 +750,7 @@ export default function ConditionPageClient({
                                     }
                                   });
                                 }}
-                                className={`w-full text-left px-3 py-2 text-sm transition-all duration-200 ease-out rounded ${
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'key-research'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
                                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
@@ -771,7 +771,7 @@ export default function ConditionPageClient({
                                     }
                                   });
                                 }}
-                                className={`w-full text-left px-3 py-2 text-sm transition-all duration-200 ease-out rounded ${
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'research-insights'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
                                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
@@ -895,7 +895,7 @@ export default function ConditionPageClient({
 
               {/* Main Content */}
               <div className="flex-1 min-w-0">
-                <div className="grid grid-cols-1 xl:grid-cols-[1fr_380px] gap-8 xl:items-start">
+                <div className="grid grid-cols-1 xl:grid-cols-[1fr_320px] gap-8 xl:items-start">
                   {/* Tab Content */}
                   <main className="relative min-w-0 w-full">
                   {/* Coming Soon Message - Shown when no detailed content */}

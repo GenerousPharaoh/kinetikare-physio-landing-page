@@ -141,76 +141,79 @@ export default function ConditionPageClient({
   const [activeSubSection, setActiveSubSection] = useState<string>('');
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-      const scrollTop = window.scrollY;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const windowHeight = window.innerHeight;
+          const documentHeight = document.documentElement.scrollHeight;
+          const scrollTop = window.scrollY;
+          const headerHeight = 96;
 
-      // Track active subsection with IntersectionObserver approach
-      const subsectionElements = document.querySelectorAll('[data-section]');
-      const headerOffset = 140;
+          // Progress bar
+          const progress = (scrollTop / (documentHeight - windowHeight)) * 100;
+          setScrollProgress(progress);
 
-      // Find the last section that is above the viewport header offset
-      let activeSection = '';
-      subsectionElements.forEach((el) => {
-        const rect = el.getBoundingClientRect();
-        const sectionId = el.getAttribute('data-section');
+          // Sticky sidebar
+          const sidebarContainer = document.getElementById('sidebar-container');
+          if (sidebarContainer) {
+            const containerTop = sidebarContainer.getBoundingClientRect().top + scrollTop;
+            if (scrollTop > containerTop - headerHeight) {
+              setSidebarStyle({
+                position: 'fixed',
+                top: `${headerHeight}px`,
+                width: '224px',
+                maxHeight: `calc(100vh - ${headerHeight + 24}px)`,
+                overflowY: 'auto'
+              });
+            } else {
+              setSidebarStyle({ position: 'static' });
+            }
+          }
 
-        // Section is considered active if its top is at or above the offset
-        if (rect.top <= headerOffset && sectionId) {
-          activeSection = sectionId;
-        }
-      });
+          // Track main sections - determine which major section we're in
+          const sections = ['overview', 'symptoms', 'self-care', 'research'];
+          const sectionElements = sections.map(id => document.getElementById(`section-${id}`));
 
-      // Only update if we found an active section
-      if (activeSection) {
-        setActiveSubSection(activeSection);
-      }
-      const progress = (scrollTop / (documentHeight - windowHeight)) * 100;
-      setScrollProgress(progress);
+          let currentMainSection = 'overview';
+          for (let i = sectionElements.length - 1; i >= 0; i--) {
+            const element = sectionElements[i];
+            if (element && element.getBoundingClientRect().top <= 150) {
+              currentMainSection = sections[i];
+              break;
+            }
+          }
+          setActiveSection(currentMainSection);
+          setActiveTab(currentMainSection);
 
-      // MAKE SIDEBAR TRULY STICKY WITH JAVASCRIPT
-      const sidebarContainer = document.getElementById('sidebar-container');
-      if (sidebarContainer) {
-        const containerTop = sidebarContainer.getBoundingClientRect().top + scrollTop;
-        const headerHeight = 96; // Your header height
+          // Track subsections within the current main section
+          const subsectionElements = document.querySelectorAll('[data-section]');
+          let currentSubSection = '';
 
-        if (scrollTop > containerTop - headerHeight) {
-          // Sidebar should be fixed
-          setSidebarStyle({
-            position: 'fixed',
-            top: `${headerHeight}px`,
-            width: '224px', // w-56 = 14rem = 224px
-            maxHeight: `calc(100vh - ${headerHeight + 24}px)`,
-            overflowY: 'auto'
+          subsectionElements.forEach((el) => {
+            const rect = el.getBoundingClientRect();
+            const sectionId = el.getAttribute('data-section');
+
+            if (rect.top <= 150 && rect.bottom > 150 && sectionId) {
+              currentSubSection = sectionId;
+            }
           });
-        } else {
-          // Sidebar should be static
-          setSidebarStyle({
-            position: 'static'
-          });
-        }
-      }
 
-      // Determine active section based on scroll position AND auto-set activeTab
-      const sections = ['overview', 'symptoms', 'self-care', 'research'];
-      const sectionElements = sections.map(id => document.getElementById(`section-${id}`));
+          if (currentSubSection) {
+            setActiveSubSection(currentSubSection);
+          }
 
-      for (let i = sectionElements.length - 1; i >= 0; i--) {
-        const element = sectionElements[i];
-        if (element && element.getBoundingClientRect().top <= 200) {
-          const section = sections[i];
-          setActiveSection(section);
-          // Auto-expand the tab when scrolling into its section
-          setActiveTab(section);
-          break;
-        }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleScroll);
-    handleScroll(); // Initialize on mount
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll, { passive: true });
+    handleScroll();
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleScroll);

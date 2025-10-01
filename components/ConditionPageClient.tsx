@@ -877,13 +877,13 @@ export default function ConditionPageClient({
                     >
                       {/* Overview Tab */}
                       {activeTab === 'overview' && (
-                        <div id="section-overview" className="space-y-8 scroll-mt-40">
+                        <div id="section-overview" className="space-y-10 scroll-mt-40">
                           {condition.pathophysiology && (
-                            <div data-section="pathophysiology" className="bg-white rounded-xl p-8 md:p-8 border border-slate-200 scroll-mt-40">
-                              <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
+                            <div data-section="pathophysiology" className="bg-white rounded-xl p-8 md:p-10 border border-slate-200 shadow-sm hover:shadow-md transition-shadow duration-300 scroll-mt-40">
+                              <h2 className="text-2xl md:text-3xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
                                 The Science of {condition.name || 'Your Condition'}
                               </h2>
-                              <p className="text-base text-slate-700 leading-relaxed">
+                              <p className="text-base md:text-lg text-slate-700 leading-relaxed">
                                 {condition.pathophysiology}
                               </p>
                             </div>
@@ -905,13 +905,13 @@ export default function ConditionPageClient({
                           )}
 
                           {condition.biomechanics && (
-                            <div data-section="biomechanics" className="bg-slate-50 rounded-xl p-8 md:p-8 border border-slate-200 scroll-mt-40">
-                              <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
+                            <div data-section="biomechanics" className="bg-gradient-to-br from-slate-50 to-slate-100/50 rounded-xl p-8 md:p-10 border border-slate-200 shadow-sm hover:shadow-md transition-shadow duration-300 scroll-mt-40">
+                              <h2 className="text-2xl md:text-3xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
                                 Contributing Factors
                               </h2>
                               <div className="space-y-4">
                                 {condition.biomechanics.split('\n\n').map((paragraph, index) => (
-                                  <p key={index} className="text-base text-slate-700 leading-relaxed">
+                                  <p key={index} className="text-base md:text-lg text-slate-700 leading-relaxed">
                                     {paragraph}
                                   </p>
                                 ))}
@@ -924,21 +924,21 @@ export default function ConditionPageClient({
 
                       {/* Symptoms Tab */}
                       {activeTab === 'symptoms' && (
-                        <div id="section-symptoms" className="space-y-8 scroll-mt-40">
+                        <div id="section-symptoms" className="space-y-10 scroll-mt-40">
                           {condition.clinicalPresentation && (
-                            <div data-section="clinical-presentation" className="bg-white rounded-xl p-8 md:p-8 border border-slate-200 scroll-mt-40">
-                              <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
+                            <div data-section="clinical-presentation" className="bg-white rounded-xl p-8 md:p-10 border border-slate-200 shadow-sm hover:shadow-md transition-shadow duration-300 scroll-mt-40">
+                              <h2 className="text-2xl md:text-3xl font-medium tracking-tight leading-tight text-slate-900 mb-8">
                                 Clinical Presentation
                               </h2>
 
                               {condition.clinicalPresentation.primarySymptoms && (
                                 <div className="mb-8">
-                                  <h3 className="text-xl font-medium leading-tight text-slate-900 mb-4">Primary Symptoms</h3>
+                                  <h3 className="text-xl font-semibold leading-tight text-slate-900 mb-5">Primary Symptoms</h3>
                                   <div className="grid md:grid-cols-2 gap-4">
                                     {condition.clinicalPresentation.primarySymptoms.map((symptom, index) => (
-                                      <div key={index} className="flex items-start gap-3">
+                                      <div key={index} className="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors">
                                         <CheckCircleIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
-                                        <span className="text-base text-slate-700 leading-relaxed">{symptom}</span>
+                                        <span className="text-base md:text-lg text-slate-700 leading-relaxed">{symptom}</span>
                                       </div>
                                     ))}
                                   </div>
@@ -960,9 +960,9 @@ export default function ConditionPageClient({
                               )}
 
                               {condition.clinicalPresentation.typicalPattern && (
-                                <div className="p-6 bg-[#B08D57]/5 rounded-lg border border-[#B08D57]/20">
-                                  <h3 className="text-xl font-medium leading-tight text-slate-900 mb-3">Typical Pattern</h3>
-                                  <p className="text-base text-slate-700 leading-relaxed">{condition.clinicalPresentation.typicalPattern}</p>
+                                <div className="p-6 md:p-7 bg-gradient-to-br from-[#B08D57]/5 to-[#B08D57]/10 rounded-xl border border-[#B08D57]/20 shadow-sm">
+                                  <h3 className="text-xl font-semibold leading-tight text-slate-900 mb-4">Typical Pattern</h3>
+                                  <p className="text-base md:text-lg text-slate-700 leading-relaxed">{condition.clinicalPresentation.typicalPattern}</p>
                                 </div>
                               )}
                             </div>

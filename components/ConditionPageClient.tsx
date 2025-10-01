@@ -180,7 +180,7 @@ export default function ConditionPageClient({
           setSidebarStyle({
             position: 'fixed',
             top: `${headerHeight}px`,
-            width: '256px', // w-64 = 16rem = 256px
+            width: '224px', // w-56 = 14rem = 224px
             maxHeight: `calc(100vh - ${headerHeight + 24}px)`,
             overflowY: 'auto'
           });
@@ -192,14 +192,17 @@ export default function ConditionPageClient({
         }
       }
 
-      // Determine active section based on scroll position
+      // Determine active section based on scroll position AND auto-set activeTab
       const sections = ['overview', 'symptoms', 'self-care', 'research'];
       const sectionElements = sections.map(id => document.getElementById(`section-${id}`));
 
       for (let i = sectionElements.length - 1; i >= 0; i--) {
         const element = sectionElements[i];
         if (element && element.getBoundingClientRect().top <= 200) {
-          setActiveSection(sections[i]);
+          const section = sections[i];
+          setActiveSection(section);
+          // Auto-expand the tab when scrolling into its section
+          setActiveTab(section);
           break;
         }
       }
@@ -388,7 +391,7 @@ export default function ConditionPageClient({
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+                            transition={{ duration: 0.15, ease: [0.4, 0, 0.2, 1] }}
                             className="ml-3 mt-1.5 space-y-1 border-l-2 border-slate-200 pl-3"
                           >
                             {condition.pathophysiology && (

@@ -150,17 +150,22 @@ export default function ConditionPageClient({
       const subsectionElements = document.querySelectorAll('[data-section]');
       const headerOffset = 140;
 
+      // Find the last section that is above the viewport header offset
+      let activeSection = '';
       subsectionElements.forEach((el) => {
         const rect = el.getBoundingClientRect();
         const sectionId = el.getAttribute('data-section');
 
-        // Check if section is in viewport (accounting for header)
-        if (rect.top <= headerOffset && rect.bottom > headerOffset) {
-          if (sectionId) {
-            setActiveSubSection(sectionId);
-          }
+        // Section is considered active if its top is at or above the offset
+        if (rect.top <= headerOffset && sectionId) {
+          activeSection = sectionId;
         }
       });
+
+      // Only update if we found an active section
+      if (activeSection) {
+        setActiveSubSection(activeSection);
+      }
       const progress = (scrollTop / (documentHeight - windowHeight)) * 100;
       setScrollProgress(progress);
 

@@ -135,7 +135,9 @@ export default function ConditionPageClient({
     setExpandedSections(newExpanded);
   };
 
-  // Scroll progress tracking for sidebar
+  // Active section tracking based on scroll position
+  const [activeSection, setActiveSection] = useState('overview');
+
   useEffect(() => {
     const handleScroll = () => {
       const windowHeight = window.innerHeight;
@@ -143,9 +145,22 @@ export default function ConditionPageClient({
       const scrollTop = window.scrollY;
       const progress = (scrollTop / (documentHeight - windowHeight)) * 100;
       setScrollProgress(progress);
+
+      // Determine active section based on scroll position
+      const sections = ['overview', 'symptoms', 'self-care', 'research'];
+      const sectionElements = sections.map(id => document.getElementById(`section-${id}`));
+
+      for (let i = sectionElements.length - 1; i >= 0; i--) {
+        const element = sectionElements[i];
+        if (element && element.getBoundingClientRect().top <= 200) {
+          setActiveSection(sections[i]);
+          break;
+        }
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initialize on mount
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -277,130 +292,106 @@ export default function ConditionPageClient({
             <div className="flex gap-8">
               {/* Sidebar Navigation - Desktop */}
               <aside className="hidden lg:block w-64 flex-shrink-0">
-                <div className="sticky top-20 space-y-6">
+                <div className="sticky top-4 space-y-4 max-h-[calc(100vh-2rem)] overflow-y-auto pr-2 pb-4">
                   {/* Scroll Progress */}
-                  <div className="h-1 bg-slate-200 rounded-full overflow-hidden">
+                  <div className="h-0.5 bg-slate-100 rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-[#B08D57] transition-all duration-300"
+                      className="h-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] transition-all duration-300"
                       style={{ width: `${scrollProgress}%` }}
                     />
                   </div>
 
-                  {/* Search */}
-                  <div className="relative">
-                    <MagnifyingGlassIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
-                    <input
-                      type="text"
-                      placeholder="Search..."
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      className="w-full pl-9 pr-3 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B08D57] focus:border-transparent"
-                    />
-                  </div>
-
-                  {/* Navigation Sections */}
+                  {/* Navigation Sections - Minimal & Modern */}
                   <nav className="space-y-1">
                     {/* Overview/Science Section */}
                     {tabs.find(t => t.id === 'overview') && (
                       <button
-                        onClick={() => setActiveTab('overview')}
-                        className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                        onClick={() => {
+                          setActiveTab('overview');
+                          document.getElementById('section-overview')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }}
+                        className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
                           activeTab === 'overview'
-                            ? 'bg-[#B08D57] text-white'
-                            : 'text-slate-700 hover:bg-slate-100'
+                            ? 'bg-gradient-to-r from-[#B08D57] to-[#9A7B4F] text-white shadow-sm'
+                            : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
                         }`}
                       >
-                        <InformationCircleIcon className="h-5 w-5 flex-shrink-0" />
-                        <span>Science</span>
+                        <div className="flex items-center gap-2.5">
+                          <BeakerIcon className="h-4 w-4 flex-shrink-0" />
+                          <span>Science</span>
+                        </div>
+                        {activeTab === 'overview' && (
+                          <div className="w-1.5 h-1.5 rounded-full bg-white" />
+                        )}
                       </button>
                     )}
 
                     {/* Symptoms/Clinical Section */}
                     {tabs.find(t => t.id === 'symptoms') && (
                       <button
-                        onClick={() => setActiveTab('symptoms')}
-                        className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                        onClick={() => {
+                          setActiveTab('symptoms');
+                          document.getElementById('section-symptoms')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }}
+                        className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
                           activeTab === 'symptoms'
-                            ? 'bg-[#B08D57] text-white'
+                            ? 'bg-gradient-to-r from-[#B08D57] to-[#9A7B4F] text-white shadow-sm'
                             : 'text-slate-700 hover:bg-slate-100'
                         }`}
                       >
-                        <FireIcon className="h-5 w-5 flex-shrink-0" />
-                        <span>Clinical</span>
+                        <div className="flex items-center gap-2.5">
+                          <FireIcon className="h-4 w-4 flex-shrink-0" />
+                          <span>Clinical</span>
+                        </div>
+                        {activeTab === 'symptoms' && (
+                          <div className="w-1.5 h-1.5 rounded-full bg-white" />
+                        )}
                       </button>
                     )}
 
-                    {/* Management Section with Subsections */}
+                    {/* Management Section */}
                     {tabs.find(t => t.id === 'self-care') && (
-                      <div className="space-y-1">
-                        <button
-                          onClick={() => setActiveTab('self-care')}
-                          className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                            activeTab === 'self-care'
-                              ? 'bg-[#B08D57] text-white'
-                              : 'text-slate-700 hover:bg-slate-100'
-                          }`}
-                        >
-                          <ShieldCheckIcon className="h-5 w-5 flex-shrink-0" />
+                      <button
+                        onClick={() => {
+                          setActiveTab('self-care');
+                          document.getElementById('section-self-care')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }}
+                        className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
+                          activeTab === 'self-care'
+                            ? 'bg-gradient-to-r from-[#B08D57] to-[#9A7B4F] text-white shadow-sm'
+                            : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                        }`}
+                      >
+                        <div className="flex items-center gap-2.5">
+                          <ShieldCheckIcon className="h-4 w-4 flex-shrink-0" />
                           <span>Management</span>
-                        </button>
-
-                        {/* Show subsections when Management tab is active */}
+                        </div>
                         {activeTab === 'self-care' && (
-                          <div className="ml-8 space-y-1 mt-1">
-                            <button
-                              onClick={() => {
-                                setActiveTab('self-care');
-                                setExpandedManagementSections(prev => ({ ...prev, 'evidence-based': true }));
-                              }}
-                              className="w-full text-left px-3 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] transition-colors"
-                            >
-                              Evidence-Based Treatment
-                            </button>
-                            <button
-                              onClick={() => {
-                                setActiveTab('self-care');
-                                setExpandedManagementSections(prev => ({ ...prev, 'treatment-techniques': true }));
-                              }}
-                              className="w-full text-left px-3 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] transition-colors"
-                            >
-                              Treatment Techniques
-                            </button>
-                            <button
-                              onClick={() => {
-                                setActiveTab('self-care');
-                                setExpandedManagementSections(prev => ({ ...prev, 'timeline': true }));
-                              }}
-                              className="w-full text-left px-3 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] transition-colors"
-                            >
-                              Timeline & Prognosis
-                            </button>
-                            <button
-                              onClick={() => {
-                                setActiveTab('self-care');
-                                setExpandedManagementSections(prev => ({ ...prev, 'faqs': true }));
-                              }}
-                              className="w-full text-left px-3 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] transition-colors"
-                            >
-                              FAQs
-                            </button>
-                          </div>
+                          <div className="w-1.5 h-1.5 rounded-full bg-white" />
                         )}
-                      </div>
+                      </button>
                     )}
 
                     {/* Research Section */}
                     {tabs.find(t => t.id === 'research') && (
                       <button
-                        onClick={() => setActiveTab('research')}
-                        className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                        onClick={() => {
+                          setActiveTab('research');
+                          document.getElementById('section-research')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }}
+                        className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
                           activeTab === 'research'
-                            ? 'bg-[#B08D57] text-white'
-                            : 'text-slate-700 hover:bg-slate-100'
+                            ? 'bg-gradient-to-r from-[#B08D57] to-[#9A7B4F] text-white shadow-sm'
+                            : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
                         }`}
                       >
-                        <ChartBarIcon className="h-5 w-5 flex-shrink-0" />
-                        <span>Research</span>
+                        <div className="flex items-center gap-2.5">
+                          <ChartBarIcon className="h-4 w-4 flex-shrink-0" />
+                          <span>Research</span>
+                        </div>
+                        {activeTab === 'research' && (
+                          <div className="w-1.5 h-1.5 rounded-full bg-white" />
+                        )}
                       </button>
                     )}
                   </nav>
@@ -570,7 +561,7 @@ export default function ConditionPageClient({
                     >
                       {/* Overview Tab */}
                       {activeTab === 'overview' && (
-                        <div className="space-y-8">
+                        <div id="section-overview" className="space-y-8 scroll-mt-24">
                           {condition.pathophysiology && (
                             <div className="bg-white rounded-xl p-8 md:p-8 border border-slate-200">
                               <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
@@ -617,7 +608,7 @@ export default function ConditionPageClient({
 
                       {/* Symptoms Tab */}
                       {activeTab === 'symptoms' && (
-                        <div className="space-y-8">
+                        <div id="section-symptoms" className="space-y-8 scroll-mt-24">
                           {condition.clinicalPresentation && (
                             <div className="bg-white rounded-xl p-8 md:p-8 border border-slate-200">
                               <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
@@ -789,7 +780,7 @@ export default function ConditionPageClient({
 
                       {/* Research Tab - Premium Design */}
                       {activeTab === 'research' && (
-                        <div className="space-y-8">
+                        <div id="section-research" className="space-y-8 scroll-mt-24">
                           {condition.keyResearch && condition.keyResearch.length > 0 && (
                             <div className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
                               {/* Premium gradient overlay */}
@@ -1060,7 +1051,7 @@ export default function ConditionPageClient({
 
                       {/* Management Tab */}
                       {activeTab === 'self-care' && (
-                        <div className="space-y-8">
+                        <div id="section-self-care" className="space-y-8 scroll-mt-24">
                           {/* Integrated Evidence-Based Management - Premium Design */}
                           {(condition.evidenceSnapshot || condition.selfManagement) && (
                             <div className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">

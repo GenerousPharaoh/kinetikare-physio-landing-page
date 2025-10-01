@@ -341,7 +341,7 @@ export default function ConditionPageClient({
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex gap-8 items-start relative">
               {/* Sidebar Navigation - Desktop - JAVASCRIPT STICKY */}
-              <aside id="sidebar-container" className="hidden lg:block w-72 flex-shrink-0">
+              <aside id="sidebar-container" className="hidden lg:block w-64 flex-shrink-0">
                 <nav className="space-y-4 pr-4" style={{...sidebarStyle, transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'}}>
                   {/* Scroll Progress - Enhanced */}
                   <div className="h-1.5 bg-slate-100/50 rounded-full overflow-hidden backdrop-blur-sm">

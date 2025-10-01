@@ -45,20 +45,20 @@ interface TabContent {
 }
 
 // Smooth scroll utility with custom easing
-const smoothScrollTo = (targetPosition: number, duration: number = 800) => {
+const smoothScrollTo = (targetPosition: number, duration: number = 500) => {
   const startPosition = window.pageYOffset;
   const distance = targetPosition - startPosition;
   let startTime: number | null = null;
 
-  const easeInOutCubic = (t: number): number => {
-    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  const easeInOutQuad = (t: number): number => {
+    return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
   };
 
   const animation = (currentTime: number) => {
     if (startTime === null) startTime = currentTime;
     const timeElapsed = currentTime - startTime;
     const progress = Math.min(timeElapsed / duration, 1);
-    const ease = easeInOutCubic(progress);
+    const ease = easeInOutQuad(progress);
 
     window.scrollTo(0, startPosition + distance * ease);
 

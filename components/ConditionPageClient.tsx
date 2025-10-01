@@ -291,8 +291,8 @@ export default function ConditionPageClient({
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex gap-8 items-start">
               {/* Sidebar Navigation - Desktop */}
-              <aside className="hidden lg:block w-64 flex-shrink-0">
-                <div className="fixed top-24 w-64 space-y-4 max-h-[calc(100vh-7rem)] overflow-y-auto pr-4 pb-4">
+              <aside className="hidden lg:block w-64 flex-shrink-0 self-start">
+                <div className="sticky top-6 space-y-4 max-h-[calc(100vh-3rem)] overflow-y-auto pr-4 pb-4">
                   {/* Scroll Progress */}
                   <div className="h-0.5 bg-slate-100 rounded-full overflow-hidden">
                     <div

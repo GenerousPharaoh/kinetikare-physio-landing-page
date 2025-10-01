@@ -368,7 +368,7 @@ export default function ConditionPageClient({
                                 onClick={() => {
                                   const element = document.querySelector('[data-section="pathophysiology"]');
                                   if (element) {
-                                    const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
+                                    const top = element.getBoundingClientRect().top + window.pageYOffset - 120;
                                     window.scrollTo({ top, behavior: 'smooth' });
                                   }
                                 }}
@@ -382,7 +382,7 @@ export default function ConditionPageClient({
                                 onClick={() => {
                                   const element = document.querySelector('[data-section="biomechanics"]');
                                   if (element) {
-                                    const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
+                                    const top = element.getBoundingClientRect().top + window.pageYOffset - 120;
                                     window.scrollTo({ top, behavior: 'smooth' });
                                   }
                                 }}
@@ -433,7 +433,7 @@ export default function ConditionPageClient({
                                 onClick={() => {
                                   const element = document.querySelector('[data-section="clinical-presentation"]');
                                   if (element) {
-                                    const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
+                                    const top = element.getBoundingClientRect().top + window.pageYOffset - 120;
                                     window.scrollTo({ top, behavior: 'smooth' });
                                   }
                                 }}
@@ -447,7 +447,7 @@ export default function ConditionPageClient({
                                 onClick={() => {
                                   const element = document.querySelector('[data-section="differential"]');
                                   if (element) {
-                                    const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
+                                    const top = element.getBoundingClientRect().top + window.pageYOffset - 120;
                                     window.scrollTo({ top, behavior: 'smooth' });
                                   }
                                 }}
@@ -461,7 +461,7 @@ export default function ConditionPageClient({
                                 onClick={() => {
                                   const element = document.querySelector('[data-section="when-to-seek"]');
                                   if (element) {
-                                    const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
+                                    const top = element.getBoundingClientRect().top + window.pageYOffset - 120;
                                     window.scrollTo({ top, behavior: 'smooth' });
                                   }
                                 }}
@@ -514,7 +514,7 @@ export default function ConditionPageClient({
                                 setTimeout(() => {
                                   const element = document.querySelector('[data-section="evidence-based"]');
                                   if (element) {
-                                    const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
+                                    const top = element.getBoundingClientRect().top + window.pageYOffset - 120;
                                     window.scrollTo({ top, behavior: 'smooth' });
                                   }
                                 }, 100);
@@ -531,7 +531,7 @@ export default function ConditionPageClient({
                                   setTimeout(() => {
                                     const element = document.querySelector('[data-section="treatment-techniques"]');
                                     if (element) {
-                                      const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
+                                      const top = element.getBoundingClientRect().top + window.pageYOffset - 120;
                                       window.scrollTo({ top, behavior: 'smooth' });
                                     }
                                   }, 100);
@@ -549,7 +549,7 @@ export default function ConditionPageClient({
                                   setTimeout(() => {
                                     const element = document.querySelector('[data-section="timeline"]');
                                     if (element) {
-                                      const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
+                                      const top = element.getBoundingClientRect().top + window.pageYOffset - 120;
                                       window.scrollTo({ top, behavior: 'smooth' });
                                     }
                                   }, 100);
@@ -567,7 +567,7 @@ export default function ConditionPageClient({
                                   setTimeout(() => {
                                     const element = document.querySelector('[data-section="prognosis"]');
                                     if (element) {
-                                      const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
+                                      const top = element.getBoundingClientRect().top + window.pageYOffset - 120;
                                       window.scrollTo({ top, behavior: 'smooth' });
                                     }
                                   }, 100);
@@ -585,7 +585,7 @@ export default function ConditionPageClient({
                                   setTimeout(() => {
                                     const element = document.querySelector('[data-section="measuring"]');
                                     if (element) {
-                                      const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
+                                      const top = element.getBoundingClientRect().top + window.pageYOffset - 120;
                                       window.scrollTo({ top, behavior: 'smooth' });
                                     }
                                   }, 100);
@@ -603,7 +603,7 @@ export default function ConditionPageClient({
                                   setTimeout(() => {
                                     const element = document.querySelector('[data-section="faqs"]');
                                     if (element) {
-                                      const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
+                                      const top = element.getBoundingClientRect().top + window.pageYOffset - 120;
                                       window.scrollTo({ top, behavior: 'smooth' });
                                     }
                                   }, 100);
@@ -657,7 +657,7 @@ export default function ConditionPageClient({
                                   setTimeout(() => {
                                     const element = document.querySelector('[data-section="key-research"]');
                                     if (element) {
-                                      const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
+                                      const top = element.getBoundingClientRect().top + window.pageYOffset - 120;
                                       window.scrollTo({ top, behavior: 'smooth' });
                                     }
                                   }, 100);
@@ -674,7 +674,7 @@ export default function ConditionPageClient({
                                   setTimeout(() => {
                                     const element = document.querySelector('[data-section="research-insights"]');
                                     if (element) {
-                                      const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
+                                      const top = element.getBoundingClientRect().top + window.pageYOffset - 120;
                                       window.scrollTo({ top, behavior: 'smooth' });
                                     }
                                   }, 100);

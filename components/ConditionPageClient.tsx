@@ -363,7 +363,13 @@ export default function ConditionPageClient({
                         <button
                           onClick={() => {
                             setActiveTab('overview');
-                            document.getElementById('section-overview')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            setTimeout(() => {
+                              const element = document.getElementById('section-overview');
+                              if (element) {
+                                const top = element.getBoundingClientRect().top + window.pageYOffset - 120;
+                                smoothScrollTo(top);
+                              }
+                            }, 50);
                           }}
                           className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ease-out transform ${
                             activeTab === 'overview'
@@ -428,7 +434,13 @@ export default function ConditionPageClient({
                         <button
                           onClick={() => {
                             setActiveTab('symptoms');
-                            document.getElementById('section-symptoms')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            setTimeout(() => {
+                              const element = document.getElementById('section-symptoms');
+                              if (element) {
+                                const top = element.getBoundingClientRect().top + window.pageYOffset - 120;
+                                smoothScrollTo(top);
+                              }
+                            }, 50);
                           }}
                           className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ease-out transform ${
                             activeTab === 'symptoms'
@@ -507,7 +519,13 @@ export default function ConditionPageClient({
                         <button
                           onClick={() => {
                             setActiveTab('self-care');
-                            document.getElementById('section-self-care')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            setTimeout(() => {
+                              const element = document.getElementById('section-self-care');
+                              if (element) {
+                                const top = element.getBoundingClientRect().top + window.pageYOffset - 120;
+                                smoothScrollTo(top);
+                              }
+                            }, 50);
                           }}
                           className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ease-out transform ${
                             activeTab === 'self-care'
@@ -648,7 +666,13 @@ export default function ConditionPageClient({
                         <button
                           onClick={() => {
                             setActiveTab('research');
-                            document.getElementById('section-research')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            setTimeout(() => {
+                              const element = document.getElementById('section-research');
+                              if (element) {
+                                const top = element.getBoundingClientRect().top + window.pageYOffset - 120;
+                                smoothScrollTo(top);
+                              }
+                            }, 50);
                           }}
                           className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ease-out transform ${
                             activeTab === 'research'

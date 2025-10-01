@@ -895,7 +895,7 @@ export default function ConditionPageClient({
 
               {/* Main Content */}
               <div className="flex-1 min-w-0">
-                <div className="grid grid-cols-1 xl:grid-cols-[1fr_320px] gap-8 xl:items-start">
+                <div className="max-w-4xl mx-auto">
                   {/* Tab Content */}
                   <main className="relative min-w-0 w-full">
                   {/* Coming Soon Message - Shown when no detailed content */}
@@ -2099,86 +2099,25 @@ export default function ConditionPageClient({
                   )}
                 </main>
 
-                {/* Sidebar - Sticky on desktop with proper z-index */}
-                <aside className="hidden xl:block sticky top-24 self-start z-10 h-fit">
-                  <div className="space-y-6">
-                    {/* Quick Actions */}
-                    <div className="bg-gradient-to-br from-[#B08D57]/10 to-[#D4AF37]/10 rounded-xl p-6 border border-[#B08D57]/20">
-                      <h3 className="text-xl font-medium leading-tight text-slate-900 mb-6">Next Steps</h3>
-                      <p className="text-sm text-slate-600 mb-4">
-                        Book an assessment to discuss your specific situation.
-                      </p>
-                      <p className="text-xs text-slate-500 mb-4">
-                        Serving Burlington, Waterdown, Flamborough and surrounding areas
-                      </p>
-                      <div className="space-y-3">
+                {/* Related Conditions - Now inline below content */}
+                {relatedConditions.length > 0 && (
+                  <div className="mt-12 bg-slate-50 rounded-xl p-6 border border-slate-200">
+                    <h3 className="text-lg font-medium text-slate-900 mb-4">Related Conditions</h3>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                      {relatedConditions.slice(0, 4).map((related) => (
                         <Link
-                          href="https://endorphinshealth.janeapp.com/#/staff_member/42"
-                          target="_blank"
-                          className="w-full flex items-center justify-center px-4 py-3 bg-[#B08D57] hover:bg-[#997A4B] text-white hover:text-white rounded-lg font-medium transition-all duration-300 shadow-premium-1 hover:shadow-premium-2 group"
+                          key={related.slug}
+                          href={`/conditions/${related.slug}`}
+                          className="p-3 hover:bg-white rounded-lg transition-colors group text-center"
                         >
-                          Book Assessment
-                          <CalendarIcon className="ml-2 h-4 w-4 group-hover:rotate-12 transition-transform duration-300" />
+                          <p className="font-medium text-slate-900 group-hover:text-[#B08D57] transition-colors text-sm">
+                            {related.name}
+                          </p>
                         </Link>
-                        <Link
-                          href="/#contact"
-                          className="w-full flex items-center justify-center px-4 py-3 bg-white hover:bg-slate-50 text-slate-900 rounded-lg font-medium border border-slate-300 transition-colors"
-                        >
-                          Ask a Question
-                          <QuestionMarkCircleIcon className="ml-2 h-4 w-4" />
-                        </Link>
-                      </div>
-                    </div>
-
-                    {/* Related Conditions */}
-                    {relatedConditions.length > 0 && (
-                      <div className="bg-white rounded-xl p-6 border border-slate-200">
-                        <h3 className="text-xl font-medium leading-tight text-slate-900 mb-6">Related Conditions</h3>
-                        <div className="space-y-2">
-                          {relatedConditions.slice(0, 4).map((related) => (
-                            <Link
-                              key={related.slug}
-                              href={`/conditions/${related.slug}`}
-                              className="block p-3 hover:bg-slate-50 rounded-lg transition-colors group"
-                            >
-                              <p className="font-medium text-slate-900 group-hover:text-[#B08D57] transition-colors text-sm">
-                                {related.name}
-                              </p>
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {/* What to Expect */}
-                    <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
-                      <h3 className="text-xl font-medium leading-tight text-slate-900 mb-6">Your Treatment Journey</h3>
-                      <div className="space-y-3">
-                        <div className="flex items-start gap-3">
-                          <ClockIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
-                          <div>
-                            <p className="font-medium text-slate-900 text-sm">First Visit</p>
-                            <p className="text-xs text-slate-600 mt-0.5">Clarify patterns, test key movements, leave with 2-3 exercises</p>
-                          </div>
-                        </div>
-                        <div className="flex items-start gap-3">
-                          <ChartBarIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
-                          <div>
-                            <p className="font-medium text-slate-900 text-sm">Early Phase</p>
-                            <p className="text-xs text-slate-600 mt-0.5">Reduce symptom spikes, build tolerance for daily activities</p>
-                          </div>
-                        </div>
-                        <div className="flex items-start gap-3">
-                          <ArrowRightIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
-                          <div>
-                            <p className="font-medium text-slate-900 text-sm">Progression</p>
-                            <p className="text-xs text-slate-600 mt-0.5">Load increases planned and reviewed based on your responses</p>
-                          </div>
-                        </div>
-                      </div>
+                      ))}
                     </div>
                   </div>
-                </aside>
+                )}
               </div>
             </div>
           </div>

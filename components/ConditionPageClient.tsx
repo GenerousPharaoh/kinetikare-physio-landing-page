@@ -377,27 +377,117 @@ export default function ConditionPageClient({
                       </button>
                     )}
 
-                    {/* Management Section */}
+                    {/* Management Section with Sub-navigation */}
                     {tabs.find(t => t.id === 'self-care') && (
-                      <button
-                        onClick={() => {
-                          setActiveTab('self-care');
-                          document.getElementById('section-self-care')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }}
-                        className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
-                          activeTab === 'self-care'
-                            ? 'bg-gradient-to-r from-[#B08D57] to-[#9A7B4F] text-white shadow-sm'
-                            : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
-                        }`}
-                      >
-                        <div className="flex items-center gap-2.5">
-                          <ShieldCheckIcon className="h-4 w-4 flex-shrink-0" />
-                          <span>Management</span>
-                        </div>
+                      <div>
+                        <button
+                          onClick={() => {
+                            setActiveTab('self-care');
+                            document.getElementById('section-self-care')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                          }}
+                          className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
+                            activeTab === 'self-care'
+                              ? 'bg-gradient-to-r from-[#B08D57] to-[#9A7B4F] text-white shadow-sm'
+                              : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                          }`}
+                        >
+                          <div className="flex items-center gap-2.5">
+                            <ShieldCheckIcon className="h-4 w-4 flex-shrink-0" />
+                            <span>Management</span>
+                          </div>
+                          {activeTab === 'self-care' && (
+                            <div className="w-1.5 h-1.5 rounded-full bg-white" />
+                          )}
+                        </button>
+
+                        {/* Sub-navigation - shows when Management is active */}
                         {activeTab === 'self-care' && (
-                          <div className="w-1.5 h-1.5 rounded-full bg-white" />
+                          <div className="ml-6 mt-1 space-y-0.5 border-l-2 border-slate-200 pl-3">
+                            <button
+                              onClick={() => {
+                                setActiveTab('self-care');
+                                setExpandedManagementSections(prev => ({ ...prev, 'evidence-based': true }));
+                                setTimeout(() => {
+                                  document.querySelector('[data-section="evidence-based"]')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                }, 100);
+                              }}
+                              className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] transition-colors rounded"
+                            >
+                              Evidence-Based Treatment
+                            </button>
+                            {condition.treatmentApproach && (
+                              <button
+                                onClick={() => {
+                                  setActiveTab('self-care');
+                                  setExpandedManagementSections(prev => ({ ...prev, 'treatment-techniques': true }));
+                                  setTimeout(() => {
+                                    document.querySelector('[data-section="treatment-techniques"]')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                  }, 100);
+                                }}
+                                className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] transition-colors rounded"
+                              >
+                                Treatment Techniques
+                              </button>
+                            )}
+                            {condition.timeline && (
+                              <button
+                                onClick={() => {
+                                  setActiveTab('self-care');
+                                  setExpandedManagementSections(prev => ({ ...prev, 'timeline': true }));
+                                  setTimeout(() => {
+                                    document.querySelector('[data-section="timeline"]')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                  }, 100);
+                                }}
+                                className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] transition-colors rounded"
+                              >
+                                Recovery Timeline
+                              </button>
+                            )}
+                            {condition.prognosis && (
+                              <button
+                                onClick={() => {
+                                  setActiveTab('self-care');
+                                  setExpandedManagementSections(prev => ({ ...prev, 'prognosis': true }));
+                                  setTimeout(() => {
+                                    document.querySelector('[data-section="prognosis"]')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                  }, 100);
+                                }}
+                                className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] transition-colors rounded"
+                              >
+                                Prognosis & Outcomes
+                              </button>
+                            )}
+                            {condition.measuringProgress && (
+                              <button
+                                onClick={() => {
+                                  setActiveTab('self-care');
+                                  setExpandedManagementSections(prev => ({ ...prev, 'measuring': true }));
+                                  setTimeout(() => {
+                                    document.querySelector('[data-section="measuring"]')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                  }, 100);
+                                }}
+                                className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] transition-colors rounded"
+                              >
+                                Measuring Progress
+                              </button>
+                            )}
+                            {condition.faqs && (
+                              <button
+                                onClick={() => {
+                                  setActiveTab('self-care');
+                                  setExpandedManagementSections(prev => ({ ...prev, 'faqs': true }));
+                                  setTimeout(() => {
+                                    document.querySelector('[data-section="faqs"]')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                  }, 100);
+                                }}
+                                className="w-full text-left px-2 py-1.5 text-xs text-slate-600 hover:text-[#B08D57] transition-colors rounded"
+                              >
+                                FAQs
+                              </button>
+                            )}
+                          </div>
                         )}
-                      </button>
+                      </div>
                     )}
 
                     {/* Research Section */}
@@ -1082,7 +1172,7 @@ export default function ConditionPageClient({
                         <div id="section-self-care" className="space-y-8 scroll-mt-24">
                           {/* Integrated Evidence-Based Management - Premium Design */}
                           {(condition.evidenceSnapshot || condition.selfManagement) && (
-                            <div className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
+                            <div data-section="evidence-based" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-24">
                               {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 via-transparent to-blue-50/30 pointer-events-none"></div>
                               
@@ -1280,7 +1370,7 @@ export default function ConditionPageClient({
 
                           {/* Treatment Techniques Section - Collapsible */}
                           {condition.treatmentApproach && (
-                            <div className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
+                            <div data-section="treatment-techniques" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-24">
                               {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-orange-50/30 via-transparent to-amber-50/20 pointer-events-none"></div>
                               
@@ -1347,7 +1437,7 @@ export default function ConditionPageClient({
 
                           {/* Recovery Timeline Section - Collapsible */}
                           {condition.timeline && condition.timeline.length > 0 && (
-                            <div className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
+                            <div data-section="timeline" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-24">
                               {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-teal-50/30 via-transparent to-cyan-50/20 pointer-events-none"></div>
                               
@@ -1417,7 +1507,7 @@ export default function ConditionPageClient({
                           )}
 
                           {condition.prognosis && (
-                            <div className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
+                            <div data-section="prognosis" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-24">
                               {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-purple-50/30 via-transparent to-pink-50/20 pointer-events-none"></div>
                               
@@ -1532,7 +1622,7 @@ export default function ConditionPageClient({
 
                           {/* Measuring Progress Section - Premium Design */}
                           {condition.measuringProgress && (
-                            <div className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
+                            <div data-section="measuring" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-24">
                               {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-green-50/30 via-transparent to-emerald-50/20 pointer-events-none"></div>
                               
@@ -1650,7 +1740,7 @@ export default function ConditionPageClient({
 
 
                           {condition.faqs && condition.faqs.length > 0 && (
-                            <div className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
+                            <div data-section="faqs" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-24">
                               {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-transparent to-cyan-50/20 pointer-events-none"></div>
                               

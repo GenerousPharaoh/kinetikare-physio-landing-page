@@ -287,12 +287,12 @@ export default function ConditionPageClient({
         </div>
 
         {/* Main Content Area with Sidebar */}
-        <section className="pt-6 pb-0 bg-white">
+        <section className="pt-6 pb-16 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex gap-8">
+            <div className="flex gap-8 items-start">
               {/* Sidebar Navigation - Desktop */}
               <aside className="hidden lg:block w-64 flex-shrink-0">
-                <div className="sticky top-4 space-y-4 max-h-[calc(100vh-2rem)] overflow-y-auto pr-2 pb-4">
+                <div className="sticky top-24 space-y-4 max-h-[calc(100vh-7rem)] overflow-y-auto pr-2 pb-4">
                   {/* Scroll Progress */}
                   <div className="h-0.5 bg-slate-100 rounded-full overflow-hidden">
                     <div

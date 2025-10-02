@@ -49,17 +49,23 @@ export default function ConditionPageClient({
   relatedConditions
 }: ConditionPageClientProps) {
   // Helper function to scroll to section with header offset
-  const scrollToSection = (sectionId: string) => {
+  const scrollToSection = (sectionId: string, updateActiveSubSection?: string) => {
     const element = document.getElementById(sectionId) || document.querySelector(`[data-section="${sectionId}"]`);
     if (element) {
       setIsUserScrolling(true);
+
+      // Immediately update the active subsection for instant highlight
+      if (updateActiveSubSection) {
+        setActiveSubSection(updateActiveSubSection);
+      }
+
       const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
       window.scrollTo({ top, behavior: 'smooth' });
 
-      // Re-enable auto tracking after scroll completes
+      // Re-enable auto tracking after scroll completes (reduced to 600ms)
       setTimeout(() => {
         setIsUserScrolling(false);
-      }, 1000);
+      }, 600);
     }
   };
 
@@ -427,7 +433,7 @@ export default function ConditionPageClient({
                           >
                             {condition.pathophysiology && (
                               <button
-                                onClick={() => scrollToSection('pathophysiology')}
+                                onClick={() => scrollToSection('pathophysiology', 'pathophysiology')}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'pathophysiology'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -439,7 +445,7 @@ export default function ConditionPageClient({
                             )}
                             {condition.biomechanics && (
                               <button
-                                onClick={() => scrollToSection('biomechanics')}
+                                onClick={() => scrollToSection('biomechanics', 'biomechanics')}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'biomechanics'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -490,7 +496,7 @@ export default function ConditionPageClient({
                           >
                             {condition.clinicalPresentation && (
                               <button
-                                onClick={() => scrollToSection('clinical-presentation')}
+                                onClick={() => scrollToSection('clinical-presentation', 'clinical-presentation')}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'clinical-presentation'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -502,7 +508,7 @@ export default function ConditionPageClient({
                             )}
                             {condition.differentialDiagnosis && condition.differentialDiagnosis.length > 0 && (
                               <button
-                                onClick={() => scrollToSection('differential')}
+                                onClick={() => scrollToSection('differential', 'differential')}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'differential'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -514,7 +520,7 @@ export default function ConditionPageClient({
                             )}
                             {condition.whenToSeek && condition.whenToSeek.length > 0 && (
                               <button
-                                onClick={() => scrollToSection('when-to-seek')}
+                                onClick={() => scrollToSection('when-to-seek', 'when-to-seek')}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'when-to-seek'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'

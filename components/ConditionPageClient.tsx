@@ -48,6 +48,15 @@ export default function ConditionPageClient({
   condition,
   relatedConditions
 }: ConditionPageClientProps) {
+  // Helper function to scroll to section with header offset
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId) || document.querySelector(`[data-section="${sectionId}"]`);
+    if (element) {
+      const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  };
+
   // Determine first available tab for this condition
   const getFirstAvailableTab = () => {
     if (condition.pathophysiology || condition.overview || condition.biomechanics) return 'overview';
@@ -379,11 +388,7 @@ export default function ConditionPageClient({
                           onClick={() => {
                             setActiveTab('overview');
                             requestAnimationFrame(() => {
-                              const element = document.getElementById('section-overview');
-                              if (element) {
-                                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                
-                              }
+                              scrollToSection('section-overview');
                             });
                           }}
                           className={`w-full flex items-center justify-between px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
@@ -412,13 +417,7 @@ export default function ConditionPageClient({
                           >
                             {condition.pathophysiology && (
                               <button
-                                onClick={() => {
-                                  const element = document.querySelector('[data-section="pathophysiology"]');
-                                  if (element) {
-                                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                    
-                                  }
-                                }}
+                                onClick={() => scrollToSection('pathophysiology')}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'pathophysiology'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -430,13 +429,7 @@ export default function ConditionPageClient({
                             )}
                             {condition.biomechanics && (
                               <button
-                                onClick={() => {
-                                  const element = document.querySelector('[data-section="biomechanics"]');
-                                  if (element) {
-                                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                                  }
-                                }}
+                                onClick={() => scrollToSection('biomechanics')}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'biomechanics'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -458,11 +451,7 @@ export default function ConditionPageClient({
                           onClick={() => {
                             setActiveTab('symptoms');
                             requestAnimationFrame(() => {
-                              const element = document.getElementById('section-symptoms');
-                              if (element) {
-                                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                
-                              }
+                              scrollToSection('section-symptoms')
                             });
                           }}
                           className={`w-full flex items-center justify-between px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
@@ -491,13 +480,7 @@ export default function ConditionPageClient({
                           >
                             {condition.clinicalPresentation && (
                               <button
-                                onClick={() => {
-                                  const element = document.querySelector('[data-section="clinical-presentation"]');
-                                  if (element) {
-                                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                    
-                                  }
-                                }}
+                                onClick={() => scrollToSection('clinical-presentation')}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'clinical-presentation'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -509,13 +492,7 @@ export default function ConditionPageClient({
                             )}
                             {condition.differentialDiagnosis && condition.differentialDiagnosis.length > 0 && (
                               <button
-                                onClick={() => {
-                                  const element = document.querySelector('[data-section="differential"]');
-                                  if (element) {
-                                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                                  }
-                                }}
+                                onClick={() => scrollToSection('differential')}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'differential'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -527,13 +504,7 @@ export default function ConditionPageClient({
                             )}
                             {condition.whenToSeek && condition.whenToSeek.length > 0 && (
                               <button
-                                onClick={() => {
-                                  const element = document.querySelector('[data-section="when-to-seek"]');
-                                  if (element) {
-                                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                                  }
-                                }}
+                                onClick={() => scrollToSection('when-to-seek')}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'when-to-seek'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -555,11 +526,7 @@ export default function ConditionPageClient({
                           onClick={() => {
                             setActiveTab('self-care');
                             requestAnimationFrame(() => {
-                              const element = document.getElementById('section-self-care');
-                              if (element) {
-                                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                
-                              }
+                              scrollToSection('section-self-care')
                             });
                           }}
                           className={`w-full flex items-center justify-between px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
@@ -589,11 +556,7 @@ export default function ConditionPageClient({
                                 setActiveTab('self-care');
                                 setExpandedManagementSections(prev => ({ ...prev, 'evidence-based': true }));
                                 requestAnimationFrame(() => {
-                                  const element = document.querySelector('[data-section="evidence-based"]');
-                                  if (element) {
-                                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                                  }
+                                  scrollToSection('evidence-based')
                                 });
                               }}
                               className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
@@ -610,11 +573,7 @@ export default function ConditionPageClient({
                                   setActiveTab('self-care');
                                   setExpandedManagementSections(prev => ({ ...prev, 'treatment-techniques': true }));
                                   requestAnimationFrame(() => {
-                                    const element = document.querySelector('[data-section="treatment-techniques"]');
-                                    if (element) {
-                                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                                    }
+                                    scrollToSection('treatment-techniques')
                                   });
                                 }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
@@ -632,11 +591,7 @@ export default function ConditionPageClient({
                                   setActiveTab('self-care');
                                   setExpandedManagementSections(prev => ({ ...prev, 'timeline': true }));
                                   requestAnimationFrame(() => {
-                                    const element = document.querySelector('[data-section="timeline"]');
-                                    if (element) {
-                                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                                    }
+                                    scrollToSection('timeline')
                                   });
                                 }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
@@ -654,11 +609,7 @@ export default function ConditionPageClient({
                                   setActiveTab('self-care');
                                   setExpandedManagementSections(prev => ({ ...prev, 'prognosis': true }));
                                   requestAnimationFrame(() => {
-                                    const element = document.querySelector('[data-section="prognosis"]');
-                                    if (element) {
-                                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                                    }
+                                    scrollToSection('prognosis')
                                   });
                                 }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
@@ -676,11 +627,7 @@ export default function ConditionPageClient({
                                   setActiveTab('self-care');
                                   setExpandedManagementSections(prev => ({ ...prev, 'measuring': true }));
                                   requestAnimationFrame(() => {
-                                    const element = document.querySelector('[data-section="measuring"]');
-                                    if (element) {
-                                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                                    }
+                                    scrollToSection('measuring')
                                   });
                                 }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
@@ -698,11 +645,7 @@ export default function ConditionPageClient({
                                   setActiveTab('self-care');
                                   setExpandedManagementSections(prev => ({ ...prev, 'faqs': true }));
                                   requestAnimationFrame(() => {
-                                    const element = document.querySelector('[data-section="faqs"]');
-                                    if (element) {
-                                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                                    }
+                                    scrollToSection('faqs')
                                   });
                                 }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
@@ -726,11 +669,7 @@ export default function ConditionPageClient({
                           onClick={() => {
                             setActiveTab('research');
                             requestAnimationFrame(() => {
-                              const element = document.getElementById('section-research');
-                              if (element) {
-                                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                
-                              }
+                              scrollToSection('section-research')
                             });
                           }}
                           className={`w-full flex items-center justify-between px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
@@ -762,11 +701,7 @@ export default function ConditionPageClient({
                                 onClick={() => {
                                   setExpandedResearchSections(prev => ({ ...prev, 'key-research': true }));
                                   requestAnimationFrame(() => {
-                                    const element = document.querySelector('[data-section="key-research"]');
-                                    if (element) {
-                                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                                    }
+                                    scrollToSection('key-research')
                                   });
                                 }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
@@ -783,11 +718,7 @@ export default function ConditionPageClient({
                                 onClick={() => {
                                   setExpandedResearchSections(prev => ({ ...prev, 'research-insights': true }));
                                   requestAnimationFrame(() => {
-                                    const element = document.querySelector('[data-section="research-insights"]');
-                                    if (element) {
-                                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                                    }
+                                    scrollToSection('research-insights')
                                   });
                                 }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${

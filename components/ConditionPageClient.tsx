@@ -52,8 +52,14 @@ export default function ConditionPageClient({
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId) || document.querySelector(`[data-section="${sectionId}"]`);
     if (element) {
+      setIsUserScrolling(true);
       const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
       window.scrollTo({ top, behavior: 'smooth' });
+
+      // Re-enable auto tracking after scroll completes
+      setTimeout(() => {
+        setIsUserScrolling(false);
+      }, 1000);
     }
   };
 
@@ -68,6 +74,7 @@ export default function ConditionPageClient({
 
   const [activeTab, setActiveTab] = useState(getFirstAvailableTab());
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
+  const [isUserScrolling, setIsUserScrolling] = useState(false);
 
   // Sidebar state
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
@@ -198,32 +205,35 @@ export default function ConditionPageClient({
             element: document.getElementById(`section-${id}`)
           })).filter(s => s.element !== null);
 
-          let currentMainSection = validTabIds[0] || 'overview';
-          for (let i = sectionElements.length - 1; i >= 0; i--) {
-            const { id, element } = sectionElements[i];
-            if (element && element.getBoundingClientRect().top <= 150) {
-              currentMainSection = id;
-              break;
+          // Only auto-update active states if user is not manually scrolling
+          if (!isUserScrolling) {
+            let currentMainSection = validTabIds[0] || 'overview';
+            for (let i = sectionElements.length - 1; i >= 0; i--) {
+              const { id, element } = sectionElements[i];
+              if (element && element.getBoundingClientRect().top <= 150) {
+                currentMainSection = id;
+                break;
+              }
             }
-          }
-          setActiveSection(currentMainSection);
-          setActiveTab(currentMainSection);
+            setActiveSection(currentMainSection);
+            setActiveTab(currentMainSection);
 
-          // Track subsections within the current main section
-          const subsectionElements = document.querySelectorAll('[data-section]');
-          let currentSubSection = '';
+            // Track subsections within the current main section
+            const subsectionElements = document.querySelectorAll('[data-section]');
+            let currentSubSection = '';
 
-          subsectionElements.forEach((el) => {
-            const rect = el.getBoundingClientRect();
-            const sectionId = el.getAttribute('data-section');
+            subsectionElements.forEach((el) => {
+              const rect = el.getBoundingClientRect();
+              const sectionId = el.getAttribute('data-section');
 
-            if (rect.top <= 150 && rect.bottom > 150 && sectionId) {
-              currentSubSection = sectionId;
+              if (rect.top <= 150 && rect.bottom > 150 && sectionId) {
+                currentSubSection = sectionId;
+              }
+            });
+
+            if (currentSubSection) {
+              setActiveSubSection(currentSubSection);
             }
-          });
-
-          if (currentSubSection) {
-            setActiveSubSection(currentSubSection);
           }
 
           ticking = false;
@@ -240,7 +250,7 @@ export default function ConditionPageClient({
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleScroll);
     };
-  }, [tabs]);
+  }, [tabs, isUserScrolling]);
 
   // Structured data for SEO
   const structuredData = {

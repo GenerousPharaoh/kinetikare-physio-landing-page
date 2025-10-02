@@ -50,18 +50,19 @@ export default function ConditionPageClient({
 }: ConditionPageClientProps) {
   // Helper function to scroll to section with header offset
   const scrollToSection = (sectionId: string, options?: { tab?: string; subsection?: string }) => {
+    // Immediately update states for instant visual feedback - do this FIRST
+    if (options?.tab) {
+      setActiveTab(options.tab);
+      setIsUserScrolling(true);
+    }
+    if (options?.subsection) {
+      setActiveSubSection(options.subsection);
+      setIsUserScrolling(true);
+    }
+
+    // Then try to scroll
     const element = document.getElementById(sectionId) || document.querySelector(`[data-section="${sectionId}"]`);
     if (element) {
-      setIsUserScrolling(true);
-
-      // Immediately update states for instant visual feedback
-      if (options?.tab) {
-        setActiveTab(options.tab);
-      }
-      if (options?.subsection) {
-        setActiveSubSection(options.subsection);
-      }
-
       const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
       window.scrollTo({ top, behavior: 'smooth' });
 
@@ -69,6 +70,11 @@ export default function ConditionPageClient({
       setTimeout(() => {
         setIsUserScrolling(false);
       }, 800);
+    } else {
+      // Element not found, but we still updated the tab - clear the lock
+      setTimeout(() => {
+        setIsUserScrolling(false);
+      }, 100);
     }
   };
 

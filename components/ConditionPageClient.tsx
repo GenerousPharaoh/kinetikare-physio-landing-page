@@ -48,7 +48,16 @@ export default function ConditionPageClient({
   condition,
   relatedConditions
 }: ConditionPageClientProps) {
-  const [activeTab, setActiveTab] = useState('overview');
+  // Determine first available tab for this condition
+  const getFirstAvailableTab = () => {
+    if (condition.pathophysiology || condition.overview || condition.biomechanics) return 'overview';
+    if (condition.clinicalPresentation || condition.differentialDiagnosis || condition.whenToSeek) return 'symptoms';
+    if (condition.selfManagement || condition.prognosis || condition.faqs || condition.treatmentApproach || condition.timeline || condition.evidenceBasedTreatment) return 'self-care';
+    if (condition.keyResearch || condition.researchInsights) return 'research';
+    return 'overview'; // fallback
+  };
+
+  const [activeTab, setActiveTab] = useState(getFirstAvailableTab());
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
 
   // Sidebar state
@@ -137,10 +146,12 @@ export default function ConditionPageClient({
   };
 
   // Active section tracking based on scroll position
-  const [activeSection, setActiveSection] = useState('overview');
+  const [activeSection, setActiveSection] = useState(getFirstAvailableTab());
   const [activeSubSection, setActiveSubSection] = useState<string>('');
 
   useEffect(() => {
+    // Get valid tab IDs for this condition
+    const validTabIds = tabs.map(t => t.id);
     let ticking = false;
 
     const handleScroll = () => {
@@ -172,15 +183,17 @@ export default function ConditionPageClient({
             }
           }
 
-          // Track main sections - determine which major section we're in
-          const sections = ['overview', 'symptoms', 'self-care', 'research'];
-          const sectionElements = sections.map(id => document.getElementById(`section-${id}`));
+          // Track main sections - ONLY check sections that exist for this condition
+          const sectionElements = validTabIds.map(id => ({
+            id,
+            element: document.getElementById(`section-${id}`)
+          })).filter(s => s.element !== null);
 
-          let currentMainSection = 'overview';
+          let currentMainSection = validTabIds[0] || 'overview';
           for (let i = sectionElements.length - 1; i >= 0; i--) {
-            const element = sectionElements[i];
+            const { id, element } = sectionElements[i];
             if (element && element.getBoundingClientRect().top <= 150) {
-              currentMainSection = sections[i];
+              currentMainSection = id;
               break;
             }
           }
@@ -218,7 +231,7 @@ export default function ConditionPageClient({
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleScroll);
     };
-  }, []);
+  }, [tabs]);
 
   // Structured data for SEO
   const structuredData = {

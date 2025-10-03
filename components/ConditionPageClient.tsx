@@ -986,8 +986,15 @@ export default function ConditionPageClient({
 
                       {/* Research Tab - Premium Design */}
                       {activeTab === 'research' && (
-                        <div id="section-research" className="space-y-8 scroll-mt-40">
-                          {condition.keyResearch && condition.keyResearch.length > 0 && (
+                        <AnimatePresence mode="wait">
+                          <motion.div
+                            key={activeResearchView}
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -20 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            {activeResearchView === 'key-research' && condition.keyResearch && condition.keyResearch.length > 0 && (
                             <div data-section="key-research" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
                               {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/30 via-transparent to-teal-50/20 pointer-events-none"></div>
@@ -1153,9 +1160,9 @@ export default function ConditionPageClient({
                                 </AnimatePresence>
                               </div>
                             </div>
-                          )}
+                            )}
 
-                          {condition.researchInsights && condition.researchInsights.length > 0 && (
+                            {activeResearchView === 'research-insights' && condition.researchInsights && condition.researchInsights.length > 0 && (
                             <div data-section="research-insights" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
                               {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-transparent to-indigo-50/20 pointer-events-none"></div>
@@ -1251,8 +1258,9 @@ export default function ConditionPageClient({
                                 </AnimatePresence>
                               </div>
                             </div>
-                          )}
-                        </div>
+                            )}
+                          </motion.div>
+                        </AnimatePresence>
                       )}
 
                       {/* Management Tab */}

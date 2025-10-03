@@ -231,7 +231,7 @@ export default function ConditionPageClient({
               {((condition.clinicalRedFlags && condition.clinicalRedFlags.length > 0) || 
                 (condition.redFlags && condition.redFlags.length > 0)) && (
                 <details className="group mt-3">
-                  <summary className="flex items-center gap-1.5 cursor-pointer list-none text-xs text-red-700 hover:text-red-800 transition-colors">
+                  <summary className="flex items-center gap-1.5 list-none text-xs text-red-700 hover:text-red-800 transition-colors">
                     <ExclamationTriangleIcon className="h-3.5 w-3.5" />
                     <span className="underline">Important: When to seek immediate medical attention</span>
                     <ChevronDownIcon className="h-3.5 w-3.5 group-open:rotate-180 transition-transform" />
@@ -1146,8 +1146,8 @@ export default function ConditionPageClient({
                               <div className="relative">
                                 {/* Header with gradient accent - Clickable */}
                                 <div 
-                                  className="bg-gradient-to-r from-blue-900 to-blue-700 px-8 py-6 cursor-pointer hover:from-blue-800 hover:to-blue-600 transition-all"
-                                  onClick={() => toggleResearchSection('research-insights')}
+                                  className="bg-gradient-to-r from-blue-900 to-blue-700 px-8 py-6 transition-all"
+                                  
                                 >
                                   <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-3">
@@ -1159,18 +1159,12 @@ export default function ConditionPageClient({
                                         <p className="text-sm text-blue-200 mt-1">Clinical implications and practice recommendations</p>
                                       </div>
                                     </div>
-                                    <div className="p-2 bg-white/10 backdrop-blur rounded-lg">
-                                      {expandedResearchSections['research-insights'] ? (
-                                        <ChevronUpIcon className="h-5 w-5 text-white" />
-                                      ) : (
-                                        <ChevronDownIcon className="h-5 w-5 text-white" />
-                                      )}
-                                    </div>
+                                    
                                   </div>
                                 </div>
                                 
                                 <AnimatePresence initial={false}>
-                                  {expandedResearchSections['research-insights'] && (
+                                  
                                     <motion.div 
                                       initial={{ height: 0, opacity: 0 }}
                                       animate={{ height: 'auto', opacity: 1 }}
@@ -1258,8 +1252,8 @@ export default function ConditionPageClient({
                               <div className="relative">
                                 {/* Header with gradient accent - Now clickable */}
                                 <div 
-                                  className="bg-gradient-to-r from-slate-900 to-slate-700 px-8 py-6 cursor-pointer hover:from-slate-800 hover:to-slate-600 transition-all"
-                                  onClick={() => toggleManagementSection('evidence-based')}
+                                  className="bg-gradient-to-r from-slate-900 to-slate-700 px-8 py-6 transition-all"
+                                  
                                 >
                                   <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-3">
@@ -1271,18 +1265,12 @@ export default function ConditionPageClient({
                                         <p className="text-sm text-slate-200 mt-1">Comprehensive treatment strategies with proven outcomes</p>
                                       </div>
                                     </div>
-                                    <div className="p-2 bg-white/10 backdrop-blur rounded-lg">
-                                      {expandedManagementSections['evidence-based'] ? (
-                                        <ChevronUpIcon className="h-5 w-5 text-white" />
-                                      ) : (
-                                        <ChevronDownIcon className="h-5 w-5 text-white" />
-                                      )}
-                                    </div>
+                                    
                                   </div>
                                 </div>
                                 
                                 <AnimatePresence initial={false}>
-                                  {expandedManagementSections['evidence-based'] && (
+                                  
                                     <motion.div 
                                       initial={{ height: 0, opacity: 0 }}
                                       animate={{ height: 'auto', opacity: 1 }}
@@ -1456,8 +1444,8 @@ export default function ConditionPageClient({
                               <div className="relative">
                                 {/* Header with gradient accent - Clickable */}
                                 <div 
-                                  className="bg-gradient-to-r from-orange-900 to-amber-700 px-8 py-6 cursor-pointer hover:from-orange-800 hover:to-amber-600 transition-all"
-                                  onClick={() => toggleManagementSection('treatment-techniques')}
+                                  className="bg-gradient-to-r from-orange-900 to-amber-700 px-8 py-6 transition-all"
+                                  
                                 >
                                   <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-3">
@@ -1469,18 +1457,12 @@ export default function ConditionPageClient({
                                         <p className="text-sm text-orange-200 mt-1">Specialized manual therapy and intervention approaches</p>
                                       </div>
                                     </div>
-                                    <div className="p-2 bg-white/10 backdrop-blur rounded-lg">
-                                      {expandedManagementSections['treatment-techniques'] ? (
-                                        <ChevronUpIcon className="h-5 w-5 text-white" />
-                                      ) : (
-                                        <ChevronDownIcon className="h-5 w-5 text-white" />
-                                      )}
-                                    </div>
+                                    
                                   </div>
                                 </div>
                                 
                                 <AnimatePresence initial={false}>
-                                  {expandedManagementSections['treatment-techniques'] && (
+                                  
                                     <motion.div 
                                       initial={{ height: 0, opacity: 0 }}
                                       animate={{ height: 'auto', opacity: 1 }}
@@ -1523,8 +1505,8 @@ export default function ConditionPageClient({
                               <div className="relative">
                                 {/* Header with gradient accent - Clickable */}
                                 <div 
-                                  className="bg-gradient-to-r from-teal-900 to-cyan-700 px-8 py-6 cursor-pointer hover:from-teal-800 hover:to-cyan-600 transition-all"
-                                  onClick={() => toggleManagementSection('timeline')}
+                                  className="bg-gradient-to-r from-teal-900 to-cyan-700 px-8 py-6 transition-all"
+                                  
                                 >
                                   <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-3">
@@ -1536,18 +1518,12 @@ export default function ConditionPageClient({
                                         <p className="text-sm text-teal-200 mt-1">Expected phases and milestones in your recovery journey</p>
                                       </div>
                                     </div>
-                                    <div className="p-2 bg-white/10 backdrop-blur rounded-lg">
-                                      {expandedManagementSections['timeline'] ? (
-                                        <ChevronUpIcon className="h-5 w-5 text-white" />
-                                      ) : (
-                                        <ChevronDownIcon className="h-5 w-5 text-white" />
-                                      )}
-                                    </div>
+                                    
                                   </div>
                                 </div>
                                 
                                 <AnimatePresence initial={false}>
-                                  {expandedManagementSections['timeline'] && (
+                                  
                                     <motion.div 
                                       initial={{ height: 0, opacity: 0 }}
                                       animate={{ height: 'auto', opacity: 1 }}
@@ -1593,8 +1569,8 @@ export default function ConditionPageClient({
                               <div className="relative">
                                 {/* Header with gradient accent - Clickable */}
                                 <div 
-                                  className="bg-gradient-to-r from-purple-900 to-purple-700 px-8 py-6 cursor-pointer hover:from-purple-800 hover:to-purple-600 transition-all"
-                                  onClick={() => toggleManagementSection('prognosis')}
+                                  className="bg-gradient-to-r from-purple-900 to-purple-700 px-8 py-6 transition-all"
+                                  
                                 >
                                   <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-3">
@@ -1608,18 +1584,12 @@ export default function ConditionPageClient({
                                         <p className="text-sm text-purple-200 mt-1">Expected outcomes and recovery factors</p>
                                       </div>
                                     </div>
-                                    <div className="p-2 bg-white/10 backdrop-blur rounded-lg">
-                                      {expandedManagementSections['prognosis'] ? (
-                                        <ChevronUpIcon className="h-5 w-5 text-white" />
-                                      ) : (
-                                        <ChevronDownIcon className="h-5 w-5 text-white" />
-                                      )}
-                                    </div>
+                                    
                                   </div>
                                 </div>
                                 
                                 <AnimatePresence>
-                                  {expandedManagementSections['prognosis'] && (
+                                  
                                     <motion.div
                                       initial={{ height: 0, opacity: 0 }}
                                       animate={{ height: 'auto', opacity: 1 }}
@@ -1708,8 +1678,8 @@ export default function ConditionPageClient({
                               <div className="relative">
                                 {/* Header with gradient accent */}
                                 <div 
-                                  className="bg-gradient-to-r from-green-900 to-green-700 px-8 py-6 cursor-pointer hover:from-green-800 hover:to-green-600 transition-all"
-                                  onClick={() => toggleManagementSection('measuring')}
+                                  className="bg-gradient-to-r from-green-900 to-green-700 px-8 py-6 transition-all"
+                                  
                                 >
                                   <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-3">
@@ -1723,18 +1693,12 @@ export default function ConditionPageClient({
                                         <p className="text-sm text-green-200 mt-1">Track your recovery journey</p>
                                       </div>
                                     </div>
-                                    <div className="p-2 bg-white/10 backdrop-blur rounded-lg">
-                                      {expandedManagementSections['measuring'] ? (
-                                        <ChevronUpIcon className="h-5 w-5 text-white" />
-                                      ) : (
-                                        <ChevronDownIcon className="h-5 w-5 text-white" />
-                                      )}
-                                    </div>
+                                    
                                   </div>
                                 </div>
                                 
                                 <AnimatePresence>
-                                  {expandedManagementSections['measuring'] && (
+                                  
                                     <motion.div
                                       initial={{ height: 0, opacity: 0 }}
                                       animate={{ height: 'auto', opacity: 1 }}
@@ -1826,8 +1790,8 @@ export default function ConditionPageClient({
                               <div className="relative">
                                 {/* Header with gradient accent */}
                                 <div 
-                                  className="bg-gradient-to-r from-blue-900 to-blue-700 px-8 py-6 cursor-pointer hover:from-blue-800 hover:to-blue-600 transition-all"
-                                  onClick={() => toggleManagementSection('faqs')}
+                                  className="bg-gradient-to-r from-blue-900 to-blue-700 px-8 py-6 transition-all"
+                                  
                                 >
                                   <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-3">
@@ -1839,18 +1803,12 @@ export default function ConditionPageClient({
                                         <p className="text-sm text-blue-200 mt-1">Common concerns and answers</p>
                                       </div>
                                     </div>
-                                    <div className="p-2 bg-white/10 backdrop-blur rounded-lg">
-                                      {expandedManagementSections['faqs'] ? (
-                                        <ChevronUpIcon className="h-5 w-5 text-white" />
-                                      ) : (
-                                        <ChevronDownIcon className="h-5 w-5 text-white" />
-                                      )}
-                                    </div>
+                                    
                                   </div>
                                 </div>
                                 
                                 <AnimatePresence>
-                                  {expandedManagementSections['faqs'] && (
+                                  
                                     <motion.div
                                       initial={{ height: 0, opacity: 0 }}
                                       animate={{ height: 'auto', opacity: 1 }}
@@ -1871,7 +1829,7 @@ export default function ConditionPageClient({
                                       
                                       return (
                                         <details key={index} className={`group relative bg-gradient-to-r ${color.bg} rounded-xl p-6 border ${color.border} hover:shadow-md transition-all`}>
-                                          <summary className="flex gap-4 cursor-pointer list-none">
+                                          <summary className="flex gap-4 list-none">
                                             <div className="flex-shrink-0">
                                               <div className={`w-12 h-12 bg-gradient-to-br ${color.icon} rounded-xl flex items-center justify-center shadow-lg transition-transform group-open:rotate-12`}>
                                                 <span className="text-white font-semibold text-lg">Q{index + 1}</span>

@@ -571,11 +571,10 @@ export default function ConditionPageClient({
                           >
                             <button
                               onClick={() => {
-                                setExpandedManagementSections(prev => ({ ...prev, 'evidence-based': true }));
                                 scrollToSection('evidence-based-treatment', { subsection: 'evidence-based-treatment' });
                               }}
                               className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
-                                activeSubSection === 'evidence-based'
+                                activeSubSection === 'evidence-based-treatment'
                                   ? 'bg-[#B08D57] text-white font-medium shadow-sm'
                                   : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                               }`}
@@ -585,7 +584,6 @@ export default function ConditionPageClient({
                             {condition.treatmentApproach && (
                               <button
                                 onClick={() => {
-                                  setExpandedManagementSections(prev => ({ ...prev, 'treatment-techniques': true }));
                                   scrollToSection('treatment-techniques', { subsection: 'treatment-techniques' });
                                 }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
@@ -600,10 +598,7 @@ export default function ConditionPageClient({
                             {condition.timeline && (
                               <button
                                 onClick={() => {
-                                  setExpandedManagementSections(prev => ({ ...prev, 'timeline': true }));
-                                  requestAnimationFrame(() => {
-                                    scrollToSection('timeline')
-                                  });
+                                  scrollToSection('timeline', { subsection: 'timeline' });
                                 }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'timeline'
@@ -617,10 +612,7 @@ export default function ConditionPageClient({
                             {condition.prognosis && (
                               <button
                                 onClick={() => {
-                                  setExpandedManagementSections(prev => ({ ...prev, 'prognosis': true }));
-                                  requestAnimationFrame(() => {
-                                    scrollToSection('prognosis')
-                                  });
+                                  scrollToSection('prognosis', { subsection: 'prognosis' });
                                 }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'prognosis'
@@ -651,10 +643,7 @@ export default function ConditionPageClient({
                             {condition.faqs && (
                               <button
                                 onClick={() => {
-                                  setExpandedManagementSections(prev => ({ ...prev, 'faqs': true }));
-                                  requestAnimationFrame(() => {
-                                    scrollToSection('faqs')
-                                  });
+                                  scrollToSection('faqs', { subsection: 'faqs' });
                                 }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'faqs'

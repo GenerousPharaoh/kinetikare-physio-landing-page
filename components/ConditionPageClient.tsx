@@ -585,11 +585,8 @@ export default function ConditionPageClient({
                             {condition.treatmentApproach && (
                               <button
                                 onClick={() => {
-                                  setActiveTab('self-care');
                                   setExpandedManagementSections(prev => ({ ...prev, 'treatment-techniques': true }));
-                                  requestAnimationFrame(() => {
-                                    scrollToSection('treatment-techniques')
-                                  });
+                                  scrollToSection('treatment-techniques', { subsection: 'treatment-techniques' });
                                 }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'treatment-techniques'
@@ -603,7 +600,6 @@ export default function ConditionPageClient({
                             {condition.timeline && (
                               <button
                                 onClick={() => {
-                                  setActiveTab('self-care');
                                   setExpandedManagementSections(prev => ({ ...prev, 'timeline': true }));
                                   requestAnimationFrame(() => {
                                     scrollToSection('timeline')
@@ -621,7 +617,6 @@ export default function ConditionPageClient({
                             {condition.prognosis && (
                               <button
                                 onClick={() => {
-                                  setActiveTab('self-care');
                                   setExpandedManagementSections(prev => ({ ...prev, 'prognosis': true }));
                                   requestAnimationFrame(() => {
                                     scrollToSection('prognosis')
@@ -639,7 +634,6 @@ export default function ConditionPageClient({
                             {condition.measuringProgress && (
                               <button
                                 onClick={() => {
-                                  setActiveTab('self-care');
                                   setExpandedManagementSections(prev => ({ ...prev, 'measuring': true }));
                                   requestAnimationFrame(() => {
                                     scrollToSection('measuring')
@@ -657,7 +651,6 @@ export default function ConditionPageClient({
                             {condition.faqs && (
                               <button
                                 onClick={() => {
-                                  setActiveTab('self-care');
                                   setExpandedManagementSections(prev => ({ ...prev, 'faqs': true }));
                                   requestAnimationFrame(() => {
                                     scrollToSection('faqs')

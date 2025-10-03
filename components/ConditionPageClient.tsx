@@ -219,33 +219,33 @@ export default function ConditionPageClient({
         </h1>
 
         {/* Minimal Hero with Breadcrumbs */}
-        <section className="pt-24 pb-3 bg-gradient-to-b from-slate-50 to-white">
+        <section className="pt-24 pb-6 bg-gradient-to-b from-slate-50 via-white to-transparent">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="w-full">
+            <div className="w-full max-w-5xl">
               {/* Breadcrumb */}
-              <nav className="flex items-center space-x-2 text-sm text-slate-600 mb-3">
-                <Link href="/" className="hover:text-[#B08D57] transition-colors">
+              <nav className="flex items-center space-x-2 text-sm text-slate-600 mb-4">
+                <Link href="/" className="hover:text-[#B08D57] transition-colors duration-200">
                   Home
                 </Link>
                 <ChevronRightIcon className="h-3 w-3" />
-                <Link href="/conditions" className="hover:text-[#B08D57] transition-colors">
+                <Link href="/conditions" className="hover:text-[#B08D57] transition-colors duration-200">
                   Conditions
                 </Link>
                 <ChevronRightIcon className="h-3 w-3" />
                 <span className="text-slate-900 font-medium">{condition.name}</span>
               </nav>
 
-              <h1 className="text-3xl md:text-4xl font-medium tracking-tight leading-tight text-slate-900 mb-3">
+              <h1 className="text-4xl md:text-5xl font-light tracking-tight leading-tight text-slate-900 mb-4">
                 {condition.name}
               </h1>
               {condition.description && (
-                <p className="text-base md:text-lg text-slate-700 leading-relaxed max-w-3xl">
+                <p className="text-lg md:text-xl text-slate-700 leading-relaxed max-w-3xl">
                   {condition.description}
                 </p>
               )}
 
               {/* Regional Service Area - Subtle mention */}
-              <p className="text-xs text-slate-400 mt-2">
+              <p className="text-xs text-slate-400 mt-3">
                 Treating {condition.name.toLowerCase()} at our Burlington clinic • Convenient for Waterdown and Flamborough residents
               </p>
 
@@ -325,10 +325,10 @@ export default function ConditionPageClient({
                       <div>
                         <button
                           onClick={() => setActiveTab('overview')}
-                          className={`w-full flex items-center justify-between px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
+                          className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
                             activeTab === 'overview'
-                              ? 'bg-[#B08D57] text-white'
-                              : 'text-slate-700 hover:bg-slate-50 hover:text-slate-900'
+                              ? 'bg-[#B08D57] text-white shadow-md'
+                              : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900 hover:shadow-sm'
                           }`}
                         >
                           <div className="flex items-center gap-2">
@@ -383,10 +383,10 @@ export default function ConditionPageClient({
                       <div>
                         <button
                           onClick={() => setActiveTab('symptoms')}
-                          className={`w-full flex items-center justify-between px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
+                          className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                             activeTab === 'symptoms'
-                              ? 'bg-[#B08D57] text-white'
-                              : 'text-slate-700 hover:bg-slate-50 hover:text-slate-900'
+                              ? 'bg-[#B08D57] text-white shadow-md'
+                              : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900 hover:shadow-sm'
                           }`}
                         >
                           <div className="flex items-center gap-2">
@@ -453,10 +453,10 @@ export default function ConditionPageClient({
                       <div>
                         <button
                           onClick={() => setActiveTab('self-care')}
-                          className={`w-full flex items-center justify-between px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
+                          className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                             activeTab === 'self-care'
-                              ? 'bg-[#B08D57] text-white'
-                              : 'text-slate-700 hover:bg-slate-50 hover:text-slate-900'
+                              ? 'bg-[#B08D57] text-white shadow-md'
+                              : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900 hover:shadow-sm'
                           }`}
                         >
                           <div className="flex items-center gap-2">
@@ -555,10 +555,10 @@ export default function ConditionPageClient({
                       <div>
                         <button
                           onClick={() => setActiveTab('research')}
-                          className={`w-full flex items-center justify-between px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
+                          className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                             activeTab === 'research'
-                              ? 'bg-[#B08D57] text-white'
-                              : 'text-slate-700 hover:bg-slate-50 hover:text-slate-900'
+                              ? 'bg-[#B08D57] text-white shadow-md'
+                              : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900 hover:shadow-sm'
                           }`}
                         >
                           <div className="flex items-center gap-2">
@@ -651,7 +651,7 @@ export default function ConditionPageClient({
                             }}
                             className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                               activeTab === 'overview'
-                                ? 'bg-[#B08D57] text-white'
+                                ? 'bg-[#B08D57] text-white shadow-md'
                                 : 'text-slate-700 hover:bg-slate-100'
                             }`}
                           >
@@ -668,7 +668,7 @@ export default function ConditionPageClient({
                             }}
                             className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                               activeTab === 'symptoms'
-                                ? 'bg-[#B08D57] text-white'
+                                ? 'bg-[#B08D57] text-white shadow-md'
                                 : 'text-slate-700 hover:bg-slate-100'
                             }`}
                           >
@@ -685,7 +685,7 @@ export default function ConditionPageClient({
                             }}
                             className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                               activeTab === 'self-care'
-                                ? 'bg-[#B08D57] text-white'
+                                ? 'bg-[#B08D57] text-white shadow-md'
                                 : 'text-slate-700 hover:bg-slate-100'
                             }`}
                           >
@@ -702,7 +702,7 @@ export default function ConditionPageClient({
                             }}
                             className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                               activeTab === 'research'
-                                ? 'bg-[#B08D57] text-white'
+                                ? 'bg-[#B08D57] text-white shadow-md'
                                 : 'text-slate-700 hover:bg-slate-100'
                             }`}
                           >
@@ -770,21 +770,21 @@ export default function ConditionPageClient({
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      transition={{ duration: 0.15, ease: "easeInOut" }}
+                      transition={{ duration: 0.15, ease: [0.4, 0, 0.2, 1] }}
                     >
                       {/* Overview Tab */}
                       {activeTab === 'overview' && (
                         <AnimatePresence mode="wait">
                           <motion.div
                             key={activeOverviewView}
-                            initial={{ opacity: 0, x: 20 }}
+                            initial={{ opacity: 0, x: 10 }}
                             animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -20 }}
-                            transition={{ duration: 0.2 }}
+                            exit={{ opacity: 0, x: -10 }}
+                            transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
                           >
                             {activeOverviewView === 'pathophysiology' && condition.pathophysiology && (
-                              <div className="bg-white rounded-xl p-8 md:p-10 border border-slate-200 shadow-sm hover:shadow-md transition-shadow duration-300">
-                                <h2 className="text-2xl md:text-3xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
+                              <div className="bg-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-200">
+                                <h2 className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900 mb-8">
                                   The Science of {condition.name || 'Your Condition'}
                                 </h2>
                                 <p className="text-base md:text-lg text-slate-700 leading-relaxed">
@@ -794,13 +794,13 @@ export default function ConditionPageClient({
                             )}
 
                             {activeOverviewView === 'pathophysiology' && condition.overview && !condition.pathophysiology && (
-                              <div className="bg-white rounded-xl p-8 md:p-8 border border-slate-200">
-                                <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
+                              <div className="bg-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-200">
+                                <h2 className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900 mb-8">
                                   Understanding Your Condition
                                 </h2>
-                                <div className="space-y-4">
+                                <div className="space-y-6">
                                   {condition.overview.split('\n\n').map((paragraph, index) => (
-                                    <p key={index} className="text-base text-slate-700 leading-relaxed">
+                                    <p key={index} className="text-base md:text-lg text-slate-700 leading-relaxed">
                                       {paragraph}
                                     </p>
                                   ))}
@@ -809,11 +809,11 @@ export default function ConditionPageClient({
                             )}
 
                             {activeOverviewView === 'biomechanics' && condition.biomechanics && (
-                              <div className="bg-gradient-to-br from-slate-50 to-slate-100/50 rounded-xl p-8 md:p-10 border border-slate-200 shadow-sm hover:shadow-md transition-shadow duration-300">
-                                <h2 className="text-2xl md:text-3xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
+                              <div className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-200">
+                                <h2 className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900 mb-8">
                                   Contributing Factors
                                 </h2>
-                                <div className="space-y-4">
+                                <div className="space-y-6">
                                   {condition.biomechanics.split('\n\n').map((paragraph, index) => (
                                     <p key={index} className="text-base md:text-lg text-slate-700 leading-relaxed">
                                       {paragraph}
@@ -831,23 +831,23 @@ export default function ConditionPageClient({
                         <AnimatePresence mode="wait">
                           <motion.div
                             key={activeClinicalView}
-                            initial={{ opacity: 0, x: 20 }}
+                            initial={{ opacity: 0, x: 10 }}
                             animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -20 }}
-                            transition={{ duration: 0.2 }}
+                            exit={{ opacity: 0, x: -10 }}
+                            transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
                           >
                             {activeClinicalView === 'clinical-presentation' && condition.clinicalPresentation && (
-                              <div className="bg-white rounded-xl p-8 md:p-10 border border-slate-200 shadow-sm hover:shadow-md transition-shadow duration-300">
-                                <h2 className="text-2xl md:text-3xl font-medium tracking-tight leading-tight text-slate-900 mb-8">
+                              <div className="bg-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-200">
+                                <h2 className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900 mb-10">
                                   Clinical Presentation
                                 </h2>
 
                                 {condition.clinicalPresentation.primarySymptoms && (
-                                  <div className="mb-8">
-                                    <h3 className="text-xl font-semibold leading-tight text-slate-900 mb-5">Primary Symptoms</h3>
+                                  <div className="mb-10">
+                                    <h3 className="text-xl font-semibold leading-tight text-slate-900 mb-6">Primary Symptoms</h3>
                                     <div className="grid md:grid-cols-2 gap-4">
                                       {condition.clinicalPresentation.primarySymptoms.map((symptom, index) => (
-                                        <div key={index} className="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors">
+                                        <div key={index} className="flex items-start gap-3 p-4 rounded-lg bg-white border border-slate-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
                                           <CheckCircleIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
                                           <span className="text-base md:text-lg text-slate-700 leading-relaxed">{symptom}</span>
                                         </div>
@@ -1011,10 +1011,10 @@ export default function ConditionPageClient({
                         <AnimatePresence mode="wait">
                           <motion.div
                             key={activeResearchView}
-                            initial={{ opacity: 0, x: 20 }}
+                            initial={{ opacity: 0, x: 10 }}
                             animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -20 }}
-                            transition={{ duration: 0.2 }}
+                            exit={{ opacity: 0, x: -10 }}
+                            transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
                           >
                             {activeResearchView === 'key-research' && condition.keyResearch && condition.keyResearch.length > 0 && (
                             <div data-section="key-research" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
@@ -1050,7 +1050,7 @@ export default function ConditionPageClient({
                                       const isNewFormat = research.finding && research.detail && research.clinicalRelevance;
 
                                       return (
-                                        <div key={index} className="group relative bg-white/80 backdrop-blur-xl rounded-2xl p-6 border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 break-inside-avoid mb-6">
+                                        <div key={index} className="group relative bg-white/90 backdrop-blur-xl rounded-2xl p-7 border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-200 break-inside-avoid mb-6">
                                           <div className="flex gap-4">
                                             <div className="flex-shrink-0">
                                               <div className={`w-12 h-12 bg-gradient-to-br ${color.icon} rounded-xl flex items-center justify-center shadow-lg`}>
@@ -1258,10 +1258,10 @@ export default function ConditionPageClient({
                         <AnimatePresence mode="wait">
                           <motion.div
                             key={activeManagementView}
-                            initial={{ opacity: 0, x: 20 }}
+                            initial={{ opacity: 0, x: 10 }}
                             animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -20 }}
-                            transition={{ duration: 0.2 }}
+                            exit={{ opacity: 0, x: -10 }}
+                            transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
                           >
                             {/* Integrated Evidence-Based Management - Premium Design */}
                             {activeManagementView === 'evidence-based-treatment' && (condition.evidenceSnapshot || condition.selfManagement) && (

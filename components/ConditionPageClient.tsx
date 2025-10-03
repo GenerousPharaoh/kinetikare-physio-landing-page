@@ -2,7 +2,7 @@
 
 // <!-- REDESIGNED 2025 - ALL CRITICAL ISSUES FIXED -->
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import {
@@ -53,11 +53,11 @@ export default function ConditionPageClient({
     // Immediately update states for instant visual feedback - do this FIRST
     if (options?.tab) {
       setActiveTab(options.tab);
-      setIsUserScrolling(true);
+      isUserScrollingRef.current = true;
     }
     if (options?.subsection) {
       setActiveSubSection(options.subsection);
-      setIsUserScrolling(true);
+      isUserScrollingRef.current = true;
     }
 
     // Then try to scroll
@@ -68,12 +68,12 @@ export default function ConditionPageClient({
 
       // Re-enable auto tracking after scroll completes
       setTimeout(() => {
-        setIsUserScrolling(false);
+        isUserScrollingRef.current = false;
       }, 800);
     } else {
       // Element not found, but we still updated the tab - clear the lock
       setTimeout(() => {
-        setIsUserScrolling(false);
+        isUserScrollingRef.current = false;
       }, 100);
     }
   };
@@ -89,7 +89,7 @@ export default function ConditionPageClient({
 
   const [activeTab, setActiveTab] = useState(getFirstAvailableTab());
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
-  const [isUserScrolling, setIsUserScrolling] = useState(false);
+  const isUserScrollingRef = useRef(false);
 
   // Sidebar state
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
@@ -221,7 +221,7 @@ export default function ConditionPageClient({
           })).filter(s => s.element !== null);
 
           // Only auto-update active states if user is not manually scrolling
-          if (!isUserScrolling) {
+          if (!isUserScrollingRef.current) {
             let currentMainSection = validTabIds[0] || 'overview';
             for (let i = sectionElements.length - 1; i >= 0; i--) {
               const { id, element } = sectionElements[i];
@@ -265,7 +265,7 @@ export default function ConditionPageClient({
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleScroll);
     };
-  }, [tabs, isUserScrolling]);
+  }, [tabs]);
 
   // Structured data for SEO
   const structuredData = {

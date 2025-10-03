@@ -110,24 +110,8 @@ export default function ConditionPageClient({
   });
 
 
-  // Toggle section expansion
-  const toggleSection = (sectionId: string) => {
-    const newExpanded = new Set(expandedSections);
-    if (newExpanded.has(sectionId)) {
-      newExpanded.delete(sectionId);
-    } else {
-      newExpanded.add(sectionId);
-    }
-    setExpandedSections(newExpanded);
-  };
-
-  // Active section tracking based on scroll position
-  const [activeSection, setActiveSection] = useState(getFirstAvailableTab());
-  const [activeSubSection, setActiveSubSection] = useState<string>('');
-
+  // Simplified scroll handler - ONLY for progress bar and sticky sidebar
   useEffect(() => {
-    // Get valid tab IDs for this condition
-    const validTabIds = tabs.map(t => t.id);
     let ticking = false;
 
     const handleScroll = () => {
@@ -159,45 +143,6 @@ export default function ConditionPageClient({
             }
           }
 
-          // Track main sections - ONLY check sections that exist for this condition
-          const sectionElements = validTabIds.map(id => ({
-            id,
-            element: document.getElementById(`section-${id}`)
-          })).filter(s => s.element !== null);
-
-          // Only auto-update active states if user is not manually scrolling
-          if (!isUserScrollingRef.current) {
-            // Track which main section is visible
-            let currentMainSection = validTabIds[0] || 'overview';
-            for (let i = sectionElements.length - 1; i >= 0; i--) {
-              const { id, element } = sectionElements[i];
-              if (element && element.getBoundingClientRect().top <= 150) {
-                currentMainSection = id;
-                break;
-              }
-            }
-            setActiveSection(currentMainSection);
-            // DON'T auto-switch tabs - only update activeSection for progress tracking
-            // setActiveTab(currentMainSection); // REMOVED - tabs only switch on click
-
-            // Track subsections within the current main section
-            const subsectionElements = document.querySelectorAll('[data-section]');
-            let currentSubSection = '';
-
-            subsectionElements.forEach((el) => {
-              const rect = el.getBoundingClientRect();
-              const sectionId = el.getAttribute('data-section');
-
-              if (rect.top <= 150 && rect.bottom > 150 && sectionId) {
-                currentSubSection = sectionId;
-              }
-            });
-
-            if (currentSubSection) {
-              setActiveSubSection(currentSubSection);
-            }
-          }
-
           ticking = false;
         });
         ticking = true;
@@ -212,7 +157,7 @@ export default function ConditionPageClient({
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleScroll);
     };
-  }, [tabs]);
+  }, []);
 
   // Structured data for SEO
   const structuredData = {
@@ -388,7 +333,7 @@ export default function ConditionPageClient({
                               <button
                                 onClick={() => scrollToSection('pathophysiology', { subsection: 'pathophysiology' })}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
-                                  activeSubSection === 'pathophysiology'
+                                  activeOverviewView === 'pathophysiology'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
                                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                                 }`}
@@ -400,7 +345,7 @@ export default function ConditionPageClient({
                               <button
                                 onClick={() => scrollToSection('biomechanics', { subsection: 'biomechanics' })}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
-                                  activeSubSection === 'biomechanics'
+                                  activeOverviewView === 'biomechanics'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
                                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                                 }`}
@@ -448,7 +393,7 @@ export default function ConditionPageClient({
                               <button
                                 onClick={() => scrollToSection('clinical-presentation', { subsection: 'clinical-presentation' })}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
-                                  activeSubSection === 'clinical-presentation'
+                                  activeClinicalView === 'clinical-presentation'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
                                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                                 }`}
@@ -460,7 +405,7 @@ export default function ConditionPageClient({
                               <button
                                 onClick={() => scrollToSection('differential', { subsection: 'differential' })}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
-                                  activeSubSection === 'differential'
+                                  activeClinicalView === 'differential'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
                                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                                 }`}
@@ -472,7 +417,7 @@ export default function ConditionPageClient({
                               <button
                                 onClick={() => scrollToSection('when-to-seek', { subsection: 'when-to-seek' })}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
-                                  activeSubSection === 'when-to-seek'
+                                  activeClinicalView === 'when-to-seek'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
                                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                                 }`}
@@ -530,7 +475,7 @@ export default function ConditionPageClient({
                                   scrollToSection('treatment-techniques', { subsection: 'treatment-techniques' });
                                 }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
-                                  activeSubSection === 'treatment-techniques'
+                                  activeManagementView === 'treatment-techniques'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
                                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                                 }`}
@@ -544,7 +489,7 @@ export default function ConditionPageClient({
                                   scrollToSection('timeline', { subsection: 'timeline' });
                                 }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
-                                  activeSubSection === 'timeline'
+                                  activeManagementView === 'timeline'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
                                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                                 }`}
@@ -558,7 +503,7 @@ export default function ConditionPageClient({
                                   scrollToSection('prognosis', { subsection: 'prognosis' });
                                 }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
-                                  activeSubSection === 'prognosis'
+                                  activeManagementView === 'prognosis'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
                                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                                 }`}
@@ -575,7 +520,7 @@ export default function ConditionPageClient({
                                   });
                                 }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
-                                  activeSubSection === 'measuring'
+                                  activeManagementView === 'measuring-success'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
                                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                                 }`}
@@ -589,7 +534,7 @@ export default function ConditionPageClient({
                                   scrollToSection('faqs', { subsection: 'faqs' });
                                 }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
-                                  activeSubSection === 'faqs'
+                                  activeManagementView === 'faqs'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
                                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                                 }`}
@@ -642,7 +587,7 @@ export default function ConditionPageClient({
                                   });
                                 }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
-                                  activeSubSection === 'key-research'
+                                  activeResearchView === 'key-research'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
                                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                                 }`}
@@ -659,7 +604,7 @@ export default function ConditionPageClient({
                                   });
                                 }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
-                                  activeSubSection === 'research-insights'
+                                  activeResearchView === 'research-insights'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
                                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                                 }`}

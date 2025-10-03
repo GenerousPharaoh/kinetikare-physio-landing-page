@@ -2,7 +2,7 @@
 
 // <!-- REDESIGNED 2025 - ALL CRITICAL ISSUES FIXED -->
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import {
@@ -48,14 +48,6 @@ export default function ConditionPageClient({
   condition,
   relatedConditions
 }: ConditionPageClientProps) {
-  // Helper function to scroll to section with header offset
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId) || document.querySelector(`[data-section="${sectionId}"]`);
-    if (element) {
-      const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
-      window.scrollTo({ top, behavior: 'smooth' });
-    }
-  };
 
   // Determine first available tab for this condition
   const getFirstAvailableTab = () => {
@@ -67,43 +59,18 @@ export default function ConditionPageClient({
   };
 
   const [activeTab, setActiveTab] = useState(getFirstAvailableTab());
-  const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
+
+  // Active sub-views for each tab (instead of scrolling/collapsible)
+  const [activeOverviewView, setActiveOverviewView] = useState<string>('pathophysiology');
+  const [activeClinicalView, setActiveClinicalView] = useState<string>('clinical-presentation');
+  const [activeManagementView, setActiveManagementView] = useState<string>('evidence-based-treatment');
+  const [activeResearchView, setActiveResearchView] = useState<string>('key-research');
 
   // Sidebar state
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [scrollProgress, setScrollProgress] = useState(0);
   const [sidebarStyle, setSidebarStyle] = useState<React.CSSProperties>({});
-  
-  // Management tab collapsible sections
-  const [expandedManagementSections, setExpandedManagementSections] = useState<{ [key: string]: boolean }>({
-    'evidence-based': true, // Start with first section expanded
-    'treatment-techniques': false,
-    'timeline': false,
-    'prognosis': false,
-    'measuring': false,
-    'faqs': false
-  });
-  
-  const toggleManagementSection = (section: string) => {
-    setExpandedManagementSections(prev => ({
-      ...prev,
-      [section]: !prev[section]
-    }));
-  };
-
-  // Research tab collapsible sections
-  const [expandedResearchSections, setExpandedResearchSections] = useState<{ [key: string]: boolean }>({
-    'key-research': true, // Start with first section expanded
-    'research-insights': false
-  });
-  
-  const toggleResearchSection = (section: string) => {
-    setExpandedResearchSections(prev => ({
-      ...prev,
-      [section]: !prev[section]
-    }));
-  };
 
   // Check if condition has detailed content
   const hasDetailedContent = Boolean(
@@ -198,32 +165,37 @@ export default function ConditionPageClient({
             element: document.getElementById(`section-${id}`)
           })).filter(s => s.element !== null);
 
-          let currentMainSection = validTabIds[0] || 'overview';
-          for (let i = sectionElements.length - 1; i >= 0; i--) {
-            const { id, element } = sectionElements[i];
-            if (element && element.getBoundingClientRect().top <= 150) {
-              currentMainSection = id;
-              break;
+          // Only auto-update active states if user is not manually scrolling
+          if (!isUserScrollingRef.current) {
+            // Track which main section is visible
+            let currentMainSection = validTabIds[0] || 'overview';
+            for (let i = sectionElements.length - 1; i >= 0; i--) {
+              const { id, element } = sectionElements[i];
+              if (element && element.getBoundingClientRect().top <= 150) {
+                currentMainSection = id;
+                break;
+              }
             }
-          }
-          setActiveSection(currentMainSection);
-          setActiveTab(currentMainSection);
+            setActiveSection(currentMainSection);
+            // DON'T auto-switch tabs - only update activeSection for progress tracking
+            // setActiveTab(currentMainSection); // REMOVED - tabs only switch on click
 
-          // Track subsections within the current main section
-          const subsectionElements = document.querySelectorAll('[data-section]');
-          let currentSubSection = '';
+            // Track subsections within the current main section
+            const subsectionElements = document.querySelectorAll('[data-section]');
+            let currentSubSection = '';
 
-          subsectionElements.forEach((el) => {
-            const rect = el.getBoundingClientRect();
-            const sectionId = el.getAttribute('data-section');
+            subsectionElements.forEach((el) => {
+              const rect = el.getBoundingClientRect();
+              const sectionId = el.getAttribute('data-section');
 
-            if (rect.top <= 150 && rect.bottom > 150 && sectionId) {
-              currentSubSection = sectionId;
+              if (rect.top <= 150 && rect.bottom > 150 && sectionId) {
+                currentSubSection = sectionId;
+              }
+            });
+
+            if (currentSubSection) {
+              setActiveSubSection(currentSubSection);
             }
-          });
-
-          if (currentSubSection) {
-            setActiveSubSection(currentSubSection);
           }
 
           ticking = false;
@@ -386,10 +358,7 @@ export default function ConditionPageClient({
                       <div>
                         <button
                           onClick={() => {
-                            setActiveTab('overview');
-                            requestAnimationFrame(() => {
-                              scrollToSection('section-overview');
-                            });
+                            scrollToSection('section-overview', { tab: 'overview' });
                           }}
                           className={`w-full flex items-center justify-between px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
                             activeTab === 'overview'
@@ -417,13 +386,7 @@ export default function ConditionPageClient({
                           >
                             {condition.pathophysiology && (
                               <button
-                                onClick={() => {
-                                  const element = document.querySelector('[data-section="pathophysiology"]');
-                                  if (element) {
-                                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                    
-                                  }
-                                }}
+                                onClick={() => scrollToSection('pathophysiology', { subsection: 'pathophysiology' })}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'pathophysiology'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -435,13 +398,7 @@ export default function ConditionPageClient({
                             )}
                             {condition.biomechanics && (
                               <button
-                                onClick={() => {
-                                  const element = document.querySelector('[data-section="biomechanics"]');
-                                  if (element) {
-                                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                                  }
-                                }}
+                                onClick={() => scrollToSection('biomechanics', { subsection: 'biomechanics' })}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'biomechanics'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -461,14 +418,7 @@ export default function ConditionPageClient({
                       <div>
                         <button
                           onClick={() => {
-                            setActiveTab('symptoms');
-                            requestAnimationFrame(() => {
-                              const element = document.getElementById('section-symptoms');
-                              if (element) {
-                                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                
-                              }
-                            });
+                            scrollToSection('section-symptoms', { tab: 'symptoms' });
                           }}
                           className={`w-full flex items-center justify-between px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
                             activeTab === 'symptoms'
@@ -496,13 +446,7 @@ export default function ConditionPageClient({
                           >
                             {condition.clinicalPresentation && (
                               <button
-                                onClick={() => {
-                                  const element = document.querySelector('[data-section="clinical-presentation"]');
-                                  if (element) {
-                                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                    
-                                  }
-                                }}
+                                onClick={() => scrollToSection('clinical-presentation', { subsection: 'clinical-presentation' })}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'clinical-presentation'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -514,13 +458,7 @@ export default function ConditionPageClient({
                             )}
                             {condition.differentialDiagnosis && condition.differentialDiagnosis.length > 0 && (
                               <button
-                                onClick={() => {
-                                  const element = document.querySelector('[data-section="differential"]');
-                                  if (element) {
-                                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                                  }
-                                }}
+                                onClick={() => scrollToSection('differential', { subsection: 'differential' })}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'differential'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -532,13 +470,7 @@ export default function ConditionPageClient({
                             )}
                             {condition.whenToSeek && condition.whenToSeek.length > 0 && (
                               <button
-                                onClick={() => {
-                                  const element = document.querySelector('[data-section="when-to-seek"]');
-                                  if (element) {
-                                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                                  }
-                                }}
+                                onClick={() => scrollToSection('when-to-seek', { subsection: 'when-to-seek' })}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'when-to-seek'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -558,14 +490,7 @@ export default function ConditionPageClient({
                       <div>
                         <button
                           onClick={() => {
-                            setActiveTab('self-care');
-                            requestAnimationFrame(() => {
-                              const element = document.getElementById('section-self-care');
-                              if (element) {
-                                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                
-                              }
-                            });
+                            scrollToSection('section-self-care', { tab: 'self-care' });
                           }}
                           className={`w-full flex items-center justify-between px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
                             activeTab === 'self-care'
@@ -590,19 +515,9 @@ export default function ConditionPageClient({
                             className="ml-3 mt-1.5 space-y-1 border-l-2 border-slate-200 pl-3"
                           >
                             <button
-                              onClick={() => {
-                                setActiveTab('self-care');
-                                setExpandedManagementSections(prev => ({ ...prev, 'evidence-based': true }));
-                                requestAnimationFrame(() => {
-                                  const element = document.querySelector('[data-section="evidence-based"]');
-                                  if (element) {
-                                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                                  }
-                                });
-                              }}
+                              onClick={() => setActiveManagementView('evidence-based-treatment')}
                               className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
-                                activeSubSection === 'evidence-based'
+                                activeManagementView === 'evidence-based-treatment'
                                   ? 'bg-[#B08D57] text-white font-medium shadow-sm'
                                   : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                               }`}
@@ -612,15 +527,7 @@ export default function ConditionPageClient({
                             {condition.treatmentApproach && (
                               <button
                                 onClick={() => {
-                                  setActiveTab('self-care');
-                                  setExpandedManagementSections(prev => ({ ...prev, 'treatment-techniques': true }));
-                                  requestAnimationFrame(() => {
-                                    const element = document.querySelector('[data-section="treatment-techniques"]');
-                                    if (element) {
-                                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                                    }
-                                  });
+                                  scrollToSection('treatment-techniques', { subsection: 'treatment-techniques' });
                                 }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'treatment-techniques'
@@ -634,15 +541,7 @@ export default function ConditionPageClient({
                             {condition.timeline && (
                               <button
                                 onClick={() => {
-                                  setActiveTab('self-care');
-                                  setExpandedManagementSections(prev => ({ ...prev, 'timeline': true }));
-                                  requestAnimationFrame(() => {
-                                    const element = document.querySelector('[data-section="timeline"]');
-                                    if (element) {
-                                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                                    }
-                                  });
+                                  scrollToSection('timeline', { subsection: 'timeline' });
                                 }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'timeline'
@@ -656,15 +555,7 @@ export default function ConditionPageClient({
                             {condition.prognosis && (
                               <button
                                 onClick={() => {
-                                  setActiveTab('self-care');
-                                  setExpandedManagementSections(prev => ({ ...prev, 'prognosis': true }));
-                                  requestAnimationFrame(() => {
-                                    const element = document.querySelector('[data-section="prognosis"]');
-                                    if (element) {
-                                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                                    }
-                                  });
+                                  scrollToSection('prognosis', { subsection: 'prognosis' });
                                 }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'prognosis'
@@ -678,14 +569,9 @@ export default function ConditionPageClient({
                             {condition.measuringProgress && (
                               <button
                                 onClick={() => {
-                                  setActiveTab('self-care');
                                   setExpandedManagementSections(prev => ({ ...prev, 'measuring': true }));
                                   requestAnimationFrame(() => {
-                                    const element = document.querySelector('[data-section="measuring"]');
-                                    if (element) {
-                                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                                    }
+                                    scrollToSection('measuring')
                                   });
                                 }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
@@ -700,15 +586,7 @@ export default function ConditionPageClient({
                             {condition.faqs && (
                               <button
                                 onClick={() => {
-                                  setActiveTab('self-care');
-                                  setExpandedManagementSections(prev => ({ ...prev, 'faqs': true }));
-                                  requestAnimationFrame(() => {
-                                    const element = document.querySelector('[data-section="faqs"]');
-                                    if (element) {
-                                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                                    }
-                                  });
+                                  scrollToSection('faqs', { subsection: 'faqs' });
                                 }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeSubSection === 'faqs'
@@ -729,14 +607,7 @@ export default function ConditionPageClient({
                       <div>
                         <button
                           onClick={() => {
-                            setActiveTab('research');
-                            requestAnimationFrame(() => {
-                              const element = document.getElementById('section-research');
-                              if (element) {
-                                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                
-                              }
-                            });
+                            scrollToSection('section-research', { tab: 'research' });
                           }}
                           className={`w-full flex items-center justify-between px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
                             activeTab === 'research'
@@ -767,11 +638,7 @@ export default function ConditionPageClient({
                                 onClick={() => {
                                   setExpandedResearchSections(prev => ({ ...prev, 'key-research': true }));
                                   requestAnimationFrame(() => {
-                                    const element = document.querySelector('[data-section="key-research"]');
-                                    if (element) {
-                                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                                    }
+                                    scrollToSection('key-research')
                                   });
                                 }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
@@ -788,11 +655,7 @@ export default function ConditionPageClient({
                                 onClick={() => {
                                   setExpandedResearchSections(prev => ({ ...prev, 'research-insights': true }));
                                   requestAnimationFrame(() => {
-                                    const element = document.querySelector('[data-section="research-insights"]');
-                                    if (element) {
-                                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                                    }
+                                    scrollToSection('research-insights')
                                   });
                                 }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
@@ -847,7 +710,7 @@ export default function ConditionPageClient({
                         {tabs.find(t => t.id === 'overview') && (
                           <button
                             onClick={() => {
-                              setActiveTab('overview');
+                              scrollToSection('section-overview', { tab: 'overview' });
                               setMobileNavOpen(false);
                             }}
                             className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
@@ -864,7 +727,7 @@ export default function ConditionPageClient({
                         {tabs.find(t => t.id === 'symptoms') && (
                           <button
                             onClick={() => {
-                              setActiveTab('symptoms');
+                              scrollToSection('section-symptoms', { tab: 'symptoms' });
                               setMobileNavOpen(false);
                             }}
                             className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
@@ -881,7 +744,7 @@ export default function ConditionPageClient({
                         {tabs.find(t => t.id === 'self-care') && (
                           <button
                             onClick={() => {
-                              setActiveTab('self-care');
+                              scrollToSection('section-self-care', { tab: 'self-care' });
                               setMobileNavOpen(false);
                             }}
                             className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
@@ -898,7 +761,7 @@ export default function ConditionPageClient({
                         {tabs.find(t => t.id === 'research') && (
                           <button
                             onClick={() => {
-                              setActiveTab('research');
+                              scrollToSection('section-research', { tab: 'research' });
                               setMobileNavOpen(false);
                             }}
                             className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${

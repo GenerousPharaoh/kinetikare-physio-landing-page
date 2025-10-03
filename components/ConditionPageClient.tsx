@@ -302,9 +302,7 @@ export default function ConditionPageClient({
                     {tabs.find(t => t.id === 'overview') && (
                       <div>
                         <button
-                          onClick={() => {
-                            scrollToSection('section-overview', { tab: 'overview' });
-                          }}
+                          onClick={() => setActiveTab('overview')}
                           className={`w-full flex items-center justify-between px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
                             activeTab === 'overview'
                               ? 'bg-[#B08D57] text-white'
@@ -331,7 +329,7 @@ export default function ConditionPageClient({
                           >
                             {condition.pathophysiology && (
                               <button
-                                onClick={() => scrollToSection('pathophysiology', { subsection: 'pathophysiology' })}
+                                onClick={() => setActiveOverviewView('pathophysiology')}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeOverviewView === 'pathophysiology'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -343,7 +341,7 @@ export default function ConditionPageClient({
                             )}
                             {condition.biomechanics && (
                               <button
-                                onClick={() => scrollToSection('biomechanics', { subsection: 'biomechanics' })}
+                                onClick={() => setActiveOverviewView('biomechanics')}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeOverviewView === 'biomechanics'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -362,9 +360,7 @@ export default function ConditionPageClient({
                     {tabs.find(t => t.id === 'symptoms') && (
                       <div>
                         <button
-                          onClick={() => {
-                            scrollToSection('section-symptoms', { tab: 'symptoms' });
-                          }}
+                          onClick={() => setActiveTab('symptoms')}
                           className={`w-full flex items-center justify-between px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
                             activeTab === 'symptoms'
                               ? 'bg-[#B08D57] text-white'
@@ -391,7 +387,7 @@ export default function ConditionPageClient({
                           >
                             {condition.clinicalPresentation && (
                               <button
-                                onClick={() => scrollToSection('clinical-presentation', { subsection: 'clinical-presentation' })}
+                                onClick={() => setActiveClinicalView('clinical-presentation')}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeClinicalView === 'clinical-presentation'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -403,7 +399,7 @@ export default function ConditionPageClient({
                             )}
                             {condition.differentialDiagnosis && condition.differentialDiagnosis.length > 0 && (
                               <button
-                                onClick={() => scrollToSection('differential', { subsection: 'differential' })}
+                                onClick={() => setActiveClinicalView('differential')}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeClinicalView === 'differential'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -415,7 +411,7 @@ export default function ConditionPageClient({
                             )}
                             {condition.whenToSeek && condition.whenToSeek.length > 0 && (
                               <button
-                                onClick={() => scrollToSection('when-to-seek', { subsection: 'when-to-seek' })}
+                                onClick={() => setActiveClinicalView('when-to-seek')}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeClinicalView === 'when-to-seek'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -434,9 +430,7 @@ export default function ConditionPageClient({
                     {tabs.find(t => t.id === 'self-care') && (
                       <div>
                         <button
-                          onClick={() => {
-                            scrollToSection('section-self-care', { tab: 'self-care' });
-                          }}
+                          onClick={() => setActiveTab('self-care')}
                           className={`w-full flex items-center justify-between px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
                             activeTab === 'self-care'
                               ? 'bg-[#B08D57] text-white'
@@ -471,9 +465,7 @@ export default function ConditionPageClient({
                             </button>
                             {condition.treatmentApproach && (
                               <button
-                                onClick={() => {
-                                  scrollToSection('treatment-techniques', { subsection: 'treatment-techniques' });
-                                }}
+                                onClick={() => setActiveManagementView('treatment-techniques')}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeManagementView === 'treatment-techniques'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -485,9 +477,7 @@ export default function ConditionPageClient({
                             )}
                             {condition.timeline && (
                               <button
-                                onClick={() => {
-                                  scrollToSection('timeline', { subsection: 'timeline' });
-                                }}
+                                onClick={() => setActiveManagementView('timeline')}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeManagementView === 'timeline'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -499,9 +489,7 @@ export default function ConditionPageClient({
                             )}
                             {condition.prognosis && (
                               <button
-                                onClick={() => {
-                                  scrollToSection('prognosis', { subsection: 'prognosis' });
-                                }}
+                                onClick={() => setActiveManagementView('prognosis')}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeManagementView === 'prognosis'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -513,12 +501,7 @@ export default function ConditionPageClient({
                             )}
                             {condition.measuringProgress && (
                               <button
-                                onClick={() => {
-                                  setExpandedManagementSections(prev => ({ ...prev, 'measuring': true }));
-                                  requestAnimationFrame(() => {
-                                    scrollToSection('measuring')
-                                  });
-                                }}
+                                onClick={() => setActiveManagementView('measuring-success')}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeManagementView === 'measuring-success'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -530,9 +513,7 @@ export default function ConditionPageClient({
                             )}
                             {condition.faqs && (
                               <button
-                                onClick={() => {
-                                  scrollToSection('faqs', { subsection: 'faqs' });
-                                }}
+                                onClick={() => setActiveManagementView('faqs')}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeManagementView === 'faqs'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -551,9 +532,7 @@ export default function ConditionPageClient({
                     {tabs.find(t => t.id === 'research') && (
                       <div>
                         <button
-                          onClick={() => {
-                            scrollToSection('section-research', { tab: 'research' });
-                          }}
+                          onClick={() => setActiveTab('research')}
                           className={`w-full flex items-center justify-between px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
                             activeTab === 'research'
                               ? 'bg-[#B08D57] text-white'
@@ -580,12 +559,7 @@ export default function ConditionPageClient({
                           >
                             {condition.keyResearch && condition.keyResearch.length > 0 && (
                               <button
-                                onClick={() => {
-                                  setExpandedResearchSections(prev => ({ ...prev, 'key-research': true }));
-                                  requestAnimationFrame(() => {
-                                    scrollToSection('key-research')
-                                  });
-                                }}
+                                onClick={() => setActiveResearchView('key-research')}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeResearchView === 'key-research'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -597,12 +571,7 @@ export default function ConditionPageClient({
                             )}
                             {condition.researchInsights && condition.researchInsights.length > 0 && (
                               <button
-                                onClick={() => {
-                                  setExpandedResearchSections(prev => ({ ...prev, 'research-insights': true }));
-                                  requestAnimationFrame(() => {
-                                    scrollToSection('research-insights')
-                                  });
-                                }}
+                                onClick={() => setActiveResearchView('research-insights')}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeResearchView === 'research-insights'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -655,7 +624,7 @@ export default function ConditionPageClient({
                         {tabs.find(t => t.id === 'overview') && (
                           <button
                             onClick={() => {
-                              scrollToSection('section-overview', { tab: 'overview' });
+                              setActiveTab('overview');
                               setMobileNavOpen(false);
                             }}
                             className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
@@ -672,7 +641,7 @@ export default function ConditionPageClient({
                         {tabs.find(t => t.id === 'symptoms') && (
                           <button
                             onClick={() => {
-                              scrollToSection('section-symptoms', { tab: 'symptoms' });
+                              setActiveTab('symptoms');
                               setMobileNavOpen(false);
                             }}
                             className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
@@ -689,7 +658,7 @@ export default function ConditionPageClient({
                         {tabs.find(t => t.id === 'self-care') && (
                           <button
                             onClick={() => {
-                              scrollToSection('section-self-care', { tab: 'self-care' });
+                              setActiveTab('self-care');
                               setMobileNavOpen(false);
                             }}
                             className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
@@ -706,7 +675,7 @@ export default function ConditionPageClient({
                         {tabs.find(t => t.id === 'research') && (
                           <button
                             onClick={() => {
-                              scrollToSection('section-research', { tab: 'research' });
+                              setActiveTab('research');
                               setMobileNavOpen(false);
                             }}
                             className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${

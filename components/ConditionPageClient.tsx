@@ -97,12 +97,21 @@ export default function ConditionPageClient({
 
   // Scroll to top of content container
   const scrollToContentTop = () => {
-    if (contentContainerRef.current) {
-      const yOffset = -120; // Account for fixed header (96px) + some padding
-      const element = contentContainerRef.current;
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
-    }
+    // Small delay to allow content swap animation to start
+    setTimeout(() => {
+      if (contentContainerRef.current) {
+        const headerHeight = 96; // Fixed header
+        const padding = 32; // Extra padding from top
+        const element = contentContainerRef.current;
+        const elementTop = element.getBoundingClientRect().top + window.pageYOffset;
+        const scrollToPosition = elementTop - headerHeight - padding;
+
+        window.scrollTo({
+          top: scrollToPosition,
+          behavior: 'smooth'
+        });
+      }
+    }, 50); // Small delay to sync with content animation
   };
 
   // Check if condition has detailed content

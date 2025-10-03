@@ -222,6 +222,7 @@ export default function ConditionPageClient({
 
           // Only auto-update active states if user is not manually scrolling
           if (!isUserScrollingRef.current) {
+            // Track which main section is visible
             let currentMainSection = validTabIds[0] || 'overview';
             for (let i = sectionElements.length - 1; i >= 0; i--) {
               const { id, element } = sectionElements[i];
@@ -231,7 +232,8 @@ export default function ConditionPageClient({
               }
             }
             setActiveSection(currentMainSection);
-            setActiveTab(currentMainSection);
+            // DON'T auto-switch tabs - only update activeSection for progress tracking
+            // setActiveTab(currentMainSection); // REMOVED - tabs only switch on click
 
             // Track subsections within the current main section
             const subsectionElements = document.querySelectorAll('[data-section]');

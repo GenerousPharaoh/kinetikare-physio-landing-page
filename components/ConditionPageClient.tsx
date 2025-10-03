@@ -1265,9 +1265,16 @@ export default function ConditionPageClient({
 
                       {/* Management Tab */}
                       {activeTab === 'self-care' && (
-                        <div id="section-self-care" className="space-y-8 scroll-mt-40">
-                          {/* Integrated Evidence-Based Management - Premium Design */}
-                          {(condition.evidenceSnapshot || condition.selfManagement) && (
+                        <AnimatePresence mode="wait">
+                          <motion.div
+                            key={activeManagementView}
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -20 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            {/* Integrated Evidence-Based Management - Premium Design */}
+                            {activeManagementView === 'evidence-based-treatment' && (condition.evidenceSnapshot || condition.selfManagement) && (
                             <div data-section="evidence-based" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
                               {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 via-transparent to-blue-50/30 pointer-events-none"></div>
@@ -1462,10 +1469,10 @@ export default function ConditionPageClient({
                                 </AnimatePresence>
                               </div>
                             </div>
-                          )}
+                            )}
 
-                          {/* Treatment Techniques Section - Collapsible */}
-                          {condition.treatmentApproach && (
+                            {/* Treatment Techniques Section - Collapsible */}
+                            {activeManagementView === 'treatment-techniques' && condition.treatmentApproach && (
                             <div data-section="treatment-techniques" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
                               {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-orange-50/30 via-transparent to-amber-50/20 pointer-events-none"></div>
@@ -1529,10 +1536,10 @@ export default function ConditionPageClient({
                                 </AnimatePresence>
                               </div>
                             </div>
-                          )}
+                            )}
 
-                          {/* Recovery Timeline Section - Collapsible */}
-                          {condition.timeline && condition.timeline.length > 0 && (
+                            {/* Recovery Timeline Section - Collapsible */}
+                            {activeManagementView === 'timeline' && condition.timeline && condition.timeline.length > 0 && (
                             <div data-section="timeline" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
                               {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-teal-50/30 via-transparent to-cyan-50/20 pointer-events-none"></div>
@@ -1600,9 +1607,9 @@ export default function ConditionPageClient({
                                 </AnimatePresence>
                               </div>
                             </div>
-                          )}
+                            )}
 
-                          {condition.prognosis && (
+                            {activeManagementView === 'prognosis' && condition.prognosis && (
                             <div data-section="prognosis" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
                               {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-purple-50/30 via-transparent to-pink-50/20 pointer-events-none"></div>
@@ -1716,8 +1723,8 @@ export default function ConditionPageClient({
                             </div>
                           )}
 
-                          {/* Measuring Progress Section - Premium Design */}
-                          {condition.measuringProgress && (
+                            {/* Measuring Progress Section - Premium Design */}
+                            {activeManagementView === 'measuring-success' && condition.measuringProgress && (
                             <div data-section="measuring" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
                               {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-green-50/30 via-transparent to-emerald-50/20 pointer-events-none"></div>
@@ -1835,7 +1842,7 @@ export default function ConditionPageClient({
                           )}
 
 
-                          {condition.faqs && condition.faqs.length > 0 && (
+                            {activeManagementView === 'faqs' && condition.faqs && condition.faqs.length > 0 && (
                             <div data-section="faqs" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
                               {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-transparent to-cyan-50/20 pointer-events-none"></div>
@@ -1915,8 +1922,9 @@ export default function ConditionPageClient({
                                 </AnimatePresence>
                               </div>
                             </div>
-                          )}
-                        </div>
+                            )}
+                          </motion.div>
+                        </AnimatePresence>
                       )}
                     </motion.div>
                   </AnimatePresence>

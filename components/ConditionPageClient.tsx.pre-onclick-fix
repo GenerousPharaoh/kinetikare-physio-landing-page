@@ -1146,7 +1146,8 @@ export default function ConditionPageClient({
                               <div className="relative">
                                 {/* Header with gradient accent - Clickable */}
                                 <div 
-                                  className="bg-gradient-to-r from-blue-900 to-blue-700 px-8 py-6 transition-all"
+                                  className="bg-gradient-to-r from-blue-900 to-blue-700 px-8 py-6 cursor-pointer hover:from-blue-800 hover:to-blue-600 transition-all"
+                                  onClick={() => toggleResearchSection('research-insights')}
                                 >
                                   <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-3">
@@ -1257,7 +1258,8 @@ export default function ConditionPageClient({
                               <div className="relative">
                                 {/* Header with gradient accent - Now clickable */}
                                 <div 
-                                  className="bg-gradient-to-r from-slate-900 to-slate-700 px-8 py-6 transition-all"
+                                  className="bg-gradient-to-r from-slate-900 to-slate-700 px-8 py-6 cursor-pointer hover:from-slate-800 hover:to-slate-600 transition-all"
+                                  onClick={() => toggleManagementSection('evidence-based')}
                                 >
                                   <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-3">
@@ -1454,7 +1456,8 @@ export default function ConditionPageClient({
                               <div className="relative">
                                 {/* Header with gradient accent - Clickable */}
                                 <div 
-                                  className="bg-gradient-to-r from-orange-900 to-amber-700 px-8 py-6 transition-all"
+                                  className="bg-gradient-to-r from-orange-900 to-amber-700 px-8 py-6 cursor-pointer hover:from-orange-800 hover:to-amber-600 transition-all"
+                                  onClick={() => toggleManagementSection('treatment-techniques')}
                                 >
                                   <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-3">
@@ -1521,6 +1524,7 @@ export default function ConditionPageClient({
                                 {/* Header with gradient accent - Clickable */}
                                 <div 
                                   className="bg-gradient-to-r from-teal-900 to-cyan-700 px-8 py-6 cursor-pointer hover:from-teal-800 hover:to-cyan-600 transition-all"
+                                  onClick={() => toggleManagementSection('timeline')}
                                 >
                                   <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-3">
@@ -1589,7 +1593,8 @@ export default function ConditionPageClient({
                               <div className="relative">
                                 {/* Header with gradient accent - Clickable */}
                                 <div 
-                                  className="bg-gradient-to-r from-purple-900 to-purple-700 px-8 py-6 transition-all"
+                                  className="bg-gradient-to-r from-purple-900 to-purple-700 px-8 py-6 cursor-pointer hover:from-purple-800 hover:to-purple-600 transition-all"
+                                  onClick={() => toggleManagementSection('prognosis')}
                                 >
                                   <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-3">
@@ -1703,7 +1708,8 @@ export default function ConditionPageClient({
                               <div className="relative">
                                 {/* Header with gradient accent */}
                                 <div 
-                                  className="bg-gradient-to-r from-green-900 to-green-700 px-8 py-6 transition-all"
+                                  className="bg-gradient-to-r from-green-900 to-green-700 px-8 py-6 cursor-pointer hover:from-green-800 hover:to-green-600 transition-all"
+                                  onClick={() => toggleManagementSection('measuring')}
                                 >
                                   <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-3">
@@ -1820,7 +1826,8 @@ export default function ConditionPageClient({
                               <div className="relative">
                                 {/* Header with gradient accent */}
                                 <div 
-                                  className="bg-gradient-to-r from-blue-900 to-blue-700 px-8 py-6 transition-all"
+                                  className="bg-gradient-to-r from-blue-900 to-blue-700 px-8 py-6 cursor-pointer hover:from-blue-800 hover:to-blue-600 transition-all"
+                                  onClick={() => toggleManagementSection('faqs')}
                                 >
                                   <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-3">

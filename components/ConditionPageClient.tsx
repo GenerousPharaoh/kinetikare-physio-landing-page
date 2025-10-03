@@ -310,10 +310,10 @@ export default function ConditionPageClient({
               {/* Sidebar Navigation - Desktop - JAVASCRIPT STICKY */}
               <aside id="sidebar-container" className="hidden lg:block w-56 flex-shrink-0">
                 <nav className="space-y-3 pr-3" style={{...sidebarStyle, transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'}}>
-                  {/* Scroll Progress - Enhanced */}
-                  <div className="h-1 bg-slate-100/50 rounded-full overflow-hidden backdrop-blur-sm">
+                  {/* Scroll Progress - Refined */}
+                  <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden shadow-inner">
                     <div
-                      className="h-full bg-gradient-to-r from-[#B08D57] via-[#C9A769] to-[#D4AF37] transition-all duration-500 ease-out shadow-sm"
+                      className="h-full bg-gradient-to-r from-[#B08D57] via-[#C9A769] to-[#D4AF37] transition-all duration-300 ease-out shadow-md"
                       style={{ width: `${scrollProgress}%` }}
                     />
                   </div>
@@ -857,13 +857,13 @@ export default function ConditionPageClient({
                                 )}
 
                                 {condition.clinicalPresentation.associatedSymptoms && (
-                                  <div className="mb-8">
-                                    <h3 className="text-xl font-medium leading-tight text-slate-900 mb-4">Associated Symptoms</h3>
-                                    <div className="grid md:grid-cols-2 gap-4">
+                                  <div className="mb-10">
+                                    <h3 className="text-xl font-semibold leading-tight text-slate-900 mb-6">Associated Symptoms</h3>
+                                    <div className="grid md:grid-cols-2 gap-3">
                                       {condition.clinicalPresentation.associatedSymptoms.map((symptom, index) => (
-                                        <div key={index} className="flex items-start gap-3">
-                                          <div className="mt-2 h-1.5 w-1.5 bg-slate-400 rounded-full" />
-                                          <span className="text-base text-slate-700 leading-relaxed">{symptom}</span>
+                                        <div key={index} className="flex items-start gap-3 p-3 rounded-lg bg-slate-50/50 border border-slate-100 hover:bg-white hover:shadow-sm transition-all duration-200">
+                                          <div className="mt-1.5 h-1.5 w-1.5 bg-[#B08D57] rounded-full flex-shrink-0" />
+                                          <span className="text-sm md:text-base text-slate-700 leading-relaxed">{symptom}</span>
                                         </div>
                                       ))}
                                     </div>
@@ -871,31 +871,34 @@ export default function ConditionPageClient({
                                 )}
 
                                 {condition.clinicalPresentation.typicalPattern && (
-                                  <div className="p-6 md:p-7 bg-gradient-to-br from-[#B08D57]/5 to-[#B08D57]/10 rounded-xl border border-[#B08D57]/20 shadow-sm">
-                                    <h3 className="text-xl font-semibold leading-tight text-slate-900 mb-4">Typical Pattern</h3>
-                                    <p className="text-base md:text-lg text-slate-700 leading-relaxed">{condition.clinicalPresentation.typicalPattern}</p>
+                                  <div className="relative p-8 md:p-10 bg-gradient-to-br from-[#B08D57]/8 via-[#B08D57]/5 to-transparent rounded-2xl border border-[#B08D57]/20 shadow-md overflow-hidden">
+                                    <div className="absolute top-0 right-0 w-32 h-32 bg-[#B08D57]/5 rounded-full blur-3xl"></div>
+                                    <div className="relative">
+                                      <h3 className="text-xl font-semibold leading-tight text-slate-900 mb-5">Typical Pattern</h3>
+                                      <p className="text-base md:text-lg text-slate-700 leading-relaxed">{condition.clinicalPresentation.typicalPattern}</p>
+                                    </div>
                                   </div>
                                 )}
                               </div>
                             )}
 
                             {activeClinicalView === 'differential' && condition.differentialDiagnosis && condition.differentialDiagnosis.length > 0 && (
-                              <div className="bg-slate-50 rounded-xl p-8 md:p-8 border border-slate-200">
-                                <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-4">
+                              <div className="bg-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-lg">
+                                <h2 className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900 mb-3">
                                   Differential Diagnosis
                                 </h2>
-                                <p className="text-base text-slate-700 leading-relaxed mb-6">Conditions with similar presentations:</p>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                <p className="text-base text-slate-600 leading-relaxed mb-10">Conditions with similar presentations:</p>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                   {condition.differentialDiagnosis.map((diff, index) => (
-                                    <div key={index} className="group relative bg-white/80 backdrop-blur-xl rounded-2xl p-6 border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                                    <div key={index} className="group relative bg-gradient-to-br from-white to-slate-50/50 rounded-2xl p-7 border border-slate-200 shadow-md hover:shadow-xl hover:-translate-y-1 hover:border-[#B08D57]/30 transition-all duration-200">
                                       <div className="flex items-start gap-4">
                                         <div className="flex-shrink-0">
-                                          <div className="w-10 h-10 bg-gradient-to-br from-slate-500 to-slate-600 rounded-xl flex items-center justify-center shadow-lg">
-                                            <span className="text-white font-bold text-sm">{index + 1}</span>
+                                          <div className="w-12 h-12 bg-gradient-to-br from-[#B08D57] to-[#967745] rounded-xl flex items-center justify-center shadow-lg">
+                                            <span className="text-white font-semibold text-base">{index + 1}</span>
                                           </div>
                                         </div>
                                         <div className="flex-1">
-                                          <h3 className="text-lg font-semibold text-slate-900 mb-2">{diff.condition}</h3>
+                                          <h3 className="text-lg font-bold text-slate-900 mb-3 group-hover:text-[#B08D57] transition-colors">{diff.condition}</h3>
                                           <p className="text-sm text-slate-700 leading-relaxed">
                                             <span className="font-medium">Key differences:</span> {diff.distinguishingFeatures}
                                           </p>
@@ -1303,18 +1306,19 @@ export default function ConditionPageClient({
                                       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                                         {/* Primary Strategy Card */}
                                         {(condition.evidenceSnapshot.primaryStrategy || condition.evidenceSnapshot.firstLine) && (
-                                          <div className="group relative bg-white/80 backdrop-blur-xl rounded-2xl p-6 border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                                            <div className="space-y-4">
+                                          <div className="group relative bg-gradient-to-br from-emerald-50 via-white to-white rounded-2xl p-7 border-2 border-emerald-100 shadow-md hover:shadow-xl hover:-translate-y-1 hover:border-emerald-200 transition-all duration-200 overflow-hidden">
+                                            <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-500/5 rounded-full blur-2xl"></div>
+                                            <div className="relative space-y-5">
                                               <div className="flex justify-center">
-                                                <div className="w-14 h-14 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center shadow-lg">
-                                                  <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                                                <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-200">
+                                                  <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                                                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                                   </svg>
                                                 </div>
                                               </div>
                                               <div className="text-center">
-                                                <h3 className="text-xs font-semibold text-emerald-700 uppercase tracking-wider mb-3">Primary Treatment Approach</h3>
-                                                <p className="text-slate-700 text-sm leading-relaxed">
+                                                <h3 className="text-xs font-bold text-emerald-700 uppercase tracking-wider mb-4">Primary Treatment Approach</h3>
+                                                <p className="text-slate-700 text-sm md:text-base leading-relaxed">
                                                   {condition.evidenceSnapshot.primaryStrategy || condition.evidenceSnapshot.firstLine}
                                                 </p>
                                               </div>
@@ -1324,18 +1328,19 @@ export default function ConditionPageClient({
                                         
                                         {/* Secondary Strategy Card */}
                                         {(condition.evidenceSnapshot.secondaryStrategy || condition.evidenceSnapshot.imaging) && (
-                                          <div className="group relative bg-white/80 backdrop-blur-xl rounded-2xl p-6 border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                                            <div className="space-y-4">
+                                          <div className="group relative bg-gradient-to-br from-blue-50 via-white to-white rounded-2xl p-7 border-2 border-blue-100 shadow-md hover:shadow-xl hover:-translate-y-1 hover:border-blue-200 transition-all duration-200 overflow-hidden">
+                                            <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 rounded-full blur-2xl"></div>
+                                            <div className="relative space-y-5">
                                               <div className="flex justify-center">
-                                                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg">
-                                                  <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                                                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-200">
+                                                  <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                                                     <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                                                   </svg>
                                                 </div>
                                               </div>
                                               <div className="text-center">
-                                                <h3 className="text-xs font-bold text-blue-700 uppercase tracking-wider mb-3">Complementary Interventions</h3>
-                                                <p className="text-slate-700 text-sm leading-relaxed">
+                                                <h3 className="text-xs font-bold text-blue-700 uppercase tracking-wider mb-4">Complementary Interventions</h3>
+                                                <p className="text-slate-700 text-sm md:text-base leading-relaxed">
                                                   {condition.evidenceSnapshot.secondaryStrategy || condition.evidenceSnapshot.imaging}
                                                 </p>
                                               </div>
@@ -1345,18 +1350,19 @@ export default function ConditionPageClient({
 
                                         {/* Prevention Strategy Card */}
                                         {(condition.evidenceSnapshot.preventionStrategy || condition.evidenceSnapshot.management) && (
-                                          <div className="group relative bg-white/80 backdrop-blur-xl rounded-2xl p-6 border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                                            <div className="space-y-4">
+                                          <div className="group relative bg-gradient-to-br from-violet-50 via-white to-white rounded-2xl p-7 border-2 border-violet-100 shadow-md hover:shadow-xl hover:-translate-y-1 hover:border-violet-200 transition-all duration-200 overflow-hidden">
+                                            <div className="absolute top-0 right-0 w-24 h-24 bg-violet-500/5 rounded-full blur-2xl"></div>
+                                            <div className="relative space-y-5">
                                               <div className="flex justify-center">
-                                                <div className="w-14 h-14 bg-gradient-to-br from-violet-500 to-violet-600 rounded-2xl flex items-center justify-center shadow-lg">
-                                                  <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                                                <div className="w-16 h-16 bg-gradient-to-br from-violet-500 to-violet-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-200">
+                                                  <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                                                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
                                                   </svg>
                                                 </div>
                                               </div>
                                               <div className="text-center">
-                                                <h3 className="text-xs font-bold text-violet-700 uppercase tracking-wider mb-3">Prevention & Long-term Care</h3>
-                                                <p className="text-slate-700 text-sm leading-relaxed">
+                                                <h3 className="text-xs font-bold text-violet-700 uppercase tracking-wider mb-4">Prevention & Long-term Care</h3>
+                                                <p className="text-slate-700 text-sm md:text-base leading-relaxed">
                                                   {condition.evidenceSnapshot.preventionStrategy || condition.evidenceSnapshot.management}
                                                 </p>
                                               </div>

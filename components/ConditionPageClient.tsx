@@ -93,6 +93,17 @@ export default function ConditionPageClient({
   const [searchQuery, setSearchQuery] = useState('');
   const [scrollProgress, setScrollProgress] = useState(0);
   const [sidebarStyle, setSidebarStyle] = useState<React.CSSProperties>({});
+  const contentContainerRef = useRef<HTMLDivElement>(null);
+
+  // Scroll to top of content container
+  const scrollToContentTop = () => {
+    if (contentContainerRef.current) {
+      const yOffset = -120; // Account for fixed header (96px) + some padding
+      const element = contentContainerRef.current;
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  };
 
   // Check if condition has detailed content
   const hasDetailedContent = Boolean(
@@ -324,7 +335,10 @@ export default function ConditionPageClient({
                     {tabs.find(t => t.id === 'overview') && (
                       <div>
                         <button
-                          onClick={() => setActiveTab('overview')}
+                          onClick={() => {
+                            setActiveTab('overview');
+                            scrollToContentTop();
+                          }}
                           className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
                             activeTab === 'overview'
                               ? 'bg-[#B08D57] text-white shadow-md'
@@ -382,7 +396,7 @@ export default function ConditionPageClient({
                     {tabs.find(t => t.id === 'symptoms') && (
                       <div>
                         <button
-                          onClick={() => setActiveTab('symptoms')}
+                          onClick={() => { setActiveTab('symptoms'); scrollToContentTop(); }}
                           className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                             activeTab === 'symptoms'
                               ? 'bg-[#B08D57] text-white shadow-md'
@@ -452,7 +466,7 @@ export default function ConditionPageClient({
                     {tabs.find(t => t.id === 'self-care') && (
                       <div>
                         <button
-                          onClick={() => setActiveTab('self-care')}
+                          onClick={() => { setActiveTab('self-care'); scrollToContentTop(); }}
                           className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                             activeTab === 'self-care'
                               ? 'bg-[#B08D57] text-white shadow-md'
@@ -554,7 +568,7 @@ export default function ConditionPageClient({
                     {tabs.find(t => t.id === 'research') && (
                       <div>
                         <button
-                          onClick={() => setActiveTab('research')}
+                          onClick={() => { setActiveTab('research'); scrollToContentTop(); }}
                           className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                             activeTab === 'research'
                               ? 'bg-[#B08D57] text-white shadow-md'
@@ -720,7 +734,7 @@ export default function ConditionPageClient({
               <div className="flex-1 min-w-0">
                 <div className="max-w-4xl mx-auto">
                   {/* Tab Content */}
-                  <main className="relative min-w-0 w-full">
+                  <main ref={contentContainerRef} className="relative min-w-0 w-full">
                   {/* Coming Soon Message - Shown when no detailed content */}
                   {!hasDetailedContent ? (
                     <div className="bg-slate-50 rounded-xl p-8 border border-slate-200">

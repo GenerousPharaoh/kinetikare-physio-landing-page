@@ -374,7 +374,7 @@ export default function ConditionPageClient({
                           >
                             {condition.pathophysiology && (
                               <button
-                                onClick={() => setActiveOverviewView('pathophysiology')}
+                                onClick={() => { setActiveOverviewView('pathophysiology'); scrollToContentTop(); }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeOverviewView === 'pathophysiology'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -386,7 +386,7 @@ export default function ConditionPageClient({
                             )}
                             {condition.biomechanics && (
                               <button
-                                onClick={() => setActiveOverviewView('biomechanics')}
+                                onClick={() => { setActiveOverviewView('biomechanics'); scrollToContentTop(); }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeOverviewView === 'biomechanics'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -432,7 +432,7 @@ export default function ConditionPageClient({
                           >
                             {condition.clinicalPresentation && (
                               <button
-                                onClick={() => setActiveClinicalView('clinical-presentation')}
+                                onClick={() => { setActiveClinicalView('clinical-presentation'); scrollToContentTop(); }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeClinicalView === 'clinical-presentation'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -444,7 +444,7 @@ export default function ConditionPageClient({
                             )}
                             {condition.differentialDiagnosis && condition.differentialDiagnosis.length > 0 && (
                               <button
-                                onClick={() => setActiveClinicalView('differential')}
+                                onClick={() => { setActiveClinicalView('differential'); scrollToContentTop(); }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeClinicalView === 'differential'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -456,7 +456,7 @@ export default function ConditionPageClient({
                             )}
                             {condition.whenToSeek && condition.whenToSeek.length > 0 && (
                               <button
-                                onClick={() => setActiveClinicalView('when-to-seek')}
+                                onClick={() => { setActiveClinicalView('when-to-seek'); scrollToContentTop(); }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeClinicalView === 'when-to-seek'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -499,7 +499,7 @@ export default function ConditionPageClient({
                             className="ml-3 mt-1.5 space-y-1 border-l-2 border-slate-200 pl-3"
                           >
                             <button
-                              onClick={() => setActiveManagementView('evidence-based-treatment')}
+                              onClick={() => { setActiveManagementView('evidence-based-treatment'); scrollToContentTop(); }}
                               className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                 activeManagementView === 'evidence-based-treatment'
                                   ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -510,7 +510,7 @@ export default function ConditionPageClient({
                             </button>
                             {condition.treatmentApproach && (
                               <button
-                                onClick={() => setActiveManagementView('treatment-techniques')}
+                                onClick={() => { setActiveManagementView('treatment-techniques'); scrollToContentTop(); }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeManagementView === 'treatment-techniques'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -522,7 +522,7 @@ export default function ConditionPageClient({
                             )}
                             {condition.timeline && (
                               <button
-                                onClick={() => setActiveManagementView('timeline')}
+                                onClick={() => { setActiveManagementView('timeline'); scrollToContentTop(); }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeManagementView === 'timeline'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -534,7 +534,7 @@ export default function ConditionPageClient({
                             )}
                             {condition.prognosis && (
                               <button
-                                onClick={() => setActiveManagementView('prognosis')}
+                                onClick={() => { setActiveManagementView('prognosis'); scrollToContentTop(); }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeManagementView === 'prognosis'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -546,7 +546,7 @@ export default function ConditionPageClient({
                             )}
                             {condition.measuringProgress && (
                               <button
-                                onClick={() => setActiveManagementView('measuring-success')}
+                                onClick={() => { setActiveManagementView('measuring-success'); scrollToContentTop(); }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeManagementView === 'measuring-success'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -558,7 +558,7 @@ export default function ConditionPageClient({
                             )}
                             {condition.faqs && (
                               <button
-                                onClick={() => setActiveManagementView('faqs')}
+                                onClick={() => { setActiveManagementView('faqs'); scrollToContentTop(); }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeManagementView === 'faqs'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -604,7 +604,7 @@ export default function ConditionPageClient({
                           >
                             {condition.keyResearch && condition.keyResearch.length > 0 && (
                               <button
-                                onClick={() => setActiveResearchView('key-research')}
+                                onClick={() => { setActiveResearchView('key-research'); scrollToContentTop(); }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeResearchView === 'key-research'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'
@@ -616,7 +616,7 @@ export default function ConditionPageClient({
                             )}
                             {condition.researchInsights && condition.researchInsights.length > 0 && (
                               <button
-                                onClick={() => setActiveResearchView('research-insights')}
+                                onClick={() => { setActiveResearchView('research-insights'); scrollToContentTop(); }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeResearchView === 'research-insights'
                                     ? 'bg-[#B08D57] text-white font-medium shadow-sm'

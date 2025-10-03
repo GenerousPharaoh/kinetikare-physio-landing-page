@@ -48,35 +48,6 @@ export default function ConditionPageClient({
   condition,
   relatedConditions
 }: ConditionPageClientProps) {
-  // Helper function to scroll to section with header offset
-  const scrollToSection = (sectionId: string, options?: { tab?: string; subsection?: string }) => {
-    // Immediately update states for instant visual feedback - do this FIRST
-    if (options?.tab) {
-      setActiveTab(options.tab);
-      isUserScrollingRef.current = true;
-    }
-    if (options?.subsection) {
-      setActiveSubSection(options.subsection);
-      isUserScrollingRef.current = true;
-    }
-
-    // Then try to scroll
-    const element = document.getElementById(sectionId) || document.querySelector(`[data-section="${sectionId}"]`);
-    if (element) {
-      const top = element.getBoundingClientRect().top + window.pageYOffset - 110;
-      window.scrollTo({ top, behavior: 'smooth' });
-
-      // Re-enable auto tracking after scroll completes
-      setTimeout(() => {
-        isUserScrollingRef.current = false;
-      }, 800);
-    } else {
-      // Element not found, but we still updated the tab - clear the lock
-      setTimeout(() => {
-        isUserScrollingRef.current = false;
-      }, 100);
-    }
-  };
 
   // Determine first available tab for this condition
   const getFirstAvailableTab = () => {
@@ -88,44 +59,18 @@ export default function ConditionPageClient({
   };
 
   const [activeTab, setActiveTab] = useState(getFirstAvailableTab());
-  const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
-  const isUserScrollingRef = useRef(false);
+
+  // Active sub-views for each tab (instead of scrolling/collapsible)
+  const [activeOverviewView, setActiveOverviewView] = useState<string>('pathophysiology');
+  const [activeClinicalView, setActiveClinicalView] = useState<string>('clinical-presentation');
+  const [activeManagementView, setActiveManagementView] = useState<string>('evidence-based-treatment');
+  const [activeResearchView, setActiveResearchView] = useState<string>('key-research');
 
   // Sidebar state
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [scrollProgress, setScrollProgress] = useState(0);
   const [sidebarStyle, setSidebarStyle] = useState<React.CSSProperties>({});
-  
-  // Management tab collapsible sections
-  const [expandedManagementSections, setExpandedManagementSections] = useState<{ [key: string]: boolean }>({
-    'evidence-based': true, // Start with first section expanded
-    'treatment-techniques': false,
-    'timeline': false,
-    'prognosis': false,
-    'measuring': false,
-    'faqs': false
-  });
-  
-  const toggleManagementSection = (section: string) => {
-    setExpandedManagementSections(prev => ({
-      ...prev,
-      [section]: !prev[section]
-    }));
-  };
-
-  // Research tab collapsible sections
-  const [expandedResearchSections, setExpandedResearchSections] = useState<{ [key: string]: boolean }>({
-    'key-research': true, // Start with first section expanded
-    'research-insights': false
-  });
-  
-  const toggleResearchSection = (section: string) => {
-    setExpandedResearchSections(prev => ({
-      ...prev,
-      [section]: !prev[section]
-    }));
-  };
 
   // Check if condition has detailed content
   const hasDetailedContent = Boolean(
@@ -570,11 +515,9 @@ export default function ConditionPageClient({
                             className="ml-3 mt-1.5 space-y-1 border-l-2 border-slate-200 pl-3"
                           >
                             <button
-                              onClick={() => {
-                                scrollToSection('evidence-based-treatment', { subsection: 'evidence-based-treatment' });
-                              }}
+                              onClick={() => setActiveManagementView('evidence-based-treatment')}
                               className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
-                                activeSubSection === 'evidence-based-treatment'
+                                activeManagementView === 'evidence-based-treatment'
                                   ? 'bg-[#B08D57] text-white font-medium shadow-sm'
                                   : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                               }`}

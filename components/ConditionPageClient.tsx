@@ -97,7 +97,7 @@ export default function ConditionPageClient({
 
   // Scroll to top of content container
   const scrollToContentTop = () => {
-    // Small delay to allow content swap animation to start
+    // Delay to allow content swap animation to complete
     setTimeout(() => {
       if (contentContainerRef.current) {
         const headerHeight = 96; // Fixed header
@@ -111,7 +111,7 @@ export default function ConditionPageClient({
           behavior: 'smooth'
         });
       }
-    }, 50); // Small delay to sync with content animation
+    }, 350); // Match the longest AnimatePresence duration (0.3s + buffer)
   };
 
   // Check if condition has detailed content

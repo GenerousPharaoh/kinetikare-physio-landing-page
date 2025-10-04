@@ -180,20 +180,20 @@ export default function GoogleReviews() {
           <div className="absolute inset-0 pointer-events-none">
             <button
               onClick={handlePrevious}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-30 bg-white rounded-full p-2 md:p-3 shadow-premium-1 hover:shadow-premium-1-hover transition-all duration-200 group pointer-events-auto"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-30 bg-white rounded-full p-3 shadow-lg hover:bg-gray-50 transition-colors duration-150 group pointer-events-auto cursor-pointer"
               aria-label="Previous review"
             >
-              <svg className="w-4 h-4 md:w-5 md:h-5 text-gray-600 group-hover:text-gray-900 transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-gray-600 group-hover:text-gray-900 transition-colors duration-150" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
 
             <button
               onClick={handleNext}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-30 bg-white rounded-full p-2 md:p-3 shadow-premium-1 hover:shadow-premium-1-hover transition-all duration-200 group pointer-events-auto"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-30 bg-white rounded-full p-3 shadow-lg hover:bg-gray-50 transition-colors duration-150 group pointer-events-auto cursor-pointer"
               aria-label="Next review"
             >
-              <svg className="w-4 h-4 md:w-5 md:h-5 text-gray-600 group-hover:text-gray-900 transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-gray-600 group-hover:text-gray-900 transition-colors duration-150" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </button>

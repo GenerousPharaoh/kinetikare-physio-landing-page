@@ -90,7 +90,6 @@ export default function ConditionPageClient({
   };
 
   // Sidebar state
-  const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [scrollProgress, setScrollProgress] = useState(0);
   const [sidebarStyle, setSidebarStyle] = useState<React.CSSProperties>({});

@@ -273,7 +273,7 @@ export default function About() {
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]"></div>
-                <span>Advanced Manual Therapy</span>
+                <span>Manual Therapy Training</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]"></div>
@@ -316,7 +316,7 @@ export default function About() {
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 rounded-full bg-[#B08D57] flex-shrink-0 mt-1.5"></div>
-                    <span className="text-sm font-medium">Advanced Manual Therapy Training</span>
+                    <span className="text-sm font-medium">Manual Therapy Training</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 rounded-full bg-[#B08D57] flex-shrink-0 mt-1.5"></div>
@@ -464,7 +464,7 @@ export default function About() {
                     </li>
                     <li className="flex items-start gap-3">
                       <div className="w-2 h-2 rounded-full bg-[#B08D57] flex-shrink-0 mt-1.5"></div>
-                      <span className="text-sm font-medium">Advanced Manual Therapy Training</span>
+                      <span className="text-sm font-medium">Manual Therapy Training</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <div className="w-2 h-2 rounded-full bg-[#B08D57] flex-shrink-0 mt-1.5"></div>
@@ -783,7 +783,7 @@ export default function About() {
             <h3 className="text-4xl font-light text-primary-800 mb-6 tracking-[-0.02em]">Professional Foundation</h3>
             <div className="w-32 h-1 bg-gradient-to-r from-[#B08D57] to-[#A17D47] mx-auto mb-8"></div>
             <p className="text-xl text-primary-600 max-w-3xl mx-auto leading-relaxed">
-              Built on rigorous education, advanced certifications, and extensive hands-on experience
+              Built on rigorous education, targeted certifications, and extensive hands-on experience
             </p>
           </div>
 
@@ -892,7 +892,7 @@ export default function About() {
               </div>
             </div>
 
-            {/* Advanced Certifications */}
+            {/* Professional Certifications */}
             <div className="group">
               <div className="bg-gradient-to-br from-white to-slate-50 border border-slate-200/60 rounded-2xl p-10 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden h-full flex flex-col">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#B08D57]/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
@@ -900,7 +900,7 @@ export default function About() {
                 <div className="relative z-10 flex-1 flex flex-col">
                   <div className="flex items-center mb-10">
                     <div className="w-3 h-8 bg-gradient-to-b from-[#B08D57] to-[#A17D47] rounded-full mr-4"></div>
-                    <h4 className="text-2xl font-normal text-slate-800">Advanced Certifications</h4>
+                    <h4 className="text-2xl font-normal text-slate-800">Professional Certifications</h4>
                   </div>
                   
                   <div className="space-y-6 flex-1">
@@ -908,9 +908,9 @@ export default function About() {
                       <div className="flex items-start space-x-4">
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
                         <div className="flex-1">
-                          <div className="font-bold text-slate-800 text-xl mb-2">Advanced Manual Therapy Training</div>
+                          <div className="font-bold text-slate-800 text-xl mb-2">Manual Therapy Training</div>
                           <div className="text-[#B08D57] font-semibold text-base mb-1">Manual Therapy Techniques</div>
-                          <div className="text-slate-600 text-sm leading-relaxed">Advanced certification in orthopedic manual physical therapy</div>
+                          <div className="text-slate-600 text-sm leading-relaxed">Targeted certification in orthopedic manual physical therapy</div>
                         </div>
                       </div>
                     </div>
@@ -921,7 +921,7 @@ export default function About() {
                         <div className="flex-1">
                           <div className="font-bold text-slate-800 text-xl mb-2">Certified Dry Needling</div>
                           <div className="text-[#B08D57] font-semibold text-base mb-1">Practitioner</div>
-                          <div className="text-slate-600 text-sm leading-relaxed">Advanced technique for trigger point release and pain management</div>
+                          <div className="text-slate-600 text-sm leading-relaxed">Evidence-based technique for trigger point release and pain management</div>
                         </div>
                       </div>
                     </div>

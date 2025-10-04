@@ -76,9 +76,9 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-base sm:text-lg text-slate-600 leading-relaxed mb-6 max-w-lg"
             >
-              Advanced physiotherapy combining 
+              Expert physiotherapy combining
               <span className="font-semibold text-slate-800"> evidence-based techniques </span>
-              with 
+              with
               <span className="font-semibold text-slate-800"> personalized attention </span>
               for lasting results.
             </motion.p>

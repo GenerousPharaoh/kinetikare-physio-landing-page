@@ -1492,7 +1492,7 @@ export default function ConditionPageClient({
                                       </div>
                                       <div>
                                         <h2 className="text-2xl font-medium tracking-tight leading-tight text-white">Treatment Techniques</h2>
-                                        <p className="text-sm text-orange-200 mt-1">Specialized manual therapy and intervention approaches</p>
+                                        <p className="text-sm text-orange-200 mt-1">Evidence-based manual therapy and intervention approaches</p>
                                       </div>
                                     </div>
                                   </div>

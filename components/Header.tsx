@@ -363,13 +363,10 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
 
                   {/* Conditions Dropdown Menu */}
                   {item.name === 'Conditions' && (
-                    <div
-                      className="absolute left-1/2 -translate-x-1/2 top-full pt-2 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-200 ease-out z-50"
-                      onMouseLeave={() => {}}
-                    >
-                      <div className="bg-gradient-to-br from-slate-50 to-gray-100 rounded-lg shadow-xl overflow-hidden border border-gray-200/50" style={{ minWidth: '240px', backdropFilter: 'blur(10px)' }}>
+                    <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-200 ease-out z-50">
+                      <div className="bg-gradient-to-br from-slate-50 to-gray-100 rounded-lg shadow-xl overflow-visible border border-gray-200/50" style={{ minWidth: '240px', backdropFilter: 'blur(10px)' }}>
                         {conditionCategories.map((category) => (
-                          <div key={category.slug} className="relative group/category">
+                          <div key={category.slug} className="relative group">
                             {/* Category - triggers submenu on hover */}
                             <div className="flex items-center justify-between px-4 py-2.5 text-sm text-gray-700 hover:bg-white/70 hover:text-[#B08D57] transition-all duration-150 cursor-pointer border-b border-gray-200/30 last:border-b-0">
                               <span className="font-medium">{category.title}</span>
@@ -377,7 +374,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                             </div>
 
                             {/* Submenu - appears on hover */}
-                            <div className="absolute left-full top-0 ml-1 opacity-0 invisible group-hover/category:opacity-100 group-hover/category:visible transition-all duration-150 pointer-events-none group-hover/category:pointer-events-auto">
+                            <div className="absolute left-full top-0 ml-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
                               <div className="bg-gradient-to-br from-slate-50 to-gray-100 rounded-lg shadow-xl border border-gray-200/50 overflow-hidden" style={{ minWidth: '220px', maxHeight: '400px', backdropFilter: 'blur(10px)' }}>
                                 <div className="overflow-y-auto" style={{ maxHeight: '400px' }}>
                                   {category.conditions.map((condition) => (

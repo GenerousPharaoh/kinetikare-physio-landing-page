@@ -660,7 +660,7 @@ const footAnkleConditions: Condition[] = [
 
 export const conditionCategories: ConditionCategory[] = [
   {
-    title: "Spinal Health",
+    title: "Neck & Back",
     slug: "spinal-health",
     subtitle: "Neck, Mid-Back & Low Back",
     accent: "#B08D57",

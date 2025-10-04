@@ -669,7 +669,7 @@ export const conditionCategories: ConditionCategory[] = [
     conditions: spinalConditions,
   },
   {
-    title: "Shoulder Conditions",
+    title: "Shoulder",
     slug: "shoulder",
     subtitle: "Complete shoulder care",
     accent: "#A17D47",
@@ -696,7 +696,7 @@ export const conditionCategories: ConditionCategory[] = [
     conditions: hipPelvisConditions,
   },
   {
-    title: "Knee Conditions",
+    title: "Knee",
     slug: "knee",
     subtitle: "Comprehensive knee care",
     accent: "#A17D47",

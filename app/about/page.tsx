@@ -892,15 +892,15 @@ export default function About() {
               </div>
             </div>
 
-            {/* Professional Certifications */}
+            {/* Advanced Certifications */}
             <div className="group">
               <div className="bg-gradient-to-br from-white to-slate-50 border border-slate-200/60 rounded-2xl p-10 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden h-full flex flex-col">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#B08D57]/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
-                
+
                 <div className="relative z-10 flex-1 flex flex-col">
                   <div className="flex items-center mb-10">
                     <div className="w-3 h-8 bg-gradient-to-b from-[#B08D57] to-[#A17D47] rounded-full mr-4"></div>
-                    <h4 className="text-2xl font-normal text-slate-800">Professional Certifications</h4>
+                    <h4 className="text-2xl font-normal text-slate-800">Advanced Certifications</h4>
                   </div>
                   
                   <div className="space-y-6 flex-1">
@@ -921,7 +921,7 @@ export default function About() {
                         <div className="flex-1">
                           <div className="font-bold text-slate-800 text-xl mb-2">Certified Dry Needling</div>
                           <div className="text-[#B08D57] font-semibold text-base mb-1">Practitioner</div>
-                          <div className="text-slate-600 text-sm leading-relaxed">Dry needling for trigger point release and pain management</div>
+                          <div className="text-slate-600 text-sm leading-relaxed">Advanced certification in dry needling for trigger point release and pain management</div>
                         </div>
                       </div>
                     </div>

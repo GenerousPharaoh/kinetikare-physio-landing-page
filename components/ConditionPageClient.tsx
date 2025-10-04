@@ -330,14 +330,6 @@ export default function ConditionPageClient({
               {/* Sidebar Navigation - Desktop - JAVASCRIPT STICKY */}
               <aside id="sidebar-container" className="hidden lg:block w-56 flex-shrink-0">
                 <nav className="space-y-3 pr-3" style={{...sidebarStyle, transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'}}>
-                  {/* Scroll Progress - Refined */}
-                  <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden shadow-inner">
-                    <div
-                      className="h-full bg-gradient-to-r from-[#B08D57] via-[#C9A769] to-[#D4AF37] transition-all duration-300 ease-out shadow-md"
-                      style={{ width: `${scrollProgress}%` }}
-                    />
-                  </div>
-
                   {/* Navigation Sections - Ultra Smooth */}
                   <div className="space-y-1.5">
                     {/* Overview/Science Section with Sub-navigation */}

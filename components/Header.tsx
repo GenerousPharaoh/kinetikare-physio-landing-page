@@ -364,13 +364,13 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   {/* Conditions Mega Menu */}
                   {item.name === 'Conditions' && (
                     <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 ease-out z-50 pointer-events-none group-hover/nav:pointer-events-auto">
-                      <div className="bg-white rounded-xl shadow-2xl overflow-hidden border border-gray-100" style={{ width: '800px' }}>
-                        <div className="grid grid-cols-2 divide-x divide-gray-100">
+                      <div className="bg-gradient-to-br from-slate-50 to-gray-100 rounded-xl shadow-2xl overflow-hidden border border-gray-200/50" style={{ width: '800px', backdropFilter: 'blur(10px)' }}>
+                        <div className="grid grid-cols-2 divide-x divide-gray-200/50">
                           {conditionCategories.map((category) => (
                             <div key={category.slug} className="group/category">
                               {/* Category Header */}
-                              <div className="bg-gray-50 px-4 py-3 border-b border-gray-100">
-                                <h3 className="text-sm font-semibold text-gray-900">{category.title}</h3>
+                              <div className="bg-gradient-to-r from-slate-100 to-gray-100 px-4 py-3 border-b border-gray-200/50">
+                                <h3 className="text-sm font-semibold text-gray-800">{category.title}</h3>
                                 <p className="text-xs text-gray-600 mt-0.5">{category.subtitle}</p>
                               </div>
 
@@ -380,10 +380,10 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                                   <Link
                                     key={condition.slug}
                                     href={`/conditions/${condition.slug}`}
-                                    className="flex items-center justify-between px-3 py-2 rounded-lg text-sm text-gray-700 hover:bg-gray-50 hover:text-[#B08D57] transition-all duration-200 group/item"
+                                    className="flex items-center justify-between px-3 py-2 rounded-lg text-sm text-gray-700 hover:bg-white/70 hover:text-[#B08D57] hover:shadow-sm transition-all duration-200 group/item"
                                   >
                                     <span>{condition.name}</span>
-                                    <ChevronRightIcon className="h-3 w-3 opacity-0 group-hover/item:opacity-100 transition-opacity duration-200" />
+                                    <ChevronRightIcon className="h-3 w-3 text-[#B08D57] opacity-0 group-hover/item:opacity-100 transition-opacity duration-200" />
                                   </Link>
                                 ))}
                               </div>

@@ -141,7 +141,7 @@ function ConditionsPageWithParams({
                 <button
                   key={item.name}
                   onClick={() => handleTabChange(item.tab)}
-                  className={`relative px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-500 transform hover:-translate-y-0.5 ${
+                  className={`relative px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 transform hover:-translate-y-0.5 ${
                     activeTab === item.tab
                       ? 'text-white shadow-2xl shadow-[#B08D57]/30'
                       : 'text-slate-700 bg-white hover:bg-slate-50 border-2 border-slate-200 hover:border-[#B08D57] shadow-lg hover:shadow-xl hover:text-[#B08D57]'
@@ -151,7 +151,7 @@ function ConditionsPageWithParams({
                     <motion.div
                       layoutId="activeTab"
                       className="absolute inset-0 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"
-                      transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 35 }}
                     />
                   )}
                   <span className="relative z-10">{item.name}</span>

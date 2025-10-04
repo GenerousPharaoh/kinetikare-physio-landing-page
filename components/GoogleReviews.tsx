@@ -203,18 +203,20 @@ export default function GoogleReviews() {
         </div>
 
         {/* Dot Navigation */}
-        <div className="flex justify-center gap-2 mt-6">
+        <div className="flex justify-center items-center gap-2 mt-6">
           {reviews.map((_, index) => (
             <button
               key={index}
               onClick={() => handleDotClick(index)}
-              className={`h-[2px] transition-all duration-200 border-0 outline-none focus:outline-none cursor-pointer ${
+              className="py-2 px-1 border-0 outline-none focus:outline-none cursor-pointer"
+              aria-label={`Go to review ${index + 1}`}
+            >
+              <div className={`h-[2px] transition-all duration-200 ${
                 index === currentIndex
                   ? 'w-10 bg-[#B08D57]'
                   : 'w-6 bg-gray-300 hover:bg-gray-400'
-              }`}
-              aria-label={`Go to review ${index + 1}`}
-            />
+              }`} />
+            </button>
           ))}
         </div>
 

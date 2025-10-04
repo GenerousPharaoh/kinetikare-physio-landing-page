@@ -59,6 +59,7 @@ export default function ConditionPageClient({
   };
 
   const [activeTab, setActiveTab] = useState(getFirstAvailableTab());
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   // Active sub-views for each tab (instead of scrolling/collapsible)
   const [activeOverviewView, setActiveOverviewView] = useState<string>('pathophysiology');
@@ -1965,6 +1966,82 @@ export default function ConditionPageClient({
           </div>
         </section>
       </div>
+
+      {/* Mobile Floating Navigation Button */}
+      <button
+        onClick={() => setMobileNavOpen(true)}
+        className="lg:hidden fixed bottom-6 right-6 z-40 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white p-4 rounded-full shadow-2xl hover:shadow-[#B08D57]/50 transition-all duration-300 hover:scale-110"
+        aria-label="Open navigation menu"
+      >
+        <Bars3Icon className="h-6 w-6" />
+      </button>
+
+      {/* Mobile Navigation Drawer */}
+      <AnimatePresence>
+        {mobileNavOpen && (
+          <>
+            {/* Overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="lg:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50"
+              onClick={() => setMobileNavOpen(false)}
+            />
+
+            {/* Drawer */}
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+              className="lg:hidden fixed right-0 top-0 bottom-0 w-80 max-w-[85vw] bg-white shadow-2xl z-50 overflow-y-auto"
+            >
+              {/* Header */}
+              <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+                <h2 className="text-lg font-semibold text-gray-900">Navigation</h2>
+                <button
+                  onClick={() => setMobileNavOpen(false)}
+                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                  aria-label="Close navigation"
+                >
+                  <XMarkIcon className="h-5 w-5 text-gray-600" />
+                </button>
+              </div>
+
+              {/* Navigation Content - Same as desktop sidebar */}
+              <div className="p-6 space-y-3">
+                {tabs.map((tab) => {
+                  const isActive = activeTab === tab.id;
+                  const Icon = tab.icon;
+
+                  return (
+                    <div key={tab.id}>
+                      <button
+                        onClick={() => {
+                          setActiveTab(tab.id);
+                          setMobileNavOpen(false);
+                        }}
+                        className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
+                          isActive
+                            ? 'bg-[#B08D57] text-white shadow-md'
+                            : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900 hover:shadow-sm'
+                        }`}
+                      >
+                        <div className="flex items-center gap-2">
+                          <Icon className="h-4 w-4 flex-shrink-0" />
+                          <span>{tab.label}</span>
+                        </div>
+                      </button>
+                    </div>
+                  );
+                })}
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </>
   );
 }

@@ -3,13 +3,16 @@
 import React, { useState, useEffect, forwardRef, useCallback, useMemo } from 'react';
 import Link from 'next/link';
 // import { Menu, X, Phone, Calendar } from 'lucide-react';
-import { 
-  Bars3Icon, 
-  XMarkIcon, 
-  PhoneIcon, 
+import {
+  Bars3Icon,
+  XMarkIcon,
+  PhoneIcon,
   CalendarDaysIcon,
-  MagnifyingGlassIcon
+  MagnifyingGlassIcon,
+  ChevronRightIcon
 } from '@heroicons/react/24/outline'; // Using outline for header icons
+
+import { conditionCategories } from '@/lib/conditions-data';
 
 import { 
   HomeIcon,
@@ -322,43 +325,77 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
             {/* Navigation */}
             <nav className="hidden lg:flex items-center gap-1 lg:gap-2 xl:gap-4 2xl:gap-6 flex-1 justify-center px-2 xl:px-4">
               {mainNavItems.map((item) => (
-                <Link
-                  key={item.name}
-                      href={item.href}
-                      onClick={(e) => handleNavClick(e, item.href)}
-                  className={`relative text-xs lg:text-sm xl:text-base font-medium transition-all duration-[400ms] ease-out py-2 group whitespace-nowrap outline-none
-                          ${isCurrentPath(item.href) 
-                      ? '!text-[#D4AF37] font-normal hover:!text-[#E6C157]' 
-                      : '!text-white hover:!text-[#D4AF37]'}`}
-                  style={{
-                    letterSpacing: '0.08em',
-                    fontVariantLigatures: 'common-ligatures',
-                    WebkitFontSmoothing: 'antialiased',
-                    MozOsxFontSmoothing: 'grayscale',
-                    transform: 'translateZ(0)',
-                    willChange: 'transform, color'
-                  }}
-                >
-                  {item.name}
-                  
-                  {/* Underline indicator with glow */}
-                  <span className={`absolute bottom-0 left-0 right-0 h-0.5 transform origin-left transition-all duration-[400ms] ease-out
-                        ${isCurrentPath(item.href) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}
+                <div key={item.name} className="relative group/nav">
+                  <Link
+                    href={item.href}
+                    onClick={(e) => handleNavClick(e, item.href)}
+                    className={`relative text-xs lg:text-sm xl:text-base font-medium transition-all duration-[400ms] ease-out py-2 group whitespace-nowrap outline-none
+                      ${isCurrentPath(item.href)
+                        ? '!text-[#D4AF37] font-normal hover:!text-[#E6C157]'
+                        : '!text-white hover:!text-[#D4AF37]'}`}
                     style={{
-                      background: 'linear-gradient(90deg, #D4AF37, #E6C157, #D4AF37)',
-                      filter: 'drop-shadow(0 0 3px rgba(212, 175, 55, 0.4))'
-                    }}>
-                      </span>
-                  
-                  {/* Hover backdrop glow */}
-                  <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-[400ms] pointer-events-none"
-                    style={{
-                      background: 'radial-gradient(ellipse at center, rgba(212, 175, 55, 0.05), transparent)',
-                      filter: 'blur(8px)'
-                    }}></span>
-                    </Link>
+                      letterSpacing: '0.08em',
+                      fontVariantLigatures: 'common-ligatures',
+                      WebkitFontSmoothing: 'antialiased',
+                      MozOsxFontSmoothing: 'grayscale',
+                      transform: 'translateZ(0)',
+                      willChange: 'transform, color'
+                    }}
+                  >
+                    {item.name}
+
+                    {/* Underline indicator with glow */}
+                    <span className={`absolute bottom-0 left-0 right-0 h-0.5 transform origin-left transition-all duration-[400ms] ease-out
+                      ${isCurrentPath(item.href) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}
+                      style={{
+                        background: 'linear-gradient(90deg, #D4AF37, #E6C157, #D4AF37)',
+                        filter: 'drop-shadow(0 0 3px rgba(212, 175, 55, 0.4))'
+                      }}>
+                    </span>
+
+                    {/* Hover backdrop glow */}
+                    <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-[400ms] pointer-events-none"
+                      style={{
+                        background: 'radial-gradient(ellipse at center, rgba(212, 175, 55, 0.05), transparent)',
+                        filter: 'blur(8px)'
+                      }}></span>
+                  </Link>
+
+                  {/* Conditions Mega Menu */}
+                  {item.name === 'Conditions' && (
+                    <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 ease-out z-50 pointer-events-none group-hover/nav:pointer-events-auto">
+                      <div className="bg-white rounded-xl shadow-2xl overflow-hidden border border-gray-100" style={{ width: '800px' }}>
+                        <div className="grid grid-cols-2 divide-x divide-gray-100">
+                          {conditionCategories.map((category) => (
+                            <div key={category.slug} className="group/category">
+                              {/* Category Header */}
+                              <div className="bg-gray-50 px-4 py-3 border-b border-gray-100">
+                                <h3 className="text-sm font-semibold text-gray-900">{category.title}</h3>
+                                <p className="text-xs text-gray-600 mt-0.5">{category.subtitle}</p>
+                              </div>
+
+                              {/* Conditions List */}
+                              <div className="p-2 max-h-[400px] overflow-y-auto">
+                                {category.conditions.map((condition) => (
+                                  <Link
+                                    key={condition.slug}
+                                    href={`/conditions/${condition.slug}`}
+                                    className="flex items-center justify-between px-3 py-2 rounded-lg text-sm text-gray-700 hover:bg-gray-50 hover:text-[#B08D57] transition-all duration-200 group/item"
+                                  >
+                                    <span>{condition.name}</span>
+                                    <ChevronRightIcon className="h-3 w-3 opacity-0 group-hover/item:opacity-100 transition-opacity duration-200" />
+                                  </Link>
+                                ))}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
               ))}
-          </nav>
+            </nav>
 
             {/* Action Buttons */}
             <div className="flex items-center gap-2 lg:gap-3 flex-shrink-0">
@@ -391,7 +428,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative overflow-hidden bg-[#D4AF37] text-slate-900 text-xs lg:text-sm font-medium px-2 sm:px-3 lg:px-4 xl:px-5 py-2 sm:py-2.5 rounded-lg transition-all duration-[400ms] ease-out flex items-center gap-1 lg:gap-2 whitespace-nowrap shadow-lg hover:shadow-xl group"
+                className="relative overflow-hidden bg-[#D4AF37] text-white text-xs lg:text-sm font-medium px-2 sm:px-3 lg:px-4 xl:px-5 py-2 sm:py-2.5 rounded-lg flex items-center gap-1 lg:gap-2 whitespace-nowrap shadow-lg group"
                 style={{
                   letterSpacing: '0.08em',
                   transform: 'translateZ(0)',
@@ -399,7 +436,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   willChange: 'transform'
                 }}
               >
-                <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/40 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 -translate-x-full group-hover:translate-x-full" style={{ transition: 'opacity 300ms, transform 700ms' }}></span>
+                <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/40 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></span>
                 <CalendarDaysIcon className="h-3.5 lg:h-4 w-3.5 lg:w-4 relative z-10" />
                 <span className="hidden sm:inline relative z-10">Book Appointment</span>
                 <span className="sm:hidden relative z-10">Book</span>

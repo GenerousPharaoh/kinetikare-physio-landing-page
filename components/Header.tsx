@@ -37,7 +37,8 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
   const [isHovered, setIsHovered] = useState(false);
   const [activeItem, setActiveItem] = useState<string | null>(null);
   const [searchModalOpen, setSearchModalOpen] = useState(false);
-  const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
+  const [conditionsExpanded, setConditionsExpanded] = useState(false);
+  const [expandedRegion, setExpandedRegion] = useState<string | null>(null);
   const pathname = usePathname();
 
   // Optimize scroll handler with throttling
@@ -490,35 +491,42 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   {item.name === 'Conditions' ? (
                     <div className="space-y-1">
                       <button
-                        onClick={() => setExpandedCategory(expandedCategory === 'conditions' ? null : 'conditions')}
+                        onClick={() => {
+                          setConditionsExpanded(!conditionsExpanded);
+                          setExpandedRegion(null);
+                        }}
                         className={`w-full flex items-center justify-between px-4 py-3 rounded-lg text-base font-medium tracking-wide transition-all duration-300 outline-none
                           ${isCurrentPath(item.href)
                             ? '!text-[#D4AF37] bg-[#D4AF37]/10 font-normal hover:!text-[#F5D63D] hover:bg-[#D4AF37]/15'
                             : '!text-white hover:bg-white/5 hover:!text-[#D4AF37]'}`}
                       >
                         <span>{item.name}</span>
-                        <ChevronRightIcon className={`h-4 w-4 transition-transform duration-200 ${expandedCategory === 'conditions' ? 'rotate-90' : ''}`} />
+                        <ChevronRightIcon className={`h-4 w-4 transition-transform duration-200 ${conditionsExpanded ? 'rotate-90' : ''}`} />
                       </button>
 
-                      {expandedCategory === 'conditions' && (
+                      {conditionsExpanded && (
                         <div className="pl-4 space-y-1 mt-1">
                           {conditionCategories.map((category) => (
                             <div key={category.slug}>
                               <button
-                                onClick={() => setExpandedCategory(expandedCategory === category.slug ? 'conditions' : category.slug)}
+                                onClick={() => setExpandedRegion(expandedRegion === category.slug ? null : category.slug)}
                                 className="w-full flex items-center justify-between px-3 py-2 rounded text-sm text-white/80 hover:text-white hover:bg-white/5 transition-all duration-200"
                               >
                                 <span>{category.title}</span>
-                                <ChevronRightIcon className={`h-3 w-3 transition-transform duration-200 ${expandedCategory === category.slug ? 'rotate-90' : ''}`} />
+                                <ChevronRightIcon className={`h-3 w-3 transition-transform duration-200 ${expandedRegion === category.slug ? 'rotate-90' : ''}`} />
                               </button>
 
-                              {expandedCategory === category.slug && (
+                              {expandedRegion === category.slug && (
                                 <div className="pl-3 space-y-0.5 mt-0.5">
                                   {category.conditions.map((condition) => (
                                     <Link
                                       key={condition.slug}
                                       href={`/conditions/${condition.slug}`}
-                                      onClick={() => setMobileMenuOpen(false)}
+                                      onClick={() => {
+                                        setMobileMenuOpen(false);
+                                        setConditionsExpanded(false);
+                                        setExpandedRegion(null);
+                                      }}
                                       className="block px-3 py-1.5 rounded text-xs text-white/70 hover:text-[#D4AF37] hover:bg-white/5 transition-all duration-200"
                                     >
                                       {condition.name}

@@ -783,7 +783,7 @@ export default function About() {
             <h3 className="text-4xl font-light text-primary-800 mb-6 tracking-[-0.02em]">Professional Foundation</h3>
             <div className="w-32 h-1 bg-gradient-to-r from-[#B08D57] to-[#A17D47] mx-auto mb-8"></div>
             <p className="text-xl text-primary-600 max-w-3xl mx-auto leading-relaxed">
-              Built on rigorous education, targeted certifications, and extensive hands-on experience
+              Built on rigorous education, professional certifications, and extensive hands-on experience
             </p>
           </div>
 
@@ -910,7 +910,7 @@ export default function About() {
                         <div className="flex-1">
                           <div className="font-bold text-slate-800 text-xl mb-2">Manual Therapy Training</div>
                           <div className="text-[#B08D57] font-semibold text-base mb-1">Manual Therapy Techniques</div>
-                          <div className="text-slate-600 text-sm leading-relaxed">Targeted certification in orthopedic manual physical therapy</div>
+                          <div className="text-slate-600 text-sm leading-relaxed">Certification in orthopedic manual physical therapy techniques</div>
                         </div>
                       </div>
                     </div>
@@ -921,7 +921,7 @@ export default function About() {
                         <div className="flex-1">
                           <div className="font-bold text-slate-800 text-xl mb-2">Certified Dry Needling</div>
                           <div className="text-[#B08D57] font-semibold text-base mb-1">Practitioner</div>
-                          <div className="text-slate-600 text-sm leading-relaxed">Evidence-based technique for trigger point release and pain management</div>
+                          <div className="text-slate-600 text-sm leading-relaxed">Evidence-based techniques for trigger point release and pain management</div>
                         </div>
                       </div>
                     </div>

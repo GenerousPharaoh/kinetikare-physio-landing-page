@@ -68,18 +68,12 @@
   color: rgb(var(--color-gold-600)); /* Shift to accent, not random blue */
 }
 
-/* Gold accent hover - brightness shift */
+/* Gold accent - no hover effect */
 .text-gold,
 .text-[#B08D57],
 .text-[#D4AF37],
 [class*="gold"] {
-  transition: color 200ms var(--ease-smooth);
-}
-
-.text-gold:hover,
-.text-[#B08D57]:hover,
-.text-[#D4AF37]:hover {
-  color: rgb(var(--color-gold-400)); /* Lighter shade of same hue */
+  /* Hover effect removed - gold text should remain static */
 }
 
 /* Background hover states */

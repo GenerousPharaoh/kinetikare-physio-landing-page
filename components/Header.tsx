@@ -361,40 +361,39 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                       }}></span>
                   </Link>
 
-                  {/* Conditions Mega Menu */}
+                  {/* Conditions Dropdown Menu */}
                   {item.name === 'Conditions' && (
-                    <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-200 ease-out z-50 pointer-events-none group-hover/nav:pointer-events-auto">
-                      <div className="bg-gradient-to-br from-slate-50 to-gray-100 rounded-lg shadow-xl overflow-hidden border border-gray-200/50" style={{ width: '600px', maxHeight: '500px', backdropFilter: 'blur(10px)' }}>
-                        <div className="grid grid-cols-3 divide-x divide-gray-200/50 overflow-y-auto" style={{ maxHeight: '500px' }}>
-                          {conditionCategories.map((category) => (
-                            <div key={category.slug} className="group/category">
-                              {/* Category Header */}
-                              <div className="bg-gradient-to-r from-slate-100 to-gray-100 px-3 py-2 border-b border-gray-200/50 sticky top-0 z-10">
-                                <h3 className="text-xs font-semibold text-gray-800">{category.title}</h3>
-                                <p className="text-[10px] text-gray-600 mt-0.5">{category.subtitle}</p>
-                              </div>
+                    <div
+                      className="absolute left-1/2 -translate-x-1/2 top-full pt-2 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-200 ease-out z-50"
+                      onMouseLeave={() => {}}
+                    >
+                      <div className="bg-gradient-to-br from-slate-50 to-gray-100 rounded-lg shadow-xl overflow-hidden border border-gray-200/50" style={{ minWidth: '240px', backdropFilter: 'blur(10px)' }}>
+                        {conditionCategories.map((category) => (
+                          <div key={category.slug} className="relative group/category">
+                            {/* Category - triggers submenu on hover */}
+                            <div className="flex items-center justify-between px-4 py-2.5 text-sm text-gray-700 hover:bg-white/70 hover:text-[#B08D57] transition-all duration-150 cursor-pointer border-b border-gray-200/30 last:border-b-0">
+                              <span className="font-medium">{category.title}</span>
+                              <ChevronRightIcon className="h-3.5 w-3.5 text-gray-400" />
+                            </div>
 
-                              {/* Conditions List */}
-                              <div className="p-1.5">
-                                {category.conditions.map((condition) => (
-                                  <Link
-                                    key={condition.slug}
-                                    href={`/conditions/${condition.slug}`}
-                                    onClick={() => {
-                                      // Force menu to close by removing hover
-                                      const nav = document.querySelector('.group\\/nav');
-                                      if (nav) nav.classList.remove('group-hover/nav:opacity-100');
-                                    }}
-                                    className="flex items-center justify-between px-2 py-1.5 rounded text-xs text-gray-700 hover:bg-white/70 hover:text-[#B08D57] transition-all duration-150 group/item"
-                                  >
-                                    <span className="truncate">{condition.name}</span>
-                                    <ChevronRightIcon className="h-2.5 w-2.5 text-[#B08D57] opacity-0 group-hover/item:opacity-100 transition-opacity duration-150 flex-shrink-0 ml-1" />
-                                  </Link>
-                                ))}
+                            {/* Submenu - appears on hover */}
+                            <div className="absolute left-full top-0 ml-1 opacity-0 invisible group-hover/category:opacity-100 group-hover/category:visible transition-all duration-150 pointer-events-none group-hover/category:pointer-events-auto">
+                              <div className="bg-gradient-to-br from-slate-50 to-gray-100 rounded-lg shadow-xl border border-gray-200/50 overflow-hidden" style={{ minWidth: '220px', maxHeight: '400px', backdropFilter: 'blur(10px)' }}>
+                                <div className="overflow-y-auto" style={{ maxHeight: '400px' }}>
+                                  {category.conditions.map((condition) => (
+                                    <Link
+                                      key={condition.slug}
+                                      href={`/conditions/${condition.slug}`}
+                                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-white/70 hover:text-[#B08D57] transition-all duration-150 border-b border-gray-200/20 last:border-b-0"
+                                    >
+                                      {condition.name}
+                                    </Link>
+                                  ))}
+                                </div>
                               </div>
                             </div>
-                          ))}
-                        </div>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   )}

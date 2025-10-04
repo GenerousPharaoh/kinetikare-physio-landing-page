@@ -177,11 +177,11 @@ export default function GoogleReviews() {
           </div>
 
           {/* Navigation Arrows - Outside overflow container */}
-          <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute inset-0 pointer-events-none hidden md:block">
             <button
               onClick={handlePrevious}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-30 bg-white rounded-full p-3 shadow-lg hover:bg-gray-50 transition-colors duration-150 group pointer-events-auto cursor-pointer border-0 outline-none focus:outline-none"
-              style={{ transform: 'translate(-1rem, -50%)' }}
+              className="absolute left-0 top-1/2 z-30 bg-white rounded-full p-3 shadow-lg hover:bg-gray-50 transition-colors duration-150 group pointer-events-auto cursor-pointer border-0 outline-none focus:outline-none"
+              style={{ transform: 'translate(-3rem, -50%)' }}
               aria-label="Previous review"
             >
               <svg className="w-5 h-5 text-gray-600 group-hover:text-gray-900 transition-colors duration-150" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -191,8 +191,8 @@ export default function GoogleReviews() {
 
             <button
               onClick={handleNext}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-30 bg-white rounded-full p-3 shadow-lg hover:bg-gray-50 transition-colors duration-150 group pointer-events-auto cursor-pointer border-0 outline-none focus:outline-none"
-              style={{ transform: 'translate(1rem, -50%)' }}
+              className="absolute right-0 top-1/2 z-30 bg-white rounded-full p-3 shadow-lg hover:bg-gray-50 transition-colors duration-150 group pointer-events-auto cursor-pointer border-0 outline-none focus:outline-none"
+              style={{ transform: 'translate(3rem, -50%)' }}
               aria-label="Next review"
             >
               <svg className="w-5 h-5 text-gray-600 group-hover:text-gray-900 transition-colors duration-150" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -202,16 +202,16 @@ export default function GoogleReviews() {
           </div>
         </div>
 
-        {/* Ultra-thin Line Navigation */}
-        <div className="flex justify-center gap-1 mt-6">
+        {/* Dot Navigation */}
+        <div className="flex justify-center gap-2 mt-6">
           {reviews.map((_, index) => (
             <button
               key={index}
               onClick={() => handleDotClick(index)}
-              className={`h-[1px] transition-all duration-300 ${
+              className={`h-[2px] transition-all duration-200 border-0 outline-none focus:outline-none cursor-pointer ${
                 index === currentIndex
-                  ? 'w-8 bg-[#B08D57] opacity-100'
-                  : 'w-6 bg-gray-300 hover:bg-gray-400 opacity-50'
+                  ? 'w-10 bg-[#B08D57]'
+                  : 'w-6 bg-gray-300 hover:bg-gray-400'
               }`}
               aria-label={`Go to review ${index + 1}`}
             />

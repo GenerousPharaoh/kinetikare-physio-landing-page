@@ -388,21 +388,21 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               </Link>
 
               <Link
-                href="https://endorphinshealth.janeapp.com/#/staff_member/42" 
+                href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#D4AF37] hover:bg-[#B08D57] text-slate-900 hover:text-white text-xs lg:text-sm font-medium px-2 sm:px-3 lg:px-4 xl:px-5 py-2 sm:py-2.5 rounded-lg transition-all duration-[400ms] ease-out flex items-center gap-1 lg:gap-2 whitespace-nowrap shadow-lg hover:shadow-xl"
+                className="relative overflow-hidden bg-gradient-to-br from-[#D4AF37] via-[#C9A769] to-[#B08D57] text-slate-900 text-xs lg:text-sm font-medium px-2 sm:px-3 lg:px-4 xl:px-5 py-2 sm:py-2.5 rounded-lg transition-all duration-300 flex items-center gap-1 lg:gap-2 whitespace-nowrap group"
                 style={{
                   letterSpacing: '0.08em',
-                  filter: 'drop-shadow(0 0 8px rgba(212, 175, 55, 0.3))',
                   transform: 'translateZ(0)',
-                  animation: 'breathe 3s ease-in-out infinite',
                   willChange: 'transform'
                 }}
               >
-                <CalendarDaysIcon className="h-3.5 lg:h-4 w-3.5 lg:w-4" />
-                <span className="hidden sm:inline">Book Appointment</span>
-                <span className="sm:hidden">Book</span>
+                <span className="absolute inset-0 bg-gradient-to-b from-white/0 via-white/5 to-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                <span className="absolute inset-0 bg-gradient-to-t from-black/0 via-black/0 to-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                <CalendarDaysIcon className="h-3.5 lg:h-4 w-3.5 lg:w-4 relative z-10 group-hover:scale-110 transition-transform duration-300" />
+                <span className="hidden sm:inline relative z-10 group-hover:text-white transition-colors duration-300">Book Appointment</span>
+                <span className="sm:hidden relative z-10 group-hover:text-white transition-colors duration-300">Book</span>
               </Link>
 
               {/* Mobile Menu Button */}

@@ -391,7 +391,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative overflow-hidden bg-[#D4AF37] hover:bg-[#B08D57] text-slate-900 hover:text-white text-xs lg:text-sm font-medium px-2 sm:px-3 lg:px-4 xl:px-5 py-2 sm:py-2.5 rounded-lg transition-all duration-[400ms] ease-out flex items-center gap-1 lg:gap-2 whitespace-nowrap shadow-lg hover:shadow-xl group"
+                className="relative overflow-hidden bg-[#D4AF37] text-slate-900 text-xs lg:text-sm font-medium px-2 sm:px-3 lg:px-4 xl:px-5 py-2 sm:py-2.5 rounded-lg transition-all duration-[400ms] ease-out flex items-center gap-1 lg:gap-2 whitespace-nowrap shadow-lg hover:shadow-xl group"
                 style={{
                   letterSpacing: '0.08em',
                   transform: 'translateZ(0)',
@@ -399,7 +399,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   willChange: 'transform'
                 }}
               >
-                <span className="absolute inset-0 bg-gradient-to-b from-white/0 via-white/0 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/40 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 -translate-x-full group-hover:translate-x-full" style={{ transition: 'opacity 300ms, transform 700ms' }}></span>
                 <CalendarDaysIcon className="h-3.5 lg:h-4 w-3.5 lg:w-4 relative z-10" />
                 <span className="hidden sm:inline relative z-10">Book Appointment</span>
                 <span className="sm:hidden relative z-10">Book</span>

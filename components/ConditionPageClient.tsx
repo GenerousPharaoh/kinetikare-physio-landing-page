@@ -308,7 +308,7 @@ export default function ConditionPageClient({
 
 
         {/* Main Content Area with Sidebar */}
-        <section className="pt-6 pb-16 lg:pb-16 pb-24 bg-white min-h-screen">
+        <section className="pt-6 pb-16 bg-white min-h-screen">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="flex gap-6 items-start relative">
               {/* Sidebar Navigation - Desktop - JAVASCRIPT STICKY */}
@@ -2018,9 +2018,9 @@ export default function ConditionPageClient({
         )}
       </AnimatePresence>
 
-      {/* Fixed Bottom Navigation Bar - Mobile Only */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-2xl z-50">
-        <div className="flex items-center justify-around py-3 px-4">
+      {/* Fixed Left Navigation Bar - Mobile Only */}
+      <div className="lg:hidden fixed left-0 top-1/2 -translate-y-1/2 bg-white border border-gray-200 rounded-r-2xl shadow-xl z-40">
+        <div className="flex flex-col items-center gap-1 py-3 px-2">
           {tabs.map((tab) => (
             <button
               key={tab.id}
@@ -2028,22 +2028,23 @@ export default function ConditionPageClient({
                 setActiveTab(tab.id);
                 scrollToContentTop();
               }}
-              className={`flex flex-col items-center gap-1 px-3 py-2 rounded-lg transition-all duration-200 ${
+              className={`flex flex-col items-center gap-1 p-2.5 rounded-xl transition-all duration-200 ${
                 activeTab === tab.id
-                  ? 'text-[#B08D57]'
-                  : 'text-gray-500'
+                  ? 'bg-[#B08D57] text-white'
+                  : 'text-gray-500 hover:bg-gray-100'
               }`}
+              title={tab.label}
             >
               <tab.icon className="h-5 w-5" />
-              <span className="text-xs font-medium">{tab.label}</span>
             </button>
           ))}
+          <div className="w-full h-px bg-gray-200 my-1" />
           <button
             onClick={() => setMobileNavOpen(true)}
-            className="flex flex-col items-center gap-1 px-3 py-2 rounded-lg text-gray-500 transition-all duration-200"
+            className="flex flex-col items-center gap-1 p-2.5 rounded-xl text-gray-500 hover:bg-gray-100 transition-all duration-200"
+            title="More"
           >
             <Bars3Icon className="h-5 w-5" />
-            <span className="text-xs font-medium">More</span>
           </button>
         </div>
       </div>

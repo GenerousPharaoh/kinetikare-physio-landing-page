@@ -471,9 +471,9 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden bg-slate-900/95 backdrop-blur-xl border-b border-[#D4AF37]/30"
+            className="lg:hidden bg-slate-900/95 backdrop-blur-xl border-b border-[#D4AF37]/30 max-h-[70vh] overflow-y-auto"
         >
-            <div className="px-6 py-4 space-y-1">
+            <div className="px-6 py-4 space-y-1 touch-auto">
               {/* Search Button for Mobile */}
               <button
                 onClick={() => {

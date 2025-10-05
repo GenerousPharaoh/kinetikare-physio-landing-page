@@ -306,25 +306,9 @@ export default function ConditionPageClient({
           </div>
         </section>
 
-        {/* Mobile Navigation Toggle (visible on mobile only) - STICKY */}
-        <div className="lg:hidden sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
-          <div className="container mx-auto px-4">
-            <button
-              onClick={() => setMobileNavOpen(!mobileNavOpen)}
-              className="flex items-center gap-2 py-3 text-slate-700 font-medium w-full"
-            >
-              {mobileNavOpen ? (
-                <XMarkIcon className="h-5 w-5" />
-              ) : (
-                <Bars3Icon className="h-5 w-5" />
-              )}
-              <span>Navigation</span>
-            </button>
-          </div>
-        </div>
 
         {/* Main Content Area with Sidebar */}
-        <section className="pt-6 pb-16 bg-white min-h-screen">
+        <section className="pt-6 pb-16 lg:pb-16 pb-24 bg-white min-h-screen">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="flex gap-6 items-start relative">
               {/* Sidebar Navigation - Desktop - JAVASCRIPT STICKY */}
@@ -2033,6 +2017,36 @@ export default function ConditionPageClient({
           </>
         )}
       </AnimatePresence>
+
+      {/* Fixed Bottom Navigation Bar - Mobile Only */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-2xl z-50">
+        <div className="flex items-center justify-around py-3 px-4">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => {
+                setActiveTab(tab.id);
+                scrollToContentTop();
+              }}
+              className={`flex flex-col items-center gap-1 px-3 py-2 rounded-lg transition-all duration-200 ${
+                activeTab === tab.id
+                  ? 'text-[#B08D57]'
+                  : 'text-gray-500'
+              }`}
+            >
+              <tab.icon className="h-5 w-5" />
+              <span className="text-xs font-medium">{tab.label}</span>
+            </button>
+          ))}
+          <button
+            onClick={() => setMobileNavOpen(true)}
+            className="flex flex-col items-center gap-1 px-3 py-2 rounded-lg text-gray-500 transition-all duration-200"
+          >
+            <Bars3Icon className="h-5 w-5" />
+            <span className="text-xs font-medium">More</span>
+          </button>
+        </div>
+      </div>
     </>
   );
 }

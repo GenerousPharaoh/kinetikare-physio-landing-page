@@ -306,12 +306,12 @@ export default function ConditionPageClient({
           </div>
         </section>
 
-        {/* Mobile Navigation Toggle (visible on mobile only) */}
-        <div className="lg:hidden sticky top-0 z-30 bg-white border-b border-slate-200">
+        {/* Mobile Navigation Toggle (visible on mobile only) - STICKY */}
+        <div className="lg:hidden sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
           <div className="container mx-auto px-4">
             <button
               onClick={() => setMobileNavOpen(!mobileNavOpen)}
-              className="flex items-center gap-2 py-3 text-slate-700 font-medium"
+              className="flex items-center gap-2 py-3 text-slate-700 font-medium w-full"
             >
               {mobileNavOpen ? (
                 <XMarkIcon className="h-5 w-5" />
@@ -1966,14 +1966,6 @@ export default function ConditionPageClient({
         </section>
       </div>
 
-      {/* Mobile Floating Navigation Button */}
-      <button
-        onClick={() => setMobileNavOpen(true)}
-        className="lg:hidden fixed bottom-6 right-6 z-40 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white p-4 rounded-full shadow-2xl hover:shadow-[#B08D57]/50 transition-all duration-300 hover:scale-110"
-        aria-label="Open navigation menu"
-      >
-        <Bars3Icon className="h-6 w-6" />
-      </button>
 
       {/* Mobile Navigation Drawer */}
       <AnimatePresence>

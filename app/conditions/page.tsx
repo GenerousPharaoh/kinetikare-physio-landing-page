@@ -6,7 +6,7 @@ import { conditionCategories, additionalServices } from '@/lib/conditions-data';
 // SEO Metadata
 export const metadata: Metadata = {
   title: 'Treatment Areas | KinetiKare Physiotherapy - Kareem Hassanein',
-  description: 'KinetiKare Physiotherapy treats spinal health, sports injuries, chronic pain, post-surgical rehabilitation, and more. Kareem Hassanein provides care for all ages and activity levels in Burlington, Waterdown, and Oakville.',
+  description: 'Back, neck, shoulder, knee, hip, foot and ankle conditions treated with clear plans and evidence-based care in Burlington.',
   keywords: [
     'KinetiKare conditions',
     'KinetiKare treatments',

@@ -8,7 +8,7 @@ export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
   title: 'Physiotherapy Services | Kareem Hassanein Burlington & Waterdown Area',
-  description: 'Kareem Hassanein offers expert physiotherapy services in Burlington. Treating back pain, sports injuries, knee pain. Convenient location for Waterdown, Flamborough residents. Direct billing available.',
+  description: 'Physiotherapy services in Burlington: manual therapy, dry needling, exercise rehab and pain management. Direct billing.',
   keywords: [
     'Kareem Hassanein services',
     'Kareem Hassanein treatments',

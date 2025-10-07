@@ -158,7 +158,7 @@ const organizationSchema = {
     "@id": "https://www.kinetikarephysio.com/#person",
     "name": "Kareem Hassanein",
     "jobTitle": "Registered Physiotherapist",
-    "description": "Burlington's leading physiotherapist specializing in back pain, sports injuries, and manual therapy",
+    "description": "Registered Physiotherapist providing manual therapy, dry needling, and exercise rehabilitation for musculoskeletal conditions in Burlington",
     "worksFor": {
       "@id": "https://www.kinetikarephysio.com/#organization"
     }
@@ -275,7 +275,7 @@ const brandSchema = {
     "https://www.facebook.com/kinetikarephysio",
     "https://www.instagram.com/kinetikarephysio"
   ],
-  "description": "Kareem Hassanein Physiotherapy - Expert treatment for back pain, sports injuries, knee pain in Burlington. Serving North Burlington, Alton Village, Palladium Way. Registered Physiotherapist, MSc PT, BSc Kin."
+  "description": "Kareem Hassanein Physiotherapy - Registered Physiotherapist, MSc PT, BSc Kin providing manual therapy, dry needling, and exercise rehabilitation for musculoskeletal conditions in Burlington and Waterdown."
 };
 
 // Website Schema for improved search presence
@@ -304,7 +304,7 @@ const personSchema = {
   "name": "Kareem Hassanein",
   "alternateName": ["Kareem Hassanein PT", "Kareem Hassanein Physiotherapist", "Kareem Hassanein MSc PT"],
   "jobTitle": "Registered Physiotherapist",
-  "description": "Kareem Hassanein is a registered physiotherapist in Burlington, Ontario specializing in back pain treatment, sports injury rehabilitation, and manual therapy. Registered Physiotherapist, MSc PT, BSc Kin.",
+  "description": "Kareem Hassanein, Registered Physiotherapist, MSc PT, BSc Kin. Provides manual therapy, dry needling, exercise rehabilitation and pain management for musculoskeletal conditions in Burlington, Ontario.",
   "image": "https://www.kinetikarephysio.com/images/kareem-profile.png",
   "url": "https://www.kinetikarephysio.com/about",
   "sameAs": [

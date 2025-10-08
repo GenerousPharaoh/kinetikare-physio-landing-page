@@ -490,7 +490,7 @@ export default function ConditionPageClient({
                             >
                               Evidence-Based Treatment
                             </button>
-                            {condition.treatmentApproach && (
+                            {(condition.treatmentApproach || relatedTreatments.length > 0) && (
                               <button
                                 onClick={() => { setActiveManagementView('treatment-techniques'); scrollToContentTop(); }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
@@ -500,18 +500,6 @@ export default function ConditionPageClient({
                                 }`}
                               >
                                 Treatment Techniques
-                              </button>
-                            )}
-                            {relatedTreatments.length > 0 && (
-                              <button
-                                onClick={() => { setActiveManagementView('recommended-treatments'); scrollToContentTop(); }}
-                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
-                                  activeManagementView === 'recommended-treatments'
-                                    ? 'bg-[#B08D57] text-white font-medium shadow-sm'
-                                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
-                                }`}
-                              >
-                                Recommended Treatments
                               </button>
                             )}
                             {condition.timeline && (
@@ -1477,14 +1465,14 @@ export default function ConditionPageClient({
                             )}
 
                             {/* Treatment Techniques Section - Collapsible */}
-                            {activeManagementView === 'treatment-techniques' && condition.treatmentApproach && (
+                            {activeManagementView === 'treatment-techniques' && (condition.treatmentApproach || relatedTreatments.length > 0) && (
                             <div data-section="treatment-techniques" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
                               {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-orange-50/30 via-transparent to-amber-50/20 pointer-events-none"></div>
-                              
+
                               <div className="relative">
                                 {/* Header with gradient accent - Clickable */}
-                                <div 
+                                <div
                                   className="bg-gradient-to-r from-orange-900 to-amber-700 px-8 py-6 transition-all"
                                 >
                                   <div className="flex items-center justify-between">
@@ -1499,10 +1487,10 @@ export default function ConditionPageClient({
                                     </div>
                                   </div>
                                 </div>
-                                
+
                                 <AnimatePresence initial={false}>
                                   {expandedManagementSections['treatment-techniques'] && (
-                                    <motion.div 
+                                    <motion.div
                                       initial={{ height: 0, opacity: 0 }}
                                       animate={{ height: 'auto', opacity: 1 }}
                                       exit={{ height: 0, opacity: 0 }}
@@ -1510,23 +1498,52 @@ export default function ConditionPageClient({
                                       className="overflow-hidden"
                                     >
                                       <div className="p-8">
-                                        <p className="text-base text-slate-700 leading-relaxed mb-6">
-                                          {condition.treatmentApproach.description}
-                                        </p>
-                                        <div className="space-y-3">
-                                          {condition.treatmentApproach.techniques.map((technique, index) => {
-                                            const [title, description] = technique.split(': ');
-                                            return (
-                                              <div key={index} className="flex items-start gap-3 p-4 bg-gradient-to-r from-orange-50/50 to-amber-50/30 rounded-lg border border-orange-100">
-                                                <CheckCircleIcon className="h-5 w-5 text-orange-600 mt-0.5 flex-shrink-0" />
-                                                <div>
-                                                  <span className="font-medium text-slate-900">{title}</span>
-                                                  {description && <span className="text-slate-700 leading-relaxed">: {description}</span>}
-                                                </div>
-                                              </div>
-                                            );
-                                          })}
-                                        </div>
+                                        {condition.treatmentApproach && (
+                                          <>
+                                            <p className="text-base text-slate-700 leading-relaxed mb-6">
+                                              {condition.treatmentApproach.description}
+                                            </p>
+                                            <div className="space-y-3">
+                                              {condition.treatmentApproach.techniques.map((technique, index) => {
+                                                const [title, description] = technique.split(': ');
+                                                return (
+                                                  <div key={index} className="flex items-start gap-3 p-4 bg-gradient-to-r from-orange-50/50 to-amber-50/30 rounded-lg border border-orange-100">
+                                                    <CheckCircleIcon className="h-5 w-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                                                    <div>
+                                                      <span className="font-medium text-slate-900">{title}</span>
+                                                      {description && <span className="text-slate-700 leading-relaxed">: {description}</span>}
+                                                    </div>
+                                                  </div>
+                                                );
+                                              })}
+                                            </div>
+                                          </>
+                                        )}
+
+                                        {/* Recommended Treatments - Inside Treatment Techniques */}
+                                        {relatedTreatments.length > 0 && (
+                                          <div className="mt-8 pt-8 border-t border-orange-200">
+                                            <h3 className="text-lg font-semibold text-slate-900 mb-4">Recommended Treatment Approaches</h3>
+                                            <div className="grid md:grid-cols-2 gap-4">
+                                              {relatedTreatments.map((treatment) => (
+                                                <Link key={treatment.id} href={`/treatments/${treatment.id}`}>
+                                                  <div className="group relative bg-gradient-to-br from-white to-amber-50/30 rounded-lg p-5 border border-amber-100 hover:border-[#B08D57] hover:shadow-lg transition-all duration-300 cursor-pointer h-full flex flex-col">
+                                                    <h4 className="text-base font-semibold text-slate-900 group-hover:text-[#B08D57] transition-colors mb-2">
+                                                      {treatment.name}
+                                                    </h4>
+                                                    <p className="text-gray-600 text-sm leading-relaxed flex-grow mb-3">
+                                                      {treatment.shortDescription}
+                                                    </p>
+                                                    <div className="flex items-center text-[#B08D57] font-medium text-sm group-hover:gap-2 transition-all">
+                                                      <span>Learn More</span>
+                                                      <ArrowRightIcon className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                                                    </div>
+                                                  </div>
+                                                </Link>
+                                              ))}
+                                            </div>
+                                          </div>
+                                        )}
                                       </div>
                                     </motion.div>
                                   )}

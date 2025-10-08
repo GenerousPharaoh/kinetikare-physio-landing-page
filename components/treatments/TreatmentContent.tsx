@@ -65,7 +65,7 @@ export default function TreatmentContent({ treatment }: TreatmentContentProps) {
             <div>
               <h3 className="text-2xl font-bold text-primary mb-4 flex items-center gap-2">
                 <UserGroupIcon className="w-7 h-7 text-accent" />
-                Conditions We Treat
+                Conditions Treated
               </h3>
               <div className="grid grid-cols-2 gap-3">
                 {treatment.conditions.map((condition, index) => (

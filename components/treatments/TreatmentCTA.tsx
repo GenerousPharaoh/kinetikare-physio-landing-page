@@ -22,7 +22,7 @@ export default function TreatmentCTA({ treatmentName }: TreatmentCTAProps) {
             Ready to Start Your Recovery Journey?
           </h2>
           <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
-            Experience the benefits of {treatmentName} with our expert physiotherapy team. 
+            Experience the benefits of {treatmentName} with evidence-based physiotherapy care.
             Book your assessment today and take the first step toward better health.
           </p>
           

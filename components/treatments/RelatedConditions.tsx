@@ -26,7 +26,7 @@ export default function RelatedConditions({ conditionIds }: RelatedConditionsPro
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-            Conditions We Treat
+            Conditions Treated
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto">
             This treatment approach is effective for these common conditions

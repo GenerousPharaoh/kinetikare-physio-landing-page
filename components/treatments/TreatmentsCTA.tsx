@@ -18,7 +18,7 @@ export default function TreatmentsCTA() {
             Not Sure Which Treatment Is Right for You?
           </h2>
           <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
-            Our expert physiotherapists will assess your condition and create a personalized treatment plan 
+            I will assess your condition and create a personalized treatment plan
             combining the most effective approaches for your specific needs.
           </p>
           
@@ -42,7 +42,7 @@ export default function TreatmentsCTA() {
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-primary font-semibold rounded-full hover:bg-gray-100 transition-all duration-300 shadow-xl"
             >
               <ChatBubbleBottomCenterTextIcon className="w-5 h-5" />
-              Contact Us
+              Get in Touch
             </motion.a>
           </div>
           

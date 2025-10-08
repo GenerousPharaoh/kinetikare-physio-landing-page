@@ -28,12 +28,12 @@ export default function TreatmentsHero() {
           </div>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6">
-            Our Treatments
+            Treatment Approaches
           </h1>
-          
+
           <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            Evidence-based physiotherapy treatments tailored to your unique needs. 
-            Discover how our expert care can help you achieve lasting recovery.
+            Evidence-based physiotherapy treatments tailored to your unique needs.
+            Discover how expert care can help you achieve lasting recovery.
           </p>
         </motion.div>
       </div>

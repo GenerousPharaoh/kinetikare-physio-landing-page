@@ -24,7 +24,7 @@ export default function TreatmentProcess({ treatment }: TreatmentProcessProps) {
             Your Treatment Journey
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            We follow a structured approach to ensure the best possible outcomes
+            A structured approach to ensure the best possible outcomes
           </p>
         </motion.div>
         

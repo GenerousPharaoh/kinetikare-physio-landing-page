@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import ConditionPageClient from '@/components/ConditionPageClient';
-import RelatedTreatments from '@/components/conditions/RelatedTreatments';
 import {
   getAllConditions,
   getConditionBySlug,
@@ -312,8 +311,8 @@ export default function ConditionPage({ params }: PageProps) {
       <ConditionPageClient
         condition={condition}
         relatedConditions={relatedConditions}
+        conditionSlug={params.slug}
       />
-      <RelatedTreatments conditionSlug={params.slug} />
     </>
   );
 }

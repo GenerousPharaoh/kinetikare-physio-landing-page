@@ -31,10 +31,12 @@ import {
   ShieldCheckIcon
 } from '@heroicons/react/24/outline';
 import { Condition } from '@/lib/conditions-data';
+import { getTreatmentsByCondition } from '@/lib/treatments-data';
 
 interface ConditionPageClientProps {
   condition: Condition;
   relatedConditions: Condition[];
+  conditionSlug: string;
 }
 
 // Tab interface for better organization
@@ -46,8 +48,12 @@ interface TabContent {
 
 export default function ConditionPageClient({
   condition,
-  relatedConditions
+  relatedConditions,
+  conditionSlug
 }: ConditionPageClientProps) {
+
+  // Get related treatments for this condition
+  const relatedTreatments = getTreatmentsByCondition(conditionSlug);
 
   // Determine first available tab for this condition
   const getFirstAvailableTab = () => {
@@ -494,6 +500,18 @@ export default function ConditionPageClient({
                                 }`}
                               >
                                 Treatment Techniques
+                              </button>
+                            )}
+                            {relatedTreatments.length > 0 && (
+                              <button
+                                onClick={() => { setActiveManagementView('recommended-treatments'); scrollToContentTop(); }}
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
+                                  activeManagementView === 'recommended-treatments'
+                                    ? 'bg-[#B08D57] text-white font-medium shadow-sm'
+                                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                                }`}
+                              >
+                                Recommended Treatments
                               </button>
                             )}
                             {condition.timeline && (
@@ -1869,6 +1887,57 @@ export default function ConditionPageClient({
                                 </AnimatePresence>
                               </div>
                             </div>
+                            )}
+
+                            {/* Recommended Treatments Section */}
+                            {activeManagementView === 'recommended-treatments' && relatedTreatments.length > 0 && (
+                              <div data-section="recommended-treatments" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
+                                <div className="absolute inset-0 bg-gradient-to-br from-amber-50/30 via-transparent to-orange-50/20 pointer-events-none"></div>
+
+                                <div className="relative">
+                                  <div className="bg-gradient-to-r from-[#B08D57] to-[#C09A65] px-8 py-6">
+                                    <div className="flex items-center gap-3">
+                                      <div className="p-2.5 bg-white/10 backdrop-blur rounded-xl border border-white/20">
+                                        <HeartIcon className="h-6 w-6 text-white" />
+                                      </div>
+                                      <div>
+                                        <h2 className="text-2xl font-medium tracking-tight leading-tight text-white">Recommended Treatments</h2>
+                                        <p className="text-sm text-amber-100 mt-1">Evidence-based approaches for this condition</p>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div className="p-8">
+                                    <div className="grid md:grid-cols-2 gap-6">
+                                      {relatedTreatments.map((treatment, index) => (
+                                        <Link key={treatment.id} href={`/treatments/${treatment.id}`}>
+                                          <div className="group relative bg-gradient-to-br from-white to-amber-50/30 rounded-xl p-6 border border-amber-100 hover:border-[#B08D57] hover:shadow-xl transition-all duration-300 cursor-pointer h-full flex flex-col">
+                                            <div className="flex items-start gap-4 mb-4">
+                                              <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#B08D57] to-[#C09A65] rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                                                <HeartIcon className="h-6 w-6 text-white" />
+                                              </div>
+                                              <div className="flex-1">
+                                                <h3 className="text-lg font-semibold text-slate-900 group-hover:text-[#B08D57] transition-colors">
+                                                  {treatment.name}
+                                                </h3>
+                                              </div>
+                                            </div>
+
+                                            <p className="text-gray-600 text-sm leading-relaxed flex-grow mb-4">
+                                              {treatment.shortDescription}
+                                            </p>
+
+                                            <div className="flex items-center text-[#B08D57] font-medium text-sm group-hover:gap-2 transition-all">
+                                              <span>Learn More</span>
+                                              <ArrowRightIcon className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                                            </div>
+                                          </div>
+                                        </Link>
+                                      ))}
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             )}
                           </motion.div>
                         </AnimatePresence>

@@ -18,7 +18,7 @@ import CommitmentCarousel from '@/components/CommitmentCarousel';
 // SEO Metadata
 export const metadata: Metadata = {
   title: 'About Kareem Hassanein | Burlington Physiotherapist',
-  description: 'Meet Kareem Hassanein, Registered Physiotherapist, MSc PT, BSc Kin in Burlington. Expert in manual therapy, sports rehabilitation, and evidence-based treatment.',
+  description: 'Meet Kareem Hassanein, Registered Physiotherapist, MSc PT, BSc Kin in Burlington. Manual therapy, sports rehabilitation, and evidence-based treatment.',
   keywords: [
     'Kareem Hassanein', 
     'Kareem Hassanein KinetiKare',

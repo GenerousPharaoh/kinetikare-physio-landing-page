@@ -14,9 +14,6 @@ export const metadata: Metadata = {
     'Kareem Hassanein treatments',
     'physiotherapy services Burlington',
     'physio services Burlington',
-    'North Burlington physio services',
-    'Alton Village physiotherapy services',
-    'Palladium Way physio',
     'back pain treatment Burlington',
     'lower back pain physio Burlington',
     'chronic back pain Burlington',
@@ -86,7 +83,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.kinetikarephysio.com'),
   openGraph: {
     title: 'Physiotherapy Services | Kareem Hassanein',
-    description: 'Advanced physiotherapy services including sports rehabilitation, manual therapy, dry needling, and more for better movement and pain-free living.',
+    description: 'Physiotherapy services including sports rehabilitation, manual therapy, dry needling, and exercise therapy for improved movement and pain management.',
     type: 'website',
     url: 'https://www.kinetikarephysio.com/services',
     images: [{

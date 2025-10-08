@@ -34,14 +34,14 @@ export default function TreatmentsList() {
   ];
 
   return (
-    <section className="py-12 lg:py-16 bg-gradient-to-b from-white via-gray-50/30 to-white">
+    <section className="py-8 lg:py-12 bg-gradient-to-b from-white via-gray-50/30 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="max-w-2xl mx-auto mb-12"
+          className="max-w-2xl mx-auto mb-8"
         >
           <div className="relative group">
             <MagnifyingGlassIcon className="absolute left-5 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-[#B08D57] transition-colors" />

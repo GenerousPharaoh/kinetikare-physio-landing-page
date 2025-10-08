@@ -28,11 +28,9 @@ module.exports = {
       '/': 1.0,
       '/services': 0.9,
       '/about': 0.8,
+      '/treatments': 0.8,
       '/conditions': 0.8,
-      '/ai-physio': 0.7,
-      '/blog': 0.6,
       '/faq': 0.5,
-      '/contact': 0.8,
     };
 
     return {

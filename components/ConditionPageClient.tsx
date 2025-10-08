@@ -59,7 +59,7 @@ export default function ConditionPageClient({
   const getFirstAvailableTab = () => {
     if (condition.pathophysiology || condition.overview || condition.biomechanics) return 'overview';
     if (condition.clinicalPresentation || condition.differentialDiagnosis || condition.whenToSeek) return 'symptoms';
-    if (condition.selfManagement || condition.prognosis || condition.faqs || condition.treatmentApproach || condition.timeline || condition.evidenceBasedTreatment) return 'self-care';
+    if (condition.selfManagement || condition.prognosis || condition.faqs || condition.treatmentApproach || condition.timeline || condition.evidenceBasedTreatment || relatedTreatments.length > 0) return 'self-care';
     if (condition.keyResearch || condition.researchInsights) return 'research';
     return 'overview'; // fallback
   };
@@ -150,8 +150,8 @@ export default function ConditionPageClient({
         return condition.keyResearch || condition.researchInsights;
       case 'self-care':
         // Now includes treatment approach and timeline content
-        return condition.selfManagement || condition.prognosis || condition.faqs || 
-               condition.treatmentApproach || condition.timeline || condition.evidenceBasedTreatment;
+        return condition.selfManagement || condition.prognosis || condition.faqs ||
+               condition.treatmentApproach || condition.timeline || condition.evidenceBasedTreatment || relatedTreatments.length > 0;
       default:
         return false;
     }

@@ -66,11 +66,11 @@ export default function TreatmentsList() {
                 viewport={{ once: true }}
               >
                 <Link href={`/treatments/${treatment.id}`}>
-                  <div className="bg-white rounded-2xl p-7 h-full border-2 border-gray-100 hover:border-[#B08D57]/30 hover:shadow-xl transition-all duration-300 group cursor-pointer">
+                  <div className="bg-white rounded-2xl p-7 h-full border-2 border-gray-100 hover:border-[#B08D57]/30 hover:shadow-xl transition-all duration-300 group cursor-pointer flex flex-col">
                     <h3 className="text-xl font-semibold text-slate-900 mb-3 group-hover:text-[#B08D57] transition-colors">
                       {treatment.name}
                     </h3>
-                    <p className="text-gray-600 mb-5 line-clamp-2 leading-relaxed text-sm">
+                    <p className="text-gray-600 mb-5 line-clamp-2 leading-relaxed text-sm flex-grow">
                       {treatment.shortDescription}
                     </p>
                     <div className="flex flex-wrap gap-2 mb-5">
@@ -121,15 +121,15 @@ export default function TreatmentsList() {
                         viewport={{ once: true }}
                       >
                         <Link href={`/treatments/${treatment.id}`}>
-                          <div className="relative bg-white rounded-2xl p-8 h-full hover:shadow-2xl transition-all duration-500 group cursor-pointer border border-gray-100 overflow-hidden">
+                          <div className="relative bg-white rounded-2xl p-8 h-full hover:shadow-2xl transition-all duration-500 group cursor-pointer border border-gray-100 overflow-hidden flex flex-col">
                             {/* Hover gradient effect */}
                             <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/0 via-[#B08D57]/0 to-[#B08D57]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                            <div className="relative">
+                            <div className="relative flex flex-col flex-grow">
                               <h3 className="text-xl font-semibold text-slate-900 mb-3 group-hover:text-[#B08D57] transition-colors duration-300">
                                 {treatment.name}
                               </h3>
-                              <p className="text-gray-600 text-sm mb-6 line-clamp-2 leading-relaxed">
+                              <p className="text-gray-600 text-sm mb-6 line-clamp-2 leading-relaxed flex-grow">
                                 {treatment.shortDescription}
                               </p>
                               <div className="flex items-center text-[#B08D57] font-medium text-sm group-hover:gap-2 transition-all duration-300">

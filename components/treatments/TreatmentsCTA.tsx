@@ -6,7 +6,7 @@ import { CalendarIcon, ChatBubbleBottomCenterTextIcon } from '@heroicons/react/2
 
 export default function TreatmentsCTA() {
   return (
-    <section className="py-16 lg:py-24 bg-gradient-to-br from-primary to-primary-dark text-white">
+    <section className="py-12 lg:py-16 bg-gradient-to-br from-primary to-primary-dark text-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -44,21 +44,6 @@ export default function TreatmentsCTA() {
               <ChatBubbleBottomCenterTextIcon className="w-5 h-5" />
               Get in Touch
             </motion.a>
-          </div>
-          
-          <div className="mt-12 grid sm:grid-cols-3 gap-6 text-center">
-            <div>
-              <div className="text-3xl font-bold text-accent mb-2">12+</div>
-              <div className="text-white/80">Treatment Methods</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-accent mb-2">47+</div>
-              <div className="text-white/80">Conditions Treated</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-accent mb-2">100%</div>
-              <div className="text-white/80">Evidence-Based Care</div>
-            </div>
           </div>
         </motion.div>
       </div>

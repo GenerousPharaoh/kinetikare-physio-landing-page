@@ -6,35 +6,63 @@ import { SparklesIcon } from '@heroicons/react/24/outline';
 
 export default function TreatmentsHero() {
   return (
-    <section className="relative min-h-[50vh] bg-gradient-to-br from-primary/5 via-background to-primary/10 overflow-hidden">
-      <div className="absolute inset-0 bg-grid-pattern opacity-5" />
-      
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+    <section className="relative min-h-[60vh] flex items-center bg-gradient-to-br from-slate-50 via-white to-gray-50 overflow-hidden">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 opacity-[0.02]">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'radial-gradient(circle at 1px 1px, rgb(15, 23, 42) 1px, transparent 0)',
+          backgroundSize: '40px 40px'
+        }} />
+      </div>
+
+      {/* Gradient orbs */}
+      <div className="absolute top-20 right-20 w-96 h-96 bg-[#B08D57]/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 w-full">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center"
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="text-center max-w-4xl mx-auto"
         >
-          <div className="flex justify-center mb-6">
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="p-3 bg-accent/10 rounded-full"
-            >
-              <SparklesIcon className="w-8 h-8 text-accent" />
-            </motion.div>
-          </div>
-          
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6">
-            Treatment Approaches
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 mb-8"
+          >
+            <SparklesIcon className="w-5 h-5 text-[#B08D57]" />
+            <span className="text-sm font-medium text-gray-700">Evidence-Based Care</span>
+          </motion.div>
+
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-slate-900 mb-6 tracking-tight">
+            Treatment <span className="font-semibold">Approaches</span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            Evidence-based physiotherapy treatments tailored to your unique needs.
-            Discover how expert care can help you achieve lasting recovery.
+          <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light mb-12">
+            Tailored physiotherapy treatments designed for your unique needs and recovery goals
           </p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex flex-wrap gap-8 justify-center text-sm text-gray-500"
+          >
+            <div className="flex items-center gap-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]" />
+              <span>11 Treatment Modalities</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]" />
+              <span>Personalized Care Plans</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]" />
+              <span>Research-Backed Methods</span>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Treatment } from '@/lib/treatments-data';
-import { CheckCircleIcon } from '@heroicons/react/24/outline';
+import { CheckCircleIcon, ArrowDownIcon } from '@heroicons/react/24/outline';
 
 interface TreatmentHeroProps {
   treatment: Treatment;
@@ -11,58 +11,79 @@ interface TreatmentHeroProps {
 
 export default function TreatmentHero({ treatment }: TreatmentHeroProps) {
   return (
-    <section className="relative min-h-[60vh] bg-gradient-to-br from-primary/5 via-background to-primary/10 overflow-hidden">
-      <div className="absolute inset-0 bg-grid-pattern opacity-5" />
-      
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+    <section className="relative min-h-[70vh] flex items-center bg-gradient-to-br from-slate-50 via-white to-gray-50 overflow-hidden">
+      {/* Subtle background elements */}
+      <div className="absolute inset-0 opacity-[0.02]">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'radial-gradient(circle at 1px 1px, rgb(15, 23, 42) 1px, transparent 0)',
+          backgroundSize: '40px 40px'
+        }} />
+      </div>
+
+      {/* Gradient orbs */}
+      <div className="absolute top-20 right-20 w-96 h-96 bg-[#B08D57]/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 w-full">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-4xl"
         >
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 mb-6"
+          >
+            <div className="w-2 h-2 rounded-full bg-[#B08D57]" />
+            <span className="text-sm font-medium text-gray-700">Evidence-Based Treatment</span>
+          </motion.div>
+
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-slate-900 mb-8 tracking-tight leading-tight">
             {treatment.name}
           </h1>
-          
-          <p className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed">
+
+          <p className="text-xl md:text-2xl text-gray-600 mb-10 leading-relaxed font-light max-w-3xl">
             {treatment.shortDescription}
           </p>
-          
-          <div className="flex flex-wrap gap-4 mb-8">
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
             {treatment.benefits.slice(0, 3).map((benefit, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                className="flex items-center gap-2"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 + index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                className="flex items-start gap-3 bg-white/80 backdrop-blur-sm p-4 rounded-xl border border-gray-100"
               >
-                <CheckCircleIcon className="w-5 h-5 text-accent flex-shrink-0" />
-                <span className="text-gray-700">{benefit}</span>
+                <CheckCircleIcon className="w-5 h-5 text-[#B08D57] flex-shrink-0 mt-0.5" />
+                <span className="text-sm text-gray-700 leading-relaxed">{benefit}</span>
               </motion.div>
             ))}
           </div>
-          
+
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
             className="flex flex-wrap gap-4"
           >
             <a
               href="https://endorphinshealth.janeapp.com/#/staff_member/42"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-8 py-4 bg-accent text-white font-semibold rounded-full hover:bg-accent-dark transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[#B08D57] text-white font-medium rounded-full hover:bg-[#9A7A4A] transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               Book Your Assessment
             </a>
             <a
               href="#process"
-              className="inline-flex items-center px-8 py-4 bg-white text-primary font-semibold rounded-full hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl border border-gray-200"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-slate-900 font-medium rounded-full hover:bg-gray-50 transition-all duration-300 shadow-sm hover:shadow-md border-2 border-gray-200"
             >
-              Learn More
+              <span>Learn More</span>
+              <ArrowDownIcon className="w-4 h-4" />
             </a>
           </motion.div>
         </motion.div>

@@ -34,23 +34,23 @@ export default function TreatmentsList() {
   ];
 
   return (
-    <section className="py-16 lg:py-24 bg-white">
+    <section className="py-16 lg:py-20 bg-gradient-to-b from-white via-gray-50/30 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="max-w-2xl mx-auto mb-12"
+          className="max-w-2xl mx-auto mb-16"
         >
-          <div className="relative">
-            <MagnifyingGlassIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+          <div className="relative group">
+            <MagnifyingGlassIcon className="absolute left-5 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-[#B08D57] transition-colors" />
             <input
               type="text"
               placeholder="Search treatments or conditions..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+              className="w-full pl-14 pr-6 py-4 bg-white border-2 border-gray-200 rounded-2xl focus:outline-none focus:border-[#B08D57] transition-all duration-300 text-gray-900 placeholder-gray-400 shadow-sm hover:shadow-md"
             />
           </div>
         </motion.div>
@@ -66,25 +66,25 @@ export default function TreatmentsList() {
                 viewport={{ once: true }}
               >
                 <Link href={`/treatments/${treatment.id}`}>
-                  <div className="bg-gray-50 rounded-2xl p-6 h-full hover:shadow-xl transition-all duration-300 group cursor-pointer">
-                    <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-accent transition-colors">
+                  <div className="bg-white rounded-2xl p-7 h-full border-2 border-gray-100 hover:border-[#B08D57]/30 hover:shadow-xl transition-all duration-300 group cursor-pointer">
+                    <h3 className="text-xl font-semibold text-slate-900 mb-3 group-hover:text-[#B08D57] transition-colors">
                       {treatment.name}
                     </h3>
-                    <p className="text-gray-700 mb-4 line-clamp-3">
+                    <p className="text-gray-600 mb-5 line-clamp-2 leading-relaxed text-sm">
                       {treatment.shortDescription}
                     </p>
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <div className="flex flex-wrap gap-2 mb-5">
                       {treatment.conditions.slice(0, 3).map((condition, idx) => (
                         <span
                           key={idx}
-                          className="text-xs bg-white px-2 py-1 rounded-full text-gray-600"
+                          className="text-xs bg-gray-50 px-3 py-1.5 rounded-full text-gray-600 border border-gray-200"
                         >
                           {condition}
                         </span>
                       ))}
                     </div>
-                    <div className="flex items-center text-accent font-semibold group-hover:gap-2 transition-all">
-                      Learn More
+                    <div className="flex items-center text-[#B08D57] font-medium text-sm group-hover:gap-2 transition-all">
+                      <span>Learn More</span>
                       <ArrowRightIcon className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
@@ -102,31 +102,46 @@ export default function TreatmentsList() {
                 transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-2xl font-bold text-primary mb-8">{category.name}</h2>
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="flex items-center gap-3 mb-10">
+                  <div className="h-px flex-1 bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
+                  <h2 className="text-2xl font-light text-slate-900 tracking-wide">{category.name}</h2>
+                  <div className="h-px flex-1 bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
+                </div>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {category.treatments.map((treatmentId, index) => {
                     const treatment = treatments.find(t => t.id === treatmentId);
                     if (!treatment) return null;
-                    
+
                     return (
                       <motion.div
                         key={treatment.id}
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.4, delay: index * 0.05 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.08 }}
                         viewport={{ once: true }}
                       >
                         <Link href={`/treatments/${treatment.id}`}>
-                          <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 h-full hover:shadow-xl transition-all duration-300 group cursor-pointer border border-gray-100">
-                            <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-accent transition-colors">
-                              {treatment.name}
-                            </h3>
-                            <p className="text-gray-700 text-sm mb-4 line-clamp-3">
-                              {treatment.shortDescription}
-                            </p>
-                            <div className="flex items-center text-accent font-semibold text-sm group-hover:gap-2 transition-all">
-                              Explore Treatment
-                              <ArrowRightIcon className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                          <div className="relative bg-white rounded-2xl p-8 h-full hover:shadow-2xl transition-all duration-500 group cursor-pointer border border-gray-100 overflow-hidden">
+                            {/* Hover gradient effect */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/0 via-[#B08D57]/0 to-[#B08D57]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                            <div className="relative">
+                              <div className="flex items-start justify-between mb-4">
+                                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#B08D57]/10 to-[#B08D57]/5 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                  <div className="w-6 h-6 rounded-lg bg-[#B08D57]" />
+                                </div>
+                              </div>
+
+                              <h3 className="text-xl font-semibold text-slate-900 mb-3 group-hover:text-[#B08D57] transition-colors duration-300">
+                                {treatment.name}
+                              </h3>
+                              <p className="text-gray-600 text-sm mb-6 line-clamp-2 leading-relaxed">
+                                {treatment.shortDescription}
+                              </p>
+                              <div className="flex items-center text-[#B08D57] font-medium text-sm group-hover:gap-2 transition-all duration-300">
+                                <span>Explore Treatment</span>
+                                <ArrowRightIcon className="w-4 h-4 ml-1 group-hover:translate-x-2 transition-transform duration-300" />
+                              </div>
                             </div>
                           </div>
                         </Link>

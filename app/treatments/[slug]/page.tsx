@@ -62,8 +62,42 @@ export default function TreatmentPage({ params }: { params: { slug: string } }) 
     notFound();
   }
 
+  // Generate MedicalProcedure schema
+  const medicalProcedureSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalProcedure',
+    name: treatment.name,
+    description: treatment.description,
+    procedureType: 'PhysicalTherapy',
+    preparation: treatment.expectations,
+    followup: 'Regular follow-up appointments to monitor progress and adjust treatment approach as needed.',
+    howPerformed: treatment.process.map(step => step.description).join(' '),
+    bodyLocation: treatment.conditions,
+
+    // Add provider information
+    provider: {
+      '@type': 'MedicalBusiness',
+      name: 'KinetiKare Physiotherapy',
+      url: 'https://www.kinetikarephysio.com',
+      telephone: '+19056346000',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '4631 Palladium Way, Unit 6',
+        addressLocality: 'Burlington',
+        addressRegion: 'ON',
+        postalCode: 'L7M 0V7',
+        addressCountry: 'CA',
+      },
+      medicalSpecialty: 'Physiotherapy',
+    },
+  };
+
   return (
     <main className="min-h-screen bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalProcedureSchema) }}
+      />
       <TreatmentHero treatment={treatment} />
       <TreatmentContent treatment={treatment} />
       <TreatmentProcess treatment={treatment} />

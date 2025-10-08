@@ -75,7 +75,7 @@ export const treatments: Treatment[] = [
       }
     ],
     relatedConditions: ['chronic-back-pain', 'fibromyalgia', 'neck-pain', 'arthritis'],
-    metaDescription: 'Pain education and self-management strategies in Burlington. Learn to understand and control your pain with expert physiotherapy guidance.',
+    metaDescription: 'Pain neuroscience education in Burlington. Understanding pain mechanisms and developing practical strategies for persistent pain conditions.',
     keywords: ['pain education', 'pain science', 'self-management', 'chronic pain', 'pain neuroscience education']
   },
   {
@@ -145,7 +145,7 @@ export const treatments: Treatment[] = [
       }
     ],
     relatedConditions: ['acl-injuries', 'ankle-sprains', 'hamstring-strains', 'rotator-cuff-injuries', 'tennis-elbow', 'shoulder-instability'],
-    metaDescription: 'Sports rehabilitation and return to sport programs in Burlington. Safe, structured protocols to get athletes back to competition after injury.',
+    metaDescription: 'Sports rehabilitation in Burlington. Evidence-based return to sport programs with objective testing and progressive training protocols.',
     keywords: ['sports rehabilitation', 'return to sport', 'athletic rehabilitation', 'sports injury recovery', 'return to play', 'sports physiotherapy']
   },
   {
@@ -203,7 +203,7 @@ export const treatments: Treatment[] = [
       }
     ],
     relatedConditions: ['tennis-elbow', 'plantar-fasciitis', 'shoulder-impingement', 'neck-pain'],
-    metaDescription: 'Dry needling therapy in Burlington for trigger point release and pain relief. Expert physiotherapy using IMS techniques. Book today.',
+    metaDescription: 'Dry needling in Burlington. Trigger point therapy using thin needles to address muscle tension, referred pain, and movement restrictions.',
     keywords: ['dry needling', 'trigger point therapy', 'IMS', 'intramuscular stimulation', 'myofascial release']
   },
   {
@@ -261,7 +261,7 @@ export const treatments: Treatment[] = [
       }
     ],
     relatedConditions: ['rotator-cuff-injuries', 'knee-pain-patellofemoral', 'hip-osteoarthritis', 'postural-dysfunction'],
-    metaDescription: 'Personalized exercise therapy programs in Burlington. Build strength, improve flexibility, and restore function with expert physiotherapy guidance.',
+    metaDescription: 'Exercise therapy in Burlington. Individualized rehabilitation programs to build strength, improve flexibility, and restore function progressively.',
     keywords: ['exercise therapy', 'therapeutic exercise', 'strength training', 'rehabilitation exercises', 'physiotherapy programs']
   },
   {
@@ -319,7 +319,7 @@ export const treatments: Treatment[] = [
       }
     ],
     relatedConditions: ['frozen-shoulder', 'facet-joint-syndrome', 'si-joint-dysfunction', 'ankle-sprains'],
-    metaDescription: 'Joint mobilization physiotherapy in Burlington. Expert techniques to restore movement, reduce stiffness, and improve joint function.',
+    metaDescription: 'Joint mobilization in Burlington. Graded manual techniques to restore movement, reduce joint stiffness, and improve range of motion.',
     keywords: ['joint mobilization', 'joint stiffness', 'range of motion', 'manual therapy', 'joint therapy']
   },
   {
@@ -384,7 +384,7 @@ export const treatments: Treatment[] = [
       }
     ],
     relatedConditions: ['it-band-syndrome', 'plantar-fasciitis', 'tennis-elbow', 'hamstring-strains', 'chronic-back-pain', 'fibromyalgia'],
-    metaDescription: 'Soft tissue and myofascial release therapy in Burlington. Expert treatment for muscle tension, fascial restrictions, chronic pain, and improved mobility.',
+    metaDescription: 'Myofascial release in Burlington. Manual techniques addressing fascial restrictions, muscle tension, and movement limitations.',
     keywords: ['soft tissue release', 'myofascial release', 'muscle tension', 'fascial therapy', 'tissue mobility', 'fascial restrictions', 'chronic pain treatment']
   },
   {
@@ -441,7 +441,7 @@ export const treatments: Treatment[] = [
       }
     ],
     relatedConditions: ['neck-pain', 'shoulder-impingement', 'piriformis-syndrome', 'tennis-elbow'],
-    metaDescription: 'Trigger point therapy in Burlington. Expert treatment for muscle knots, referred pain, and chronic tension. Get lasting relief today.',
+    metaDescription: 'Trigger point therapy in Burlington. Release painful muscle knots, address referred pain, and restore normal movement patterns.',
     keywords: ['trigger point therapy', 'trigger point release', 'myofascial trigger points', 'muscle knots', 'referred pain']
   },
   {
@@ -497,7 +497,7 @@ export const treatments: Treatment[] = [
       }
     ],
     relatedConditions: ['low-back-pain', 'it-band-syndrome', 'shoulder-impingement', 'neck-pain'],
-    metaDescription: 'Cupping therapy in Burlington. Professional treatment for pain relief, improved circulation, and muscle tension release.',
+    metaDescription: 'Cupping therapy in Burlington. Negative pressure technique to address muscle tension, fascial restrictions, and tissue mobility.',
     keywords: ['cupping therapy', 'cupping treatment', 'myofascial cupping', 'vacuum therapy', 'traditional cupping']
   },
   {
@@ -554,7 +554,7 @@ export const treatments: Treatment[] = [
       }
     ],
     relatedConditions: ['plantar-fasciitis', 'achilles-tendinopathy', 'it-band-syndrome', 'tennis-elbow'],
-    metaDescription: 'IASTM therapy in Burlington. Instrument assisted soft tissue mobilization for scar tissue, adhesions, and chronic pain.',
+    metaDescription: 'IASTM in Burlington. Instrument-assisted soft tissue mobilization addressing scar tissue, adhesions, and chronic movement restrictions.',
     keywords: ['IASTM', 'instrument assisted soft tissue', 'Graston technique', 'soft tissue mobilization', 'scar tissue treatment']
   },
   {
@@ -612,7 +612,7 @@ export const treatments: Treatment[] = [
       }
     ],
     relatedConditions: ['postural-dysfunction', 'neck-pain', 'shoulder-impingement', 'low-back-pain'],
-    metaDescription: 'Postural assessment and correction in Burlington. Expert analysis and treatment for better alignment, reduced pain, and improved function.',
+    metaDescription: 'Postural assessment in Burlington. Comprehensive analysis of alignment, movement patterns, and muscle imbalances contributing to pain.',
     keywords: ['postural assessment', 'posture correction', 'ergonomic assessment', 'body alignment', 'postural dysfunction']
   },
   {
@@ -670,7 +670,7 @@ export const treatments: Treatment[] = [
       }
     ],
     relatedConditions: ['acl-injuries', 'rotator-cuff-injuries', 'meniscus-tears', 'shoulder-instability'],
-    metaDescription: 'Expert post-surgical rehabilitation in Burlington. Optimize your recovery after orthopedic surgery with specialized physiotherapy protocols.',
+    metaDescription: 'Post-surgical rehabilitation in Burlington. Progressive protocols for orthopedic surgery recovery, from acute care to functional restoration.',
     keywords: ['post-surgical rehab', 'post-operative physiotherapy', 'surgical recovery', 'orthopedic rehabilitation']
   }
 ];

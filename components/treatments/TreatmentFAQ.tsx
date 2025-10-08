@@ -12,8 +12,26 @@ interface TreatmentFAQProps {
 export default function TreatmentFAQ({ treatment }: TreatmentFAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
+  // Generate FAQPage schema
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: treatment.faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
     <section className="py-8 lg:py-12 bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

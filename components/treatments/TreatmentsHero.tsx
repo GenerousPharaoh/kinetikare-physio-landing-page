@@ -40,29 +40,9 @@ export default function TreatmentsHero() {
             Treatment <span className="font-semibold">Approaches</span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light mb-12">
+          <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
             Tailored physiotherapy treatments designed for your unique needs and recovery goals
           </p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-wrap gap-8 justify-center text-sm text-gray-500"
-          >
-            <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]" />
-              <span>11 Treatment Modalities</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]" />
-              <span>Personalized Care Plans</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]" />
-              <span>Research-Backed Methods</span>
-            </div>
-          </motion.div>
         </motion.div>
       </div>
     </section>

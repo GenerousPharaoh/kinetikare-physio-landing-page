@@ -6,7 +6,7 @@ import { SparklesIcon } from '@heroicons/react/24/outline';
 
 export default function TreatmentsHero() {
   return (
-    <section className="relative min-h-[50vh] flex items-center bg-gradient-to-br from-slate-50 via-white to-gray-50 overflow-hidden">
+    <section className="relative flex items-center bg-gradient-to-br from-slate-50 via-white to-gray-50 overflow-hidden">
       {/* Gradient orbs */}
       <div className="absolute top-20 right-20 w-96 h-96 bg-[#B08D57]/5 rounded-full blur-3xl" />
       <div className="absolute bottom-20 left-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
@@ -32,7 +32,7 @@ export default function TreatmentsHero() {
             Treatment <span className="font-semibold">Approaches</span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
+          <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light mb-0">
             Tailored physiotherapy treatments designed for your unique needs and recovery goals
           </p>
         </motion.div>

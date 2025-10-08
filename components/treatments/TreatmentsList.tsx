@@ -34,7 +34,7 @@ export default function TreatmentsList() {
   ];
 
   return (
-    <section className="py-8 lg:py-12 bg-gradient-to-b from-white via-gray-50/30 to-white">
+    <section className="pt-0 pb-8 lg:pb-12 bg-gradient-to-b from-white via-gray-50/30 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -143,7 +143,7 @@ export default function Home() {
     <main className="min-h-screen" style={{ margin: '0px', padding: '0px' }}>
       <HeroSection />
       {/* SEO-optimized hidden heading for brand search */}
-      <h1 className="sr-only">Kareem Hassanein Physiotherapist Burlington - Back Pain Treatment, Sports Injury Rehabilitation, Knee Pain, North Burlington, Alton Village, Palladium Way</h1>
+      <h1 className="sr-only">Kareem Hassanein Registered Physiotherapist Burlington | Physiotherapy near Waterdown and Oakville</h1>
       
       {/* Subtle transition element */}
       <div className="relative h-0 overflow-visible">

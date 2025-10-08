@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Burlington Physiotherapy | Kareem Hassanein, PT',
-    description: 'Kareem Hassanein - Expert physiotherapist in Burlington. Back pain, sports injuries, direct billing.',
+    description: 'Kareem Hassanein - Registered Physiotherapist in Burlington. Back pain, sports injuries, direct billing.',
     images: ['https://www.kinetikarephysio.com/images/og-image.jpg'],
   },
   alternates: {
@@ -71,7 +71,7 @@ const personSchema = {
   "@type": "Person",
   "name": "Kareem Hassanein",
   "jobTitle": "Registered Physiotherapist",
-  "description": "CAMPT-certified physiotherapist specializing in manual therapy, sports rehabilitation, and evidence-based treatment in Burlington, Waterdown, Hamilton, and Oakville.",
+  "description": "CAMPT-certified physiotherapist providing manual therapy, sports rehabilitation, and evidence-based treatment in Burlington, Waterdown, Hamilton, and Oakville.",
   "url": "https://www.kinetikarephysio.com",
   "image": "https://www.kinetikarephysio.com/images/kareem-profile.png",
   "telephone": "+19056346000",

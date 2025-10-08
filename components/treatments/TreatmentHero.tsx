@@ -11,20 +11,12 @@ interface TreatmentHeroProps {
 
 export default function TreatmentHero({ treatment }: TreatmentHeroProps) {
   return (
-    <section className="relative min-h-[70vh] flex items-center bg-gradient-to-br from-slate-50 via-white to-gray-50 overflow-hidden">
-      {/* Subtle background elements */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'radial-gradient(circle at 1px 1px, rgb(15, 23, 42) 1px, transparent 0)',
-          backgroundSize: '40px 40px'
-        }} />
-      </div>
-
+    <section className="relative flex items-center bg-gradient-to-br from-slate-50 via-white to-gray-50 overflow-hidden">
       {/* Gradient orbs */}
       <div className="absolute top-20 right-20 w-96 h-96 bg-[#B08D57]/5 rounded-full blur-3xl" />
       <div className="absolute bottom-20 left-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 w-full">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 w-full">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

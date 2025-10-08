@@ -87,8 +87,8 @@ export const treatments: Treatment[] = [
       'Safe, structured return to competition',
       'Validated objective readiness testing',
       'Sport-specific conditioning',
-      'Reduced re-injury risk (up to 85% reduction with proper criteria)',
-      'Return to pre-injury performance level',
+      'May reduce re-injury risk with proper progression',
+      'Progressive return toward pre-injury performance',
       'Psychological readiness assessment',
       'Biomechanical assessment and correction',
       'Injury prevention strategies'
@@ -156,7 +156,7 @@ export const treatments: Treatment[] = [
     benefits: [
       'Trigger point release',
       'Decreased muscle tension',
-      'Increased blood flow to tissues (up to 72% above baseline)',
+      'May improve blood flow to tissues',
       'Reduced referred pain patterns',
       'Short-term pain reduction',
       'Improved functional outcomes'
@@ -485,7 +485,7 @@ export const treatments: Treatment[] = [
     faqs: [
       {
         question: 'Do the marks hurt?',
-        answer: 'No, the circular marks are painless. They\'re caused by increased blood flow to the area and are actually a sign of the therapeutic effect.'
+        answer: 'No, the circular marks are painless. They result from the suction effect and typically fade within 3-10 days.'
       },
       {
         question: 'How long do cups stay on?',
@@ -506,12 +506,12 @@ export const treatments: Treatment[] = [
     shortDescription: 'Instrument-assisted techniques to address soft tissue restrictions and pain.',
     description: 'IASTM uses specially designed instruments to apply controlled pressure to soft tissues. Research shows moderate-quality evidence that IASTM may help reduce pain and improve range of motion in certain musculoskeletal conditions. The technique is thought to have neurophysiological effects on pain perception and may influence tissue sensitivity.',
     benefits: [
-      'Breaking down scar tissue',
+      'May help address tissue restrictions',
       'Improved tissue mobility',
-      'Enhanced healing response',
-      'Reduced chronic inflammation',
+      'May support tissue adaptation',
+      'Reduced pain sensitivity',
       'Better movement patterns',
-      'Faster recovery'
+      'Progressive functional improvement'
     ],
     conditions: [
       'Plantar fasciitis',
@@ -600,7 +600,7 @@ export const treatments: Treatment[] = [
     faqs: [
       {
         question: 'Can posture really be changed?',
-        answer: 'Yes! With targeted exercises, awareness training, and consistency, significant postural improvements are achievable at any age.'
+        answer: 'Postural patterns can improve with targeted exercises, awareness training, and consistency. Changes take time and ongoing effort.'
       },
       {
         question: 'How long before I see results?',
@@ -621,12 +621,12 @@ export const treatments: Treatment[] = [
     shortDescription: 'Evidence-based recovery programs following surgery to restore function and strength.',
     description: 'Post-surgical rehabilitation follows evidence-based protocols designed to protect healing tissues while progressively restoring movement, strength, and function. Treatment is phase-appropriate, respecting tissue healing timelines (typically inflammatory phase 0-7 days, proliferative phase 2-3 weeks, maturation phase 12-26 weeks). Progression is individualized based on surgical technique, tissue quality, and your response to treatment.',
     benefits: [
-      'Faster recovery timelines',
-      'Reduced post-operative complications',
-      'Optimal scar tissue management',
-      'Restored strength and function',
-      'Safe return to activities',
-      'Reduced chronic pain risk'
+      'Structured, progressive recovery',
+      'May help reduce post-operative complications',
+      'Scar tissue management strategies',
+      'Progressive strength and function restoration',
+      'Safe, guided return to activities',
+      'May help reduce chronic pain risk'
     ],
     conditions: [
       'ACL reconstruction',

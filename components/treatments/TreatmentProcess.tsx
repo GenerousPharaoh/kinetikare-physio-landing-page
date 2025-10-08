@@ -3,7 +3,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Treatment } from '@/lib/treatments-data';
-import { ArrowRightIcon } from '@heroicons/react/24/outline';
 
 interface TreatmentProcessProps {
   treatment: Treatment;
@@ -46,13 +45,6 @@ export default function TreatmentProcess({ treatment }: TreatmentProcessProps) {
                   </span>
                 </div>
 
-                {/* Arrow connector - desktop only */}
-                {index < treatment.process.length - 1 && (
-                  <div className="hidden lg:block absolute -right-4 top-1/2 transform -translate-y-1/2">
-                    <ArrowRightIcon className="w-6 h-6 text-[#B08D57]/30" />
-                  </div>
-                )}
-
                 <div className="mt-4">
                   <h3 className="text-xl font-semibold text-slate-900 mb-4 group-hover:text-[#B08D57] transition-colors duration-300">
                     {step.title}
@@ -63,13 +55,6 @@ export default function TreatmentProcess({ treatment }: TreatmentProcessProps) {
                   </p>
                 </div>
               </div>
-
-              {/* Arrow connector - mobile/tablet */}
-              {index < treatment.process.length - 1 && (
-                <div className="lg:hidden flex justify-center my-4">
-                  <ArrowRightIcon className="w-6 h-6 text-[#B08D57]/30 rotate-90" />
-                </div>
-              )}
             </motion.div>
           ))}
         </div>

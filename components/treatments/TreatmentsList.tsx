@@ -34,14 +34,14 @@ export default function TreatmentsList() {
   ];
 
   return (
-    <section className="py-16 lg:py-20 bg-gradient-to-b from-white via-gray-50/30 to-white">
+    <section className="py-12 lg:py-16 bg-gradient-to-b from-white via-gray-50/30 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="max-w-2xl mx-auto mb-16"
+          className="max-w-2xl mx-auto mb-12"
         >
           <div className="relative group">
             <MagnifyingGlassIcon className="absolute left-5 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-[#B08D57] transition-colors" />
@@ -93,7 +93,7 @@ export default function TreatmentsList() {
             ))}
           </div>
         ) : (
-          <div className="space-y-16">
+          <div className="space-y-12">
             {categories.map((category, categoryIndex) => (
               <motion.div
                 key={category.name}
@@ -102,7 +102,7 @@ export default function TreatmentsList() {
                 transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className="flex items-center gap-3 mb-10">
+                <div className="flex items-center gap-3 mb-8">
                   <div className="h-px flex-1 bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
                   <h2 className="text-2xl font-light text-slate-900 tracking-wide">{category.name}</h2>
                   <div className="h-px flex-1 bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
@@ -126,12 +126,6 @@ export default function TreatmentsList() {
                             <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/0 via-[#B08D57]/0 to-[#B08D57]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                             <div className="relative">
-                              <div className="flex items-start justify-between mb-4">
-                                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#B08D57]/10 to-[#B08D57]/5 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                  <div className="w-6 h-6 rounded-lg bg-[#B08D57]" />
-                                </div>
-                              </div>
-
                               <h3 className="text-xl font-semibold text-slate-900 mb-3 group-hover:text-[#B08D57] transition-colors duration-300">
                                 {treatment.name}
                               </h3>

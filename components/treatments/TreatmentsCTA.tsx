@@ -15,11 +15,11 @@ export default function TreatmentsCTA() {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Not Sure Which Treatment Is Right for You?
+            Personalized Treatment Plans
           </h2>
           <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
-            I will assess your condition and create a personalized treatment plan
-            combining the most effective approaches for your specific needs.
+            Treatment plans often combine multiple approaches tailored to your specific condition and goals.
+            Book an assessment to discuss which methods would benefit you most.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

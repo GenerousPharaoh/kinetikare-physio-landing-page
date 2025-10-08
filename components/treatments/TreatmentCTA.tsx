@@ -19,11 +19,10 @@ export default function TreatmentCTA({ treatmentName }: TreatmentCTAProps) {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Start Your Recovery Journey?
+            Have Questions About {treatmentName}?
           </h2>
           <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
-            Experience the benefits of {treatmentName} with evidence-based physiotherapy care.
-            Book your assessment today and take the first step toward better health.
+            Book an assessment to discuss how this treatment approach can be integrated into your care plan.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

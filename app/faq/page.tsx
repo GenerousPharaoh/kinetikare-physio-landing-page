@@ -99,7 +99,7 @@ const faqCategories: FAQCategory[] = [
           <>
             I utilize <strong className="font-semibold text-primary-800">Instrument Assisted Soft Tissue Mobilization (IASTM)</strong>, which is a skilled approach using specialized ergonomic tools to effectively address scar tissue, fascial restrictions, and chronic inflammation. IASTM encompasses the principles and techniques that are sometimes known by specific brand names like Graston Technique®. This method helps to enhance tissue healing, improve range of motion, and restore normal function by targeting specific soft tissue limitations. If IASTM is considered beneficial for your condition, I will discuss it with you as part of your overall treatment plan.{' '}
             <Link href="/services" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
-              Learn about my advanced manual therapy techniques
+              Learn about my manual therapy techniques
             </Link>
             .
           </>

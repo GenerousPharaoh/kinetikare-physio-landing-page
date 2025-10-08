@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     description: treatment.metaDescription,
     keywords: treatment.keywords.join(', '),
     openGraph: {
-      title: `${treatment.name} - Expert Physiotherapy Treatment`,
+      title: `${treatment.name} - Physiotherapy Treatment in Burlington`,
       description: treatment.metaDescription,
       type: 'article',
       url: `https://kinetikarephysio.com/treatments/${treatment.id}`,

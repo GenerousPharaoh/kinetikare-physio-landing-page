@@ -30,32 +30,32 @@ function generateDynamicMetaDescription(condition: any): string {
   // Category-specific templates for more targeted SEO
   const categoryTemplates: Record<string, string[]> = {
     'spinal-health': [
-      `Specialized ${conditionNameLower} treatment in Burlington. Manual therapy and targeted exercises for spine rehabilitation. Direct billing available.`,
-      `Evidence-based ${conditionNameLower} physiotherapy with Kareem Hassanein. Expert spinal assessment and personalized treatment plans.`,
+      `${condition.name} treatment in Burlington. Manual therapy and targeted exercises for spine rehabilitation. Direct billing available.`,
+      `Evidence-based ${conditionNameLower} physiotherapy with Kareem Hassanein. Comprehensive spinal assessment and personalized treatment plans.`,
       `Get relief from ${conditionNameLower} with proven manual therapy techniques. Burlington physiotherapy clinic with evening hours.`
     ],
     'shoulder': [
-      `Expert ${conditionNameLower} physiotherapy in Burlington. Restore shoulder function with manual therapy and progressive exercises.`,
-      `Comprehensive ${conditionNameLower} treatment with Kareem Hassanein. Specialized shoulder rehabilitation for lasting recovery.`,
+      `${condition.name} physiotherapy in Burlington. Restore shoulder function with manual therapy and progressive exercises.`,
+      `Comprehensive ${conditionNameLower} treatment with Kareem Hassanein. Effective shoulder rehabilitation for lasting recovery.`,
       `Professional ${conditionNameLower} assessment and treatment. Evidence-based shoulder therapy in Burlington with direct billing.`
     ],
     'knee': [
-      `Effective ${conditionNameLower} treatment in Burlington. Specialized knee rehabilitation with manual therapy and exercise prescription.`,
-      `Get back to activity with expert ${conditionNameLower} physiotherapy. Comprehensive knee assessment and personalized treatment.`,
+      `Effective ${conditionNameLower} treatment in Burlington. Comprehensive knee rehabilitation with manual therapy and exercise prescription.`,
+      `Get back to activity with ${conditionNameLower} physiotherapy. Thorough knee assessment and personalized treatment.`,
       `Professional ${conditionNameLower} rehabilitation with Kareem Hassanein. Evidence-based knee therapy for optimal recovery.`
     ],
     'hip-pelvis': [
-      `Specialized ${conditionNameLower} physiotherapy in Burlington. Expert hip and pelvic rehabilitation for improved mobility.`,
+      `${condition.name} physiotherapy in Burlington. Comprehensive hip and pelvic rehabilitation for improved mobility.`,
       `Comprehensive ${conditionNameLower} treatment with manual therapy. Professional hip assessment and targeted exercises.`,
       `Evidence-based ${conditionNameLower} rehabilitation with Kareem Hassanein. Restore hip function with personalized treatment.`
     ],
     'foot-ankle': [
-      `Expert ${conditionNameLower} treatment in Burlington. Specialized foot and ankle rehabilitation for optimal recovery.`,
-      `Professional ${conditionNameLower} physiotherapy with Kareem Hassanein. Comprehensive ankle assessment and manual therapy.`,
+      `${condition.name} treatment in Burlington. Comprehensive foot and ankle rehabilitation for optimal recovery.`,
+      `Professional ${conditionNameLower} physiotherapy with Kareem Hassanein. Thorough ankle assessment and manual therapy.`,
       `Get relief from ${conditionNameLower} with evidence-based treatment. Burlington clinic with direct billing and evening hours.`
     ],
     'elbow-wrist-hand': [
-      `Specialized ${conditionNameLower} treatment in Burlington. Expert upper extremity rehabilitation with manual therapy.`,
+      `${condition.name} treatment in Burlington. Comprehensive upper extremity rehabilitation with manual therapy.`,
       `Comprehensive ${conditionNameLower} physiotherapy with Kareem Hassanein. Restore hand and wrist function effectively.`,
       `Professional ${conditionNameLower} assessment and treatment. Evidence-based therapy for elbow, wrist, and hand conditions.`
     ]
@@ -63,7 +63,7 @@ function generateDynamicMetaDescription(condition: any): string {
 
   // Get templates for this category or use default
   const templates = categoryTemplates[condition.category] || [
-    `Expert ${conditionNameLower} treatment in Burlington with Kareem Hassanein. Evidence-based physiotherapy using manual therapy for lasting relief.`
+    `${condition.name} treatment in Burlington with Kareem Hassanein. Evidence-based physiotherapy using manual therapy for lasting relief.`
   ];
 
   // Select template based on condition name hash (for consistency)

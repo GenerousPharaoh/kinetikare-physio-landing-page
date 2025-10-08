@@ -10,7 +10,7 @@ interface TreatmentCTAProps {
 
 export default function TreatmentCTA({ treatmentName }: TreatmentCTAProps) {
   return (
-    <section className="py-12 lg:py-16 bg-gradient-to-br from-slate-900 to-slate-800">
+    <section className="py-12 lg:py-16" style={{ background: 'linear-gradient(to bottom right, rgb(15, 23, 42), rgb(30, 41, 59))' }}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

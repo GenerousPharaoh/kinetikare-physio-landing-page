@@ -1,10 +1,11 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import ConditionPageClient from '@/components/ConditionPageClient';
-import { 
-  getAllConditions, 
-  getConditionBySlug, 
-  getRelatedConditions 
+import RelatedTreatments from '@/components/conditions/RelatedTreatments';
+import {
+  getAllConditions,
+  getConditionBySlug,
+  getRelatedConditions
 } from '@/lib/conditions-data';
 import { getDetailedCondition } from '@/lib/detailed-conditions-content';
 
@@ -312,6 +313,7 @@ export default function ConditionPage({ params }: PageProps) {
         condition={condition}
         relatedConditions={relatedConditions}
       />
+      <RelatedTreatments conditionSlug={params.slug} />
     </>
   );
 }

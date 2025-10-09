@@ -72,8 +72,8 @@ const ContactCTA: React.FC<ContactCTAProps> = ({
               whileHover={{ y: -5 }}
               transition={{ type: "spring", stiffness: 300, damping: 10 }}
             >
-              <Link 
-                href="/contact" 
+              <Link
+                href="/#contact"
                 className="bg-white/15 hover:bg-white/25 backdrop-blur-sm text-white font-medium px-8 py-4 rounded-xl transition-all duration-300 flex items-center border border-white/30 shadow-lg"
               >
                 <EnvelopeIcon className="w-5 h-5 mr-2" />

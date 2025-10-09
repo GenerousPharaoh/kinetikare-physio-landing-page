@@ -113,9 +113,14 @@ const services = [
     description: (
       <>
         Hands-on techniques to mobilize joints, reduce pain, and restore function through targeted tissue manipulation.{' '}
-        <Link href="/faq" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
-          Have questions about manual therapy?
+        <Link href="/treatments/joint-mobilization" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+          Learn about joint mobilization
         </Link>
+        {' '}or{' '}
+        <Link href="/treatments/soft-tissue-myofascial-release" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+          myofascial release techniques
+        </Link>
+        .
       </>
     ),
     image: '/images/manual-therapy.jpg',
@@ -132,8 +137,8 @@ const services = [
     description: (
       <>
         Tailored rehabilitation for athletes to recover from injury and return to their sport safely and stronger.{' '}
-        <Link href="/faq" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
-          Learn what to expect during sports rehab
+        <Link href="/treatments/sports-rehab-return-to-sport" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+          Explore sports rehabilitation approach
         </Link>
         .
       </>
@@ -152,8 +157,12 @@ const services = [
     description: (
       <>
         Precision therapy using thin filiform needles to release trigger points and relieve muscular pain and tension.{' '}
-        <Link href="/faq" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
-          Common questions about dry needling answered
+        <Link href="/treatments/dry-needling" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+          Learn about dry needling
+        </Link>
+        {' '}or{' '}
+        <Link href="/faq#dry-needling" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+          read common questions
         </Link>
         .
       </>
@@ -172,8 +181,12 @@ const services = [
     description: (
       <>
         Customized exercise programs designed to restore function, build strength, and prevent injury recurrence.{' '}
-        <Link href="/faq" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
-          Learn about my exercise approach
+        <Link href="/treatments/exercise-therapy" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+          Explore exercise therapy
+        </Link>
+        {' '}or{' '}
+        <Link href="/faq#exercise" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+          read about the exercise approach
         </Link>
         .
       </>
@@ -192,9 +205,14 @@ const services = [
     description: (
       <>
         Comprehensive analysis of your posture and work environment to address pain and prevent future issues.{' '}
-        <Link href="/faq" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
-          Questions about assessments?
+        <Link href="/treatments/postural-assessment" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+          Learn about postural assessment
         </Link>
+        {' '}or{' '}
+        <Link href="/faq#assessment" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+          read about what to expect
+        </Link>
+        .
       </>
     ),
     image: '/images/posture-assessment.jpg',
@@ -211,8 +229,16 @@ const services = [
     description: (
       <>
         Evidence-based approaches to reduce pain and improve quality of life through targeted interventions including cupping and IASTM.{' '}
-        <Link href="/faq" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
-          Explore my pain management FAQ
+        <Link href="/treatments/cupping-therapy" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+          Learn about cupping
+        </Link>
+        ,{' '}
+        <Link href="/treatments/iastm" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+          IASTM
+        </Link>
+        , or{' '}
+        <Link href="/treatments/pain-education" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+          pain education
         </Link>
         .
       </>

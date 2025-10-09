@@ -31,6 +31,14 @@ const reviews = [
   {
     name: "Marko Vasilic",
     text: "I had been struggling with achilles tendinitis and plantar fasciitis for months, and it was holding me back from playing basketball the way I wanted. Kareem did a full movement analysis and tested all of the surrounding joints and muscles, which really showed me where the extra stress was coming from. Treatment included deep trigger point release with dry needling, cupping to ease the tightness, and exercises that were specific to building the strength and mobility I needed on the court. The progress was steady, and before long the pain and stiffness had eased up and I felt confident moving again. I'm now back to playing comfortably without worrying about my Achilles or heel flaring up. I highly recommend Kareem for any athletes trying to get back to playing comfortably."
+  },
+  {
+    name: "Ryan Darkwah",
+    text: "I went to Kareem because my knees were hurting every time I jumped playing ball. He found that the problem came from weakness in my hip and tension in my quads that was putting extra strain on my patellar tendon. Kareem used dry needling on my quads to release the tightness and had me work on strengthening the right muscles. My pain's gone now, and I'm back to playing at full speed. He really knows his stuff and helped me get back on the court feeling stronger than before. I'd definitely recommend him to any athletes dealing with nagging injuries 💪🏿"
+  },
+  {
+    name: "Pasquale Di Clemente",
+    text: "Kareem has really helped me with the pain in my ankle and glute. He's great at adjusting each session based on how I'm feeling that day and always checks in to make sure I'm making progress. The exercises he's given me have made a big difference in my strength and balance, and he even sends videos with clear instructions so I never forget what to do. The dry needling and cupping have also helped loosen up my tight muscles and speed up my recovery. He asks the right questions that get to what's really going on, and I always feel like he's paying attention to the details. I was a bit nervous starting with someone new, but Kareem is easygoing and relatable, and now I actually look forward to my sessions. The clinic itself is comfortable and welcoming, which makes the whole experience even better."
   }
 ];
 
@@ -92,7 +100,7 @@ export default function GoogleReviews() {
               ))}
             </div>
             <span className="text-2xl font-semibold text-gray-800">5.0</span>
-            <span className="text-gray-600">on Google</span>
+            <span className="text-gray-600">(11 reviews)</span>
           </div>
           <h2 className="text-4xl text-gray-900 mb-2 heading-luxury-1">Google Reviews</h2>
           <p className="max-w-2xl mx-auto text-luxury-subtle">

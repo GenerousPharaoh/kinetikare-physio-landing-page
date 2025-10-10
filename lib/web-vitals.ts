@@ -1,62 +1,36 @@
 import { onCLS, onFCP, onLCP, onTTFB, onINP, Metric } from 'web-vitals';
 
 /**
- * Send Web Vitals metrics to Google Analytics
+ * Send Web Vitals metrics to Google Analytics 4
+ * Uses the recommended GA4 event structure for Web Vitals
  */
 function sendToGoogleAnalytics(metric: Metric) {
   // Only send if gtag is available
   if (typeof window !== 'undefined' && (window as any).gtag) {
-    const eventParams: Record<string, any> = {
-      value: Math.round(metric.name === 'CLS' ? metric.delta * 1000 : metric.delta),
-      metric_id: metric.id,
-      metric_value: metric.value,
-      metric_delta: metric.delta,
-    };
+    // Round the value for better readability
+    // CLS is multiplied by 1000 to convert to a more manageable number
+    const value = Math.round(metric.name === 'CLS' ? metric.delta * 1000 : metric.delta);
 
     // Add debug info in development
     if (process.env.NODE_ENV === 'development') {
-      console.log(`Web Vitals: ${metric.name}`, metric.value);
+      console.log(`[Web Vitals] ${metric.name}:`, {
+        value: metric.value,
+        rating: metric.rating,
+        delta: metric.delta,
+        id: metric.id,
+      });
     }
 
-    // Send to GA4 as events
-    switch (metric.name) {
-      case 'FCP':
-        (window as any).gtag('event', 'page_view_timing', {
-          ...eventParams,
-          name: 'first_contentful_paint',
-        });
-        break;
-      case 'LCP':
-        (window as any).gtag('event', 'page_view_timing', {
-          ...eventParams,
-          name: 'largest_contentful_paint',
-        });
-        break;
-      case 'CLS':
-        (window as any).gtag('event', 'page_view_timing', {
-          ...eventParams,
-          name: 'cumulative_layout_shift',
-        });
-        break;
-      case 'TTFB':
-        (window as any).gtag('event', 'page_view_timing', {
-          ...eventParams,
-          name: 'time_to_first_byte',
-        });
-        break;
-      case 'INP':
-        (window as any).gtag('event', 'page_view_timing', {
-          ...eventParams,
-          name: 'interaction_to_next_paint',
-        });
-        break;
-    }
-
-    // Also send as custom event for easier tracking
-    (window as any).gtag('event', 'web_vitals', {
-      metric_name: metric.name,
-      value: eventParams.value,
-      rating: metric.rating, // 'good', 'needs-improvement', or 'poor'
+    // Send to GA4 using the recommended event name pattern
+    // This allows GA4 to automatically track these metrics
+    (window as any).gtag('event', metric.name, {
+      value: value,
+      event_category: 'Web Vitals',
+      event_label: metric.id,
+      non_interaction: true, // Doesn't affect bounce rate
+      metric_value: metric.value,
+      metric_delta: metric.delta,
+      metric_rating: metric.rating, // 'good', 'needs-improvement', or 'poor'
     });
   }
 }

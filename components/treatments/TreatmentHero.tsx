@@ -1,9 +1,10 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Treatment } from '@/lib/treatments-data';
-import { CheckCircleIcon, ArrowDownIcon } from '@heroicons/react/24/outline';
+import { CheckCircleIcon, ArrowDownIcon, ChevronRightIcon, HomeIcon } from '@heroicons/react/24/outline';
 
 interface TreatmentHeroProps {
   treatment: Treatment;
@@ -23,6 +24,19 @@ export default function TreatmentHero({ treatment }: TreatmentHeroProps) {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-4xl"
         >
+          {/* Breadcrumbs */}
+          <nav className="flex items-center space-x-2 text-sm text-gray-600 mb-6">
+            <Link href="/" className="hover:text-[#B08D57] transition-colors duration-200 flex items-center">
+              <HomeIcon className="h-4 w-4" />
+            </Link>
+            <ChevronRightIcon className="h-3 w-3" />
+            <Link href="/treatments" className="hover:text-[#B08D57] transition-colors duration-200">
+              Treatments
+            </Link>
+            <ChevronRightIcon className="h-3 w-3" />
+            <span className="text-gray-900 font-medium">{treatment.name}</span>
+          </nav>
+
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}

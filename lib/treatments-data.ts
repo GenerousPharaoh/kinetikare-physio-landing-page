@@ -74,7 +74,7 @@ export const treatments: Treatment[] = [
         answer: 'Usually yes. Pain education works best when combined with movement therapy and manual treatment. Education addresses the nervous system\'s interpretation of threat, while hands-on treatment addresses tissue restrictions and movement quality. Together, they create a comprehensive approach where you understand what\'s happening and have the physical capacity to move better. Most people benefit from both approaches.'
       }
     ],
-    relatedConditions: ['chronic-back-pain', 'fibromyalgia', 'neck-pain', 'arthritis'],
+    relatedConditions: ['chronic-back-pain', 'fibromyalgia', 'neck-pain', 'low-back-pain', 'sciatica', 'disc-herniation', 'whiplash', 'hip-osteoarthritis', 'knee-osteoarthritis', 'degenerative-disc-disease', 'spinal-stenosis'],
     metaDescription: 'Pain neuroscience education in Burlington. Understanding pain mechanisms and developing practical strategies for persistent pain conditions.',
     keywords: ['pain education', 'pain science', 'self-management', 'chronic pain', 'pain neuroscience education']
   },
@@ -144,7 +144,7 @@ export const treatments: Treatment[] = [
         answer: 'Yes. The principles are the same whether you\'re training for the NHL or playing pickup basketball on weekends. Your program is scaled to your sport\'s demands and your personal goals. A weekend runner doesn\'t need the same volume as a competitive athlete, but both need proper progression, objective testing, and sport-specific preparation to return safely.'
       }
     ],
-    relatedConditions: ['acl-injuries', 'ankle-sprains', 'hamstring-strains', 'rotator-cuff-injuries', 'tennis-elbow', 'shoulder-instability'],
+    relatedConditions: ['acl-injuries', 'ankle-sprains', 'hamstring-strains', 'rotator-cuff-injuries', 'tennis-elbow', 'shoulder-instability', 'meniscus-tears', 'groin-strains', 'achilles-tendinopathy', 'mcl-lcl-sprains', 'plantar-fasciitis', 'shin-splints', 'golfers-elbow'],
     metaDescription: 'Sports rehabilitation in Burlington. Evidence-based return to sport programs with objective testing and progressive training protocols.',
     keywords: ['sports rehabilitation', 'return to sport', 'athletic rehabilitation', 'sports injury recovery', 'return to play', 'sports physiotherapy']
   },
@@ -202,7 +202,7 @@ export const treatments: Treatment[] = [
         answer: 'Serious complications are rare when performed by trained practitioners. Common side effects include temporary soreness (like after exercise), minor bruising, or brief lightheadedness. The main risk is pneumothorax (collapsed lung) with needling near the ribcage, but this is extremely uncommon with proper technique. Infection risk is minimal with sterile, single-use needles. Most people experience only mild soreness that resolves in 24-48 hours.'
       }
     ],
-    relatedConditions: ['tennis-elbow', 'plantar-fasciitis', 'shoulder-impingement', 'neck-pain'],
+    relatedConditions: ['tennis-elbow', 'plantar-fasciitis', 'shoulder-impingement', 'neck-pain', 'golfers-elbow', 'piriformis-syndrome', 'rotator-cuff-injuries', 'low-back-pain', 'sciatica', 'greater-trochanteric-pain-syndrome', 'achilles-tendinopathy', 'de-quervains-tenosynovitis', 'carpal-tunnel-syndrome', 'biceps-tendinopathy', 'proximal-hamstring-tendinopathy'],
     metaDescription: 'Dry needling in Burlington. Trigger point therapy using thin needles to address muscle tension, referred pain, and movement restrictions.',
     keywords: ['dry needling', 'trigger point therapy', 'IMS', 'intramuscular stimulation', 'myofascial release']
   },
@@ -260,7 +260,7 @@ export const treatments: Treatment[] = [
         answer: 'Movement quality and pain often improve in 2-3 weeks with consistent practice. Strength gains become noticeable around 4-6 weeks. Significant structural changes (muscle size, tendon properties) take 8-12 weeks. This timeline assumes 3-4 sessions weekly. Less frequent practice extends the timeline. Early improvements come from nervous system adaptations (better coordination), while later improvements reflect actual tissue changes.'
       }
     ],
-    relatedConditions: ['rotator-cuff-injuries', 'knee-pain-patellofemoral', 'hip-osteoarthritis', 'postural-dysfunction'],
+    relatedConditions: ['rotator-cuff-injuries', 'knee-pain-patellofemoral', 'hip-osteoarthritis', 'postural-dysfunction', 'low-back-pain', 'frozen-shoulder', 'acl-injuries', 'meniscus-tears', 'ankle-sprains', 'shoulder-instability', 'knee-osteoarthritis', 'sciatica', 'disc-herniation', 'patellar-tendinopathy', 'shin-splints'],
     metaDescription: 'Exercise therapy in Burlington. Individualized rehabilitation programs to build strength, improve flexibility, and restore function progressively.',
     keywords: ['exercise therapy', 'therapeutic exercise', 'strength training', 'rehabilitation exercises', 'physiotherapy programs']
   },
@@ -318,7 +318,7 @@ export const treatments: Treatment[] = [
         answer: 'Yes, when applied appropriately. Arthritic joints benefit from gentle mobilization that maintains available movement without forcing range. The techniques reduce joint stiffness, decrease pain signals, and help maintain cartilage nutrition through joint fluid circulation. Treatment focuses on pain-free range rather than pushing into restricted movement. Gentle, regular mobilization is often more effective than aggressive treatment for arthritic joints.'
       }
     ],
-    relatedConditions: ['frozen-shoulder', 'facet-joint-syndrome', 'si-joint-dysfunction', 'ankle-sprains'],
+    relatedConditions: ['frozen-shoulder', 'facet-joint-syndrome', 'si-joint-dysfunction', 'ankle-sprains', 'neck-pain', 'low-back-pain', 'shoulder-impingement', 'hip-osteoarthritis', 'knee-osteoarthritis', 'whiplash', 'disc-herniation', 'spinal-stenosis', 'thoracic-outlet-syndrome', 'rotator-cuff-injuries', 'degenerative-disc-disease', 'ac-joint-injuries'],
     metaDescription: 'Joint mobilization in Burlington. Graded manual techniques to restore movement, reduce joint stiffness, and improve range of motion.',
     keywords: ['joint mobilization', 'joint stiffness', 'range of motion', 'manual therapy', 'joint therapy']
   },
@@ -383,7 +383,7 @@ export const treatments: Treatment[] = [
         answer: 'Acute restrictions (recent injuries) often respond to 2-3 sessions over 1-2 weeks. Chronic restrictions may need weekly treatment for 4-6 weeks, then spacing to biweekly as tissues improve. Treatment frequency depends on how quickly tissue changes occur and how well changes are maintained between sessions. Most people transition to monthly maintenance once primary restrictions resolve.'
       }
     ],
-    relatedConditions: ['it-band-syndrome', 'plantar-fasciitis', 'tennis-elbow', 'hamstring-strains', 'chronic-back-pain', 'fibromyalgia'],
+    relatedConditions: ['it-band-syndrome', 'plantar-fasciitis', 'tennis-elbow', 'hamstring-strains', 'chronic-back-pain', 'fibromyalgia', 'low-back-pain', 'neck-pain', 'golfers-elbow', 'rotator-cuff-injuries', 'achilles-tendinopathy', 'groin-strains', 'piriformis-syndrome', 'shoulder-impingement', 'carpal-tunnel-syndrome', 'de-quervains-tenosynovitis', 'whiplash', 'thoracic-outlet-syndrome', 'peroneal-tendinopathy', 'posterior-tibial-tendon-dysfunction'],
     metaDescription: 'Myofascial release in Burlington. Manual techniques addressing fascial restrictions, muscle tension, and movement limitations.',
     keywords: ['soft tissue release', 'myofascial release', 'muscle tension', 'fascial therapy', 'tissue mobility', 'fascial restrictions', 'chronic pain treatment']
   },
@@ -440,7 +440,7 @@ export const treatments: Treatment[] = [
         answer: 'Yes, and self-treatment significantly improves outcomes. You can use tennis balls, foam rollers, or specialized tools to apply sustained pressure to trigger points. The technique involves finding the tender spot, applying moderate pressure for 30-90 seconds until it releases, then stretching the muscle. This maintains improvements between professional sessions. However, some trigger points (like deep hip rotators) are difficult to reach effectively on your own.'
       }
     ],
-    relatedConditions: ['neck-pain', 'shoulder-impingement', 'piriformis-syndrome', 'tennis-elbow'],
+    relatedConditions: ['neck-pain', 'shoulder-impingement', 'piriformis-syndrome', 'tennis-elbow', 'low-back-pain', 'golfers-elbow', 'rotator-cuff-injuries', 'greater-trochanteric-pain-syndrome', 'whiplash', 'sciatica', 'frozen-shoulder', 'thoracic-outlet-syndrome', 'postural-dysfunction', 'biceps-tendinopathy', 'ac-joint-injuries', 'hip-bursitis', 'deep-gluteal-syndrome'],
     metaDescription: 'Trigger point therapy in Burlington. Release painful muscle knots, address referred pain, and restore normal movement patterns.',
     keywords: ['trigger point therapy', 'trigger point release', 'myofascial trigger points', 'muscle knots', 'referred pain']
   },
@@ -496,7 +496,7 @@ export const treatments: Treatment[] = [
         answer: 'Yes, cupping is safe when performed properly. Contraindications include skin conditions, blood clotting disorders, and certain medications. The main side effects are temporary marks, mild soreness, and occasional lightheadedness. Burns can occur with fire cupping (not used in this practice). Excessive suction can cause blistering, which is avoided by using appropriate pressure. The marks look dramatic but represent normal tissue response to decompression.'
       }
     ],
-    relatedConditions: ['low-back-pain', 'it-band-syndrome', 'shoulder-impingement', 'neck-pain'],
+    relatedConditions: ['low-back-pain', 'it-band-syndrome', 'shoulder-impingement', 'neck-pain', 'rotator-cuff-injuries', 'hamstring-strains', 'piriformis-syndrome', 'greater-trochanteric-pain-syndrome', 'whiplash', 'achilles-tendinopathy', 'groin-strains'],
     metaDescription: 'Cupping therapy in Burlington. Negative pressure technique to address muscle tension, fascial restrictions, and tissue mobility.',
     keywords: ['cupping therapy', 'cupping treatment', 'myofascial cupping', 'vacuum therapy', 'traditional cupping']
   },
@@ -553,7 +553,7 @@ export const treatments: Treatment[] = [
         answer: 'Acute conditions (recent injuries, post-surgical scar tissue) often respond in 4-6 sessions. Chronic conditions like long-standing tendinopathy may need 8-12 sessions. Treatment frequency is typically twice weekly initially, then weekly as tissues improve. Progress is monitored through objective measures like pain levels, tissue quality, and functional improvements. Some conditions require periodic maintenance sessions after primary resolution.'
       }
     ],
-    relatedConditions: ['plantar-fasciitis', 'achilles-tendinopathy', 'it-band-syndrome', 'tennis-elbow'],
+    relatedConditions: ['plantar-fasciitis', 'achilles-tendinopathy', 'it-band-syndrome', 'tennis-elbow', 'golfers-elbow', 'rotator-cuff-injuries', 'patellar-tendinopathy', 'shin-splints', 'peroneal-tendinopathy', 'de-quervains-tenosynovitis', 'biceps-tendinopathy', 'carpal-tunnel-syndrome', 'wrist-sprains', 'posterior-tibial-tendon-dysfunction'],
     metaDescription: 'IASTM in Burlington. Instrument-assisted soft tissue mobilization addressing scar tissue, adhesions, and chronic movement restrictions.',
     keywords: ['IASTM', 'instrument assisted soft tissue', 'Graston technique', 'soft tissue mobilization', 'scar tissue treatment']
   },
@@ -611,7 +611,7 @@ export const treatments: Treatment[] = [
         answer: 'Most postural exercises use minimal equipment: resistance bands, a foam roller, or just your body weight. Workplace modifications might include a monitor stand, ergonomic mouse, or lumbar support, but these are assessed individually. Equipment recommendations are specific to your work setup and movement patterns. Many people see significant improvement with just awareness training and simple exercises - expensive equipment isn\'t required for results.'
       }
     ],
-    relatedConditions: ['postural-dysfunction', 'neck-pain', 'shoulder-impingement', 'low-back-pain'],
+    relatedConditions: ['postural-dysfunction', 'neck-pain', 'shoulder-impingement', 'low-back-pain', 'thoracic-outlet-syndrome', 'whiplash', 'sciatica', 'rotator-cuff-injuries', 'disc-herniation', 'degenerative-disc-disease', 'facet-joint-syndrome'],
     metaDescription: 'Postural assessment in Burlington. Comprehensive analysis of alignment, movement patterns, and muscle imbalances contributing to pain.',
     keywords: ['postural assessment', 'posture correction', 'ergonomic assessment', 'body alignment', 'postural dysfunction']
   },
@@ -669,7 +669,7 @@ export const treatments: Treatment[] = [
         answer: 'Simple arthroscopic procedures (like meniscectomy) typically need 6-8 weeks. Rotator cuff repair takes 4-6 months. ACL reconstruction requires 9-12 months before return to sport. Joint replacement rehab is intensive for 3 months, with continued improvement up to a year. Timeline depends on surgical complexity, tissue healing capacity, pre-surgery condition, and how consistently you follow the program. These are typical ranges - your surgeon and physiotherapist determine your specific timeline based on objective measures.'
       }
     ],
-    relatedConditions: ['acl-injuries', 'rotator-cuff-injuries', 'meniscus-tears', 'shoulder-instability'],
+    relatedConditions: ['acl-injuries', 'rotator-cuff-injuries', 'meniscus-tears', 'shoulder-instability', 'ankle-sprains', 'frozen-shoulder', 'mcl-lcl-sprains', 'hamstring-strains', 'groin-strains', 'achilles-tendinopathy', 'disc-herniation', 'spinal-stenosis'],
     metaDescription: 'Post-surgical rehabilitation in Burlington. Progressive protocols for orthopedic surgery recovery, from acute care to functional restoration.',
     keywords: ['post-surgical rehab', 'post-operative physiotherapy', 'surgical recovery', 'orthopedic rehabilitation']
   }

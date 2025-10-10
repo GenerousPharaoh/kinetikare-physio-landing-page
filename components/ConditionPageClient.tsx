@@ -1523,7 +1523,8 @@ export default function ConditionPageClient({
                                         {/* Recommended Treatments - Inside Treatment Techniques */}
                                         {relatedTreatments.length > 0 && (
                                           <div className="mt-8 pt-8 border-t border-orange-200">
-                                            <h3 className="text-lg font-semibold text-slate-900 mb-4">Recommended Treatment Approaches</h3>
+                                            <h3 className="text-lg font-semibold text-slate-900 mb-2">Recommended Treatment Approaches</h3>
+                                            <p className="text-sm text-gray-600 mb-4 italic">Treatment approaches are individualized to each patient's needs and goals. All interventions require explicit informed consent, and treatment plans are collaboratively modified based on your preferences and response to care.</p>
                                             <div className="grid md:grid-cols-2 gap-4">
                                               {relatedTreatments.map((treatment) => (
                                                 <Link key={treatment.id} href={`/treatments/${treatment.id}`}>

@@ -287,7 +287,7 @@ export default function FAQPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      <main className="min-h-screen flex flex-col text-primary-700 bg-white">
+      <main className="min-h-screen bg-white">
         {/* Hero Section */}
         <FAQHero />
 

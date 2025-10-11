@@ -103,7 +103,7 @@ export default function TreatmentContent({ treatment }: TreatmentContentProps) {
               </h2>
             </div>
             <p className="text-gray-600 mb-8 max-w-3xl">
-              This treatment approach is effective for these common conditions and many more
+              This treatment approach can be effective for these common conditions and many more
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
               {relatedConditions.map((condition, index) => (

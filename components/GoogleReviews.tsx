@@ -83,7 +83,7 @@ export default function GoogleReviews() {
 
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % reviews.length);
-    }, 5000); // Change review every 5 seconds
+    }, 7000); // Change review every 7 seconds
 
     return () => clearInterval(interval);
   }, [isAutoPlaying]);

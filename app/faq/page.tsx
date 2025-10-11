@@ -292,7 +292,7 @@ export default function FAQPage() {
         <FAQHero />
 
         {/* Content */}
-        <section className="pt-0 pb-12 bg-gradient-to-b from-white via-gray-50/30 to-white">
+        <section className="pt-0 pb-12 bg-gradient-to-b from-white via-slate-50/30 to-white">
           <div className="container mx-auto px-4">
             {/* FAQ Accordion */}
             <FAQPageClient faqCategories={faqCategories} />

@@ -272,7 +272,7 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
   return (
     <>
       {/* Breadcrumbs */}
-      <div className="max-w-6xl mx-auto px-4 mb-6 mt-4">
+      <div className="max-w-6xl mx-auto px-4 mb-6">
         <nav className="flex items-center space-x-2 text-sm text-gray-600">
           <Link href="/" className="hover:text-[#B08D57] transition-colors">
             Home
@@ -399,7 +399,7 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
 
 
       {/* Beautiful modern search bar - matching conditions page */}
-      <div className="max-w-3xl mx-auto mb-16 relative z-10">
+      <div className="max-w-3xl mx-auto mb-12 relative z-10">
         <div className="relative group">
           <div className="relative bg-white rounded-full border-2 border-slate-200 hover:border-[#B08D57] transition-all duration-300 shadow-xl hover:shadow-2xl">
             <MagnifyingGlassIcon className="absolute left-6 top-1/2 transform -translate-y-1/2 h-6 w-6 text-[#B08D57]" />

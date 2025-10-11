@@ -91,7 +91,7 @@ function ConditionsPageWithParams({
   return (
     <main className="bg-white min-h-screen overflow-x-hidden">
       {/* COMPLETELY REDESIGNED Hero Section */}
-      <section className="relative pt-24 lg:pt-32 pb-16 lg:pb-20 bg-gradient-to-br from-white via-slate-50/50 to-white overflow-hidden">
+      <section className="relative pt-24 lg:pt-32 pb-8 lg:pb-10 bg-gradient-to-br from-white via-slate-50/50 to-white overflow-hidden">
         {/* Premium background elements */}
         <div className="absolute inset-0">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#B08D57]/5 rounded-full blur-3xl"></div>
@@ -138,20 +138,6 @@ function ConditionsPageWithParams({
               <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light mb-8">
                 Personalized care for acute injuries and chronic conditions, tailored to specific needs and recovery goals
               </p>
-
-              {/* Search Bar - matching treatments page style */}
-              <div className="max-w-2xl mx-auto">
-                <div className="relative group">
-                  <MagnifyingGlassIcon className="absolute left-5 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-[#B08D57] transition-colors" />
-                  <input
-                    type="text"
-                    placeholder="Search conditions (e.g., back pain, knee injury, arthritis...)"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full pl-14 pr-6 py-4 bg-white border-2 border-gray-200 rounded-2xl focus:outline-none focus:border-[#B08D57] transition-all duration-300 text-gray-900 placeholder-gray-400 shadow-sm hover:shadow-md"
-                  />
-                </div>
-              </div>
             </motion.div>
           </div>
         </div>
@@ -161,8 +147,28 @@ function ConditionsPageWithParams({
       </section>
 
       {/* Main Content */}
-      <section className="pt-2 pb-12 bg-white">
+      <section className="pt-0 pb-12 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Search Bar - matching treatments page style */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="max-w-2xl mx-auto mb-6"
+          >
+            <div className="relative group">
+              <MagnifyingGlassIcon className="absolute left-5 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-[#B08D57] transition-colors" />
+              <input
+                type="text"
+                placeholder="Search conditions (e.g., back pain, knee injury, arthritis...)"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-14 pr-6 py-4 bg-white border-2 border-gray-200 rounded-2xl focus:outline-none focus:border-[#B08D57] transition-all duration-300 text-gray-900 placeholder-gray-400 shadow-sm hover:shadow-md"
+              />
+            </div>
+          </motion.div>
+
           {/* PREMIUM Navigation Tabs */}
           <div className="max-w-6xl mx-auto mb-2">
             {/* Filter Label */}

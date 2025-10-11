@@ -6,7 +6,7 @@ import { QuestionMarkCircleIcon } from '@heroicons/react/24/outline';
 
 export default function FAQHero() {
   return (
-    <section className="relative pt-24 pb-2 lg:pt-32 lg:pb-2 bg-gradient-to-br from-white via-slate-50/50 to-white overflow-hidden">
+    <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-20 bg-gradient-to-br from-white via-slate-50/50 to-white overflow-hidden">
       {/* Premium background elements */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#B08D57]/5 rounded-full blur-3xl"></div>
@@ -24,9 +24,9 @@ export default function FAQHero() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-5xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="text-center"
           >
           {/* Premium badge */}
@@ -59,6 +59,9 @@ export default function FAQHero() {
           </motion.div>
         </div>
       </div>
+
+      {/* Bottom gradient fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
     </section>
   );
 }

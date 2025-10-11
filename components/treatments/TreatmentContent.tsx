@@ -19,7 +19,7 @@ export default function TreatmentContent({ treatment }: TreatmentContentProps) {
 
   return (
     <>
-      <section className="py-8 lg:py-12 bg-white">
+      <section className="py-6 lg:py-8 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-20">
             <motion.div

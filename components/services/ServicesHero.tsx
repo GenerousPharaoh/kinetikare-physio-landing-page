@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { SparklesIcon } from '@heroicons/react/24/outline';
+import { ClipboardDocumentListIcon } from '@heroicons/react/24/outline';
 
 export default function ServicesHero() {
   return (
@@ -36,7 +36,7 @@ export default function ServicesHero() {
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 mb-6"
           >
-            <SparklesIcon className="w-5 h-5 text-[#B08D57]" />
+            <ClipboardDocumentListIcon className="w-5 h-5 text-[#B08D57]" />
             <span className="text-sm font-medium text-gray-700">Expert Physiotherapy Care</span>
           </motion.div>
 

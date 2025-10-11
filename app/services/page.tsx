@@ -407,75 +407,52 @@ export default function ServicesPage() {
         }}
       />
 
-      {/* Hero Section - Refined */}
-      <section className="relative bg-gradient-to-br from-primary-50 via-white to-slate-50 text-primary-800 py-12 pt-24 md:py-16 md:pt-28 overflow-hidden">
-        {/* Premium Background Elements */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#B08D57]/5 via-transparent to-transparent"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-[#D4AF37]/5 via-transparent to-transparent"></div>
-        
-        {/* Subtle Background Accents */}
-        <div className="absolute top-20 right-10 w-64 h-64 bg-gradient-to-br from-[#B08D57]/5 to-transparent rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-10 w-96 h-96 bg-gradient-to-tr from-[#D4AF37]/5 to-transparent rounded-full blur-3xl"></div>
-        
-        {/* Content */}
+      {/* Hero Section - Matching About page structure */}
+      <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-20 bg-gradient-to-br from-white via-slate-50/50 to-white overflow-hidden">
+        {/* Premium background elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#B08D57]/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#D4AF37]/5 rounded-full blur-3xl"></div>
+        </div>
+
+        {/* Subtle pattern overlay */}
+        <div className="absolute inset-0 opacity-[0.02]">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, #B08D57 1px, transparent 1px)`,
+            backgroundSize: '48px 48px'
+          }}></div>
+        </div>
+
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             {/* Premium Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 mb-6">
               <SparklesIcon className="w-5 h-5 text-[#B08D57]" />
               <span className="text-sm font-medium text-gray-700">Expert Physiotherapy Care</span>
             </div>
-            
-            {/* Main Title with Split Animation */}
+
+            {/* Main Title */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-slate-900 mb-6 tracking-tight">
               Physiotherapy <span className="font-semibold">Services</span>
             </h1>
 
-            {/* Premium Divider */}
+            {/* Decorative Divider */}
             <div className="flex items-center justify-center gap-4 mb-6">
               <div className="h-px w-20 bg-gradient-to-r from-transparent to-[#B08D57]/40"></div>
               <div className="w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
               <div className="h-px w-20 bg-gradient-to-l from-transparent to-[#D4AF37]/40"></div>
             </div>
 
-            {/* Refined Description */}
-            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light mb-0">
+            {/* Description */}
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light mb-10">
               Professional care tailored to your unique needs, combining advanced techniques with personalized attention
             </p>
             
-            {/* Premium CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-              <a
-                href="#services-grid"
-                className="group relative inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white font-medium rounded-xl shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 overflow-hidden"
-              >
-                <span className="absolute inset-0 bg-gradient-to-r from-[#D4AF37] to-[#B08D57] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-                <span className="relative flex items-center">
-                  Explore Services
-                  <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </span>
-              </a>
-              <a
-                href="/#contact"
-                className="group relative inline-flex items-center justify-center px-8 py-4 bg-white/80 backdrop-blur-sm text-primary-800 font-medium rounded-xl shadow-sm hover:shadow-md border border-primary-200 hover:border-[#B08D57]/30 transform hover:-translate-y-0.5 transition-all duration-300"
-              >
-                <span className="absolute inset-0 bg-gradient-to-r from-[#B08D57]/5 to-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></span>
-                <span className="relative">Book Assessment</span>
-              </a>
-            </div>
           </div>
         </div>
-        
-        {/* Bottom Wave Decoration */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
-          <svg className="relative block w-full h-12" preserveAspectRatio="none" viewBox="0 0 1200 120">
-            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="fill-white/50"></path>
-            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="fill-white"></path>
-          </svg>
-        </div>
-        
+
+        {/* Bottom gradient fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
       </section>
 
       {/* Services Grid - Clean & Modern */}

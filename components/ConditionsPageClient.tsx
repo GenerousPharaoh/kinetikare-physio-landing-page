@@ -91,9 +91,22 @@ function ConditionsPageWithParams({
   return (
     <main className="bg-white min-h-screen overflow-x-hidden">
       {/* COMPLETELY REDESIGNED Hero Section */}
-      <section className="relative pt-32 lg:pt-40 pb-2 bg-white">
-        
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-24 lg:pt-32 pb-16 lg:pb-20 bg-gradient-to-br from-white via-slate-50/50 to-white overflow-hidden">
+        {/* Premium background elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#B08D57]/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#D4AF37]/5 rounded-full blur-3xl"></div>
+        </div>
+
+        {/* Subtle pattern overlay */}
+        <div className="absolute inset-0 opacity-[0.02]">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, #B08D57 1px, transparent 1px)`,
+            backgroundSize: '48px 48px'
+          }}></div>
+        </div>
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-5xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -136,6 +149,9 @@ function ConditionsPageWithParams({
             </motion.div>
           </div>
         </div>
+
+        {/* Bottom gradient fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
       </section>
 
       {/* Main Content */}

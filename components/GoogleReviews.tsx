@@ -174,13 +174,7 @@ export default function GoogleReviews() {
                     }`}
                   >
                     <div className="h-full flex items-center justify-center px-4">
-                      <div className="bg-white rounded-2xl shadow-luxury-deep hover:shadow-luxury-float transition-all duration-600 p-10 max-w-3xl w-full border border-[#B08D57]/10 h-[550px] md:h-[500px] flex flex-col relative overflow-hidden">
-                        {/* Decorative Quote Mark - Top Left */}
-                        <div className="absolute top-6 left-6 text-[#B08D57]/10 text-7xl font-serif leading-none select-none pointer-events-none">"</div>
-
-                        {/* Decorative Quote Mark - Bottom Right */}
-                        <div className="absolute bottom-6 right-6 text-[#B08D57]/10 text-7xl font-serif leading-none select-none pointer-events-none rotate-180">"</div>
-
+                      <div className="bg-white rounded-2xl shadow-luxury-deep hover:shadow-luxury-float transition-all duration-600 p-10 max-w-3xl w-full border border-gray-200 h-[550px] md:h-[500px] flex flex-col relative overflow-hidden">
                         {/* Google Badge */}
                         <div className="flex items-center gap-2 mb-4 flex-shrink-0 relative z-10">
                           <div className="w-5 h-5 relative">
@@ -194,12 +188,12 @@ export default function GoogleReviews() {
                           <span className="text-sm font-semibold text-gray-600">Google Review</span>
                         </div>
 
-                        {/* Stars - Larger and More Prominent */}
-                        <div className="flex gap-1 mb-5 flex-shrink-0 relative z-10">
+                        {/* Stars - Yellow with subtle styling */}
+                        <div className="flex gap-0.5 mb-5 flex-shrink-0 relative z-10">
                           {[...Array(5)].map((_, i) => (
                             <svg
                               key={i}
-                              className="w-6 h-6 text-[#B08D57] fill-current drop-shadow-sm"
+                              className="w-5 h-5 text-yellow-400 fill-current"
                               viewBox="0 0 20 20"
                             >
                               <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
@@ -208,16 +202,16 @@ export default function GoogleReviews() {
                         </div>
 
                         {/* Review Text - Bolder, More Prominent, Scrollable */}
-                        <div className="flex-grow overflow-y-auto mb-5 pr-3 relative z-10" style={{ scrollbarWidth: 'thin', scrollbarColor: '#B08D57 transparent' }}>
-                          <p className="text-slate-800 leading-relaxed text-lg font-medium">
+                        <div className="flex-grow overflow-y-auto mb-5 pr-3 relative z-10" style={{ scrollbarWidth: 'thin', scrollbarColor: '#d1d5db transparent' }}>
+                          <p className="text-slate-700 leading-relaxed text-base">
                             {review.text}
                           </p>
                         </div>
 
                         {/* Reviewer Name - Enhanced */}
-                        <div className="flex items-center justify-between flex-shrink-0 pt-4 border-t border-[#B08D57]/20 relative z-10">
-                          <div className="font-bold text-gray-900 text-lg">{review.name}</div>
-                          <div className="text-sm text-gray-500 font-medium">Verified Patient</div>
+                        <div className="flex items-center justify-between flex-shrink-0 pt-4 border-t border-gray-200 relative z-10">
+                          <div className="font-semibold text-gray-900">{review.name}</div>
+                          <div className="text-sm text-gray-500">Verified Patient</div>
                         </div>
                       </div>
                     </div>

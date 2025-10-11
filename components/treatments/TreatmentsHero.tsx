@@ -32,6 +32,12 @@ export default function TreatmentsHero() {
             Treatment <span className="font-semibold">Approaches</span>
           </h1>
 
+          <div className="flex items-center justify-center gap-4 mb-8">
+            <div className="h-px w-16 bg-gradient-to-r from-transparent to-[#B08D57]/40"></div>
+            <div className="w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
+            <div className="h-px w-16 bg-gradient-to-l from-transparent to-[#D4AF37]/40"></div>
+          </div>
+
           <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light mb-0">
             Tailored physiotherapy treatments designed for your unique needs and recovery goals
           </p>

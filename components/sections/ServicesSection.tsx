@@ -7,7 +7,8 @@ import { motion } from 'framer-motion';
 import { useScrollAnimation, useStaggeredAnimation } from '@/hooks/useScrollAnimation';
 import {
   ChevronRightIcon,
-  CheckCircleIcon
+  CheckCircleIcon,
+  HeartIcon
 } from '@heroicons/react/24/outline';
 
 export default function ServicesSection() {
@@ -50,12 +51,22 @@ export default function ServicesSection() {
     >
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Section Header */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 mb-4"
+          >
+            <HeartIcon className="w-5 h-5 text-[#B08D57]" />
+            <span className="text-sm font-medium text-gray-700">Comprehensive Care</span>
+          </motion.div>
+
           <h2 className="text-4xl md:text-5xl text-primary-cool mb-6 heading-primary">
             <span className="text-[#B08D57]">Services</span>
           </h2>

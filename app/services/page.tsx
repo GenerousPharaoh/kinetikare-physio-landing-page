@@ -426,26 +426,20 @@ export default function ServicesPage() {
             </div>
             
             {/* Main Title with Split Animation */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-light mb-6 leading-tight tracking-[-0.03em]">
-              <span className="bg-gradient-to-r from-primary-800 to-primary-600 bg-clip-text text-transparent">Physiotherapy</span>
-              <span className="block mt-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent" style={{
-                backgroundSize: '200% 100%'
-              }}>Services</span>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-slate-900 mb-3 tracking-tight">
+              Physiotherapy <span className="font-semibold">Services</span>
             </h1>
-            
+
             {/* Premium Divider */}
             <div className="flex items-center justify-center gap-4 mb-8">
               <div className="h-px w-16 bg-gradient-to-r from-transparent to-[#B08D57]/40"></div>
               <div className="w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
               <div className="h-px w-16 bg-gradient-to-l from-transparent to-[#D4AF37]/40"></div>
             </div>
-            
+
             {/* Refined Description */}
-            <p className="text-lg md:text-xl text-primary-600 max-w-3xl mx-auto leading-relaxed font-light" style={{lineHeight: '1.8'}}>
-              Professional care tailored to your unique needs, combining 
-              <span className="font-normal text-primary-700"> advanced techniques </span>
-              with 
-              <span className="font-normal text-primary-700"> personalized attention</span>
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light mb-0">
+              Professional care tailored to your unique needs, combining advanced techniques with personalized attention
             </p>
             
             {/* Premium CTA Buttons */}

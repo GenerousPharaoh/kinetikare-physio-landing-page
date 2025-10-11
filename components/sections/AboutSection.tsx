@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useScrollAnimation, useStaggeredAnimation } from '@/hooks/useScrollAnimation';
+import { UserCircleIcon } from '@heroicons/react/24/outline';
 
 export default function AboutSection() {
   const { ref: sectionRef, animationProps } = useScrollAnimation({ yOffset: 30 });
@@ -56,8 +57,9 @@ export default function AboutSection() {
               animate={isInView ? "visible" : "hidden"}
               className="text-center lg:text-left lg:-ml-12"
             >
-              <motion.div variants={itemVariants} className="inline-block px-4 py-2 bg-[#B08D57]/10 text-[#B08D57] text-sm font-medium rounded-full mb-6">
-                Meet Kareem Hassanein
+              <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 mb-6">
+                <UserCircleIcon className="w-5 h-5 text-[#B08D57]" />
+                <span className="text-sm font-medium text-gray-700">Meet Kareem Hassanein</span>
               </motion.div>
               
               <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl text-primary-warm mb-6 heading-luxury-2">

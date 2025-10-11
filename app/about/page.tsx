@@ -248,20 +248,19 @@ export default function About() {
             </div>
             
             {/* Main heading with premium typography */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-slate-900 mb-6 tracking-[-0.03em] leading-[0.95]">
-              Registered<br/>
-              <span className="text-[#B08D57]">Physiotherapist</span>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-slate-900 mb-3 tracking-tight">
+              Registered <span className="font-semibold">Physiotherapist</span>
             </h1>
-            
+
             {/* Decorative line */}
             <div className="flex items-center justify-center gap-4 mb-8">
-              <div className="h-px w-20 bg-gradient-to-r from-transparent to-[#B08D57]/30"></div>
-              <div className="h-2 w-2 rounded-full bg-[#B08D57]"></div>
-              <div className="h-px w-20 bg-gradient-to-l from-transparent to-[#B08D57]/30"></div>
+              <div className="h-px w-16 bg-gradient-to-r from-transparent to-[#B08D57]/40"></div>
+              <div className="w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
+              <div className="h-px w-16 bg-gradient-to-l from-transparent to-[#D4AF37]/40"></div>
             </div>
-            
+
             {/* Tagline */}
-            <p className="text-xl md:text-2xl text-slate-600 font-light leading-relaxed max-w-3xl mx-auto mb-10">
+            <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed max-w-3xl mx-auto mb-10">
               Combining clinical expertise with genuine understanding to guide your recovery journey
             </p>
             

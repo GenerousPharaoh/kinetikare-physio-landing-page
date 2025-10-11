@@ -25,7 +25,7 @@ export default function TreatmentContent({ treatment }: TreatmentContentProps) {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
+              transition={{ duration: 0.4 }}
               viewport={{ once: true }}
               className="space-y-8"
             >
@@ -57,7 +57,7 @@ export default function TreatmentContent({ treatment }: TreatmentContentProps) {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
               viewport={{ once: true }}
             >
               <div>
@@ -68,7 +68,7 @@ export default function TreatmentContent({ treatment }: TreatmentContentProps) {
                       key={index}
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.08 }}
+                      transition={{ duration: 0.3, delay: index * 0.05 }}
                       viewport={{ once: true }}
                       className="flex items-start gap-4 group"
                     >
@@ -91,7 +91,7 @@ export default function TreatmentContent({ treatment }: TreatmentContentProps) {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.4 }}
             viewport={{ once: true }}
           >
             <div className="flex items-center gap-3 mb-6">
@@ -112,7 +112,7 @@ export default function TreatmentContent({ treatment }: TreatmentContentProps) {
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.03 }}
+                      transition={{ duration: 0.3, delay: index * 0.02 }}
                       viewport={{ once: true }}
                       className="group bg-white rounded-xl p-5 border border-gray-100 hover:border-[#B08D57]/40 hover:shadow-lg transition-all duration-300 cursor-pointer h-full"
                     >

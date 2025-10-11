@@ -200,6 +200,10 @@ export const treatments: Treatment[] = [
       {
         question: 'Are there any risks?',
         answer: 'Serious complications are rare when performed by trained practitioners. Common side effects include temporary soreness (like after exercise), minor bruising, or brief lightheadedness. The main risk is pneumothorax (collapsed lung) with needling near the ribcage, but this is extremely uncommon with proper technique. Infection risk is minimal with sterile, single-use needles. Most people experience only mild soreness that resolves in 24-48 hours.'
+      },
+      {
+        question: 'How do you ensure the needles are clean and safe?',
+        answer: 'All needles are sterile, single-use, and individually packaged. They are disposed of immediately after treatment in a sharps container. Before and after needling, the treatment area is wiped with chlorhexidine (stanhexidine) antiseptic solution. Needles are only purchased from reputable medical supply vendors that meet Health Canada standards. Each needle is used once on one patient and then safely discarded - no needle is ever reused.'
       }
     ],
     relatedConditions: ['tennis-elbow', 'plantar-fasciitis', 'shoulder-impingement', 'neck-pain', 'golfers-elbow', 'piriformis-syndrome', 'rotator-cuff-injuries', 'low-back-pain', 'sciatica', 'greater-trochanteric-pain-syndrome', 'achilles-tendinopathy', 'de-quervains-tenosynovitis', 'carpal-tunnel-syndrome', 'biceps-tendinopathy', 'proximal-hamstring-tendinopathy'],

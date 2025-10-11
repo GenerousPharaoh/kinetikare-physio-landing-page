@@ -174,9 +174,15 @@ export default function GoogleReviews() {
                     }`}
                   >
                     <div className="h-full flex items-center justify-center px-4">
-                      <div className="bg-white rounded-xl shadow-luxury-medium hover:shadow-luxury-deep transition-all duration-600 p-8 max-w-3xl w-full border-luxury-subtle h-[550px] md:h-[500px] flex flex-col">
+                      <div className="bg-white rounded-2xl shadow-luxury-deep hover:shadow-luxury-float transition-all duration-600 p-10 max-w-3xl w-full border border-[#B08D57]/10 h-[550px] md:h-[500px] flex flex-col relative overflow-hidden">
+                        {/* Decorative Quote Mark - Top Left */}
+                        <div className="absolute top-6 left-6 text-[#B08D57]/10 text-7xl font-serif leading-none select-none pointer-events-none">"</div>
+
+                        {/* Decorative Quote Mark - Bottom Right */}
+                        <div className="absolute bottom-6 right-6 text-[#B08D57]/10 text-7xl font-serif leading-none select-none pointer-events-none rotate-180">"</div>
+
                         {/* Google Badge */}
-                        <div className="flex items-center gap-2 mb-3 flex-shrink-0">
+                        <div className="flex items-center gap-2 mb-4 flex-shrink-0 relative z-10">
                           <div className="w-5 h-5 relative">
                             <svg className="absolute inset-0 w-full h-full" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                               <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"/>
@@ -185,15 +191,15 @@ export default function GoogleReviews() {
                               <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"/>
                             </svg>
                           </div>
-                          <span className="text-sm font-medium text-gray-600">Google Review</span>
+                          <span className="text-sm font-semibold text-gray-600">Google Review</span>
                         </div>
 
-                        {/* Stars */}
-                        <div className="flex gap-0.5 mb-3 flex-shrink-0">
+                        {/* Stars - Larger and More Prominent */}
+                        <div className="flex gap-1 mb-5 flex-shrink-0 relative z-10">
                           {[...Array(5)].map((_, i) => (
                             <svg
                               key={i}
-                              className="w-5 h-5 text-yellow-400 fill-current"
+                              className="w-6 h-6 text-[#B08D57] fill-current drop-shadow-sm"
                               viewBox="0 0 20 20"
                             >
                               <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
@@ -201,17 +207,17 @@ export default function GoogleReviews() {
                           ))}
                         </div>
 
-                        {/* Review Text - Scrollable */}
-                        <div className="flex-grow overflow-y-auto mb-4 pr-2">
-                          <p className="text-gray-700 leading-relaxed">
+                        {/* Review Text - Bolder, More Prominent, Scrollable */}
+                        <div className="flex-grow overflow-y-auto mb-5 pr-3 relative z-10" style={{ scrollbarWidth: 'thin', scrollbarColor: '#B08D57 transparent' }}>
+                          <p className="text-slate-800 leading-relaxed text-lg font-medium">
                             {review.text}
                           </p>
                         </div>
 
-                        {/* Reviewer Name */}
-                        <div className="flex items-center justify-between flex-shrink-0 pt-2 border-t border-gray-100">
-                          <div className="font-semibold text-gray-900">{review.name}</div>
-                          <div className="text-sm text-gray-500">Verified Patient</div>
+                        {/* Reviewer Name - Enhanced */}
+                        <div className="flex items-center justify-between flex-shrink-0 pt-4 border-t border-[#B08D57]/20 relative z-10">
+                          <div className="font-bold text-gray-900 text-lg">{review.name}</div>
+                          <div className="text-sm text-gray-500 font-medium">Verified Patient</div>
                         </div>
                       </div>
                     </div>

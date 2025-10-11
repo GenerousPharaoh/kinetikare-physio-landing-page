@@ -271,30 +271,6 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
 
   return (
     <>
-      {/* Breadcrumbs */}
-      <div className="max-w-6xl mx-auto px-4 mb-6">
-        <nav className="flex items-center space-x-2 text-sm text-gray-600">
-          <Link href="/" className="hover:text-[#B08D57] transition-colors">
-            Home
-          </Link>
-          <ChevronRightIcon className="w-4 h-4 text-gray-400" />
-          <span className="text-gray-900 font-medium">FAQ</span>
-          {activeCategory && !isSearching && (
-            <>
-              <ChevronRightIcon className="w-4 h-4 text-gray-400" />
-              <span className="text-[#B08D57] font-medium">
-                {faqCategories.find(c => c.id === activeCategory)?.name}
-              </span>
-            </>
-          )}
-          {isSearching && (
-            <>
-              <ChevronRightIcon className="w-4 h-4 text-gray-400" />
-              <span className="text-[#B08D57] font-medium">Search Results</span>
-            </>
-          )}
-        </nav>
-      </div>
       {/* Removed floating search - not needed on mobile */}
       {/* <AnimatePresence>
         {false && (

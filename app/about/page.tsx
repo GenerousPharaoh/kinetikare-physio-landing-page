@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import ClientImage from '@/components/ClientImage';
 import { CheckBadgeIcon } from '@heroicons/react/24/solid';
-import { LightBulbIcon, UserGroupIcon, AdjustmentsHorizontalIcon } from '@heroicons/react/24/outline';
+import { LightBulbIcon, UserGroupIcon, AdjustmentsHorizontalIcon, UserCircleIcon } from '@heroicons/react/24/outline';
 import { 
   DocumentTextIcon, 
   ChatBubbleBottomCenterTextIcon,
@@ -243,20 +243,21 @@ export default function About() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             {/* Premium badge */}
-            <div className="inline-flex items-center px-4 py-2 bg-[#B08D57]/10 text-[#B08D57] text-sm font-medium rounded-full mb-6">
-              Meet Kareem Hassanein
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 mb-6">
+              <UserCircleIcon className="w-5 h-5 text-[#B08D57]" />
+              <span className="text-sm font-medium text-gray-700">Meet Kareem Hassanein</span>
             </div>
             
             {/* Main heading with premium typography */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-slate-900 mb-3 tracking-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-slate-900 mb-6 tracking-tight">
               Registered <span className="font-semibold">Physiotherapist</span>
             </h1>
 
             {/* Decorative line */}
-            <div className="flex items-center justify-center gap-4 mb-8">
-              <div className="h-px w-16 bg-gradient-to-r from-transparent to-[#B08D57]/40"></div>
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="h-px w-20 bg-gradient-to-r from-transparent to-[#B08D57]/40"></div>
               <div className="w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
-              <div className="h-px w-16 bg-gradient-to-l from-transparent to-[#D4AF37]/40"></div>
+              <div className="h-px w-20 bg-gradient-to-l from-transparent to-[#D4AF37]/40"></div>
             </div>
 
             {/* Tagline */}

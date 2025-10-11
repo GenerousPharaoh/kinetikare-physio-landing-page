@@ -21,13 +21,14 @@ export default function FAQHero() {
         }}></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center max-w-4xl mx-auto"
-        >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="text-center"
+          >
           {/* Premium badge */}
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
@@ -55,7 +56,8 @@ export default function FAQHero() {
           <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed max-w-3xl mx-auto mb-8">
             Find answers to common questions about physiotherapy, appointments, and insurance coverage
           </p>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
 
       {/* Bottom gradient fade */}

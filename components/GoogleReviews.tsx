@@ -253,13 +253,13 @@ export default function GoogleReviews() {
             <button
               key={index}
               onClick={() => handleDotClick(index)}
-              className="py-2 px-1 border-0 outline-none focus:outline-none cursor-pointer"
+              className="p-2 border-0 outline-none focus:outline-none cursor-pointer group"
               aria-label={`Go to review ${index + 1}`}
             >
-              <div className={`h-[2px] transition-all duration-200 ${
+              <div className={`rounded-full transition-all duration-300 ${
                 index === currentIndex
-                  ? 'w-10 bg-[#B08D57]'
-                  : 'w-6 bg-gray-300 hover:bg-gray-400'
+                  ? 'w-2.5 h-2.5 bg-[#B08D57] scale-110'
+                  : 'w-2 h-2 bg-gray-300 group-hover:bg-gray-400 group-hover:scale-110'
               }`} />
             </button>
           ))}

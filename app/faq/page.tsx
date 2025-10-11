@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import FAQPageClient from '@/components/FAQPageClient';
 import { FaqItem } from '@/components/FAQAccordion';
-import { QuestionMarkCircleIcon } from '@heroicons/react/24/outline';
+import FAQHero from '@/components/faq/FAQHero';
 
 interface FAQCategory {
   id: string;
@@ -287,50 +287,8 @@ export default function FAQPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* Hero Section - Matching About page structure */}
-      <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-20 bg-gradient-to-br from-white via-slate-50/50 to-white overflow-hidden">
-        {/* Premium background elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#B08D57]/5 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#D4AF37]/5 rounded-full blur-3xl"></div>
-        </div>
-
-        {/* Subtle pattern overlay */}
-        <div className="absolute inset-0 opacity-[0.02]">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, #B08D57 1px, transparent 1px)`,
-            backgroundSize: '48px 48px'
-          }}></div>
-        </div>
-
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center max-w-4xl mx-auto">
-            {/* Premium badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 mb-6">
-              <QuestionMarkCircleIcon className="w-5 h-5 text-[#B08D57]" />
-              <span className="text-sm font-medium text-gray-700">Common Questions</span>
-            </div>
-
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-slate-900 mb-6 tracking-tight">
-              <span className="font-semibold">FAQ</span>
-            </h1>
-
-            {/* Decorative line */}
-            <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="h-px w-20 bg-gradient-to-r from-transparent to-[#B08D57]/40"></div>
-              <div className="w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
-              <div className="h-px w-20 bg-gradient-to-l from-transparent to-[#D4AF37]/40"></div>
-            </div>
-
-            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light mb-8">
-              Find answers to common questions about physiotherapy services and what to expect during your visits
-            </p>
-          </div>
-        </div>
-
-        {/* Bottom gradient fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
-      </section>
+      {/* Hero Section */}
+      <FAQHero />
 
       {/* Content */}
       <div className="container mx-auto px-4 py-12">

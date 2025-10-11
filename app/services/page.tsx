@@ -161,7 +161,7 @@ const services = [
           Learn about dry needling
         </Link>
         {' '}or{' '}
-        <Link href="/faq#dry-needling" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+        <Link href="/faq" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
           read common questions
         </Link>
         .
@@ -185,8 +185,8 @@ const services = [
           Explore exercise therapy
         </Link>
         {' '}or{' '}
-        <Link href="/faq#exercise" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
-          read about the exercise approach
+        <Link href="/faq" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+          read common questions
         </Link>
         .
       </>
@@ -209,8 +209,8 @@ const services = [
           Learn about postural assessment
         </Link>
         {' '}or{' '}
-        <Link href="/faq#assessment" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
-          read about what to expect
+        <Link href="/faq" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+          read common questions
         </Link>
         .
       </>

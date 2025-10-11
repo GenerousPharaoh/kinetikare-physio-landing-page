@@ -1,8 +1,10 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Treatment } from '@/lib/treatments-data';
+import { getConditionBySlug } from '@/lib/conditions-data';
 import { CheckCircleIcon, HeartIcon, UserGroupIcon } from '@heroicons/react/24/outline';
 
 interface TreatmentContentProps {
@@ -10,6 +12,11 @@ interface TreatmentContentProps {
 }
 
 export default function TreatmentContent({ treatment }: TreatmentContentProps) {
+  // Fetch full condition objects from slugs
+  const relatedConditions = treatment.relatedConditions
+    .map(slug => getConditionBySlug(slug))
+    .filter(Boolean);
+
   return (
     <section className="py-8 lg:py-12 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -82,17 +89,20 @@ export default function TreatmentContent({ treatment }: TreatmentContentProps) {
                 <h3 className="text-2xl font-semibold text-slate-900">Conditions Treated</h3>
               </div>
               <div className="grid grid-cols-2 gap-3">
-                {treatment.conditions.map((condition, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.4, delay: index * 0.04 }}
-                    viewport={{ once: true }}
-                    className="bg-gradient-to-br from-slate-50 to-white px-4 py-3 rounded-xl text-gray-700 text-sm border border-gray-100 hover:border-[#B08D57]/30 transition-colors duration-300"
-                  >
-                    {condition}
-                  </motion.div>
+                {relatedConditions.map((condition, index) => (
+                  condition && (
+                    <Link key={condition.id} href={`/conditions/${condition.slug}`}>
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.4, delay: index * 0.04 }}
+                        viewport={{ once: true }}
+                        className="bg-gradient-to-br from-slate-50 to-white px-4 py-3 rounded-xl text-gray-700 text-sm border border-gray-100 hover:border-[#B08D57]/30 hover:shadow-md transition-all duration-300 cursor-pointer h-full"
+                      >
+                        {condition.name}
+                      </motion.div>
+                    </Link>
+                  )
                 ))}
               </div>
             </div>

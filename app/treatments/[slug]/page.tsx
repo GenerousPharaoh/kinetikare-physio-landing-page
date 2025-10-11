@@ -6,7 +6,6 @@ import TreatmentContent from '@/components/treatments/TreatmentContent';
 import TreatmentProcess from '@/components/treatments/TreatmentProcess';
 import TreatmentFAQ from '@/components/treatments/TreatmentFAQ';
 import TreatmentCTA from '@/components/treatments/TreatmentCTA';
-import RelatedConditions from '@/components/treatments/RelatedConditions';
 
 export async function generateStaticParams() {
   const treatments = getAllTreatments();
@@ -102,7 +101,6 @@ export default function TreatmentPage({ params }: { params: { slug: string } }) 
       <TreatmentContent treatment={treatment} />
       <TreatmentProcess treatment={treatment} />
       <TreatmentFAQ treatment={treatment} />
-      <RelatedConditions conditionIds={treatment.relatedConditions} />
       <TreatmentCTA treatmentName={treatment.name} />
     </main>
   );

@@ -280,21 +280,23 @@ export default function FAQPage() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col text-primary-700 bg-white">
+    <>
       {/* FAQ Schema Markup */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* Hero Section */}
-      <FAQHero />
+      <main className="min-h-screen flex flex-col text-primary-700 bg-white">
+        {/* Hero Section */}
+        <FAQHero />
 
-      {/* Content */}
-      <div className="container mx-auto px-4">
-        {/* FAQ Accordion */}
-        <FAQPageClient faqCategories={faqCategories} />
-      </div>
-    </main>
+        {/* Content */}
+        <div className="container mx-auto px-4">
+          {/* FAQ Accordion */}
+          <FAQPageClient faqCategories={faqCategories} />
+        </div>
+      </main>
+    </>
   );
 } 

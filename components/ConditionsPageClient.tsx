@@ -139,19 +139,17 @@ function ConditionsPageWithParams({
                 Personalized care for acute injuries and chronic conditions, tailored to specific needs and recovery goals
               </p>
 
-              {/* PREMIUM Search Bar */}
+              {/* Search Bar - matching treatments page style */}
               <div className="max-w-2xl mx-auto">
                 <div className="relative group">
-                  <div className="relative bg-white rounded-full border-2 border-slate-200 hover:border-[#B08D57] transition-all duration-300 shadow-xl hover:shadow-2xl">
-                    <MagnifyingGlassIcon className="absolute left-6 top-1/2 transform -translate-y-1/2 h-6 w-6 text-[#B08D57]" />
-                    <input
-                      type="text"
-                      placeholder="Search conditions (e.g., back pain, knee injury, arthritis...)"
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      className="w-full pl-14 pr-6 py-5 bg-transparent rounded-full focus:outline-none focus:ring-4 focus:ring-[#B08D57]/20 text-lg font-medium text-slate-900 placeholder-slate-500"
-                    />
-                  </div>
+                  <MagnifyingGlassIcon className="absolute left-5 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-[#B08D57] transition-colors" />
+                  <input
+                    type="text"
+                    placeholder="Search conditions (e.g., back pain, knee injury, arthritis...)"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-full pl-14 pr-6 py-4 bg-white border-2 border-gray-200 rounded-2xl focus:outline-none focus:border-[#B08D57] transition-all duration-300 text-gray-900 placeholder-gray-400 shadow-sm hover:shadow-md"
+                  />
                 </div>
               </div>
             </motion.div>

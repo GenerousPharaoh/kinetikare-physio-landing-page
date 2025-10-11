@@ -312,7 +312,7 @@ export default function FAQPage() {
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-slate-900 mb-6 tracking-tight">
-              Frequently Asked <span className="font-semibold">Questions</span>
+              <span className="font-semibold">FAQ</span>
             </h1>
 
             {/* Decorative line */}

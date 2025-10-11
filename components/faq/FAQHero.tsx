@@ -52,7 +52,7 @@ export default function FAQHero() {
           </div>
 
           {/* Tagline */}
-          <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed max-w-3xl mx-auto mb-10">
+          <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed max-w-3xl mx-auto mb-8">
             Find answers to common questions about physiotherapy, appointments, and insurance coverage
           </p>
         </motion.div>

@@ -291,7 +291,7 @@ export default function FAQPage() {
       <FAQHero />
 
       {/* Content */}
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4">
         {/* FAQ Accordion */}
         <FAQPageClient faqCategories={faqCategories} />
       </div>

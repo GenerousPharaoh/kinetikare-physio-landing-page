@@ -83,7 +83,7 @@ export default function GoogleReviews() {
 
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % reviews.length);
-    }, 8000); // Change review every 8 seconds
+    }, 5000); // Change review every 5 seconds
 
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
@@ -248,18 +248,18 @@ export default function GoogleReviews() {
         </div>
 
         {/* Dot Navigation */}
-        <div className="flex justify-center items-center gap-2 mt-6">
+        <div className="flex justify-center items-center gap-1.5 mt-6">
           {reviews.map((_, index) => (
             <button
               key={index}
               onClick={() => handleDotClick(index)}
-              className="p-2 border-0 outline-none focus:outline-none cursor-pointer group"
+              className="p-1 border-0 outline-none focus:outline-none cursor-pointer group"
               aria-label={`Go to review ${index + 1}`}
             >
               <div className={`rounded-full transition-all duration-300 ${
                 index === currentIndex
-                  ? 'w-2.5 h-2.5 bg-[#B08D57] scale-110'
-                  : 'w-2 h-2 bg-gray-300 group-hover:bg-gray-400 group-hover:scale-110'
+                  ? 'w-2 h-2 bg-[#B08D57]'
+                  : 'w-1.5 h-1.5 bg-gray-300 group-hover:bg-[#B08D57]/60'
               }`} />
             </button>
           ))}

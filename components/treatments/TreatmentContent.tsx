@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Treatment } from '@/lib/treatments-data';
 import { getConditionBySlug } from '@/lib/conditions-data';
-import { CheckCircleIcon, HeartIcon, UserGroupIcon } from '@heroicons/react/24/outline';
+import { CheckCircleIcon, HeartIcon, UserGroupIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 
 interface TreatmentContentProps {
   treatment: Treatment;
@@ -88,18 +88,30 @@ export default function TreatmentContent({ treatment }: TreatmentContentProps) {
                 </div>
                 <h3 className="text-2xl font-semibold text-slate-900">Conditions Treated</h3>
               </div>
-              <div className="grid grid-cols-2 gap-3">
+              <p className="text-gray-600 text-sm mb-6">
+                This treatment approach is effective for these common conditions and many more
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {relatedConditions.map((condition, index) => (
                   condition && (
                     <Link key={condition.id} href={`/conditions/${condition.slug}`}>
                       <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.4, delay: index * 0.04 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.05 }}
                         viewport={{ once: true }}
-                        className="bg-gradient-to-br from-slate-50 to-white px-4 py-3 rounded-xl text-gray-700 text-sm border border-gray-100 hover:border-[#B08D57]/30 hover:shadow-md transition-all duration-300 cursor-pointer h-full"
+                        className="group bg-white rounded-xl p-5 border border-gray-100 hover:border-[#B08D57]/40 hover:shadow-lg transition-all duration-300 cursor-pointer h-full"
                       >
-                        {condition.name}
+                        <h4 className="text-base font-semibold text-slate-900 mb-2 group-hover:text-[#B08D57] transition-colors duration-300">
+                          {condition.name}
+                        </h4>
+                        <p className="text-gray-600 text-sm mb-3 line-clamp-2">
+                          {condition.shortDescription}
+                        </p>
+                        <div className="flex items-center text-[#B08D57] font-medium text-sm group-hover:gap-2 transition-all duration-300">
+                          Learn More
+                          <ArrowRightIcon className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-300" />
+                        </div>
                       </motion.div>
                     </Link>
                   )

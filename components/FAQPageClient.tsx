@@ -375,7 +375,7 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
 
 
       {/* Search bar - matching treatments page style */}
-      <div className="max-w-3xl mx-auto mb-12 relative z-10">
+      <div className="max-w-2xl mx-auto mb-6 relative z-10">
         <div className="relative group">
           <MagnifyingGlassIcon className="absolute left-5 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-[#B08D57] transition-colors" />
           <input

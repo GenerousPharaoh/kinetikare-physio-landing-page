@@ -490,19 +490,28 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 <div key={item.name}>
                   {item.name === 'Conditions' ? (
                     <div className="space-y-1">
-                      <button
-                        onClick={() => {
-                          setConditionsExpanded(!conditionsExpanded);
-                          setExpandedRegion(null);
-                        }}
-                        className={`w-full flex items-center justify-between px-4 py-3 rounded-lg text-base font-medium tracking-wide transition-all duration-300 outline-none
-                          ${isCurrentPath(item.href)
-                            ? '!text-[#D4AF37] bg-[#D4AF37]/10 font-normal hover:!text-[#F5D63D] hover:bg-[#D4AF37]/15'
-                            : '!text-white hover:bg-white/5 hover:!text-[#D4AF37]'}`}
-                      >
-                        <span>{item.name}</span>
-                        <ChevronRightIcon className={`h-4 w-4 transition-transform duration-200 ${conditionsExpanded ? 'rotate-90' : ''}`} />
-                      </button>
+                      <div className="flex items-center gap-1">
+                        <Link
+                          href={item.href}
+                          onClick={(e) => handleNavClick(e, item.href)}
+                          className={`flex-1 px-4 py-3 rounded-lg text-base font-medium tracking-wide transition-all duration-300 outline-none
+                            ${isCurrentPath(item.href)
+                              ? '!text-[#D4AF37] bg-[#D4AF37]/10 font-normal hover:!text-[#F5D63D] hover:bg-[#D4AF37]/15'
+                              : '!text-white hover:bg-white/5 hover:!text-[#D4AF37]'}`}
+                        >
+                          {item.name}
+                        </Link>
+                        <button
+                          onClick={() => {
+                            setConditionsExpanded(!conditionsExpanded);
+                            setExpandedRegion(null);
+                          }}
+                          className={`px-3 py-3 rounded-lg transition-all duration-300 outline-none
+                            ${conditionsExpanded ? '!text-[#D4AF37]' : '!text-white/60 hover:!text-white'}`}
+                        >
+                          <ChevronRightIcon className={`h-4 w-4 transition-transform duration-200 ${conditionsExpanded ? 'rotate-90' : ''}`} />
+                        </button>
+                      </div>
 
                       {conditionsExpanded && (
                         <div className="pl-4 space-y-1 mt-1">

@@ -324,7 +324,6 @@ p {
 /* Section spacing for better readability */
 section {
   position: relative;
-  overflow-x: hidden;
   max-width: 100vw;
   background-color: transparent;
   padding: 4.5rem 0;

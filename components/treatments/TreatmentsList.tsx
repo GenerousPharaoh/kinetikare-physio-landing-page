@@ -107,7 +107,7 @@ export default function TreatmentsList() {
                   <h2 className="text-2xl font-light text-slate-900 tracking-wide">{category.name}</h2>
                   <div className="h-px flex-1 bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
                 </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {category.treatments.map((treatmentId, index) => {
                     const treatment = treatments.find(t => t.id === treatmentId);
                     if (!treatment) return null;

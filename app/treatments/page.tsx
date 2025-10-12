@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import TreatmentsHero from '@/components/treatments/TreatmentsHero';
 import TreatmentsList from '@/components/treatments/TreatmentsList';
 import TreatmentsCTA from '@/components/treatments/TreatmentsCTA';
+import MedicalDisclaimer from '@/components/MedicalDisclaimer';
 
 export const metadata: Metadata = {
   title: 'Physiotherapy Treatments | Evidence-Based Therapy | KinetiKare',
@@ -37,6 +38,7 @@ export default function TreatmentsPage() {
   return (
     <main className="min-h-screen bg-background">
       <TreatmentsHero />
+      <MedicalDisclaimer />
       <TreatmentsList />
       <TreatmentsCTA />
     </main>

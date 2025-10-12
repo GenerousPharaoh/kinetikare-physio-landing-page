@@ -12,6 +12,7 @@ import {
   CheckCircleIcon,
   HeartIcon
 } from '@heroicons/react/24/outline';
+import MedicalDisclaimer from '@/components/MedicalDisclaimer';
 
 interface ConditionCategory {
   title: string;
@@ -149,6 +150,9 @@ function ConditionsPageWithParams({
       {/* Main Content */}
       <section className="pt-0 pb-12 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Medical Disclaimer */}
+          <MedicalDisclaimer />
+
           {/* Search Bar - matching treatments page style */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}

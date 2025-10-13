@@ -12,6 +12,31 @@ interface FAQCategory {
   questions: FaqItem[];
 }
 
+// Helper function to extract plain text from JSX for schema
+function extractPlainText(answer: string | React.ReactNode): string {
+  if (typeof answer === 'string') {
+    return answer;
+  }
+  // For JSX content, extract the text portions
+  // This handles the case where answer is a React element
+  const textParts: string[] = [];
+
+  const extractText = (node: any): void => {
+    if (typeof node === 'string') {
+      textParts.push(node);
+    } else if (Array.isArray(node)) {
+      node.forEach(extractText);
+    } else if (node && typeof node === 'object') {
+      if (node.props && node.props.children) {
+        extractText(node.props.children);
+      }
+    }
+  };
+
+  extractText(answer);
+  return textParts.join(' ').replace(/\s+/g, ' ').trim();
+}
+
 // FAQ categories with their respective questions and answers
 const faqCategories: FAQCategory[] = [
   {
@@ -21,11 +46,31 @@ const faqCategories: FAQCategory[] = [
     questions: [
       {
         question: `Do I need a doctor referral to see a physiotherapist in Ontario?`,
-        answer: `No, you do not need a doctor referral to book an appointment with me in Ontario. You can schedule directly. However, some extended health insurance plans might require a referral for reimbursement. It is always a good idea to check your specific plan details. If you are unsure, please feel free to ask when booking, and I can help guide you or direct you to the right information.`
+        answer: (
+          <>
+            No, you do not need a doctor referral to book an appointment with me in Ontario. You can{' '}
+            <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
+              schedule directly
+            </Link>
+            . However, some extended health insurance plans might require a referral for reimbursement. It is always a good idea to check your specific plan details. If you are unsure, please feel free to ask when booking, and I can help guide you or direct you to the right information.
+          </>
+        )
       },
       {
         question: `What should I wear to my appointment?`,
-        answer: `Comfortable, athletic-style clothing is ideal. Choose anything that allows you to move freely and lets me easily access the area I need to assess or treat (e.g., shorts for knee issues, a tank top for shoulder issues). Your comfort is the priority; I can always adapt the assessment and treatment if you prefer certain areas to remain covered.`
+        answer: (
+          <>
+            Comfortable, athletic-style clothing is ideal. Choose anything that allows you to move freely and lets me easily access the area I need to assess or treat (e.g., shorts for{' '}
+            <Link href="/conditions/knee-pain" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              knee issues
+            </Link>
+            , a tank top for{' '}
+            <Link href="/conditions/shoulder-pain" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              shoulder issues
+            </Link>
+            ). Your comfort is the priority; I can always adapt the assessment and treatment if you prefer certain areas to remain covered.
+          </>
+        )
       },
       {
         question: `What should I expect during my first physiotherapy visit?`,
@@ -41,7 +86,19 @@ const faqCategories: FAQCategory[] = [
       },
       {
         question: `I am not sure if physiotherapy is the right choice for me. Can I ask some questions before booking?`,
-        answer: `Of course! If you are uncertain whether physiotherapy, or my approach specifically, is the best fit for your needs, please feel free to reach out. I am happy to answer brief questions via phone or email to help you make an informed decision before you commit to an appointment.`
+        answer: (
+          <>
+            Of course! If you are uncertain whether physiotherapy, or my approach specifically, is the best fit for your needs, please feel free to{' '}
+            <Link href="/#contact" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              reach out
+            </Link>
+            . I am happy to answer brief questions via phone or email to help you make an informed decision before you commit to an appointment. You can also{' '}
+            <Link href="/about" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              learn more about my background and approach
+            </Link>
+            .
+          </>
+        )
       }
     ]
   },
@@ -52,13 +109,29 @@ const faqCategories: FAQCategory[] = [
     questions: [
       {
         question: `How many physiotherapy sessions will I need?`,
-        answer: `The number of sessions varies depending on your specific condition, your recovery goals, and how your body responds to treatment. After your initial assessment, I will provide a clear, personalized treatment plan outlining the expected timeline and milestones. I will focus on an evidence-based strategy designed to get you results efficiently. No vague promises or unnecessary sessions.`
+        answer: (
+          <>
+            The number of sessions varies depending on your specific condition, your recovery goals, and how your body responds to treatment. After your initial assessment, I will provide a clear, personalized treatment plan outlining the expected timeline and milestones. I will focus on an evidence-based strategy designed to get you results efficiently. No vague promises or unnecessary sessions.{' '}
+            <Link href="/conditions" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              Explore conditions I treat
+            </Link>
+            .
+          </>
+        )
       },
       {
         question: `What is manual therapy, and will it be part of my treatment?`,
         answer: (
           <>
-            Manual therapy involves specialized hands-on techniques to reduce pain, improve mobility, and restore function. This can include joint mobilizations, soft tissue massage, and specific methods like <strong className="font-semibold text-primary-800">trigger point release</strong> to alleviate muscle tightness and referred pain. My approach to manual therapy also incorporates principles similar to those found in methodologies like <strong className="font-semibold text-primary-800">Active Release Therapy (ART)</strong>, focusing on precise application and patient movement to effectively resolve deep muscle tension. If appropriate for your condition, I will explain these techniques, how they can help, and propose incorporating them into your comprehensive treatment plan (which always includes education and exercise). Your informed consent is always required before any manual therapy is performed.{' '}
+            Manual therapy involves specialized hands-on techniques to reduce pain, improve mobility, and restore function. This can include{' '}
+            <Link href="/treatments/joint-mobilization" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              joint mobilizations
+            </Link>
+            , soft tissue massage, and specific methods like{' '}
+            <Link href="/treatments/trigger-point-therapy" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              <strong className="font-semibold text-primary-800">trigger point release</strong>
+            </Link>
+            {' '}to alleviate muscle tightness and referred pain. My approach to manual therapy also incorporates principles similar to those found in methodologies like <strong className="font-semibold text-primary-800">Active Release Therapy (ART)</strong>, focusing on precise application and patient movement to effectively resolve deep muscle tension. If appropriate for your condition, I will explain these techniques, how they can help, and propose incorporating them into your comprehensive treatment plan (which always includes education and exercise). Your informed consent is always required before any manual therapy is performed.{' '}
             <Link href="/services" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
               Learn more about my manual therapy services
             </Link>
@@ -70,12 +143,16 @@ const faqCategories: FAQCategory[] = [
         question: `Do you offer dry needling?`,
         answer: (
           <>
-            Yes. Dry needling is one technique I use to reduce pain and improve mobility, especially for stubborn trigger points and muscle restrictions. Using fine, sterile needles, I target specific areas of muscle tightness or dysfunction.
+            Yes.{' '}
+            <Link href="/treatments/dry-needling" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              Dry needling
+            </Link>
+            {' '}is one technique I use to reduce pain and improve mobility, especially for stubborn trigger points and muscle restrictions. Using fine, sterile needles, I target specific areas of muscle tightness or dysfunction.
 
-            This approach works well for myofascial trigger points, overactive muscle contractions, postural issues from repetitive strain, and movement restrictions where muscles contribute to pain or limit joint mobility. 
+            This approach works well for myofascial trigger points, overactive muscle contractions, postural issues from repetitive strain, and movement restrictions where muscles contribute to pain or limit joint mobility.
 
             Dry needling is never mandatory. If it could benefit your condition, I'll explain why, what to expect, and any risks involved. Your consent matters, and you can always say no. Many successful treatment plans don't include dry needling. It's simply one tool among many, chosen based on what suits you best.{' '}
-            <Link href="/services" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+            <Link href="/treatments" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
               View all my treatment services
             </Link>
             .
@@ -86,7 +163,19 @@ const faqCategories: FAQCategory[] = [
         question: `Do you offer cupping therapy?`,
         answer: (
           <>
-            Yes, cupping therapy is a technique I may integrate into a treatment plan if it's suitable for your condition. Cupping uses suction cups to gently lift tissue, which can help to increase blood flow, reduce muscle tension, and promote healing. It's often used for conditions like back pain, neck pain, and muscle stiffness. As with any treatment, I'll discuss if cupping is appropriate for you, explain the process, and ensure your comfort and consent.{' '}
+            Yes,{' '}
+            <Link href="/treatments/cupping-therapy" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              cupping therapy
+            </Link>
+            {' '}is a technique I may integrate into a treatment plan if it's suitable for your condition. Cupping uses suction cups to gently lift tissue, which can help to increase blood flow, reduce muscle tension, and promote healing. It's often used for conditions like{' '}
+            <Link href="/conditions/low-back-pain" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              back pain
+            </Link>
+            ,{' '}
+            <Link href="/conditions/neck-pain" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              neck pain
+            </Link>
+            , and muscle stiffness. As with any treatment, I'll discuss if cupping is appropriate for you, explain the process, and ensure your comfort and consent.{' '}
             <Link href="/services" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
               Explore my comprehensive pain management services
             </Link>
@@ -98,8 +187,12 @@ const faqCategories: FAQCategory[] = [
         question: `What about techniques like Graston Technique®? Do you offer that?`,
         answer: (
           <>
-            I utilize <strong className="font-semibold text-primary-800">Instrument Assisted Soft Tissue Mobilization (IASTM)</strong>, which is a skilled approach using specialized ergonomic tools to effectively address scar tissue, fascial restrictions, and chronic inflammation. IASTM encompasses the principles and techniques that are sometimes known by specific brand names like Graston Technique®. This method helps to enhance tissue healing, improve range of motion, and restore normal function by targeting specific soft tissue limitations. If IASTM is considered beneficial for your condition, I will discuss it with you as part of your overall treatment plan.{' '}
-            <Link href="/services" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+            I utilize{' '}
+            <Link href="/treatments/iastm" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              <strong className="font-semibold text-primary-800">Instrument Assisted Soft Tissue Mobilization (IASTM)</strong>
+            </Link>
+            , which is a skilled approach using specialized ergonomic tools to effectively address scar tissue, fascial restrictions, and chronic inflammation. IASTM encompasses the principles and techniques that are sometimes known by specific brand names like Graston Technique®. This method helps to enhance tissue healing, improve range of motion, and restore normal function by targeting specific soft tissue limitations. If IASTM is considered beneficial for your condition, I will discuss it with you as part of your overall treatment plan.{' '}
+            <Link href="/treatments" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
               Learn about my manual therapy techniques
             </Link>
             .
@@ -108,15 +201,53 @@ const faqCategories: FAQCategory[] = [
       },
       {
         question: `Will I be treated by you directly throughout my care?`,
-        answer: `Yes. You will work one-on-one with me for the entire duration of every session. I do not use assistants or aides for treatment delivery. Your appointment time is dedicated solely to your assessment, treatment, and progression.`
+        answer: (
+          <>
+            Yes. You will work one-on-one with me for the entire duration of every session. I do not use assistants or aides for treatment delivery. Your appointment time is dedicated solely to your assessment, treatment, and progression.{' '}
+            <Link href="/about" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              Learn more about my approach
+            </Link>
+            .
+          </>
+        )
       },
       {
         question: `I have tried physiotherapy before and it did not help. How is your approach different?`,
-        answer: `It is really understandable to feel that way if you have not had the results you hoped for in the past. Finding the right therapeutic relationship and approach is key, as different styles work better for different people and conditions. While I cannot speak to your specific previous experiences, I can share what I focus on in my practice:\n\nDedicated Time & Attention: I structure my schedule to ensure I can dedicate the entire appointment time to you, one-on-one. My aim here is simply to allow enough focused time for us to thoroughly explore your concerns, conduct assessments without feeling rushed, and carefully work through treatment strategies together.\n\nLooking Holistically: I try my best to understand the bigger picture. This often involves looking beyond the immediate area of pain to consider related body regions, how you move during meaningful activities, and listening closely to your history to understand potential contributing factors. The goal is collaborative problem-solving to find potential root causes.\n\nEmphasis on Education and Active Participation: A core part of my philosophy is helping you understand what might be going on and why. While I use hands-on techniques when appropriate (and always with your informed consent), I place a strong emphasis on active strategies. This means finding the right exercises and movements for you, and equipping you with knowledge for self-management. My hope is this empowers you long after our sessions end.\n\nPartnership in Goal Setting: We work together to define what success looks like for you. Whether it is reducing pain, improving function for a specific hobby, or increasing confidence in movement, your goals guide the plan. Your feedback is essential in adjusting our approach along the way.\n\nUltimately, my commitment is to provide thoughtful, individualized care and work collaboratively with you. If you decide to proceed, I hope you will recognize this approach as helpful.`
+        answer: (
+          <>
+            It is really understandable to feel that way if you have not had the results you hoped for in the past. Finding the right therapeutic relationship and approach is key, as different styles work better for different people and conditions. While I cannot speak to your specific previous experiences, I can share what I focus on in my practice:
+
+            Dedicated Time & Attention: I structure my schedule to ensure I can dedicate the entire appointment time to you, one-on-one. My aim here is simply to allow enough focused time for us to thoroughly explore your concerns, conduct assessments without feeling rushed, and carefully work through treatment strategies together.
+
+            Looking Holistically: I try my best to understand the bigger picture. This often involves looking beyond the immediate area of pain to consider related body regions, how you move during meaningful activities, and listening closely to your history to understand potential contributing factors. The goal is collaborative problem-solving to find potential root causes.
+
+            Emphasis on Education and Active Participation: A core part of my philosophy is helping you understand what might be going on and why. While I use hands-on techniques when appropriate (and always with your informed consent), I place a strong emphasis on active strategies. This means finding the right{' '}
+            <Link href="/treatments/exercise-therapy" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              exercises and movements
+            </Link>
+            {' '}for you, and equipping you with knowledge for self-management. My hope is this empowers you long after our sessions end.
+
+            Partnership in Goal Setting: We work together to define what success looks like for you. Whether it is reducing pain, improving function for a specific hobby, or increasing confidence in movement, your goals guide the plan. Your feedback is essential in adjusting our approach along the way.
+
+            Ultimately, my commitment is to provide thoughtful, individualized care and work collaboratively with you. If you decide to proceed, I hope you will recognize this approach as helpful.{' '}
+            <Link href="/about" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              Read more about my philosophy
+            </Link>
+            .
+          </>
+        )
       },
       {
         question: `Do you give exercises? What if I struggle to keep up with them?`,
-        answer: `Yes. Targeted exercise is often key. I focus on quality over quantity, ensuring you understand the exercises and feel comfortable performing them. If you struggle, we modify the plan together. Your feedback is crucial.`
+        answer: (
+          <>
+            Yes. Targeted{' '}
+            <Link href="/treatments/exercise-therapy" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              exercise
+            </Link>
+            {' '}is often key. I focus on quality over quantity, ensuring you understand the exercises and feel comfortable performing them. If you struggle, we modify the plan together. Your feedback is crucial.
+          </>
+        )
       },
       {
         question: `Is physiotherapy treatment painful?`,
@@ -128,7 +259,22 @@ const faqCategories: FAQCategory[] = [
       },
       {
         question: `How do you decide which specific treatments or techniques to use?`,
-        answer: `Treatment decisions are always collaborative and evidence-informed. They are based on:\n\n- Findings from your detailed assessment\n- Your specific goals and preferences\n- How your body responds to different interventions\n- The best available scientific evidence\n\nI discuss the rationale for each approach with you, ensuring you understand the why behind your plan.`
+        answer: (
+          <>
+            Treatment decisions are always collaborative and evidence-informed. They are based on:
+
+            - Findings from your detailed assessment
+            - Your specific goals and preferences
+            - How your body responds to different interventions
+            - The best available scientific evidence
+
+            I discuss the rationale for each approach with you, ensuring you understand the why behind your plan.{' '}
+            <Link href="/treatments" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              Explore my treatment approaches
+            </Link>
+            .
+          </>
+        )
       },
       {
         question: `What if I have received conflicting advice from another healthcare provider?`,
@@ -136,7 +282,21 @@ const faqCategories: FAQCategory[] = [
       },
       {
         question: `What kind of environment do you try to create for your patients?`,
-        answer: `Creating an environment where you feel genuinely heard, truly respected, and completely safe is not just a goal. It is fundamental to how I practice. Because I understand firsthand how vulnerable and challenging it can feel to seek healthcare, and how crucial it is to feel genuinely supported, I am deeply committed to:\n\nListening Attentively: Ensuring you have the uninterrupted time and space needed to share your story, concerns, and goals.\n\nCommunicating Clearly & Honestly: Explaining my findings and our plan in straightforward language, ensuring you understand the why behind every step.\n\nEmpowering You: Making certain you feel fully in control of your care. This means knowing you have the right to ask anything, voice concerns, understand your options, and decline any part of assessment or treatment at any time, without hesitation or judgment. My aim is for you to feel like an informed, respected, and active partner throughout your entire care journey here.`
+        answer: (
+          <>
+            Creating an environment where you feel genuinely heard, truly respected, and completely safe is not just a goal. It is fundamental to how I practice. Because I understand firsthand how vulnerable and challenging it can feel to seek healthcare, and how crucial it is to feel genuinely supported, I am deeply committed to:
+
+            Listening Attentively: Ensuring you have the uninterrupted time and space needed to share your story, concerns, and goals.
+
+            Communicating Clearly & Honestly: Explaining my findings and our plan in straightforward language, ensuring you understand the why behind every step.
+
+            Empowering You: Making certain you feel fully in control of your care. This means knowing you have the right to ask anything, voice concerns, understand your options, and decline any part of assessment or treatment at any time, without hesitation or judgment. My aim is for you to feel like an informed, respected, and active partner throughout your entire care journey here.{' '}
+            <Link href="/about" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              Learn more about my values
+            </Link>
+            .
+          </>
+        )
       },
       {
         question: `What makes your assessments distinct?`,
@@ -162,8 +322,12 @@ const faqCategories: FAQCategory[] = [
         answer: (
           <>
             Yes, definitely! Proactive physiotherapy is incredibly valuable. I work with many individuals including athletes, active people, and those who simply want to move better and feel stronger. Together we identify potential movement limitations or strength deficits before they cause problems. I can help develop strategies to optimize movement, build strength, enhance performance, and reduce future injury risk.{' '}
-            <Link href="/services" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
-              Discover my sports rehabilitation and exercise therapy programs
+            <Link href="/treatments/sports-rehabilitation" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              Discover my sports rehabilitation
+            </Link>
+            {' '}and{' '}
+            <Link href="/treatments/exercise-therapy" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              exercise therapy programs
             </Link>
             .
           </>
@@ -171,7 +335,19 @@ const faqCategories: FAQCategory[] = [
       },
       {
         question: `Is strength training part of physiotherapy?`,
-        answer: `Yes, appropriate strength training is often a crucial part of physiotherapy. Building strength helps protect joints, improve bone density, enhance balance, prevent injuries, and maintain functional independence as we age. I integrate tailored strength and conditioning principles into treatment plans, whether your goal is to lift groceries without pain, return to sport, learn foundational exercises like squats and deadlifts safely, or simply build confidence in your physical abilities.`
+        answer: (
+          <>
+            Yes, appropriate{' '}
+            <Link href="/treatments/exercise-therapy" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              strength training
+            </Link>
+            {' '}is often a crucial part of physiotherapy. Building strength helps protect joints, improve bone density, enhance balance, prevent injuries, and maintain functional independence as we age. I integrate tailored strength and conditioning principles into treatment plans, whether your goal is to lift groceries without pain,{' '}
+            <Link href="/treatments/return-to-sport" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              return to sport
+            </Link>
+            , learn foundational exercises like squats and deadlifts safely, or simply build confidence in your physical abilities.
+          </>
+        )
       }
     ]
   },
@@ -182,7 +358,15 @@ const faqCategories: FAQCategory[] = [
     questions: [
       {
         question: `Can I bring someone with me to my appointment?`,
-        answer: `Absolutely. If having a partner, friend, family member, or primary caregiver present helps you feel more comfortable or supported, they are welcome to join you. This can be especially helpful for those who may need assistance with communication, understanding treatment instructions, or simply prefer having additional support during their healthcare journey. Please just let me know when you book your appointment.`
+        answer: (
+          <>
+            Absolutely. If having a partner, friend, family member, or primary caregiver present helps you feel more comfortable or supported, they are welcome to join you. This can be especially helpful for those who may need assistance with communication, understanding treatment instructions, or simply prefer having additional support during their healthcare journey. Please just let me know when you{' '}
+            <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
+              book your appointment
+            </Link>
+            .
+          </>
+        )
       },
       {
         question: `What is your cancellation policy?`,
@@ -197,7 +381,15 @@ const faqCategories: FAQCategory[] = [
     questions: [
       {
         question: `Do you offer direct billing to insurance companies?`,
-        answer: `Yes. Direct billing is offered for most major extended health insurance providers. Please bring your insurance card/information (policy and group numbers) to your first appointment, and direct billing can typically be processed for you at the clinic. If you have questions about the process, please do not hesitate to ask, but remember to check with your insurer about your specific coverage details.`
+        answer: (
+          <>
+            Yes. Direct billing is offered for most major extended health insurance providers. Please bring your insurance card/information (policy and group numbers) to your first appointment, and direct billing can typically be processed for you at the clinic. If you have questions about the process, please do not hesitate to ask, but remember to check with your insurer about your specific coverage details.{' '}
+            <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
+              Book an appointment
+            </Link>
+            .
+          </>
+        )
       }
     ]
   }
@@ -208,15 +400,15 @@ export const metadata: Metadata = {
   title: 'FAQ | Kareem Hassanein Physiotherapy | Burlington & Waterdown',
   description: 'Answers to common questions about physiotherapy, appointments, billing, session length and what to expect with Kareem Hassanein, Registered Physiotherapist.',
   keywords: [
-    'Kareem Hassanein FAQ', 
+    'Kareem Hassanein FAQ',
     'KinetiKare FAQ',
-    'physiotherapy questions Burlington', 
-    'Waterdown physiotherapy FAQ', 
+    'physiotherapy questions Burlington',
+    'Waterdown physiotherapy FAQ',
     'Kareem physio Waterdown questions',
-    'manual therapy questions Burlington', 
+    'manual therapy questions Burlington',
     'trigger point release Burlington',
     'active release therapy Burlington',
-    'dry needling FAQ Burlington', 
+    'dry needling FAQ Burlington',
     'cupping therapy Burlington',
     'IASTM Burlington',
     'Graston Technique Burlington',
@@ -263,17 +455,17 @@ export const metadata: Metadata = {
 };
 
 export default function FAQPage() {
-  // Generate FAQ schema markup for SEO
+  // Generate FAQ schema markup for SEO - extract plain text from JSX answers
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": faqCategories.flatMap(category => 
+    "mainEntity": faqCategories.flatMap(category =>
       category.questions.map(faq => ({
         "@type": "Question",
         "name": faq.question,
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": faq.answer
+          "text": extractPlainText(faq.answer)
         }
       }))
     )
@@ -301,4 +493,4 @@ export default function FAQPage() {
       </main>
     </>
   );
-} 
+}

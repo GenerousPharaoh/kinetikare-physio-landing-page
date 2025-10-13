@@ -5,6 +5,7 @@
 import React, { useState, useMemo, useEffect, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import {
   MagnifyingGlassIcon,
   ChevronRightIcon,
@@ -39,10 +40,11 @@ interface ConditionsPageClientProps {
 }
 
 // Component to handle search params logic
-function ConditionsPageWithParams({ 
-  conditionCategories, 
+function ConditionsPageWithParams({
+  conditionCategories,
   additionalServices
 }: ConditionsPageClientProps) {
+  const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState(0);
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -59,8 +61,7 @@ function ConditionsPageWithParams({
   // Remember the user's tab selection using URL params and localStorage
   useEffect(() => {
     // Check URL query parameter first
-    const urlParams = new URLSearchParams(window.location.search);
-    const tabParam = urlParams.get('tab');
+    const tabParam = searchParams?.get('tab');
 
     if (tabParam && !isNaN(Number(tabParam))) {
       const tabNumber = Number(tabParam);
@@ -79,7 +80,7 @@ function ConditionsPageWithParams({
         setActiveTab(tabNumber);
       }
     }
-  }, [conditionCategories.length]);
+  }, [searchParams, conditionCategories.length]);
 
   // Save tab selection to localStorage when changed
   const handleTabChange = (tabIndex: number) => {

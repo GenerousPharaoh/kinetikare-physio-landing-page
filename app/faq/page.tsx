@@ -112,6 +112,32 @@ const faqCategories: FAQCategory[] = [
               See the range of conditions I treat
             </Link>
             .
+            <div className="mt-3 pt-3 border-t border-gray-100 text-sm text-gray-600">
+              → Related:{' '}
+              <Link href="/treatments/postural-assessment" className="text-[#B08D57] hover:text-[#D4AF37] transition-colors duration-300" target="_blank">
+                Postural Assessment
+              </Link>
+              {' • '}
+              <Link href="/treatments/joint-mobilization" className="text-[#B08D57] hover:text-[#D4AF37] transition-colors duration-300" target="_blank">
+                Joint Mobilization
+              </Link>
+              {' • '}
+              <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="text-[#B08D57] hover:text-[#D4AF37] transition-colors duration-300" target="_blank" rel="noopener noreferrer">
+                Book Assessment
+              </Link>
+            </div>
+          </>
+        )
+      },
+      {
+        question: `Do I need X-rays or imaging before my appointment?`,
+        answer: (
+          <>
+            No, you don't need X-rays or imaging before your first physiotherapy appointment. I can perform a thorough assessment without them. If imaging is necessary for your specific situation, I'll discuss this with you during our assessment and can provide guidance on next steps or communicate with your doctor.{' '}
+            <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
+              Book your assessment
+            </Link>
+            .
           </>
         )
       },
@@ -195,6 +221,20 @@ const faqCategories: FAQCategory[] = [
               View all my treatment services
             </Link>
             .
+            <div className="mt-3 pt-3 border-t border-gray-100 text-sm text-gray-600">
+              → Also explore:{' '}
+              <Link href="/treatments/cupping-therapy" className="text-[#B08D57] hover:text-[#D4AF37] transition-colors duration-300" target="_blank">
+                Cupping
+              </Link>
+              {' • '}
+              <Link href="/treatments/trigger-point-therapy" className="text-[#B08D57] hover:text-[#D4AF37] transition-colors duration-300" target="_blank">
+                Trigger Point Therapy
+              </Link>
+              {' • '}
+              <Link href="/treatments/iastm" className="text-[#B08D57] hover:text-[#D4AF37] transition-colors duration-300" target="_blank">
+                IASTM
+              </Link>
+            </div>
           </>
         )
       },
@@ -254,23 +294,25 @@ const faqCategories: FAQCategory[] = [
         question: `I have tried physiotherapy before and it did not help. How is your approach different?`,
         answer: (
           <>
-            It is really understandable to feel that way if you have not had the results you hoped for in the past. Finding the right therapeutic relationship and approach is key, as different styles work better for different people and conditions. While I cannot speak to your specific previous experiences, I can share what I focus on in my practice:
-
-            Dedicated Time & Attention: I structure my schedule to ensure I can dedicate the entire appointment time to you, one-on-one. My aim here is simply to allow enough focused time for us to thoroughly explore your concerns, conduct assessments without feeling rushed, and carefully work through treatment strategies together.
-
-            Looking Holistically: I try my best to understand the bigger picture. This often involves looking beyond the immediate area of pain to consider related body regions, how you move during meaningful activities, and listening closely to your history to understand potential contributing factors. The goal is collaborative problem-solving to find potential root causes.
-
-            Emphasis on Education and Active Participation: A core part of my philosophy is helping you understand what might be going on and why. While I use hands-on techniques when appropriate (and always with your informed consent), I place a strong emphasis on active strategies. This means finding the right{' '}
+            That's understandable. Finding the right therapeutic relationship and approach makes a real difference, as different styles work better for different people and conditions. I structure my schedule to give you dedicated one-on-one time without feeling rushed. I look beyond just the painful area to understand how your body moves as a whole system and listen closely to your history to identify potential root causes. While I use hands-on techniques when appropriate, I place strong emphasis on{' '}
             <Link href="/treatments/exercise-therapy" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
-              exercises and movements
+              active strategies and education
             </Link>
-            {' '}for you, and equipping you with knowledge for self-management. My hope is this empowers you long after our sessions end.
-
-            Partnership in Goal Setting: We work together to define what success looks like for you. Whether it is reducing pain, improving function for a specific hobby, or increasing confidence in movement, your goals guide the plan. Your feedback is essential in adjusting our approach along the way.
-
-            Ultimately, my commitment is to provide thoughtful, individualized care and work collaboratively with you. If you decide to proceed, I hope you will recognize this approach as helpful.{' '}
+            {' '}to equip you with the knowledge and tools for self-management long after our sessions end. We work together to define what success looks like for you, and your feedback is essential in adjusting our approach along the way.{' '}
             <Link href="/about" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
               Read more about my philosophy
+            </Link>
+            .
+          </>
+        )
+      },
+      {
+        question: `How long are physiotherapy appointments?`,
+        answer: (
+          <>
+            I offer flexible appointment lengths based on your needs: 30-minute sessions ($90), 45-minute sessions ($115), or 1-hour sessions ($135). Initial assessments are 60 minutes ($135). Every appointment is one-on-one directly with me, the Registered Physiotherapist. No assistants or aides.{' '}
+            <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
+              Book your appointment
             </Link>
             .
           </>
@@ -285,6 +327,16 @@ const faqCategories: FAQCategory[] = [
               exercise
             </Link>
             {' '}is often key. I focus on quality over quantity, ensuring you understand the exercises and feel comfortable performing them. If you struggle, we modify the plan together. Your feedback is crucial.
+            <div className="mt-3 pt-3 border-t border-gray-100 text-sm text-gray-600">
+              → See also:{' '}
+              <Link href="/treatments/sports-rehab-return-to-sport" className="text-[#B08D57] hover:text-[#D4AF37] transition-colors duration-300" target="_blank">
+                Return to Sport
+              </Link>
+              {' • '}
+              <Link href="/treatments" className="text-[#B08D57] hover:text-[#D4AF37] transition-colors duration-300" target="_blank">
+                All Treatments
+              </Link>
+            </div>
           </>
         )
       },
@@ -357,13 +409,7 @@ const faqCategories: FAQCategory[] = [
         question: `What kind of environment do you try to create for your patients?`,
         answer: (
           <>
-            Creating an environment where you feel genuinely heard, truly respected, and completely safe is not just a goal. It is fundamental to how I practice. Because I understand firsthand how vulnerable and challenging it can feel to seek healthcare, and how crucial it is to feel genuinely supported, I am deeply committed to:
-
-            Listening Attentively: Ensuring you have the uninterrupted time and space needed to share your story, concerns, and goals.
-
-            Communicating Clearly & Honestly: Explaining my findings and our plan in straightforward language, ensuring you understand the why behind every step.
-
-            Empowering You: Making certain you feel fully in control of your care. This means knowing you have the right to ask anything, voice concerns, understand your options, and decline any part of assessment or treatment at any time, without hesitation or judgment. My aim is for you to feel like an informed, respected, and active partner throughout your entire care journey here.{' '}
+            Creating an environment where you feel genuinely heard, respected, and safe is fundamental to how I practice. I understand how vulnerable it can feel to seek healthcare, so I'm committed to ensuring you have the uninterrupted time and space needed to share your story and concerns. I explain my findings and our plan in straightforward language, making sure you understand the why behind every step. You're fully in control of your care, with the right to ask anything, voice concerns, understand your options, and decline any part of assessment or treatment at any time without hesitation or judgment. My aim is for you to feel like an informed, respected partner throughout your care.{' '}
             <Link href="/about" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
               Learn more about my values
             </Link>
@@ -418,7 +464,7 @@ const faqCategories: FAQCategory[] = [
         question: `Can I come for injury prevention, performance enhancement, or tune-ups, even if I am not currently in pain?`,
         answer: (
           <>
-            Yes. Physiotherapy isn't just for treating existing injuries. Most people, even without current pain, have measurable opportunities for improvement in mobility, stability, proprioception, strength, or movement coordination—all within the scope of physiotherapy care. During our assessment, we work together to identify specific areas where physiotherapy can help you move better, perform better, or reduce future injury risk, with clear, objective goals guiding the work. Whether you're an athlete looking to optimize performance, someone wanting to prevent recurring issues, or simply interested in moving better, we'll focus on specific physiotherapy-related goals tailored to your needs.{' '}
+            Yes. Physiotherapy isn't just for treating existing injuries. Most people, even without current pain, have measurable opportunities for improvement in mobility, stability, proprioception, strength, or movement coordination (all within the scope of physiotherapy care). During our assessment, we work together to identify specific areas where physiotherapy can help you move better, perform better, or reduce future injury risk, with clear, objective goals guiding the work. Whether you're an athlete looking to optimize performance, someone wanting to prevent recurring issues, or simply interested in moving better, we'll focus on specific physiotherapy-related goals tailored to your needs.{' '}
             <Link href="/treatments/sports-rehab-return-to-sport" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
               Learn about my approach
             </Link>
@@ -454,10 +500,22 @@ const faqCategories: FAQCategory[] = [
     iconType: 'calendar',
     questions: [
       {
+        question: `Where are you located? Is there parking?`,
+        answer: (
+          <>
+            I practice at Endorphins Health & Wellness Centre, located at 4631 Palladium Way, Unit 6, Burlington, ON. Parking is available on-site. We're in North Burlington, serving patients from Burlington, Waterdown, Oakville, Hamilton, and surrounding areas.{' '}
+            <Link href="/#contact" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              Get directions
+            </Link>
+            .
+          </>
+        )
+      },
+      {
         question: `Can I bring someone with me to my appointment?`,
         answer: (
           <>
-            Absolutely. If having a partner, friend, family member, or primary caregiver present helps you feel more comfortable or supported, they are welcome to join you. This can be especially helpful for those who may need assistance with communication, understanding treatment instructions, or simply prefer having additional support during their healthcare journey. Please just let me know when you{' '}
+            Yes, of course. If having a partner, friend, family member, or primary caregiver present helps you feel more comfortable or supported, they are welcome to join you. This can be especially helpful for those who may need assistance with communication, understanding treatment instructions, or simply prefer having additional support during their healthcare journey. Please just let me know when you{' '}
             <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
               book your appointment
             </Link>
@@ -484,6 +542,10 @@ const faqCategories: FAQCategory[] = [
     name: 'Insurance & Billing',
     iconType: 'currency',
     questions: [
+      {
+        question: `Is physiotherapy covered by OHIP in Ontario?`,
+        answer: `No, private physiotherapy services are not covered by OHIP (Ontario Health Insurance Plan). However, many extended health insurance plans do provide coverage for physiotherapy. Our clinic offers direct billing to most major insurance providers including Canada Life, Sun Life, Manulife, Green Shield Canada, Blue Cross, and others. Check with your insurance provider about your specific coverage.`
+      },
       {
         question: `Do you offer direct billing to insurance companies?`,
         answer: (

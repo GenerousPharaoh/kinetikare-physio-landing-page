@@ -74,15 +74,46 @@ const faqCategories: FAQCategory[] = [
       },
       {
         question: `What should I expect during my first physiotherapy visit?`,
-        answer: `Your first visit is dedicated to thoroughly understanding you and your situation.\n\nConversation: We will have a detailed discussion about your current symptoms, your goals for physiotherapy, your daily activities and lifestyle, and your relevant health history. This includes past injuries or conditions, surgeries, as well as any medications you are currently taking. Understanding this full picture is crucial for ensuring your safety and developing the most effective treatment plan for you.\n\nAssessment: I will propose an assessment approach, explain what it involves, and then evaluate your movement, strength, joint mobility, and muscle control relevant to your concern.\n\nPlan: Based on the findings, I will discuss my assessment of the issue (or potential causes) and collaboratively create an initial treatment plan with you.\n\nImportantly, every step is based on your informed consent. I will explain the assessment and treatment options, their benefits, and any potential risks. You are always in control, and there is absolutely no obligation to proceed with any part of the process you are uncomfortable with. I encourage you to ask questions and voice any concerns at any time. To help you digest everything, I will send a follow-up summary outlining the key assessment findings and our agreed-upon plan.`
+        answer: (
+          <>
+            Your first visit is dedicated to thoroughly understanding you and your situation.
+            {'\n\n'}
+            <strong>Conversation:</strong> We will have a detailed discussion about your current symptoms, your goals for physiotherapy, your daily activities and lifestyle, and your relevant health history. This includes past injuries or conditions, surgeries, as well as any medications you are currently taking. Understanding this full picture is crucial for ensuring your safety and developing the most effective treatment plan for you.
+            {'\n\n'}
+            <strong>Assessment:</strong> I will propose an assessment approach, explain what it involves, and then evaluate your movement, strength, joint mobility, and muscle control relevant to your concern.
+            {'\n\n'}
+            <strong>Plan:</strong> Based on the findings, I will discuss my assessment of the issue (or potential causes) and collaboratively create an initial treatment plan with you.
+            {'\n\n'}
+            Importantly, every step is based on your informed consent. I will explain the assessment and treatment options, their benefits, and any potential risks. You are always in control, and there is absolutely no obligation to proceed with any part of the process you are uncomfortable with. I encourage you to ask questions and voice any concerns at any time. To help you digest everything, I will send a follow-up summary outlining the key assessment findings and our agreed-upon plan.{' '}
+            <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
+              Ready to book your first appointment?
+            </Link>
+          </>
+        )
       },
       {
         question: `Will I receive treatment during my first session, or is it just an assessment?`,
-        answer: `In most cases, your first session includes both assessment and the start of treatment, always with your explicit consent for each part. A thorough assessment is crucial for effective treatment. If your situation is complex, I will prioritize understanding the core issues first before diving deep into treatment. You always have the right to focus only on assessment or to decline any proposed treatment.`
+        answer: (
+          <>
+            In most cases, your first session includes both assessment and the start of treatment, always with your explicit consent for each part. A thorough assessment is crucial for effective treatment. If your situation is complex, I will prioritize understanding the core issues first before diving deep into treatment. You always have the right to focus only on assessment or to decline any proposed treatment.{' '}
+            <Link href="/treatments/postural-assessment" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              Learn more about my assessment process
+            </Link>
+            .
+          </>
+        )
       },
       {
         question: `What if I have multiple areas of pain or complex issues?`,
-        answer: `It is quite common for pain or dysfunction in one area to be linked to others. I will start by addressing your most significant concern while assessing the whole picture to understand how different areas might be connected. Your treatment plan will be structured holistically to address the root causes, not just isolated symptoms.`
+        answer: (
+          <>
+            It is quite common for pain or dysfunction in one area to be linked to others. I will start by addressing your most significant concern while assessing the whole picture to understand how different areas might be connected. Your treatment plan will be structured holistically to address the root causes, not just isolated symptoms.{' '}
+            <Link href="/conditions" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              See the range of conditions I treat
+            </Link>
+            .
+          </>
+        )
       },
       {
         question: `I am not sure if physiotherapy is the right choice for me. Can I ask some questions before booking?`,
@@ -113,9 +144,13 @@ const faqCategories: FAQCategory[] = [
           <>
             The number of sessions varies depending on your specific condition, your recovery goals, and how your body responds to treatment. After your initial assessment, I will provide a clear, personalized treatment plan outlining the expected timeline and milestones. I will focus on an evidence-based strategy designed to get you results efficiently. No vague promises or unnecessary sessions.{' '}
             <Link href="/conditions" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
-              Explore conditions I treat
+              Browse conditions I treat
             </Link>
-            .
+            {' '}or{' '}
+            <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
+              book an assessment
+            </Link>
+            {' '}to discuss your specific situation.
           </>
         )
       },
@@ -127,13 +162,17 @@ const faqCategories: FAQCategory[] = [
             <Link href="/treatments/joint-mobilization" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
               joint mobilizations
             </Link>
-            , soft tissue massage, and specific methods like{' '}
-            <Link href="/treatments/trigger-point-therapy" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
-              <strong className="font-semibold text-primary-800">trigger point release</strong>
+            ,{' '}
+            <Link href="/treatments/soft-tissue-myofascial-release" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              soft tissue massage
             </Link>
-            {' '}to alleviate muscle tightness and referred pain. My approach to manual therapy also incorporates principles similar to those found in methodologies like <strong className="font-semibold text-primary-800">Active Release Therapy (ART)</strong>, focusing on precise application and patient movement to effectively resolve deep muscle tension. If appropriate for your condition, I will explain these techniques, how they can help, and propose incorporating them into your comprehensive treatment plan (which always includes education and exercise). Your informed consent is always required before any manual therapy is performed.{' '}
+            , and specific methods like{' '}
+            <Link href="/treatments/trigger-point-therapy" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              trigger point release
+            </Link>
+            {' '}to alleviate muscle tightness and referred pain. My approach to manual therapy also incorporates principles similar to those found in methodologies like Active Release Therapy (ART), focusing on precise application and patient movement to effectively resolve deep muscle tension. If appropriate for your condition, I will explain these techniques, how they can help, and propose incorporating them into your comprehensive treatment plan (which always includes education and exercise). Your informed consent is always required before any manual therapy is performed.{' '}
             <Link href="/services" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
-              Learn more about my manual therapy services
+              Explore all my manual therapy services
             </Link>
             .
           </>
@@ -251,11 +290,37 @@ const faqCategories: FAQCategory[] = [
       },
       {
         question: `Is physiotherapy treatment painful?`,
-        answer: `While some techniques might cause temporary discomfort, treatment should not be acutely painful. Pain is never the goal. I will always explain what to expect, check in frequently, and immediately modify or stop any technique if you feel uncomfortable or wish to pause. Open communication is essential, and your comfort and safety are paramount.`
+        answer: (
+          <>
+            While some techniques might cause temporary discomfort, treatment should not be acutely painful. Pain is never the goal. I will always explain what to expect, check in frequently, and immediately modify or stop any technique if you feel uncomfortable or wish to pause. Open communication is essential, and your comfort and safety are paramount.{' '}
+            <Link href="/about" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              Learn about my patient-centered approach
+            </Link>
+            .
+          </>
+        )
       },
       {
         question: `What happens if my progress stalls or I am not improving as expected?`,
-        answer: `Progress is not always linear, and pain levels are not the only measure. Together, we will track objective improvements in strength, range of motion, function, and your ability to perform meaningful activities. If progress stalls despite you following the plan:\n\nI Reassess Thoroughly: I do not just keep doing the same thing. I will step back and systematically reassess to understand why things might not be changing as expected.\n\nWe Adjust the Strategy: Based on my findings and our discussion, I will modify the treatment plan with you.\n\nI Collaborate and Advocate: If needed, and always with your permission, I will communicate with your doctor or other providers. Furthermore, I firmly believe that effective care includes supporting you beyond our clinic walls. If you face obstacles or feel unsupported elsewhere in the healthcare system, I am committed to helping you navigate those challenges. This might involve assisting you in formulating questions for other providers, helping to ensure your concerns are taken seriously, or facilitating appropriate referrals. My role is to support your overall well-being and advocate for the care you need to find the best path forward.`
+        answer: (
+          <>
+            Progress is not always linear, and pain levels are not the only measure. Together, we will track objective improvements in{' '}
+            <Link href="/treatments/exercise-therapy" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              strength, range of motion, function
+            </Link>
+            , and your ability to perform meaningful activities. If progress stalls despite you following the plan:
+            {'\n\n'}
+            <strong>I Reassess Thoroughly:</strong> I do not just keep doing the same thing. I will step back and systematically reassess to understand why things might not be changing as expected.
+            {'\n\n'}
+            <strong>We Adjust the Strategy:</strong> Based on my findings and our discussion, I will modify the treatment plan with you.
+            {'\n\n'}
+            <strong>I Collaborate and Advocate:</strong> If needed, and always with your permission, I will communicate with your doctor or other providers. Furthermore, I firmly believe that effective care includes supporting you beyond our clinic walls. If you face obstacles or feel unsupported elsewhere in the healthcare system, I am committed to helping you navigate those challenges. This might involve assisting you in formulating questions for other providers, helping to ensure your concerns are taken seriously, or facilitating appropriate referrals. My role is to support your overall well-being and advocate for the care you need to find the best path forward.{' '}
+            <Link href="/about" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              Learn more about my commitment to your care
+            </Link>
+            .
+          </>
+        )
       },
       {
         question: `How do you decide which specific treatments or techniques to use?`,
@@ -278,7 +343,15 @@ const faqCategories: FAQCategory[] = [
       },
       {
         question: `What if I have received conflicting advice from another healthcare provider?`,
-        answer: `That happens sometimes, and it is okay. Different providers may have different perspectives or focus on different aspects of your health. My role is to help you understand your current situation based on my assessment. We will focus on what makes sense for you now, integrate useful information from others where appropriate, and build a clear path forward together. My focus is on clarity and collaboration, not contradiction.`
+        answer: (
+          <>
+            That happens sometimes, and it is okay. Different providers may have different perspectives or focus on different aspects of your health. My role is to help you understand your current situation based on my assessment. We will focus on what makes sense for you now, integrate useful information from others where appropriate, and build a clear path forward together. My focus is on clarity and collaboration, not contradiction.{' '}
+            <Link href="/about" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              Read about my collaborative approach
+            </Link>
+            .
+          </>
+        )
       },
       {
         question: `What kind of environment do you try to create for your patients?`,
@@ -300,15 +373,39 @@ const faqCategories: FAQCategory[] = [
       },
       {
         question: `What makes your assessments distinct?`,
-        answer: `My assessments go beyond just identifying the painful area. I look at how your body moves as a system, often under load or during functional tasks, to understand the underlying biomechanical factors contributing to your issue. The aim is not just to tell you what hurts, but to help you understand why it is happening and outline a clear strategy to address it.`
+        answer: (
+          <>
+            My assessments go beyond just identifying the painful area. I look at how your body moves as a system, often under load or during functional tasks, to understand the underlying biomechanical factors contributing to your issue. The aim is not just to tell you what hurts, but to help you understand the most likely contributing factors and outline a clear strategy to address them.{' '}
+            <Link href="/treatments/postural-assessment" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              Learn about my assessment approach
+            </Link>
+            .
+          </>
+        )
       },
       {
         question: `Will I actually understand what is wrong and what we are doing about it?`,
-        answer: `Absolutely. Patient education is fundamental to my approach. I believe that understanding your body and your treatment plan empowers you to take an active role in your recovery. I explain concepts clearly, check for understanding, and encourage questions. This includes understanding your right to consent to or decline any part of care.`
+        answer: (
+          <>
+            Yes, that's a priority. Through the assessment process, I work to narrow down the potential issues and establish the most likely explanation for what you're experiencing. I do my best to adapt my explanations to your level of understanding, avoiding unnecessary jargon while still providing meaningful insight. If something isn't clear, I'm always happy to answer questions or explain concepts in different ways to help you truly grasp what's happening and why we're taking a particular approach. Patient education is fundamental to my practice because understanding your body and your treatment plan empowers you to take an active role in your recovery.{' '}
+            <Link href="/about" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              Read about my philosophy on patient education
+            </Link>
+            .
+          </>
+        )
       },
       {
         question: `How involved will I be in creating my treatment plan?`,
-        answer: `Very involved! Physiotherapy is a partnership. I provide the clinical expertise and guidance, but your goals, lifestyle, preferences, and feedback are essential in shaping a plan that is both effective and realistic for you. We make decisions together every step of the way.`
+        answer: (
+          <>
+            Very involved! Physiotherapy is a partnership. I provide the clinical expertise and guidance, but your goals, lifestyle, preferences, and feedback are essential in shaping a plan that is both effective and realistic for you. We make decisions together every step of the way.{' '}
+            <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
+              Book a consultation to get started
+            </Link>
+            .
+          </>
+        )
       }
     ]
   },
@@ -321,13 +418,13 @@ const faqCategories: FAQCategory[] = [
         question: `Can I come for injury prevention, performance enhancement, or tune-ups, even if I am not currently in pain?`,
         answer: (
           <>
-            Yes, definitely! Proactive physiotherapy is incredibly valuable. I work with many individuals including athletes, active people, and those who simply want to move better and feel stronger. Together we identify potential movement limitations or strength deficits before they cause problems. I can help develop strategies to optimize movement, build strength, enhance performance, and reduce future injury risk.{' '}
-            <Link href="/treatments/sports-rehabilitation" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
-              Discover my sports rehabilitation
+            Yes. Physiotherapy isn't just for treating existing injuries. Most people, even without current pain, have measurable opportunities for improvement in mobility, stability, proprioception, strength, or movement coordination—all within the scope of physiotherapy care. During our assessment, we work together to identify specific areas where physiotherapy can help you move better, perform better, or reduce future injury risk, with clear, objective goals guiding the work. Whether you're an athlete looking to optimize performance, someone wanting to prevent recurring issues, or simply interested in moving better, we'll focus on specific physiotherapy-related goals tailored to your needs.{' '}
+            <Link href="/treatments/sports-rehab-return-to-sport" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              Learn about my approach
             </Link>
-            {' '}and{' '}
+            {' '}to proactive care and{' '}
             <Link href="/treatments/exercise-therapy" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
-              exercise therapy programs
+              exercise therapy
             </Link>
             .
           </>
@@ -342,7 +439,7 @@ const faqCategories: FAQCategory[] = [
               strength training
             </Link>
             {' '}is often a crucial part of physiotherapy. Building strength helps protect joints, improve bone density, enhance balance, prevent injuries, and maintain functional independence as we age. I integrate tailored strength and conditioning principles into treatment plans, whether your goal is to lift groceries without pain,{' '}
-            <Link href="/treatments/return-to-sport" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+            <Link href="/treatments/sports-rehab-return-to-sport" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
               return to sport
             </Link>
             , learn foundational exercises like squats and deadlifts safely, or simply build confidence in your physical abilities.
@@ -370,7 +467,15 @@ const faqCategories: FAQCategory[] = [
       },
       {
         question: `What is your cancellation policy?`,
-        answer: `I kindly request at least 24 hours notice if you need to cancel or reschedule your appointment. This allows the time slot to be offered to another patient in need. I recognize that unexpected things happen; if you need to cancel last minute due to an emergency or illness, please let me know as soon as possible. I aim to be flexible and understanding, especially for isolated incidents.`
+        answer: (
+          <>
+            I kindly request at least 24 hours notice if you need to cancel or reschedule your appointment. This allows the time slot to be offered to another patient in need. I recognize that unexpected things happen; if you need to cancel last minute due to an emergency or illness, please let me know as soon as possible. I aim to be flexible and understanding, especially for isolated incidents.{' '}
+            <Link href="/#contact" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+              Contact me with any scheduling questions
+            </Link>
+            .
+          </>
+        )
       }
     ]
   },

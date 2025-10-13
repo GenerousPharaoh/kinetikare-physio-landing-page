@@ -53,6 +53,20 @@ const faqCategories: FAQCategory[] = [
               schedule directly
             </Link>
             . However, some extended health insurance plans might require a referral for reimbursement. It is always a good idea to check your specific plan details. If you are unsure, please feel free to ask when booking, and I can help guide you or direct you to the right information.
+            <div className="mt-4 pt-4 border-t border-gray-200">
+              <p className="text-xs font-medium text-gray-500 mb-2">Related Resources:</p>
+              <div className="flex flex-wrap gap-2">
+                <Link href="/conditions" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  Conditions Treated
+                </Link>
+                <Link href="/services" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  Insurance Info
+                </Link>
+                <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                  Book Online
+                </Link>
+              </div>
+            </div>
           </>
         )
       },
@@ -69,6 +83,20 @@ const faqCategories: FAQCategory[] = [
               shoulder issues
             </Link>
             ). Your comfort is the priority; I can always adapt the assessment and treatment if you prefer certain areas to remain covered.
+            <div className="mt-4 pt-4 border-t border-gray-200">
+              <p className="text-xs font-medium text-gray-500 mb-2">Related Resources:</p>
+              <div className="flex flex-wrap gap-2">
+                <Link href="/services" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  What to Expect
+                </Link>
+                <Link href="/conditions" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  Your Condition
+                </Link>
+                <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                  Book Appointment
+                </Link>
+              </div>
+            </div>
           </>
         )
       },
@@ -88,6 +116,20 @@ const faqCategories: FAQCategory[] = [
             <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
               Ready to book your first appointment?
             </Link>
+            <div className="mt-4 pt-4 border-t border-gray-200">
+              <p className="text-xs font-medium text-gray-500 mb-2">Related Resources:</p>
+              <div className="flex flex-wrap gap-2">
+                <Link href="/treatments/postural-assessment" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  Assessment Process
+                </Link>
+                <Link href="/about" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  My Approach
+                </Link>
+                <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                  Book First Visit
+                </Link>
+              </div>
+            </div>
           </>
         )
       },
@@ -100,6 +142,20 @@ const faqCategories: FAQCategory[] = [
               Learn more about my assessment process
             </Link>
             .
+            <div className="mt-4 pt-4 border-t border-gray-200">
+              <p className="text-xs font-medium text-gray-500 mb-2">Related Resources:</p>
+              <div className="flex flex-wrap gap-2">
+                <Link href="/services" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  Treatment Options
+                </Link>
+                <Link href="/treatments/postural-assessment" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  Assessment Details
+                </Link>
+                <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                  Book Assessment
+                </Link>
+              </div>
+            </div>
           </>
         )
       },
@@ -853,7 +909,25 @@ const faqCategories: FAQCategory[] = [
     questions: [
       {
         question: `Is physiotherapy covered by OHIP in Ontario?`,
-        answer: `No, private physiotherapy services are not covered by OHIP (Ontario Health Insurance Plan). However, many extended health insurance plans do provide coverage for physiotherapy. Our clinic offers direct billing to most major insurance providers including Canada Life, Sun Life, Manulife, Green Shield Canada, Blue Cross, and others. Check with your insurance provider about your specific coverage.`
+        answer: (
+          <>
+            No, private physiotherapy services are not covered by OHIP (Ontario Health Insurance Plan). However, many extended health insurance plans do provide coverage for physiotherapy. Our clinic offers direct billing to most major insurance providers including Canada Life, Sun Life, Manulife, Green Shield Canada, Blue Cross, and others. Check with your insurance provider about your specific coverage.
+            <div className="mt-4 pt-4 border-t border-gray-200">
+              <p className="text-xs font-medium text-gray-500 mb-2">Related Resources:</p>
+              <div className="flex flex-wrap gap-2">
+                <Link href="/services" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  Pricing Details
+                </Link>
+                <Link href="/#contact" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  Contact for Questions
+                </Link>
+                <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                  Book Appointment
+                </Link>
+              </div>
+            </div>
+          </>
+        )
       },
       {
         question: `Do you offer direct billing to insurance companies?`,

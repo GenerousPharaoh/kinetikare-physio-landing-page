@@ -515,15 +515,27 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
 
                       {conditionsExpanded && (
                         <div className="pl-4 space-y-1 mt-1">
-                          {conditionCategories.map((category) => (
+                          {conditionCategories.map((category, categoryIndex) => (
                             <div key={category.slug}>
-                              <button
-                                onClick={() => setExpandedRegion(expandedRegion === category.slug ? null : category.slug)}
-                                className="w-full flex items-center justify-between px-3 py-2 rounded text-sm text-white/80 hover:text-white hover:bg-white/5 transition-all duration-200"
-                              >
-                                <span>{category.title}</span>
-                                <ChevronRightIcon className={`h-3 w-3 transition-transform duration-200 ${expandedRegion === category.slug ? 'rotate-90' : ''}`} />
-                              </button>
+                              <div className="flex items-center gap-1">
+                                <Link
+                                  href={`/conditions?tab=${categoryIndex}`}
+                                  onClick={() => {
+                                    setMobileMenuOpen(false);
+                                    setConditionsExpanded(false);
+                                    setExpandedRegion(null);
+                                  }}
+                                  className="flex-1 px-3 py-2 rounded text-sm text-white/80 hover:text-white hover:bg-white/5 transition-all duration-200"
+                                >
+                                  {category.title}
+                                </Link>
+                                <button
+                                  onClick={() => setExpandedRegion(expandedRegion === category.slug ? null : category.slug)}
+                                  className="px-2 py-2 rounded transition-all duration-200 outline-none"
+                                >
+                                  <ChevronRightIcon className={`h-3 w-3 transition-transform duration-200 ${expandedRegion === category.slug ? 'rotate-90 !text-[#D4AF37]' : '!text-white/60 hover:!text-white'}`} />
+                                </button>
+                              </div>
 
                               {expandedRegion === category.slug && (
                                 <div className="pl-3 space-y-0.5 mt-0.5">

@@ -56,8 +56,21 @@ function ConditionsPageWithParams({
     { name: "Foot & Ankle", tab: 5 },
   ];
 
-  // Remember the user's tab selection using localStorage only (removed URL params to fix build)
+  // Remember the user's tab selection using URL params and localStorage
   useEffect(() => {
+    // Check URL query parameter first
+    const urlParams = new URLSearchParams(window.location.search);
+    const tabParam = urlParams.get('tab');
+
+    if (tabParam && !isNaN(Number(tabParam))) {
+      const tabNumber = Number(tabParam);
+      if (tabNumber >= 0 && tabNumber < conditionCategories.length) {
+        setActiveTab(tabNumber);
+        localStorage.setItem('conditionsActiveTab', tabNumber.toString());
+        return;
+      }
+    }
+
     // Fall back to localStorage (for returning users)
     const savedTab = localStorage.getItem('conditionsActiveTab');
     if (savedTab && !isNaN(Number(savedTab))) {

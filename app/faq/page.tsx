@@ -138,6 +138,20 @@ const faqCategories: FAQCategory[] = [
               Book your assessment
             </Link>
             .
+            <div className="mt-4 pt-4 border-t border-gray-200">
+              <p className="text-xs font-medium text-gray-500 mb-2">Related Resources:</p>
+              <div className="flex flex-wrap gap-2">
+                <Link href="/treatments/postural-assessment" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  Assessment Process
+                </Link>
+                <Link href="/conditions" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  Conditions Treated
+                </Link>
+                <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                  Book Assessment
+                </Link>
+              </div>
+            </div>
           </>
         )
       },
@@ -154,6 +168,20 @@ const faqCategories: FAQCategory[] = [
               learn more about my background and approach
             </Link>
             .
+            <div className="mt-4 pt-4 border-t border-gray-200">
+              <p className="text-xs font-medium text-gray-500 mb-2">Related Resources:</p>
+              <div className="flex flex-wrap gap-2">
+                <Link href="/about" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  About Me
+                </Link>
+                <Link href="/services" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  Services Offered
+                </Link>
+                <Link href="/#contact" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  Contact Me
+                </Link>
+              </div>
+            </div>
           </>
         )
       }
@@ -346,6 +374,20 @@ const faqCategories: FAQCategory[] = [
               Learn more about my approach
             </Link>
             .
+            <div className="mt-4 pt-4 border-t border-gray-200">
+              <p className="text-xs font-medium text-gray-500 mb-2">Related Resources:</p>
+              <div className="flex flex-wrap gap-2">
+                <Link href="/about" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  My Background
+                </Link>
+                <Link href="/services" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  Treatment Approach
+                </Link>
+                <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                  Book Session
+                </Link>
+              </div>
+            </div>
           </>
         )
       },
@@ -388,6 +430,20 @@ const faqCategories: FAQCategory[] = [
               Book your appointment
             </Link>
             .
+            <div className="mt-4 pt-4 border-t border-gray-200">
+              <p className="text-xs font-medium text-gray-500 mb-2">Related Resources:</p>
+              <div className="flex flex-wrap gap-2">
+                <Link href="/services" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  What to Expect
+                </Link>
+                <Link href="/about" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  My Approach
+                </Link>
+                <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                  Book Now
+                </Link>
+              </div>
+            </div>
           </>
         )
       },
@@ -423,6 +479,20 @@ const faqCategories: FAQCategory[] = [
               Learn about my patient-centered approach
             </Link>
             .
+            <div className="mt-4 pt-4 border-t border-gray-200">
+              <p className="text-xs font-medium text-gray-500 mb-2">Related Resources:</p>
+              <div className="flex flex-wrap gap-2">
+                <Link href="/about" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  My Philosophy
+                </Link>
+                <Link href="/treatments" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  Treatment Techniques
+                </Link>
+                <Link href="/#contact" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  Ask Questions
+                </Link>
+              </div>
+            </div>
           </>
         )
       },
@@ -445,6 +515,20 @@ const faqCategories: FAQCategory[] = [
               Learn more about my commitment to your care
             </Link>
             .
+            <div className="mt-4 pt-4 border-t border-gray-200">
+              <p className="text-xs font-medium text-gray-500 mb-2">Related Resources:</p>
+              <div className="flex flex-wrap gap-2">
+                <Link href="/about" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  My Commitment
+                </Link>
+                <Link href="/treatments/exercise-therapy" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  Treatment Strategies
+                </Link>
+                <Link href="/#contact" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  Discuss Concerns
+                </Link>
+              </div>
+            </div>
           </>
         )
       },
@@ -490,6 +574,20 @@ const faqCategories: FAQCategory[] = [
               Read about my collaborative approach
             </Link>
             .
+            <div className="mt-4 pt-4 border-t border-gray-200">
+              <p className="text-xs font-medium text-gray-500 mb-2">Related Resources:</p>
+              <div className="flex flex-wrap gap-2">
+                <Link href="/about" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  My Approach
+                </Link>
+                <Link href="/treatments/postural-assessment" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  Assessment Process
+                </Link>
+                <Link href="/#contact" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  Contact Me
+                </Link>
+              </div>
+            </div>
           </>
         )
       },
@@ -502,6 +600,20 @@ const faqCategories: FAQCategory[] = [
               Learn more about my values
             </Link>
             .
+            <div className="mt-4 pt-4 border-t border-gray-200">
+              <p className="text-xs font-medium text-gray-500 mb-2">Related Resources:</p>
+              <div className="flex flex-wrap gap-2">
+                <Link href="/about" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  My Values
+                </Link>
+                <Link href="/services" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  What to Expect
+                </Link>
+                <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                  Book Consultation
+                </Link>
+              </div>
+            </div>
           </>
         )
       },
@@ -540,6 +652,20 @@ const faqCategories: FAQCategory[] = [
               Read about my philosophy on patient education
             </Link>
             .
+            <div className="mt-4 pt-4 border-t border-gray-200">
+              <p className="text-xs font-medium text-gray-500 mb-2">Related Resources:</p>
+              <div className="flex flex-wrap gap-2">
+                <Link href="/about" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  Patient Education
+                </Link>
+                <Link href="/treatments/postural-assessment" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  Assessment Approach
+                </Link>
+                <Link href="/conditions" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  Common Conditions
+                </Link>
+              </div>
+            </div>
           </>
         )
       },
@@ -552,6 +678,20 @@ const faqCategories: FAQCategory[] = [
               Book a consultation to get started
             </Link>
             .
+            <div className="mt-4 pt-4 border-t border-gray-200">
+              <p className="text-xs font-medium text-gray-500 mb-2">Related Resources:</p>
+              <div className="flex flex-wrap gap-2">
+                <Link href="/about" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  My Philosophy
+                </Link>
+                <Link href="/services" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  Treatment Process
+                </Link>
+                <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                  Get Started
+                </Link>
+              </div>
+            </div>
           </>
         )
       }
@@ -664,6 +804,20 @@ const faqCategories: FAQCategory[] = [
               book your appointment
             </Link>
             .
+            <div className="mt-4 pt-4 border-t border-gray-200">
+              <p className="text-xs font-medium text-gray-500 mb-2">Related Resources:</p>
+              <div className="flex flex-wrap gap-2">
+                <Link href="/services" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  What to Expect
+                </Link>
+                <Link href="/#contact" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  Contact Details
+                </Link>
+                <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                  Book Appointment
+                </Link>
+              </div>
+            </div>
           </>
         )
       },
@@ -676,6 +830,17 @@ const faqCategories: FAQCategory[] = [
               Contact me with any scheduling questions
             </Link>
             .
+            <div className="mt-4 pt-4 border-t border-gray-200">
+              <p className="text-xs font-medium text-gray-500 mb-2">Related Resources:</p>
+              <div className="flex flex-wrap gap-2">
+                <Link href="/#contact" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  Contact Me
+                </Link>
+                <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                  Manage Bookings
+                </Link>
+              </div>
+            </div>
           </>
         )
       }
@@ -699,6 +864,20 @@ const faqCategories: FAQCategory[] = [
               Book an appointment
             </Link>
             .
+            <div className="mt-4 pt-4 border-t border-gray-200">
+              <p className="text-xs font-medium text-gray-500 mb-2">Related Resources:</p>
+              <div className="flex flex-wrap gap-2">
+                <Link href="/services" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  Pricing Info
+                </Link>
+                <Link href="/#contact" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200">
+                  Ask Questions
+                </Link>
+                <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#B08D57] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                  Book Appointment
+                </Link>
+              </div>
+            </div>
           </>
         )
       }

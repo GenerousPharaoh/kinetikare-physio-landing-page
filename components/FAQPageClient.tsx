@@ -343,33 +343,172 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
         )}
       </AnimatePresence> */}
 
-      {/* Progress Indicator Bar */}
+      {/* Sticky Navigation - Desktop Sidebar */}
       <AnimatePresence>
         {showStickyNav && !isSearching && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed top-0 left-0 right-0 z-40 h-1 bg-neutral-100"
+          <motion.nav
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: -100, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="hidden lg:block fixed left-0 top-1/2 -translate-y-1/2 z-40 group"
+            aria-label="FAQ Navigation"
           >
-            <div className="relative h-full flex">
-              {faqCategories.map((category, index) => (
-                <button
-                  key={category.id}
-                  onClick={() => scrollToSection(category.id)}
-                  className={`flex-1 h-full transition-colors duration-300 ${
-                    activeCategory === category.id
-                      ? 'bg-[#B08D57]'
-                      : 'bg-transparent hover:bg-neutral-200'
-                  }`}
-                  aria-label={`Go to ${category.name}`}
-                >
-                  <span className="sr-only">{category.name}</span>
-                </button>
-              ))}
+            <div className="relative">
+              {/* Slim collapsedbar - expands on hover */}
+              <div className="bg-white/95 backdrop-blur-md shadow-2xl rounded-r-2xl border-r border-y border-gray-200/50 overflow-hidden transition-all duration-300 ease-out group-hover:w-56 w-16">
+                <div className="py-3">
+                  {faqCategories.map((category) => (
+                    <button
+                      key={category.id}
+                      onClick={() => scrollToSection(category.id)}
+                      className={`w-full flex items-center px-4 py-3.5 transition-all duration-200 relative ${
+                        activeCategory === category.id
+                          ? 'text-[#B08D57] bg-[#B08D57]/10'
+                          : 'text-gray-600 hover:text-[#B08D57] hover:bg-gray-50'
+                      }`}
+                      aria-label={`Go to ${category.name}`}
+                      aria-current={activeCategory === category.id ? 'true' : 'false'}
+                    >
+                      {/* Active indicator bar */}
+                      {activeCategory === category.id && (
+                        <motion.div
+                          layoutId="activeCategory"
+                          className="absolute left-0 top-0 bottom-0 w-1 bg-[#B08D57]"
+                          transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                        />
+                      )}
+
+                      {/* Icon */}
+                      <div className="flex-shrink-0">
+                        {getIcon(category.iconType)}
+                      </div>
+
+                      {/* Category name - shows on hover */}
+                      <span className="ml-3 text-sm font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 overflow-hidden">
+                        {category.name}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
-          </motion.div>
+          </motion.nav>
+        )}
+      </AnimatePresence>
+
+      {/* Sticky Navigation - Mobile Floating Button */}
+      <AnimatePresence>
+        {showStickyNav && !isSearching && (
+          <>
+            {/* Backdrop */}
+            {typeof window !== 'undefined' && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="lg:hidden fixed inset-0 bg-black/20 backdrop-blur-sm z-40"
+                onClick={() => {
+                  const menuBtn = document.getElementById('mobile-faq-menu-btn');
+                  if (menuBtn) menuBtn.click();
+                }}
+                style={{ display: 'none' }}
+                id="mobile-menu-backdrop"
+              />
+            )}
+
+            {/* Floating Menu Button */}
+            <motion.button
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0, opacity: 0 }}
+              transition={{ duration: 0.3, type: "spring", stiffness: 260, damping: 20 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                const drawer = document.getElementById('mobile-faq-drawer');
+                const backdrop = document.getElementById('mobile-menu-backdrop');
+                if (drawer && backdrop) {
+                  const isHidden = drawer.classList.contains('translate-x-full');
+                  if (isHidden) {
+                    drawer.classList.remove('translate-x-full');
+                    backdrop.style.display = 'block';
+                  } else {
+                    drawer.classList.add('translate-x-full');
+                    backdrop.style.display = 'none';
+                  }
+                }
+              }}
+              id="mobile-faq-menu-btn"
+              className="lg:hidden fixed bottom-6 right-6 z-50 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] text-white p-4 rounded-full shadow-2xl hover:shadow-[#B08D57]/30"
+              aria-label="Open FAQ menu"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </motion.button>
+
+            {/* Slide-in Drawer for Mobile */}
+            <div
+              id="mobile-faq-drawer"
+              className="lg:hidden fixed top-0 right-0 bottom-0 w-72 bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-out"
+            >
+              <div className="h-full flex flex-col">
+                {/* Header */}
+                <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
+                  <h3 className="text-lg font-semibold text-gray-900">FAQ Topics</h3>
+                  <button
+                    onClick={() => {
+                      const drawer = document.getElementById('mobile-faq-drawer');
+                      const backdrop = document.getElementById('mobile-menu-backdrop');
+                      if (drawer && backdrop) {
+                        drawer.classList.add('translate-x-full');
+                        backdrop.style.display = 'none';
+                      }
+                    }}
+                    className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                    aria-label="Close menu"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+
+                {/* Categories List */}
+                <div className="flex-1 overflow-y-auto py-2">
+                  {faqCategories.map((category) => (
+                    <button
+                      key={category.id}
+                      onClick={() => {
+                        scrollToSection(category.id);
+                        // Close drawer
+                        const drawer = document.getElementById('mobile-faq-drawer');
+                        const backdrop = document.getElementById('mobile-menu-backdrop');
+                        if (drawer && backdrop) {
+                          drawer.classList.add('translate-x-full');
+                          backdrop.style.display = 'none';
+                        }
+                      }}
+                      className={`w-full flex items-center px-6 py-4 transition-all duration-200 ${
+                        activeCategory === category.id
+                          ? 'bg-[#B08D57]/10 text-[#B08D57] border-l-4 border-[#B08D57]'
+                          : 'text-gray-700 hover:bg-gray-50 border-l-4 border-transparent'
+                      }`}
+                    >
+                      <div className="flex-shrink-0">
+                        {getIcon(category.iconType)}
+                      </div>
+                      <span className="ml-4 text-base font-medium text-left">
+                        {category.name}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </>
         )}
       </AnimatePresence>
 

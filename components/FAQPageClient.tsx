@@ -56,6 +56,7 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
   const [isSearching, setIsSearching] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const [showStickyNav, setShowStickyNav] = useState(false);
+  const [isMobilePanelOpen, setIsMobilePanelOpen] = useState(false);
   // Removed floating search and back to top - not needed
 
   // Refs for each section
@@ -397,41 +398,34 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
         )}
       </AnimatePresence>
 
-      {/* Sticky Navigation - Mobile Left Panel */}
+      {/* Sticky Navigation - Mobile (Left Side Panel) */}
       <AnimatePresence>
         {showStickyNav && !isSearching && (
           <>
             {/* Backdrop */}
-            {typeof window !== 'undefined' && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                className="lg:hidden fixed inset-0 bg-black/20 backdrop-blur-sm z-40"
-                onClick={() => {
-                  const panel = document.getElementById('mobile-faq-panel');
-                  if (panel && !panel.classList.contains('-translate-x-full')) {
-                    panel.classList.add('-translate-x-full');
-                  }
-                }}
-                style={{ display: 'none' }}
-                id="mobile-menu-backdrop"
-              />
-            )}
+            <AnimatePresence>
+              {isMobilePanelOpen && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="lg:hidden fixed inset-0 bg-black/20 backdrop-blur-sm z-40"
+                  onClick={() => setIsMobilePanelOpen(false)}
+                />
+              )}
+            </AnimatePresence>
 
-            {/* Slide-in Panel from Left */}
-            <motion.div
-              initial={{ x: -280 }}
-              animate={{ x: 0 }}
-              exit={{ x: -280 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-              id="mobile-faq-panel"
-              className="lg:hidden fixed left-0 top-1/2 -translate-y-1/2 z-50 flex items-center"
-            >
-              {/* Panel Content */}
-              <div className="bg-white/95 backdrop-blur-md shadow-2xl rounded-r-2xl border-r border-y border-gray-200/50 w-64 -translate-x-full transition-transform duration-300 ease-out">
-                <div className="py-3">
+            {/* Mobile Menu Container */}
+            <div className="lg:hidden fixed left-0 top-1/2 -translate-y-1/2 z-50 flex items-center pointer-events-none">
+              {/* Slide-in Panel */}
+              <motion.div
+                initial={false}
+                animate={{ x: isMobilePanelOpen ? 0 : -256 }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                className="bg-white/95 backdrop-blur-md shadow-2xl rounded-r-2xl border-r border-y border-gray-200/50 w-64 pointer-events-auto"
+              >
+                <div className="py-3 max-h-[80vh] overflow-y-auto">
                   <div className="px-4 py-2 border-b border-gray-200/50">
                     <h3 className="text-sm font-semibold text-gray-900">FAQ Topics</h3>
                   </div>
@@ -440,13 +434,7 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
                       key={category.id}
                       onClick={() => {
                         scrollToSection(category.id);
-                        // Close panel
-                        const panel = document.getElementById('mobile-faq-panel');
-                        const backdrop = document.getElementById('mobile-menu-backdrop');
-                        if (panel && backdrop) {
-                          panel.classList.add('-translate-x-full');
-                          backdrop.style.display = 'none';
-                        }
+                        setIsMobilePanelOpen(false);
                       }}
                       className={`w-full flex items-center px-4 py-3.5 transition-all duration-200 relative ${
                         activeCategory === category.id
@@ -454,7 +442,6 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
                           : 'text-gray-600 hover:text-[#B08D57] hover:bg-gray-50'
                       }`}
                     >
-                      {/* Active indicator bar */}
                       {activeCategory === category.id && (
                         <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#B08D57]" />
                       )}
@@ -467,32 +454,24 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
                     </button>
                   ))}
                 </div>
-              </div>
+              </motion.div>
 
-              {/* Tab Handle */}
+              {/* Tab Handle - Always visible */}
               <button
-                onClick={() => {
-                  const panel = document.getElementById('mobile-faq-panel');
-                  const backdrop = document.getElementById('mobile-menu-backdrop');
-                  if (panel && backdrop) {
-                    const isHidden = panel.classList.contains('-translate-x-full');
-                    if (isHidden) {
-                      panel.classList.remove('-translate-x-full');
-                      backdrop.style.display = 'block';
-                    } else {
-                      panel.classList.add('-translate-x-full');
-                      backdrop.style.display = 'none';
-                    }
-                  }
-                }}
-                className="bg-white/95 backdrop-blur-md shadow-lg border-r border-y border-gray-200/50 rounded-r-xl px-2 py-6 hover:bg-[#B08D57]/10 transition-colors duration-200"
+                onClick={() => setIsMobilePanelOpen(!isMobilePanelOpen)}
+                className="bg-white/95 backdrop-blur-md shadow-lg border-r border-y border-gray-200/50 rounded-r-xl px-2 py-6 hover:bg-[#B08D57]/10 transition-colors duration-200 pointer-events-auto ml-1"
                 aria-label="Toggle FAQ menu"
               >
-                <svg className="w-5 h-5 text-[#B08D57]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <svg
+                  className={`w-5 h-5 text-[#B08D57] transition-transform duration-200 ${isMobilePanelOpen ? 'rotate-180' : ''}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </button>
-            </motion.div>
+            </div>
           </>
         )}
       </AnimatePresence>

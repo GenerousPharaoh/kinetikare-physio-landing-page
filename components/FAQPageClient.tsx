@@ -657,6 +657,19 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
                   ref={(el) => sectionRefs.current[category.id] = el}
                   className="scroll-mt-40 md:scroll-mt-48"
                 >
+                  {/* Section Title */}
+                  <div className="mb-8 md:mb-10">
+                    <div className="flex items-center gap-4 mb-3">
+                      <div className="p-3 rounded-xl bg-gradient-to-br from-[#B08D57] to-[#D4AF37] text-white shadow-lg">
+                        {getIcon(category.iconType)}
+                      </div>
+                      <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 tracking-tight">
+                        {category.name}
+                      </h2>
+                    </div>
+                    <div className="h-px bg-gradient-to-r from-[#B08D57]/30 via-[#B08D57]/10 to-transparent" />
+                  </div>
+
                   <FAQAccordion items={category.questions} />
                 </div>
               ))}

@@ -26,7 +26,7 @@ export default function TreatmentContent({ treatment }: TreatmentContentProps) {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-100px" }}
               className="space-y-8"
             >
               <div>
@@ -58,7 +58,7 @@ export default function TreatmentContent({ treatment }: TreatmentContentProps) {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.1 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-100px" }}
             >
               <div>
                 <h3 className="text-2xl font-semibold text-slate-900 mb-6">Key Benefits</h3>
@@ -69,7 +69,7 @@ export default function TreatmentContent({ treatment }: TreatmentContentProps) {
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.3, delay: index * 0.05 }}
-                      viewport={{ once: true }}
+                      viewport={{ once: true, margin: "-100px" }}
                       className="flex items-start gap-4 group"
                     >
                       <div className="flex-shrink-0 mt-1">
@@ -92,7 +92,7 @@ export default function TreatmentContent({ treatment }: TreatmentContentProps) {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-100px" }}
           >
             <div className="flex items-center gap-3 mb-6">
               <div className="p-2 bg-[#B08D57]/10 rounded-lg">
@@ -113,7 +113,7 @@ export default function TreatmentContent({ treatment }: TreatmentContentProps) {
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3, delay: index * 0.02 }}
-                      viewport={{ once: true }}
+                      viewport={{ once: true, margin: "-100px" }}
                       className="group bg-white rounded-xl p-5 border border-gray-100 hover:border-[#B08D57]/40 hover:shadow-lg transition-all duration-300 cursor-pointer h-full"
                     >
                       <h3 className="text-base font-semibold text-slate-900 mb-2 group-hover:text-[#B08D57] transition-colors duration-300">

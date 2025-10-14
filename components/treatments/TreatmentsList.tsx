@@ -40,7 +40,7 @@ export default function TreatmentsList() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           className="max-w-2xl mx-auto mb-6"
         >
           <div className="relative group">
@@ -63,7 +63,7 @@ export default function TreatmentsList() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: "-100px" }}
               >
                 <Link href={`/treatments/${treatment.id}`}>
                   <div className="bg-white rounded-2xl p-7 h-full border-2 border-gray-100 hover:border-[#B08D57]/30 hover:shadow-xl transition-all duration-300 group cursor-pointer flex flex-col">
@@ -100,7 +100,7 @@ export default function TreatmentsList() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: "-100px" }}
               >
                 <div className="flex items-center gap-3 mb-8">
                   <div className="h-px flex-1 bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
@@ -118,10 +118,10 @@ export default function TreatmentsList() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.08 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: true, margin: "-100px" }}
                       >
                         <Link href={`/treatments/${treatment.id}`}>
-                          <div className="relative bg-white rounded-2xl p-8 h-full hover:shadow-2xl transition-all duration-500 group cursor-pointer border border-gray-100 overflow-hidden flex flex-col">
+                          <div className="relative bg-white rounded-2xl p-8 h-full hover:shadow-2xl transition-all duration-500 group cursor-pointer border border-gray-100 overflow-hidden flex flex-col will-change-transform">
                             {/* Hover gradient effect */}
                             <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/0 via-[#B08D57]/0 to-[#B08D57]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 

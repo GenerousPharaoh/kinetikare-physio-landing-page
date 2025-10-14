@@ -16,7 +16,7 @@ export default function TreatmentProcess({ treatment }: TreatmentProcessProps) {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-light text-slate-900 mb-6 tracking-tight">
@@ -34,7 +34,7 @@ export default function TreatmentProcess({ treatment }: TreatmentProcessProps) {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.12 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-100px" }}
               className="relative group"
             >
               <div className="relative bg-white rounded-2xl p-8 border-2 border-gray-100 hover:border-[#B08D57]/30 hover:shadow-2xl transition-all duration-500 h-full">

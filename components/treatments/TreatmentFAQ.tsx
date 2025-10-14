@@ -37,7 +37,7 @@ export default function TreatmentFAQ({ treatment }: TreatmentFAQProps) {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-light text-slate-900 mb-6 tracking-tight">
@@ -55,7 +55,7 @@ export default function TreatmentFAQ({ treatment }: TreatmentFAQProps) {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.08 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-100px" }}
               className="bg-gradient-to-br from-slate-50 to-white border-2 border-gray-100 rounded-2xl overflow-hidden hover:border-[#B08D57]/30 transition-all duration-300"
             >
               <button

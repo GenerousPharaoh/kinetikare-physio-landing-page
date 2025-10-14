@@ -22,7 +22,7 @@ export default function RelatedConditions({ conditionIds }: RelatedConditionsPro
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
@@ -41,7 +41,7 @@ export default function RelatedConditions({ conditionIds }: RelatedConditionsPro
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: "-100px" }}
               >
                 <Link href={`/conditions/${condition.slug}`}>
                   <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 h-full group cursor-pointer">

@@ -417,13 +417,13 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
             </AnimatePresence>
 
             {/* Mobile Menu Container */}
-            <div className="lg:hidden fixed left-0 top-1/2 -translate-y-1/2 z-50 flex items-center pointer-events-none">
+            <div className="lg:hidden">
               {/* Slide-in Panel */}
               <motion.div
                 initial={false}
                 animate={{ x: isMobilePanelOpen ? 0 : -256 }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                className="bg-white/95 backdrop-blur-md shadow-2xl rounded-r-2xl border-r border-y border-gray-200/50 w-64 pointer-events-auto"
+                className="fixed left-0 top-1/2 -translate-y-1/2 z-50 bg-white/95 backdrop-blur-md shadow-2xl rounded-r-2xl border-r border-y border-gray-200/50 w-64"
               >
                 <div className="py-3 max-h-[80vh] overflow-y-auto">
                   <div className="px-4 py-2 border-b border-gray-200/50">
@@ -456,10 +456,10 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
                 </div>
               </motion.div>
 
-              {/* Tab Handle - Always visible */}
+              {/* Tab Handle - Always visible at edge */}
               <button
                 onClick={() => setIsMobilePanelOpen(!isMobilePanelOpen)}
-                className="bg-white/95 backdrop-blur-md shadow-lg border-r border-y border-gray-200/50 rounded-r-xl px-2 py-6 hover:bg-[#B08D57]/10 transition-colors duration-200 pointer-events-auto ml-1"
+                className="fixed left-0 top-1/2 -translate-y-1/2 z-50 bg-white/95 backdrop-blur-md shadow-lg border-r border-y border-gray-200/50 rounded-r-xl px-2 py-6 hover:bg-[#B08D57]/10 transition-colors duration-200"
                 aria-label="Toggle FAQ menu"
               >
                 <svg

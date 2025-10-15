@@ -163,9 +163,9 @@ export default function HeroSection() {
         {/* Right image - absolute positioned, completely independent */}
         <div className="absolute top-0 right-0 w-1/2 h-screen">
           <motion.div
-            initial={{ opacity: 0, scale: 1.02 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: "easeOut" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative h-full w-full"
           >
             <Image

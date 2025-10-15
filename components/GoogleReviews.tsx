@@ -39,6 +39,10 @@ const reviews = [
   {
     name: "Pasquale Di Clemente",
     text: "Kareem has really helped me with the pain in my ankle and glute. He's great at adjusting each session based on how I'm feeling that day and always checks in to make sure I'm making progress. The exercises he's given me have made a big difference in my strength and balance, and he even sends videos with clear instructions so I never forget what to do. The dry needling and cupping have also helped loosen up my tight muscles and speed up my recovery. He asks the right questions that get to what's really going on, and I always feel like he's paying attention to the details. I was a bit nervous starting with someone new, but Kareem is easygoing and relatable, and now I actually look forward to my sessions. The clinic itself is comfortable and welcoming, which makes the whole experience even better."
+  },
+  {
+    name: "David Espinosa",
+    text: "I was looking for a physio who does dry needling because it's helped me before, and that's how I found Kareem. I came in with hip pain that was messing with my Muay Thai kicks and some foot pain that kept coming back. Kareem actually took the time to figure out what was causing it instead of just treating the pain. The dry needling and cupping made a big difference right away, and he gave me clear strategies and small adjustments so I could keep training without making things worse. The clinic space is clean and comfortable, and they do direct billing, which makes things simple. Kareem's also got a good sense of humor, so the sessions never feel stiff or awkward. My hip feels strong again, the foot pain's gone, and I've been able to train hard without any flare-ups."
   }
 ];
 
@@ -137,7 +141,7 @@ export default function GoogleReviews() {
               ))}
             </div>
             <span className="text-2xl font-semibold text-gray-800">5.0</span>
-            <span className="text-gray-600">(11 reviews)</span>
+            <span className="text-gray-600">(10 reviews)</span>
           </div>
           <h2 className="text-4xl text-gray-900 mb-2 heading-luxury-1">Google Reviews</h2>
           <p className="max-w-2xl mx-auto text-luxury-subtle">

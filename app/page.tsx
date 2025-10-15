@@ -146,9 +146,20 @@ export default function Home() {
       {/* SEO-optimized hidden heading for brand search */}
       <h1 className="sr-only">Kareem Hassanein Registered Physiotherapist Burlington | Physiotherapy near Waterdown and Oakville</h1>
 
-      {/* Subtle transition element */}
-      <div className="relative h-0 overflow-visible">
-        <div className="absolute left-1/2 -translate-x-1/2 -top-1 w-24 h-[1px] bg-gradient-to-r from-transparent via-[#B08D57]/20 to-transparent" />
+      {/* Elegant transition from hero */}
+      <div className="relative py-16 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-[#B08D57]/[0.02] to-white" />
+        <div className="relative max-w-4xl mx-auto px-4">
+          <div className="flex items-center justify-center gap-4">
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#B08D57]/20 to-[#B08D57]/40" />
+            <div className="flex gap-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]/40" />
+              <div className="w-2 h-2 rounded-full bg-[#B08D57]/60" />
+              <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]/40" />
+            </div>
+            <div className="h-px flex-1 bg-gradient-to-r from-[#B08D57]/40 via-[#B08D57]/20 to-transparent" />
+          </div>
+        </div>
       </div>
 
       {/* Content sections with elegant dividers */}

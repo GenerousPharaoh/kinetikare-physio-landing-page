@@ -11,7 +11,7 @@ export default function HeroSection() {
       {/* Mobile */}
       <section className="lg:hidden min-h-screen section-temperature-a flex flex-col pt-16 relative">
         {/* Image section */}
-        <div className="relative h-[45vh] w-full">
+        <div className="relative h-[45vh] w-full bg-gray-100">
           <Image
             src="/images/clinic-pic-may-2025.jpg"
             alt="KinetiKare Physiotherapy"
@@ -19,6 +19,8 @@ export default function HeroSection() {
             priority
             className="object-cover"
             sizes="100vw"
+            quality={100}
+            unoptimized={false}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20" />
           <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />

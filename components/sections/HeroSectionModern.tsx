@@ -51,7 +51,7 @@ export default function HeroSection() {
         {/* Content section */}
         <div className="flex-1 flex flex-col justify-center px-6 py-8">
           <div className="text-center">
-            <p className="text-sm uppercase tracking-[0.3em] text-luxury-gradient mb-6 font-semibold">
+            <p className="text-sm uppercase tracking-[0.3em] text-luxury-gradient mb-6 font-semibold opacity-0 animate-[fadeIn_1s_cubic-bezier(0.4,0,0.2,1)_0.3s_forwards]">
               Registered Physiotherapist
             </p>
 
@@ -60,16 +60,16 @@ export default function HeroSection() {
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
               <div className="space-y-3">
-                <div className="text-primary-cool font-light tracking-wide text-[28px] sm:text-[30px] heading-luxury-2">The Science of Recovery</div>
-                <div className="text-primary-warm font-medium relative tracking-wide text-[34px] sm:text-[38px] overflow-visible heading-luxury-2">
+                <div className="text-primary-cool font-light tracking-wide text-[28px] sm:text-[30px] heading-luxury-2 opacity-0 animate-[fadeIn_1s_cubic-bezier(0.4,0,0.2,1)_0.5s_forwards]">The Science of Recovery</div>
+                <div className="text-primary-warm font-medium relative tracking-wide text-[34px] sm:text-[38px] overflow-visible heading-luxury-2 opacity-0 animate-[fadeIn_1s_cubic-bezier(0.4,0,0.2,1)_0.7s_forwards]">
                   The Art of <span className="relative inline-block bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent font-semibold italic pr-1">Care
-                    <span className="absolute -bottom-0.5 left-0 right-0 h-[2px] bg-gradient-to-r from-[#B08D57] to-[#D4AF37] origin-left transform scale-x-0 animate-[taperedSlide_0.6s_ease-out_0.4s_forwards] rounded-full"></span>
+                    <span className="absolute -bottom-0.5 left-0 right-0 h-[2px] bg-gradient-to-r from-[#B08D57] to-[#D4AF37] origin-left transform scale-x-0 animate-[taperedSlide_0.6s_ease-out_1.2s_forwards] rounded-full"></span>
                   </span>
                 </div>
               </div>
             </h1>
 
-            <div className="mb-8">
+            <div className="mb-8 opacity-0 animate-[fadeIn_1s_cubic-bezier(0.4,0,0.2,1)_0.9s_forwards]">
               <div className="mb-3">
                 <p className="text-[32px] text-slate-900 brand-name" style={{ fontFamily: "'Inter', sans-serif" }}>Kareem Hassanein</p>
               </div>
@@ -80,15 +80,15 @@ export default function HeroSection() {
               </div>
             </div>
 
-            <p className="text-lg text-slate-600 mb-2 leading-relaxed max-w-lg mx-auto text-body-large">
+            <p className="text-lg text-slate-600 mb-2 leading-relaxed max-w-lg mx-auto text-body-large opacity-0 animate-[fadeIn_1s_cubic-bezier(0.4,0,0.2,1)_1.1s_forwards]">
               Evidence-based physiotherapy combining proven techniques with personalized attention for lasting results.
             </p>
 
-            <p className="text-sm text-slate-400 mb-10 max-w-lg mx-auto font-light">
+            <p className="text-sm text-slate-400 mb-10 max-w-lg mx-auto font-light opacity-0 animate-[fadeIn_1s_cubic-bezier(0.4,0,0.2,1)_1.3s_forwards]">
               Burlington clinic • Serving Burlington, Waterdown & Flamborough
             </p>
 
-            <div className="space-y-3 max-w-sm mx-auto w-full">
+            <div className="space-y-3 max-w-sm mx-auto w-full opacity-0 animate-[fadeIn_1s_cubic-bezier(0.4,0,0.2,1)_1.5s_forwards]">
               <div>
                 <Link
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
@@ -161,7 +161,7 @@ export default function HeroSection() {
         <div className="relative h-full flex items-center pt-20">
           <div className="w-1/2 pl-[8%] pr-[6%]">
             <div className="max-w-2xl">
-              <p className="text-base uppercase tracking-[0.3em] text-luxury-gradient mb-6 font-semibold">
+              <p className="text-base uppercase tracking-[0.3em] text-luxury-gradient mb-6 font-semibold opacity-0 animate-[fadeIn_1s_cubic-bezier(0.4,0,0.2,1)_0.3s_forwards]">
                 Registered Physiotherapist
               </p>
 
@@ -170,16 +170,16 @@ export default function HeroSection() {
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
                 <div className="space-y-4">
-                  <div className="text-[34px] xl:text-[36px] text-slate-800 heading-luxury-2">The Science of Recovery</div>
-                  <div className="text-[40px] xl:text-[44px] text-slate-800 heading-luxury-1 relative overflow-visible">
+                  <div className="text-[34px] xl:text-[36px] text-slate-800 heading-luxury-2 opacity-0 animate-[fadeIn_1s_cubic-bezier(0.4,0,0.2,1)_0.5s_forwards]">The Science of Recovery</div>
+                  <div className="text-[40px] xl:text-[44px] text-slate-800 heading-luxury-1 relative overflow-visible opacity-0 animate-[fadeIn_1s_cubic-bezier(0.4,0,0.2,1)_0.7s_forwards]">
                     The Art of <span className="relative inline-block bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent font-semibold italic pr-1">Care
-                      <span className="absolute -bottom-0.5 left-0 right-0 h-[2px] bg-gradient-to-r from-[#B08D57] to-[#D4AF37] origin-left transform scale-x-0 animate-[taperedSlide_0.6s_ease-out_0.4s_forwards] rounded-full"></span>
+                      <span className="absolute -bottom-0.5 left-0 right-0 h-[2px] bg-gradient-to-r from-[#B08D57] to-[#D4AF37] origin-left transform scale-x-0 animate-[taperedSlide_0.6s_ease-out_1.2s_forwards] rounded-full"></span>
                     </span>
                   </div>
                 </div>
               </h1>
 
-              <div className="mb-6">
+              <div className="mb-6 opacity-0 animate-[fadeIn_1s_cubic-bezier(0.4,0,0.2,1)_0.9s_forwards]">
                 <div className="mb-4">
                   <p className="text-[38px] font-extralight text-slate-900 tracking-[0.15em] uppercase" style={{ fontFamily: "'Inter', sans-serif" }}>Kareem Hassanein</p>
                 </div>
@@ -190,15 +190,15 @@ export default function HeroSection() {
                 </div>
               </div>
 
-              <p className="text-xl text-slate-600 mb-2 leading-relaxed max-w-2xl font-light">
+              <p className="text-xl text-slate-600 mb-2 leading-relaxed max-w-2xl font-light opacity-0 animate-[fadeIn_1s_cubic-bezier(0.4,0,0.2,1)_1.1s_forwards]">
                 Evidence-based physiotherapy combining proven techniques with personalized attention for lasting results.
               </p>
 
-              <p className="text-sm text-slate-400 mb-10 max-w-2xl font-light">
+              <p className="text-sm text-slate-400 mb-10 max-w-2xl font-light opacity-0 animate-[fadeIn_1s_cubic-bezier(0.4,0,0.2,1)_1.3s_forwards]">
                 Burlington clinic • Conveniently serving Burlington, Oakville, Waterdown & Flamborough residents
               </p>
 
-              <div className="flex gap-4 mb-8">
+              <div className="flex gap-4 mb-8 opacity-0 animate-[fadeIn_1s_cubic-bezier(0.4,0,0.2,1)_1.5s_forwards]">
                 <Link
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"

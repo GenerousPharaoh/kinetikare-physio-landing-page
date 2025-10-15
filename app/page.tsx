@@ -6,8 +6,6 @@ import CareJourneySection from '@/components/sections/CareJourneySection';
 import ServicesSection from '@/components/sections/ServicesSection';
 import GoogleReviews from '@/components/GoogleReviews';
 import ContactSection from '@/components/sections/ContactSection';
-import ParallaxSection from '@/components/ParallaxSection';
-import ParallaxBackground from '@/components/ParallaxBackground';
 import SectionDivider from '@/components/SectionDivider';
 
 // SEO Metadata for Homepage
@@ -153,46 +151,28 @@ export default function Home() {
         <div className="absolute left-1/2 -translate-x-1/2 -top-1 w-24 h-[1px] bg-gradient-to-r from-transparent via-[#B08D57]/20 to-transparent" />
       </div>
 
-      {/* Content sections with parallax - wrapped in relative container with background */}
-      <div className="relative">
-        {/* Subtle animated background layers - only for content sections */}
-        <ParallaxBackground />
+      {/* Content sections with elegant dividers */}
+      <AboutSection />
 
-        {/* Each section moves at slightly different speed for depth */}
-        <ParallaxSection speed={0.95}>
-          <AboutSection />
-        </ParallaxSection>
+      <SectionDivider variant="dots" />
 
-        <SectionDivider variant="dots" />
+      <CareJourneySection />
 
-        <ParallaxSection speed={1.05}>
-          <CareJourneySection />
-        </ParallaxSection>
+      <SectionDivider variant="gradient" />
 
-        <SectionDivider variant="gradient" />
+      <ServicesSection />
 
-        <ParallaxSection speed={0.9}>
-          <ServicesSection />
-        </ParallaxSection>
+      <SectionDivider variant="dots" />
 
-        <SectionDivider variant="dots" />
+      <GoogleReviews />
 
-        <ParallaxSection speed={1.1}>
-          <GoogleReviews />
-        </ParallaxSection>
+      <SectionDivider variant="gradient" />
 
-        <SectionDivider variant="gradient" />
+      <HealingEnvironmentSection />
 
-        <ParallaxSection speed={0.98}>
-          <HealingEnvironmentSection />
-        </ParallaxSection>
+      <SectionDivider variant="dots" />
 
-        <SectionDivider variant="dots" />
-
-        <ParallaxSection speed={1.02}>
-          <ContactSection />
-        </ParallaxSection>
-      </div>
+      <ContactSection />
     </main>
     </>
   );

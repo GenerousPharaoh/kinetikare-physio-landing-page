@@ -17,7 +17,7 @@ export default function HeroSection() {
             alt="KinetiKare Physiotherapy"
             fill
             priority
-            className="object-cover opacity-0 animate-[fadeIn_0.6s_ease-out_forwards]"
+            className="object-cover opacity-0 animate-[fadeIn_1.4s_cubic-bezier(0.4,0,0.2,1)_forwards]"
             sizes="100vw"
             unoptimized={true}
           />
@@ -122,7 +122,7 @@ export default function HeroSection() {
               alt="KinetiKare Physiotherapy"
               fill
               priority
-              className="object-cover brightness-110 contrast-125 saturate-110 opacity-0 animate-[fadeIn_0.6s_ease-out_forwards]"
+              className="object-cover brightness-110 contrast-125 saturate-110 opacity-0 animate-[fadeIn_1.4s_cubic-bezier(0.4,0,0.2,1)_forwards]"
               sizes="50vw"
               unoptimized={true}
             />

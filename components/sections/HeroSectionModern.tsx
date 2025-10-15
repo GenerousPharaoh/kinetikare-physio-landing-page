@@ -19,8 +19,7 @@ export default function HeroSection() {
             priority
             className="object-cover"
             sizes="100vw"
-            quality={100}
-            unoptimized={false}
+            unoptimized={true}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20" />
           <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
@@ -117,7 +116,7 @@ export default function HeroSection() {
       <section className="hidden lg:block h-screen section-temperature-a relative texture-luxury">
         {/* Right image - absolute positioned, completely independent */}
         <div className="absolute top-0 right-0 w-1/2 h-screen">
-          <div className="relative h-full w-full">
+          <div className="relative h-full w-full bg-gray-100">
             <Image
               src="/images/clinic-pic-may-2025.jpg"
               alt="KinetiKare Physiotherapy"
@@ -125,6 +124,7 @@ export default function HeroSection() {
               priority
               className="object-cover brightness-110 contrast-125 saturate-110"
               sizes="50vw"
+              unoptimized={true}
             />
             {/* Multiple dramatic overlays for depth and mood */}
             <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#B08D57]/5 to-black/25" />

@@ -21,14 +21,14 @@ export default function ParallaxSection({
     offset: ["start end", "end start"]
   });
 
-  // Create parallax effect based on speed
-  const y = useTransform(scrollYProgress, [0, 1], [50 * (1 - speed), -50 * (1 - speed)]);
+  // Create very subtle parallax effect based on speed
+  const y = useTransform(scrollYProgress, [0, 1], [20 * (1 - speed), -20 * (1 - speed)]);
 
   return (
     <div ref={ref} className={`relative ${className}`}>
       <motion.div
         style={{ y }}
-        transition={{ type: "spring", stiffness: 100, damping: 30 }}
+        transition={{ type: "tween", ease: "linear" }}
       >
         {children}
       </motion.div>

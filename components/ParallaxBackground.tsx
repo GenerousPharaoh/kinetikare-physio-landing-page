@@ -6,11 +6,11 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 export default function ParallaxBackground() {
   const { scrollYProgress } = useScroll();
 
-  // Different layers move at different speeds
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, 300]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, 500]);
-  const y3 = useTransform(scrollYProgress, [0, 1], [0, 700]);
-  const opacity1 = useTransform(scrollYProgress, [0, 0.5, 1], [0.3, 0.15, 0]);
+  // Very subtle background movement
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, 150]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, 250]);
+  const y3 = useTransform(scrollYProgress, [0, 1], [0, 350]);
+  const opacity1 = useTransform(scrollYProgress, [0, 0.5, 1], [0.15, 0.08, 0]);
 
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">

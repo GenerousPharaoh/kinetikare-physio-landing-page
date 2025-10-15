@@ -143,10 +143,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
-    <main className="min-h-screen relative" style={{ margin: '0px', padding: '0px' }}>
-      {/* Subtle animated background layers */}
-      <ParallaxBackground />
-
+    <main className="min-h-screen" style={{ margin: '0px', padding: '0px' }}>
       <HeroSection />
       {/* SEO-optimized hidden heading for brand search */}
       <h1 className="sr-only">Kareem Hassanein Registered Physiotherapist Burlington | Physiotherapy near Waterdown and Oakville</h1>
@@ -155,6 +152,11 @@ export default function Home() {
       <div className="relative h-0 overflow-visible">
         <div className="absolute left-1/2 -translate-x-1/2 -top-1 w-24 h-[1px] bg-gradient-to-r from-transparent via-[#B08D57]/20 to-transparent" />
       </div>
+
+      {/* Content sections with parallax - wrapped in relative container with background */}
+      <div className="relative">
+        {/* Subtle animated background layers - only for content sections */}
+        <ParallaxBackground />
 
       {/* Each section moves at slightly different speed for depth */}
       <ParallaxSection speed={0.9}>
@@ -190,6 +192,7 @@ export default function Home() {
       <ParallaxSection speed={1}>
         <ContactSection />
       </ParallaxSection>
+      </div>
     </main>
     </>
   );

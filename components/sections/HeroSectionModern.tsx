@@ -9,7 +9,7 @@ export default function HeroSection() {
   return (
     <>
       {/* Mobile */}
-      <section className="lg:hidden min-h-screen section-temperature-a flex flex-col pt-16 relative luxury-reveal">
+      <section className="lg:hidden min-h-screen section-temperature-a flex flex-col pt-16 relative">
         {/* Image section */}
         <div className="relative h-[45vh] w-full">
           <Image
@@ -112,7 +112,7 @@ export default function HeroSection() {
       </section>
 
       {/* Desktop */}
-      <section className="hidden lg:block h-screen section-temperature-a relative luxury-reveal texture-luxury">
+      <section className="hidden lg:block h-screen section-temperature-a relative texture-luxury">
         {/* Right image - absolute positioned, completely independent */}
         <div className="absolute top-0 right-0 w-1/2 h-screen">
           <div className="relative h-full w-full">

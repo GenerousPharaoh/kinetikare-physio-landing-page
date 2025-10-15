@@ -23,15 +23,10 @@ export default function HeroSection() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20" />
           <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
-          
+
           {/* Mobile overlay badges */}
           <div className="absolute bottom-4 left-4 right-4 flex gap-2">
-            <motion.div
-              initial={{ x: -30, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.8, ease: "easeOut" }}
-              className="flex-1 flex items-center gap-2 px-3 py-2 bg-black/20 backdrop-blur-sm rounded-xl border border-white/10"
-            >
+            <div className="flex-1 flex items-center gap-2 px-3 py-2 bg-black/20 backdrop-blur-sm rounded-xl border border-white/10">
               <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#D4AF37]/40 to-[#B08D57]/40 flex items-center justify-center flex-shrink-0">
                 <CreditCardIcon className="w-4 h-4 text-white drop-shadow-lg" />
               </div>
@@ -39,14 +34,9 @@ export default function HeroSection() {
                 <div className="text-white/80 text-[10px] font-medium uppercase tracking-wider">Direct</div>
                 <div className="text-white text-xs font-semibold">Billing</div>
               </div>
-            </motion.div>
-            
-            <motion.div
-              initial={{ x: 30, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.5, delay: 1, ease: "easeOut" }}
-              className="flex-1 flex items-center gap-2 px-3 py-2 bg-black/20 backdrop-blur-sm rounded-xl border border-white/10"
-            >
+            </div>
+
+            <div className="flex-1 flex items-center gap-2 px-3 py-2 bg-black/20 backdrop-blur-sm rounded-xl border border-white/10">
               <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#D4AF37]/40 to-[#B08D57]/40 flex items-center justify-center flex-shrink-0">
                 <ClockIcon className="w-4 h-4 text-white drop-shadow-lg" />
               </div>
@@ -54,18 +44,13 @@ export default function HeroSection() {
                 <div className="text-white/80 text-[10px] font-medium uppercase tracking-wider">Evening</div>
                 <div className="text-white text-xs font-semibold">Hours</div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
 
         {/* Content section */}
         <div className="flex-1 flex flex-col justify-center px-6 py-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center"
-          >
+          <div className="text-center">
             <motion.p 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -75,10 +60,7 @@ export default function HeroSection() {
               Registered Physiotherapist
             </motion.p>
             
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+            <h1
               className="text-[32px] sm:text-[36px] leading-[1.2] mb-8 text-center heading-luxury-1"
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
@@ -90,7 +72,7 @@ export default function HeroSection() {
                   </span>
                 </div>
               </div>
-            </motion.h1>
+            </h1>
             
             <motion.div 
               initial={{ opacity: 0 }}
@@ -127,11 +109,7 @@ export default function HeroSection() {
             </motion.p>
 
             <div className="space-y-3 max-w-sm mx-auto w-full">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-              >
+              <div>
                 <Link
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
@@ -139,22 +117,18 @@ export default function HeroSection() {
                 >
                   Book Your Assessment
                 </Link>
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-              >
+              </div>
+
+              <div>
                 <Link
                   href="/services"
                   className="block w-full text-center px-8 py-5 bg-white border-luxury-subtle text-slate-700 font-semibold rounded-xl hover:text-[#B08D57] shadow-luxury-soft hover:shadow-luxury-medium transition-all duration-500 premium-hover-lift button-luxury-primary"
                 >
                   Explore Services
                 </Link>
-              </motion.div>
+              </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -184,12 +158,7 @@ export default function HeroSection() {
             
             {/* Elegant overlay badges */}
             <div className="absolute bottom-20 left-10 flex flex-col gap-3">
-              <motion.div
-                initial={{ x: -40, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.6, delay: 1, ease: "easeOut" }}
-                className="group flex items-center gap-3 px-5 py-3 bg-black/20 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-black/25 transition-colors duration-300"
-              >
+              <div className="group flex items-center gap-3 px-5 py-3 bg-black/20 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-black/25 transition-colors duration-300">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#D4AF37]/40 to-[#B08D57]/40 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <CreditCardIcon className="w-5 h-5 text-white drop-shadow-lg" />
                 </div>
@@ -197,14 +166,9 @@ export default function HeroSection() {
                   <div className="text-white/80 text-xs font-medium uppercase tracking-wider">Direct</div>
                   <div className="text-white text-sm font-semibold">Insurance Billing</div>
                 </div>
-              </motion.div>
-              
-              <motion.div
-                initial={{ x: -40, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.6, delay: 1.2, ease: "easeOut" }}
-                className="group flex items-center gap-3 px-5 py-3 bg-black/20 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-black/25 transition-colors duration-300"
-              >
+              </div>
+
+              <div className="group flex items-center gap-3 px-5 py-3 bg-black/20 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-black/25 transition-colors duration-300">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#D4AF37]/40 to-[#B08D57]/40 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <ClockIcon className="w-5 h-5 text-white drop-shadow-lg" />
                 </div>
@@ -212,7 +176,7 @@ export default function HeroSection() {
                   <div className="text-white/80 text-xs font-medium uppercase tracking-wider">Flexible</div>
                   <div className="text-white text-sm font-semibold">Evening Hours</div>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -220,12 +184,7 @@ export default function HeroSection() {
         {/* Left content - independently positioned */}
         <div className="relative h-full flex items-center pt-20">
           <div className="w-1/2 pl-[8%] pr-[6%]">
-            <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="max-w-2xl"
-            >
+            <div className="max-w-2xl">
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -235,10 +194,7 @@ export default function HeroSection() {
                 Registered Physiotherapist
               </motion.p>
               
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
+              <h1
                 className="leading-[1.2] mb-8"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
@@ -250,7 +206,7 @@ export default function HeroSection() {
                     </span>
                   </div>
                 </div>
-              </motion.h1>
+              </h1>
 
               <motion.div
                 initial={{ opacity: 0 }}
@@ -286,12 +242,7 @@ export default function HeroSection() {
                 Burlington clinic • Conveniently serving Burlington, Oakville, Waterdown & Flamborough residents
               </motion.p>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                className="flex gap-4 mb-8"
-              >
+              <div className="flex gap-4 mb-8">
                 <Link
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
@@ -306,8 +257,8 @@ export default function HeroSection() {
                 >
                   Explore Services
                 </Link>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

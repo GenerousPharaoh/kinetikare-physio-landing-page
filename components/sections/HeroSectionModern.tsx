@@ -3,7 +3,6 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import { CreditCardIcon, ClockIcon } from '@heroicons/react/24/outline';
 
 export default function HeroSection() {
@@ -51,15 +50,10 @@ export default function HeroSection() {
         {/* Content section */}
         <div className="flex-1 flex flex-col justify-center px-6 py-8">
           <div className="text-center">
-            <motion.p 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-sm uppercase tracking-[0.3em] text-luxury-gradient mb-6 font-semibold"
-            >
+            <p className="text-sm uppercase tracking-[0.3em] text-luxury-gradient mb-6 font-semibold">
               Registered Physiotherapist
-            </motion.p>
-            
+            </p>
+
             <h1
               className="text-[32px] sm:text-[36px] leading-[1.2] mb-8 text-center heading-luxury-1"
               style={{ fontFamily: "'Inter', sans-serif" }}
@@ -73,13 +67,8 @@ export default function HeroSection() {
                 </div>
               </div>
             </h1>
-            
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="mb-8"
-            >
+
+            <div className="mb-8">
               <div className="mb-3">
                 <p className="text-[32px] text-slate-900 brand-name" style={{ fontFamily: "'Inter', sans-serif" }}>Kareem Hassanein</p>
               </div>
@@ -88,25 +77,15 @@ export default function HeroSection() {
                 <div className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37]" />
                 <div className="h-px w-16 bg-gradient-to-r from-[#D4AF37]/40 via-[#B08D57] to-transparent" />
               </div>
-            </motion.div>
+            </div>
 
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-lg text-slate-600 mb-2 leading-relaxed max-w-lg mx-auto text-body-large"
-            >
+            <p className="text-lg text-slate-600 mb-2 leading-relaxed max-w-lg mx-auto text-body-large">
               Evidence-based physiotherapy combining proven techniques with personalized attention for lasting results.
-            </motion.p>
+            </p>
 
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.45 }}
-              className="text-sm text-slate-400 mb-10 max-w-lg mx-auto font-light"
-            >
+            <p className="text-sm text-slate-400 mb-10 max-w-lg mx-auto font-light">
               Burlington clinic • Serving Burlington, Waterdown & Flamborough
-            </motion.p>
+            </p>
 
             <div className="space-y-3 max-w-sm mx-auto w-full">
               <div>
@@ -136,12 +115,7 @@ export default function HeroSection() {
       <section className="hidden lg:block h-screen section-temperature-a relative luxury-reveal texture-luxury">
         {/* Right image - absolute positioned, completely independent */}
         <div className="absolute top-0 right-0 w-1/2 h-screen">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative h-full w-full"
-          >
+          <div className="relative h-full w-full">
             <Image
               src="/images/clinic-pic-may-2025.jpg"
               alt="KinetiKare Physiotherapy"
@@ -178,22 +152,17 @@ export default function HeroSection() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
-        
+
         {/* Left content - independently positioned */}
         <div className="relative h-full flex items-center pt-20">
           <div className="w-1/2 pl-[8%] pr-[6%]">
             <div className="max-w-2xl">
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-base uppercase tracking-[0.3em] text-luxury-gradient mb-6 font-semibold"
-              >
+              <p className="text-base uppercase tracking-[0.3em] text-luxury-gradient mb-6 font-semibold">
                 Registered Physiotherapist
-              </motion.p>
-              
+              </p>
+
               <h1
                 className="leading-[1.2] mb-8"
                 style={{ fontFamily: "'Inter', sans-serif" }}
@@ -208,12 +177,7 @@ export default function HeroSection() {
                 </div>
               </h1>
 
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="mb-6"
-              >
+              <div className="mb-6">
                 <div className="mb-4">
                   <p className="text-[38px] font-extralight text-slate-900 tracking-[0.15em] uppercase" style={{ fontFamily: "'Inter', sans-serif" }}>Kareem Hassanein</p>
                 </div>
@@ -222,25 +186,15 @@ export default function HeroSection() {
                   <div className="h-2 w-2 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37]" />
                   <div className="h-px w-20 bg-gradient-to-r from-[#D4AF37]/40 via-[#B08D57] to-transparent" />
                 </div>
-              </motion.div>
+              </div>
 
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-xl text-slate-600 mb-2 leading-relaxed max-w-2xl font-light"
-              >
+              <p className="text-xl text-slate-600 mb-2 leading-relaxed max-w-2xl font-light">
                 Evidence-based physiotherapy combining proven techniques with personalized attention for lasting results.
-              </motion.p>
+              </p>
 
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.45 }}
-                className="text-sm text-slate-400 mb-10 max-w-2xl font-light"
-              >
+              <p className="text-sm text-slate-400 mb-10 max-w-2xl font-light">
                 Burlington clinic • Conveniently serving Burlington, Oakville, Waterdown & Flamborough residents
-              </motion.p>
+              </p>
 
               <div className="flex gap-4 mb-8">
                 <Link

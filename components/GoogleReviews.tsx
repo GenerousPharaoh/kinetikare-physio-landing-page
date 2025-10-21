@@ -252,15 +252,15 @@ export default function GoogleReviews() {
         </div>
 
         {/* Dot Navigation */}
-        <div className="flex justify-center items-center gap-1.5 md:gap-2 mt-6">
+        <div className="flex justify-center items-center gap-1 md:gap-2 mt-6">
           {reviews.map((_, index) => (
             <button
               key={index}
               onClick={() => handleDotClick(index)}
               className={`rounded-full transition-all duration-300 border-0 outline-none focus:outline-none cursor-pointer ${
                 index === currentIndex
-                  ? 'w-1.5 h-1.5 md:w-2 md:h-2 bg-[#B08D57]'
-                  : 'w-1 h-1 md:w-1.5 md:h-1.5 bg-gray-300 hover:bg-[#B08D57]/60'
+                  ? 'w-1 h-1 md:w-2 md:h-2 bg-[#B08D57]'
+                  : 'w-0.5 h-0.5 md:w-1.5 md:h-1.5 bg-gray-300 hover:bg-[#B08D57]/60'
               }`}
               aria-label={`Go to review ${index + 1}`}
             />

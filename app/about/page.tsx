@@ -360,21 +360,6 @@ export default function About() {
                   </Link>
                 </div>
               </div>
-
-              {/* KinetiKare Logo - Mobile */}
-              <div className="bg-gradient-to-br from-white to-slate-50 p-6 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300 mt-6 text-center">
-                <Image
-                  src="/images/kinetikare-physio-logo-oct-2025-burlington.jpg"
-                  alt="KinetiKare Logo"
-                  width={100}
-                  height={100}
-                  className="w-24 h-24 object-contain mx-auto"
-                  style={{
-                    filter: 'contrast(1.15) saturate(1.2) brightness(0.95)',
-                    imageRendering: 'crisp-edges'
-                  }}
-                />
-              </div>
             </div>
           </div>
 
@@ -493,24 +478,7 @@ export default function About() {
                     </Link>
                   </div>
                 </div>
-                
-                {/* KinetiKare Logo */}
-                <div className="bg-gradient-to-br from-white to-slate-50 p-8 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300">
-                  <div className="flex items-center justify-center">
-                    <Image
-                      src="/images/kinetikare-physio-logo-oct-2025-burlington.jpg"
-                      alt="KinetiKare Logo"
-                      width={120}
-                      height={120}
-                      className="w-30 h-30 object-contain"
-                      style={{
-                        filter: 'contrast(1.15) saturate(1.2) brightness(0.95)',
-                        imageRendering: 'crisp-edges'
-                      }}
-                    />
-                  </div>
-                </div>
-                
+
                 {/* CTA */}
                 <div className="bg-gradient-to-br from-primary-800 to-slate-800 p-6 rounded-2xl text-white shadow-lg">
                   <h3 className="text-lg font-normal mb-3 text-white">Take the Next Step</h3>

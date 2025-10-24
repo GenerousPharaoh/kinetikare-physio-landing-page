@@ -364,7 +364,7 @@ export default function About() {
               {/* KinetiKare Logo - Mobile */}
               <div className="bg-gradient-to-br from-white to-slate-50 p-6 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300 mt-6 text-center">
                 <Image
-                  src="/images/kinetikare-physio-logo-kareem-hassanein-physiotherapy.png"
+                  src="/images/kinetikare-physio-logo-oct-2025-burlington.jpg"
                   alt="KinetiKare Logo"
                   width={100}
                   height={100}
@@ -498,7 +498,7 @@ export default function About() {
                 <div className="bg-gradient-to-br from-white to-slate-50 p-8 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300">
                   <div className="flex items-center justify-center">
                     <Image
-                      src="/images/kinetikare-physio-logo-kareem-hassanein-physiotherapy.png"
+                      src="/images/kinetikare-physio-logo-oct-2025-burlington.jpg"
                       alt="KinetiKare Logo"
                       width={120}
                       height={120}

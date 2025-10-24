@@ -219,7 +219,7 @@ const HeroSection = React.memo(function HeroSection() {
               {/* Clean, premium presentation */}
               <div className="relative" style={{ transform: 'translateZ(0)' }}>
                 <Image
-                  src="/images/kinetikare-logo-kareem-hassanein-physiotherapy-transparent.png"
+                  src="/images/kinetikare-physio-logo-kareem-hassanein-physiotherapy.png"
                   alt="KinetiKare logo"
                   width={180}
                   height={180}

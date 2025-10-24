@@ -228,7 +228,7 @@ export default function HeroSection() {
               {/* Main badge - Logo only */}
               <div className="relative bg-white/95 backdrop-blur-xl p-6 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-white/50">
                 <Image
-                  src="/images/kinetikare-logo-kareem-hassanein-physiotherapy-transparent.png"
+                  src="/images/kinetikare-physio-logo-kareem-hassanein-physiotherapy.png"
                   alt="KinetiKare Physiotherapy"
                   width={60}
                   height={60}

@@ -98,7 +98,7 @@ export default function Footer() {
         <div className="text-center mb-10">
           <Link href="/" className="inline-block" aria-label="Return to homepage">
             <Image
-              src="/images/kinetikare-logo-kareem-hassanein-physiotherapy-transparent.png"
+              src="/images/kinetikare-physio-logo-kareem-hassanein-physiotherapy.png"
               alt="KinetiKare"
               width={50}
               height={50}

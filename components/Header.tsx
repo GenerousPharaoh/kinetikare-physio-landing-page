@@ -292,7 +292,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               <div className="flex items-center gap-1">
                 <div className="relative flex items-center justify-center w-10 h-10">
                   <Image
-                    src="/images/kinetikare-logo-without-text.png"
+                    src="/images/kinetikare-logo-without-text.webp"
                     alt="KinetiKare physiotherapy logo Burlington Waterdown Kareem Hassanein"
                     width={36}
                     height={36}

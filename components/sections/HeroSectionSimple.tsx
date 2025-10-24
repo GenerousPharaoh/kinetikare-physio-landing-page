@@ -212,7 +212,7 @@ export default function HeroSection() {
           >
             <div className="bg-white/95 backdrop-blur p-6 rounded-xl shadow-xl">
               <Image
-                src="/images/kinetikare-logo-kareem-hassanein-physiotherapy-transparent.png"
+                src="/images/kinetikare-physio-logo-kareem-hassanein-physiotherapy.png"
                 alt="KinetiKare"
                 width={60}
                 height={60}

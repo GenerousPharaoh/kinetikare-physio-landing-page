@@ -4,95 +4,35 @@ import AboutSection from '@/components/sections/AboutSection';
 import HealingEnvironmentSection from '@/components/sections/HealingEnvironmentSection';
 import CareJourneySection from '@/components/sections/CareJourneySection';
 import ServicesSection from '@/components/sections/ServicesSection';
+import GoogleReviews from '@/components/GoogleReviews';
 import ContactSection from '@/components/sections/ContactSection';
-// import TrustindexReviews from '@/components/TrustindexReviews'; // Temporarily disabled Sept 11, 2025 - Trustindex trial expired
+import SectionDivider from '@/components/SectionDivider';
 
 // SEO Metadata for Homepage
 export const metadata: Metadata = {
-  title: 'Burlington Physiotherapy | Kareem Hassanein, PT',
-  description: 'Kareem Hassanein - Burlington\'s expert physiotherapist specializing in back pain, sports injuries, knee pain, neck pain. Serving North Burlington, Alton Village, Palladium Way. Direct billing, evening appointments. Registered Physiotherapist, MSc PT, BSc Kin.',
+  title: 'Kareem Hassanein Physiotherapy Burlington | Near Waterdown',
+  description: 'Physiotherapy in Burlington ON for back, neck, shoulder and sports injuries. Direct billing. Book with Kareem Hassanein, Registered Physiotherapist.',
   keywords: [
     'Kareem Hassanein',
-    'Kareem Hassanein physiotherapist',
-    'Kareem Hassanein physio',
-    'Kareem Hassanein Burlington',
-    'Kareem Hassanein MSc PT',
-    'physiotherapist Burlington',
-    'physiotherapy Burlington',
-    'physio Burlington',
-    'Burlington physiotherapist',
-    'North Burlington physiotherapy',
-    'Alton Village physiotherapy',
-    'Alton Village physio',
-    'physiotherapy Palladium Way',
-    'physiotherapist Palladium Way',
-    'back pain Burlington',
-    'back pain treatment Burlington',
-    'lower back pain Burlington',
-    'chronic back pain Burlington',
-    'neck pain Burlington',
-    'neck pain treatment Burlington',
-    'knee pain Burlington',
-    'knee injury Burlington',
-    'ACL rehabilitation Burlington',
-    'meniscus injury Burlington',
-    'shoulder pain Burlington',
-    'rotator cuff Burlington',
-    'frozen shoulder Burlington',
-    'sports injury Burlington',
-    'sports physiotherapist Burlington',
-    'sports physio Burlington',
-    'running injury Burlington',
-    'tennis elbow Burlington',
-    'golfers elbow Burlington',
-    'plantar fasciitis Burlington',
-    'sciatica Burlington',
-    'sciatica treatment Burlington',
-    'hip pain Burlington',
-    'ankle sprain Burlington',
-    'post surgery rehab Burlington',
-    'manual therapy Burlington',
-    'dry needling Burlington',
-    'IMS Burlington',
-    'advanced manual therapy physiotherapist',
-    'registered physiotherapist Burlington',
-    'best physiotherapist Burlington',
-    'physiotherapist near me',
-    'evening physio Burlington',
-    'direct billing physiotherapy',
-    'hurt at gym Burlington',
-    'started running knee hurts Burlington',
-    'crossfit injury physio Burlington',
-    'weekend warrior physio Burlington',
-    'couch to 5k injury Burlington',
-    'new to gym injury Burlington',
-    'first marathon training injury Burlington',
-    'golf season back pain Burlington',
-    'hockey groin injury Burlington',
-    'pickleball injury Burlington',
-    'desk job neck pain Burlington',
-    'work from home back pain Burlington',
-    'shoveling snow injury Burlington',
-    'cant walk physio Burlington',
-    'emergency physio Burlington',
-    'same day physio Burlington',
-    'IASTM Burlington',
-    'IASTM Waterdown',
-    'active release therapy Burlington',
-    'Graston Technique Burlington',
-    'back pain treatment Burlington',
-    'back pain treatment Waterdown',
-    'neck pain treatment Burlington',
-    'sports injury Burlington',
-    'sports injury Waterdown',
-    'advanced manual therapy Burlington',
-    'manual therapy physiotherapist Burlington',
-    'registered physiotherapist Burlington',
-    'registered physiotherapist Waterdown'
+    'Registered Physiotherapist',
+    'Physiotherapy Burlington',
+    'Physiotherapist Burlington',
+    'Back pain',
+    'Neck pain',
+    'Shoulder pain',
+    'Knee pain',
+    'Ankle sprain',
+    'Sciatica',
+    'Manual therapy',
+    'Dry needling',
+    'Exercise rehab',
+    'Exercise therapy',
+    'Rehabilitation',
+    'Direct billing'
   ],
   openGraph: {
-    title: 'Burlington Physiotherapy | Kareem Hassanein, PT',
-    description: 'Kareem Hassanein - Burlington\'s trusted physiotherapist for back pain, sports injuries, knee pain. North Burlington, Alton Village, Palladium Way. Book online.',
+    title: 'Kareem Hassanein Physiotherapy | Burlington',
+    description: 'Registered Physiotherapist offering manual therapy, dry needling, cupping, and exercise rehabilitation for chronic pain, post-surgical recovery, and movement restoration.',
     url: 'https://www.kinetikarephysio.com',
     type: 'website',
     images: [
@@ -100,14 +40,14 @@ export const metadata: Metadata = {
         url: 'https://www.kinetikarephysio.com/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Kareem Hassanein Physiotherapist Burlington - Back Pain Sports Injury Treatment',
+        alt: 'Kareem Hassanein Physiotherapy',
       }
     ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Burlington Physiotherapy | Kareem Hassanein, PT',
-    description: 'Kareem Hassanein - Expert physiotherapist in Burlington. Back pain, sports injuries, direct billing.',
+    description: 'Kareem Hassanein - Registered Physiotherapist in Burlington. Back pain, sports injuries, direct billing.',
     images: ['https://www.kinetikarephysio.com/images/og-image.jpg'],
   },
   alternates: {
@@ -132,7 +72,7 @@ const personSchema = {
   "@type": "Person",
   "name": "Kareem Hassanein",
   "jobTitle": "Registered Physiotherapist",
-  "description": "Registered physiotherapist specializing in manual therapy, sports rehabilitation, and evidence-based treatment in Burlington, Waterdown, Hamilton, and Oakville.",
+  "description": "CAMPT-certified physiotherapist providing manual therapy, sports rehabilitation, and evidence-based treatment in Burlington, Waterdown, Hamilton, and Oakville.",
   "url": "https://www.kinetikarephysio.com",
   "image": "https://www.kinetikarephysio.com/images/kareem-profile.png",
   "telephone": "+19056346000",
@@ -204,18 +144,45 @@ export default function Home() {
     <main className="min-h-screen" style={{ margin: '0px', padding: '0px' }}>
       <HeroSection />
       {/* SEO-optimized hidden heading for brand search */}
-      <h1 className="sr-only">Kareem Hassanein Physiotherapist Burlington - Back Pain Treatment, Sports Injury Rehabilitation, Knee Pain, North Burlington, Alton Village, Palladium Way</h1>
-      
-      {/* Subtle transition element */}
-      <div className="relative h-0 overflow-visible">
-        <div className="absolute left-1/2 -translate-x-1/2 -top-1 w-24 h-[1px] bg-gradient-to-r from-transparent via-[#B08D57]/20 to-transparent" />
+      <h1 className="sr-only">Kareem Hassanein Registered Physiotherapist Burlington | Physiotherapy near Waterdown and Oakville</h1>
+
+      {/* Elegant transition from hero */}
+      <div className="relative py-16 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-[#B08D57]/[0.02] to-white" />
+        <div className="relative max-w-4xl mx-auto px-4">
+          <div className="flex items-center justify-center gap-4">
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#B08D57]/20 to-[#B08D57]/40" />
+            <div className="flex gap-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]/40" />
+              <div className="w-2 h-2 rounded-full bg-[#B08D57]/60" />
+              <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]/40" />
+            </div>
+            <div className="h-px flex-1 bg-gradient-to-r from-[#B08D57]/40 via-[#B08D57]/20 to-transparent" />
+          </div>
+        </div>
       </div>
-      
+
+      {/* Content sections with elegant dividers */}
       <AboutSection />
+
+      <SectionDivider variant="dots" />
+
       <CareJourneySection />
+
+      <SectionDivider variant="gradient" />
+
       <ServicesSection />
-      {/* <TrustindexReviews /> */}
+
+      <SectionDivider variant="dots" />
+
+      <GoogleReviews />
+
+      <SectionDivider variant="gradient" />
+
       <HealingEnvironmentSection />
+
+      <SectionDivider variant="dots" />
+
       <ContactSection />
     </main>
     </>

@@ -86,8 +86,8 @@ export default function FloatingButtons() {
   };
 
   return (
-    <motion.div 
-      className="fixed bottom-5 right-5 z-40 flex flex-col space-y-3"
+    <motion.div
+      className="fixed bottom-5 lg:bottom-5 bottom-20 right-5 z-40 flex flex-col space-y-3"
       initial="hidden"
       animate="visible"
       variants={containerVariants}

@@ -56,8 +56,8 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
   const [isSearching, setIsSearching] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const [showStickyNav, setShowStickyNav] = useState(false);
-  const [showFloatingSearch, setShowFloatingSearch] = useState(false);
-  const [showBackToTop, setShowBackToTop] = useState(false);
+  const [isMobilePanelOpen, setIsMobilePanelOpen] = useState(false);
+  // Removed floating search and back to top - not needed
 
   // Refs for each section
   const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
@@ -99,11 +99,7 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
       
-      // Show floating search when scrolled past the main search bar
-      setShowFloatingSearch(scrollY > 300);
-      
-      // Show back to top button
-      setShowBackToTop(scrollY > 800);
+      // Removed floating search and back to top - not needed
       
       // Hide navigation when close to footer (within 300px of bottom)
       const distanceFromBottom = documentHeight - (scrollY + windowHeight);
@@ -276,33 +272,9 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
 
   return (
     <>
-      {/* Breadcrumbs */}
-      <div className="max-w-6xl mx-auto px-4 mb-6 mt-4">
-        <nav className="flex items-center space-x-2 text-sm text-gray-600">
-          <Link href="/" className="hover:text-[#B08D57] transition-colors">
-            Home
-          </Link>
-          <ChevronRightIcon className="w-4 h-4 text-gray-400" />
-          <span className="text-gray-900 font-medium">FAQ</span>
-          {activeCategory && !isSearching && (
-            <>
-              <ChevronRightIcon className="w-4 h-4 text-gray-400" />
-              <span className="text-[#B08D57] font-medium">
-                {faqCategories.find(c => c.id === activeCategory)?.name}
-              </span>
-            </>
-          )}
-          {isSearching && (
-            <>
-              <ChevronRightIcon className="w-4 h-4 text-gray-400" />
-              <span className="text-[#B08D57] font-medium">Search Results</span>
-            </>
-          )}
-        </nav>
-      </div>
-      {/* Minimalist Floating Search - Collapsed by default */}
-      <AnimatePresence>
-        {showFloatingSearch && (
+      {/* Removed floating search - not needed on mobile */}
+      {/* <AnimatePresence>
+        {false && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -370,65 +342,165 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
             )}
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
 
-      {/* Progress Indicator Bar */}
+      {/* Sticky Navigation - Desktop Sidebar */}
       <AnimatePresence>
         {showStickyNav && !isSearching && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed top-0 left-0 right-0 z-40 h-1 bg-neutral-100"
+          <motion.nav
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: -100, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="hidden lg:block fixed left-0 top-1/2 -translate-y-1/2 z-40 group"
+            aria-label="FAQ Navigation"
           >
-            <div className="relative h-full flex">
-              {faqCategories.map((category, index) => (
-                <button
-                  key={category.id}
-                  onClick={() => scrollToSection(category.id)}
-                  className={`flex-1 h-full transition-colors duration-300 ${
-                    activeCategory === category.id
-                      ? 'bg-[#B08D57]'
-                      : 'bg-transparent hover:bg-neutral-200'
-                  }`}
-                  aria-label={`Go to ${category.name}`}
-                >
-                  <span className="sr-only">{category.name}</span>
-                </button>
-              ))}
+            <div className="relative">
+              {/* Slim collapsedbar - expands on hover */}
+              <div className="bg-white/95 backdrop-blur-md shadow-2xl rounded-r-2xl border-r border-y border-gray-200/50 overflow-hidden transition-all duration-300 ease-out group-hover:w-56 w-16">
+                <div className="py-3">
+                  {faqCategories.map((category) => (
+                    <button
+                      key={category.id}
+                      onClick={() => scrollToSection(category.id)}
+                      className={`w-full flex items-center px-4 py-3.5 transition-all duration-200 relative ${
+                        activeCategory === category.id
+                          ? 'text-[#B08D57] bg-[#B08D57]/10'
+                          : 'text-gray-600 hover:text-[#B08D57] hover:bg-gray-50'
+                      }`}
+                      aria-label={`Go to ${category.name}`}
+                      aria-current={activeCategory === category.id ? 'true' : 'false'}
+                    >
+                      {/* Active indicator bar */}
+                      {activeCategory === category.id && (
+                        <motion.div
+                          layoutId="activeCategory"
+                          className="absolute left-0 top-0 bottom-0 w-1 bg-[#B08D57]"
+                          transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                        />
+                      )}
+
+                      {/* Icon */}
+                      <div className="flex-shrink-0">
+                        {getIcon(category.iconType)}
+                      </div>
+
+                      {/* Category name - shows on hover */}
+                      <span className="ml-3 text-sm font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 overflow-hidden">
+                        {category.name}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
-          </motion.div>
+          </motion.nav>
+        )}
+      </AnimatePresence>
+
+      {/* Sticky Navigation - Mobile (Left Side Panel) */}
+      <AnimatePresence>
+        {showStickyNav && !isSearching && (
+          <>
+            {/* Backdrop */}
+            <AnimatePresence>
+              {isMobilePanelOpen && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="lg:hidden fixed inset-0 bg-black/20 backdrop-blur-sm z-40"
+                  onClick={() => setIsMobilePanelOpen(false)}
+                />
+              )}
+            </AnimatePresence>
+
+            {/* Mobile Menu Container */}
+            <div className="lg:hidden">
+              {/* Slide-in Panel */}
+              <motion.div
+                initial={false}
+                animate={{ x: isMobilePanelOpen ? 0 : -256 }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                className="fixed left-0 top-1/2 -translate-y-1/2 z-50 bg-white/95 backdrop-blur-md shadow-2xl rounded-r-2xl border-r border-y border-gray-200/50 w-64"
+              >
+                <div className="py-3 max-h-[80vh] overflow-y-auto">
+                  <div className="px-4 py-2 border-b border-gray-200/50">
+                    <h3 className="text-sm font-semibold text-gray-900">FAQ Topics</h3>
+                  </div>
+                  {faqCategories.map((category) => (
+                    <button
+                      key={category.id}
+                      onClick={() => {
+                        scrollToSection(category.id);
+                        setIsMobilePanelOpen(false);
+                      }}
+                      className={`w-full flex items-center px-4 py-3.5 transition-all duration-200 relative ${
+                        activeCategory === category.id
+                          ? 'text-[#B08D57] bg-[#B08D57]/10'
+                          : 'text-gray-600 hover:text-[#B08D57] hover:bg-gray-50'
+                      }`}
+                    >
+                      {activeCategory === category.id && (
+                        <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#B08D57]" />
+                      )}
+                      <div className="flex-shrink-0">
+                        {getIcon(category.iconType)}
+                      </div>
+                      <span className="ml-3 text-sm font-medium text-left">
+                        {category.name}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Tab Handle - Always visible at edge */}
+              <button
+                onClick={() => setIsMobilePanelOpen(!isMobilePanelOpen)}
+                className="fixed left-0 top-1/2 -translate-y-1/2 z-50 bg-white/95 backdrop-blur-md shadow-lg border-r border-y border-gray-200/50 rounded-r-xl px-2 py-6 hover:bg-[#B08D57]/10 transition-colors duration-200"
+                aria-label="Toggle FAQ menu"
+              >
+                <svg
+                  className={`w-5 h-5 text-[#B08D57] transition-transform duration-200 ${isMobilePanelOpen ? 'rotate-180' : ''}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </>
         )}
       </AnimatePresence>
 
 
-      {/* Beautiful modern search bar - matching conditions page */}
-      <div className="max-w-3xl mx-auto mb-16 relative z-10">
+      {/* Search bar - matching treatments page style */}
+      <div className="max-w-2xl mx-auto mb-6 relative z-10">
         <div className="relative group">
-          <div className="relative bg-white rounded-full border-2 border-slate-200 hover:border-[#B08D57] transition-all duration-300 shadow-xl hover:shadow-2xl">
-            <MagnifyingGlassIcon className="absolute left-6 top-1/2 transform -translate-y-1/2 h-6 w-6 text-[#B08D57]" />
-            <input
-              type="text"
-              placeholder="Search FAQs (e.g., insurance, dry needling...)"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-14 pr-14 py-5 bg-transparent rounded-full focus:outline-none focus:ring-4 focus:ring-[#B08D57]/20 text-sm md:text-lg font-medium text-slate-900 placeholder-slate-400 md:placeholder-slate-500"
-            />
-            {searchQuery && (
-              <button
-                onClick={() => setSearchQuery('')}
-                className="absolute right-4 top-0 bottom-0 flex items-center justify-center"
-                aria-label="Clear search"
-              >
-                <span className="p-2 hover:bg-slate-100 rounded-full transition-colors">
-                  <svg className="h-5 w-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </span>
-              </button>
-            )}
-          </div>
+          <MagnifyingGlassIcon className="absolute left-5 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-[#B08D57] transition-colors" />
+          <input
+            type="text"
+            placeholder="Search FAQs (e.g., insurance, dry needling...)"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full pl-14 pr-14 py-4 bg-white border-2 border-gray-200 rounded-2xl focus:outline-none focus:border-[#B08D57] transition-all duration-300 text-gray-900 placeholder-gray-400 shadow-sm hover:shadow-md"
+          />
+          {searchQuery && (
+            <button
+              onClick={() => setSearchQuery('')}
+              className="absolute right-4 top-0 bottom-0 flex items-center justify-center"
+              aria-label="Clear search"
+            >
+              <span className="p-2 hover:bg-slate-100 rounded-full transition-colors">
+                <svg className="h-5 w-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </span>
+            </button>
+          )}
         </div>
         
         {/* Helpful search suggestions */}
@@ -549,6 +621,19 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
                   ref={(el) => sectionRefs.current[category.id] = el}
                   className="scroll-mt-40 md:scroll-mt-48"
                 >
+                  {/* Section Title */}
+                  <div className="mb-8 md:mb-10">
+                    <div className="flex items-center gap-4 mb-3">
+                      <div className="p-3 rounded-xl bg-gradient-to-br from-[#B08D57] to-[#D4AF37] text-white shadow-lg">
+                        {getIcon(category.iconType)}
+                      </div>
+                      <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 tracking-tight">
+                        {category.name}
+                      </h2>
+                    </div>
+                    <div className="h-px bg-gradient-to-r from-[#B08D57]/30 via-[#B08D57]/10 to-transparent" />
+                  </div>
+
                   <FAQAccordion items={category.questions} />
                 </div>
               ))}
@@ -557,21 +642,7 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
         )}
       </div>
       
-      {/* Back to Top Button */}
-      <AnimatePresence>
-        {showBackToTop && (
-          <motion.button
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.8 }}
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="fixed bottom-8 right-8 z-50 p-3 bg-[#B08D57] hover:bg-[#D4AF37] text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-            aria-label="Back to top"
-          >
-            <ChevronUpIcon className="w-6 h-6" />
-          </motion.button>
-        )}
-      </AnimatePresence>
+      {/* Removed Back to Top Button - already have one */}
     </>
   );
 } 

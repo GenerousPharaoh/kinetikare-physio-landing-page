@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import ClientImage from '@/components/ClientImage';
 import { CheckBadgeIcon } from '@heroicons/react/24/solid';
-import { LightBulbIcon, UserGroupIcon, AdjustmentsHorizontalIcon } from '@heroicons/react/24/outline';
-import { 
-  DocumentTextIcon, 
+import { LightBulbIcon, UserGroupIcon, AdjustmentsHorizontalIcon, UserCircleIcon } from '@heroicons/react/24/outline';
+import {
+  DocumentTextIcon,
   ChatBubbleBottomCenterTextIcon,
   AdjustmentsHorizontalIcon as AdjustmentsIcon,
   UserIcon,
@@ -14,11 +14,12 @@ import React from 'react';
 import Image from 'next/image';
 import { Metadata } from 'next';
 import CommitmentCarousel from '@/components/CommitmentCarousel';
+import AboutHero from '@/components/about/AboutHero';
 
 // SEO Metadata
 export const metadata: Metadata = {
   title: 'About Kareem Hassanein | Burlington Physiotherapist',
-  description: 'Meet Kareem Hassanein, Registered Physiotherapist, MSc PT, BSc Kin in Burlington. Expert in manual therapy, sports rehabilitation, and evidence-based treatment.',
+  description: 'Meet Kareem Hassanein, Registered Physiotherapist, MSc PT, BSc Kin in Burlington. Manual therapy, sports rehabilitation, and evidence-based treatment.',
   keywords: [
     'Kareem Hassanein', 
     'Kareem Hassanein KinetiKare',
@@ -162,7 +163,7 @@ export default function About() {
         "identifier": "20079"
       }
     ],
-    "image": "https://www.kinetikarephysio.com/images/kareem-profile.png",
+    "image": "https://www.kinetikarephysio.com/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "4631 Palladium Way, Unit 6",
@@ -222,70 +223,10 @@ export default function About() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
-      
+
       <main className="min-h-screen flex flex-col text-primary-700 bg-white">
-      {/* Hero Section - Premium Design */}
-      <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-20 bg-gradient-to-br from-white via-slate-50/50 to-white overflow-hidden">
-        {/* Premium background elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#B08D57]/5 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#D4AF37]/5 rounded-full blur-3xl"></div>
-        </div>
-        
-        {/* Subtle pattern overlay */}
-        <div className="absolute inset-0 opacity-[0.02]">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, #B08D57 1px, transparent 1px)`,
-            backgroundSize: '48px 48px'
-          }}></div>
-        </div>
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center max-w-4xl mx-auto">
-            {/* Premium badge */}
-            <div className="inline-flex items-center px-4 py-2 bg-[#B08D57]/10 text-[#B08D57] text-sm font-medium rounded-full mb-6">
-              Meet Kareem Hassanein
-            </div>
-            
-            {/* Main heading with premium typography */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-slate-900 mb-6 tracking-[-0.03em] leading-[0.95]">
-              Registered<br/>
-              <span className="text-[#B08D57]">Physiotherapist</span>
-            </h1>
-            
-            {/* Decorative line */}
-            <div className="flex items-center justify-center gap-4 mb-8">
-              <div className="h-px w-20 bg-gradient-to-r from-transparent to-[#B08D57]/30"></div>
-              <div className="h-2 w-2 rounded-full bg-[#B08D57]"></div>
-              <div className="h-px w-20 bg-gradient-to-l from-transparent to-[#B08D57]/30"></div>
-            </div>
-            
-            {/* Tagline */}
-            <p className="text-xl md:text-2xl text-slate-600 font-light leading-relaxed max-w-3xl mx-auto mb-10">
-              Combining clinical expertise with genuine understanding to guide your recovery journey
-            </p>
-            
-            {/* Key highlights */}
-            <div className="flex flex-wrap justify-center gap-6 text-sm text-slate-600">
-              <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]"></div>
-                <span>MSc Physiotherapy</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]"></div>
-                <span>Advanced Manual Therapy</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]"></div>
-                <span>5+ Years Experience</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        {/* Bottom gradient fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
-      </section>
+      {/* Hero Section */}
+      <AboutHero />
 
       {/* Main Content with Sidebar */}
       <section className="py-16 bg-white">
@@ -297,7 +238,7 @@ export default function About() {
             <div className="text-center">
               <div className="w-48 h-56 mx-auto rounded-2xl overflow-hidden shadow-lg border border-neutral-200 mb-6">
                 <ClientImage
-                  src="/images/kareem-profile.png"
+                  src="/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png"
                   alt="Kareem Hassanein, Physiotherapist"
                   width={500}
                   height={600}
@@ -316,7 +257,7 @@ export default function About() {
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 rounded-full bg-[#B08D57] flex-shrink-0 mt-1.5"></div>
-                    <span className="text-sm font-medium">Advanced Manual Therapy Training</span>
+                    <span className="text-sm font-medium">Manual Therapy Training</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 rounded-full bg-[#B08D57] flex-shrink-0 mt-1.5"></div>
@@ -337,9 +278,10 @@ export default function About() {
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full text-center py-3 px-4 bg-[#B08D57] hover:bg-[#A17D47] text-white rounded-xl font-normal transition-colors duration-300"
+                  className="block w-full text-center py-3 px-4 bg-[#B08D57] hover:bg-[#A17D47] text-white hover:text-white rounded-xl font-normal transition-all duration-300 shadow-premium-1 hover:shadow-premium-2 hover:scale-[1.01] group relative overflow-hidden"
                 >
-                  Book Appointment
+                  <span className="relative z-10">Book Appointment</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37] to-[#B08D57] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </Link>
               </div>
 
@@ -418,21 +360,6 @@ export default function About() {
                   </Link>
                 </div>
               </div>
-
-              {/* KinetiKare Logo - Mobile */}
-              <div className="bg-gradient-to-br from-white to-slate-50 p-6 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300 mt-6 text-center">
-                <Image
-                  src="/images/kinetikare-logo-kareem-hassanein-physiotherapy-transparent.png"
-                  alt="KinetiKare Logo"
-                  width={100}
-                  height={100}
-                  className="w-24 h-24 object-contain mx-auto"
-                  style={{
-                    filter: 'contrast(1.15) saturate(1.2) brightness(0.95)',
-                    imageRendering: 'crisp-edges'
-                  }}
-                />
-              </div>
             </div>
           </div>
 
@@ -444,7 +371,7 @@ export default function About() {
                 {/* Profile Image */}
                 <div className="rounded-2xl overflow-hidden shadow-lg border border-neutral-200 h-96">
                   <ClientImage
-                    src="/images/kareem-profile.png"
+                    src="/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png"
                     alt="Kareem Hassanein, Physiotherapist"
                     width={500}
                     height={600}
@@ -463,7 +390,7 @@ export default function About() {
                     </li>
                     <li className="flex items-start gap-3">
                       <div className="w-2 h-2 rounded-full bg-[#B08D57] flex-shrink-0 mt-1.5"></div>
-                      <span className="text-sm font-medium">Advanced Manual Therapy Training</span>
+                      <span className="text-sm font-medium">Manual Therapy Training</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <div className="w-2 h-2 rounded-full bg-[#B08D57] flex-shrink-0 mt-1.5"></div>
@@ -551,24 +478,7 @@ export default function About() {
                     </Link>
                   </div>
                 </div>
-                
-                {/* KinetiKare Logo */}
-                <div className="bg-gradient-to-br from-white to-slate-50 p-8 rounded-2xl border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300">
-                  <div className="flex items-center justify-center">
-                    <Image
-                      src="/images/kinetikare-logo-kareem-hassanein-physiotherapy-transparent.png"
-                      alt="KinetiKare Logo"
-                      width={120}
-                      height={120}
-                      className="w-30 h-30 object-contain"
-                      style={{
-                        filter: 'contrast(1.15) saturate(1.2) brightness(0.95)',
-                        imageRendering: 'crisp-edges'
-                      }}
-                    />
-                  </div>
-                </div>
-                
+
                 {/* CTA */}
                 <div className="bg-gradient-to-br from-primary-800 to-slate-800 p-6 rounded-2xl text-white shadow-lg">
                   <h3 className="text-lg font-normal mb-3 text-white">Take the Next Step</h3>
@@ -577,9 +487,10 @@ export default function About() {
                     href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block w-full text-center py-3 px-4 bg-[#B08D57] hover:bg-[#A17D47] text-white rounded-xl font-normal transition-colors duration-300"
+                    className="block w-full text-center py-3 px-4 bg-[#B08D57] hover:bg-[#A17D47] text-white hover:text-white rounded-xl font-normal transition-all duration-300 shadow-premium-1 hover:shadow-premium-2 hover:scale-[1.01] group relative overflow-hidden"
                   >
-                    Book Appointment
+                    <span className="relative z-10">Book Appointment</span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37] to-[#B08D57] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </Link>
                 </div>
               </div>
@@ -781,7 +692,7 @@ export default function About() {
             <h3 className="text-4xl font-light text-primary-800 mb-6 tracking-[-0.02em]">Professional Foundation</h3>
             <div className="w-32 h-1 bg-gradient-to-r from-[#B08D57] to-[#A17D47] mx-auto mb-8"></div>
             <p className="text-xl text-primary-600 max-w-3xl mx-auto leading-relaxed">
-              Built on rigorous education, advanced certifications, and extensive hands-on experience
+              Built on rigorous education, professional certifications, and extensive hands-on experience
             </p>
           </div>
 
@@ -894,7 +805,7 @@ export default function About() {
             <div className="group">
               <div className="bg-gradient-to-br from-white to-slate-50 border border-slate-200/60 rounded-2xl p-10 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden h-full flex flex-col">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#B08D57]/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
-                
+
                 <div className="relative z-10 flex-1 flex flex-col">
                   <div className="flex items-center mb-10">
                     <div className="w-3 h-8 bg-gradient-to-b from-[#B08D57] to-[#A17D47] rounded-full mr-4"></div>
@@ -906,9 +817,9 @@ export default function About() {
                       <div className="flex items-start space-x-4">
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
                         <div className="flex-1">
-                          <div className="font-bold text-slate-800 text-xl mb-2">Advanced Manual Therapy Training</div>
+                          <div className="font-bold text-slate-800 text-xl mb-2">Manual Therapy Training</div>
                           <div className="text-[#B08D57] font-semibold text-base mb-1">Manual Therapy Techniques</div>
-                          <div className="text-slate-600 text-sm leading-relaxed">Advanced certification in orthopedic manual physical therapy</div>
+                          <div className="text-slate-600 text-sm leading-relaxed">Certification in orthopedic manual physical therapy techniques</div>
                         </div>
                       </div>
                     </div>
@@ -919,7 +830,7 @@ export default function About() {
                         <div className="flex-1">
                           <div className="font-bold text-slate-800 text-xl mb-2">Certified Dry Needling</div>
                           <div className="text-[#B08D57] font-semibold text-base mb-1">Practitioner</div>
-                          <div className="text-slate-600 text-sm leading-relaxed">Advanced technique for trigger point release and pain management</div>
+                          <div className="text-slate-600 text-sm leading-relaxed">Advanced certification in dry needling for trigger point release and pain management</div>
                         </div>
                       </div>
                     </div>
@@ -1080,7 +991,7 @@ export default function About() {
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="py-3.5 px-8 bg-[#B08D57] hover:bg-[#A17D47] text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
+                className="py-3.5 px-8 bg-[#B08D57] hover:bg-[#A17D47] text-white hover:text-white font-semibold rounded-lg shadow-premium-1 hover:shadow-premium-2 transition-all duration-300 hover:scale-[1.02] group relative overflow-hidden"
               >
                 Book an Appointment
               </Link>

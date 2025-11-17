@@ -30,15 +30,7 @@ const nextConfig = {
   // SEO-friendly trailing slashes
   trailingSlash: false,
   
-  // Dynamic sitemap
-  async rewrites() {
-    return [
-      {
-        source: '/sitemap.xml',
-        destination: '/api/sitemap',
-      },
-    ];
-  },
+  // Sitemap served from public/sitemap.xml (comprehensive with all condition pages)
   
   // Headers for better SEO and performance
   async headers() {

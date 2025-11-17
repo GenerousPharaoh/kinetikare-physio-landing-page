@@ -1,0 +1,138 @@
+/*
+ * PREMIUM SHADOW SYSTEM
+ * Apple-inspired layered shadows for sophisticated depth hierarchy
+ */
+
+/* ============================= */
+/* PREMIUM SHADOW LEVELS         */
+/* ============================= */
+
+/* Level 1: Subtle floating elements (buttons, badges) */
+.shadow-premium-1 {
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 8px 16px rgba(0, 0, 0, 0.06),
+    0 16px 24px rgba(0, 0, 0, 0.04);
+}
+
+/* Level 2: Cards and containers */
+.shadow-premium-2 {
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.03),
+    0 12px 24px rgba(0, 0, 0, 0.08),
+    0 24px 48px rgba(0, 0, 0, 0.05);
+}
+
+/* Level 3: Hero elements and primary focus */
+.shadow-premium-3 {
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.03),
+    0 16px 32px rgba(0, 0, 0, 0.08),
+    0 32px 64px rgba(0, 0, 0, 0.06);
+}
+
+/* Level 4: Modal/overlay elements */
+.shadow-premium-4 {
+  box-shadow:
+    0 8px 16px rgba(0, 0, 0, 0.04),
+    0 24px 48px rgba(0, 0, 0, 0.12),
+    0 48px 96px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================= */
+/* HOVER STATE SHADOWS          */
+/* ============================= */
+
+/* Elevated states for interactive elements */
+.shadow-premium-1-hover {
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.05),
+    0 12px 20px rgba(0, 0, 0, 0.08),
+    0 20px 32px rgba(0, 0, 0, 0.06);
+}
+
+.shadow-premium-2-hover {
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.04),
+    0 16px 32px rgba(0, 0, 0, 0.10),
+    0 32px 64px rgba(0, 0, 0, 0.07);
+}
+
+.shadow-premium-3-hover {
+  box-shadow:
+    0 8px 16px rgba(0, 0, 0, 0.04),
+    0 24px 48px rgba(0, 0, 0, 0.12),
+    0 48px 96px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================= */
+/* INNER SHADOWS                 */
+/* ============================= */
+
+/* Subtle inset shadows for input elements */
+.shadow-inner-premium {
+  box-shadow:
+    inset 0 1px 2px rgba(0, 0, 0, 0.04),
+    inset 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+/* Deeper inset for pressed states */
+.shadow-inner-premium-deep {
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.08),
+    inset 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* ============================= */
+/* COLORED SHADOWS               */
+/* ============================= */
+
+/* Gold accent shadows for brand elements */
+.shadow-gold-premium {
+  box-shadow:
+    0 2px 4px rgba(176, 141, 87, 0.08),
+    0 8px 16px rgba(176, 141, 87, 0.12),
+    0 16px 32px rgba(176, 141, 87, 0.06);
+}
+
+.shadow-gold-premium-hover {
+  box-shadow:
+    0 4px 8px rgba(176, 141, 87, 0.12),
+    0 12px 24px rgba(176, 141, 87, 0.16),
+    0 24px 48px rgba(176, 141, 87, 0.08);
+}
+
+/* ============================= */
+/* GLASS EFFECT SHADOWS         */
+/* ============================= */
+
+/* For glass morphism elements */
+.shadow-glass-premium {
+  box-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.02),
+    0 8px 16px rgba(255, 255, 255, 0.04),
+    0 16px 24px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* ============================= */
+/* UTILITY CLASSES               */
+/* ============================= */
+
+/* Smooth transitions for shadow changes */
+.shadow-transition {
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.shadow-transition-fast {
+  transition: box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.shadow-transition-slow {
+  transition: box-shadow 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Remove all shadows */
+.shadow-none {
+  box-shadow: none !important;
+}

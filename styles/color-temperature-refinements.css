@@ -1,0 +1,167 @@
+/* Color Temperature Refinements - Sophisticated color adjustments */
+
+/* Refined text colors with subtle temperature shifts */
+.text-primary-warm {
+  color: hsl(210, 15%, 15%); /* Slightly warmer dark text */
+}
+
+.text-primary-cool {
+  color: hsl(220, 20%, 12%); /* Cooler dark text for contrast */
+}
+
+.text-secondary-warm {
+  color: hsl(210, 8%, 45%); /* Warmer gray for secondary text */
+}
+
+.text-secondary-cool {
+  color: hsl(220, 12%, 40%); /* Cooler gray for balance */
+}
+
+.text-muted-warm {
+  color: hsl(35, 8%, 55%); /* Slightly warm muted text */
+}
+
+.text-muted-cool {
+  color: hsl(210, 10%, 50%); /* Cool muted text */
+}
+
+/* Refined brand colors with temperature variations */
+.text-brand-warm {
+  color: hsl(45, 45%, 45%); /* Warmer brand gold */
+}
+
+.text-brand-cool {
+  color: hsl(42, 40%, 40%); /* Slightly cooler brand tone */
+}
+
+.text-brand-light {
+  color: hsl(48, 50%, 60%); /* Lighter brand variation */
+}
+
+/* Border colors with temperature */
+.border-warm {
+  border-color: hsl(35, 15%, 88%); /* Warm border */
+}
+
+.border-cool {
+  border-color: hsl(215, 20%, 85%); /* Cool border */
+}
+
+.border-neutral-warm {
+  border-color: hsl(30, 10%, 90%); /* Neutral warm border */
+}
+
+/* Hover states with temperature */
+.hover-warm:hover {
+  color: hsl(40, 35%, 35%);
+  transition: color 0.3s ease;
+}
+
+.hover-cool:hover {
+  color: hsl(210, 25%, 25%);
+  transition: color 0.3s ease;
+}
+
+/* Button color refinements */
+.btn-primary-warm {
+  background: linear-gradient(135deg,
+    hsl(45, 45%, 50%) 0%,
+    hsl(48, 50%, 55%) 100%);
+}
+
+.btn-primary-warm:hover {
+  background: linear-gradient(135deg,
+    hsl(45, 50%, 45%) 0%,
+    hsl(48, 55%, 50%) 100%);
+}
+
+.btn-secondary-cool {
+  background: hsl(0, 0%, 98%);
+  border: 1px solid hsl(215, 15%, 88%);
+  color: hsl(220, 15%, 25%);
+}
+
+.btn-secondary-cool:hover {
+  background: hsl(210, 20%, 96%);
+  border-color: hsl(215, 20%, 80%);
+}
+
+/* Card background refinements */
+.card-bg-warm {
+  background: linear-gradient(145deg,
+    hsl(0, 0%, 100%) 0%,
+    hsl(45, 10%, 99%) 100%);
+}
+
+.card-bg-cool {
+  background: linear-gradient(145deg,
+    hsl(0, 0%, 100%) 0%,
+    hsl(210, 20%, 99%) 100%);
+}
+
+.card-bg-neutral {
+  background: linear-gradient(145deg,
+    hsl(0, 0%, 100%) 0%,
+    hsl(30, 8%, 98%) 50%,
+    hsl(0, 0%, 100%) 100%);
+}
+
+/* Subtle accent colors */
+.accent-warm {
+  color: hsl(42, 25%, 55%);
+}
+
+.accent-cool {
+  color: hsl(210, 20%, 45%);
+}
+
+/* Interactive states */
+.interactive-warm {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.interactive-warm:hover {
+  color: hsl(45, 40%, 40%);
+  transform: translateY(-1px);
+}
+
+.interactive-cool {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.interactive-cool:hover {
+  color: hsl(220, 25%, 30%);
+  transform: translateY(-1px);
+}
+
+/* Refined link colors */
+.link-primary {
+  color: hsl(45, 40%, 45%);
+  transition: color 0.3s ease;
+}
+
+.link-primary:hover {
+  color: hsl(48, 45%, 40%);
+}
+
+.link-secondary {
+  color: hsl(210, 15%, 40%);
+  transition: color 0.3s ease;
+}
+
+.link-secondary:hover {
+  color: hsl(210, 20%, 30%);
+}
+
+/* Status and feedback colors */
+.status-success {
+  color: hsl(120, 25%, 35%);
+}
+
+.status-info {
+  color: hsl(210, 30%, 40%);
+}
+
+.status-warning {
+  color: hsl(35, 40%, 45%);
+}

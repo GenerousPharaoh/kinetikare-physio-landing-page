@@ -1,106 +1,59 @@
-import React from 'react';
+"use client";
 
-type DividerShape = 'wave' | 'curve' | 'tilt' | 'arrow';
-type DividerPosition = 'top' | 'bottom';
+import React from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 interface SectionDividerProps {
-  shape?: DividerShape;
-  position?: DividerPosition;
-  fillColor?: string;
-  bgColor?: string;
-  className?: string;
-  height?: number;
-  invertX?: boolean;
-  invertY?: boolean;
+  variant?: 'line' | 'gradient' | 'dots';
 }
 
-const SectionDivider: React.FC<SectionDividerProps> = ({
-  shape = 'curve',
-  position = 'bottom',
-  fillColor = '#ffffff',
-  bgColor = 'transparent',
-  className = '',
-  height = 60,
-  invertX = false,
-  invertY = false,
-}) => {
-  // Apply transform if needed
-  const getTransform = () => {
-    let transform = '';
-    
-    if (invertX) transform += ' scaleX(-1)';
-    if (invertY || position === 'top') transform += ' scaleY(-1)';
-    
-    return transform.trim();
-  };
+export default function SectionDivider({ variant = 'gradient' }: SectionDividerProps) {
+  const { scrollYProgress } = useScroll();
+  const width = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
-  // Get the SVG path based on the shape
-  const getPath = () => {
-    switch (shape) {
-      case 'wave':
-        return (
-          <path 
-            d="M0,96L60,80C120,64,240,32,360,37.3C480,43,600,85,720,90.7C840,96,960,64,1080,53.3C1200,43,1320,53,1380,58.7L1440,64L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z" 
-            fill={fillColor}
-          />
-        );
-      case 'curve':
-        return (
-          <path 
-            d="M0,160L1440,32L1440,320L0,320Z" 
-            fill={fillColor}
-          />
-        );
-      case 'tilt':
-        return (
-          <path 
-            d="M0,180L1440,40L1440,320L0,320Z" 
-            fill={fillColor}
-          />
-        );
-      case 'arrow':
-        return (
-          <path 
-            d="M0,0L720,100L1440,0L1440,320L720,320L0,320Z" 
-            fill={fillColor}
-          />
-        );
-      default:
-        return (
-          <path 
-            d="M0,160L1440,32L1440,320L0,320Z" 
-            fill={fillColor}
-          />
-        );
-    }
-  };
+  if (variant === 'line') {
+    return (
+      <div className="relative h-px w-full max-w-3xl mx-auto my-16">
+        <motion.div
+          className="h-full bg-gradient-to-r from-transparent via-[#B08D57]/20 to-transparent"
+          style={{ width }}
+        />
+      </div>
+    );
+  }
 
+  if (variant === 'dots') {
+    return (
+      <div className="relative flex justify-center items-center gap-2 my-16">
+        <motion.div
+          className="w-1.5 h-1.5 rounded-full bg-[#B08D57]/40"
+          initial={{ scale: 0 }}
+          whileInView={{ scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0 }}
+        />
+        <motion.div
+          className="w-2 h-2 rounded-full bg-[#B08D57]/60"
+          initial={{ scale: 0 }}
+          whileInView={{ scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+        />
+        <motion.div
+          className="w-1.5 h-1.5 rounded-full bg-[#B08D57]/40"
+          initial={{ scale: 0 }}
+          whileInView={{ scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+        />
+      </div>
+    );
+  }
+
+  // Default: gradient
   return (
-    <div
-      className={`section-divider relative w-full overflow-hidden ${className}`}
-      style={{ 
-        height: `${height}px`,
-        backgroundColor: bgColor,
-        marginTop: position === 'top' ? 0 : '-1px',
-        marginBottom: position === 'bottom' ? 0 : '-1px',
-      }}
-    >
-      <svg
-        className="absolute w-full h-full"
-        style={{ 
-          transform: getTransform(),
-          bottom: position === 'bottom' ? 0 : 'auto',
-          top: position === 'top' ? 0 : 'auto',
-          left: 0,
-          right: 0,
-        }}
-        viewBox="0 0 1440 320"
-        preserveAspectRatio="none"
-      >
-        {getPath()}
-      </svg>
+    <div className="relative h-24 overflow-visible flex items-center my-8">
+      <div className="absolute left-1/2 -translate-x-1/2 w-48 h-px bg-gradient-to-r from-transparent via-[#B08D57]/15 to-transparent" />
     </div>
   );
-};
-
-export default SectionDivider; 
+}

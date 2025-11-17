@@ -19,15 +19,15 @@ export const viewport = {
 
 export const metadata = {
   title: 'Kareem Hassanein Physiotherapist Burlington | Sports Physio | Back Pain Treatment',
-  description: 'Kareem Hassanein, Registered Physiotherapist in Burlington. Expert treatment for back pain, sports injuries, knee pain, neck pain, sciatica. Serving North Burlington, Alton Village, Palladium Way. Direct billing, evening appointments.',
-  keywords: ['Kareem Hassanein', 'Kareem Hassanein physiotherapist', 'Kareem Hassanein physio', 'Kareem Hassanein Burlington', 'physiotherapist Burlington', 'physiotherapy Burlington', 'physio Burlington', 'Burlington physiotherapist', 'North Burlington physiotherapy', 'Alton Village physiotherapy', 'Alton Village physio', 'physiotherapy Palladium Way', 'physiotherapist Palladium Way', 'sports physiotherapist Burlington', 'sports physio Burlington', 'sports injury clinic Burlington', 'back pain Burlington', 'back pain treatment Burlington', 'lower back pain physio', 'chronic back pain Burlington', 'acute back pain Burlington', 'neck pain Burlington', 'neck pain treatment', 'whiplash Burlington', 'whiplash treatment Burlington', 'knee pain Burlington', 'knee injury physiotherapy', 'arthritis Burlington', 'knee arthritis Burlington', 'shoulder pain Burlington', 'rotator cuff injury', 'frozen shoulder Burlington', 'shoulder impingement Burlington', 'sciatica Burlington', 'sciatica treatment', 'herniated disc Burlington', 'disc bulge Burlington', 'pinched nerve Burlington', 'nerve pain Burlington', 'plantar fasciitis Burlington', 'heel pain Burlington', 'tennis elbow Burlington', 'golfers elbow Burlington', 'hip pain Burlington', 'hip arthritis Burlington', 'hip bursitis Burlington', 'ankle sprain Burlington', 'ankle injury Burlington', 'achilles tendonitis Burlington', 'achilles pain Burlington', 'running injuries Burlington', 'marathon training injuries Burlington', 'ACL rehabilitation Burlington', 'ACL tear Burlington', 'MCL injury Burlington', 'meniscus tear Burlington', 'post surgery physio Burlington', 'post surgical rehabilitation Burlington', 'MVA physiotherapy Burlington', 'car accident physio Burlington', 'chronic pain Burlington', 'started running knee pain Burlington', 'couch to 5k injury Burlington', 'new runner pain Burlington', 'first time runner injury Burlington', 'started gym hurt back Burlington', 'crossfit injury Burlington', 'workout injury Burlington', 'hurt at gym Burlington', 'deadlift back pain Burlington', 'squat knee pain Burlington', 'bench press shoulder pain Burlington', 'weekend warrior injury Burlington', 'golf back pain Burlington', 'golf elbow Burlington', 'hockey injury Burlington', 'hockey groin Burlington', 'soccer injury Burlington', 'soccer ankle Burlington', 'basketball knee injury Burlington', 'volleyball shoulder Burlington', 'tennis shoulder Burlington', 'pickleball injury Burlington', 'cycling knee pain Burlington', 'bike seat pain Burlington', 'spin class injury Burlington', 'yoga injury Burlington', 'pulled muscle at gym Burlington', 'first workout injury Burlington', 'orange theory injury Burlington', 'F45 injury Burlington', 'bootcamp injury Burlington', 'hurt shoveling snow Burlington', 'gardening back pain Burlington', 'painting shoulder pain Burlington', 'moving injury Burlington', 'lifting boxes hurt back Burlington', 'sitting too long back pain Burlington', 'desk job neck pain Burlington', 'work from home pain Burlington', 'computer neck Burlington', 'text neck Burlington', 'mom carrying baby pain Burlington', 'pregnancy back pain Burlington', 'postpartum pain Burlington', 'manual therapy Burlington', 'dry needling Burlington', 'IMS Burlington', 'advanced manual therapy physiotherapist', 'MSc physiotherapy', 'registered physiotherapist Burlington', 'best physiotherapist Burlington', 'physiotherapist near me', 'physio near me', 'evening physiotherapy Burlington', 'weekend physio Burlington', 'direct billing physiotherapy', 'insurance physiotherapy Burlington'],
+  description: 'Kareem Hassanein, Registered Physiotherapist in Burlington. Treatment for back pain, sports injuries, knee pain, neck pain, sciatica. Serving Burlington, Waterdown, Oakville. Direct billing, evening appointments.',
+  keywords: ['Kareem Hassanein', 'Kareem Hassanein physiotherapist', 'Kareem Hassanein physio', 'Kareem Hassanein Burlington', 'physiotherapist Burlington', 'physiotherapy Burlington', 'physio Burlington', 'Burlington physiotherapist', 'sports physiotherapist Burlington', 'sports physio Burlington', 'sports injury clinic Burlington', 'back pain Burlington', 'back pain treatment Burlington', 'lower back pain physio', 'chronic back pain Burlington', 'acute back pain Burlington', 'neck pain Burlington', 'neck pain treatment', 'whiplash Burlington', 'whiplash treatment Burlington', 'knee pain Burlington', 'knee injury physiotherapy', 'arthritis Burlington', 'knee arthritis Burlington', 'shoulder pain Burlington', 'rotator cuff injury', 'frozen shoulder Burlington', 'shoulder impingement Burlington', 'sciatica Burlington', 'sciatica treatment', 'herniated disc Burlington', 'disc bulge Burlington', 'pinched nerve Burlington', 'nerve pain Burlington', 'plantar fasciitis Burlington', 'heel pain Burlington', 'tennis elbow Burlington', 'golfers elbow Burlington', 'hip pain Burlington', 'hip arthritis Burlington', 'hip bursitis Burlington', 'ankle sprain Burlington', 'ankle injury Burlington', 'achilles tendonitis Burlington', 'achilles pain Burlington', 'running injuries Burlington', 'marathon training injuries Burlington', 'ACL rehabilitation Burlington', 'ACL tear Burlington', 'MCL injury Burlington', 'meniscus tear Burlington', 'post surgery physio Burlington', 'post surgical rehabilitation Burlington', 'MVA physiotherapy Burlington', 'car accident physio Burlington', 'chronic pain Burlington', 'started running knee pain Burlington', 'couch to 5k injury Burlington', 'new runner pain Burlington', 'first time runner injury Burlington', 'started gym hurt back Burlington', 'crossfit injury Burlington', 'workout injury Burlington', 'hurt at gym Burlington', 'deadlift back pain Burlington', 'squat knee pain Burlington', 'bench press shoulder pain Burlington', 'weekend warrior injury Burlington', 'golf back pain Burlington', 'golf elbow Burlington', 'hockey injury Burlington', 'hockey groin Burlington', 'soccer injury Burlington', 'soccer ankle Burlington', 'basketball knee injury Burlington', 'volleyball shoulder Burlington', 'tennis shoulder Burlington', 'pickleball injury Burlington', 'cycling knee pain Burlington', 'bike seat pain Burlington', 'spin class injury Burlington', 'yoga injury Burlington', 'pulled muscle at gym Burlington', 'first workout injury Burlington', 'orange theory injury Burlington', 'F45 injury Burlington', 'bootcamp injury Burlington', 'hurt shoveling snow Burlington', 'gardening back pain Burlington', 'painting shoulder pain Burlington', 'moving injury Burlington', 'lifting boxes hurt back Burlington', 'sitting too long back pain Burlington', 'desk job neck pain Burlington', 'work from home pain Burlington', 'computer neck Burlington', 'text neck Burlington', 'mom carrying baby pain Burlington', 'pregnancy back pain Burlington', 'postpartum pain Burlington', 'manual therapy Burlington', 'dry needling Burlington', 'IMS Burlington', 'advanced manual therapy physiotherapist', 'MSc physiotherapy', 'registered physiotherapist Burlington', 'best physiotherapist Burlington', 'physiotherapist near me', 'physio near me', 'evening physiotherapy Burlington', 'weekend physio Burlington', 'direct billing physiotherapy', 'insurance physiotherapy Burlington'],
   authors: [{ name: 'Kareem Hassanein', url: 'https://www.kinetikarephysio.com/about' }],
   creator: 'Kareem Hassanein',
   publisher: 'Kareem Hassanein Physiotherapy',
   applicationName: 'Kareem Hassanein Physiotherapy',
   openGraph: {
-    title: 'Kareem Hassanein Physiotherapist | Burlington Sports Physio | Back Pain Expert',
-    description: 'Kareem Hassanein - Burlington\'s trusted physiotherapist for back pain, sports injuries, knee pain. North Burlington, Alton Village, Palladium Way. Book online.',
+    title: 'Kareem Hassanein Physiotherapy | Burlington',
+    description: 'Registered Physiotherapist offering manual therapy, dry needling, cupping, and exercise rehabilitation for chronic pain, post-surgical recovery, and movement restoration.',
     url: 'https://www.kinetikarephysio.com',
     siteName: 'Kareem Hassanein Physiotherapy',
     type: 'website',
@@ -57,7 +57,7 @@ export const metadata = {
     'msapplication-TileColor': '#B08D57',
     'apple-mobile-web-app-title': 'Kareem Physio',
     'geo.region': 'CA-ON',
-    'geo.placename': 'Burlington, North Burlington, Alton Village, Palladium Way, Waterdown, Oakville',
+    'geo.placename': 'Burlington, Waterdown, Oakville, Hamilton',
     'geo.position': '43.430782;-79.838055',
     'ICBM': '43.430782, -79.838055'
   }
@@ -96,45 +96,39 @@ const organizationSchema = {
   },
   "areaServed": [
     {
-      "@type": "Place",
-      "name": "North Burlington",
-      "addressRegion": "ON",
-      "addressCountry": "CA"
-    },
-    {
-      "@type": "Place",
-      "name": "Alton Village",
-      "addressRegion": "ON",
-      "addressCountry": "CA"
-    },
-    {
       "@type": "City",
       "name": "Burlington",
       "addressRegion": "ON",
       "addressCountry": "CA"
     },
     {
-      "@type": "Place",
-      "name": "Palladium Way",
-      "addressRegion": "ON",
-      "addressCountry": "CA"
-    },
-    {
-      "@type": "City", 
+      "@type": "City",
       "name": "Waterdown",
       "addressRegion": "ON",
       "addressCountry": "CA"
     },
     {
       "@type": "City",
-      "name": "Hamilton", 
+      "name": "Hamilton",
       "addressRegion": "ON",
       "addressCountry": "CA"
     },
     {
       "@type": "City",
       "name": "Oakville",
-      "addressRegion": "ON", 
+      "addressRegion": "ON",
+      "addressCountry": "CA"
+    },
+    {
+      "@type": "City",
+      "name": "Flamborough",
+      "addressRegion": "ON",
+      "addressCountry": "CA"
+    },
+    {
+      "@type": "City",
+      "name": "Carlisle",
+      "addressRegion": "ON",
       "addressCountry": "CA"
     }
   ],
@@ -151,14 +145,14 @@ const organizationSchema = {
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "5.0",
-    "reviewCount": "8"
+    "reviewCount": "10"
   },
   "founder": {
     "@type": "Person",
     "@id": "https://www.kinetikarephysio.com/#person",
     "name": "Kareem Hassanein",
     "jobTitle": "Registered Physiotherapist",
-    "description": "Burlington's leading physiotherapist specializing in back pain, sports injuries, and manual therapy",
+    "description": "Registered Physiotherapist providing manual therapy, dry needling, and exercise rehabilitation for musculoskeletal conditions in Burlington",
     "worksFor": {
       "@id": "https://www.kinetikarephysio.com/#organization"
     }
@@ -200,7 +194,7 @@ const organizationSchema = {
     {
       "@type": "MedicalTherapy",
       "name": "Back Pain Physiotherapy",
-      "description": "Expert treatment for lower back pain, upper back pain, and chronic back conditions"
+      "description": "Treatment for lower back pain, upper back pain, and chronic back conditions"
     },
     {
       "@type": "MedicalTherapy",
@@ -275,7 +269,7 @@ const brandSchema = {
     "https://www.facebook.com/kinetikarephysio",
     "https://www.instagram.com/kinetikarephysio"
   ],
-  "description": "Kareem Hassanein Physiotherapy - Expert treatment for back pain, sports injuries, knee pain in Burlington. Serving North Burlington, Alton Village, Palladium Way. Registered Physiotherapist, MSc PT, BSc Kin."
+  "description": "Kareem Hassanein Physiotherapy - Registered Physiotherapist, MSc PT, BSc Kin providing manual therapy, dry needling, and exercise rehabilitation for musculoskeletal conditions in Burlington and Waterdown."
 };
 
 // Website Schema for improved search presence
@@ -304,7 +298,7 @@ const personSchema = {
   "name": "Kareem Hassanein",
   "alternateName": ["Kareem Hassanein PT", "Kareem Hassanein Physiotherapist", "Kareem Hassanein MSc PT"],
   "jobTitle": "Registered Physiotherapist",
-  "description": "Kareem Hassanein is a registered physiotherapist in Burlington, Ontario specializing in back pain treatment, sports injury rehabilitation, and manual therapy. Registered Physiotherapist, MSc PT, BSc Kin.",
+  "description": "Kareem Hassanein, Registered Physiotherapist, MSc PT, BSc Kin. Provides manual therapy, dry needling, exercise rehabilitation and pain management for musculoskeletal conditions in Burlington, Ontario.",
   "image": "https://www.kinetikarephysio.com/images/kareem-profile.png",
   "url": "https://www.kinetikarephysio.com/about",
   "sameAs": [

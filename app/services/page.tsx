@@ -2,21 +2,19 @@ import React from 'react';
 import Link from 'next/link';
 import ClientImage from '@/components/ClientImage';
 import { Metadata } from 'next';
+import ServicesHero from '@/components/services/ServicesHero';
 
 // Force static generation for better SEO
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Physiotherapy Services Burlington | Kareem Hassanein | Back Pain, Sports Injuries',
-  description: 'Kareem Hassanein physiotherapy services: back pain treatment, sports injury rehab, knee pain, neck pain, sciatica. North Burlington, Alton Village, Palladium Way. Direct billing available.',
+  title: 'Physiotherapy Services | Kareem Hassanein Burlington & Waterdown Area',
+  description: 'Physiotherapy services in Burlington: manual therapy, dry needling, exercise rehab and pain management. Direct billing.',
   keywords: [
     'Kareem Hassanein services',
     'Kareem Hassanein treatments',
     'physiotherapy services Burlington',
     'physio services Burlington',
-    'North Burlington physio services',
-    'Alton Village physiotherapy services',
-    'Palladium Way physio',
     'back pain treatment Burlington',
     'lower back pain physio Burlington',
     'chronic back pain Burlington',
@@ -86,7 +84,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.kinetikarephysio.com'),
   openGraph: {
     title: 'Physiotherapy Services | Kareem Hassanein',
-    description: 'Advanced physiotherapy services including sports rehabilitation, manual therapy, dry needling, and more for better movement and pain-free living.',
+    description: 'Physiotherapy services including sports rehabilitation, manual therapy, dry needling, and exercise therapy for improved movement and pain management.',
     type: 'website',
     url: 'https://www.kinetikarephysio.com/services',
     images: [{
@@ -116,9 +114,14 @@ const services = [
     description: (
       <>
         Hands-on techniques to mobilize joints, reduce pain, and restore function through targeted tissue manipulation.{' '}
-        <Link href="/faq" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
-          Have questions about manual therapy?
+        <Link href="/treatments/joint-mobilization" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+          Learn about joint mobilization
         </Link>
+        {' '}or{' '}
+        <Link href="/treatments/soft-tissue-myofascial-release" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+          myofascial release techniques
+        </Link>
+        .
       </>
     ),
     image: '/images/manual-therapy.jpg',
@@ -135,8 +138,8 @@ const services = [
     description: (
       <>
         Tailored rehabilitation for athletes to recover from injury and return to their sport safely and stronger.{' '}
-        <Link href="/faq" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
-          Learn what to expect during sports rehab
+        <Link href="/treatments/sports-rehab-return-to-sport" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+          Explore sports rehabilitation approach
         </Link>
         .
       </>
@@ -155,8 +158,12 @@ const services = [
     description: (
       <>
         Precision therapy using thin filiform needles to release trigger points and relieve muscular pain and tension.{' '}
+        <Link href="/treatments/dry-needling" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+          Learn about dry needling
+        </Link>
+        {' '}or{' '}
         <Link href="/faq" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
-          Common questions about dry needling answered
+          read common questions
         </Link>
         .
       </>
@@ -175,8 +182,12 @@ const services = [
     description: (
       <>
         Customized exercise programs designed to restore function, build strength, and prevent injury recurrence.{' '}
+        <Link href="/treatments/exercise-therapy" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+          Explore exercise therapy
+        </Link>
+        {' '}or{' '}
         <Link href="/faq" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
-          Learn about my exercise approach
+          read common questions
         </Link>
         .
       </>
@@ -195,9 +206,14 @@ const services = [
     description: (
       <>
         Comprehensive analysis of your posture and work environment to address pain and prevent future issues.{' '}
-        <Link href="/faq" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
-          Questions about assessments?
+        <Link href="/treatments/postural-assessment" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+          Learn about postural assessment
         </Link>
+        {' '}or{' '}
+        <Link href="/faq" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+          read common questions
+        </Link>
+        .
       </>
     ),
     image: '/images/posture-assessment.jpg',
@@ -214,8 +230,16 @@ const services = [
     description: (
       <>
         Evidence-based approaches to reduce pain and improve quality of life through targeted interventions including cupping and IASTM.{' '}
-        <Link href="/faq" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
-          Explore my pain management FAQ
+        <Link href="/treatments/cupping-therapy" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+          Learn about cupping
+        </Link>
+        ,{' '}
+        <Link href="/treatments/iastm" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+          IASTM
+        </Link>
+        , or{' '}
+        <Link href="/treatments/pain-education" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+          pain education
         </Link>
         .
       </>
@@ -383,82 +407,8 @@ export default function ServicesPage() {
         }}
       />
 
-      {/* Hero Section - Refined */}
-      <section className="relative bg-gradient-to-br from-primary-50 via-white to-slate-50 text-primary-800 py-12 pt-24 md:py-16 md:pt-28 overflow-hidden">
-        {/* Premium Background Elements */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#B08D57]/5 via-transparent to-transparent"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-[#D4AF37]/5 via-transparent to-transparent"></div>
-        
-        {/* Subtle Background Accents */}
-        <div className="absolute top-20 right-10 w-64 h-64 bg-gradient-to-br from-[#B08D57]/5 to-transparent rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-10 w-96 h-96 bg-gradient-to-tr from-[#D4AF37]/5 to-transparent rounded-full blur-3xl"></div>
-        
-        {/* Content */}
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center max-w-4xl mx-auto">
-            {/* Premium Badge */}
-            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 backdrop-blur-sm rounded-full border border-[#B08D57]/20 mb-8">
-              <div className="w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full mr-3 animate-pulse"></div>
-              <span className="text-sm font-medium text-[#B08D57] tracking-wider uppercase">Expert Physiotherapy Care</span>
-            </div>
-            
-            {/* Main Title with Split Animation */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-light mb-6 leading-tight tracking-[-0.03em]">
-              <span className="bg-gradient-to-r from-primary-800 to-primary-600 bg-clip-text text-transparent">Physiotherapy</span>
-              <span className="block mt-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent" style={{
-                backgroundSize: '200% 100%'
-              }}>Services</span>
-            </h1>
-            
-            {/* Premium Divider */}
-            <div className="flex items-center justify-center gap-4 mb-8">
-              <div className="h-px w-16 bg-gradient-to-r from-transparent to-[#B08D57]/40"></div>
-              <div className="w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
-              <div className="h-px w-16 bg-gradient-to-l from-transparent to-[#D4AF37]/40"></div>
-            </div>
-            
-            {/* Refined Description */}
-            <p className="text-lg md:text-xl text-primary-600 max-w-3xl mx-auto leading-relaxed font-light" style={{lineHeight: '1.8'}}>
-              Professional care tailored to your unique needs, combining 
-              <span className="font-normal text-primary-700"> advanced techniques </span>
-              with 
-              <span className="font-normal text-primary-700"> personalized attention</span>
-            </p>
-            
-            {/* Premium CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-              <a
-                href="#services-grid"
-                className="group relative inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white font-medium rounded-xl shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 overflow-hidden"
-              >
-                <span className="absolute inset-0 bg-gradient-to-r from-[#D4AF37] to-[#B08D57] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-                <span className="relative flex items-center">
-                  Explore Services
-                  <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </span>
-              </a>
-              <a
-                href="/#contact"
-                className="group relative inline-flex items-center justify-center px-8 py-4 bg-white/80 backdrop-blur-sm text-primary-800 font-medium rounded-xl shadow-sm hover:shadow-md border border-primary-200 hover:border-[#B08D57]/30 transform hover:-translate-y-0.5 transition-all duration-300"
-              >
-                <span className="absolute inset-0 bg-gradient-to-r from-[#B08D57]/5 to-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></span>
-                <span className="relative">Book Assessment</span>
-              </a>
-            </div>
-          </div>
-        </div>
-        
-        {/* Bottom Wave Decoration */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
-          <svg className="relative block w-full h-12" preserveAspectRatio="none" viewBox="0 0 1200 120">
-            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="fill-white/50"></path>
-            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="fill-white"></path>
-          </svg>
-        </div>
-        
-      </section>
+      {/* Hero Section */}
+      <ServicesHero />
 
       {/* Services Grid - Clean & Modern */}
       <section id="services-grid" className="py-16 bg-gradient-to-br from-white via-slate-50/30 to-white relative overflow-hidden">
@@ -586,7 +536,7 @@ export default function ServicesPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
                       </svg>
                     ),
-                    gradient: "from-blue-500 to-blue-600"
+                    gradient: "from-[#B08D57] to-[#D4AF37]"
                   },
                   {
                     title: "Assessment",
@@ -596,7 +546,7 @@ export default function ServicesPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                       </svg>
                     ),
-                    gradient: "from-emerald-500 to-emerald-600"
+                    gradient: "from-[#B08D57] to-[#D4AF37]"
                   },
                   {
                     title: "Treatment",
@@ -606,7 +556,7 @@ export default function ServicesPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
                       </svg>
                     ),
-                    gradient: "from-purple-500 to-purple-600"
+                    gradient: "from-[#B08D57] to-[#D4AF37]"
                   },
                   {
                     title: "Adaptive Progress",
@@ -616,17 +566,16 @@ export default function ServicesPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
                       </svg>
                     ),
-                    gradient: "from-amber-500 to-amber-600"
+                    gradient: "from-[#B08D57] to-[#D4AF37]"
                   }
                 ].map((step, index) => (
                   <div key={index} className="group relative">
                     {/* Process Card */}
-                    <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-sm border border-slate-200/60 hover:shadow-md transition-all duration-500 transform hover:-translate-y-1 overflow-hidden h-[340px] flex flex-col group cursor-default" style={{
+                    <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-premium-1 hover:shadow-premium-2 border border-slate-200/60 hover:border-[#B08D57]/40 transition-all duration-500 transform hover:-translate-y-1 overflow-hidden h-[340px] flex flex-col group cursor-default" style={{
                       transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
                       animationDelay: `${index * 0.1}s`
                     }}>
-                      {/* Premium Background Effects */}
-                      <div className={`absolute inset-0 bg-gradient-to-br ${step.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-700 rounded-3xl`}></div>
+                      {/* Premium Background Effects - Removed tacky colored overlay */}
                       
                       {/* Subtle Background */}
                       <div className="absolute top-4 right-4 w-24 h-24 bg-gradient-to-br from-[#B08D57]/5 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-60 transition-all duration-500"></div>

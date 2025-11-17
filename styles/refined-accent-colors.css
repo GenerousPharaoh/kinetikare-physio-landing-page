@@ -1,0 +1,164 @@
+/* Refined Accent Color Palette - Sophisticated additions to complement #B08D57 */
+
+/* Primary brand colors */
+:root {
+  --brand-gold: #B08D57;
+  --brand-gold-light: #D4AF37;
+  --brand-gold-dark: #9A7A4F;
+
+  /* New sophisticated accent colors */
+  --accent-slate: #475569;
+  --accent-slate-light: #64748B;
+  --accent-slate-dark: #334155;
+
+  --accent-warm-gray: #78716C;
+  --accent-warm-gray-light: #A8A29E;
+  --accent-warm-gray-dark: #57534E;
+
+  --accent-sage: #87A96B;
+  --accent-sage-light: #A3B18A;
+  --accent-sage-dark: #6B8E47;
+
+  /* Neutral sophistication */
+  --neutral-warm: #F7F5F3;
+  --neutral-cool: #F1F5F9;
+  --neutral-contrast: #1E293B;
+}
+
+/* Accent color utility classes */
+.text-accent-slate {
+  color: var(--accent-slate);
+}
+
+.text-accent-slate-light {
+  color: var(--accent-slate-light);
+}
+
+.text-accent-slate-dark {
+  color: var(--accent-slate-dark);
+}
+
+.text-accent-warm-gray {
+  color: var(--accent-warm-gray);
+}
+
+.text-accent-warm-gray-light {
+  color: var(--accent-warm-gray-light);
+}
+
+.text-accent-sage {
+  color: var(--accent-sage);
+}
+
+.text-accent-sage-light {
+  color: var(--accent-sage-light);
+}
+
+.bg-accent-slate {
+  background-color: var(--accent-slate);
+}
+
+.bg-accent-warm-gray {
+  background-color: var(--accent-warm-gray);
+}
+
+.bg-accent-sage {
+  background-color: var(--accent-sage);
+}
+
+.bg-neutral-warm {
+  background-color: var(--neutral-warm);
+}
+
+.bg-neutral-cool {
+  background-color: var(--neutral-cool);
+}
+
+/* Border accent colors */
+.border-accent-slate {
+  border-color: var(--accent-slate);
+}
+
+.border-accent-warm-gray {
+  border-color: var(--accent-warm-gray);
+}
+
+.border-accent-sage {
+  border-color: var(--accent-sage);
+}
+
+/* Sophisticated gradients with new accents */
+.bg-gradient-professional {
+  background: linear-gradient(135deg,
+    var(--neutral-warm) 0%,
+    var(--neutral-cool) 100%);
+}
+
+.bg-gradient-accent-slate {
+  background: linear-gradient(135deg,
+    var(--accent-slate) 0%,
+    var(--accent-slate-light) 100%);
+}
+
+.bg-gradient-warm-neutral {
+  background: linear-gradient(145deg,
+    var(--accent-warm-gray) 0%,
+    var(--accent-warm-gray-light) 100%);
+}
+
+.bg-gradient-sage-accent {
+  background: linear-gradient(135deg,
+    var(--accent-sage-light) 0%,
+    var(--accent-sage) 100%);
+}
+
+/* Sophisticated button variations */
+.btn-accent-slate {
+  background: linear-gradient(135deg, var(--accent-slate) 0%, var(--accent-slate-dark) 100%);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.btn-accent-slate:hover {
+  background: linear-gradient(135deg, var(--accent-slate-dark) 0%, var(--neutral-contrast) 100%);
+  transform: translateY(-1px);
+}
+
+.btn-accent-warm {
+  background: linear-gradient(135deg, var(--accent-warm-gray) 0%, var(--accent-warm-gray-dark) 100%);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.btn-accent-warm:hover {
+  background: linear-gradient(135deg, var(--accent-warm-gray-dark) 0%, var(--neutral-contrast) 100%);
+  transform: translateY(-1px);
+}
+
+/* Sophisticated text combinations */
+.text-primary-sophisticated {
+  color: var(--neutral-contrast);
+}
+
+.text-secondary-sophisticated {
+  color: var(--accent-slate);
+}
+
+.text-muted-sophisticated {
+  color: var(--accent-warm-gray);
+}
+
+/* Accent overlays and highlights */
+.accent-highlight-slate {
+  background: linear-gradient(135deg, var(--accent-slate) 0%, var(--accent-slate-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.accent-highlight-warm {
+  background: linear-gradient(135deg, var(--accent-warm-gray) 0%, var(--brand-gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

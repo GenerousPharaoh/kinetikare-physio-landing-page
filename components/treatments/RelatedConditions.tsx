@@ -16,20 +16,20 @@ export default function RelatedConditions({ conditionIds }: RelatedConditionsPro
   if (conditions.length === 0) return null;
 
   return (
-    <section className="py-16 lg:py-24 bg-gray-50">
+    <section className="py-8 lg:py-12 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-            Conditions We Treat
+            Conditions Treated
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            This treatment approach is effective for these common conditions
+            This treatment approach is effective for these common conditions and many more
           </p>
         </motion.div>
         
@@ -41,7 +41,7 @@ export default function RelatedConditions({ conditionIds }: RelatedConditionsPro
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: "-100px" }}
               >
                 <Link href={`/conditions/${condition.slug}`}>
                   <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 h-full group cursor-pointer">

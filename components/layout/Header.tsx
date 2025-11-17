@@ -23,7 +23,7 @@ const Header = () => {
                 <span>AI Advisor</span>
               </Link>
             </li>
-            <li><Link href="/contact" className="text-primary-700 hover:text-[#B08D57] transition-colors duration-300 font-medium">Contact</Link></li>
+            <li><Link href="/#contact" className="text-primary-700 hover:text-[#B08D57] transition-colors duration-300 font-medium">Contact</Link></li>
           </ul>
         </nav>
       </div>

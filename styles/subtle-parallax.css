@@ -1,0 +1,192 @@
+/* Subtle Parallax Effects - Very gentle background movement on scroll */
+
+/* Base parallax setup - only applies if motion is allowed */
+@media (prefers-reduced-motion: no-preference) {
+  /* Subtle background parallax layers */
+  .parallax-bg-slow {
+    transform: translateZ(0); /* Force GPU acceleration */
+    will-change: transform;
+    animation: parallax-float 20s ease-in-out infinite;
+  }
+
+  .parallax-bg-medium {
+    transform: translateZ(0);
+    will-change: transform;
+    animation: parallax-float 15s ease-in-out infinite reverse;
+  }
+
+  .parallax-bg-fast {
+    transform: translateZ(0);
+    will-change: transform;
+    animation: parallax-drift 12s ease-in-out infinite;
+  }
+
+  /* Very subtle floating animations */
+  @keyframes parallax-float {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px);
+    }
+    25% {
+      transform: translateY(-3px) translateX(1px);
+    }
+    50% {
+      transform: translateY(2px) translateX(-1px);
+    }
+    75% {
+      transform: translateY(-1px) translateX(2px);
+    }
+  }
+
+  @keyframes parallax-drift {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    33% {
+      transform: translateY(-2px) rotate(0.5deg);
+    }
+    66% {
+      transform: translateY(1px) rotate(-0.3deg);
+    }
+  }
+
+  /* Scroll-based subtle parallax for background elements */
+  .parallax-scroll-element {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  /* Very gentle hover parallax */
+  .parallax-hover:hover {
+    transform: translateY(-1px) scale(1.001);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Parallax on background gradients - very subtle */
+  .parallax-bg-gradient {
+    background-attachment: fixed;
+    background-size: 120% 120%;
+    animation: parallax-gradient-shift 25s ease-in-out infinite;
+  }
+
+  @keyframes parallax-gradient-shift {
+    0%, 100% {
+      background-position: 0% 0%;
+    }
+    25% {
+      background-position: 1% -1%;
+    }
+    50% {
+      background-position: -1% 1%;
+    }
+    75% {
+      background-position: 0.5% 0%;
+    }
+  }
+
+  /* Subtle depth layers */
+  .parallax-layer-1 {
+    transform: translateZ(0);
+    animation: parallax-layer-1 18s ease-in-out infinite;
+  }
+
+  .parallax-layer-2 {
+    transform: translateZ(0);
+    animation: parallax-layer-2 22s ease-in-out infinite;
+  }
+
+  @keyframes parallax-layer-1 {
+    0%, 100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(1px, -2px, 0);
+    }
+  }
+
+  @keyframes parallax-layer-2 {
+    0%, 100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(-1px, 1px, 0);
+    }
+  }
+}
+
+/* Disable all parallax effects for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .parallax-bg-slow,
+  .parallax-bg-medium,
+  .parallax-bg-fast,
+  .parallax-scroll-element,
+  .parallax-bg-gradient,
+  .parallax-layer-1,
+  .parallax-layer-2 {
+    animation: none !important;
+    transform: none !important;
+    will-change: auto;
+  }
+
+  .parallax-hover:hover {
+    transform: none !important;
+  }
+
+  .parallax-bg-gradient {
+    background-attachment: local;
+    background-position: center;
+  }
+}
+
+/* Mobile parallax optimizations */
+@media (max-width: 768px) {
+  /* Reduce parallax on mobile for performance */
+  .parallax-bg-slow,
+  .parallax-bg-medium,
+  .parallax-bg-fast {
+    animation-duration: 30s; /* Slower for battery life */
+  }
+
+  /* Disable background-attachment: fixed on mobile */
+  .parallax-bg-gradient {
+    background-attachment: local;
+    animation: none;
+  }
+}
+
+/* Intersection Observer enhanced parallax */
+.parallax-in-view {
+  transition: transform 0.6s ease-out;
+}
+
+.parallax-in-view.is-visible {
+  transform: translateY(0);
+}
+
+.parallax-in-view:not(.is-visible) {
+  transform: translateY(20px);
+  opacity: 0.8;
+}
+
+/* Performance optimized parallax */
+@media (prefers-reduced-motion: no-preference) {
+  /* Only enable on devices with good performance */
+  @supports (transform: translate3d(0, 0, 0)) {
+    .parallax-performance-safe {
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      perspective: 1000px;
+    }
+  }
+}
+
+/* Subtle mouse parallax for interactive elements */
+@media (hover: hover) and (pointer: fine) {
+  .parallax-mouse-subtle {
+    transition: transform 0.3s ease-out;
+  }
+
+  /* Will be enhanced with JavaScript for mouse follow */
+  .parallax-mouse-subtle:hover {
+    transform: translateY(-1px);
+  }
+}

@@ -41,12 +41,12 @@ export default function ContactSection() {
     <motion.section 
       ref={sectionRef}
       {...animationProps}
-      className="py-16 md:py-20 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden" 
+      className="section-luxury-spacing section-temperature-a relative overflow-hidden texture-luxury" 
       id="contact"
     >
-      {/* Clean background elements */}
-      <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-[#B08D57]/3 to-transparent rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-[#D4AF37]/3 to-transparent rounded-full blur-3xl"></div>
+      {/* Clean background elements with subtle parallax */}
+      <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-[#B08D57]/3 to-transparent rounded-full blur-3xl parallax-bg-slow"></div>
+      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-[#D4AF37]/3 to-transparent rounded-full blur-3xl parallax-bg-medium"></div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-7xl mx-auto">
@@ -58,15 +58,15 @@ export default function ContactSection() {
             className="text-center mb-12 sm:mb-16"
           >
             <div className="relative inline-block mb-6 sm:mb-8">
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-slate-900 mb-6 sm:mb-8 tracking-[-0.03em] leading-[0.9]">
-                Get in <span className="text-[#B08D57] relative">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-slate-900 mb-6 sm:mb-8 heading-luxury-1">
+                Get in <span className="text-luxury-gradient relative">
                   Touch
                   <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
                 </span>
               </h2>
             </div>
             
-            <p className="text-2xl lg:text-3xl font-light text-slate-600 mb-8 leading-relaxed">
+            <p className="text-2xl lg:text-3xl mb-8 text-luxury-subtle">
               Ready to move forward in your recovery journey? Experience personalized physiotherapy care designed to help you move and feel your best.
             </p>
           </motion.div>
@@ -79,7 +79,7 @@ export default function ContactSection() {
               transition={{ duration: 0.2, delay: 0 }}
             >
               {/* Single Consolidated Contact Card */}
-              <div className="bg-white/95 backdrop-blur-2xl rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl border border-slate-200/60">
+              <div className="glass-luxury rounded-3xl p-6 sm:p-8 lg:p-12 shadow-luxury-deep hover:shadow-luxury-float transition-all duration-600 border-luxury-subtle premium-hover-glow">
                 <h3 className="text-2xl sm:text-3xl font-light text-slate-900 mb-8 sm:mb-10 tracking-[-0.02em] text-center">Contact Information</h3>
                 
                 <div className="space-y-6 sm:space-y-8">
@@ -186,7 +186,7 @@ export default function ContactSection() {
               className="flex flex-col justify-start"
             >
               {/* Simplified Book Appointment CTA */}
-              <div className="bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-3xl p-6 sm:p-8 lg:p-12 text-white relative overflow-hidden shadow-2xl">
+              <div className="bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-3xl p-6 sm:p-8 lg:p-12 text-white relative overflow-hidden shadow-premium-3 hover:shadow-premium-3-hover shadow-transition">
                 {/* Clean background elements */}
                 <div className="absolute top-4 right-4 w-20 h-20 bg-white/10 rounded-full blur-xl"></div>
                 <div className="absolute bottom-4 left-4 w-16 h-16 bg-white/10 rounded-full blur-lg"></div>
@@ -201,7 +201,7 @@ export default function ContactSection() {
                   <Link
                     href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                     target="_blank"
-                    className="group inline-flex items-center justify-center px-6 py-4 sm:px-8 sm:py-6 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-2xl font-medium shadow-xl hover:shadow-2xl hover:from-[#B08D57] hover:to-[#D4AF37] hover:text-white transition-all duration-500 hover:scale-105 text-lg sm:text-xl mb-6 sm:mb-8"
+                    className="group inline-flex items-center justify-center px-6 py-4 sm:px-8 sm:py-6 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-2xl font-medium shadow-premium-2 hover:shadow-premium-2-hover hover:from-[#B08D57] hover:to-[#D4AF37] hover:text-white shadow-transition hover:scale-105 text-lg sm:text-xl mb-6 sm:mb-8"
                   >
                     <span>Book Appointment</span>
                     <ArrowTopRightOnSquareIcon className="w-6 h-6 sm:w-7 sm:h-7 ml-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
@@ -238,7 +238,7 @@ export default function ContactSection() {
             transition={{ duration: 0.2, delay: 0 }}
             className="mt-12 sm:mt-16"
           >
-            <div className="bg-white rounded-3xl p-8 sm:p-12 lg:p-16 shadow-xl border border-slate-100">
+            <div className="bg-white rounded-3xl p-8 sm:p-12 lg:p-16 shadow-premium-2 hover:shadow-premium-2-hover shadow-transition border border-slate-100">
               {/* Clean Header */}
                 <div className="text-center mb-12 sm:mb-16">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl mb-6 shadow-lg">
@@ -277,7 +277,7 @@ export default function ContactSection() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="text-center mt-12 sm:mt-16"
           >
-            <div className="bg-white/95 backdrop-blur-2xl rounded-[2rem] p-8 sm:p-12 lg:p-16 shadow-2xl border border-slate-200/60 max-w-5xl mx-auto relative overflow-hidden">
+            <div className="bg-white/95 backdrop-blur-2xl rounded-[2rem] p-8 sm:p-12 lg:p-16 shadow-premium-3 hover:shadow-premium-3-hover shadow-transition border border-slate-200/60 max-w-5xl mx-auto relative overflow-hidden">
               {/* Premium background elements */}
               <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-[#B08D57]/5 to-transparent rounded-full blur-2xl"></div>
               <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-[#D4AF37]/5 to-transparent rounded-full blur-2xl"></div>
@@ -292,14 +292,14 @@ export default function ContactSection() {
                 <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
                   <Link
                     href="tel:+19056346000"
-                    className="group inline-flex items-center justify-center px-6 py-4 sm:px-8 lg:px-10 sm:py-5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white hover:text-white rounded-2xl font-medium shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 text-base sm:text-lg"
+                    className="group inline-flex items-center justify-center px-6 py-4 sm:px-8 lg:px-10 sm:py-5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white hover:text-white rounded-2xl font-medium shadow-premium-2 hover:shadow-premium-2-hover shadow-transition hover:scale-105 text-base sm:text-lg"
                   >
                     <PhoneIcon className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3" />
                     <span>Call Now</span>
                   </Link>
                   <Link
                     href="mailto:kareem.hassanein@gmail.com"
-                    className="group inline-flex items-center justify-center px-6 py-4 sm:px-8 lg:px-10 sm:py-5 bg-white border-2 border-slate-200 text-slate-700 rounded-2xl font-medium shadow-xl hover:bg-slate-50 hover:border-slate-300 hover:shadow-2xl transition-all duration-500 text-base sm:text-lg"
+                    className="group inline-flex items-center justify-center px-6 py-4 sm:px-8 lg:px-10 sm:py-5 bg-white border-2 border-slate-200 text-slate-700 rounded-2xl font-medium shadow-premium-1 hover:shadow-premium-1-hover hover:bg-slate-50 hover:border-slate-300 shadow-transition text-base sm:text-lg"
                   >
                     <EnvelopeIcon className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3" />
                     <span>Send Email</span>

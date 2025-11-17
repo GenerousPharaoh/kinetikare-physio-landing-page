@@ -57,7 +57,7 @@ export default function HeroSection() {
             <div className="w-16 h-px bg-[#B08D57] mx-auto mb-4" />
             
             <p className="text-sm text-gray-600 leading-relaxed max-w-sm mx-auto mb-8">
-              Advanced physiotherapy combining evidence-based techniques with personalized attention for lasting results.
+              Evidence-based physiotherapy combining proven techniques with personalized attention for lasting results.
             </p>
           </motion.div>
         </div>
@@ -138,7 +138,7 @@ export default function HeroSection() {
             </h1>
 
             <p className="text-lg text-gray-600 mb-8">
-              Advanced physiotherapy combining evidence-based techniques with personalized attention for lasting results.
+              Evidence-based physiotherapy combining proven techniques with personalized attention for lasting results.
             </p>
 
             <div className="mb-8">
@@ -212,7 +212,7 @@ export default function HeroSection() {
           >
             <div className="bg-white/95 backdrop-blur p-6 rounded-xl shadow-xl">
               <Image
-                src="/images/kinetikare-logo-kareem-hassanein-physiotherapy-transparent.png"
+                src="/images/kinetikare-physio-logo-kareem-hassanein-physiotherapy.png"
                 alt="KinetiKare"
                 width={60}
                 height={60}

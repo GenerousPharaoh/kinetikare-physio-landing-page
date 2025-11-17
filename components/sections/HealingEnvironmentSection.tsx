@@ -7,23 +7,16 @@ import { MapPinIcon, ClockIcon, PhoneIcon } from '@heroicons/react/24/outline';
 
 const HealingEnvironmentSection = () => {
   const { ref: sectionRef, animationProps } = useScrollAnimation({ yOffset: 30 });
-  const { ref: contentRef, containerVariants, itemVariants, isInView } = useStaggeredAnimation({ 
+  const { ref: contentRef, containerVariants, itemVariants, isInView } = useStaggeredAnimation({
     delay: 0.2,
-    duration: 0.5 
+    duration: 0.5
   });
 
-  const supportingImages = [
-    {
-      src: '/images/facebook-image.jpg',
-      alt: 'Clinic Building',
-      title: 'Our Location'
-    },
-    {
-      src: '/images/clinic-reception-fixed.jpg',
-      alt: 'Reception Area',
-      title: 'Welcoming Reception'
-    }
-  ];
+  const locationImage = {
+    src: '/images/facebook-image.jpg',
+    alt: 'Clinic Building',
+    title: 'Our Location'
+  };
 
   const clinicFeatures = [
     {
@@ -47,7 +40,7 @@ const HealingEnvironmentSection = () => {
     <motion.section 
       ref={sectionRef}
       {...animationProps}
-      className="pt-16 pb-20 md:pt-20 md:pb-24 bg-gradient-to-b from-white to-gray-50"
+      className="pt-8 pb-8 md:pt-12 md:pb-12 section-temperature-c"
     >
       <div className="container mx-auto px-6 max-w-7xl">
         {/* Section Header - More prominent */}
@@ -76,8 +69,8 @@ const HealingEnvironmentSection = () => {
         >
           {/* Left: Hero Image - Focal Point */}
           <motion.div variants={itemVariants} className="order-2 lg:order-1">
-            <div className="relative group overflow-hidden rounded-3xl shadow-2xl">
-              <div className="aspect-[4/3] relative">
+            <div className="relative group overflow-hidden rounded-3xl shadow-premium-3 hover:shadow-premium-3-hover shadow-transition">
+              <div className="aspect-[1/1] relative">
                 <Image
                   src="/images/clinic-pic-may-2025.jpg"
                   alt="Modern Treatment Room at KinetiKare"
@@ -143,7 +136,7 @@ const HealingEnvironmentSection = () => {
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-8 py-4 bg-[#B08D57] text-white rounded-xl font-normal shadow-lg hover:bg-[#D4AF37] transition-all duration-300 hover:shadow-xl hover:scale-105"
+                className="inline-flex items-center px-8 py-4 bg-[#B08D57] text-white rounded-xl font-normal shadow-premium-2 hover:shadow-premium-2-hover hover:bg-[#D4AF37] shadow-transition hover:scale-105"
               >
                 Book Your Visit
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -154,43 +147,35 @@ const HealingEnvironmentSection = () => {
           </motion.div>
         </motion.div>
 
-        {/* Supporting Images - Smaller, secondary focus */}
-        <motion.div 
+        {/* Location Image */}
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto"
+          className="max-w-2xl mx-auto"
         >
-          {supportingImages.map((image, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.5, delay: 0.5 + (index * 0.1) }}
-              className="relative group overflow-hidden rounded-2xl shadow-lg"
-            >
-              <div className="aspect-[16/10] relative">
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <div className="bg-gradient-to-r from-black/50 to-transparent">
-                    <div className="px-4 py-3">
-                      <h4 className="text-white text-sm sm:text-base font-light">
-                        {image.title}
-                      </h4>
-                    </div>
+          <div className="relative group overflow-hidden rounded-2xl shadow-luxury-deep hover:shadow-luxury-float shadow-transition">
+            <div className="aspect-[16/10] relative">
+              <Image
+                src={locationImage.src}
+                alt={locationImage.alt}
+                fill
+                className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <div className="bg-gradient-to-r from-black/50 to-transparent">
+                  <div className="px-4 py-3">
+                    <h4 className="text-white text-sm sm:text-base font-light">
+                      {locationImage.title}
+                    </h4>
                   </div>
                 </div>
               </div>
-            </motion.div>
-          ))}
+            </div>
+          </div>
         </motion.div>
       </div>
     </motion.section>

@@ -63,15 +63,15 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_CA',
     url: 'https://www.kinetikarephysio.com',
-    title: 'Kareem Hassanein Physiotherapist | Burlington Back Pain & Sports Injury Expert',
-    description: 'Kareem Hassanein - Burlington\'s trusted physiotherapist. Expert treatment for back pain, sports injuries, knee pain. North Burlington, Alton Village. Book online.',
+    title: 'Kareem Hassanein Physiotherapy | Burlington',
+    description: 'Registered Physiotherapist offering manual therapy, dry needling, cupping, and exercise rehabilitation for chronic pain, post-surgical recovery, and movement restoration.',
     siteName: 'Kareem Hassanein Physiotherapy',
     images: [
       {
         url: 'https://www.kinetikarephysio.com/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Kareem Hassanein Physiotherapist Burlington - Back Pain Sports Injury Treatment',
+        alt: 'Kareem Hassanein Physiotherapy',
       }
     ],
   },

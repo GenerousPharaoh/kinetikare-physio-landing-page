@@ -5,12 +5,15 @@
 import React, { useState, useMemo, useEffect, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { 
-  MagnifyingGlassIcon, 
+import { useSearchParams } from 'next/navigation';
+import {
+  MagnifyingGlassIcon,
   ChevronRightIcon,
   SparklesIcon,
-  CheckCircleIcon 
+  CheckCircleIcon,
+  HeartIcon
 } from '@heroicons/react/24/outline';
+import MedicalDisclaimer from '@/components/MedicalDisclaimer';
 
 interface ConditionCategory {
   title: string;
@@ -37,10 +40,11 @@ interface ConditionsPageClientProps {
 }
 
 // Component to handle search params logic
-function ConditionsPageWithParams({ 
-  conditionCategories, 
+function ConditionsPageWithParams({
+  conditionCategories,
   additionalServices
 }: ConditionsPageClientProps) {
+  const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState(0);
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -54,8 +58,20 @@ function ConditionsPageWithParams({
     { name: "Foot & Ankle", tab: 5 },
   ];
 
-  // Remember the user's tab selection using localStorage only (removed URL params to fix build)
+  // Remember the user's tab selection using URL params and localStorage
   useEffect(() => {
+    // Check URL query parameter first
+    const tabParam = searchParams?.get('tab');
+
+    if (tabParam && !isNaN(Number(tabParam))) {
+      const tabNumber = Number(tabParam);
+      if (tabNumber >= 0 && tabNumber < conditionCategories.length) {
+        setActiveTab(tabNumber);
+        localStorage.setItem('conditionsActiveTab', tabNumber.toString());
+        return;
+      }
+    }
+
     // Fall back to localStorage (for returning users)
     const savedTab = localStorage.getItem('conditionsActiveTab');
     if (savedTab && !isNaN(Number(savedTab))) {
@@ -64,7 +80,7 @@ function ConditionsPageWithParams({
         setActiveTab(tabNumber);
       }
     }
-  }, [conditionCategories.length]);
+  }, [searchParams, conditionCategories.length]);
 
   // Save tab selection to localStorage when changed
   const handleTabChange = (tabIndex: number) => {
@@ -90,47 +106,87 @@ function ConditionsPageWithParams({
   return (
     <main className="bg-white min-h-screen overflow-x-hidden">
       {/* COMPLETELY REDESIGNED Hero Section */}
-      <section className="relative pt-32 lg:pt-40 pb-2 bg-white">
-        
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-24 lg:pt-32 pb-8 lg:pb-10 bg-gradient-to-br from-white via-slate-50/50 to-white overflow-hidden">
+        {/* Premium background elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#B08D57]/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#D4AF37]/5 rounded-full blur-3xl"></div>
+        </div>
+
+        {/* Subtle pattern overlay */}
+        <div className="absolute inset-0 opacity-[0.02]">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, #B08D57 1px, transparent 1px)`,
+            backgroundSize: '48px 48px'
+          }}></div>
+        </div>
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-5xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="text-center mb-2"
+              className="text-center"
             >
-              
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 mb-4 leading-[1.05] tracking-tight">
-                Treatment <span className="bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent">Areas</span>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 mb-6"
+              >
+                <HeartIcon className="w-5 h-5 text-[#B08D57]" />
+                <span className="text-sm font-medium text-gray-700">Treatment Areas</span>
+              </motion.div>
+
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-slate-900 mb-6 tracking-tight">
+                Treatment <span className="font-semibold">Areas</span>
               </h1>
-              <p className="text-xl md:text-2xl text-slate-700 mb-4 max-w-3xl mx-auto leading-relaxed font-light">
+
+              {/* Decorative line */}
+              <div className="flex items-center justify-center gap-4 mb-6">
+                <div className="h-px w-20 bg-gradient-to-r from-transparent to-[#B08D57]/40"></div>
+                <div className="w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
+                <div className="h-px w-20 bg-gradient-to-l from-transparent to-[#D4AF37]/40"></div>
+              </div>
+
+              <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light mb-8">
                 Personalized care for acute injuries and chronic conditions, tailored to specific needs and recovery goals
               </p>
-
-              {/* PREMIUM Search Bar */}
-              <div className="max-w-2xl mx-auto">
-                <div className="relative group">
-                  <div className="relative bg-white rounded-full border-2 border-slate-200 hover:border-[#B08D57] transition-all duration-300 shadow-xl hover:shadow-2xl">
-                    <MagnifyingGlassIcon className="absolute left-6 top-1/2 transform -translate-y-1/2 h-6 w-6 text-[#B08D57]" />
-                    <input
-                      type="text"
-                      placeholder="Search conditions (e.g., back pain, knee injury, arthritis...)"
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      className="w-full pl-14 pr-6 py-5 bg-transparent rounded-full focus:outline-none focus:ring-4 focus:ring-[#B08D57]/20 text-lg font-medium text-slate-900 placeholder-slate-500"
-                    />
-                  </div>
-                </div>
-              </div>
             </motion.div>
           </div>
         </div>
+
+        {/* Bottom gradient fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
       </section>
 
       {/* Main Content */}
-      <section className="pt-2 pb-12 bg-white">
+      <section className="pt-0 pb-12 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Medical Disclaimer */}
+          <MedicalDisclaimer />
+
+          {/* Search Bar - matching treatments page style */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="max-w-2xl mx-auto mb-6"
+          >
+            <div className="relative group">
+              <MagnifyingGlassIcon className="absolute left-5 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-[#B08D57] transition-colors" />
+              <input
+                type="text"
+                placeholder="Search conditions (e.g., back pain, knee injury, arthritis...)"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-14 pr-6 py-4 bg-white border-2 border-gray-200 rounded-2xl focus:outline-none focus:border-[#B08D57] transition-all duration-300 text-gray-900 placeholder-gray-400 shadow-sm hover:shadow-md"
+              />
+            </div>
+          </motion.div>
+
           {/* PREMIUM Navigation Tabs */}
           <div className="max-w-6xl mx-auto mb-2">
             {/* Filter Label */}
@@ -141,7 +197,7 @@ function ConditionsPageWithParams({
                 <button
                   key={item.name}
                   onClick={() => handleTabChange(item.tab)}
-                  className={`relative px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-500 transform hover:-translate-y-0.5 ${
+                  className={`relative px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 transform hover:-translate-y-0.5 ${
                     activeTab === item.tab
                       ? 'text-white shadow-2xl shadow-[#B08D57]/30'
                       : 'text-slate-700 bg-white hover:bg-slate-50 border-2 border-slate-200 hover:border-[#B08D57] shadow-lg hover:shadow-xl hover:text-[#B08D57]'
@@ -151,7 +207,7 @@ function ConditionsPageWithParams({
                     <motion.div
                       layoutId="activeTab"
                       className="absolute inset-0 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"
-                      transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 35 }}
                     />
                   )}
                   <span className="relative z-10">{item.name}</span>

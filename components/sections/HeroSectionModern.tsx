@@ -8,30 +8,38 @@ import { motion } from 'framer-motion';
 export default function HeroSection() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      {/* Image with diagonal reveal */}
+      {/* Background - dark base */}
+      <div className="absolute inset-0 bg-[#0f172a]" />
+
+      {/* Image container - positioned on the right */}
       <div className="absolute inset-0">
-        {/* Desktop: Image revealed by diagonal clip-path */}
-        <div
-          className="absolute inset-0 hidden md:block"
-          style={{
-            clipPath: 'polygon(45% 0, 100% 0, 100% 100%, 25% 100%)',
-            animation: 'imageReveal 1.2s ease-out 0.3s forwards',
-            opacity: 0
-          }}
-        >
-          <div className="absolute inset-0 animate-[slowZoomPan_30s_ease-in-out_infinite_alternate]">
-            <Image
-              src="/images/clinic-pic-may-2025.jpg"
-              alt="KinetiKare Physiotherapy clinic"
-              fill
-              priority
-              className="object-cover object-[70%_center]"
-              sizes="100vw"
-              unoptimized={true}
-            />
+        {/* Desktop: Image on right side with fade effect */}
+        <div className="absolute inset-0 hidden md:block">
+          <div
+            className="absolute top-0 right-0 w-[60%] h-full"
+            style={{
+              animation: 'imageFadeIn 1.5s ease-out 0.5s forwards',
+              opacity: 0
+            }}
+          >
+            <div className="relative w-full h-full overflow-hidden">
+              <div className="absolute inset-0 animate-[slowZoomPan_30s_ease-in-out_infinite_alternate]">
+                <Image
+                  src="/images/clinic-pic-may-2025.jpg"
+                  alt="KinetiKare Physiotherapy clinic"
+                  fill
+                  priority
+                  className="object-cover object-center"
+                  sizes="60vw"
+                  unoptimized={true}
+                />
+              </div>
+              {/* Gradient fade to blend with diagonal */}
+              <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a] via-[#0f172a]/50 to-transparent" />
+              {/* Subtle vignette */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/30 via-transparent to-[#0f172a]/20" />
+            </div>
           </div>
-          {/* Color treatment overlay */}
-          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-[#0f172a]/40" />
         </div>
 
         {/* Mobile: Full image with bottom gradient */}

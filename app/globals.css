@@ -789,12 +789,14 @@ label {
   }
 }
 
-/* Smooth diagonal slide in */
-@keyframes slideInDiagonal {
+/* Smooth fade + slide - works better across devices */
+@keyframes fadeSlideIn {
   0% {
-    transform: translateX(-100%);
+    opacity: 0;
+    transform: translateX(-30%);
   }
   100% {
+    opacity: 1;
     transform: translateX(0);
   }
 }

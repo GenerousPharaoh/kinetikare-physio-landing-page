@@ -8,9 +8,9 @@ import { motion } from 'framer-motion';
 export default function HeroSection() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      {/* Image - static, gets revealed by diagonal */}
+      {/* Image with color treatment */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 md:animate-[slowPan_20s_ease-in-out_infinite_alternate]">
+        <div className="absolute inset-0 md:animate-[slowPan_25s_ease-in-out_infinite_alternate]">
           <Image
             src="/images/clinic-pic-may-2025.jpg"
             alt="KinetiKare Physiotherapy clinic"
@@ -21,28 +21,31 @@ export default function HeroSection() {
             unoptimized={true}
           />
         </div>
+        {/* Color treatment overlay - warm tone */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1e293b]/30 via-transparent to-[#D4AF37]/10" />
         {/* Mobile overlay - gradient from bottom */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 md:hidden" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/90 via-[#0f172a]/50 to-[#0f172a]/30 md:hidden" />
       </div>
 
-      {/* Diagonal dark section - desktop only */}
+      {/* Diagonal section - dark slate instead of black - desktop only */}
       <div
-        className="absolute inset-0 bg-[#0a0a0a] hidden md:block will-change-transform"
+        className="absolute inset-0 bg-[#0f172a] hidden md:block"
         style={{
           clipPath: 'polygon(0 0, 65% 0, 45% 100%, 0 100%)',
-          animation: 'slideInDiagonal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards'
+          animation: 'fadeSlideIn 1s ease-out forwards'
         }}
       />
 
       {/* Gold accent line along diagonal - desktop only */}
       <div
-        className="absolute inset-0 hidden md:block will-change-transform"
+        className="absolute inset-0 hidden md:block"
         style={{
-          clipPath: 'polygon(65% 0, 66.5% 0, 46.5% 100%, 45% 100%)',
-          animation: 'slideInDiagonal 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards'
+          clipPath: 'polygon(65% 0, 66% 0, 46% 100%, 45% 100%)',
+          animation: 'fadeSlideIn 1s ease-out 0.1s forwards',
+          opacity: 0
         }}
       >
-        <div className="w-full h-full bg-[#D4AF37]" />
+        <div className="w-full h-full bg-gradient-to-b from-[#D4AF37] via-[#B08D57] to-[#D4AF37]" />
       </div>
 
       {/* Content */}

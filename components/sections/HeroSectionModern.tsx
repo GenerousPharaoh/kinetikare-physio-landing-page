@@ -57,7 +57,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Diagonal section - dark slate instead of black - desktop only */}
+      {/* Diagonal section with shadow edge - desktop only */}
       <div
         className="absolute inset-0 bg-[#0f172a] hidden md:block"
         style={{
@@ -66,17 +66,36 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Gold accent line along diagonal - desktop only */}
+      {/* Shadow edge for depth */}
+      <div
+        className="absolute inset-0 hidden md:block pointer-events-none"
+        style={{
+          clipPath: 'polygon(64% 0, 66% 0, 46% 100%, 44% 100%)',
+          animation: 'fadeSlideIn 1s ease-out forwards',
+          background: 'linear-gradient(to right, transparent, rgba(0,0,0,0.3), transparent)'
+        }}
+      />
+
+      {/* Animated gold accent line - desktop only */}
       <div
         className="absolute inset-0 hidden md:block"
         style={{
-          clipPath: 'polygon(65% 0, 66% 0, 46% 100%, 45% 100%)',
+          clipPath: 'polygon(65% 0, 65.5% 0, 45.5% 100%, 45% 100%)',
           animation: 'fadeSlideIn 1s ease-out 0.1s forwards',
           opacity: 0
         }}
       >
-        <div className="w-full h-full bg-gradient-to-b from-[#D4AF37] via-[#B08D57] to-[#D4AF37]" />
+        <div className="w-full h-full bg-gradient-to-b from-[#D4AF37] via-[#F5E6B3] to-[#D4AF37] animate-[shimmerGold_3s_ease-in-out_infinite]" />
       </div>
+
+      {/* Subtle warm glow accent */}
+      <div
+        className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full hidden md:block pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 70%)',
+          animation: 'pulseGlow 4s ease-in-out infinite'
+        }}
+      />
 
       {/* Content */}
       <div className="relative h-full flex items-end md:items-center pb-16 md:pb-0">
@@ -127,14 +146,14 @@ export default function HeroSection() {
             <Link
               href="https://endorphinshealth.janeapp.com/#/staff_member/42"
               target="_blank"
-              className="px-6 py-3 bg-[#D4AF37] text-black text-sm font-semibold hover:bg-white transition-colors duration-300"
+              className="px-6 py-3 bg-[#D4AF37] text-black text-sm font-semibold hover:bg-white hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               Book Assessment
             </Link>
 
             <Link
               href="/services"
-              className="px-6 py-3 border border-white/40 text-white text-sm font-medium hover:bg-white/10 transition-colors duration-300"
+              className="px-6 py-3 border border-white/40 text-white text-sm font-medium hover:bg-white/10 hover:border-white/60 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
             >
               View Services
             </Link>

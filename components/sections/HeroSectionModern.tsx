@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { CheckCircleIcon, ClockIcon, DocumentCheckIcon } from '@heroicons/react/24/outline';
 
 export default function HeroSection() {
   return (
@@ -34,10 +35,14 @@ export default function HeroSection() {
                   unoptimized={true}
                 />
               </div>
+              {/* Premium color grading - lifted blacks, warm highlights */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#1a1f35]/20 via-transparent to-[#D4AF37]/5 mix-blend-overlay" />
+              {/* Slight desaturation for film look */}
+              <div className="absolute inset-0 bg-[#0f172a]/10 mix-blend-saturation" />
               {/* Gradient fade to blend with diagonal */}
-              <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a] via-[#0f172a]/50 to-transparent" />
-              {/* Subtle vignette */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/30 via-transparent to-[#0f172a]/20" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a] via-[#0f172a]/60 to-transparent" />
+              {/* Enhanced vignette */}
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(15,23,42,0.4)_100%)]" />
             </div>
           </div>
         </div>
@@ -159,18 +164,40 @@ export default function HeroSection() {
             </Link>
           </motion.div>
 
-          {/* Info */}
+          {/* Info badges */}
           <motion.div
-            className="flex flex-wrap gap-x-4 gap-y-1 text-white/50 text-xs"
+            className="flex flex-wrap gap-3"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 1.7 }}
           >
-            <span>Direct Billing</span>
-            <span>•</span>
-            <span>No Referral</span>
-            <span>•</span>
-            <span>Evening Hours</span>
+            <motion.div
+              className="flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-full"
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.4, delay: 1.8 }}
+            >
+              <DocumentCheckIcon className="w-3.5 h-3.5 text-[#D4AF37]" />
+              <span className="text-white/70 text-xs">Direct Billing</span>
+            </motion.div>
+            <motion.div
+              className="flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-full"
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.4, delay: 1.9 }}
+            >
+              <CheckCircleIcon className="w-3.5 h-3.5 text-[#D4AF37]" />
+              <span className="text-white/70 text-xs">No Referral</span>
+            </motion.div>
+            <motion.div
+              className="flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-full"
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.4, delay: 2.0 }}
+            >
+              <ClockIcon className="w-3.5 h-3.5 text-[#D4AF37]" />
+              <span className="text-white/70 text-xs">Evening Hours</span>
+            </motion.div>
           </motion.div>
 
         </div>

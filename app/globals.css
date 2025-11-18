@@ -769,64 +769,24 @@ label {
   }
 }
 
-/* Cinematic Hero Animations - Dynamic & Premium */
-@keyframes heroImageReveal {
-  0% {
-    opacity: 0;
-    transform: scale(1.05);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes heroOverlay {
-  0% {
+/* Clean Hero Animations */
+@keyframes fadeIn {
+  from {
     opacity: 0;
   }
-  100% {
+  to {
     opacity: 1;
   }
 }
 
-@keyframes heroSlideUp {
-  0% {
+@keyframes slideUp {
+  from {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(20px);
   }
-  100% {
+  to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes heroFadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes heroScaleIn {
-  0% {
-    opacity: 0;
-    transform: scale(0);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes heroLineReveal {
-  0% {
-    transform: scaleX(0);
-  }
-  100% {
-    transform: scaleX(1);
   }
 }
 

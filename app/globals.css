@@ -779,13 +779,25 @@ label {
 
 /* Premium Hero Animations - Impactful dramatic reveals */
 
-/* Slow horizontal pan for hero image */
-@keyframes slowPan {
+/* Diagonal image reveal - fades in with subtle expansion */
+@keyframes imageReveal {
   0% {
-    transform: translateX(-3%) scale(1.1);
+    opacity: 0;
+    clip-path: polygon(65% 0, 100% 0, 100% 100%, 45% 100%);
   }
   100% {
-    transform: translateX(3%) scale(1.1);
+    opacity: 1;
+    clip-path: polygon(45% 0, 100% 0, 100% 100%, 25% 100%);
+  }
+}
+
+/* Slow zoom + pan for cinematic feel */
+@keyframes slowZoomPan {
+  0% {
+    transform: scale(1.15) translateX(0%);
+  }
+  100% {
+    transform: scale(1.05) translateX(-5%);
   }
 }
 

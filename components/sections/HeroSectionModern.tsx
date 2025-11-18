@@ -8,23 +8,45 @@ import { motion } from 'framer-motion';
 export default function HeroSection() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      {/* Image with color treatment */}
+      {/* Image with diagonal reveal */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 md:animate-[slowPan_25s_ease-in-out_infinite_alternate]">
+        {/* Desktop: Image revealed by diagonal clip-path */}
+        <div
+          className="absolute inset-0 hidden md:block"
+          style={{
+            clipPath: 'polygon(45% 0, 100% 0, 100% 100%, 25% 100%)',
+            animation: 'imageReveal 1.2s ease-out 0.3s forwards',
+            opacity: 0
+          }}
+        >
+          <div className="absolute inset-0 animate-[slowZoomPan_30s_ease-in-out_infinite_alternate]">
+            <Image
+              src="/images/clinic-pic-may-2025.jpg"
+              alt="KinetiKare Physiotherapy clinic"
+              fill
+              priority
+              className="object-cover object-[70%_center]"
+              sizes="100vw"
+              unoptimized={true}
+            />
+          </div>
+          {/* Color treatment overlay */}
+          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-[#0f172a]/40" />
+        </div>
+
+        {/* Mobile: Full image with bottom gradient */}
+        <div className="absolute inset-0 md:hidden">
           <Image
             src="/images/clinic-pic-may-2025.jpg"
             alt="KinetiKare Physiotherapy clinic"
             fill
             priority
-            className="object-cover md:scale-110"
+            className="object-cover"
             sizes="100vw"
             unoptimized={true}
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/90 via-[#0f172a]/50 to-[#0f172a]/30" />
         </div>
-        {/* Color treatment overlay - warm tone */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1e293b]/30 via-transparent to-[#D4AF37]/10" />
-        {/* Mobile overlay - gradient from bottom */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/90 via-[#0f172a]/50 to-[#0f172a]/30 md:hidden" />
       </div>
 
       {/* Diagonal section - dark slate instead of black - desktop only */}

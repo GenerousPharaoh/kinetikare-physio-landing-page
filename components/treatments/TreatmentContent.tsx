@@ -106,16 +106,10 @@ export default function TreatmentContent({ treatment }: TreatmentContentProps) {
               This treatment approach can be effective for these common conditions and many more
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-              {relatedConditions.map((condition, index) => (
+              {relatedConditions.map((condition) => (
                 condition && (
                   <Link key={condition.id} href={`/conditions/${condition.slug}`}>
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, delay: index * 0.02 }}
-                      viewport={{ once: true, margin: "-100px" }}
-                      className="group bg-white rounded-xl p-5 border border-gray-100 hover:border-[#B08D57]/40 hover:shadow-lg transition-all duration-300 cursor-pointer h-full"
-                    >
+                    <div className="group bg-white rounded-xl p-5 border border-gray-100 hover:border-[#B08D57]/40 hover:shadow-lg transition-all duration-300 cursor-pointer h-full">
                       <h3 className="text-base font-semibold text-slate-900 mb-2 group-hover:text-[#B08D57] transition-colors duration-300">
                         {condition.name}
                       </h3>
@@ -126,7 +120,7 @@ export default function TreatmentContent({ treatment }: TreatmentContentProps) {
                         Learn More
                         <ArrowRightIcon className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-300" />
                       </div>
-                    </motion.div>
+                    </div>
                   </Link>
                 )
               ))}

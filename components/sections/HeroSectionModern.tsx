@@ -30,19 +30,17 @@ export default function HeroSection() {
                   alt="KinetiKare Physiotherapy clinic"
                   fill
                   priority
-                  className="object-cover object-center"
+                  className="object-cover object-center brightness-105 contrast-105"
                   sizes="60vw"
                   unoptimized={true}
                 />
               </div>
-              {/* Premium color grading - lifted blacks, warm highlights */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#1a1f35]/20 via-transparent to-[#D4AF37]/5 mix-blend-overlay" />
-              {/* Slight desaturation for film look */}
-              <div className="absolute inset-0 bg-[#0f172a]/10 mix-blend-saturation" />
+              {/* Warm color grade */}
+              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-[#D4AF37]/10 mix-blend-overlay" />
               {/* Gradient fade to blend with diagonal */}
-              <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a] via-[#0f172a]/60 to-transparent" />
-              {/* Enhanced vignette */}
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(15,23,42,0.4)_100%)]" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a] via-[#0f172a]/40 to-transparent" />
+              {/* Subtle vignette */}
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_50%,rgba(15,23,42,0.25)_100%)]" />
             </div>
           </div>
         </div>

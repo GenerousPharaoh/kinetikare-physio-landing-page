@@ -3,221 +3,123 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { CreditCardIcon, ClockIcon } from '@heroicons/react/24/outline';
 
 export default function HeroSection() {
   return (
-    <>
-      {/* Mobile */}
-      <section className="lg:hidden min-h-screen section-temperature-a flex flex-col pt-16 relative">
-        {/* Image section */}
-        <div className="relative h-[45vh] w-full bg-white">
-          <Image
-            src="/images/clinic-pic-may-2025.jpg"
-            alt="KinetiKare Physiotherapy"
-            fill
-            priority
-            className="object-cover opacity-0 animate-[imageReveal_1.6s_cubic-bezier(0.4,0,0.2,1)_forwards]"
-            sizes="100vw"
-            unoptimized={true}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20" />
-          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
+    <section className="relative h-screen w-full overflow-hidden">
+      {/* Full-bleed background image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/clinic-pic-may-2025.jpg"
+          alt="KinetiKare Physiotherapy clinic"
+          fill
+          priority
+          className="object-cover opacity-0 animate-[heroImageReveal_1.4s_ease-out_forwards]"
+          sizes="100vw"
+          unoptimized={true}
+        />
 
-          {/* Mobile overlay badges */}
-          <div className="absolute bottom-4 left-4 right-4 flex gap-2">
-            <div className="flex-1 flex items-center gap-2 px-3 py-2 bg-black/20 backdrop-blur-sm rounded-xl border border-white/10 opacity-0 animate-[badgeEntrance_0.9s_cubic-bezier(0.34,1.56,0.64,1)_1s_forwards]">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#D4AF37]/40 to-[#B08D57]/40 flex items-center justify-center flex-shrink-0">
-                <CreditCardIcon className="w-4 h-4 text-white drop-shadow-lg" />
-              </div>
-              <div>
-                <div className="text-white/80 text-[10px] font-medium uppercase tracking-wider">Direct</div>
-                <div className="text-white text-xs font-semibold">Billing</div>
-              </div>
-            </div>
+        {/* Cinematic vignette overlays */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/20 opacity-0 animate-[heroOverlay_1s_ease-out_0.2s_forwards]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 opacity-0 animate-[heroOverlay_1s_ease-out_0.3s_forwards]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,black/30_100%)] opacity-0 animate-[heroOverlay_1s_ease-out_0.4s_forwards]" />
+      </div>
 
-            <div className="flex-1 flex items-center gap-2 px-3 py-2 bg-black/20 backdrop-blur-sm rounded-xl border border-white/10 opacity-0 animate-[badgeEntrance_0.9s_cubic-bezier(0.34,1.56,0.64,1)_1.15s_forwards]">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#D4AF37]/40 to-[#B08D57]/40 flex items-center justify-center flex-shrink-0">
-                <ClockIcon className="w-4 h-4 text-white drop-shadow-lg" />
-              </div>
-              <div>
-                <div className="text-white/80 text-[10px] font-medium uppercase tracking-wider">Evening</div>
-                <div className="text-white text-xs font-semibold">Hours</div>
-              </div>
-            </div>
-          </div>
-        </div>
+      {/* Content container - asymmetric positioning */}
+      <div className="relative h-full flex items-center">
+        <div className="w-full px-6 md:px-12 lg:px-20 xl:px-28">
+          <div className="max-w-2xl">
 
-        {/* Content section */}
-        <div className="flex-1 flex flex-col justify-center px-6 py-8">
-          <div className="text-center">
-            <p className="text-sm uppercase tracking-[0.3em] text-luxury-gradient mb-6 font-semibold opacity-0 animate-[luxuryEntrance_1.1s_cubic-bezier(0.4,0,0.2,1)_0.4s_forwards]">
+            {/* Eyebrow text */}
+            <p className="text-sm md:text-base uppercase tracking-[0.3em] text-white/80 mb-6 font-medium opacity-0 animate-[heroContentReveal_0.8s_ease-out_0.5s_forwards]">
               Registered Physiotherapist
             </p>
 
-            <h1
-              className="text-[32px] sm:text-[36px] leading-[1.2] mb-8 text-center heading-luxury-1"
-              style={{ fontFamily: "'Inter', sans-serif" }}
-            >
-              <div className="space-y-3">
-                <div className="text-primary-cool font-light tracking-wide text-[28px] sm:text-[30px] heading-luxury-2 opacity-0 animate-[luxuryEntrance_1.2s_cubic-bezier(0.4,0,0.2,1)_0.6s_forwards]">The Science of Recovery</div>
-                <div className="text-primary-warm font-medium relative tracking-wide text-[34px] sm:text-[38px] overflow-visible heading-luxury-2 opacity-0 animate-[luxuryEntrance_1.2s_cubic-bezier(0.4,0,0.2,1)_0.8s_forwards]">
-                  The Art of <span className="relative inline-block bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent font-semibold italic pr-1">Care
-                    <span className="absolute -bottom-0.5 left-0 right-0 h-[2px] bg-gradient-to-r from-[#B08D57] to-[#D4AF37] origin-left transform scale-x-0 animate-[taperedSlide_0.8s_cubic-bezier(0.34,1.56,0.64,1)_1.6s_forwards] rounded-full"></span>
+            {/* Main headline - dramatic typography */}
+            <h1 className="mb-8" style={{ fontFamily: "'Inter', sans-serif" }}>
+              <div className="space-y-2 md:space-y-3">
+                <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-light tracking-wide opacity-0 animate-[heroContentReveal_0.8s_ease-out_0.7s_forwards]">
+                  The Science of Recovery
+                </div>
+                <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-light tracking-wide opacity-0 animate-[heroContentReveal_0.8s_ease-out_0.9s_forwards]">
+                  The Art of{' '}
+                  <span className="relative inline-block">
+                    <span className="bg-gradient-to-r from-[#D4AF37] to-[#B08D57] bg-clip-text text-transparent font-medium italic">
+                      Care
+                    </span>
+                    <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-[#D4AF37] to-[#B08D57] origin-left scale-x-0 animate-[heroLineReveal_0.6s_ease-out_1.6s_forwards]" />
                   </span>
                 </div>
               </div>
             </h1>
 
-            <div className="mb-8 opacity-0 animate-[luxuryEntrance_1.1s_cubic-bezier(0.4,0,0.2,1)_1s_forwards]">
-              <div className="mb-3">
-                <p className="text-[32px] text-slate-900 brand-name" style={{ fontFamily: "'Inter', sans-serif" }}>Kareem Hassanein</p>
-              </div>
-              <div className="flex items-center justify-center gap-3">
-                <div className="h-px w-16 bg-gradient-to-r from-transparent via-[#B08D57] to-[#D4AF37]/40" />
-                <div className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37]" />
-                <div className="h-px w-16 bg-gradient-to-r from-[#D4AF37]/40 via-[#B08D57] to-transparent" />
+            {/* Name with separator */}
+            <div className="mb-8 opacity-0 animate-[heroContentReveal_0.8s_ease-out_1.1s_forwards]">
+              <p className="text-2xl md:text-3xl lg:text-4xl font-extralight text-white tracking-[0.1em] uppercase mb-4" style={{ fontFamily: "'Inter', sans-serif" }}>
+                Kareem Hassanein
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="h-px w-12 md:w-16 bg-gradient-to-r from-[#D4AF37] to-transparent" />
+                <div className="h-1.5 w-1.5 rounded-full bg-[#D4AF37]" />
+                <div className="h-px w-12 md:w-16 bg-gradient-to-l from-[#D4AF37] to-transparent" />
               </div>
             </div>
 
-            <p className="text-lg text-slate-600 mb-2 leading-relaxed max-w-lg mx-auto text-body-large opacity-0 animate-[luxuryEntrance_1s_cubic-bezier(0.4,0,0.2,1)_1.2s_forwards]">
+            {/* Description */}
+            <p className="text-base md:text-lg lg:text-xl text-white/80 mb-3 leading-relaxed max-w-xl font-light opacity-0 animate-[heroContentReveal_0.8s_ease-out_1.3s_forwards]">
               Evidence-based physiotherapy combining proven techniques with personalized attention for lasting results.
             </p>
 
-            <p className="text-sm text-slate-400 mb-10 max-w-lg mx-auto font-light opacity-0 animate-[luxuryEntrance_1s_cubic-bezier(0.4,0,0.2,1)_1.4s_forwards]">
-              Burlington clinic • Serving Burlington, Waterdown & Flamborough
+            {/* Location */}
+            <p className="text-sm md:text-base text-white/50 mb-10 font-light opacity-0 animate-[heroContentReveal_0.8s_ease-out_1.4s_forwards]">
+              Burlington • Serving Burlington, Waterdown, Oakville & Flamborough
             </p>
 
-            <div className="space-y-3 max-w-sm mx-auto w-full opacity-0 animate-[luxuryEntrance_1s_cubic-bezier(0.4,0,0.2,1)_1.6s_forwards]">
-              <div>
-                <Link
-                  href="https://endorphinshealth.janeapp.com/#/staff_member/42"
-                  target="_blank"
-                  className="block w-full text-center px-8 py-5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] hover:from-[#C99A65] hover:to-[#E6B84A] text-white hover:text-white font-semibold rounded-xl shadow-premium-2 hover:shadow-premium-2-hover shadow-transition transition-all duration-300 transform hover:-translate-y-0.5"
-                >
-                  Book Your Assessment
-                </Link>
-              </div>
-
-              <div>
-                <Link
-                  href="/services"
-                  className="block w-full text-center px-8 py-5 bg-white border-luxury-subtle text-slate-700 font-semibold rounded-xl hover:text-[#B08D57] shadow-luxury-soft hover:shadow-luxury-medium transition-all duration-500 premium-hover-lift button-luxury-primary"
-                >
-                  Explore Services
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Desktop */}
-      <section className="hidden lg:block h-screen section-temperature-a relative texture-luxury">
-        {/* Right image - absolute positioned, completely independent */}
-        <div className="absolute top-0 right-0 w-1/2 h-screen">
-          <div className="relative h-full w-full bg-white">
-            <Image
-              src="/images/clinic-pic-may-2025.jpg"
-              alt="KinetiKare Physiotherapy"
-              fill
-              priority
-              className="object-cover brightness-110 contrast-125 saturate-110 opacity-0 animate-[imageReveal_1.8s_cubic-bezier(0.4,0,0.2,1)_forwards]"
-              sizes="50vw"
-              unoptimized={true}
-            />
-            {/* Multiple dramatic overlays for depth and mood */}
-            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#B08D57]/5 to-black/25" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-[#B08D57]/10" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,black/15_100%)]" />
-            
-            {/* Elegant overlay badges */}
-            <div className="absolute bottom-20 left-10 flex flex-col gap-3">
-              <div className="group flex items-center gap-3 px-5 py-3 bg-black/20 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-black/25 transition-colors duration-300 opacity-0 animate-[badgeEntrance_0.9s_cubic-bezier(0.34,1.56,0.64,1)_1.2s_forwards]">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#D4AF37]/40 to-[#B08D57]/40 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <CreditCardIcon className="w-5 h-5 text-white drop-shadow-lg" />
-                </div>
-                <div>
-                  <div className="text-white/80 text-xs font-medium uppercase tracking-wider">Direct</div>
-                  <div className="text-white text-sm font-semibold">Insurance Billing</div>
-                </div>
-              </div>
-
-              <div className="group flex items-center gap-3 px-5 py-3 bg-black/20 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-black/25 transition-colors duration-300 opacity-0 animate-[badgeEntrance_0.9s_cubic-bezier(0.34,1.56,0.64,1)_1.4s_forwards]">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#D4AF37]/40 to-[#B08D57]/40 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <ClockIcon className="w-5 h-5 text-white drop-shadow-lg" />
-                </div>
-                <div>
-                  <div className="text-white/80 text-xs font-medium uppercase tracking-wider">Flexible</div>
-                  <div className="text-white text-sm font-semibold">Evening Hours</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Left content - independently positioned */}
-        <div className="relative h-full flex items-center pt-20">
-          <div className="w-1/2 pl-[8%] pr-[6%]">
-            <div className="max-w-2xl">
-              <p className="text-base uppercase tracking-[0.3em] text-luxury-gradient mb-6 font-semibold opacity-0 animate-[slideFromLeft_1.1s_cubic-bezier(0.4,0,0.2,1)_0.3s_forwards]">
-                Registered Physiotherapist
-              </p>
-
-              <h1
-                className="leading-[1.2] mb-8"
-                style={{ fontFamily: "'Inter', sans-serif" }}
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row gap-4 opacity-0 animate-[heroContentReveal_0.8s_ease-out_1.6s_forwards]">
+              <Link
+                href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                target="_blank"
+                className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#D4AF37] to-[#B08D57] hover:from-[#E5C04B] hover:to-[#C99A65] text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
               >
-                <div className="space-y-4">
-                  <div className="text-[34px] xl:text-[36px] text-slate-800 heading-luxury-2 opacity-0 animate-[slideFromLeft_1.2s_cubic-bezier(0.4,0,0.2,1)_0.5s_forwards]">The Science of Recovery</div>
-                  <div className="text-[40px] xl:text-[44px] text-slate-800 heading-luxury-1 relative overflow-visible opacity-0 animate-[slideFromLeft_1.2s_cubic-bezier(0.4,0,0.2,1)_0.7s_forwards]">
-                    The Art of <span className="relative inline-block bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent font-semibold italic pr-1">Care
-                      <span className="absolute -bottom-0.5 left-0 right-0 h-[2px] bg-gradient-to-r from-[#B08D57] to-[#D4AF37] origin-left transform scale-x-0 animate-[taperedSlide_0.8s_cubic-bezier(0.34,1.56,0.64,1)_1.6s_forwards] rounded-full"></span>
-                    </span>
-                  </div>
-                </div>
-              </h1>
+                Book Your Assessment
+              </Link>
 
-              <div className="mb-6 opacity-0 animate-[slideFromLeft_1.1s_cubic-bezier(0.4,0,0.2,1)_0.9s_forwards]">
-                <div className="mb-4">
-                  <p className="text-[38px] font-extralight text-slate-900 tracking-[0.15em] uppercase" style={{ fontFamily: "'Inter', sans-serif" }}>Kareem Hassanein</p>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="h-px w-20 bg-gradient-to-r from-transparent via-[#B08D57] to-[#D4AF37]/40" />
-                  <div className="h-2 w-2 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37]" />
-                  <div className="h-px w-20 bg-gradient-to-r from-[#D4AF37]/40 via-[#B08D57] to-transparent" />
-                </div>
+              <Link
+                href="/services"
+                className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-semibold rounded-lg hover:bg-white/20 hover:border-white/30 transition-all duration-300 hover:-translate-y-0.5"
+              >
+                Explore Services
+              </Link>
+            </div>
+
+            {/* Minimal badges - bottom of content */}
+            <div className="flex gap-6 mt-10 opacity-0 animate-[heroContentReveal_0.8s_ease-out_1.8s_forwards]">
+              <div className="flex items-center gap-2 text-white/60">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                </svg>
+                <span className="text-sm font-light">Direct Billing</span>
               </div>
-
-              <p className="text-xl text-slate-600 mb-2 leading-relaxed max-w-2xl font-light opacity-0 animate-[slideFromLeft_1s_cubic-bezier(0.4,0,0.2,1)_1.1s_forwards]">
-                Evidence-based physiotherapy combining proven techniques with personalized attention for lasting results.
-              </p>
-
-              <p className="text-sm text-slate-400 mb-10 max-w-2xl font-light opacity-0 animate-[slideFromLeft_1s_cubic-bezier(0.4,0,0.2,1)_1.3s_forwards]">
-                Burlington clinic • Conveniently serving Burlington, Oakville, Waterdown & Flamborough residents
-              </p>
-
-              <div className="flex gap-4 mb-8 opacity-0 animate-[slideFromLeft_1s_cubic-bezier(0.4,0,0.2,1)_1.5s_forwards]">
-                <Link
-                  href="https://endorphinshealth.janeapp.com/#/staff_member/42"
-                  target="_blank"
-                  className="px-10 py-5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] hover:from-[#C99A65] hover:to-[#E6B84A] text-white hover:text-white font-semibold rounded-xl shadow-premium-2 hover:shadow-premium-2-hover shadow-transition transition-all duration-300 transform hover:-translate-y-1"
-                >
-                  Book Your Assessment
-                </Link>
-
-                <Link
-                  href="/services"
-                  className="px-10 py-5 bg-white border-2 border-slate-200 text-slate-700 font-semibold rounded-xl hover:border-[#B08D57] hover:text-[#B08D57] shadow-premium-1 hover:shadow-premium-1-hover shadow-transition transition-all duration-300 transform hover:-translate-y-1"
-                >
-                  Explore Services
-                </Link>
+              <div className="flex items-center gap-2 text-white/60">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span className="text-sm font-light">Evening Hours</span>
               </div>
             </div>
+
           </div>
         </div>
-      </section>
-    </>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-0 animate-[heroContentReveal_0.8s_ease-out_2s_forwards]">
+        <div className="flex flex-col items-center gap-2 text-white/40">
+          <span className="text-xs uppercase tracking-widest">Scroll</span>
+          <div className="w-px h-8 bg-gradient-to-b from-white/40 to-transparent animate-pulse" />
+        </div>
+      </div>
+    </section>
   );
 }

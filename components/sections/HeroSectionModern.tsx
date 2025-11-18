@@ -14,71 +14,70 @@ export default function HeroSection() {
           alt="KinetiKare Physiotherapy clinic"
           fill
           priority
-          className="object-cover opacity-0 animate-[fadeIn_1.2s_ease-out_forwards]"
+          className="object-cover opacity-0 animate-[zoomReveal_1.5s_cubic-bezier(0.33,1,0.68,1)_forwards]"
           sizes="100vw"
           unoptimized={true}
         />
-        {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-black/50 opacity-0 animate-[fadeIn_1s_ease-out_0.2s_forwards]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/30" />
       </div>
 
       {/* Content */}
-      <div className="relative h-full flex items-center">
-        <div className="w-full px-6 md:px-12 lg:px-20 pt-20">
-          <div className="max-w-3xl">
+      <div className="relative h-full flex flex-col justify-center px-6 md:px-12 lg:px-20 pt-20">
 
-            {/* Eyebrow */}
-            <p className="text-sm uppercase tracking-[0.25em] text-[#D4AF37] mb-6 font-medium opacity-0 animate-[slideUp_0.6s_ease-out_0.4s_forwards]">
-              Registered Physiotherapist
-            </p>
+        {/* Top: Eyebrow */}
+        <p className="text-xs uppercase tracking-[0.3em] text-[#D4AF37] mb-4 font-medium opacity-0 animate-[fadeDown_0.8s_cubic-bezier(0.33,1,0.68,1)_0.3s_forwards]">
+          Registered Physiotherapist
+        </p>
 
-            {/* Name - prominent with premium serif font */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-8 opacity-0 animate-[slideUp_0.7s_ease-out_0.6s_forwards]" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 400 }}>
-              Kareem Hassanein
-            </h1>
+        {/* Name - elegant light serif with tracking */}
+        <h1
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white mb-8 tracking-[0.02em] opacity-0 animate-[slideFromLeft_1s_cubic-bezier(0.33,1,0.68,1)_0.5s_forwards]"
+          style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300 }}
+        >
+          Kareem Hassanein
+        </h1>
 
-            {/* Tagline - split for visual interest */}
-            <div className="mb-6 opacity-0 animate-[slideUp_0.6s_ease-out_0.8s_forwards]">
-              <p className="text-lg md:text-xl text-white/80 font-light tracking-wide">
-                The Science of Recovery
-              </p>
-              <p className="text-2xl md:text-3xl text-white mt-1 font-light">
-                The Art of <span className="text-[#D4AF37] font-normal italic">Care</span>
-              </p>
-            </div>
+        {/* Tagline - offset to right with different animation */}
+        <div className="md:ml-auto md:mr-12 lg:mr-24 max-w-md mb-10 opacity-0 animate-[slideFromRight_1s_cubic-bezier(0.33,1,0.68,1)_0.8s_forwards]">
+          <p className="text-lg md:text-xl text-white/70 font-light mb-2">
+            The Science of Recovery
+          </p>
+          <p className="text-2xl md:text-3xl text-white font-light">
+            The Art of <span className="text-[#D4AF37] italic">Care</span>
+          </p>
+        </div>
 
-            {/* Description */}
-            <p className="text-base md:text-lg text-white/60 mb-10 max-w-xl leading-relaxed opacity-0 animate-[slideUp_0.6s_ease-out_1s_forwards]">
-              Evidence-based physiotherapy in Burlington combining proven manual therapy techniques with personalized treatment plans.
-            </p>
+        {/* Description - back to left */}
+        <p className="text-sm md:text-base text-white/50 mb-8 max-w-md leading-relaxed opacity-0 animate-[fadeUp_0.8s_cubic-bezier(0.33,1,0.68,1)_1.1s_forwards]">
+          Evidence-based physiotherapy in Burlington. Manual therapy techniques with personalized treatment plans.
+        </p>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-10 opacity-0 animate-[slideUp_0.6s_ease-out_1.2s_forwards]">
-              <Link
-                href="https://endorphinshealth.janeapp.com/#/staff_member/42"
-                target="_blank"
-                className="inline-flex items-center justify-center px-8 py-4 bg-[#D4AF37] hover:bg-[#C9A030] text-black font-semibold rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
-              >
-                Book Assessment
-              </Link>
+        {/* CTAs and info in a row */}
+        <div className="flex flex-col sm:flex-row sm:items-center gap-6 opacity-0 animate-[fadeUp_0.8s_cubic-bezier(0.33,1,0.68,1)_1.3s_forwards]">
+          <div className="flex gap-3">
+            <Link
+              href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+              target="_blank"
+              className="inline-flex items-center justify-center px-6 py-3 bg-[#D4AF37] hover:bg-[#B8963A] text-black text-sm font-semibold rounded transition-all duration-200 hover:shadow-lg"
+            >
+              Book Assessment
+            </Link>
 
-              <Link
-                href="/services"
-                className="inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 hover:border-white/50 transition-all duration-200 hover:-translate-y-0.5"
-              >
-                View Services
-              </Link>
-            </div>
+            <Link
+              href="/services"
+              className="inline-flex items-center justify-center px-6 py-3 border border-white/30 text-white text-sm font-medium rounded hover:bg-white/10 transition-all duration-200"
+            >
+              Services
+            </Link>
+          </div>
 
-            {/* Simple info */}
-            <div className="flex items-center gap-6 text-white/50 text-sm opacity-0 animate-[fadeIn_0.6s_ease-out_1.4s_forwards]">
-              <span>Direct Insurance Billing</span>
-              <span>•</span>
-              <span>Evening Appointments</span>
-            </div>
-
+          <div className="flex items-center gap-4 text-white/40 text-xs">
+            <span>Direct Billing</span>
+            <span>•</span>
+            <span>Evening Hours</span>
           </div>
         </div>
+
       </div>
     </section>
   );

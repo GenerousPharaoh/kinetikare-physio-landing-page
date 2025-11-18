@@ -54,18 +54,18 @@ export default function HeroSection() {
               Kareem Hassanein
             </motion.h1>
 
-            {/* Tagline - clean stacked */}
+            {/* Slogan */}
             <motion.div
               className="mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.1 }}
             >
-              <p className="text-white text-xl sm:text-2xl font-light drop-shadow-[0_1px_8px_rgba(0,0,0,0.5)]">
-                Evidence-based physiotherapy
+              <p className="text-white text-xl sm:text-2xl md:text-3xl font-light drop-shadow-[0_1px_8px_rgba(0,0,0,0.5)]">
+                The Science of Recovery
               </p>
-              <p className="text-white/80 text-lg sm:text-xl font-light mt-1">
-                in Burlington, Ontario
+              <p className="text-[#D4AF37] text-xl sm:text-2xl md:text-3xl font-light mt-1 drop-shadow-[0_1px_8px_rgba(0,0,0,0.3)]">
+                The Art of Care
               </p>
             </motion.div>
 

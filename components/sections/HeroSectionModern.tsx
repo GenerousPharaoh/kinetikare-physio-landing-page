@@ -7,13 +7,13 @@ import { motion } from 'framer-motion';
 
 export default function HeroSection() {
   return (
-    <section className="relative h-screen w-full overflow-hidden">
-      {/* Background - lighter overlay */}
+    <section className="relative h-screen w-full overflow-hidden bg-black">
+      {/* Background image - minimal overlay */}
       <motion.div
         className="absolute inset-0"
-        initial={{ scale: 1.05 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
       >
         <Image
           src="/images/clinic-pic-may-2025.jpg"
@@ -24,32 +24,37 @@ export default function HeroSection() {
           sizes="100vw"
           unoptimized={true}
         />
-        {/* Subtle vignette - not overbearing */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/40" />
+        {/* Light overlay - let image breathe */}
+        <div className="absolute inset-0 bg-black/20" />
       </motion.div>
 
-      {/* Content */}
+      {/* Glass Panel */}
       <div className="relative h-full flex items-center">
-        <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16 pt-16">
-
-          <div className="max-w-2xl">
+        <motion.div
+          className="ml-6 sm:ml-8 md:ml-12 lg:ml-16 my-8"
+          initial={{ opacity: 0, x: -40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {/* Panel with glass effect and gold accent */}
+          <div className="relative bg-black/70 backdrop-blur-md border-l-2 border-[#D4AF37] p-8 sm:p-10 md:p-12 max-w-lg">
 
             {/* Eyebrow */}
             <motion.p
-              className="text-[#D4AF37] text-xs tracking-[0.2em] uppercase font-medium mb-4"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
+              className="text-[#D4AF37] text-xs tracking-[0.2em] uppercase font-medium mb-6"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
             >
               Registered Physiotherapist
             </motion.p>
 
-            {/* Name with text shadow for contrast */}
+            {/* Name */}
             <motion.h1
-              className="hero-name text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-6 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
-              initial={{ opacity: 0, y: 30 }}
+              className="hero-name text-4xl sm:text-5xl md:text-6xl text-white mb-6"
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.8, delay: 1, ease: [0.22, 1, 0.36, 1] }}
             >
               Kareem Hassanein
             </motion.h1>
@@ -57,36 +62,36 @@ export default function HeroSection() {
             {/* Slogan */}
             <motion.div
               className="mb-8"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.1 }}
+              transition={{ duration: 0.7, delay: 1.3 }}
             >
-              <p className="text-white text-xl sm:text-2xl md:text-3xl font-light drop-shadow-[0_1px_8px_rgba(0,0,0,0.5)]">
+              <p className="text-white/90 text-lg sm:text-xl md:text-2xl font-light">
                 The Science of Recovery
               </p>
-              <p className="text-[#D4AF37] text-xl sm:text-2xl md:text-3xl font-light mt-1 drop-shadow-[0_1px_8px_rgba(0,0,0,0.3)]">
+              <p className="text-[#D4AF37] text-lg sm:text-xl md:text-2xl font-light mt-1">
                 The Art of Care
               </p>
             </motion.div>
 
             {/* CTAs */}
             <motion.div
-              className="flex flex-wrap items-center gap-3"
-              initial={{ opacity: 0, y: 20 }}
+              className="flex flex-wrap gap-3 mb-8"
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.4 }}
+              transition={{ duration: 0.7, delay: 1.6 }}
             >
               <Link
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                 target="_blank"
-                className="px-6 py-3 bg-[#D4AF37] text-black text-sm font-semibold rounded-sm hover:bg-white transition-colors duration-300"
+                className="px-6 py-3 bg-[#D4AF37] text-black text-sm font-semibold hover:bg-white transition-colors duration-300"
               >
                 Book Assessment
               </Link>
 
               <Link
                 href="/services"
-                className="px-6 py-3 bg-white/10 backdrop-blur-sm text-white text-sm font-medium rounded-sm hover:bg-white/20 transition-colors duration-300"
+                className="px-6 py-3 border border-white/40 text-white text-sm font-medium hover:bg-white/10 transition-colors duration-300"
               >
                 View Services
               </Link>
@@ -94,20 +99,20 @@ export default function HeroSection() {
 
             {/* Info */}
             <motion.div
-              className="flex flex-wrap gap-4 mt-8 text-white/60 text-xs"
+              className="flex flex-wrap gap-x-4 gap-y-1 text-white/50 text-xs"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 1.8 }}
+              transition={{ duration: 0.5, delay: 1.9 }}
             >
-              <span>Direct Insurance Billing</span>
+              <span>Direct Billing</span>
               <span>•</span>
-              <span>No Referral Required</span>
+              <span>No Referral</span>
               <span>•</span>
               <span>Evening Hours</span>
             </motion.div>
 
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

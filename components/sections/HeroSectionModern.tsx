@@ -28,23 +28,27 @@ export default function HeroSection() {
           <div className="max-w-3xl">
 
             {/* Eyebrow */}
-            <p className="text-sm uppercase tracking-[0.25em] text-[#D4AF37] mb-8 font-medium opacity-0 animate-[slideUp_0.6s_ease-out_0.4s_forwards]">
+            <p className="text-sm uppercase tracking-[0.25em] text-[#D4AF37] mb-6 font-medium opacity-0 animate-[slideUp_0.6s_ease-out_0.4s_forwards]">
               Registered Physiotherapist
             </p>
 
-            {/* Name - prominent */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-6 tracking-wide opacity-0 animate-[slideUp_0.7s_ease-out_0.6s_forwards]" style={{ fontFamily: "'Inter', sans-serif" }}>
+            {/* Name - prominent with premium serif font */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-8 opacity-0 animate-[slideUp_0.7s_ease-out_0.6s_forwards]" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 400 }}>
               Kareem Hassanein
             </h1>
 
-            {/* Tagline */}
-            <p className="text-xl md:text-2xl text-white/90 mb-4 font-light opacity-0 animate-[slideUp_0.6s_ease-out_0.8s_forwards]">
-              The Science of Recovery. The Art of{' '}
-              <span className="text-[#D4AF37] italic font-normal">Care</span>.
-            </p>
+            {/* Tagline - split for visual interest */}
+            <div className="mb-6 opacity-0 animate-[slideUp_0.6s_ease-out_0.8s_forwards]">
+              <p className="text-lg md:text-xl text-white/80 font-light tracking-wide">
+                The Science of Recovery
+              </p>
+              <p className="text-2xl md:text-3xl text-white mt-1 font-light">
+                The Art of <span className="text-[#D4AF37] font-normal italic">Care</span>
+              </p>
+            </div>
 
             {/* Description */}
-            <p className="text-base md:text-lg text-white/70 mb-10 max-w-xl leading-relaxed opacity-0 animate-[slideUp_0.6s_ease-out_1s_forwards]">
+            <p className="text-base md:text-lg text-white/60 mb-10 max-w-xl leading-relaxed opacity-0 animate-[slideUp_0.6s_ease-out_1s_forwards]">
               Evidence-based physiotherapy in Burlington combining proven manual therapy techniques with personalized treatment plans.
             </p>
 
@@ -53,14 +57,14 @@ export default function HeroSection() {
               <Link
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                 target="_blank"
-                className="inline-flex items-center justify-center px-8 py-4 bg-[#D4AF37] hover:bg-[#E5C04B] text-black font-semibold rounded-lg transition-all duration-200 hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center px-8 py-4 bg-[#D4AF37] hover:bg-[#C9A030] text-black font-semibold rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
               >
                 Book Assessment
               </Link>
 
               <Link
                 href="/services"
-                className="inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-200 hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 hover:border-white/50 transition-all duration-200 hover:-translate-y-0.5"
               >
                 View Services
               </Link>

@@ -307,6 +307,14 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.1 !important;
 }
 
+/* Hero section name - elegant light serif override */
+.hero-name {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.1 !important;
+}
+
 /* Use Playfair for special accents */
 .font-accent {
   font-family: 'Playfair Display', serif !important;

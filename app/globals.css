@@ -777,9 +777,65 @@ label {
   }
 }
 
-/* Premium Hero Animations - Luxury slow reveals */
+/* Premium Hero Animations - Impactful dramatic reveals */
 
-/* Slow Ken Burns - barely perceptible movement */
+/* Dramatic background scale - starts zoomed, settles in */
+@keyframes dramaticScale {
+  0% {
+    transform: scale(1.15);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Clip reveal from left - text slides in */
+@keyframes clipRevealLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Clip reveal from bottom - dramatic text entrance */
+@keyframes clipRevealUp {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Impact fade - fade with subtle rise */
+@keyframes impactFade {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pop in - scale with overshoot for buttons */
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Legacy luxury animations */
 @keyframes kenBurnsSlow {
   0% {
     transform: scale(1) translate(0, 0);
@@ -789,7 +845,6 @@ label {
   }
 }
 
-/* Luxury fade in - slow and deliberate */
 @keyframes luxuryFadeIn {
   0% {
     opacity: 0;
@@ -799,7 +854,6 @@ label {
   }
 }
 
-/* Luxury rise - slow upward movement with weight */
 @keyframes luxuryRise {
   0% {
     opacity: 0;
@@ -811,7 +865,6 @@ label {
   }
 }
 
-/* Luxury reveal - combines fade with subtle scale */
 @keyframes luxuryReveal {
   0% {
     opacity: 0;

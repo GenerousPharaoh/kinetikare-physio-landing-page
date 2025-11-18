@@ -789,6 +789,16 @@ label {
   }
 }
 
+/* Smooth diagonal slide in */
+@keyframes slideInDiagonal {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 /* Dramatic background scale - starts zoomed, settles in */
 @keyframes dramaticScale {
   0% {

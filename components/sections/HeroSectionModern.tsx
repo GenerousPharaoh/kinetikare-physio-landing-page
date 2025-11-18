@@ -8,13 +8,8 @@ import { motion } from 'framer-motion';
 export default function HeroSection() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      {/* Image - slides in from right on desktop, fades on mobile */}
-      <motion.div
-        className="absolute inset-0"
-        initial={{ opacity: 0, x: '30%' }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-      >
+      {/* Image - static, gets revealed by diagonal */}
+      <div className="absolute inset-0">
         <div className="absolute inset-0 md:animate-[slowPan_20s_ease-in-out_infinite_alternate]">
           <Image
             src="/images/clinic-pic-may-2025.jpg"
@@ -28,31 +23,27 @@ export default function HeroSection() {
         </div>
         {/* Mobile overlay - gradient from bottom */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 md:hidden" />
-      </motion.div>
+      </div>
 
       {/* Diagonal dark section - desktop only */}
-      <motion.div
-        className="absolute inset-0 bg-[#0a0a0a] hidden md:block"
+      <div
+        className="absolute inset-0 bg-[#0a0a0a] hidden md:block will-change-transform"
         style={{
-          clipPath: 'polygon(0 0, 65% 0, 45% 100%, 0 100%)'
+          clipPath: 'polygon(0 0, 65% 0, 45% 100%, 0 100%)',
+          animation: 'slideInDiagonal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards'
         }}
-        initial={{ x: '-100%' }}
-        animate={{ x: 0 }}
-        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
       />
 
       {/* Gold accent line along diagonal - desktop only */}
-      <motion.div
-        className="absolute inset-0 hidden md:block"
+      <div
+        className="absolute inset-0 hidden md:block will-change-transform"
         style={{
-          clipPath: 'polygon(65% 0, 66% 0, 46% 100%, 45% 100%)'
+          clipPath: 'polygon(65% 0, 66.5% 0, 46.5% 100%, 45% 100%)',
+          animation: 'slideInDiagonal 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards'
         }}
-        initial={{ x: '-100%' }}
-        animate={{ x: 0 }}
-        transition={{ duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="w-full h-full bg-[#D4AF37]" />
-      </motion.div>
+      </div>
 
       {/* Content */}
       <div className="relative h-full flex items-end md:items-center pb-16 md:pb-0">

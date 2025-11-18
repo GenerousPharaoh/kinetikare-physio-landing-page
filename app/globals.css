@@ -777,7 +777,55 @@ label {
   }
 }
 
-/* Premium Hero Animations - Directional variety */
+/* Premium Hero Animations - Dynamic directional variety */
+
+/* Ken Burns effect for background - subtle continuous movement */
+@keyframes kenBurns {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  100% {
+    transform: scale(1.08) translate(-1%, -1%);
+  }
+}
+
+/* Slide in from left with spring easing */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide in from bottom - dramatic entrance */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide in from right */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Legacy animations kept for compatibility */
 @keyframes zoomReveal {
   from {
     opacity: 0;

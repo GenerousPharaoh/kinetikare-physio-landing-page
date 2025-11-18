@@ -7,76 +7,86 @@ import Image from 'next/image';
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen w-full overflow-hidden">
-      {/* Full-bleed background image */}
+      {/* Background image with ken burns effect */}
       <div className="absolute inset-0">
         <Image
           src="/images/clinic-pic-may-2025.jpg"
           alt="KinetiKare Physiotherapy clinic"
           fill
           priority
-          className="object-cover opacity-0 animate-[imageReveal_1.2s_ease-out_forwards]"
+          className="object-cover animate-[kenBurns_20s_ease-in-out_infinite_alternate]"
           sizes="100vw"
           unoptimized={true}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/40" />
       </div>
 
       {/* Content */}
-      <div className="relative min-h-screen flex flex-col justify-center px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 pt-24 pb-12">
+      <div className="relative min-h-screen flex flex-col justify-center px-6 sm:px-8 md:px-12 lg:px-16 xl:px-24 pt-20 pb-16">
 
-        {/* Main content wrapper */}
-        <div className="max-w-4xl">
+        <div className="max-w-5xl">
 
-          {/* Eyebrow */}
-          <p className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#D4AF37] mb-6 opacity-0 animate-[fadeUp_0.6s_ease-out_0.2s_forwards]">
-            Registered Physiotherapist • Burlington
-          </p>
-
-          {/* Name */}
-          <h1 className="hero-name text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-6 opacity-0 animate-[fadeUp_0.7s_ease-out_0.4s_forwards]">
-            Kareem Hassanein
-          </h1>
-
-          {/* Tagline */}
-          <div className="mb-8 opacity-0 animate-[fadeUp_0.7s_ease-out_0.6s_forwards]">
-            <p className="text-xl sm:text-2xl md:text-3xl text-white/90 font-light leading-tight">
-              The Science of Recovery.
-              <br />
-              <span className="text-[#D4AF37]">The Art of Care.</span>
+          {/* Eyebrow - slides from left */}
+          <div className="overflow-hidden mb-4">
+            <p className="text-xs sm:text-sm uppercase tracking-[0.3em] text-[#D4AF37] font-medium opacity-0 animate-[slideInLeft_0.8s_cubic-bezier(0.16,1,0.3,1)_0.3s_forwards]">
+              Registered Physiotherapist
             </p>
           </div>
 
-          {/* Description */}
-          <p className="text-sm sm:text-base text-white/60 mb-10 max-w-lg leading-relaxed opacity-0 animate-[fadeUp_0.6s_ease-out_0.8s_forwards]">
-            Evidence-based physiotherapy with personalized treatment plans.
-            Manual therapy, dry needling, and exercise rehabilitation.
+          {/* Name - large dramatic entrance */}
+          <div className="overflow-hidden mb-8">
+            <h1 className="hero-name text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] text-white opacity-0 animate-[slideInUp_1s_cubic-bezier(0.16,1,0.3,1)_0.5s_forwards]">
+              Kareem Hassanein
+            </h1>
+          </div>
+
+          {/* Tagline - fades in from right */}
+          <div className="mb-10 opacity-0 animate-[slideInRight_0.9s_cubic-bezier(0.16,1,0.3,1)_0.8s_forwards]">
+            <p className="text-2xl sm:text-3xl md:text-4xl text-white font-light leading-snug tracking-tight">
+              The Science of Recovery
+            </p>
+            <p className="text-2xl sm:text-3xl md:text-4xl font-light leading-snug tracking-tight">
+              <span className="text-[#D4AF37]">The Art of Care</span>
+            </p>
+          </div>
+
+          {/* Description - scales in */}
+          <p className="text-base sm:text-lg text-white/70 mb-12 max-w-xl leading-relaxed opacity-0 animate-[scaleIn_0.7s_cubic-bezier(0.16,1,0.3,1)_1.1s_forwards]">
+            Evidence-based physiotherapy in Burlington. Manual therapy, dry needling, and personalized rehabilitation programs.
           </p>
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row sm:items-center gap-4 opacity-0 animate-[fadeUp_0.6s_ease-out_1s_forwards]">
+          {/* CTAs - staggered entrance */}
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-10">
             <Link
               href="https://endorphinshealth.janeapp.com/#/staff_member/42"
               target="_blank"
-              className="inline-flex items-center justify-center px-7 py-3.5 bg-[#D4AF37] text-black text-sm font-semibold rounded-md transition-all duration-200 hover:brightness-110 hover:shadow-lg hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center px-8 py-4 bg-[#D4AF37] text-black text-base font-semibold rounded-lg transition-all duration-300 hover:bg-white hover:text-black hover:shadow-2xl hover:-translate-y-1 opacity-0 animate-[slideInUp_0.6s_cubic-bezier(0.16,1,0.3,1)_1.3s_forwards]"
             >
               Book Assessment
             </Link>
 
             <Link
               href="/services"
-              className="inline-flex items-center justify-center px-7 py-3.5 border border-white/40 text-white text-sm font-medium rounded-md hover:bg-white/10 hover:border-white/60 transition-all duration-200"
+              className="inline-flex items-center justify-center px-8 py-4 border-2 border-white/50 text-white text-base font-medium rounded-lg hover:bg-white hover:text-black transition-all duration-300 opacity-0 animate-[slideInUp_0.6s_cubic-bezier(0.16,1,0.3,1)_1.45s_forwards]"
             >
               View Services
             </Link>
           </div>
 
           {/* Info badges */}
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-8 text-white/50 text-xs opacity-0 animate-[fadeUp_0.5s_ease-out_1.2s_forwards]">
-            <span>Direct Insurance Billing</span>
-            <span className="hidden sm:inline">•</span>
-            <span>No Referral Required</span>
-            <span className="hidden sm:inline">•</span>
-            <span>Evening Hours</span>
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-3 text-white/60 text-sm opacity-0 animate-[fadeIn_0.8s_ease-out_1.6s_forwards]">
+            <span className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 bg-[#D4AF37] rounded-full"></span>
+              Direct Billing
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 bg-[#D4AF37] rounded-full"></span>
+              No Referral Required
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 bg-[#D4AF37] rounded-full"></span>
+              Evening Hours
+            </span>
           </div>
         </div>
 

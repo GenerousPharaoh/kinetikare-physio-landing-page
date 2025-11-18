@@ -777,9 +777,53 @@ label {
   }
 }
 
-/* Premium Hero Animations - Dynamic directional variety */
+/* Premium Hero Animations - Luxury slow reveals */
 
-/* Ken Burns effect for background - subtle continuous movement */
+/* Slow Ken Burns - barely perceptible movement */
+@keyframes kenBurnsSlow {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  100% {
+    transform: scale(1.05) translate(-0.5%, -0.5%);
+  }
+}
+
+/* Luxury fade in - slow and deliberate */
+@keyframes luxuryFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Luxury rise - slow upward movement with weight */
+@keyframes luxuryRise {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Luxury reveal - combines fade with subtle scale */
+@keyframes luxuryReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Legacy animations kept for compatibility */
 @keyframes kenBurns {
   0% {
     transform: scale(1) translate(0, 0);
@@ -789,7 +833,6 @@ label {
   }
 }
 
-/* Slide in from left with spring easing */
 @keyframes slideInLeft {
   from {
     opacity: 0;
@@ -801,7 +844,6 @@ label {
   }
 }
 
-/* Slide in from bottom - dramatic entrance */
 @keyframes slideInUp {
   from {
     opacity: 0;
@@ -813,7 +855,6 @@ label {
   }
 }
 
-/* Slide in from right */
 @keyframes slideInRight {
   from {
     opacity: 0;

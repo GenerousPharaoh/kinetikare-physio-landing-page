@@ -779,6 +779,16 @@ label {
 
 /* Premium Hero Animations - Impactful dramatic reveals */
 
+/* Slow horizontal pan for hero image */
+@keyframes slowPan {
+  0% {
+    transform: translateX(-3%) scale(1.1);
+  }
+  100% {
+    transform: translateX(3%) scale(1.1);
+  }
+}
+
 /* Dramatic background scale - starts zoomed, settles in */
 @keyframes dramaticScale {
   0% {

@@ -8,18 +8,25 @@ import { motion } from 'framer-motion';
 export default function HeroSection() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      {/* Full image background */}
-      <div className="absolute inset-0">
-        <Image
-          src="/images/clinic-pic-may-2025.jpg"
-          alt="KinetiKare Physiotherapy clinic"
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
-          unoptimized={true}
-        />
-      </div>
+      {/* Image side - slides in from right and pans */}
+      <motion.div
+        className="absolute inset-0"
+        initial={{ x: '100%' }}
+        animate={{ x: 0 }}
+        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <div className="absolute inset-0 animate-[slowPan_20s_ease-in-out_infinite_alternate]">
+          <Image
+            src="/images/clinic-pic-may-2025.jpg"
+            alt="KinetiKare Physiotherapy clinic"
+            fill
+            priority
+            className="object-cover scale-110"
+            sizes="100vw"
+            unoptimized={true}
+          />
+        </div>
+      </motion.div>
 
       {/* Diagonal dark section */}
       <motion.div

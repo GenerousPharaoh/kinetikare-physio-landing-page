@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { CheckCircleIcon, ClockIcon, DocumentCheckIcon } from '@heroicons/react/24/outline';
+import { CheckCircleIcon, ClockIcon, DocumentCheckIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
 
 export default function HeroSection() {
   return (
@@ -100,6 +100,14 @@ export default function HeroSection() {
         }}
       />
 
+      {/* Light glow from diagonal edge */}
+      <div
+        className="absolute inset-0 hidden md:block pointer-events-none"
+        style={{
+          background: 'linear-gradient(115deg, transparent 40%, rgba(212,175,55,0.03) 50%, transparent 60%)',
+        }}
+      />
+
       {/* Content */}
       <div className="relative h-full flex items-end md:items-center pb-16 md:pb-0">
         <div className="w-full md:max-w-[55%] px-6 sm:px-8 md:px-12 lg:px-16 pt-16">
@@ -115,36 +123,58 @@ export default function HeroSection() {
           </motion.p>
 
           {/* Name */}
-          <motion.h1
-            className="hero-name text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-6"
+          <motion.div
+            className="mb-6"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            Kareem Hassanein
-          </motion.h1>
-
-          {/* Slogan */}
-          <motion.div
-            className="mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 1.1 }}
-          >
-            <p className="text-white/90 text-lg sm:text-xl md:text-2xl font-light">
-              The Science of Recovery
-            </p>
-            <p className="text-[#D4AF37] text-lg sm:text-xl md:text-2xl font-light mt-1">
-              The Art of Care
-            </p>
+            <h1
+              className="hero-name text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white"
+              style={{
+                textShadow: '0 4px 20px rgba(0,0,0,0.3)'
+              }}
+            >
+              Kareem Hassanein
+            </h1>
+            {/* Gold accent underline */}
+            <motion.div
+              className="h-[2px] w-16 mt-4 rounded-full"
+              style={{
+                background: 'linear-gradient(90deg, #D4AF37, transparent)'
+              }}
+              initial={{ scaleX: 0, opacity: 0 }}
+              animate={{ scaleX: 1, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            />
           </motion.div>
+
+          {/* Slogan - staggered */}
+          <div className="mb-8">
+            <motion.p
+              className="text-white/90 text-lg sm:text-xl md:text-2xl font-light"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 1.0, ease: [0.22, 1, 0.36, 1] }}
+            >
+              The Science of Recovery
+            </motion.p>
+            <motion.p
+              className="text-[#D4AF37] text-lg sm:text-xl md:text-2xl font-light mt-1"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 1.15, ease: [0.22, 1, 0.36, 1] }}
+            >
+              The Art of Care
+            </motion.p>
+          </div>
 
           {/* CTAs */}
           <motion.div
             className="flex flex-wrap gap-3 mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 1.4 }}
+            transition={{ duration: 0.6, delay: 1.35, ease: [0.22, 1, 0.36, 1] }}
           >
             <Link
               href="https://endorphinshealth.janeapp.com/#/staff_member/42"
@@ -167,13 +197,13 @@ export default function HeroSection() {
             className="flex flex-wrap gap-3"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 1.7 }}
+            transition={{ duration: 0.5, delay: 1.6 }}
           >
             <motion.div
               className="flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-full"
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4, delay: 1.8 }}
+              transition={{ duration: 0.4, delay: 1.7 }}
             >
               <DocumentCheckIcon className="w-3.5 h-3.5 text-[#D4AF37]" />
               <span className="text-white/70 text-xs">Direct Billing</span>
@@ -182,7 +212,7 @@ export default function HeroSection() {
               className="flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-full"
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4, delay: 1.9 }}
+              transition={{ duration: 0.4, delay: 1.8 }}
             >
               <CheckCircleIcon className="w-3.5 h-3.5 text-[#D4AF37]" />
               <span className="text-white/70 text-xs">No Referral</span>
@@ -191,7 +221,7 @@ export default function HeroSection() {
               className="flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-full"
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4, delay: 2.0 }}
+              transition={{ duration: 0.4, delay: 1.9 }}
             >
               <ClockIcon className="w-3.5 h-3.5 text-[#D4AF37]" />
               <span className="text-white/70 text-xs">Evening Hours</span>
@@ -200,6 +230,22 @@ export default function HeroSection() {
 
         </div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 2.2 }}
+      >
+        <span className="text-white/40 text-[10px] tracking-[0.2em] uppercase">Scroll</span>
+        <motion.div
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <ChevronDownIcon className="w-4 h-4 text-white/40" />
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

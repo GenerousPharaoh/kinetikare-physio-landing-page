@@ -270,19 +270,24 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
       }}
     >
       {/* Single Unified Navigation Bar */}
-      <div 
-        className={`relative w-full transition-all duration-[400ms] border-0 outline-none`} 
-        style={{ 
-          background: 'linear-gradient(90deg, rgb(15, 23, 42) 0%, rgb(23, 37, 84) 50%, rgb(15, 23, 42) 100%)',
-          backgroundSize: '200% 100%',
-          animation: 'shimmer 25s ease-in-out infinite',
-          boxShadow: '0 1px 0 rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.15)',
-          borderTop: '1px solid rgba(212, 175, 55, 0.08)',
+      <div
+        className={`relative w-full transition-all duration-[400ms] border-0 outline-none`}
+        style={{
+          background: 'linear-gradient(135deg, rgb(15, 23, 42) 0%, rgb(20, 30, 60) 50%, rgb(15, 23, 42) 100%)',
+          boxShadow: scrolled
+            ? '0 4px 20px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(212, 175, 55, 0.1)'
+            : '0 2px 10px rgba(0, 0, 0, 0.2)',
           transform: 'translateZ(0)',
           backfaceVisibility: 'hidden' as const,
-          willChange: 'transform, background-position'
         }}
       >
+        {/* Subtle gold accent line at bottom */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-[1px]"
+          style={{
+            background: 'linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent)'
+          }}
+        />
       
         <div className="container mx-auto px-4 lg:px-6 relative">
           <div className="flex items-center justify-between h-16 gap-4">
@@ -325,42 +330,29 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
           </Link>
 
             {/* Navigation */}
-            <nav className="hidden lg:flex items-center gap-1 lg:gap-2 xl:gap-4 2xl:gap-6 flex-1 justify-center px-2 xl:px-4">
+            <nav className="hidden lg:flex items-center gap-1 xl:gap-2 2xl:gap-4 flex-1 justify-center px-2 xl:px-4">
               {mainNavItems.map((item) => (
                 <div key={item.name} className="relative group/nav">
                   <Link
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href)}
-                    className={`relative text-xs lg:text-sm xl:text-base font-medium transition-all duration-[400ms] ease-out py-2 group whitespace-nowrap outline-none
+                    className={`relative text-[13px] xl:text-sm font-medium transition-all duration-300 ease-out px-3 py-2 rounded-md group whitespace-nowrap outline-none
                       ${isCurrentPath(item.href)
-                        ? '!text-[#D4AF37] font-normal hover:!text-[#E6C157]'
-                        : '!text-white hover:!text-[#D4AF37]'}`}
+                        ? '!text-[#D4AF37]'
+                        : '!text-white/80 hover:!text-white hover:bg-white/5'}`}
                     style={{
-                      letterSpacing: '0.08em',
+                      letterSpacing: '0.03em',
                       fontVariantLigatures: 'common-ligatures',
                       WebkitFontSmoothing: 'antialiased',
                       MozOsxFontSmoothing: 'grayscale',
-                      transform: 'translateZ(0)',
-                      willChange: 'transform, color'
                     }}
                   >
                     {item.name}
 
-                    {/* Underline indicator with glow */}
-                    <span className={`absolute bottom-0 left-0 right-0 h-0.5 transform origin-left transition-all duration-[400ms] ease-out
-                      ${isCurrentPath(item.href) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}
-                      style={{
-                        background: 'linear-gradient(90deg, #D4AF37, #E6C157, #D4AF37)',
-                        filter: 'drop-shadow(0 0 3px rgba(212, 175, 55, 0.4))'
-                      }}>
+                    {/* Subtle underline indicator */}
+                    <span className={`absolute bottom-1 left-3 right-3 h-[2px] transform origin-left transition-all duration-300 ease-out rounded-full
+                      ${isCurrentPath(item.href) ? 'scale-x-100 bg-[#D4AF37]' : 'scale-x-0 group-hover:scale-x-100 bg-white/30'}`}>
                     </span>
-
-                    {/* Hover backdrop glow */}
-                    <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-[400ms] pointer-events-none"
-                      style={{
-                        background: 'radial-gradient(ellipse at center, rgba(212, 175, 55, 0.05), transparent)',
-                        filter: 'blur(8px)'
-                      }}></span>
                   </Link>
 
                   {/* Conditions Dropdown Menu */}
@@ -404,25 +396,25 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
             <div className="flex items-center gap-2 lg:gap-3 flex-shrink-0">
               <Link
                 href="tel:+19056346000"
-                className="hidden lg:flex items-center text-sm font-medium tracking-wide text-white/80 hover:text-white transition-colors duration-300 whitespace-nowrap"
+                className="hidden lg:flex items-center gap-2 text-sm font-medium text-white/70 hover:text-[#D4AF37] transition-all duration-300 whitespace-nowrap group"
               >
-                <PhoneIcon className="h-4 w-4 xl:mr-2" />
+                <PhoneIcon className="h-4 w-4 group-hover:scale-110 transition-transform duration-300" />
                 <span className="hidden xl:inline">905-634-6000</span>
               </Link>
 
               {/* Search Button - Desktop Only */}
               <button
                 onClick={() => setSearchModalOpen(true)}
-                className="hidden sm:block p-2.5 bg-white/10 hover:bg-white/20 text-white hover:text-[#D4AF37] rounded-lg transition-all duration-300 border border-white/20"
+                className="hidden sm:flex items-center justify-center w-9 h-9 bg-white/5 hover:bg-white/10 text-white/70 hover:text-[#D4AF37] rounded-lg transition-all duration-300 border border-white/10 hover:border-[#D4AF37]/30"
                 aria-label="Search"
               >
-                <MagnifyingGlassIcon className="h-5 w-5" />
+                <MagnifyingGlassIcon className="h-4 w-4" />
               </button>
 
               {/* Phone icon for smaller screens */}
               <Link
                 href="tel:+19056346000"
-                className="sm:hidden p-2 bg-white/10 hover:bg-white/20 text-white hover:text-[#D4AF37] rounded-lg transition-all duration-300 border border-white/20"
+                className="sm:hidden flex items-center justify-center w-9 h-9 bg-white/5 hover:bg-white/10 text-white/70 hover:text-[#D4AF37] rounded-lg transition-all duration-300 border border-white/10"
               >
                 <PhoneIcon className="h-4 w-4" />
               </Link>
@@ -431,17 +423,15 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative overflow-hidden bg-[#D4AF37] text-white text-xs lg:text-sm font-medium px-2 sm:px-3 lg:px-4 xl:px-5 py-2 sm:py-2.5 rounded-lg flex items-center gap-1 lg:gap-2 whitespace-nowrap shadow-lg group"
+                className="relative overflow-hidden bg-gradient-to-r from-[#D4AF37] to-[#C9A227] text-slate-900 text-xs lg:text-sm font-semibold px-3 sm:px-4 lg:px-5 xl:px-6 py-2.5 rounded-lg flex items-center gap-1.5 lg:gap-2 whitespace-nowrap shadow-lg hover:shadow-xl group transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
                 style={{
-                  letterSpacing: '0.08em',
+                  letterSpacing: '0.05em',
                   transform: 'translateZ(0)',
-                  animation: 'breathe 3s ease-in-out infinite',
-                  willChange: 'transform'
                 }}
               >
-                <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/40 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></span>
-                <CalendarDaysIcon className="h-3.5 lg:h-4 w-3.5 lg:w-4 relative z-10" />
-                <span className="hidden sm:inline relative z-10">Book Appointment</span>
+                <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></span>
+                <CalendarDaysIcon className="h-4 w-4 relative z-10" />
+                <span className="hidden sm:inline relative z-10">Book Now</span>
                 <span className="sm:hidden relative z-10">Book</span>
               </Link>
 

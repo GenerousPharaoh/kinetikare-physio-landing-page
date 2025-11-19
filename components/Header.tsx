@@ -293,15 +293,15 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
           <div className="flex items-center justify-between h-16 gap-4">
             
             {/* Logo Section */}
-            <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0">
+            <Link href="/" className="flex items-center gap-2 group flex-shrink-0">
               <div className="flex items-center gap-1">
-                <div className="relative flex items-center justify-center w-10 h-10">
+                <div className="relative flex items-center justify-center w-8 h-8 lg:w-9 lg:h-9">
                   <Image
                     src="/images/kinetikare-logo-without-text.webp"
                     alt="KinetiKare physiotherapy logo Burlington Waterdown Kareem Hassanein"
                     width={36}
                     height={36}
-                    className="w-9 h-9 object-contain transition-all duration-[400ms] ease-out group-hover:scale-110"
+                    className="w-7 h-7 lg:w-8 lg:h-8 object-contain transition-all duration-[400ms] ease-out group-hover:scale-110"
                     style={{
                       filter: 'contrast(1.2) saturate(1.3) brightness(1.1) drop-shadow(0 2px 4px rgba(255, 255, 255, 0.15)) drop-shadow(0 0 8px rgba(212, 175, 55, 0.2))',
                       imageRendering: 'crisp-edges',
@@ -309,39 +309,34 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                       willChange: 'transform'
                     }}
                   />
-                  {/* Enhanced glow effect with pulse */}
-                  <div className="absolute inset-0 w-10 h-10 bg-[#D4AF37]/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-all duration-[600ms] ease-out"
-                    style={{
-                      animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
-                    }}></div>
                 </div>
                 <div className="flex items-center">
-                  <span className="text-[18px] lg:text-[20px] xl:text-[22px] 2xl:text-[24px] text-white font-extralight tracking-[0.12em] leading-none uppercase" style={{ fontFamily: "'Montserrat', sans-serif", letterSpacing: '0.12em' }}>Kineti</span>
-                  <span className="text-[18px] lg:text-[20px] xl:text-[22px] 2xl:text-[24px] text-[#D4AF37] font-bold leading-none uppercase" style={{ fontFamily: "'Montserrat', sans-serif" }}>K</span>
-                  <span className="text-[18px] lg:text-[20px] xl:text-[22px] 2xl:text-[24px] text-white font-extralight tracking-[0.12em] leading-none uppercase" style={{ fontFamily: "'Montserrat', sans-serif", letterSpacing: '0.12em' }}>are</span>
+                  <span className="text-[16px] lg:text-[17px] xl:text-[20px] text-white font-extralight tracking-[0.1em] leading-none uppercase" style={{ fontFamily: "'Montserrat', sans-serif" }}>Kineti</span>
+                  <span className="text-[16px] lg:text-[17px] xl:text-[20px] text-[#D4AF37] font-bold leading-none uppercase" style={{ fontFamily: "'Montserrat', sans-serif" }}>K</span>
+                  <span className="text-[16px] lg:text-[17px] xl:text-[20px] text-white font-extralight tracking-[0.1em] leading-none uppercase" style={{ fontFamily: "'Montserrat', sans-serif" }}>are</span>
                 </div>
               </div>
-              <div className="hidden lg:block w-px h-5 bg-[#D4AF37]/30 mx-3"></div>
-              <div className="hidden lg:flex flex-col justify-center">
-                <div className="text-xs xl:text-sm text-white/80 font-medium leading-tight">
+              <div className="hidden xl:block w-px h-4 bg-[#D4AF37]/30 mx-2"></div>
+              <div className="hidden xl:flex flex-col justify-center">
+                <div className="text-[11px] xl:text-xs text-white/70 font-medium leading-tight">
                   Kareem Hassanein Physiotherapy
                 </div>
               </div>
           </Link>
 
             {/* Navigation */}
-            <nav className="hidden lg:flex items-center gap-1 xl:gap-2 2xl:gap-4 flex-1 justify-center px-2 xl:px-4">
+            <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1 2xl:gap-3 flex-1 justify-center px-1 xl:px-4">
               {mainNavItems.map((item) => (
                 <div key={item.name} className="relative group/nav">
                   <Link
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href)}
-                    className={`relative text-[13px] xl:text-sm font-medium transition-all duration-300 ease-out px-3 py-2 rounded-md group whitespace-nowrap outline-none
+                    className={`relative text-[11px] lg:text-xs xl:text-sm font-medium transition-all duration-300 ease-out px-2 xl:px-3 py-1.5 xl:py-2 rounded-md group whitespace-nowrap outline-none
                       ${isCurrentPath(item.href)
                         ? '!text-[#D4AF37]'
                         : '!text-white/80 hover:!text-white hover:bg-white/5'}`}
                     style={{
-                      letterSpacing: '0.03em',
+                      letterSpacing: '0.02em',
                       fontVariantLigatures: 'common-ligatures',
                       WebkitFontSmoothing: 'antialiased',
                       MozOsxFontSmoothing: 'grayscale',
@@ -350,7 +345,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                     {item.name}
 
                     {/* Subtle underline indicator */}
-                    <span className={`absolute bottom-1 left-3 right-3 h-[2px] transform origin-left transition-all duration-300 ease-out rounded-full
+                    <span className={`absolute bottom-1 left-2 right-2 xl:left-3 xl:right-3 h-[2px] transform origin-left transition-all duration-300 ease-out rounded-full
                       ${isCurrentPath(item.href) ? 'scale-x-100 bg-[#D4AF37]' : 'scale-x-0 group-hover:scale-x-100 bg-white/30'}`}>
                     </span>
                   </Link>
@@ -393,44 +388,44 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
             </nav>
 
             {/* Action Buttons */}
-            <div className="flex items-center gap-2 lg:gap-3 flex-shrink-0">
+            <div className="flex items-center gap-1.5 lg:gap-2 flex-shrink-0">
               <Link
                 href="tel:+19056346000"
-                className="hidden lg:flex items-center gap-2 text-sm font-medium text-white/70 hover:text-[#D4AF37] transition-all duration-300 whitespace-nowrap group"
+                className="hidden lg:flex items-center gap-1.5 text-xs xl:text-sm font-medium text-white/70 hover:text-[#D4AF37] transition-all duration-300 whitespace-nowrap group"
               >
-                <PhoneIcon className="h-4 w-4 group-hover:scale-110 transition-transform duration-300" />
+                <PhoneIcon className="h-3.5 w-3.5 xl:h-4 xl:w-4 group-hover:scale-110 transition-transform duration-300" />
                 <span className="hidden xl:inline">905-634-6000</span>
               </Link>
 
               {/* Search Button - Desktop Only */}
               <button
                 onClick={() => setSearchModalOpen(true)}
-                className="hidden sm:flex items-center justify-center w-9 h-9 bg-white/5 hover:bg-white/10 text-white/70 hover:text-[#D4AF37] rounded-lg transition-all duration-300 border border-white/10 hover:border-[#D4AF37]/30"
+                className="hidden sm:flex items-center justify-center w-8 h-8 bg-white/5 hover:bg-white/10 text-white/70 hover:text-[#D4AF37] rounded-md transition-all duration-300 border border-white/10 hover:border-[#D4AF37]/30"
                 aria-label="Search"
               >
-                <MagnifyingGlassIcon className="h-4 w-4" />
+                <MagnifyingGlassIcon className="h-3.5 w-3.5" />
               </button>
 
               {/* Phone icon for smaller screens */}
               <Link
                 href="tel:+19056346000"
-                className="sm:hidden flex items-center justify-center w-9 h-9 bg-white/5 hover:bg-white/10 text-white/70 hover:text-[#D4AF37] rounded-lg transition-all duration-300 border border-white/10"
+                className="sm:hidden flex items-center justify-center w-8 h-8 bg-white/5 hover:bg-white/10 text-white/70 hover:text-[#D4AF37] rounded-md transition-all duration-300 border border-white/10"
               >
-                <PhoneIcon className="h-4 w-4" />
+                <PhoneIcon className="h-3.5 w-3.5" />
               </Link>
 
               <Link
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative overflow-hidden bg-gradient-to-r from-[#D4AF37] to-[#C9A227] text-slate-900 text-xs lg:text-sm font-semibold px-3 sm:px-4 lg:px-5 xl:px-6 py-2.5 rounded-lg flex items-center gap-1.5 lg:gap-2 whitespace-nowrap shadow-lg hover:shadow-xl group transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                className="relative overflow-hidden bg-gradient-to-r from-[#D4AF37] to-[#C9A227] text-slate-900 text-[10px] lg:text-xs xl:text-sm font-semibold px-2.5 sm:px-3 lg:px-4 xl:px-5 py-2 lg:py-2.5 rounded-md lg:rounded-lg flex items-center gap-1 lg:gap-1.5 whitespace-nowrap shadow-lg hover:shadow-xl group transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
                 style={{
-                  letterSpacing: '0.05em',
+                  letterSpacing: '0.03em',
                   transform: 'translateZ(0)',
                 }}
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></span>
-                <CalendarDaysIcon className="h-4 w-4 relative z-10" />
+                <CalendarDaysIcon className="h-3.5 w-3.5 lg:h-4 lg:w-4 relative z-10" />
                 <span className="hidden sm:inline relative z-10">Book Now</span>
                 <span className="sm:hidden relative z-10">Book</span>
               </Link>

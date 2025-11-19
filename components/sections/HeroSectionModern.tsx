@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { CheckCircleIcon, ClockIcon, DocumentCheckIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
+import { CheckCircleIcon, ClockIcon, DocumentCheckIcon } from '@heroicons/react/24/outline';
 
 export default function HeroSection() {
   return (
@@ -230,22 +230,6 @@ export default function HeroSection() {
 
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2"
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 2.2 }}
-      >
-        <span className="text-white/40 text-[10px] tracking-[0.2em] uppercase">Scroll</span>
-        <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <ChevronDownIcon className="w-4 h-4 text-white/40" />
-        </motion.div>
-      </motion.div>
     </section>
   );
 }

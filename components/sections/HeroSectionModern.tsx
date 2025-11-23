@@ -32,7 +32,7 @@ export default function HeroSection() {
     hidden: { clipPath: 'polygon(0 0, 0 0, 0 100%, 0 100%)' },
     visible: {
       clipPath: 'polygon(0 0, 65% 0, 45% 100%, 0 100%)',
-      transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] }
+      transition: { duration: 1.4, ease: [0.16, 1, 0.3, 1] } // Smoother custom bezier
     }
   };
 
@@ -43,24 +43,46 @@ export default function HeroSection() {
       <div className="absolute inset-0">
         <motion.div
           className="absolute inset-0 hidden md:block"
-          initial={{ scale: 1.1, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5 }}
         >
-          <div className="absolute top-0 right-0 w-[65%] h-full">
-            <Image
-              src="/images/clinic-pic-may-2025.jpg"
-              alt="KinetiKare Physiotherapy clinic"
-              fill
-              priority
-              className="object-cover object-center brightness-105 contrast-105"
-              sizes="65vw"
-              unoptimized={true}
-            />
-            {/* Sophisticated Overlays */}
+          <div className="absolute top-0 right-0 w-[65%] h-full overflow-hidden">
+            <motion.div
+              className="relative w-full h-full will-change-transform"
+              initial={{ scale: 1, x: 0 }}
+              animate={{
+                scale: [1, 1.15],
+                x: [0, -20]
+              }}
+              transition={{
+                duration: 20,
+                repeat: Infinity,
+                repeatType: "reverse",
+                ease: "linear"
+              }}
+            >
+              <Image
+                src="/images/clinic-pic-may-2025.jpg"
+                alt="KinetiKare Physiotherapy clinic"
+                fill
+                priority
+                className="object-cover object-center brightness-105 contrast-110"
+                sizes="65vw"
+                unoptimized={true}
+              />
+            </motion.div>
+
+            {/* Cool Design Effects / Overlays */}
             <div className="absolute inset-0 bg-[#D4AF37]/10 mix-blend-overlay" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a] via-[#0f172a]/40 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/50 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a] via-[#0f172a]/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/60 via-transparent to-transparent" />
+
+            {/* Subtle Grain Texture for "Cool" Feel */}
+            <div
+              className="absolute inset-0 opacity-[0.03] pointer-events-none"
+              style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }}
+            />
           </div>
         </motion.div>
 
@@ -81,10 +103,11 @@ export default function HeroSection() {
 
       {/* 2. Diagonal Swipe Layer (Left Side) */}
       <motion.div
-        className="absolute inset-0 bg-[#0f172a] hidden md:block z-10"
+        className="absolute inset-0 bg-[#0f172a] hidden md:block z-10 will-change-[clip-path]"
         initial="hidden"
         animate="visible"
         variants={clipPathVariants}
+        style={{ transform: 'translateZ(0)' }} // Force GPU layer to reduce jitter
       >
         {/* Subtle Texture/Gradient on the dark side */}
         <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent" />
@@ -92,13 +115,14 @@ export default function HeroSection() {
 
       {/* 3. Gold Accent Line */}
       <motion.div
-        className="absolute inset-0 hidden md:block z-20 pointer-events-none"
+        className="absolute inset-0 hidden md:block z-20 pointer-events-none will-change-[clip-path]"
         initial={{ clipPath: 'polygon(0 0, 0 0, 0 100%, 0 100%)', opacity: 0 }}
         animate={{
           clipPath: 'polygon(65% 0, 65.2% 0, 45.2% 100%, 45% 100%)',
           opacity: 1
         }}
-        transition={{ duration: 1.2, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 1.4, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+        style={{ transform: 'translateZ(0)' }}
       >
         <div className="w-full h-full bg-gradient-to-b from-[#D4AF37] via-[#F5E6B3] to-[#D4AF37]" />
       </motion.div>

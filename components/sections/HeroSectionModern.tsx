@@ -1,30 +1,49 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { CheckCircleIcon, ClockIcon, DocumentCheckIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
+import { motion, AnimatePresence } from 'framer-motion';
+import { CheckCircleIcon, ClockIcon, DocumentCheckIcon, ArrowRightIcon, StarIcon } from '@heroicons/react/24/solid';
+import { DocumentCheckIcon as OutlineDocumentCheckIcon, CheckCircleIcon as OutlineCheckCircleIcon, ClockIcon as OutlineClockIcon } from '@heroicons/react/24/outline';
 
 export default function HeroSection() {
+  // Review Snippets
+  const reviews = [
+    "Best physio experience I've ever had",
+    "Finally pain-free after months",
+    "Professional, knowledgeable & caring",
+    "Highly recommend for sports injuries",
+    "Kareem is absolutely amazing"
+  ];
+
+  const [currentReview, setCurrentReview] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentReview((prev) => (prev + 1) % reviews.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
   // Animation Variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.15,
         delayChildren: 0.4
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 1, ease: [0.22, 1, 0.36, 1] }
+      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
     }
   };
 
@@ -62,7 +81,7 @@ export default function HeroSection() {
           <div className="absolute top-0 right-0 w-[65%] h-full overflow-hidden">
             <motion.div
               className="relative w-full h-full will-change-transform"
-              initial={{ scale: 1.15, x: "5%" }} // Shifted right to center the bed
+              initial={{ scale: 1.15, x: "5%" }}
               animate={{
                 scale: [1.15, 1.2, 1.15, 1.2],
                 x: ["5%", "0%", "5%", "2%"],
@@ -80,28 +99,56 @@ export default function HeroSection() {
                 alt="KinetiKare Physiotherapy clinic"
                 fill
                 priority
-                className="object-cover object-[35%_center] brightness-100 contrast-105" // Adjusted object position
+                className="object-cover object-[35%_center] brightness-100 contrast-105"
                 sizes="65vw"
                 unoptimized={true}
               />
             </motion.div>
 
-            {/* Ultra-Premium Cinematic Grading */}
-            {/* 1. Warm Gold Highlight (Top Right) */}
+            {/* Cinematic Overlays */}
             <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-[#D4AF37]/20 via-transparent to-transparent mix-blend-overlay" />
-
-            {/* 2. Deep Shadow Vignette (Left & Bottom) */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a] via-[#0f172a]/30 to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent" />
-
-            {/* 3. Cinematic Color Grade */}
             <div className="absolute inset-0 bg-[#1e293b]/20 mix-blend-multiply" />
-
-            {/* 4. Subtle Grain Texture */}
             <div
               className="absolute inset-0 opacity-[0.04] pointer-events-none mix-blend-overlay"
               style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }}
             />
+
+            {/* Floating Reviews Widget */}
+            <motion.div
+              className="absolute top-[15%] right-[8%] max-w-xs z-20"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 2, duration: 1 }}
+            >
+              <div className="relative p-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg shadow-2xl">
+                <div className="flex items-center gap-1 mb-2">
+                  {[...Array(5)].map((_, i) => (
+                    <StarIcon key={i} className="w-4 h-4 text-[#D4AF37]" />
+                  ))}
+                  <span className="ml-2 text-xs font-bold text-white uppercase tracking-wider">Google Reviews</span>
+                </div>
+                <div className="h-12 relative overflow-hidden">
+                  <AnimatePresence mode="wait">
+                    <motion.p
+                      key={currentReview}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.5 }}
+                      className="text-white/90 text-sm font-medium italic leading-snug"
+                    >
+                      "{reviews[currentReview]}"
+                    </motion.p>
+                  </AnimatePresence>
+                </div>
+                <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-[#D4AF37] rounded-full flex items-center justify-center shadow-lg">
+                  <span className="text-[#0f172a] text-xs font-bold">5.0</span>
+                </div>
+              </div>
+            </motion.div>
+
           </div>
         </motion.div>
 
@@ -168,9 +215,9 @@ export default function HeroSection() {
               </span>
             </motion.div>
 
-            {/* Main Heading - Playfair Display */}
+            {/* Main Heading - Playfair Display (REDUCED SIZE) */}
             <motion.div variants={itemVariants} className="mb-8">
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-playfair text-white leading-[1] tracking-tight drop-shadow-2xl">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-playfair text-white leading-[1.1] tracking-tight drop-shadow-2xl">
                 Kareem <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F5E6B3] via-[#D4AF37] to-[#B8860B] animate-gradient-x bg-[length:200%_auto]">
                   Hassanein
@@ -180,9 +227,9 @@ export default function HeroSection() {
 
             {/* Slogan */}
             <motion.div variants={itemVariants} className="mb-12">
-              <p className="text-xl md:text-2xl text-white/80 font-light tracking-wide leading-relaxed">
+              <p className="text-lg md:text-xl text-white/80 font-light tracking-wide leading-relaxed">
                 The Science of Recovery. <br />
-                <span className="text-[#D4AF37] font-normal italic font-playfair text-2xl md:text-3xl">The Art of Care.</span>
+                <span className="text-[#D4AF37] font-normal italic font-playfair text-xl md:text-2xl">The Art of Care.</span>
               </p>
             </motion.div>
 
@@ -191,7 +238,7 @@ export default function HeroSection() {
               <Link
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                 target="_blank"
-                className="group relative px-10 py-5 bg-[#D4AF37] overflow-hidden rounded-sm shadow-[0_0_20px_rgba(212,175,55,0.2)] hover:shadow-[0_0_40px_rgba(212,175,55,0.4)] transition-all duration-500 hover:scale-[1.02]"
+                className="group relative px-8 py-4 bg-[#D4AF37] overflow-hidden rounded-sm shadow-[0_0_20px_rgba(212,175,55,0.2)] hover:shadow-[0_0_40px_rgba(212,175,55,0.4)] transition-all duration-500 hover:scale-[1.02]"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
                 <span className="relative flex items-center gap-3 text-[#0f172a] text-sm font-bold tracking-[0.15em] uppercase">
@@ -202,7 +249,7 @@ export default function HeroSection() {
 
               <Link
                 href="/services"
-                className="group px-10 py-5 border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/10 transition-all duration-500 rounded-sm hover:border-[#D4AF37]/30"
+                className="group px-8 py-4 border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/10 transition-all duration-500 rounded-sm hover:border-[#D4AF37]/30"
               >
                 <span className="text-white text-sm font-bold tracking-[0.15em] uppercase group-hover:text-[#D4AF37] transition-colors">
                   View Services
@@ -213,9 +260,9 @@ export default function HeroSection() {
             {/* Info Badges - Glassmorphism */}
             <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
               {[
-                { icon: DocumentCheckIcon, text: "Direct Billing" },
-                { icon: CheckCircleIcon, text: "No Referral" },
-                { icon: ClockIcon, text: "Evening Hours" }
+                { icon: OutlineDocumentCheckIcon, text: "Direct Billing" },
+                { icon: OutlineCheckCircleIcon, text: "No Referral" },
+                { icon: OutlineClockIcon, text: "Evening Hours" }
               ].map((item, index) => (
                 <div
                   key={index}

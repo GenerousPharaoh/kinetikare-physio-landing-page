@@ -111,7 +111,7 @@ export default function HeroSection() {
               initial={{ scale: 1.15, x: "0%" }}
               animate={{
                 scale: [1.15, 1.2, 1.15, 1.2],
-                x: ["0%", "10%", "5%", "15%"], // Shifted significantly right to move table into view
+                x: ["0%", "10%", "5%", "15%"], // Shifted right
                 y: ["0%", "-3%", "0%", "-2%"]
               }}
               transition={{
@@ -147,15 +147,23 @@ export default function HeroSection() {
               }}
             />
 
-            {/* Floating Reviews Widget */}
+            {/* Floating Reviews Widget - FIXED GLITCH */}
             <motion.div
               className="absolute top-[15%] right-[8%] max-w-[300px] z-20"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 2, duration: 1 }}
+              style={{ transform: 'translateZ(0)', willChange: 'opacity, transform' }} // Force GPU layer
             >
-              <div className="relative overflow-hidden rounded-xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl">
-                <div className="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-white/5">
+              {/* 
+                  FIX: Removed 'overflow-hidden' from parent and applied specific rounded corners to children 
+                  to prevent backdrop-filter clipping issues during animation.
+                  Also added 'transform-gpu' to force hardware acceleration.
+              */}
+              <div className="relative rounded-xl bg-white/5 border border-white/10 shadow-2xl backdrop-blur-xl transform-gpu">
+
+                {/* Top Bar */}
+                <div className="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-white/5 rounded-t-xl">
                   <div className="flex items-center gap-2">
                     <div className="bg-white rounded-full p-1 w-6 h-6 flex items-center justify-center shadow-sm">
                       <svg viewBox="0 0 24 24" className="w-4 h-4">
@@ -172,6 +180,8 @@ export default function HeroSection() {
                     <StarIcon className="w-3 h-3 text-[#D4AF37]" />
                   </div>
                 </div>
+
+                {/* Content Area */}
                 <div className="p-5 relative">
                   <div className="h-16 relative">
                     <AnimatePresence mode="wait">
@@ -188,7 +198,9 @@ export default function HeroSection() {
                     </AnimatePresence>
                   </div>
                 </div>
-                <div className="h-1 w-full bg-white/5">
+
+                {/* Progress Bar */}
+                <div className="h-1 w-full bg-white/5 rounded-b-xl overflow-hidden">
                   <motion.div
                     className="h-full bg-[#D4AF37]"
                     style={{ width: `${progress}%` }}

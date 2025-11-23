@@ -1,13 +1,23 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useMotionTemplate, useMotionValue } from 'framer-motion';
 import { CheckCircleIcon, ClockIcon, DocumentCheckIcon, ArrowRightIcon, StarIcon } from '@heroicons/react/24/solid';
 import { DocumentCheckIcon as OutlineDocumentCheckIcon, CheckCircleIcon as OutlineCheckCircleIcon, ClockIcon as OutlineClockIcon } from '@heroicons/react/24/outline';
 
 export default function HeroSection() {
+  // Mouse Spotlight Logic
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
+    const { left, top } = currentTarget.getBoundingClientRect();
+    mouseX.set(clientX - left);
+    mouseY.set(clientY - top);
+  }
+
   // Real Review Snippets
   const reviews = [
     "Thorough, knowledgeable, and incredibly attentive.",
@@ -82,7 +92,10 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-[#0f172a]">
+    <section
+      className="relative h-screen w-full overflow-hidden bg-[#0f172a] group"
+      onMouseMove={handleMouseMove}
+    >
 
       {/* 1. Background Image Layer (Right Side) */}
       <div className="absolute inset-0">
@@ -95,10 +108,10 @@ export default function HeroSection() {
           <div className="absolute top-0 right-0 w-[65%] h-full overflow-hidden">
             <motion.div
               className="relative w-full h-full will-change-transform"
-              initial={{ scale: 1.15, x: "5%" }}
+              initial={{ scale: 1.15, x: "0%" }}
               animate={{
                 scale: [1.15, 1.2, 1.15, 1.2],
-                x: ["5%", "0%", "5%", "2%"],
+                x: ["0%", "10%", "5%", "15%"], // Shifted significantly right to move table into view
                 y: ["0%", "-3%", "0%", "-2%"]
               }}
               transition={{
@@ -125,7 +138,7 @@ export default function HeroSection() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent" />
             <div className="absolute inset-0 bg-[#1e293b]/20 mix-blend-multiply" />
 
-            {/* Tech Grid Overlay - Subtle Science Feel */}
+            {/* Tech Grid Overlay */}
             <div
               className="absolute inset-0 opacity-[0.07] pointer-events-none"
               style={{
@@ -134,16 +147,14 @@ export default function HeroSection() {
               }}
             />
 
-            {/* Floating Reviews Widget - Premium Upgrade */}
+            {/* Floating Reviews Widget */}
             <motion.div
               className="absolute top-[15%] right-[8%] max-w-[300px] z-20"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 2, duration: 1 }}
             >
-              {/* Glass Card */}
               <div className="relative overflow-hidden rounded-xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl">
-                {/* Top Bar with Google Logo */}
                 <div className="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-white/5">
                   <div className="flex items-center gap-2">
                     <div className="bg-white rounded-full p-1 w-6 h-6 flex items-center justify-center shadow-sm">
@@ -161,8 +172,6 @@ export default function HeroSection() {
                     <StarIcon className="w-3 h-3 text-[#D4AF37]" />
                   </div>
                 </div>
-
-                {/* Content Area */}
                 <div className="p-5 relative">
                   <div className="h-16 relative">
                     <AnimatePresence mode="wait">
@@ -179,8 +188,6 @@ export default function HeroSection() {
                     </AnimatePresence>
                   </div>
                 </div>
-
-                {/* Progress Bar */}
                 <div className="h-1 w-full bg-white/5">
                   <motion.div
                     className="h-full bg-[#D4AF37]"
@@ -190,7 +197,7 @@ export default function HeroSection() {
               </div>
             </motion.div>
 
-            {/* Status Badge - Bottom Right */}
+            {/* Status Badge */}
             <motion.div
               className="absolute bottom-[10%] right-[8%] z-20"
               initial={{ opacity: 0, scale: 0.9 }}
@@ -232,8 +239,30 @@ export default function HeroSection() {
         variants={clipPathVariants}
         style={{ transform: 'translateZ(0)' }}
       >
-        {/* Visual Brilliance: Deep Spotlight Effect */}
+        {/* Interactive Spotlight Effect */}
+        <motion.div
+          className="pointer-events-none absolute -inset-px opacity-0 transition duration-300 group-hover:opacity-100"
+          style={{
+            background: useMotionTemplate`
+              radial-gradient(
+                650px circle at ${mouseX}px ${mouseY}px,
+                rgba(212, 175, 55, 0.08),
+                transparent 80%
+              )
+            `,
+          }}
+        />
+
+        {/* Aurora Background Effect */}
         <div className="absolute top-[-20%] left-[-10%] w-[80%] h-[120%] bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#1e293b] via-[#0f172a] to-[#0f172a] opacity-90" />
+        <motion.div
+          className="absolute top-[20%] left-[10%] w-[500px] h-[500px] bg-[#D4AF37]/5 rounded-full blur-[100px]"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3],
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
 
         {/* Subtle Animated Texture */}
         <motion.div
@@ -290,32 +319,46 @@ export default function HeroSection() {
               </p>
             </motion.div>
 
-            {/* Brilliant Buttons (Compact) */}
+            {/* Brilliant Buttons (Sophisticated & Aligned) */}
             <motion.div variants={itemVariants} className="flex flex-wrap gap-4 mb-10">
               <Link
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                 target="_blank"
-                className="group relative px-6 py-3 bg-[#D4AF37] overflow-hidden rounded-sm shadow-[0_0_15px_rgba(212,175,55,0.2)] hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all duration-500 hover:scale-[1.02]"
+                className="group relative"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
-                <span className="relative flex items-center gap-2 text-[#0f172a] text-xs font-bold tracking-[0.15em] uppercase">
-                  Book Assessment
-                  <ArrowRightIcon className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                </span>
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="relative px-8 py-4 bg-[#D4AF37] overflow-hidden rounded-sm shadow-[0_0_20px_rgba(212,175,55,0.2)] hover:shadow-[0_0_40px_rgba(212,175,55,0.4)] transition-all duration-300 flex items-center justify-center gap-3"
+                >
+                  {/* Sophisticated Shimmer */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
+
+                  <span className="relative text-[#0f172a] text-xs font-bold tracking-[0.15em] uppercase flex items-center gap-2">
+                    Book Assessment
+                    <ArrowRightIcon className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                  </span>
+                </motion.div>
               </Link>
 
               <Link
                 href="/services"
-                className="group px-6 py-3 border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/10 transition-all duration-500 rounded-sm hover:border-[#D4AF37]/30"
+                className="group relative"
               >
-                <span className="text-white text-xs font-bold tracking-[0.15em] uppercase group-hover:text-[#D4AF37] transition-colors">
-                  View Services
-                </span>
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="px-8 py-4 border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/10 transition-all duration-300 rounded-sm hover:border-[#D4AF37]/30 flex items-center justify-center"
+                >
+                  <span className="text-white text-xs font-bold tracking-[0.15em] uppercase group-hover:text-[#D4AF37] transition-colors">
+                    View Services
+                  </span>
+                </motion.div>
               </Link>
             </motion.div>
 
-            {/* Info Badges - Compact & Safe Zone */}
-            <motion.div variants={itemVariants} className="flex flex-wrap gap-3 max-w-[90%]">
+            {/* Info Badges - Compact & Single Line */}
+            <motion.div variants={itemVariants} className="flex flex-wrap gap-2">
               {[
                 { icon: OutlineDocumentCheckIcon, text: "Direct Billing" },
                 { icon: OutlineCheckCircleIcon, text: "No Referral" },
@@ -323,10 +366,10 @@ export default function HeroSection() {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-1.5 px-3 py-1.5 bg-white/5 border border-white/5 rounded-full backdrop-blur-md hover:bg-white/10 transition-all duration-300 hover:border-[#D4AF37]/20 group"
+                  className="flex items-center gap-1.5 px-2.5 py-1 bg-white/5 border border-white/5 rounded-full backdrop-blur-md hover:bg-white/10 transition-all duration-300 hover:border-[#D4AF37]/20 group"
                 >
                   <item.icon className="w-3 h-3 text-[#D4AF37] group-hover:text-[#F5E6B3] transition-colors" />
-                  <span className="text-white/60 text-[10px] tracking-widest uppercase group-hover:text-white/90 transition-colors whitespace-nowrap">{item.text}</span>
+                  <span className="text-white/60 text-[9px] tracking-widest uppercase group-hover:text-white/90 transition-colors whitespace-nowrap">{item.text}</span>
                 </div>
               ))}
             </motion.div>

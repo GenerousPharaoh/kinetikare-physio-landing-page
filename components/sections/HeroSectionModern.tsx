@@ -13,23 +13,23 @@ export default function HeroSection() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.5
+        staggerChildren: 0.2,
+        delayChildren: 0.4
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+      transition: { duration: 1, ease: [0.22, 1, 0.36, 1] }
     }
   };
 
   // Perfectly synced clip path transition
-  const swipeTransition = { duration: 1.4, ease: [0.16, 1, 0.3, 1] };
+  const swipeTransition = { duration: 1.6, ease: [0.16, 1, 0.3, 1] };
 
   const clipPathVariants = {
     hidden: { clipPath: 'polygon(0 0, 0 0, 0 100%, 0 100%)' },
@@ -44,7 +44,7 @@ export default function HeroSection() {
     visible: {
       clipPath: 'polygon(65% 0, 65.2% 0, 45.2% 100%, 45% 100%)',
       opacity: 1,
-      transition: swipeTransition // Exact same transition as background
+      transition: swipeTransition
     }
   };
 
@@ -57,19 +57,19 @@ export default function HeroSection() {
           className="absolute inset-0 hidden md:block"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1.5 }}
+          transition={{ duration: 1.8 }}
         >
           <div className="absolute top-0 right-0 w-[65%] h-full overflow-hidden">
             <motion.div
               className="relative w-full h-full will-change-transform"
-              initial={{ scale: 1.1 }}
+              initial={{ scale: 1.15, x: "5%" }} // Shifted right to center the bed
               animate={{
-                scale: [1.1, 1.15, 1.1, 1.15],
-                x: [0, -15, 0, -10],
-                y: [0, -10, 0, -5]
+                scale: [1.15, 1.2, 1.15, 1.2],
+                x: ["5%", "0%", "5%", "2%"],
+                y: ["0%", "-3%", "0%", "-2%"]
               }}
               transition={{
-                duration: 40,
+                duration: 45,
                 repeat: Infinity,
                 repeatType: "mirror",
                 ease: "linear"
@@ -80,21 +80,27 @@ export default function HeroSection() {
                 alt="KinetiKare Physiotherapy clinic"
                 fill
                 priority
-                className="object-cover object-center brightness-105 contrast-110"
+                className="object-cover object-[35%_center] brightness-100 contrast-105" // Adjusted object position
                 sizes="65vw"
                 unoptimized={true}
               />
             </motion.div>
 
-            {/* Cool Design Effects / Overlays */}
-            <div className="absolute inset-0 bg-[#D4AF37]/10 mix-blend-overlay" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a] via-[#0f172a]/20 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/60 via-transparent to-transparent" />
+            {/* Ultra-Premium Cinematic Grading */}
+            {/* 1. Warm Gold Highlight (Top Right) */}
+            <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-[#D4AF37]/20 via-transparent to-transparent mix-blend-overlay" />
 
-            {/* Subtle Grain Texture */}
+            {/* 2. Deep Shadow Vignette (Left & Bottom) */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a] via-[#0f172a]/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent" />
+
+            {/* 3. Cinematic Color Grade */}
+            <div className="absolute inset-0 bg-[#1e293b]/20 mix-blend-multiply" />
+
+            {/* 4. Subtle Grain Texture */}
             <div
-              className="absolute inset-0 opacity-[0.03] pointer-events-none"
-              style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }}
+              className="absolute inset-0 opacity-[0.04] pointer-events-none mix-blend-overlay"
+              style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }}
             />
           </div>
         </motion.div>
@@ -123,11 +129,11 @@ export default function HeroSection() {
         style={{ transform: 'translateZ(0)' }}
       >
         {/* Visual Brilliance: Deep Spotlight Effect */}
-        <div className="absolute top-[-20%] left-[-10%] w-[80%] h-[120%] bg-gradient-radial from-[#1e293b] via-[#0f172a] to-[#0f172a] opacity-80" />
+        <div className="absolute top-[-20%] left-[-10%] w-[80%] h-[120%] bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#1e293b] via-[#0f172a] to-[#0f172a] opacity-90" />
 
         {/* Subtle Animated Texture */}
         <motion.div
-          className="absolute inset-0 opacity-[0.05] bg-[url('/images/noise.png')] mix-blend-overlay"
+          className="absolute inset-0 opacity-[0.03] bg-[url('/images/noise.png')] mix-blend-overlay"
           animate={{ backgroundPosition: ['0% 0%', '100% 100%'] }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
         />
@@ -141,7 +147,7 @@ export default function HeroSection() {
         variants={goldLineVariants}
         style={{ transform: 'translateZ(0)' }}
       >
-        <div className="w-full h-full bg-gradient-to-b from-[#D4AF37] via-[#F5E6B3] to-[#D4AF37]" />
+        <div className="w-full h-full bg-gradient-to-b from-[#D4AF37] via-[#F5E6B3] to-[#D4AF37] shadow-[0_0_30px_rgba(212,175,55,0.3)]" />
       </motion.div>
 
       {/* 4. Content Layer */}
@@ -156,55 +162,56 @@ export default function HeroSection() {
           >
             {/* Eyebrow */}
             <motion.div variants={itemVariants} className="flex items-center gap-3 mb-6">
-              <span className="h-[1px] w-8 bg-[#D4AF37]" />
-              <span className="text-[#D4AF37] text-xs tracking-[0.25em] uppercase font-medium">
+              <span className="h-[1px] w-12 bg-gradient-to-r from-[#D4AF37] to-transparent" />
+              <span className="text-[#D4AF37] text-xs tracking-[0.3em] uppercase font-medium">
                 Registered Physiotherapist
               </span>
             </motion.div>
 
             {/* Main Heading - Playfair Display */}
-            <motion.div variants={itemVariants} className="mb-6">
-              <h1 className="text-5xl sm:text-6xl md:text-7xl font-playfair text-white leading-[1.1]">
+            <motion.div variants={itemVariants} className="mb-8">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-playfair text-white leading-[1] tracking-tight drop-shadow-2xl">
                 Kareem <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#F5E6B3] to-[#D4AF37] animate-gradient-x bg-[length:200%_auto]">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F5E6B3] via-[#D4AF37] to-[#B8860B] animate-gradient-x bg-[length:200%_auto]">
                   Hassanein
                 </span>
               </h1>
             </motion.div>
 
             {/* Slogan */}
-            <motion.div variants={itemVariants} className="mb-10">
-              <p className="text-xl md:text-2xl text-white/90 font-light tracking-wide">
-                The Science of Recovery. <span className="text-[#D4AF37] font-normal italic font-playfair">The Art of Care.</span>
+            <motion.div variants={itemVariants} className="mb-12">
+              <p className="text-xl md:text-2xl text-white/80 font-light tracking-wide leading-relaxed">
+                The Science of Recovery. <br />
+                <span className="text-[#D4AF37] font-normal italic font-playfair text-2xl md:text-3xl">The Art of Care.</span>
               </p>
             </motion.div>
 
             {/* Brilliant Buttons */}
-            <motion.div variants={itemVariants} className="flex flex-wrap gap-4 mb-12">
+            <motion.div variants={itemVariants} className="flex flex-wrap gap-5 mb-16">
               <Link
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                 target="_blank"
-                className="group relative px-8 py-4 bg-[#D4AF37] overflow-hidden rounded-sm shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] transition-shadow duration-300"
+                className="group relative px-10 py-5 bg-[#D4AF37] overflow-hidden rounded-sm shadow-[0_0_20px_rgba(212,175,55,0.2)] hover:shadow-[0_0_40px_rgba(212,175,55,0.4)] transition-all duration-500 hover:scale-[1.02]"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
-                <span className="relative flex items-center gap-2 text-[#0f172a] text-sm font-bold tracking-wider uppercase">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
+                <span className="relative flex items-center gap-3 text-[#0f172a] text-sm font-bold tracking-[0.15em] uppercase">
                   Book Assessment
-                  <ArrowRightIcon className="w-4 h-4" />
+                  <ArrowRightIcon className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </span>
               </Link>
 
               <Link
                 href="/services"
-                className="group px-8 py-4 border border-white/20 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 rounded-sm"
+                className="group px-10 py-5 border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/10 transition-all duration-500 rounded-sm hover:border-[#D4AF37]/30"
               >
-                <span className="text-white text-sm font-bold tracking-wider uppercase group-hover:text-[#D4AF37] transition-colors">
+                <span className="text-white text-sm font-bold tracking-[0.15em] uppercase group-hover:text-[#D4AF37] transition-colors">
                   View Services
                 </span>
               </Link>
             </motion.div>
 
             {/* Info Badges - Glassmorphism */}
-            <motion.div variants={itemVariants} className="flex flex-wrap gap-3">
+            <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
               {[
                 { icon: DocumentCheckIcon, text: "Direct Billing" },
                 { icon: CheckCircleIcon, text: "No Referral" },
@@ -212,10 +219,10 @@ export default function HeroSection() {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full backdrop-blur-md hover:bg-white/10 transition-colors duration-300"
+                  className="flex items-center gap-2 px-5 py-2.5 bg-white/5 border border-white/5 rounded-full backdrop-blur-md hover:bg-white/10 transition-all duration-300 hover:border-[#D4AF37]/20 group"
                 >
-                  <item.icon className="w-4 h-4 text-[#D4AF37]" />
-                  <span className="text-white/80 text-xs tracking-wide">{item.text}</span>
+                  <item.icon className="w-4 h-4 text-[#D4AF37] group-hover:text-[#F5E6B3] transition-colors" />
+                  <span className="text-white/60 text-xs tracking-widest uppercase group-hover:text-white/90 transition-colors">{item.text}</span>
                 </div>
               ))}
             </motion.div>

@@ -8,7 +8,7 @@ import { CheckCircleIcon, ClockIcon, DocumentCheckIcon, ArrowRightIcon, StarIcon
 import { DocumentCheckIcon as OutlineDocumentCheckIcon, CheckCircleIcon as OutlineCheckCircleIcon, ClockIcon as OutlineClockIcon } from '@heroicons/react/24/outline';
 
 export default function HeroSection() {
-  // Real Review Snippets from GoogleReviews.tsx
+  // Real Review Snippets
   const reviews = [
     "Thorough, knowledgeable, and incredibly attentive.",
     "Regained strength and mobility much faster than expected.",
@@ -18,11 +18,25 @@ export default function HeroSection() {
   ];
 
   const [currentReview, setCurrentReview] = useState(0);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    const duration = 5000;
+    const interval = 50;
+    const steps = duration / interval;
+    let currentStep = 0;
+
     const timer = setInterval(() => {
-      setCurrentReview((prev) => (prev + 1) % reviews.length);
-    }, 5000);
+      currentStep++;
+      setProgress((currentStep / steps) * 100);
+
+      if (currentStep >= steps) {
+        currentStep = 0;
+        setProgress(0);
+        setCurrentReview((prev) => (prev + 1) % reviews.length);
+      }
+    }, interval);
+
     return () => clearInterval(timer);
   }, []);
 
@@ -110,42 +124,85 @@ export default function HeroSection() {
             <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a] via-[#0f172a]/30 to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent" />
             <div className="absolute inset-0 bg-[#1e293b]/20 mix-blend-multiply" />
+
+            {/* Tech Grid Overlay - Subtle Science Feel */}
             <div
-              className="absolute inset-0 opacity-[0.04] pointer-events-none mix-blend-overlay"
-              style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }}
+              className="absolute inset-0 opacity-[0.07] pointer-events-none"
+              style={{
+                backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)',
+                backgroundSize: '40px 40px'
+              }}
             />
 
-            {/* Floating Reviews Widget */}
+            {/* Floating Reviews Widget - Premium Upgrade */}
             <motion.div
-              className="absolute top-[15%] right-[8%] max-w-[280px] z-20"
+              className="absolute top-[15%] right-[8%] max-w-[300px] z-20"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 2, duration: 1 }}
             >
-              <div className="relative p-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg shadow-2xl">
-                <div className="flex items-center gap-1 mb-2">
-                  {[...Array(5)].map((_, i) => (
-                    <StarIcon key={i} className="w-3.5 h-3.5 text-[#D4AF37]" />
-                  ))}
-                  <span className="ml-2 text-[10px] font-bold text-white uppercase tracking-wider">Google Reviews</span>
+              {/* Glass Card */}
+              <div className="relative overflow-hidden rounded-xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl">
+                {/* Top Bar with Google Logo */}
+                <div className="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-white/5">
+                  <div className="flex items-center gap-2">
+                    <div className="bg-white rounded-full p-1 w-6 h-6 flex items-center justify-center shadow-sm">
+                      <svg viewBox="0 0 24 24" className="w-4 h-4">
+                        <path fill="#4285F4" d="M23.745 12.27c0-.79-.07-1.54-.19-2.27h-11.3v4.51h6.47c-.29 1.48-1.14 2.73-2.4 3.6v3h3.9c2.28-2.1 3.6-5.2 3.6-8.84z" />
+                        <path fill="#34A853" d="M12.255 24c3.24 0 5.95-1.08 7.96-2.91l-3.91-3c-1.08.72-2.45 1.16-4.05 1.16-3.13 0-5.78-2.11-6.73-4.96h-4.19v3.24c1.99 3.95 6.09 6.47 10.92 6.47z" />
+                        <path fill="#FBBC05" d="M5.525 14.29c-.25-.72-.38-1.49-.38-2.29s.14-1.57.38-2.29V6.47h-4.19C.48 8.24 0 10.06 0 12.29c0 2.22.48 4.04 1.34 5.82l4.19-3.24z" />
+                        <path fill="#EA4335" d="M12.255 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C18.205 1.19 15.495 0 12.255 0c-4.83 0-8.93 2.53-10.92 6.47l4.19 3.24c.95-2.85 3.6-4.96 6.73-4.96z" />
+                      </svg>
+                    </div>
+                    <span className="text-xs font-semibold text-white/90 tracking-wide">Google Reviews</span>
+                  </div>
+                  <div className="flex items-center gap-1 bg-white/10 px-2 py-0.5 rounded-full">
+                    <span className="text-[10px] font-bold text-white">5.0</span>
+                    <StarIcon className="w-3 h-3 text-[#D4AF37]" />
+                  </div>
                 </div>
-                <div className="h-16 relative overflow-hidden">
-                  <AnimatePresence mode="wait">
-                    <motion.p
-                      key={currentReview}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.5 }}
-                      className="text-white/95 text-xs font-medium italic leading-relaxed"
-                    >
-                      "{reviews[currentReview]}"
-                    </motion.p>
-                  </AnimatePresence>
+
+                {/* Content Area */}
+                <div className="p-5 relative">
+                  <div className="h-16 relative">
+                    <AnimatePresence mode="wait">
+                      <motion.p
+                        key={currentReview}
+                        initial={{ opacity: 0, x: 10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -10 }}
+                        transition={{ duration: 0.4 }}
+                        className="text-white/95 text-sm font-medium leading-relaxed italic"
+                      >
+                        "{reviews[currentReview]}"
+                      </motion.p>
+                    </AnimatePresence>
+                  </div>
                 </div>
-                <div className="absolute -bottom-2 -right-2 w-7 h-7 bg-[#D4AF37] rounded-full flex items-center justify-center shadow-lg">
-                  <span className="text-[#0f172a] text-[10px] font-bold">5.0</span>
+
+                {/* Progress Bar */}
+                <div className="h-1 w-full bg-white/5">
+                  <motion.div
+                    className="h-full bg-[#D4AF37]"
+                    style={{ width: `${progress}%` }}
+                  />
                 </div>
+              </div>
+            </motion.div>
+
+            {/* Status Badge - Bottom Right */}
+            <motion.div
+              className="absolute bottom-[10%] right-[8%] z-20"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 2.5, duration: 0.8 }}
+            >
+              <div className="flex items-center gap-3 px-4 py-2 bg-[#0f172a]/80 backdrop-blur-md border border-white/10 rounded-full shadow-lg">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                </span>
+                <span className="text-xs font-medium text-white/90 tracking-wide uppercase">Accepting New Patients</span>
               </div>
             </motion.div>
 
@@ -215,7 +272,7 @@ export default function HeroSection() {
               </span>
             </motion.div>
 
-            {/* Main Heading - Playfair Display (FURTHER REDUCED SIZE) */}
+            {/* Main Heading - Playfair Display */}
             <motion.div variants={itemVariants} className="mb-6">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-playfair text-white leading-[1.1] tracking-tight drop-shadow-2xl">
                 Kareem <br />

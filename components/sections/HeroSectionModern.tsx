@@ -147,7 +147,7 @@ export default function HeroSection() {
               }}
             />
 
-            {/* Floating Reviews Widget - FIXED GLITCH */}
+            {/* Floating Reviews Widget - FIXED GLITCH & DESIGN */}
             <motion.div
               className="absolute top-[15%] right-[8%] max-w-[300px] z-20"
               initial={{ opacity: 0, y: 20 }}
@@ -156,11 +156,10 @@ export default function HeroSection() {
               style={{ transform: 'translateZ(0)', willChange: 'opacity, transform' }} // Force GPU layer
             >
               {/* 
-                  FIX: Removed 'overflow-hidden' from parent and applied specific rounded corners to children 
-                  to prevent backdrop-filter clipping issues during animation.
-                  Also added 'transform-gpu' to force hardware acceleration.
+                  FIX: Increased background opacity to bg-[#0f172a]/80 to prevent "sudden fill" glitch.
+                  The glass effect is now more stable and premium.
               */}
-              <div className="relative rounded-xl bg-white/5 border border-white/10 shadow-2xl backdrop-blur-xl transform-gpu">
+              <div className="relative rounded-xl bg-[#0f172a]/80 border border-white/10 shadow-2xl backdrop-blur-xl transform-gpu">
 
                 {/* Top Bar */}
                 <div className="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-white/5 rounded-t-xl">
@@ -370,18 +369,19 @@ export default function HeroSection() {
             </motion.div>
 
             {/* Info Badges - Compact & Single Line */}
-            <motion.div variants={itemVariants} className="flex flex-wrap gap-2">
+            {/* FIX: Added md:flex-nowrap to force single line on desktop, reduced gap to 1.5, and padding to px-2 */}
+            <motion.div variants={itemVariants} className="flex flex-wrap md:flex-nowrap gap-1.5 md:gap-2">
               {[
                 { icon: OutlineDocumentCheckIcon, text: "Direct Billing" },
-                { icon: OutlineCheckCircleIcon, text: "No Referral" },
+                { icon: OutlineCheckCircleIcon, text: "No Referral Needed" }, // Updated text
                 { icon: OutlineClockIcon, text: "Evening Hours" }
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-1.5 px-2.5 py-1 bg-white/5 border border-white/5 rounded-full backdrop-blur-md hover:bg-white/10 transition-all duration-300 hover:border-[#D4AF37]/20 group"
+                  className="flex items-center gap-1.5 px-2 py-1 bg-white/5 border border-white/5 rounded-full backdrop-blur-md hover:bg-white/10 transition-all duration-300 hover:border-[#D4AF37]/20 group whitespace-nowrap"
                 >
                   <item.icon className="w-3 h-3 text-[#D4AF37] group-hover:text-[#F5E6B3] transition-colors" />
-                  <span className="text-white/60 text-[9px] tracking-widest uppercase group-hover:text-white/90 transition-colors whitespace-nowrap">{item.text}</span>
+                  <span className="text-white/60 text-[9px] tracking-widest uppercase group-hover:text-white/90 transition-colors">{item.text}</span>
                 </div>
               ))}
             </motion.div>

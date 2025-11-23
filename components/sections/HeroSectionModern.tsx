@@ -28,11 +28,23 @@ export default function HeroSection() {
     }
   };
 
+  // Perfectly synced clip path transition
+  const swipeTransition = { duration: 1.4, ease: [0.16, 1, 0.3, 1] };
+
   const clipPathVariants = {
     hidden: { clipPath: 'polygon(0 0, 0 0, 0 100%, 0 100%)' },
     visible: {
       clipPath: 'polygon(0 0, 65% 0, 45% 100%, 0 100%)',
-      transition: { duration: 1.4, ease: [0.16, 1, 0.3, 1] } // Smoother custom bezier
+      transition: swipeTransition
+    }
+  };
+
+  const goldLineVariants = {
+    hidden: { clipPath: 'polygon(0 0, 0 0, 0 100%, 0 100%)', opacity: 0 },
+    visible: {
+      clipPath: 'polygon(65% 0, 65.2% 0, 45.2% 100%, 45% 100%)',
+      opacity: 1,
+      transition: swipeTransition // Exact same transition as background
     }
   };
 
@@ -50,15 +62,16 @@ export default function HeroSection() {
           <div className="absolute top-0 right-0 w-[65%] h-full overflow-hidden">
             <motion.div
               className="relative w-full h-full will-change-transform"
-              initial={{ scale: 1, x: 0 }}
+              initial={{ scale: 1.1 }}
               animate={{
-                scale: [1, 1.15],
-                x: [0, -20]
+                scale: [1.1, 1.15, 1.1, 1.15],
+                x: [0, -15, 0, -10],
+                y: [0, -10, 0, -5]
               }}
               transition={{
-                duration: 20,
+                duration: 40,
                 repeat: Infinity,
-                repeatType: "reverse",
+                repeatType: "mirror",
                 ease: "linear"
               }}
             >
@@ -78,7 +91,7 @@ export default function HeroSection() {
             <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a] via-[#0f172a]/20 to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/60 via-transparent to-transparent" />
 
-            {/* Subtle Grain Texture for "Cool" Feel */}
+            {/* Subtle Grain Texture */}
             <div
               className="absolute inset-0 opacity-[0.03] pointer-events-none"
               style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }}
@@ -107,21 +120,25 @@ export default function HeroSection() {
         initial="hidden"
         animate="visible"
         variants={clipPathVariants}
-        style={{ transform: 'translateZ(0)' }} // Force GPU layer to reduce jitter
+        style={{ transform: 'translateZ(0)' }}
       >
-        {/* Subtle Texture/Gradient on the dark side */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent" />
+        {/* Visual Brilliance: Deep Spotlight Effect */}
+        <div className="absolute top-[-20%] left-[-10%] w-[80%] h-[120%] bg-gradient-radial from-[#1e293b] via-[#0f172a] to-[#0f172a] opacity-80" />
+
+        {/* Subtle Animated Texture */}
+        <motion.div
+          className="absolute inset-0 opacity-[0.05] bg-[url('/images/noise.png')] mix-blend-overlay"
+          animate={{ backgroundPosition: ['0% 0%', '100% 100%'] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        />
       </motion.div>
 
-      {/* 3. Gold Accent Line */}
+      {/* 3. Gold Accent Line - PERFECTLY SYNCED */}
       <motion.div
         className="absolute inset-0 hidden md:block z-20 pointer-events-none will-change-[clip-path]"
-        initial={{ clipPath: 'polygon(0 0, 0 0, 0 100%, 0 100%)', opacity: 0 }}
-        animate={{
-          clipPath: 'polygon(65% 0, 65.2% 0, 45.2% 100%, 45% 100%)',
-          opacity: 1
-        }}
-        transition={{ duration: 1.4, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+        initial="hidden"
+        animate="visible"
+        variants={goldLineVariants}
         style={{ transform: 'translateZ(0)' }}
       >
         <div className="w-full h-full bg-gradient-to-b from-[#D4AF37] via-[#F5E6B3] to-[#D4AF37]" />
@@ -149,7 +166,7 @@ export default function HeroSection() {
             <motion.div variants={itemVariants} className="mb-6">
               <h1 className="text-5xl sm:text-6xl md:text-7xl font-playfair text-white leading-[1.1]">
                 Kareem <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#F5E6B3] to-[#D4AF37]">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#F5E6B3] to-[#D4AF37] animate-gradient-x bg-[length:200%_auto]">
                   Hassanein
                 </span>
               </h1>

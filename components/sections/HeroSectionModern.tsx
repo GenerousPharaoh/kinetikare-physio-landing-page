@@ -134,13 +134,10 @@ export default function HeroSection() {
               transition={{ delay: 2, duration: 1 }}
               style={{ transform: 'translateZ(0)', willChange: 'opacity, transform' }} // Force GPU layer
             >
-              <div className="relative rounded-xl bg-[#0f172a]/95 border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-xl transform-gpu overflow-hidden group/widget hover:bg-[#0f172a] transition-colors duration-500">
-
-                {/* Premium Border Gradient Overlay - Reduced Opacity */}
-                <div className="absolute inset-0 rounded-xl border border-white/5 pointer-events-none" />
+              <div className="relative rounded-xl bg-slate-900 border border-slate-700 shadow-2xl overflow-hidden group/widget hover:bg-slate-900 transition-colors duration-500">
 
                 {/* Top Bar */}
-                <div className="flex items-center justify-between px-5 py-4 border-b border-white/5 bg-white/5 relative z-20">
+                <div className="flex items-center justify-between px-5 py-4 border-b border-slate-700 bg-slate-800 relative z-20">
                   <div className="flex items-center gap-3">
                     <div className="bg-white rounded-full p-1.5 w-8 h-8 flex items-center justify-center shadow-sm">
                       <svg viewBox="0 0 24 24" className="w-5 h-5">
@@ -168,10 +165,10 @@ export default function HeroSection() {
                 </div>
 
                 {/* Vertical Marquee Content */}
-                <div className="relative h-[280px] overflow-hidden">
-                  {/* Gradient Masks for Smooth Fade In/Out */}
-                  <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-[#0f172a] via-[#0f172a]/80 to-transparent z-10 pointer-events-none" />
-                  <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/80 to-transparent z-10 pointer-events-none" />
+                <div className="relative h-[280px] overflow-hidden bg-slate-900">
+                  {/* Gradient Masks for Smooth Fade In/Out - Adjusted for Dark Theme */}
+                  <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-slate-900 via-slate-900/80 to-transparent z-10 pointer-events-none" />
+                  <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent z-10 pointer-events-none" />
 
                   <motion.div
                     className="flex flex-col gap-3 p-4"
@@ -187,7 +184,7 @@ export default function HeroSection() {
                     {[...curatedReviews, ...curatedReviews].map((review, i) => (
                       <div
                         key={i}
-                        className="p-4 bg-black/20 backdrop-blur-sm rounded-xl border border-white/5 hover:bg-black/40 transition-colors duration-300 group/card"
+                        className="p-4 bg-slate-800 rounded-xl border border-slate-700 hover:bg-slate-700 transition-colors duration-300 group/card shadow-sm"
                       >
                         <p className="text-white text-xs font-medium leading-relaxed italic mb-3">
                           "{review.text}"

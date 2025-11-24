@@ -184,9 +184,12 @@ export default function HeroSection() {
                     {[...curatedReviews, ...curatedReviews].map((review, i) => (
                       <div
                         key={i}
-                        className="p-4 bg-slate-800 rounded-xl border border-slate-700 hover:bg-slate-700 transition-colors duration-300 group/card shadow-sm"
+                        className="p-4 bg-slate-900 rounded-xl border border-slate-800 hover:bg-slate-800 transition-colors duration-300 group/card shadow-sm"
                       >
-                        <p className="text-white text-xs font-medium leading-relaxed italic mb-3">
+                        <p
+                          className="text-white text-xs font-semibold leading-relaxed mb-3"
+                          style={{ color: '#ffffff', opacity: 1 }}
+                        >
                           "{review.text}"
                         </p>
                         <div className="flex items-center gap-2">

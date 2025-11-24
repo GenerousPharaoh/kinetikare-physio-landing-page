@@ -6,6 +6,8 @@ import Image from 'next/image';
 import { motion, AnimatePresence, useMotionTemplate, useMotionValue } from 'framer-motion';
 import { CheckCircleIcon, ClockIcon, DocumentCheckIcon, ArrowRightIcon, StarIcon } from '@heroicons/react/24/solid';
 import { DocumentCheckIcon as OutlineDocumentCheckIcon, CheckCircleIcon as OutlineCheckCircleIcon, ClockIcon as OutlineClockIcon } from '@heroicons/react/24/outline';
+// Import the real reviews data
+import { reviews as allReviews } from '../GoogleReviews';
 
 export default function HeroSection() {
   // Mouse Spotlight Logic
@@ -18,20 +20,20 @@ export default function HeroSection() {
     mouseY.set(clientY - top);
   }
 
-  // Real Review Snippets
-  const reviews = [
-    "Thorough, knowledgeable, and incredibly attentive.",
-    "Regained strength and mobility much faster than expected.",
-    "Dry needling and deep tissue work accelerated my recovery.",
-    "His professionalism and genuine care made a huge difference.",
-    "My pain's gone now, and I'm back to playing at full speed."
+  // Select specific impactful reviews for the hero section
+  const heroReviews = [
+    allReviews[1], // Thanula
+    allReviews[3], // Mitch Ball
+    allReviews[9], // David Espinosa
+    allReviews[0], // Dr. Fel Rocci
+    allReviews[7]  // Ryan Darkwah
   ];
 
   const [currentReview, setCurrentReview] = useState(0);
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const duration = 5000;
+    const duration = 6000; // Slightly longer for reading
     const interval = 50;
     const steps = duration / interval;
     let currentStep = 0;
@@ -43,7 +45,7 @@ export default function HeroSection() {
       if (currentStep >= steps) {
         currentStep = 0;
         setProgress(0);
-        setCurrentReview((prev) => (prev + 1) % reviews.length);
+        setCurrentReview((prev) => (prev + 1) % heroReviews.length);
       }
     }, interval);
 
@@ -89,6 +91,12 @@ export default function HeroSection() {
       opacity: 1,
       transition: swipeTransition
     }
+  };
+
+  // Helper to truncate text intelligently
+  const getReviewExcerpt = (text: string, limit: number = 100) => {
+    if (text.length <= limit) return text;
+    return text.substring(0, limit).trim() + "...";
   };
 
   return (
@@ -147,59 +155,77 @@ export default function HeroSection() {
               }}
             />
 
-            {/* Floating Reviews Widget - FIXED GLITCH & DESIGN */}
+            {/* Floating Reviews Widget - IMPROVED & WIDER */}
             <motion.div
-              className="absolute top-[15%] right-[8%] max-w-[300px] z-20"
+              className="absolute top-[15%] right-[6%] max-w-[380px] z-20" // Increased max-w and adjusted position
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 2, duration: 1 }}
               style={{ transform: 'translateZ(0)', willChange: 'opacity, transform' }} // Force GPU layer
             >
-              {/* 
-                  FIX: Increased background opacity to bg-[#0f172a]/80 to prevent "sudden fill" glitch.
-                  The glass effect is now more stable and premium.
-              */}
-              <div className="relative rounded-xl bg-[#0f172a]/80 border border-white/10 shadow-2xl backdrop-blur-xl transform-gpu">
+              <div className="relative rounded-xl bg-[#0f172a]/85 border border-white/10 shadow-2xl backdrop-blur-xl transform-gpu overflow-hidden group/widget hover:bg-[#0f172a]/95 transition-colors duration-300">
 
                 {/* Top Bar */}
-                <div className="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-white/5 rounded-t-xl">
-                  <div className="flex items-center gap-2">
-                    <div className="bg-white rounded-full p-1 w-6 h-6 flex items-center justify-center shadow-sm">
-                      <svg viewBox="0 0 24 24" className="w-4 h-4">
+                <div className="flex items-center justify-between px-5 py-4 border-b border-white/5 bg-white/5">
+                  <div className="flex items-center gap-3">
+                    <div className="bg-white rounded-full p-1.5 w-8 h-8 flex items-center justify-center shadow-sm">
+                      <svg viewBox="0 0 24 24" className="w-5 h-5">
                         <path fill="#4285F4" d="M23.745 12.27c0-.79-.07-1.54-.19-2.27h-11.3v4.51h6.47c-.29 1.48-1.14 2.73-2.4 3.6v3h3.9c2.28-2.1 3.6-5.2 3.6-8.84z" />
                         <path fill="#34A853" d="M12.255 24c3.24 0 5.95-1.08 7.96-2.91l-3.91-3c-1.08.72-2.45 1.16-4.05 1.16-3.13 0-5.78-2.11-6.73-4.96h-4.19v3.24c1.99 3.95 6.09 6.47 10.92 6.47z" />
                         <path fill="#FBBC05" d="M5.525 14.29c-.25-.72-.38-1.49-.38-2.29s.14-1.57.38-2.29V6.47h-4.19C.48 8.24 0 10.06 0 12.29c0 2.22.48 4.04 1.34 5.82l4.19-3.24z" />
                         <path fill="#EA4335" d="M12.255 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C18.205 1.19 15.495 0 12.255 0c-4.83 0-8.93 2.53-10.92 6.47l4.19 3.24c.95-2.85 3.6-4.96 6.73-4.96z" />
                       </svg>
                     </div>
-                    <span className="text-xs font-semibold text-white/90 tracking-wide">Google Reviews</span>
+                    <div>
+                      <span className="block text-xs font-bold text-white tracking-wide">Google Reviews</span>
+                      <div className="flex items-center gap-1">
+                        <span className="text-[10px] font-bold text-white/80">5.0</span>
+                        <div className="flex gap-0.5">
+                          {[...Array(5)].map((_, i) => (
+                            <StarIcon key={i} className="w-2.5 h-2.5 text-[#D4AF37]" />
+                          ))}
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-1 bg-white/10 px-2 py-0.5 rounded-full">
-                    <span className="text-[10px] font-bold text-white">5.0</span>
-                    <StarIcon className="w-3 h-3 text-[#D4AF37]" />
+                  <div className="px-2 py-1 rounded bg-[#D4AF37]/20 border border-[#D4AF37]/30">
+                    <span className="text-[10px] font-bold text-[#D4AF37] uppercase tracking-wider">Verified</span>
                   </div>
                 </div>
 
                 {/* Content Area */}
-                <div className="p-5 relative">
-                  <div className="h-16 relative">
-                    <AnimatePresence mode="wait">
-                      <motion.p
-                        key={currentReview}
-                        initial={{ opacity: 0, x: 10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -10 }}
-                        transition={{ duration: 0.4 }}
-                        className="text-white/95 text-sm font-medium leading-relaxed italic"
-                      >
-                        "{reviews[currentReview]}"
-                      </motion.p>
-                    </AnimatePresence>
+                <div className="p-6 relative min-h-[140px] flex flex-col justify-center">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={currentReview}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -20 }}
+                      transition={{ duration: 0.4 }}
+                      className="relative z-10"
+                    >
+                      <p className="text-white/95 text-sm font-medium leading-relaxed italic mb-4">
+                        "{getReviewExcerpt(heroReviews[currentReview].text, 140)}"
+                      </p>
+                      <div className="flex items-center gap-2">
+                        <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#D4AF37] to-[#B8860B] flex items-center justify-center text-[10px] font-bold text-white">
+                          {heroReviews[currentReview].name.charAt(0)}
+                        </div>
+                        <span className="text-xs font-bold text-[#D4AF37]">{heroReviews[currentReview].name}</span>
+                      </div>
+                    </motion.div>
+                  </AnimatePresence>
+
+                  {/* Decorative Quote Icon */}
+                  <div className="absolute top-4 right-4 opacity-10">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+                      <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V11C14.017 11.5523 13.5693 12 13.017 12H12.017V5H22.017V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM5.0166 21L5.0166 18C5.0166 16.8954 5.91203 16 7.0166 16H10.0166C10.5689 16 11.0166 15.5523 11.0166 15V9C11.0166 8.44772 10.5689 8 10.0166 8H6.0166C5.46432 8 5.0166 8.44772 5.0166 9V11C5.0166 11.5523 4.56889 12 4.0166 12H3.0166V5H13.0166V15C13.0166 18.3137 10.3303 21 7.0166 21H5.0166Z" />
+                    </svg>
                   </div>
                 </div>
 
                 {/* Progress Bar */}
-                <div className="h-1 w-full bg-white/5 rounded-b-xl overflow-hidden">
+                <div className="h-1 w-full bg-white/5">
                   <motion.div
                     className="h-full bg-[#D4AF37]"
                     style={{ width: `${progress}%` }}

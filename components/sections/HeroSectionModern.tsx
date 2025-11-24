@@ -368,8 +368,8 @@ export default function HeroSection() {
               </Link>
             </motion.div>
 
-            {/* Info Badges - Ultra Compact & Scaled */}
-            <motion.div variants={itemVariants} className="flex flex-wrap md:flex-nowrap gap-1.5 md:gap-2 w-full max-w-[95%] sm:max-w-none">
+            {/* Info Badges - Ultra Compact & Scaled for Slant */}
+            <motion.div variants={itemVariants} className="flex flex-wrap md:flex-nowrap gap-1.5 w-full max-w-[85%] sm:max-w-none">
               {[
                 { icon: OutlineDocumentCheckIcon, text: "Direct Billing" },
                 { icon: OutlineCheckCircleIcon, text: "No Referral Needed" },
@@ -377,10 +377,10 @@ export default function HeroSection() {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-1.5 px-2 py-1 md:px-2.5 md:py-1.5 bg-white/5 border border-white/5 rounded-full backdrop-blur-md hover:bg-white/10 transition-all duration-300 hover:border-[#D4AF37]/20 group whitespace-nowrap"
+                  className="flex items-center gap-1 px-2 py-1 bg-white/5 border border-white/5 rounded-full backdrop-blur-md hover:bg-white/10 transition-all duration-300 hover:border-[#D4AF37]/20 group whitespace-nowrap"
                 >
-                  <item.icon className="w-2.5 h-2.5 md:w-3 md:h-3 text-[#D4AF37] group-hover:text-[#F5E6B3] transition-colors" />
-                  <span className="text-white/60 text-[8px] md:text-[9px] tracking-widest uppercase group-hover:text-white/90 transition-colors">{item.text}</span>
+                  <item.icon className="w-2.5 h-2.5 text-[#D4AF37] group-hover:text-[#F5E6B3] transition-colors" />
+                  <span className="text-white/60 text-[8px] font-medium tracking-wider uppercase group-hover:text-white/90 transition-colors">{item.text}</span>
                 </div>
               ))}
             </motion.div>

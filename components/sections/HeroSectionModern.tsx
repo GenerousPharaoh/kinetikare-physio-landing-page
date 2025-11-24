@@ -6,8 +6,6 @@ import Image from 'next/image';
 import { motion, AnimatePresence, useMotionTemplate, useMotionValue } from 'framer-motion';
 import { CheckCircleIcon, ClockIcon, DocumentCheckIcon, ArrowRightIcon, StarIcon } from '@heroicons/react/24/solid';
 import { DocumentCheckIcon as OutlineDocumentCheckIcon, CheckCircleIcon as OutlineCheckCircleIcon, ClockIcon as OutlineClockIcon } from '@heroicons/react/24/outline';
-// Import the real reviews data
-import { reviews as allReviews } from '../GoogleReviews';
 
 export default function HeroSection() {
   // Mouse Spotlight Logic
@@ -20,37 +18,16 @@ export default function HeroSection() {
     mouseY.set(clientY - top);
   }
 
-  // Select specific impactful reviews for the hero section
-  const heroReviews = [
-    allReviews[1], // Thanula
-    allReviews[3], // Mitch Ball
-    allReviews[9], // David Espinosa
-    allReviews[0], // Dr. Fel Rocci
-    allReviews[7]  // Ryan Darkwah
+  // Curated, punchy reviews for the vertical marquee (No truncation needed)
+  const curatedReviews = [
+    { name: "Thanula Gnanakanthan", text: "I saw consistent progress and now feel stronger and pain free." },
+    { name: "Mitch Ball", text: "Dry needling and deep tissue work really accelerated my recovery." },
+    { name: "David Espinosa", text: "My hip feels strong again, the foot pain's gone, and I've been able to train hard." },
+    { name: "Dr. Fel Rocci", text: "Restored my function to about 90% of normal... I believe we will get to 100%." },
+    { name: "Ryan Darkwah", text: "My pain's gone now, and I'm back to playing at full speed." },
+    { name: "Pasquale Di Clemente", text: "The exercises he's given me have made a big difference in my strength and balance." },
+    { name: "Tami Murzin", text: "Kareem's knowledge helped me regain strength much faster than expected." }
   ];
-
-  const [currentReview, setCurrentReview] = useState(0);
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    const duration = 6000; // Slightly longer for reading
-    const interval = 50;
-    const steps = duration / interval;
-    let currentStep = 0;
-
-    const timer = setInterval(() => {
-      currentStep++;
-      setProgress((currentStep / steps) * 100);
-
-      if (currentStep >= steps) {
-        currentStep = 0;
-        setProgress(0);
-        setCurrentReview((prev) => (prev + 1) % heroReviews.length);
-      }
-    }, interval);
-
-    return () => clearInterval(timer);
-  }, []);
 
   // Animation Variants
   const containerVariants = {
@@ -91,12 +68,6 @@ export default function HeroSection() {
       opacity: 1,
       transition: swipeTransition
     }
-  };
-
-  // Helper to truncate text intelligently
-  const getReviewExcerpt = (text: string, limit: number = 100) => {
-    if (text.length <= limit) return text;
-    return text.substring(0, limit).trim() + "...";
   };
 
   return (
@@ -155,9 +126,9 @@ export default function HeroSection() {
               }}
             />
 
-            {/* Floating Reviews Widget - IMPROVED & WIDER */}
+            {/* Floating Reviews Widget - VERTICAL MARQUEE */}
             <motion.div
-              className="absolute top-[15%] right-[6%] max-w-[380px] z-20" // Increased max-w and adjusted position
+              className="absolute top-[12%] right-[6%] w-[320px] z-20"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 2, duration: 1 }}
@@ -166,7 +137,7 @@ export default function HeroSection() {
               <div className="relative rounded-xl bg-[#0f172a]/85 border border-white/10 shadow-2xl backdrop-blur-xl transform-gpu overflow-hidden group/widget hover:bg-[#0f172a]/95 transition-colors duration-300">
 
                 {/* Top Bar */}
-                <div className="flex items-center justify-between px-5 py-4 border-b border-white/5 bg-white/5">
+                <div className="flex items-center justify-between px-5 py-4 border-b border-white/5 bg-white/5 relative z-20">
                   <div className="flex items-center gap-3">
                     <div className="bg-white rounded-full p-1.5 w-8 h-8 flex items-center justify-center shadow-sm">
                       <svg viewBox="0 0 24 24" className="w-5 h-5">
@@ -193,44 +164,42 @@ export default function HeroSection() {
                   </div>
                 </div>
 
-                {/* Content Area */}
-                <div className="p-6 relative min-h-[140px] flex flex-col justify-center">
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={currentReview}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -20 }}
-                      transition={{ duration: 0.4 }}
-                      className="relative z-10"
-                    >
-                      <p className="text-white/95 text-sm font-medium leading-relaxed italic mb-4">
-                        "{getReviewExcerpt(heroReviews[currentReview].text, 300)}"
-                      </p>
-                      <div className="flex items-center gap-2">
-                        <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#D4AF37] to-[#B8860B] flex items-center justify-center text-[10px] font-bold text-white">
-                          {heroReviews[currentReview].name.charAt(0)}
-                        </div>
-                        <span className="text-xs font-bold text-[#D4AF37]">{heroReviews[currentReview].name}</span>
-                      </div>
-                    </motion.div>
-                  </AnimatePresence>
+                {/* Vertical Marquee Content */}
+                <div className="relative h-[280px] overflow-hidden">
+                  {/* Gradient Masks for Smooth Fade In/Out */}
+                  <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-[#0f172a]/90 to-transparent z-10 pointer-events-none" />
+                  <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#0f172a]/90 to-transparent z-10 pointer-events-none" />
 
-                  {/* Decorative Quote Icon */}
-                  <div className="absolute top-4 right-4 opacity-10">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
-                      <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V11C14.017 11.5523 13.5693 12 13.017 12H12.017V5H22.017V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM5.0166 21L5.0166 18C5.0166 16.8954 5.91203 16 7.0166 16H10.0166C10.5689 16 11.0166 15.5523 11.0166 15V9C11.0166 8.44772 10.5689 8 10.0166 8H6.0166C5.46432 8 5.0166 8.44772 5.0166 9V11C5.0166 11.5523 4.56889 12 4.0166 12H3.0166V5H13.0166V15C13.0166 18.3137 10.3303 21 7.0166 21H5.0166Z" />
-                    </svg>
-                  </div>
-                </div>
-
-                {/* Progress Bar */}
-                <div className="h-1 w-full bg-white/5">
                   <motion.div
-                    className="h-full bg-[#D4AF37]"
-                    style={{ width: `${progress}%` }}
-                  />
+                    className="flex flex-col gap-3 p-4"
+                    animate={{ y: "-50%" }}
+                    transition={{
+                      duration: 30,
+                      ease: "linear",
+                      repeat: Infinity,
+                      repeatType: "loop"
+                    }}
+                  >
+                    {/* Doubled list for seamless loop */}
+                    {[...curatedReviews, ...curatedReviews].map((review, i) => (
+                      <div
+                        key={i}
+                        className="p-4 bg-white/5 backdrop-blur-md rounded-xl border border-white/5 hover:bg-white/10 transition-colors duration-300"
+                      >
+                        <p className="text-white/90 text-xs font-medium leading-relaxed italic mb-3">
+                          "{review.text}"
+                        </p>
+                        <div className="flex items-center gap-2">
+                          <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#D4AF37] to-[#B8860B] flex items-center justify-center text-[9px] font-bold text-white shadow-sm">
+                            {review.name.charAt(0)}
+                          </div>
+                          <span className="text-[10px] font-bold text-[#D4AF37] tracking-wide">{review.name}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </motion.div>
                 </div>
+
               </div>
             </motion.div>
 

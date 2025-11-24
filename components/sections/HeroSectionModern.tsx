@@ -205,7 +205,7 @@ export default function HeroSection() {
                       className="relative z-10"
                     >
                       <p className="text-white/95 text-sm font-medium leading-relaxed italic mb-4">
-                        "{getReviewExcerpt(heroReviews[currentReview].text, 140)}"
+                        "{getReviewExcerpt(heroReviews[currentReview].text, 300)}"
                       </p>
                       <div className="flex items-center gap-2">
                         <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#D4AF37] to-[#B8860B] flex items-center justify-center text-[10px] font-bold text-white">

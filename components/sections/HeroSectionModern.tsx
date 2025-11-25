@@ -84,7 +84,7 @@ export default function HeroSection() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1.8 }}
         >
-          <div className="absolute top-0 right-0 w-[65%] h-full overflow-hidden">
+          <div className="absolute top-0 right-0 w-[65%] h-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_20%)]">
             <motion.div
               className="relative w-full h-full will-change-transform"
               initial={{ scale: 1.15, x: "0%" }}

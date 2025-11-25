@@ -25,7 +25,6 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchModalOpen, setSearchModalOpen] = useState(false);
   const [conditionsExpanded, setConditionsExpanded] = useState(false);
-  const [expandedRegion, setExpandedRegion] = useState<string | null>(null);
   const pathname = usePathname();
 
   // Optimized scroll handler
@@ -73,7 +72,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     <>
       <header
         ref={ref}
-        className={`fixed w-full top-0 z-50 transition-all duration-500 ease-in-out border-b ${scrolled
+        className={`fixed w-full top-0 z-50 transition-all duration-500 ease-in-out border-b ${scrolled || pathname !== '/'
             ? '!bg-[#0f172a]/80 backdrop-blur-xl border-white/10 py-3 shadow-lg'
             : '!bg-transparent border-transparent py-5'
           }`}

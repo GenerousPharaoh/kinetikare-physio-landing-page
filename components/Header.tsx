@@ -73,7 +73,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
       <header
         ref={ref}
         className={`fixed w-full top-0 z-50 transition-all duration-500 ease-in-out border-b ${scrolled || pathname !== '/'
-            ? '!bg-[#0f172a]/80 backdrop-blur-xl border-white/10 py-3 shadow-lg'
+            ? '!bg-[#020617]/90 backdrop-blur-xl border-white/10 py-3 shadow-lg'
             : '!bg-transparent border-transparent py-5'
           }`}
       >
@@ -120,7 +120,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   {/* Conditions Dropdown - Premium Glassmorphism */}
                   {item.name === 'Conditions' && (
                     <div className="absolute left-1/2 -translate-x-1/2 top-full pt-6 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 ease-out">
-                      <div className="w-[600px] bg-[#0f172a]/95 backdrop-blur-2xl rounded-2xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] p-6 grid grid-cols-2 gap-x-8 gap-y-4">
+                      <div className="w-[600px] bg-[#020617]/95 backdrop-blur-2xl rounded-2xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] p-6 grid grid-cols-2 gap-x-8 gap-y-4">
                         {conditionCategories.map((category) => (
                           <div key={category.slug} className="group/category">
                             <div className="flex items-center justify-between py-2 border-b border-white/5 group-hover/category:border-[#D4AF37]/30 transition-colors">
@@ -220,7 +220,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-[300px] bg-[#0f172a] border-l border-white/10 z-50 lg:hidden overflow-y-auto"
+              className="fixed top-0 right-0 bottom-0 w-[300px] bg-[#020617] border-l border-white/10 z-50 lg:hidden overflow-y-auto"
             >
               <div className="p-6 pt-24 space-y-6">
                 {/* Mobile Search */}

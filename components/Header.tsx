@@ -74,8 +74,8 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
       <header
         ref={ref}
         className={`fixed w-full top-0 z-50 transition-all duration-500 ease-in-out border-b ${scrolled
-            ? 'bg-[#0f172a]/80 backdrop-blur-xl border-white/10 py-3 shadow-lg'
-            : 'bg-transparent border-transparent py-5'
+            ? '!bg-[#0f172a]/80 backdrop-blur-xl border-white/10 py-3 shadow-lg'
+            : '!bg-transparent border-transparent py-5'
           }`}
       >
         <div className="container mx-auto px-4 lg:px-8">
@@ -94,30 +94,28 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               </div>
               <div className="flex flex-col justify-center">
                 <div className="flex items-center tracking-[0.15em] leading-none">
-                  <span className="text-lg lg:text-xl font-light text-white">KINETI</span>
+                  <span className="text-lg lg:text-xl font-light !text-white">KINETI</span>
                   <span className="text-lg lg:text-xl font-bold text-[#D4AF37]">K</span>
-                  <span className="text-lg lg:text-xl font-light text-white">ARE</span>
+                  <span className="text-lg lg:text-xl font-light !text-white">ARE</span>
                 </div>
-                <span className="text-[10px] text-white/60 tracking-[0.2em] uppercase mt-0.5 group-hover:text-[#D4AF37] transition-colors duration-300">
+                <span className="text-[10px] !text-white/60 tracking-[0.2em] uppercase mt-0.5 group-hover:text-[#D4AF37] transition-colors duration-300">
                   Physiotherapy
                 </span>
               </div>
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-8">
+            <nav className="hidden lg:flex items-center gap-2">
               {mainNavItems.map((item) => (
                 <div key={item.name} className="relative group/nav">
                   <Link
                     href={item.href}
-                    className={`relative text-sm font-medium tracking-wide transition-all duration-300 py-2 ${isCurrentPath(item.href)
-                        ? 'text-[#D4AF37]'
-                        : 'text-white/80 hover:text-white'
+                    className={`relative px-4 py-2 rounded-full text-sm font-medium tracking-wide transition-all duration-300 ${isCurrentPath(item.href)
+                        ? '!text-[#D4AF37] bg-white/10 shadow-[0_0_10px_rgba(212,175,55,0.1)]'
+                        : '!text-white/80 hover:!text-white hover:bg-white/5'
                       }`}
                   >
                     {item.name}
-                    <span className={`absolute -bottom-1 left-0 w-full h-[1px] bg-[#D4AF37] transform origin-left transition-transform duration-300 ${isCurrentPath(item.href) ? 'scale-x-100' : 'scale-x-0 group-hover/nav:scale-x-100'
-                      }`} />
                   </Link>
 
                   {/* Conditions Dropdown - Premium Glassmorphism */}
@@ -162,7 +160,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               {/* Search */}
               <button
                 onClick={() => setSearchModalOpen(true)}
-                className="hidden sm:flex items-center justify-center w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 text-white/70 hover:text-[#D4AF37] transition-all duration-300 border border-white/5 hover:border-[#D4AF37]/30"
+                className="hidden sm:flex items-center justify-center w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 !text-white/70 hover:!text-[#D4AF37] transition-all duration-300 border border-white/5 hover:border-[#D4AF37]/30"
               >
                 <MagnifyingGlassIcon className="w-5 h-5" />
               </button>
@@ -170,9 +168,9 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               {/* Phone */}
               <Link
                 href="tel:+19056346000"
-                className="hidden xl:flex items-center gap-2 text-white/70 hover:text-white transition-colors group"
+                className="hidden xl:flex items-center gap-2 !text-white/70 hover:!text-white transition-colors group"
               >
-                <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#D4AF37] group-hover:text-slate-900 transition-all duration-300">
+                <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#D4AF37] group-hover:!text-slate-900 transition-all duration-300">
                   <PhoneIcon className="w-4 h-4" />
                 </div>
                 <span className="text-sm font-medium tracking-wide">905-634-6000</span>
@@ -194,7 +192,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               {/* Mobile Menu Toggle */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden relative z-50 w-10 h-10 flex items-center justify-center text-white hover:text-[#D4AF37] transition-colors"
+                className="lg:hidden relative z-50 w-10 h-10 flex items-center justify-center !text-white hover:!text-[#D4AF37] transition-colors"
               >
                 {mobileMenuOpen ? (
                   <XMarkIcon className="w-7 h-7" />
@@ -232,7 +230,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                     setSearchModalOpen(true);
                     setMobileMenuOpen(false);
                   }}
-                  className="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-white/5 text-white/70 hover:text-white hover:bg-white/10 transition-all border border-white/5"
+                  className="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-white/5 !text-white/70 hover:!text-white hover:bg-white/10 transition-all border border-white/5"
                 >
                   <MagnifyingGlassIcon className="w-5 h-5" />
                   <span className="text-sm font-medium">Search...</span>
@@ -247,8 +245,8 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                           <button
                             onClick={() => setConditionsExpanded(!conditionsExpanded)}
                             className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all ${isCurrentPath(item.href)
-                                ? 'bg-[#D4AF37]/10 text-[#D4AF37]'
-                                : 'text-white/80 hover:bg-white/5 hover:text-white'
+                                ? 'bg-[#D4AF37]/10 !text-[#D4AF37]'
+                                : '!text-white/80 hover:bg-white/5 hover:!text-white'
                               }`}
                           >
                             <span className="font-medium tracking-wide">{item.name}</span>
@@ -269,7 +267,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                                       key={category.slug}
                                       href={`/conditions?tab=${idx}`}
                                       onClick={handleNavClick}
-                                      className="block px-4 py-2 text-sm text-white/60 hover:text-[#D4AF37] transition-colors"
+                                      className="block px-4 py-2 text-sm !text-white/60 hover:!text-[#D4AF37] transition-colors"
                                     >
                                       {category.title}
                                     </Link>
@@ -284,8 +282,8 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                           href={item.href}
                           onClick={handleNavClick}
                           className={`block px-4 py-3 rounded-xl font-medium tracking-wide transition-all ${isCurrentPath(item.href)
-                              ? 'bg-[#D4AF37]/10 text-[#D4AF37]'
-                              : 'text-white/80 hover:bg-white/5 hover:text-white'
+                              ? 'bg-[#D4AF37]/10 !text-[#D4AF37]'
+                              : '!text-white/80 hover:bg-white/5 hover:!text-white'
                             }`}
                         >
                           {item.name}
@@ -299,7 +297,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 <div className="pt-6 border-t border-white/10 space-y-4">
                   <Link
                     href="tel:+19056346000"
-                    className="flex items-center justify-center gap-2 w-full py-3 rounded-xl border border-white/10 text-white hover:bg-white/5 transition-all"
+                    className="flex items-center justify-center gap-2 w-full py-3 rounded-xl border border-white/10 !text-white hover:bg-white/5 transition-all"
                   >
                     <PhoneIcon className="w-5 h-5 text-[#D4AF37]" />
                     <span className="font-medium">905-634-6000</span>

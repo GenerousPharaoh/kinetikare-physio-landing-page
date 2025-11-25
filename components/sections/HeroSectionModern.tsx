@@ -72,7 +72,7 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative h-screen w-full overflow-hidden bg-[#0f172a] group"
+      className="relative h-screen w-full overflow-hidden bg-[#020617] group"
       onMouseMove={handleMouseMove}
     >
 

@@ -102,7 +102,7 @@ const personSchema = {
       }
     },
     {
-      "@type": "EducationalOccupationalCredential", 
+      "@type": "EducationalOccupationalCredential",
       "name": "Advanced Integrated Musculoskeletal (AIM) Physiotherapy Program Level 2 Upper and Lower",
       "credentialCategory": "certificate",
       "recognizedBy": {
@@ -113,7 +113,7 @@ const personSchema = {
   ],
   "knowsAbout": [
     "Manual Therapy",
-    "Sports Rehabilitation", 
+    "Sports Rehabilitation",
     "Dry Needling",
     "Exercise Therapy",
     "Pain Management",
@@ -121,7 +121,7 @@ const personSchema = {
   ],
   "areaServed": [
     "Burlington, ON",
-    "Waterdown, ON", 
+    "Waterdown, ON",
     "Hamilton, ON",
     "Oakville, ON"
   ],
@@ -141,50 +141,54 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
-    <main className="min-h-screen" style={{ margin: '0px', padding: '0px' }}>
-      <HeroSection />
-      {/* SEO-optimized hidden heading for brand search */}
-      <h1 className="sr-only">Kareem Hassanein Registered Physiotherapist Burlington | Physiotherapy near Waterdown and Oakville</h1>
 
-      {/* Elegant transition from hero */}
-      <div className="relative py-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-[#B08D57]/[0.02] to-white" />
-        <div className="relative max-w-4xl mx-auto px-4">
-          <div className="flex items-center justify-center gap-4">
-            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#B08D57]/20 to-[#B08D57]/40" />
-            <div className="flex gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]/40" />
-              <div className="w-2 h-2 rounded-full bg-[#B08D57]/60" />
-              <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]/40" />
+      {/* Force dark background on homepage to prevent white flash before hydration */}
+      <style dangerouslySetInnerHTML={{ __html: `html { background: #020617 !important; }` }} />
+
+      <main className="min-h-screen" style={{ margin: '0px', padding: '0px' }}>
+        <HeroSection />
+        {/* SEO-optimized hidden heading for brand search */}
+        <h1 className="sr-only">Kareem Hassanein Registered Physiotherapist Burlington | Physiotherapy near Waterdown and Oakville</h1>
+
+        {/* Elegant transition from hero */}
+        <div className="relative py-16 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-white via-[#B08D57]/[0.02] to-white" />
+          <div className="relative max-w-4xl mx-auto px-4">
+            <div className="flex items-center justify-center gap-4">
+              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#B08D57]/20 to-[#B08D57]/40" />
+              <div className="flex gap-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]/40" />
+                <div className="w-2 h-2 rounded-full bg-[#B08D57]/60" />
+                <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]/40" />
+              </div>
+              <div className="h-px flex-1 bg-gradient-to-r from-[#B08D57]/40 via-[#B08D57]/20 to-transparent" />
             </div>
-            <div className="h-px flex-1 bg-gradient-to-r from-[#B08D57]/40 via-[#B08D57]/20 to-transparent" />
           </div>
         </div>
-      </div>
 
-      {/* Content sections with elegant dividers */}
-      <AboutSection />
+        {/* Content sections with elegant dividers */}
+        <AboutSection />
 
-      <SectionDivider variant="dots" />
+        <SectionDivider variant="dots" />
 
-      <CareJourneySection />
+        <CareJourneySection />
 
-      <SectionDivider variant="gradient" />
+        <SectionDivider variant="gradient" />
 
-      <ServicesSection />
+        <ServicesSection />
 
-      <SectionDivider variant="dots" />
+        <SectionDivider variant="dots" />
 
-      <GoogleReviews />
+        <GoogleReviews />
 
-      <SectionDivider variant="gradient" />
+        <SectionDivider variant="gradient" />
 
-      <HealingEnvironmentSection />
+        <HealingEnvironmentSection />
 
-      <SectionDivider variant="dots" />
+        <SectionDivider variant="dots" />
 
-      <ContactSection />
-    </main>
+        <ContactSection />
+      </main>
     </>
   );
 } 

@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect, forwardRef, useCallback, useMemo } from 'react';
 import Link from 'next/link';
-// import { Menu, X, Phone, Calendar } from 'lucide-react';
 import {
   Bars3Icon,
   XMarkIcon,
@@ -10,17 +9,8 @@ import {
   CalendarDaysIcon,
   MagnifyingGlassIcon,
   ChevronRightIcon
-} from '@heroicons/react/24/outline'; // Using outline for header icons
-
+} from '@heroicons/react/24/outline';
 import { conditionCategories } from '@/lib/conditions-data';
-
-import { 
-  HomeIcon,
-  WrenchScrewdriverIcon, 
-  UserIcon,
-  ClipboardDocumentCheckIcon,
-  StarIcon
-} from '@heroicons/react/24/solid'; // Using solid icons for menu items for a bolder look
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
@@ -31,122 +21,34 @@ interface HeaderProps {
 }
 
 const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkClick }, ref) {
-  const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
-  const [activeItem, setActiveItem] = useState<string | null>(null);
   const [searchModalOpen, setSearchModalOpen] = useState(false);
   const [conditionsExpanded, setConditionsExpanded] = useState(false);
   const [expandedRegion, setExpandedRegion] = useState<string | null>(null);
   const pathname = usePathname();
 
-  // Optimize scroll handler with throttling
+  // Optimized scroll handler
   useEffect(() => {
-    let ticking = false;
-    
     const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          setScrolled(window.scrollY > 20);
-          ticking = false;
-        });
-        ticking = true;
-      }
+      setScrolled(window.scrollY > 20);
     };
-
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
-    
-    // Set CSS variable for header height - using a more reliable approach
-    const updateHeaderHeight = () => {
-      const headerElement = document.querySelector('header');
-      if (headerElement) {
-        const headerHeight = headerElement.offsetHeight;
-        document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
-      }
-    };
-    
-    // Update immediately and after a short delay to ensure accuracy
-    updateHeaderHeight();
-    const timeoutId = setTimeout(updateHeaderHeight, 100);
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      clearTimeout(timeoutId);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu on resize
   useEffect(() => {
-    const handleEscKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        if (mobileMenuOpen) setMobileMenuOpen(false);
-        if (searchModalOpen) setSearchModalOpen(false);
-      }
-      // Add CMD+K or CTRL+K for search
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-        e.preventDefault();
-        setSearchModalOpen(true);
-      }
-    };
-
-    window.addEventListener('keydown', handleEscKey);
-    return () => window.removeEventListener('keydown', handleEscKey);
-  }, [mobileMenuOpen, searchModalOpen]);
-
-  // Add additional useEffect to update header height on window resize and DOM changes
-  useEffect(() => {
-    const updateHeaderHeight = () => {
-      const headerElement = document.querySelector('header');
-      if (headerElement) {
-        const headerHeight = headerElement.offsetHeight;
-        document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
-      }
-    };
-
-    // Create a resize observer to detect changes in header size
-    const resizeObserver = new ResizeObserver(() => {
-      updateHeaderHeight();
-    });
-
-    const headerElement = document.querySelector('header');
-    if (headerElement) {
-      resizeObserver.observe(headerElement);
-    }
-
-    // Update on window resize as well
-    window.addEventListener('resize', updateHeaderHeight, { passive: true });
-    
-    return () => {
-      if (headerElement) {
-        resizeObserver.unobserve(headerElement);
-      }
-      resizeObserver.disconnect();
-      window.removeEventListener('resize', updateHeaderHeight);
-    };
-  }, []);
-
-  // Optimize resize handler with throttling
-  useEffect(() => {
-    let resizeTimeout: NodeJS.Timeout;
-    
     const handleResize = () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(() => {
-        if (window.innerWidth >= 768 && mobileMenuOpen) {
-          setMobileMenuOpen(false);
-        }
-      }, 100);
+      if (window.innerWidth >= 1024 && mobileMenuOpen) {
+        setMobileMenuOpen(false);
+      }
     };
-    
-    window.addEventListener('resize', handleResize, { passive: true });
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      clearTimeout(resizeTimeout);
-    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, [mobileMenuOpen]);
 
-  // Define the main navigation items and home sections using useMemo
   const mainNavItems = useMemo(() => [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
@@ -156,227 +58,95 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     { name: 'FAQ', href: '/faq' },
   ], []);
 
-  // Define sections that exist on the home page with useMemo
-  const homeSections = useMemo(() => [
-    // Removed since About is now in main nav
-  ], []);
-
-  // Memoize animation variants to prevent recreation
-  const navItemVariants = useMemo(() => ({
-    visible: {
-      opacity: 1,
-      y: 0
-    }
-  }), []);
-
-  // Handle navigation click with useCallback to prevent re-creation
-  const handleNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    // For both hash and non-hash links
-    if ((href === '/' || href.includes('#')) && pathname === '/') {
-      // Only handle hash navigation on the home page
-      if (href.includes('#')) {
-        e.preventDefault();
-        const targetId = href.substring(2); // Remove /# part
-        const targetElement = document.getElementById(targetId);
-        
-        if (targetElement) {
-          const headerElement = document.querySelector('header');
-          const headerOffset = headerElement?.offsetHeight || 70;
-          const elementPosition = targetElement.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.scrollY - headerOffset;
-
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: "smooth"
-          });
-        }
-      }
-    }
-    
-    // Always close menus
-    setIsOpen(false);
-    setMobileMenuOpen(false);
-    
-    // Call onNavLinkClick if provided (for the parent component to react)
-    if (onNavLinkClick) {
-      onNavLinkClick(href);
-    }
-  }, [pathname, onNavLinkClick]);
-
-  // Memoize current path checking function
   const isCurrentPath = useCallback((href: string) => {
-    // Exact match for pages like home, blog, faq
-    if (href === pathname) {
-      return true;
-    }
-    
-    // For hash links on home page
-    if (href.includes('#') && pathname === '/') {
-      return false; // Don't mark as active unless it's the exact hash we're on
-    }
-    
-    // For non-hash pages
-    if (!href.includes('#') && href !== '/') {
-      return pathname.startsWith(href);
-    }
-    
-    // Default case
+    if (href === pathname) return true;
+    if (href !== '/' && pathname.startsWith(href)) return true;
     return false;
   }, [pathname]);
 
-  // Memoize header opacity function
-  const getHeaderOpacity = useCallback(() => {
-    if (isHovered) {
-      return 'bg-white/98'; // Almost fully opaque when hovered
-    }
-    if (scrolled) {
-      return 'bg-white/95'; // More opaque when scrolled for better readability
-    }
-    return 'bg-white/90'; // Default opacity
-  }, [isHovered, scrolled]);
-
-  // Memoize the header background style
-  const headerStyle = useMemo(() => ({
-    transform: 'translateZ(0)' as const,
-    backfaceVisibility: 'hidden' as const,
-    willChange: 'transform, background-color, box-shadow, padding',
-    borderBottom: 'none',
-    background: scrolled 
-      ? 'linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(240, 247, 255, 0.98))' 
-      : 'linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 255, 0.95))',
-    backdropFilter: scrolled ? 'blur(10px)' : 'blur(5px)',
-    position: 'fixed' as const,
-    top: 0,
-    left: 0,
-    right: 0,
-    zIndex: 100
-  }), [scrolled]);
+  const handleNavClick = () => {
+    setMobileMenuOpen(false);
+    if (onNavLinkClick) onNavLinkClick('');
+  };
 
   return (
-    <header
-      ref={ref}
-      className={`fixed w-full top-0 transition-all duration-300 ease-in-out z-50`}
-      style={{
-        transform: 'translateZ(0)',
-        backfaceVisibility: 'hidden',
-        willChange: 'transform, background-color, box-shadow',
-      }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => {
-        setIsHovered(false);
-        if (!mobileMenuOpen) {
-          setIsOpen(false);
-        }
-      }}
-    >
-      {/* Single Unified Navigation Bar */}
-      <div
-        className={`relative w-full transition-all duration-[400ms] border-0 outline-none`}
-        style={{
-          background: 'linear-gradient(135deg, rgb(15, 23, 42) 0%, rgb(20, 30, 60) 50%, rgb(15, 23, 42) 100%)',
-          boxShadow: scrolled
-            ? '0 4px 20px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(212, 175, 55, 0.1)'
-            : '0 2px 10px rgba(0, 0, 0, 0.2)',
-          transform: 'translateZ(0)',
-          backfaceVisibility: 'hidden' as const,
-        }}
+    <>
+      <header
+        ref={ref}
+        className={`fixed w-full top-0 z-50 transition-all duration-500 ease-in-out border-b ${scrolled
+            ? 'bg-[#0f172a]/80 backdrop-blur-xl border-white/10 py-3 shadow-lg'
+            : 'bg-transparent border-transparent py-5'
+          }`}
       >
-        {/* Subtle gold accent line at bottom */}
-        <div
-          className="absolute bottom-0 left-0 right-0 h-[1px]"
-          style={{
-            background: 'linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent)'
-          }}
-        />
-      
-        <div className="container mx-auto px-4 lg:px-6 relative">
-          <div className="flex items-center justify-between h-16 gap-4">
-            
-            {/* Logo Section */}
-            <Link href="/" className="flex items-center gap-2 group flex-shrink-0">
-              <div className="flex items-center gap-1">
-                <div className="relative flex items-center justify-center w-8 h-8 lg:w-9 lg:h-9">
-                  <Image
-                    src="/images/kinetikare-logo-without-text.webp"
-                    alt="KinetiKare physiotherapy logo Burlington Waterdown Kareem Hassanein"
-                    width={36}
-                    height={36}
-                    className="w-7 h-7 lg:w-8 lg:h-8 object-contain transition-all duration-[400ms] ease-out group-hover:scale-110"
-                    style={{
-                      filter: 'contrast(1.2) saturate(1.3) brightness(1.1) drop-shadow(0 2px 4px rgba(255, 255, 255, 0.15)) drop-shadow(0 0 8px rgba(212, 175, 55, 0.2))',
-                      imageRendering: 'crisp-edges',
-                      transform: 'translateZ(0)',
-                      willChange: 'transform'
-                    }}
-                  />
-                </div>
-                <div className="flex items-center">
-                  <span className="text-[16px] lg:text-[17px] xl:text-[20px] text-white font-extralight tracking-[0.1em] leading-none uppercase" style={{ fontFamily: "'Montserrat', sans-serif" }}>Kineti</span>
-                  <span className="text-[16px] lg:text-[17px] xl:text-[20px] text-[#D4AF37] font-bold leading-none uppercase" style={{ fontFamily: "'Montserrat', sans-serif" }}>K</span>
-                  <span className="text-[16px] lg:text-[17px] xl:text-[20px] text-white font-extralight tracking-[0.1em] leading-none uppercase" style={{ fontFamily: "'Montserrat', sans-serif" }}>are</span>
-                </div>
-              </div>
-              <div className="hidden xl:block w-px h-4 bg-[#D4AF37]/30 mx-2"></div>
-              <div className="hidden xl:flex flex-col justify-center">
-                <div className="text-[11px] xl:text-xs text-white/70 font-medium leading-tight">
-                  Kareem Hassanein Physiotherapy
-                </div>
-              </div>
-          </Link>
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="flex items-center justify-between">
 
-            {/* Navigation */}
-            <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1 2xl:gap-3 flex-1 justify-center px-1 xl:px-4">
+            {/* Logo Section */}
+            <Link href="/" className="flex items-center gap-3 group relative z-50">
+              <div className="relative w-10 h-10 lg:w-11 lg:h-11 transition-transform duration-500 group-hover:scale-105">
+                <Image
+                  src="/images/kinetikare-logo-without-text.webp"
+                  alt="KinetiKare Logo"
+                  fill
+                  className="object-contain drop-shadow-[0_0_15px_rgba(212,175,55,0.3)]"
+                  sizes="44px"
+                />
+              </div>
+              <div className="flex flex-col justify-center">
+                <div className="flex items-center tracking-[0.15em] leading-none">
+                  <span className="text-lg lg:text-xl font-light text-white">KINETI</span>
+                  <span className="text-lg lg:text-xl font-bold text-[#D4AF37]">K</span>
+                  <span className="text-lg lg:text-xl font-light text-white">ARE</span>
+                </div>
+                <span className="text-[10px] text-white/60 tracking-[0.2em] uppercase mt-0.5 group-hover:text-[#D4AF37] transition-colors duration-300">
+                  Physiotherapy
+                </span>
+              </div>
+            </Link>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center gap-8">
               {mainNavItems.map((item) => (
                 <div key={item.name} className="relative group/nav">
                   <Link
                     href={item.href}
-                    onClick={(e) => handleNavClick(e, item.href)}
-                    className={`relative text-[11px] lg:text-xs xl:text-sm font-medium transition-all duration-300 ease-out px-2 xl:px-3 py-1.5 xl:py-2 rounded-md group whitespace-nowrap outline-none
-                      ${isCurrentPath(item.href)
-                        ? '!text-[#D4AF37]'
-                        : '!text-white/80 hover:!text-white hover:bg-white/5'}`}
-                    style={{
-                      letterSpacing: '0.02em',
-                      fontVariantLigatures: 'common-ligatures',
-                      WebkitFontSmoothing: 'antialiased',
-                      MozOsxFontSmoothing: 'grayscale',
-                    }}
+                    className={`relative text-sm font-medium tracking-wide transition-all duration-300 py-2 ${isCurrentPath(item.href)
+                        ? 'text-[#D4AF37]'
+                        : 'text-white/80 hover:text-white'
+                      }`}
                   >
                     {item.name}
-
-                    {/* Subtle underline indicator */}
-                    <span className={`absolute bottom-1 left-2 right-2 xl:left-3 xl:right-3 h-[2px] transform origin-left transition-all duration-300 ease-out rounded-full
-                      ${isCurrentPath(item.href) ? 'scale-x-100 bg-[#D4AF37]' : 'scale-x-0 group-hover:scale-x-100 bg-white/30'}`}>
-                    </span>
+                    <span className={`absolute -bottom-1 left-0 w-full h-[1px] bg-[#D4AF37] transform origin-left transition-transform duration-300 ${isCurrentPath(item.href) ? 'scale-x-100' : 'scale-x-0 group-hover/nav:scale-x-100'
+                      }`} />
                   </Link>
 
-                  {/* Conditions Dropdown Menu */}
+                  {/* Conditions Dropdown - Premium Glassmorphism */}
                   {item.name === 'Conditions' && (
-                    <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-200 ease-out z-50">
-                      <div className="bg-gradient-to-br from-slate-50 to-gray-100 rounded-lg shadow-xl overflow-visible border border-gray-200/50" style={{ minWidth: '240px', backdropFilter: 'blur(10px)' }}>
+                    <div className="absolute left-1/2 -translate-x-1/2 top-full pt-6 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 ease-out">
+                      <div className="w-[600px] bg-[#0f172a]/95 backdrop-blur-2xl rounded-2xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] p-6 grid grid-cols-2 gap-x-8 gap-y-4">
                         {conditionCategories.map((category) => (
-                          <div key={category.slug} className="relative group">
-                            {/* Category - triggers submenu on hover */}
-                            <div className="flex items-center justify-between px-4 py-2.5 text-sm text-gray-700 hover:bg-white/70 hover:text-[#B08D57] transition-all duration-150 cursor-pointer border-b border-gray-200/30 last:border-b-0">
-                              <span className="font-medium">{category.title}</span>
-                              <ChevronRightIcon className="h-3.5 w-3.5 text-gray-400" />
+                          <div key={category.slug} className="group/category">
+                            <div className="flex items-center justify-between py-2 border-b border-white/5 group-hover/category:border-[#D4AF37]/30 transition-colors">
+                              <span className="text-[#D4AF37] font-medium text-sm tracking-wide">{category.title}</span>
                             </div>
-
-                            {/* Submenu - appears on hover */}
-                            <div className="absolute left-full top-0 ml-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
-                              <div className="bg-gradient-to-br from-slate-50 to-gray-100 rounded-lg shadow-xl border border-gray-200/50 overflow-hidden" style={{ minWidth: '220px', maxHeight: '400px', backdropFilter: 'blur(10px)' }}>
-                                <div className="overflow-y-auto" style={{ maxHeight: '400px' }}>
-                                  {category.conditions.map((condition) => (
-                                    <Link
-                                      key={condition.slug}
-                                      href={`/conditions/${condition.slug}`}
-                                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-white/70 hover:text-[#B08D57] transition-all duration-150 border-b border-gray-200/20 last:border-b-0"
-                                    >
-                                      {condition.name}
-                                    </Link>
-                                  ))}
-                                </div>
-                              </div>
+                            <div className="mt-2 space-y-1">
+                              {category.conditions.slice(0, 4).map((condition) => (
+                                <Link
+                                  key={condition.slug}
+                                  href={`/conditions/${condition.slug}`}
+                                  className="block text-xs text-white/60 hover:text-white hover:translate-x-1 transition-all duration-200 py-1"
+                                >
+                                  {condition.name}
+                                </Link>
+                              ))}
+                              {category.conditions.length > 4 && (
+                                <Link
+                                  href={`/conditions?tab=${conditionCategories.indexOf(category)}`}
+                                  className="block text-[10px] text-[#D4AF37]/70 hover:text-[#D4AF37] uppercase tracking-wider font-bold pt-1"
+                                >
+                                  View All ({category.conditions.length})
+                                </Link>
+                              )}
                             </div>
                           </div>
                         ))}
@@ -387,211 +157,173 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               ))}
             </nav>
 
-            {/* Action Buttons */}
-            <div className="flex items-center gap-1.5 lg:gap-2 flex-shrink-0">
-              <Link
-                href="tel:+19056346000"
-                className="hidden lg:flex items-center gap-1.5 text-xs xl:text-sm font-medium text-white/70 hover:text-[#D4AF37] transition-all duration-300 whitespace-nowrap group"
-              >
-                <PhoneIcon className="h-3.5 w-3.5 xl:h-4 xl:w-4 group-hover:scale-110 transition-transform duration-300" />
-                <span className="hidden xl:inline">905-634-6000</span>
-              </Link>
-
-              {/* Search Button - Desktop Only */}
+            {/* Right Actions */}
+            <div className="flex items-center gap-4 lg:gap-6">
+              {/* Search */}
               <button
                 onClick={() => setSearchModalOpen(true)}
-                className="hidden sm:flex items-center justify-center w-8 h-8 bg-white/5 hover:bg-white/10 text-white/70 hover:text-[#D4AF37] rounded-md transition-all duration-300 border border-white/10 hover:border-[#D4AF37]/30"
-                aria-label="Search"
+                className="hidden sm:flex items-center justify-center w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 text-white/70 hover:text-[#D4AF37] transition-all duration-300 border border-white/5 hover:border-[#D4AF37]/30"
               >
-                <MagnifyingGlassIcon className="h-3.5 w-3.5" />
+                <MagnifyingGlassIcon className="w-5 h-5" />
               </button>
 
-              {/* Phone icon for smaller screens */}
+              {/* Phone */}
               <Link
                 href="tel:+19056346000"
-                className="sm:hidden flex items-center justify-center w-8 h-8 bg-white/5 hover:bg-white/10 text-white/70 hover:text-[#D4AF37] rounded-md transition-all duration-300 border border-white/10"
+                className="hidden xl:flex items-center gap-2 text-white/70 hover:text-white transition-colors group"
               >
-                <PhoneIcon className="h-3.5 w-3.5" />
+                <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#D4AF37] group-hover:text-slate-900 transition-all duration-300">
+                  <PhoneIcon className="w-4 h-4" />
+                </div>
+                <span className="text-sm font-medium tracking-wide">905-634-6000</span>
               </Link>
 
+              {/* Book Now Button - Premium Redesign */}
               <Link
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                 target="_blank"
-                rel="noopener noreferrer"
-                className="relative overflow-hidden bg-gradient-to-r from-[#D4AF37] to-[#C9A227] text-slate-900 text-[10px] lg:text-xs xl:text-sm font-semibold px-2.5 sm:px-3 lg:px-4 xl:px-5 py-2 lg:py-2.5 rounded-md lg:rounded-lg flex items-center gap-1 lg:gap-1.5 whitespace-nowrap shadow-lg hover:shadow-xl group transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
-                style={{
-                  letterSpacing: '0.03em',
-                  transform: 'translateZ(0)',
-                }}
+                className="hidden sm:flex group relative px-6 py-2.5 bg-[#D4AF37] overflow-hidden rounded-full transition-all duration-300 hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:scale-105"
               >
-                <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></span>
-                <CalendarDaysIcon className="h-3.5 w-3.5 lg:h-4 lg:w-4 relative z-10" />
-                <span className="hidden sm:inline relative z-10">Book Now</span>
-                <span className="sm:hidden relative z-10">Book</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
+                <span className="relative flex items-center gap-2 text-slate-900 font-bold text-xs tracking-[0.1em] uppercase">
+                  <CalendarDaysIcon className="w-4 h-4" />
+                  Book Now
+                </span>
               </Link>
 
-              {/* Mobile Menu Button */}
+              {/* Mobile Menu Toggle */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                type="button"
-                className="lg:hidden p-2 text-white hover:text-[#D4AF37] transition-colors duration-300"
+                className="lg:hidden relative z-50 w-10 h-10 flex items-center justify-center text-white hover:text-[#D4AF37] transition-colors"
               >
                 {mobileMenuOpen ? (
-                  <XMarkIcon className="h-6 w-6" />
+                  <XMarkIcon className="w-7 h-7" />
                 ) : (
-                  <Bars3Icon className="h-6 w-6" />
+                  <Bars3Icon className="w-7 h-7" />
                 )}
               </button>
             </div>
+          </div>
         </div>
-      </div>
+      </header>
 
-      </div>
-
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       <AnimatePresence>
-      {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden bg-slate-900/95 backdrop-blur-xl border-b border-[#D4AF37]/30 max-h-[70vh] overflow-y-auto"
-        >
-            <div className="px-6 py-4 space-y-1 touch-auto">
-              {/* Search Button for Mobile */}
-              <button
-                onClick={() => {
-                  setSearchModalOpen(true);
-                  setMobileMenuOpen(false);
-                }}
-                className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-base font-medium tracking-wide transition-all duration-300 outline-none !text-white hover:bg-white/5 hover:!text-[#D4AF37]"
-              >
-                <MagnifyingGlassIcon className="h-5 w-5" />
-                Search
-              </button>
-              
-              {mainNavItems.map((item) => (
-                <div key={item.name}>
-                  {item.name === 'Conditions' ? (
-                    <div className="space-y-1">
-                      <div className="flex items-center gap-1">
-                        <Link
-                          href={item.href}
-                          onClick={(e) => handleNavClick(e, item.href)}
-                          className={`flex-1 px-4 py-3 rounded-lg text-base font-medium tracking-wide transition-all duration-300 outline-none
-                            ${isCurrentPath(item.href)
-                              ? '!text-[#D4AF37] bg-[#D4AF37]/10 font-normal hover:!text-[#F5D63D] hover:bg-[#D4AF37]/15'
-                              : '!text-white hover:bg-white/5 hover:!text-[#D4AF37]'}`}
-                        >
-                          {item.name}
-                        </Link>
-                        <button
-                          onClick={() => {
-                            setConditionsExpanded(!conditionsExpanded);
-                            setExpandedRegion(null);
-                          }}
-                          className={`px-3 py-3 rounded-lg transition-all duration-300 outline-none
-                            ${conditionsExpanded ? '!text-[#D4AF37]' : '!text-white/60 hover:!text-white'}`}
-                        >
-                          <ChevronRightIcon className={`h-4 w-4 transition-transform duration-200 ${conditionsExpanded ? 'rotate-90' : ''}`} />
-                        </button>
-                      </div>
+        {mobileMenuOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-40 lg:hidden"
+              onClick={() => setMobileMenuOpen(false)}
+            />
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="fixed top-0 right-0 bottom-0 w-[300px] bg-[#0f172a] border-l border-white/10 z-50 lg:hidden overflow-y-auto"
+            >
+              <div className="p-6 pt-24 space-y-6">
+                {/* Mobile Search */}
+                <button
+                  onClick={() => {
+                    setSearchModalOpen(true);
+                    setMobileMenuOpen(false);
+                  }}
+                  className="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-white/5 text-white/70 hover:text-white hover:bg-white/10 transition-all border border-white/5"
+                >
+                  <MagnifyingGlassIcon className="w-5 h-5" />
+                  <span className="text-sm font-medium">Search...</span>
+                </button>
 
-                      {conditionsExpanded && (
-                        <div className="pl-4 space-y-1 mt-1">
-                          {conditionCategories.map((category, categoryIndex) => (
-                            <div key={category.slug}>
-                              <div className="flex items-center gap-1">
-                                <Link
-                                  href={`/conditions?tab=${categoryIndex}`}
-                                  onClick={() => {
-                                    setMobileMenuOpen(false);
-                                    setConditionsExpanded(false);
-                                    setExpandedRegion(null);
-                                  }}
-                                  className="flex-1 px-3 py-2 rounded text-sm text-white/80 hover:text-white hover:bg-white/5 transition-all duration-200"
-                                >
-                                  {category.title}
-                                </Link>
-                                <button
-                                  onClick={() => setExpandedRegion(expandedRegion === category.slug ? null : category.slug)}
-                                  className="px-2 py-2 rounded transition-all duration-200 outline-none"
-                                >
-                                  <ChevronRightIcon className={`h-3 w-3 transition-transform duration-200 ${expandedRegion === category.slug ? 'rotate-90 !text-[#D4AF37]' : '!text-white/60 hover:!text-white'}`} />
-                                </button>
-                              </div>
+                {/* Mobile Nav Links */}
+                <nav className="space-y-2">
+                  {mainNavItems.map((item) => (
+                    <div key={item.name}>
+                      {item.name === 'Conditions' ? (
+                        <div className="space-y-2">
+                          <button
+                            onClick={() => setConditionsExpanded(!conditionsExpanded)}
+                            className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all ${isCurrentPath(item.href)
+                                ? 'bg-[#D4AF37]/10 text-[#D4AF37]'
+                                : 'text-white/80 hover:bg-white/5 hover:text-white'
+                              }`}
+                          >
+                            <span className="font-medium tracking-wide">{item.name}</span>
+                            <ChevronRightIcon className={`w-4 h-4 transition-transform duration-300 ${conditionsExpanded ? 'rotate-90' : ''}`} />
+                          </button>
 
-                              {expandedRegion === category.slug && (
-                                <div className="pl-3 space-y-0.5 mt-0.5">
-                                  {category.conditions.map((condition) => (
+                          <AnimatePresence>
+                            {conditionsExpanded && (
+                              <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: 'auto', opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                className="overflow-hidden"
+                              >
+                                <div className="pl-4 space-y-1 border-l border-white/10 ml-4 my-2">
+                                  {conditionCategories.map((category, idx) => (
                                     <Link
-                                      key={condition.slug}
-                                      href={`/conditions/${condition.slug}`}
-                                      onClick={() => {
-                                        setMobileMenuOpen(false);
-                                        setConditionsExpanded(false);
-                                        setExpandedRegion(null);
-                                      }}
-                                      className="block px-3 py-1.5 rounded text-xs text-white/70 hover:text-[#D4AF37] hover:bg-white/5 transition-all duration-200"
+                                      key={category.slug}
+                                      href={`/conditions?tab=${idx}`}
+                                      onClick={handleNavClick}
+                                      className="block px-4 py-2 text-sm text-white/60 hover:text-[#D4AF37] transition-colors"
                                     >
-                                      {condition.name}
+                                      {category.title}
                                     </Link>
                                   ))}
                                 </div>
-                              )}
-                            </div>
-                          ))}
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
                         </div>
+                      ) : (
+                        <Link
+                          href={item.href}
+                          onClick={handleNavClick}
+                          className={`block px-4 py-3 rounded-xl font-medium tracking-wide transition-all ${isCurrentPath(item.href)
+                              ? 'bg-[#D4AF37]/10 text-[#D4AF37]'
+                              : 'text-white/80 hover:bg-white/5 hover:text-white'
+                            }`}
+                        >
+                          {item.name}
+                        </Link>
                       )}
                     </div>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      onClick={(e) => handleNavClick(e, item.href)}
-                      className={`block px-4 py-3 rounded-lg text-base font-medium tracking-wide transition-all duration-300 flex items-center gap-2 outline-none
-                        ${isCurrentPath(item.href)
-                          ? '!text-[#D4AF37] bg-[#D4AF37]/10 font-normal hover:!text-[#F5D63D] hover:bg-[#D4AF37]/15'
-                          : '!text-white hover:bg-white/5 hover:!text-[#D4AF37]'}`}
-                    >
-                      {item.name}
-                    </Link>
-                  )}
+                  ))}
+                </nav>
+
+                {/* Mobile Actions */}
+                <div className="pt-6 border-t border-white/10 space-y-4">
+                  <Link
+                    href="tel:+19056346000"
+                    className="flex items-center justify-center gap-2 w-full py-3 rounded-xl border border-white/10 text-white hover:bg-white/5 transition-all"
+                  >
+                    <PhoneIcon className="w-5 h-5 text-[#D4AF37]" />
+                    <span className="font-medium">905-634-6000</span>
+                  </Link>
+                  <Link
+                    href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                    target="_blank"
+                    className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#D4AF37] text-slate-900 font-bold tracking-wide hover:bg-[#C9A227] transition-all shadow-lg"
+                  >
+                    <CalendarDaysIcon className="w-5 h-5" />
+                    Book Appointment
+                  </Link>
                 </div>
-              ))}
-            </div>
-            
-            <div className="px-6 pb-4 border-t border-white/10 pt-4">
-              <div className="flex gap-3">
-              <Link
-                href="tel:+19056346000"
-                  className="flex items-center justify-center gap-2 py-3 px-4 bg-white/10 text-white rounded-lg font-normal tracking-wide border border-white/20 hover:bg-white/15 transition-all duration-300"
-                >
-                  <PhoneIcon className="h-5 w-5" />
-                  Call
-              </Link>
-                
-              <Link
-                href="https://endorphinshealth.janeapp.com/#/staff_member/42"
-                target="_blank"
-                onClick={() => setMobileMenuOpen(false)}
-                  className="flex-1 flex items-center justify-center gap-2 py-3 bg-[#D4AF37] hover:bg-[#B08D57] text-slate-900 hover:text-white rounded-lg font-medium tracking-wide shadow-lg transition-all duration-300"
-              >
-                  <CalendarDaysIcon className="h-5 w-5" />
-                  Book Appointment
-                </Link>
-                </div>
-            </div>
-          </motion.div>
-      )}
+              </div>
+            </motion.div>
+          </>
+        )}
       </AnimatePresence>
-      
-      {/* Search Modal */}
-      <SearchModal 
-        isOpen={searchModalOpen} 
-        onClose={() => setSearchModalOpen(false)} 
+
+      <SearchModal
+        isOpen={searchModalOpen}
+        onClose={() => setSearchModalOpen(false)}
       />
-    </header>
+    </>
   );
 });
 

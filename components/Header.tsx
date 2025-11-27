@@ -26,6 +26,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
   const [searchModalOpen, setSearchModalOpen] = useState(false);
   const [conditionsExpanded, setConditionsExpanded] = useState(false);
   const pathname = usePathname();
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   // Optimized scroll handler
   useEffect(() => {
@@ -47,6 +48,16 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, [mobileMenuOpen]);
+
+  // Handle animation state
+  useEffect(() => {
+    if (pathname === '/' && !scrolled && !hasAnimated) {
+      const timer = setTimeout(() => setHasAnimated(true), 1000);
+      return () => clearTimeout(timer);
+    } else {
+      setHasAnimated(true);
+    }
+  }, [pathname, scrolled, hasAnimated]);
 
   const mainNavItems = useMemo(() => [
     { name: 'Home', href: '/' },
@@ -89,16 +100,16 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     }
   };
 
-  // Only animate on homepage and when at the top
-  const shouldAnimate = pathname === '/' && !scrolled;
+  // Only animate on homepage, when at the top, and if we haven't animated yet
+  const shouldAnimate = pathname === '/' && !scrolled && !hasAnimated;
 
   return (
     <>
       <header
         ref={ref}
         className={`fixed w-full top-0 z-50 transition-all duration-500 ease-in-out border-b ${scrolled || pathname !== '/'
-            ? '!bg-[#020617]/90 backdrop-blur-xl border-white/10 py-3 shadow-lg'
-            : '!bg-transparent border-transparent py-5'
+          ? '!bg-[#020617]/90 backdrop-blur-xl border-white/10 py-3 shadow-lg'
+          : '!bg-transparent border-transparent py-5'
           }`}
       >
         <div className="container mx-auto px-4 lg:px-8">
@@ -141,8 +152,8 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   <Link
                     href={item.href}
                     className={`relative px-4 py-2 rounded-full text-sm font-medium tracking-wide transition-all duration-300 ${isCurrentPath(item.href)
-                        ? '!text-[#D4AF37] bg-white/10 shadow-[0_0_10px_rgba(212,175,55,0.1)]'
-                        : '!text-white/80 hover:!text-white hover:bg-white/5'
+                      ? '!text-[#D4AF37] bg-white/10 shadow-[0_0_10px_rgba(212,175,55,0.1)]'
+                      : '!text-white/80 hover:!text-white hover:bg-white/5'
                       }`}
                   >
                     {item.name}
@@ -282,8 +293,8 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                           <button
                             onClick={() => setConditionsExpanded(!conditionsExpanded)}
                             className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all ${isCurrentPath(item.href)
-                                ? 'bg-[#D4AF37]/10 !text-[#D4AF37]'
-                                : '!text-white/80 hover:bg-white/5 hover:!text-white'
+                              ? 'bg-[#D4AF37]/10 !text-[#D4AF37]'
+                              : '!text-white/80 hover:bg-white/5 hover:!text-white'
                               }`}
                           >
                             <span className="font-medium tracking-wide">{item.name}</span>
@@ -319,8 +330,8 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                           href={item.href}
                           onClick={handleNavClick}
                           className={`block px-4 py-3 rounded-xl font-medium tracking-wide transition-all ${isCurrentPath(item.href)
-                              ? 'bg-[#D4AF37]/10 !text-[#D4AF37]'
-                              : '!text-white/80 hover:bg-white/5 hover:!text-white'
+                            ? 'bg-[#D4AF37]/10 !text-[#D4AF37]'
+                            : '!text-white/80 hover:bg-white/5 hover:!text-white'
                             }`}
                         >
                           {item.name}

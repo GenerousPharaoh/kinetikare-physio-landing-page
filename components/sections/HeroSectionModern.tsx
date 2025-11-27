@@ -131,7 +131,7 @@ export default function HeroSection() {
               className="absolute top-[12%] right-[6%] w-[320px] md:w-[400px] z-20"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 2, duration: 1 }}
+              transition={{ delay: 1.5, duration: 1 }}
               style={{ transform: 'translateZ(0)', willChange: 'opacity, transform' }} // Force GPU layer
             >
               <div

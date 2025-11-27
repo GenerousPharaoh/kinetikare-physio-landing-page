@@ -135,14 +135,12 @@ export default function HeroSection() {
               style={{ transform: 'translateZ(0)', willChange: 'opacity, transform' }} // Force GPU layer
             >
               <div
-                className="relative rounded-xl border border-white/10 shadow-2xl overflow-hidden group/widget transition-colors duration-500"
-                style={{ backgroundColor: '#0f172a' }}
+                className="relative rounded-xl border border-white/10 shadow-2xl overflow-hidden group/widget transition-colors duration-500 bg-slate-900/60 backdrop-blur-md"
               >
 
                 {/* Top Bar */}
                 <div
-                  className="flex items-center justify-between px-5 py-4 border-b border-white/10 relative z-20"
-                  style={{ backgroundColor: '#1e293b' }}
+                  className="flex items-center justify-between px-5 py-4 border-b border-white/10 relative z-20 bg-slate-800/60 backdrop-blur-sm"
                 >
                   <div className="flex items-center gap-3">
                     <div className="bg-white rounded-full p-1.5 w-8 h-8 flex items-center justify-center shadow-sm">
@@ -172,12 +170,11 @@ export default function HeroSection() {
 
                 {/* Vertical Marquee Content */}
                 <div
-                  className="relative h-[280px] overflow-hidden"
-                  style={{ backgroundColor: '#0f172a' }}
+                  className="relative h-[280px] overflow-hidden bg-transparent"
                 >
-                  {/* Gradient Masks for Smooth Fade In/Out - Adjusted for Dark Theme */}
-                  <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-[#0f172a] via-[#0f172a]/80 to-transparent z-10 pointer-events-none" />
-                  <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/80 to-transparent z-10 pointer-events-none" />
+                  {/* Gradient Masks for Smooth Fade In/Out - Adjusted for Transparency */}
+                  <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-slate-900/80 via-slate-900/40 to-transparent z-10 pointer-events-none" />
+                  <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent z-10 pointer-events-none" />
 
                   <motion.div
                     className="flex flex-col gap-3 p-4"
@@ -193,8 +190,7 @@ export default function HeroSection() {
                     {[...curatedReviews, ...curatedReviews].map((review, i) => (
                       <div
                         key={i}
-                        className="p-4 rounded-xl border border-white/10 shadow-sm transition-colors duration-300 group/card"
-                        style={{ backgroundColor: '#1e293b' }}
+                        className="p-4 rounded-xl border border-white/10 shadow-sm transition-colors duration-300 group/card bg-slate-800/40 backdrop-blur-sm hover:bg-slate-800/60"
                       >
                         <p
                           className="text-xs font-semibold leading-relaxed mb-3"

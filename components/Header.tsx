@@ -188,13 +188,14 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
             {/* Right Actions */}
             <div className="flex items-center gap-4 lg:gap-6">
               {/* Search */}
-              <motion.button
-                variants={headerItemVariants}
-                onClick={() => setSearchModalOpen(true)}
-                className="hidden sm:flex items-center justify-center w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 !text-white/70 hover:!text-[#D4AF37] transition-all duration-300 border border-white/5 hover:border-[#D4AF37]/30"
-              >
-                <MagnifyingGlassIcon className="w-5 h-5" />
-              </motion.button>
+              <motion.div variants={headerItemVariants}>
+                <button
+                  onClick={() => setSearchModalOpen(true)}
+                  className="hidden sm:flex items-center justify-center w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 !text-white/70 hover:!text-[#D4AF37] transition-all duration-300 border border-white/5 hover:border-[#D4AF37]/30"
+                >
+                  <MagnifyingGlassIcon className="w-5 h-5" />
+                </button>
+              </motion.div>
 
               {/* Phone */}
               <motion.div variants={headerItemVariants}>

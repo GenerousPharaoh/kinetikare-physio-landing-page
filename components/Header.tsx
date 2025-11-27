@@ -79,15 +79,18 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     if (onNavLinkClick) onNavLinkClick('');
   };
 
-  // Animation Variants
+  // Only animate on homepage, when at the top, and if we haven't animated yet
+  const shouldAnimate = pathname === '/' && !scrolled && !hasAnimated;
+
+  // Animation Variants - Dynamic based on shouldAnimate
   const headerContainerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
+      transition: shouldAnimate ? {
         staggerChildren: 0.1,
         delayChildren: 0.5 // Start slightly after hero swipe begins
-      }
+      } : { duration: 0 } // Instant if not animating
     }
   };
 
@@ -96,20 +99,20 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     visible: {
       opacity: 1,
       x: 0,
-      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+      transition: shouldAnimate ? {
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1]
+      } : { duration: 0 } // Instant if not animating
     }
   };
-
-  // Only animate on homepage, when at the top, and if we haven't animated yet
-  const shouldAnimate = pathname === '/' && !scrolled && !hasAnimated;
 
   return (
     <>
       <header
         ref={ref}
         className={`fixed w-full top-0 z-50 transition-all duration-500 ease-in-out border-b ${scrolled || pathname !== '/'
-          ? '!bg-[#020617]/90 backdrop-blur-xl border-white/10 py-3 shadow-lg'
-          : '!bg-transparent border-transparent py-5'
+          ? '!bg-[#020617]/90 backdrop-blur-xl border-white/10 py-4 shadow-lg'
+          : '!bg-transparent border-transparent py-6'
           }`}
       >
         <div className="container mx-auto px-4 lg:px-8">

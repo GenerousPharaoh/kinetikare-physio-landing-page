@@ -135,12 +135,14 @@ export default function HeroSection() {
               style={{ transform: 'translateZ(0)', willChange: 'opacity, transform' }} // Force GPU layer
             >
               <div
-                className="relative rounded-xl border border-white/10 shadow-2xl overflow-hidden group/widget transition-colors duration-500 bg-slate-900/60 backdrop-blur-md"
+                className="relative rounded-xl border border-white/10 shadow-2xl overflow-hidden group/widget transition-colors duration-500 backdrop-blur-md"
+                style={{ backgroundColor: 'rgba(15, 23, 42, 0.6)' }} // Slate-900 with 60% opacity
               >
 
                 {/* Top Bar */}
                 <div
-                  className="flex items-center justify-between px-5 py-4 border-b border-white/10 relative z-20 bg-slate-800/60 backdrop-blur-sm"
+                  className="flex items-center justify-between px-5 py-4 border-b border-white/10 relative z-20 backdrop-blur-sm"
+                  style={{ backgroundColor: 'rgba(30, 41, 59, 0.6)' }} // Slate-800 with 60% opacity
                 >
                   <div className="flex items-center gap-3">
                     <div className="bg-white rounded-full p-1.5 w-8 h-8 flex items-center justify-center shadow-sm">
@@ -190,7 +192,8 @@ export default function HeroSection() {
                     {[...curatedReviews, ...curatedReviews].map((review, i) => (
                       <div
                         key={i}
-                        className="p-4 rounded-xl border border-white/10 shadow-sm transition-colors duration-300 group/card bg-slate-800/40 backdrop-blur-sm hover:bg-slate-800/60"
+                        className="p-4 rounded-xl border border-white/10 shadow-sm transition-colors duration-300 group/card backdrop-blur-sm hover:bg-white/5"
+                        style={{ backgroundColor: 'rgba(30, 41, 59, 0.4)' }} // Slate-800 with 40% opacity
                       >
                         <p
                           className="text-xs font-semibold leading-relaxed mb-3"

@@ -356,10 +356,10 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   <Link
                     href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                     target="_blank"
-                    className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#D4AF37] text-slate-900 font-bold tracking-wide hover:bg-[#C9A227] transition-all shadow-lg"
+                    className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#D4AF37] text-slate-900 font-bold text-sm tracking-wide hover:bg-[#C9A227] transition-all shadow-lg"
                   >
                     <CalendarDaysIcon className="w-5 h-5" />
-                    Book Appointment
+                    Book Now
                   </Link>
                 </div>
               </div>

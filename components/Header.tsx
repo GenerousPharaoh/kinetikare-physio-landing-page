@@ -110,8 +110,8 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     <>
       <header
         ref={ref}
-        className={`fixed w-full top-0 z-50 transition-all duration-500 ease-in-out border-b ${scrolled || pathname !== '/'
-          ? '!bg-[#020617]/90 backdrop-blur-xl border-white/10 py-4 shadow-lg'
+        className={`fixed w-full top-0 z-50 transition-all duration-200 ease-in-out border-b ${scrolled || pathname !== '/'
+          ? '!bg-[#020617]/90 backdrop-blur-xl border-white/10 py-6 shadow-lg'
           : '!bg-transparent border-transparent py-6'
           }`}
       >

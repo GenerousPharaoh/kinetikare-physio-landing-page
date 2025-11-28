@@ -6,7 +6,7 @@ import { UserCircleIcon } from '@heroicons/react/24/outline';
 
 export default function AboutHero() {
   return (
-    <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-20 bg-gradient-to-br from-white via-slate-50/50 to-white overflow-hidden">
+    <section className="relative pt-32 pb-16 lg:pt-32 lg:pb-20 bg-gradient-to-br from-white via-slate-50/50 to-white overflow-hidden">
       {/* Premium background elements */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#B08D57]/5 rounded-full blur-3xl"></div>
@@ -29,49 +29,49 @@ export default function AboutHero() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="text-center"
           >
-          {/* Premium badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 mb-6"
-          >
-            <UserCircleIcon className="w-5 h-5 text-[#B08D57]" />
-            <span className="text-sm font-medium text-gray-700">Meet Kareem Hassanein</span>
-          </motion.div>
+            {/* Premium badge */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 mb-6"
+            >
+              <UserCircleIcon className="w-5 h-5 text-[#B08D57]" />
+              <span className="text-sm font-medium text-gray-700">Meet Kareem Hassanein</span>
+            </motion.div>
 
-          {/* Main heading with premium typography */}
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-slate-900 mb-6 tracking-tight">
-            Registered <span className="font-semibold">Physiotherapist</span>
-          </h1>
+            {/* Main heading with premium typography */}
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-slate-900 mb-6 tracking-tight">
+              Registered <span className="font-semibold">Physiotherapist</span>
+            </h1>
 
-          {/* Decorative line */}
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="h-px w-20 bg-gradient-to-r from-transparent to-[#B08D57]/40"></div>
-            <div className="w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
-            <div className="h-px w-20 bg-gradient-to-l from-transparent to-[#D4AF37]/40"></div>
-          </div>
-
-          {/* Tagline */}
-          <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed max-w-3xl mx-auto mb-10">
-            Combining clinical expertise with genuine understanding to guide your recovery journey
-          </p>
-
-          {/* Key highlights */}
-          <div className="flex flex-wrap justify-center gap-6 text-sm text-slate-600">
-            <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]"></div>
-              <span>MSc Physiotherapy</span>
+            {/* Decorative line */}
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="h-px w-20 bg-gradient-to-r from-transparent to-[#B08D57]/40"></div>
+              <div className="w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
+              <div className="h-px w-20 bg-gradient-to-l from-transparent to-[#D4AF37]/40"></div>
             </div>
-            <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]"></div>
-              <span>Manual Therapy Training</span>
+
+            {/* Tagline */}
+            <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed max-w-3xl mx-auto mb-10">
+              Combining clinical expertise with genuine understanding to guide your recovery journey
+            </p>
+
+            {/* Key highlights */}
+            <div className="flex flex-wrap justify-center gap-6 text-sm text-slate-600">
+              <div className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]"></div>
+                <span>MSc Physiotherapy</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]"></div>
+                <span>Manual Therapy Training</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]"></div>
+                <span>5+ Years Experience</span>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#B08D57]"></div>
-              <span>5+ Years Experience</span>
-            </div>
-          </div>
           </motion.div>
         </div>
       </div>

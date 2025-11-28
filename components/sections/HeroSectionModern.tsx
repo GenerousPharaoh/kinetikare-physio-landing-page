@@ -375,20 +375,29 @@ export default function HeroSection() {
               </Link>
             </motion.div>
 
-            {/* Info Badges - Micro Compact for Slant */}
-            <motion.div variants={itemVariants} className="flex flex-wrap md:flex-nowrap gap-0.5 w-full max-w-[80%] sm:max-w-none">
+            {/* Info Badges - Refined & Dynamic */}
+            <motion.div variants={itemVariants} className="flex flex-wrap gap-3 w-full sm:max-w-none">
               {[
-                { icon: OutlineDocumentCheckIcon, text: "Direct Billing" },
-                { icon: OutlineCheckCircleIcon, text: "No Referral Needed" },
-                { icon: OutlineClockIcon, text: "Evening Hours" }
-              ].map((item, index) => (
-                <div
+                "Direct Billing",
+                "No Referral Needed",
+                "Evening Hours"
+              ].map((text, index) => (
+                <motion.div
                   key={index}
-                  className="flex items-center gap-0.5 px-1 py-0.5 bg-white/5 border border-white/5 rounded-full backdrop-blur-md hover:bg-white/10 transition-all duration-300 hover:border-[#D4AF37]/20 group whitespace-nowrap"
+                  animate={{
+                    y: [0, -4, 0],
+                    opacity: [0.7, 1, 0.7]
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    delay: index * 0.5,
+                    ease: "easeInOut"
+                  }}
+                  className="px-4 py-2 bg-white/5 border border-white/10 rounded-full backdrop-blur-md hover:bg-white/10 transition-all duration-300 hover:border-[#D4AF37]/30 group whitespace-nowrap"
                 >
-                  <item.icon className="w-1.5 h-1.5 text-[#D4AF37] group-hover:text-[#F5E6B3] transition-colors" />
-                  <span className="text-white/60 text-[6px] font-semibold tracking-wider uppercase group-hover:text-white/90 transition-colors">{item.text}</span>
-                </div>
+                  <span className="text-white/80 text-xs font-medium tracking-wider uppercase group-hover:text-[#D4AF37] transition-colors">{text}</span>
+                </motion.div>
               ))}
             </motion.div>
 

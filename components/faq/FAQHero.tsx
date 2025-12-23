@@ -6,7 +6,7 @@ import { QuestionMarkCircleIcon } from '@heroicons/react/24/outline';
 
 export default function FAQHero() {
   return (
-    <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 bg-slate-50 overflow-hidden">
+    <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 bg-slate-50 overflow-hidden">
       {/* Premium background elements - subdued and sophisticated */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Main soft gradient blob */}
@@ -44,7 +44,7 @@ export default function FAQHero() {
 
             {/* Main heading with premium typography */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-slate-900 mb-8 tracking-tight leading-tight">
-              Common <span className="font-serif italic text-[#B08D57]">Questions</span>
+              Common <span className="text-[#B08D57]">Questions</span>
             </h1>
 
             {/* Tagline */}

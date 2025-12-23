@@ -141,7 +141,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                     <span className="text-lg lg:text-xl font-bold text-[#D4AF37]">K</span>
                     <span className="text-lg lg:text-xl font-light !text-white">ARE</span>
                   </div>
-                  <span className="text-[10px] !text-white/60 tracking-[0.2em] uppercase mt-0.5 group-hover:text-[#D4AF37] transition-colors duration-300">
+                  <span className="text-[10px] !text-white/60 tracking-[0.2em] uppercase mt-1.5 group-hover:text-[#D4AF37] transition-colors duration-300">
                     Physiotherapy
                   </span>
                 </div>

@@ -135,13 +135,13 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                     sizes="44px"
                   />
                 </div>
-                <div className="flex flex-col justify-center">
-                  <div className="flex items-center tracking-[0.15em] leading-none">
-                    <span className="text-lg lg:text-xl font-light !text-white">KINETI</span>
-                    <span className="text-lg lg:text-xl font-bold text-[#D4AF37]">K</span>
-                    <span className="text-lg lg:text-xl font-light !text-white">ARE</span>
+                <div className="flex flex-row items-center gap-2 lg:flex-col lg:items-start lg:justify-center lg:gap-0">
+                  <div className="flex items-center tracking-[0.1em] sm:tracking-[0.15em] leading-none">
+                    <span className="text-sm sm:text-lg lg:text-xl font-light !text-white uppercase">Kineti</span>
+                    <span className="text-sm sm:text-lg lg:text-xl font-bold text-[#D4AF37] uppercase">k</span>
+                    <span className="text-sm sm:text-lg lg:text-xl font-light !text-white uppercase">are</span>
                   </div>
-                  <span className="text-[10px] !text-white/60 tracking-[0.2em] uppercase mt-1.5 group-hover:text-[#D4AF37] transition-colors duration-300">
+                  <span className="text-[8px] sm:text-[10px] !text-white/60 tracking-[0.1em] sm:tracking-[0.2em] uppercase lg:mt-1.5 group-hover:text-[#D4AF37] transition-colors duration-300 whitespace-nowrap">
                     Physiotherapy
                   </span>
                 </div>

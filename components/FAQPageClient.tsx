@@ -5,15 +5,11 @@ import { ChevronRightIcon, MagnifyingGlassIcon, ChevronUpIcon } from '@heroicons
 import Link from 'next/link';
 import FAQAccordion, { FaqItem } from '@/components/FAQAccordion';
 import { motion, AnimatePresence } from 'framer-motion';
-import PatternBackground from '@/components/ui/PatternBackground';
-import ContactCTA from '@/components/sections/ContactCTA';
-import Container from '@/components/ui/Container';
-import PageHeader from '@/components/PageHeader';
-import { 
-  QuestionMarkCircleIcon, 
-  CalendarIcon, 
-  CurrencyDollarIcon, 
-  UserGroupIcon, 
+import {
+  QuestionMarkCircleIcon,
+  CalendarIcon,
+  CurrencyDollarIcon,
+  UserGroupIcon,
   ClockIcon,
   DocumentTextIcon
 } from '@heroicons/react/24/outline';
@@ -31,8 +27,8 @@ interface FAQPageClientProps {
 
 // Helper function to get icon component based on type
 const getIcon = (iconType: string) => {
-  const iconProps = { className: "w-6 h-6 lg:w-7 lg:h-7" };
-  
+  const iconProps = { className: "w-5 h-5 lg:w-6 lg:h-6" };
+
   switch (iconType) {
     case 'question':
       return <QuestionMarkCircleIcon {...iconProps} />;
@@ -57,33 +53,10 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
   const [isMounted, setIsMounted] = useState(false);
   const [showStickyNav, setShowStickyNav] = useState(false);
   const [isMobilePanelOpen, setIsMobilePanelOpen] = useState(false);
-  // Removed floating search and back to top - not needed
 
   // Refs for each section
   const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
   const searchResultsRef = useRef<HTMLDivElement>(null);
-  
-  // Helper function to highlight search terms
-  const highlightSearchTerms = (text: string, query: string) => {
-    if (!query.trim()) return text;
-    
-    const terms = query.toLowerCase().split(' ').filter(t => t.length > 2);
-    if (terms.length === 0) return text;
-    
-    const regex = new RegExp(`(${terms.join('|')})`, 'gi');
-    const parts = text.split(regex);
-    
-    return parts.map((part, index) => {
-      if (terms.some(term => part.toLowerCase() === term.toLowerCase())) {
-        return (
-          <mark key={index} className="bg-[#D4AF37]/30 px-0.5 rounded">
-            {part}
-          </mark>
-        );
-      }
-      return part;
-    });
-  };
 
   // Set mounted state once component mounts in browser
   useEffect(() => {
@@ -98,13 +71,11 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
-      
-      // Removed floating search and back to top - not needed
-      
+
       // Hide navigation when close to footer (within 300px of bottom)
       const distanceFromBottom = documentHeight - (scrollY + windowHeight);
       const shouldShowNav = scrollY > 400 && distanceFromBottom > 300;
-      
+
       setShowStickyNav(shouldShowNav);
 
       // Update active category based on scroll position (scroll spy)
@@ -131,12 +102,12 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
     setActiveCategory(categoryId);
     setSearchQuery(''); // Clear search when navigating
     setIsSearching(false);
-    
+
     const element = sectionRefs.current[categoryId];
     if (element) {
       const yOffset = -120; // Account for sticky header
       const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      
+
       window.scrollTo({
         top: y,
         behavior: 'smooth'
@@ -147,202 +118,106 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
   // Search functionality
   useEffect(() => {
     if (!isMounted) return;
-    
+
     if (searchQuery.trim() === '') {
       setIsSearching(false);
       setFilteredQuestions([]);
       return;
     }
-    
+
     setIsSearching(true);
-    
+
     // Flatten all questions from all categories
-    const allQuestions = faqCategories.flatMap(category => 
+    const allQuestions = faqCategories.flatMap(category =>
       category.questions.map(q => ({
         ...q,
         category: category.name
       }))
     );
-    
+
     // Smart search with relevance scoring
     const searchTerms = searchQuery.toLowerCase().split(' ').filter(term => term.length > 2);
-    
-    // Keywords mapping for common search variations
+
+    // Keywords mapping (simplified for performance)
     const keywordMap: { [key: string]: string[] } = {
-      'insurance': ['insurance', 'billing', 'coverage', 'direct billing', 'payment', 'reimburse'],
-      'cost': ['cost', 'price', 'fee', 'billing', 'payment', 'insurance'],
-      'first': ['first', 'initial', 'new patient', 'expect', 'assessment'],
-      'hurt': ['hurt', 'pain', 'painful', 'discomfort', 'uncomfortable'],
-      'exercises': ['exercise', 'exercises', 'home program', 'strength', 'training'],
-      'sessions': ['sessions', 'appointments', 'visits', 'how many', 'frequency'],
-      'cancel': ['cancel', 'reschedule', 'cancellation', 'policy'],
-      'referral': ['referral', 'doctor', 'physician', 'prescription'],
-      'manual': ['manual therapy', 'hands-on', 'manipulation'],
-      'dry needling': ['dry needling', 'IMS', 'intramuscular stimulation'],
-      'cupping': ['cupping', 'cupping therapy'],
-      'graston': ['graston', 'IASTM', 'instrument assisted'],
+      'insurance': ['insurance', 'billing', 'coverage', 'payment'],
+      'cost': ['cost', 'price', 'fee', 'billing'],
+      'pain': ['hurt', 'pain', 'sore', 'discomfort'],
     };
-    
-    // For exact phrase searches (e.g., "cupping therapy"), don't expand
-    const isExactPhrase = searchQuery.includes('"') || 
-                         (searchTerms.length > 1 && searchQuery.toLowerCase().includes('therapy'));
-    
-    // Expand search terms with related keywords
-    const expandedTerms = isExactPhrase 
-      ? [searchQuery.toLowerCase().replace(/"/g, '')] // Use exact phrase
-      : searchTerms.flatMap(term => {
-          const relatedTerms = [term];
-          Object.entries(keywordMap).forEach(([key, values]) => {
-            // Only expand if the term exactly matches a key
-            if (key === term) {
-              relatedTerms.push(...values);
-            } else if (values.includes(term)) {
-              // If term is in values, only add the key and the exact term
-              relatedTerms.push(key);
-            }
-          });
-          return [...new Set(relatedTerms)]; // Remove duplicates
-        });
-    
+
+    // Expand search terms
+    const expandedTerms = searchTerms.flatMap(term => {
+      const relatedTerms = [term];
+      Object.entries(keywordMap).forEach(([key, values]) => {
+        if (key === term || values.includes(term)) {
+          relatedTerms.push(key, ...values);
+        }
+      });
+      return Array.from(new Set(relatedTerms));
+    });
+
     // Score and filter questions
     const scoredQuestions = allQuestions.map(item => {
       let score = 0;
       const questionLower = item.question.toLowerCase();
       const answerLower = typeof item.answer === 'string' ? item.answer.toLowerCase() : '';
-      const fullText = `${questionLower} ${answerLower}`;
-      
-      // For exact phrase search
-      if (isExactPhrase) {
-        const exactPhrase = searchQuery.toLowerCase().replace(/"/g, '');
-        if (questionLower.includes(exactPhrase)) {
-          score += 20; // High score for exact phrase in question
-        } else if (answerLower.includes(exactPhrase)) {
-          score += 10; // Medium score for exact phrase in answer
-        }
-      } else {
-        // Check each search term
-        expandedTerms.forEach(term => {
-          // Higher score for question matches
-          if (questionLower.includes(term)) {
-            score += term === searchQuery.toLowerCase() ? 10 : 5;
-          }
-          // Lower score for answer matches
-          if (answerLower && answerLower.includes(term)) {
-            score += 2;
-          }
-        });
-        
-        // Bonus for matching ALL original terms (not just some)
-        const allOriginalTermsMatch = searchTerms.every(term => 
-          questionLower.includes(term) || answerLower.includes(term)
-        );
-        if (allOriginalTermsMatch && searchTerms.length > 1) {
-          score += searchTerms.length * 5;
-        }
-      }
-      
+
+      expandedTerms.forEach(term => {
+        if (questionLower.includes(term)) score += 10;
+        if (answerLower.includes(term)) score += 2;
+      });
+
       return { ...item, score };
     });
-    
-    // Filter and sort by relevance
+
+    // Filter and sort
     const filtered = scoredQuestions
       .filter(item => item.score > 0)
       .sort((a, b) => b.score - a.score)
       .map(({ score, ...item }) => item);
-    
+
     setFilteredQuestions(filtered);
-    
-    // Remove auto-scroll - let user control when to scroll
-    // User can manually scroll or press Enter to see results
   }, [searchQuery, isMounted, faqCategories]);
 
-  // Get current questions to display
-  const currentQuestions = isSearching 
-    ? filteredQuestions 
-    : faqCategories.find(cat => cat.id === activeCategory)?.questions || [];
-
-  // If not mounted yet (server-side), render a minimal version
   if (!isMounted) {
     return (
       <div className="h-[600px] flex items-center justify-center">
-        <div className="text-center">Loading FAQ content...</div>
+        <div className="text-center text-slate-400 font-light">Loading content...</div>
       </div>
     );
   }
 
   return (
     <>
-      {/* Removed floating search - not needed on mobile */}
-      {/* <AnimatePresence>
-        {false && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed top-20 md:top-4 right-4 z-40"
-          >
-            {searchQuery || isSearching ? (
-              // Expanded search bar when active
-              <motion.div
-                initial={{ width: "48px", opacity: 0 }}
-                animate={{ width: "300px", opacity: 1 }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
-                className="bg-white/90 backdrop-blur-lg shadow-lg rounded-full border border-neutral-200/50"
-              >
-                <div className="relative">
-                  <input
-                    type="text"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Search..." 
-                    className="w-full bg-transparent py-3 pl-12 pr-10 text-sm placeholder-neutral-400 focus:outline-none"
-                    autoFocus
-                  />
-                  
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                    <MagnifyingGlassIcon className="h-5 w-5 text-[#B08D57]" />
-                  </div>
-                  
-                  {searchQuery && (
-                    <button
-                      onClick={() => setSearchQuery('')}
-                      className="absolute right-3 top-0 bottom-0 flex items-center justify-center"
-                      aria-label="Clear search"
-                    >
-                      <span className="p-1 hover:bg-neutral-100 rounded-full transition-colors">
-                        <svg className="h-4 w-4 text-neutral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                      </span>
-                    </button>
-                  )}
-                </div>
-              </motion.div>
-            ) : (
-              // Collapsed search button
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => {
-                  // Create a temporary input to trigger search
-                  const searchBar = document.querySelector('input[type="text"]') as HTMLInputElement;
-                  if (searchBar) {
-                    searchBar.focus();
-                  } else {
-                    setSearchQuery(' '); // Trigger expansion
-                    setTimeout(() => setSearchQuery(''), 0);
-                  }
-                }}
-                className="bg-white/90 backdrop-blur-lg shadow-lg rounded-full p-3 border border-neutral-200/50 hover:shadow-xl transition-all duration-300"
-                aria-label="Search FAQ"
-              >
-                <MagnifyingGlassIcon className="h-5 w-5 text-[#B08D57]" />
-              </motion.button>
-            )}
-          </motion.div>
-        )}
-      </AnimatePresence> */}
+      {/* Search Section - Floats above content */}
+      <div className="relative z-30 -mt-8 mb-16 px-4">
+        <div className="max-w-2xl mx-auto">
+          <div className="relative group">
+            <div className="absolute inset-0 bg-white/80 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
+            <div className="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 p-2 flex items-center transition-shadow duration-300 focus-within:shadow-[0_8px_30px_rgb(176,141,87,0.1)] focus-within:border-[#B08D57]/30">
+              <MagnifyingGlassIcon className="w-6 h-6 text-[#B08D57] ml-4 mr-3" />
+              <input
+                type="text"
+                placeholder="Search for answers..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full bg-transparent py-3 text-lg text-slate-800 placeholder-slate-400 focus:outline-none font-light"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery('')}
+                  className="p-2 hover:bg-slate-50 rounded-full transition-colors mr-2"
+                  aria-label="Clear search"
+                >
+                  <svg className="h-5 w-5 text-slate-400 hover:text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Sticky Navigation - Desktop Sidebar */}
       <AnimatePresence>
@@ -351,226 +226,72 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: -100, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            className="hidden lg:block fixed left-0 top-1/2 -translate-y-1/2 z-40 group"
-            aria-label="FAQ Navigation"
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="hidden lg:block fixed left-6 top-1/2 -translate-y-1/2 z-40"
           >
-            <div className="relative">
-              {/* Slim collapsedbar - expands on hover */}
-              <div className="bg-white/95 backdrop-blur-md shadow-2xl rounded-r-2xl border-r border-y border-gray-200/50 overflow-hidden transition-all duration-300 ease-out group-hover:w-56 w-16">
-                <div className="py-3">
-                  {faqCategories.map((category) => (
-                    <button
-                      key={category.id}
-                      onClick={() => scrollToSection(category.id)}
-                      className={`w-full flex items-center px-4 py-3.5 transition-all duration-200 relative ${
-                        activeCategory === category.id
-                          ? 'text-[#B08D57] bg-[#B08D57]/10'
-                          : 'text-gray-600 hover:text-[#B08D57] hover:bg-gray-50'
-                      }`}
-                      aria-label={`Go to ${category.name}`}
-                      aria-current={activeCategory === category.id ? 'true' : 'false'}
-                    >
-                      {/* Active indicator bar */}
-                      {activeCategory === category.id && (
-                        <motion.div
-                          layoutId="activeCategory"
-                          className="absolute left-0 top-0 bottom-0 w-1 bg-[#B08D57]"
-                          transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                        />
-                      )}
+            <div className="bg-white/90 backdrop-blur-md shadow-2xl rounded-2xl border border-white/50 p-2 space-y-1">
+              {faqCategories.map((category) => (
+                <button
+                  key={category.id}
+                  onClick={() => scrollToSection(category.id)}
+                  className={`group relative flex items-center w-12 h-12 justify-center rounded-xl transition-all duration-300 ${activeCategory === category.id
+                    ? 'bg-[#B08D57] text-white shadow-lg shadow-[#B08D57]/20 scale-105'
+                    : 'text-slate-400 hover:bg-slate-50 hover:text-[#B08D57]'
+                    }`}
+                  aria-label={`Go to ${category.name}`}
+                >
+                  {getIcon(category.iconType)}
 
-                      {/* Icon */}
-                      <div className="flex-shrink-0">
-                        {getIcon(category.iconType)}
-                      </div>
-
-                      {/* Category name - shows on hover */}
-                      <span className="ml-3 text-sm font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 overflow-hidden">
-                        {category.name}
-                      </span>
-                    </button>
-                  ))}
-                </div>
-              </div>
+                  {/* Tooltip */}
+                  <span className="absolute left-full ml-3 px-3 py-1.5 bg-slate-800 text-white text-xs font-medium rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-xl border border-slate-700">
+                    {category.name}
+                    <span className="absolute left-0 top-1/2 -translate-x-1 -translate-y-1/2 border-y-4 border-y-transparent border-r-4 border-r-slate-800"></span>
+                  </span>
+                </button>
+              ))}
             </div>
           </motion.nav>
         )}
       </AnimatePresence>
 
-      {/* Sticky Navigation - Mobile (Left Side Panel) */}
-      <AnimatePresence>
-        {showStickyNav && !isSearching && (
-          <>
-            {/* Backdrop */}
-            <AnimatePresence>
-              {isMobilePanelOpen && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="lg:hidden fixed inset-0 bg-black/20 backdrop-blur-sm z-40"
-                  onClick={() => setIsMobilePanelOpen(false)}
-                />
-              )}
-            </AnimatePresence>
-
-            {/* Mobile Menu Container */}
-            <div className="lg:hidden">
-              {/* Slide-in Panel */}
-              <motion.div
-                initial={false}
-                animate={{ x: isMobilePanelOpen ? 0 : -256 }}
-                transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                className="fixed left-0 top-1/2 -translate-y-1/2 z-50 bg-white/95 backdrop-blur-md shadow-2xl rounded-r-2xl border-r border-y border-gray-200/50 w-64"
-              >
-                <div className="py-3 max-h-[80vh] overflow-y-auto">
-                  <div className="px-4 py-2 border-b border-gray-200/50">
-                    <h3 className="text-sm font-semibold text-gray-900">FAQ Topics</h3>
-                  </div>
-                  {faqCategories.map((category) => (
-                    <button
-                      key={category.id}
-                      onClick={() => {
-                        scrollToSection(category.id);
-                        setIsMobilePanelOpen(false);
-                      }}
-                      className={`w-full flex items-center px-4 py-3.5 transition-all duration-200 relative ${
-                        activeCategory === category.id
-                          ? 'text-[#B08D57] bg-[#B08D57]/10'
-                          : 'text-gray-600 hover:text-[#B08D57] hover:bg-gray-50'
-                      }`}
-                    >
-                      {activeCategory === category.id && (
-                        <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#B08D57]" />
-                      )}
-                      <div className="flex-shrink-0">
-                        {getIcon(category.iconType)}
-                      </div>
-                      <span className="ml-3 text-sm font-medium text-left">
-                        {category.name}
-                      </span>
-                    </button>
-                  ))}
-                </div>
-              </motion.div>
-
-              {/* Tab Handle - Always visible at edge */}
-              <button
-                onClick={() => setIsMobilePanelOpen(!isMobilePanelOpen)}
-                className="fixed left-0 top-1/2 -translate-y-1/2 z-50 bg-white/95 backdrop-blur-md shadow-lg border-r border-y border-gray-200/50 rounded-r-xl px-2 py-6 hover:bg-[#B08D57]/10 transition-colors duration-200"
-                aria-label="Toggle FAQ menu"
-              >
-                <svg
-                  className={`w-5 h-5 text-[#B08D57] transition-transform duration-200 ${isMobilePanelOpen ? 'rotate-180' : ''}`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
-          </>
-        )}
-      </AnimatePresence>
-
-
-      {/* Search bar - matching treatments page style */}
-      <div className="max-w-2xl mx-auto mb-6 relative z-10">
-        <div className="relative group">
-          <MagnifyingGlassIcon className="absolute left-5 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-[#B08D57] transition-colors" />
-          <input
-            type="text"
-            placeholder="Search FAQs (e.g., insurance, dry needling...)"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-14 pr-14 py-4 bg-white border-2 border-gray-200 rounded-2xl focus:outline-none focus:border-[#B08D57] transition-all duration-300 text-gray-900 placeholder-gray-400 shadow-sm hover:shadow-md"
-          />
-          {searchQuery && (
-            <button
-              onClick={() => setSearchQuery('')}
-              className="absolute right-4 top-0 bottom-0 flex items-center justify-center"
-              aria-label="Clear search"
-            >
-              <span className="p-2 hover:bg-slate-100 rounded-full transition-colors">
-                <svg className="h-5 w-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </span>
-            </button>
-          )}
-        </div>
-        
-        {/* Helpful search suggestions */}
-        <div className="mt-6 text-center">
-          <p className="text-sm text-slate-500 mb-3 font-light">Popular searches:</p>
-          <div className="flex flex-wrap justify-center gap-2 px-4 md:px-0">
-            {['Direct billing', 'Insurance coverage', 'First appointment', 'Treatment duration', 'Manual therapy', 'Dry needling', 'Cupping therapy', 'Exercise programs', 'Sports injuries', 'Back pain', 'Neck pain', 'Referral needed'].map((suggestion) => (
-              <button
-                key={suggestion}
-                onClick={() => setSearchQuery(suggestion)}
-                className="text-xs px-4 py-1.5 rounded-full bg-white border border-slate-200 text-slate-600 hover:border-[#B08D57]/40 hover:bg-[#B08D57]/5 hover:text-[#B08D57] transition-all duration-200 shadow-sm hover:shadow-md"
-              >
-                {suggestion}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-      
-      {/* FAQ Content */}
-      <div className="max-w-6xl mx-auto">
+      {/* Main Content */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-32">
         {/* Search Results */}
         {isSearching && (
-          <div ref={searchResultsRef} className="max-w-4xl mx-auto scroll-mt-24">
-            <div className="mb-10 bg-white shadow-lg rounded-2xl p-8 border border-neutral-100">
-              <h2 className="text-2xl font-bold text-primary-900 mb-3 tracking-tight">
+          <div ref={searchResultsRef} className="animate-fadeIn">
+            <div className="mb-12 text-center">
+              <h2 className="text-2xl font-light text-slate-900 mb-2">
                 Search Results
               </h2>
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-                <p className="text-primary-600 text-base md:text-lg">
-                  {filteredQuestions.length === 0 
-                    ? 'No questions found matching your search.' 
-                    : `Found ${filteredQuestions.length} question${filteredQuestions.length === 1 ? '' : 's'} matching "${searchQuery}"`}
-                </p>
-                {filteredQuestions.length > 0 && (
-                  <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs md:text-sm font-medium bg-[#B08D57]/10 text-[#B08D57]">
-                    {filteredQuestions.length} result{filteredQuestions.length !== 1 ? 's' : ''}
-                  </span>
-                )}
-              </div>
+              <p className="text-slate-500 font-light">
+                {filteredQuestions.length === 0
+                  ? 'No questions found matching your search.'
+                  : `Found ${filteredQuestions.length} result${filteredQuestions.length !== 1 ? 's' : ''}`}
+              </p>
               {filteredQuestions.length === 0 && (
-                <div className="mt-6">
-                  <p className="text-sm text-gray-600 mb-4">
-                    Try searching for: <span className="font-medium">insurance</span>, <span className="font-medium">treatment</span>, or <span className="font-medium">appointment</span>
-                  </p>
-                  <button 
-                    onClick={() => setSearchQuery('')}
-                    className="px-6 py-3 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] hover:from-[#D4AF37] hover:to-[#B08D57] text-white font-medium rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
-                  >
-                    Clear search and view all questions
-                  </button>
-                </div>
+                <button
+                  onClick={() => setSearchQuery('')}
+                  className="mt-6 px-6 py-2.5 bg-[#B08D57] hover:bg-[#9A7B4F] text-white font-medium rounded-full transition-all duration-300 shadow-md hover:shadow-lg text-sm tracking-wide"
+                >
+                  Clear Search
+                </button>
               )}
             </div>
-            
+
             <AnimatePresence mode="wait">
-              <motion.div
-                key="search-results"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -30 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-              >
-                <div className="space-y-4">
+              {filteredQuestions.length > 0 && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.4 }}
+                  className="space-y-6"
+                >
                   {filteredQuestions.map((item, index) => (
-                    <div key={index} className="relative">
-                      {/* Show category label */}
-                      {'category' in item && (
-                        <div className="mb-2">
-                          <span className="text-xs font-medium text-[#B08D57] bg-[#B08D57]/10 px-2 py-0.5 rounded-full">
+                    <div key={index}>
+                      {item.category && (
+                        <div className="mb-2 ml-1">
+                          <span className="text-[10px] font-bold text-[#B08D57] uppercase tracking-widest">
                             {item.category}
                           </span>
                         </div>
@@ -578,71 +299,51 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
                       <FAQAccordion items={[item]} />
                     </div>
                   ))}
-                </div>
-              </motion.div>
+                </motion.div>
+              )}
             </AnimatePresence>
           </div>
         )}
-        
-        {/* Category Navigation (when not searching) */}
+
+        {/* Regular Category View */}
         {!isSearching && (
-          <>
-            <div className="sticky top-14 md:top-20 z-30 -mx-4 md:-mx-6 lg:-mx-8 px-4 md:px-6 lg:px-8 py-3 md:py-4 mb-8 md:mb-12 bg-white/90 md:bg-white/95 backdrop-blur-md border-b border-neutral-200/50 shadow-sm">
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-4 lg:gap-6 max-w-6xl mx-auto">
-                {faqCategories.map((category) => (
-                  <button
-                    key={category.id}
-                    onClick={() => scrollToSection(category.id)}
-                    className={`group flex flex-col items-center justify-center p-2 md:p-4 lg:p-6 rounded-lg md:rounded-xl transition-all duration-300 
-                      md:transform md:hover:scale-105 ${
-                      activeCategory === category.id
-                        ? 'bg-gradient-to-br from-[#B08D57]/15 to-[#D4AF37]/15 text-primary-900 border-2 border-[#B08D57] shadow-md'
-                        : 'bg-white hover:bg-gradient-to-br hover:from-white hover:to-neutral-50 text-primary-700 border border-neutral-200 hover:border-neutral-300 shadow-sm hover:shadow-md'
-                    }`}
-                  >
-                    <div className={`p-1.5 md:p-3 lg:p-4 rounded-lg mb-1 md:mb-2 transition-all duration-300 ${
-                      activeCategory === category.id 
-                        ? 'bg-gradient-to-br from-[#B08D57] to-[#D4AF37] text-white shadow-sm scale-105' 
-                        : 'bg-gradient-to-br from-neutral-50 to-neutral-100 text-primary-600 group-hover:from-primary-50 group-hover:to-primary-100 group-hover:text-primary-700'
-                    }`}>
-                      {getIcon(category.iconType)}
-                    </div>
-                    <span className="text-[10px] md:text-xs lg:text-sm font-semibold text-center leading-tight">{category.name}</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* FAQ Sections */}
-            <div className="space-y-20">
-              {faqCategories.map((category) => (
-                <div
-                  key={category.id}
-                  ref={(el) => sectionRefs.current[category.id] = el}
-                  className="scroll-mt-40 md:scroll-mt-48"
-                >
-                  {/* Section Title */}
-                  <div className="mb-8 md:mb-10">
-                    <div className="flex items-center gap-4 mb-3">
-                      <div className="p-3 rounded-xl bg-gradient-to-br from-[#B08D57] to-[#D4AF37] text-white shadow-lg">
-                        {getIcon(category.iconType)}
-                      </div>
-                      <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 tracking-tight">
-                        {category.name}
-                      </h2>
-                    </div>
-                    <div className="h-px bg-gradient-to-r from-[#B08D57]/30 via-[#B08D57]/10 to-transparent" />
+          <div className="space-y-24 md:space-y-32">
+            {faqCategories.map((category) => (
+              <div
+                key={category.id}
+                ref={(el) => { sectionRefs.current[category.id] = el; }}
+                className="scroll-mt-32"
+              >
+                {/* Section Header */}
+                <div className="flex items-end gap-4 mb-10 pb-4 border-b border-slate-100">
+                  <div className="p-3 rounded-2xl bg-white border border-slate-100 shadow-sm text-[#B08D57]">
+                    {getIcon(category.iconType)}
                   </div>
-
-                  <FAQAccordion items={category.questions} />
+                  <div>
+                    <h2 className="text-2xl md:text-3xl font-light text-slate-900 tracking-tight">
+                      {category.name}
+                    </h2>
+                  </div>
                 </div>
-              ))}
-            </div>
-          </>
+
+                <FAQAccordion items={category.questions} />
+              </div>
+            ))}
+          </div>
         )}
       </div>
-      
-      {/* Removed Back to Top Button - already have one */}
+
+      {/* Mobile Sticky Nav Control */}
+      {showStickyNav && !isSearching && (
+        <div className="fixed bottom-6 right-6 lg:hidden z-40">
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="p-3 bg-white/90 backdrop-blur shadow-lg border border-slate-200 rounded-full text-[#B08D57]"
+          >
+            <ChevronUpIcon className="w-6 h-6" />
+          </button>
+        </div>
+      )}
     </>
   );
 } 

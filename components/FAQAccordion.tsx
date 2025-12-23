@@ -28,12 +28,12 @@ const decodeHtmlEntities = (text: string): string => {
 const parseMarkdown = (text: string): React.ReactNode => {
   // Handle bold text
   const parts = text.split(/(\*\*[^*]+\*\*)/g);
-  
+
   return parts.map((part, index) => {
     if (part.startsWith('**') && part.endsWith('**')) {
       // Remove the ** markers and render as bold
       const boldText = part.slice(2, -2);
-      return <strong key={index} className="font-semibold text-primary-800">{boldText}</strong>;
+      return <strong key={index} className="font-semibold text-slate-800">{boldText}</strong>;
     }
     return part;
   });
@@ -45,20 +45,20 @@ const parseLinksInText = (text: string | React.ReactNode | React.ReactNode[]): R
   if (Array.isArray(text) || React.isValidElement(text)) {
     return text;
   }
-  
+
   // If it's not a string, return as is
   if (typeof text !== 'string') {
     return text;
   }
-  
+
   // First parse markdown
   const withMarkdown = parseMarkdown(text);
-  
+
   // If parseMarkdown returned a string, parse links
   if (typeof withMarkdown === 'string') {
     // Regular expression to match anchor tags
     const linkRegex = /<a\s+href="([^"]*)"[^>]*className="([^"]*)"[^>]*>([^<]*)<\/a>/gi;
-    
+
     const parts = [];
     let lastIndex = 0;
     let match;
@@ -68,11 +68,11 @@ const parseLinksInText = (text: string | React.ReactNode | React.ReactNode[]): R
       if (match.index > lastIndex) {
         parts.push(withMarkdown.substring(lastIndex, match.index));
       }
-      
+
       // Add the Link component
       const [fullMatch, href, className, linkText] = match;
       parts.push(
-        <Link 
+        <Link
           key={`link-${match.index}`}
           href={href}
           className={className}
@@ -80,26 +80,26 @@ const parseLinksInText = (text: string | React.ReactNode | React.ReactNode[]): R
           {linkText}
         </Link>
       );
-      
+
       lastIndex = match.index + fullMatch.length;
     }
-    
+
     // Add remaining text after the last link
     if (lastIndex < withMarkdown.length) {
       parts.push(withMarkdown.substring(lastIndex));
     }
-    
+
     // If no links were found, return the markdown parsed text
     return parts.length > 1 ? parts : withMarkdown;
   }
-  
+
   // If parseMarkdown returned an array, process each element for links
   if (Array.isArray(withMarkdown)) {
     return withMarkdown.map((element, idx) => {
       if (typeof element === 'string') {
         // Regular expression to match anchor tags
         const linkRegex = /<a\s+href="([^"]*)"[^>]*className="([^"]*)"[^>]*>([^<]*)<\/a>/gi;
-        
+
         const parts = [];
         let lastIndex = 0;
         let match;
@@ -109,11 +109,11 @@ const parseLinksInText = (text: string | React.ReactNode | React.ReactNode[]): R
           if (match.index > lastIndex) {
             parts.push(element.substring(lastIndex, match.index));
           }
-          
+
           // Add the Link component
           const [fullMatch, href, className, linkText] = match;
           parts.push(
-            <Link 
+            <Link
               key={`link-${idx}-${match.index}`}
               href={href}
               className={className}
@@ -121,22 +121,22 @@ const parseLinksInText = (text: string | React.ReactNode | React.ReactNode[]): R
               {linkText}
             </Link>
           );
-          
+
           lastIndex = match.index + fullMatch.length;
         }
-        
+
         // Add remaining text after the last link
         if (lastIndex < element.length) {
           parts.push(element.substring(lastIndex));
         }
-        
+
         // If no links were found, return the original element
         return parts.length > 1 ? <React.Fragment key={idx}>{parts}</React.Fragment> : element;
       }
       return element;
     });
   }
-  
+
   return withMarkdown;
 };
 
@@ -150,94 +150,96 @@ const formatAnswer = (answer: string | React.ReactNode) => {
   // Continue with existing string processing for string answers
   // Split answer by paragraphs
   const paragraphs = answer.split('\n\n');
-  
+
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 text-slate-600 leading-relaxed font-light">
       {paragraphs.map((paragraph, i) => {
         // Check if paragraph contains list-like content (starting with -)
         if (paragraph.includes('- ')) {
           // This is a list paragraph
           const listItems = paragraph.split('- ').filter(item => item.trim().length > 0);
           const beforeList = paragraph.split('- ')[0].trim();
-          
+
           return (
-            <div key={i} className="space-y-2">
-              {beforeList && <p className="text-primary-600 leading-relaxed">{parseLinksInText(decodeHtmlEntities(beforeList))}</p>}
-              <ul className="list-disc pl-5 space-y-2 marker:text-accent">
+            <div key={i} className="space-y-3">
+              {beforeList && <p className="text-slate-600 leading-relaxed">{parseLinksInText(decodeHtmlEntities(beforeList))}</p>}
+              <ul className="list-none pl-4 space-y-2">
                 {listItems.map((item, j) => (
-                  <li key={j} className="text-primary-600 pl-1 leading-relaxed">{parseLinksInText(decodeHtmlEntities(item))}</li>
+                  <li key={j} className="text-slate-600 pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[10px] before:w-1.5 before:h-1.5 before:rounded-full before:bg-[#B08D57]/60">
+                    {parseLinksInText(decodeHtmlEntities(item))}
+                  </li>
                 ))}
               </ul>
             </div>
           );
         }
-        
+
         // Check for emphasized phrases like "... understand the 'why' ..."
         const hasEmphasis = paragraph.includes("'") && paragraph.split("'").length > 2;
-        
+
         if (hasEmphasis) {
           const parts = paragraph.split("'");
-          const formattedParts = parts.map((part, j) => 
-            j % 2 === 0 ? 
-              parseLinksInText(part) : 
-              <span key={j} className="font-medium text-primary-600 italic">{part}</span>
+          const formattedParts = parts.map((part, j) =>
+            j % 2 === 0 ?
+              parseLinksInText(part) :
+              <span key={j} className="font-medium text-slate-700 italic">{part}</span>
           );
-          
+
           return (
-            <p key={i} className="text-primary-600 leading-relaxed">
+            <p key={i} className="text-slate-600 leading-relaxed">
               {formattedParts}
             </p>
           );
         }
-        
+
         // Handle "Yes" answers with more subtle formatting (no color change)
         if (paragraph.trim().startsWith("Yes")) {
           return (
-            <p key={i} className="text-primary-600 leading-relaxed pl-3 border-l-2 border-neutral-300">
-              <span className="font-medium">Yes. </span>
+            <p key={i} className="text-slate-600 leading-relaxed pl-4 border-l-2 border-[#B08D57]/30">
+              <span className="font-semibold text-slate-800">Yes. </span>
               {parseLinksInText(decodeHtmlEntities(paragraph.substring(4)))}
             </p>
           );
         }
-        
+
         // Bold first sentence of paragraphs that look like headers (shorter than 60 chars)
         const sentences = paragraph.split('. ');
         if (sentences.length > 1 && sentences[0].length < 60) {
           return (
-            <p key={i} className="text-primary-600 leading-relaxed">
-              <span className="font-medium text-primary-700">{decodeHtmlEntities(sentences[0])}. </span>
+            <p key={i} className="text-slate-600 leading-relaxed">
+              <span className="font-medium text-slate-800">{decodeHtmlEntities(sentences[0])}. </span>
               {parseLinksInText(decodeHtmlEntities(sentences.slice(1).join('. ')))}
             </p>
           );
         }
-        
+
         // Highlight key terms with consistent styling
         const keyTerms = ["Conversation:", "Assessment:", "Plan:", "I Reassess Thoroughly:", "We Adjust the Strategy:", "I Collaborate and Advocate:", "Listening Attentively:", "Communicating Clearly & Honestly:", "Empowering You:", "Dedicated Time & Attention:", "Looking Holistically:", "Emphasis on Education and Active Participation:", "Partnership in Goal Setting:"];
         for (const term of keyTerms) {
           if (paragraph.includes(term)) {
             const parts = paragraph.split(term);
             const formattedParts = [];
-            
+
             for (let j = 0; j < parts.length; j++) {
               if (j > 0) {
                 formattedParts.push(
-                  <span key={`term-${j}`} className="font-semibold text-primary-800">{term} </span>
+                  <span key={`term-${j}`} className="font-semibold text-slate-800 block mb-1">{term} </span>
                 );
               }
               if (parts[j]) {
                 formattedParts.push(<span key={`content-${j}`}>{parseLinksInText(decodeHtmlEntities(parts[j]))}</span>);
               }
             }
-            
+
             return (
-              <p key={i} className="text-primary-600 leading-relaxed">
+              <p key={i} className="text-slate-600 leading-relaxed">
                 {formattedParts}
               </p>
             );
           }
         }
-        
-        return <p key={i} className="text-primary-600 leading-relaxed">{parseLinksInText(decodeHtmlEntities(paragraph))}</p>;
+
+        return <p key={i} className="text-slate-600 leading-relaxed">{parseLinksInText(decodeHtmlEntities(paragraph))}</p>;
       })}
     </div>
   );
@@ -245,8 +247,6 @@ const formatAnswer = (answer: string | React.ReactNode) => {
 
 const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, defaultOpen = null }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(defaultOpen);
-  const [isHovering, setIsHovering] = useState<number | null>(null);
-  const accordionRefs = useRef<(HTMLDivElement | null)[]>([]);
   const triggerRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const baseId = useId();
 
@@ -264,7 +264,7 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, defaultOpen = null }
           setTimeout(() => {
             const element = triggerRefs.current[index];
             if (element) {
-              const headerOffset = 120; // Account for fixed header and some padding
+              const headerOffset = 180; // Account for fixed header and some padding
               const elementPosition = element.getBoundingClientRect().top;
               const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -282,13 +282,13 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, defaultOpen = null }
   const toggleQuestion = (index: number) => {
     const wasActive = activeIndex === index;
     setActiveIndex(activeIndex === index ? null : index);
-    
+
     // If opening a question, scroll to it after a delay to ensure animation completes
     if (!wasActive) {
       setTimeout(() => {
         const element = triggerRefs.current[index]; // Use trigger ref for more accurate positioning
         if (element) {
-          const headerOffset = 120; // Increased offset for better positioning
+          const headerOffset = 180; // Increased offset for better positioning
           const elementPosition = element.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -305,29 +305,17 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, defaultOpen = null }
   const generateId = (index: number) => `${baseId}-faq-${index}`;
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-4">
       {items.map((item, index) => {
         const isActive = activeIndex === index;
         const questionId = `${baseId}-question-${index}`;
         const answerId = `${baseId}-answer-${index}`;
-        
+
         return (
-          <div 
-            key={index} 
-            ref={(el) => {
-              if (accordionRefs.current) {
-                accordionRefs.current[index] = el;
-              }
-            }}
-            onMouseEnter={() => setIsHovering(index)}
-            onMouseLeave={() => setIsHovering(null)}
-            className={`border rounded-2xl overflow-hidden transition-all duration-500 transform ${
-              isActive 
-                ? 'bg-gradient-to-br from-white to-neutral-50 border-primary-200 shadow-xl shadow-primary-100/20 scale-[1.02]'
-                : isHovering === index
-                  ? 'bg-white border-neutral-300 shadow-lg hover:shadow-xl scale-[1.01]'
-                  : 'bg-white border-neutral-200 shadow-md'
-            }`}
+          <div
+            key={index}
+            className={`border-b border-slate-100 last:border-0 transition-all duration-300 ${isActive ? 'pb-6' : 'pb-0'
+              }`}
           >
             <button
               ref={(el) => {
@@ -339,35 +327,38 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, defaultOpen = null }
               aria-expanded={isActive}
               aria-controls={answerId}
               onClick={() => toggleQuestion(index)}
-              className={`flex items-center justify-between w-full p-6 md:p-8 text-left focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-50 rounded-t-2xl
-                transition-all duration-300 ${isActive ? 'bg-gradient-to-r from-primary-50/50 to-transparent' : ''}`}
+              className="flex items-start justify-between w-full py-6 text-left group focus:outline-none"
             >
-              <span className="flex-1 pr-6">
-                <span className={`font-semibold text-lg md:text-xl transition-colors duration-300 leading-tight ${
-                  isActive ? 'text-primary-900' : 'text-primary-800'
-                }`}>
-                  {decodeHtmlEntities(item.question)}
+              <span className="flex-1 pr-6 flex items-start gap-4">
+                <span className={`text-2xl font-light tabular-nums opacity-20 transition-colors duration-300 ${isActive ? 'text-[#B08D57] opacity-100' : 'group-hover:text-[#B08D57] group-hover:opacity-40'
+                  }`}>
+                  {(index + 1).toString().padStart(2, '0')}
                 </span>
-                {item.category && (
-                  <span className="ml-3 inline-block px-3 py-1 text-xs font-medium rounded-full bg-gradient-to-r from-primary-100 to-primary-200 text-primary-800 shadow-sm">
-                    {item.category}
+                <span className="flex flex-col">
+                  <span className={`text-lg transition-colors duration-300 font-medium leading-relaxed ${isActive ? 'text-slate-900' : 'text-slate-700 group-hover:text-slate-900'
+                    }`}>
+                    {decodeHtmlEntities(item.question)}
                   </span>
-                )}
+                  {item.category && (
+                    <span className="mt-1 text-xs font-medium text-[#B08D57] uppercase tracking-wider opacity-80">
+                      {item.category}
+                    </span>
+                  )}
+                </span>
               </span>
               <motion.div
                 animate={{ rotate: isActive ? 180 : 0 }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-                className={`flex-shrink-0 w-7 h-7 rounded-full p-1 transition-all duration-300 ${
-                  isActive 
-                    ? 'text-accent-dark bg-accent/10'
-                    : 'text-primary-400 hover:text-primary-600 hover:bg-primary-50'
-                }`}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className={`flex-shrink-0 w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center transition-all duration-300 ${isActive
+                    ? 'border-[#B08D57] text-[#B08D57] bg-[#B08D57]/5'
+                    : 'text-slate-400 group-hover:border-[#B08D57]/50 group-hover:text-[#B08D57]'
+                  }`}
               >
-                <ChevronDownIcon />
+                <ChevronDownIcon className="w-4 h-4" strokeWidth={2} />
               </motion.div>
             </button>
-            
-            <AnimatePresence>
+
+            <AnimatePresence initial={false}>
               {isActive && (
                 <motion.div
                   id={answerId}
@@ -376,20 +367,14 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, defaultOpen = null }
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: 'auto', opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
                   className="overflow-hidden"
                 >
-                  <motion.div 
-                    initial={{ y: -15, opacity: 0.8 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: -15, opacity: 0 }}
-                    transition={{ duration: 0.4, delay: 0.1 }}
-                    className="p-6 md:p-8 pt-4 md:pt-6 border-t border-neutral-200/60 bg-gradient-to-br from-neutral-50/30 to-transparent"
-                  >
-                    <div className="text-primary-600 leading-relaxed prose prose-sm md:prose max-w-none">
+                  <div className="pl-12 md:pl-14 pr-4 pb-2">
+                    <div className="prose prose-sm prose-slate max-w-none text-slate-600 font-light">
                       {formatAnswer(item.answer)}
                     </div>
-                  </motion.div>
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>

@@ -91,13 +91,13 @@ function ConditionsPageWithParams({
   // Filter conditions based on search query
   const filteredCategories = useMemo(() => {
     if (!searchQuery) return conditionCategories;
-    
+
     return conditionCategories.map(category => ({
       ...category,
       conditions: category.conditions.filter(condition =>
         condition.toLowerCase().includes(searchQuery.toLowerCase())
       )
-    })).filter(category => 
+    })).filter(category =>
       category.conditions.length > 0 ||
       category.title.toLowerCase().includes(searchQuery.toLowerCase())
     );
@@ -106,7 +106,7 @@ function ConditionsPageWithParams({
   return (
     <main className="bg-white min-h-screen overflow-x-hidden">
       {/* COMPLETELY REDESIGNED Hero Section */}
-      <section className="relative pt-24 lg:pt-32 pb-8 lg:pb-10 bg-gradient-to-br from-white via-slate-50/50 to-white overflow-hidden">
+      <section className="relative pt-32 lg:pt-40 pb-8 lg:pb-10 bg-gradient-to-br from-white via-slate-50/50 to-white overflow-hidden">
         {/* Premium background elements */}
         <div className="absolute inset-0">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#B08D57]/5 rounded-full blur-3xl"></div>
@@ -135,8 +135,8 @@ function ConditionsPageWithParams({
                 transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
                 className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 mb-6"
               >
-                <HeartIcon className="w-5 h-5 text-[#B08D57]" />
-                <span className="text-sm font-medium text-gray-700">Treatment Areas</span>
+                <SparklesIcon className="w-5 h-5 text-[#B08D57]" />
+                <span className="text-sm font-medium text-gray-700">Evidence-Based Care</span>
               </motion.div>
 
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-slate-900 mb-6 tracking-tight">
@@ -197,11 +197,10 @@ function ConditionsPageWithParams({
                 <button
                   key={item.name}
                   onClick={() => handleTabChange(item.tab)}
-                  className={`relative px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 transform hover:-translate-y-0.5 ${
-                    activeTab === item.tab
+                  className={`relative px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 transform hover:-translate-y-0.5 ${activeTab === item.tab
                       ? 'text-white shadow-2xl shadow-[#B08D57]/30'
                       : 'text-slate-700 bg-white hover:bg-slate-50 border-2 border-slate-200 hover:border-[#B08D57] shadow-lg hover:shadow-xl hover:text-[#B08D57]'
-                  }`}
+                    }`}
                 >
                   {activeTab === item.tab && (
                     <motion.div
@@ -244,13 +243,13 @@ function ConditionsPageWithParams({
                           const parts = condition.split('(');
                           const mainCondition = parts[0].trim();
                           const details = parts.length > 1 ? `(${parts.slice(1).join('(')}` : '';
-                          
+
                           // Use the actual slug from conditionsData if available
-                          const slug = category.conditionsData?.[index]?.slug || 
+                          const slug = category.conditionsData?.[index]?.slug ||
                             mainCondition.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-                          
+
                           return (
-                            <Link 
+                            <Link
                               key={index}
                               href={`/conditions/${slug}`}
                               className="flex items-start gap-3 p-4 rounded-lg bg-slate-50 hover:bg-slate-100 transition-colors group"
@@ -294,50 +293,50 @@ function ConditionsPageWithParams({
                     {/* Conditions Grid - PREMIUM Design */}
                     <div className="p-4 lg:p-6">
                       <div className="grid md:grid-cols-2 gap-3 items-stretch">
-                          {conditionCategories[activeTab].conditions.map((condition, index) => {
-                            const parts = condition.split('(');
-                            const mainCondition = parts[0].trim();
-                            const details = parts.length > 1 ? `(${parts.slice(1).join('(')}` : '';
-                            
-                            // Use the actual slug from conditionsData if available
-                            const slug = conditionCategories[activeTab].conditionsData?.[index]?.slug || 
-                              mainCondition.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-                            
-                            return (
-                              <motion.div
-                                key={index}
-                                initial={{ opacity: 0, scale: 0.95 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ delay: index * 0.02, duration: 0.3 }}
-                                className="group"
+                        {conditionCategories[activeTab].conditions.map((condition, index) => {
+                          const parts = condition.split('(');
+                          const mainCondition = parts[0].trim();
+                          const details = parts.length > 1 ? `(${parts.slice(1).join('(')}` : '';
+
+                          // Use the actual slug from conditionsData if available
+                          const slug = conditionCategories[activeTab].conditionsData?.[index]?.slug ||
+                            mainCondition.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+
+                          return (
+                            <motion.div
+                              key={index}
+                              initial={{ opacity: 0, scale: 0.95 }}
+                              animate={{ opacity: 1, scale: 1 }}
+                              transition={{ delay: index * 0.02, duration: 0.3 }}
+                              className="group"
+                            >
+                              <Link
+                                href={`/conditions/${slug}`}
+                                className="block h-full"
                               >
-                                <Link 
-                                  href={`/conditions/${slug}`}
-                                  className="block h-full"
-                                >
-                                  <div className="p-4 rounded-lg bg-slate-50 border border-slate-200 hover:border-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-300 h-full cursor-pointer hover:shadow-md transform hover:-translate-y-0.5">
-                                    <div className="flex items-center gap-3">
-                                      <div className="w-8 h-8 bg-[#B08D57] rounded-lg flex items-center justify-center flex-shrink-0">
-                                        <CheckCircleIcon className="w-5 h-5 text-white" />
-                                      </div>
-                                      <div className="flex-1">
-                                        <h4 className="font-semibold text-base text-slate-900 group-hover:text-[#B08D57] transition-colors">
-                                          {mainCondition}
-                                        </h4>
-                                        {details && (
-                                          <p className="text-sm text-slate-600 mt-0.5">
-                                            {details}
-                                          </p>
-                                        )}
-                                      </div>
-                                      <ChevronRightIcon className="w-4 h-4 text-slate-400 group-hover:text-[#B08D57] transition-all" />
+                                <div className="p-4 rounded-lg bg-slate-50 border border-slate-200 hover:border-[#B08D57] hover:bg-[#B08D57]/5 transition-all duration-300 h-full cursor-pointer hover:shadow-md transform hover:-translate-y-0.5">
+                                  <div className="flex items-center gap-3">
+                                    <div className="w-8 h-8 bg-[#B08D57] rounded-lg flex items-center justify-center flex-shrink-0">
+                                      <CheckCircleIcon className="w-5 h-5 text-white" />
                                     </div>
+                                    <div className="flex-1">
+                                      <h4 className="font-semibold text-base text-slate-900 group-hover:text-[#B08D57] transition-colors">
+                                        {mainCondition}
+                                      </h4>
+                                      {details && (
+                                        <p className="text-sm text-slate-600 mt-0.5">
+                                          {details}
+                                        </p>
+                                      )}
+                                    </div>
+                                    <ChevronRightIcon className="w-4 h-4 text-slate-400 group-hover:text-[#B08D57] transition-all" />
                                   </div>
-                                </Link>
-                              </motion.div>
-                            );
-                          })}
-                        </div>
+                                </div>
+                              </Link>
+                            </motion.div>
+                          );
+                        })}
+                      </div>
                     </div>
                   </div>
                 </motion.div>
@@ -350,17 +349,17 @@ function ConditionsPageWithParams({
       {/* Additional Services - Premium Design */}
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-50"></div>
-        
+
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-6xl mx-auto">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              
+
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-slate-900 mb-4 leading-tight">
                 Additional Treatment <span className="text-[#B08D57]">Areas</span>
               </h2>
@@ -386,7 +385,7 @@ function ConditionsPageWithParams({
                       <div className="inline-flex items-center justify-center w-12 h-12 bg-[#B08D57]/10 rounded-lg mb-4">
                         <span className="text-[#B08D57] font-semibold text-lg">{index + 1}</span>
                       </div>
-                      
+
                       <h3 className="font-semibold text-lg text-slate-900 mb-3 group-hover:text-[#B08D57] transition-colors">
                         {service.title}
                       </h3>
@@ -406,13 +405,13 @@ function ConditionsPageWithParams({
       <section className="relative py-24 overflow-hidden">
         {/* Gradient Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-black"></div>
-        
+
         {/* Decorative Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#B08D57]/20 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#D4AF37]/20 rounded-full blur-3xl"></div>
         </div>
-        
+
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -422,14 +421,14 @@ function ConditionsPageWithParams({
               viewport={{ once: true }}
               className="text-center"
             >
-              
+
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-6 leading-tight">
                 Ready to <span className="text-[#D4AF37]">Move Forward?</span>
               </h2>
               <p className="text-xl text-white/80 max-w-2xl mx-auto mb-12 leading-relaxed">
                 If this page matches what you are dealing with and you want a clear plan, book an assessment or send a question first.
               </p>
-            
+
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <Link
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
@@ -439,7 +438,7 @@ function ConditionsPageWithParams({
                   <span>Book Your Assessment</span>
                   <ChevronRightIcon className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
-                
+
                 <Link
                   href="/#contact"
                   className="group inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/30 text-white rounded-lg font-medium hover:bg-white/20 hover:border-white/40 transition-all duration-300"

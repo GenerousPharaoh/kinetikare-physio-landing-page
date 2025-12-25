@@ -136,7 +136,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   />
                 </div>
                 {/* Text Container - Moved down slightly (mt-1) and gap reduced */}
-                <div className="flex flex-row items-center gap-1.5 mt-1 lg:mt-0 lg:flex-col lg:items-start lg:justify-center lg:gap-0">
+                <div className="flex flex-row items-center gap-1 mt-1.5 lg:mt-0 lg:flex-col lg:items-start lg:justify-center lg:gap-0">
                   <div className="flex items-center tracking-[0.1em] sm:tracking-[0.15em] leading-none">
                     <span className="text-sm sm:text-lg lg:text-xl font-light !text-white uppercase">Kineti</span>
                     <span className="text-sm sm:text-lg lg:text-xl font-bold text-[#D4AF37] uppercase">k</span>

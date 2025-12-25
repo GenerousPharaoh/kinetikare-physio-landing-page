@@ -72,7 +72,7 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative h-screen w-full overflow-hidden bg-[#020617] group"
+      className="relative min-h-[100dvh] w-full overflow-hidden bg-[#020617] group"
       onMouseMove={handleMouseMove}
     >
 
@@ -301,8 +301,8 @@ export default function HeroSection() {
         <div className="w-full h-full bg-gradient-to-b from-[#D4AF37] via-[#F5E6B3] to-[#D4AF37] shadow-[0_0_30px_rgba(212,175,55,0.3)]" />
       </motion.div>
 
-      {/* 4. Content Layer */}
-      <div className="relative z-30 h-full flex items-end md:items-center pb-20 pt-40 md:pb-0 md:pt-0">
+      {/* 4. Content Layer - Accounting for mobile browser bars with explicit safe padding */}
+      <div className="relative z-30 h-full flex items-end md:items-center pb-20 pt-[180px] xs:pt-[200px] md:pb-0 md:pt-0">
         <div className="w-full md:max-w-[55%] lg:max-w-[50%] px-6 sm:px-8 md:px-12 lg:px-16">
 
           <motion.div

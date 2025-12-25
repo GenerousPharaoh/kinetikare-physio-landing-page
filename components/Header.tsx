@@ -200,7 +200,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
             </nav>
 
             {/* Right Actions */}
-            <div className="flex items-center gap-4 lg:gap-6">
+            <div className="flex items-center gap-4 lg:gap-6 flex-shrink-0">
               {/* Search */}
               <motion.div variants={headerItemVariants}>
                 <button
@@ -239,11 +239,12 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 </Link>
               </motion.div>
 
-              {/* Mobile Menu Toggle */}
+              {/* Mobile Menu Toggle - Force Visibility */}
               <motion.button
                 variants={headerItemVariants}
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="lg:hidden relative z-50 w-10 h-10 flex items-center justify-center !text-white hover:!text-[#D4AF37] transition-colors"
+                aria-label="Toggle mobile menu"
               >
                 {mobileMenuOpen ? (
                   <XMarkIcon className="w-7 h-7" />

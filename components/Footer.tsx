@@ -2,15 +2,15 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { 
-  MapPin, 
-  Phone, 
-  Envelope, 
-  Clock, 
+import {
+  MapPin,
+  Phone,
+  Envelope,
+  Clock,
   ArrowUp,
-  FacebookLogo, 
-  InstagramLogo, 
-  LinkedinLogo 
+  FacebookLogo,
+  InstagramLogo,
+  LinkedinLogo
 } from "@phosphor-icons/react";
 import Image from 'next/image';
 import BackgroundTexture from './BackgroundTexture';
@@ -48,8 +48,8 @@ export default function Footer() {
   ];
 
   const socialLinks = [
-    { 
-      name: 'LinkedIn', 
+    {
+      name: 'LinkedIn',
       href: 'https://www.linkedin.com/in/kareem-hassanein-physiotherapy/',
       icon: <LinkedinLogo weight="fill" className="w-6 h-6" />
     }
@@ -69,7 +69,7 @@ export default function Footer() {
       e.preventDefault();
       const targetId = href.substring(2); // Remove /# part
       const targetElement = document.getElementById(targetId);
-      
+
       if (targetElement) {
         const headerOffset = document.querySelector('header')?.offsetHeight || 70;
         const elementPosition = targetElement.getBoundingClientRect().top;
@@ -88,11 +88,11 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gradient-to-b from-primary-900 to-primary-950 text-white py-12 relative overflow-hidden">
+    <footer className="bg-gradient-to-b from-primary-900 to-primary-950 text-white pt-12 pb-32 md:pb-12 relative overflow-hidden">
       {/* Premium subtle background pattern */}
       <BackgroundTexture texture="noise" opacity={0.02} />
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent"></div>
-      
+
       <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-7xl">
         {/* Centered branding with proper hierarchy */}
         <div className="text-center mb-10">
@@ -114,7 +114,7 @@ export default function Footer() {
 
         {/* Main grid layout */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          
+
           {/* Contact Information */}
           <div>
             <h3 className="text-sm font-medium mb-4 text-white uppercase tracking-wider">Contact</h3>
@@ -133,19 +133,19 @@ export default function Footer() {
               </div>
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" weight="duotone" />
-                <a 
+                <a
                   href="https://maps.app.goo.gl/syZN4FUBgACrtqgK9"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-gold transition-colors"
                 >
-                  4631 Palladium Way, Unit 6<br/>
+                  4631 Palladium Way, Unit 6<br />
                   Burlington, ON L7M 0W9
                 </a>
               </div>
             </div>
           </div>
-          
+
           {/* Business Hours */}
           <div>
             <h3 className="text-sm font-medium mb-4 text-white uppercase tracking-wider">Hours</h3>
@@ -162,7 +162,7 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          
+
           {/* Quick Links */}
           <div>
             <h3 className="text-sm font-medium mb-4 text-white uppercase tracking-wider">Quick Links</h3>
@@ -180,7 +180,7 @@ export default function Footer() {
                 <Link href="/faq" className="hover:text-gold transition-colors">FAQ</Link>
               </li>
               <li className="pt-2">
-                <a 
+                <a
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -194,7 +194,7 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          
+
           {/* Connect Section */}
           <div>
             <h3 className="text-sm font-medium mb-4 text-white uppercase tracking-wider">Connect</h3>
@@ -202,9 +202,9 @@ export default function Footer() {
               {/* Social Links */}
               <div className="flex gap-3">
                 {socialLinks.map((social) => (
-                  <a 
+                  <a
                     key={social.name}
-                    href={social.href} 
+                    href={social.href}
                     aria-label={`Visit ${social.name} profile`}
                     className="w-10 h-10 rounded-lg bg-white/10 hover:bg-gold/30 transition-all flex items-center justify-center group"
                     target="_blank"
@@ -214,7 +214,7 @@ export default function Footer() {
                   </a>
                 ))}
               </div>
-              
+
               {/* CPO Registration */}
               <Link
                 href="https://portal.collegept.org/en-US/public-register/display-member-contact/?id=757882d7-8c40-eb11-a813-000d3af427b4"
@@ -227,20 +227,20 @@ export default function Footer() {
                 </svg>
                 CPO Verified Registration
               </Link>
-              
+
               {/* Small Map Preview */}
               <div className="rounded-lg overflow-hidden h-[120px] relative border border-white/10 bg-slate-800">
-                <iframe 
-                  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Kareem%20Hassanein%20Physiotherapy%2C4631%20Palladium%20Way%20Unit%206%2CBurlington%2CON&zoom=14&maptype=roadmap" 
-                  width="100%" 
-                  height="120" 
+                <iframe
+                  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Kareem%20Hassanein%20Physiotherapy%2C4631%20Palladium%20Way%20Unit%206%2CBurlington%2CON&zoom=14&maptype=roadmap"
+                  width="100%"
+                  height="120"
                   style={{ border: 0 }}
                 ></iframe>
               </div>
             </div>
           </div>
         </div>
-        
+
         {/* Bottom section */}
         <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-white/60 mb-3 md:mb-0">
@@ -255,9 +255,9 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      
+
       {/* Back to top button */}
-      <button 
+      <button
         onClick={scrollToTop}
         className="fixed bottom-6 right-6 w-10 h-10 rounded-full bg-gold shadow-lg hover:bg-gold-dark transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold z-50 flex items-center justify-center"
         aria-label="Back to top"

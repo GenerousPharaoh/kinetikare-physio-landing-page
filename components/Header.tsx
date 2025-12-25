@@ -126,7 +126,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
             {/* Logo Section */}
             <motion.div variants={headerItemVariants}>
               <Link href="/" className="flex items-center gap-3 group relative z-50">
-                <div className="relative w-10 h-10 lg:w-11 lg:h-11 transition-transform duration-500 group-hover:scale-105">
+                <div className="relative w-10 h-10 lg:w-11 lg:h-11 transition-transform duration-500 group-hover:scale-105 flex-shrink-0">
                   <Image
                     src="/images/kinetikare-logo-without-text.webp"
                     alt="KinetiKare Logo"
@@ -141,8 +141,8 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                     <span className="text-sm sm:text-lg lg:text-xl font-bold text-[#D4AF37] uppercase">k</span>
                     <span className="text-sm sm:text-lg lg:text-xl font-light !text-white uppercase">are</span>
                   </div>
-                  <span className="text-[8px] sm:text-[10px] !text-white/60 tracking-[0.1em] sm:tracking-[0.2em] uppercase lg:mt-1.5 group-hover:text-[#D4AF37] transition-colors duration-300 whitespace-nowrap">
-                    Physiotherapy
+                  <span className="text-xs sm:text-[10px] !text-white/60 tracking-[0.1em] sm:tracking-[0.2em] uppercase lg:mt-1.5 group-hover:text-[#D4AF37] transition-colors duration-300 whitespace-nowrap">
+                    Physio
                   </span>
                 </div>
               </Link>
@@ -240,8 +240,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               </motion.div>
 
               {/* Mobile Menu Toggle - Force Visibility */}
-              <motion.button
-                variants={headerItemVariants}
+              <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="lg:hidden relative z-50 w-10 h-10 flex items-center justify-center !text-white hover:!text-[#D4AF37] transition-colors"
                 aria-label="Toggle mobile menu"
@@ -251,7 +250,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 ) : (
                   <Bars3Icon className="w-7 h-7" />
                 )}
-              </motion.button>
+              </button>
             </div>
           </motion.div>
         </div>

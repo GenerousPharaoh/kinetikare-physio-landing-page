@@ -302,7 +302,7 @@ export default function HeroSection() {
       </motion.div>
 
       {/* 4. Content Layer - Accounting for mobile browser bars with explicit safe padding */}
-      <div className="relative z-30 h-full flex items-end md:items-center pb-20 pt-[180px] xs:pt-[200px] md:pb-0 md:pt-0">
+      <div className="relative z-30 h-full flex items-end md:items-center pb-20 pt-32 xs:pt-40 md:pt-0">
         <div className="w-full md:max-w-[55%] lg:max-w-[50%] px-6 sm:px-8 md:px-12 lg:px-16">
 
           <motion.div

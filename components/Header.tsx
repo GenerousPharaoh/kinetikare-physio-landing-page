@@ -125,7 +125,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
 
             {/* Logo Section */}
             <motion.div variants={headerItemVariants}>
-              <Link href="/" className="flex items-center gap-3 group relative z-50">
+              <Link href="/" className="flex items-center gap-2 group relative z-50">
                 <div className="relative w-10 h-10 lg:w-11 lg:h-11 transition-transform duration-500 group-hover:scale-105 flex-shrink-0">
                   <Image
                     src="/images/kinetikare-logo-without-text.webp"
@@ -135,7 +135,8 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                     sizes="44px"
                   />
                 </div>
-                <div className="flex flex-row items-center gap-2 lg:flex-col lg:items-start lg:justify-center lg:gap-0">
+                {/* Text Container - Moved down slightly (mt-1) and gap reduced */}
+                <div className="flex flex-row items-center gap-1.5 mt-1 lg:mt-0 lg:flex-col lg:items-start lg:justify-center lg:gap-0">
                   <div className="flex items-center tracking-[0.1em] sm:tracking-[0.15em] leading-none">
                     <span className="text-sm sm:text-lg lg:text-xl font-light !text-white uppercase">Kineti</span>
                     <span className="text-sm sm:text-lg lg:text-xl font-bold text-[#D4AF37] uppercase">k</span>
@@ -199,8 +200,8 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               ))}
             </nav>
 
-            {/* Right Actions */}
-            <div className="flex items-center gap-4 lg:gap-6 flex-shrink-0">
+            {/* Right Actions - Vertically Aligned */}
+            <div className="flex items-center gap-4 lg:gap-6 flex-shrink-0 h-10">
               {/* Search */}
               <motion.div variants={headerItemVariants}>
                 <button
@@ -239,7 +240,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 </Link>
               </motion.div>
 
-              {/* Mobile Menu Toggle - Force Visibility */}
+              {/* Mobile Menu Toggle - Force Visibility & Alignment */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="lg:hidden relative z-50 w-10 h-10 flex items-center justify-center !text-white hover:!text-[#D4AF37] transition-colors"

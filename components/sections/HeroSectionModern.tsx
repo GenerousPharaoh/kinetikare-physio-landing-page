@@ -302,7 +302,7 @@ export default function HeroSection() {
       </motion.div>
 
       {/* 4. Content Layer - Accounting for mobile browser bars with explicit safe padding */}
-      <div className="relative z-30 h-full flex items-start md:items-center pb-20 pt-32 md:pb-0 md:pt-0">
+      <div className="relative z-30 h-full flex items-start md:items-center pb-20 pt-28 md:pb-0 md:pt-0">
         <div className="w-full md:max-w-[55%] lg:max-w-[50%] px-6 sm:px-8 md:px-12 lg:px-16">
 
           <motion.div
@@ -312,7 +312,7 @@ export default function HeroSection() {
             className="max-w-xl"
           >
             {/* Eyebrow */}
-            <motion.div variants={itemVariants} className="flex items-center gap-3 mb-5 mt-6 sm:mt-0">
+            <motion.div variants={itemVariants} className="flex items-center gap-3 mb-5 sm:mt-0">
               <span className="h-[1px] w-8 bg-gradient-to-r from-[#D4AF37] to-transparent" />
               <span className="text-[#D4AF37] text-[10px] tracking-[0.25em] uppercase font-medium">
                 Registered Physiotherapist

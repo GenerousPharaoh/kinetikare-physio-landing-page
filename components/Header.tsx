@@ -135,14 +135,18 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                     sizes="44px"
                   />
                 </div>
-                {/* Text Container - Moved down slightly (mt-1) and gap reduced */}
-                <div className="flex flex-row items-center gap-1 mt-1.5 lg:mt-0 lg:flex-row lg:items-center lg:gap-3">
+                {/* Text Container - Moved down slightly (mt-1) */}
+                <div className="flex flex-row items-center gap-1 mt-1.5 lg:mt-0 lg:flex-row lg:items-center lg:gap-0">
                   <div className="flex items-center tracking-[0.1em] sm:tracking-[0.15em] leading-none">
                     <span className="text-sm sm:text-lg lg:text-xl font-light !text-white uppercase">Kineti</span>
                     <span className="text-sm sm:text-lg lg:text-xl font-bold text-[#D4AF37] uppercase">k</span>
                     <span className="text-sm sm:text-lg lg:text-xl font-light !text-white uppercase">are</span>
                   </div>
-                  <span className="text-xs sm:text-[10px] lg:text-xl !text-white/60 tracking-[0.1em] sm:tracking-[0.2em] uppercase lg:mt-0 group-hover:text-[#D4AF37] transition-colors duration-300 whitespace-nowrap">
+
+                  {/* Desktop Separator */}
+                  <div className="hidden lg:block h-4 w-[1px] bg-[#D4AF37] mx-3" />
+
+                  <span className="text-xs sm:text-[10px] lg:text-xl !text-white font-light tracking-[0.1em] sm:tracking-[0.15em] uppercase lg:mt-0 group-hover:text-[#D4AF37] transition-colors duration-300 whitespace-nowrap">
                     Physio
                   </span>
                 </div>

@@ -83,27 +83,33 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
   const shouldAnimate = pathname === '/' && !scrolled && !hasAnimated;
 
   // Animation Variants - Dynamic based on shouldAnimate
-  const headerContainerVariants = {
+  const headerContainerVariants = shouldAnimate ? {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: shouldAnimate ? {
+      transition: {
         staggerChildren: 0.1,
         delayChildren: 0.5 // Start slightly after hero swipe begins
-      } : { duration: 0 } // Instant if not animating
+      }
     }
+  } : {
+    hidden: { opacity: 1 }, // Already visible when not animating
+    visible: { opacity: 1 }  // Stay visible
   };
 
-  const headerItemVariants = {
+  const headerItemVariants = shouldAnimate ? {
     hidden: { opacity: 0, x: -20 },
     visible: {
       opacity: 1,
       x: 0,
-      transition: shouldAnimate ? {
+      transition: {
         duration: 0.8,
         ease: [0.22, 1, 0.36, 1]
-      } : { duration: 0 } // Instant if not animating
+      }
     }
+  } : {
+    hidden: { opacity: 1, x: 0 }, // Already visible when not animating
+    visible: { opacity: 1, x: 0 }  // Stay visible
   };
 
   return (

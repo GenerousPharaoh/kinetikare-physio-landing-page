@@ -112,11 +112,14 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     visible: { opacity: 1, x: 0 }  // Stay visible
   };
 
+  // Only transition on scroll, not on pathname changes (prevents flash during navigation)
+  const shouldTransition = pathname === '/';
+
   return (
     <>
       <header
         ref={ref}
-        className={`fixed w-full top-0 z-50 transition-all duration-200 ease-in-out border-b ${scrolled || pathname !== '/' || mobileMenuOpen
+        className={`fixed w-full top-0 z-50 border-b ${shouldTransition ? 'transition-all duration-200 ease-in-out' : ''} ${scrolled || pathname !== '/' || mobileMenuOpen
           ? '!bg-[#020617]/90 backdrop-blur-xl border-white/10 py-3 lg:py-6 shadow-lg'
           : '!bg-transparent border-transparent py-3 lg:py-6'
           }`}

@@ -147,10 +147,14 @@
 }
 
 /* Allow proper background layers while maintaining consistency */
-body, 
-.main-content-wrapper, 
-main {
+body,
+.main-content-wrapper {
   background-color: transparent !important;
+}
+
+/* Allow pages to control their own main background */
+main {
+  background-color: transparent;
 }
 
 /* Make sure our background setup is respected */

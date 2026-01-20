@@ -43,6 +43,18 @@ export const reviews = [
   {
     name: "David Espinosa",
     text: "I was looking for a physio who does dry needling because it's helped me before, and that's how I found Kareem. I came in with hip pain that was messing with my Muay Thai kicks and some foot pain that kept coming back. Kareem actually took the time to figure out what was causing it instead of just treating the pain. The dry needling and cupping made a big difference right away, and he gave me clear strategies and small adjustments so I could keep training without making things worse. The clinic space is clean and comfortable, and they do direct billing, which makes things simple. Kareem's also got a good sense of humor, so the sessions never feel stiff or awkward. My hip feels strong again, the foot pain's gone, and I've been able to train hard without any flare-ups."
+  },
+  {
+    name: "Kendra MacCuish",
+    text: "I came to see Kareem for a bad shoulder injury. After assessing my injury he has been great about working with my doctor's office to get referrals to specialists and putting together a therapy plan that includes in office treatments like cupping, dry needling, shock wave therapy and manual movement therapy. As well as an at home exercise plan. Thankfully this has allowed me to reduce my pain while increasing my range of motion."
+  },
+  {
+    name: "Johan Mapa",
+    text: "Kareem did a great job of treating my plantar fasciitis. It has been bothering me for months but after my first appointment with him in October, it felt relieving and almost all the pain is gone. I continued my appointments with Kareem since then and I always notice improvements in my mobility. I'm also dealing with shoulder blade pain and Kareem treated it right away, and it stopped being painful. He is the best and I will continue to seek treatment from him. I highly recommend him!"
+  },
+  {
+    name: "Nickel Chan",
+    text: "Kareem is honestly one of the best physiotherapists I've ever seen. He really knows what he's doing and fixed issues I'd been struggling with for a long time. The dry needling and manual therapy made a huge difference. He listens carefully, explains things clearly, and adjusts the treatment based on what actually works. I always leave feeling better and more mobile. Highly recommend him to anyone looking for a great physio."
   }
 ];
 
@@ -141,7 +153,7 @@ export default function GoogleReviews() {
               ))}
             </div>
             <span className="text-2xl font-semibold text-gray-800">5.0</span>
-            <span className="text-gray-600">(10 reviews)</span>
+            <span className="text-gray-600">(13 reviews)</span>
           </div>
           <h2 className="text-4xl text-gray-900 mb-2 heading-luxury-1">Google Reviews</h2>
           <p className="max-w-2xl mx-auto text-luxury-subtle">

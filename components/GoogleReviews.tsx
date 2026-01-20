@@ -153,7 +153,7 @@ export default function GoogleReviews() {
               ))}
             </div>
             <span className="text-2xl font-semibold text-gray-800">5.0</span>
-            <span className="text-gray-600">(13 reviews)</span>
+            <span className="text-gray-600">(17 reviews)</span>
           </div>
           <h2 className="text-4xl text-gray-900 mb-2 heading-luxury-1">Google Reviews</h2>
           <p className="max-w-2xl mx-auto text-luxury-subtle">

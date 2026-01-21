@@ -61,6 +61,7 @@ export const reviews = [
 export default function GoogleReviews() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [progressKey, setProgressKey] = useState(0);
 
   // Generate Review schema for each review
   const reviewsSchema = {
@@ -103,6 +104,11 @@ export default function GoogleReviews() {
 
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
+
+  // Reset progress bar animation when slide changes
+  useEffect(() => {
+    setProgressKey((prev) => prev + 1);
+  }, [currentIndex]);
 
   const handlePrevious = () => {
     setIsAutoPlaying(false);
@@ -262,11 +268,39 @@ export default function GoogleReviews() {
           </div>
         </div>
 
-        {/* Navigation - Counter on mobile, dots on desktop */}
+        {/* Navigation - Progress bar on mobile, dots on desktop */}
         <div className="flex justify-center items-center mt-6">
-          {/* Mobile: Simple counter */}
-          <div className="md:hidden text-sm text-gray-500">
-            {currentIndex + 1} / {reviews.length}
+          {/* Mobile: Sleek progress bar with arrows */}
+          <div className="md:hidden flex items-center gap-4">
+            <button
+              onClick={handlePrevious}
+              className="text-gray-400 hover:text-[#B08D57] transition-colors p-1"
+              aria-label="Previous review"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+
+            <div className="w-24 h-0.5 bg-gray-200 rounded-full overflow-hidden">
+              <motion.div
+                key={progressKey}
+                className="h-full bg-[#B08D57] rounded-full"
+                initial={{ width: '0%' }}
+                animate={{ width: '100%' }}
+                transition={{ duration: 7, ease: 'linear' }}
+              />
+            </div>
+
+            <button
+              onClick={handleNext}
+              className="text-gray-400 hover:text-[#B08D57] transition-colors p-1"
+              aria-label="Next review"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
           </div>
 
           {/* Desktop: Dot navigation */}

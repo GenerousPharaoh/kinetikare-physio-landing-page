@@ -298,7 +298,21 @@ export default function HeroSection() {
         variants={goldLineVariants}
         style={{ transform: 'translateZ(0)' }}
       >
-        <div className="w-full h-full bg-gradient-to-b from-[#D4AF37] via-[#F5E6B3] to-[#D4AF37] shadow-[0_0_30px_rgba(212,175,55,0.3)]" />
+        <div className="relative w-full h-full bg-gradient-to-b from-[#D4AF37] via-[#F5E6B3] to-[#D4AF37] shadow-[0_0_30px_rgba(212,175,55,0.3)] overflow-hidden">
+          {/* Shimmer effect traveling down the line */}
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-b from-transparent via-white/25 to-transparent"
+            style={{ height: '30%' }}
+            initial={{ y: '-100%' }}
+            animate={{ y: '400%' }}
+            transition={{
+              duration: 3.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              repeatDelay: 1.5
+            }}
+          />
+        </div>
       </motion.div>
 
       {/* 4. Content Layer - Accounting for mobile browser bars with explicit safe padding */}
@@ -375,8 +389,8 @@ export default function HeroSection() {
               </Link>
             </motion.div>
 
-            {/* Info Badges - Refined & Dynamic */}
-            <motion.div variants={itemVariants} className="flex flex-wrap gap-3 w-full sm:max-w-none">
+            {/* Info Badges - Staggered Entrance */}
+            <div className="flex flex-wrap gap-3 w-full sm:max-w-none">
               {[
                 "Direct Billing",
                 "No Referral Needed",
@@ -384,22 +398,25 @@ export default function HeroSection() {
               ].map((text, index) => (
                 <motion.div
                   key={index}
+                  initial={{ opacity: 0, x: -20, scale: 0.85 }}
                   animate={{
-                    y: [0, -4, 0],
-                    opacity: [0.7, 1, 0.7]
+                    opacity: 1,
+                    x: 0,
+                    scale: 1,
+                    y: [0, -4, 0]
                   }}
                   transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    delay: index * 0.5,
-                    ease: "easeInOut"
+                    opacity: { delay: 1.2 + index * 0.15, duration: 0.5, ease: "easeOut" },
+                    x: { delay: 1.2 + index * 0.15, duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+                    scale: { delay: 1.2 + index * 0.15, duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+                    y: { delay: 2.0 + index * 0.15, duration: 3, repeat: Infinity, ease: "easeInOut" }
                   }}
                   className="px-4 py-2 bg-white/5 border border-white/10 rounded-full backdrop-blur-md hover:bg-white/10 transition-all duration-300 hover:border-[#D4AF37]/30 group whitespace-nowrap"
                 >
                   <span className="text-white/80 text-xs font-medium tracking-wider uppercase group-hover:text-[#D4AF37] transition-colors">{text}</span>
                 </motion.div>
               ))}
-            </motion.div>
+            </div>
 
           </motion.div>
         </div>

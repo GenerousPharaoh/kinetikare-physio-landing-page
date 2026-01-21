@@ -289,14 +289,42 @@ export default function HeroSection() {
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
         />
 
-        {/* Dot Matrix Pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.07]"
-          style={{
-            backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.5) 1px, transparent 1px)',
-            backgroundSize: '24px 24px'
-          }}
-        />
+        {/* Dot Matrix Pattern - Layered */}
+        <div className="absolute inset-0">
+          {/* Base layer - fine dots */}
+          <div
+            className="absolute inset-0 opacity-[0.04]"
+            style={{
+              backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.6) 1px, transparent 1px)',
+              backgroundSize: '20px 20px'
+            }}
+          />
+          {/* Mid layer - medium dots with offset */}
+          <div
+            className="absolute inset-0 opacity-[0.06]"
+            style={{
+              backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.4) 1.5px, transparent 1.5px)',
+              backgroundSize: '40px 40px',
+              backgroundPosition: '20px 20px'
+            }}
+          />
+          {/* Accent layer - sparse gold dots */}
+          <div
+            className="absolute inset-0 opacity-[0.12]"
+            style={{
+              backgroundImage: 'radial-gradient(circle, rgba(212,175,55,0.5) 2px, transparent 2px)',
+              backgroundSize: '80px 80px',
+              backgroundPosition: '10px 30px'
+            }}
+          />
+          {/* Fade mask - stronger toward the diagonal */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background: 'linear-gradient(to left, transparent 0%, rgba(15,23,42,0.7) 60%, rgba(15,23,42,0.95) 100%)'
+            }}
+          />
+        </div>
       </motion.div>
 
       {/* 3. Gold Accent Line - PERFECTLY SYNCED */}

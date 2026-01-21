@@ -389,7 +389,7 @@ export default function HeroSection() {
               </Link>
             </motion.div>
 
-            {/* Info Badges - Staggered Entrance */}
+            {/* Info Badges - Smooth Staggered Entrance */}
             <div className="flex flex-wrap gap-3 w-full sm:max-w-none">
               {[
                 "Direct Billing",
@@ -398,18 +398,12 @@ export default function HeroSection() {
               ].map((text, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, x: -20, scale: 0.85 }}
-                  animate={{
-                    opacity: 1,
-                    x: 0,
-                    scale: 1,
-                    y: [0, -4, 0]
-                  }}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{
-                    opacity: { delay: 1.2 + index * 0.15, duration: 0.5, ease: "easeOut" },
-                    x: { delay: 1.2 + index * 0.15, duration: 0.5, ease: [0.22, 1, 0.36, 1] },
-                    scale: { delay: 1.2 + index * 0.15, duration: 0.5, ease: [0.22, 1, 0.36, 1] },
-                    y: { delay: 2.0 + index * 0.15, duration: 3, repeat: Infinity, ease: "easeInOut" }
+                    delay: 1.0 + index * 0.12,
+                    duration: 0.6,
+                    ease: [0.25, 0.1, 0.25, 1]
                   }}
                   className="px-4 py-2 bg-white/5 border border-white/10 rounded-full backdrop-blur-md hover:bg-white/10 transition-all duration-300 hover:border-[#D4AF37]/30 group whitespace-nowrap"
                 >

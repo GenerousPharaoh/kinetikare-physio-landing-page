@@ -288,6 +288,15 @@ export default function HeroSection() {
           animate={{ backgroundPosition: ['0% 0%', '100% 100%'] }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
         />
+
+        {/* Dot Matrix Pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.07]"
+          style={{
+            backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.5) 1px, transparent 1px)',
+            backgroundSize: '24px 24px'
+          }}
+        />
       </motion.div>
 
       {/* 3. Gold Accent Line - PERFECTLY SYNCED */}

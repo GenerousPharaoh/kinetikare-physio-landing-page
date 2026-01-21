@@ -389,8 +389,8 @@ export default function HeroSection() {
               </Link>
             </motion.div>
 
-            {/* Info Badges - Smooth Staggered Entrance */}
-            <div className="flex flex-wrap gap-3 w-full sm:max-w-none">
+            {/* Info Badges - Clean Staggered Fade */}
+            <div className="flex flex-wrap md:flex-nowrap gap-2 md:gap-3">
               {[
                 "Direct Billing",
                 "No Referral Needed",
@@ -398,16 +398,16 @@ export default function HeroSection() {
               ].map((text, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, filter: 'blur(4px)' }}
+                  animate={{ opacity: 1, filter: 'blur(0px)' }}
                   transition={{
-                    delay: 1.0 + index * 0.12,
-                    duration: 0.6,
-                    ease: [0.25, 0.1, 0.25, 1]
+                    delay: 1.0 + index * 0.15,
+                    duration: 0.5,
+                    ease: "easeOut"
                   }}
-                  className="px-4 py-2 bg-white/5 border border-white/10 rounded-full backdrop-blur-md hover:bg-white/10 transition-all duration-300 hover:border-[#D4AF37]/30 group whitespace-nowrap"
+                  className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full backdrop-blur-md hover:bg-white/10 transition-all duration-300 hover:border-[#D4AF37]/30 group whitespace-nowrap"
                 >
-                  <span className="text-white/80 text-xs font-medium tracking-wider uppercase group-hover:text-[#D4AF37] transition-colors">{text}</span>
+                  <span className="text-white/80 text-[10px] md:text-xs font-medium tracking-wider uppercase group-hover:text-[#D4AF37] transition-colors">{text}</span>
                 </motion.div>
               ))}
             </div>

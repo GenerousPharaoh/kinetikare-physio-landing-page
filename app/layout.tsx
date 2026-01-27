@@ -81,7 +81,7 @@ const organizationSchema = {
   "sameAs": [
     "https://www.facebook.com/kinetikarephysio",
     "https://www.instagram.com/kinetikarephysio",
-    "https://www.linkedin.com/in/kareem-hassanein-physiotherapy"
+    "https://www.linkedin.com/in/kareemhassanein"
   ],
   "telephone": "+19056346000",
   "email": "kareem.hassanein@gmail.com",
@@ -302,7 +302,7 @@ const personSchema = {
   "image": "https://www.kinetikarephysio.com/images/kareem-profile.png",
   "url": "https://www.kinetikarephysio.com/about",
   "sameAs": [
-    "https://www.linkedin.com/in/kareem-hassanein-physiotherapy",
+    "https://www.linkedin.com/in/kareemhassanein",
     "https://portal.collegept.org/en-US/public-register/display-member-contact/?id=757882d7-8c40-eb11-a813-000d3af427b4"
   ],
   "worksFor": {

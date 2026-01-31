@@ -407,12 +407,12 @@ export default function HeroSection() {
               ].map((text, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, filter: 'blur(4px)' }}
-                  animate={{ opacity: 1, filter: 'blur(0px)' }}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{
                     delay: 1.0 + index * 0.15,
                     duration: 0.5,
-                    ease: "easeOut"
+                    ease: [0.22, 1, 0.36, 1]
                   }}
                   className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full backdrop-blur-md hover:bg-white/10 transition-all duration-300 hover:border-[#D4AF37]/30 group whitespace-nowrap"
                 >

@@ -26,7 +26,7 @@ const CookieBanner = () => {
         <div>
           <p>
             We use cookies to enhance your experience. By continuing to visit this site, you agree to our use of cookies.
-            <a href="/privacy-policy" className="underline ml-2">Learn more</a>
+            <a href="/privacy" className="underline ml-2">Learn more</a>
           </p>
         </div>
         <div className="flex gap-2">

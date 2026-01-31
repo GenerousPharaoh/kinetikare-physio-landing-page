@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { SparklesIcon } from '@heroicons/react/24/outline';
 
 const Header = () => {
   return (
@@ -15,14 +14,7 @@ const Header = () => {
           <ul className="flex space-x-6 items-center">
             <li><Link href="/" className="text-primary-700 hover:text-[#B08D57] transition-colors duration-300 font-medium">Home</Link></li>
             <li><Link href="/services" className="text-primary-700 hover:text-[#B08D57] transition-colors duration-300 font-medium">Services</Link></li>
-            <li><Link href="/blog" className="text-primary-700 hover:text-[#B08D57] transition-colors duration-300 font-medium">Blog</Link></li>
             <li><Link href="/faq" className="text-primary-700 hover:text-[#B08D57] transition-colors duration-300 font-medium">FAQ</Link></li>
-            <li>
-              <Link href="/ai-physio" className="relative flex items-center space-x-1 hover:text-[#B08D57] transition group">
-                <SparklesIcon className="h-4 w-4 text-[#B08D57] group-hover:scale-110 transition-transform" />
-                <span>AI Advisor</span>
-              </Link>
-            </li>
             <li><Link href="/#contact" className="text-primary-700 hover:text-[#B08D57] transition-colors duration-300 font-medium">Contact</Link></li>
           </ul>
         </nav>

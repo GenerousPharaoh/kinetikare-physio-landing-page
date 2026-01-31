@@ -75,11 +75,11 @@ const faqCategories: FAQCategory[] = [
         answer: (
           <>
             Comfortable, athletic-style clothing is ideal. Choose anything that allows you to move freely and lets me easily access the area I need to assess or treat (e.g., shorts for{' '}
-            <Link href="/conditions/knee-pain" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+            <Link href="/conditions/patellofemoral-pain-syndrome" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
               knee issues
             </Link>
             , a tank top for{' '}
-            <Link href="/conditions/shoulder-pain" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+            <Link href="/conditions/shoulder-impingement" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
               shoulder issues
             </Link>
             ). Your comfort is the priority; I can always adapt the assessment and treatment if you prefer certain areas to remain covered.

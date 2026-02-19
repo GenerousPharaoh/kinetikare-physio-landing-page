@@ -4,6 +4,7 @@ import AboutSection from '@/components/sections/AboutSection';
 import HealingEnvironmentSection from '@/components/sections/HealingEnvironmentSection';
 import CareJourneySection from '@/components/sections/CareJourneySection';
 import ServicesSection from '@/components/sections/ServicesSection';
+import PopularConditionsSection from '@/components/sections/PopularConditionsSection';
 import GoogleReviews from '@/components/GoogleReviews';
 import ContactSection from '@/components/sections/ContactSection';
 import SectionDivider from '@/components/SectionDivider';
@@ -181,6 +182,10 @@ export default function Home() {
           <ServicesSection />
 
           <SectionDivider variant="dots" />
+
+          <PopularConditionsSection />
+
+          <SectionDivider variant="gradient" />
 
           <GoogleReviews />
 

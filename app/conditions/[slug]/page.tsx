@@ -25,50 +25,26 @@ export async function generateStaticParams() {
 
 // Helper function to generate dynamic meta descriptions based on condition category
 function generateDynamicMetaDescription(condition: any): string {
-  const conditionNameLower = condition.name.toLowerCase();
-
-  // Category-specific templates for more targeted SEO
-  const categoryTemplates: Record<string, string[]> = {
-    'spinal-health': [
-      `${condition.name} treatment in Burlington. Manual therapy and targeted exercises for spine rehabilitation. Direct billing available.`,
-      `Evidence-based ${conditionNameLower} physiotherapy with Kareem Hassanein. Comprehensive spinal assessment and personalized treatment plans.`,
-      `Get relief from ${conditionNameLower} with proven manual therapy techniques. Burlington physiotherapy clinic with evening hours.`
-    ],
-    'shoulder': [
-      `${condition.name} physiotherapy in Burlington. Restore shoulder function with manual therapy and progressive exercises.`,
-      `Comprehensive ${conditionNameLower} treatment with Kareem Hassanein. Effective shoulder rehabilitation for lasting recovery.`,
-      `Professional ${conditionNameLower} assessment and treatment. Evidence-based shoulder therapy in Burlington with direct billing.`
-    ],
-    'knee': [
-      `Effective ${conditionNameLower} treatment in Burlington. Comprehensive knee rehabilitation with manual therapy and exercise prescription.`,
-      `Get back to activity with ${conditionNameLower} physiotherapy. Thorough knee assessment and personalized treatment.`,
-      `Professional ${conditionNameLower} rehabilitation with Kareem Hassanein. Evidence-based knee therapy for optimal recovery.`
-    ],
-    'hip-pelvis': [
-      `${condition.name} physiotherapy in Burlington. Comprehensive hip and pelvic rehabilitation for improved mobility.`,
-      `Comprehensive ${conditionNameLower} treatment with manual therapy. Professional hip assessment and targeted exercises.`,
-      `Evidence-based ${conditionNameLower} rehabilitation with Kareem Hassanein. Restore hip function with personalized treatment.`
-    ],
-    'foot-ankle': [
-      `${condition.name} treatment in Burlington. Comprehensive foot and ankle rehabilitation for optimal recovery.`,
-      `Professional ${conditionNameLower} physiotherapy with Kareem Hassanein. Thorough ankle assessment and manual therapy.`,
-      `Get relief from ${conditionNameLower} with evidence-based treatment. Burlington clinic with direct billing and evening hours.`
-    ],
-    'elbow-wrist-hand': [
-      `${condition.name} treatment in Burlington. Comprehensive upper extremity rehabilitation with manual therapy.`,
-      `Comprehensive ${conditionNameLower} physiotherapy with Kareem Hassanein. Restore hand and wrist function effectively.`,
-      `Professional ${conditionNameLower} assessment and treatment. Evidence-based therapy for elbow, wrist, and hand conditions.`
-    ]
+  const categoryFocus: Record<string, string> = {
+    'spinal-health': 'back and neck symptoms',
+    shoulder: 'shoulder pain and stiffness',
+    knee: 'knee pain and movement limitations',
+    'hip-pelvis': 'hip and pelvic pain',
+    'foot-ankle': 'foot and ankle pain',
+    'elbow-wrist-hand': 'elbow, wrist, and hand symptoms',
   };
+  const focus = categoryFocus[condition.category] || 'musculoskeletal pain and injury';
+  const baseDescription = `${condition.name} physiotherapy in Burlington for ${focus}. Care with Kareem Hassanein, Registered Physiotherapist. Direct billing available.`;
+  const maxLength = 158;
 
-  // Get templates for this category or use default
-  const templates = categoryTemplates[condition.category] || [
-    `${condition.name} treatment in Burlington with Kareem Hassanein. Evidence-based physiotherapy using manual therapy for lasting relief.`
-  ];
+  if (baseDescription.length <= maxLength) {
+    return baseDescription;
+  }
 
-  // Select template based on condition name hash (for consistency)
-  const templateIndex = condition.name.length % templates.length;
-  return templates[templateIndex];
+  const trimmed = baseDescription.slice(0, maxLength);
+  const lastSpace = trimmed.lastIndexOf(' ');
+  const safeCutoff = lastSpace > 120 ? lastSpace : maxLength;
+  return `${trimmed.slice(0, safeCutoff).trimEnd()}...`;
 }
 
 // Generate metadata for each condition page
@@ -77,30 +53,27 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!baseCondition) {
     return {
-      title: 'Condition Not Found | KinetiKare Physiotherapy',
+      title: 'Condition Not Found | Kareem Hassanein Physiotherapy',
       description: 'The requested condition page could not be found.',
     };
   }
 
   const condition = getDetailedCondition(params.slug, baseCondition);
 
-  // Generate location-specific keywords
-  const locations = ['Burlington', 'Waterdown', 'Hamilton', 'Oakville', 'Carlisle'];
-  const keywords = [
-    `${condition.name} treatment`,
+  const keywords = Array.from(new Set([
+    condition.name,
     `${condition.name} physiotherapy`,
-    `${condition.name} therapy`,
-    `${condition.name} rehabilitation`,
-    ...locations.map(loc => `${condition.name} treatment ${loc}`),
-    ...locations.map(loc => `${condition.name} physiotherapy ${loc}`),
+    `${condition.name} treatment Burlington`,
+    `${condition.name} Burlington`,
     'Kareem Hassanein',
-    'manual therapy',
+    'Registered Physiotherapist Burlington',
+    'joint mobilization',
     'dry needling',
-    'exercise therapy',
-    ...(condition.keywords || [])
-  ];
+    'strengthening exercises',
+    ...(condition.keywords || []),
+  ])).slice(0, 20);
 
-  const title = `${condition.name} Treatment Burlington | Kareem Hassanein Physiotherapy`;
+  const title = `${condition.name} Physiotherapy Burlington | Kareem Hassanein`;
 
   // Use dynamic meta description based on category if no custom one exists
   const description = condition.metaDescription || generateDynamicMetaDescription(condition);
@@ -114,12 +87,21 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description,
       url: `https://www.kinetikarephysio.com/conditions/${params.slug}`,
       type: 'article',
-      siteName: 'KinetiKare Physiotherapy',
+      siteName: 'Kareem Hassanein Physiotherapy',
+      images: [
+        {
+          url: 'https://www.kinetikarephysio.com/images/og-image.jpg',
+          width: 1200,
+          height: 630,
+          alt: `${condition.name} Physiotherapy - Kareem Hassanein`,
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
+      images: ['https://www.kinetikarephysio.com/images/og-image.jpg'],
     },
     alternates: {
       canonical: `https://www.kinetikarephysio.com/conditions/${params.slug}`,

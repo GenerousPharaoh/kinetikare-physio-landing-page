@@ -11,12 +11,9 @@ export default function robots(): MetadataRoute.Robots {
         disallow: [
           '/api/',
           '/admin/',
-          '/_next/',
           '/temp/',
           '/ai-conversations/',
           '/tests/',
-          '*.json',
-          '/public/scripts/',
         ],
       },
       {
@@ -25,7 +22,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: [
           '/api/',
           '/admin/',
-          '/_next/',
           '/temp/',
           '/ai-conversations/',
           '/tests/',

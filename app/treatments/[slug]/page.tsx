@@ -19,32 +19,32 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   
   if (!treatment) {
     return {
-      title: 'Treatment Not Found',
+      title: 'Treatment Not Found | Kareem Hassanein Physiotherapy',
     };
   }
 
   return {
-    title: `${treatment.name} | Physiotherapy Treatment in Burlington | KinetiKare`,
+    title: `${treatment.name} Burlington | Kareem Hassanein Physiotherapy`,
     description: treatment.metaDescription,
     keywords: treatment.keywords.join(', '),
     openGraph: {
-      title: `${treatment.name} - Physiotherapy Treatment in Burlington`,
+      title: `${treatment.name} | Physiotherapy Treatment in Burlington`,
       description: treatment.metaDescription,
       type: 'article',
       url: `https://www.kinetikarephysio.com/treatments/${treatment.id}`,
-      siteName: 'KinetiKare Physiotherapy',
+      siteName: 'Kareem Hassanein Physiotherapy',
       images: [
         {
           url: 'https://www.kinetikarephysio.com/images/og-image.jpg',
           width: 1200,
           height: 630,
-          alt: `${treatment.name} Treatment at KinetiKare`,
+          alt: `${treatment.name} treatment with Kareem Hassanein Physiotherapy`,
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${treatment.name} | KinetiKare Physiotherapy`,
+      title: `${treatment.name} | Kareem Hassanein Physiotherapy`,
       description: treatment.metaDescription,
       images: ['https://www.kinetikarephysio.com/images/og-image.jpg'],
     },
@@ -76,7 +76,7 @@ export default function TreatmentPage({ params }: { params: { slug: string } }) 
     // Add provider information
     provider: {
       '@type': 'MedicalBusiness',
-      name: 'KinetiKare Physiotherapy',
+      name: 'Kareem Hassanein Physiotherapy',
       url: 'https://www.kinetikarephysio.com',
       telephone: '+19056346000',
       address: {

@@ -494,45 +494,36 @@ export default function ConditionPageClient({
               </div>
 
               {/* Quick in-page navigation */}
-              <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3 max-w-4xl">
-                {tabs.map((tab) => {
-                  const Icon = tab.icon;
-                  const isActive = activeTab === tab.id;
-                  return (
-                    <button
-                      key={tab.id}
-                      onClick={() => {
-                        setActiveTab(tab.id);
-                        scrollToContentTop();
-                      }}
-                      className={`text-left rounded-xl border p-4 transition-all duration-200 ${
-                        isActive
-                          ? 'bg-[#B08D57]/5 border-[#B08D57]/50 shadow-sm'
-                          : 'bg-white border-slate-200 hover:border-[#B08D57]/45 hover:shadow-sm'
-                      }`}
-                      aria-pressed={isActive}
-                    >
-                      <div className="flex items-start justify-between gap-3">
-                        <span
-                          className={`inline-flex h-8 w-8 items-center justify-center rounded-lg ${
-                            isActive ? 'bg-[#B08D57]/15 text-[#8c6d3d]' : 'bg-slate-100 text-slate-600'
+              <div className="mt-4 max-w-4xl">
+                <div className="rounded-xl border border-slate-200 bg-white p-2">
+                  <div className="flex flex-wrap items-center gap-2">
+                    {tabs.map((tab) => {
+                      const Icon = tab.icon;
+                      const isActive = activeTab === tab.id;
+                      return (
+                        <button
+                          key={tab.id}
+                          onClick={() => {
+                            setActiveTab(tab.id);
+                            scrollToContentTop();
+                          }}
+                          className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                            isActive
+                              ? 'bg-[#B08D57] text-white shadow-sm'
+                              : 'bg-slate-50 text-slate-700 hover:bg-slate-100 hover:text-slate-900'
                           }`}
+                          aria-pressed={isActive}
                         >
                           <Icon className="h-4 w-4" />
-                        </span>
-                        <span className={`text-[11px] uppercase tracking-wide ${isActive ? 'text-[#8c6d3d]' : 'text-slate-500'}`}>
-                          {isActive ? 'Current Section' : 'Open Section'}
-                        </span>
-                      </div>
-                      <p className={`mt-3 text-sm font-semibold ${isActive ? 'text-slate-900' : 'text-slate-800'}`}>
-                        {tab.label}
-                      </p>
-                      <p className="mt-1 text-xs text-slate-600 leading-relaxed">
-                        {tabGuides[tab.id]}
-                      </p>
-                    </button>
-                  );
-                })}
+                          {tab.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+                <p className="mt-2 px-1 text-sm text-slate-600">
+                  {tabGuides[activeTab]}
+                </p>
               </div>
 
               {/* Sub-section quick navigation */}

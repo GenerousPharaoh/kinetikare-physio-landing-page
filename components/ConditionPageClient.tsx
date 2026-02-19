@@ -17,16 +17,12 @@ import {
   BeakerIcon,
   DocumentTextIcon,
   HeartIcon,
-  SparklesIcon,
   ChartBarIcon,
   InformationCircleIcon,
   Bars3Icon,
   XMarkIcon,
   ChevronDownIcon,
-  ChevronUpIcon,
-  BookOpenIcon,
   ExclamationCircleIcon,
-  MagnifyingGlassIcon,
   FireIcon,
   ShieldCheckIcon
 } from '@heroicons/react/24/outline';
@@ -73,32 +69,21 @@ export default function ConditionPageClient({
   const [activeManagementView, setActiveManagementView] = useState<string>('evidence-based-treatment');
   const [activeResearchView, setActiveResearchView] = useState<string>('key-research');
 
-  // Accordion state (for backward compatibility - always expanded)
-  const [expandedResearchSections, setExpandedResearchSections] = useState<{[key: string]: boolean}>({
+  const expandedResearchSections: { [key: string]: boolean } = {
     'key-research': true,
     'research-insights': true
-  });
-  const [expandedManagementSections, setExpandedManagementSections] = useState<{[key: string]: boolean}>({
+  };
+  const expandedManagementSections: { [key: string]: boolean } = {
     'evidence-based': true,
     'treatment-techniques': true,
     'timeline': true,
     'prognosis': true,
     'measuring': true,
     'faqs': true
-  });
-
-  // Toggle functions (no-ops - sections always expanded)
-  const toggleResearchSection = (section: string) => {
-    // No-op: sections are always visible via view swapping
-  };
-  const toggleManagementSection = (section: string) => {
-    // No-op: sections are always visible via view swapping
   };
 
   // Sidebar state
-  const [searchQuery, setSearchQuery] = useState('');
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [sidebarStyle, setSidebarStyle] = useState<React.CSSProperties>({});
   const contentContainerRef = useRef<HTMLDivElement>(null);
 
   // Scroll to top of content container
@@ -158,7 +143,7 @@ export default function ConditionPageClient({
   });
 
 
-  // Simplified scroll handler - ONLY for progress bar and sticky sidebar
+  // Track page reading progress for the top progress indicator
   useEffect(() => {
     let ticking = false;
 
@@ -168,28 +153,9 @@ export default function ConditionPageClient({
           const windowHeight = window.innerHeight;
           const documentHeight = document.documentElement.scrollHeight;
           const scrollTop = window.scrollY;
-          const headerHeight = 96;
-
-          // Progress bar
-          const progress = (scrollTop / (documentHeight - windowHeight)) * 100;
+          const scrollableHeight = Math.max(documentHeight - windowHeight, 1);
+          const progress = Math.min(100, Math.max(0, (scrollTop / scrollableHeight) * 100));
           setScrollProgress(progress);
-
-          // Sticky sidebar
-          const sidebarContainer = document.getElementById('sidebar-container');
-          if (sidebarContainer) {
-            const containerTop = sidebarContainer.getBoundingClientRect().top + scrollTop;
-            if (scrollTop > containerTop - headerHeight) {
-              setSidebarStyle({
-                position: 'fixed',
-                top: `${headerHeight}px`,
-                width: '224px',
-                maxHeight: `calc(100vh - ${headerHeight + 24}px)`,
-                overflowY: 'auto'
-              });
-            } else {
-              setSidebarStyle({ position: 'static' });
-            }
-          }
 
           ticking = false;
         });
@@ -243,6 +209,16 @@ export default function ConditionPageClient({
         <p className="sr-only">
           {condition.name} Treatment Burlington | Kareem Hassanein Physiotherapy | Waterdown Oakville Physiotherapist
         </p>
+
+        {/* Reading progress indicator */}
+        <div className="fixed top-[72px] lg:top-24 left-0 right-0 z-30 pointer-events-none">
+          <div className="h-0.5 bg-slate-200/70">
+            <div
+              className="h-full bg-[#B08D57] transition-[width] duration-150"
+              style={{ width: `${scrollProgress}%` }}
+            />
+          </div>
+        </div>
 
         {/* Minimal Hero with Breadcrumbs */}
         <section className="pt-24 pb-6 bg-gradient-to-b from-slate-50 via-white to-transparent">
@@ -308,18 +284,43 @@ export default function ConditionPageClient({
                   </div>
                 </details>
               )}
+
+              {/* Quick in-page navigation and actions */}
+              <div className="mt-5 flex flex-wrap items-center gap-2">
+                {tabs.map((tab) => {
+                  const Icon = tab.icon;
+                  const isActive = activeTab === tab.id;
+                  return (
+                    <button
+                      key={tab.id}
+                      onClick={() => {
+                        setActiveTab(tab.id);
+                        scrollToContentTop();
+                      }}
+                      className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                        isActive
+                          ? 'bg-[#B08D57] text-white'
+                          : 'bg-white border border-slate-200 text-slate-700 hover:border-[#B08D57] hover:text-[#B08D57]'
+                      }`}
+                    >
+                      <Icon className="h-3.5 w-3.5" />
+                      {tab.label}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </section>
 
 
         {/* Main Content Area with Sidebar */}
-        <section className="pt-6 pb-20 lg:pb-16 bg-white min-h-screen">
+        <section className="pt-6 pb-28 md:pb-24 lg:pb-16 bg-white min-h-screen">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="flex gap-6 items-start relative">
               {/* Sidebar Navigation - Desktop - JAVASCRIPT STICKY */}
               <aside id="sidebar-container" className="hidden lg:block w-56 flex-shrink-0">
-                <nav className="space-y-3 pr-3" style={{...sidebarStyle, transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'}}>
+                <nav className="sticky top-28 max-h-[calc(100vh-8rem)] overflow-y-auto space-y-3 pr-3">
                   {/* Navigation Sections - Ultra Smooth */}
                   <div className="space-y-1.5">
                     {/* Overview/Science Section with Sub-navigation */}
@@ -615,111 +616,6 @@ export default function ConditionPageClient({
                   </div>
                 </nav>
               </aside>
-
-              {/* Mobile Sidebar Drawer */}
-              <AnimatePresence>
-                {mobileNavOpen && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    className="lg:hidden fixed inset-0 z-40 bg-black/50"
-                    onClick={() => setMobileNavOpen(false)}
-                  >
-                    <motion.div
-                      initial={{ x: -280 }}
-                      animate={{ x: 0 }}
-                      exit={{ x: -280 }}
-                      transition={{ type: "spring", damping: 20 }}
-                      className="absolute left-0 top-0 bottom-0 w-64 bg-white shadow-xl p-6 overflow-y-auto"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      {/* Search */}
-                      <div className="relative mb-6">
-                        <MagnifyingGlassIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
-                        <input
-                          type="text"
-                          placeholder="Search..."
-                          value={searchQuery}
-                          onChange={(e) => setSearchQuery(e.target.value)}
-                          className="w-full pl-9 pr-3 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B08D57] focus:border-transparent"
-                        />
-                      </div>
-
-                      {/* Mobile Navigation */}
-                      <nav className="space-y-1">
-                        {tabs.find(t => t.id === 'overview') && (
-                          <button
-                            onClick={() => {
-                              setActiveTab('overview');
-                              setMobileNavOpen(false);
-                            }}
-                            className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                              activeTab === 'overview'
-                                ? 'bg-[#B08D57] text-white shadow-md'
-                                : 'text-slate-700 hover:bg-slate-100'
-                            }`}
-                          >
-                            <InformationCircleIcon className="h-5 w-5 flex-shrink-0" />
-                            <span>Science</span>
-                          </button>
-                        )}
-
-                        {tabs.find(t => t.id === 'symptoms') && (
-                          <button
-                            onClick={() => {
-                              setActiveTab('symptoms');
-                              setMobileNavOpen(false);
-                            }}
-                            className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                              activeTab === 'symptoms'
-                                ? 'bg-[#B08D57] text-white shadow-md'
-                                : 'text-slate-700 hover:bg-slate-100'
-                            }`}
-                          >
-                            <FireIcon className="h-5 w-5 flex-shrink-0" />
-                            <span>Clinical</span>
-                          </button>
-                        )}
-
-                        {tabs.find(t => t.id === 'self-care') && (
-                          <button
-                            onClick={() => {
-                              setActiveTab('self-care');
-                              setMobileNavOpen(false);
-                            }}
-                            className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                              activeTab === 'self-care'
-                                ? 'bg-[#B08D57] text-white shadow-md'
-                                : 'text-slate-700 hover:bg-slate-100'
-                            }`}
-                          >
-                            <ShieldCheckIcon className="h-5 w-5 flex-shrink-0" />
-                            <span>Management</span>
-                          </button>
-                        )}
-
-                        {tabs.find(t => t.id === 'research') && (
-                          <button
-                            onClick={() => {
-                              setActiveTab('research');
-                              setMobileNavOpen(false);
-                            }}
-                            className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                              activeTab === 'research'
-                                ? 'bg-[#B08D57] text-white shadow-md'
-                                : 'text-slate-700 hover:bg-slate-100'
-                            }`}
-                          >
-                            <ChartBarIcon className="h-5 w-5 flex-shrink-0" />
-                            <span>Research</span>
-                          </button>
-                        )}
-                      </nav>
-                    </motion.div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
 
               {/* Main Content */}
               <div className="flex-1 min-w-0">

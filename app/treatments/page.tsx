@@ -12,11 +12,11 @@ export const metadata: Metadata = {
     title: 'Physiotherapy Treatments - KinetiKare',
     description: 'Comprehensive physiotherapy treatments in Burlington. Expert care with proven techniques for lasting recovery.',
     type: 'website',
-    url: 'https://kinetikarephysio.com/treatments',
+    url: 'https://www.kinetikarephysio.com/treatments',
     siteName: 'KinetiKare Physiotherapy',
     images: [
       {
-        url: 'https://kinetikarephysio.com/images/og-image.jpg',
+        url: 'https://www.kinetikarephysio.com/images/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'KinetiKare Physiotherapy Treatments',
@@ -27,10 +27,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Physiotherapy Treatments | KinetiKare',
     description: 'Evidence-based physiotherapy treatments in Burlington.',
-    images: ['https://kinetikarephysio.com/images/og-image.jpg'],
+    images: ['https://www.kinetikarephysio.com/images/og-image.jpg'],
   },
   alternates: {
-    canonical: 'https://kinetikarephysio.com/treatments',
+    canonical: 'https://www.kinetikarephysio.com/treatments',
   },
 };
 

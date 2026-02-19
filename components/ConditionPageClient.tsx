@@ -239,10 +239,10 @@ export default function ConditionPageClient({
       />
 
       <div className="min-h-screen">
-        {/* Screen-reader-only H1 for SEO */}
-        <h1 className="sr-only">
+        {/* Screen-reader-only descriptor for SEO context */}
+        <p className="sr-only">
           {condition.name} Treatment Burlington | Kareem Hassanein Physiotherapy | Waterdown Oakville Physiotherapist
-        </h1>
+        </p>
 
         {/* Minimal Hero with Breadcrumbs */}
         <section className="pt-24 pb-6 bg-gradient-to-b from-slate-50 via-white to-transparent">
@@ -272,7 +272,7 @@ export default function ConditionPageClient({
 
               {/* Regional Service Area - Subtle mention */}
               <p className="text-xs text-slate-400 mt-3">
-                Treating {condition.name.toLowerCase()} at our Burlington clinic • Convenient for Waterdown and Flamborough residents
+                Treating {condition.name.toLowerCase()} at my Burlington clinic • Convenient for Waterdown and Flamborough residents
               </p>
 
               {/* Red Flags Disclaimer - Simple expandable that pushes content */}

@@ -4,8 +4,11 @@ import LegalPageLayout from '@/components/LegalPageLayout';
 
 export const metadata: Metadata = {
   title: 'Accessibility Statement | KinetiKare Physiotherapy',
-  description: 'Our commitment to providing accessible physiotherapy services to all individuals, including persons with disabilities, in compliance with AODA and Ontario Human Rights Code.',
+  description: 'Commitment to providing accessible physiotherapy services to all individuals, including persons with disabilities, in compliance with AODA and Ontario Human Rights Code.',
   keywords: 'accessibility, AODA, physiotherapy accessibility, barrier-free healthcare, accessible services Burlington',
+  alternates: {
+    canonical: 'https://www.kinetikarephysio.com/accessibility',
+  },
 };
 
 export default function AccessibilityPage() {

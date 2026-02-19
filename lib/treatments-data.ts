@@ -208,7 +208,7 @@ export const treatments: Treatment[] = [
     ],
     relatedConditions: ['tennis-elbow', 'plantar-fasciitis', 'shoulder-impingement', 'neck-pain', 'golfers-elbow', 'piriformis-syndrome', 'rotator-cuff-injuries', 'low-back-pain', 'sciatica', 'greater-trochanteric-pain-syndrome', 'achilles-tendinopathy', 'de-quervains-tenosynovitis', 'carpal-tunnel-syndrome', 'biceps-tendinopathy', 'proximal-hamstring-tendinopathy'],
     metaDescription: 'Dry needling in Burlington. Trigger point therapy using thin needles to address muscle tension, referred pain, and movement restrictions.',
-    keywords: ['dry needling', 'trigger point therapy', 'IMS', 'intramuscular stimulation', 'myofascial release']
+    keywords: ['dry needling', 'trigger point therapy', 'myofascial release']
   },
   {
     id: 'exercise-therapy',
@@ -310,8 +310,8 @@ export const treatments: Treatment[] = [
     expectations: 'During joint mobilization, you\'ll feel rhythmic movements or sustained pressure at the joint. The techniques are generally comfortable and often provide immediate relief. Some people experience mild soreness afterward, similar to post-exercise soreness. Improvements in movement are often noticed immediately.',
     faqs: [
       {
-        question: 'Is joint mobilization the same as manipulation?',
-        answer: 'No. Mobilization uses controlled, rhythmic movements that stay within your available range and comfort level. You remain in control and can stop the technique at any time. Manipulation involves a quick thrust beyond the current range, often producing a cracking sound. Mobilization is gentler, more gradual, and allows your nervous system to relax rather than triggering a protective response. Both have evidence for effectiveness, but mobilization is generally better tolerated.'
+        question: 'How is joint mobilization different from high-velocity joint techniques?',
+        answer: 'Joint mobilization uses controlled, rhythmic movements that stay within your available range and comfort level. You remain in control and can stop the technique at any time. High-velocity techniques use a quick thrust movement, sometimes with an audible joint cavitation. Mobilization is gentler, more gradual, and often better tolerated while still being effective.'
       },
       {
         question: 'How quickly will I see results?',
@@ -441,7 +441,7 @@ export const treatments: Treatment[] = [
       },
       {
         question: 'Can I treat trigger points myself?',
-        answer: 'Yes, and self-treatment significantly improves outcomes. You can use tennis balls, foam rollers, or specialized tools to apply sustained pressure to trigger points. The technique involves finding the tender spot, applying moderate pressure for 30-90 seconds until it releases, then stretching the muscle. This maintains improvements between professional sessions. However, some trigger points (like deep hip rotators) are difficult to reach effectively on your own.'
+        answer: 'Yes, and self-treatment significantly improves outcomes. You can use tennis balls, foam rollers, or ergonomic tools to apply sustained pressure to trigger points. The technique involves finding the tender spot, applying moderate pressure for 30-90 seconds until it releases, then stretching the muscle. This maintains improvements between professional sessions. However, some trigger points (like deep hip rotators) are difficult to reach effectively on your own.'
       }
     ],
     relatedConditions: ['neck-pain', 'shoulder-impingement', 'piriformis-syndrome', 'tennis-elbow', 'low-back-pain', 'golfers-elbow', 'rotator-cuff-injuries', 'greater-trochanteric-pain-syndrome', 'whiplash', 'sciatica', 'frozen-shoulder', 'thoracic-outlet-syndrome', 'postural-dysfunction', 'biceps-tendinopathy', 'ac-joint-injuries', 'hip-bursitis', 'deep-gluteal-syndrome'],
@@ -546,7 +546,7 @@ export const treatments: Treatment[] = [
     faqs: [
       {
         question: 'Why use tools instead of hands?',
-        answer: 'Instruments provide several advantages: they detect tissue restrictions more precisely through vibration feedback, they can apply sustained pressure without therapist fatigue, and the beveled edges can target specific tissue layers that hands cannot isolate. The tools also allow treatment of larger areas more efficiently. Some restrictions require the focused pressure and tissue manipulation that instruments provide. However, instruments are used alongside hands, not instead of them - assessment and feedback still require manual palpation.'
+        answer: 'Instruments provide several advantages: they detect tissue restrictions more precisely through vibration feedback, they can apply sustained pressure without therapist fatigue, and the beveled edges can target specific tissue layers that hands cannot isolate. The tools also allow treatment of larger areas more efficiently. Some restrictions require the focused pressure and tissue treatment that instruments provide. However, instruments are used alongside hands, not instead of them - assessment and feedback still require manual palpation.'
       },
       {
         question: 'Will it leave marks?',

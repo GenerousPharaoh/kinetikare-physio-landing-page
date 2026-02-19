@@ -18,7 +18,7 @@ export default function ServicesSection() {
   const mainServices = [
     {
       title: "Manual Therapy",
-      description: "Advanced hands-on techniques including joint mobilization, soft tissue work, and specialized treatment methods.",
+      description: "Hands-on techniques including joint mobilization, soft tissue work, and personalized treatment methods.",
       features: ["Joint Mobilization", "Soft Tissue Techniques", "Myofascial Release"]
     },
     {

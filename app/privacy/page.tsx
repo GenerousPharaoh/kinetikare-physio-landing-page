@@ -4,8 +4,11 @@ import LegalPageLayout from '@/components/LegalPageLayout';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | KinetiKare Physiotherapy',
-  description: 'Our comprehensive privacy policy outlining how we collect, use, and protect your personal and health information in compliance with PIPEDA and PHIPA.',
+  description: 'Comprehensive privacy policy outlining how personal and health information is collected, used, and protected in compliance with PIPEDA and PHIPA.',
   keywords: 'privacy policy, PIPEDA, PHIPA, health information privacy, personal information protection, physiotherapy privacy',
+  alternates: {
+    canonical: 'https://www.kinetikarephysio.com/privacy',
+  },
 };
 
 export default function PrivacyPage() {

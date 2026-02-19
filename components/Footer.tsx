@@ -35,7 +35,7 @@ export default function Footer() {
       icon: <Envelope className="w-5 h-5 text-gold flex-shrink-0" weight="duotone" />,
       text: 'kareem.hassanein@gmail.com',
       href: 'mailto:kareem.hassanein@gmail.com',
-      ariaLabel: 'Email us'
+      ariaLabel: 'Email Kareem Hassanein Physiotherapy'
     }
   ];
 

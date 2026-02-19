@@ -138,7 +138,7 @@ const spinalConditions: Condition[] = [
     description: 'acute and chronic, mechanical, disc-related',
     featured: true,
     priority: 1,
-    metaDescription: 'Expert low back pain treatment in Burlington with Kareem Hassanein. Advanced manual therapy physiotherapy using manual techniques, dry needling, and personalized exercise programs for lasting relief.',
+    metaDescription: 'Expert low back pain treatment in Burlington with Kareem Hassanein. Evidence-based physiotherapy using manual techniques, dry needling, and personalized exercise programs for lasting relief.',
   },
   {
     id: 'neck-pain',
@@ -148,7 +148,7 @@ const spinalConditions: Condition[] = [
     description: 'including whiplash-associated disorders',
     featured: true,
     priority: 7,
-    metaDescription: 'Specialized neck pain treatment in Burlington. Expert physiotherapy for cervical spine issues, whiplash, and chronic neck stiffness using evidence-based manual therapy techniques.',
+    metaDescription: 'Personalized neck pain treatment in Burlington. Expert physiotherapy for cervical spine issues, whiplash, and chronic neck stiffness using evidence-based manual therapy techniques.',
   },
   {
     id: 'whiplash',
@@ -168,7 +168,7 @@ const spinalConditions: Condition[] = [
     description: 'Nerve root compressions and radiculopathy',
     featured: true,
     priority: 2,
-    metaDescription: 'Get relief from sciatica pain in Burlington. Kareem Hassanein provides specialized treatment for nerve pain, using manual therapy and targeted exercises to address root causes.',
+    metaDescription: 'Get relief from sciatica pain in Burlington. Kareem Hassanein provides personalized treatment for nerve pain, using manual therapy and targeted exercises to address root causes.',
   },
   {
     id: 'disc-herniation',
@@ -186,7 +186,7 @@ const spinalConditions: Condition[] = [
     name: 'Degenerative Disc Disease',
     category: 'spinal-health',
     description: 'Degenerative Joint Disease (Spondylosis)',
-    metaDescription: 'Degenerative disc disease treatment in Burlington. Kareem Hassanein provides specialized physiotherapy for spine degeneration, using manual therapy and targeted exercises for pain relief.',
+    metaDescription: 'Degenerative disc disease treatment in Burlington. Kareem Hassanein provides personalized physiotherapy for spine degeneration, using manual therapy and targeted exercises for pain relief.',
   },
   {
     id: 'spinal-stenosis',
@@ -245,7 +245,7 @@ const shoulderConditions: Condition[] = [
     description: 'Adhesive Capsulitis treatment',
     featured: true,
     priority: 8,
-    metaDescription: 'Effective frozen shoulder treatment in Burlington. Specialized physiotherapy for adhesive capsulitis using manual therapy, mobilization, and guided exercise progression.',
+    metaDescription: 'Effective frozen shoulder treatment in Burlington. Personalized physiotherapy for adhesive capsulitis using manual therapy, mobilization, and guided exercise progression.',
   },
   {
     id: 'shoulder-instability',
@@ -263,7 +263,7 @@ const shoulderConditions: Condition[] = [
     description: 'Nerve and vascular compression in neck and shoulder',
     featured: true,
     priority: 26,
-    metaDescription: 'Thoracic outlet syndrome treatment in Burlington. Specialized care for nerve compression with postural retraining and manual therapy.',
+    metaDescription: 'Thoracic outlet syndrome treatment in Burlington. Personalized care for nerve compression with postural retraining and manual therapy.',
   },
   {
     id: 'biceps-tendinopathy',
@@ -312,7 +312,7 @@ const elbowWristConditions: Condition[] = [
     description: 'Medial epicondylitis, common flexor tendinopathy',
     featured: true,
     priority: 17,
-    metaDescription: "Golfer's elbow treatment in Burlington. Specialized physiotherapy for medial epicondylitis with targeted strengthening and manual therapy.",
+    metaDescription: "Golfer's elbow treatment in Burlington. Personalized physiotherapy for medial epicondylitis with targeted strengthening and manual therapy.",
   },
   {
     id: 'carpal-tunnel',
@@ -371,7 +371,7 @@ const hipPelvisConditions: Condition[] = [
     description: 'Hip impingement causing groin pain with deep hip flexion',
     featured: true,
     priority: 28,
-    metaDescription: 'FAI treatment in Burlington. Specialized physiotherapy for femoroacetabular impingement using movement modification and progressive strengthening.',
+    metaDescription: 'FAI treatment in Burlington. Personalized physiotherapy for femoroacetabular impingement using movement modification and progressive strengthening.',
   },
   {
     id: 'greater-trochanteric-pain-syndrome',
@@ -407,7 +407,7 @@ const hipPelvisConditions: Condition[] = [
     name: 'Deep Gluteal Syndrome',
     category: 'hip-pelvis',
     description: 'Sciatic nerve entrapment in deep gluteal space',
-    metaDescription: 'Deep gluteal syndrome treatment in Burlington. Specialized care for sciatic nerve entrapment using neural mobilization and manual therapy.',
+    metaDescription: 'Deep gluteal syndrome treatment in Burlington. Personalized care for sciatic nerve entrapment using neural mobilization and manual therapy.',
   },
   {
     id: 'proximal-hamstring-tendinopathy',
@@ -435,7 +435,7 @@ const hipPelvisConditions: Condition[] = [
     name: 'Sacroiliac (SI) Joint Dysfunction',
     category: 'hip-pelvis',
     description: 'SI joint pain and instability',
-    metaDescription: 'SI joint dysfunction treatment in Burlington. Specialized physiotherapy for sacroiliac pain using manual therapy and core stabilization.',
+    metaDescription: 'SI joint dysfunction treatment in Burlington. Personalized physiotherapy for sacroiliac pain using manual therapy and core stabilization.',
   },
   {
     id: 'groin-strains',
@@ -468,7 +468,7 @@ const kneeConditions: Condition[] = [
     description: "e.g., Patellofemoral Pain Syndrome, Patellar Tendinopathy",
     featured: true,
     priority: 4,
-    metaDescription: 'Expert knee pain treatment in Burlington. Specialized physiotherapy for patellofemoral pain syndrome using biomechanical assessment and targeted rehabilitation.',
+    metaDescription: 'Expert knee pain treatment in Burlington. Personalized physiotherapy for patellofemoral pain syndrome using biomechanical assessment and targeted rehabilitation.',
   },
   {
     id: 'acl-injuries',
@@ -486,7 +486,7 @@ const kneeConditions: Condition[] = [
     name: 'MCL/LCL Sprains',
     category: 'knee',
     description: 'Medial and lateral collateral ligament injuries',
-    metaDescription: 'MCL and LCL sprain treatment in Burlington. Specialized physiotherapy for knee ligament injuries with manual therapy and progressive strengthening.',
+    metaDescription: 'MCL and LCL sprain treatment in Burlington. Personalized physiotherapy for knee ligament injuries with manual therapy and progressive strengthening.',
   },
   {
     id: 'pcl-injuries',
@@ -494,7 +494,7 @@ const kneeConditions: Condition[] = [
     name: 'PCL Injuries',
     category: 'knee',
     description: 'Posterior cruciate ligament tears, conservative and post-surgical rehab',
-    metaDescription: 'PCL injury treatment in Burlington. Expert physiotherapy for posterior cruciate ligament injuries with specialized rehabilitation protocols.',
+    metaDescription: 'PCL injury treatment in Burlington. Expert physiotherapy for posterior cruciate ligament injuries with personalized rehabilitation protocols.',
   },
   {
     id: 'meniscus-tears',
@@ -514,7 +514,7 @@ const kneeConditions: Condition[] = [
     description: 'Iliotibial band friction syndrome, common in runners and cyclists',
     featured: true,
     priority: 13,
-    metaDescription: 'IT band syndrome treatment in Burlington. Specialized physiotherapy for runners and cyclists with lateral knee pain using targeted stretching and strengthening.',
+    metaDescription: 'IT band syndrome treatment in Burlington. Personalized physiotherapy for runners and cyclists with lateral knee pain using targeted stretching and strengthening.',
   },
   {
     id: 'patellar-tendinopathy',
@@ -563,7 +563,7 @@ const footAnkleConditions: Condition[] = [
     description: 'Achilles tendon pain, both insertional and mid-portion',
     featured: true,
     priority: 15,
-    metaDescription: 'Achilles tendinopathy treatment in Burlington. Specialized physiotherapy for Achilles pain using eccentric loading and progressive rehabilitation.',
+    metaDescription: 'Achilles tendinopathy treatment in Burlington. Personalized physiotherapy for Achilles pain using eccentric loading and progressive rehabilitation.',
   },
   {
     id: 'shin-splints',
@@ -581,7 +581,7 @@ const footAnkleConditions: Condition[] = [
     name: 'Peroneal Tendinopathy',
     category: 'foot-ankle',
     description: 'Lateral ankle tendon issues',
-    metaDescription: 'Peroneal tendinopathy treatment in Burlington. Specialized care for lateral ankle pain with targeted strengthening and balance training.',
+    metaDescription: 'Peroneal tendinopathy treatment in Burlington. Personalized care for lateral ankle pain with targeted strengthening and balance training.',
   },
   {
     id: 'posterior-tibial-tendon-dysfunction',

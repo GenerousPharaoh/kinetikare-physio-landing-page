@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: 'Terms of Service | KinetiKare Physiotherapy',
   description: 'Terms and conditions for physiotherapy services, including appointment policies, fees, professional standards, and patient responsibilities.',
   keywords: 'terms of service, physiotherapy terms, appointment policy, healthcare terms, professional services, Burlington physiotherapy',
+  alternates: {
+    canonical: 'https://www.kinetikarephysio.com/terms',
+  },
 };
 
 export default function TermsPage() {
@@ -186,7 +189,7 @@ export default function TermsPage() {
 
         <h3>15. Entire Agreement</h3>
         <p>
-          These Terms of Service, together with my Privacy Policy and any consent forms, constitute the entire agreement between us regarding the use of my services.
+          These Terms of Service, together with my Privacy Policy and any consent forms, constitute the entire agreement between you and me regarding the use of my services.
         </p>
       </section>
 

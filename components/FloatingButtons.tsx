@@ -132,8 +132,8 @@ export default function FloatingButtons() {
         onMouseEnter={() => setShowTooltip('call')}
         onMouseLeave={() => setShowTooltip(null)}
         className="group relative flex items-center justify-center w-14 h-14 bg-green-600/90 backdrop-blur-md border border-green-500/50 text-white rounded-full shadow-lg transition-colors duration-300 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-background"
-        aria-label="Call us"
-        title="Call us"
+        aria-label="Call Kareem Hassanein Physiotherapy"
+        title="Call Kareem Hassanein Physiotherapy"
         variants={buttonVariants}
         whileHover="hover"
         whileTap="tap"

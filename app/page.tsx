@@ -103,7 +103,7 @@ const personSchema = {
     },
     {
       "@type": "EducationalOccupationalCredential",
-      "name": "Advanced Integrated Musculoskeletal (AIM) Physiotherapy Program Level 2 Upper and Lower",
+      "name": "Integrated Musculoskeletal (AIM) Physiotherapy Program Level 2 Upper and Lower",
       "credentialCategory": "certificate",
       "recognizedBy": {
         "@type": "Organization",
@@ -150,8 +150,8 @@ export default function Home() {
 
         {/* Main content wrapper with light background to restore original design */}
         <div className="relative z-10 bg-white">
-          {/* SEO-optimized hidden heading for brand search */}
-          <h1 className="sr-only">Kareem Hassanein Registered Physiotherapist Burlington | Physiotherapy near Waterdown and Oakville</h1>
+          {/* SEO-optimized hidden descriptor for brand search */}
+          <p className="sr-only">Kareem Hassanein Registered Physiotherapist Burlington | Physiotherapy near Waterdown and Oakville</p>
 
           {/* Elegant transition from hero */}
           <div className="relative py-16 overflow-hidden">

@@ -112,7 +112,7 @@ const faqCategories: FAQCategory[] = [
             {'\n\n'}
             <strong>Plan:</strong> Based on the findings, I will discuss my assessment of the issue (or potential causes) and collaboratively create an initial treatment plan with you.
             {'\n\n'}
-            Importantly, every step is based on your informed consent. I will explain the assessment and treatment options, their benefits, and any potential risks. You are always in control, and there is absolutely no obligation to proceed with any part of the process you are uncomfortable with. I encourage you to ask questions and voice any concerns at any time. To help you digest everything, I will send a follow-up summary outlining the key assessment findings and our agreed-upon plan.{' '}
+            Importantly, every step is based on your informed consent. I will explain the assessment and treatment options, their benefits, and any potential risks. You are always in control, and there is absolutely no obligation to proceed with any part of the process you are uncomfortable with. I encourage you to ask questions and voice any concerns at any time. To help you digest everything, I will send a follow-up summary outlining the key assessment findings and your agreed treatment plan.{' '}
             <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
               Ready to book your first appointment?
             </Link>
@@ -189,7 +189,7 @@ const faqCategories: FAQCategory[] = [
         question: `Do I need X-rays or imaging before my appointment?`,
         answer: (
           <>
-            No, you don't need X-rays or imaging before your first physiotherapy appointment. I can perform a thorough assessment without them. If imaging is necessary for your specific situation, I'll discuss this with you during our assessment and can provide guidance on next steps or communicate with your doctor.{' '}
+            No, you don't need X-rays or imaging before your first physiotherapy appointment. I can perform a thorough assessment without them. If imaging is necessary for your specific situation, I'll discuss this with you during your assessment and can provide guidance on next steps or communicate with your doctor.{' '}
             <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
               Book your assessment
             </Link>
@@ -282,7 +282,7 @@ const faqCategories: FAQCategory[] = [
         question: `What is manual therapy, and will it be part of my treatment?`,
         answer: (
           <>
-            Manual therapy involves specialized hands-on techniques to reduce pain, improve mobility, and restore function. This can include{' '}
+            Manual therapy involves hands-on techniques to reduce pain, improve mobility, and restore function. This can include{' '}
             <Link href="/treatments/joint-mobilization" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
               joint mobilizations
             </Link>
@@ -399,7 +399,7 @@ const faqCategories: FAQCategory[] = [
             <Link href="/treatments/iastm" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
               <strong className="font-semibold text-primary-800">Instrument Assisted Soft Tissue Mobilization (IASTM)</strong>
             </Link>
-            , which is a skilled approach using specialized ergonomic tools to effectively address scar tissue, fascial restrictions, and chronic inflammation. IASTM encompasses the principles and techniques that are sometimes known by specific brand names like Graston Technique®. This method helps to enhance tissue healing, improve range of motion, and restore normal function by targeting specific soft tissue limitations. If IASTM is considered beneficial for your condition, I will discuss it with you as part of your overall treatment plan.{' '}
+            , which is a skilled approach using ergonomic tools to effectively address scar tissue, fascial restrictions, and chronic inflammation. IASTM encompasses the principles and techniques that are sometimes known by specific brand names like Graston Technique®. This method helps to enhance tissue healing, improve range of motion, and restore normal function by targeting specific soft tissue limitations. If IASTM is considered beneficial for your condition, I will discuss it with you as part of your overall treatment plan.{' '}
             <Link href="/treatments" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
               Learn about my manual therapy techniques
             </Link>
@@ -455,7 +455,7 @@ const faqCategories: FAQCategory[] = [
             <Link href="/treatments/exercise-therapy" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
               active strategies and education
             </Link>
-            {' '}to equip you with the knowledge and tools for self-management long after our sessions end. We work together to define what success looks like for you, and your feedback is essential in adjusting our approach along the way.{' '}
+            {' '}to equip you with the knowledge and tools for self-management long after treatment sessions end. Success is defined around your goals, and your feedback is essential in adjusting the plan along the way.{' '}
             <Link href="/about" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
               Read more about my philosophy
             </Link>
@@ -481,7 +481,7 @@ const faqCategories: FAQCategory[] = [
         question: `How long are physiotherapy appointments?`,
         answer: (
           <>
-            I offer flexible appointment lengths based on your needs: 30-minute sessions ($90), 45-minute sessions ($115), or 1-hour sessions ($135). Initial assessments are 60 minutes ($135). Every appointment is one-on-one directly with me, the Registered Physiotherapist. No assistants or aides.{' '}
+            I offer flexible appointment lengths based on your needs: follow-up sessions are $90, and initial assessments are $130. Every appointment is one-on-one directly with me, the Registered Physiotherapist. No assistants or aides.{' '}
             <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
               Book your appointment
             </Link>
@@ -511,7 +511,7 @@ const faqCategories: FAQCategory[] = [
             <Link href="/treatments/exercise-therapy" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
               exercise
             </Link>
-            {' '}is often key. I focus on quality over quantity, ensuring you understand the exercises and feel comfortable performing them. If you struggle, we modify the plan together. Your feedback is crucial.
+            {' '}is often key. I focus on quality over quantity, ensuring you understand the exercises and feel comfortable performing them. If you struggle, I modify the plan based on your feedback. Your feedback is crucial.
             <div className="mt-4 pt-4 border-t border-gray-200">
               <p className="text-xs font-medium text-gray-500 mb-2">Related Resources:</p>
               <div className="flex flex-wrap gap-2">
@@ -556,7 +556,7 @@ const faqCategories: FAQCategory[] = [
         question: `What happens if my progress stalls or I am not improving as expected?`,
         answer: (
           <>
-            Progress is not always linear, and pain levels are not the only measure. Together, we will track objective improvements in{' '}
+            Progress is not always linear, and pain levels are not the only measure. I track objective improvements with you in{' '}
             <Link href="/treatments/exercise-therapy" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
               strength, range of motion, function
             </Link>
@@ -564,9 +564,9 @@ const faqCategories: FAQCategory[] = [
             {'\n\n'}
             <strong>I Reassess Thoroughly:</strong> I do not just keep doing the same thing. I will step back and systematically reassess to understand why things might not be changing as expected.
             {'\n\n'}
-            <strong>We Adjust the Strategy:</strong> Based on my findings and our discussion, I will modify the treatment plan with you.
+            <strong>I Adjust the Strategy:</strong> Based on my findings and your feedback, I will modify the treatment plan.
             {'\n\n'}
-            <strong>I Collaborate and Advocate:</strong> If needed, and always with your permission, I will communicate with your doctor or other providers. Furthermore, I firmly believe that effective care includes supporting you beyond our clinic walls. If you face obstacles or feel unsupported elsewhere in the healthcare system, I am committed to helping you navigate those challenges. This might involve assisting you in formulating questions for other providers, helping to ensure your concerns are taken seriously, or facilitating appropriate referrals. My role is to support your overall well-being and advocate for the care you need to find the best path forward.{' '}
+            <strong>I Collaborate and Advocate:</strong> If needed, and always with your permission, I will communicate with your doctor or other providers. Furthermore, I firmly believe that effective care includes supporting you beyond the clinic. If you face obstacles or feel unsupported elsewhere in the healthcare system, I am committed to helping you navigate those challenges. This might involve assisting you in formulating questions for other providers, helping to ensure your concerns are taken seriously, or facilitating appropriate referrals. My role is to support your overall well-being and advocate for the care you need to find the best path forward.{' '}
             <Link href="/about" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
               Learn more about my commitment to your care
             </Link>
@@ -651,7 +651,7 @@ const faqCategories: FAQCategory[] = [
         question: `What kind of environment do you try to create for your patients?`,
         answer: (
           <>
-            Creating an environment where you feel genuinely heard, respected, and safe is fundamental to how I practice. I understand how vulnerable it can feel to seek healthcare, so I'm committed to ensuring you have the uninterrupted time and space needed to share your story and concerns. I explain my findings and our plan in straightforward language, making sure you understand the why behind every step. You're fully in control of your care, with the right to ask anything, voice concerns, understand your options, and decline any part of assessment or treatment at any time without hesitation or judgment. My aim is for you to feel like an informed, respected partner throughout your care.{' '}
+            Creating an environment where you feel genuinely heard, respected, and safe is fundamental to how I practice. I understand how vulnerable it can feel to seek healthcare, so I'm committed to ensuring you have the uninterrupted time and space needed to share your story and concerns. I explain my findings and your plan in straightforward language, making sure you understand the why behind every step. You're fully in control of your care, with the right to ask anything, voice concerns, understand your options, and decline any part of assessment or treatment at any time without hesitation or judgment. My aim is for you to feel like an informed, respected partner throughout your care.{' '}
             <Link href="/about" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
               Learn more about my values
             </Link>
@@ -700,10 +700,10 @@ const faqCategories: FAQCategory[] = [
         )
       },
       {
-        question: `Will I actually understand what is wrong and what we are doing about it?`,
+        question: `Will I actually understand what is wrong and what the treatment plan is?`,
         answer: (
           <>
-            Yes, that's a priority. Through the assessment process, I work to narrow down the potential issues and establish the most likely explanation for what you're experiencing. I do my best to adapt my explanations to your level of understanding, avoiding unnecessary jargon while still providing meaningful insight. If something isn't clear, I'm always happy to answer questions or explain concepts in different ways to help you truly grasp what's happening and why we're taking a particular approach. Patient education is fundamental to my practice because understanding your body and your treatment plan empowers you to take an active role in your recovery.{' '}
+            Yes, that's a priority. Through the assessment process, I work to narrow down the potential issues and establish the most likely explanation for what you're experiencing. I do my best to adapt my explanations to your level of understanding, avoiding unnecessary jargon while still providing meaningful insight. If something isn't clear, I'm always happy to answer questions or explain concepts in different ways to help you truly grasp what's happening and why that particular approach is being used. Patient education is fundamental to my practice because understanding your body and your treatment plan empowers you to take an active role in your recovery.{' '}
             <Link href="/about" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
               Read about my philosophy on patient education
             </Link>
@@ -729,7 +729,7 @@ const faqCategories: FAQCategory[] = [
         question: `How involved will I be in creating my treatment plan?`,
         answer: (
           <>
-            Very involved! Physiotherapy is a partnership. I provide the clinical expertise and guidance, but your goals, lifestyle, preferences, and feedback are essential in shaping a plan that is both effective and realistic for you. We make decisions together every step of the way.{' '}
+            Very involved. Physiotherapy is a partnership. I provide the clinical expertise and guidance, but your goals, lifestyle, preferences, and feedback are essential in shaping a plan that is both effective and realistic for you. Treatment decisions are made collaboratively at every step.{' '}
             <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
               Book a consultation to get started
             </Link>
@@ -762,7 +762,7 @@ const faqCategories: FAQCategory[] = [
         question: `Can I come for injury prevention, performance enhancement, or tune-ups, even if I am not currently in pain?`,
         answer: (
           <>
-            Yes. Physiotherapy isn't just for treating existing injuries. Most people, even without current pain, have measurable opportunities for improvement in mobility, stability, proprioception, strength, or movement coordination (all within the scope of physiotherapy care). During our assessment, we work together to identify specific areas where physiotherapy can help you move better, perform better, or reduce future injury risk, with clear, objective goals guiding the work. Whether you're an athlete looking to optimize performance, someone wanting to prevent recurring issues, or simply interested in moving better, we'll focus on specific physiotherapy-related goals tailored to your needs.{' '}
+            Yes. Physiotherapy isn't just for treating existing injuries. Most people, even without current pain, have measurable opportunities for improvement in mobility, stability, proprioception, strength, or movement coordination (all within the scope of physiotherapy care). During your assessment, I identify specific areas where physiotherapy can help you move better, perform better, or reduce future injury risk, with clear, objective goals guiding the work. Whether you're an athlete looking to optimize performance, someone wanting to prevent recurring issues, or simply interested in moving better, treatment focuses on physiotherapy-related goals tailored to your needs.{' '}
             <Link href="/treatments/sports-rehab-return-to-sport" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
               Learn about my approach
             </Link>
@@ -796,7 +796,7 @@ const faqCategories: FAQCategory[] = [
             <Link href="/treatments/exercise-therapy" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
               strength training
             </Link>
-            {' '}is often a crucial part of physiotherapy. Building strength helps protect joints, improve bone density, enhance balance, prevent injuries, and maintain functional independence as we age. I integrate tailored strength and conditioning principles into treatment plans, whether your goal is to lift groceries without pain,{' '}
+            {' '}is often a crucial part of physiotherapy. Building strength helps protect joints, improve bone density, enhance balance, prevent injuries, and maintain functional independence as people age. I integrate tailored strengthening principles into treatment plans, whether your goal is to lift groceries without pain,{' '}
             <Link href="/treatments/sports-rehab-return-to-sport" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
               return to sport
             </Link>
@@ -829,7 +829,7 @@ const faqCategories: FAQCategory[] = [
         question: `Where are you located? Is there parking?`,
         answer: (
           <>
-            I practice at Endorphins Health & Wellness Centre, located at 4631 Palladium Way, Unit 6, Burlington, ON. Parking is available on-site. We're in North Burlington, serving patients from Burlington, Waterdown, Oakville, Hamilton, and surrounding areas.{' '}
+            I practice at Endorphins Health & Wellness Centre, located at 4631 Palladium Way, Unit 6, Burlington, ON. Parking is available on-site. The clinic is in North Burlington and serves patients from Burlington, Waterdown, Oakville, Hamilton, and surrounding areas.{' '}
             <Link href="/#contact" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
               Get directions
             </Link>

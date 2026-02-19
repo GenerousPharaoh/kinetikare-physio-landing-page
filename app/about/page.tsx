@@ -43,10 +43,6 @@ export const metadata: Metadata = {
     'Hamilton physiotherapy Kareem Hassanein',
     'Oakville physiotherapy Kareem Hassanein',
     'KinetiKare Kareem Hassanein', 
-    'advanced manual therapy Burlington',
-    'advanced manual therapy Waterdown',
-    'advanced manual therapy Hamilton',
-    'advanced manual therapy Oakville',
     'manual therapy Burlington Kareem',
     'manual therapy Waterdown Kareem',
     'manual therapy Hamilton Kareem',
@@ -509,7 +505,7 @@ export default function About() {
                   
                   <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-6 sm:mb-8 text-slate-800 leading-tight tracking-[-0.03em]">
                     The Path That Shaped My{" "}
-                    <span className="bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] bg-clip-text text-transparent">
+                    <span className="text-[#B08D57]">
                       Practice
                     </span>
                   </h2>
@@ -555,7 +551,7 @@ export default function About() {
                           "Having sat on both sides of the treatment table, I recognize the profound difference between being processed through a system and being truly understood."
                         </blockquote>
                         <div className="text-right">
-                          <cite className="text-[#D4AF37] font-semibold not-italic text-base sm:text-lg">— K.H.</cite>
+                          <cite className="text-[#D4AF37] font-semibold not-italic text-base sm:text-lg">- K.H.</cite>
                         </div>
                       </div>
                     </div>
@@ -603,7 +599,7 @@ export default function About() {
                 <div className="text-center mb-12 sm:mb-16">
                   <h3 className="text-3xl sm:text-4xl lg:text-5xl font-light text-slate-800 mb-4 sm:mb-6 leading-tight tracking-[-0.02em]">
                     What Drives My{" "}
-                    <span className="bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57] bg-clip-text text-transparent">
+                    <span className="text-[#B08D57]">
                       Practice
                     </span>
                   </h3>
@@ -650,7 +646,7 @@ export default function About() {
                         <div className="flex-1 text-center sm:text-left">
                           <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-800 mb-3 sm:mb-4">Thoughtful, Individualized Care</h4>
                           <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
-                            Every treatment plan is shaped by close observation, clinical insight, and a deep appreciation for your unique needs. I combine advanced manual therapy and movement science with precision and care, ensuring your progress is always intentional, responsive, and clearly guided.
+                            Every treatment plan is shaped by close observation, clinical insight, and a deep appreciation for your unique needs. I combine manual therapy and movement science with precision and care, ensuring your progress is always intentional, responsive, and clearly guided.
                           </p>
                         </div>
                       </div>
@@ -801,7 +797,7 @@ export default function About() {
               </div>
             </div>
 
-            {/* Advanced Certifications */}
+            {/* Certifications */}
             <div className="group">
               <div className="bg-gradient-to-br from-white to-slate-50 border border-slate-200/60 rounded-2xl p-10 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden h-full flex flex-col">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#B08D57]/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
@@ -809,7 +805,7 @@ export default function About() {
                 <div className="relative z-10 flex-1 flex flex-col">
                   <div className="flex items-center mb-10">
                     <div className="w-3 h-8 bg-gradient-to-b from-[#B08D57] to-[#A17D47] rounded-full mr-4"></div>
-                    <h4 className="text-2xl font-normal text-slate-800">Advanced Certifications</h4>
+                    <h4 className="text-2xl font-normal text-slate-800">Certifications</h4>
                   </div>
                   
                   <div className="space-y-6 flex-1">
@@ -830,7 +826,7 @@ export default function About() {
                         <div className="flex-1">
                           <div className="font-bold text-slate-800 text-xl mb-2">Certified Dry Needling</div>
                           <div className="text-[#B08D57] font-semibold text-base mb-1">Practitioner</div>
-                          <div className="text-slate-600 text-sm leading-relaxed">Advanced certification in dry needling for trigger point release and pain management</div>
+                          <div className="text-slate-600 text-sm leading-relaxed">Certification in dry needling for trigger point release and pain management</div>
                         </div>
                       </div>
                     </div>

@@ -118,7 +118,7 @@ export const quickActions = [
     query: ['emergency', 'urgent', 'can\'t walk', 'severe pain', 'help now'],
     action: 'Urgent Care',
     phone: '905-634-6000',
-    message: 'For emergencies, call us immediately or visit ER',
+    message: 'For emergencies, call immediately or visit ER',
     icon: 'alert',
     priority: 10
   },
@@ -159,13 +159,13 @@ export const quickActions = [
 export const treatmentModalities = [
   {
     name: 'Manual Therapy',
-    keywords: ['hands on', 'manipulation', 'mobilization', 'manual'],
+    keywords: ['hands on', 'joint mobilization', 'mobilization', 'manual'],
     conditions: ['back pain', 'neck pain', 'joint stiffness'],
     description: 'Hands-on techniques to improve mobility'
   },
   {
-    name: 'Dry Needling / IMS',
-    keywords: ['needle', 'ims', 'trigger point', 'dry needling'],
+    name: 'Dry Needling',
+    keywords: ['needle', 'trigger point', 'dry needling'],
     conditions: ['muscle knots', 'trigger points', 'chronic pain'],
     description: 'Release trigger points and muscle tension'
   },
@@ -179,7 +179,7 @@ export const treatmentModalities = [
     name: 'Shockwave Therapy',
     keywords: ['shockwave', 'chronic tendon', 'heel pain'],
     conditions: ['plantar fasciitis', 'tendinitis', 'chronic pain'],
-    description: 'Advanced treatment for chronic conditions'
+    description: 'Focused treatment for chronic conditions'
   },
   {
     name: 'Taping & Bracing',
@@ -195,7 +195,7 @@ export const activityInjuries = [
     activity: 'running',
     keywords: ['runner', 'running', 'marathon', 'jogging'],
     conditions: ['Runner\'s Knee', 'IT Band Syndrome', 'Plantar Fasciitis', 'Shin Splints'],
-    advice: 'Common running injuries we treat daily'
+    advice: 'Common running injuries treated daily'
   },
   {
     activity: 'golf',

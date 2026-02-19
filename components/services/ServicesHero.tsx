@@ -54,7 +54,7 @@ export default function ServicesHero() {
 
             {/* Tagline */}
             <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed max-w-3xl mx-auto mb-10">
-              Professional care tailored to your unique needs, combining advanced techniques with personalized attention
+              Professional care tailored to your unique needs, combining proven techniques with personalized attention
             </p>
           </motion.div>
         </div>

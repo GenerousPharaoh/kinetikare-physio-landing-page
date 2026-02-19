@@ -38,7 +38,6 @@ export const metadata: Metadata = {
     'hands on therapy Burlington',
     'joint mobilization Burlington',
     'dry needling Burlington',
-    'IMS Burlington',
     'trigger point therapy Burlington',
     'post surgery rehab Burlington',
     'post op physiotherapy Burlington',
@@ -113,7 +112,7 @@ const services = [
     title: 'Manual Therapy',
     description: (
       <>
-        Hands-on techniques to mobilize joints, reduce pain, and restore function through targeted tissue manipulation.{' '}
+        Hands-on techniques to mobilize joints, reduce pain, and restore function through targeted soft tissue techniques.{' '}
         <Link href="/treatments/joint-mobilization" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
           Learn about joint mobilization
         </Link>
@@ -194,7 +193,7 @@ const services = [
     ),
     image: '/images/exercise-therapy.jpg',
     features: [
-      'Strength and conditioning',
+      'Strengthening exercises',
       'Functional movement training',
       'Core stabilization',
       'Flexibility and mobility work'
@@ -271,7 +270,7 @@ export default function ServicesPage() {
           "itemOffered": {
             "@type": "MedicalTherapy",
             "name": "Manual Therapy",
-            "description": "Hands-on techniques to mobilize joints, reduce pain, and restore function through targeted tissue manipulation."
+            "description": "Hands-on techniques to mobilize joints, reduce pain, and restore function through targeted soft tissue techniques."
           }
         },
         {
@@ -336,7 +335,7 @@ export default function ServicesPage() {
       {
         "@type": "MedicalProcedure",
         "name": "IASTM (Instrument Assisted Soft Tissue Mobilization)",
-        "description": "Specialized instruments to detect and treat soft tissue dysfunction",
+            "description": "Ergonomic instruments used to detect and treat soft tissue dysfunction",
         "procedureType": "Physical Therapy",
         "bodyLocation": "Fascia and soft tissues",
         "followup": "Therapeutic exercises and movement patterns",
@@ -500,7 +499,7 @@ export default function ServicesPage() {
             
             {/* Title */}
             <h2 className="text-4xl md:text-5xl font-medium mb-8 text-primary-800">
-              The Treatment <span className="bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent">Process</span>
+              The Treatment <span className="text-[#B08D57]">Process</span>
             </h2>
             
             {/* Elegant Divider */}
@@ -594,7 +593,7 @@ export default function ServicesPage() {
             </div>
             
                         {/* Title */}
-                        <h3 className="text-xl font-medium mb-4 text-primary-800 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#B08D57] group-hover:to-[#D4AF37] group-hover:bg-clip-text transition-all duration-500 leading-tight">
+                        <h3 className="text-xl font-medium mb-4 text-primary-800 group-hover:text-[#B08D57] transition-all duration-500 leading-tight">
                           {step.title}
                         </h3>
                         
@@ -645,7 +644,7 @@ export default function ServicesPage() {
                 <span className="uppercase tracking-wider">Insurance & Billing</span>
               </div>
               <h2 className="text-4xl md:text-5xl font-medium mb-8 text-primary-800">
-                Insurance <span className="bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent">Coverage</span>
+                Insurance <span className="text-[#B08D57]">Coverage</span>
               </h2>
               <div className="flex items-center justify-center gap-4 mb-10">
                 <div className="h-px w-20 bg-gradient-to-r from-transparent via-[#B08D57]/40 to-transparent"></div>
@@ -716,7 +715,7 @@ export default function ServicesPage() {
                         <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37]"></div>
                         <div className="absolute inset-0 w-2.5 h-2.5 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] animate-ping"></div>
                       </div>
-                      <span className="text-primary-700 font-medium bg-gradient-to-r from-primary-700 to-[#B08D57] bg-clip-text text-transparent">and many more providers</span>
+                      <span className="text-primary-700 font-medium">and many more providers</span>
                     </div>
                   </div>
                 </div>
@@ -747,7 +746,7 @@ export default function ServicesPage() {
                     Need Coverage Help?
                   </h3>
                   <p className="text-white/90 mb-6 leading-relaxed">
-                    If you're unsure whether we can direct bill your plan, call us and we'll let you know. We're here to help verify your coverage and ensure you get the care you need.
+                    If you're unsure whether direct billing is available for your plan, call me and I will verify your coverage details with you.
                   </p>
                   
                   <div className="space-y-4 mb-10">
@@ -768,7 +767,7 @@ export default function ServicesPage() {
                   
                   <div className="flex flex-col sm:flex-row gap-4 mt-8">
                     <a
-                      href="tel:+16139007234"
+                      href="tel:+19056346000"
                       className="group/btn relative inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#D4AF37] to-[#B08D57] text-white rounded-xl font-medium transition-all duration-500 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 overflow-hidden"
                     >
                       <span className="absolute inset-0 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500"></span>
@@ -816,7 +815,7 @@ export default function ServicesPage() {
                 
                 {/* Title */}
                 <h2 className="text-3xl md:text-4xl font-heading font-medium mb-6 text-primary-800">
-                  Continue Your <span className="bg-gradient-to-r from-[#B08D57] to-[#D4AF37] bg-clip-text text-transparent">Care Journey</span>
+                  Continue Your <span className="text-[#B08D57]">Care Journey</span>
                 </h2>
                 
                 {/* Description */}

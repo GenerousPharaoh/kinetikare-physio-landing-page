@@ -31,11 +31,11 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       title: `${treatment.name} - Physiotherapy Treatment in Burlington`,
       description: treatment.metaDescription,
       type: 'article',
-      url: `https://kinetikarephysio.com/treatments/${treatment.id}`,
+      url: `https://www.kinetikarephysio.com/treatments/${treatment.id}`,
       siteName: 'KinetiKare Physiotherapy',
       images: [
         {
-          url: 'https://kinetikarephysio.com/images/og-image.jpg',
+          url: 'https://www.kinetikarephysio.com/images/og-image.jpg',
           width: 1200,
           height: 630,
           alt: `${treatment.name} Treatment at KinetiKare`,
@@ -46,10 +46,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       card: 'summary_large_image',
       title: `${treatment.name} | KinetiKare Physiotherapy`,
       description: treatment.metaDescription,
-      images: ['https://kinetikarephysio.com/images/og-image.jpg'],
+      images: ['https://www.kinetikarephysio.com/images/og-image.jpg'],
     },
     alternates: {
-      canonical: `https://kinetikarephysio.com/treatments/${treatment.id}`,
+      canonical: `https://www.kinetikarephysio.com/treatments/${treatment.id}`,
     },
   };
 }
@@ -84,7 +84,7 @@ export default function TreatmentPage({ params }: { params: { slug: string } }) 
         streetAddress: '4631 Palladium Way, Unit 6',
         addressLocality: 'Burlington',
         addressRegion: 'ON',
-        postalCode: 'L7M 0V7',
+        postalCode: 'L7M 0W9',
         addressCountry: 'CA',
       },
       medicalSpecialty: 'Physiotherapy',

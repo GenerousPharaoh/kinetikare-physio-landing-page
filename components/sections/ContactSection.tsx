@@ -263,7 +263,7 @@ export default function ContactSection() {
               <div className="text-center">
                 <div className="bg-slate-50 rounded-2xl p-8 sm:p-10 max-w-4xl mx-auto">
                   <p className="text-xl sm:text-2xl text-slate-700 leading-relaxed">
-                    My practice is conveniently located in <span className="font-medium text-[#B08D57]">Burlington</span>, and I'm pleased to extend my physiotherapy services to individuals and families throughout our surrounding communities.
+                    My practice is conveniently located in <span className="font-medium text-[#B08D57]">Burlington</span>, and I'm pleased to extend physiotherapy services to individuals and families throughout nearby communities.
                   </p>
                 </div>
               </div>

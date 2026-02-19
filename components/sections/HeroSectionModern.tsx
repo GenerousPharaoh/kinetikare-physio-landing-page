@@ -346,7 +346,7 @@ export default function HeroSection() {
             <motion.div variants={itemVariants} className="mb-6">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-playfair text-white leading-[1.1] tracking-tight drop-shadow-2xl">
                 Kareem <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F5E6B3] via-[#D4AF37] to-[#B8860B] animate-gradient-x bg-[length:200%_auto]">
+                <span className="text-[#D4AF37]">
                   Hassanein
                 </span>
               </h1>

@@ -53,7 +53,7 @@
     "Added 10 keyResearch sections: ac-joint-injuries, biceps-tendinopathy, deep-gluteal-syndrome, facet-joint-syndrome, thoracic-outlet-syndrome, mcl-lcl-sprains, patellar-tendinopathy, peroneal-tendinopathy, hallux-rigidus, turf-toe",
     "All conditions now have 2-3 peer-reviewed research citations from 2020-2025 with specific outcomes and clinical relevance",
     "SEO Schema.org enhancements completed (September 2025)",
-    "Added aggregateRating: 5.0 stars with 9 reviews (manually implemented)",
+    "Added aggregateRating: 5.0 stars with 17 reviews (manually implemented)",
     "Updated priceRange to $$ (mid-range pricing)",
     "Added comprehensive insurance provider list for direct billing",
     "Added Wednesday/Friday opening hours for Headon Physio location",
@@ -83,15 +83,15 @@
   },
   "seo_enhancements_sept_2025": {
     "schema_org_updates": {
-      "aggregate_rating": "5.0 stars with 9 reviews (manually implemented)",
+      "aggregate_rating": "5.0 stars with 17 reviews (manually implemented)",
       "price_range": "$$ (mid-range pricing)",
-      "pricing_details": "$90 for 30 min, $145/hour follow-up, $130 initial assessment",
+      "pricing_details": "$90 follow-up, $130 initial assessment",
       "insurance_providers": "Canada Life, Sun Life, Manulife, Green Shield Canada, Blue Cross, WSIB, Desjardins Insurance, Empire Life, Equitable Life, Industrial Alliance, Cowan Insurance, ClaimSecure, GroupHEALTH, Johnston Group, Maximum Benefit, People Corporation, RWAM Insurance, TELUS Health",
       "additional_location": "Headon Physio (Wed/Fri 14:00-19:30) - 1387 Walkers Line Unit B, Burlington"
     },
     "seo_status": {
       "google_analytics": "GA4: G-65FN5BN480 properly configured",
-      "google_reviews": "Manually implemented with 9 reviews in carousel format",
+      "google_reviews": "Manually implemented with 17 reviews in carousel format",
       "medical_condition_schema": "All 55 condition pages have MedicalCondition schema",
       "medical_procedure_schema": "Services page has MedicalProcedure schema",
       "sitemap": "Properly configured (ai-physio page intentionally removed)",

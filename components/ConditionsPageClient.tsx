@@ -36,24 +36,13 @@ interface AdditionalService {
 interface ConditionsPageClientProps {
   conditionCategories: ConditionCategory[];
   additionalServices: AdditionalService[];
-  initialTab?: number;
 }
 
 function ConditionsPageWithParams({
   conditionCategories,
-  additionalServices,
-  initialTab
+  additionalServices
 }: ConditionsPageClientProps) {
-  const [activeTab, setActiveTab] = useState(() => {
-    if (
-      typeof initialTab === 'number' &&
-      initialTab >= 0 &&
-      initialTab < conditionCategories.length
-    ) {
-      return initialTab;
-    }
-    return 0;
-  });
+  const [activeTab, setActiveTab] = useState(0);
   const [searchQuery, setSearchQuery] = useState('');
 
   // Quick navigation sections - moved up to be available in useEffect
@@ -66,16 +55,18 @@ function ConditionsPageWithParams({
     { name: "Foot & Ankle", tab: 5 },
   ];
 
-  // Remember the user's tab selection using initial URL tab and localStorage
+  // Remember the user's tab selection using URL query and localStorage
   useEffect(() => {
-    if (
-      typeof initialTab === 'number' &&
-      initialTab >= 0 &&
-      initialTab < conditionCategories.length
-    ) {
-      setActiveTab(initialTab);
-      localStorage.setItem('conditionsActiveTab', initialTab.toString());
-      return;
+    const params = new URLSearchParams(window.location.search);
+    const tabParam = params.get('tab');
+
+    if (tabParam && !isNaN(Number(tabParam))) {
+      const tabNumber = Number(tabParam);
+      if (tabNumber >= 0 && tabNumber < conditionCategories.length) {
+        setActiveTab(tabNumber);
+        localStorage.setItem('conditionsActiveTab', tabNumber.toString());
+        return;
+      }
     }
 
     // Fall back to localStorage (for returning users)
@@ -86,7 +77,7 @@ function ConditionsPageWithParams({
         setActiveTab(tabNumber);
       }
     }
-  }, [initialTab, conditionCategories.length]);
+  }, [conditionCategories.length]);
 
   // Save tab selection to localStorage when changed
   const handleTabChange = (tabIndex: number) => {

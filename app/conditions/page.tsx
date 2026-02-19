@@ -102,7 +102,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ConditionsPage() {
+interface ConditionsPageProps {
+  searchParams?: {
+    tab?: string;
+  };
+}
+
+export default function ConditionsPage({ searchParams }: ConditionsPageProps) {
+  const parsedTab = Number(searchParams?.tab);
+  const initialTab = Number.isInteger(parsedTab) && parsedTab >= 0 ? parsedTab : undefined;
+
   // Transform the condition categories to include formatted condition strings
   const formattedCategories = conditionCategories.map(category => ({
     title: category.title,
@@ -125,6 +134,7 @@ export default function ConditionsPage() {
     <ConditionsPageClient 
       conditionCategories={formattedCategories}
       additionalServices={additionalServices}
+      initialTab={initialTab}
     />
   );
-} 
+}

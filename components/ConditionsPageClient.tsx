@@ -2,10 +2,9 @@
 
 // <!-- UI REDESIGN 2024 - PREMIUM MEDICAL AESTHETIC -->
 
-import React, { useState, useMemo, useEffect, Suspense } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
 import {
   MagnifyingGlassIcon,
   ChevronRightIcon,
@@ -37,15 +36,24 @@ interface AdditionalService {
 interface ConditionsPageClientProps {
   conditionCategories: ConditionCategory[];
   additionalServices: AdditionalService[];
+  initialTab?: number;
 }
 
-// Component to handle search params logic
 function ConditionsPageWithParams({
   conditionCategories,
-  additionalServices
+  additionalServices,
+  initialTab
 }: ConditionsPageClientProps) {
-  const searchParams = useSearchParams();
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState(() => {
+    if (
+      typeof initialTab === 'number' &&
+      initialTab >= 0 &&
+      initialTab < conditionCategories.length
+    ) {
+      return initialTab;
+    }
+    return 0;
+  });
   const [searchQuery, setSearchQuery] = useState('');
 
   // Quick navigation sections - moved up to be available in useEffect
@@ -58,18 +66,16 @@ function ConditionsPageWithParams({
     { name: "Foot & Ankle", tab: 5 },
   ];
 
-  // Remember the user's tab selection using URL params and localStorage
+  // Remember the user's tab selection using initial URL tab and localStorage
   useEffect(() => {
-    // Check URL query parameter first
-    const tabParam = searchParams?.get('tab');
-
-    if (tabParam && !isNaN(Number(tabParam))) {
-      const tabNumber = Number(tabParam);
-      if (tabNumber >= 0 && tabNumber < conditionCategories.length) {
-        setActiveTab(tabNumber);
-        localStorage.setItem('conditionsActiveTab', tabNumber.toString());
-        return;
-      }
+    if (
+      typeof initialTab === 'number' &&
+      initialTab >= 0 &&
+      initialTab < conditionCategories.length
+    ) {
+      setActiveTab(initialTab);
+      localStorage.setItem('conditionsActiveTab', initialTab.toString());
+      return;
     }
 
     // Fall back to localStorage (for returning users)
@@ -80,7 +86,7 @@ function ConditionsPageWithParams({
         setActiveTab(tabNumber);
       }
     }
-  }, [searchParams, conditionCategories.length]);
+  }, [initialTab, conditionCategories.length]);
 
   // Save tab selection to localStorage when changed
   const handleTabChange = (tabIndex: number) => {
@@ -454,11 +460,6 @@ function ConditionsPageWithParams({
   );
 }
 
-// Force rebuild - Fixed pill button cutoff and spacing issues
 export default function ConditionsPageClient(props: ConditionsPageClientProps) {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <ConditionsPageWithParams {...props} />
-    </Suspense>
-  );
+  return <ConditionsPageWithParams {...props} />;
 }

@@ -96,7 +96,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-7xl">
         {/* Centered branding with proper hierarchy */}
         <div className="text-center mb-10">
-          <Link href="/" className="inline-block" aria-label="Return to homepage">
+          <Link href="/" className="inline-block">
             <Image
               src="/images/kinetikare-logo-without-text.webp"
               alt="KinetiKare"

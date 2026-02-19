@@ -24,7 +24,8 @@ import {
   ChevronDownIcon,
   ExclamationCircleIcon,
   FireIcon,
-  ShieldCheckIcon
+  ShieldCheckIcon,
+  PhoneIcon
 } from '@heroicons/react/24/outline';
 import { Condition } from '@/lib/conditions-data';
 import { getTreatmentsByCondition } from '@/lib/treatments-data';
@@ -40,6 +41,13 @@ interface TabContent {
   id: string;
   label: string;
   icon: React.ElementType;
+}
+
+interface SubSectionChip {
+  id: string;
+  label: string;
+  isActive: boolean;
+  onSelect: () => void;
 }
 
 export default function ConditionPageClient({
@@ -141,6 +149,180 @@ export default function ConditionPageClient({
         return false;
     }
   });
+
+  const tabGuides: Record<string, string> = {
+    overview: 'Pathophysiology and contributing factors.',
+    symptoms: 'Clinical presentation, differential diagnosis, and red flags.',
+    'self-care': 'Management options, treatment techniques, and recovery expectations.',
+    research: 'Research summaries and clinical takeaways.',
+  };
+
+  const activeTabLabel = tabs.find((tab) => tab.id === activeTab)?.label ?? 'Section';
+
+  const subSectionChips: SubSectionChip[] = (() => {
+    if (activeTab === 'overview') {
+      return [
+        condition.pathophysiology
+          ? {
+              id: 'pathophysiology',
+              label: 'Pathophysiology',
+              isActive: activeOverviewView === 'pathophysiology',
+              onSelect: () => {
+                setActiveOverviewView('pathophysiology');
+                scrollToContentTop();
+              },
+            }
+          : null,
+        condition.biomechanics
+          ? {
+              id: 'biomechanics',
+              label: 'Contributing Factors',
+              isActive: activeOverviewView === 'biomechanics',
+              onSelect: () => {
+                setActiveOverviewView('biomechanics');
+                scrollToContentTop();
+              },
+            }
+          : null,
+      ].filter((chip): chip is SubSectionChip => Boolean(chip));
+    }
+
+    if (activeTab === 'symptoms') {
+      return [
+        condition.clinicalPresentation
+          ? {
+              id: 'clinical-presentation',
+              label: 'Clinical Presentation',
+              isActive: activeClinicalView === 'clinical-presentation',
+              onSelect: () => {
+                setActiveClinicalView('clinical-presentation');
+                scrollToContentTop();
+              },
+            }
+          : null,
+        condition.differentialDiagnosis && condition.differentialDiagnosis.length > 0
+          ? {
+              id: 'differential',
+              label: 'Differential Diagnosis',
+              isActive: activeClinicalView === 'differential',
+              onSelect: () => {
+                setActiveClinicalView('differential');
+                scrollToContentTop();
+              },
+            }
+          : null,
+        condition.whenToSeek && condition.whenToSeek.length > 0
+          ? {
+              id: 'when-to-seek',
+              label: 'When to Seek Help',
+              isActive: activeClinicalView === 'when-to-seek',
+              onSelect: () => {
+                setActiveClinicalView('when-to-seek');
+                scrollToContentTop();
+              },
+            }
+          : null,
+      ].filter((chip): chip is SubSectionChip => Boolean(chip));
+    }
+
+    if (activeTab === 'self-care') {
+      return [
+        {
+          id: 'evidence-based-treatment',
+          label: 'Evidence-Based Treatment',
+          isActive: activeManagementView === 'evidence-based-treatment',
+          onSelect: () => {
+            setActiveManagementView('evidence-based-treatment');
+            scrollToContentTop();
+          },
+        },
+        (condition.treatmentApproach || relatedTreatments.length > 0)
+          ? {
+              id: 'treatment-techniques',
+              label: 'Treatment Techniques',
+              isActive: activeManagementView === 'treatment-techniques',
+              onSelect: () => {
+                setActiveManagementView('treatment-techniques');
+                scrollToContentTop();
+              },
+            }
+          : null,
+        condition.timeline && condition.timeline.length > 0
+          ? {
+              id: 'timeline',
+              label: 'Recovery Timeline',
+              isActive: activeManagementView === 'timeline',
+              onSelect: () => {
+                setActiveManagementView('timeline');
+                scrollToContentTop();
+              },
+            }
+          : null,
+        condition.prognosis
+          ? {
+              id: 'prognosis',
+              label: 'Prognosis & Outcomes',
+              isActive: activeManagementView === 'prognosis',
+              onSelect: () => {
+                setActiveManagementView('prognosis');
+                scrollToContentTop();
+              },
+            }
+          : null,
+        condition.measuringProgress
+          ? {
+              id: 'measuring-success',
+              label: 'Measuring Progress',
+              isActive: activeManagementView === 'measuring-success',
+              onSelect: () => {
+                setActiveManagementView('measuring-success');
+                scrollToContentTop();
+              },
+            }
+          : null,
+        condition.faqs && condition.faqs.length > 0
+          ? {
+              id: 'faqs',
+              label: 'FAQs',
+              isActive: activeManagementView === 'faqs',
+              onSelect: () => {
+                setActiveManagementView('faqs');
+                scrollToContentTop();
+              },
+            }
+          : null,
+      ].filter((chip): chip is SubSectionChip => Boolean(chip));
+    }
+
+    if (activeTab === 'research') {
+      return [
+        condition.keyResearch && condition.keyResearch.length > 0
+          ? {
+              id: 'key-research',
+              label: 'Key Research',
+              isActive: activeResearchView === 'key-research',
+              onSelect: () => {
+                setActiveResearchView('key-research');
+                scrollToContentTop();
+              },
+            }
+          : null,
+        condition.researchInsights && condition.researchInsights.length > 0
+          ? {
+              id: 'research-insights',
+              label: 'Research Insights',
+              isActive: activeResearchView === 'research-insights',
+              onSelect: () => {
+                setActiveResearchView('research-insights');
+                scrollToContentTop();
+              },
+            }
+          : null,
+      ].filter((chip): chip is SubSectionChip => Boolean(chip));
+    }
+
+    return [];
+  })();
 
 
   // Track page reading progress for the top progress indicator
@@ -285,8 +467,34 @@ export default function ConditionPageClient({
                 </details>
               )}
 
-              {/* Quick in-page navigation and actions */}
+              {/* Primary actions */}
               <div className="mt-5 flex flex-wrap items-center gap-2">
+                <Link
+                  href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                  target="_blank"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#B08D57] text-white text-sm font-medium hover:bg-[#997A4B] transition-colors"
+                >
+                  <CalendarIcon className="h-4 w-4" />
+                  Book Initial Assessment
+                </Link>
+                <Link
+                  href="tel:+19056346000"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg border border-slate-300 bg-white text-slate-700 text-sm font-medium hover:border-[#B08D57] hover:text-[#B08D57] transition-colors"
+                >
+                  <PhoneIcon className="h-4 w-4" />
+                  Call Clinic
+                </Link>
+                <Link
+                  href="/conditions"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg border border-slate-300 bg-white text-slate-700 text-sm font-medium hover:border-[#B08D57] hover:text-[#B08D57] transition-colors"
+                >
+                  View All Conditions
+                  <ArrowRightIcon className="h-4 w-4" />
+                </Link>
+              </div>
+
+              {/* Quick in-page navigation */}
+              <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3 max-w-4xl">
                 {tabs.map((tab) => {
                   const Icon = tab.icon;
                   const isActive = activeTab === tab.id;
@@ -297,18 +505,59 @@ export default function ConditionPageClient({
                         setActiveTab(tab.id);
                         scrollToContentTop();
                       }}
-                      className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                      className={`text-left rounded-xl border p-4 transition-all duration-200 ${
                         isActive
-                          ? 'bg-[#B08D57] text-white'
-                          : 'bg-white border border-slate-200 text-slate-700 hover:border-[#B08D57] hover:text-[#B08D57]'
+                          ? 'bg-[#B08D57]/5 border-[#B08D57]/50 shadow-sm'
+                          : 'bg-white border-slate-200 hover:border-[#B08D57]/45 hover:shadow-sm'
                       }`}
+                      aria-pressed={isActive}
                     >
-                      <Icon className="h-3.5 w-3.5" />
-                      {tab.label}
+                      <div className="flex items-start justify-between gap-3">
+                        <span
+                          className={`inline-flex h-8 w-8 items-center justify-center rounded-lg ${
+                            isActive ? 'bg-[#B08D57]/15 text-[#8c6d3d]' : 'bg-slate-100 text-slate-600'
+                          }`}
+                        >
+                          <Icon className="h-4 w-4" />
+                        </span>
+                        <span className={`text-[11px] uppercase tracking-wide ${isActive ? 'text-[#8c6d3d]' : 'text-slate-500'}`}>
+                          {isActive ? 'Current Section' : 'Open Section'}
+                        </span>
+                      </div>
+                      <p className={`mt-3 text-sm font-semibold ${isActive ? 'text-slate-900' : 'text-slate-800'}`}>
+                        {tab.label}
+                      </p>
+                      <p className="mt-1 text-xs text-slate-600 leading-relaxed">
+                        {tabGuides[tab.id]}
+                      </p>
                     </button>
                   );
                 })}
               </div>
+
+              {/* Sub-section quick navigation */}
+              {subSectionChips.length > 1 && (
+                <div className="mt-4 -mx-1 px-1 overflow-x-auto">
+                  <p className="text-[11px] uppercase tracking-wide text-slate-500 mb-2 px-1">
+                    Inside {activeTabLabel}
+                  </p>
+                  <div className="inline-flex items-center gap-2 min-w-max pb-1">
+                    {subSectionChips.map((chip) => (
+                      <button
+                        key={chip.id}
+                        onClick={chip.onSelect}
+                        className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-colors ${
+                          chip.isActive
+                            ? 'bg-slate-900 text-white border-slate-900'
+                            : 'bg-white text-slate-700 border-slate-300 hover:border-[#B08D57] hover:text-[#B08D57]'
+                        }`}
+                      >
+                        {chip.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </section>
@@ -688,7 +937,7 @@ export default function ConditionPageClient({
                                 <h2 className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900 mb-8">
                                   The Science of {condition.name || 'Your Condition'}
                                 </h2>
-                                <p className="text-base md:text-lg text-slate-700 leading-relaxed">
+                                <p className="text-base md:text-lg text-slate-700 leading-relaxed max-w-[72ch]">
                                   {condition.pathophysiology}
                                 </p>
                               </div>
@@ -701,7 +950,7 @@ export default function ConditionPageClient({
                                 </h2>
                                 <div className="space-y-6">
                                   {condition.overview.split('\n\n').map((paragraph, index) => (
-                                    <p key={index} className="text-base md:text-lg text-slate-700 leading-relaxed">
+                                    <p key={index} className="text-base md:text-lg text-slate-700 leading-relaxed max-w-[72ch]">
                                       {paragraph}
                                     </p>
                                   ))}
@@ -716,7 +965,7 @@ export default function ConditionPageClient({
                                 </h2>
                                 <div className="space-y-6">
                                   {condition.biomechanics.split('\n\n').map((paragraph, index) => (
-                                    <p key={index} className="text-base md:text-lg text-slate-700 leading-relaxed">
+                                    <p key={index} className="text-base md:text-lg text-slate-700 leading-relaxed max-w-[72ch]">
                                       {paragraph}
                                     </p>
                                   ))}
@@ -776,7 +1025,7 @@ export default function ConditionPageClient({
                                     <div className="absolute top-0 right-0 w-32 h-32 bg-[#B08D57]/5 rounded-full blur-3xl"></div>
                                     <div className="relative">
                                       <h3 className="text-xl font-semibold leading-tight text-slate-900 mb-5">Typical Pattern</h3>
-                                      <p className="text-base md:text-lg text-slate-700 leading-relaxed">{condition.clinicalPresentation.typicalPattern}</p>
+                                      <p className="text-base md:text-lg text-slate-700 leading-relaxed max-w-[72ch]">{condition.clinicalPresentation.typicalPattern}</p>
                                     </div>
                                   </div>
                                 )}
@@ -838,7 +1087,7 @@ export default function ConditionPageClient({
                               <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
                                 {condition.treatmentApproach.title}
                               </h2>
-                              <p className="text-base text-slate-700 leading-relaxed mb-8">
+                              <p className="text-base text-slate-700 leading-relaxed max-w-[72ch] mb-8">
                                 {condition.treatmentApproach.description}
                               </p>
                               <div className="space-y-3">
@@ -1396,7 +1645,7 @@ export default function ConditionPageClient({
                                       <div className="p-8">
                                         {condition.treatmentApproach && (
                                           <>
-                                            <p className="text-base text-slate-700 leading-relaxed mb-6">
+                                            <p className="text-base text-slate-700 leading-relaxed max-w-[72ch] mb-6">
                                               {condition.treatmentApproach.description}
                                             </p>
                                             <div className="space-y-3">
@@ -1995,6 +2244,32 @@ export default function ConditionPageClient({
                     </div>
                   );
                 })}
+
+                {subSectionChips.length > 1 && (
+                  <div className="pt-4 mt-4 border-t border-slate-200">
+                    <p className="text-xs uppercase tracking-wide text-slate-500 mb-2">
+                      Inside {activeTabLabel}
+                    </p>
+                    <div className="space-y-2">
+                      {subSectionChips.map((chip) => (
+                        <button
+                          key={chip.id}
+                          onClick={() => {
+                            chip.onSelect();
+                            setMobileNavOpen(false);
+                          }}
+                          className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${
+                            chip.isActive
+                              ? 'bg-slate-900 text-white'
+                              : 'bg-slate-50 text-slate-700 hover:bg-slate-100'
+                          }`}
+                        >
+                          {chip.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </motion.div>
           </>
@@ -2013,8 +2288,8 @@ export default function ConditionPageClient({
               }}
               className={`flex flex-col items-center gap-0.5 px-2 py-1.5 rounded-lg transition-all duration-200 min-w-[60px] ${
                 activeTab === tab.id
-                  ? 'text-[#B08D57]'
-                  : 'text-gray-500'
+                  ? 'bg-[#B08D57]/15 text-[#8c6d3d] shadow-sm'
+                  : 'text-gray-500 hover:text-slate-700'
               }`}
             >
               <tab.icon className="h-4 w-4" />
@@ -2023,7 +2298,9 @@ export default function ConditionPageClient({
           ))}
           <button
             onClick={() => setMobileNavOpen(true)}
-            className="flex flex-col items-center gap-0.5 px-2 py-1.5 rounded-lg text-gray-500 transition-all duration-200 min-w-[60px]"
+            className={`flex flex-col items-center gap-0.5 px-2 py-1.5 rounded-lg transition-all duration-200 min-w-[60px] ${
+              mobileNavOpen ? 'bg-[#B08D57]/15 text-[#8c6d3d]' : 'text-gray-500 hover:text-slate-700'
+            }`}
           >
             <Bars3Icon className="h-4 w-4" />
             <span className="text-[10px] font-medium leading-tight">More</span>

@@ -3,7 +3,7 @@ module.exports = {
   siteUrl: process.env.SITE_URL || 'https://www.kinetikarephysio.com',
   generateRobotsTxt: true,
   generateIndexSitemap: false,
-  exclude: ['/api/*', '/admin/*', '/_next/*'],
+  exclude: ['/api/*', '/admin/*', '/_next/*', '/sitemap.xml', '/robots.txt'],
   robotsTxtOptions: {
     policies: [
       {

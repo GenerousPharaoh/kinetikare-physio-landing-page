@@ -355,23 +355,6 @@ export default function ConditionPageClient({
     };
   }, []);
 
-  // Structured data for SEO
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "MedicalCondition",
-    "name": condition.name,
-    "description": condition.overview || condition.description,
-    "possibleTreatment": {
-      "@type": "MedicalTherapy",
-      "name": "Physiotherapy",
-      "description": condition.treatmentApproach?.description
-    },
-    "signOrSymptom": condition.redFlags?.map(flag => ({
-      "@type": "MedicalSymptom",
-      "name": flag
-    }))
-  };
-
   // Check if we need multiple citations
   const hasStrongEvidence = (treatment: any) => {
     return treatment.effectivenessLevel === 'strong' && 
@@ -380,18 +363,7 @@ export default function ConditionPageClient({
 
   return (
     <>
-      {/* Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
-
       <div className="min-h-screen">
-        {/* Screen-reader-only descriptor for SEO context */}
-        <p className="sr-only">
-          {condition.name} Treatment Burlington | Kareem Hassanein Physiotherapy | Waterdown Oakville Physiotherapist
-        </p>
-
         {/* Reading progress indicator */}
         <div className="fixed top-[72px] lg:top-24 left-0 right-0 z-30 pointer-events-none">
           <div className="h-0.5 bg-slate-200/70">

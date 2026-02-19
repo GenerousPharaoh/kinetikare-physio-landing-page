@@ -5,25 +5,8 @@ import { conditionCategories, additionalServices } from '@/lib/conditions-data';
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: 'Conditions Treated | Kareem Hassanein Physiotherapy Burlington',
+  title: 'Conditions Treated in Burlington | Kareem Hassanein Physiotherapy',
   description: 'Condition guides for back, neck, shoulder, hip, knee, foot, and ankle pain. Care in Burlington with Kareem Hassanein, Registered Physiotherapist.',
-  keywords: [
-    'Kareem Hassanein conditions',
-    'conditions treated Burlington physiotherapy',
-    'physiotherapy conditions Burlington',
-    'back pain treatment Burlington',
-    'neck pain treatment Burlington',
-    'shoulder pain treatment Burlington',
-    'knee pain treatment Burlington',
-    'hip pain treatment Burlington',
-    'sciatica treatment Burlington',
-    'disc herniation treatment Burlington',
-    'rotator cuff injury Burlington',
-    'tennis elbow treatment Burlington',
-    'plantar fasciitis treatment Burlington',
-    'Registered Physiotherapist Burlington',
-    'Kareem Hassanein physiotherapy'
-  ],
   openGraph: {
     title: 'Conditions Treated | Kareem Hassanein Physiotherapy',
     description: 'Browse condition guides and treatment information for common musculoskeletal conditions in Burlington.',

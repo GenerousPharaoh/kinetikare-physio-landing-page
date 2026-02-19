@@ -11,26 +11,8 @@ import SectionDivider from '@/components/SectionDivider';
 
 // SEO Metadata for Homepage
 export const metadata: Metadata = {
-  title: 'Kareem Hassanein Physiotherapy Burlington | Near Waterdown',
-  description: 'Physiotherapy in Burlington ON for back, neck, shoulder and sports injuries. Direct billing. Book with Kareem Hassanein, Registered Physiotherapist.',
-  keywords: [
-    'Kareem Hassanein',
-    'Registered Physiotherapist',
-    'Physiotherapy Burlington',
-    'Physiotherapist Burlington',
-    'Back pain',
-    'Neck pain',
-    'Shoulder pain',
-    'Knee pain',
-    'Ankle sprain',
-    'Sciatica',
-    'Manual therapy',
-    'Dry needling',
-    'Exercise rehab',
-    'Exercise therapy',
-    'Rehabilitation',
-    'Direct billing'
-  ],
+  title: 'Physiotherapist in Burlington | Kareem Hassanein',
+  description: 'Kareem Hassanein, Registered Physiotherapist in Burlington for back pain, neck pain, sports injuries, and rehabilitation. Direct billing and evening appointments.',
   openGraph: {
     title: 'Kareem Hassanein Physiotherapy | Burlington',
     description: 'Registered Physiotherapist offering manual therapy, dry needling, cupping, and exercise rehabilitation for chronic pain, post-surgical recovery, and movement restoration.',
@@ -151,9 +133,6 @@ export default function Home() {
 
         {/* Main content wrapper with light background to restore original design */}
         <div className="relative z-10 bg-white">
-          {/* SEO-optimized hidden descriptor for brand search */}
-          <p className="sr-only">Kareem Hassanein Registered Physiotherapist Burlington | Physiotherapy near Waterdown and Oakville</p>
-
           {/* Elegant transition from hero */}
           <div className="relative py-16 overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-b from-white via-[#B08D57]/[0.02] to-white" />

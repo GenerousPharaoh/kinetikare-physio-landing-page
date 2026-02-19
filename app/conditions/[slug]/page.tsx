@@ -60,20 +60,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const condition = getDetailedCondition(params.slug, baseCondition);
 
-  const keywords = Array.from(new Set([
-    condition.name,
-    `${condition.name} physiotherapy`,
-    `${condition.name} treatment Burlington`,
-    `${condition.name} Burlington`,
-    'Kareem Hassanein',
-    'Registered Physiotherapist Burlington',
-    'joint mobilization',
-    'dry needling',
-    'strengthening exercises',
-    ...(condition.keywords || []),
-  ])).slice(0, 20);
-
-  const title = `${condition.name} Physiotherapy Burlington | Kareem Hassanein`;
+  const title = `${condition.name} Physiotherapy in Burlington | Kareem Hassanein`;
 
   // Use dynamic meta description based on category if no custom one exists
   const description = condition.metaDescription || generateDynamicMetaDescription(condition);
@@ -81,7 +68,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title,
     description,
-    keywords,
     openGraph: {
       title,
       description,
@@ -214,67 +200,24 @@ export default function ConditionPage({ params }: PageProps) {
     ]
   };
 
-  // Generate FAQ schema based on condition type - common questions patients ask
-  const generateFAQSchema = () => {
-    const faqs = [];
+  const faqEntities = (condition.faqs || [])
+    .filter((faq) => faq.question && faq.answer)
+    .map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    }));
 
-    // Add condition-specific FAQs
-    faqs.push({
-      "@type": "Question",
-      "name": `What causes ${condition.name.toLowerCase()}?`,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": condition.causes ? `Common causes include ${condition.causes.slice(0, 3).join(', ')}. A thorough assessment can identify your specific contributing factors.` : `${condition.name} can have various causes. A physiotherapy assessment will help identify the specific factors contributing to your condition.`
+  const faqSchema = faqEntities.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqEntities,
       }
-    });
-
-    faqs.push({
-      "@type": "Question",
-      "name": `How long does ${condition.name.toLowerCase()} treatment take?`,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": `Recovery time varies based on severity and individual factors. Most patients see improvement within 4-6 weeks of consistent physiotherapy treatment, though complete recovery may take longer.`
-      }
-    });
-
-    faqs.push({
-      "@type": "Question",
-      "name": `Can physiotherapy help with ${condition.name.toLowerCase()}?`,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": `Yes, physiotherapy is highly effective for ${condition.name.toLowerCase()}. Treatment includes manual therapy, targeted exercises, and education to address both symptoms and underlying causes.`
-      }
-    });
-
-    // Add category-specific FAQs
-    if (condition.category === 'spinal-health') {
-      faqs.push({
-        "@type": "Question",
-        "name": "Do I need imaging (X-ray, MRI) before physiotherapy?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Most spinal conditions can be effectively assessed and treated without imaging. Your physiotherapist will determine if imaging is necessary based on your clinical presentation."
-        }
-      });
-    } else if (condition.category === 'knee' || condition.category === 'shoulder') {
-      faqs.push({
-        "@type": "Question",
-        "name": "Can I avoid surgery with physiotherapy?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Many patients successfully manage their condition with physiotherapy alone. Conservative treatment is often the first recommended approach, with surgery considered only if conservative measures don't provide adequate relief."
-        }
-      });
-    }
-
-    return {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs
-    };
-  };
-
-  const faqSchema = generateFAQSchema();
+    : null;
 
   return (
     <>
@@ -286,10 +229,12 @@ export default function ConditionPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
       <ConditionPageClient
         condition={condition}
         relatedConditions={relatedConditions}

@@ -5,17 +5,8 @@ import TreatmentsCTA from '@/components/treatments/TreatmentsCTA';
 import MedicalDisclaimer from '@/components/MedicalDisclaimer';
 
 export const metadata: Metadata = {
-  title: 'Physiotherapy Treatments | Kareem Hassanein Physiotherapy Burlington',
+  title: 'Physiotherapy Treatments in Burlington | Kareem Hassanein',
   description: 'Physiotherapy treatments in Burlington with Kareem Hassanein, Registered Physiotherapist. Joint mobilization, dry needling, strengthening exercises, and rehab plans.',
-  keywords: [
-    'physiotherapy treatments Burlington',
-    'Kareem Hassanein treatments',
-    'joint mobilization Burlington',
-    'dry needling Burlington',
-    'strengthening exercises physiotherapy',
-    'sports rehabilitation Burlington',
-    'Registered Physiotherapist Burlington',
-  ],
   openGraph: {
     title: 'Physiotherapy Treatments | Kareem Hassanein Physiotherapy',
     description: 'Browse treatment approaches used for musculoskeletal care in Burlington.',

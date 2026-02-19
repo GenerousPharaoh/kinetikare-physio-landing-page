@@ -59,6 +59,8 @@ export const reviews = [
 ];
 
 export default function GoogleReviews() {
+  const totalGoogleReviews = 17;
+  const featuredReviewsCount = reviews.length;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [progressKey, setProgressKey] = useState(0);
@@ -159,11 +161,14 @@ export default function GoogleReviews() {
               ))}
             </div>
             <span className="text-2xl font-semibold text-gray-800">5.0</span>
-            <span className="text-gray-600">(17 reviews)</span>
+            <span className="text-gray-600">({totalGoogleReviews} reviews)</span>
           </div>
           <h2 className="text-4xl text-gray-900 mb-2 heading-luxury-1">Google Reviews</h2>
           <p className="max-w-2xl mx-auto text-luxury-subtle">
             What patients are saying
+          </p>
+          <p className="text-sm text-gray-500 mt-2">
+            Showing {featuredReviewsCount} featured reviews from {totalGoogleReviews} total Google reviews
           </p>
         </div>
 
@@ -309,12 +314,16 @@ export default function GoogleReviews() {
               <button
                 key={index}
                 onClick={() => handleDotClick(index)}
-                className={`rounded-full transition-all duration-300 border-0 outline-none focus:outline-none cursor-pointer ${index === currentIndex
-                  ? 'w-2 h-2 bg-[#B08D57]'
-                  : 'w-1.5 h-1.5 bg-gray-300 hover:bg-[#B08D57]/60'
-                  }`}
+                className="w-8 h-8 flex items-center justify-center border-0 outline-none focus:outline-none cursor-pointer"
                 aria-label={`Go to review ${index + 1}`}
-              />
+              >
+                <span
+                  className={`rounded-full transition-all duration-300 ${index === currentIndex
+                    ? 'w-2 h-2 bg-[#B08D57]'
+                    : 'w-1.5 h-1.5 bg-gray-300 hover:bg-[#B08D57]/60'
+                    }`}
+                />
+              </button>
             ))}
           </div>
         </div>

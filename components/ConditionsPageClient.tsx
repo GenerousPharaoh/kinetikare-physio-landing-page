@@ -320,9 +320,9 @@ function ConditionsPageWithParams({
                                       <CheckCircleIcon className="w-5 h-5 text-white" />
                                     </div>
                                     <div className="flex-1">
-                                      <h4 className="font-semibold text-base text-slate-900 group-hover:text-[#B08D57] transition-colors">
+                                      <h3 className="font-semibold text-base text-slate-900 group-hover:text-[#B08D57] transition-colors">
                                         {mainCondition}
-                                      </h4>
+                                      </h3>
                                       {details && (
                                         <p className="text-sm text-slate-600 mt-0.5">
                                           {details}

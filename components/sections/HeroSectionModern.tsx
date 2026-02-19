@@ -105,9 +105,9 @@ export default function HeroSection() {
                 alt="KinetiKare Physiotherapy clinic"
                 fill
                 priority
+                quality={82}
                 className="object-cover object-[35%_center] brightness-100 contrast-105"
                 sizes="65vw"
-                unoptimized={true}
               />
             </motion.div>
 
@@ -240,10 +240,9 @@ export default function HeroSection() {
             src="/images/clinic-pic-may-2025.jpg"
             alt="KinetiKare Physiotherapy clinic"
             fill
-            priority
+            quality={82}
             className="object-cover"
             sizes="100vw"
-            unoptimized={true}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/80 to-[#0f172a]/40" />
         </div>

@@ -139,9 +139,7 @@ export default function ServicesSection() {
                   className="object-contain group-hover:scale-105 transition-transform duration-700"
                   style={{ filter: 'contrast(1.05) saturate(1.1)', imageRendering: 'crisp-edges' }}
                   sizes="(max-width: 768px) 100vw, 1200px"
-                  priority
-                  quality={100}
-                  unoptimized
+                  quality={82}
                 />
               </div>
 

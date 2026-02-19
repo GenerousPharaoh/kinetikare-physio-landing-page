@@ -1,11 +1,11 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
-import Script from 'next/script';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import WebVitals from '@/components/WebVitals';
 import ErrorBoundary from '@/components/ErrorBoundary';
+import CookieBanner from '@/components/CookieBanner';
 import { PerformanceProvider } from '@/context/PerformanceContext';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -465,6 +465,7 @@ export default function RootLayout({
           {/* Global site footer */}
           <Footer />
         </PerformanceProvider>
+        <CookieBanner />
       </body>
     </html>
   );

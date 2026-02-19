@@ -231,9 +231,12 @@ export default function Footer() {
               {/* Small Map Preview */}
               <div className="rounded-lg overflow-hidden h-[120px] relative border border-white/10 bg-slate-800">
                 <iframe
-                  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Kareem%20Hassanein%20Physiotherapy%2C4631%20Palladium%20Way%20Unit%206%2CBurlington%2CON&zoom=14&maptype=roadmap"
+                  src="https://www.google.com/maps?q=4631+Palladium+Way+Unit+6+Burlington+ON&output=embed"
+                  title="Clinic location map"
                   width="100%"
                   height="120"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
                   style={{ border: 0 }}
                 ></iframe>
               </div>

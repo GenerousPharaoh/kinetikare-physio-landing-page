@@ -52,15 +52,15 @@ export default function ServicesSection() {
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 1, y: 0 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-12"
         >
           <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ opacity: 1, scale: 1 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.4, delay: 0.05 }}
             className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 mb-4"
           >
             <HeartIcon className="w-5 h-5 text-[#B08D57]" />
@@ -124,9 +124,9 @@ export default function ServicesSection() {
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Manual Therapy Image */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            initial={{ opacity: 1, x: 0 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -16 }}
+            transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="relative group"
           >
             <div className="relative h-[600px] lg:h-[700px] w-full rounded-2xl overflow-hidden shadow-luxury-deep bg-gray-50 image-luxury-frame">
@@ -158,9 +158,9 @@ export default function ServicesSection() {
 
           {/* Additional Services - Matched Height Container */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            initial={{ opacity: 1, x: 0 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 16 }}
+            transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="h-auto lg:h-[700px]"
           >
             <div className="card-luxury rounded-2xl shadow-luxury-medium border-luxury-subtle h-full flex flex-col">
@@ -178,9 +178,9 @@ export default function ServicesSection() {
                   <motion.div
                     key={service}
                     className="group"
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.4, delay: index * 0.05 }}
+                    initial={{ opacity: 1, scale: 1 }}
+                    animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.97 }}
+                    transition={{ duration: 0.3, delay: index * 0.03 }}
                   >
                     <div className="bg-gray-50 rounded-lg p-3 border border-gray-200 hover:border-[#B08D57]/50 hover:shadow-md transition-all duration-300">
                       <h4 className="font-normal text-slate-900 group-hover:text-[#B08D57] transition-colors duration-300 text-sm">

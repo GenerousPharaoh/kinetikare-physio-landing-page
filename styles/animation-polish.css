@@ -32,9 +32,9 @@
 /* OVERRIDE GENERIC TRANSITIONS */
 /* ============================= */
 
-/* Replace all generic transitions */
-* {
-  transition-timing-function: var(--ease-smooth) !important;
+/* Smooth easing for interactive elements only — no blanket override */
+button, a, .card, [class*="card"], input, select, textarea {
+  transition-timing-function: var(--ease-smooth);
 }
 
 /* Button transitions - smoother */

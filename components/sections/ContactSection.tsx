@@ -15,22 +15,21 @@ import {
 } from '@heroicons/react/24/outline';
 
 export default function ContactSection() {
-  // Use custom animation to bypass adaptive settings
-  const { ref: sectionRef, isInView } = useScrollAnimation({ 
-    yOffset: 0, 
+  const { ref: sectionRef, isInView } = useScrollAnimation({
+    yOffset: 0,
     delay: 0,
-    duration: 0.2,
-    rootMargin: '8000px 0px 8000px 0px' // Trigger even earlier
+    duration: 0.3,
+    rootMargin: '400px 0px 400px 0px'
   });
-  
-  // Override animation props to ensure immediate appearance
+
+  // Start visible — animate only on scroll
   const animationProps = {
-    initial: { opacity: 0 },
-    animate: isInView ? { opacity: 1 } : { opacity: 0 },
-    transition: { duration: 0.2, delay: 0 }
+    initial: { opacity: 1 },
+    animate: { opacity: 1 },
+    transition: { duration: 0.3 }
   };
-  
-  const { ref: areasRef, containerVariants, itemVariants } = useStaggeredAnimation({ delay: 0, duration: 0.2 });
+
+  const { ref: areasRef, containerVariants, itemVariants } = useStaggeredAnimation({ delay: 0, duration: 0.3 });
 
   const serviceAreas = [
     "Waterdown", "Oakville", "Milton", "Hamilton", 
@@ -51,10 +50,9 @@ export default function ContactSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Premium Section Header */}
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: 0.2, delay: 0 }}
+          <motion.div
+            initial={{ opacity: 1 }}
+            animate={{ opacity: 1 }}
             className="text-center mb-12 sm:mb-16"
           >
             <div className="relative inline-block mb-6 sm:mb-8">
@@ -74,9 +72,8 @@ export default function ContactSection() {
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20">
             {/* Left Column - Contact Information Only */}
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ duration: 0.2, delay: 0 }}
+              initial={{ opacity: 1 }}
+              animate={{ opacity: 1 }}
             >
               {/* Single Consolidated Contact Card */}
               <div className="glass-luxury rounded-3xl p-6 sm:p-8 lg:p-12 shadow-luxury-deep hover:shadow-luxury-float transition-all duration-600 border-luxury-subtle premium-hover-glow">
@@ -179,10 +176,10 @@ export default function ContactSection() {
             </motion.div>
 
             {/* Right Column - Simplified CTA */}
-            <motion.div 
-              initial={{ opacity: 0, x: 30 }}
-              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+            <motion.div
+              initial={{ opacity: 1, x: 0 }}
+              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 16 }}
+              transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
               className="flex flex-col justify-start"
             >
               {/* Simplified Book Appointment CTA */}
@@ -232,10 +229,9 @@ export default function ContactSection() {
           </div>
 
           {/* Service Areas Section - Clean Modern Design */}
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: 0.2, delay: 0 }}
+          <motion.div
+            initial={{ opacity: 1 }}
+            animate={{ opacity: 1 }}
             className="mt-12 sm:mt-16"
           >
             <div className="bg-white rounded-3xl p-8 sm:p-12 lg:p-16 shadow-premium-2 hover:shadow-premium-2-hover shadow-transition border border-slate-100">
@@ -271,10 +267,10 @@ export default function ContactSection() {
           </motion.div>
 
           {/* Premium Bottom CTA Section */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
+          <motion.div
+            initial={{ opacity: 1, y: 0 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+            transition={{ duration: 0.5, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
             className="text-center mt-12 sm:mt-16"
           >
             <div className="bg-white/95 backdrop-blur-2xl rounded-[2rem] p-8 sm:p-12 lg:p-16 shadow-premium-3 hover:shadow-premium-3-hover shadow-transition border border-slate-200/60 max-w-5xl mx-auto relative overflow-hidden">

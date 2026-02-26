@@ -49,15 +49,8 @@ export default function MobileBottomNav() {
   };
 
   return (
-    <nav 
+    <nav
       className="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-white border-t border-neutral-200 shadow-lg z-40 flex items-center justify-around"
-      style={{ 
-        position: 'fixed',
-        bottom: 0,
-        left: 0,
-        right: 0,
-        zIndex: 40
-      }}
     >
       {navItems.map((item) => (
         <Link

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface PerformanceMetrics {
   fps: number;
@@ -11,101 +11,69 @@ interface PerformanceMetrics {
 }
 
 /**
- * Hook to detect device performance and adjust animations accordingly
+ * Synchronously detect low-end device on first render (no useEffect delay).
+ * This prevents hydration flicker from state changing after mount.
+ */
+function detectIsLowEnd(): boolean {
+  if (typeof window === 'undefined') return false;
+  const deviceMemory = (navigator as any).deviceMemory || 8;
+  const hardwareConcurrency = navigator.hardwareConcurrency || 4;
+  const connection = (navigator as any).connection;
+  const connectionSpeed = connection?.effectiveType || 'unknown';
+  return (
+    deviceMemory <= 4 ||
+    hardwareConcurrency <= 2 ||
+    connectionSpeed === '2g' ||
+    connectionSpeed === 'slow-2g' ||
+    (window.innerWidth <= 768 && deviceMemory <= 6)
+  );
+}
+
+/**
+ * Hook to detect device performance and adjust animations accordingly.
+ * Computes synchronously on first client render — no delayed state updates.
  */
 export function useDevicePerformance() {
-  const [metrics, setMetrics] = useState<PerformanceMetrics>({
-    fps: 60,
-    connectionSpeed: 'unknown',
-    deviceMemory: 8,
-    hardwareConcurrency: 4,
-    isLowEnd: false,
-  });
-
-  useEffect(() => {
-    // Check device memory (in GB)
+  const [metrics] = useState<PerformanceMetrics>(() => {
+    if (typeof window === 'undefined') {
+      return { fps: 60, connectionSpeed: 'unknown', deviceMemory: 8, hardwareConcurrency: 4, isLowEnd: false };
+    }
     const deviceMemory = (navigator as any).deviceMemory || 8;
-    
-    // Check CPU cores
     const hardwareConcurrency = navigator.hardwareConcurrency || 4;
-    
-    // Check connection speed
     const connection = (navigator as any).connection;
     const connectionSpeed = connection?.effectiveType || 'unknown';
-    
-    // Measure FPS
-    let fps = 60;
-    let frameCount = 0;
-    let lastTime = performance.now();
-    
-    const measureFPS = () => {
-      frameCount++;
-      const currentTime = performance.now();
-      
-      if (currentTime >= lastTime + 1000) {
-        fps = Math.round((frameCount * 1000) / (currentTime - lastTime));
-        frameCount = 0;
-        lastTime = currentTime;
-      }
-      
-      if (frameCount < 60) {
-        requestAnimationFrame(measureFPS);
-      }
+    return {
+      fps: 60,
+      connectionSpeed,
+      deviceMemory,
+      hardwareConcurrency,
+      isLowEnd: detectIsLowEnd(),
     };
-    
-    requestAnimationFrame(measureFPS);
-    
-    // Determine if device is low-end
-    const isLowEnd = 
-      deviceMemory <= 4 || // 4GB RAM or less
-      hardwareConcurrency <= 2 || // 2 CPU cores or less
-      connectionSpeed === '2g' || // Slow connection
-      connectionSpeed === 'slow-2g' ||
-      (typeof window !== 'undefined' && window.innerWidth <= 768 && deviceMemory <= 6); // Mobile with <= 6GB RAM
-    
-    // Set metrics after a short delay to get accurate FPS
-    setTimeout(() => {
-      setMetrics({
-        fps,
-        connectionSpeed,
-        deviceMemory,
-        hardwareConcurrency,
-        isLowEnd,
-      });
-    }, 1000);
-  }, []);
+  });
 
   return metrics;
 }
 
 /**
- * Hook to get animation settings based on device performance
+ * Hook to get animation settings based on device performance.
+ * Resolves synchronously — no delayed re-renders that cause flicker.
  */
 export function useAdaptiveAnimations() {
   const { isLowEnd } = useDevicePerformance();
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const prefersReducedMotion = useRef(false);
 
-  useEffect(() => {
-    // Check user preference for reduced motion
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setPrefersReducedMotion(mediaQuery.matches);
+  // Read media query synchronously during first render
+  if (typeof window !== 'undefined' && prefersReducedMotion.current === false) {
+    prefersReducedMotion.current = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
 
-    const handleChange = (e: MediaQueryListEvent) => {
-      setPrefersReducedMotion(e.matches);
-    };
-
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
-
-  // Return animation settings
-  const shouldReduceAnimations = isLowEnd || prefersReducedMotion;
+  const shouldReduceAnimations = isLowEnd || prefersReducedMotion.current;
 
   return {
     shouldReduceAnimations,
-    animationDuration: shouldReduceAnimations ? 0.2 : 0.6,
-    animationDelay: shouldReduceAnimations ? 0 : 0.1,
-    animationDistance: shouldReduceAnimations ? 10 : 20,
+    animationDuration: shouldReduceAnimations ? 0.2 : 0.5,
+    animationDelay: shouldReduceAnimations ? 0 : 0.05,
+    animationDistance: shouldReduceAnimations ? 8 : 16,
     enableParallax: !shouldReduceAnimations,
     enableBlur: !shouldReduceAnimations,
     enableComplexAnimations: !shouldReduceAnimations,

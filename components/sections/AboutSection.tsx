@@ -22,9 +22,9 @@ export default function AboutSection() {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-2 items-center">
             {/* Left side - Image */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              initial={{ opacity: 1, x: 0 }}
+              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -16 }}
+              transition={{ duration: 0.5, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
               className="relative"
             >
               <div className="relative w-full max-w-sm mx-auto lg:ml-0 lg:mr-auto">

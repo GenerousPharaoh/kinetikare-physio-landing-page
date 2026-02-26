@@ -44,10 +44,10 @@ const HealingEnvironmentSection = () => {
     >
       <div className="container mx-auto px-6 max-w-7xl">
         {/* Section Header - More prominent */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
+        <motion.div
+          initial={{ opacity: 1, y: 0 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-slate-900 mb-6 tracking-[-0.03em]">
@@ -110,11 +110,11 @@ const HealingEnvironmentSection = () => {
             {/* Feature List */}
             <div className="space-y-6">
               {clinicFeatures.map((feature, index) => (
-                <motion.div 
+                <motion.div
                   key={feature.title}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                  transition={{ duration: 0.5, delay: 0.3 + (index * 0.1) }}
+                  initial={{ opacity: 1, x: 0 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -12 }}
+                  transition={{ duration: 0.4, delay: 0.1 + (index * 0.06), ease: [0.22, 1, 0.36, 1] }}
                   className="flex gap-4"
                 >
                   <div className="flex-shrink-0">
@@ -149,9 +149,9 @@ const HealingEnvironmentSection = () => {
 
         {/* Location Image */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          initial={{ opacity: 1, y: 0 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+          transition={{ duration: 0.5, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-2xl mx-auto"
         >
           <div className="relative group overflow-hidden rounded-2xl shadow-luxury-deep hover:shadow-luxury-float shadow-transition">

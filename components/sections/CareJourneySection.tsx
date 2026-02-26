@@ -46,7 +46,7 @@ export default function CareJourneySection() {
       {...animationProps}
       className="section-luxury-spacing section-temperature-a texture-luxury"
     >
-      <div className="container mx-auto px-4 max-w-7xl">
+      <div className="container mx-auto px-5 sm:px-6 max-w-7xl">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 1, y: 0 }}
@@ -77,12 +77,12 @@ export default function CareJourneySection() {
             variants={containerVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12"
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-10"
           >
             {steps.map((step, index) => (
               <motion.div key={step.number} variants={itemVariants} className="relative group h-full">
                 {/* Step Card - Premium glass design */}
-                <div className="h-full glass-luxury rounded-3xl p-8 shadow-luxury-medium hover:shadow-luxury-deep transition-all duration-600 relative overflow-hidden border-luxury-subtle premium-hover-lift">
+                <div className="h-full glass-luxury rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 shadow-luxury-medium hover:shadow-luxury-deep transition-all duration-600 relative overflow-hidden border-luxury-subtle premium-hover-lift">
                   {/* Premium gradient background */}
                   <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 via-transparent to-[#B08D57]/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                   
@@ -130,7 +130,7 @@ export default function CareJourneySection() {
           transition={{ duration: 0.5, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           className="mt-16"
         >
-          <div className="relative bg-gradient-to-br from-slate-800 via-slate-900 to-black rounded-3xl p-12 lg:p-16 shadow-2xl overflow-hidden">
+          <div className="relative bg-gradient-to-br from-slate-800 via-slate-900 to-black rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-16 shadow-2xl overflow-hidden">
             {/* Background pattern */}
             <div className="absolute inset-0 opacity-10">
               <div className="absolute inset-0" style={{

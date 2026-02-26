@@ -40,14 +40,14 @@ export default function ContactSection() {
     <motion.section 
       ref={sectionRef}
       {...animationProps}
-      className="section-luxury-spacing section-temperature-a relative overflow-hidden texture-luxury" 
+      className="section-luxury-spacing pb-24 md:pb-0 section-temperature-a relative overflow-hidden texture-luxury"
       id="contact"
     >
       {/* Clean background elements with subtle parallax */}
       <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-[#B08D57]/3 to-transparent rounded-full blur-3xl parallax-bg-slow"></div>
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-[#D4AF37]/3 to-transparent rounded-full blur-3xl parallax-bg-medium"></div>
       
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Premium Section Header */}
           <motion.div
@@ -69,14 +69,14 @@ export default function ContactSection() {
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20">
+          <div className="grid lg:grid-cols-2 gap-5 sm:gap-8 lg:gap-16 xl:gap-20">
             {/* Left Column - Contact Information Only */}
             <motion.div
               initial={{ opacity: 1 }}
               animate={{ opacity: 1 }}
             >
               {/* Single Consolidated Contact Card */}
-              <div className="glass-luxury rounded-3xl p-6 sm:p-8 lg:p-12 shadow-luxury-deep hover:shadow-luxury-float transition-all duration-600 border-luxury-subtle premium-hover-glow">
+              <div className="glass-luxury rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-12 shadow-luxury-deep hover:shadow-luxury-float transition-all duration-600 border-luxury-subtle premium-hover-glow">
                 <h3 className="text-2xl sm:text-3xl font-light text-slate-900 mb-8 sm:mb-10 tracking-[-0.02em] text-center">Contact Information</h3>
                 
                 <div className="space-y-6 sm:space-y-8">
@@ -183,7 +183,7 @@ export default function ContactSection() {
               className="flex flex-col justify-start"
             >
               {/* Simplified Book Appointment CTA */}
-              <div className="bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-3xl p-6 sm:p-8 lg:p-12 text-white relative overflow-hidden shadow-premium-3 hover:shadow-premium-3-hover shadow-transition">
+              <div className="bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-12 text-white relative overflow-hidden shadow-premium-3 hover:shadow-premium-3-hover shadow-transition">
                 {/* Clean background elements */}
                 <div className="absolute top-4 right-4 w-20 h-20 bg-white/10 rounded-full blur-xl"></div>
                 <div className="absolute bottom-4 left-4 w-16 h-16 bg-white/10 rounded-full blur-lg"></div>
@@ -234,7 +234,7 @@ export default function ContactSection() {
             animate={{ opacity: 1 }}
             className="mt-12 sm:mt-16"
           >
-            <div className="bg-white rounded-3xl p-8 sm:p-12 lg:p-16 shadow-premium-2 hover:shadow-premium-2-hover shadow-transition border border-slate-100">
+            <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-10 lg:p-16 shadow-premium-2 hover:shadow-premium-2-hover shadow-transition border border-slate-100">
               {/* Clean Header */}
                 <div className="text-center mb-12 sm:mb-16">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl mb-6 shadow-lg">
@@ -273,7 +273,7 @@ export default function ContactSection() {
             transition={{ duration: 0.5, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
             className="text-center mt-12 sm:mt-16"
           >
-            <div className="bg-white/95 backdrop-blur-2xl rounded-[2rem] p-8 sm:p-12 lg:p-16 shadow-premium-3 hover:shadow-premium-3-hover shadow-transition border border-slate-200/60 max-w-5xl mx-auto relative overflow-hidden">
+            <div className="bg-white/95 backdrop-blur-2xl rounded-2xl sm:rounded-[2rem] p-5 sm:p-10 lg:p-16 shadow-premium-3 hover:shadow-premium-3-hover shadow-transition border border-slate-200/60 max-w-5xl mx-auto relative overflow-hidden">
               {/* Premium background elements */}
               <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-[#B08D57]/5 to-transparent rounded-full blur-2xl"></div>
               <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-[#D4AF37]/5 to-transparent rounded-full blur-2xl"></div>

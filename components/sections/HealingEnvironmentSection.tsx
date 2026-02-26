@@ -42,7 +42,7 @@ const HealingEnvironmentSection = () => {
       {...animationProps}
       className="pt-8 pb-8 md:pt-12 md:pb-12 section-temperature-c"
     >
-      <div className="container mx-auto px-6 max-w-7xl">
+      <div className="container mx-auto px-5 sm:px-6 max-w-7xl">
         {/* Section Header - More prominent */}
         <motion.div
           initial={{ opacity: 1, y: 0 }}
@@ -65,7 +65,7 @@ const HealingEnvironmentSection = () => {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16"
+          className="grid lg:grid-cols-2 gap-6 md:gap-10 lg:gap-16 items-center mb-8 md:mb-16"
         >
           {/* Left: Hero Image - Focal Point */}
           <motion.div variants={itemVariants} className="order-2 lg:order-1">

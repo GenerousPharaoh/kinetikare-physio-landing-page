@@ -59,14 +59,10 @@
     margin-bottom: 1rem;
   }
   
-  /* Spacing Adjustments */
-  section {
-    padding: 3rem 1rem;
-  }
-  
+  /* Spacing Adjustments — let Tailwind classes handle per-section padding */
   .container {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
   
   /* Mobile-Optimized Forms */

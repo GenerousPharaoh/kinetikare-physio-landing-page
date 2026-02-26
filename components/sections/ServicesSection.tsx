@@ -49,7 +49,7 @@ export default function ServicesSection() {
       className="py-12 md:py-16 section-temperature-c" 
       id="services"
     >
-      <div className="container mx-auto px-4 max-w-6xl">
+      <div className="container mx-auto px-5 sm:px-6 max-w-6xl">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 1, y: 0 }}
@@ -82,7 +82,7 @@ export default function ServicesSection() {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid lg:grid-cols-3 gap-8 mb-12"
+          className="grid lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 mb-8 md:mb-12"
         >
           {mainServices.map((service, index) => (
             <motion.div key={service.title} variants={itemVariants} className="group h-full premium-hover-lift">
@@ -121,7 +121,7 @@ export default function ServicesSection() {
         </motion.div>
 
         {/* Treatment Image and Additional Services */}
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 gap-5 md:gap-8">
           {/* Manual Therapy Image */}
           <motion.div
             initial={{ opacity: 1, x: 0 }}

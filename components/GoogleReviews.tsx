@@ -145,7 +145,7 @@ export default function GoogleReviews() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewsSchema) }}
       />
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-5 sm:px-6">
         {/* Header */}
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-2 mb-3">
@@ -175,7 +175,7 @@ export default function GoogleReviews() {
         {/* Reviews Carousel */}
         <div className="relative max-w-6xl mx-auto">
           <div className="overflow-hidden rounded-2xl">
-            <div className="relative h-[600px] md:h-[550px]">
+            <div className="relative h-[480px] sm:h-[520px] md:h-[550px]">
               <AnimatePresence mode="wait">
                 {getVisibleReviews().map((review, index) => (
                   <motion.div
@@ -200,7 +200,7 @@ export default function GoogleReviews() {
                       }`}
                   >
                     <div className="h-full flex items-center justify-center px-4">
-                      <div className="bg-white rounded-2xl shadow-luxury-deep hover:shadow-luxury-float transition-all duration-600 p-10 max-w-3xl w-full border border-gray-200 h-[550px] md:h-[500px] flex flex-col relative overflow-hidden">
+                      <div className="bg-white rounded-2xl shadow-luxury-deep hover:shadow-luxury-float transition-all duration-600 p-5 sm:p-8 md:p-10 max-w-3xl w-full border border-gray-200 h-[440px] sm:h-[480px] md:h-[500px] flex flex-col relative overflow-hidden">
                         {/* Google Badge */}
                         <div className="flex items-center gap-2 mb-4 flex-shrink-0 relative z-10">
                           <div className="w-5 h-5 relative">

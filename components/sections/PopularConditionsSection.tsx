@@ -29,7 +29,7 @@ export default function PopularConditionsSection() {
 
   return (
     <section className="py-16 md:py-20 bg-slate-50/60">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-5 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10 md:mb-12">
             <h2 className="text-3xl md:text-4xl font-light text-slate-900 tracking-tight">

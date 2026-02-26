@@ -85,10 +85,10 @@
   opacity: 1;
 }
 
-/* 4. Luxury Spacing System */
+/* 4. Luxury Spacing System — tighter on mobile, generous on desktop */
 .section-luxury-spacing {
-  padding-top: clamp(5rem, 10vh, 8rem);
-  padding-bottom: clamp(5rem, 10vh, 8rem);
+  padding-top: clamp(2.5rem, 8vh, 8rem);
+  padding-bottom: clamp(2.5rem, 8vh, 8rem);
 }
 
 .content-luxury-spacing {
@@ -223,7 +223,7 @@
 .card-luxury {
   background: white;
   border-radius: 12px;
-  padding: 2.5rem;
+  padding: clamp(1.25rem, 4vw, 2.5rem);
   position: relative;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }

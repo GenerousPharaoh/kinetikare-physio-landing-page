@@ -28,35 +28,35 @@ export default function PopularConditionsSection() {
     .filter((condition): condition is NonNullable<typeof condition> => Boolean(condition));
 
   return (
-    <section className="py-16 md:py-20 bg-slate-50/60">
+    <section className="py-10 md:py-20 bg-slate-50/60">
       <div className="container mx-auto px-5 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-10 md:mb-12">
-            <h2 className="text-3xl md:text-4xl font-light text-slate-900 tracking-tight">
+          <div className="text-center mb-6 md:mb-12">
+            <h2 className="text-2xl md:text-4xl font-light text-slate-900 tracking-tight">
               Popular Treatment Topics
             </h2>
-            <p className="mt-3 text-base md:text-lg text-slate-600 max-w-3xl mx-auto">
-              Quick access to high-interest condition pages with symptoms, contributing factors, and management options.
+            <p className="mt-2 md:mt-3 text-sm md:text-lg text-slate-600 max-w-3xl mx-auto">
+              Quick access to condition pages with symptoms, contributing factors, and management options.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+          <div className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-3 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0 scrollbar-hide">
             {popularConditions.map((condition) => (
               <Link
                 key={condition.slug}
                 href={`/conditions/${condition.slug}`}
-                className="group rounded-xl border border-slate-200 bg-white p-5 transition-all duration-300 hover:border-[#B08D57] hover:shadow-lg hover:-translate-y-0.5"
+                className="group rounded-xl border border-slate-200 bg-white p-4 md:p-5 transition-all duration-300 hover:border-[#B08D57] hover:shadow-lg hover:-translate-y-0.5 min-w-[72vw] sm:min-w-[45vw] md:min-w-0 snap-start flex-shrink-0"
               >
-                <p className="text-xs font-medium tracking-wide uppercase text-[#B08D57] mb-2">
+                <p className="text-xs font-medium tracking-wide uppercase text-[#B08D57] mb-1.5 md:mb-2">
                   {categoryLabels[condition.category] || 'Condition'}
                 </p>
-                <h3 className="text-lg font-medium text-slate-900 leading-tight group-hover:text-[#B08D57] transition-colors">
+                <h3 className="text-base md:text-lg font-medium text-slate-900 leading-tight group-hover:text-[#B08D57] transition-colors">
                   {condition.name}
                 </h3>
-                <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+                <p className="mt-1.5 md:mt-2 text-sm text-slate-600 leading-relaxed line-clamp-2 md:line-clamp-none">
                   {condition.description}
                 </p>
-                <span className="mt-4 inline-flex items-center text-sm font-medium text-slate-800 group-hover:text-[#B08D57] transition-colors">
+                <span className="mt-3 md:mt-4 inline-flex items-center text-sm font-medium text-slate-800 group-hover:text-[#B08D57] transition-colors">
                   Read condition guide
                   <ArrowRightIcon className="ml-1.5 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
                 </span>
@@ -64,7 +64,7 @@ export default function PopularConditionsSection() {
             ))}
           </div>
 
-          <div className="text-center mt-8">
+          <div className="text-center mt-5 md:mt-8">
             <Link
               href="/conditions"
               className="inline-flex items-center px-6 py-3 rounded-lg border border-slate-300 bg-white text-slate-900 hover:border-[#B08D57] hover:text-[#B08D57] transition-colors"

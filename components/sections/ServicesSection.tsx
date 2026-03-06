@@ -129,7 +129,7 @@ export default function ServicesSection() {
             transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="relative group"
           >
-            <div className="relative h-[600px] lg:h-[700px] w-full rounded-2xl overflow-hidden shadow-luxury-deep bg-gray-50 image-luxury-frame">
+            <div className="relative h-[350px] sm:h-[500px] lg:h-[700px] w-full rounded-2xl overflow-hidden shadow-luxury-deep bg-gray-50 image-luxury-frame">
               {/* Image with contain to show full image */}
               <div className="relative h-full w-full">
                 <Image

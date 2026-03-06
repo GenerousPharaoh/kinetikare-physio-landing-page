@@ -48,13 +48,13 @@ const HealingEnvironmentSection = () => {
           initial={{ opacity: 1, y: 0 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-slate-900 mb-6 tracking-[-0.03em]">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-light text-slate-900 mb-4 md:mb-6 tracking-[-0.03em]">
             Where Your <span className="text-[#B08D57]">Recovery Continues</span>
           </h2>
-          <div className="w-32 h-0.5 bg-gradient-to-r from-transparent via-[#B08D57] to-transparent mx-auto mb-8"></div>
-          <p className="text-xl lg:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-light">
+          <div className="w-24 md:w-32 h-0.5 bg-gradient-to-r from-transparent via-[#B08D57] to-transparent mx-auto mb-4 md:mb-8"></div>
+          <p className="text-base md:text-xl lg:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-light">
             A modern, welcoming space designed to support your recovery journey
           </p>
         </motion.div>

@@ -324,7 +324,7 @@ export default function HeroSection() {
       </motion.div>
 
       {/* 4. Content Layer - Accounting for mobile browser bars with explicit safe padding */}
-      <div className="relative z-30 h-full flex items-start pb-20 pt-12 md:pb-0 md:pt-24">
+      <div className="relative z-30 h-full flex items-end md:items-start pb-8 pt-12 md:pb-0 md:pt-24">
         <div className="w-full md:max-w-[55%] lg:max-w-[50%] px-6 sm:px-8 md:px-12 lg:px-16">
 
           <motion.div
@@ -342,8 +342,8 @@ export default function HeroSection() {
             </motion.div>
 
             {/* Main Heading - Playfair Display */}
-            <motion.div variants={itemVariants} className="mb-6">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-playfair text-white leading-[1.1] tracking-tight drop-shadow-2xl">
+            <motion.div variants={itemVariants} className="mb-4 md:mb-6">
+              <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-playfair text-white leading-[1.1] tracking-tight drop-shadow-2xl">
                 Kareem <br />
                 <span className="text-[#D4AF37]">
                   Hassanein
@@ -352,24 +352,24 @@ export default function HeroSection() {
             </motion.div>
 
             {/* Slogan */}
-            <motion.div variants={itemVariants} className="mb-8">
+            <motion.div variants={itemVariants} className="mb-6 md:mb-8">
               <p className="text-base md:text-lg text-white/80 font-light tracking-wide leading-relaxed">
                 The Science of Recovery. <br />
                 <span className="text-[#D4AF37] font-normal italic font-playfair text-lg md:text-xl">The Art of Care.</span>
               </p>
             </motion.div>
 
-            {/* Brilliant Buttons (Sophisticated & Aligned) */}
-            <motion.div variants={itemVariants} className="flex flex-wrap gap-4 mb-10">
+            {/* Buttons - Full width on mobile */}
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 md:mb-10">
               <Link
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                 target="_blank"
-                className="group relative"
+                className="group relative w-full sm:w-auto"
               >
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="relative px-8 py-4 bg-[#D4AF37] overflow-hidden rounded-sm shadow-[0_0_20px_rgba(212,175,55,0.2)] hover:shadow-[0_0_40px_rgba(212,175,55,0.4)] transition-all duration-300 flex items-center justify-center gap-3"
+                  className="relative px-8 py-4 bg-[#D4AF37] overflow-hidden rounded-lg sm:rounded-sm shadow-[0_0_20px_rgba(212,175,55,0.2)] hover:shadow-[0_0_40px_rgba(212,175,55,0.4)] transition-all duration-300 flex items-center justify-center gap-3"
                 >
                   {/* Sophisticated Shimmer */}
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
@@ -383,12 +383,12 @@ export default function HeroSection() {
 
               <Link
                 href="/services"
-                className="group relative"
+                className="group relative w-full sm:w-auto"
               >
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="px-8 py-4 border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/10 transition-all duration-300 rounded-sm hover:border-[#D4AF37]/30 flex items-center justify-center"
+                  className="px-8 py-4 border border-white/20 bg-white/5 backdrop-blur-md hover:bg-white/10 transition-all duration-300 rounded-lg sm:rounded-sm hover:border-[#D4AF37]/30 flex items-center justify-center"
                 >
                   <span className="text-white text-xs font-bold tracking-[0.15em] uppercase group-hover:text-[#D4AF37] transition-colors">
                     View Services
@@ -397,8 +397,8 @@ export default function HeroSection() {
               </Link>
             </motion.div>
 
-            {/* Info Badges - Clean Staggered Fade */}
-            <div className="flex flex-wrap md:flex-nowrap gap-2 md:gap-3">
+            {/* Info Badges */}
+            <div className="flex flex-wrap md:flex-nowrap gap-2 md:gap-3 mb-5 md:mb-0">
               {[
                 "Direct Billing",
                 "No Referral Needed",
@@ -419,6 +419,22 @@ export default function HeroSection() {
                 </motion.div>
               ))}
             </div>
+
+            {/* Mobile-only: Google Reviews trust signal */}
+            <motion.div
+              className="md:hidden flex items-center gap-3 mt-1"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.5, duration: 0.6 }}
+            >
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <StarIcon key={i} className="w-3.5 h-3.5 text-[#D4AF37]" />
+                ))}
+              </div>
+              <span className="text-white/70 text-xs font-medium">5.0 on Google</span>
+              <span className="text-white/40 text-xs">17 reviews</span>
+            </motion.div>
 
           </motion.div>
         </div>

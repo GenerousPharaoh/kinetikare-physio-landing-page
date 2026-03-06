@@ -19,7 +19,7 @@ export default function AboutSection() {
     >
       <div className="container mx-auto px-5 sm:px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-2 items-center">
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-2 items-center">
             {/* Left side - Image */}
             <motion.div
               initial={{ opacity: 1, x: 0 }}
@@ -27,7 +27,7 @@ export default function AboutSection() {
               transition={{ duration: 0.5, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
               className="relative"
             >
-              <div className="relative w-full max-w-sm mx-auto lg:ml-0 lg:mr-auto">
+              <div className="relative w-full max-w-[260px] sm:max-w-sm mx-auto lg:ml-0 lg:mr-auto">
                 {/* Photo container with subtle enhancements */}
                 <div className="relative">
                   <div className="aspect-[3/4] relative rounded-2xl overflow-hidden shadow-luxury-deep hover:shadow-luxury-float transition-all duration-700 bg-gradient-to-br from-gray-50 to-gray-100 image-luxury-frame group">
@@ -57,16 +57,16 @@ export default function AboutSection() {
               animate={isInView ? "visible" : "hidden"}
               className="text-center lg:text-left lg:-ml-12"
             >
-              <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 mb-6">
+              <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 mb-4 md:mb-6">
                 <UserCircleIcon className="w-5 h-5 text-[#B08D57]" />
                 <span className="text-sm font-medium text-gray-700">Meet Kareem Hassanein</span>
               </motion.div>
-              
-              <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl text-primary-warm mb-6 heading-luxury-2">
+
+              <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl text-primary-warm mb-4 md:mb-6 heading-luxury-2">
                 Kareem Hassanein
               </motion.h2>
-              
-              <motion.div variants={itemVariants} className="text-lg mb-8 space-y-4 text-luxury-subtle">
+
+              <motion.div variants={itemVariants} className="text-base md:text-lg mb-6 md:mb-8 space-y-3 md:space-y-4 text-luxury-subtle">
                 <p>
                   Behind every treatment plan is a physiotherapist who has stood in your shoes. My journey into physiotherapy was shaped by personal experience, from competitive soccer to navigating my own significant injuries.
                 </p>

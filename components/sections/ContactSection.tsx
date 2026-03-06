@@ -55,17 +55,17 @@ export default function ContactSection() {
             animate={{ opacity: 1 }}
             className="text-center mb-12 sm:mb-16"
           >
-            <div className="relative inline-block mb-6 sm:mb-8">
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-slate-900 mb-6 sm:mb-8 heading-luxury-1">
+            <div className="relative inline-block mb-4 sm:mb-8">
+              <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-slate-900 mb-4 sm:mb-8 heading-luxury-1">
                 Get in <span className="text-luxury-gradient relative">
                   Touch
                   <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
                 </span>
               </h2>
             </div>
-            
-            <p className="text-2xl lg:text-3xl mb-8 text-luxury-subtle">
-              Ready to move forward in your recovery journey? Experience personalized physiotherapy care designed to help you move and feel your best.
+
+            <p className="text-lg md:text-2xl lg:text-3xl mb-6 md:mb-8 text-luxury-subtle">
+              Ready to move forward? Experience personalized physiotherapy care designed to help you move and feel your best.
             </p>
           </motion.div>
 
@@ -236,20 +236,20 @@ export default function ContactSection() {
           >
             <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-10 lg:p-16 shadow-premium-2 hover:shadow-premium-2-hover shadow-transition border border-slate-100">
               {/* Clean Header */}
-                <div className="text-center mb-12 sm:mb-16">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl mb-6 shadow-lg">
-                  <MapPinIcon className="w-8 h-8 text-white" />
+                <div className="text-center mb-6 sm:mb-16">
+                <div className="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-xl md:rounded-2xl mb-4 md:mb-6 shadow-lg">
+                  <MapPinIcon className="w-6 h-6 md:w-8 md:h-8 text-white" />
                   </div>
-                  
-                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-light text-slate-900 mb-4 tracking-[-0.03em]">
+
+                <h3 className="text-2xl sm:text-4xl lg:text-5xl font-light text-slate-900 mb-3 md:mb-4 tracking-[-0.03em]">
                   Service <span className="text-[#B08D57]">Area</span>
                   </h3>
-                  
-                <div className="space-y-4 max-w-3xl mx-auto">
-                  <p className="text-2xl font-light text-slate-800">
+
+                <div className="space-y-2 md:space-y-4 max-w-3xl mx-auto">
+                  <p className="text-xl md:text-2xl font-light text-slate-800">
                     Burlington
                   </p>
-                  <p className="text-lg text-slate-600 leading-relaxed">
+                  <p className="text-sm md:text-lg text-slate-600 leading-relaxed">
                     Welcoming patients from {serviceAreas.join(", ")} and surrounding areas
                   </p>
                 </div>
@@ -257,8 +257,8 @@ export default function ContactSection() {
 
               {/* Clean Description */}
               <div className="text-center">
-                <div className="bg-slate-50 rounded-2xl p-8 sm:p-10 max-w-4xl mx-auto">
-                  <p className="text-xl sm:text-2xl text-slate-700 leading-relaxed">
+                <div className="bg-slate-50 rounded-xl md:rounded-2xl p-5 sm:p-10 max-w-4xl mx-auto">
+                  <p className="text-base sm:text-xl md:text-2xl text-slate-700 leading-relaxed">
                     My practice is conveniently located in <span className="font-medium text-[#B08D57]">Burlington</span>, and I'm pleased to extend physiotherapy services to individuals and families throughout nearby communities.
                   </p>
                 </div>
@@ -279,11 +279,11 @@ export default function ContactSection() {
               <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-[#D4AF37]/5 to-transparent rounded-full blur-2xl"></div>
               
               <div className="relative z-10">
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-normal text-slate-900 mb-6 sm:mb-8 tracking-[-0.02em]">
+                <h3 className="text-xl sm:text-3xl lg:text-4xl font-normal text-slate-900 mb-4 sm:mb-8 tracking-[-0.02em]">
                   Questions About Treatment?
                 </h3>
-                <p className="text-base sm:text-lg lg:text-xl text-slate-600 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed font-light">
-                  I'm here to discuss your specific needs and how physiotherapy can help you achieve your recovery goals. Let's start a conversation about your health.
+                <p className="text-sm sm:text-lg lg:text-xl text-slate-600 mb-6 sm:mb-12 max-w-3xl mx-auto leading-relaxed font-light">
+                  I'm here to discuss your specific needs and how physiotherapy can help. Let's start a conversation about your health.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
                   <Link

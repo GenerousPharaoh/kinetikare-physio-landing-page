@@ -133,10 +133,10 @@ export default function Home() {
 
         {/* Main content wrapper with light background to restore original design */}
         <div className="relative z-10 bg-white">
-          {/* Elegant transition from hero — tighter on mobile */}
-          <div className="relative py-8 md:py-16 overflow-hidden">
+          {/* Elegant transition from hero — minimal on mobile */}
+          <div className="relative py-3 md:py-16 overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-b from-white via-[#B08D57]/[0.02] to-white" />
-            <div className="relative max-w-4xl mx-auto px-5">
+            <div className="relative max-w-4xl mx-auto px-5 hidden md:block">
               <div className="flex items-center justify-center gap-4">
                 <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#B08D57]/20 to-[#B08D57]/40" />
                 <div className="flex gap-2">

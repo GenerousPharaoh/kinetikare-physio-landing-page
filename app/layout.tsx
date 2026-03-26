@@ -44,11 +44,8 @@ export const metadata = {
   },
   robots: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
   other: {
-    'googlebot': 'index, follow',
     'google': 'notranslate',
-    'author': 'Kareem Hassanein',
     'copyright': 'Kareem Hassanein Physiotherapy',
-    'application-name': 'Kareem Hassanein Physio',
     'theme-color': '#B08D57',
     'msapplication-TileColor': '#B08D57',
     'apple-mobile-web-app-title': 'Kareem Physio',

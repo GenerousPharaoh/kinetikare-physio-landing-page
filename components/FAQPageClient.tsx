@@ -50,7 +50,6 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredQuestions, setFilteredQuestions] = useState<FaqItem[]>([]);
   const [isSearching, setIsSearching] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
   const [showStickyNav, setShowStickyNav] = useState(false);
   const [isMobilePanelOpen, setIsMobilePanelOpen] = useState(false);
 
@@ -58,15 +57,8 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
   const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
   const searchResultsRef = useRef<HTMLDivElement>(null);
 
-  // Set mounted state once component mounts in browser
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
   // Handle scroll to show/hide sticky navigation and update active section
   useEffect(() => {
-    if (!isMounted) return;
-
     const handleScroll = () => {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
@@ -95,7 +87,7 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isMounted, isSearching]);
+  }, [isSearching]);
 
   // Smooth scroll to section
   const scrollToSection = (categoryId: string) => {
@@ -117,8 +109,6 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
 
   // Search functionality
   useEffect(() => {
-    if (!isMounted) return;
-
     if (searchQuery.trim() === '') {
       setIsSearching(false);
       setFilteredQuestions([]);
@@ -177,15 +167,7 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
       .map(({ score, ...item }) => item);
 
     setFilteredQuestions(filtered);
-  }, [searchQuery, isMounted, faqCategories]);
-
-  if (!isMounted) {
-    return (
-      <div className="h-[600px] flex items-center justify-center">
-        <div className="text-center text-slate-400 font-light">Loading content...</div>
-      </div>
-    );
-  }
+  }, [searchQuery, faqCategories]);
 
   return (
     <>

@@ -5,9 +5,16 @@ import LegalPageLayout from '@/components/LegalPageLayout';
 export const metadata: Metadata = {
   title: 'Terms of Service | KinetiKare Physiotherapy',
   description: 'Terms and conditions for physiotherapy services, including appointment policies, fees, professional standards, and patient responsibilities.',
-  keywords: 'terms of service, physiotherapy terms, appointment policy, healthcare terms, professional services, Burlington physiotherapy',
   alternates: {
     canonical: 'https://www.kinetikarephysio.com/terms',
+  },
+  robots: {
+    index: false,
+    follow: true,
+    googleBot: {
+      index: false,
+      follow: true,
+    },
   },
 };
 

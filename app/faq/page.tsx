@@ -4,6 +4,13 @@ import Link from 'next/link';
 import FAQPageClient from '@/components/FAQPageClient';
 import { FaqItem } from '@/components/FAQAccordion';
 import FAQHero from '@/components/faq/FAQHero';
+import {
+  CONTENT_LAST_MODIFIED_ISO,
+  SEO_AUTHOR,
+  SEO_ORGANIZATION_ID,
+  SEO_PERSON_ID,
+  SEO_PUBLISHER,
+} from '@/lib/seo-metadata';
 
 interface FAQCategory {
   id: string;
@@ -963,44 +970,10 @@ const faqCategories: FAQCategory[] = [
 export const metadata: Metadata = {
   title: 'FAQ | Kareem Hassanein Physiotherapy | Burlington & Waterdown',
   description: 'Answers to common questions about physiotherapy, appointments, billing, session length and what to expect with Kareem Hassanein, Registered Physiotherapist.',
-  keywords: [
-    'Kareem Hassanein FAQ',
-    'KinetiKare FAQ',
-    'physiotherapy questions Burlington',
-    'Waterdown physiotherapy FAQ',
-    'Kareem physio Waterdown questions',
-    'manual therapy questions Burlington',
-    'trigger point release Burlington',
-    'active release therapy Burlington',
-    'dry needling FAQ Burlington',
-    'cupping therapy Burlington',
-    'IASTM Burlington',
-    'Graston Technique Burlington',
-    'trigger point release Waterdown',
-    'active release therapy Waterdown',
-    'cupping therapy Waterdown',
-    'IASTM Waterdown',
-    'Graston Technique Waterdown',
-    'trigger point release Oakville',
-    'active release therapy Oakville',
-    'cupping therapy Oakville',
-    'IASTM Oakville',
-    'Graston Technique Oakville',
-    'physiotherapy questions Hamilton',
-    'manual therapy questions Waterdown',
-    'manual therapy questions Oakville',
-    'dry needling FAQ Waterdown',
-    'dry needling FAQ Oakville',
-    'cupping therapy Hamilton',
-    'IASTM Hamilton',
-    'Graston Technique Hamilton',
-    'back pain FAQ Burlington',
-    'neck pain FAQ Waterdown',
-    'knee pain FAQ Oakville',
-    'sports injury FAQ Hamilton',
-    'Kareem Hassanein KinetiKare FAQ'
-  ],
   metadataBase: new URL('https://www.kinetikarephysio.com'),
+  authors: [SEO_AUTHOR],
+  creator: SEO_AUTHOR.name,
+  publisher: SEO_PUBLISHER,
   openGraph: {
     title: 'FAQ | Kareem Hassanein | KinetiKare Physiotherapy',
     description: 'Find answers to your physiotherapy questions. Serving Burlington, Waterdown, and surrounding areas.',
@@ -1023,6 +996,15 @@ export default function FAQPage() {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    "@id": "https://www.kinetikarephysio.com/faq#faqpage",
+    "url": "https://www.kinetikarephysio.com/faq",
+    "author": {
+      "@id": SEO_PERSON_ID
+    },
+    "publisher": {
+      "@id": SEO_ORGANIZATION_ID
+    },
+    ...(CONTENT_LAST_MODIFIED_ISO.faq ? { "dateModified": CONTENT_LAST_MODIFIED_ISO.faq } : {}),
     "mainEntity": faqCategories.flatMap(category =>
       category.questions.map(faq => ({
         "@type": "Question",

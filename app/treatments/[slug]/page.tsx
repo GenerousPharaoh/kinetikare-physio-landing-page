@@ -6,6 +6,13 @@ import TreatmentContent from '@/components/treatments/TreatmentContent';
 import TreatmentProcess from '@/components/treatments/TreatmentProcess';
 import TreatmentFAQ from '@/components/treatments/TreatmentFAQ';
 import TreatmentCTA from '@/components/treatments/TreatmentCTA';
+import {
+  CONTENT_LAST_MODIFIED_ISO,
+  SEO_AUTHOR,
+  SEO_ORGANIZATION_ID,
+  SEO_PERSON_ID,
+  SEO_PUBLISHER,
+} from '@/lib/seo-metadata';
 
 export async function generateStaticParams() {
   const treatments = getAllTreatments();
@@ -26,13 +33,19 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   return {
     title: `${treatment.name} Burlington | Kareem Hassanein Physiotherapy`,
     description: treatment.metaDescription,
-    keywords: treatment.keywords.join(', '),
+    authors: [SEO_AUTHOR],
+    creator: SEO_AUTHOR.name,
+    publisher: SEO_PUBLISHER,
     openGraph: {
       title: `${treatment.name} | Physiotherapy Treatment in Burlington`,
       description: treatment.metaDescription,
       type: 'article',
       url: `https://www.kinetikarephysio.com/treatments/${treatment.id}`,
       siteName: 'Kareem Hassanein Physiotherapy',
+      authors: [SEO_AUTHOR.name],
+      ...(CONTENT_LAST_MODIFIED_ISO.treatments
+        ? { modifiedTime: CONTENT_LAST_MODIFIED_ISO.treatments }
+        : {}),
       images: [
         {
           url: 'https://www.kinetikarephysio.com/images/og-image.jpg',
@@ -61,10 +74,13 @@ export default function TreatmentPage({ params }: { params: { slug: string } }) 
     notFound();
   }
 
+  const title = `${treatment.name} Burlington | Kareem Hassanein Physiotherapy`;
+
   // Generate MedicalProcedure schema
   const medicalProcedureSchema = {
     '@context': 'https://schema.org',
     '@type': 'MedicalProcedure',
+    '@id': `https://www.kinetikarephysio.com/treatments/${treatment.id}#procedure`,
     name: treatment.name,
     description: treatment.description,
     procedureType: 'PhysicalTherapy',
@@ -91,11 +107,37 @@ export default function TreatmentPage({ params }: { params: { slug: string } }) 
     },
   };
 
+  const pageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalWebPage',
+    '@id': `https://www.kinetikarephysio.com/treatments/${treatment.id}#webpage`,
+    url: `https://www.kinetikarephysio.com/treatments/${treatment.id}`,
+    name: title,
+    description: treatment.metaDescription,
+    author: {
+      '@id': SEO_PERSON_ID,
+    },
+    publisher: {
+      '@id': SEO_ORGANIZATION_ID,
+    },
+    mainEntity: {
+      '@id': `https://www.kinetikarephysio.com/treatments/${treatment.id}#procedure`,
+    },
+    ...(CONTENT_LAST_MODIFIED_ISO.treatments
+      ? { dateModified: CONTENT_LAST_MODIFIED_ISO.treatments }
+      : {}),
+    inLanguage: 'en-CA',
+  };
+
   return (
     <main className="min-h-screen bg-background">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalProcedureSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
       />
       <TreatmentHero treatment={treatment} />
       <TreatmentContent treatment={treatment} />

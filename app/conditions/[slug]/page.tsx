@@ -7,6 +7,13 @@ import {
   getRelatedConditions
 } from '@/lib/conditions-data';
 import { getDetailedCondition } from '@/lib/detailed-conditions-content';
+import {
+  CONTENT_LAST_MODIFIED_ISO,
+  SEO_AUTHOR,
+  SEO_ORGANIZATION_ID,
+  SEO_PERSON_ID,
+  SEO_PUBLISHER,
+} from '@/lib/seo-metadata';
 
 interface PageProps {
   params: {
@@ -68,12 +75,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title,
     description,
+    authors: [SEO_AUTHOR],
+    creator: SEO_AUTHOR.name,
+    publisher: SEO_PUBLISHER,
     openGraph: {
       title,
       description,
       url: `https://www.kinetikarephysio.com/conditions/${params.slug}`,
       type: 'article',
       siteName: 'Kareem Hassanein Physiotherapy',
+      authors: [SEO_AUTHOR.name],
+      ...(CONTENT_LAST_MODIFIED_ISO.conditions
+        ? { modifiedTime: CONTENT_LAST_MODIFIED_ISO.conditions }
+        : {}),
       images: [
         {
           url: 'https://www.kinetikarephysio.com/images/og-image.jpg',
@@ -108,6 +122,8 @@ export default function ConditionPage({ params }: PageProps) {
     baseCondition.category, 
     3
   );
+  const title = `${condition.name} Physiotherapy in Burlington | Kareem Hassanein`;
+  const description = condition.metaDescription || generateDynamicMetaDescription(condition);
 
   // Enhanced schema with LocalBusiness and Person for SEO
   const enhancedSchema = {
@@ -200,6 +216,31 @@ export default function ConditionPage({ params }: PageProps) {
     ]
   };
 
+  const pageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalWebPage',
+    '@id': `https://www.kinetikarephysio.com/conditions/${params.slug}#webpage`,
+    url: `https://www.kinetikarephysio.com/conditions/${params.slug}`,
+    name: title,
+    description,
+    author: {
+      '@id': SEO_PERSON_ID,
+    },
+    publisher: {
+      '@id': SEO_ORGANIZATION_ID,
+    },
+    about: {
+      '@id': '#condition',
+    },
+    mainEntity: {
+      '@id': '#condition',
+    },
+    ...(CONTENT_LAST_MODIFIED_ISO.conditions
+      ? { dateModified: CONTENT_LAST_MODIFIED_ISO.conditions }
+      : {}),
+    inLanguage: 'en-CA',
+  };
+
   const faqEntities = (condition.faqs || [])
     .filter((faq) => faq.question && faq.answer)
     .map((faq) => ({
@@ -228,6 +269,10 @@ export default function ConditionPage({ params }: PageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
       />
       {faqSchema && (
         <script

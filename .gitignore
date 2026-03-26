@@ -11,6 +11,7 @@
 /playwright-report/
 /playwright/.cache/
 playwright.config.ts
+/output/
 
 # Next.js build output
 /.next/

@@ -1,5 +1,4 @@
 import './globals.css';
-import { Inter } from 'next/font/google';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
@@ -7,8 +6,6 @@ import WebVitals from '@/components/WebVitals';
 import ErrorBoundary from '@/components/ErrorBoundary';
 import CookieBanner from '@/components/CookieBanner';
 import { PerformanceProvider } from '@/context/PerformanceContext';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const viewport = {
   width: 'device-width',
@@ -412,12 +409,8 @@ export default function RootLayout({
         {/* Preconnect to Google Fonts for faster loading */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
-        {/* Load fonts with font-display: swap */}
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
       </head>
-      <body className={inter.className}>
+      <body>
         {/* Google Analytics */}
         <GoogleAnalytics />
         {/* Web Vitals tracking */}
@@ -441,13 +434,6 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
         />
 
-        {/* Trustindex Reviews Script - Without ID for React compatibility */}
-        <script
-          defer
-          async
-          src="https://cdn.trustindex.io/loader.js"
-        />
-        
         {/* Performance optimization provider */}
         <PerformanceProvider>
           {/* Global site header */}

@@ -45,6 +45,7 @@ export default function PopularConditionsSection() {
               <Link
                 key={condition.slug}
                 href={`/conditions/${condition.slug}`}
+                prefetch={false}
                 className="group rounded-xl border border-slate-200 bg-white p-4 md:p-5 transition-all duration-300 hover:border-[#B08D57] hover:shadow-lg hover:-translate-y-0.5 min-w-[72vw] sm:min-w-[45vw] md:min-w-0 snap-start flex-shrink-0"
               >
                 <p className="text-xs font-medium tracking-wide uppercase text-[#B08D57] mb-1.5 md:mb-2">
@@ -67,6 +68,7 @@ export default function PopularConditionsSection() {
           <div className="text-center mt-5 md:mt-8">
             <Link
               href="/conditions"
+              prefetch={false}
               className="inline-flex items-center px-6 py-3 rounded-lg border border-slate-300 bg-white text-slate-900 hover:border-[#B08D57] hover:text-[#B08D57] transition-colors"
             >
               Browse all condition pages

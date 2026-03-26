@@ -75,7 +75,6 @@ const HealingEnvironmentSection = () => {
                   src="/images/clinic-pic-may-2025.jpg"
                   alt="Modern Treatment Room at KinetiKare"
                   fill
-                  priority
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
@@ -162,7 +161,6 @@ const HealingEnvironmentSection = () => {
                 fill
                 className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 50vw"
-                priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-4">

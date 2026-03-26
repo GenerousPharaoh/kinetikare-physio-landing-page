@@ -13,16 +13,25 @@ import {
   LinkedinLogo
 } from "@phosphor-icons/react";
 import Image from 'next/image';
+import { useInView } from 'react-intersection-observer';
 import BackgroundTexture from './BackgroundTexture';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const { ref: mapRef, inView: mapInView } = useInView({
+    triggerOnce: true,
+    rootMargin: '350px 0px',
+  });
+  const [mapRequested, setMapRequested] = useState(false);
+  const mapHref = 'https://maps.app.goo.gl/syZN4FUBgACrtqgK9';
+  const mapEmbedSrc = 'https://www.google.com/maps?q=4631+Palladium+Way+Unit+6+Burlington+ON&output=embed';
+  const showMap = mapInView || mapRequested;
 
   const contactInfo = [
     {
       icon: <MapPin className="w-5 h-5 text-gold flex-shrink-0" weight="duotone" />,
       text: '4631 Palladium Way, Unit 6, Burlington, ON L7M 0W9',
-      href: 'https://maps.app.goo.gl/syZN4FUBgACrtqgK9',
+      href: mapHref,
       ariaLabel: 'View my location on Google Maps'
     },
     {
@@ -134,7 +143,7 @@ export default function Footer() {
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" weight="duotone" />
                 <a
-                  href="https://maps.app.goo.gl/syZN4FUBgACrtqgK9"
+                  href={mapHref}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-gold transition-colors"
@@ -168,16 +177,16 @@ export default function Footer() {
             <h3 className="text-sm font-medium mb-4 text-white uppercase tracking-wider">Quick Links</h3>
             <ul className="space-y-2 text-white/80 text-sm">
               <li>
-                <Link href="/services" className="hover:text-gold transition-colors">Services</Link>
+                <Link href="/services" prefetch={false} className="hover:text-gold transition-colors">Services</Link>
               </li>
               <li>
-                <Link href="/conditions" className="hover:text-gold transition-colors">Conditions</Link>
+                <Link href="/conditions" prefetch={false} className="hover:text-gold transition-colors">Conditions</Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-gold transition-colors">About</Link>
+                <Link href="/about" prefetch={false} className="hover:text-gold transition-colors">About</Link>
               </li>
               <li>
-                <Link href="/faq" className="hover:text-gold transition-colors">FAQ</Link>
+                <Link href="/faq" prefetch={false} className="hover:text-gold transition-colors">FAQ</Link>
               </li>
               <li className="pt-2">
                 <a
@@ -229,16 +238,41 @@ export default function Footer() {
               </Link>
 
               {/* Small Map Preview */}
-              <div className="rounded-lg overflow-hidden h-[120px] relative border border-white/10 bg-slate-800">
-                <iframe
-                  src="https://www.google.com/maps?q=4631+Palladium+Way+Unit+6+Burlington+ON&output=embed"
-                  title="Clinic location map"
-                  width="100%"
-                  height="120"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  style={{ border: 0 }}
-                ></iframe>
+              <div
+                ref={mapRef}
+                className="rounded-lg overflow-hidden h-[120px] relative border border-white/10 bg-slate-800"
+                onMouseEnter={() => setMapRequested(true)}
+                onFocus={() => setMapRequested(true)}
+                onTouchStart={() => setMapRequested(true)}
+              >
+                {showMap ? (
+                  <iframe
+                    src={mapEmbedSrc}
+                    title="Clinic location map"
+                    width="100%"
+                    height="120"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    style={{ border: 0 }}
+                  ></iframe>
+                ) : (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-slate-800 via-slate-900 to-slate-950 px-4 text-center">
+                    <MapPin className="w-5 h-5 text-gold mb-2" weight="duotone" />
+                    <p className="text-xs font-medium text-white/90 mb-1">Clinic Location</p>
+                    <p className="text-[11px] text-white/60 mb-3">Interactive map loads when this section comes into view</p>
+                    <a
+                      href={mapHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-[11px] text-gold hover:text-gold/80 transition-colors"
+                    >
+                      Open in Google Maps
+                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -250,11 +284,11 @@ export default function Footer() {
             © {currentYear} KinetiKare Physiotherapy. All rights reserved.
           </p>
           <div className="flex gap-4 text-sm text-white/60">
-            <Link href="/privacy" className="hover:text-gold transition-colors">Privacy Policy</Link>
+            <Link href="/privacy" prefetch={false} className="hover:text-gold transition-colors">Privacy Policy</Link>
             <span className="text-white/20">•</span>
-            <Link href="/terms" className="hover:text-gold transition-colors">Terms of Service</Link>
+            <Link href="/terms" prefetch={false} className="hover:text-gold transition-colors">Terms of Service</Link>
             <span className="text-white/20">•</span>
-            <Link href="/accessibility" className="hover:text-gold transition-colors">Accessibility</Link>
+            <Link href="/accessibility" prefetch={false} className="hover:text-gold transition-colors">Accessibility</Link>
           </div>
         </div>
       </div>

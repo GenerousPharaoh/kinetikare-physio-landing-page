@@ -36,7 +36,6 @@ export default function AboutSection() {
                       alt="Kareem Hassanein, registered physiotherapist in Burlington, expert in manual therapy, sports rehabilitation, dry needling"
                       fill
                       className="object-contain group-hover:scale-[1.02] transition-transform duration-700"
-                      priority
                       quality={95}
                     />
                     {/* Subtle professional overlay */}

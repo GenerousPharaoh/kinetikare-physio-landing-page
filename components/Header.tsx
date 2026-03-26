@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, forwardRef, useCallback, useMemo } from 'react';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import {
   Bars3Icon,
   XMarkIcon,
@@ -14,7 +15,12 @@ import { conditionCategories } from '@/lib/conditions-data';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
-import SearchModal from './SearchModal';
+
+const loadSearchModal = () => import('./SearchModal');
+const SearchModal = dynamic(loadSearchModal, {
+  ssr: false,
+  loading: () => null,
+});
 
 interface HeaderProps {
   onNavLinkClick?: (href: string) => void;
@@ -77,6 +83,10 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
   const handleNavClick = () => {
     setMobileMenuOpen(false);
     if (onNavLinkClick) onNavLinkClick('');
+  };
+
+  const primeSearchModal = () => {
+    void loadSearchModal();
   };
 
   // Only animate on homepage, when at the top, and if we haven't animated yet
@@ -168,6 +178,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 <motion.div key={item.name} className="relative group/nav" variants={headerItemVariants}>
                   <Link
                     href={item.href}
+                    prefetch={false}
                     className={`relative px-4 py-2 rounded-full text-sm font-medium tracking-wide transition-all duration-300 ${isCurrentPath(item.href)
                       ? '!text-[#D4AF37] bg-white/10 shadow-[0_0_10px_rgba(212,175,55,0.1)]'
                       : '!text-white/80 hover:!text-white hover:bg-white/5'
@@ -190,6 +201,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                                 <Link
                                   key={condition.slug}
                                   href={`/conditions/${condition.slug}`}
+                                  prefetch={false}
                                   className="block text-xs text-white/60 hover:text-white hover:translate-x-1 transition-all duration-200 py-1"
                                 >
                                   {condition.name}
@@ -198,6 +210,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                               {category.conditions.length > 4 && (
                                 <Link
                                   href={`/conditions?tab=${conditionCategories.indexOf(category)}`}
+                                  prefetch={false}
                                   className="block text-[10px] text-[#D4AF37]/70 hover:text-[#D4AF37] uppercase tracking-wider font-bold pt-1"
                                 >
                                   View All ({category.conditions.length})
@@ -218,7 +231,12 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               {/* Search */}
               <motion.div variants={headerItemVariants}>
                 <button
-                  onClick={() => setSearchModalOpen(true)}
+                  onMouseEnter={primeSearchModal}
+                  onFocus={primeSearchModal}
+                  onClick={() => {
+                    primeSearchModal();
+                    setSearchModalOpen(true);
+                  }}
                   aria-label="Open search"
                   className="hidden sm:flex items-center justify-center w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 !text-white/70 hover:!text-[#D4AF37] transition-all duration-300 border border-white/5 hover:border-[#D4AF37]/30"
                 >
@@ -293,6 +311,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 {/* Mobile Search */}
                 <button
                   onClick={() => {
+                    primeSearchModal();
                     setSearchModalOpen(true);
                     setMobileMenuOpen(false);
                   }}
@@ -332,6 +351,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                                     <Link
                                       key={category.slug}
                                       href={`/conditions?tab=${idx}`}
+                                      prefetch={false}
                                       onClick={handleNavClick}
                                       className="block px-4 py-2 text-sm !text-white/60 hover:!text-[#D4AF37] transition-colors"
                                     >
@@ -346,6 +366,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                       ) : (
                         <Link
                           href={item.href}
+                          prefetch={false}
                           onClick={handleNavClick}
                           className={`block px-4 py-3 rounded-xl font-medium tracking-wide transition-all ${isCurrentPath(item.href)
                             ? 'bg-[#D4AF37]/10 !text-[#D4AF37]'
@@ -383,10 +404,12 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
         )}
       </AnimatePresence>
 
-      <SearchModal
-        isOpen={searchModalOpen}
-        onClose={() => setSearchModalOpen(false)}
-      />
+      {searchModalOpen ? (
+        <SearchModal
+          isOpen={searchModalOpen}
+          onClose={() => setSearchModalOpen(false)}
+        />
+      ) : null}
     </>
   );
 });

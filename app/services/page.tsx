@@ -8,12 +8,12 @@ import ServicesHero from '@/components/services/ServicesHero';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Physiotherapy Services in Burlington | Kareem Hassanein',
-  description: 'Physiotherapy services in Burlington: manual therapy, dry needling, exercise rehab and pain management. Direct billing.',
+  title: 'Physiotherapy Services in Burlington | Sports Rehab, Dry Needling & Cupping',
+  description: 'Physiotherapy services in Burlington for sports injuries, knee and hip pain, dry needling, cupping, exercise rehab, and post-surgical recovery. Direct billing available.',
   metadataBase: new URL('https://www.kinetikarephysio.com'),
   openGraph: {
-    title: 'Physiotherapy Services | Kareem Hassanein',
-    description: 'Physiotherapy services including sports rehabilitation, manual therapy, dry needling, and exercise therapy for improved movement and pain management.',
+    title: 'Burlington Physiotherapy Services | Sports Rehab, Dry Needling & Cupping',
+    description: 'Sports rehabilitation, knee and hip pain treatment, dry needling, cupping, and exercise-based physiotherapy in Burlington.',
     type: 'website',
     url: 'https://www.kinetikarephysio.com/services',
     images: [{

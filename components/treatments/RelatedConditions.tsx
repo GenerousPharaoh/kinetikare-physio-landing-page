@@ -52,7 +52,7 @@ export default function RelatedConditions({ conditionIds }: RelatedConditionsPro
                       {condition.shortDescription}
                     </p>
                     <div className="flex items-center text-accent font-semibold text-sm group-hover:gap-2 transition-all">
-                      Learn More
+                      View {condition.name}
                       <ArrowRightIcon className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>

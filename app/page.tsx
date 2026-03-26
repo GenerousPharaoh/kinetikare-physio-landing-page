@@ -11,11 +11,11 @@ import SectionDivider from '@/components/SectionDivider';
 
 // SEO Metadata for Homepage
 export const metadata: Metadata = {
-  title: 'Physiotherapist in Burlington | Kareem Hassanein',
-  description: 'Kareem Hassanein, Registered Physiotherapist in Burlington for back pain, neck pain, sports injuries, and rehabilitation. Direct billing and evening appointments.',
+  title: 'Physiotherapy in Burlington | Sports Rehab, Knee Pain, Dry Needling & Cupping',
+  description: 'One-on-one physiotherapy in Burlington for sports injuries, knee and hip pain, sciatica, dry needling, cupping, and rehabilitation with Kareem Hassanein. Direct billing and evening appointments.',
   openGraph: {
-    title: 'Kareem Hassanein Physiotherapy | Burlington',
-    description: 'Registered Physiotherapist offering manual therapy, dry needling, cupping, and exercise rehabilitation for chronic pain, post-surgical recovery, and movement restoration.',
+    title: 'Burlington Physiotherapy | Sports Rehab, Dry Needling & Cupping',
+    description: 'Registered Physiotherapist in Burlington offering sports rehabilitation, knee and hip pain treatment, dry needling, cupping, and exercise-based rehab.',
     url: 'https://www.kinetikarephysio.com',
     type: 'website',
     images: [
@@ -29,8 +29,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Burlington Physiotherapy | Kareem Hassanein, PT',
-    description: 'Kareem Hassanein - Registered Physiotherapist in Burlington. Back pain, sports injuries, direct billing.',
+    title: 'Physiotherapy in Burlington | Kareem Hassanein, PT',
+    description: 'Sports injury rehabilitation, knee and hip pain treatment, dry needling, cupping, and direct billing in Burlington.',
     images: ['https://www.kinetikarephysio.com/images/og-image.jpg'],
   },
   alternates: {
@@ -55,7 +55,7 @@ const personSchema = {
   "@type": "Person",
   "name": "Kareem Hassanein",
   "jobTitle": "Registered Physiotherapist",
-  "description": "CAMPT-certified physiotherapist providing manual therapy, sports rehabilitation, and evidence-based treatment in Burlington, Waterdown, Hamilton, and Oakville.",
+  "description": "Registered Physiotherapist in Burlington providing sports injury rehabilitation, knee and hip pain treatment, dry needling, cupping, and evidence-based physiotherapy care.",
   "url": "https://www.kinetikarephysio.com",
   "image": "https://www.kinetikarephysio.com/images/kareem-profile.png",
   "telephone": "+19056346000",
@@ -96,9 +96,13 @@ const personSchema = {
   ],
   "knowsAbout": [
     "Manual Therapy",
+    "Cupping Therapy",
     "Sports Rehabilitation",
+    "Sports Injury Rehabilitation",
     "Dry Needling",
     "Exercise Therapy",
+    "Knee Pain Treatment",
+    "Hip Pain Treatment",
     "Pain Management",
     "Movement Assessment"
   ],

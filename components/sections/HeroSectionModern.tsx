@@ -337,7 +337,7 @@ export default function HeroSection() {
             <motion.div variants={itemVariants} className="flex items-center gap-3 mb-3 sm:mt-0">
               <span className="h-[1px] w-8 bg-gradient-to-r from-[#D4AF37] to-transparent" />
               <span className="text-[#D4AF37] text-[10px] tracking-[0.25em] uppercase font-medium">
-                Registered Physiotherapist
+                Physiotherapy In Burlington
               </span>
             </motion.div>
 
@@ -356,6 +356,13 @@ export default function HeroSection() {
               <p className="text-base md:text-lg text-white/80 font-light tracking-wide leading-relaxed">
                 The Science of Recovery. <br />
                 <span className="text-[#D4AF37] font-normal italic font-playfair text-lg md:text-xl">The Art of Care.</span>
+              </p>
+            </motion.div>
+
+            <motion.div variants={itemVariants} className="mb-6 md:mb-8">
+              <p className="max-w-lg text-sm md:text-base text-white/70 leading-relaxed">
+                One-on-one physiotherapy for sports injuries, knee and hip pain, dry needling,
+                cupping, and rehabilitation.
               </p>
             </motion.div>
 

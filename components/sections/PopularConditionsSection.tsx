@@ -3,14 +3,15 @@ import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import { getConditionBySlug } from '@/lib/conditions-data';
 
 const featuredConditionSlugs = [
-  'low-back-pain',
-  'sciatica',
-  'neck-pain',
   'knee-pain-patellofemoral',
+  'patellar-tendinopathy',
+  'greater-trochanteric-pain-syndrome',
+  'sciatica',
   'rotator-cuff-injuries',
-  'frozen-shoulder',
+  'ankle-sprains',
+  'low-back-pain',
   'plantar-fasciitis',
-  'tennis-elbow',
+  'frozen-shoulder',
 ];
 
 const categoryLabels: Record<string, string> = {
@@ -33,10 +34,11 @@ export default function PopularConditionsSection() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-6 md:mb-12">
             <h2 className="text-2xl md:text-4xl font-light text-slate-900 tracking-tight">
-              Popular Treatment Topics
+              Common Pain & Injury Topics
             </h2>
             <p className="mt-2 md:mt-3 text-sm md:text-lg text-slate-600 max-w-3xl mx-auto">
-              Quick access to condition pages with symptoms, contributing factors, and management options.
+              Quick access to knee, hip, back, shoulder, and sports injury pages with symptoms,
+              contributing factors, and management options.
             </p>
           </div>
 

@@ -402,7 +402,7 @@ export default function ConditionPageClient({
 
               {/* Regional Service Area - Subtle mention */}
               <p className="text-xs text-slate-400 mt-3">
-                Treating {condition.name.toLowerCase()} at my Burlington clinic • Convenient for Waterdown and Flamborough residents
+                Burlington physiotherapy for {condition.name.toLowerCase()} • One-on-one care focused on pain relief, rehabilitation, and return to activity
               </p>
 
               {/* Red Flags Disclaimer - Simple expandable that pushes content */}
@@ -1644,7 +1644,7 @@ export default function ConditionPageClient({
                                                       {treatment.shortDescription}
                                                     </p>
                                                     <div className="flex items-center text-[#B08D57] font-medium text-sm group-hover:gap-2 transition-all">
-                                                      <span>Learn More</span>
+                                                      <span>Explore {treatment.name}</span>
                                                       <ArrowRightIcon className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                                                     </div>
                                                   </div>
@@ -2054,7 +2054,7 @@ export default function ConditionPageClient({
                                             </p>
 
                                             <div className="flex items-center text-[#B08D57] font-medium text-sm group-hover:gap-2 transition-all">
-                                              <span>Learn More</span>
+                                              <span>Explore {treatment.name}</span>
                                               <ArrowRightIcon className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                                             </div>
                                           </div>

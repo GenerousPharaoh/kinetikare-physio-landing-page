@@ -145,7 +145,7 @@ export const treatments: Treatment[] = [
       }
     ],
     relatedConditions: ['acl-injuries', 'ankle-sprains', 'hamstring-strains', 'rotator-cuff-injuries', 'tennis-elbow', 'shoulder-instability', 'meniscus-tears', 'groin-strains', 'achilles-tendinopathy', 'mcl-lcl-sprains', 'plantar-fasciitis', 'shin-splints', 'golfers-elbow'],
-    metaDescription: 'Sports rehabilitation in Burlington. Evidence-based return to sport programs with objective testing and progressive training protocols.',
+    metaDescription: 'Sports injury rehabilitation in Burlington. Evidence-based return-to-sport programs for knee, ankle, shoulder, and tendon injuries with objective testing and progressive training.',
     keywords: ['sports rehabilitation', 'return to sport', 'athletic rehabilitation', 'sports injury recovery', 'return to play', 'sports physiotherapy']
   },
   {
@@ -207,7 +207,7 @@ export const treatments: Treatment[] = [
       }
     ],
     relatedConditions: ['tennis-elbow', 'plantar-fasciitis', 'shoulder-impingement', 'neck-pain', 'golfers-elbow', 'piriformis-syndrome', 'rotator-cuff-injuries', 'low-back-pain', 'sciatica', 'greater-trochanteric-pain-syndrome', 'achilles-tendinopathy', 'de-quervains-tenosynovitis', 'carpal-tunnel-syndrome', 'biceps-tendinopathy', 'proximal-hamstring-tendinopathy'],
-    metaDescription: 'Dry needling in Burlington. Trigger point therapy using thin needles to address muscle tension, referred pain, and movement restrictions.',
+    metaDescription: 'Dry needling physiotherapy in Burlington. Trigger point therapy using thin needles to address muscle tension, referred pain, and movement restrictions.',
     keywords: ['dry needling', 'trigger point therapy', 'myofascial release']
   },
   {
@@ -501,7 +501,7 @@ export const treatments: Treatment[] = [
       }
     ],
     relatedConditions: ['low-back-pain', 'it-band-syndrome', 'shoulder-impingement', 'neck-pain', 'rotator-cuff-injuries', 'hamstring-strains', 'piriformis-syndrome', 'greater-trochanteric-pain-syndrome', 'whiplash', 'achilles-tendinopathy', 'groin-strains'],
-    metaDescription: 'Cupping therapy in Burlington. Negative pressure technique to address muscle tension, fascial restrictions, and tissue mobility.',
+    metaDescription: 'Cupping therapy in Burlington. Physiotherapy treatment using controlled suction to address muscle tension, fascial restrictions, and tissue mobility.',
     keywords: ['cupping therapy', 'cupping treatment', 'myofascial cupping', 'vacuum therapy', 'traditional cupping']
   },
   {

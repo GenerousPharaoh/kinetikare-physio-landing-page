@@ -168,7 +168,7 @@ const spinalConditions: Condition[] = [
     description: 'Nerve root compressions and radiculopathy',
     featured: true,
     priority: 2,
-    metaDescription: 'Get relief from sciatica pain in Burlington. Kareem Hassanein provides personalized treatment for nerve pain, using manual therapy and targeted exercises to address root causes.',
+    metaDescription: 'Sciatica treatment in Burlington. Physiotherapy for nerve pain, leg symptoms, and lumbar-related sciatica using manual therapy and targeted exercise.',
   },
   {
     id: 'disc-herniation',
@@ -376,12 +376,12 @@ const hipPelvisConditions: Condition[] = [
   {
     id: 'greater-trochanteric-pain-syndrome',
     slug: 'greater-trochanteric-pain-syndrome',
-    name: 'Greater Trochanteric Pain Syndrome',
+    name: 'Lateral Hip Pain & Gluteal Tendinopathy',
     category: 'hip-pelvis',
-    description: 'Gluteal tendinopathy, lateral hip pain, formerly "trochanteric bursitis"',
+    description: 'GTPS, gluteal tendinopathy, and lateral hip pain formerly called trochanteric bursitis',
     featured: true,
     priority: 29,
-    metaDescription: 'GTPS treatment in Burlington. Expert physiotherapy for lateral hip pain and gluteal tendinopathy using progressive loading and manual therapy.',
+    metaDescription: 'Hip pain treatment in Burlington for lateral hip pain, gluteal tendinopathy, and GTPS using progressive loading and manual therapy.',
   },
   {
     id: 'hip-labral-tears',
@@ -468,7 +468,7 @@ const kneeConditions: Condition[] = [
     description: "e.g., Patellofemoral Pain Syndrome, Patellar Tendinopathy",
     featured: true,
     priority: 4,
-    metaDescription: 'Expert knee pain treatment in Burlington. Personalized physiotherapy for patellofemoral pain syndrome using biomechanical assessment and targeted rehabilitation.',
+    metaDescription: 'Knee pain treatment in Burlington. Physiotherapy for patellofemoral pain, jumper\'s knee, and sports-related knee pain using biomechanical assessment and targeted rehabilitation.',
   },
   {
     id: 'acl-injuries',
@@ -522,7 +522,7 @@ const kneeConditions: Condition[] = [
     name: "Patellar Tendinopathy (Jumper's Knee)",
     category: 'knee',
     description: 'Patellar tendon pain common in jumping sports',
-    metaDescription: "Jumper's knee treatment in Burlington. Expert physiotherapy for patellar tendinopathy using progressive loading and manual therapy techniques.",
+    metaDescription: "Patellar tendinopathy and patellar tendinitis treatment in Burlington. Physiotherapy for jumper's knee using progressive loading, sports rehab, and manual therapy techniques.",
   },
   {
     id: 'knee-arthritis',

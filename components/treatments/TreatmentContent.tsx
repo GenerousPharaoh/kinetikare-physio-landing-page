@@ -117,7 +117,7 @@ export default function TreatmentContent({ treatment }: TreatmentContentProps) {
                         {condition.shortDescription}
                       </p>
                       <div className="flex items-center text-[#B08D57] font-medium text-sm group-hover:gap-2 transition-all duration-300">
-                        Learn More
+                        View {condition.name}
                         <ArrowRightIcon className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-300" />
                       </div>
                     </div>

@@ -41,7 +41,7 @@ function generateDynamicMetaDescription(condition: any): string {
     'elbow-wrist-hand': 'elbow, wrist, and hand symptoms',
   };
   const focus = categoryFocus[condition.category] || 'musculoskeletal pain and injury';
-  const baseDescription = `${condition.name} physiotherapy in Burlington for ${focus}. Care with Kareem Hassanein, Registered Physiotherapist. Direct billing available.`;
+  const baseDescription = `${condition.name} treatment in Burlington for ${focus}. Physiotherapy care with Kareem Hassanein, Registered Physiotherapist. Direct billing available.`;
   const maxLength = 158;
 
   if (baseDescription.length <= maxLength) {
@@ -67,7 +67,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const condition = getDetailedCondition(params.slug, baseCondition);
 
-  const title = `${condition.name} Physiotherapy in Burlington | Kareem Hassanein`;
+  const title = `${condition.name} Treatment in Burlington | Kareem Hassanein Physiotherapy`;
 
   // Use dynamic meta description based on category if no custom one exists
   const description = condition.metaDescription || generateDynamicMetaDescription(condition);
@@ -122,7 +122,7 @@ export default function ConditionPage({ params }: PageProps) {
     baseCondition.category, 
     3
   );
-  const title = `${condition.name} Physiotherapy in Burlington | Kareem Hassanein`;
+  const title = `${condition.name} Treatment in Burlington | Kareem Hassanein Physiotherapy`;
   const description = condition.metaDescription || generateDynamicMetaDescription(condition);
 
   // Enhanced schema with LocalBusiness and Person for SEO

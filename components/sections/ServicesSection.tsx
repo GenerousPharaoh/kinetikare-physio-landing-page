@@ -19,26 +19,32 @@ export default function ServicesSection() {
     {
       title: "Manual Therapy",
       description: "Hands-on techniques including joint mobilization, soft tissue work, and personalized treatment methods.",
-      features: ["Joint Mobilization", "Soft Tissue Techniques", "Myofascial Release"]
+      features: ["Joint Mobilization", "Soft Tissue Techniques", "Myofascial Release"],
+      href: "/treatments/joint-mobilization",
+      cta: "Explore manual therapy"
     },
     {
-      title: "Exercise Rehab",
-      description: "Personalized movement programs designed to restore function, build strength, and prevent re-injury.",
-      features: ["Strength Training", "Movement Correction", "Injury Prevention"]
+      title: "Sports Injury Rehab",
+      description: "Progressive rehabilitation for active people returning from knee, ankle, shoulder, and tendon injuries.",
+      features: ["Return-To-Sport Planning", "Strength Progressions", "Performance Rehab"],
+      href: "/treatments/sports-rehab-return-to-sport",
+      cta: "See sports rehab"
     },
     {
       title: "Dry Needling",
       description: "Precise needle techniques targeting trigger points and dysfunctional tissues for pain relief and improved function.",
-      features: ["Trigger Point Release", "Pain Management", "Muscle Activation"]
+      features: ["Trigger Point Release", "Pain Management", "Muscle Activation"],
+      href: "/treatments/dry-needling",
+      cta: "See dry needling"
     }
   ];
 
   const additionalServices = [
+    "Cupping Therapy",
+    "Exercise Therapy",
     "Post-Surgical Rehabilitation",
     "Sports Injury Recovery", 
-    "Chronic Pain Management",
     "Movement Assessment",
-    "Injury Prevention Programs",
     "Return-to-Sport Protocols"
   ];
 
@@ -68,11 +74,12 @@ export default function ServicesSection() {
           </motion.div>
 
           <h2 className="text-4xl md:text-5xl text-primary-cool mb-6 heading-primary">
-            <span className="text-[#B08D57]">Services</span>
+            <span className="text-[#B08D57]">Physiotherapy Services in Burlington</span>
           </h2>
           <div className="w-24 h-1 bg-[#B08D57] mx-auto mb-6"></div>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            Comprehensive physiotherapy care tailored to your unique needs and recovery goals
+            Sports rehabilitation, knee and hip pain treatment, dry needling, cupping, and
+            exercise-based care tailored to your recovery goals
           </p>
         </motion.div>
 
@@ -108,10 +115,10 @@ export default function ServicesSection() {
                 {/* Learn More Link */}
                 <div className="mt-auto">
                   <Link
-                    href="/services"
+                    href={service.href}
                     className="inline-flex items-center text-[#B08D57] hover:text-[#D4AF37] font-normal transition-colors duration-300"
                   >
-                    <span>Learn More</span>
+                    <span>{service.cta}</span>
                     <ChevronRightIcon className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" />
                   </Link>
                 </div>

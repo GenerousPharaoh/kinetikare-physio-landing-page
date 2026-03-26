@@ -37,12 +37,12 @@ export default function ServicesHero() {
               className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 mb-6"
             >
               <ClipboardDocumentListIcon className="w-5 h-5 text-[#B08D57]" />
-              <span className="text-sm font-medium text-gray-700">Expert Physiotherapy Care</span>
+              <span className="text-sm font-medium text-gray-700">Burlington Physiotherapy</span>
             </motion.div>
 
             {/* Main heading with premium typography */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-slate-900 mb-6 tracking-tight">
-              Physiotherapy <span className="font-semibold">Services</span>
+              Physiotherapy <span className="font-semibold">Services in Burlington</span>
             </h1>
 
             {/* Decorative line */}
@@ -54,7 +54,8 @@ export default function ServicesHero() {
 
             {/* Tagline */}
             <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed max-w-3xl mx-auto mb-10">
-              Professional care tailored to your unique needs, combining proven techniques with personalized attention
+              Sports injury rehabilitation, knee and hip pain treatment, dry needling, cupping,
+              and exercise-based care tailored to your goals
             </p>
           </motion.div>
         </div>

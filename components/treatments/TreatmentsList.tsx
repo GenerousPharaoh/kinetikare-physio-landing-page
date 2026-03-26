@@ -84,7 +84,7 @@ export default function TreatmentsList() {
                       ))}
                     </div>
                     <div className="flex items-center text-[#B08D57] font-medium text-sm group-hover:gap-2 transition-all">
-                      <span>Learn More</span>
+                      <span>View treatment</span>
                       <ArrowRightIcon className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>

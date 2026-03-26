@@ -74,7 +74,7 @@ export default function FeaturedConditions() {
                       
                       {/* Action Link - Modern Design */}
                       <div className="flex items-center justify-between pt-6 border-t border-slate-100">
-                        <span className="text-[#B08D57] font-normal text-base">Learn More</span>
+                        <span className="text-[#B08D57] font-normal text-base">View {condition.name}</span>
                         <div className="w-10 h-10 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-md">
                           <ArrowRightIcon className="h-5 w-5 text-white group-hover:translate-x-0.5 transition-transform" />
                         </div>

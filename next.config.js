@@ -9,11 +9,6 @@ const nextConfig = {
     NEXT_DEPLOYMENT_ID: Date.now().toString(),
   },
   
-  // Add ESLint configuration
-  eslint: {
-    ignoreDuringBuilds: true, // Ignore ESLint errors during build
-  },
-  
   // Enhanced image configuration for better SEO and performance
   images: {
     remotePatterns: [
@@ -101,10 +96,6 @@ const nextConfig = {
     return config;
   },
   
-  // Remove type-checking to speed up development process
-  typescript: {
-    ignoreBuildErrors: true,
-  },
 };
 
 module.exports = nextConfig; 

@@ -21,15 +21,15 @@ export default function TreatmentsList() {
   const categories = [
     {
       name: 'Treatment Modalities',
-      treatments: ['dry-needling', 'exercise-therapy', 'joint-mobilization', 'soft-tissue-release']
+      treatments: ['dry-needling', 'exercise-therapy', 'joint-mobilization', 'soft-tissue-myofascial-release']
     },
     {
       name: 'Manual Techniques',
-      treatments: ['trigger-point-therapy', 'myofascial-release', 'cupping-therapy', 'iastm']
+      treatments: ['trigger-point-therapy', 'cupping-therapy', 'iastm']
     },
     {
       name: 'Programs & Assessment',
-      treatments: ['sports-rehabilitation', 'return-to-sport', 'post-surgical-rehabilitation', 'postural-assessment', 'pain-education']
+      treatments: ['sports-rehab-return-to-sport', 'post-surgical-rehabilitation', 'postural-assessment', 'pain-education']
     }
   ];
 

@@ -1,14 +1,46 @@
+export interface ConditionResearch {
+  title?: string;
+  authors?: string;
+  year?: number;
+  journal?: string;
+  sampleSize?: string;
+  findings?: string;
+  relevance?: string;
+  citation?: string;
+  finding?: string;
+  detail?: string;
+  clinicalRelevance?: string;
+}
+
+export interface SpecificTest {
+  test: string;
+  finding: string;
+  significance: string;
+}
+
+export interface ExerciseProgressionPhase {
+  title: string;
+  focus: string;
+  examples: string[];
+  progressionCriteria: string;
+}
+
 export interface Condition {
   id: string;
   slug: string;
   name: string;
   category: string;
   description: string;
+  shortDescription?: string;
   details?: string;
   featured?: boolean;
   priority?: number;
   metaDescription?: string;
   keywords?: string[];
+  affectedArea?: string;
+  symptoms?: string[];
+  causes?: string[];
+  understanding?: string;
   
   // Medical/Educational content structure
   pathophysiology?: string;  // What's happening at tissue level
@@ -24,7 +56,7 @@ export interface Condition {
   evidenceBasedTreatment?: {
     approach: string;
     evidence: string;
-    effectivenessLevel?: 'strong' | 'moderate' | 'emerging';
+    effectivenessLevel?: 'strong' | 'moderate' | 'emerging' | 'limited';
   }[];
   prognosis?: {
     timeline: string;
@@ -40,16 +72,8 @@ export interface Condition {
     sign: string;
     action: string;
   }[];
-  keyResearch?: {
-    title: string;
-    authors?: string;
-    year: number;
-    journal?: string;
-    sampleSize?: string;
-    findings: string;
-    relevance: string;
-    citation?: string;
-  }[];
+  keyResearch?: ConditionResearch[];
+  specificTests?: SpecificTest[];
   
   // New evidence-based sections
   evidenceSnapshot?: {
@@ -77,6 +101,20 @@ export interface Condition {
     parking: string;
     accessibility: string;
     booking: string;
+  };
+  exerciseProgression?: {
+    phase1: ExerciseProgressionPhase;
+    phase2: ExerciseProgressionPhase;
+    phase3: ExerciseProgressionPhase;
+  };
+  treatment?: {
+    approach: string;
+    duration: string;
+    evidence: string;
+  };
+  recovery?: {
+    timeline: string;
+    factors: string[];
   };
   
   // Legacy fields (keeping for backward compatibility)
@@ -643,7 +681,6 @@ const footAnkleConditions: Condition[] = [
     name: "Sever's Disease",
     category: 'foot-ankle',
     description: 'Calcaneal apophysitis, pediatric heel pain in growing athletes',
-    metaDescription: "Sever's disease treatment in Burlington. Expert pediatric physiotherapy for heel pain in young athletes using activity modification and stretching.",
     featured: true,
     priority: 35,
     metaDescription: "Sever's disease treatment in Burlington. Pediatric physiotherapy for growing heel pain using activity modification and strengthening.",

@@ -378,7 +378,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
           searchResults.push({
             type: 'condition',
             title: condition.name,
-            description: condition.overview?.substring(0, 120) || condition.shortDescription || 'Learn about this condition',
+            description: condition.overview?.substring(0, 120) || condition.shortDescription || condition.description || 'Learn about this condition',
             url: `/conditions/${condition.slug}`,
             category: condition.category || 'condition',
             score: nameMatch.score + 100 // Boost actual conditions

@@ -27,6 +27,26 @@ const MedicalTerm: React.FC<MedicalTermProps> = ({ term, children, onOpenModal }
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  useEffect(() => {
+    if (!termData || !isMobile || !showTooltip) {
+      return undefined;
+    }
+
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        termRef.current &&
+        !termRef.current.contains(e.target as Node) &&
+        tooltipRef.current &&
+        !tooltipRef.current.contains(e.target as Node)
+      ) {
+        setShowTooltip(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [isMobile, showTooltip, termData]);
+
   if (!termData) {
     return <span>{children || term}</span>;
   }
@@ -60,25 +80,6 @@ const MedicalTerm: React.FC<MedicalTermProps> = ({ term, children, onOpenModal }
       setShowTooltip(false);
     }
   };
-
-  // Close tooltip when clicking outside on mobile
-  useEffect(() => {
-    if (isMobile && showTooltip) {
-      const handleClickOutside = (e: MouseEvent) => {
-        if (
-          termRef.current && 
-          !termRef.current.contains(e.target as Node) &&
-          tooltipRef.current &&
-          !tooltipRef.current.contains(e.target as Node)
-        ) {
-          setShowTooltip(false);
-        }
-      };
-
-      document.addEventListener('click', handleClickOutside);
-      return () => document.removeEventListener('click', handleClickOutside);
-    }
-  }, [isMobile, showTooltip]);
 
   return (
     <span className="relative inline">

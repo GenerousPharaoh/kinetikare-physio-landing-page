@@ -1987,15 +1987,6 @@ With chronic ankle instability, the entire lower limb adapts through compensator
       }
     ],
 
-    keyResearch: [
-      {
-        title: "Early Mobilization for Ankle Sprains",
-        year: 2021,
-        findings: "Functional treatment superior to immobilization",
-        relevance: "Supports active rehabilitation approach"
-      }
-    ],
-
     measuringProgress: standardMeasuringProgress,
     accessAndHours: standardAccessAndHours
   },
@@ -3956,21 +3947,6 @@ Prolonged nerve compression creates a cascade of pathophysiological changes beyo
       }
     ],
 
-    keyResearch: [
-      {
-        title: "Deep Gluteal Syndrome Diagnosis and Management",
-        year: 2020,
-        findings: "Comprehensive approach including neural mobilization effective for most patients",
-        relevance: "Supports conservative management approach"
-      },
-      {
-        title: "Piriformis Syndrome vs Lumbar Radiculopathy",
-        year: 2019,
-        findings: "Careful differential diagnosis essential for appropriate treatment",
-        relevance: "Emphasizes importance of accurate diagnosis"
-      }
-    ],
-
     differentialDiagnosis: [
       {
         condition: "Lumbar Radiculopathy",
@@ -4953,15 +4929,6 @@ The facet joints' orientation in the lumbar spine makes them particularly vulner
       }
     ],
 
-    keyResearch: [
-      {
-        title: "Manual Therapy for Facet Joint Pain",
-        year: 2021,
-        findings: "Combined with exercise provides best outcomes",
-        relevance: "Supports multimodal approach"
-      }
-    ],
-
     measuringProgress: standardMeasuringProgress,
     accessAndHours: standardAccessAndHours
   },
@@ -5075,15 +5042,6 @@ Respiratory patterns significantly influence thoracic outlet mechanics. Upper ch
       {
         sign: "Acute arm swelling or color change",
         action: "Vascular assessment urgently"
-      }
-    ],
-
-    keyResearch: [
-      {
-        title: "Conservative Management of TOS",
-        year: 2020,
-        findings: "Structured physiotherapy effective for neurogenic TOS",
-        relevance: "Supports conservative approach"
       }
     ],
 
@@ -5358,15 +5316,6 @@ Scapular dyskinesis alters AC joint loading patterns by disrupting normal scapul
       }
     ],
 
-    keyResearch: [
-      {
-        title: "Conservative vs Surgical for AC Separation",
-        year: 2022,
-        findings: "Similar outcomes for Grade III injuries",
-        relevance: "Supports conservative trial"
-      }
-    ],
-
     measuringProgress: standardMeasuringProgress,
     accessAndHours: standardAccessAndHours
   },
@@ -5483,15 +5432,6 @@ The biceps tendon's intra-articular portion experiences unique mechanical challe
       }
     ],
 
-    keyResearch: [
-      {
-        title: "Biceps Tendinopathy Management",
-        year: 2021,
-        findings: "Loading exercises superior to rest",
-        relevance: "Supports active approach"
-      }
-    ],
-
     measuringProgress: standardMeasuringProgress,
     accessAndHours: standardAccessAndHours
   },
@@ -5605,15 +5545,6 @@ Contact sports create the highest risk for MCL injuries through direct trauma me
       {
         sign: "Multi-ligament injury signs",
         action: "Orthopedic assessment needed"
-      }
-    ],
-
-    keyResearch: [
-      {
-        title: "MCL Injury Management",
-        year: 2022,
-        findings: "Non-operative management successful for most",
-        relevance: "Supports conservative approach"
       }
     ],
 
@@ -5827,49 +5758,6 @@ Many athletes fear that continuing to exercise with some pain will damage the te
       {
         sign: "Bilateral symptoms in non-athlete or systemic symptoms",
         action: "Screen for inflammatory conditions such as spondyloarthropathy requiring rheumatological assessment"
-      }
-    ],
-
-    keyResearch: [
-      {
-        title: "Mixed comparison of interventions for patellar tendinopathy: Network meta-analysis",
-        authors: "Zhang L, Chen X, Wang H, et al.",
-        year: 2024,
-        journal: "Heliyon",
-        sampleSize: "Systematic review of 42 RCTs including 1,847 participants",
-        findings: "Progressive tendon-loading exercises combined with isometric training or moderate slow resistance training are more beneficial than eccentric training alone. Eccentric exercise ranked lowest for improving VISA-P scores, challenging traditional treatment paradigms.",
-        relevance: "Shifts clinical practice away from eccentric-focused protocols toward combined loading strategies",
-        citation: "Zhang L, Chen X, Wang H, et al. Mixed comparison of intervention with eccentric, isometric, and heavy slow resistance for Victorian Institute of Sport Assessment Patella Questionnaire in adults with patellar tendinopathy: A systematic review and network meta-analysis. Heliyon. 2024;10(21):e39171."
-      },
-      {
-        title: "Impact of exercise modalities on patellar tendinopathy: Systematic review",
-        authors: "Rodriguez-Merchan EC, Liddle AD",
-        year: 2024,
-        journal: "Frontiers in Rehabilitation Sciences",
-        sampleSize: "9 clinical trials with quality scores 70-93%",
-        findings: "Isometric exercises provide superior immediate pain relief with effects lasting 45 minutes post-exercise. Heavy slow resistance and isometric protocols show equivalent 12-week outcomes but isometric allows better in-season management.",
-        relevance: "Supports use of isometric loading for athletes needing to continue sport participation during treatment",
-        citation: "Rodriguez-Merchan EC, Liddle AD. A systematic review: impact of dry needling, isometric, and eccentric exercises on pain and function in individuals with patellar tendinopathy. Front Rehabil Sci. 2024;5:1263295."
-      },
-      {
-        title: "Patellar tendinopathy clinical practice guidelines update",
-        authors: "Malliaras P, Cook J, Purdam C, Rio E",
-        year: 2023,
-        journal: "JOSPT",
-        sampleSize: "Clinical practice guideline based on 127 studies",
-        findings: "Load management education combined with progressive loading achieves 83% return to sport rate. The 24-hour symptom response rule effectively guides load progression. Pain during exercise up to 5/10 does not indicate tissue damage.",
-        relevance: "Establishes evidence-based framework for clinical decision-making and load progression",
-        citation: "Malliaras P, Cook J, Purdam C, Rio E. Patellar Tendinopathy: Clinical Diagnosis, Load Management, and Advice for Challenging Case Presentations. J Orthop Sports Phys Ther. 2023;53(9):506-521."
-      },
-      {
-        title: "Mechanisms of pain relief with isometric exercise in tendinopathy",
-        authors: "Rio E, van Ark M, Docking S, et al.",
-        year: 2022,
-        journal: "British Journal of Sports Medicine",
-        sampleSize: "Randomized crossover trial of 26 athletes",
-        findings: "Isometric contractions at 70% MVC for 45 seconds produce immediate cortical inhibition and reduce pain by 60-75% for up to 45 minutes. This allows athletes to train with reduced pain while stimulating tendon adaptation.",
-        relevance: "Provides physiological rationale for isometric protocols in pain management",
-        citation: "Rio E, van Ark M, Docking S, et al. Isometric contractions are more analgesic than isotonic contractions for patellar tendon pain: An in-season randomized clinical trial. Br J Sports Med. 2022;56(14):792-800."
       }
     ],
 
@@ -7738,49 +7626,6 @@ When ankle proprioception is impaired following sprains, the peroneal muscles mu
       }
     ],
 
-    keyResearch: [
-      {
-        title: "Peroneal tendon disorders: current concepts review",
-        authors: "Rademaker J, Rosenberg ZS, Delfaut EM, et al.",
-        year: 2020,
-        journal: "European Journal of Radiology",
-        sampleSize: "Comprehensive review of diagnostic and treatment literature",
-        findings: "Peroneal tendinopathy is commonly associated with chronic ankle instability and lateral ankle sprains. Conservative treatment with progressive loading and proprioceptive training shows good outcomes in 70-80% of cases when underlying ankle instability is addressed.",
-        relevance: "Establishes the strong association between ankle instability and peroneal tendinopathy, supporting combined treatment approach addressing both conditions",
-        citation: "Rademaker J, Rosenberg ZS, Delfaut EM, et al. Peroneal tendon disorders: current concepts review. Eur J Radiol. 2020;131:109224."
-      },
-      {
-        title: "Chronic ankle instability and peroneal tendon dysfunction: a systematic review",
-        authors: "Barker HB, Beynnon BD, Renstrom PA",
-        year: 2022,
-        journal: "Sports Medicine and Arthroscopy Review",
-        sampleSize: "Systematic review of clinical studies",
-        findings: "Up to 70% of individuals with chronic ankle instability develop secondary peroneal tendinopathy. Rehabilitation programs addressing both ankle stability and tendon loading demonstrate superior outcomes compared to isolated tendon treatment.",
-        relevance: "Provides evidence for treating peroneal tendinopathy in context of ankle instability rather than as isolated condition, guiding comprehensive rehabilitation approach",
-        citation: "Barker HB, Beynnon BD, Renstrom PA. Ankle injury risk factors in sports. Sports Med Arthrosc Rev. 2022;30(4):174-182."
-      },
-      {
-        title: "Eccentric exercise therapy for peroneal tendinopathy: case series outcomes",
-        authors: "Lohrer H, Malliaropoulos N, Korakakis V, et al.",
-        year: 2021,
-        journal: "Journal of Sport Rehabilitation",
-        sampleSize: "28 patients with peroneal tendinopathy",
-        findings: "Progressive eccentric exercise program resulted in significant pain reduction and functional improvement in 85% of patients at 12-week follow-up. Combined eccentric and proprioceptive training showed better outcomes than eccentric exercise alone.",
-        relevance: "Supports eccentric loading as primary treatment modality while emphasizing importance of addressing proprioceptive deficits concurrently",
-        citation: "Lohrer H, Malliaropoulos N, Korakakis V, et al. Exercise therapy for chronic peroneal tendinopathy: a case series of outcomes. J Sport Rehabil. 2021;30(3):458-465."
-      },
-      {
-        title: "Biomechanical factors in peroneal tendon pathology: implications for treatment",
-        authors: "Davda K, Malhotra K, O'Donnell P, et al.",
-        year: 2023,
-        journal: "Foot and Ankle Surgery",
-        sampleSize: "Biomechanical analysis and clinical correlation study",
-        findings: "Peroneal tendon stress significantly increases with ankle inversion and during lateral weight-bearing activities. Addressing foot posture abnormalities and improving ankle stability reduces peak tendon loads by up to 40% during functional activities.",
-        relevance: "Provides biomechanical rationale for treatment approaches focusing on ankle stability and foot posture correction to reduce tendon loading",
-        citation: "Davda K, Malhotra K, O'Donnell P, et al. Peroneal tendon disorders: current concepts and treatment approaches. Foot Ankle Surg. 2023;29(2):123-131."
-      }
-    ],
-
     measuringProgress: {
       dayToDay: "I monitor your pain during weight-bearing activities, improvements in single-leg balance, ankle stability during functional movements, and your ability to perform activities that previously caused symptoms",
       questionnaires: "Foot and Ankle Ability Measure (FAAM) and Victorian Institute of Sport Assessment-Achilles (VISA-A) adapted for peroneal tendons",
@@ -8946,49 +8791,6 @@ The progressive nature of the condition means that periodic reassessment and tre
       {
         sign: "Rapidly progressive functional decline despite appropriate conservative treatment",
         action: "May indicate need for advanced imaging and surgical consultation to prevent further joint destruction"
-      }
-    ],
-
-    keyResearch: [
-      {
-        title: "Effectiveness of conservative treatment for hallux rigidus: A systematic review",
-        authors: "Zammit GV, Menz HB, Munteanu SE, et al.",
-        year: 2020,
-        journal: "Journal of Foot and Ankle Research",
-        sampleSize: "Meta-analysis of 12 studies",
-        findings: "Conservative treatment including orthoses, exercise therapy, and manual therapy showed significant pain reduction and functional improvement in mild to moderate hallux rigidus. Effect sizes ranged from 0.4-0.8 for pain and function outcomes.",
-        relevance: "Establishes physiotherapy as effective first-line treatment, particularly when combined with footwear modifications and joint mobilization techniques",
-        citation: "Zammit GV, Menz HB, Munteanu SE, et al. Effectiveness of conservative treatment for hallux rigidus: A systematic review. J Foot Ankle Res. 2020;13(1):45."
-      },
-      {
-        title: "Manual therapy and exercise for hallux rigidus: A randomized controlled trial",
-        authors: "Shamus J, Shamus E, Gugel RN, et al.",
-        year: 2023,
-        journal: "Physical Therapy in Sport",
-        sampleSize: "84 participants",
-        findings: "Combined manual therapy (joint mobilizations) and specific exercise therapy resulted in 67% greater improvement in first MTP joint range of motion and 43% better pain scores compared to exercise alone at 8-week follow-up.",
-        relevance: "Demonstrates superior outcomes when manual therapy is combined with exercise, supporting multimodal physiotherapy approach",
-        citation: "Shamus J, Shamus E, Gugel RN, et al. Manual therapy and exercise for hallux rigidus: A randomized controlled trial. Phys Ther Sport. 2023;59:88-95."
-      },
-      {
-        title: "Foot orthoses for hallux rigidus: Clinical outcomes and biomechanical analysis",
-        authors: "Nawoczenski DA, Baumhauer JF, Umberger BR",
-        year: 2021,
-        journal: "Gait and Posture",
-        sampleSize: "45 participants",
-        findings: "Custom foot orthoses with rocker sole modification reduced peak plantar pressures at the first MTP joint by 28% and improved patient-reported outcomes by 52% over 12 weeks. Greatest benefits seen in Grade 2-3 hallux rigidus.",
-        relevance: "Supports orthotic intervention as key component of conservative management, particularly for moderate severity cases",
-        citation: "Nawoczenski DA, Baumhauer JF, Umberger BR. Foot orthoses for hallux rigidus: Clinical outcomes and biomechanical analysis. Gait Posture. 2021;84:332-338."
-      },
-      {
-        title: "Long-term outcomes of conservative versus surgical treatment for hallux rigidus",
-        authors: "Polzer H, Polzer S, Mutschler W, Prall WC",
-        year: 2022,
-        journal: "Foot and Ankle International",
-        sampleSize: "156 participants (5-year follow-up)",
-        findings: "At 5-year follow-up, 78% of patients treated conservatively maintained good functional outcomes without requiring surgery. Conservative treatment was most effective in Grade 1-2 hallux rigidus with success rates of 85%.",
-        relevance: "Demonstrates long-term sustainability of conservative treatment, supporting physiotherapy as definitive management for mild to moderate cases",
-        citation: "Polzer H, Polzer S, Mutschler W, Prall WC. Long-term outcomes of conservative versus surgical treatment for hallux rigidus. Foot Ankle Int. 2022;43(2):198-206."
       }
     ],
 

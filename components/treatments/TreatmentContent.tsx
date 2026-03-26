@@ -114,7 +114,7 @@ export default function TreatmentContent({ treatment }: TreatmentContentProps) {
                         {condition.name}
                       </h3>
                       <p className="text-gray-600 text-sm mb-3 line-clamp-2">
-                        {condition.shortDescription}
+                        {condition.shortDescription || condition.description}
                       </p>
                       <div className="flex items-center text-[#B08D57] font-medium text-sm group-hover:gap-2 transition-all duration-300">
                         View {condition.name}

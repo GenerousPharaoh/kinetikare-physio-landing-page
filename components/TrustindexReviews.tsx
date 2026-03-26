@@ -1,5 +1,7 @@
 'use client';
 
+import Script from 'next/script';
+
 export default function TrustindexReviews() {
   return (
     <section className="pt-12 pb-8 px-4 bg-gradient-to-b from-white to-gray-50">
@@ -14,8 +16,11 @@ export default function TrustindexReviews() {
           </div>
         </div>
         
-        {/* Trustindex widget container - Using src attribute as per documentation */}
-        <div src='https://cdn.trustindex.io/loader.js?83f7807534fc4047ba26c92e0ca'></div>
+        <div id="trustindex-widget-container" />
+        <Script
+          src="https://cdn.trustindex.io/loader.js?83f7807534fc4047ba26c92e0ca"
+          strategy="lazyOnload"
+        />
       </div>
     </section>
   );

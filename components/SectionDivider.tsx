@@ -2,6 +2,10 @@ import React from 'react';
 
 interface SectionDividerProps {
   variant?: 'line' | 'gradient' | 'dots';
+  position?: 'top' | 'bottom';
+  shape?: 'wave' | 'curve' | 'tilt' | 'arrow';
+  fillColor?: string;
+  height?: number;
 }
 
 export default function SectionDivider({ variant = 'gradient' }: SectionDividerProps) {

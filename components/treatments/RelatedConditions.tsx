@@ -49,7 +49,7 @@ export default function RelatedConditions({ conditionIds }: RelatedConditionsPro
                       {condition.name}
                     </h3>
                     <p className="text-gray-700 text-sm mb-4 line-clamp-3">
-                      {condition.shortDescription}
+                      {condition.shortDescription || condition.description}
                     </p>
                     <div className="flex items-center text-accent font-semibold text-sm group-hover:gap-2 transition-all">
                       View {condition.name}

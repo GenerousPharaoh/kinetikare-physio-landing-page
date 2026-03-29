@@ -82,7 +82,7 @@ const faqCategories: FAQCategory[] = [
         answer: (
           <>
             Comfortable, athletic-style clothing is ideal. Choose anything that allows you to move freely and lets me easily access the area I need to assess or treat (e.g., shorts for{' '}
-            <Link href="/conditions/patellofemoral-pain-syndrome" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+            <Link href="/conditions/knee-pain-patellofemoral" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
               knee issues
             </Link>
             , a tank top for{' '}

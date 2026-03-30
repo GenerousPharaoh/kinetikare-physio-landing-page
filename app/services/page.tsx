@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import ClientImage from '@/components/ClientImage';
 import { Metadata } from 'next';
 import ServicesHero from '@/components/services/ServicesHero';
 
@@ -53,7 +52,6 @@ const services = [
         .
       </>
     ),
-    image: '/images/manual-therapy.jpg',
     features: [
       'Joint mobilization',
       'Soft tissue release techniques',
@@ -73,7 +71,6 @@ const services = [
         .
       </>
     ),
-    image: '/images/sports-injury.jpg',
     features: [
       'Sport-specific movement analysis',
       'Progressive strength training',
@@ -97,7 +94,6 @@ const services = [
         .
       </>
     ),
-    image: '/images/dry-needling.jpg',
     features: [
       'Trigger point release',
       'Muscle tension reduction',
@@ -121,7 +117,6 @@ const services = [
         .
       </>
     ),
-    image: '/images/exercise-therapy.jpg',
     features: [
       'Strengthening exercises',
       'Functional movement training',
@@ -145,7 +140,6 @@ const services = [
         .
       </>
     ),
-    image: '/images/posture-assessment.jpg',
     features: [
       'Movement pattern analysis',
       'Postural correction strategies',
@@ -173,7 +167,6 @@ const services = [
         .
       </>
     ),
-    image: '/images/pain-management.jpg',
     features: [
       'Acute and chronic pain treatment',
       'Myofascial Release Therapy (Instrument Assisted Soft Tissue Massage; Cupping)',

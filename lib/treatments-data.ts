@@ -74,7 +74,7 @@ export const treatments: Treatment[] = [
         answer: 'Usually yes. Pain education works best when combined with movement therapy and manual treatment. Education addresses the nervous system\'s interpretation of threat, while hands-on treatment addresses tissue restrictions and movement quality. Together, they create a comprehensive approach where you understand what\'s happening and have the physical capacity to move better. Most people benefit from both approaches.'
       }
     ],
-    relatedConditions: ['chronic-back-pain', 'fibromyalgia', 'neck-pain', 'low-back-pain', 'sciatica', 'disc-herniation', 'whiplash', 'hip-osteoarthritis', 'knee-osteoarthritis', 'degenerative-disc-disease', 'spinal-stenosis'],
+    relatedConditions: ['neck-pain', 'low-back-pain', 'sciatica', 'disc-herniation', 'whiplash', 'hip-osteoarthritis', 'knee-osteoarthritis', 'degenerative-disc-disease', 'spinal-stenosis'],
     metaDescription: 'Pain neuroscience education in Burlington. Understanding pain mechanisms and developing practical strategies for persistent pain conditions.',
     keywords: ['pain education', 'pain science', 'self-management', 'chronic pain', 'pain neuroscience education']
   },
@@ -387,7 +387,7 @@ export const treatments: Treatment[] = [
         answer: 'Acute restrictions (recent injuries) often respond to 2-3 sessions over 1-2 weeks. Chronic restrictions may need weekly treatment for 4-6 weeks, then spacing to biweekly as tissues improve. Treatment frequency depends on how quickly tissue changes occur and how well changes are maintained between sessions. Most people transition to monthly maintenance once primary restrictions resolve.'
       }
     ],
-    relatedConditions: ['it-band-syndrome', 'plantar-fasciitis', 'tennis-elbow', 'hamstring-strains', 'chronic-back-pain', 'fibromyalgia', 'low-back-pain', 'neck-pain', 'golfers-elbow', 'rotator-cuff-injuries', 'achilles-tendinopathy', 'groin-strains', 'piriformis-syndrome', 'shoulder-impingement', 'carpal-tunnel-syndrome', 'de-quervains-tenosynovitis', 'whiplash', 'thoracic-outlet-syndrome', 'peroneal-tendinopathy', 'posterior-tibial-tendon-dysfunction'],
+    relatedConditions: ['it-band-syndrome', 'plantar-fasciitis', 'tennis-elbow', 'hamstring-strains', 'low-back-pain', 'neck-pain', 'golfers-elbow', 'rotator-cuff-injuries', 'achilles-tendinopathy', 'groin-strains', 'piriformis-syndrome', 'shoulder-impingement', 'carpal-tunnel-syndrome', 'de-quervains-tenosynovitis', 'whiplash', 'thoracic-outlet-syndrome', 'peroneal-tendinopathy', 'posterior-tibial-tendon-dysfunction'],
     metaDescription: 'Myofascial release in Burlington. Manual techniques addressing fascial restrictions, muscle tension, and movement limitations.',
     keywords: ['soft tissue release', 'myofascial release', 'muscle tension', 'fascial therapy', 'tissue mobility', 'fascial restrictions', 'chronic pain treatment']
   },

@@ -58,7 +58,7 @@ export const metadata = {
 
 const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": ["PhysicalTherapy", "LocalBusiness", "MedicalBusiness"],
+  "@type": ["LocalBusiness", "MedicalBusiness"],
   "@id": "https://www.kinetikarephysio.com/#organization",
   "name": "Kareem Hassanein Physiotherapy",
   "legalName": "Kareem Hassanein Registered Physiotherapy Professional Corporation",
@@ -69,7 +69,7 @@ const organizationSchema = {
     "alternateName": ["KinetiKare", "Kareem Hassanein PT", "Kareem Physio"]
   },
   "image": "https://www.kinetikarephysio.com/images/kareem-profile.png",
-  "logo": "https://www.kinetikarephysio.com/images/kinetikare-logo.png",
+  "logo": "https://www.kinetikarephysio.com/images/kinetikare-logo.webp",
   "url": "https://www.kinetikarephysio.com",
   "sameAs": [
     "https://www.facebook.com/kinetikarephysio",
@@ -256,7 +256,7 @@ const brandSchema = {
   "@id": "https://www.kinetikarephysio.com/#brand",
   "name": "Kareem Hassanein Physiotherapy",
   "alternateName": ["Kareem Hassanein Physio", "KinetiKare", "Kareem Physio Burlington", "Kareem Hassanein PT"],
-  "logo": "https://www.kinetikarephysio.com/images/kinetikare-logo.png",
+  "logo": "https://www.kinetikarephysio.com/images/kinetikare-logo.webp",
   "url": "https://www.kinetikarephysio.com",
   "sameAs": [
     "https://www.facebook.com/kinetikarephysio",

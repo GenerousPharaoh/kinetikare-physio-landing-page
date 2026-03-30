@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import {
   MapPin,
@@ -13,19 +13,12 @@ import {
   LinkedinLogo
 } from "@phosphor-icons/react";
 import Image from 'next/image';
-import { useInView } from 'react-intersection-observer';
 import BackgroundTexture from './BackgroundTexture';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const { ref: mapRef, inView: mapInView } = useInView({
-    triggerOnce: true,
-    rootMargin: '350px 0px',
-  });
-  const [mapRequested, setMapRequested] = useState(false);
   const mapHref = 'https://maps.app.goo.gl/syZN4FUBgACrtqgK9';
   const mapEmbedSrc = 'https://www.google.com/maps?q=4631+Palladium+Way+Unit+6+Burlington+ON&output=embed';
-  const showMap = mapInView || mapRequested;
 
   const contactInfo = [
     {
@@ -238,41 +231,16 @@ export default function Footer() {
               </Link>
 
               {/* Small Map Preview */}
-              <div
-                ref={mapRef}
-                className="rounded-lg overflow-hidden h-[120px] relative border border-white/10 bg-slate-800"
-                onMouseEnter={() => setMapRequested(true)}
-                onFocus={() => setMapRequested(true)}
-                onTouchStart={() => setMapRequested(true)}
-              >
-                {showMap ? (
-                  <iframe
-                    src={mapEmbedSrc}
-                    title="Clinic location map"
-                    width="100%"
-                    height="120"
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    style={{ border: 0 }}
-                  ></iframe>
-                ) : (
-                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-slate-800 via-slate-900 to-slate-950 px-4 text-center">
-                    <MapPin className="w-5 h-5 text-gold mb-2" weight="duotone" />
-                    <p className="text-xs font-medium text-white/90 mb-1">Clinic Location</p>
-                    <p className="text-[11px] text-white/60 mb-3">Interactive map loads when this section comes into view</p>
-                    <a
-                      href={mapHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-[11px] text-gold hover:text-gold/80 transition-colors"
-                    >
-                      Open in Google Maps
-                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                    </a>
-                  </div>
-                )}
+              <div className="rounded-lg overflow-hidden h-[120px] relative border border-white/10 bg-slate-800">
+                <iframe
+                  src={mapEmbedSrc}
+                  title="Clinic location map"
+                  width="100%"
+                  height="120"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  style={{ border: 0 }}
+                ></iframe>
               </div>
             </div>
           </div>

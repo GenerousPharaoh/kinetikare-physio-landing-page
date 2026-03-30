@@ -20,19 +20,19 @@ export default function HeroSection() {
 
   // Curated, punchy reviews for the vertical marquee (No truncation needed)
   const curatedReviews = [
-    { name: "Dr. Fel Rocci", text: "I am now able to play 4-5 times a week without incurring a setback. Not bad for a 70 year old!" },
-    { name: "Marko Vasilic", text: "I'm back to playing basketball comfortably without worrying about my Achilles or heel flaring up." },
-    { name: "Ryan Darkwah", text: "My pain's gone now, and I'm back to playing at full speed. He really knows his stuff." },
-    { name: "David Espinosa", text: "My hip feels strong again, the foot pain's gone, and I've been able to train hard without any flare-ups." },
-    { name: "D Belisle", text: "After knee surgery, I never once felt rushed. His professionalism and genuine care made a huge difference in my recovery." },
-    { name: "Mitch Ball", text: "The dry needling and deep tissue work really accelerated my recovery. He knows his stuff." },
-    { name: "Nickel Chan", text: "He fixed issues I'd been struggling with for a long time. I always leave feeling better and more mobile." },
-    { name: "Thanula Gnanakanthan", text: "I saw consistent progress and now feel stronger and pain free. Outstanding experience." },
-    { name: "Johan Mapa", text: "After my first appointment, almost all the pain was gone. I always notice improvements in my mobility." },
-    { name: "Kendra MacCuish", text: "I've been able to reduce my pain while increasing my range of motion. Great therapy plan." },
-    { name: "Nader S", text: "He took his time to assess my father's issue. His mobility immediately improved." },
-    { name: "Tami Murzin", text: "Kareem helped me regain strength and mobility much faster than I expected." },
-    { name: "Pasquale Di Clemente", text: "The exercises have made a big difference in my strength and balance. I actually look forward to my sessions." }
+    { name: "Dr. Fel Rocci", text: "Having worked with Kareem, I am now able to play tennis 4-5 times a week without a setback. Not bad for a 70 year old!" },
+    { name: "Marko Vasilic", text: "Kareem did a full movement analysis and showed me where the extra stress was coming from. I'm back to playing basketball comfortably." },
+    { name: "Ryan Darkwah", text: "Kareem found the problem came from my hip and quads. My pain's gone now, and I'm back to playing at full speed." },
+    { name: "David Espinosa", text: "Kareem took the time to figure out what was causing it. My hip feels strong again, the foot pain's gone, and I've been training hard." },
+    { name: "D Belisle", text: "Kareem's professionalism, knowledge, and genuine care made a huge difference in my recovery after knee surgery." },
+    { name: "Mitch Ball", text: "Kareem's assessments helped me understand what was wrong. The dry needling and deep tissue work really accelerated my recovery." },
+    { name: "Nickel Chan", text: "Kareem is one of the best physiotherapists I've ever seen. He fixed issues I'd been struggling with for a long time." },
+    { name: "Thanula Gnanakanthan", text: "Kareem was thorough, knowledgeable, and incredibly attentive. I saw consistent progress and now feel stronger and pain free." },
+    { name: "Johan Mapa", text: "Kareem did a great job treating my plantar fasciitis. After my first appointment, almost all the pain was gone." },
+    { name: "Kendra MacCuish", text: "Kareem put together a therapy plan that allowed me to reduce my pain while increasing my range of motion." },
+    { name: "Nader S", text: "Kareem took his time to assess my father's issue. His mobility immediately improved under Kareem's care." },
+    { name: "Tami Murzin", text: "Kareem's knowledge and hands-on approach helped me regain strength and mobility much faster than I expected." },
+    { name: "Pasquale Di Clemente", text: "Kareem is great at adjusting each session based on how I'm feeling. The exercises have made a big difference in my strength and balance." }
   ];
 
   // Animation Variants

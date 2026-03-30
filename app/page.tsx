@@ -57,7 +57,7 @@ const personSchema = {
   "jobTitle": "Registered Physiotherapist",
   "description": "Registered Physiotherapist in Burlington providing sports injury rehabilitation, knee and hip pain treatment, dry needling, cupping, and evidence-based physiotherapy care.",
   "url": "https://www.kinetikarephysio.com",
-  "image": "https://www.kinetikarephysio.com/images/kareem-profile.png",
+  "image": "https://www.kinetikarephysio.com/images/kareem-profile.webp",
   "telephone": "+19056346000",
   "email": "kareem.hassanein@gmail.com",
   "address": {

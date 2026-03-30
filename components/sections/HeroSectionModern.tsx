@@ -371,6 +371,7 @@ export default function HeroSection() {
               <Link
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="group relative w-full sm:w-auto"
               >
                 <motion.div

@@ -251,7 +251,7 @@ export default function GoogleReviews() {
           <div className="absolute inset-0 pointer-events-none hidden md:block">
             <button
               onClick={handlePrevious}
-              className="absolute left-0 top-1/2 z-30 bg-white rounded-full p-3 shadow-lg hover:bg-gray-50 transition-colors duration-150 group pointer-events-auto cursor-pointer border-0 outline-none focus:outline-none"
+              className="absolute left-0 top-1/2 z-30 bg-white rounded-full p-3 shadow-lg hover:bg-gray-50 transition-colors duration-150 group pointer-events-auto cursor-pointer border-0 focus:ring-2 focus:ring-[#B08D57] focus:ring-offset-2 focus:outline-none"
               style={{ transform: 'translate(-3rem, -50%)' }}
               aria-label="Previous review"
             >
@@ -262,7 +262,7 @@ export default function GoogleReviews() {
 
             <button
               onClick={handleNext}
-              className="absolute right-0 top-1/2 z-30 bg-white rounded-full p-3 shadow-lg hover:bg-gray-50 transition-colors duration-150 group pointer-events-auto cursor-pointer border-0 outline-none focus:outline-none"
+              className="absolute right-0 top-1/2 z-30 bg-white rounded-full p-3 shadow-lg hover:bg-gray-50 transition-colors duration-150 group pointer-events-auto cursor-pointer border-0 focus:ring-2 focus:ring-[#B08D57] focus:ring-offset-2 focus:outline-none"
               style={{ transform: 'translate(3rem, -50%)' }}
               aria-label="Next review"
             >
@@ -314,7 +314,7 @@ export default function GoogleReviews() {
               <button
                 key={index}
                 onClick={() => handleDotClick(index)}
-                className="w-8 h-8 flex items-center justify-center border-0 outline-none focus:outline-none cursor-pointer"
+                className="w-8 h-8 flex items-center justify-center border-0 rounded-full focus:ring-2 focus:ring-[#B08D57] focus:ring-offset-2 focus:outline-none cursor-pointer"
                 aria-label={`Go to review ${index + 1}`}
               >
                 <span

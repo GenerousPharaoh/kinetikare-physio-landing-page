@@ -68,7 +68,7 @@ const organizationSchema = {
     "name": "Kareem Hassanein Physiotherapy",
     "alternateName": ["KinetiKare", "Kareem Hassanein PT", "Kareem Physio"]
   },
-  "image": "https://www.kinetikarephysio.com/images/kareem-profile.png",
+  "image": "https://www.kinetikarephysio.com/images/kareem-profile.webp",
   "logo": "https://www.kinetikarephysio.com/images/kinetikare-logo.webp",
   "url": "https://www.kinetikarephysio.com",
   "sameAs": [
@@ -287,7 +287,7 @@ const personSchema = {
   "alternateName": ["Kareem Hassanein PT", "Kareem Hassanein Physiotherapist", "Kareem Hassanein MSc PT"],
   "jobTitle": "Registered Physiotherapist",
   "description": "Kareem Hassanein, Registered Physiotherapist, MSc PT, BSc Kin. Provides manual therapy, dry needling, exercise rehabilitation and pain management for musculoskeletal conditions in Burlington, Ontario.",
-  "image": "https://www.kinetikarephysio.com/images/kareem-profile.png",
+  "image": "https://www.kinetikarephysio.com/images/kareem-profile.webp",
   "url": "https://www.kinetikarephysio.com/about",
   "sameAs": [
     "https://www.linkedin.com/in/kareemhassanein",

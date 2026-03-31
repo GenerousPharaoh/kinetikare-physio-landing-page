@@ -11,7 +11,7 @@ export default function FloatingButtons() {
 
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
+      if (window.pageYOffset > 500) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
@@ -87,7 +87,7 @@ export default function FloatingButtons() {
 
   return (
     <motion.div
-      className="fixed bottom-5 lg:bottom-5 bottom-20 right-5 z-40 flex flex-col space-y-3"
+      className="fixed bottom-24 right-4 md:bottom-5 md:right-5 z-40 flex flex-col space-y-2 md:space-y-3"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
@@ -163,7 +163,7 @@ export default function FloatingButtons() {
             onClick={scrollToTop}
             onMouseEnter={() => setShowTooltip('top')}
             onMouseLeave={() => setShowTooltip(null)}
-            className="group relative flex items-center justify-center w-14 h-14 bg-accent/90 backdrop-blur-md border border-accent/50 text-white rounded-full shadow-lg transition-colors duration-300 hover:bg-accent-dark focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background"
+            className="group relative flex items-center justify-center w-10 h-10 md:w-14 md:h-14 bg-accent/90 backdrop-blur-md border border-accent/50 text-white rounded-full shadow-lg transition-colors duration-300 hover:bg-accent-dark focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background"
             aria-label="Scroll to top"
             title="Scroll to top"
             variants={buttonVariants}
@@ -173,7 +173,7 @@ export default function FloatingButtons() {
             whileHover="hover"
             whileTap="tap"
           >
-            <ArrowUpIcon className="h-6 w-6" />
+            <ArrowUpIcon className="h-4 w-4 md:h-6 md:w-6" />
             <AnimatePresence>
               {showTooltip === 'top' && (
                 <motion.div 

@@ -371,7 +371,7 @@ Sleep position plays a role too - pillows that are too high or too flat force yo
   'sciatica': {
     pathophysiology: `Sciatica describes pain along the sciatic nerve path, usually from compression or irritation at the spine level. The nerve can be affected by disc material, bone spurs, or tight muscles along its path. Similar to general low back pain, sciatica often involves disc dysfunction, but with the added complexity of nerve root compression or irritation.
 
-When the nerve is irritated, it can cause pain, numbness, or weakness anywhere along its path from the back to the foot. The location and type of symptoms help identify where the problem originates. In some cases, sciatica may occur alongside degenerative disc disease or spinal stenosis, requiring careful assessment to address all contributing factors.`,
+When the nerve is irritated, it can cause pain, numbness, or weakness anywhere along its path from the back to the foot. The location and type of symptoms help identify where the problem originates. In some cases, sciatica may occur alongside degenerative disc disease or spinal stenosis, requiring careful assessment to address all contributing factors. Sciatica rehabilitation centres on identifying the specific source of nerve irritation and applying targeted strategies to reduce compression. Sciatic nerve pain relief is typically achieved through a combination of directional exercises, neural mobilization, and activity modification tailored to the individual presentation.`,
 
     biomechanics: `Prolonged sitting is one of the biggest culprits I see with sciatica. When you sit, especially with poor posture, you increase the pressure on your lumbar discs by approximately 30% compared to standing (though the difference is minimal with proper upright posture). This forward-slumped position narrows the spaces where nerves exit your spine, potentially compressing the nerve roots that form your sciatic nerve.
 
@@ -493,6 +493,25 @@ Your movement patterns throughout the day matter tremendously. Tight hip flexors
         year: 2023,
         findings: "Early physiotherapy reduces need for surgery and improves long-term outcomes",
         relevance: "Supports early intervention approach"
+      }
+    ],
+
+    faqs: [
+      {
+        question: "How long does physiotherapy take for sciatica?",
+        answer: "Most people see meaningful improvement within 6 to 12 weeks of consistent physiotherapy. The timeline depends on the severity of nerve compression and how long symptoms have been present. Early intervention generally leads to faster recovery."
+      },
+      {
+        question: "Do I need a referral for sciatica treatment in Burlington?",
+        answer: "No referral is needed. You can book a physiotherapy assessment directly. Most insurance plans cover physiotherapy without a doctor's referral, and direct billing is available for major providers."
+      },
+      {
+        question: "What does physiotherapy for sciatica involve?",
+        answer: "Treatment typically includes directional preference exercises to centralize symptoms, neural mobilization to reduce nerve tension, manual therapy to address joint and soft tissue restrictions, and a progressive home exercise program. Each plan is tailored to your specific presentation."
+      },
+      {
+        question: "Can dry needling help with sciatica?",
+        answer: "Dry needling can be effective for reducing muscle guarding and trigger points in the glutes and piriformis that contribute to sciatic nerve irritation. It is used alongside exercise and manual therapy as part of a comprehensive treatment approach."
       }
     ],
 
@@ -1135,7 +1154,7 @@ The speed of impact doesn't have to be high to cause injury - whiplash can occur
   'frozen-shoulder': {
     pathophysiology: `Frozen shoulder (adhesive capsulitis) involves thickening and tightening of the shoulder capsule. The normally loose capsule becomes inflamed then fibrotic, severely restricting movement. The condition typically progresses through freezing, frozen, and thawing phases.
 
-The exact trigger is often unknown but can follow injury, surgery, or periods of immobilization.`,
+The exact trigger is often unknown but can follow injury, surgery, or periods of immobilization. Physiotherapy for frozen shoulder focuses on restoring range of motion through graded manual therapy and progressive loading, adapted to the stage of the condition. Frozen shoulder therapy is most effective when treatment intensity is matched to whether the capsule is in its inflammatory, fibrotic, or remodelling phase.`,
 
     biomechanics: `The development of frozen shoulder often follows a pattern of disuse and protective guarding. When your shoulder hurts, your natural response is to avoid moving it, which seems logical but unfortunately sets up a destructive cycle. The less you move your shoulder, the more the joint capsule tightens and adheres to itself, creating the "frozen" sensation.
 
@@ -1245,6 +1264,25 @@ Poor posture compounds the problem significantly. Forward head posture and round
         year: 2021,
         findings: "Combined approach superior to either treatment alone",
         relevance: "Supports multimodal treatment strategy"
+      }
+    ],
+
+    faqs: [
+      {
+        question: "How many physiotherapy sessions are needed for frozen shoulder?",
+        answer: "The number of sessions varies by phase and severity, but most people benefit from regular physiotherapy over 3 to 6 months. During the freezing phase, sessions focus on pain control. As the condition progresses to the thawing phase, treatment shifts toward restoring range of motion."
+      },
+      {
+        question: "What is the difference between frozen shoulder and adhesive capsulitis?",
+        answer: "They are the same condition. Adhesive capsulitis is the clinical term describing the thickening and tightening of the shoulder joint capsule. Frozen shoulder is the common name used because the shoulder progressively loses its ability to move."
+      },
+      {
+        question: "Can frozen shoulder be treated without surgery?",
+        answer: "Yes. The majority of frozen shoulder cases resolve with conservative treatment including physiotherapy, home exercises, and sometimes corticosteroid injections. Surgery is only considered in rare cases where significant restriction persists despite prolonged rehabilitation."
+      },
+      {
+        question: "How long does frozen shoulder last with physiotherapy?",
+        answer: "The total duration is typically 12 to 18 months, though it can range from 1 to 3 years. Physiotherapy can shorten the course and improve the final outcome compared to no treatment. Early intervention during the freezing phase tends to produce the best results."
       }
     ],
 

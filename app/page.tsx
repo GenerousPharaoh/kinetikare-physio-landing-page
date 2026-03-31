@@ -109,8 +109,9 @@ const personSchema = {
   "areaServed": [
     "Burlington, ON",
     "Waterdown, ON",
-    "Hamilton, ON",
-    "Oakville, ON"
+    "Oakville, ON",
+    "Flamborough, ON",
+    "Carlisle, ON"
   ],
   "sameAs": [
     "https://endorphinshealth.com/team/kareem-hassanein/",

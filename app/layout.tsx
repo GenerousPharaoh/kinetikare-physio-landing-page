@@ -50,7 +50,7 @@ export const metadata = {
     'msapplication-TileColor': '#B08D57',
     'apple-mobile-web-app-title': 'Kareem Physio',
     'geo.region': 'CA-ON',
-    'geo.placename': 'Burlington, Waterdown, Oakville, Hamilton',
+    'geo.placename': 'Burlington, Waterdown, Oakville, Flamborough, Carlisle',
     'geo.position': '43.430782;-79.838055',
     'ICBM': '43.430782, -79.838055'
   }
@@ -97,12 +97,6 @@ const organizationSchema = {
     {
       "@type": "City",
       "name": "Waterdown",
-      "addressRegion": "ON",
-      "addressCountry": "CA"
-    },
-    {
-      "@type": "City",
-      "name": "Hamilton",
       "addressRegion": "ON",
       "addressCountry": "CA"
     },
@@ -174,7 +168,6 @@ const organizationSchema = {
     "Herniated Disc Treatment",
     "Pinched Nerve Treatment",
     "Frozen Shoulder Treatment",
-    "Motor Vehicle Accident Rehabilitation",
     "Hip Pain Management",
     "Achilles Tendonitis Treatment",
     "Ankle Injury Rehabilitation",
@@ -370,7 +363,6 @@ const personSchema = {
     "Achilles Tendonitis",
     "ACL Rehabilitation",
     "Meniscus Tear Treatment",
-    "MVA Rehabilitation",
     "New Runner Injuries",
     "Gym Injury Treatment",
     "CrossFit Rehabilitation",

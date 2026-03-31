@@ -402,7 +402,7 @@ export default function ConditionPageClient({
 
               {/* Regional Service Area - Subtle mention */}
               <p className="text-xs text-slate-400 mt-3">
-                Burlington physiotherapy for {condition.name.toLowerCase()} • One-on-one care focused on pain relief, rehabilitation, and return to activity
+                Treating {condition.name.toLowerCase()} at our Burlington clinic • Convenient for Waterdown and Flamborough residents
               </p>
 
               {/* Red Flags Disclaimer - Simple expandable that pushes content */}

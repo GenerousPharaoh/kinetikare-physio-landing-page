@@ -17,52 +17,59 @@ export const metadata: Metadata = {
 const palette = {
   ink: '#020617',
   navy: '#0f172a',
-  navySoft: '#172033',
+  navyLift: '#16213a',
+  slate: '#24324b',
   gold: '#D4AF37',
-  goldMuted: '#B08D57',
-  parchment: '#f7f2e8',
-  parchmentDeep: '#efe7d8',
-  paper: '#fffdf8',
+  goldDeep: '#B08D57',
+  cream: '#F7F1E6',
+  creamSoft: '#FFFCF7',
+  creamDeep: '#EFE4D0',
   body: '#4b5563',
   bodyDark: '#1f2937',
-  whiteSoft: 'rgba(255,255,255,0.72)',
+  whiteSoft: 'rgba(255,255,255,0.75)',
 };
 
-const sectionPadding = 'clamp(4.75rem, 8vw, 7rem)';
+const serifFont = '"Playfair Display", var(--font-heading), serif';
+const sectionPadding = 'clamp(5rem, 8vw, 7.5rem)';
 
-const trustBadges = ['Direct Billing', 'No Referral Needed', 'Evening Hours'];
+const trustBadges = ['Direct Billing', 'No Referral Needed', 'Evening Appointments'];
 
-const carePillars = [
+const heroVisitSteps = [
   {
-    number: '01',
-    title: 'One-on-one attention',
-    description:
-      'Every minute of your session is with Kareem. No assistants, no treatment handoffs, no split appointments.',
+    label: 'Assessment',
+    text: 'A detailed history and movement evaluation to understand what is actually driving the pain.',
   },
   {
-    number: '02',
-    title: 'Movement-first assessment',
-    description:
-      'Your first visit looks at the patterns behind the pain so treatment can address the source, not just the symptom.',
+    label: 'Treatment',
+    text: 'Hands-on care begins in the first session so you do not spend a visit only talking.',
   },
   {
-    number: '03',
-    title: 'Treatment on day one',
-    description:
-      'Assessment, hands-on care, and a plan forward happen in the same visit so you leave with clarity and momentum.',
-  },
-  {
-    number: '04',
-    title: 'Evidence-based care',
-    description:
-      'Manual therapy, exercise rehab, dry needling, and cupping are used thoughtfully and only when they fit your goals.',
+    label: 'Plan',
+    text: 'You leave with clearer next steps, recovery priorities, and a treatment direction that feels specific.',
   },
 ];
 
-const firstVisitChecklist = [
-  'Detailed history and movement assessment',
-  'Hands-on treatment in the initial session',
-  'Clear next steps for recovery and return to activity',
+const careCards = [
+  {
+    title: 'Your whole session is one-on-one.',
+    description:
+      'No assistants, no handoffs, and no divided attention. Every visit is fully with Kareem from assessment through treatment.',
+  },
+  {
+    title: 'The painful area is not the only area assessed.',
+    description:
+      'A careful look at movement patterns, strength, mobility, and loading helps identify why the issue keeps showing up.',
+  },
+  {
+    title: 'Treatment starts right away.',
+    description:
+      'Your first appointment includes hands-on treatment, not only paperwork and explanation.',
+  },
+  {
+    title: 'Care is practical, evidence-based, and tailored.',
+    description:
+      'Manual therapy, dry needling, cupping, and exercise rehabilitation are used thoughtfully when they suit your goals.',
+  },
 ];
 
 const pricingOptions = [
@@ -120,6 +127,9 @@ const reviews = [
   },
 ];
 
+const featuredReview = reviews[0];
+const secondaryReviews = reviews.slice(1);
+
 function Eyebrow({ children, light = false }: { children: ReactNode; light?: boolean }) {
   return (
     <div style={{ display: 'inline-flex', alignItems: 'center', gap: 12, marginBottom: 18 }}>
@@ -132,11 +142,11 @@ function Eyebrow({ children, light = false }: { children: ReactNode; light?: boo
       />
       <span
         style={{
-          color: light ? 'rgba(212,175,55,0.95)' : palette.goldMuted,
+          color: light ? 'rgba(212,175,55,0.95)' : palette.goldDeep,
           fontSize: 11,
+          fontWeight: 600,
           letterSpacing: '0.28em',
           textTransform: 'uppercase',
-          fontWeight: 600,
         }}
       >
         {children}
@@ -164,18 +174,19 @@ function ReviewStars({ size = 14 }: { size?: number }) {
   );
 }
 
-function GlassBadge({ children }: { children: ReactNode }) {
+function TrustChip({ children, light = false }: { children: ReactNode; light?: boolean }) {
   return (
     <span
       style={{
         display: 'inline-flex',
         alignItems: 'center',
+        justifyContent: 'center',
         padding: '9px 14px',
         borderRadius: 999,
-        border: '1px solid rgba(255,255,255,0.12)',
-        background: 'rgba(255,255,255,0.06)',
+        border: light ? '1px solid rgba(255,255,255,0.12)' : '1px solid rgba(176,141,87,0.18)',
+        background: light ? 'rgba(255,255,255,0.06)' : 'rgba(255,255,255,0.58)',
         backdropFilter: 'blur(14px)',
-        color: 'rgba(255,255,255,0.82)',
+        color: light ? 'rgba(255,255,255,0.82)' : palette.bodyDark,
         fontSize: 11,
         fontWeight: 600,
         letterSpacing: '0.08em',
@@ -184,6 +195,57 @@ function GlassBadge({ children }: { children: ReactNode }) {
     >
       {children}
     </span>
+  );
+}
+
+function Panel({
+  children,
+  tone = 'paper',
+  style,
+}: {
+  children: ReactNode;
+  tone?: 'paper' | 'dark' | 'glass' | 'warm';
+  style?: CSSProperties;
+}) {
+  const tones: Record<string, CSSProperties> = {
+    paper: {
+      border: '1px solid rgba(176,141,87,0.18)',
+      background: 'linear-gradient(180deg, rgba(255,255,255,0.92), rgba(247,241,230,0.92))',
+      boxShadow: '0 30px 70px -52px rgba(15,23,42,0.4)',
+      color: palette.bodyDark,
+    },
+    dark: {
+      border: '1px solid rgba(255,255,255,0.1)',
+      background: 'linear-gradient(180deg, rgba(15,23,42,0.94), rgba(2,6,23,0.96))',
+      boxShadow: '0 34px 90px -60px rgba(2,6,23,0.9)',
+      color: 'white',
+    },
+    glass: {
+      border: '1px solid rgba(255,255,255,0.1)',
+      background: 'rgba(15,23,42,0.54)',
+      backdropFilter: 'blur(18px)',
+      boxShadow: '0 34px 90px -60px rgba(2,6,23,0.9)',
+      color: 'white',
+    },
+    warm: {
+      border: '1px solid rgba(176,141,87,0.24)',
+      background: 'linear-gradient(180deg, rgba(247,241,230,0.96), rgba(239,228,208,0.94))',
+      boxShadow: '0 28px 60px -48px rgba(15,23,42,0.35)',
+      color: palette.bodyDark,
+    },
+  };
+
+  return (
+    <div
+      style={{
+        borderRadius: 30,
+        overflow: 'hidden',
+        ...tones[tone],
+        ...style,
+      }}
+    >
+      {children}
+    </div>
   );
 }
 
@@ -203,7 +265,7 @@ function SecondaryAction({ href, children }: { href: string; children: ReactNode
           justifyContent: 'center',
           gap: 10,
           padding: '16px 28px',
-          borderRadius: 10,
+          borderRadius: 14,
           border: '1px solid rgba(255,255,255,0.16)',
           background: 'rgba(255,255,255,0.06)',
           backdropFilter: 'blur(14px)',
@@ -221,19 +283,36 @@ function SecondaryAction({ href, children }: { href: string; children: ReactNode
   );
 }
 
-function LightCard({ children, style }: { children: ReactNode; style?: CSSProperties }) {
+function DetailRow({ label, value }: { label: string; value: string }) {
   return (
     <div
       style={{
-        height: '100%',
-        borderRadius: 26,
-        border: '1px solid rgba(176,141,87,0.18)',
-        background: 'rgba(255,253,248,0.96)',
-        boxShadow: '0 30px 65px -50px rgba(15,23,42,0.55)',
-        ...style,
+        paddingBottom: 20,
+        borderBottom: '1px solid rgba(176,141,87,0.16)',
       }}
     >
-      {children}
+      <p
+        style={{
+          color: palette.goldDeep,
+          fontSize: 11,
+          fontWeight: 700,
+          letterSpacing: '0.18em',
+          textTransform: 'uppercase',
+          marginBottom: 8,
+        }}
+      >
+        {label}
+      </p>
+      <p
+        style={{
+          color: palette.body,
+          fontSize: 15,
+          lineHeight: 1.85,
+          whiteSpace: 'pre-line',
+        }}
+      >
+        {value}
+      </p>
     </div>
   );
 }
@@ -259,11 +338,25 @@ export default function IntakePage() {
           min-height: 100vh;
           min-height: 100dvh;
         }
+
+        .intake-noise {
+          position: relative;
+        }
+
+        .intake-noise::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          opacity: 0.028;
+          background-image: radial-gradient(rgba(255,255,255,0.9) 0.7px, transparent 0.7px);
+          background-size: 16px 16px;
+          pointer-events: none;
+        }
       `}</style>
 
       <main className="intake-page" style={{ background: palette.ink }}>
         <div
-          className="intake-hero"
+          className="intake-hero intake-noise"
           style={{
             position: 'relative',
             overflow: 'hidden',
@@ -276,11 +369,10 @@ export default function IntakePage() {
               style={{
                 position: 'absolute',
                 inset: 0,
-                width: '100%',
-                height: '100%',
                 backgroundImage: "url('/images/clinic-pic-may-2025.jpg')",
                 backgroundSize: 'cover',
-                backgroundPosition: '62% center',
+                backgroundPosition: '70% center',
+                transform: 'scale(1.02)',
               }}
             />
             <div
@@ -288,7 +380,7 @@ export default function IntakePage() {
                 position: 'absolute',
                 inset: 0,
                 background:
-                  'linear-gradient(90deg, rgba(2,6,23,0.96) 0%, rgba(15,23,42,0.95) 30%, rgba(15,23,42,0.83) 52%, rgba(15,23,42,0.58) 72%, rgba(2,6,23,0.82) 100%)',
+                  'linear-gradient(90deg, rgba(2,6,23,0.98) 0%, rgba(15,23,42,0.95) 24%, rgba(15,23,42,0.86) 44%, rgba(15,23,42,0.58) 64%, rgba(2,6,23,0.88) 100%)',
               }}
             />
             <div
@@ -296,7 +388,7 @@ export default function IntakePage() {
                 position: 'absolute',
                 inset: 0,
                 background:
-                  'linear-gradient(180deg, rgba(2,6,23,0.42) 0%, rgba(2,6,23,0.14) 24%, rgba(2,6,23,0.28) 54%, rgba(2,6,23,0.86) 100%)',
+                  'linear-gradient(180deg, rgba(2,6,23,0.25) 0%, rgba(2,6,23,0.05) 25%, rgba(2,6,23,0.2) 50%, rgba(2,6,23,0.92) 100%)',
               }}
             />
             <div
@@ -304,17 +396,7 @@ export default function IntakePage() {
                 position: 'absolute',
                 inset: 0,
                 background:
-                  'radial-gradient(circle at 18% 22%, rgba(212,175,55,0.14), transparent 30%), radial-gradient(circle at 78% 18%, rgba(212,175,55,0.12), transparent 28%)',
-              }}
-            />
-            <div
-              style={{
-                position: 'absolute',
-                inset: 0,
-                opacity: 0.06,
-                backgroundImage:
-                  'linear-gradient(rgba(255,255,255,0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.18) 1px, transparent 1px)',
-                backgroundSize: '34px 34px',
+                  'radial-gradient(circle at 16% 20%, rgba(212,175,55,0.15), transparent 28%), radial-gradient(circle at 85% 12%, rgba(212,175,55,0.1), transparent 18%)',
               }}
             />
           </div>
@@ -326,47 +408,50 @@ export default function IntakePage() {
               display: 'flex',
               alignItems: 'center',
               minHeight: '100%',
-              paddingTop: 'clamp(6.5rem, 11vh, 8.25rem)',
-              paddingBottom: 'clamp(4rem, 8vh, 6rem)',
+              paddingTop: 'clamp(6.5rem, 11vh, 8.5rem)',
+              paddingBottom: 'clamp(4rem, 8vh, 6.5rem)',
             }}
           >
             <div className="container mx-auto max-w-6xl px-6 sm:px-8 lg:px-16">
-              <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(340px,0.78fr)] lg:gap-14">
-                <div style={{ maxWidth: 650 }}>
+              <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.96fr)_minmax(360px,0.94fr)] lg:gap-16">
+                <div style={{ maxWidth: 640 }}>
                   <Eyebrow light>Physiotherapy in Burlington</Eyebrow>
 
                   <h1
-                    className="font-serif"
                     style={{
-                      fontSize: 'clamp(3rem, 6vw, 5.1rem)',
+                      fontFamily: serifFont,
+                      fontSize: 'clamp(3.5rem, 7vw, 6.5rem)',
                       fontWeight: 300,
-                      lineHeight: 1.02,
-                      letterSpacing: '-0.035em',
+                      lineHeight: 0.92,
+                      letterSpacing: '-0.045em',
                       color: 'white',
-                      marginBottom: 22,
+                      marginBottom: 24,
                     }}
                   >
-                    Book Your <span style={{ color: palette.gold }}>Assessment</span>
+                    Book Your
+                    <br />
+                    <span style={{ color: palette.gold }}>Assessment</span>
                   </h1>
 
                   <p
                     style={{
-                      maxWidth: 590,
-                      color: 'rgba(255,255,255,0.78)',
-                      fontSize: 'clamp(1rem, 2vw, 1.125rem)',
-                      lineHeight: 1.85,
-                      marginBottom: 14,
+                      maxWidth: 560,
+                      color: 'rgba(255,255,255,0.79)',
+                      fontSize: 'clamp(1.03rem, 2vw, 1.18rem)',
+                      lineHeight: 1.88,
+                      marginBottom: 16,
                     }}
                   >
                     One-on-one physiotherapy for sports injuries, knee and hip pain, dry needling,
-                    cupping, and rehabilitation in a calm, welcoming Burlington clinic setting.
+                    cupping, and rehabilitation, delivered in a calm Burlington clinic with time to
+                    assess, treat, and explain.
                   </p>
 
                   <p
                     style={{
                       color: 'rgba(255,255,255,0.52)',
                       fontSize: 13,
-                      letterSpacing: '0.07em',
+                      letterSpacing: '0.08em',
                       textTransform: 'uppercase',
                       marginBottom: 34,
                     }}
@@ -380,7 +465,7 @@ export default function IntakePage() {
                   >
                     <BookingCTA
                       size="lg"
-                      className="w-full sm:w-auto !rounded-[10px] sm:!rounded-sm !px-8 !py-4 !text-[11px] !tracking-[0.22em] !shadow-[0_20px_45px_-25px_rgba(212,175,55,0.7)]"
+                      className="w-full sm:w-auto !rounded-[14px] sm:!rounded-[10px] !px-8 !py-4 !text-[11px] !tracking-[0.22em] !shadow-[0_22px_60px_-28px_rgba(212,175,55,0.72)]"
                     >
                       Book Assessment
                       <svg
@@ -417,24 +502,19 @@ export default function IntakePage() {
 
                   <div className="flex flex-wrap gap-2.5" style={{ marginBottom: 26 }}>
                     {trustBadges.map((badge) => (
-                      <GlassBadge key={badge}>{badge}</GlassBadge>
+                      <TrustChip key={badge} light>
+                        {badge}
+                      </TrustChip>
                     ))}
                   </div>
 
-                  <div
-                    className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4"
-                    style={{ color: 'rgba(255,255,255,0.7)' }}
-                  >
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-5">
                     <div className="flex items-center gap-3">
                       <ReviewStars />
-                      <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)' }}>
+                      <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.76)' }}>
                         5.0 from 17 Google reviews
                       </span>
                     </div>
-                    <div
-                      className="hidden sm:block"
-                      style={{ width: 1, height: 16, background: 'rgba(255,255,255,0.14)' }}
-                    />
                     <div className="flex items-center gap-2">
                       <span
                         style={{
@@ -445,6 +525,7 @@ export default function IntakePage() {
                         }}
                       >
                         <span
+                          className="animate-ping"
                           style={{
                             position: 'absolute',
                             inset: 0,
@@ -452,7 +533,6 @@ export default function IntakePage() {
                             background: '#4ade80',
                             opacity: 0.55,
                           }}
-                          className="animate-ping"
                         />
                         <span
                           style={{
@@ -478,401 +558,617 @@ export default function IntakePage() {
                       </span>
                     </div>
                   </div>
-                </div>
 
-                <div className="hidden lg:block">
-                  <div
-                    style={{
-                      marginLeft: 'auto',
-                      maxWidth: 380,
-                      borderRadius: 28,
-                      border: '1px solid rgba(255,255,255,0.12)',
-                      background: 'rgba(15,23,42,0.54)',
-                      backdropFilter: 'blur(18px)',
-                      boxShadow: '0 35px 90px -55px rgba(2,6,23,0.9)',
-                      padding: 30,
-                    }}
-                  >
-                    <span
-                      style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        padding: '7px 12px',
-                        borderRadius: 999,
-                        border: '1px solid rgba(212,175,55,0.24)',
-                        background: 'rgba(212,175,55,0.1)',
-                        color: palette.gold,
-                        fontSize: 11,
-                        fontWeight: 600,
-                        letterSpacing: '0.14em',
-                        textTransform: 'uppercase',
-                        marginBottom: 18,
-                      }}
-                    >
-                      Your First Visit
-                    </span>
-
-                    <h2
-                      className="font-serif"
-                      style={{
-                        color: 'white',
-                        fontWeight: 300,
-                        fontSize: '2rem',
-                        lineHeight: 1.15,
-                        letterSpacing: '-0.02em',
-                        marginBottom: 14,
-                      }}
-                    >
-                      Calm, thorough care from the first session.
-                    </h2>
-
-                    <p
-                      style={{
-                        color: 'rgba(255,255,255,0.7)',
-                        fontSize: 15,
-                        lineHeight: 1.8,
-                        marginBottom: 22,
-                      }}
-                    >
-                      You will leave with a clearer understanding of what is driving your pain and
-                      what recovery should look like from here.
-                    </p>
-
-                    <div style={{ display: 'grid', gap: 14, marginBottom: 24 }}>
-                      {firstVisitChecklist.map((item) => (
-                        <div
-                          key={item}
-                          style={{
-                            display: 'flex',
-                            alignItems: 'flex-start',
-                            gap: 12,
-                            padding: '14px 15px',
-                            borderRadius: 18,
-                            border: '1px solid rgba(255,255,255,0.08)',
-                            background: 'rgba(255,255,255,0.04)',
-                          }}
-                        >
-                          <span
-                            style={{
-                              display: 'inline-flex',
-                              width: 22,
-                              height: 22,
-                              flexShrink: 0,
-                              alignItems: 'center',
-                              justifyContent: 'center',
-                              borderRadius: 999,
-                              background: 'rgba(212,175,55,0.14)',
-                              color: palette.gold,
-                              fontSize: 12,
-                              fontWeight: 700,
-                            }}
-                          >
-                            ✓
-                          </span>
-                          <span
-                            style={{
-                              color: 'rgba(255,255,255,0.82)',
-                              lineHeight: 1.65,
-                              fontSize: 14,
-                            }}
-                          >
-                            {item}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div
-                      style={{
-                        borderTop: '1px solid rgba(255,255,255,0.1)',
-                        paddingTop: 18,
-                        color: 'rgba(255,255,255,0.68)',
-                        fontSize: 13,
-                        lineHeight: 1.75,
-                      }}
-                    >
-                      Located at Endorphins Health & Wellness Centre in Burlington with evening
-                      appointment availability.
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div
-          style={{
-            position: 'relative',
-            background: `linear-gradient(180deg, ${palette.parchment} 0%, ${palette.paper} 100%)`,
-            padding: `${sectionPadding} 0`,
-            overflow: 'hidden',
-          }}
-        >
-          <div
-            style={{
-              position: 'absolute',
-              inset: 0,
-              background:
-                'radial-gradient(circle at 10% 18%, rgba(212,175,55,0.12), transparent 22%), radial-gradient(circle at 92% 82%, rgba(176,141,87,0.12), transparent 24%)',
-              pointerEvents: 'none',
-            }}
-          />
-
-          <div
-            className="container mx-auto max-w-6xl px-6 sm:px-8 lg:px-16"
-            style={{ position: 'relative' }}
-          >
-            <div className="grid gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-16">
-              <div>
-                <Eyebrow>What to Expect</Eyebrow>
-                <h2
-                  className="font-serif"
-                  style={{
-                    color: palette.bodyDark,
-                    fontWeight: 300,
-                    fontSize: 'clamp(2rem, 4vw, 3rem)',
-                    lineHeight: 1.08,
-                    letterSpacing: '-0.03em',
-                    marginBottom: 18,
-                  }}
-                >
-                  Individualized care, delivered with clarity and time.
-                </h2>
-                <p
-                  style={{
-                    maxWidth: 430,
-                    color: palette.body,
-                    fontSize: 16,
-                    lineHeight: 1.9,
-                    marginBottom: 28,
-                  }}
-                >
-                  Your first visit is designed to feel calm, thorough, and practical. You will have
-                  time to explain what is going on, get assessed carefully, and begin treatment with
-                  a clear plan.
-                </p>
-
-                <div
-                  style={{
-                    borderRadius: 24,
-                    border: `1px solid rgba(176,141,87,0.18)`,
-                    background: 'rgba(255,255,255,0.78)',
-                    boxShadow: '0 30px 65px -50px rgba(15,23,42,0.4)',
-                    padding: 24,
-                  }}
-                >
-                  <p
-                    style={{
-                      color: palette.goldMuted,
-                      fontSize: 11,
-                      fontWeight: 700,
-                      letterSpacing: '0.18em',
-                      textTransform: 'uppercase',
-                      marginBottom: 12,
-                    }}
-                  >
-                    First Visit Includes
-                  </p>
-                  <div style={{ display: 'grid', gap: 12 }}>
-                    {firstVisitChecklist.map((item) => (
-                      <div
-                        key={item}
-                        style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}
-                      >
-                        <span
-                          style={{
-                            width: 24,
-                            height: 24,
-                            flexShrink: 0,
-                            borderRadius: 999,
-                            background: 'rgba(212,175,55,0.12)',
-                            color: palette.goldMuted,
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            fontSize: 12,
-                            fontWeight: 700,
-                          }}
-                        >
-                          ✓
-                        </span>
-                        <span style={{ color: palette.body, lineHeight: 1.7, fontSize: 14 }}>
-                          {item}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="grid gap-5 md:grid-cols-2">
-                {carePillars.map((item) => (
-                  <LightCard key={item.title} style={{ padding: 28 }}>
-                    <div
-                      style={{
-                        display: 'inline-flex',
-                        marginBottom: 18,
-                        color: palette.goldMuted,
-                        fontSize: 12,
-                        fontWeight: 700,
-                        letterSpacing: '0.18em',
-                      }}
-                    >
-                      {item.number}
-                    </div>
-                    <h3
-                      className="font-serif"
-                      style={{
-                        color: palette.bodyDark,
-                        fontWeight: 300,
-                        fontSize: '1.55rem',
-                        lineHeight: 1.18,
-                        letterSpacing: '-0.02em',
-                        marginBottom: 12,
-                      }}
-                    >
-                      {item.title}
-                    </h3>
-                    <p style={{ color: palette.body, fontSize: 15, lineHeight: 1.82 }}>
-                      {item.description}
-                    </p>
-                  </LightCard>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div
-          style={{
-            position: 'relative',
-            background: `linear-gradient(180deg, ${palette.navy} 0%, ${palette.ink} 100%)`,
-            padding: `${sectionPadding} 0`,
-            overflow: 'hidden',
-          }}
-        >
-          <div
-            style={{
-              position: 'absolute',
-              inset: 0,
-              background:
-                'radial-gradient(circle at 14% 22%, rgba(212,175,55,0.12), transparent 22%), radial-gradient(circle at 86% 10%, rgba(212,175,55,0.08), transparent 18%)',
-              pointerEvents: 'none',
-            }}
-          />
-
-          <div
-            className="container mx-auto max-w-6xl px-6 sm:px-8 lg:px-16"
-            style={{ position: 'relative' }}
-          >
-            <div className="mx-auto max-w-3xl text-center" style={{ marginBottom: 44 }}>
-              <Eyebrow light>Patient Reviews</Eyebrow>
-              <h2
-                className="font-serif"
-                style={{
-                  color: 'white',
-                  fontWeight: 300,
-                  fontSize: 'clamp(2rem, 4vw, 3rem)',
-                  lineHeight: 1.08,
-                  letterSpacing: '-0.03em',
-                  marginBottom: 16,
-                }}
-              >
-                Trusted by Burlington patients who wanted lasting results.
-              </h2>
-              <p
-                style={{
-                  color: palette.whiteSoft,
-                  fontSize: 16,
-                  lineHeight: 1.85,
-                  maxWidth: 650,
-                  margin: '0 auto 18px',
-                }}
-              >
-                Patients consistently describe feeling listened to, understood, and guided toward
-                the real cause of the issue instead of only the painful area.
-              </p>
-              <div className="flex items-center justify-center gap-3">
-                <ReviewStars size={15} />
-                <span
-                  style={{ color: 'rgba(255,255,255,0.7)', fontSize: 13, letterSpacing: '0.06em' }}
-                >
-                  5.0 rating from 17 Google reviews
-                </span>
-              </div>
-            </div>
-
-            <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-              {reviews.map((review) => (
-                <LightCard key={review.name} style={{ padding: 28 }}>
-                  <div
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      height: '100%',
-                    }}
-                  >
-                    <div className="flex items-center justify-between" style={{ marginBottom: 18 }}>
-                      <ReviewStars size={13} />
-                      <span
+                  <div className="lg:hidden" style={{ marginTop: 30 }}>
+                    <Panel tone="warm" style={{ padding: 24 }}>
+                      <p
                         style={{
-                          color: palette.goldMuted,
+                          color: palette.goldDeep,
                           fontSize: 11,
                           fontWeight: 700,
                           letterSpacing: '0.18em',
                           textTransform: 'uppercase',
+                          marginBottom: 14,
                         }}
                       >
-                        Google
-                      </span>
-                    </div>
-                    <div
+                        Your First Visit
+                      </p>
+                      <div style={{ display: 'grid', gap: 14 }}>
+                        {heroVisitSteps.map((step, index) => (
+                          <div
+                            key={step.label}
+                            style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}
+                          >
+                            <span
+                              style={{
+                                display: 'inline-flex',
+                                width: 30,
+                                height: 30,
+                                flexShrink: 0,
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                borderRadius: 999,
+                                background: 'rgba(176,141,87,0.12)',
+                                color: palette.goldDeep,
+                                fontSize: 12,
+                                fontWeight: 700,
+                              }}
+                            >
+                              0{index + 1}
+                            </span>
+                            <div>
+                              <p
+                                style={{
+                                  color: palette.bodyDark,
+                                  fontWeight: 600,
+                                  marginBottom: 4,
+                                }}
+                              >
+                                {step.label}
+                              </p>
+                              <p style={{ color: palette.body, lineHeight: 1.75, fontSize: 14 }}>
+                                {step.text}
+                              </p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </Panel>
+                  </div>
+                </div>
+
+                <div className="hidden lg:block">
+                  <div style={{ position: 'relative', minHeight: 590 }}>
+                    <Panel
+                      tone="glass"
                       style={{
-                        color: palette.bodyDark,
-                        fontSize: 15,
-                        lineHeight: 1.9,
-                        flex: 1,
-                        marginBottom: 22,
+                        position: 'absolute',
+                        top: 12,
+                        right: 0,
+                        width: '70%',
+                        padding: 28,
+                        transform: 'rotate(1.25deg)',
                       }}
                     >
-                      &ldquo;{review.text}&rdquo;
-                    </div>
+                      <p
+                        style={{
+                          color: palette.gold,
+                          fontSize: 11,
+                          fontWeight: 700,
+                          letterSpacing: '0.18em',
+                          textTransform: 'uppercase',
+                          marginBottom: 12,
+                        }}
+                      >
+                        Why Patients Choose Kareem
+                      </p>
+                      <div style={{ display: 'grid', gap: 14 }}>
+                        {[
+                          'Direct, thoughtful explanations',
+                          'A calm pace that never feels rushed',
+                          'Treatment matched to your real goals',
+                        ].map((item) => (
+                          <div
+                            key={item}
+                            style={{
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: 12,
+                              paddingBottom: 14,
+                              borderBottom: '1px solid rgba(255,255,255,0.08)',
+                            }}
+                          >
+                            <span
+                              style={{
+                                width: 8,
+                                height: 8,
+                                borderRadius: 999,
+                                background: palette.gold,
+                                flexShrink: 0,
+                              }}
+                            />
+                            <span style={{ color: 'rgba(255,255,255,0.84)', lineHeight: 1.65 }}>
+                              {item}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </Panel>
+
+                    <Panel
+                      tone="warm"
+                      style={{
+                        position: 'absolute',
+                        left: 0,
+                        bottom: 24,
+                        width: '82%',
+                        padding: 34,
+                        transform: 'rotate(-1.1deg)',
+                      }}
+                    >
+                      <p
+                        style={{
+                          color: palette.goldDeep,
+                          fontSize: 11,
+                          fontWeight: 700,
+                          letterSpacing: '0.18em',
+                          textTransform: 'uppercase',
+                          marginBottom: 14,
+                        }}
+                      >
+                        Your First Visit
+                      </p>
+                      <h2
+                        style={{
+                          fontFamily: serifFont,
+                          fontWeight: 300,
+                          fontSize: '2.1rem',
+                          lineHeight: 1.08,
+                          letterSpacing: '-0.03em',
+                          color: palette.bodyDark,
+                          marginBottom: 18,
+                        }}
+                      >
+                        Calm, thorough care from the first session.
+                      </h2>
+                      <div style={{ display: 'grid', gap: 16 }}>
+                        {heroVisitSteps.map((step, index) => (
+                          <div
+                            key={step.label}
+                            style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}
+                          >
+                            <span
+                              style={{
+                                display: 'inline-flex',
+                                width: 32,
+                                height: 32,
+                                flexShrink: 0,
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                borderRadius: 999,
+                                background: 'rgba(176,141,87,0.12)',
+                                color: palette.goldDeep,
+                                fontSize: 12,
+                                fontWeight: 700,
+                              }}
+                            >
+                              0{index + 1}
+                            </span>
+                            <div>
+                              <p
+                                style={{
+                                  color: palette.bodyDark,
+                                  fontWeight: 600,
+                                  marginBottom: 4,
+                                }}
+                              >
+                                {step.label}
+                              </p>
+                              <p style={{ color: palette.body, lineHeight: 1.8, fontSize: 14 }}>
+                                {step.text}
+                              </p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </Panel>
+
                     <div
                       style={{
-                        paddingTop: 16,
-                        borderTop: '1px solid rgba(176,141,87,0.18)',
-                        display: 'flex',
+                        position: 'absolute',
+                        right: 34,
+                        bottom: 0,
+                        display: 'inline-flex',
                         alignItems: 'center',
-                        gap: 12,
+                        gap: 10,
+                        padding: '12px 18px',
+                        borderRadius: 999,
+                        border: '1px solid rgba(255,255,255,0.12)',
+                        background: 'rgba(15,23,42,0.74)',
+                        backdropFilter: 'blur(14px)',
+                        color: 'rgba(255,255,255,0.86)',
+                        fontSize: 11,
+                        fontWeight: 600,
+                        letterSpacing: '0.12em',
+                        textTransform: 'uppercase',
                       }}
                     >
                       <span
                         style={{
-                          display: 'inline-flex',
-                          width: 36,
-                          height: 36,
-                          alignItems: 'center',
-                          justifyContent: 'center',
+                          width: 9,
+                          height: 9,
                           borderRadius: 999,
-                          background: `linear-gradient(135deg, ${palette.goldMuted}, ${palette.gold})`,
-                          color: palette.paper,
-                          fontSize: 14,
-                          fontWeight: 700,
+                          background: '#22c55e',
+                          boxShadow: '0 0 14px rgba(34,197,94,0.6)',
                         }}
-                      >
-                        {review.name.charAt(0)}
-                      </span>
-                      <span style={{ color: palette.bodyDark, fontWeight: 600, fontSize: 14 }}>
-                        {review.name}
-                      </span>
+                      />
+                      Accepting New Patients
                     </div>
                   </div>
-                </LightCard>
-              ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          style={{
+            position: 'relative',
+            padding: `${sectionPadding} 0`,
+            background: `linear-gradient(180deg, ${palette.cream} 0%, ${palette.creamSoft} 100%)`,
+            overflow: 'hidden',
+          }}
+        >
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              background:
+                'radial-gradient(circle at 8% 16%, rgba(212,175,55,0.12), transparent 20%), radial-gradient(circle at 94% 76%, rgba(176,141,87,0.12), transparent 24%)',
+            }}
+          />
+
+          <div
+            className="container mx-auto max-w-6xl px-6 sm:px-8 lg:px-16"
+            style={{ position: 'relative' }}
+          >
+            <div className="grid gap-12 lg:grid-cols-[minmax(0,0.86fr)_minmax(0,1.14fr)] lg:gap-16">
+              <div>
+                <Eyebrow>What to Expect</Eyebrow>
+                <h2
+                  style={{
+                    fontFamily: serifFont,
+                    color: palette.bodyDark,
+                    fontWeight: 300,
+                    fontSize: 'clamp(2.35rem, 4.6vw, 4rem)',
+                    lineHeight: 0.98,
+                    letterSpacing: '-0.04em',
+                    marginBottom: 20,
+                    maxWidth: 440,
+                  }}
+                >
+                  Care that feels personal, not procedural.
+                </h2>
+                <p
+                  style={{
+                    color: palette.body,
+                    fontSize: 16,
+                    lineHeight: 1.9,
+                    maxWidth: 430,
+                    marginBottom: 30,
+                  }}
+                >
+                  The page needs to carry the same emotional signal as the clinic itself:
+                  thoughtful, clear, and quietly confident rather than loud or overly polished.
+                </p>
+
+                <Panel tone="dark" style={{ padding: 30 }}>
+                  <p
+                    style={{
+                      color: palette.gold,
+                      fontSize: 11,
+                      fontWeight: 700,
+                      letterSpacing: '0.18em',
+                      textTransform: 'uppercase',
+                      marginBottom: 14,
+                    }}
+                  >
+                    First Visit Includes
+                  </p>
+                  <div style={{ display: 'grid', gap: 14 }}>
+                    {heroVisitSteps.map((step) => (
+                      <div
+                        key={step.label}
+                        style={{
+                          paddingBottom: 14,
+                          borderBottom: '1px solid rgba(255,255,255,0.08)',
+                        }}
+                      >
+                        <p
+                          style={{
+                            color: 'white',
+                            fontWeight: 600,
+                            marginBottom: 5,
+                          }}
+                        >
+                          {step.label}
+                        </p>
+                        <p
+                          style={{ color: 'rgba(255,255,255,0.72)', lineHeight: 1.8, fontSize: 14 }}
+                        >
+                          {step.text}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </Panel>
+              </div>
+
+              <div className="grid gap-5 md:grid-cols-2">
+                <Panel tone="paper" style={{ padding: 28, minHeight: 280 }}>
+                  <p
+                    style={{
+                      color: palette.goldDeep,
+                      fontSize: 12,
+                      fontWeight: 700,
+                      letterSpacing: '0.16em',
+                      marginBottom: 16,
+                    }}
+                  >
+                    01
+                  </p>
+                  <h3
+                    style={{
+                      fontFamily: serifFont,
+                      color: palette.bodyDark,
+                      fontWeight: 300,
+                      fontSize: '2rem',
+                      lineHeight: 1.04,
+                      letterSpacing: '-0.03em',
+                      marginBottom: 14,
+                    }}
+                  >
+                    {careCards[0].title}
+                  </h3>
+                  <p style={{ color: palette.body, fontSize: 15, lineHeight: 1.82 }}>
+                    {careCards[0].description}
+                  </p>
+                </Panel>
+
+                <Panel tone="warm" style={{ padding: 28, minHeight: 240 }}>
+                  <p
+                    style={{
+                      color: palette.goldDeep,
+                      fontSize: 12,
+                      fontWeight: 700,
+                      letterSpacing: '0.16em',
+                      marginBottom: 16,
+                    }}
+                  >
+                    02
+                  </p>
+                  <h3
+                    style={{
+                      fontFamily: serifFont,
+                      color: palette.bodyDark,
+                      fontWeight: 300,
+                      fontSize: '1.72rem',
+                      lineHeight: 1.08,
+                      letterSpacing: '-0.03em',
+                      marginBottom: 12,
+                    }}
+                  >
+                    {careCards[1].title}
+                  </h3>
+                  <p style={{ color: palette.body, fontSize: 15, lineHeight: 1.82 }}>
+                    {careCards[1].description}
+                  </p>
+                </Panel>
+
+                <Panel tone="paper" style={{ padding: 28, minHeight: 220 }}>
+                  <p
+                    style={{
+                      color: palette.goldDeep,
+                      fontSize: 12,
+                      fontWeight: 700,
+                      letterSpacing: '0.16em',
+                      marginBottom: 16,
+                    }}
+                  >
+                    03
+                  </p>
+                  <h3
+                    style={{
+                      fontFamily: serifFont,
+                      color: palette.bodyDark,
+                      fontWeight: 300,
+                      fontSize: '1.72rem',
+                      lineHeight: 1.08,
+                      letterSpacing: '-0.03em',
+                      marginBottom: 12,
+                    }}
+                  >
+                    {careCards[2].title}
+                  </h3>
+                  <p style={{ color: palette.body, fontSize: 15, lineHeight: 1.82 }}>
+                    {careCards[2].description}
+                  </p>
+                </Panel>
+
+                <Panel tone="dark" style={{ padding: 28, minHeight: 260 }}>
+                  <p
+                    style={{
+                      color: palette.gold,
+                      fontSize: 12,
+                      fontWeight: 700,
+                      letterSpacing: '0.16em',
+                      marginBottom: 16,
+                    }}
+                  >
+                    04
+                  </p>
+                  <h3
+                    style={{
+                      fontFamily: serifFont,
+                      color: 'white',
+                      fontWeight: 300,
+                      fontSize: '1.9rem',
+                      lineHeight: 1.06,
+                      letterSpacing: '-0.03em',
+                      marginBottom: 12,
+                    }}
+                  >
+                    {careCards[3].title}
+                  </h3>
+                  <p style={{ color: 'rgba(255,255,255,0.74)', fontSize: 15, lineHeight: 1.82 }}>
+                    {careCards[3].description}
+                  </p>
+                </Panel>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          style={{
+            position: 'relative',
+            padding: `${sectionPadding} 0`,
+            background: `linear-gradient(180deg, ${palette.navy} 0%, ${palette.ink} 100%)`,
+            overflow: 'hidden',
+          }}
+        >
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              background:
+                'radial-gradient(circle at 14% 22%, rgba(212,175,55,0.12), transparent 20%), radial-gradient(circle at 86% 10%, rgba(212,175,55,0.08), transparent 16%)',
+            }}
+          />
+
+          <div
+            className="container mx-auto max-w-6xl px-6 sm:px-8 lg:px-16"
+            style={{ position: 'relative' }}
+          >
+            <div className="grid gap-12 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:gap-16">
+              <div>
+                <Eyebrow light>Patient Reviews</Eyebrow>
+                <h2
+                  style={{
+                    fontFamily: serifFont,
+                    color: 'white',
+                    fontWeight: 300,
+                    fontSize: 'clamp(2.35rem, 4.6vw, 4rem)',
+                    lineHeight: 0.98,
+                    letterSpacing: '-0.04em',
+                    marginBottom: 18,
+                    maxWidth: 430,
+                  }}
+                >
+                  Trust should feel human before it feels marketed.
+                </h2>
+                <p
+                  style={{
+                    color: palette.whiteSoft,
+                    fontSize: 16,
+                    lineHeight: 1.9,
+                    maxWidth: 420,
+                    marginBottom: 26,
+                  }}
+                >
+                  Patients describe the same themes again and again: attentive care, clear
+                  reasoning, and treatment that addresses why the issue is there in the first place.
+                </p>
+                <div className="flex items-center gap-3" style={{ marginBottom: 26 }}>
+                  <ReviewStars size={15} />
+                  <span style={{ color: 'rgba(255,255,255,0.7)', fontSize: 13 }}>
+                    5.0 from 17 Google reviews
+                  </span>
+                </div>
+
+                <Panel tone="warm" style={{ padding: 34 }}>
+                  <p
+                    style={{
+                      color: palette.goldDeep,
+                      fontSize: 42,
+                      lineHeight: 0.8,
+                      marginBottom: 14,
+                      fontFamily: serifFont,
+                    }}
+                  >
+                    &ldquo;
+                  </p>
+                  <div
+                    style={{
+                      fontFamily: serifFont,
+                      fontWeight: 300,
+                      color: palette.bodyDark,
+                      fontSize: 'clamp(1.5rem, 3vw, 2.4rem)',
+                      lineHeight: 1.16,
+                      letterSpacing: '-0.03em',
+                      marginBottom: 18,
+                    }}
+                  >
+                    {featuredReview.text}
+                  </div>
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      gap: 12,
+                      paddingTop: 18,
+                      borderTop: '1px solid rgba(176,141,87,0.18)',
+                    }}
+                  >
+                    <div>
+                      <p style={{ color: palette.bodyDark, fontWeight: 600, marginBottom: 3 }}>
+                        {featuredReview.name}
+                      </p>
+                      <p style={{ color: palette.body, fontSize: 13 }}>Google Review</p>
+                    </div>
+                    <ReviewStars size={13} />
+                  </div>
+                </Panel>
+              </div>
+
+              <div className="grid gap-5 sm:grid-cols-2">
+                {secondaryReviews.map((review, index) => (
+                  <Panel
+                    key={review.name}
+                    tone={index % 2 === 0 ? 'glass' : 'dark'}
+                    style={{
+                      padding: 26,
+                      minHeight: 210,
+                    }}
+                  >
+                    <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+                      <div
+                        className="flex items-center justify-between"
+                        style={{ marginBottom: 16 }}
+                      >
+                        <ReviewStars size={12} />
+                        <span
+                          style={{
+                            color: index % 2 === 0 ? palette.gold : 'rgba(212,175,55,0.9)',
+                            fontSize: 10,
+                            fontWeight: 700,
+                            letterSpacing: '0.16em',
+                            textTransform: 'uppercase',
+                          }}
+                        >
+                          Google
+                        </span>
+                      </div>
+                      <div
+                        style={{
+                          color: 'rgba(255,255,255,0.82)',
+                          fontSize: 15,
+                          lineHeight: 1.85,
+                          flex: 1,
+                          marginBottom: 18,
+                        }}
+                      >
+                        &ldquo;{review.text}&rdquo;
+                      </div>
+                      <div
+                        style={{
+                          paddingTop: 16,
+                          borderTop: '1px solid rgba(255,255,255,0.08)',
+                          color: 'white',
+                          fontWeight: 600,
+                          fontSize: 14,
+                        }}
+                      >
+                        {review.name}
+                      </div>
+                    </div>
+                  </Panel>
+                ))}
+              </div>
             </div>
 
-            <div style={{ textAlign: 'center', marginTop: 30 }}>
+            <div style={{ textAlign: 'center', marginTop: 32 }}>
               <a
                 href="https://www.google.com/maps/place/Endorphins+Health+%26+Wellness+Centre"
                 target="_blank"
@@ -909,8 +1205,8 @@ export default function IntakePage() {
         <div
           style={{
             position: 'relative',
-            background: `linear-gradient(180deg, ${palette.paper} 0%, ${palette.parchment} 100%)`,
             padding: `${sectionPadding} 0`,
+            background: `linear-gradient(180deg, ${palette.creamSoft} 0%, ${palette.cream} 100%)`,
             overflow: 'hidden',
           }}
         >
@@ -918,162 +1214,147 @@ export default function IntakePage() {
             <div className="mx-auto max-w-3xl text-center" style={{ marginBottom: 46 }}>
               <Eyebrow>Pricing & Clinic Details</Eyebrow>
               <h2
-                className="font-serif"
                 style={{
+                  fontFamily: serifFont,
                   color: palette.bodyDark,
                   fontWeight: 300,
-                  fontSize: 'clamp(2rem, 4vw, 3rem)',
-                  lineHeight: 1.08,
-                  letterSpacing: '-0.03em',
+                  fontSize: 'clamp(2.25rem, 4.4vw, 3.75rem)',
+                  lineHeight: 1,
+                  letterSpacing: '-0.04em',
                   marginBottom: 16,
                 }}
               >
-                Clear pricing, direct billing, and a straightforward next step.
+                Straightforward before you book.
               </h2>
               <p
                 style={{
                   color: palette.body,
                   fontSize: 16,
-                  lineHeight: 1.85,
-                  maxWidth: 650,
+                  lineHeight: 1.9,
+                  maxWidth: 640,
                   margin: '0 auto',
                 }}
               >
-                Everything is straightforward before you book, from pricing to billing support and
-                exactly where the clinic is located.
+                Pricing, billing support, and clinic logistics should feel reassuring and clear, not
+                like a generic pricing table dropped into the page.
               </p>
             </div>
 
-            <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
-              <LightCard style={{ padding: '30px clamp(1.5rem, 4vw, 2rem)' }}>
-                <Eyebrow>Pricing</Eyebrow>
-                <h3
-                  className="font-serif"
+            <Panel tone="paper" style={{ borderRadius: 34, overflow: 'hidden' }}>
+              <div className="grid lg:grid-cols-[minmax(320px,0.88fr)_minmax(0,1.12fr)]">
+                <div
                   style={{
-                    color: palette.bodyDark,
-                    fontWeight: 300,
-                    fontSize: '2rem',
-                    lineHeight: 1.14,
-                    letterSpacing: '-0.02em',
-                    marginBottom: 22,
+                    padding: 'clamp(2rem, 5vw, 3rem)',
+                    background: `linear-gradient(180deg, ${palette.navyLift} 0%, ${palette.ink} 100%)`,
+                    color: 'white',
                   }}
                 >
-                  No hidden fees.
-                </h3>
+                  <Eyebrow light>Pricing</Eyebrow>
+                  <h3
+                    style={{
+                      fontFamily: serifFont,
+                      fontWeight: 300,
+                      fontSize: '2.2rem',
+                      lineHeight: 1.04,
+                      letterSpacing: '-0.03em',
+                      marginBottom: 18,
+                    }}
+                  >
+                    No hidden fees.
+                  </h3>
+                  <p
+                    style={{
+                      color: 'rgba(255,255,255,0.74)',
+                      lineHeight: 1.85,
+                      marginBottom: 24,
+                    }}
+                  >
+                    You should know the investment before booking. Billing support is available for
+                    Sun Life, Manulife, Green Shield Canada, Blue Cross, Canada Life, WSIB, and
+                    more.
+                  </p>
 
-                <div className="grid gap-4 sm:grid-cols-2" style={{ marginBottom: 18 }}>
-                  {pricingOptions.map((item) => (
-                    <div
-                      key={item.label}
-                      style={{
-                        borderRadius: 22,
-                        border: '1px solid rgba(176,141,87,0.18)',
-                        background: 'rgba(247,242,232,0.72)',
-                        padding: 24,
-                        textAlign: 'center',
-                      }}
-                    >
-                      <p
-                        style={{
-                          color: palette.goldMuted,
-                          fontSize: 11,
-                          fontWeight: 700,
-                          letterSpacing: '0.18em',
-                          textTransform: 'uppercase',
-                          marginBottom: 10,
-                        }}
+                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                    {pricingOptions.map((item) => (
+                      <Panel
+                        key={item.label}
+                        tone="glass"
+                        style={{ padding: 24, borderRadius: 24 }}
                       >
-                        {item.label}
-                      </p>
-                      <p
-                        className="font-serif"
-                        style={{
-                          color: palette.bodyDark,
-                          fontWeight: 300,
-                          fontSize: '2.4rem',
-                          lineHeight: 1,
-                          letterSpacing: '-0.03em',
-                          marginBottom: 8,
-                        }}
-                      >
-                        {item.price}
-                      </p>
-                      <p style={{ color: palette.body, fontSize: 14, lineHeight: 1.7 }}>
-                        {item.note}
-                      </p>
-                    </div>
-                  ))}
+                        <p
+                          style={{
+                            color: palette.gold,
+                            fontSize: 11,
+                            fontWeight: 700,
+                            letterSpacing: '0.18em',
+                            textTransform: 'uppercase',
+                            marginBottom: 12,
+                          }}
+                        >
+                          {item.label}
+                        </p>
+                        <p
+                          style={{
+                            fontFamily: serifFont,
+                            fontWeight: 300,
+                            color: 'white',
+                            fontSize: '2.75rem',
+                            lineHeight: 0.95,
+                            letterSpacing: '-0.04em',
+                            marginBottom: 8,
+                          }}
+                        >
+                          {item.price}
+                        </p>
+                        <p
+                          style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.7, fontSize: 14 }}
+                        >
+                          {item.note}
+                        </p>
+                      </Panel>
+                    ))}
+                  </div>
                 </div>
 
-                <p style={{ color: palette.body, fontSize: 15, lineHeight: 1.85 }}>
-                  Direct billing is available for Sun Life, Manulife, Green Shield Canada, Blue
-                  Cross, Canada Life, WSIB, and more.
-                </p>
-              </LightCard>
+                <div style={{ padding: 'clamp(2rem, 5vw, 3rem)' }}>
+                  <div className="flex flex-wrap gap-2.5" style={{ marginBottom: 18 }}>
+                    <TrustChip>Waterdown & Burlington</TrustChip>
+                    <TrustChip>No Referral Required</TrustChip>
+                  </div>
 
-              <LightCard style={{ padding: '30px clamp(1.5rem, 4vw, 2rem)' }}>
-                <Eyebrow>Clinic Details</Eyebrow>
-                <h3
-                  className="font-serif"
-                  style={{
-                    color: palette.bodyDark,
-                    fontWeight: 300,
-                    fontSize: '2rem',
-                    lineHeight: 1.14,
-                    letterSpacing: '-0.02em',
-                    marginBottom: 22,
-                  }}
-                >
-                  Burlington & Waterdown.
-                </h3>
+                  <h3
+                    style={{
+                      fontFamily: serifFont,
+                      color: palette.bodyDark,
+                      fontWeight: 300,
+                      fontSize: '2.2rem',
+                      lineHeight: 1.04,
+                      letterSpacing: '-0.03em',
+                      marginBottom: 22,
+                    }}
+                  >
+                    Burlington & Waterdown.
+                  </h3>
 
-                <div style={{ display: 'grid', gap: 18 }}>
-                  {clinicDetails.map((detail, index) => (
-                    <div
-                      key={detail.label}
-                      style={{
-                        paddingBottom: index === clinicDetails.length - 1 ? 0 : 18,
-                        borderBottom:
-                          index === clinicDetails.length - 1
-                            ? 'none'
-                            : '1px solid rgba(176,141,87,0.16)',
-                      }}
-                    >
-                      <p
-                        style={{
-                          color: palette.goldMuted,
-                          fontSize: 11,
-                          fontWeight: 700,
-                          letterSpacing: '0.18em',
-                          textTransform: 'uppercase',
-                          marginBottom: 8,
-                        }}
-                      >
-                        {detail.label}
-                      </p>
-                      <p
-                        style={{
-                          color: palette.body,
-                          fontSize: 15,
-                          lineHeight: 1.85,
-                          whiteSpace: 'pre-line',
-                        }}
-                      >
-                        {detail.value}
-                      </p>
-                    </div>
-                  ))}
+                  <div style={{ display: 'grid', gap: 20 }}>
+                    {clinicDetails.map((detail, index) => (
+                      <div key={detail.label}>
+                        <DetailRow label={detail.label} value={detail.value} />
+                        {index === clinicDetails.length - 1 ? null : null}
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </LightCard>
-            </div>
+              </div>
+            </Panel>
           </div>
         </div>
 
         <div
           style={{
             position: 'relative',
-            background: `linear-gradient(180deg, ${palette.navy} 0%, ${palette.ink} 100%)`,
             padding: `${sectionPadding} 0`,
+            background: `linear-gradient(180deg, ${palette.navy} 0%, ${palette.ink} 100%)`,
             overflow: 'hidden',
           }}
         >
@@ -1082,90 +1363,84 @@ export default function IntakePage() {
               position: 'absolute',
               inset: 0,
               background:
-                'radial-gradient(circle at 50% 40%, rgba(212,175,55,0.15), transparent 28%)',
+                'radial-gradient(circle at 50% 45%, rgba(212,175,55,0.16), transparent 25%)',
             }}
           />
 
           <div
-            className="container mx-auto max-w-4xl px-6 sm:px-8 lg:px-16"
+            className="container mx-auto max-w-5xl px-6 sm:px-8 lg:px-16"
             style={{ position: 'relative' }}
           >
-            <div
-              style={{
-                borderRadius: 30,
-                border: '1px solid rgba(255,255,255,0.1)',
-                background: 'rgba(15,23,42,0.52)',
-                backdropFilter: 'blur(18px)',
-                padding: 'clamp(2rem, 5vw, 3rem)',
-                textAlign: 'center',
-                boxShadow: '0 35px 90px -55px rgba(2,6,23,0.95)',
-              }}
-            >
-              <Eyebrow light>Ready to Move Forward?</Eyebrow>
-              <h2
-                className="font-serif"
-                style={{
-                  color: 'white',
-                  fontWeight: 300,
-                  fontSize: 'clamp(2rem, 4vw, 3rem)',
-                  lineHeight: 1.08,
-                  letterSpacing: '-0.03em',
-                  marginBottom: 16,
-                }}
-              >
-                Book online in under a minute.
-              </h2>
-              <p
-                style={{
-                  color: palette.whiteSoft,
-                  fontSize: 16,
-                  lineHeight: 1.85,
-                  maxWidth: 560,
-                  margin: '0 auto 28px',
-                }}
-              >
-                No referral required. Choose a time that works for you and start with a thorough
-                one-on-one assessment.
-              </p>
-
-              <div className="flex flex-col gap-3 sm:flex-row sm:justify-center sm:gap-4">
-                <BookingCTA
-                  size="lg"
-                  className="w-full sm:w-auto !rounded-[10px] sm:!rounded-sm !px-8 !py-4 !text-[11px] !tracking-[0.22em] !shadow-[0_20px_45px_-25px_rgba(212,175,55,0.7)]"
-                >
-                  Book Assessment
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    aria-hidden="true"
+            <Panel tone="glass" style={{ padding: 'clamp(2rem, 5vw, 3rem)' }}>
+              <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
+                <div>
+                  <Eyebrow light>Ready to Move Forward?</Eyebrow>
+                  <h2
+                    style={{
+                      fontFamily: serifFont,
+                      color: 'white',
+                      fontWeight: 300,
+                      fontSize: 'clamp(2.25rem, 4.4vw, 3.9rem)',
+                      lineHeight: 0.98,
+                      letterSpacing: '-0.04em',
+                      marginBottom: 16,
+                      maxWidth: 560,
+                    }}
                   >
-                    <path d="M6 3l5 5-5 5" />
-                  </svg>
-                </BookingCTA>
-
-                <SecondaryAction href="tel:+19056346000">
-                  <svg
-                    width="15"
-                    height="15"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke={palette.gold}
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
+                    Book online in under a minute.
+                  </h2>
+                  <p
+                    style={{
+                      color: palette.whiteSoft,
+                      fontSize: 16,
+                      lineHeight: 1.9,
+                      maxWidth: 520,
+                    }}
                   >
-                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.8 19.8 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z" />
-                  </svg>
-                  (905) 634-6000
-                </SecondaryAction>
+                    No referral required. Choose a time that works for you and start with a
+                    thoughtful one-on-one assessment.
+                  </p>
+                </div>
+
+                <div className="flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
+                  <BookingCTA
+                    size="lg"
+                    className="w-full sm:w-auto !rounded-[14px] sm:!rounded-[10px] !px-8 !py-4 !text-[11px] !tracking-[0.22em] !shadow-[0_22px_60px_-28px_rgba(212,175,55,0.72)]"
+                  >
+                    Book Assessment
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M6 3l5 5-5 5" />
+                    </svg>
+                  </BookingCTA>
+
+                  <SecondaryAction href="tel:+19056346000">
+                    <svg
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke={palette.gold}
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.8 19.8 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z" />
+                    </svg>
+                    (905) 634-6000
+                  </SecondaryAction>
+                </div>
               </div>
-            </div>
+            </Panel>
           </div>
         </div>
       </main>

@@ -214,8 +214,8 @@ function TrustChip({ children, light = false }: { children: ReactNode; light?: b
         justifyContent: 'center',
         padding: '9px 14px',
         borderRadius: 999,
-        border: light ? '1px solid rgba(255,255,255,0.1)' : '1px solid rgba(176,141,87,0.08)',
-        background: light ? 'rgba(255,255,255,0.05)' : 'rgba(255,255,255,0.5)',
+        border: 'none',
+        background: light ? 'rgba(255,255,255,0.08)' : 'rgba(176,141,87,0.08)',
         backdropFilter: 'blur(14px)',
         color: light ? 'rgba(255,255,255,0.82)' : palette.bodyDark,
         fontSize: 11,
@@ -240,28 +240,28 @@ function Surface({
 }) {
   const tones: Record<SurfaceTone, CSSProperties> = {
     paper: {
-      border: '1px solid rgba(176,141,87,0.06)',
-      background: 'linear-gradient(180deg, rgba(255,255,255,0.92), rgba(247,241,230,0.88))',
-      boxShadow: '0 4px 24px -12px rgba(15,23,42,0.06)',
+      border: 'none',
+      background: 'rgba(255,255,255,0.5)',
+      boxShadow: 'none',
       color: palette.bodyDark,
     },
     warm: {
-      border: '1px solid rgba(176,141,87,0.08)',
-      background: 'linear-gradient(180deg, rgba(247,241,230,0.95), rgba(239,228,208,0.9))',
-      boxShadow: '0 4px 24px -12px rgba(15,23,42,0.06)',
+      border: 'none',
+      background: 'rgba(247,241,230,0.6)',
+      boxShadow: 'none',
       color: palette.bodyDark,
     },
     dark: {
-      border: '1px solid rgba(255,255,255,0.05)',
+      border: 'none',
       background: 'linear-gradient(180deg, rgba(15,23,42,0.96), rgba(2,6,23,0.98))',
-      boxShadow: '0 8px 32px -16px rgba(2,6,23,0.3)',
+      boxShadow: 'none',
       color: 'white',
     },
     glass: {
-      border: '1px solid rgba(176,141,87,0.06)',
-      background: 'rgba(255,255,255,0.55)',
+      border: 'none',
+      background: 'rgba(255,255,255,0.35)',
       backdropFilter: 'blur(12px)',
-      boxShadow: '0 2px 16px -8px rgba(15,23,42,0.04)',
+      boxShadow: 'none',
       color: palette.bodyDark,
     },
   };
@@ -404,7 +404,7 @@ function DetailRow({
         gridTemplateColumns: 'auto 1fr',
         gap: 16,
         paddingBottom: 22,
-        borderBottom: '1px solid rgba(176,141,87,0.06)',
+        borderBottom: 'none',
       }}
     >
       <span
@@ -506,7 +506,7 @@ function ReviewCard({
           <div
             style={{
               paddingTop: 16,
-              borderTop: '1px solid rgba(176,141,87,0.06)',
+              borderTop: 'none',
               color: palette.bodyDark,
               fontWeight: 600,
               fontSize: 14,
@@ -764,7 +764,7 @@ export default function IntakeLandingPage() {
                     className="flex flex-wrap items-center gap-x-6 gap-y-3"
                     style={{
                       paddingTop: 24,
-                      borderTop: `1px solid ${palette.lineDark}`,
+                      borderTop: 'none',
                     }}
                   >
                     <div className="flex items-center gap-2.5">
@@ -881,7 +881,7 @@ export default function IntakeLandingPage() {
                           minWidth: 90,
                           padding: '14px 12px',
                           borderRadius: 16,
-                          border: '1px solid rgba(176,141,87,0.1)',
+                          border: 'none',
                           background: 'rgba(255,255,255,0.85)',
                           textAlign: 'center',
                         }}
@@ -905,7 +905,7 @@ export default function IntakeLandingPage() {
                             gap: 16,
                             alignItems: 'start',
                             paddingTop: index === 0 ? 0 : 16,
-                            borderTop: index === 0 ? 'none' : `1px solid ${palette.line}`,
+                            borderTop: 'none',
                           }}
                         >
                           <span
@@ -1133,7 +1133,7 @@ export default function IntakeLandingPage() {
                       justifyContent: 'space-between',
                       gap: 12,
                       paddingTop: 18,
-                      borderTop: '1px solid rgba(176,141,87,0.08)',
+                      borderTop: 'none',
                     }}
                   >
                     <div>
@@ -1276,8 +1276,8 @@ export default function IntakeLandingPage() {
                   <div
                     style={{
                       marginTop: 24,
-                      paddingTop: 24,
-                      borderTop: '1px solid rgba(176,141,87,0.06)',
+                      paddingTop: 0,
+                      borderTop: 'none',
                     }}
                   >
                     <div
@@ -1368,8 +1368,8 @@ export default function IntakeLandingPage() {
                           justifyContent: 'center',
                           padding: '8px 14px',
                           borderRadius: 999,
-                          border: '1px solid rgba(176,141,87,0.06)',
-                          background: 'rgba(255,255,255,0.5)',
+                          border: 'none',
+                          background: 'rgba(176,141,87,0.08)',
                           color: palette.bodyDark,
                           fontSize: 11,
                           fontWeight: 600,
@@ -1449,7 +1449,7 @@ export default function IntakeLandingPage() {
                       style={{
                         padding: '16px 28px',
                         borderRadius: 10,
-                        border: '1px solid rgba(176,141,87,0.1)',
+                        border: 'none',
                         background: 'rgba(255,255,255,0.5)',
                         color: palette.bodyDark,
                         fontSize: 13,

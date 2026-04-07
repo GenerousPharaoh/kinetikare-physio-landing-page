@@ -602,71 +602,106 @@ export default function IntakeLandingPage() {
         }
       `}</style>
 
-      <main className="intake-page" style={{ background: '#ffffff' }}>
-        {/* ---- HERO: clean dark section, no fade ---- */}
+      <main className="intake-page" style={{ background: 'linear-gradient(180deg, #faf8f4 0%, #ffffff 15%, #ffffff 100%)' }}>
+        {/* ---- HERO: editorial split with portrait photo ---- */}
         <section
           ref={heroRef}
           className="intake-hero"
-          style={{ position: 'relative', overflow: 'hidden', background: palette.navy }}
+          style={{ position: 'relative', overflow: 'hidden', background: '#faf8f4' }}
         >
-          {/* Background photo */}
-          <div style={{ position: 'absolute', inset: 0 }}>
-            <div aria-hidden="true" style={{ position: 'absolute', inset: 0, backgroundImage: "url('/images/clinic-pic-may-2025.jpg')", backgroundSize: 'cover', backgroundPosition: '65% center' }} />
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(100deg, rgba(15,23,42,0.92) 0%, rgba(15,23,42,0.75) 35%, rgba(15,23,42,0.45) 60%, rgba(15,23,42,0.3) 100%)' }} />
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(15,23,42,0.2) 0%, transparent 30%, transparent 80%, rgba(15,23,42,0.4) 100%)' }} />
-          </div>
+          {/* Subtle warm texture */}
+          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 80% 60% at 30% 40%, rgba(176,141,87,0.04), transparent 60%)' }} />
 
           <div
-            className="container mx-auto max-w-5xl px-6 sm:px-8 lg:px-16"
-            style={{ position: 'relative', zIndex: 2, display: 'flex', minHeight: '100%', alignItems: 'center', paddingTop: 'clamp(7rem, 12vh, 9rem)', paddingBottom: 'clamp(5rem, 9vh, 7rem)' }}
+            className="container mx-auto max-w-6xl px-6 sm:px-8 lg:px-12"
+            style={{ position: 'relative', zIndex: 2, display: 'flex', minHeight: '100%', alignItems: 'center', paddingTop: 'clamp(7rem, 12vh, 9rem)', paddingBottom: 'clamp(4rem, 7vh, 6rem)' }}
           >
-            <motion.div
-              style={{ maxWidth: 580 }}
-              initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <Eyebrow light>Physiotherapy in Burlington</Eyebrow>
-
-              <h1 style={{ fontFamily: serifFont, fontSize: 'clamp(2.6rem, 5.5vw, 4.2rem)', fontWeight: 300, lineHeight: 1.08, letterSpacing: '-0.02em', color: 'white', marginBottom: 24 }}>
-                Book Your Assessment
-              </h1>
-
-              <p style={{ maxWidth: 480, color: 'rgba(255,255,255,0.75)', fontSize: 'clamp(1rem, 1.8vw, 1.12rem)', lineHeight: 1.85, marginBottom: 16 }}>
-                One-on-one physiotherapy for sports injuries, knee and hip pain, dry needling, cupping, and rehabilitation.
-              </p>
-
-              <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: 13, letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: 36 }}>
-                Kareem Hassanein, RPT &middot; MSc PT, BSc Kin &middot; CPO #20079
-              </p>
-
-              <div className="flex flex-col gap-3 sm:flex-row sm:gap-4" style={{ marginBottom: 32 }}>
-                <BookingCTA size="lg" className="w-full sm:w-auto !rounded-[10px] !px-8 !py-4 !text-[11px] !tracking-[0.22em]">
-                  Book Assessment
-                  <ArrowRightIcon width={14} height={14} aria-hidden="true" />
-                </BookingCTA>
-                <SecondaryAction href="tel:+19056346000">
-                  <PhoneIcon width={15} height={15} aria-hidden="true" />
-                  <span style={{ fontSize: 13, letterSpacing: '0.08em', fontWeight: 600 }}>(905) 634-6000</span>
-                </SecondaryAction>
-              </div>
-
-              <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
-                <div className="flex items-center gap-2.5">
-                  <ReviewStars size={13} />
-                  <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)' }}>5.0 from 17 reviews</span>
-                </div>
-                <span style={{ color: 'rgba(255,255,255,0.2)' }}>|</span>
-                <div className="flex items-center gap-2">
+            <div className="grid w-full items-center gap-12 lg:grid-cols-[1fr_auto] lg:gap-20">
+              {/* Left: content */}
+              <motion.div
+                initial={shouldReduceMotion ? false : { opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <div className="flex items-center gap-2" style={{ marginBottom: 28 }}>
                   <span style={{ width: 6, height: 6, borderRadius: 999, background: '#22c55e' }} />
-                  <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)' }}>Accepting Patients</span>
+                  <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#059669' }}>Accepting New Patients</span>
                 </div>
-                <span style={{ color: 'rgba(255,255,255,0.2)' }}>|</span>
-                {['Direct Billing', 'No Referral', 'Evening Hours'].map((t) => (
-                  <span key={t} style={{ fontSize: 11, fontWeight: 500, color: 'rgba(255,255,255,0.5)', letterSpacing: '0.04em' }}>{t}</span>
-                ))}
-              </div>
-            </motion.div>
+
+                <h1 style={{ fontFamily: serifFont, fontSize: 'clamp(2.8rem, 5.5vw, 4.4rem)', fontWeight: 300, lineHeight: 1.06, letterSpacing: '-0.025em', color: palette.bodyDark, marginBottom: 24 }}>
+                  Book Your<br />
+                  <span style={{ color: palette.goldDeep }}>Assessment</span>
+                </h1>
+
+                <p style={{ maxWidth: 460, color: palette.body, fontSize: 'clamp(1rem, 1.6vw, 1.1rem)', lineHeight: 1.85, marginBottom: 32 }}>
+                  One-on-one physiotherapy for sports injuries, knee and hip pain, dry needling, cupping, and rehabilitation in Burlington.
+                </p>
+
+                <div className="flex flex-col gap-3 sm:flex-row sm:gap-4" style={{ marginBottom: 36 }}>
+                  <BookingCTA size="lg" className="w-full sm:w-auto !rounded-[10px] !px-8 !py-4 !text-[11px] !tracking-[0.18em]">
+                    Book Assessment
+                    <ArrowRightIcon width={14} height={14} aria-hidden="true" />
+                  </BookingCTA>
+                  <a
+                    href="tel:+19056346000"
+                    className="inline-flex items-center justify-center gap-2.5"
+                    style={{ padding: '16px 28px', borderRadius: 10, background: 'rgba(176,141,87,0.08)', color: palette.bodyDark, fontSize: 13, fontWeight: 600 }}
+                  >
+                    <PhoneIcon width={15} height={15} aria-hidden="true" style={{ color: palette.goldDeep }} />
+                    (905) 634-6000
+                  </a>
+                </div>
+
+                {/* Trust row */}
+                <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+                  <div className="flex items-center gap-2">
+                    <ReviewStars size={13} />
+                    <span style={{ fontSize: 13, color: palette.body }}>5.0 from 17 reviews</span>
+                  </div>
+                  {['Direct Billing', 'No Referral Needed', 'Evening Hours'].map((t) => (
+                    <span key={t} style={{ fontSize: 12, color: palette.body, opacity: 0.6 }}>{t}</span>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Right: professional portrait */}
+              <motion.div
+                className="hidden lg:block"
+                initial={shouldReduceMotion ? false : { opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                style={{ position: 'relative' }}
+              >
+                {/* Gold accent behind photo */}
+                <div style={{ position: 'absolute', top: 20, left: 20, right: -8, bottom: -8, borderRadius: 24, background: `linear-gradient(135deg, ${palette.goldDeep}18, ${palette.gold}10)` }} />
+
+                <div style={{ position: 'relative', width: 340, borderRadius: 20, overflow: 'hidden', boxShadow: '0 32px 72px -20px rgba(26,32,54,0.18)' }}>
+                  <img
+                    src="/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png"
+                    alt="Kareem Hassanein, Registered Physiotherapist in Burlington"
+                    width={826}
+                    height={1169}
+                    style={{ width: '100%', height: 'auto', display: 'block' }}
+                  />
+                </div>
+
+                {/* Credentials floating tag */}
+                <div style={{
+                  position: 'absolute',
+                  bottom: 32,
+                  left: -24,
+                  background: 'white',
+                  borderRadius: 14,
+                  padding: '14px 20px',
+                  boxShadow: '0 12px 40px -12px rgba(26,32,54,0.12)',
+                  maxWidth: 220,
+                }}>
+                  <p style={{ fontFamily: serifFont, fontWeight: 400, fontSize: 16, color: palette.bodyDark, lineHeight: 1.3, marginBottom: 4 }}>Kareem Hassanein</p>
+                  <p style={{ fontSize: 12, color: palette.goldDeep, fontWeight: 600, letterSpacing: '0.04em' }}>Registered Physiotherapist</p>
+                  <p style={{ fontSize: 11, color: palette.body, marginTop: 4 }}>MSc PT, BSc Kin &middot; CPO #20079</p>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </section>
 

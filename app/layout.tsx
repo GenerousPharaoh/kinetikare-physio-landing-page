@@ -5,6 +5,7 @@ import GoogleAnalytics from '@/components/GoogleAnalytics';
 import WebVitals from '@/components/WebVitals';
 import ErrorBoundary from '@/components/ErrorBoundary';
 import CookieBanner from '@/components/CookieBanner';
+import BookingTracker from '@/components/BookingTracker';
 import { PerformanceProvider } from '@/context/PerformanceContext';
 
 export const viewport = {
@@ -439,6 +440,7 @@ export default function RootLayout({
           <Footer />
         </PerformanceProvider>
         <CookieBanner />
+        <BookingTracker />
       </body>
     </html>
   );

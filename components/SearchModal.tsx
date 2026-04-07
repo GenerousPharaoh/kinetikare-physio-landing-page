@@ -409,7 +409,28 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
     const newRecent = [searchTerm, ...recentSearches.filter(s => s !== searchTerm)].slice(0, 5);
     setRecentSearches(newRecent);
     localStorage.setItem('recentSearches', JSON.stringify(newRecent));
-    
+
+    // External URLs (janeapp, tel:) need window navigation, not router.push
+    if (result.url.includes('janeapp.com') || result.url.startsWith('tel:')) {
+      // Fire Google Ads conversion for booking/phone clicks
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'booking_click', {
+          event_category: 'conversion',
+          event_label: 'search_modal',
+          send_to: 'G-65FN5BN480',
+        });
+        window.gtag('event', 'conversion', {
+          send_to: 'AW-18069490191/eeANCJi7n5ccEI-UmqhD',
+          value: 130,
+          currency: 'CAD',
+          transport_type: 'beacon',
+        });
+      }
+      window.open(result.url, '_blank', 'noopener,noreferrer');
+      onClose();
+      return;
+    }
+
     router.push(result.url);
     onClose();
   };

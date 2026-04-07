@@ -31,7 +31,7 @@ const palette = {
 };
 
 const serifFont = '"Playfair Display", var(--font-heading), serif';
-const sectionPadding = 'clamp(7rem, 12vw, 12rem)';
+const sectionPadding = 'clamp(5rem, 8vw, 7rem)';
 
 type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
 type SurfaceTone = 'paper' | 'warm' | 'dark' | 'glass';
@@ -240,28 +240,28 @@ function Surface({
 }) {
   const tones: Record<SurfaceTone, CSSProperties> = {
     paper: {
-      border: `1px solid ${palette.line}`,
+      border: '1px solid rgba(176,141,87,0.08)',
       background: 'linear-gradient(180deg, rgba(255,255,255,0.94), rgba(247,241,230,0.92))',
-      boxShadow: '0 16px 48px -32px rgba(15,23,42,0.18)',
+      boxShadow: '0 16px 48px -32px rgba(15,23,42,0.12)',
       color: palette.bodyDark,
     },
     warm: {
-      border: '1px solid rgba(176,141,87,0.14)',
+      border: '1px solid rgba(176,141,87,0.1)',
       background: 'linear-gradient(180deg, rgba(247,241,230,0.97), rgba(239,228,208,0.95))',
-      boxShadow: '0 16px 48px -32px rgba(15,23,42,0.14)',
+      boxShadow: '0 16px 48px -32px rgba(15,23,42,0.1)',
       color: palette.bodyDark,
     },
     dark: {
-      border: `1px solid ${palette.lineDark}`,
+      border: '1px solid rgba(255,255,255,0.06)',
       background: 'linear-gradient(180deg, rgba(15,23,42,0.96), rgba(2,6,23,0.98))',
-      boxShadow: '0 16px 48px -32px rgba(2,6,23,0.6)',
+      boxShadow: '0 16px 48px -32px rgba(2,6,23,0.4)',
       color: 'white',
     },
     glass: {
-      border: '1px solid rgba(255,255,255,0.25)',
-      background: 'rgba(255,255,255,0.35)',
+      border: '1px solid rgba(255,255,255,0.2)',
+      background: 'rgba(255,255,255,0.3)',
       backdropFilter: 'blur(16px)',
-      boxShadow: '0 8px 32px -20px rgba(15,23,42,0.08)',
+      boxShadow: '0 12px 40px -24px rgba(15,23,42,0.06)',
       color: palette.bodyDark,
     },
   };
@@ -281,34 +281,41 @@ function Surface({
   );
 }
 
-function SecondaryAction({ href, children, style, className }: { href: string; children: ReactNode; style?: CSSProperties; className?: string }) {
+function SecondaryAction({
+  href,
+  children,
+  style,
+  className,
+}: {
+  href: string;
+  children: ReactNode;
+  style?: CSSProperties;
+  className?: string;
+}) {
   return (
-    <a href={href} className={`group relative inline-flex w-full sm:w-auto overflow-hidden ${className || ''}`} style={style}>
+    <a
+      href={href}
+      className={`group relative inline-flex items-center justify-center w-full sm:w-auto overflow-hidden ${className || ''}`}
+      style={{
+        gap: 10,
+        padding: '16px 28px',
+        borderRadius: 10,
+        border: '1px solid rgba(255,255,255,0.15)',
+        background: 'rgba(255,255,255,0.05)',
+        backdropFilter: 'blur(14px)',
+        color: 'white',
+        fontSize: 11,
+        fontWeight: 700,
+        letterSpacing: '0.18em',
+        textTransform: 'uppercase',
+        ...style,
+      }}
+    >
       <span
-        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent translate-x-[-130%] group-hover:translate-x-[130%] transition-transform duration-700 ease-out"
+        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-130%] group-hover:translate-x-[130%] transition-transform duration-700 ease-out"
         aria-hidden="true"
       />
-      <span
-        style={{
-          position: 'relative',
-          display: 'inline-flex',
-          width: '100%',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: 10,
-          padding: '16px 28px',
-          borderRadius: 14,
-          border: '1px solid rgba(255,255,255,0.16)',
-          background: 'rgba(255,255,255,0.06)',
-          backdropFilter: 'blur(14px)',
-          color: 'white',
-          fontSize: 11,
-          fontWeight: 700,
-          letterSpacing: '0.18em',
-          textTransform: 'uppercase',
-          boxShadow: '0 20px 45px -28px rgba(2,6,23,0.85)',
-        }}
-      >
+      <span style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', gap: 10 }}>
         {children}
       </span>
     </a>
@@ -337,8 +344,8 @@ function Reveal({
   const shouldReduceMotion = useReducedMotion();
   const { ref, inView } = useInView({
     threshold: amount,
-    triggerOnce: false,
-    rootMargin: '-4% 0px -8% 0px',
+    triggerOnce: true,
+    rootMargin: '0px 0px -6% 0px',
   });
 
   const axis =
@@ -397,8 +404,8 @@ function DetailRow({
         display: 'grid',
         gridTemplateColumns: 'auto 1fr',
         gap: 16,
-        paddingBottom: 22,
-        borderBottom: `1px solid ${palette.line}`,
+        paddingBottom: 24,
+        borderBottom: '1px solid rgba(176,141,87,0.08)',
       }}
     >
       <span
@@ -463,21 +470,21 @@ function ReviewCard({
       <Surface
         tone={tone}
         style={{
-          padding: 26,
+          padding: 'clamp(1.8rem, 2.8vw, 2.2rem)',
           height: '100%',
-          minHeight: 220,
+          minHeight: 240,
           borderRadius: 20,
         }}
       >
         <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
           <div
             className="flex items-center justify-between"
-            style={{ marginBottom: 18 }}
+            style={{ marginBottom: 20 }}
           >
             <ReviewStars size={12} />
             <span
               style={{
-                color: tone === 'warm' ? palette.goldDeep : palette.gold,
+                color: palette.goldDeep,
                 fontSize: 10,
                 fontWeight: 700,
                 letterSpacing: '0.16em',
@@ -489,23 +496,20 @@ function ReviewCard({
           </div>
           <div
             style={{
-              color: tone === 'warm' || tone === 'paper' ? palette.body : 'rgba(255,255,255,0.86)',
+              color: palette.body,
               fontSize: 15,
               lineHeight: 1.8,
               flex: 1,
-              marginBottom: 22,
+              marginBottom: 24,
             }}
           >
             &ldquo;{text}&rdquo;
           </div>
           <div
             style={{
-              paddingTop: 18,
-              borderTop:
-                tone === 'warm' || tone === 'paper'
-                  ? `1px solid ${palette.line}`
-                  : '1px solid rgba(255,255,255,0.08)',
-              color: tone === 'warm' || tone === 'paper' ? palette.bodyDark : 'white',
+              paddingTop: 20,
+              borderTop: `1px solid ${palette.line}`,
+              color: palette.bodyDark,
               fontWeight: 600,
               fontSize: 14,
             }}
@@ -745,15 +749,7 @@ export default function IntakeLandingPage() {
                       <ArrowRightIcon width={14} height={14} aria-hidden="true" />
                     </BookingCTA>
 
-                    <SecondaryAction
-                      href="tel:+19056346000"
-                      style={{
-                        padding: '16px 32px',
-                        borderRadius: 10,
-                        border: '1px solid rgba(255,255,255,0.15)',
-                        backgroundColor: 'rgba(255,255,255,0.03)',
-                      }}
-                    >
+                    <SecondaryAction href="tel:+19056346000">
                       <PhoneIcon width={15} height={15} aria-hidden="true" />
                       <span style={{ fontSize: 13, letterSpacing: '0.1em', fontWeight: 600 }}>(905) 634-6000</span>
                     </SecondaryAction>
@@ -804,7 +800,7 @@ export default function IntakeLandingPage() {
                   <Surface
                     tone="warm"
                     style={{
-                      padding: 26,
+                      padding: 30,
                       background:
                         'linear-gradient(180deg, rgba(247,241,230,0.985), rgba(239,228,208,0.965))',
                     }}
@@ -872,7 +868,7 @@ export default function IntakeLandingPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.88, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  <Surface tone="warm" style={{ padding: 32, borderRadius: 20 }}>
+                  <Surface tone="warm" style={{ padding: 'clamp(2rem, 3.5vw, 2.5rem)', borderRadius: 20 }}>
                     <div className="flex items-start justify-between" style={{ gap: 18, marginBottom: 28 }}>
                       <div>
                         <p style={{ color: palette.goldDeep, fontSize: 11, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 12 }}>
@@ -888,7 +884,7 @@ export default function IntakeLandingPage() {
                           minWidth: 90,
                           padding: '14px 12px',
                           borderRadius: 16,
-                          border: `1px solid ${palette.line}`,
+                          border: '1px solid rgba(176,141,87,0.1)',
                           background: 'rgba(255,255,255,0.85)',
                           textAlign: 'center',
                         }}
@@ -1004,68 +1000,6 @@ export default function IntakeLandingPage() {
                   </p>
                 </Reveal>
 
-                <Reveal delay={0.08} style={{ marginTop: 30 }}>
-                  <Surface tone="warm" style={{ padding: 28, borderRadius: 32 }}>
-                    <p
-                      style={{
-                        color: palette.goldDeep,
-                        fontSize: 11,
-                        fontWeight: 700,
-                        letterSpacing: '0.18em',
-                        textTransform: 'uppercase',
-                        marginBottom: 14,
-                      }}
-                    >
-                      First Visit Flow
-                    </p>
-                    <div style={{ display: 'grid', gap: 14 }}>
-                      {visitSteps.map((step, index) => (
-                        <div
-                          key={step.title}
-                          style={{
-                            display: 'grid',
-                            gridTemplateColumns: 'auto 1fr',
-                            gap: 14,
-                            alignItems: 'start',
-                            paddingTop: index === 0 ? 0 : 18,
-                            borderTop: index === 0 ? 'none' : `1px solid ${palette.line}`,
-                          }}
-                        >
-                          <span
-                            style={{
-                              display: 'inline-flex',
-                              width: 30,
-                              height: 30,
-                              alignItems: 'center',
-                              justifyContent: 'center',
-                              borderRadius: 999,
-                              background: 'rgba(176,141,87,0.12)',
-                              color: palette.goldDeep,
-                              fontSize: 12,
-                              fontWeight: 700,
-                            }}
-                          >
-                            0{index + 1}
-                          </span>
-                          <div>
-                            <p style={{ color: palette.bodyDark, fontWeight: 600, marginBottom: 4 }}>
-                              {step.title}
-                            </p>
-                            <p
-                              style={{
-                                color: palette.body,
-                                lineHeight: 1.76,
-                                fontSize: 14,
-                              }}
-                            >
-                              {step.text}
-                            </p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </Surface>
-                </Reveal>
               </div>
 
               <div className="grid gap-6 md:grid-cols-2">
@@ -1562,8 +1496,6 @@ export default function IntakeLandingPage() {
                     <SecondaryAction
                       href="tel:+19056346000"
                       style={{
-                        padding: '16px 32px',
-                        borderRadius: 10,
                         border: `1px solid ${palette.line}`,
                         backgroundColor: 'rgba(255,255,255,0.6)',
                         color: palette.bodyDark,

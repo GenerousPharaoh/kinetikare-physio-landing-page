@@ -31,7 +31,7 @@ const palette = {
 };
 
 const serifFont = '"Playfair Display", var(--font-heading), serif';
-const sectionPadding = 'clamp(4.5rem, 7vw, 6.5rem)';
+const sectionPadding = 'clamp(5rem, 8vw, 8rem)';
 
 type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
 type SurfaceTone = 'paper' | 'warm' | 'dark' | 'glass';
@@ -70,14 +70,14 @@ const careHighlights: Array<{
     title: 'Treatment starts on day one',
     description:
       'The first visit includes treatment when appropriate, not just intake paperwork and explanation.',
-    tone: 'dark',
+    tone: 'paper',
     size: 'standard',
   },
   {
     title: 'Clear reasoning at each visit',
     description:
       'Each visit ends with a clear explanation of what was found and what comes next.',
-    tone: 'warm',
+    tone: 'paper',
     size: 'standard',
   },
   {
@@ -152,6 +152,7 @@ const clinicDetails: Array<{
 ];
 
 const serviceAreas = ['Burlington', 'Waterdown', 'Flamborough', 'Carlisle', 'Oakville'];
+const secondaryReviewTones: SurfaceTone[] = ['glass', 'glass', 'glass', 'glass', 'glass'];
 
 const heroInfo = [
   'Sports injuries',
@@ -269,7 +270,7 @@ function Surface({
     <div
       style={{
         position: 'relative',
-        borderRadius: 30,
+        borderRadius: 20,
         overflow: 'hidden',
         ...tones[tone],
         ...style,
@@ -462,15 +463,16 @@ function ReviewCard({
       <Surface
         tone={tone}
         style={{
-          padding: 24,
+          padding: 26,
           height: '100%',
-          minHeight: 210,
+          minHeight: 220,
+          borderRadius: 20,
         }}
       >
         <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
           <div
             className="flex items-center justify-between"
-            style={{ marginBottom: 16 }}
+            style={{ marginBottom: 18 }}
           >
             <ReviewStars size={12} />
             <span
@@ -489,16 +491,16 @@ function ReviewCard({
             style={{
               color: tone === 'warm' || tone === 'paper' ? palette.body : 'rgba(255,255,255,0.86)',
               fontSize: 15,
-              lineHeight: 1.85,
+              lineHeight: 1.8,
               flex: 1,
-              marginBottom: 20,
+              marginBottom: 22,
             }}
           >
             &ldquo;{text}&rdquo;
           </div>
           <div
             style={{
-              paddingTop: 16,
+              paddingTop: 18,
               borderTop:
                 tone === 'warm' || tone === 'paper'
                   ? `1px solid ${palette.line}`
@@ -909,7 +911,7 @@ export default function IntakeLandingPage() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
                   >
-                    <Surface tone="glass" style={{ padding: 22, borderRadius: 28 }}>
+                    <Surface tone="glass" style={{ padding: 26, borderRadius: 20 }}>
                       <p
                         style={{
                           color: palette.gold,
@@ -957,7 +959,7 @@ export default function IntakeLandingPage() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.88, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
                   >
-                    <Surface tone="warm" style={{ padding: 30, borderRadius: 30 }}>
+                    <Surface tone="warm" style={{ padding: 26, borderRadius: 20 }}>
                       <div
                         className="flex items-start justify-between"
                         style={{ gap: 18, marginBottom: 24 }}
@@ -1085,7 +1087,7 @@ export default function IntakeLandingPage() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.38, ease: [0.22, 1, 0.36, 1] }}
                   >
-                    <Surface tone="dark" style={{ padding: 22, borderRadius: 28 }}>
+                    <Surface tone="dark" style={{ padding: 26, borderRadius: 20 }}>
                       <div
                         className="flex items-center justify-between"
                         style={{ gap: 12, marginBottom: 14 }}
@@ -1153,8 +1155,7 @@ export default function IntakeLandingPage() {
             marginTop: 0,
             padding: `${sectionPadding} 0`,
             background: `linear-gradient(180deg, ${palette.creamSoft} 0%, ${palette.cream} 56%, ${palette.creamDeep} 100%)`,
-            borderTopLeftRadius: 36,
-            borderTopRightRadius: 36,
+            borderTop: `1px solid ${palette.line}`,
             overflow: 'hidden',
           }}
         >
@@ -1175,7 +1176,7 @@ export default function IntakeLandingPage() {
             className="container mx-auto max-w-6xl px-6 sm:px-8 lg:px-16"
             style={{ position: 'relative' }}
           >
-            <div className="grid gap-12 lg:grid-cols-[minmax(320px,0.84fr)_minmax(0,1.16fr)] lg:gap-16">
+            <div className="grid gap-12 lg:grid-cols-[minmax(320px,0.82fr)_minmax(0,1.18fr)] lg:gap-14">
               <div className="lg:sticky lg:top-28 h-fit">
                 <Reveal>
                   <Eyebrow>What to Expect</Eyebrow>
@@ -1206,8 +1207,8 @@ export default function IntakeLandingPage() {
                   </p>
                 </Reveal>
 
-                <Reveal delay={0.08} style={{ marginTop: 26 }}>
-                  <Surface tone="dark" style={{ padding: 30 }}>
+                <Reveal delay={0.08} style={{ marginTop: 30 }}>
+                  <Surface tone="dark" style={{ padding: 28, borderRadius: 32 }}>
                     <p
                       style={{
                         color: palette.gold,
@@ -1220,7 +1221,7 @@ export default function IntakeLandingPage() {
                     >
                       First Visit Flow
                     </p>
-                    <div style={{ display: 'grid', gap: 16 }}>
+                    <div style={{ display: 'grid', gap: 14 }}>
                       {visitSteps.map((step, index) => (
                         <div
                           key={step.title}
@@ -1229,7 +1230,7 @@ export default function IntakeLandingPage() {
                             gridTemplateColumns: 'auto 1fr',
                             gap: 14,
                             alignItems: 'start',
-                            paddingTop: index === 0 ? 0 : 16,
+                            paddingTop: index === 0 ? 0 : 18,
                             borderTop: index === 0 ? 'none' : '1px solid rgba(255,255,255,0.08)',
                           }}
                         >
@@ -1256,7 +1257,7 @@ export default function IntakeLandingPage() {
                             <p
                               style={{
                                 color: 'rgba(255,255,255,0.72)',
-                                lineHeight: 1.8,
+                                lineHeight: 1.76,
                                 fontSize: 14,
                               }}
                             >
@@ -1270,14 +1271,15 @@ export default function IntakeLandingPage() {
                 </Reveal>
               </div>
 
-              <div className="grid gap-5 md:grid-cols-2">
+              <div className="grid gap-6 md:grid-cols-2">
                 {careHighlights.map((item, index) => (
                   <Reveal key={item.title} delay={0.05 * index}>
                     <Surface
                       tone={item.tone}
                       style={{
-                        padding: 28,
-                        minHeight: item.size === 'tall' ? 272 : 228,
+                        padding: '30px 30px 28px',
+                        minHeight: item.size === 'tall' ? 252 : 220,
+                        borderRadius: 30,
                       }}
                     >
                       <p
@@ -1302,10 +1304,10 @@ export default function IntakeLandingPage() {
                               ? 'white'
                               : palette.bodyDark,
                           fontWeight: 300,
-                          fontSize: item.size === 'tall' ? '2rem' : '1.7rem',
-                          lineHeight: 1.06,
+                          fontSize: item.size === 'tall' ? '1.86rem' : '1.56rem',
+                          lineHeight: 1.04,
                           letterSpacing: '-0.03em',
-                          marginBottom: 14,
+                          marginBottom: 12,
                         }}
                       >
                         {item.title}
@@ -1317,7 +1319,7 @@ export default function IntakeLandingPage() {
                               ? 'rgba(255,255,255,0.74)'
                               : palette.body,
                           fontSize: 15,
-                          lineHeight: 1.82,
+                          lineHeight: 1.78,
                         }}
                       >
                         {item.description}
@@ -1336,6 +1338,7 @@ export default function IntakeLandingPage() {
             marginTop: 0,
             padding: `${sectionPadding} 0`,
             background: `linear-gradient(180deg, ${palette.navy} 0%, ${palette.ink} 100%)`,
+            borderTop: `1px solid ${palette.line}`,
             overflow: 'hidden',
           }}
         >
@@ -1395,12 +1398,13 @@ export default function IntakeLandingPage() {
               </div>
             </Reveal>
 
-            <div className="grid gap-7 pt-8 xl:grid-cols-[minmax(320px,0.72fr)_minmax(0,1.28fr)] xl:items-start xl:gap-10">
+            <div className="grid gap-7 pt-8 xl:grid-cols-[minmax(300px,0.68fr)_minmax(0,1.32fr)] xl:items-start xl:gap-9">
               <Reveal direction="left">
                 <Surface
                   tone="warm"
                   style={{
-                    padding: 'clamp(1.7rem, 2.6vw, 2.1rem)',
+                    padding: 'clamp(1.8rem, 2.7vw, 2.2rem)',
+                    borderRadius: 34,
                   }}
                 >
                   <p
@@ -1420,7 +1424,7 @@ export default function IntakeLandingPage() {
                       fontWeight: 300,
                       color: palette.bodyDark,
                       fontSize: 'clamp(1.3rem, 2vw, 1.9rem)',
-                      lineHeight: 1.18,
+                      lineHeight: 1.16,
                       letterSpacing: '-0.03em',
                       marginBottom: 20,
                     }}
@@ -1433,7 +1437,7 @@ export default function IntakeLandingPage() {
                       alignItems: 'center',
                       justifyContent: 'space-between',
                       gap: 12,
-                      paddingTop: 18,
+                      paddingTop: 20,
                       borderTop: `1px solid ${palette.line}`,
                     }}
                   >
@@ -1448,20 +1452,20 @@ export default function IntakeLandingPage() {
                 </Surface>
               </Reveal>
 
-              <div className="grid gap-4 md:grid-cols-2">
+              <div className="grid gap-5 md:grid-cols-2">
                 {secondaryReviews.map((review, index) => (
                   <Reveal key={review.name} delay={0.04 * index}>
                     <ReviewCard
                       name={review.name}
                       text={review.text}
-                      tone={index % 3 === 1 ? 'glass' : index % 3 === 2 ? 'warm' : 'dark'}
+                      tone={secondaryReviewTones[index] ?? 'dark'}
                     />
                   </Reveal>
                 ))}
               </div>
             </div>
 
-            <Reveal delay={0.18} style={{ textAlign: 'center', marginTop: 28 }}>
+            <Reveal delay={0.18} style={{ textAlign: 'center', marginTop: 34 }}>
               <a
                 href="https://www.google.com/maps/place/Endorphins+Health+%26+Wellness+Centre"
                 target="_blank"
@@ -1489,6 +1493,7 @@ export default function IntakeLandingPage() {
             position: 'relative',
             padding: `${sectionPadding} 0`,
             background: `linear-gradient(180deg, ${palette.creamDeep} 0%, ${palette.creamSoft} 100%)`,
+            borderTop: `1px solid ${palette.line}`,
             overflow: 'hidden',
           }}
         >
@@ -1510,20 +1515,21 @@ export default function IntakeLandingPage() {
             className="container mx-auto max-w-6xl px-6 sm:px-8 lg:px-16"
             style={{ position: 'relative' }}
           >
-            <div className="grid gap-8 xl:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] xl:items-start">
+            <div className="grid gap-7 xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] xl:items-start">
               <Reveal direction="left">
                 <Surface
-                  tone="dark"
+                  tone="paper"
                   style={{
-                    padding: 'clamp(1.85rem, 3.4vw, 2.55rem)',
+                    padding: 'clamp(1.9rem, 3.1vw, 2.35rem)',
                     minHeight: '100%',
+                    borderRadius: 20,
                   }}
                 >
-                  <Eyebrow light>Fees & Billing</Eyebrow>
+                  <Eyebrow>Fees & Billing</Eyebrow>
                   <h2
                     style={{
                       fontFamily: serifFont,
-                      color: 'white',
+                      color: palette.bodyDark,
                       fontWeight: 300,
                       fontSize: 'clamp(2.05rem, 4vw, 3.3rem)',
                       lineHeight: 0.98,
@@ -1536,10 +1542,10 @@ export default function IntakeLandingPage() {
                   </h2>
                   <p
                     style={{
-                      color: 'rgba(255,255,255,0.8)',
+                      color: palette.body,
                       lineHeight: 1.9,
                       maxWidth: 460,
-                      marginBottom: 28,
+                      marginBottom: 24,
                     }}
                   >
                     Review the fees, clinic location, and booking details before you schedule your
@@ -1549,10 +1555,10 @@ export default function IntakeLandingPage() {
                   <div className="grid gap-4 sm:grid-cols-2">
                     {pricingOptions.map((item, index) => (
                       <Reveal key={item.label} delay={0.06 * index}>
-                        <Surface tone="glass" style={{ padding: 22, borderRadius: 24 }}>
+                        <Surface tone="warm" style={{ padding: 20, borderRadius: 20 }}>
                           <p
                             style={{
-                              color: palette.gold,
+                              color: palette.goldDeep,
                               fontSize: 11,
                               fontWeight: 700,
                               letterSpacing: '0.18em',
@@ -1566,8 +1572,8 @@ export default function IntakeLandingPage() {
                             style={{
                               fontFamily: serifFont,
                               fontWeight: 300,
-                              color: 'white',
-                              fontSize: '2.45rem',
+                              color: palette.bodyDark,
+                              fontSize: '2.3rem',
                               lineHeight: 0.94,
                               letterSpacing: '-0.04em',
                               marginBottom: 8,
@@ -1577,7 +1583,7 @@ export default function IntakeLandingPage() {
                           </p>
                           <p
                             style={{
-                              color: 'rgba(255,255,255,0.72)',
+                              color: palette.body,
                               lineHeight: 1.72,
                               fontSize: 14,
                             }}
@@ -1591,9 +1597,9 @@ export default function IntakeLandingPage() {
 
                   <div
                     style={{
-                      marginTop: 22,
-                      paddingTop: 22,
-                      borderTop: '1px solid rgba(255,255,255,0.08)',
+                      marginTop: 20,
+                      paddingTop: 20,
+                      borderTop: `1px solid ${palette.line}`,
                     }}
                   >
                     <div
@@ -1601,7 +1607,7 @@ export default function IntakeLandingPage() {
                         display: 'flex',
                         alignItems: 'flex-start',
                         gap: 12,
-                        color: 'rgba(255,255,255,0.76)',
+                        color: palette.body,
                         lineHeight: 1.85,
                         fontSize: 14,
                       }}
@@ -1610,7 +1616,7 @@ export default function IntakeLandingPage() {
                         width={18}
                         height={18}
                         aria-hidden="true"
-                        style={{ color: palette.gold, flexShrink: 0, marginTop: 2 }}
+                        style={{ color: palette.goldDeep, flexShrink: 0, marginTop: 2 }}
                       />
                       <span>
                         Direct billing support is available for Sun Life, Manulife, Green Shield
@@ -1625,11 +1631,12 @@ export default function IntakeLandingPage() {
                 <Surface
                   tone="paper"
                   style={{
-                    padding: 'clamp(1.85rem, 3.4vw, 2.55rem)',
+                    padding: 'clamp(1.9rem, 3.1vw, 2.35rem)',
                     minHeight: '100%',
+                    borderRadius: 20,
                   }}
                 >
-                  <div className="flex flex-wrap gap-2.5" style={{ marginBottom: 20 }}>
+                  <div className="flex flex-wrap gap-2.5" style={{ marginBottom: 18 }}>
                     <TrustChip>Burlington Clinic</TrustChip>
                     <TrustChip>No Referral Required</TrustChip>
                   </div>
@@ -1654,13 +1661,13 @@ export default function IntakeLandingPage() {
                       fontSize: 16,
                       lineHeight: 1.9,
                       maxWidth: 520,
-                      marginBottom: 28,
+                      marginBottom: 24,
                     }}
                   >
                     Easy to reach from Burlington, Waterdown, Flamborough, Carlisle, and Oakville.
                   </p>
 
-                  <div style={{ display: 'grid', gap: 20, marginBottom: 22 }}>
+                  <div style={{ display: 'grid', gap: 18, marginBottom: 20 }}>
                     {clinicDetails.map((detail, index) => (
                       <Reveal key={detail.label} delay={0.05 * index}>
                         <DetailRow label={detail.label} value={detail.value} icon={detail.icon} />

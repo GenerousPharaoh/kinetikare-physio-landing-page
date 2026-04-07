@@ -602,7 +602,7 @@ export default function IntakeLandingPage() {
         }
       `}</style>
 
-      <main className="intake-page" style={{ background: `linear-gradient(180deg, ${palette.creamSoft} 0%, ${palette.cream} 100%)` }}>
+      <main className="intake-page" style={{ background: '#ffffff' }}>
         <section
           ref={heroRef}
           className="intake-hero intake-grain"
@@ -661,7 +661,7 @@ export default function IntakeLandingPage() {
                 right: 0,
                 bottom: 0,
                 height: '32vh',
-                background: `linear-gradient(to bottom, transparent, ${palette.creamSoft})`,
+                background: 'linear-gradient(to bottom, transparent, #ffffff)',
                 zIndex: 1,
               }}
             />
@@ -942,530 +942,146 @@ export default function IntakeLandingPage() {
           </div>
         </section>
 
-        <section
-          style={{
-            position: 'relative',
-            padding: `${sectionPadding} 0`,
-            overflow: 'hidden',
-          }}
-        >
-          <div
-            className="container mx-auto max-w-6xl px-6 sm:px-8 lg:px-16"
-            style={{ position: 'relative' }}
-          >
-            <div>
-              <Reveal>
-                <Eyebrow>What to Expect</Eyebrow>
-                <h2
-                  style={{
-                    fontFamily: serifFont,
-                    color: palette.bodyDark,
-                    fontWeight: 300,
-                    fontSize: 'clamp(2rem, 4vw, 3rem)',
-                    lineHeight: 1.05,
-                    letterSpacing: '-0.03em',
-                    marginBottom: 14,
-                    maxWidth: 520,
-                  }}
-                >
-                  What your first visit includes
-                </h2>
-                <p
-                  style={{
-                    color: palette.body,
-                    fontSize: 16,
-                    lineHeight: 1.9,
-                    maxWidth: 560,
-                    marginBottom: 40,
-                  }}
-                >
-                  Your appointment is built around assessment, treatment, and a clear explanation
-                  of what comes next.
-                </p>
+        {/* ---- WHAT TO EXPECT ---- */}
+        <div className="container mx-auto max-w-5xl px-6 sm:px-8 lg:px-16" style={{ paddingTop: 'clamp(5rem, 10vw, 8rem)', paddingBottom: 'clamp(4rem, 8vw, 6rem)' }}>
+          <Reveal>
+            <Eyebrow>What to Expect</Eyebrow>
+            <h2 style={{ fontFamily: serifFont, color: palette.bodyDark, fontWeight: 300, fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', lineHeight: 1.15, letterSpacing: '-0.02em', marginBottom: 12, maxWidth: 480 }}>
+              What your first visit includes
+            </h2>
+            <p style={{ color: palette.body, fontSize: 16, lineHeight: 1.85, maxWidth: 520, marginBottom: 48 }}>
+              Your appointment is built around assessment, treatment, and a clear explanation of what comes next.
+            </p>
+          </Reveal>
+
+          <div className="grid gap-y-12 gap-x-16 sm:grid-cols-2">
+            {careHighlights.map((item, index) => (
+              <Reveal key={item.title} delay={0.05 * index}>
+                <p style={{ color: palette.goldDeep, fontSize: 12, fontWeight: 600, letterSpacing: '0.12em', marginBottom: 12 }}>0{index + 1}</p>
+                <h3 style={{ fontFamily: serifFont, color: palette.bodyDark, fontWeight: 400, fontSize: '1.25rem', lineHeight: 1.3, letterSpacing: '-0.01em', marginBottom: 10 }}>{item.title}</h3>
+                <p style={{ color: palette.body, fontSize: 15, lineHeight: 1.8 }}>{item.description}</p>
               </Reveal>
-
-              <div className="grid gap-6 sm:grid-cols-2">
-                {careHighlights.map((item, index) => (
-                  <Reveal key={item.title} delay={0.05 * index}>
-                    <Surface
-                      tone={item.tone}
-                      style={{
-                        padding: '28px 28px 26px',
-                        borderRadius: 20,
-                      }}
-                    >
-                      <p
-                        style={{
-                          color:
-                            item.tone === 'dark' || item.tone === 'glass'
-                              ? palette.gold
-                              : palette.goldDeep,
-                          fontSize: 12,
-                          fontWeight: 700,
-                          letterSpacing: '0.16em',
-                          marginBottom: 16,
-                        }}
-                      >
-                        0{index + 1}
-                      </p>
-                      <h3
-                        style={{
-                          fontFamily: serifFont,
-                          color:
-                            item.tone === 'dark' || item.tone === 'glass'
-                              ? 'white'
-                              : palette.bodyDark,
-                          fontWeight: 300,
-                          fontSize: item.size === 'tall' ? '1.86rem' : '1.56rem',
-                          lineHeight: 1.04,
-                          letterSpacing: '-0.03em',
-                          marginBottom: 12,
-                        }}
-                      >
-                        {item.title}
-                      </h3>
-                      <p
-                        style={{
-                          color:
-                            item.tone === 'dark' || item.tone === 'glass'
-                              ? 'rgba(255,255,255,0.74)'
-                              : palette.body,
-                          fontSize: 15,
-                          lineHeight: 1.78,
-                        }}
-                      >
-                        {item.description}
-                      </p>
-                    </Surface>
-                  </Reveal>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
-        </section>
+        </div>
 
-        <section
-          style={{
-            position: 'relative',
-            padding: `${sectionPadding} 0`,
-            overflow: 'hidden',
-          }}
-        >
-          <div
-            className="container mx-auto max-w-6xl px-6 sm:px-8 lg:px-16"
-            style={{ position: 'relative' }}
-          >
+        {/* ---- REVIEWS ---- */}
+        <div className="container mx-auto max-w-5xl px-6 sm:px-8 lg:px-16" style={{ paddingTop: 'clamp(3rem, 6vw, 5rem)', paddingBottom: 'clamp(4rem, 8vw, 6rem)' }}>
+          <Reveal>
+            <Eyebrow>Patient Reviews</Eyebrow>
+            <h2 style={{ fontFamily: serifFont, color: palette.bodyDark, fontWeight: 300, fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', lineHeight: 1.15, letterSpacing: '-0.02em', marginBottom: 12, maxWidth: 460 }}>
+              What patients say
+            </h2>
+            <div className="flex flex-wrap items-center gap-3" style={{ marginBottom: 48 }}>
+              <ReviewStars size={16} />
+              <span style={{ color: palette.body, fontSize: 14 }}>5.0 from 17 Google reviews</span>
+            </div>
+          </Reveal>
+
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+            {reviews.map((review, index) => (
+              <Reveal key={review.name} delay={0.04 * index}>
+                <div>
+                  <p style={{ color: palette.goldDeep, fontSize: 36, lineHeight: 0.8, fontFamily: serifFont, marginBottom: 12 }}>&ldquo;</p>
+                  <p style={{ color: palette.body, fontSize: 15, lineHeight: 1.8, marginBottom: 16 }}>{review.text}</p>
+                  <p style={{ color: palette.bodyDark, fontWeight: 600, fontSize: 14 }}>{review.name}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal delay={0.18} style={{ marginTop: 40 }}>
+            <a href="https://www.google.com/maps/place/Endorphins+Health+%26+Wellness+Centre" target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: palette.goldDeep, fontSize: 13, fontWeight: 600, letterSpacing: '0.08em' }}>
+              Read all reviews on Google
+              <ArrowRightIcon width={14} height={14} aria-hidden="true" />
+            </a>
+          </Reveal>
+        </div>
+
+        {/* ---- PRICING & DETAILS ---- */}
+        <div className="container mx-auto max-w-5xl px-6 sm:px-8 lg:px-16" style={{ paddingTop: 'clamp(3rem, 6vw, 5rem)', paddingBottom: 'clamp(4rem, 8vw, 6rem)' }}>
+          <div className="grid gap-16 lg:grid-cols-2">
+            {/* Pricing */}
             <Reveal>
-              <Eyebrow>Patient Reviews</Eyebrow>
               <div>
-                <h2
-                  style={{
-                    fontFamily: serifFont,
-                    color: palette.bodyDark,
-                    fontWeight: 300,
-                    fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)',
-                    lineHeight: 1.1,
-                    letterSpacing: '-0.03em',
-                    marginBottom: 14,
-                    maxWidth: 500,
-                  }}
-                >
-                  What patients say
+                <Eyebrow>Fees</Eyebrow>
+                <h2 style={{ fontFamily: serifFont, color: palette.bodyDark, fontWeight: 300, fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', lineHeight: 1.15, letterSpacing: '-0.02em', marginBottom: 32 }}>
+                  Transparent pricing
                 </h2>
-                <p
-                  style={{
-                    color: palette.body,
-                    fontSize: 16,
-                    lineHeight: 1.9,
-                    maxWidth: 560,
-                    marginBottom: 18,
-                  }}
-                >
-                  Reviews consistently mention clear explanations, attentive care, and treatment
-                  that gets to the source of the issue.
+
+                <div className="grid gap-8 sm:grid-cols-2" style={{ marginBottom: 28 }}>
+                  {pricingOptions.map((item) => (
+                    <div key={item.label}>
+                      <p style={{ color: palette.goldDeep, fontSize: 11, fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 10 }}>{item.label}</p>
+                      <p style={{ fontFamily: serifFont, fontWeight: 300, color: palette.bodyDark, fontSize: '2.4rem', lineHeight: 1, letterSpacing: '-0.03em', marginBottom: 6 }}>{item.price}</p>
+                      <p style={{ color: palette.body, fontSize: 14, lineHeight: 1.6 }}>{item.note}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <p style={{ color: palette.body, fontSize: 14, lineHeight: 1.8 }}>
+                  Direct billing available for Sun Life, Manulife, Green Shield Canada, Blue Cross, Canada Life, WSIB, and more.
                 </p>
-                <div className="flex flex-wrap items-center gap-3">
-                  <ReviewStars size={15} />
-                  <span style={{ color: palette.body, fontSize: 13 }}>
-                    5.0 from 17 Google reviews
-                  </span>
-                </div>
               </div>
             </Reveal>
 
-            <div className="grid gap-7 pt-14 xl:grid-cols-[minmax(300px,0.68fr)_minmax(0,1.32fr)] xl:items-start xl:gap-9">
-              <Reveal direction="left">
-                <Surface
-                  tone="warm"
-                  style={{
-                    padding: 'clamp(1.8rem, 2.7vw, 2.2rem)',
-                    borderRadius: 34,
-                  }}
-                >
-                  <p
-                    style={{
-                      color: palette.goldDeep,
-                      fontSize: 46,
-                      lineHeight: 0.8,
-                      marginBottom: 14,
-                      fontFamily: serifFont,
-                    }}
-                  >
-                    &ldquo;
-                  </p>
-                  <div
-                    style={{
-                      fontFamily: serifFont,
-                      fontWeight: 300,
-                      color: palette.bodyDark,
-                      fontSize: 'clamp(1.2rem, 1.8vw, 1.6rem)',
-                      lineHeight: 1.45,
-                      letterSpacing: '-0.02em',
-                      marginBottom: 20,
-                    }}
-                  >
-                    {featuredReview.text}
-                  </div>
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      gap: 12,
-                      paddingTop: 18,
-                      borderTop: 'none',
-                    }}
-                  >
-                    <div>
-                      <p style={{ color: palette.bodyDark, fontWeight: 600, marginBottom: 4 }}>
-                        {featuredReview.name}
-                      </p>
-                      <p style={{ color: palette.body, fontSize: 13 }}>Google Review</p>
-                    </div>
-                    <ReviewStars size={13} />
-                  </div>
-                </Surface>
-              </Reveal>
+            {/* Clinic details */}
+            <Reveal delay={0.06}>
+              <div>
+                <Eyebrow>Clinic Details</Eyebrow>
+                <h2 style={{ fontFamily: serifFont, color: palette.bodyDark, fontWeight: 300, fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', lineHeight: 1.15, letterSpacing: '-0.02em', marginBottom: 32 }}>
+                  Burlington & Waterdown
+                </h2>
 
-              <div className="grid gap-5 md:grid-cols-2">
-                {secondaryReviews.map((review, index) => (
-                  <Reveal key={review.name} delay={0.04 * index}>
-                    <ReviewCard
-                      name={review.name}
-                      text={review.text}
-                      tone={secondaryReviewTones[index] ?? 'dark'}
-                    />
-                  </Reveal>
-                ))}
+                <div style={{ display: 'grid', gap: 28 }}>
+                  {clinicDetails.map((detail) => (
+                    <div key={detail.label} style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
+                      <detail.icon width={20} height={20} aria-hidden="true" style={{ color: palette.goldDeep, flexShrink: 0, marginTop: 2 }} />
+                      <div>
+                        <p style={{ color: palette.goldDeep, fontSize: 11, fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 6 }}>{detail.label}</p>
+                        <p style={{ color: palette.body, fontSize: 15, lineHeight: 1.8, whiteSpace: 'pre-line' }}>{detail.value}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex flex-wrap gap-2" style={{ marginTop: 24 }}>
+                  {serviceAreas.map((area) => (
+                    <span key={area} style={{ padding: '6px 12px', borderRadius: 999, background: 'rgba(176,141,87,0.06)', color: palette.body, fontSize: 11, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase' }}>{area}</span>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+
+        {/* ---- BOTTOM CTA ---- */}
+        <div className="container mx-auto max-w-5xl px-6 sm:px-8 lg:px-16" style={{ paddingTop: 'clamp(3rem, 6vw, 5rem)', paddingBottom: 'clamp(5rem, 10vw, 8rem)' }}>
+          <Reveal>
+            <div className="lg:flex lg:items-end lg:justify-between lg:gap-12">
+              <div style={{ marginBottom: 24 }}>
+                <Eyebrow>Book Your Assessment</Eyebrow>
+                <h2 style={{ fontFamily: serifFont, color: palette.bodyDark, fontWeight: 300, fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', lineHeight: 1.1, letterSpacing: '-0.02em', marginBottom: 12, maxWidth: 440 }}>
+                  Choose a time that works for you
+                </h2>
+                <p style={{ color: palette.body, fontSize: 16, lineHeight: 1.85, maxWidth: 460 }}>
+                  No referral required. Book online in under a minute or call the clinic directly.
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-3 sm:flex-row" style={{ flexShrink: 0 }}>
+                <BookingCTA size="lg" className="w-full sm:w-auto !rounded-[10px] !px-8 !py-4 !text-[11px] !tracking-[0.22em]">
+                  Book Assessment
+                  <ArrowRightIcon width={14} height={14} aria-hidden="true" />
+                </BookingCTA>
+                <a href="tel:+19056346000" className="inline-flex items-center justify-center gap-2.5" style={{ padding: '16px 24px', borderRadius: 10, background: 'rgba(176,141,87,0.06)', color: palette.bodyDark, fontSize: 13, fontWeight: 600 }}>
+                  <PhoneIcon width={15} height={15} aria-hidden="true" style={{ color: palette.goldDeep }} />
+                  (905) 634-6000
+                </a>
               </div>
             </div>
-
-            <Reveal delay={0.18} style={{ textAlign: 'center', marginTop: 34 }}>
-              <a
-                href="https://www.google.com/maps/place/Endorphins+Health+%26+Wellness+Centre"
-                target="_blank"
-                rel="noreferrer"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: 8,
-                  color: palette.gold,
-                  fontSize: 12,
-                  fontWeight: 700,
-                  letterSpacing: '0.18em',
-                  textTransform: 'uppercase',
-                }}
-              >
-                Read all reviews on Google
-                <ArrowRightIcon width={14} height={14} aria-hidden="true" />
-              </a>
-            </Reveal>
-          </div>
-        </section>
-
-        <section
-          style={{
-            position: 'relative',
-            padding: `${sectionPadding} 0`,
-            overflow: 'hidden',
-          }}
-        >
-          <div
-            className="container mx-auto max-w-6xl px-6 sm:px-8 lg:px-16"
-            style={{ position: 'relative' }}
-          >
-            <div className="grid gap-8 xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] xl:items-start">
-              <Reveal direction="left">
-                <Surface
-                  tone="paper"
-                  style={{
-                    padding: 'clamp(2rem, 3.5vw, 2.75rem)',
-                    minHeight: '100%',
-                  }}
-                >
-                  <Eyebrow>Fees & Billing</Eyebrow>
-                  <h2
-                    style={{
-                      fontFamily: serifFont,
-                      color: palette.bodyDark,
-                      fontWeight: 300,
-                      fontSize: 'clamp(1.6rem, 3vw, 2.2rem)',
-                      lineHeight: 1.1,
-                      letterSpacing: '-0.03em',
-                      marginBottom: 14,
-                      maxWidth: 440,
-                    }}
-                  >
-                    Fees and billing
-                  </h2>
-                  <p
-                    style={{
-                      color: palette.body,
-                      lineHeight: 1.9,
-                      maxWidth: 460,
-                      marginBottom: 24,
-                    }}
-                  >
-                    Review the fees, clinic location, and booking details before you schedule your
-                    first appointment.
-                  </p>
-
-                  <div className="grid gap-5 sm:grid-cols-2">
-                    {pricingOptions.map((item, index) => (
-                      <Reveal key={item.label} delay={0.06 * index}>
-                        <Surface tone="warm" style={{ padding: 24 }}>
-                          <p
-                            style={{
-                              color: palette.goldDeep,
-                              fontSize: 11,
-                              fontWeight: 700,
-                              letterSpacing: '0.18em',
-                              textTransform: 'uppercase',
-                              marginBottom: 12,
-                            }}
-                          >
-                            {item.label}
-                          </p>
-                          <p
-                            style={{
-                              fontFamily: serifFont,
-                              fontWeight: 300,
-                              color: palette.bodyDark,
-                              fontSize: '2.3rem',
-                              lineHeight: 0.94,
-                              letterSpacing: '-0.04em',
-                              marginBottom: 8,
-                            }}
-                          >
-                            {item.price}
-                          </p>
-                          <p
-                            style={{
-                              color: palette.body,
-                              lineHeight: 1.72,
-                              fontSize: 14,
-                            }}
-                          >
-                            {item.note}
-                          </p>
-                        </Surface>
-                      </Reveal>
-                    ))}
-                  </div>
-
-                  <div
-                    style={{
-                      marginTop: 24,
-                      paddingTop: 0,
-                      borderTop: 'none',
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: 'flex',
-                        alignItems: 'flex-start',
-                        gap: 12,
-                        color: palette.body,
-                        lineHeight: 1.85,
-                        fontSize: 14,
-                      }}
-                    >
-                      <CreditCardIcon
-                        width={18}
-                        height={18}
-                        aria-hidden="true"
-                        style={{ color: palette.goldDeep, flexShrink: 0, marginTop: 2 }}
-                      />
-                      <span>
-                        Direct billing support is available for Sun Life, Manulife, Green Shield
-                        Canada, Blue Cross, Canada Life, WSIB, and more.
-                      </span>
-                    </div>
-                  </div>
-                </Surface>
-              </Reveal>
-
-              <Reveal direction="right" delay={0.06}>
-                <Surface
-                  tone="paper"
-                  style={{
-                    padding: 'clamp(2rem, 3.5vw, 2.75rem)',
-                    minHeight: '100%',
-                  }}
-                >
-                  <div className="flex flex-wrap gap-2.5" style={{ marginBottom: 18 }}>
-                    <TrustChip>Burlington Clinic</TrustChip>
-                    <TrustChip>No Referral Required</TrustChip>
-                  </div>
-
-                  <Eyebrow>Clinic Details</Eyebrow>
-                  <h2
-                    style={{
-                      fontFamily: serifFont,
-                      color: palette.bodyDark,
-                      fontWeight: 300,
-                      fontSize: 'clamp(1.6rem, 3vw, 2.2rem)',
-                      lineHeight: 1.1,
-                      letterSpacing: '-0.03em',
-                      marginBottom: 14,
-                    }}
-                  >
-                    Burlington & Waterdown
-                  </h2>
-                  <p
-                    style={{
-                      color: palette.body,
-                      fontSize: 16,
-                      lineHeight: 1.9,
-                      maxWidth: 520,
-                      marginBottom: 24,
-                    }}
-                  >
-                    Easy to reach from Burlington, Waterdown, Flamborough, Carlisle, and Oakville.
-                  </p>
-
-                  <div style={{ display: 'grid', gap: 22, marginBottom: 24 }}>
-                    {clinicDetails.map((detail, index) => (
-                      <Reveal key={detail.label} delay={0.05 * index}>
-                        <DetailRow label={detail.label} value={detail.value} icon={detail.icon} />
-                      </Reveal>
-                    ))}
-                  </div>
-
-                  <div
-                    style={{
-                      display: 'flex',
-                      flexWrap: 'wrap',
-                      gap: 10,
-                    }}
-                  >
-                    {serviceAreas.map((area) => (
-                      <span
-                        key={area}
-                        style={{
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          padding: '8px 14px',
-                          borderRadius: 999,
-                          border: 'none',
-                          background: 'rgba(176,141,87,0.08)',
-                          color: palette.bodyDark,
-                          fontSize: 11,
-                          fontWeight: 600,
-                          letterSpacing: '0.08em',
-                          textTransform: 'uppercase',
-                        }}
-                      >
-                        {area}
-                      </span>
-                    ))}
-                  </div>
-                </Surface>
-              </Reveal>
-            </div>
-          </div>
-        </section>
-
-        {/* Connective Tissue: removed hairlines */}
-
-        <section
-          style={{
-            position: 'relative',
-            padding: `${sectionPadding} 0`,
-            overflow: 'hidden',
-          }}
-        >
-          <div className="container mx-auto max-w-5xl px-6 sm:px-8 lg:px-16">
-            <Reveal>
-              <Surface
-                tone="warm"
-                style={{
-                  padding: 'clamp(2.5rem, 5vw, 4rem)',
-                }}
-              >
-                <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
-                  <div>
-                    <Eyebrow>Book Your Assessment</Eyebrow>
-                    <h2
-                      style={{
-                        fontFamily: serifFont,
-                        color: palette.bodyDark,
-                        fontWeight: 300,
-                        fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)',
-                        lineHeight: 1.1,
-                        letterSpacing: '-0.03em',
-                        marginBottom: 14,
-                        maxWidth: 480,
-                      }}
-                    >
-                      Choose a time that works for you
-                    </h2>
-                    <p
-                      style={{
-                        color: palette.body,
-                        fontSize: 16,
-                        lineHeight: 1.9,
-                        maxWidth: 520,
-                      }}
-                    >
-                      No referral required. Book online in under a minute or call the clinic
-                      directly.
-                    </p>
-                  </div>
-
-                  <div className="flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
-                    <BookingCTA
-                      size="lg"
-                      className="w-full sm:w-auto !rounded-[10px] !px-8 !py-4 !text-[11px] !tracking-[0.22em] !shadow-[0_22px_60px_-28px_rgba(212,175,55,0.72)]"
-                    >
-                      Book Assessment
-                      <ArrowRightIcon width={14} height={14} aria-hidden="true" />
-                    </BookingCTA>
-
-                    <a
-                      href="tel:+19056346000"
-                      className="inline-flex items-center justify-center gap-2.5"
-                      style={{
-                        padding: '16px 28px',
-                        borderRadius: 10,
-                        border: 'none',
-                        background: 'rgba(255,255,255,0.5)',
-                        color: palette.bodyDark,
-                        fontSize: 13,
-                        fontWeight: 600,
-                        letterSpacing: '0.06em',
-                      }}
-                    >
-                      <PhoneIcon width={15} height={15} aria-hidden="true" style={{ color: palette.goldDeep }} />
-                      (905) 634-6000
-                    </a>
-                  </div>
-                </div>
-              </Surface>
-            </Reveal>
-          </div>
-        </section>
+          </Reveal>
+        </div>
       </main>
     </>
   );

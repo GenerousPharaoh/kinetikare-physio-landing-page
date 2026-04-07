@@ -152,7 +152,7 @@ const clinicDetails: Array<{
   ];
 
 const serviceAreas = ['Burlington', 'Waterdown', 'Flamborough', 'Carlisle', 'Oakville'];
-const secondaryReviewTones: SurfaceTone[] = ['glass', 'glass', 'glass', 'glass', 'glass'];
+const secondaryReviewTones: SurfaceTone[] = ['paper', 'paper', 'paper', 'paper', 'paper'];
 
 const heroInfo = [
   'Sports injuries',
@@ -470,10 +470,9 @@ function ReviewCard({
       <Surface
         tone={tone}
         style={{
-          padding: 'clamp(1.8rem, 2.8vw, 2.2rem)',
+          padding: 24,
           height: '100%',
-          minHeight: 240,
-          borderRadius: 20,
+          borderRadius: 16,
         }}
       >
         <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
@@ -562,7 +561,6 @@ export default function IntakeLandingPage() {
     damping: 28,
     mass: 0.28,
   });
-  const sectionGlowY = useTransform(smoothPageProgress, [0, 1], [0, -140]);
 
   const featuredReview = reviews[0];
   const secondaryReviews = reviews.slice(1);
@@ -952,65 +950,49 @@ export default function IntakeLandingPage() {
             overflow: 'hidden',
           }}
         >
-          <motion.div
-            aria-hidden="true"
-            style={{
-              position: 'absolute',
-              top: -80,
-              right: -120,
-              width: 360,
-              height: 360,
-              borderRadius: '999px',
-              background: 'radial-gradient(circle, rgba(212,175,55,0.2), transparent 68%)',
-              y: shouldReduceMotion ? 0 : sectionGlowY,
-            }}
-          />
           <div
             className="container mx-auto max-w-6xl px-6 sm:px-8 lg:px-16"
             style={{ position: 'relative' }}
           >
-            <div className="grid gap-14 lg:grid-cols-[minmax(320px,0.82fr)_minmax(0,1.18fr)] lg:gap-16">
-              <div className="lg:sticky lg:top-28 h-fit">
-                <Reveal>
-                  <Eyebrow>What to Expect</Eyebrow>
-                  <h2
-                    style={{
-                      fontFamily: serifFont,
-                      color: palette.bodyDark,
-                      fontWeight: 300,
-                      fontSize: 'clamp(2.45rem, 4.8vw, 4.2rem)',
-                      lineHeight: 0.98,
-                      letterSpacing: '-0.04em',
-                      marginBottom: 18,
-                      maxWidth: 460,
-                    }}
-                  >
-                    What your first visit includes.
-                  </h2>
-                  <p
-                    style={{
-                      color: palette.body,
-                      fontSize: 16,
-                      lineHeight: 1.9,
-                      maxWidth: 430,
-                    }}
-                  >
-                    Your appointment is built around assessment, treatment, and a clear explanation
-                    of what comes next.
-                  </p>
-                </Reveal>
+            <div>
+              <Reveal>
+                <Eyebrow>What to Expect</Eyebrow>
+                <h2
+                  style={{
+                    fontFamily: serifFont,
+                    color: palette.bodyDark,
+                    fontWeight: 300,
+                    fontSize: 'clamp(2rem, 4vw, 3rem)',
+                    lineHeight: 1.05,
+                    letterSpacing: '-0.03em',
+                    marginBottom: 14,
+                    maxWidth: 520,
+                  }}
+                >
+                  What your first visit includes
+                </h2>
+                <p
+                  style={{
+                    color: palette.body,
+                    fontSize: 16,
+                    lineHeight: 1.9,
+                    maxWidth: 560,
+                    marginBottom: 40,
+                  }}
+                >
+                  Your appointment is built around assessment, treatment, and a clear explanation
+                  of what comes next.
+                </p>
+              </Reveal>
 
-              </div>
-
-              <div className="grid gap-6 md:grid-cols-2">
+              <div className="grid gap-6 sm:grid-cols-2">
                 {careHighlights.map((item, index) => (
                   <Reveal key={item.title} delay={0.05 * index}>
                     <Surface
                       tone={item.tone}
                       style={{
-                        padding: '30px 30px 28px',
-                        minHeight: item.size === 'tall' ? 252 : 220,
-                        borderRadius: 30,
+                        padding: '28px 28px 26px',
+                        borderRadius: 20,
                       }}
                     >
                       <p
@@ -1070,20 +1052,6 @@ export default function IntakeLandingPage() {
             overflow: 'hidden',
           }}
         >
-          <motion.div
-            aria-hidden="true"
-            style={{
-              position: 'absolute',
-              left: -120,
-              top: 40,
-              width: 320,
-              height: 320,
-              borderRadius: '999px',
-              background: 'radial-gradient(circle, rgba(212,175,55,0.16), transparent 68%)',
-              y: shouldReduceMotion ? 0 : sectionGlowY,
-            }}
-          />
-
           <div
             className="container mx-auto max-w-6xl px-6 sm:px-8 lg:px-16"
             style={{ position: 'relative' }}
@@ -1151,9 +1119,9 @@ export default function IntakeLandingPage() {
                       fontFamily: serifFont,
                       fontWeight: 300,
                       color: palette.bodyDark,
-                      fontSize: 'clamp(1.3rem, 2vw, 1.9rem)',
-                      lineHeight: 1.16,
-                      letterSpacing: '-0.03em',
+                      fontSize: 'clamp(1.2rem, 1.8vw, 1.6rem)',
+                      lineHeight: 1.45,
+                      letterSpacing: '-0.02em',
                       marginBottom: 20,
                     }}
                   >
@@ -1223,20 +1191,6 @@ export default function IntakeLandingPage() {
             overflow: 'hidden',
           }}
         >
-          <motion.div
-            aria-hidden="true"
-            style={{
-              position: 'absolute',
-              right: -140,
-              bottom: -60,
-              width: 360,
-              height: 360,
-              borderRadius: '999px',
-              background: 'radial-gradient(circle, rgba(176,141,87,0.16), transparent 70%)',
-              y: shouldReduceMotion ? 0 : sectionGlowY,
-            }}
-          />
-
           <div
             className="container mx-auto max-w-6xl px-6 sm:px-8 lg:px-16"
             style={{ position: 'relative' }}

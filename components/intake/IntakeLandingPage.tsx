@@ -317,9 +317,9 @@ function SecondaryAction({ href, children }: { href: string; children: ReactNode
 function Reveal({
   children,
   delay = 0,
-  distance = 30,
+  distance = 18,
   direction = 'up',
-  scale = 0.985,
+  scale = 0.995,
   amount = 0.24,
   style,
   className,
@@ -337,7 +337,7 @@ function Reveal({
   const { ref, inView } = useInView({
     threshold: amount,
     triggerOnce: false,
-    rootMargin: '-8% 0px -10% 0px',
+    rootMargin: '-4% 0px -8% 0px',
   });
 
   const axis =
@@ -367,7 +367,7 @@ function Reveal({
           y: 0,
           scale: 1,
           transition: {
-            duration: shouldReduceMotion ? 0 : 0.82,
+            duration: shouldReduceMotion ? 0 : 0.68,
             delay,
             ease: [0.22, 1, 0.36, 1],
           },
@@ -825,7 +825,14 @@ export default function IntakeLandingPage() {
                 </motion.div>
 
                 <Reveal className="lg:hidden" delay={0.16} style={{ marginTop: 32 }}>
-                  <Surface tone="warm" style={{ padding: 26 }}>
+                  <Surface
+                    tone="warm"
+                    style={{
+                      padding: 26,
+                      background:
+                        'linear-gradient(180deg, rgba(247,241,230,0.985), rgba(239,228,208,0.965))',
+                    }}
+                  >
                     <p
                       style={{
                         color: palette.goldDeep,
@@ -883,14 +890,15 @@ export default function IntakeLandingPage() {
               </motion.div>
 
               <div className="hidden lg:block">
-                <div style={{ position: 'relative', minHeight: 640 }}>
+                <div style={{ position: 'relative', minHeight: 620 }}>
                   <motion.div
                     style={{
                       position: 'absolute',
-                      top: 40,
-                      right: 0,
-                      width: '42%',
+                      top: 28,
+                      right: 6,
+                      width: '38%',
                       y: shouldReduceMotion ? 0 : secondaryPanelY,
+                      zIndex: 1,
                     }}
                     initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -917,13 +925,14 @@ export default function IntakeLandingPage() {
                           lineHeight: 1.08,
                           letterSpacing: '-0.03em',
                           marginBottom: 10,
+                          color: 'rgba(255,255,255,0.94)',
                         }}
                       >
                         Burlington evenings with direct billing support.
                       </p>
                       <p
                         style={{
-                          color: 'rgba(255,255,255,0.72)',
+                          color: 'rgba(255,255,255,0.76)',
                           lineHeight: 1.75,
                           fontSize: 14,
                         }}
@@ -936,10 +945,11 @@ export default function IntakeLandingPage() {
                   <motion.div
                     style={{
                       position: 'absolute',
-                      left: 0,
-                      top: 130,
-                      width: '82%',
+                      left: 14,
+                      top: 116,
+                      width: '74%',
                       y: shouldReduceMotion ? 0 : primaryPanelY,
+                      zIndex: 2,
                     }}
                     initial={shouldReduceMotion ? false : { opacity: 0, y: 28 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -1066,10 +1076,11 @@ export default function IntakeLandingPage() {
                   <motion.div
                     style={{
                       position: 'absolute',
-                      right: 32,
-                      bottom: 10,
-                      width: '55%',
+                      right: 10,
+                      bottom: 54,
+                      width: '44%',
                       y: shouldReduceMotion ? 0 : secondaryPanelY,
+                      zIndex: 3,
                     }}
                     initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -1140,7 +1151,7 @@ export default function IntakeLandingPage() {
         <section
           style={{
             position: 'relative',
-            marginTop: 'clamp(-3.5rem, -5vw, -2rem)',
+            marginTop: 'clamp(-2rem, -3vw, -1rem)',
             padding: `${sectionPadding} 0`,
             background: `linear-gradient(180deg, ${palette.creamSoft} 0%, ${palette.cream} 56%, ${palette.creamDeep} 100%)`,
             borderTopLeftRadius: 42,
@@ -1260,7 +1271,7 @@ export default function IntakeLandingPage() {
                 </Reveal>
               </div>
 
-              <div className="grid gap-5 md:grid-cols-2">
+              <div className="grid gap-6 md:grid-cols-2">
                 {careHighlights.map((item, index) => (
                   <Reveal
                     key={item.title}
@@ -1268,11 +1279,12 @@ export default function IntakeLandingPage() {
                     style={{
                       marginTop:
                         index === 1
-                          ? 'clamp(1.5rem, 4vw, 3rem)'
+                          ? 'clamp(1rem, 2vw, 1.75rem)'
+                          : index === 2
+                            ? 'clamp(0.5rem, 1.2vw, 0.875rem)'
                           : index === 3
-                            ? 'clamp(-0.5rem, 1vw, 0rem)'
+                            ? 'clamp(0.5rem, 1vw, 0.75rem)'
                             : 0,
-                      height: '100%',
                     }}
                   >
                     <Surface
@@ -1280,7 +1292,6 @@ export default function IntakeLandingPage() {
                       style={{
                         padding: 30,
                         minHeight: item.size === 'tall' ? 290 : 240,
-                        height: '100%',
                       }}
                     >
                       <p
@@ -1336,7 +1347,7 @@ export default function IntakeLandingPage() {
         <section
           style={{
             position: 'relative',
-            marginTop: 'clamp(-1rem, -2vw, -1.5rem)',
+            marginTop: 'clamp(-0.5rem, -1vw, 0rem)',
             padding: `${sectionPadding} 0`,
             background: `linear-gradient(180deg, ${palette.navy} 0%, ${palette.ink} 100%)`,
             overflow: 'hidden',
@@ -1400,13 +1411,13 @@ export default function IntakeLandingPage() {
               </div>
             </Reveal>
 
-            <div className="grid gap-8 pt-10 xl:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] xl:gap-12">
+            <div className="grid gap-8 pt-10 xl:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] xl:items-start xl:gap-12">
               <Reveal direction="left">
                 <Surface
                   tone="warm"
                   style={{
-                    padding: 'clamp(2rem, 4vw, 2.75rem)',
-                    minHeight: '100%',
+                    padding: 'clamp(1.8rem, 3vw, 2.3rem)',
+                    maxWidth: 520,
                   }}
                 >
                   <p
@@ -1425,10 +1436,10 @@ export default function IntakeLandingPage() {
                       fontFamily: serifFont,
                       fontWeight: 300,
                       color: palette.bodyDark,
-                      fontSize: 'clamp(1.6rem, 2.9vw, 2.55rem)',
-                      lineHeight: 1.15,
+                      fontSize: 'clamp(1.35rem, 2.35vw, 2.15rem)',
+                      lineHeight: 1.18,
                       letterSpacing: '-0.03em',
-                      marginBottom: 22,
+                      marginBottom: 20,
                     }}
                   >
                     {featuredReview.text}
@@ -1462,9 +1473,9 @@ export default function IntakeLandingPage() {
                     style={{
                       marginTop:
                         index === 1
-                          ? 'clamp(1rem, 3vw, 2.25rem)'
+                          ? 'clamp(0.75rem, 1.8vw, 1.5rem)'
                           : index === 3
-                            ? 'clamp(-0.5rem, 1vw, 0rem)'
+                            ? 'clamp(0.4rem, 1vw, 0.75rem)'
                             : 0,
                     }}
                   >
@@ -1540,6 +1551,7 @@ export default function IntakeLandingPage() {
                   <h2
                     style={{
                       fontFamily: serifFont,
+                      color: 'white',
                       fontWeight: 300,
                       fontSize: 'clamp(2.25rem, 4.4vw, 3.8rem)',
                       lineHeight: 0.98,
@@ -1552,7 +1564,7 @@ export default function IntakeLandingPage() {
                   </h2>
                   <p
                     style={{
-                      color: 'rgba(255,255,255,0.74)',
+                      color: 'rgba(255,255,255,0.8)',
                       lineHeight: 1.9,
                       maxWidth: 460,
                       marginBottom: 28,

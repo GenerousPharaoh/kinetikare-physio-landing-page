@@ -31,7 +31,7 @@ const palette = {
 };
 
 const serifFont = '"Playfair Display", var(--font-heading), serif';
-const sectionPadding = 'clamp(6rem, 10vw, 10rem)';
+const sectionPadding = 'clamp(7rem, 12vw, 12rem)';
 
 type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
 type SurfaceTone = 'paper' | 'warm' | 'dark' | 'glass';
@@ -242,27 +242,27 @@ function Surface({
     paper: {
       border: `1px solid ${palette.line}`,
       background: 'linear-gradient(180deg, rgba(255,255,255,0.94), rgba(247,241,230,0.92))',
-      boxShadow: '0 32px 84px -58px rgba(15,23,42,0.42)',
+      boxShadow: '0 16px 48px -32px rgba(15,23,42,0.18)',
       color: palette.bodyDark,
     },
     warm: {
-      border: '1px solid rgba(176,141,87,0.22)',
+      border: '1px solid rgba(176,141,87,0.14)',
       background: 'linear-gradient(180deg, rgba(247,241,230,0.97), rgba(239,228,208,0.95))',
-      boxShadow: '0 30px 80px -56px rgba(15,23,42,0.36)',
+      boxShadow: '0 16px 48px -32px rgba(15,23,42,0.14)',
       color: palette.bodyDark,
     },
     dark: {
       border: `1px solid ${palette.lineDark}`,
       background: 'linear-gradient(180deg, rgba(15,23,42,0.96), rgba(2,6,23,0.98))',
-      boxShadow: '0 36px 96px -62px rgba(2,6,23,0.92)',
+      boxShadow: '0 16px 48px -32px rgba(2,6,23,0.6)',
       color: 'white',
     },
     glass: {
-      border: `1px solid ${palette.lineDark}`,
-      background: 'rgba(15,23,42,0.62)',
-      backdropFilter: 'blur(18px)',
-      boxShadow: '0 34px 90px -60px rgba(2,6,23,0.9)',
-      color: 'white',
+      border: '1px solid rgba(255,255,255,0.25)',
+      background: 'rgba(255,255,255,0.35)',
+      backdropFilter: 'blur(16px)',
+      boxShadow: '0 8px 32px -20px rgba(15,23,42,0.08)',
+      color: palette.bodyDark,
     },
   };
 
@@ -601,14 +601,13 @@ export default function IntakeLandingPage() {
         }
       `}</style>
 
-      <main className="intake-page" style={{ background: palette.ink }}>
+      <main className="intake-page" style={{ background: `linear-gradient(180deg, ${palette.creamSoft} 0%, ${palette.cream} 100%)` }}>
         <section
           ref={heroRef}
           className="intake-hero intake-grain"
           style={{
             position: 'relative',
             overflow: 'hidden',
-            background: palette.ink,
           }}
         >
           <motion.div
@@ -634,7 +633,7 @@ export default function IntakeLandingPage() {
                 position: 'absolute',
                 inset: 0,
                 background:
-                  'linear-gradient(96deg, rgba(2,6,23,0.99) 0%, rgba(15,23,42,0.96) 22%, rgba(15,23,42,0.88) 42%, rgba(15,23,42,0.58) 62%, rgba(2,6,23,0.9) 100%)',
+                  'linear-gradient(96deg, rgba(2,6,23,0.85) 0%, rgba(15,23,42,0.7) 22%, rgba(15,23,42,0.5) 42%, rgba(15,23,42,0.2) 62%, rgba(2,6,23,0.4) 100%)',
               }}
             />
             <div
@@ -642,7 +641,7 @@ export default function IntakeLandingPage() {
                 position: 'absolute',
                 inset: 0,
                 background:
-                  'linear-gradient(180deg, rgba(2,6,23,0.2) 0%, rgba(2,6,23,0.04) 26%, rgba(2,6,23,0.26) 58%, rgba(2,6,23,0.96) 100%)',
+                  'linear-gradient(180deg, rgba(2,6,23,0.1) 0%, rgba(2,6,23,0.02) 26%, rgba(2,6,23,0.1) 58%, rgba(2,6,23,0.4) 100%)',
               }}
             />
             <div
@@ -948,27 +947,12 @@ export default function IntakeLandingPage() {
               </div>
             </div>
           </div>
-          {/* Connective Tissue: Vertical hairline */}
-          <div
-            style={{
-              position: 'absolute',
-              left: '50%',
-              bottom: 0,
-              width: 1,
-              height: 100,
-              background: `linear-gradient(to bottom, transparent, ${palette.goldDeep})`,
-              opacity: 0.4,
-              zIndex: 3,
-            }}
-          />
         </section>
 
         <section
           style={{
             position: 'relative',
-            marginTop: 0,
             padding: `${sectionPadding} 0`,
-            background: `linear-gradient(180deg, ${palette.creamSoft} 0%, ${palette.cream} 35%, ${palette.cream} 65%, ${palette.creamDeep} 100%)`,
             overflow: 'hidden',
           }}
         >
@@ -989,7 +973,7 @@ export default function IntakeLandingPage() {
             className="container mx-auto max-w-6xl px-6 sm:px-8 lg:px-16"
             style={{ position: 'relative' }}
           >
-            <div className="grid gap-12 lg:grid-cols-[minmax(320px,0.82fr)_minmax(0,1.18fr)] lg:gap-14">
+            <div className="grid gap-14 lg:grid-cols-[minmax(320px,0.82fr)_minmax(0,1.18fr)] lg:gap-16">
               <div className="lg:sticky lg:top-28 h-fit">
                 <Reveal>
                   <Eyebrow>What to Expect</Eyebrow>
@@ -1021,10 +1005,10 @@ export default function IntakeLandingPage() {
                 </Reveal>
 
                 <Reveal delay={0.08} style={{ marginTop: 30 }}>
-                  <Surface tone="dark" style={{ padding: 28, borderRadius: 32 }}>
+                  <Surface tone="warm" style={{ padding: 28, borderRadius: 32 }}>
                     <p
                       style={{
-                        color: palette.gold,
+                        color: palette.goldDeep,
                         fontSize: 11,
                         fontWeight: 700,
                         letterSpacing: '0.18em',
@@ -1044,7 +1028,7 @@ export default function IntakeLandingPage() {
                             gap: 14,
                             alignItems: 'start',
                             paddingTop: index === 0 ? 0 : 18,
-                            borderTop: index === 0 ? 'none' : '1px solid rgba(255,255,255,0.08)',
+                            borderTop: index === 0 ? 'none' : `1px solid ${palette.line}`,
                           }}
                         >
                           <span
@@ -1055,8 +1039,8 @@ export default function IntakeLandingPage() {
                               alignItems: 'center',
                               justifyContent: 'center',
                               borderRadius: 999,
-                              background: 'rgba(212,175,55,0.14)',
-                              color: palette.gold,
+                              background: 'rgba(176,141,87,0.12)',
+                              color: palette.goldDeep,
                               fontSize: 12,
                               fontWeight: 700,
                             }}
@@ -1064,12 +1048,12 @@ export default function IntakeLandingPage() {
                             0{index + 1}
                           </span>
                           <div>
-                            <p style={{ color: 'white', fontWeight: 600, marginBottom: 4 }}>
+                            <p style={{ color: palette.bodyDark, fontWeight: 600, marginBottom: 4 }}>
                               {step.title}
                             </p>
                             <p
                               style={{
-                                color: 'rgba(255,255,255,0.72)',
+                                color: palette.body,
                                 lineHeight: 1.76,
                                 fontSize: 14,
                               }}
@@ -1143,28 +1127,12 @@ export default function IntakeLandingPage() {
               </div>
             </div>
           </div>
-          {/* Connective Tissue: Vertical hairline */}
-          <div
-            style={{
-              position: 'absolute',
-              left: '50%',
-              bottom: 0,
-              width: 1,
-              height: 100,
-              background: `linear-gradient(to bottom, transparent, ${palette.goldDeep})`,
-              opacity: 0.4,
-              zIndex: 3,
-            }}
-          />
         </section>
 
         <section
           style={{
             position: 'relative',
-            marginTop: 0,
             padding: `${sectionPadding} 0`,
-            background: `linear-gradient(180deg, ${palette.navy} 0%, ${palette.ink} 100%)`,
-            borderTop: `1px solid ${palette.line}`,
             overflow: 'hidden',
           }}
         >
@@ -1187,12 +1155,12 @@ export default function IntakeLandingPage() {
             style={{ position: 'relative' }}
           >
             <Reveal>
-              <Eyebrow light>Patient Reviews</Eyebrow>
+              <Eyebrow>Patient Reviews</Eyebrow>
               <div>
                 <h2
                   style={{
                     fontFamily: serifFont,
-                    color: 'white',
+                    color: palette.bodyDark,
                     fontWeight: 300,
                     fontSize: 'clamp(2.45rem, 4.8vw, 4.1rem)',
                     lineHeight: 0.98,
@@ -1205,7 +1173,7 @@ export default function IntakeLandingPage() {
                 </h2>
                 <p
                   style={{
-                    color: 'rgba(255,255,255,0.78)',
+                    color: palette.body,
                     fontSize: 16,
                     lineHeight: 1.9,
                     maxWidth: 560,
@@ -1217,14 +1185,14 @@ export default function IntakeLandingPage() {
                 </p>
                 <div className="flex flex-wrap items-center gap-3">
                   <ReviewStars size={15} />
-                  <span style={{ color: 'rgba(255,255,255,0.78)', fontSize: 13 }}>
+                  <span style={{ color: palette.body, fontSize: 13 }}>
                     5.0 from 17 Google reviews
                   </span>
                 </div>
               </div>
             </Reveal>
 
-            <div className="grid gap-7 pt-8 xl:grid-cols-[minmax(300px,0.68fr)_minmax(0,1.32fr)] xl:items-start xl:gap-9">
+            <div className="grid gap-7 pt-14 xl:grid-cols-[minmax(300px,0.68fr)_minmax(0,1.32fr)] xl:items-start xl:gap-9">
               <Reveal direction="left">
                 <Surface
                   tone="warm"
@@ -1318,7 +1286,6 @@ export default function IntakeLandingPage() {
           style={{
             position: 'relative',
             padding: `${sectionPadding} 0`,
-            background: `linear-gradient(180deg, ${palette.creamDeep} 0%, ${palette.creamSoft} 100%)`,
             overflow: 'hidden',
           }}
         >
@@ -1340,7 +1307,7 @@ export default function IntakeLandingPage() {
             className="container mx-auto max-w-6xl px-6 sm:px-8 lg:px-16"
             style={{ position: 'relative' }}
           >
-            <div className="grid gap-7 xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] xl:items-start">
+            <div className="grid gap-8 xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] xl:items-start">
               <Reveal direction="left">
                 <Surface
                   tone="paper"
@@ -1535,52 +1502,31 @@ export default function IntakeLandingPage() {
           </div>
         </section>
 
-        {/* Connective Tissue: Vertical hairline */}
-        <div
-          style={{
-            position: 'relative',
-            height: 120,
-            width: '100%',
-            background: palette.creamSoft,
-            display: 'flex',
-            justifyContent: 'center',
-            overflow: 'hidden',
-          }}
-        >
-          <div
-            style={{
-              width: 1,
-              height: '100%',
-              background: `linear-gradient(to bottom, ${palette.goldDeep}, transparent)`,
-              opacity: 0.4,
-            }}
-          />
-        </div>
+        {/* Connective Tissue: removed hairlines */}
 
         <section
           style={{
             position: 'relative',
             padding: `${sectionPadding} 0`,
-            background: `linear-gradient(180deg, ${palette.creamSoft} 0%, ${palette.navy} 20%, ${palette.ink} 100%)`,
             overflow: 'hidden',
           }}
         >
           <div className="container mx-auto max-w-5xl px-6 sm:px-8 lg:px-16">
             <Reveal>
               <Surface
-                tone="glass"
+                tone="warm"
                 style={{
-                  padding: 'clamp(2rem, 5vw, 3rem)',
+                  padding: 'clamp(2rem, 5vw, 3.5rem)',
                   borderRadius: 34,
                 }}
               >
                 <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
                   <div>
-                    <Eyebrow light>Book Your Assessment</Eyebrow>
+                    <Eyebrow>Book Your Assessment</Eyebrow>
                     <h2
                       style={{
                         fontFamily: serifFont,
-                        color: 'white',
+                        color: palette.bodyDark,
                         fontWeight: 300,
                         fontSize: 'clamp(2.25rem, 4.4vw, 3.9rem)',
                         lineHeight: 0.98,
@@ -1589,11 +1535,11 @@ export default function IntakeLandingPage() {
                         maxWidth: 560,
                       }}
                     >
-                      Choose a time that works for you.
+                      Choose a time that works for you
                     </h2>
                     <p
                       style={{
-                        color: 'rgba(255,255,255,0.76)',
+                        color: palette.body,
                         fontSize: 16,
                         lineHeight: 1.9,
                         maxWidth: 520,
@@ -1607,15 +1553,24 @@ export default function IntakeLandingPage() {
                   <div className="flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
                     <BookingCTA
                       size="lg"
-                      className="w-full sm:w-auto !rounded-[14px] sm:!rounded-[10px] !px-8 !py-4 !text-[11px] !tracking-[0.22em] !shadow-[0_22px_60px_-28px_rgba(212,175,55,0.72)]"
+                      className="w-full sm:w-auto !rounded-[10px] !px-8 !py-4 !text-[11px] !tracking-[0.22em] !shadow-[0_22px_60px_-28px_rgba(212,175,55,0.72)]"
                     >
                       Book Assessment
                       <ArrowRightIcon width={14} height={14} aria-hidden="true" />
                     </BookingCTA>
 
-                    <SecondaryAction href="tel:+19056346000">
+                    <SecondaryAction
+                      href="tel:+19056346000"
+                      style={{
+                        padding: '16px 32px',
+                        borderRadius: 10,
+                        border: `1px solid ${palette.line}`,
+                        backgroundColor: 'rgba(255,255,255,0.6)',
+                        color: palette.bodyDark,
+                      }}
+                    >
                       <PhoneIcon width={15} height={15} aria-hidden="true" />
-                      (905) 634-6000
+                      <span style={{ fontSize: 13, letterSpacing: '0.1em', fontWeight: 600, color: palette.bodyDark }}>(905) 634-6000</span>
                     </SecondaryAction>
                   </div>
                 </div>

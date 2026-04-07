@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Book Your Assessment | Kareem Hassanein Physiotherapy',
     description:
-      'Book physiotherapy in Burlington. 5.0 stars on Google, direct insurance billing, evening appointments, no referral needed. One-on-one care with a Registered Physiotherapist.',
+      'Book physiotherapy in Burlington. 5.0 stars on Google, direct insurance billing, evening appointments, no referral needed.',
   },
   robots: 'index, follow',
 };
@@ -22,330 +22,355 @@ const reviews = [
   },
   {
     name: 'Nickel Chan',
-    text: 'Kareem is honestly one of the best physiotherapists I\'ve ever seen. He fixed issues I\'d been struggling with for a long time.',
+    text: "Kareem is honestly one of the best physiotherapists I've ever seen. He fixed issues I'd been struggling with for a long time.",
   },
   {
     name: 'Thanula G.',
     text: 'Thorough, knowledgeable, and incredibly attentive. I saw consistent progress and now feel stronger and pain free.',
   },
   {
+    name: 'Ryan Darkwah',
+    text: "Kareem found the problem came from my hip and quads. My pain's gone now, and I'm back to playing at full speed.",
+  },
+  {
     name: 'David Espinosa',
-    text: 'He took the time to figure out what was causing it instead of just treating the pain. My hip feels strong again.',
-  },
-];
-
-const commitments = [
-  {
-    title: 'One-on-One Sessions',
-    desc: 'Your entire appointment is with Kareem. No assistants, no handoffs, no sharing time with other patients.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6">
-        <circle cx="12" cy="7" r="4" />
-        <path d="M4 21c0-4 4-7 8-7s8 3 8 7" strokeLinecap="round" />
-      </svg>
-    ),
+    text: 'He took the time to figure out what was causing it instead of just treating the pain. My hip feels strong again and the foot pain is gone.',
   },
   {
-    title: 'Root Cause Focus',
-    desc: 'Not just treating symptoms. A thorough assessment of your movement patterns to address what is actually driving your pain.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6">
-        <circle cx="12" cy="12" r="9" />
-        <circle cx="12" cy="12" r="5" />
-        <circle cx="12" cy="12" r="1.5" fill="currentColor" />
-      </svg>
-    ),
+    name: 'Marko Vasilic',
+    text: "He did a full movement analysis and showed me where the extra stress was coming from. I'm back to playing basketball comfortably.",
   },
-  {
-    title: 'Treatment From Day One',
-    desc: 'Your first visit includes both assessment and hands-on treatment. No wasting a session on paperwork alone.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6">
-        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Evidence-Based Care',
-    desc: 'Every intervention backed by current research. Manual therapy, dry needling, cupping, and progressive exercise rehabilitation.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6">
-        <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" strokeLinecap="round" />
-        <rect x="9" y="3" width="6" height="4" rx="1" />
-        <path d="M9 14l2 2 4-4" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
-  },
-];
-
-const logistics = [
-  { label: 'No referral needed', icon: 'check' },
-  { label: 'Direct insurance billing', icon: 'check' },
-  { label: 'Evening appointments', icon: 'check' },
-  { label: 'Free on-site parking', icon: 'check' },
-  { label: 'Same-week availability', icon: 'check' },
-  { label: 'Sun Life, Manulife, GSC, Blue Cross + more', icon: 'check' },
 ];
 
 export default function IntakePage() {
   return (
-    <main className="min-h-screen">
-      {/* ---------------------------------------------------------------- */}
-      {/* HERO */}
-      {/* ---------------------------------------------------------------- */}
-      <section className="relative bg-[#020617] overflow-hidden">
-        {/* Subtle texture */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23fff\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'20\' cy=\'20\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E")' }} />
+    <main>
+      {/* ================================================================ */}
+      {/* HERO  --  full viewport, no scroll                               */}
+      {/* ================================================================ */}
+      <section className="relative min-h-screen flex flex-col bg-[#020617] overflow-hidden">
+        {/* Ambient glow */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_20%_48%,rgba(176,141,87,0.07),transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_80%_20%,rgba(212,175,55,0.04),transparent_50%)]" />
 
-        <div className="relative container mx-auto px-5 sm:px-6 lg:px-8 max-w-5xl pt-32 pb-20 sm:pt-36 sm:pb-24">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Left column */}
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 mb-6">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="text-emerald-400 text-xs font-medium tracking-wide">Accepting New Patients</span>
-              </div>
+        {/* Thin gold accent line at very top */}
+        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent" />
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-light text-white leading-[1.15] tracking-tight mb-5">
-                Book Your{' '}
-                <span className="text-[#D4AF37]">Assessment</span>
-              </h1>
+        {/* Main content -- vertically centered */}
+        <div className="flex-1 flex items-center pt-[76px] pb-6">
+          <div className="container mx-auto px-5 sm:px-6 lg:px-8 max-w-6xl w-full">
+            <div className="grid lg:grid-cols-[1.15fr_1fr] gap-10 lg:gap-16 items-center">
 
-              <p className="text-white/60 text-lg leading-relaxed mb-8 max-w-md">
-                One-on-one physiotherapy with Kareem Hassanein, Registered
-                Physiotherapist. Burlington and Waterdown.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-3 mb-8">
-                <BookingCTA size="lg">
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                    <rect x="3" y="4" width="18" height="18" rx="2" />
-                    <path d="M16 2v4M8 2v4M3 10h18" />
-                  </svg>
-                  Book Online
-                </BookingCTA>
-                <a
-                  href="tel:+19056346000"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full text-xs font-bold uppercase tracking-wide text-white/80 border border-white/15 hover:border-white/30 hover:text-white transition-all duration-200"
-                >
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
-                  </svg>
-                  (905) 634-6000
-                </a>
-              </div>
-
-              {/* Stars + review count */}
-              <div className="flex items-center gap-3">
-                <div className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-4 h-4 text-[#D4AF37]" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M10 1l2.39 4.84L17.3 6.7l-3.54 3.46.84 4.88L10 12.77l-4.6 2.27.84-4.88L2.7 6.7l4.91-.86L10 1z" />
-                    </svg>
-                  ))}
-                </div>
-                <span className="text-white/50 text-sm">5.0 from 17 Google Reviews</span>
-              </div>
-            </div>
-
-            {/* Right column: profile */}
-            <div className="hidden lg:block">
-              <div className="relative bg-white/[0.04] backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-                <div className="flex items-start gap-5 mb-6">
-                  <div className="w-20 h-20 rounded-xl overflow-hidden bg-white/10 flex-shrink-0">
-                    <Image
-                      src="/images/kareem-profile.webp"
-                      alt="Kareem Hassanein, Registered Physiotherapist"
-                      width={80}
-                      height={80}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <h2 className="text-white font-serif text-xl">Kareem Hassanein</h2>
-                    <p className="text-[#D4AF37] text-sm font-medium mt-0.5">Registered Physiotherapist</p>
-                    <p className="text-white/40 text-xs mt-1">MSc PT, BSc Kin &middot; CPO Reg. #20079</p>
-                  </div>
+              {/* ---- Left column ---- */}
+              <div>
+                {/* Status badge */}
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 mb-7">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="text-emerald-400 text-[11px] font-semibold tracking-widest uppercase">
+                    Accepting New Patients
+                  </span>
                 </div>
 
-                <div className="space-y-3 text-sm">
-                  <div className="flex items-center gap-3 text-white/50">
-                    <svg className="w-4 h-4 text-[#D4AF37]/60 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
-                      <circle cx="12" cy="9" r="2.5" />
-                    </svg>
-                    <span>4631 Palladium Way, Unit 6, Burlington</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-white/50">
-                    <svg className="w-4 h-4 text-[#D4AF37]/60 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                {/* Heading */}
+                <h1 className="font-serif text-[2.5rem] sm:text-5xl lg:text-[3.4rem] font-light text-white leading-[1.1] tracking-tight mb-5">
+                  Book Your
+                  <br />
+                  <span className="bg-gradient-to-r from-[#D4AF37] to-[#E8D48B] bg-clip-text text-transparent">
+                    Assessment
+                  </span>
+                </h1>
+
+                <p className="text-white/55 text-[15px] sm:text-base leading-relaxed mb-8 max-w-[420px]">
+                  One-on-one physiotherapy with Kareem Hassanein,
+                  Registered Physiotherapist. Burlington and Waterdown.
+                </p>
+
+                {/* CTAs */}
+                <div className="flex flex-col sm:flex-row gap-3 mb-8">
+                  <BookingCTA size="lg">
+                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                       <rect x="3" y="4" width="18" height="18" rx="2" />
                       <path d="M16 2v4M8 2v4M3 10h18" />
                     </svg>
-                    <span>Mon/Tue/Thu 1:30-8 PM &middot; Wed/Fri 2-7:30 PM</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-white/50">
-                    <svg className="w-4 h-4 text-[#D4AF37]/60 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                      <path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z" />
-                      <path d="M9 12l2 2 4-4" strokeLinecap="round" strokeLinejoin="round" />
+                    Book Online
+                  </BookingCTA>
+                  <a
+                    href="tel:+19056346000"
+                    className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full text-xs font-bold uppercase tracking-widest text-white/70 border border-white/[0.12] hover:border-[#D4AF37]/40 hover:text-[#D4AF37] transition-all duration-300"
+                  >
+                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
                     </svg>
-                    <span>Burlington, Waterdown, Flamborough, Carlisle</span>
-                  </div>
+                    (905) 634-6000
+                  </a>
                 </div>
 
-                {/* Credentials bar */}
-                <div className="mt-6 pt-5 border-t border-white/10 flex flex-wrap gap-2">
-                  {['Manual Therapy', 'Dry Needling', 'Cupping', 'Sports Rehab'].map((s) => (
-                    <span key={s} className="px-2.5 py-1 rounded-md bg-white/[0.06] text-white/40 text-xs">
-                      {s}
-                    </span>
-                  ))}
+                {/* Google rating */}
+                <div className="flex items-center gap-3">
+                  <div className="flex gap-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <svg key={i} className="w-[15px] h-[15px] text-[#D4AF37]" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M10 1l2.39 4.84L17.3 6.7l-3.54 3.46.84 4.88L10 12.77l-4.6 2.27.84-4.88L2.7 6.7l4.91-.86L10 1z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <span className="text-white/40 text-[13px]">
+                    5.0 from 17 Google Reviews
+                  </span>
+                </div>
+              </div>
+
+              {/* ---- Right column: practitioner card ---- */}
+              <div className="hidden lg:block">
+                <div className="relative rounded-2xl overflow-hidden">
+                  {/* Card gold top edge */}
+                  <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#B08D57] via-[#D4AF37] to-[#B08D57]" />
+
+                  <div className="bg-white/[0.05] backdrop-blur-sm border border-white/[0.08] rounded-2xl p-7">
+                    {/* Profile header */}
+                    <div className="flex items-center gap-5 mb-6">
+                      <div className="w-[72px] h-[72px] rounded-2xl overflow-hidden ring-2 ring-[#D4AF37]/20 ring-offset-2 ring-offset-[#020617] flex-shrink-0">
+                        <Image
+                          src="/images/kareem-profile.webp"
+                          alt="Kareem Hassanein, Registered Physiotherapist"
+                          width={72}
+                          height={72}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div>
+                        <h2 className="text-white font-serif text-lg tracking-tight">Kareem Hassanein</h2>
+                        <p className="text-[#D4AF37] text-sm font-medium mt-0.5">
+                          Registered Physiotherapist
+                        </p>
+                        <p className="text-white/35 text-xs mt-1 tracking-wide">
+                          MSc PT, BSc Kin &middot; CPO #20079
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Details */}
+                    <div className="space-y-3.5 text-[13px] mb-6">
+                      {[
+                        {
+                          icon: (
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z M12 11.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z" />
+                          ),
+                          text: 'Endorphins Health, 4631 Palladium Way, Burlington',
+                        },
+                        {
+                          icon: (
+                            <>
+                              <rect x="3" y="4" width="18" height="18" rx="2" />
+                              <path d="M16 2v4M8 2v4M3 10h18" />
+                            </>
+                          ),
+                          text: 'Mon / Tue / Thu 1:30-8 PM, Wed / Fri 2-7:30 PM',
+                        },
+                        {
+                          icon: (
+                            <path d="M9 12l2 2 4-4M22 12A10 10 0 112 12a10 10 0 0120 0z" />
+                          ),
+                          text: 'Burlington, Waterdown, Flamborough, Carlisle',
+                        },
+                      ].map((item, idx) => (
+                        <div key={idx} className="flex items-start gap-3">
+                          <svg className="w-4 h-4 text-[#D4AF37]/50 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                            {item.icon}
+                          </svg>
+                          <span className="text-white/50 leading-snug">{item.text}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Service tags */}
+                    <div className="pt-5 border-t border-white/[0.07] flex flex-wrap gap-1.5">
+                      {['Manual Therapy', 'Dry Needling', 'Cupping', 'Sports Rehab', 'Exercise Rx'].map((s) => (
+                        <span key={s} className="px-2.5 py-1 rounded-md bg-[#D4AF37]/[0.06] text-[#D4AF37]/60 text-[11px] font-medium tracking-wide">
+                          {s}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
 
-      {/* ---------------------------------------------------------------- */}
-      {/* LOGISTICS BAR */}
-      {/* ---------------------------------------------------------------- */}
-      <section className="bg-[#0f172a] border-t border-white/5">
-        <div className="container mx-auto px-5 sm:px-6 lg:px-8 max-w-5xl py-5">
-          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
-            {logistics.map((item) => (
-              <span key={item.label} className="flex items-center gap-2 text-white/50 text-xs sm:text-sm">
-                <svg className="w-3.5 h-3.5 text-emerald-400/70" viewBox="0 0 16 16" fill="none">
-                  <path d="M3 8.5l3.5 3.5L13 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-                {item.label}
-              </span>
-            ))}
+        {/* ---- Trust bar pinned to bottom of hero ---- */}
+        <div className="border-t border-white/[0.06] bg-white/[0.02]">
+          <div className="container mx-auto px-5 sm:px-6 lg:px-8 max-w-6xl py-4">
+            <div className="flex flex-wrap items-center justify-center gap-x-7 gap-y-2.5">
+              {[
+                'No referral needed',
+                'Direct insurance billing',
+                'Evening appointments',
+                'Free on-site parking',
+                'Same-week availability',
+              ].map((item, idx) => (
+                <span key={item} className="flex items-center gap-2 text-white/45 text-[12px] sm:text-[13px] tracking-wide">
+                  <span className="w-1 h-1 rounded-full bg-[#D4AF37]/40" />
+                  {item}
+                  {idx < 4 && <span className="hidden sm:inline text-white/10 ml-4">|</span>}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ---------------------------------------------------------------- */}
-      {/* WHAT TO EXPECT */}
-      {/* ---------------------------------------------------------------- */}
-      <section className="py-16 sm:py-20 bg-white">
+      {/* ================================================================ */}
+      {/* WHAT TO EXPECT                                                    */}
+      {/* ================================================================ */}
+      <section className="py-20 sm:py-24 bg-white relative">
         <div className="container mx-auto px-5 sm:px-6 lg:px-8 max-w-5xl">
-          <div className="text-center mb-12">
-            <p className="text-sm font-medium tracking-wide text-[#B08D57] uppercase mb-3">
+          <div className="max-w-xl mx-auto text-center mb-14">
+            <p className="text-[11px] font-semibold tracking-[0.2em] text-[#B08D57] uppercase mb-4">
               What to Expect
             </p>
-            <h2 className="text-2xl sm:text-3xl font-serif font-light text-[#1A2036] tracking-tight">
+            <h2 className="text-2xl sm:text-[2rem] font-serif font-light text-[#1A2036] tracking-tight leading-snug">
               Individualized care, every session
             </h2>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-5">
-            {commitments.map((c) => (
-              <div
-                key={c.title}
-                className="group p-6 rounded-2xl border border-slate-100 hover:border-[#B08D57]/20 hover:shadow-lg hover:shadow-[#B08D57]/5 transition-all duration-300"
-              >
-                <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#B08D57]/10 to-[#D4AF37]/10 flex items-center justify-center text-[#B08D57] mb-4">
-                  {c.icon}
-                </div>
-                <h3 className="text-[#1A2036] font-medium mb-2">{c.title}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">{c.desc}</p>
+          <div className="grid sm:grid-cols-2 gap-px bg-slate-100 rounded-2xl overflow-hidden border border-slate-100">
+            {[
+              {
+                num: '01',
+                title: 'One-on-One Sessions',
+                desc: 'Your entire appointment is with Kareem. No assistants, no handoffs, no sharing time with other patients.',
+              },
+              {
+                num: '02',
+                title: 'Root Cause Focus',
+                desc: 'A thorough assessment of your movement patterns to address what is actually driving your pain.',
+              },
+              {
+                num: '03',
+                title: 'Treatment From Day One',
+                desc: 'Your first visit includes both assessment and hands-on treatment. No wasting a session on paperwork alone.',
+              },
+              {
+                num: '04',
+                title: 'Evidence-Based Care',
+                desc: 'Every intervention backed by current research. Manual therapy, dry needling, cupping, and exercise rehabilitation.',
+              },
+            ].map((item) => (
+              <div key={item.num} className="bg-white p-8 sm:p-9 group">
+                <span className="text-[#D4AF37]/25 text-[2.5rem] font-serif font-light leading-none block mb-4">
+                  {item.num}
+                </span>
+                <h3 className="text-[#1A2036] font-medium text-[15px] mb-2.5 group-hover:text-[#B08D57] transition-colors duration-300">
+                  {item.title}
+                </h3>
+                <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ---------------------------------------------------------------- */}
-      {/* REVIEWS */}
-      {/* ---------------------------------------------------------------- */}
-      <section className="py-16 sm:py-20 bg-slate-50">
+      {/* ================================================================ */}
+      {/* REVIEWS                                                           */}
+      {/* ================================================================ */}
+      <section className="py-20 sm:py-24 bg-[#faf9f7]">
         <div className="container mx-auto px-5 sm:px-6 lg:px-8 max-w-5xl">
-          <div className="text-center mb-10">
-            <div className="flex justify-center gap-1 mb-3">
+          <div className="max-w-xl mx-auto text-center mb-14">
+            <div className="flex justify-center gap-1 mb-4">
               {[...Array(5)].map((_, i) => (
                 <svg key={i} className="w-5 h-5 text-[#D4AF37]" viewBox="0 0 20 20" fill="currentColor">
                   <path d="M10 1l2.39 4.84L17.3 6.7l-3.54 3.46.84 4.88L10 12.77l-4.6 2.27.84-4.88L2.7 6.7l4.91-.86L10 1z" />
                 </svg>
               ))}
             </div>
-            <h2 className="text-2xl sm:text-3xl font-serif font-light text-[#1A2036] tracking-tight">
+            <h2 className="text-2xl sm:text-[2rem] font-serif font-light text-[#1A2036] tracking-tight">
               5.0 stars from 17 reviews
             </h2>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-5">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {reviews.map((r) => (
-              <blockquote
-                key={r.name}
-                className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm"
-              >
-                <p className="text-slate-600 text-sm leading-relaxed mb-4 italic">
-                  &ldquo;{r.text}&rdquo;
+              <blockquote key={r.name} className="bg-white rounded-xl p-6 border border-slate-100/80 shadow-[0_1px_3px_rgba(0,0,0,0.04)] flex flex-col">
+                {/* Gold quotation mark */}
+                <svg className="w-7 h-7 text-[#D4AF37]/20 mb-3 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5 3.871 3.871 0 01-2.748-1.179zM14.583 17.321C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5 3.871 3.871 0 01-2.748-1.179z" />
+                </svg>
+                <p className="text-slate-600 text-[13px] leading-relaxed flex-1 mb-4">
+                  {r.text}
                 </p>
-                <footer className="text-xs font-medium text-[#1A2036]">{r.name}</footer>
+                <footer className="flex items-center gap-2 pt-3 border-t border-slate-100">
+                  <span className="w-1 h-4 rounded-full bg-[#D4AF37]/30" />
+                  <span className="text-xs font-semibold text-[#1A2036] tracking-wide">{r.name}</span>
+                </footer>
               </blockquote>
             ))}
           </div>
 
-          <p className="text-center mt-6">
+          <p className="text-center mt-8">
             <Link
               href="https://www.google.com/maps/place/Endorphins+Health+%26+Wellness+Centre"
               target="_blank"
-              className="text-sm text-[#B08D57] hover:text-[#96793e] font-medium transition-colors"
+              className="text-[13px] text-[#B08D57] hover:text-[#8c6e3a] font-medium transition-colors inline-flex items-center gap-1.5"
             >
-              Read all reviews on Google &rarr;
+              Read all reviews on Google
+              <svg className="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                <path d="M6 3l5 5-5 5" />
+              </svg>
             </Link>
           </p>
         </div>
       </section>
 
-      {/* ---------------------------------------------------------------- */}
-      {/* PRICING */}
-      {/* ---------------------------------------------------------------- */}
-      <section className="py-16 sm:py-20 bg-white">
-        <div className="container mx-auto px-5 sm:px-6 lg:px-8 max-w-3xl">
-          <div className="text-center mb-10">
-            <p className="text-sm font-medium tracking-wide text-[#B08D57] uppercase mb-3">
+      {/* ================================================================ */}
+      {/* PRICING                                                           */}
+      {/* ================================================================ */}
+      <section className="py-20 sm:py-24 bg-white">
+        <div className="container mx-auto px-5 sm:px-6 lg:px-8 max-w-4xl">
+          <div className="max-w-xl mx-auto text-center mb-12">
+            <p className="text-[11px] font-semibold tracking-[0.2em] text-[#B08D57] uppercase mb-4">
               Transparent Pricing
             </p>
-            <h2 className="text-2xl sm:text-3xl font-serif font-light text-[#1A2036] tracking-tight">
-              No hidden fees
+            <h2 className="text-2xl sm:text-[2rem] font-serif font-light text-[#1A2036] tracking-tight">
+              No hidden fees, no surprises
             </h2>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-4 max-w-lg mx-auto">
-            <div className="text-center p-6 rounded-2xl border border-slate-100 bg-slate-50/50">
-              <p className="text-sm text-slate-500 mb-1">Initial Assessment</p>
-              <p className="text-3xl font-light text-[#1A2036]">$130</p>
-              <p className="text-xs text-slate-400 mt-1">Assessment + treatment</p>
+          <div className="grid sm:grid-cols-2 gap-5 max-w-lg mx-auto mb-8">
+            <div className="relative text-center p-7 rounded-2xl border border-slate-150 bg-[#faf9f7] overflow-hidden group hover:border-[#D4AF37]/20 transition-colors duration-300">
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <p className="text-[11px] font-semibold tracking-[0.15em] text-slate-400 uppercase mb-2">Initial Assessment</p>
+              <p className="text-[2.5rem] font-serif font-light text-[#1A2036] leading-none mb-1.5">$130</p>
+              <p className="text-xs text-slate-400">Assessment + treatment</p>
             </div>
-            <div className="text-center p-6 rounded-2xl border border-slate-100 bg-slate-50/50">
-              <p className="text-sm text-slate-500 mb-1">Follow-up Session</p>
-              <p className="text-3xl font-light text-[#1A2036]">$90</p>
-              <p className="text-xs text-slate-400 mt-1">30-minute session</p>
+            <div className="relative text-center p-7 rounded-2xl border border-slate-150 bg-[#faf9f7] overflow-hidden group hover:border-[#D4AF37]/20 transition-colors duration-300">
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <p className="text-[11px] font-semibold tracking-[0.15em] text-slate-400 uppercase mb-2">Follow-up Session</p>
+              <p className="text-[2.5rem] font-serif font-light text-[#1A2036] leading-none mb-1.5">$90</p>
+              <p className="text-xs text-slate-400">30-minute session</p>
             </div>
           </div>
 
-          <p className="text-center text-sm text-slate-400 mt-5">
-            Direct billing to Sun Life, Manulife, Green Shield Canada, Blue Cross, Canada Life, WSIB + more.
-            <br />
+          <p className="text-center text-[13px] text-slate-400 leading-relaxed max-w-md mx-auto">
+            Direct billing to Sun Life, Manulife, Green Shield Canada, Blue Cross, Canada Life, WSIB, and more.
             Most extended health plans cover physiotherapy.
           </p>
         </div>
       </section>
 
-      {/* ---------------------------------------------------------------- */}
-      {/* BOTTOM CTA */}
-      {/* ---------------------------------------------------------------- */}
-      <section className="relative bg-[#020617] py-16 sm:py-20 overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23fff\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'20\' cy=\'20\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E")' }} />
+      {/* ================================================================ */}
+      {/* BOTTOM CTA                                                        */}
+      {/* ================================================================ */}
+      <section className="relative bg-[#020617] py-20 sm:py-24 overflow-hidden">
+        {/* Ambient glow */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(212,175,55,0.04),transparent_60%)]" />
 
         <div className="relative container mx-auto px-5 sm:px-6 lg:px-8 max-w-2xl text-center">
           <h2 className="text-2xl sm:text-3xl font-serif font-light text-white tracking-tight mb-4">
             Ready to move forward?
           </h2>
-          <p className="text-white/50 mb-8 leading-relaxed">
-            Book online in under a minute. No referral required. If you have questions first, call any time during clinic hours.
+          <p className="text-white/40 text-[15px] mb-9 leading-relaxed max-w-sm mx-auto">
+            Book online in under a minute. No referral required.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -358,7 +383,7 @@ export default function IntakePage() {
             </BookingCTA>
             <a
               href="tel:+19056346000"
-              className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full text-sm font-bold uppercase tracking-wide text-white/70 border border-white/15 hover:border-white/30 hover:text-white transition-all duration-200"
+              className="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full text-xs font-bold uppercase tracking-widest text-white/60 border border-white/[0.1] hover:border-[#D4AF37]/40 hover:text-[#D4AF37] transition-all duration-300"
             >
               (905) 634-6000
             </a>

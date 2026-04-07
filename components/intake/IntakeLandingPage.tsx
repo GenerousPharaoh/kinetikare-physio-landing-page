@@ -31,7 +31,7 @@ const palette = {
 };
 
 const serifFont = '"Playfair Display", var(--font-heading), serif';
-const sectionPadding = 'clamp(5rem, 8vw, 7.5rem)';
+const sectionPadding = 'clamp(4.5rem, 7vw, 6.5rem)';
 
 type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
 type SurfaceTone = 'paper' | 'warm' | 'dark' | 'glass';
@@ -462,9 +462,9 @@ function ReviewCard({
       <Surface
         tone={tone}
         style={{
-          padding: 26,
+          padding: 24,
           height: '100%',
-          minHeight: 230,
+          minHeight: 210,
         }}
       >
         <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
@@ -487,7 +487,7 @@ function ReviewCard({
           </div>
           <div
             style={{
-              color: tone === 'warm' || tone === 'paper' ? palette.body : 'rgba(255,255,255,0.82)',
+              color: tone === 'warm' || tone === 'paper' ? palette.body : 'rgba(255,255,255,0.86)',
               fontSize: 15,
               lineHeight: 1.85,
               flex: 1,
@@ -540,18 +540,18 @@ export default function IntakeLandingPage() {
     damping: 28,
     mass: 0.3,
   });
-  const heroContentY = useSpring(useTransform(heroProgress, [0, 1], [0, 70]), {
+  const heroContentY = useSpring(useTransform(heroProgress, [0, 1], [0, 48]), {
     stiffness: 120,
     damping: 28,
     mass: 0.26,
   });
-  const heroContentOpacity = useTransform(heroProgress, [0, 0.8], [1, 0.22]);
-  const primaryPanelY = useSpring(useTransform(heroProgress, [0, 1], [0, -56]), {
+  const heroContentOpacity = useTransform(heroProgress, [0, 0.82], [1, 0.34]);
+  const primaryPanelY = useSpring(useTransform(heroProgress, [0, 1], [0, -24]), {
     stiffness: 120,
     damping: 28,
     mass: 0.28,
   });
-  const secondaryPanelY = useSpring(useTransform(heroProgress, [0, 1], [0, 30]), {
+  const secondaryPanelY = useSpring(useTransform(heroProgress, [0, 1], [0, 18]), {
     stiffness: 120,
     damping: 28,
     mass: 0.28,
@@ -665,7 +665,7 @@ export default function IntakeLandingPage() {
               paddingBottom: 'clamp(4.5rem, 8vh, 7rem)',
             }}
           >
-            <div className="grid w-full items-center gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(360px,0.95fr)] lg:gap-16">
+            <div className="grid w-full items-center gap-12 lg:grid-cols-[minmax(0,0.94fr)_minmax(380px,0.9fr)] lg:gap-14">
               <motion.div
                 style={{
                   y: shouldReduceMotion ? 0 : heroContentY,
@@ -890,21 +890,26 @@ export default function IntakeLandingPage() {
               </motion.div>
 
               <div className="hidden lg:block">
-                <div style={{ position: 'relative', minHeight: 620 }}>
+                <div
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'minmax(0, 1fr) minmax(180px, 220px)',
+                    alignItems: 'stretch',
+                    gap: 18,
+                    minHeight: 560,
+                  }}
+                >
                   <motion.div
                     style={{
-                      position: 'absolute',
-                      top: 28,
-                      right: 6,
-                      width: '38%',
+                      gridColumn: '2',
+                      alignSelf: 'start',
                       y: shouldReduceMotion ? 0 : secondaryPanelY,
-                      zIndex: 1,
                     }}
                     initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
                   >
-                    <Surface tone="glass" style={{ padding: 24 }}>
+                    <Surface tone="glass" style={{ padding: 22, borderRadius: 28 }}>
                       <p
                         style={{
                           color: palette.gold,
@@ -915,26 +920,26 @@ export default function IntakeLandingPage() {
                           marginBottom: 12,
                         }}
                       >
-                        Clinic
+                        Clinic Details
                       </p>
                       <p
                         style={{
                           fontFamily: serifFont,
                           fontWeight: 300,
-                          fontSize: '1.65rem',
-                          lineHeight: 1.08,
+                          fontSize: '1.35rem',
+                          lineHeight: 1.14,
                           letterSpacing: '-0.03em',
                           marginBottom: 10,
                           color: 'rgba(255,255,255,0.94)',
                         }}
                       >
-                        Burlington evenings with direct billing support.
+                        Evening appointments and one-on-one care in Burlington.
                       </p>
                       <p
                         style={{
-                          color: 'rgba(255,255,255,0.76)',
-                          lineHeight: 1.75,
-                          fontSize: 14,
+                          color: 'rgba(255,255,255,0.8)',
+                          lineHeight: 1.7,
+                          fontSize: 13,
                         }}
                       >
                         Endorphins Health & Wellness Centre, 4631 Palladium Way, Unit 6.
@@ -944,21 +949,18 @@ export default function IntakeLandingPage() {
 
                   <motion.div
                     style={{
-                      position: 'absolute',
-                      left: 14,
-                      top: 116,
-                      width: '74%',
+                      gridColumn: '1',
+                      gridRow: '1 / span 2',
                       y: shouldReduceMotion ? 0 : primaryPanelY,
-                      zIndex: 2,
                     }}
                     initial={shouldReduceMotion ? false : { opacity: 0, y: 28 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.88, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
                   >
-                    <Surface tone="warm" style={{ padding: 34 }}>
+                    <Surface tone="warm" style={{ padding: 30, borderRadius: 30 }}>
                       <div
                         className="flex items-start justify-between"
-                        style={{ gap: 20, marginBottom: 26 }}
+                        style={{ gap: 18, marginBottom: 24 }}
                       >
                         <div>
                           <p
@@ -977,8 +979,8 @@ export default function IntakeLandingPage() {
                             style={{
                               fontFamily: serifFont,
                               fontWeight: 300,
-                              fontSize: '2.4rem',
-                              lineHeight: 1,
+                              fontSize: '2.18rem',
+                              lineHeight: 1.02,
                               letterSpacing: '-0.04em',
                               color: palette.bodyDark,
                             }}
@@ -990,9 +992,9 @@ export default function IntakeLandingPage() {
                         <div
                           style={{
                             flexShrink: 0,
-                            minWidth: 108,
-                            padding: '16px 14px',
-                            borderRadius: 20,
+                            minWidth: 98,
+                            padding: '14px 12px',
+                            borderRadius: 18,
                             border: `1px solid ${palette.line}`,
                             background: 'rgba(255,255,255,0.65)',
                             textAlign: 'center',
@@ -1024,16 +1026,16 @@ export default function IntakeLandingPage() {
                         </div>
                       </div>
 
-                      <div style={{ display: 'grid', gap: 18 }}>
+                      <div style={{ display: 'grid', gap: 16 }}>
                         {visitSteps.map((step, index) => (
                           <div
                             key={step.title}
                             style={{
                               display: 'grid',
                               gridTemplateColumns: 'auto 1fr',
-                              gap: 16,
+                              gap: 14,
                               alignItems: 'start',
-                              paddingTop: index === 0 ? 0 : 18,
+                              paddingTop: index === 0 ? 0 : 16,
                               borderTop: index === 0 ? 'none' : `1px solid ${palette.line}`,
                             }}
                           >
@@ -1075,21 +1077,18 @@ export default function IntakeLandingPage() {
 
                   <motion.div
                     style={{
-                      position: 'absolute',
-                      right: 10,
-                      bottom: 54,
-                      width: '44%',
+                      gridColumn: '2',
+                      alignSelf: 'end',
                       y: shouldReduceMotion ? 0 : secondaryPanelY,
-                      zIndex: 3,
                     }}
                     initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.38, ease: [0.22, 1, 0.36, 1] }}
                   >
-                    <Surface tone="dark" style={{ padding: 24, borderRadius: 24 }}>
+                    <Surface tone="dark" style={{ padding: 22, borderRadius: 28 }}>
                       <div
                         className="flex items-center justify-between"
-                        style={{ gap: 16, marginBottom: 16 }}
+                        style={{ gap: 12, marginBottom: 14 }}
                       >
                         <div>
                           <p
@@ -1104,7 +1103,7 @@ export default function IntakeLandingPage() {
                           >
                             Patient Reviews
                           </p>
-                          <p style={{ color: 'rgba(255,255,255,0.74)', fontSize: 14 }}>
+                          <p style={{ color: 'rgba(255,255,255,0.78)', fontSize: 14 }}>
                             5.0 from 17 Google reviews
                           </p>
                         </div>
@@ -1151,11 +1150,11 @@ export default function IntakeLandingPage() {
         <section
           style={{
             position: 'relative',
-            marginTop: 'clamp(-2rem, -3vw, -1rem)',
+            marginTop: 0,
             padding: `${sectionPadding} 0`,
             background: `linear-gradient(180deg, ${palette.creamSoft} 0%, ${palette.cream} 56%, ${palette.creamDeep} 100%)`,
-            borderTopLeftRadius: 42,
-            borderTopRightRadius: 42,
+            borderTopLeftRadius: 36,
+            borderTopRightRadius: 36,
             overflow: 'hidden',
           }}
         >
@@ -1271,27 +1270,14 @@ export default function IntakeLandingPage() {
                 </Reveal>
               </div>
 
-              <div className="grid gap-6 md:grid-cols-2">
+              <div className="grid gap-5 md:grid-cols-2">
                 {careHighlights.map((item, index) => (
-                  <Reveal
-                    key={item.title}
-                    delay={0.05 * index}
-                    style={{
-                      marginTop:
-                        index === 1
-                          ? 'clamp(1rem, 2vw, 1.75rem)'
-                          : index === 2
-                            ? 'clamp(0.5rem, 1.2vw, 0.875rem)'
-                          : index === 3
-                            ? 'clamp(0.5rem, 1vw, 0.75rem)'
-                            : 0,
-                    }}
-                  >
+                  <Reveal key={item.title} delay={0.05 * index}>
                     <Surface
                       tone={item.tone}
                       style={{
-                        padding: 30,
-                        minHeight: item.size === 'tall' ? 290 : 240,
+                        padding: 28,
+                        minHeight: item.size === 'tall' ? 272 : 228,
                       }}
                     >
                       <p
@@ -1347,7 +1333,7 @@ export default function IntakeLandingPage() {
         <section
           style={{
             position: 'relative',
-            marginTop: 'clamp(-0.5rem, -1vw, 0rem)',
+            marginTop: 0,
             padding: `${sectionPadding} 0`,
             background: `linear-gradient(180deg, ${palette.navy} 0%, ${palette.ink} 100%)`,
             overflow: 'hidden',
@@ -1373,51 +1359,48 @@ export default function IntakeLandingPage() {
           >
             <Reveal>
               <Eyebrow light>Patient Reviews</Eyebrow>
-              <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
-                <div>
-                  <h2
-                    style={{
-                      fontFamily: serifFont,
-                      color: 'white',
-                      fontWeight: 300,
-                      fontSize: 'clamp(2.45rem, 4.8vw, 4.1rem)',
-                      lineHeight: 0.98,
-                      letterSpacing: '-0.04em',
-                      marginBottom: 16,
-                      maxWidth: 460,
-                    }}
-                  >
-                    What patients say.
-                  </h2>
-                  <p
-                    style={{
-                      color: 'rgba(255,255,255,0.76)',
-                      fontSize: 16,
-                      lineHeight: 1.9,
-                      maxWidth: 460,
-                    }}
-                  >
-                    Reviews consistently mention clear explanations, attentive care, and treatment
-                    that gets to the source of the issue.
-                  </p>
-                </div>
-
-                <div className="flex items-center gap-3">
+              <div>
+                <h2
+                  style={{
+                    fontFamily: serifFont,
+                    color: 'white',
+                    fontWeight: 300,
+                    fontSize: 'clamp(2.45rem, 4.8vw, 4.1rem)',
+                    lineHeight: 0.98,
+                    letterSpacing: '-0.04em',
+                    marginBottom: 16,
+                    maxWidth: 500,
+                  }}
+                >
+                  What patients say.
+                </h2>
+                <p
+                  style={{
+                    color: 'rgba(255,255,255,0.78)',
+                    fontSize: 16,
+                    lineHeight: 1.9,
+                    maxWidth: 560,
+                    marginBottom: 18,
+                  }}
+                >
+                  Reviews consistently mention clear explanations, attentive care, and treatment
+                  that gets to the source of the issue.
+                </p>
+                <div className="flex flex-wrap items-center gap-3">
                   <ReviewStars size={15} />
-                  <span style={{ color: 'rgba(255,255,255,0.72)', fontSize: 13 }}>
+                  <span style={{ color: 'rgba(255,255,255,0.78)', fontSize: 13 }}>
                     5.0 from 17 Google reviews
                   </span>
                 </div>
               </div>
             </Reveal>
 
-            <div className="grid gap-8 pt-10 xl:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] xl:items-start xl:gap-12">
+            <div className="grid gap-7 pt-8 xl:grid-cols-[minmax(320px,0.72fr)_minmax(0,1.28fr)] xl:items-start xl:gap-10">
               <Reveal direction="left">
                 <Surface
                   tone="warm"
                   style={{
-                    padding: 'clamp(1.8rem, 3vw, 2.3rem)',
-                    maxWidth: 520,
+                    padding: 'clamp(1.7rem, 2.6vw, 2.1rem)',
                   }}
                 >
                   <p
@@ -1436,7 +1419,7 @@ export default function IntakeLandingPage() {
                       fontFamily: serifFont,
                       fontWeight: 300,
                       color: palette.bodyDark,
-                      fontSize: 'clamp(1.35rem, 2.35vw, 2.15rem)',
+                      fontSize: 'clamp(1.3rem, 2vw, 1.9rem)',
                       lineHeight: 1.18,
                       letterSpacing: '-0.03em',
                       marginBottom: 20,
@@ -1465,20 +1448,9 @@ export default function IntakeLandingPage() {
                 </Surface>
               </Reveal>
 
-              <div className="grid gap-5 md:grid-cols-2">
+              <div className="grid gap-4 md:grid-cols-2">
                 {secondaryReviews.map((review, index) => (
-                  <Reveal
-                    key={review.name}
-                    delay={0.04 * index}
-                    style={{
-                      marginTop:
-                        index === 1
-                          ? 'clamp(0.75rem, 1.8vw, 1.5rem)'
-                          : index === 3
-                            ? 'clamp(0.4rem, 1vw, 0.75rem)'
-                            : 0,
-                    }}
-                  >
+                  <Reveal key={review.name} delay={0.04 * index}>
                     <ReviewCard
                       name={review.name}
                       text={review.text}
@@ -1489,7 +1461,7 @@ export default function IntakeLandingPage() {
               </div>
             </div>
 
-            <Reveal delay={0.18} style={{ textAlign: 'center', marginTop: 34 }}>
+            <Reveal delay={0.18} style={{ textAlign: 'center', marginTop: 28 }}>
               <a
                 href="https://www.google.com/maps/place/Endorphins+Health+%26+Wellness+Centre"
                 target="_blank"
@@ -1543,7 +1515,7 @@ export default function IntakeLandingPage() {
                 <Surface
                   tone="dark"
                   style={{
-                    padding: 'clamp(2rem, 4vw, 2.9rem)',
+                    padding: 'clamp(1.85rem, 3.4vw, 2.55rem)',
                     minHeight: '100%',
                   }}
                 >
@@ -1553,7 +1525,7 @@ export default function IntakeLandingPage() {
                       fontFamily: serifFont,
                       color: 'white',
                       fontWeight: 300,
-                      fontSize: 'clamp(2.25rem, 4.4vw, 3.8rem)',
+                      fontSize: 'clamp(2.05rem, 4vw, 3.3rem)',
                       lineHeight: 0.98,
                       letterSpacing: '-0.04em',
                       marginBottom: 16,
@@ -1577,7 +1549,7 @@ export default function IntakeLandingPage() {
                   <div className="grid gap-4 sm:grid-cols-2">
                     {pricingOptions.map((item, index) => (
                       <Reveal key={item.label} delay={0.06 * index}>
-                        <Surface tone="glass" style={{ padding: 24, borderRadius: 24 }}>
+                        <Surface tone="glass" style={{ padding: 22, borderRadius: 24 }}>
                           <p
                             style={{
                               color: palette.gold,
@@ -1595,7 +1567,7 @@ export default function IntakeLandingPage() {
                               fontFamily: serifFont,
                               fontWeight: 300,
                               color: 'white',
-                              fontSize: '2.8rem',
+                              fontSize: '2.45rem',
                               lineHeight: 0.94,
                               letterSpacing: '-0.04em',
                               marginBottom: 8,
@@ -1653,7 +1625,7 @@ export default function IntakeLandingPage() {
                 <Surface
                   tone="paper"
                   style={{
-                    padding: 'clamp(2rem, 4vw, 2.9rem)',
+                    padding: 'clamp(1.85rem, 3.4vw, 2.55rem)',
                     minHeight: '100%',
                   }}
                 >

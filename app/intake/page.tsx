@@ -40,29 +40,42 @@ export default function IntakePage() {
         {/* ================================================================ */}
         <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: '#0f172a', position: 'relative', overflow: 'hidden' }}>
 
-          {/* Background: clinic photo, right side */}
-          <div style={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: '55%', overflow: 'hidden' }} className="hidden lg:block">
+          {/* Background: full-bleed clinic photo with heavy overlay */}
+          <div style={{ position: 'absolute', inset: 0 }} className="hidden lg:block">
             <Image
               src="/images/clinic-pic-may-2025.jpg"
               alt="KinetiKare Physiotherapy clinic in Burlington"
               fill
               priority
               quality={85}
-              style={{ objectFit: 'cover', objectPosition: '35% center' }}
-              sizes="55vw"
+              style={{ objectFit: 'cover', objectPosition: '60% center' }}
+              sizes="100vw"
             />
-            {/* Overlays */}
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, #0f172a, rgba(15,23,42,0.5) 30%, transparent)' }} />
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #0f172a, transparent 40%)' }} />
-            <div style={{ position: 'absolute', inset: 0, background: 'rgba(15,23,42,0.2)', mixBlendMode: 'multiply' }} />
+            {/* Heavy left overlay so text is readable */}
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, #0f172a 35%, rgba(15,23,42,0.85) 55%, rgba(15,23,42,0.4) 75%, rgba(15,23,42,0.2))' }} />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #0f172a 5%, transparent 40%)' }} />
           </div>
 
-          {/* Gold diagonal line accent */}
-          <div className="hidden lg:block" style={{ position: 'absolute', top: 0, bottom: 0, left: '48%', width: 2, background: 'linear-gradient(to bottom, #D4AF37, rgba(212,175,55,0.2), #D4AF37)', zIndex: 20, transform: 'rotate(3deg)', transformOrigin: 'top center' }} />
+          {/* Mobile background */}
+          <div style={{ position: 'absolute', inset: 0 }} className="lg:hidden">
+            <Image
+              src="/images/clinic-pic-may-2025.jpg"
+              alt="KinetiKare Physiotherapy clinic"
+              fill
+              quality={80}
+              style={{ objectFit: 'cover' }}
+              sizes="100vw"
+            />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #0f172a, rgba(15,23,42,0.85) 40%, rgba(15,23,42,0.6))' }} />
+          </div>
+
+          {/* Subtle gold glow */}
+          <div className="hidden lg:block" style={{ position: 'absolute', top: '20%', left: '15%', width: 500, height: 500, background: 'rgba(212,175,55,0.04)', borderRadius: '50%', filter: 'blur(100px)' }} />
 
           {/* Content */}
-          <div style={{ flex: 1, display: 'flex', alignItems: 'center', paddingTop: 90, paddingBottom: 40, position: 'relative', zIndex: 30 }}>
-            <div style={{ width: '100%', maxWidth: '50%', paddingLeft: 'clamp(24px, 4vw, 64px)', paddingRight: 40 }} className="max-lg:!max-w-full max-lg:!px-5">
+          <div style={{ flex: 1, display: 'flex', alignItems: 'center', paddingTop: 100, paddingBottom: 48, position: 'relative', zIndex: 30 }}>
+            <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-6xl">
+              <div style={{ maxWidth: 560 }}>
 
               {/* Eyebrow */}
               <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
@@ -126,10 +139,11 @@ export default function IntakePage() {
                 </div>
                 <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.4)' }}>5.0 from 17 Google Reviews</span>
               </div>
+              </div>
             </div>
           </div>
 
-          {/* Accepting patients badge -- bottom right, matching homepage */}
+          {/* Accepting patients badge -- bottom right */}
           <div className="hidden lg:flex" style={{ position: 'absolute', bottom: 40, right: 48, zIndex: 30, alignItems: 'center', gap: 12, padding: '8px 16px', background: 'rgba(15,23,42,0.8)', backdropFilter: 'blur(12px)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 999 }}>
             <span style={{ position: 'relative', display: 'flex', width: 10, height: 10 }}>
               <span style={{ position: 'absolute', inset: 0, borderRadius: 999, background: '#4ade80', opacity: 0.75, animation: 'ping 2s infinite' }} />

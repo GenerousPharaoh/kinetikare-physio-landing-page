@@ -31,7 +31,7 @@ const palette = {
 };
 
 const serifFont = '"Playfair Display", var(--font-heading), serif';
-const sectionPadding = 'clamp(5rem, 8vw, 8rem)';
+const sectionPadding = 'clamp(6rem, 10vw, 10rem)';
 
 type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
 type SurfaceTone = 'paper' | 'warm' | 'dark' | 'glass';
@@ -653,6 +653,18 @@ export default function IntakeLandingPage() {
                   'radial-gradient(circle at 14% 22%, rgba(212,175,55,0.18), transparent 28%), radial-gradient(circle at 82% 18%, rgba(212,175,55,0.12), transparent 18%)',
               }}
             />
+            {/* Cinematic bottom bleed */}
+            <div
+              style={{
+                position: 'absolute',
+                left: 0,
+                right: 0,
+                bottom: 0,
+                height: '32vh',
+                background: `linear-gradient(to bottom, transparent, ${palette.creamSoft})`,
+                zIndex: 1,
+              }}
+            />
           </motion.div>
 
           <div
@@ -936,6 +948,19 @@ export default function IntakeLandingPage() {
               </div>
             </div>
           </div>
+          {/* Connective Tissue: Vertical hairline */}
+          <div
+            style={{
+              position: 'absolute',
+              left: '50%',
+              bottom: 0,
+              width: 1,
+              height: 100,
+              background: `linear-gradient(to bottom, transparent, ${palette.goldDeep})`,
+              opacity: 0.4,
+              zIndex: 3,
+            }}
+          />
         </section>
 
         <section
@@ -943,8 +968,7 @@ export default function IntakeLandingPage() {
             position: 'relative',
             marginTop: 0,
             padding: `${sectionPadding} 0`,
-            background: `linear-gradient(180deg, ${palette.creamSoft} 0%, ${palette.cream} 56%, ${palette.creamDeep} 100%)`,
-            borderTop: `1px solid ${palette.line}`,
+            background: `linear-gradient(180deg, ${palette.creamSoft} 0%, ${palette.cream} 35%, ${palette.cream} 65%, ${palette.creamDeep} 100%)`,
             overflow: 'hidden',
           }}
         >
@@ -1119,6 +1143,19 @@ export default function IntakeLandingPage() {
               </div>
             </div>
           </div>
+          {/* Connective Tissue: Vertical hairline */}
+          <div
+            style={{
+              position: 'absolute',
+              left: '50%',
+              bottom: 0,
+              width: 1,
+              height: 100,
+              background: `linear-gradient(to bottom, transparent, ${palette.goldDeep})`,
+              opacity: 0.4,
+              zIndex: 3,
+            }}
+          />
         </section>
 
         <section
@@ -1282,7 +1319,6 @@ export default function IntakeLandingPage() {
             position: 'relative',
             padding: `${sectionPadding} 0`,
             background: `linear-gradient(180deg, ${palette.creamDeep} 0%, ${palette.creamSoft} 100%)`,
-            borderTop: `1px solid ${palette.line}`,
             overflow: 'hidden',
           }}
         >
@@ -1499,11 +1535,33 @@ export default function IntakeLandingPage() {
           </div>
         </section>
 
+        {/* Connective Tissue: Vertical hairline */}
+        <div
+          style={{
+            position: 'relative',
+            height: 120,
+            width: '100%',
+            background: palette.creamSoft,
+            display: 'flex',
+            justifyContent: 'center',
+            overflow: 'hidden',
+          }}
+        >
+          <div
+            style={{
+              width: 1,
+              height: '100%',
+              background: `linear-gradient(to bottom, ${palette.goldDeep}, transparent)`,
+              opacity: 0.4,
+            }}
+          />
+        </div>
+
         <section
           style={{
             position: 'relative',
-            padding: `0 0 ${sectionPadding}`,
-            background: `linear-gradient(180deg, ${palette.navy} 0%, ${palette.ink} 100%)`,
+            padding: `${sectionPadding} 0`,
+            background: `linear-gradient(180deg, ${palette.creamSoft} 0%, ${palette.navy} 20%, ${palette.ink} 100%)`,
             overflow: 'hidden',
           }}
         >

@@ -1,6 +1,5 @@
+import type { CSSProperties, ReactNode } from 'react';
 import type { Metadata } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
 import BookingCTA from '@/components/intake/BookingCTA';
 
 export const metadata: Metadata = {
@@ -15,308 +14,1157 @@ export const metadata: Metadata = {
   robots: 'index, follow',
 };
 
-const reviews = [
-  { name: 'Dr. Fel Rocci', text: 'Having worked with Kareem, I am now able to play tennis 4-5 times a week without a setback. Not bad for a 70 year old!' },
-  { name: 'Nickel Chan', text: "Kareem is honestly one of the best physiotherapists I've ever seen. He fixed issues I'd been struggling with for a long time." },
-  { name: 'Thanula G.', text: 'Thorough, knowledgeable, and incredibly attentive. I saw consistent progress and now feel stronger and pain free.' },
-  { name: 'Ryan Darkwah', text: "Kareem found the problem came from my hip and quads. My pain's gone now, and I'm back to playing at full speed." },
-  { name: 'David Espinosa', text: 'He took the time to figure out what was causing it instead of just treating the pain. My hip feels strong again.' },
-  { name: 'Marko Vasilic', text: "He did a full movement analysis and showed me where the extra stress was coming from. I'm back to playing basketball comfortably." },
+const palette = {
+  ink: '#020617',
+  navy: '#0f172a',
+  navySoft: '#172033',
+  gold: '#D4AF37',
+  goldMuted: '#B08D57',
+  parchment: '#f7f2e8',
+  parchmentDeep: '#efe7d8',
+  paper: '#fffdf8',
+  body: '#4b5563',
+  bodyDark: '#1f2937',
+  whiteSoft: 'rgba(255,255,255,0.72)',
+};
+
+const sectionPadding = 'clamp(4.75rem, 8vw, 7rem)';
+
+const trustBadges = ['Direct Billing', 'No Referral Needed', 'Evening Hours'];
+
+const carePillars = [
+  {
+    number: '01',
+    title: 'One-on-one attention',
+    description:
+      'Every minute of your session is with Kareem. No assistants, no treatment handoffs, no split appointments.',
+  },
+  {
+    number: '02',
+    title: 'Movement-first assessment',
+    description:
+      'Your first visit looks at the patterns behind the pain so treatment can address the source, not just the symptom.',
+  },
+  {
+    number: '03',
+    title: 'Treatment on day one',
+    description:
+      'Assessment, hands-on care, and a plan forward happen in the same visit so you leave with clarity and momentum.',
+  },
+  {
+    number: '04',
+    title: 'Evidence-based care',
+    description:
+      'Manual therapy, exercise rehab, dry needling, and cupping are used thoughtfully and only when they fit your goals.',
+  },
 ];
+
+const firstVisitChecklist = [
+  'Detailed history and movement assessment',
+  'Hands-on treatment in the initial session',
+  'Clear next steps for recovery and return to activity',
+];
+
+const pricingOptions = [
+  {
+    label: 'Initial Assessment',
+    price: '$130',
+    note: 'Assessment + treatment',
+  },
+  {
+    label: 'Follow-up Visit',
+    price: '$90',
+    note: '30-minute session',
+  },
+];
+
+const clinicDetails = [
+  {
+    label: 'Location',
+    value: 'Endorphins Health & Wellness Centre\n4631 Palladium Way, Unit 6\nBurlington, ON',
+  },
+  {
+    label: 'Hours',
+    value: 'Mon / Tue / Thu: 1:30 - 8:00 PM\nWed / Fri: 2:00 - 7:30 PM',
+  },
+  {
+    label: 'Service Areas',
+    value: 'Burlington, Waterdown, Flamborough, Carlisle, and Oakville',
+  },
+];
+
+const reviews = [
+  {
+    name: 'Dr. Fel Rocci',
+    text: 'Having worked with Kareem, I am now able to play tennis 4-5 times a week without a setback. Not bad for a 70 year old!',
+  },
+  {
+    name: 'Nickel Chan',
+    text: "Kareem is honestly one of the best physiotherapists I've ever seen. He fixed issues I'd been struggling with for a long time.",
+  },
+  {
+    name: 'Thanula G.',
+    text: 'Thorough, knowledgeable, and incredibly attentive. I saw consistent progress and now feel stronger and pain free.',
+  },
+  {
+    name: 'Ryan Darkwah',
+    text: "Kareem found the problem came from my hip and quads. My pain's gone now, and I'm back to playing at full speed.",
+  },
+  {
+    name: 'David Espinosa',
+    text: 'He took the time to figure out what was causing it instead of just treating the pain. My hip feels strong again.',
+  },
+  {
+    name: 'Marko Vasilic',
+    text: "He did a full movement analysis and showed me where the extra stress was coming from. I'm back to playing basketball comfortably.",
+  },
+];
+
+function Eyebrow({ children, light = false }: { children: ReactNode; light?: boolean }) {
+  return (
+    <div style={{ display: 'inline-flex', alignItems: 'center', gap: 12, marginBottom: 18 }}>
+      <span
+        style={{
+          width: 34,
+          height: 1,
+          background: `linear-gradient(90deg, ${palette.gold}, transparent)`,
+        }}
+      />
+      <span
+        style={{
+          color: light ? 'rgba(212,175,55,0.95)' : palette.goldMuted,
+          fontSize: 11,
+          letterSpacing: '0.28em',
+          textTransform: 'uppercase',
+          fontWeight: 600,
+        }}
+      >
+        {children}
+      </span>
+    </div>
+  );
+}
+
+function ReviewStars({ size = 14 }: { size?: number }) {
+  return (
+    <div style={{ display: 'flex', gap: 4 }}>
+      {[...Array(5)].map((_, index) => (
+        <svg
+          key={index}
+          width={size}
+          height={size}
+          viewBox="0 0 20 20"
+          fill={palette.gold}
+          aria-hidden="true"
+        >
+          <path d="M10 1l2.39 4.84L17.3 6.7l-3.54 3.46.84 4.88L10 12.77l-4.6 2.27.84-4.88L2.7 6.7l4.91-.86L10 1z" />
+        </svg>
+      ))}
+    </div>
+  );
+}
+
+function GlassBadge({ children }: { children: ReactNode }) {
+  return (
+    <span
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        padding: '9px 14px',
+        borderRadius: 999,
+        border: '1px solid rgba(255,255,255,0.12)',
+        background: 'rgba(255,255,255,0.06)',
+        backdropFilter: 'blur(14px)',
+        color: 'rgba(255,255,255,0.82)',
+        fontSize: 11,
+        fontWeight: 600,
+        letterSpacing: '0.08em',
+        textTransform: 'uppercase',
+      }}
+    >
+      {children}
+    </span>
+  );
+}
+
+function SecondaryAction({ href, children }: { href: string; children: ReactNode }) {
+  return (
+    <a href={href} className="group relative inline-flex w-full sm:w-auto">
+      <span
+        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent translate-x-[-130%] group-hover:translate-x-[130%] transition-transform duration-700 ease-out"
+        aria-hidden="true"
+      />
+      <span
+        style={{
+          position: 'relative',
+          display: 'inline-flex',
+          width: '100%',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: 10,
+          padding: '16px 28px',
+          borderRadius: 10,
+          border: '1px solid rgba(255,255,255,0.16)',
+          background: 'rgba(255,255,255,0.06)',
+          backdropFilter: 'blur(14px)',
+          color: 'white',
+          fontSize: 11,
+          fontWeight: 700,
+          letterSpacing: '0.18em',
+          textTransform: 'uppercase',
+          boxShadow: '0 20px 45px -28px rgba(2,6,23,0.85)',
+        }}
+      >
+        {children}
+      </span>
+    </a>
+  );
+}
+
+function LightCard({ children, style }: { children: ReactNode; style?: CSSProperties }) {
+  return (
+    <div
+      style={{
+        height: '100%',
+        borderRadius: 26,
+        border: '1px solid rgba(176,141,87,0.18)',
+        background: 'rgba(255,253,248,0.96)',
+        boxShadow: '0 30px 65px -50px rgba(15,23,42,0.55)',
+        ...style,
+      }}
+    >
+      {children}
+    </div>
+  );
+}
 
 export default function IntakePage() {
   return (
     <>
       <style>{`
-        .intake-page, .intake-page * { font-style: normal !important; }
-        .intake-page > div { padding: 0 !important; margin: 0 !important; }
-        .intake-page section { padding: 0 !important; }
+        .intake-page,
+        .intake-page * {
+          font-style: normal !important;
+        }
+
+        .intake-page section {
+          padding: 0 !important;
+        }
+
+        .intake-page blockquote {
+          font-style: normal !important;
+        }
+
+        .intake-hero {
+          min-height: 100vh;
+          min-height: 100dvh;
+        }
       `}</style>
 
-      <main className="intake-page" style={{ background: '#0f172a' }}>
-
-        {/* ================================================================ */}
-        {/* HERO -- full viewport, matches homepage dark cinematic feel      */}
-        {/* ================================================================ */}
-        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: '#0f172a', position: 'relative', overflow: 'hidden' }}>
-
-          {/* Background: full-bleed clinic photo with heavy overlay */}
-          <div style={{ position: 'absolute', inset: 0 }} className="hidden lg:block">
-            <Image
-              src="/images/clinic-pic-may-2025.jpg"
-              alt="KinetiKare Physiotherapy clinic in Burlington"
-              fill
-              priority
-              quality={85}
-              style={{ objectFit: 'cover', objectPosition: '60% center' }}
-              sizes="100vw"
+      <main className="intake-page" style={{ background: palette.ink }}>
+        <div
+          className="intake-hero"
+          style={{
+            position: 'relative',
+            overflow: 'hidden',
+            background: palette.ink,
+          }}
+        >
+          <div style={{ position: 'absolute', inset: 0 }}>
+            <div
+              aria-hidden="true"
+              style={{
+                position: 'absolute',
+                inset: 0,
+                width: '100%',
+                height: '100%',
+                backgroundImage: "url('/images/clinic-pic-may-2025.jpg')",
+                backgroundSize: 'cover',
+                backgroundPosition: '62% center',
+              }}
             />
-            {/* Heavy left overlay so text is readable */}
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, #0f172a 35%, rgba(15,23,42,0.85) 55%, rgba(15,23,42,0.4) 75%, rgba(15,23,42,0.2))' }} />
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #0f172a 5%, transparent 40%)' }} />
-          </div>
-
-          {/* Mobile background */}
-          <div style={{ position: 'absolute', inset: 0 }} className="lg:hidden">
-            <Image
-              src="/images/clinic-pic-may-2025.jpg"
-              alt="KinetiKare Physiotherapy clinic"
-              fill
-              quality={80}
-              style={{ objectFit: 'cover' }}
-              sizes="100vw"
+            <div
+              style={{
+                position: 'absolute',
+                inset: 0,
+                background:
+                  'linear-gradient(90deg, rgba(2,6,23,0.96) 0%, rgba(15,23,42,0.95) 30%, rgba(15,23,42,0.83) 52%, rgba(15,23,42,0.58) 72%, rgba(2,6,23,0.82) 100%)',
+              }}
             />
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #0f172a, rgba(15,23,42,0.85) 40%, rgba(15,23,42,0.6))' }} />
+            <div
+              style={{
+                position: 'absolute',
+                inset: 0,
+                background:
+                  'linear-gradient(180deg, rgba(2,6,23,0.42) 0%, rgba(2,6,23,0.14) 24%, rgba(2,6,23,0.28) 54%, rgba(2,6,23,0.86) 100%)',
+              }}
+            />
+            <div
+              style={{
+                position: 'absolute',
+                inset: 0,
+                background:
+                  'radial-gradient(circle at 18% 22%, rgba(212,175,55,0.14), transparent 30%), radial-gradient(circle at 78% 18%, rgba(212,175,55,0.12), transparent 28%)',
+              }}
+            />
+            <div
+              style={{
+                position: 'absolute',
+                inset: 0,
+                opacity: 0.06,
+                backgroundImage:
+                  'linear-gradient(rgba(255,255,255,0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.18) 1px, transparent 1px)',
+                backgroundSize: '34px 34px',
+              }}
+            />
           </div>
 
-          {/* Subtle gold glow */}
-          <div className="hidden lg:block" style={{ position: 'absolute', top: '20%', left: '15%', width: 500, height: 500, background: 'rgba(212,175,55,0.04)', borderRadius: '50%', filter: 'blur(100px)' }} />
+          <div
+            style={{
+              position: 'relative',
+              zIndex: 2,
+              display: 'flex',
+              alignItems: 'center',
+              minHeight: '100%',
+              paddingTop: 'clamp(6.5rem, 11vh, 8.25rem)',
+              paddingBottom: 'clamp(4rem, 8vh, 6rem)',
+            }}
+          >
+            <div className="container mx-auto max-w-6xl px-6 sm:px-8 lg:px-16">
+              <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(340px,0.78fr)] lg:gap-14">
+                <div style={{ maxWidth: 650 }}>
+                  <Eyebrow light>Physiotherapy in Burlington</Eyebrow>
 
-          {/* Content */}
-          <div style={{ flex: 1, display: 'flex', alignItems: 'center', paddingTop: 100, paddingBottom: 48, position: 'relative', zIndex: 30 }}>
-            <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-6xl">
-              <div style={{ maxWidth: 560 }}>
+                  <h1
+                    className="font-serif"
+                    style={{
+                      fontSize: 'clamp(3rem, 6vw, 5.1rem)',
+                      fontWeight: 300,
+                      lineHeight: 1.02,
+                      letterSpacing: '-0.035em',
+                      color: 'white',
+                      marginBottom: 22,
+                    }}
+                  >
+                    Book Your <span style={{ color: palette.gold }}>Assessment</span>
+                  </h1>
 
-              {/* Eyebrow */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
-                <span style={{ height: 1, width: 32, background: 'linear-gradient(to right, #D4AF37, transparent)' }} />
-                <span style={{ color: '#D4AF37', fontSize: 10, letterSpacing: '0.25em', textTransform: 'uppercase' as const, fontWeight: 500 }}>
-                  Physiotherapy in Burlington
-                </span>
-              </div>
-
-              {/* Heading */}
-              <h1 className="font-serif" style={{ fontSize: 'clamp(2.4rem, 5vw, 3.6rem)', fontWeight: 300, color: 'white', lineHeight: 1.1, letterSpacing: '-0.02em', marginBottom: 24 }}>
-                Book Your
-                <br />
-                <span style={{ color: '#D4AF37' }}>Assessment</span>
-              </h1>
-
-              {/* Subtitle */}
-              <p style={{ fontSize: 16, lineHeight: 1.75, color: 'rgba(255,255,255,0.7)', marginBottom: 12, maxWidth: 460, fontWeight: 300, letterSpacing: '0.01em' }}>
-                One-on-one physiotherapy for sports injuries, knee and hip pain,
-                dry needling, cupping, and rehabilitation.
-              </p>
-              <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)', marginBottom: 32 }}>
-                Kareem Hassanein, RPT &middot; MSc PT, BSc Kin &middot; CPO #20079
-              </p>
-
-              {/* CTAs -- matching homepage button style */}
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4" style={{ marginBottom: 32 }}>
-                <BookingCTA size="lg" className="!rounded-lg sm:!rounded-sm !tracking-[0.15em]">
-                  Book Assessment
-                  <svg style={{ width: 14, height: 14 }} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M6 3l5 5-5 5" /></svg>
-                </BookingCTA>
-                <a
-                  href="tel:+19056346000"
-                  className="flex items-center justify-center"
-                  style={{ padding: '16px 32px', border: '1px solid rgba(255,255,255,0.2)', background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(12px)', borderRadius: '8px 8px 8px 8px', fontSize: 12, fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase' as const, color: 'white', transition: 'all 0.3s', gap: 8 }}
-                >
-                  <svg style={{ width: 14, height: 14, color: '#D4AF37' }} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
-                  </svg>
-                  (905) 634-6000
-                </a>
-              </div>
-
-              {/* Trust badges -- matching homepage */}
-              <div className="flex flex-wrap gap-2" style={{ marginBottom: 24 }}>
-                {['Direct Billing', 'No Referral Needed', 'Evening Hours'].map((badge) => (
-                  <span key={badge} style={{ padding: '6px 12px', border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(8px)', borderRadius: 6, fontSize: 11, fontWeight: 500, color: 'rgba(255,255,255,0.7)', letterSpacing: '0.05em' }}>
-                    {badge}
-                  </span>
-                ))}
-              </div>
-
-              {/* Stars */}
-              <div className="flex items-center gap-3">
-                <div className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} style={{ width: 14, height: 14, color: '#D4AF37' }} viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M10 1l2.39 4.84L17.3 6.7l-3.54 3.46.84 4.88L10 12.77l-4.6 2.27.84-4.88L2.7 6.7l4.91-.86L10 1z" />
-                    </svg>
-                  ))}
-                </div>
-                <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.4)' }}>5.0 from 17 Google Reviews</span>
-              </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Accepting patients badge -- bottom right */}
-          <div className="hidden lg:flex" style={{ position: 'absolute', bottom: 40, right: 48, zIndex: 30, alignItems: 'center', gap: 12, padding: '8px 16px', background: 'rgba(15,23,42,0.8)', backdropFilter: 'blur(12px)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 999 }}>
-            <span style={{ position: 'relative', display: 'flex', width: 10, height: 10 }}>
-              <span style={{ position: 'absolute', inset: 0, borderRadius: 999, background: '#4ade80', opacity: 0.75, animation: 'ping 2s infinite' }} />
-              <span style={{ position: 'relative', display: 'block', width: 10, height: 10, borderRadius: 999, background: '#22c55e' }} />
-            </span>
-            <span style={{ fontSize: 11, fontWeight: 500, color: 'rgba(255,255,255,0.9)', letterSpacing: '0.08em', textTransform: 'uppercase' as const }}>Accepting New Patients</span>
-          </div>
-        </div>
-
-        {/* ================================================================ */}
-        {/* WHAT TO EXPECT                                                    */}
-        {/* ================================================================ */}
-        <div style={{ background: 'white', padding: '80px 0' }}>
-          <div className="container mx-auto px-5 sm:px-6 lg:px-8 max-w-5xl">
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
-              <span style={{ height: 1, width: 32, background: 'linear-gradient(to right, #D4AF37, transparent)' }} />
-              <span style={{ color: '#D4AF37', fontSize: 10, letterSpacing: '0.25em', textTransform: 'uppercase' as const, fontWeight: 500 }}>What to Expect</span>
-            </div>
-            <h2 className="font-serif" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 300, color: '#1A2036', letterSpacing: '-0.01em', marginBottom: 48 }}>
-              Individualized care, every session
-            </h2>
-
-            <div className="grid sm:grid-cols-2 gap-5">
-              {[
-                { title: 'One-on-One Sessions', desc: 'Your entire appointment is with Kareem. No assistants, no handoffs, no sharing time with other patients.' },
-                { title: 'Root Cause Focus', desc: 'A thorough assessment of your movement patterns to address what is actually driving your pain.' },
-                { title: 'Treatment From Day One', desc: 'Your first visit includes both assessment and hands-on treatment. No wasting a session on paperwork alone.' },
-                { title: 'Evidence-Based Care', desc: 'Every intervention backed by current research. Manual therapy, dry needling, cupping, and exercise rehabilitation.' },
-              ].map((item) => (
-                <div key={item.title} style={{ padding: 28, borderRadius: 4, border: '1px solid #e5e7eb', transition: 'all 0.3s' }}>
-                  <h3 style={{ fontSize: 15, fontWeight: 600, color: '#1A2036', marginBottom: 8 }}>{item.title}</h3>
-                  <p style={{ fontSize: 14, lineHeight: 1.7, color: '#64748b' }}>{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* ================================================================ */}
-        {/* REVIEWS                                                           */}
-        {/* ================================================================ */}
-        <div style={{ background: '#f8f9fa', padding: '80px 0' }}>
-          <div className="container mx-auto px-5 sm:px-6 lg:px-8 max-w-5xl">
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
-              <span style={{ height: 1, width: 32, background: 'linear-gradient(to right, #D4AF37, transparent)' }} />
-              <span style={{ color: '#D4AF37', fontSize: 10, letterSpacing: '0.25em', textTransform: 'uppercase' as const, fontWeight: 500 }}>Patient Reviews</span>
-            </div>
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4" style={{ marginBottom: 40 }}>
-              <h2 className="font-serif" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 300, color: '#1A2036' }}>
-                What patients are saying
-              </h2>
-              <div className="flex items-center gap-2">
-                <div className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} style={{ width: 16, height: 16, color: '#D4AF37' }} viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M10 1l2.39 4.84L17.3 6.7l-3.54 3.46.84 4.88L10 12.77l-4.6 2.27.84-4.88L2.7 6.7l4.91-.86L10 1z" />
-                    </svg>
-                  ))}
-                </div>
-                <span style={{ fontSize: 13, color: '#64748b', fontWeight: 500 }}>5.0 from 17 reviews</span>
-              </div>
-            </div>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {reviews.map((r) => (
-                <div key={r.name} style={{ background: 'white', borderRadius: 4, padding: 24, border: '1px solid #e5e7eb', display: 'flex', flexDirection: 'column' as const }}>
-                  <p style={{ color: '#374151', fontSize: 14, lineHeight: 1.7, flex: 1, marginBottom: 16 }}>
-                    &ldquo;{r.text}&rdquo;
+                  <p
+                    style={{
+                      maxWidth: 590,
+                      color: 'rgba(255,255,255,0.78)',
+                      fontSize: 'clamp(1rem, 2vw, 1.125rem)',
+                      lineHeight: 1.85,
+                      marginBottom: 14,
+                    }}
+                  >
+                    One-on-one physiotherapy for sports injuries, knee and hip pain, dry needling,
+                    cupping, and rehabilitation in a calm, welcoming Burlington clinic setting.
                   </p>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, paddingTop: 12, borderTop: '1px solid #f1f5f9' }}>
-                    <span style={{ width: 2, height: 14, borderRadius: 999, background: '#D4AF37' }} />
-                    <span style={{ fontSize: 13, fontWeight: 600, color: '#1A2036' }}>{r.name}</span>
+
+                  <p
+                    style={{
+                      color: 'rgba(255,255,255,0.52)',
+                      fontSize: 13,
+                      letterSpacing: '0.07em',
+                      textTransform: 'uppercase',
+                      marginBottom: 34,
+                    }}
+                  >
+                    Kareem Hassanein, RPT · MSc PT, BSc Kin · CPO #20079
+                  </p>
+
+                  <div
+                    className="flex flex-col gap-3 sm:flex-row sm:gap-4"
+                    style={{ marginBottom: 26 }}
+                  >
+                    <BookingCTA
+                      size="lg"
+                      className="w-full sm:w-auto !rounded-[10px] sm:!rounded-sm !px-8 !py-4 !text-[11px] !tracking-[0.22em] !shadow-[0_20px_45px_-25px_rgba(212,175,55,0.7)]"
+                    >
+                      Book Assessment
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M6 3l5 5-5 5" />
+                      </svg>
+                    </BookingCTA>
+
+                    <SecondaryAction href="tel:+19056346000">
+                      <svg
+                        width="15"
+                        height="15"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke={palette.gold}
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.8 19.8 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z" />
+                      </svg>
+                      (905) 634-6000
+                    </SecondaryAction>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2.5" style={{ marginBottom: 26 }}>
+                    {trustBadges.map((badge) => (
+                      <GlassBadge key={badge}>{badge}</GlassBadge>
+                    ))}
+                  </div>
+
+                  <div
+                    className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4"
+                    style={{ color: 'rgba(255,255,255,0.7)' }}
+                  >
+                    <div className="flex items-center gap-3">
+                      <ReviewStars />
+                      <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)' }}>
+                        5.0 from 17 Google reviews
+                      </span>
+                    </div>
+                    <div
+                      className="hidden sm:block"
+                      style={{ width: 1, height: 16, background: 'rgba(255,255,255,0.14)' }}
+                    />
+                    <div className="flex items-center gap-2">
+                      <span
+                        style={{
+                          position: 'relative',
+                          display: 'inline-flex',
+                          width: 10,
+                          height: 10,
+                        }}
+                      >
+                        <span
+                          style={{
+                            position: 'absolute',
+                            inset: 0,
+                            borderRadius: 999,
+                            background: '#4ade80',
+                            opacity: 0.55,
+                          }}
+                          className="animate-ping"
+                        />
+                        <span
+                          style={{
+                            position: 'relative',
+                            display: 'block',
+                            width: 10,
+                            height: 10,
+                            borderRadius: 999,
+                            background: '#22c55e',
+                          }}
+                        />
+                      </span>
+                      <span
+                        style={{
+                          fontSize: 12,
+                          fontWeight: 600,
+                          letterSpacing: '0.12em',
+                          textTransform: 'uppercase',
+                          color: 'rgba(255,255,255,0.82)',
+                        }}
+                      >
+                        Accepting New Patients
+                      </span>
+                    </div>
                   </div>
                 </div>
+
+                <div className="hidden lg:block">
+                  <div
+                    style={{
+                      marginLeft: 'auto',
+                      maxWidth: 380,
+                      borderRadius: 28,
+                      border: '1px solid rgba(255,255,255,0.12)',
+                      background: 'rgba(15,23,42,0.54)',
+                      backdropFilter: 'blur(18px)',
+                      boxShadow: '0 35px 90px -55px rgba(2,6,23,0.9)',
+                      padding: 30,
+                    }}
+                  >
+                    <span
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        padding: '7px 12px',
+                        borderRadius: 999,
+                        border: '1px solid rgba(212,175,55,0.24)',
+                        background: 'rgba(212,175,55,0.1)',
+                        color: palette.gold,
+                        fontSize: 11,
+                        fontWeight: 600,
+                        letterSpacing: '0.14em',
+                        textTransform: 'uppercase',
+                        marginBottom: 18,
+                      }}
+                    >
+                      Your First Visit
+                    </span>
+
+                    <h2
+                      className="font-serif"
+                      style={{
+                        color: 'white',
+                        fontWeight: 300,
+                        fontSize: '2rem',
+                        lineHeight: 1.15,
+                        letterSpacing: '-0.02em',
+                        marginBottom: 14,
+                      }}
+                    >
+                      Calm, thorough care from the first session.
+                    </h2>
+
+                    <p
+                      style={{
+                        color: 'rgba(255,255,255,0.7)',
+                        fontSize: 15,
+                        lineHeight: 1.8,
+                        marginBottom: 22,
+                      }}
+                    >
+                      You will leave with a clearer understanding of what is driving your pain and
+                      what recovery should look like from here.
+                    </p>
+
+                    <div style={{ display: 'grid', gap: 14, marginBottom: 24 }}>
+                      {firstVisitChecklist.map((item) => (
+                        <div
+                          key={item}
+                          style={{
+                            display: 'flex',
+                            alignItems: 'flex-start',
+                            gap: 12,
+                            padding: '14px 15px',
+                            borderRadius: 18,
+                            border: '1px solid rgba(255,255,255,0.08)',
+                            background: 'rgba(255,255,255,0.04)',
+                          }}
+                        >
+                          <span
+                            style={{
+                              display: 'inline-flex',
+                              width: 22,
+                              height: 22,
+                              flexShrink: 0,
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              borderRadius: 999,
+                              background: 'rgba(212,175,55,0.14)',
+                              color: palette.gold,
+                              fontSize: 12,
+                              fontWeight: 700,
+                            }}
+                          >
+                            ✓
+                          </span>
+                          <span
+                            style={{
+                              color: 'rgba(255,255,255,0.82)',
+                              lineHeight: 1.65,
+                              fontSize: 14,
+                            }}
+                          >
+                            {item}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div
+                      style={{
+                        borderTop: '1px solid rgba(255,255,255,0.1)',
+                        paddingTop: 18,
+                        color: 'rgba(255,255,255,0.68)',
+                        fontSize: 13,
+                        lineHeight: 1.75,
+                      }}
+                    >
+                      Located at Endorphins Health & Wellness Centre in Burlington with evening
+                      appointment availability.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          style={{
+            position: 'relative',
+            background: `linear-gradient(180deg, ${palette.parchment} 0%, ${palette.paper} 100%)`,
+            padding: `${sectionPadding} 0`,
+            overflow: 'hidden',
+          }}
+        >
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              background:
+                'radial-gradient(circle at 10% 18%, rgba(212,175,55,0.12), transparent 22%), radial-gradient(circle at 92% 82%, rgba(176,141,87,0.12), transparent 24%)',
+              pointerEvents: 'none',
+            }}
+          />
+
+          <div
+            className="container mx-auto max-w-6xl px-6 sm:px-8 lg:px-16"
+            style={{ position: 'relative' }}
+          >
+            <div className="grid gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-16">
+              <div>
+                <Eyebrow>What to Expect</Eyebrow>
+                <h2
+                  className="font-serif"
+                  style={{
+                    color: palette.bodyDark,
+                    fontWeight: 300,
+                    fontSize: 'clamp(2rem, 4vw, 3rem)',
+                    lineHeight: 1.08,
+                    letterSpacing: '-0.03em',
+                    marginBottom: 18,
+                  }}
+                >
+                  Individualized care, delivered with clarity and time.
+                </h2>
+                <p
+                  style={{
+                    maxWidth: 430,
+                    color: palette.body,
+                    fontSize: 16,
+                    lineHeight: 1.9,
+                    marginBottom: 28,
+                  }}
+                >
+                  Your first visit is designed to feel calm, thorough, and practical. You will have
+                  time to explain what is going on, get assessed carefully, and begin treatment with
+                  a clear plan.
+                </p>
+
+                <div
+                  style={{
+                    borderRadius: 24,
+                    border: `1px solid rgba(176,141,87,0.18)`,
+                    background: 'rgba(255,255,255,0.78)',
+                    boxShadow: '0 30px 65px -50px rgba(15,23,42,0.4)',
+                    padding: 24,
+                  }}
+                >
+                  <p
+                    style={{
+                      color: palette.goldMuted,
+                      fontSize: 11,
+                      fontWeight: 700,
+                      letterSpacing: '0.18em',
+                      textTransform: 'uppercase',
+                      marginBottom: 12,
+                    }}
+                  >
+                    First Visit Includes
+                  </p>
+                  <div style={{ display: 'grid', gap: 12 }}>
+                    {firstVisitChecklist.map((item) => (
+                      <div
+                        key={item}
+                        style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}
+                      >
+                        <span
+                          style={{
+                            width: 24,
+                            height: 24,
+                            flexShrink: 0,
+                            borderRadius: 999,
+                            background: 'rgba(212,175,55,0.12)',
+                            color: palette.goldMuted,
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            fontSize: 12,
+                            fontWeight: 700,
+                          }}
+                        >
+                          ✓
+                        </span>
+                        <span style={{ color: palette.body, lineHeight: 1.7, fontSize: 14 }}>
+                          {item}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid gap-5 md:grid-cols-2">
+                {carePillars.map((item) => (
+                  <LightCard key={item.title} style={{ padding: 28 }}>
+                    <div
+                      style={{
+                        display: 'inline-flex',
+                        marginBottom: 18,
+                        color: palette.goldMuted,
+                        fontSize: 12,
+                        fontWeight: 700,
+                        letterSpacing: '0.18em',
+                      }}
+                    >
+                      {item.number}
+                    </div>
+                    <h3
+                      className="font-serif"
+                      style={{
+                        color: palette.bodyDark,
+                        fontWeight: 300,
+                        fontSize: '1.55rem',
+                        lineHeight: 1.18,
+                        letterSpacing: '-0.02em',
+                        marginBottom: 12,
+                      }}
+                    >
+                      {item.title}
+                    </h3>
+                    <p style={{ color: palette.body, fontSize: 15, lineHeight: 1.82 }}>
+                      {item.description}
+                    </p>
+                  </LightCard>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          style={{
+            position: 'relative',
+            background: `linear-gradient(180deg, ${palette.navy} 0%, ${palette.ink} 100%)`,
+            padding: `${sectionPadding} 0`,
+            overflow: 'hidden',
+          }}
+        >
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              background:
+                'radial-gradient(circle at 14% 22%, rgba(212,175,55,0.12), transparent 22%), radial-gradient(circle at 86% 10%, rgba(212,175,55,0.08), transparent 18%)',
+              pointerEvents: 'none',
+            }}
+          />
+
+          <div
+            className="container mx-auto max-w-6xl px-6 sm:px-8 lg:px-16"
+            style={{ position: 'relative' }}
+          >
+            <div className="mx-auto max-w-3xl text-center" style={{ marginBottom: 44 }}>
+              <Eyebrow light>Patient Reviews</Eyebrow>
+              <h2
+                className="font-serif"
+                style={{
+                  color: 'white',
+                  fontWeight: 300,
+                  fontSize: 'clamp(2rem, 4vw, 3rem)',
+                  lineHeight: 1.08,
+                  letterSpacing: '-0.03em',
+                  marginBottom: 16,
+                }}
+              >
+                Trusted by Burlington patients who wanted lasting results.
+              </h2>
+              <p
+                style={{
+                  color: palette.whiteSoft,
+                  fontSize: 16,
+                  lineHeight: 1.85,
+                  maxWidth: 650,
+                  margin: '0 auto 18px',
+                }}
+              >
+                Patients consistently describe feeling listened to, understood, and guided toward
+                the real cause of the issue instead of only the painful area.
+              </p>
+              <div className="flex items-center justify-center gap-3">
+                <ReviewStars size={15} />
+                <span
+                  style={{ color: 'rgba(255,255,255,0.7)', fontSize: 13, letterSpacing: '0.06em' }}
+                >
+                  5.0 rating from 17 Google reviews
+                </span>
+              </div>
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+              {reviews.map((review) => (
+                <LightCard key={review.name} style={{ padding: 28 }}>
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      height: '100%',
+                    }}
+                  >
+                    <div className="flex items-center justify-between" style={{ marginBottom: 18 }}>
+                      <ReviewStars size={13} />
+                      <span
+                        style={{
+                          color: palette.goldMuted,
+                          fontSize: 11,
+                          fontWeight: 700,
+                          letterSpacing: '0.18em',
+                          textTransform: 'uppercase',
+                        }}
+                      >
+                        Google
+                      </span>
+                    </div>
+                    <div
+                      style={{
+                        color: palette.bodyDark,
+                        fontSize: 15,
+                        lineHeight: 1.9,
+                        flex: 1,
+                        marginBottom: 22,
+                      }}
+                    >
+                      &ldquo;{review.text}&rdquo;
+                    </div>
+                    <div
+                      style={{
+                        paddingTop: 16,
+                        borderTop: '1px solid rgba(176,141,87,0.18)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 12,
+                      }}
+                    >
+                      <span
+                        style={{
+                          display: 'inline-flex',
+                          width: 36,
+                          height: 36,
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          borderRadius: 999,
+                          background: `linear-gradient(135deg, ${palette.goldMuted}, ${palette.gold})`,
+                          color: palette.paper,
+                          fontSize: 14,
+                          fontWeight: 700,
+                        }}
+                      >
+                        {review.name.charAt(0)}
+                      </span>
+                      <span style={{ color: palette.bodyDark, fontWeight: 600, fontSize: 14 }}>
+                        {review.name}
+                      </span>
+                    </div>
+                  </div>
+                </LightCard>
               ))}
             </div>
 
-            <p style={{ textAlign: 'center' as const, marginTop: 28 }}>
-              <Link href="https://www.google.com/maps/place/Endorphins+Health+%26+Wellness+Centre" target="_blank" className="inline-flex items-center gap-1.5" style={{ fontSize: 13, color: '#B08D57', fontWeight: 500 }}>
+            <div style={{ textAlign: 'center', marginTop: 30 }}>
+              <a
+                href="https://www.google.com/maps/place/Endorphins+Health+%26+Wellness+Centre"
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  color: palette.gold,
+                  fontSize: 12,
+                  fontWeight: 700,
+                  letterSpacing: '0.18em',
+                  textTransform: 'uppercase',
+                }}
+              >
                 Read all reviews on Google
-                <svg style={{ width: 14, height: 14 }} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M6 3l5 5-5 5" /></svg>
-              </Link>
-            </p>
-          </div>
-        </div>
-
-        {/* ================================================================ */}
-        {/* PRICING + INFO                                                    */}
-        {/* ================================================================ */}
-        <div style={{ background: 'white', padding: '80px 0' }}>
-          <div className="container mx-auto px-5 sm:px-6 lg:px-8 max-w-5xl">
-            <div className="grid lg:grid-cols-2 gap-16">
-              {/* Pricing */}
-              <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
-                  <span style={{ height: 1, width: 32, background: 'linear-gradient(to right, #D4AF37, transparent)' }} />
-                  <span style={{ color: '#D4AF37', fontSize: 10, letterSpacing: '0.25em', textTransform: 'uppercase' as const, fontWeight: 500 }}>Pricing</span>
-                </div>
-                <h2 className="font-serif" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.8rem)', fontWeight: 300, color: '#1A2036', marginBottom: 32 }}>
-                  No hidden fees
-                </h2>
-                <div style={{ display: 'flex', gap: 16, marginBottom: 20 }}>
-                  {[
-                    { label: 'Initial Assessment', price: '$130', sub: 'Assessment + treatment' },
-                    { label: 'Follow-up', price: '$90', sub: '30-minute session' },
-                  ].map((p) => (
-                    <div key={p.label} style={{ flex: 1, padding: 24, borderRadius: 4, border: '1px solid #e5e7eb', textAlign: 'center' as const }}>
-                      <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.1em', color: '#94a3b8', textTransform: 'uppercase' as const, marginBottom: 8 }}>{p.label}</p>
-                      <p className="font-serif" style={{ fontSize: '2rem', fontWeight: 300, color: '#1A2036', lineHeight: 1, marginBottom: 4 }}>{p.price}</p>
-                      <p style={{ fontSize: 12, color: '#94a3b8' }}>{p.sub}</p>
-                    </div>
-                  ))}
-                </div>
-                <p style={{ fontSize: 13, color: '#94a3b8', lineHeight: 1.6 }}>
-                  Direct billing to Sun Life, Manulife, Green Shield Canada, Blue Cross, Canada Life, WSIB, and more.
-                </p>
-              </div>
-
-              {/* Clinic info */}
-              <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
-                  <span style={{ height: 1, width: 32, background: 'linear-gradient(to right, #D4AF37, transparent)' }} />
-                  <span style={{ color: '#D4AF37', fontSize: 10, letterSpacing: '0.25em', textTransform: 'uppercase' as const, fontWeight: 500 }}>Clinic Details</span>
-                </div>
-                <h2 className="font-serif" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.8rem)', fontWeight: 300, color: '#1A2036', marginBottom: 32 }}>
-                  Burlington & Waterdown
-                </h2>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-                  {[
-                    { label: 'Location', value: 'Endorphins Health & Wellness Centre\n4631 Palladium Way, Unit 6, Burlington', icon: 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z M12 11.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z' },
-                    { label: 'Hours', value: 'Mon / Tue / Thu: 1:30 - 8:00 PM\nWed / Fri: 2:00 - 7:30 PM', icon: 'M3 4h18v18H3zM16 2v4M8 2v4M3 10h18' },
-                    { label: 'Service Areas', value: 'Burlington, Waterdown, Flamborough, Carlisle, Oakville', icon: 'M9 12l2 2 4-4M22 12A10 10 0 112 12a10 10 0 0120 0z' },
-                  ].map((item) => (
-                    <div key={item.label} style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}>
-                      <svg style={{ width: 18, height: 18, color: '#B08D57', marginTop: 2, flexShrink: 0 }} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d={item.icon} /></svg>
-                      <div>
-                        <p style={{ fontSize: 12, fontWeight: 600, color: '#1A2036', letterSpacing: '0.05em', textTransform: 'uppercase' as const, marginBottom: 4 }}>{item.label}</p>
-                        <p style={{ fontSize: 14, color: '#64748b', lineHeight: 1.6, whiteSpace: 'pre-line' }}>{item.value}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  aria-hidden="true"
+                >
+                  <path d="M6 3l5 5-5 5" />
+                </svg>
+              </a>
             </div>
           </div>
         </div>
 
-        {/* ================================================================ */}
-        {/* BOTTOM CTA                                                        */}
-        {/* ================================================================ */}
-        <div style={{ background: '#0f172a', padding: '80px 0', position: 'relative', overflow: 'hidden' }}>
-          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 60% 50% at 50% 50%, rgba(212,175,55,0.04), transparent 60%)' }} />
-
-          <div className="container mx-auto px-5 sm:px-6 lg:px-8 max-w-2xl" style={{ position: 'relative', textAlign: 'center' as const }}>
-            <h2 className="font-serif" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 300, color: 'white', marginBottom: 12 }}>
-              Ready to move forward?
-            </h2>
-            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 15, lineHeight: 1.7, maxWidth: 380, margin: '0 auto 36px' }}>
-              Book online in under a minute. No referral required.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-              <BookingCTA size="lg" className="!rounded-lg sm:!rounded-sm !tracking-[0.15em]">
-                Book Assessment
-                <svg style={{ width: 14, height: 14 }} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M6 3l5 5-5 5" /></svg>
-              </BookingCTA>
-              <a
-                href="tel:+19056346000"
-                className="flex items-center justify-center"
-                style={{ padding: '16px 32px', border: '1px solid rgba(255,255,255,0.2)', background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(12px)', borderRadius: 4, fontSize: 12, fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase' as const, color: 'white', gap: 8 }}
+        <div
+          style={{
+            position: 'relative',
+            background: `linear-gradient(180deg, ${palette.paper} 0%, ${palette.parchment} 100%)`,
+            padding: `${sectionPadding} 0`,
+            overflow: 'hidden',
+          }}
+        >
+          <div className="container mx-auto max-w-6xl px-6 sm:px-8 lg:px-16">
+            <div className="mx-auto max-w-3xl text-center" style={{ marginBottom: 46 }}>
+              <Eyebrow>Pricing & Clinic Details</Eyebrow>
+              <h2
+                className="font-serif"
+                style={{
+                  color: palette.bodyDark,
+                  fontWeight: 300,
+                  fontSize: 'clamp(2rem, 4vw, 3rem)',
+                  lineHeight: 1.08,
+                  letterSpacing: '-0.03em',
+                  marginBottom: 16,
+                }}
               >
-                (905) 634-6000
-              </a>
+                Clear pricing, direct billing, and a straightforward next step.
+              </h2>
+              <p
+                style={{
+                  color: palette.body,
+                  fontSize: 16,
+                  lineHeight: 1.85,
+                  maxWidth: 650,
+                  margin: '0 auto',
+                }}
+              >
+                Everything is straightforward before you book, from pricing to billing support and
+                exactly where the clinic is located.
+              </p>
+            </div>
+
+            <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
+              <LightCard style={{ padding: '30px clamp(1.5rem, 4vw, 2rem)' }}>
+                <Eyebrow>Pricing</Eyebrow>
+                <h3
+                  className="font-serif"
+                  style={{
+                    color: palette.bodyDark,
+                    fontWeight: 300,
+                    fontSize: '2rem',
+                    lineHeight: 1.14,
+                    letterSpacing: '-0.02em',
+                    marginBottom: 22,
+                  }}
+                >
+                  No hidden fees.
+                </h3>
+
+                <div className="grid gap-4 sm:grid-cols-2" style={{ marginBottom: 18 }}>
+                  {pricingOptions.map((item) => (
+                    <div
+                      key={item.label}
+                      style={{
+                        borderRadius: 22,
+                        border: '1px solid rgba(176,141,87,0.18)',
+                        background: 'rgba(247,242,232,0.72)',
+                        padding: 24,
+                        textAlign: 'center',
+                      }}
+                    >
+                      <p
+                        style={{
+                          color: palette.goldMuted,
+                          fontSize: 11,
+                          fontWeight: 700,
+                          letterSpacing: '0.18em',
+                          textTransform: 'uppercase',
+                          marginBottom: 10,
+                        }}
+                      >
+                        {item.label}
+                      </p>
+                      <p
+                        className="font-serif"
+                        style={{
+                          color: palette.bodyDark,
+                          fontWeight: 300,
+                          fontSize: '2.4rem',
+                          lineHeight: 1,
+                          letterSpacing: '-0.03em',
+                          marginBottom: 8,
+                        }}
+                      >
+                        {item.price}
+                      </p>
+                      <p style={{ color: palette.body, fontSize: 14, lineHeight: 1.7 }}>
+                        {item.note}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                <p style={{ color: palette.body, fontSize: 15, lineHeight: 1.85 }}>
+                  Direct billing is available for Sun Life, Manulife, Green Shield Canada, Blue
+                  Cross, Canada Life, WSIB, and more.
+                </p>
+              </LightCard>
+
+              <LightCard style={{ padding: '30px clamp(1.5rem, 4vw, 2rem)' }}>
+                <Eyebrow>Clinic Details</Eyebrow>
+                <h3
+                  className="font-serif"
+                  style={{
+                    color: palette.bodyDark,
+                    fontWeight: 300,
+                    fontSize: '2rem',
+                    lineHeight: 1.14,
+                    letterSpacing: '-0.02em',
+                    marginBottom: 22,
+                  }}
+                >
+                  Burlington & Waterdown.
+                </h3>
+
+                <div style={{ display: 'grid', gap: 18 }}>
+                  {clinicDetails.map((detail, index) => (
+                    <div
+                      key={detail.label}
+                      style={{
+                        paddingBottom: index === clinicDetails.length - 1 ? 0 : 18,
+                        borderBottom:
+                          index === clinicDetails.length - 1
+                            ? 'none'
+                            : '1px solid rgba(176,141,87,0.16)',
+                      }}
+                    >
+                      <p
+                        style={{
+                          color: palette.goldMuted,
+                          fontSize: 11,
+                          fontWeight: 700,
+                          letterSpacing: '0.18em',
+                          textTransform: 'uppercase',
+                          marginBottom: 8,
+                        }}
+                      >
+                        {detail.label}
+                      </p>
+                      <p
+                        style={{
+                          color: palette.body,
+                          fontSize: 15,
+                          lineHeight: 1.85,
+                          whiteSpace: 'pre-line',
+                        }}
+                      >
+                        {detail.value}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </LightCard>
+            </div>
+          </div>
+        </div>
+
+        <div
+          style={{
+            position: 'relative',
+            background: `linear-gradient(180deg, ${palette.navy} 0%, ${palette.ink} 100%)`,
+            padding: `${sectionPadding} 0`,
+            overflow: 'hidden',
+          }}
+        >
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              background:
+                'radial-gradient(circle at 50% 40%, rgba(212,175,55,0.15), transparent 28%)',
+            }}
+          />
+
+          <div
+            className="container mx-auto max-w-4xl px-6 sm:px-8 lg:px-16"
+            style={{ position: 'relative' }}
+          >
+            <div
+              style={{
+                borderRadius: 30,
+                border: '1px solid rgba(255,255,255,0.1)',
+                background: 'rgba(15,23,42,0.52)',
+                backdropFilter: 'blur(18px)',
+                padding: 'clamp(2rem, 5vw, 3rem)',
+                textAlign: 'center',
+                boxShadow: '0 35px 90px -55px rgba(2,6,23,0.95)',
+              }}
+            >
+              <Eyebrow light>Ready to Move Forward?</Eyebrow>
+              <h2
+                className="font-serif"
+                style={{
+                  color: 'white',
+                  fontWeight: 300,
+                  fontSize: 'clamp(2rem, 4vw, 3rem)',
+                  lineHeight: 1.08,
+                  letterSpacing: '-0.03em',
+                  marginBottom: 16,
+                }}
+              >
+                Book online in under a minute.
+              </h2>
+              <p
+                style={{
+                  color: palette.whiteSoft,
+                  fontSize: 16,
+                  lineHeight: 1.85,
+                  maxWidth: 560,
+                  margin: '0 auto 28px',
+                }}
+              >
+                No referral required. Choose a time that works for you and start with a thorough
+                one-on-one assessment.
+              </p>
+
+              <div className="flex flex-col gap-3 sm:flex-row sm:justify-center sm:gap-4">
+                <BookingCTA
+                  size="lg"
+                  className="w-full sm:w-auto !rounded-[10px] sm:!rounded-sm !px-8 !py-4 !text-[11px] !tracking-[0.22em] !shadow-[0_20px_45px_-25px_rgba(212,175,55,0.7)]"
+                >
+                  Book Assessment
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M6 3l5 5-5 5" />
+                  </svg>
+                </BookingCTA>
+
+                <SecondaryAction href="tel:+19056346000">
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke={palette.gold}
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.8 19.8 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z" />
+                  </svg>
+                  (905) 634-6000
+                </SecondaryAction>
+              </div>
             </div>
           </div>
         </div>

@@ -8,6 +8,7 @@ const LEGACY_COOKIE_KEY = 'cookiesAccepted';
 
 const GoogleAnalytics = () => {
   const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID;
+  const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
   const [hasConsent, setHasConsent] = useState(false);
 
   useEffect(() => {
@@ -54,6 +55,7 @@ const GoogleAnalytics = () => {
           gtag('config', '${GA_MEASUREMENT_ID}', {
             page_path: window.location.pathname,
           });
+          ${GOOGLE_ADS_ID ? `gtag('config', '${GOOGLE_ADS_ID}');` : ''}
         `}
       </Script>
     </>

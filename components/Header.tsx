@@ -260,8 +260,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               {/* Book Now Button - Premium Redesign */}
               <motion.div variants={headerItemVariants}>
                 <Link
-                  href="https://endorphinshealth.janeapp.com/#/staff_member/42"
-                  target="_blank"
+                  href="/intake"
                   className="hidden sm:flex group relative px-6 py-2.5 bg-[#D4AF37] overflow-hidden rounded-full transition-all duration-300 hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:scale-105"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
@@ -390,8 +389,8 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                     <span className="font-medium">905-634-6000</span>
                   </Link>
                   <Link
-                    href="https://endorphinshealth.janeapp.com/#/staff_member/42"
-                    target="_blank"
+                    href="/intake"
+                    onClick={() => setMobileMenuOpen(false)}
                     className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#D4AF37] text-slate-900 font-bold text-sm tracking-wide hover:bg-[#C9A227] transition-all shadow-lg"
                   >
                     <CalendarDaysIcon className="w-5 h-5" />

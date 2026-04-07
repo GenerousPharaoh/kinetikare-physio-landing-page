@@ -26,8 +26,8 @@ const palette = {
   creamDeep: '#EFE4D0',
   body: '#4b5563',
   bodyDark: '#1f2937',
-  line: 'rgba(176,141,87,0.18)',
-  lineDark: 'rgba(255,255,255,0.1)',
+  line: 'rgba(176,141,87,0.1)',
+  lineDark: 'rgba(255,255,255,0.08)',
 };
 
 const serifFont = '"Playfair Display", var(--font-heading), serif';
@@ -214,8 +214,8 @@ function TrustChip({ children, light = false }: { children: ReactNode; light?: b
         justifyContent: 'center',
         padding: '9px 14px',
         borderRadius: 999,
-        border: light ? '1px solid rgba(255,255,255,0.12)' : `1px solid ${palette.line}`,
-        background: light ? 'rgba(255,255,255,0.06)' : 'rgba(255,255,255,0.62)',
+        border: light ? '1px solid rgba(255,255,255,0.1)' : '1px solid rgba(176,141,87,0.08)',
+        background: light ? 'rgba(255,255,255,0.05)' : 'rgba(255,255,255,0.5)',
         backdropFilter: 'blur(14px)',
         color: light ? 'rgba(255,255,255,0.82)' : palette.bodyDark,
         fontSize: 11,
@@ -240,28 +240,28 @@ function Surface({
 }) {
   const tones: Record<SurfaceTone, CSSProperties> = {
     paper: {
-      border: '1px solid rgba(176,141,87,0.08)',
-      background: 'linear-gradient(180deg, rgba(255,255,255,0.94), rgba(247,241,230,0.92))',
-      boxShadow: '0 16px 48px -32px rgba(15,23,42,0.12)',
+      border: '1px solid rgba(176,141,87,0.06)',
+      background: 'linear-gradient(180deg, rgba(255,255,255,0.92), rgba(247,241,230,0.88))',
+      boxShadow: '0 4px 24px -12px rgba(15,23,42,0.06)',
       color: palette.bodyDark,
     },
     warm: {
-      border: '1px solid rgba(176,141,87,0.1)',
-      background: 'linear-gradient(180deg, rgba(247,241,230,0.97), rgba(239,228,208,0.95))',
-      boxShadow: '0 16px 48px -32px rgba(15,23,42,0.1)',
+      border: '1px solid rgba(176,141,87,0.08)',
+      background: 'linear-gradient(180deg, rgba(247,241,230,0.95), rgba(239,228,208,0.9))',
+      boxShadow: '0 4px 24px -12px rgba(15,23,42,0.06)',
       color: palette.bodyDark,
     },
     dark: {
-      border: '1px solid rgba(255,255,255,0.06)',
+      border: '1px solid rgba(255,255,255,0.05)',
       background: 'linear-gradient(180deg, rgba(15,23,42,0.96), rgba(2,6,23,0.98))',
-      boxShadow: '0 16px 48px -32px rgba(2,6,23,0.4)',
+      boxShadow: '0 8px 32px -16px rgba(2,6,23,0.3)',
       color: 'white',
     },
     glass: {
-      border: '1px solid rgba(255,255,255,0.2)',
-      background: 'rgba(255,255,255,0.3)',
-      backdropFilter: 'blur(16px)',
-      boxShadow: '0 12px 40px -24px rgba(15,23,42,0.06)',
+      border: '1px solid rgba(176,141,87,0.06)',
+      background: 'rgba(255,255,255,0.55)',
+      backdropFilter: 'blur(12px)',
+      boxShadow: '0 2px 16px -8px rgba(15,23,42,0.04)',
       color: palette.bodyDark,
     },
   };
@@ -270,8 +270,7 @@ function Surface({
     <div
       style={{
         position: 'relative',
-        borderRadius: 20,
-        overflow: 'hidden',
+        borderRadius: 24,
         ...tones[tone],
         ...style,
       }}
@@ -404,8 +403,8 @@ function DetailRow({
         display: 'grid',
         gridTemplateColumns: 'auto 1fr',
         gap: 16,
-        paddingBottom: 24,
-        borderBottom: '1px solid rgba(176,141,87,0.08)',
+        paddingBottom: 22,
+        borderBottom: '1px solid rgba(176,141,87,0.06)',
       }}
     >
       <span
@@ -506,8 +505,8 @@ function ReviewCard({
           </div>
           <div
             style={{
-              paddingTop: 20,
-              borderTop: `1px solid ${palette.line}`,
+              paddingTop: 16,
+              borderTop: '1px solid rgba(176,141,87,0.06)',
               color: palette.bodyDark,
               fontWeight: 600,
               fontSize: 14,
@@ -1064,14 +1063,14 @@ export default function IntakeLandingPage() {
                     fontFamily: serifFont,
                     color: palette.bodyDark,
                     fontWeight: 300,
-                    fontSize: 'clamp(2.45rem, 4.8vw, 4.1rem)',
-                    lineHeight: 0.98,
-                    letterSpacing: '-0.04em',
-                    marginBottom: 16,
+                    fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)',
+                    lineHeight: 1.1,
+                    letterSpacing: '-0.03em',
+                    marginBottom: 14,
                     maxWidth: 500,
                   }}
                 >
-                  What patients say.
+                  What patients say
                 </h2>
                 <p
                   style={{
@@ -1133,8 +1132,8 @@ export default function IntakeLandingPage() {
                       alignItems: 'center',
                       justifyContent: 'space-between',
                       gap: 12,
-                      paddingTop: 20,
-                      borderTop: `1px solid ${palette.line}`,
+                      paddingTop: 18,
+                      borderTop: '1px solid rgba(176,141,87,0.08)',
                     }}
                   >
                     <div>
@@ -1200,9 +1199,8 @@ export default function IntakeLandingPage() {
                 <Surface
                   tone="paper"
                   style={{
-                    padding: 'clamp(1.9rem, 3.1vw, 2.35rem)',
+                    padding: 'clamp(2rem, 3.5vw, 2.75rem)',
                     minHeight: '100%',
-                    borderRadius: 20,
                   }}
                 >
                   <Eyebrow>Fees & Billing</Eyebrow>
@@ -1211,14 +1209,14 @@ export default function IntakeLandingPage() {
                       fontFamily: serifFont,
                       color: palette.bodyDark,
                       fontWeight: 300,
-                      fontSize: 'clamp(2.05rem, 4vw, 3.3rem)',
-                      lineHeight: 0.98,
-                      letterSpacing: '-0.04em',
-                      marginBottom: 16,
+                      fontSize: 'clamp(1.6rem, 3vw, 2.2rem)',
+                      lineHeight: 1.1,
+                      letterSpacing: '-0.03em',
+                      marginBottom: 14,
                       maxWidth: 440,
                     }}
                   >
-                    Fees, billing, and clinic details
+                    Fees and billing
                   </h2>
                   <p
                     style={{
@@ -1232,10 +1230,10 @@ export default function IntakeLandingPage() {
                     first appointment.
                   </p>
 
-                  <div className="grid gap-4 sm:grid-cols-2">
+                  <div className="grid gap-5 sm:grid-cols-2">
                     {pricingOptions.map((item, index) => (
                       <Reveal key={item.label} delay={0.06 * index}>
-                        <Surface tone="warm" style={{ padding: 20, borderRadius: 20 }}>
+                        <Surface tone="warm" style={{ padding: 24 }}>
                           <p
                             style={{
                               color: palette.goldDeep,
@@ -1277,9 +1275,9 @@ export default function IntakeLandingPage() {
 
                   <div
                     style={{
-                      marginTop: 20,
-                      paddingTop: 20,
-                      borderTop: `1px solid ${palette.line}`,
+                      marginTop: 24,
+                      paddingTop: 24,
+                      borderTop: '1px solid rgba(176,141,87,0.06)',
                     }}
                   >
                     <div
@@ -1311,9 +1309,8 @@ export default function IntakeLandingPage() {
                 <Surface
                   tone="paper"
                   style={{
-                    padding: 'clamp(1.9rem, 3.1vw, 2.35rem)',
+                    padding: 'clamp(2rem, 3.5vw, 2.75rem)',
                     minHeight: '100%',
-                    borderRadius: 20,
                   }}
                 >
                   <div className="flex flex-wrap gap-2.5" style={{ marginBottom: 18 }}>
@@ -1327,10 +1324,10 @@ export default function IntakeLandingPage() {
                       fontFamily: serifFont,
                       color: palette.bodyDark,
                       fontWeight: 300,
-                      fontSize: 'clamp(2.2rem, 4.2vw, 3.5rem)',
-                      lineHeight: 1,
-                      letterSpacing: '-0.04em',
-                      marginBottom: 16,
+                      fontSize: 'clamp(1.6rem, 3vw, 2.2rem)',
+                      lineHeight: 1.1,
+                      letterSpacing: '-0.03em',
+                      marginBottom: 14,
                     }}
                   >
                     Burlington & Waterdown
@@ -1347,7 +1344,7 @@ export default function IntakeLandingPage() {
                     Easy to reach from Burlington, Waterdown, Flamborough, Carlisle, and Oakville.
                   </p>
 
-                  <div style={{ display: 'grid', gap: 18, marginBottom: 20 }}>
+                  <div style={{ display: 'grid', gap: 22, marginBottom: 24 }}>
                     {clinicDetails.map((detail, index) => (
                       <Reveal key={detail.label} delay={0.05 * index}>
                         <DetailRow label={detail.label} value={detail.value} icon={detail.icon} />
@@ -1369,10 +1366,10 @@ export default function IntakeLandingPage() {
                           display: 'inline-flex',
                           alignItems: 'center',
                           justifyContent: 'center',
-                          padding: '10px 14px',
+                          padding: '8px 14px',
                           borderRadius: 999,
-                          border: `1px solid ${palette.line}`,
-                          background: 'rgba(255,255,255,0.66)',
+                          border: '1px solid rgba(176,141,87,0.06)',
+                          background: 'rgba(255,255,255,0.5)',
                           color: palette.bodyDark,
                           fontSize: 11,
                           fontWeight: 600,
@@ -1404,8 +1401,7 @@ export default function IntakeLandingPage() {
               <Surface
                 tone="warm"
                 style={{
-                  padding: 'clamp(2rem, 5vw, 3.5rem)',
-                  borderRadius: 34,
+                  padding: 'clamp(2.5rem, 5vw, 4rem)',
                 }}
               >
                 <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
@@ -1416,11 +1412,11 @@ export default function IntakeLandingPage() {
                         fontFamily: serifFont,
                         color: palette.bodyDark,
                         fontWeight: 300,
-                        fontSize: 'clamp(2.25rem, 4.4vw, 3.9rem)',
-                        lineHeight: 0.98,
-                        letterSpacing: '-0.04em',
-                        marginBottom: 16,
-                        maxWidth: 560,
+                        fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)',
+                        lineHeight: 1.1,
+                        letterSpacing: '-0.03em',
+                        marginBottom: 14,
+                        maxWidth: 480,
                       }}
                     >
                       Choose a time that works for you
@@ -1447,17 +1443,23 @@ export default function IntakeLandingPage() {
                       <ArrowRightIcon width={14} height={14} aria-hidden="true" />
                     </BookingCTA>
 
-                    <SecondaryAction
+                    <a
                       href="tel:+19056346000"
+                      className="inline-flex items-center justify-center gap-2.5"
                       style={{
-                        border: `1px solid ${palette.line}`,
-                        backgroundColor: 'rgba(255,255,255,0.6)',
+                        padding: '16px 28px',
+                        borderRadius: 10,
+                        border: '1px solid rgba(176,141,87,0.1)',
+                        background: 'rgba(255,255,255,0.5)',
                         color: palette.bodyDark,
+                        fontSize: 13,
+                        fontWeight: 600,
+                        letterSpacing: '0.06em',
                       }}
                     >
-                      <PhoneIcon width={15} height={15} aria-hidden="true" />
-                      <span style={{ fontSize: 13, letterSpacing: '0.1em', fontWeight: 600, color: palette.bodyDark }}>(905) 634-6000</span>
-                    </SecondaryAction>
+                      <PhoneIcon width={15} height={15} aria-hidden="true" style={{ color: palette.goldDeep }} />
+                      (905) 634-6000
+                    </a>
                   </div>
                 </div>
               </Surface>

@@ -367,8 +367,7 @@ export default function HeroSection() {
 
             <motion.div variants={itemVariants} className="mb-6 md:mb-8">
               <p className="max-w-lg text-sm md:text-base text-white/70 leading-relaxed">
-                One-on-one physiotherapy for sports injuries, knee and hip pain, dry needling,
-                cupping, and rehabilitation.
+                One-on-one physiotherapy built around finding the root cause of your pain and getting back to feeling your best.
               </p>
             </motion.div>
 

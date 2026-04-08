@@ -345,15 +345,14 @@ export default function IntakeLandingPage() {
                 </div>
               </Reveal>
 
-              {/* Pricing */}
+              {/* Pricing + trust signals */}
               <Reveal from="right" delay={0.1}>
                 <div>
-                  <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.gold, marginBottom: 16 }}>Investment</p>
-                  <h2 style={{ fontFamily: serif, color: c.black, fontWeight: 700, fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: 48 }}>Transparent fees</h2>
+                  <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.gold, marginBottom: 16 }}>Fees</p>
 
                   {[
-                    { name: 'Initial Assessment', detail: 'Comprehensive evaluation and treatment', price: '130' },
-                    { name: 'Follow-up Session', detail: '30 minutes of focused care', price: '90' },
+                    { name: 'Initial Assessment', detail: 'Evaluation + treatment', price: '130' },
+                    { name: 'Follow-up Session', detail: '30-minute session', price: '90' },
                   ].map((item, i) => (
                     <div key={item.name} style={{ padding: '24px 0', borderBottom: `1px solid ${c.stone200}`, borderTop: i === 0 ? `1px solid ${c.stone200}` : 'none' }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 6 }}>
@@ -364,7 +363,20 @@ export default function IntakeLandingPage() {
                       <p style={{ color: c.textLight, fontSize: 13 }}>{item.detail}</p>
                     </div>
                   ))}
-                  <p style={{ color: c.textFaint, fontSize: 12, marginTop: 24, lineHeight: 1.7 }}>Direct billing available for most major insurers.</p>
+
+                  {/* Trust signals right next to pricing */}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginTop: 32 }}>
+                    {[
+                      { icon: CreditCardIcon, text: 'Direct insurance billing available' },
+                      { icon: CheckCircleIcon, text: 'No referral needed to book' },
+                      { icon: ClockIcon, text: 'Evening appointments available' },
+                    ].map((item) => (
+                      <div key={item.text} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                        <item.icon width={16} height={16} style={{ color: c.gold, flexShrink: 0 }} />
+                        <span style={{ fontSize: 13, color: c.textMid }}>{item.text}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </Reveal>
             </div>

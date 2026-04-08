@@ -50,9 +50,13 @@ const visitSteps = [
   { icon: ClipboardDocumentCheckIcon, label: 'Plan', title: 'Leave with a clear plan', text: 'Specific exercises, a recovery timeline, and measurable goals to track your progress.' },
 ];
 
-const conditions = [
+const conditionsRow1 = [
   'Back Pain', 'Knee Injuries', 'Shoulder Pain', 'Hip Pain', 'Sciatica',
   'Sports Injuries', 'Neck Pain', 'Ankle Sprains', 'Tennis Elbow', 'Post-Surgery',
+];
+const conditionsRow2 = [
+  'Plantar Fasciitis', 'Rotator Cuff', 'Achilles Pain', 'Whiplash',
+  'Running Injuries', 'Frozen Shoulder', 'Arthritis', 'Muscle Strains',
 ];
 
 const reviews = [
@@ -100,12 +104,12 @@ function Reveal({ children, delay = 0, from = 'bottom', style, className }: {
   );
 }
 
-function GoldDivider() {
+function GoldDivider({ padding = 48 }: { padding?: number } = {}) {
   const { ref, inView } = useInView({ threshold: 0.5, triggerOnce: true });
   return (
-    <div ref={ref} style={{ display: 'flex', justifyContent: 'center', padding: '48px 0' }}>
-      <motion.div initial={{ width: 0 }} animate={inView ? { width: 120 } : { width: 0 }} transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-        style={{ height: 1.5, background: `linear-gradient(90deg, transparent, ${c.goldBright}, transparent)`, borderRadius: 1 }} />
+    <div ref={ref} style={{ display: 'flex', justifyContent: 'center', padding: `${padding}px 0` }}>
+      <motion.div initial={{ width: 0 }} animate={inView ? { width: 160 } : { width: 0 }} transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+        style={{ height: 1, background: `linear-gradient(90deg, transparent, ${c.goldBright}80, ${c.goldBright}, ${c.goldBright}80, transparent)`, borderRadius: 1 }} />
     </div>
   );
 }
@@ -204,18 +208,22 @@ export default function IntakeLandingPage() {
                   </a>
                 </motion.div>
 
-                <motion.div variants={up} style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 20 }}>
+                {/* Trust row — more breathing room */}
+                <motion.div variants={up} style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 16, paddingTop: 8, paddingBottom: 16, borderTop: `1px solid ${c.stone100}` }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                    <Stars size={14} />
+                    <Stars size={13} />
                     <span style={{ fontSize: 14, fontWeight: 700, color: c.text }}>5.0</span>
-                    <span style={{ fontSize: 13, color: c.textLight }}>/ 17 reviews</span>
+                    <span style={{ fontSize: 13, color: c.textLight }}>from 17 reviews</span>
                   </div>
                   <span style={{ width: 1, height: 14, background: c.stone200 }} className="hidden sm:block" />
                   {['Direct Billing', 'No Referral', 'Evening Hours'].map((b) => (
-                    <span key={b} style={{ fontSize: 12, fontWeight: 500, color: c.textLight }}>{b}</span>
+                    <span key={b} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 12, fontWeight: 500, color: c.textLight }}>
+                      <span style={{ width: 4, height: 4, borderRadius: '50%', background: c.goldBright, flexShrink: 0 }} />
+                      {b}
+                    </span>
                   ))}
                 </motion.div>
-                <motion.p variants={up} style={{ marginTop: 20, paddingBottom: 64, fontSize: 11, color: c.textFaint, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+                <motion.p variants={up} style={{ paddingBottom: 48, fontSize: 11, color: c.textFaint, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
                   Registered Physiotherapist &middot; MSc PT, BSc Kin &middot; CPO #20079
                 </motion.p>
               </motion.div>
@@ -280,23 +288,35 @@ export default function IntakeLandingPage() {
           <div style={{ position: 'relative', height: 80, marginTop: -1, background: 'linear-gradient(to bottom, rgba(17,17,17,0.9), transparent)', zIndex: 2, pointerEvents: 'none' }} />
         </div>
 
-        {/* ═══════════ CONDITIONS — auto-scrolling marquee ═══════════ */}
-        <div style={{ background: c.white, paddingTop: 'clamp(2rem, 4vw, 3rem)', paddingBottom: 'clamp(2.5rem, 5vw, 3.5rem)', overflow: 'hidden' }}>
+        {/* ═══════════ CONDITIONS — dual marquee rows ═══════════ */}
+        <div style={{ background: c.white, paddingTop: 'clamp(3rem, 6vw, 4rem)', paddingBottom: 'clamp(3rem, 6vw, 4rem)', overflow: 'hidden' }}>
           <Reveal>
-            <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.gold, textAlign: 'center', marginBottom: 24 }}>Commonly Treated</p>
+            <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.gold, textAlign: 'center', marginBottom: 32 }}>Conditions Treated</p>
           </Reveal>
-          {/* Marquee row — auto-scrolling, duplicated for seamless loop */}
           <div style={{ position: 'relative' }}>
             {/* Edge fade masks */}
-            <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 80, background: `linear-gradient(to right, ${c.white}, transparent)`, zIndex: 2, pointerEvents: 'none' }} />
-            <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 80, background: `linear-gradient(to left, ${c.white}, transparent)`, zIndex: 2, pointerEvents: 'none' }} />
+            <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 100, background: `linear-gradient(to right, ${c.white}, transparent)`, zIndex: 2, pointerEvents: 'none' }} />
+            <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 100, background: `linear-gradient(to left, ${c.white}, transparent)`, zIndex: 2, pointerEvents: 'none' }} />
+            {/* Row 1 — scrolls left */}
             <motion.div
               animate={{ x: ['0%', '-50%'] }}
-              transition={{ duration: 35, ease: 'linear', repeat: Infinity }}
+              transition={{ duration: 40, ease: 'linear', repeat: Infinity }}
+              style={{ display: 'flex', gap: 12, width: 'max-content', marginBottom: 12 }}
+            >
+              {[...conditionsRow1, ...conditionsRow1].map((cond, i) => (
+                <span key={`r1-${i}`} className="intake-pill" style={{ padding: '10px 20px', fontSize: 14, fontWeight: 500, color: c.text, background: c.stone50, borderRadius: 999, whiteSpace: 'nowrap', border: `1px solid ${c.stone100}`, display: 'inline-block', flexShrink: 0 }}>
+                  {cond}
+                </span>
+              ))}
+            </motion.div>
+            {/* Row 2 — scrolls right (opposite direction) */}
+            <motion.div
+              animate={{ x: ['-50%', '0%'] }}
+              transition={{ duration: 45, ease: 'linear', repeat: Infinity }}
               style={{ display: 'flex', gap: 12, width: 'max-content' }}
             >
-              {[...conditions, ...conditions].map((cond, i) => (
-                <span key={`${cond}-${i}`} className="intake-pill" style={{ padding: '10px 20px', fontSize: 14, fontWeight: 500, color: c.text, background: c.stone50, borderRadius: 999, whiteSpace: 'nowrap', border: `1px solid ${c.stone100}`, display: 'inline-block', flexShrink: 0 }}>
+              {[...conditionsRow2, ...conditionsRow2].map((cond, i) => (
+                <span key={`r2-${i}`} className="intake-pill" style={{ padding: '10px 20px', fontSize: 14, fontWeight: 500, color: c.text, background: c.stone50, borderRadius: 999, whiteSpace: 'nowrap', border: `1px solid ${c.stone100}`, display: 'inline-block', flexShrink: 0 }}>
                   {cond}
                 </span>
               ))}
@@ -308,9 +328,9 @@ export default function IntakeLandingPage() {
         <div style={{ background: c.bg, position: 'relative' }}>
           {/* Subtle radial glow behind timeline */}
           <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '60%', height: '80%', background: `radial-gradient(ellipse at center, rgba(212,175,55,0.04), transparent 60%)`, pointerEvents: 'none' }} />
-          <div style={{ maxWidth: 1000, margin: '0 auto', padding: 'clamp(6rem, 12vw, 10rem) clamp(1.5rem, 5vw, 4rem)' }}>
+          <div style={{ maxWidth: 1000, margin: '0 auto', padding: 'clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem)' }}>
             <Reveal>
-              <div style={{ textAlign: 'center', marginBottom: 80 }}>
+              <div style={{ textAlign: 'center', marginBottom: 72 }}>
                 <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.gold, marginBottom: 16 }}>Your First Visit</p>
                 <h2 style={{ fontFamily: serif, color: c.black, fontWeight: 700, fontSize: 'clamp(2rem, 4vw, 3rem)', lineHeight: 1.08, letterSpacing: '-0.03em' }}>
                   Assessment to action<br /><span style={{ fontWeight: 300, fontStyle: 'italic', color: c.gold }}>in one visit</span>
@@ -351,7 +371,7 @@ export default function IntakeLandingPage() {
 
         {/* ═══════════ PRICING + TREATMENT PHOTO — split layout ═══════════ */}
         <div style={{ background: c.white }}>
-          <div style={{ maxWidth: 1100, margin: '0 auto', padding: 'clamp(4rem, 8vw, 6rem) clamp(1.5rem, 5vw, 4rem) clamp(6rem, 10vw, 8rem)' }}>
+          <div style={{ maxWidth: 1100, margin: '0 auto', padding: 'clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem)' }}>
             <div className="grid gap-16 lg:grid-cols-2" style={{ alignItems: 'center' }}>
               {/* Treatment photo */}
               <Reveal from="left">
@@ -408,7 +428,7 @@ export default function IntakeLandingPage() {
 
           <div style={{ position: 'relative', maxWidth: 1000, margin: '0 auto', padding: 'clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem)' }}>
             <Reveal>
-              <div style={{ textAlign: 'center', marginBottom: 56 }}>
+              <div style={{ textAlign: 'center', marginBottom: 48 }}>
                 <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.gold, marginBottom: 16 }}>The Clinic</p>
                 <h2 style={{ fontFamily: serif, color: c.black, fontWeight: 700, fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', lineHeight: 1.1, letterSpacing: '-0.03em' }}>Burlington &amp; Waterdown</h2>
               </div>
@@ -417,12 +437,12 @@ export default function IntakeLandingPage() {
             <div className="grid gap-8 sm:grid-cols-3">
               {clinicDetails.map((d, i) => (
                 <Reveal key={d.label} delay={0.1 * i} from="bottom">
-                  <div style={{ background: 'rgba(255,255,255,0.85)', borderRadius: 16, padding: 'clamp(24px, 3vw, 32px)', textAlign: 'center', boxShadow: '0 8px 32px -8px rgba(0,0,0,0.06)', border: `1px solid ${c.stone100}` }}>
-                    <div style={{ width: 48, height: 48, borderRadius: '50%', background: c.stone50, border: `1px solid ${c.stone200}`, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
-                      <d.icon width={22} height={22} style={{ color: c.gold }} />
+                  <div style={{ background: 'rgba(255,255,255,0.88)', borderRadius: 16, padding: 'clamp(28px, 3.5vw, 40px) clamp(24px, 3vw, 32px)', textAlign: 'center', boxShadow: '0 12px 40px -10px rgba(0,0,0,0.06)', border: `1px solid ${c.stone100}`, backdropFilter: 'blur(8px)' }}>
+                    <div style={{ width: 52, height: 52, borderRadius: '50%', background: c.white, border: `1.5px solid ${c.stone200}`, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px', boxShadow: '0 4px 12px -4px rgba(0,0,0,0.04)' }}>
+                      <d.icon width={24} height={24} style={{ color: c.gold }} />
                     </div>
-                    <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: c.gold, marginBottom: 10 }}>{d.label}</p>
-                    <p style={{ color: c.text, fontSize: 14, lineHeight: 1.8, whiteSpace: 'pre-line' }}>{d.value}</p>
+                    <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: c.gold, marginBottom: 12 }}>{d.label}</p>
+                    <p style={{ color: c.text, fontSize: 14, lineHeight: 1.85, whiteSpace: 'pre-line' }}>{d.value}</p>
                   </div>
                 </Reveal>
               ))}

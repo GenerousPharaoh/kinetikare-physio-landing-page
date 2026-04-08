@@ -227,26 +227,6 @@ export default function IntakeLandingPage() {
                   One-on-one physiotherapy focused on finding the root cause. Sports injuries, knee and hip pain, dry needling, cupping, and exercise rehabilitation.
                 </motion.p>
 
-                {/* MOBILE PORTRAIT — shown between subtitle and CTAs on small screens */}
-                <motion.div variants={fadeUp} className="lg:hidden" style={{ marginBottom: 40, display: 'flex', justifyContent: 'center' }}>
-                  <div style={{ position: 'relative', width: 'min(240px, 55vw)' }}>
-                    <div style={{ borderRadius: 16, overflow: 'hidden', boxShadow: '0 32px 64px -20px rgba(20,20,43,0.18), 0 12px 24px -8px rgba(176,141,87,0.08)' }}>
-                      <img
-                        src="/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png"
-                        alt="Kareem Hassanein, Registered Physiotherapist"
-                        width={826} height={1169}
-                        style={{ width: '100%', height: 'auto', display: 'block' }}
-                      />
-                      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '40%', background: `linear-gradient(to top, ${c.cream}dd, transparent)`, pointerEvents: 'none' }} />
-                    </div>
-                    {/* Mobile credentials overlay */}
-                    <div style={{ position: 'absolute', bottom: 16, left: '50%', transform: 'translateX(-50%)', background: c.white, borderRadius: 12, padding: '12px 18px', boxShadow: '0 12px 32px -10px rgba(20,20,43,0.14)', textAlign: 'center', whiteSpace: 'nowrap' }}>
-                      <p style={{ fontFamily: serif, fontWeight: 400, fontSize: 15, color: c.heading, lineHeight: 1.2, marginBottom: 2 }}>Kareem Hassanein</p>
-                      <p style={{ fontSize: 10, color: c.goldDeep, fontWeight: 700, letterSpacing: '0.06em' }}>RPT, MSc PT, BSc Kin</p>
-                    </div>
-                  </div>
-                </motion.div>
-
                 {/* CTAs */}
                 <motion.div variants={fadeUp} className="flex flex-col gap-3 sm:flex-row sm:gap-4" style={{ marginBottom: 40 }}>
                   <BookingCTA size="lg" className="w-full sm:w-auto !rounded-[10px] !px-10 !py-[18px] !text-[11px] !tracking-[0.2em]" style={{ boxShadow: '0 12px 40px -8px rgba(176,141,87,0.45)' }}>
@@ -471,6 +451,23 @@ export default function IntakeLandingPage() {
             </div>
           </div>
         </div>
+
+        {/* ═══════════ TREATMENT ROOM ═══════════ */}
+        <Reveal>
+          <div style={{ maxWidth: 1000, margin: '0 auto', padding: '0 clamp(1.5rem, 5vw, 3rem)', paddingBottom: 'clamp(4rem, 8vw, 6rem)' }}>
+            <div style={{ position: 'relative', borderRadius: 16, overflow: 'hidden', boxShadow: '0 32px 72px -20px rgba(20,20,43,0.12)' }}>
+              <img
+                src="/images/clinic-room-may-25.webp"
+                alt="Treatment room at Endorphins Health and Wellness Centre in Burlington"
+                width={1200}
+                height={800}
+                style={{ width: '100%', height: 'auto', display: 'block', maxHeight: 400, objectFit: 'cover', objectPosition: 'center 40%' }}
+              />
+              {/* Warm overlay gradient */}
+              <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(135deg, ${c.cream}40, transparent 50%, ${c.goldDeep}15)`, pointerEvents: 'none' }} />
+            </div>
+          </div>
+        </Reveal>
 
         {/* ═══════════ BOTTOM CTA ═══════════ */}
         <div style={{ background: c.navy, position: 'relative', overflow: 'hidden' }}>

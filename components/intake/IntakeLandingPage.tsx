@@ -515,7 +515,7 @@ export default function IntakeLandingPage() {
                   <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: 16, lineHeight: 1.75, marginBottom: 24 }}>No referral required. Book online in under a minute or call the clinic directly.</p>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, fontWeight: 600, color: c.goldBright }}>
                     <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#34D399' }} />
-                    Evening appointments available this week
+                    Afternoon and evening appointments available this week
                   </div>
                 </div>
               </Reveal>

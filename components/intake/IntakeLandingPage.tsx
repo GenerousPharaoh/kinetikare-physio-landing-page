@@ -493,28 +493,46 @@ export default function IntakeLandingPage() {
           </div>
         </div>
 
-        {/* ═══════════ BOTTOM CTA ═══════════ */}
-        <div style={{ background: c.charcoal, position: 'relative', overflow: 'hidden' }}>
-          <div style={{ position: 'absolute', inset: 0, opacity: 0.03, backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E")', backgroundSize: '200px', pointerEvents: 'none' }} />
-          <div style={{ position: 'relative', maxWidth: 900, margin: '0 auto', padding: 'clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem)', textAlign: 'center' }}>
-            <Reveal from="scale">
-              <h2 style={{ fontFamily: serif, color: c.white, fontWeight: 700, fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', lineHeight: 1.05, letterSpacing: '-0.03em', maxWidth: 480, margin: '0 auto 20px' }}>
-                Ready to move better?
-              </h2>
-              <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: 15, lineHeight: 1.75, maxWidth: 380, margin: '0 auto 32px' }}>No referral required. Book online in under a minute.</p>
-              <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.1em', color: c.goldBright, marginBottom: 48, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
-                <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#34D399', display: 'inline-block' }} />
-                Evening appointments available this week
-              </p>
-              <div className="flex flex-col gap-3 sm:flex-row sm:justify-center sm:gap-4">
-                <BookingCTA size="lg" className="intake-cta-hover w-full sm:w-auto !rounded-none !px-12 !py-5 !text-xs !tracking-[0.25em]" style={{ boxShadow: '0 16px 48px -10px rgba(184,150,12,0.55)' }}>
-                  BOOK ASSESSMENT <ArrowRightIcon width={14} height={14} />
-                </BookingCTA>
-                <a href="tel:+19056346000" className="intake-cta-hover inline-flex items-center justify-center gap-3" style={{ padding: '20px 28px', border: '1.5px solid rgba(255,255,255,0.12)', color: c.white, fontSize: 13, fontWeight: 600, letterSpacing: '0.04em', cursor: 'pointer' }}>
-                  <PhoneIcon width={15} height={15} style={{ color: c.goldBright }} /> (905) 634-6000
-                </a>
-              </div>
-            </Reveal>
+        {/* ═══════════ BOTTOM CTA — clinic photo backdrop, split layout ═══════════ */}
+        <div style={{ position: 'relative', overflow: 'hidden' }}>
+          {/* Clinic photo as background */}
+          <div style={{ position: 'absolute', inset: 0 }}>
+            <img src="/images/clinic-pic-may-2025.jpg" alt="" aria-hidden="true" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 60%' }} />
+            <div style={{ position: 'absolute', inset: 0, background: 'rgba(17,17,17,0.82)' }} />
+          </div>
+
+          <div style={{ position: 'relative', maxWidth: 1100, margin: '0 auto', padding: 'clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem)' }}>
+            <div className="lg:flex lg:items-center lg:justify-between lg:gap-20">
+              {/* Left: text */}
+              <Reveal from="left">
+                <div style={{ maxWidth: 480, marginBottom: 40 }}>
+                  <h2 style={{ fontFamily: serif, color: c.white, fontWeight: 700, fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', lineHeight: 1.05, letterSpacing: '-0.03em', marginBottom: 20 }}>
+                    Ready to move<br /><span style={{ fontWeight: 300, fontStyle: 'italic', color: c.goldBright }}>better?</span>
+                  </h2>
+                  <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: 16, lineHeight: 1.75, marginBottom: 24 }}>No referral required. Book online in under a minute or call the clinic directly.</p>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, fontWeight: 600, color: c.goldBright }}>
+                    <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#34D399' }} />
+                    Evening appointments available this week
+                  </div>
+                </div>
+              </Reveal>
+
+              {/* Right: CTAs stacked vertically on this side */}
+              <Reveal from="right" delay={0.15}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 16, flexShrink: 0 }}>
+                  <BookingCTA size="lg" className="intake-cta-hover w-full sm:w-auto !rounded-none !px-14 !py-5 !text-xs !tracking-[0.25em]" style={{ boxShadow: '0 16px 48px -10px rgba(184,150,12,0.55)' }}>
+                    BOOK ASSESSMENT <ArrowRightIcon width={14} height={14} />
+                  </BookingCTA>
+                  <a href="tel:+19056346000" className="intake-cta-hover inline-flex items-center justify-center gap-3" style={{ padding: '20px 28px', border: '1.5px solid rgba(255,255,255,0.15)', color: c.white, fontSize: 14, fontWeight: 600, letterSpacing: '0.04em', cursor: 'pointer' }}>
+                    <PhoneIcon width={16} height={16} style={{ color: c.goldBright }} /> (905) 634-6000
+                  </a>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 8 }}>
+                    <Stars size={12} />
+                    <span style={{ fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,0.6)' }}>5.0 from 17 Google reviews</span>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
           </div>
         </div>
       </main>

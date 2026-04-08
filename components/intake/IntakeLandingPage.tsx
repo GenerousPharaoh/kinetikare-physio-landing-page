@@ -46,9 +46,9 @@ type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
 
 /* ─── DATA ─── */
 const visitSteps = [
-  { icon: MagnifyingGlassIcon, label: 'Assess', title: 'Movement analysis', text: 'Detailed history and hands-on assessment to find what is driving your pain.' },
-  { icon: HandRaisedIcon, label: 'Treat', title: 'Hands-on care', text: 'Manual therapy, dry needling, or cupping begins in the first session.' },
-  { icon: ClipboardDocumentCheckIcon, label: 'Plan', title: 'Clear next steps', text: 'You leave with priorities, a timeline, and a treatment direction.' },
+  { icon: MagnifyingGlassIcon, label: 'Assess', title: 'Find the root cause', text: 'A thorough movement and injury assessment to understand exactly what is driving the problem.' },
+  { icon: HandRaisedIcon, label: 'Treat', title: 'Start treatment immediately', text: 'Hands-on care in the same visit. Joint mobilization, dry needling, or soft tissue work based on findings.' },
+  { icon: ClipboardDocumentCheckIcon, label: 'Plan', title: 'Leave with a clear plan', text: 'Specific exercises, a recovery timeline, and measurable goals to track your progress.' },
 ];
 
 const conditions = [
@@ -104,6 +104,20 @@ function GoldDivider() {
   );
 }
 
+function AnimatedTimelineLine() {
+  const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
+  return (
+    <div ref={ref} className="hidden lg:block" style={{ position: 'absolute', top: 28, left: '16.66%', right: '16.66%', height: 2, zIndex: 0, overflow: 'hidden' }}>
+      <motion.div
+        initial={{ width: '0%' }}
+        animate={inView ? { width: '100%' } : { width: '0%' }}
+        transition={{ duration: 1.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        style={{ height: '100%', background: `linear-gradient(90deg, ${c.stone200}, ${c.goldBright} 30%, ${c.goldBright} 70%, ${c.stone200})` }}
+      />
+    </div>
+  );
+}
+
 /* ═══════════════════════════════════════ */
 
 export default function IntakeLandingPage() {
@@ -142,6 +156,8 @@ export default function IntakeLandingPage() {
         @media (prefers-reduced-motion: reduce) { .intake-page .animate-ping { display: none !important; } }
         .intake-cta-hover { transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s ease !important; }
         .intake-cta-hover:hover { transform: translateY(-3px) !important; box-shadow: 0 20px 56px -12px rgba(184,150,12,0.5) !important; }
+        .intake-pill { transition: all 0.25s cubic-bezier(0.22,1,0.36,1) !important; cursor: default; }
+        .intake-pill:hover { transform: translateY(-2px) !important; border-color: #D4AF37 !important; box-shadow: 0 4px 12px -4px rgba(184,150,12,0.15) !important; }
       `}</style>
 
       <main className="intake-page" style={{ fontFamily: sans, background: c.bg, color: c.text, WebkitFontSmoothing: 'antialiased', overflow: 'hidden' }}>
@@ -285,7 +301,7 @@ export default function IntakeLandingPage() {
                 <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: c.gold, marginRight: 8 }}>Commonly treated</span>
                 {conditions.map((cond, i) => (
                   <Reveal key={cond} delay={0.03 * i} from="scale">
-                    <span style={{ padding: '8px 16px', fontSize: 13, fontWeight: 500, color: c.textMid, background: c.stone50, borderRadius: 999, whiteSpace: 'nowrap', border: `1px solid ${c.stone100}` }}>
+                    <span className="intake-pill" style={{ padding: '8px 16px', fontSize: 13, fontWeight: 500, color: c.textMid, background: c.stone50, borderRadius: 999, whiteSpace: 'nowrap', border: `1px solid ${c.stone100}`, display: 'inline-block' }}>
                       {cond}
                     </span>
                   </Reveal>
@@ -296,21 +312,22 @@ export default function IntakeLandingPage() {
         </div>
 
         {/* ═══════════ 3-STEP VISUAL TIMELINE — your first visit ═══════════ */}
-        <div style={{ background: c.bg }}>
+        <div style={{ background: c.bg, position: 'relative' }}>
+          {/* Subtle radial glow behind timeline */}
+          <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '60%', height: '80%', background: `radial-gradient(ellipse at center, rgba(212,175,55,0.04), transparent 60%)`, pointerEvents: 'none' }} />
           <div style={{ maxWidth: 1000, margin: '0 auto', padding: 'clamp(6rem, 12vw, 10rem) clamp(1.5rem, 5vw, 4rem)' }}>
             <Reveal>
               <div style={{ textAlign: 'center', marginBottom: 80 }}>
                 <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.gold, marginBottom: 16 }}>Your First Visit</p>
                 <h2 style={{ fontFamily: serif, color: c.black, fontWeight: 700, fontSize: 'clamp(2rem, 4vw, 3rem)', lineHeight: 1.08, letterSpacing: '-0.03em' }}>
-                  Three steps to recovery
+                  Assessment to action<br /><span style={{ fontWeight: 300, fontStyle: 'italic', color: c.gold }}>in one visit</span>
                 </h2>
               </div>
             </Reveal>
 
-            {/* Timeline: 3 columns with connecting gold line */}
+            {/* Timeline: 3 columns with animated connecting gold line */}
             <div style={{ position: 'relative' }}>
-              {/* Connecting gold line — desktop only */}
-              <div className="hidden lg:block" style={{ position: 'absolute', top: 28, left: '16.66%', right: '16.66%', height: 2, background: `linear-gradient(90deg, ${c.stone200}, ${c.goldBright} 30%, ${c.goldBright} 70%, ${c.stone200})`, zIndex: 0 }} />
+              <AnimatedTimelineLine />
 
               <div className="grid gap-12 lg:grid-cols-3" style={{ position: 'relative', zIndex: 1 }}>
                 {visitSteps.map((step, i) => (
@@ -419,7 +436,11 @@ export default function IntakeLandingPage() {
               <h2 style={{ fontFamily: serif, color: c.white, fontWeight: 700, fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', lineHeight: 1.05, letterSpacing: '-0.03em', maxWidth: 480, margin: '0 auto 20px' }}>
                 Ready to move better?
               </h2>
-              <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: 15, lineHeight: 1.75, maxWidth: 380, margin: '0 auto 48px' }}>No referral required. Book online in under a minute.</p>
+              <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: 15, lineHeight: 1.75, maxWidth: 380, margin: '0 auto 32px' }}>No referral required. Book online in under a minute.</p>
+              <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.1em', color: c.goldBright, marginBottom: 48, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
+                <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#34D399', display: 'inline-block' }} />
+                Evening appointments available this week
+              </p>
               <div className="flex flex-col gap-3 sm:flex-row sm:justify-center sm:gap-4">
                 <BookingCTA size="lg" className="intake-cta-hover w-full sm:w-auto !rounded-none !px-12 !py-5 !text-xs !tracking-[0.25em]" style={{ boxShadow: '0 16px 48px -10px rgba(184,150,12,0.55)' }}>
                   BOOK ASSESSMENT <ArrowRightIcon width={14} height={14} />

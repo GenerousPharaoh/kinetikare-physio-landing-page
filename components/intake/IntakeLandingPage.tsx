@@ -418,36 +418,78 @@ export default function IntakeLandingPage() {
           </div>
         </div>
 
-        {/* ═══════════ CLINIC — clean horizontal layout ═══════════ */}
+        {/* ═══════════ CLINIC — split: details + styled map ═══════════ */}
         <div style={{ background: c.stone50, borderTop: `1px solid ${c.stone100}` }}>
-          <div style={{ maxWidth: 1000, margin: '0 auto', padding: 'clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem)' }}>
-            <Reveal>
-              <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.gold, marginBottom: 16 }}>The Clinic</p>
-              <h2 style={{ fontFamily: serif, color: c.black, fontWeight: 700, fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: 56 }}>Burlington &amp; Waterdown</h2>
-            </Reveal>
+          <div style={{ maxWidth: 1100, margin: '0 auto', padding: 'clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem)' }}>
+            <div className="grid gap-12 lg:grid-cols-2" style={{ alignItems: 'start' }}>
+              {/* Left: details */}
+              <Reveal from="left">
+                <div>
+                  <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.gold, marginBottom: 16 }}>The Clinic</p>
+                  <h2 style={{ fontFamily: serif, color: c.black, fontWeight: 700, fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: 48 }}>Burlington &amp; Waterdown</h2>
 
-            {/* Horizontal detail rows with gold left accent */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
-              {clinicDetails.map((d, i) => (
-                <Reveal key={d.label} delay={0.08 * i} from="left">
-                  <div style={{ display: 'flex', gap: 'clamp(16px, 3vw, 24px)', alignItems: 'flex-start', padding: '28px 0', borderBottom: i < clinicDetails.length - 1 ? `1px solid ${c.stone200}` : 'none' }}>
-                    <div style={{ width: 44, height: 44, borderRadius: 12, background: c.white, border: `1px solid ${c.stone200}`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: '0 2px 8px -2px rgba(0,0,0,0.04)' }}>
-                      <d.icon width={20} height={20} style={{ color: c.gold }} />
-                    </div>
-                    <div style={{ flex: 1 }}>
-                      <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: c.gold, marginBottom: 6 }}>{d.label}</p>
-                      <p style={{ color: c.text, fontSize: 15, lineHeight: 1.75, whiteSpace: 'pre-line' }}>{d.value}</p>
-                    </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+                    {clinicDetails.map((d, i) => (
+                      <div key={d.label} style={{ display: 'flex', gap: 'clamp(16px, 3vw, 24px)', alignItems: 'flex-start', padding: '24px 0', borderBottom: i < clinicDetails.length - 1 ? `1px solid ${c.stone200}` : 'none' }}>
+                        <div style={{ width: 40, height: 40, borderRadius: 10, background: c.white, border: `1px solid ${c.stone200}`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: '0 2px 8px -2px rgba(0,0,0,0.04)' }}>
+                          <d.icon width={18} height={18} style={{ color: c.gold }} />
+                        </div>
+                        <div style={{ flex: 1 }}>
+                          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: c.gold, marginBottom: 6 }}>{d.label}</p>
+                          <p style={{ color: c.text, fontSize: 15, lineHeight: 1.75, whiteSpace: 'pre-line' }}>{d.value}</p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                </Reveal>
-              ))}
-            </div>
 
-            <Reveal delay={0.3}>
-              <div className="flex flex-wrap gap-2" style={{ marginTop: 32 }}>
-                {serviceAreas.map((a) => <span key={a} style={{ padding: '7px 16px', fontSize: 11, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', color: c.textMid, background: c.white, borderRadius: 999, border: `1px solid ${c.stone200}` }}>{a}</span>)}
-              </div>
-            </Reveal>
+                  <div className="flex flex-wrap gap-2" style={{ marginTop: 28 }}>
+                    {serviceAreas.map((a) => <span key={a} style={{ padding: '7px 16px', fontSize: 11, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', color: c.textMid, background: c.white, borderRadius: 999, border: `1px solid ${c.stone200}` }}>{a}</span>)}
+                  </div>
+                </div>
+              </Reveal>
+
+              {/* Right: styled Google Maps embed */}
+              <Reveal from="right" delay={0.15}>
+                <div style={{ position: 'relative' }}>
+                  {/* Gold accent corner brackets */}
+                  <div style={{ position: 'absolute', top: -8, left: -8, width: 40, height: 40, borderTop: `2px solid ${c.goldBright}50`, borderLeft: `2px solid ${c.goldBright}50`, borderRadius: '4px 0 0 0', zIndex: 2, pointerEvents: 'none' }} />
+                  <div style={{ position: 'absolute', bottom: -8, right: -8, width: 40, height: 40, borderBottom: `2px solid ${c.goldBright}50`, borderRight: `2px solid ${c.goldBright}50`, borderRadius: '0 0 4px 0', zIndex: 2, pointerEvents: 'none' }} />
+
+                  {/* Map container with dark/grayscale filter */}
+                  <div style={{ borderRadius: 16, overflow: 'hidden', boxShadow: '0 20px 60px -16px rgba(0,0,0,0.12)', border: `1px solid ${c.stone200}`, position: 'relative' }}>
+                    <div style={{ filter: 'grayscale(0.8) contrast(1.1) brightness(0.95)', position: 'relative' }}>
+                      <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2899.3!2d-79.838055!3d43.430782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b63e5c1beb2c7%3A0x4b6f5e5e3e5e5e5e!2s4631+Palladium+Way+Unit+6%2C+Burlington%2C+ON!5e0!3m2!1sen!2sca!4v1700000000000!5m2!1sen!2sca"
+                        width="100%"
+                        height="420"
+                        style={{ border: 0, display: 'block' }}
+                        allowFullScreen={false}
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="Endorphins Health and Wellness Centre location"
+                      />
+                    </div>
+                    {/* Gold gradient overlay at bottom */}
+                    <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 80, background: `linear-gradient(to top, ${c.stone50}cc, transparent)`, pointerEvents: 'none' }} />
+
+                    {/* Floating address chip on map */}
+                    <a
+                      href="https://maps.app.goo.gl/JC7uKnd9zW4AJPP49"
+                      target="_blank"
+                      rel="noreferrer"
+                      style={{ position: 'absolute', bottom: 20, left: 20, display: 'inline-flex', alignItems: 'center', gap: 8, background: c.white, borderRadius: 10, padding: '12px 18px', boxShadow: '0 8px 32px -8px rgba(0,0,0,0.15)', border: `1px solid ${c.stone100}`, cursor: 'pointer', textDecoration: 'none', zIndex: 1 }}
+                    >
+                      <MapPinIcon width={16} height={16} style={{ color: c.gold }} />
+                      <div>
+                        <p style={{ fontSize: 13, fontWeight: 700, color: c.black, lineHeight: 1.2 }}>Get Directions</p>
+                        <p style={{ fontSize: 11, color: c.textLight, marginTop: 2 }}>4631 Palladium Way, Unit 6</p>
+                      </div>
+                      <ArrowRightIcon width={12} height={12} style={{ color: c.textFaint, marginLeft: 4 }} />
+                    </a>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
           </div>
         </div>
 

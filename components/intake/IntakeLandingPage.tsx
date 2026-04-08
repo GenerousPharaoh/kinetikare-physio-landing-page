@@ -380,48 +380,52 @@ export default function IntakeLandingPage() {
           </div>
         </div>
 
-        <GoldDivider />
+        {/* ═══════════ PRICING — full-width with treatment photo accent ═══════════ */}
+        <div style={{ position: 'relative', background: c.white, overflow: 'hidden' }}>
+          {/* Treatment photo as subtle side accent — desktop only */}
+          <div className="hidden lg:block" style={{ position: 'absolute', top: 0, bottom: 0, left: 0, width: '38%' }}>
+            <img src="/images/treatment-photos/treatment-passive-stretching-knee-manual-therapy.jpg" alt="" aria-hidden="true" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%', filter: 'contrast(1.04) saturate(1.05)' }} />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, transparent 50%, rgba(255,255,255,0.4) 80%, rgba(255,255,255,1) 100%)' }} />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent, rgba(255,255,255,0.15))' }} />
+          </div>
 
-        {/* ═══════════ PRICING + TREATMENT PHOTO — split layout ═══════════ */}
-        <div style={{ background: c.white }}>
-          <div style={{ maxWidth: 1100, margin: '0 auto', padding: 'clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem)' }}>
-            <div className="grid gap-16 lg:grid-cols-2" style={{ alignItems: 'center' }}>
-              {/* Treatment photo */}
-              <Reveal from="left">
-                <div style={{ overflow: 'hidden', borderRadius: 12 }}>
-                  <motion.img src="/images/treatment-photos/treatment-passive-stretching-knee-manual-therapy.jpg" alt="Kareem performing manual therapy knee treatment" width={1200} height={800} whileHover={reduced ? undefined : { scale: 1.04 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', minHeight: 380, cursor: 'default', filter: 'contrast(1.04) saturate(1.08)' }} />
-                </div>
-              </Reveal>
-
-              {/* Pricing + trust signals */}
-              <Reveal from="right" delay={0.1}>
-                <div>
+          <div style={{ position: 'relative', maxWidth: 1100, margin: '0 auto', padding: 'clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem)' }}>
+            <div className="lg:flex lg:justify-end">
+              <Reveal from="right">
+                <div style={{ maxWidth: 520 }} className="lg:!pl-16">
                   <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.gold, marginBottom: 16 }}>Fees</p>
+                  <h2 style={{ fontFamily: serif, color: c.black, fontWeight: 700, fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', lineHeight: 1.1, letterSpacing: '-0.02em', marginBottom: 40 }}>
+                    Simple, transparent pricing
+                  </h2>
 
-                  {[
-                    { name: 'Initial Assessment', detail: 'Evaluation + treatment', price: '130' },
-                    { name: 'Follow-up Session', detail: '30-minute session', price: '90' },
-                  ].map((item, i) => (
-                    <div key={item.name} style={{ padding: '24px 0', borderBottom: `1px solid ${c.stone200}`, borderTop: i === 0 ? `1px solid ${c.stone200}` : 'none' }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 6 }}>
-                        <p style={{ fontFamily: serif, fontSize: 18, fontWeight: 600, color: c.black }}>{item.name}</p>
-                        <div style={{ flex: 1, borderBottom: `1px dotted ${c.stone200}`, margin: '0 16px', minWidth: 24, alignSelf: 'center', transform: 'translateY(-3px)' }} />
-                        <p style={{ fontFamily: serif, fontSize: 18, fontWeight: 600, color: c.black }}><span style={{ color: c.gold, fontSize: 14, fontWeight: 400 }}>$</span>{item.price}</p>
-                      </div>
-                      <p style={{ color: c.textLight, fontSize: 13 }}>{item.detail}</p>
-                    </div>
-                  ))}
-
-                  {/* Trust signals right next to pricing */}
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginTop: 32 }}>
+                  {/* Pricing rows */}
+                  <div style={{ display: 'grid', gap: 0 }}>
                     {[
-                      { icon: CreditCardIcon, text: 'Direct insurance billing available' },
-                      { icon: CheckCircleIcon, text: 'No referral needed to book' },
-                      { icon: ClockIcon, text: 'Evening appointments available' },
+                      { name: 'Initial Assessment', detail: 'Evaluation + treatment', price: '130' },
+                      { name: 'Follow-up Session', detail: '30-minute session', price: '90' },
+                    ].map((item, i) => (
+                      <div key={item.name} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 0', borderBottom: `1px solid ${c.stone100}`, borderTop: i === 0 ? `1px solid ${c.stone100}` : 'none' }}>
+                        <div>
+                          <p style={{ fontSize: 15, fontWeight: 600, color: c.black, marginBottom: 2 }}>{item.name}</p>
+                          <p style={{ color: c.textLight, fontSize: 13 }}>{item.detail}</p>
+                        </div>
+                        <p style={{ fontFamily: serif, fontSize: 24, fontWeight: 700, color: c.black, whiteSpace: 'nowrap', marginLeft: 24 }}>
+                          <span style={{ color: c.gold, fontSize: 16, fontWeight: 400 }}>$</span>{item.price}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Trust signals as horizontal chips */}
+                  <div className="flex flex-wrap gap-3" style={{ marginTop: 32 }}>
+                    {[
+                      { icon: CreditCardIcon, text: 'Direct Billing' },
+                      { icon: CheckCircleIcon, text: 'No Referral' },
+                      { icon: ClockIcon, text: 'Evening Hours' },
                     ].map((item) => (
-                      <div key={item.text} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                        <item.icon width={16} height={16} style={{ color: c.gold, flexShrink: 0 }} />
-                        <span style={{ fontSize: 13, color: c.textMid }}>{item.text}</span>
+                      <div key={item.text} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '10px 16px', background: c.stone50, borderRadius: 999, border: `1px solid ${c.stone100}` }}>
+                        <item.icon width={15} height={15} style={{ color: c.gold, flexShrink: 0 }} />
+                        <span style={{ fontSize: 12, fontWeight: 600, color: c.text }}>{item.text}</span>
                       </div>
                     ))}
                   </div>

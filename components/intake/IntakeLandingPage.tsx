@@ -10,10 +10,11 @@ import {
   PhoneIcon,
   StarIcon,
 } from '@heroicons/react/24/solid';
-import { CheckCircleIcon } from '@heroicons/react/24/outline';
+import { CheckCircleIcon, MagnifyingGlassIcon, HandRaisedIcon, ClipboardDocumentCheckIcon } from '@heroicons/react/24/outline';
 import {
   AnimatePresence,
   motion,
+  useMotionValueEvent,
   useReducedMotion,
   useScroll,
   useSpring,
@@ -44,11 +45,15 @@ const sans = '"Inter", system-ui, sans-serif';
 type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
 
 /* ─── DATA ─── */
-const careHighlights = [
-  { title: 'One-on-one sessions', text: 'Every appointment is directly with Kareem. No assistants, no handoffs, no split blocks.' },
-  { title: 'Treatment from day one', text: 'Hands-on treatment in the first visit, not just intake paperwork.' },
-  { title: 'Clear reasoning', text: 'Each visit ends with a clear explanation of findings and next steps.' },
-  { title: 'Evidence-based care', text: 'Manual therapy, dry needling, cupping, and exercise matched to your assessment.' },
+const visitSteps = [
+  { icon: MagnifyingGlassIcon, label: 'Assess', title: 'Movement analysis', text: 'Detailed history and hands-on assessment to find what is driving your pain.' },
+  { icon: HandRaisedIcon, label: 'Treat', title: 'Hands-on care', text: 'Manual therapy, dry needling, or cupping begins in the first session.' },
+  { icon: ClipboardDocumentCheckIcon, label: 'Plan', title: 'Clear next steps', text: 'You leave with priorities, a timeline, and a treatment direction.' },
+];
+
+const conditions = [
+  'Back Pain', 'Knee Injuries', 'Shoulder Pain', 'Hip Pain', 'Sciatica',
+  'Sports Injuries', 'Neck Pain', 'Ankle Sprains', 'Tennis Elbow', 'Post-Surgery',
 ];
 
 const reviews = [
@@ -89,7 +94,6 @@ function Reveal({ children, delay = 0, from = 'bottom', style, className }: {
   );
 }
 
-/* Animated gold divider that grows on scroll */
 function GoldDivider() {
   const { ref, inView } = useInView({ threshold: 0.5, triggerOnce: true });
   return (
@@ -115,6 +119,11 @@ export default function IntakeLandingPage() {
   const reviewBgY = useSpring(useTransform(reviewProgress, [0, 1], [-30, 30]), { stiffness: 60, damping: 30 });
   const reviewBgScale = useSpring(useTransform(reviewProgress, [0, 0.5, 1], [1.1, 1.05, 1]), { stiffness: 60, damping: 30 });
 
+  // Floating CTA visibility
+  const [showFloatingCta, setShowFloatingCta] = useState(false);
+  const { scrollY } = useScroll();
+  useMotionValueEvent(scrollY, 'change', (v) => setShowFloatingCta(v > 800));
+
   const stagger = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.07, delayChildren: 0.1 } } };
   const up = { hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } } };
 
@@ -137,9 +146,30 @@ export default function IntakeLandingPage() {
 
       <main className="intake-page" style={{ fontFamily: sans, background: c.bg, color: c.text, WebkitFontSmoothing: 'antialiased', overflow: 'hidden' }}>
 
-        {/* ═══════════════ HERO — diagonal bottom edge ═══════════════ */}
+        {/* ═══════════ FLOATING CTA — appears after scrolling past hero ═══════════ */}
+        <AnimatePresence>
+          {showFloatingCta && (
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 20, opacity: 0 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              className="hidden sm:flex"
+              style={{ position: 'fixed', bottom: 32, right: 32, zIndex: 50, alignItems: 'center', gap: 12, background: c.charcoal, borderRadius: 12, padding: '14px 20px', boxShadow: '0 20px 60px -12px rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.06)' }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                <Stars size={10} />
+                <span style={{ fontSize: 12, fontWeight: 600, color: 'rgba(255,255,255,0.7)' }}>5.0</span>
+              </div>
+              <BookingCTA size="md" className="!rounded-lg !px-6 !py-2.5 !text-[10px] !tracking-[0.2em]">
+                BOOK NOW <ArrowRightIcon width={12} height={12} />
+              </BookingCTA>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* ═══════════════ HERO ═══════════════ */}
         <section ref={heroRef} className="intake-hero" style={{ position: 'relative', background: c.bg, clipPath: 'polygon(0 0, 100% 0, 100% 95%, 0 100%)', paddingBottom: 'clamp(8rem, 14vw, 14rem)' }}>
-          {/* Grain */}
           <div style={{ position: 'absolute', inset: 0, opacity: 0.015, backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E")', backgroundSize: '200px', pointerEvents: 'none' }} />
 
           <motion.div style={{ position: 'relative', maxWidth: 1200, margin: '0 auto', padding: '0 clamp(1.5rem, 5vw, 4rem)', display: 'flex', minHeight: '100vh', alignItems: 'center', paddingTop: 'clamp(7rem, 14vh, 10rem)', opacity: reduced ? 1 : heroOpacity }}>
@@ -190,7 +220,7 @@ export default function IntakeLandingPage() {
                 </motion.p>
               </motion.div>
 
-              {/* PORTRAIT — extends below hero diagonal */}
+              {/* PORTRAIT */}
               <motion.div className="hidden lg:block" initial={reduced ? false : { opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1.2, delay: 0.25, ease: [0.22, 1, 0.36, 1] }} style={{ position: 'relative', zIndex: 10 }}>
                 <motion.div style={{ position: 'relative', y: reduced ? 0 : photoY }}>
                   <img src="/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png" alt="Kareem Hassanein, Registered Physiotherapist in Burlington" width={826} height={1169} style={{ width: '100%', height: 'auto', display: 'block', filter: 'contrast(1.03)' }} />
@@ -204,7 +234,7 @@ export default function IntakeLandingPage() {
           </motion.div>
         </section>
 
-        {/* ═══════════ REVIEWS — cinematic dark section with parallax bg ═══════════ */}
+        {/* ═══════════ REVIEWS — cinematic parallax ═══════════ */}
         <div ref={reviewRef} style={{ position: 'relative', overflow: 'hidden', marginTop: '-4vw' }}>
           <motion.div style={{ position: 'absolute', inset: '-80px 0', y: reduced ? 0 : reviewBgY, scale: reduced ? 1 : reviewBgScale }}>
             <img src="/images/clinic-room-may-25.webp" alt="" aria-hidden="true" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%' }} />
@@ -247,106 +277,125 @@ export default function IntakeLandingPage() {
           </div>
         </div>
 
-        <GoldDivider />
+        {/* ═══════════ CONDITIONS STRIP — "will they help MY issue?" ═══════════ */}
+        <div style={{ background: c.white, borderBottom: `1px solid ${c.stone100}` }}>
+          <div style={{ maxWidth: 1100, margin: '0 auto', padding: 'clamp(3rem, 6vw, 4rem) clamp(1.5rem, 5vw, 4rem)' }}>
+            <Reveal>
+              <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: 'clamp(8px, 1.5vw, 16px)' }}>
+                <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: c.gold, marginRight: 8 }}>Commonly treated</span>
+                {conditions.map((cond, i) => (
+                  <Reveal key={cond} delay={0.03 * i} from="scale">
+                    <span style={{ padding: '8px 16px', fontSize: 13, fontWeight: 500, color: c.textMid, background: c.stone50, borderRadius: 999, whiteSpace: 'nowrap', border: `1px solid ${c.stone100}` }}>
+                      {cond}
+                    </span>
+                  </Reveal>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+        </div>
 
-        {/* ═══════════ WHAT TO EXPECT — bento grid ═══════════ */}
-        <div style={{ background: c.white }}>
-          <div style={{ maxWidth: 1000, margin: '0 auto', padding: 'clamp(4rem, 8vw, 6rem) clamp(1.5rem, 5vw, 4rem) clamp(6rem, 10vw, 8rem)' }}>
-            <Reveal from="left">
-              <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.gold, marginBottom: 16 }}>What to Expect</p>
-              <h2 style={{ fontFamily: serif, color: c.black, fontWeight: 700, fontSize: 'clamp(2rem, 4vw, 3rem)', lineHeight: 1.08, letterSpacing: '-0.03em', marginBottom: 16 }}>
-                Your first visit
-              </h2>
-              <p style={{ color: c.textMid, fontSize: 16, lineHeight: 1.8, maxWidth: 480, marginBottom: 72 }}>Assessment, treatment, and a clear plan forward.</p>
+        {/* ═══════════ 3-STEP VISUAL TIMELINE — your first visit ═══════════ */}
+        <div style={{ background: c.bg }}>
+          <div style={{ maxWidth: 1000, margin: '0 auto', padding: 'clamp(6rem, 12vw, 10rem) clamp(1.5rem, 5vw, 4rem)' }}>
+            <Reveal>
+              <div style={{ textAlign: 'center', marginBottom: 80 }}>
+                <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.gold, marginBottom: 16 }}>Your First Visit</p>
+                <h2 style={{ fontFamily: serif, color: c.black, fontWeight: 700, fontSize: 'clamp(2rem, 4vw, 3rem)', lineHeight: 1.08, letterSpacing: '-0.03em' }}>
+                  Three steps to recovery
+                </h2>
+              </div>
             </Reveal>
 
-            {/* Bento: first item spans 2 cols, rest are individual */}
-            <div style={{ display: 'grid', gap: 24, gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }} className="lg:!grid-cols-3">
-              {/* Featured first item — larger */}
-              <Reveal from="scale" className="lg:!col-span-1 lg:!row-span-2">
-                <div style={{ background: c.charcoal, borderRadius: 16, padding: 'clamp(32px, 4vw, 48px)', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
-                  <div style={{ width: 48, height: 2, background: c.goldBright, marginBottom: 24 }} />
-                  <h3 style={{ fontFamily: serif, color: c.white, fontWeight: 600, fontSize: 22, lineHeight: 1.35, marginBottom: 16 }}>{careHighlights[0].title}</h3>
-                  <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 15, lineHeight: 1.75 }}>{careHighlights[0].text}</p>
+            {/* Timeline: 3 columns with connecting gold line */}
+            <div style={{ position: 'relative' }}>
+              {/* Connecting gold line — desktop only */}
+              <div className="hidden lg:block" style={{ position: 'absolute', top: 28, left: '16.66%', right: '16.66%', height: 2, background: `linear-gradient(90deg, ${c.stone200}, ${c.goldBright} 30%, ${c.goldBright} 70%, ${c.stone200})`, zIndex: 0 }} />
+
+              <div className="grid gap-12 lg:grid-cols-3" style={{ position: 'relative', zIndex: 1 }}>
+                {visitSteps.map((step, i) => (
+                  <Reveal key={step.label} delay={0.15 * i} from="scale">
+                    <div style={{ textAlign: 'center' }}>
+                      {/* Icon circle */}
+                      <div style={{ width: 56, height: 56, borderRadius: '50%', background: i === 0 ? c.charcoal : c.white, border: i === 0 ? 'none' : `2px solid ${c.stone200}`, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 24px', boxShadow: i === 0 ? `0 8px 24px -6px rgba(17,17,17,0.25)` : '0 4px 12px -4px rgba(0,0,0,0.06)' }}>
+                        <step.icon width={24} height={24} style={{ color: i === 0 ? c.goldBright : c.gold }} />
+                      </div>
+                      {/* Step number */}
+                      <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.gold, marginBottom: 8 }}>{step.label}</p>
+                      <h3 style={{ fontFamily: serif, color: c.black, fontWeight: 700, fontSize: 20, lineHeight: 1.3, marginBottom: 12 }}>{step.title}</h3>
+                      <p style={{ color: c.textMid, fontSize: 14, lineHeight: 1.75, maxWidth: 280, margin: '0 auto' }}>{step.text}</p>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <GoldDivider />
+
+        {/* ═══════════ PRICING + TREATMENT PHOTO — split layout ═══════════ */}
+        <div style={{ background: c.white }}>
+          <div style={{ maxWidth: 1100, margin: '0 auto', padding: 'clamp(4rem, 8vw, 6rem) clamp(1.5rem, 5vw, 4rem) clamp(6rem, 10vw, 8rem)' }}>
+            <div className="grid gap-16 lg:grid-cols-2" style={{ alignItems: 'center' }}>
+              {/* Treatment photo */}
+              <Reveal from="left">
+                <div style={{ overflow: 'hidden', borderRadius: 12 }}>
+                  <motion.img src="/images/treatment-photos/treatment-passive-stretching-knee-manual-therapy.jpg" alt="Kareem performing manual therapy knee treatment" width={1200} height={800} whileHover={reduced ? undefined : { scale: 1.04 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', minHeight: 380, cursor: 'default', filter: 'contrast(1.04) saturate(1.08)' }} />
                 </div>
               </Reveal>
 
-              {careHighlights.slice(1).map((item, i) => (
-                <Reveal key={item.title} delay={0.1 * (i + 1)} from={i === 1 ? 'right' : 'bottom'}>
-                  <div style={{ background: c.stone50, borderRadius: 16, padding: 'clamp(28px, 3vw, 36px)', height: '100%' }}>
-                    <div style={{ width: 32, height: 2, background: i === 0 ? c.goldBright : c.stone200, marginBottom: 20 }} />
-                    <h3 style={{ fontFamily: serif, color: c.black, fontWeight: 600, fontSize: 17, lineHeight: 1.4, marginBottom: 10 }}>{item.title}</h3>
-                    <p style={{ color: c.textMid, fontSize: 14, lineHeight: 1.75 }}>{item.text}</p>
+              {/* Pricing */}
+              <Reveal from="right" delay={0.1}>
+                <div>
+                  <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.gold, marginBottom: 16 }}>Investment</p>
+                  <h2 style={{ fontFamily: serif, color: c.black, fontWeight: 700, fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: 48 }}>Transparent fees</h2>
+
+                  {[
+                    { name: 'Initial Assessment', detail: 'Comprehensive evaluation and treatment', price: '130' },
+                    { name: 'Follow-up Session', detail: '30 minutes of focused care', price: '90' },
+                  ].map((item, i) => (
+                    <div key={item.name} style={{ padding: '24px 0', borderBottom: `1px solid ${c.stone200}`, borderTop: i === 0 ? `1px solid ${c.stone200}` : 'none' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 6 }}>
+                        <p style={{ fontFamily: serif, fontSize: 18, fontWeight: 600, color: c.black }}>{item.name}</p>
+                        <div style={{ flex: 1, borderBottom: `1px dotted ${c.stone200}`, margin: '0 16px', minWidth: 24, alignSelf: 'center', transform: 'translateY(-3px)' }} />
+                        <p style={{ fontFamily: serif, fontSize: 18, fontWeight: 600, color: c.black }}><span style={{ color: c.gold, fontSize: 14, fontWeight: 400 }}>$</span>{item.price}</p>
+                      </div>
+                      <p style={{ color: c.textLight, fontSize: 13 }}>{item.detail}</p>
+                    </div>
+                  ))}
+                  <p style={{ color: c.textFaint, fontSize: 12, marginTop: 24, lineHeight: 1.7 }}>Direct billing available for most major insurers.</p>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </div>
+
+        {/* ═══════════ CLINIC ═══════════ */}
+        <div style={{ background: c.bg, borderTop: `1px solid ${c.stone100}` }}>
+          <div style={{ maxWidth: 900, margin: '0 auto', padding: 'clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem)', textAlign: 'center' }}>
+            <Reveal>
+              <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.gold, marginBottom: 16 }}>The Clinic</p>
+              <h2 style={{ fontFamily: serif, color: c.black, fontWeight: 700, fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: 56 }}>Burlington &amp; Waterdown</h2>
+            </Reveal>
+
+            <div className="grid gap-12 sm:grid-cols-3">
+              {clinicDetails.map((d, i) => (
+                <Reveal key={d.label} delay={0.08 * i} from="bottom">
+                  <div style={{ textAlign: 'center' }}>
+                    <d.icon width={24} height={24} style={{ color: c.gold, margin: '0 auto 16px' }} />
+                    <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: c.textFaint, marginBottom: 8 }}>{d.label}</p>
+                    <p style={{ color: c.textMid, fontSize: 14, lineHeight: 1.8, whiteSpace: 'pre-line' }}>{d.value}</p>
                   </div>
                 </Reveal>
               ))}
             </div>
-          </div>
-        </div>
 
-        <GoldDivider />
-
-        {/* ═══════════ PRICING — centered, luxe ═══════════ */}
-        <div style={{ background: c.bg }}>
-          <div style={{ maxWidth: 600, margin: '0 auto', padding: 'clamp(4rem, 8vw, 6rem) clamp(1.5rem, 5vw, 4rem) clamp(6rem, 10vw, 8rem)', textAlign: 'center' }}>
-            <Reveal from="scale">
-              <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.gold, marginBottom: 16 }}>Investment</p>
-              <h2 style={{ fontFamily: serif, color: c.black, fontWeight: 700, fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: 56 }}>Transparent fees</h2>
-
-              {[
-                { name: 'Initial Assessment', detail: 'Comprehensive evaluation and treatment', price: '130' },
-                { name: 'Follow-up Session', detail: '30 minutes of focused care', price: '90' },
-              ].map((item, i) => (
-                <div key={item.name} style={{ padding: '28px 0', borderBottom: `1px solid ${c.stone200}`, borderTop: i === 0 ? `1px solid ${c.stone200}` : 'none' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 6 }}>
-                    <p style={{ fontFamily: serif, fontSize: 18, fontWeight: 600, color: c.black }}>{item.name}</p>
-                    <div style={{ flex: 1, borderBottom: `1px dotted ${c.stone200}`, margin: '0 16px', minWidth: 32, alignSelf: 'center', transform: 'translateY(-3px)' }} />
-                    <p style={{ fontFamily: serif, fontSize: 18, fontWeight: 600, color: c.black }}>
-                      <span style={{ color: c.gold, fontSize: 14, fontWeight: 400 }}>$</span>{item.price}
-                    </p>
-                  </div>
-                  <p style={{ color: c.textLight, fontSize: 13, textAlign: 'left' }}>{item.detail}</p>
-                </div>
-              ))}
-              <p style={{ color: c.textFaint, fontSize: 12, marginTop: 28, lineHeight: 1.7 }}>Direct billing available for most major insurers.</p>
+            <Reveal delay={0.2}>
+              <div className="flex flex-wrap gap-2 justify-center" style={{ marginTop: 40 }}>
+                {serviceAreas.map((a) => <span key={a} style={{ padding: '6px 14px', fontSize: 11, fontWeight: 500, letterSpacing: '0.06em', textTransform: 'uppercase', color: c.textLight, background: c.white, borderRadius: 999, border: `1px solid ${c.stone100}` }}>{a}</span>)}
+              </div>
             </Reveal>
-          </div>
-        </div>
-
-        {/* ═══════════ CLINIC — photo + details ═══════════ */}
-        <div style={{ background: c.white }}>
-          <div style={{ maxWidth: 1100, margin: '0 auto', padding: 'clamp(6rem, 12vw, 10rem) clamp(1.5rem, 5vw, 4rem)' }}>
-            <div className="grid gap-16 lg:grid-cols-2" style={{ alignItems: 'center' }}>
-              {/* Treatment photo — slides in from left */}
-              <Reveal from="left">
-                <div style={{ overflow: 'hidden', borderRadius: 12 }}>
-                  <motion.img src="/images/treatment-photos/treatment-passive-stretching-knee-manual-therapy.jpg" alt="Kareem performing manual therapy knee treatment" width={1200} height={800} whileHover={reduced ? undefined : { scale: 1.04 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', minHeight: 400, cursor: 'default', filter: 'contrast(1.04) saturate(1.08)' }} />
-                </div>
-              </Reveal>
-
-              <Reveal from="right" delay={0.15}>
-                <div>
-                  <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.gold, marginBottom: 16 }}>The Clinic</p>
-                  <h2 style={{ fontFamily: serif, color: c.black, fontWeight: 700, fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: 48 }}>Burlington &amp; Waterdown</h2>
-
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
-                    {clinicDetails.map((d) => (
-                      <div key={d.label} style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}>
-                        <d.icon width={18} height={18} style={{ color: c.gold, flexShrink: 0, marginTop: 3 }} />
-                        <div>
-                          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: c.textFaint, marginBottom: 4 }}>{d.label}</p>
-                          <p style={{ color: c.textMid, fontSize: 15, lineHeight: 1.8, whiteSpace: 'pre-line' }}>{d.value}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="flex flex-wrap gap-2" style={{ marginTop: 28 }}>
-                    {serviceAreas.map((a) => <span key={a} style={{ padding: '5px 12px', fontSize: 10, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: c.textLight, background: c.stone50, borderRadius: 2 }}>{a}</span>)}
-                  </div>
-                </div>
-              </Reveal>
-            </div>
           </div>
         </div>
 

@@ -223,18 +223,32 @@ export default function IntakeLandingPage() {
                     </span>
                   ))}
                 </motion.div>
-                <motion.div variants={up} style={{ marginTop: 24, paddingBottom: 32 }}>
-                  <p style={{ fontFamily: serif, fontSize: 16, fontWeight: 700, color: c.black, marginBottom: 4 }}>Kareem Hassanein</p>
-                  <p style={{ fontSize: 11, color: c.textFaint, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase' }}>Registered Physiotherapist &middot; MSc PT, BSc Kin &middot; CPO #20079</p>
-                </motion.div>
+{/* Name/credentials shown as overlay on portrait */}
               </motion.div>
 
               {/* PORTRAIT */}
               <motion.div className="hidden lg:block" initial={reduced ? false : { opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1.2, delay: 0.25, ease: [0.22, 1, 0.36, 1] }} style={{ position: 'relative', zIndex: 10 }}>
                 <motion.div style={{ position: 'relative', y: reduced ? 0 : photoY, overflow: 'hidden', maxHeight: '72vh' }}>
                   <img src="/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png" alt="Kareem Hassanein, Registered Physiotherapist in Burlington" width={826} height={1169} style={{ width: '100%', height: 'auto', display: 'block', filter: 'contrast(1.03)' }} />
-                  {/* Subtle fade at the bottom so the crop isn't a hard edge */}
-                  <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 80, background: `linear-gradient(to top, ${c.bg}, transparent)`, pointerEvents: 'none' }} />
+
+                  {/* Dark gradient at bottom for overlay legibility */}
+                  <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '50%', background: 'linear-gradient(to top, rgba(17,17,17,0.7), rgba(17,17,17,0.15) 60%, transparent)', pointerEvents: 'none' }} />
+
+                  {/* Frosted name/credentials banner overlaying bottom of photo */}
+                  <motion.div
+                    initial={reduced ? false : { opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                    style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '24px 28px', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', background: 'rgba(17,17,17,0.45)', borderTop: '1px solid rgba(212,175,55,0.25)' }}
+                  >
+                    <p style={{ fontFamily: serif, fontSize: 19, fontWeight: 700, color: '#FFFFFF', letterSpacing: '-0.01em', marginBottom: 6 }}>Kareem Hassanein</p>
+                    <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.7)', fontWeight: 500, letterSpacing: '0.08em', textTransform: 'uppercase', lineHeight: 1.4 }}>
+                      Registered Physiotherapist
+                    </p>
+                    <p style={{ fontSize: 10, color: 'rgba(212,175,55,0.8)', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginTop: 4 }}>
+                      MSc PT, BSc Kin &middot; CPO #20079
+                    </p>
+                  </motion.div>
                 </motion.div>
               </motion.div>
             </motion.div>

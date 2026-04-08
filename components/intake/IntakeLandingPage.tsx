@@ -14,7 +14,6 @@ import { CheckCircleIcon, MagnifyingGlassIcon, HandRaisedIcon, ClipboardDocument
 import {
   AnimatePresence,
   motion,
-  useMotionValueEvent,
   useReducedMotion,
   useScroll,
   useSpring,
@@ -140,11 +139,6 @@ export default function IntakeLandingPage() {
   const reviewBgY = useSpring(useTransform(reviewProgress, [0, 1], [-30, 30]), { stiffness: 60, damping: 30 });
   const reviewBgScale = useSpring(useTransform(reviewProgress, [0, 0.5, 1], [1.1, 1.05, 1]), { stiffness: 60, damping: 30 });
 
-  // Floating CTA visibility
-  const [showFloatingCta, setShowFloatingCta] = useState(false);
-  const { scrollY } = useScroll();
-  useMotionValueEvent(scrollY, 'change', (v) => setShowFloatingCta(v > 800));
-
   const stagger = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.07, delayChildren: 0.1 } } };
   const up = { hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } } };
 
@@ -165,31 +159,14 @@ export default function IntakeLandingPage() {
         .intake-cta-hover:hover { transform: translateY(-3px) !important; box-shadow: 0 20px 56px -12px rgba(184,150,12,0.5) !important; }
         .intake-pill { transition: all 0.25s cubic-bezier(0.22,1,0.36,1) !important; cursor: default; }
         .intake-pill:hover { transform: translateY(-2px) !important; border-color: #D4AF37 !important; box-shadow: 0 4px 12px -4px rgba(184,150,12,0.15) !important; }
+        .intake-page [data-booking-cta] { color: #1C1917 !important; }
+        .intake-page [data-booking-cta]:hover { color: #1C1917 !important; }
+        .intake-page [data-booking-cta]:visited { color: #1C1917 !important; }
       `}</style>
 
       <main className="intake-page" style={{ fontFamily: sans, background: c.bg, color: c.text, WebkitFontSmoothing: 'antialiased', overflow: 'hidden' }}>
 
-        {/* ═══════════ FLOATING CTA — appears after scrolling past hero ═══════════ */}
-        <AnimatePresence>
-          {showFloatingCta && (
-            <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 20, opacity: 0 }}
-              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-              className="hidden sm:flex"
-              style={{ position: 'fixed', bottom: 32, right: 32, zIndex: 50, alignItems: 'center', gap: 12, background: c.charcoal, borderRadius: 12, padding: '14px 20px', boxShadow: '0 20px 60px -12px rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.06)' }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                <Stars size={10} />
-                <span style={{ fontSize: 12, fontWeight: 600, color: 'rgba(255,255,255,0.7)' }}>5.0</span>
-              </div>
-              <BookingCTA size="md" className="!rounded-lg !px-6 !py-2.5 !text-[10px] !tracking-[0.2em]">
-                BOOK NOW <ArrowRightIcon width={12} height={12} />
-              </BookingCTA>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {/* Floating CTA removed — conflicts with scroll-to-top button */}
 
         {/* ═══════════════ HERO ═══════════════ */}
         <section ref={heroRef} className="intake-hero" style={{ position: 'relative', background: c.bg, clipPath: 'polygon(0 0, 100% 0, 100% 95%, 0 100%)', paddingBottom: 'clamp(8rem, 14vw, 14rem)' }}>

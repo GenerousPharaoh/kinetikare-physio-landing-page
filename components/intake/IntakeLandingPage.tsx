@@ -342,7 +342,7 @@ export default function IntakeLandingPage() {
               {/* Clinic photo — parallax zoom on scroll */}
               <Reveal from="right" delay={0.15}>
                 <div style={{ overflow: 'hidden', borderRadius: 4 }}>
-                  <motion.img className="intake-img-hover" src="/images/clinic-pic-may-2025.jpg" alt="Physiotherapy clinic at Endorphins Health Burlington" width={1200} height={800} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', minHeight: 400, scale: reduced ? 1 : clinicPhotoScale }} />
+                  <motion.img className="intake-img-hover" src="/images/treatment-photos/treatment-passive-stretching-knee-manual-therapy.jpg" alt="Kareem Hassanein performing manual therapy knee treatment" width={1200} height={800} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', minHeight: 400, scale: reduced ? 1 : clinicPhotoScale }} />
                 </div>
               </Reveal>
             </div>

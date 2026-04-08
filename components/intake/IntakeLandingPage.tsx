@@ -1,7 +1,7 @@
 'use client';
 
 import type { CSSProperties, ComponentType, ReactNode, SVGProps } from 'react';
-import { useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import {
   ArrowRightIcon,
   ClockIcon,
@@ -12,6 +12,7 @@ import {
 } from '@heroicons/react/24/solid';
 import { CheckCircleIcon } from '@heroicons/react/24/outline';
 import {
+  AnimatePresence,
   motion,
   useReducedMotion,
   useScroll,
@@ -145,9 +146,20 @@ export default function IntakeLandingPage() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
   };
 
-  // Featured review for the pull-quote moment
-  const featured = reviews[0];
-  const gridReviews = reviews.slice(1);
+  // Cycling featured review
+  const [activeReview, setActiveReview] = useState(0);
+  const reviewTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const advanceReview = useCallback(() => {
+    setActiveReview((prev) => (prev + 1) % reviews.length);
+  }, []);
+
+  useEffect(() => {
+    reviewTimer.current = setInterval(advanceReview, 6000);
+    return () => {
+      if (reviewTimer.current) clearInterval(reviewTimer.current);
+    };
+  }, [advanceReview]);
 
   return (
     <>
@@ -283,7 +295,7 @@ export default function IntakeLandingPage() {
           </div>
         </section>
 
-        {/* ═══════════ FEATURED PULL-QUOTE — editorial moment ═══════════ */}
+        {/* ═══════════ CYCLING PULL-QUOTE — editorial moment ═══════════ */}
         <div style={{ background: `linear-gradient(180deg, ${c.cream} 0%, ${c.white} 100%)` }}>
           <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 clamp(1.5rem, 5vw, 3rem)', paddingTop: 'clamp(5rem, 10vw, 8rem)', paddingBottom: 'clamp(5rem, 10vw, 8rem)' }}>
             <Reveal>
@@ -291,21 +303,60 @@ export default function IntakeLandingPage() {
                 {/* Vertical gold bar */}
                 <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 3, borderRadius: 2, background: `linear-gradient(180deg, ${c.gold}, ${c.goldDeep})` }} />
 
-                <p style={{ fontFamily: serif, fontSize: 'clamp(1.6rem, 3.2vw, 2.4rem)', fontWeight: 300, lineHeight: 1.45, letterSpacing: '-0.015em', color: c.heading, marginBottom: 28 }}>
-                  &ldquo;{featured.text}&rdquo;
-                </p>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                  {/* Gold initial circle */}
-                  <div style={{ width: 36, height: 36, borderRadius: '50%', background: `linear-gradient(135deg, ${c.gold}, ${c.goldDeep})`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: c.white, fontSize: 14, fontWeight: 700, fontFamily: serif }}>
-                    {featured.name.charAt(0)}
-                  </div>
-                  <div>
-                    <p style={{ color: c.heading, fontWeight: 700, fontSize: 14 }}>{featured.name}</p>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 2 }}>
-                      <Stars size={11} gap={1} />
-                      <span style={{ fontSize: 11, color: c.bodyLight, fontWeight: 500 }}>Google Review</span>
-                    </div>
-                  </div>
+                {/* Cycling quote area — fixed height to prevent layout shift */}
+                <div style={{ position: 'relative', minHeight: 'clamp(160px, 22vw, 220px)' }}>
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={activeReview}
+                      initial={{ opacity: 0, y: 12 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -12 }}
+                      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                    >
+                      <p style={{ fontFamily: serif, fontSize: 'clamp(1.6rem, 3.2vw, 2.4rem)', fontWeight: 300, lineHeight: 1.45, letterSpacing: '-0.015em', color: c.heading, marginBottom: 28 }}>
+                        &ldquo;{reviews[activeReview].text}&rdquo;
+                      </p>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                        <div style={{ width: 36, height: 36, borderRadius: '50%', background: `linear-gradient(135deg, ${c.gold}, ${c.goldDeep})`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: c.white, fontSize: 14, fontWeight: 700, fontFamily: serif }}>
+                          {reviews[activeReview].name.charAt(0)}
+                        </div>
+                        <div>
+                          <p style={{ color: c.heading, fontWeight: 700, fontSize: 14 }}>{reviews[activeReview].name}</p>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 2 }}>
+                            <Stars size={11} gap={1} />
+                            <span style={{ fontSize: 11, color: c.bodyLight, fontWeight: 500 }}>Google Review</span>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
+
+                {/* Progress dots */}
+                <div style={{ display: 'flex', gap: 8, marginTop: 32 }}>
+                  {reviews.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => {
+                        setActiveReview(i);
+                        if (reviewTimer.current) clearInterval(reviewTimer.current);
+                        reviewTimer.current = setInterval(advanceReview, 6000);
+                      }}
+                      aria-label={`Show review ${i + 1}`}
+                      style={{
+                        width: activeReview === i ? 24 : 8,
+                        height: 8,
+                        borderRadius: 4,
+                        border: 'none',
+                        background: activeReview === i
+                          ? `linear-gradient(90deg, ${c.gold}, ${c.goldDeep})`
+                          : c.goldLine,
+                        cursor: 'pointer',
+                        transition: 'width 0.4s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s ease',
+                        padding: 0,
+                      }}
+                    />
+                  ))}
                 </div>
               </div>
             </Reveal>
@@ -367,7 +418,7 @@ export default function IntakeLandingPage() {
 
             {/* Reviews — editorial style with large quotes */}
             <div className="grid gap-x-16 gap-y-24 sm:grid-cols-2 lg:grid-cols-3">
-              {gridReviews.map((review, i) => (
+              {reviews.map((review, i) => (
                 <Reveal key={review.name} delay={0.05 * i}>
                   <div style={{ position: 'relative' }}>
                     <p style={{ fontFamily: serif, fontSize: 56, lineHeight: 0.5, color: c.goldBold, marginBottom: 20, userSelect: 'none' }}>&ldquo;</p>

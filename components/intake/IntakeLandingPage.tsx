@@ -173,7 +173,7 @@ export default function IntakeLandingPage() {
         {/* Floating CTA removed — conflicts with scroll-to-top button */}
 
         {/* ═══════════════ HERO ═══════════════ */}
-        <section ref={heroRef} className="intake-hero" style={{ position: 'relative', background: c.bg, clipPath: 'polygon(0 0, 100% 0, 100% 95%, 0 100%)', paddingBottom: 'clamp(8rem, 14vw, 14rem)' }}>
+        <section ref={heroRef} className="intake-hero" style={{ position: 'relative', background: c.bg, clipPath: 'polygon(0 0, 100% 0, 100% 95%, 0 100%)', paddingBottom: 'clamp(10rem, 16vw, 16rem)' }}>
           <div style={{ position: 'absolute', inset: 0, opacity: 0.015, backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E")', backgroundSize: '200px', pointerEvents: 'none' }} />
 
           <motion.div style={{ position: 'relative', maxWidth: 1200, margin: '0 auto', padding: '0 clamp(1.5rem, 5vw, 4rem)', display: 'flex', minHeight: '100vh', alignItems: 'center', paddingTop: 'clamp(7rem, 14vh, 10rem)', opacity: reduced ? 1 : heroOpacity }}>
@@ -229,7 +229,7 @@ export default function IntakeLandingPage() {
               {/* PORTRAIT */}
               <motion.div className="hidden lg:block" initial={reduced ? false : { opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1.2, delay: 0.25, ease: [0.22, 1, 0.36, 1] }} style={{ position: 'relative', zIndex: 10 }}>
                 <motion.div style={{ position: 'relative', y: reduced ? 0 : photoY }}>
-                  <img src="/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png" alt="Kareem Hassanein, Registered Physiotherapist in Burlington" width={826} height={1169} style={{ width: '100%', height: 'auto', display: 'block', filter: 'contrast(1.03)' }} />
+                  <img src="/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png" alt="Kareem Hassanein, Registered Physiotherapist in Burlington" width={826} height={1169} style={{ width: '100%', height: 'auto', display: 'block', filter: 'contrast(1.03)', maxHeight: '65vh', objectFit: 'cover', objectPosition: 'top center' }} />
                 </motion.div>
                 <motion.div initial={reduced ? false : { opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.9 }} style={{ marginTop: 20, borderTop: `2px solid ${c.gold}`, paddingTop: 14 }}>
                   <p style={{ fontFamily: serif, fontSize: 17, fontWeight: 700, color: c.black }}>Kareem Hassanein</p>

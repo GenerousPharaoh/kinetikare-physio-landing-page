@@ -192,7 +192,7 @@ export default function IntakeLandingPage() {
                 </motion.div>
 
                 <motion.p variants={up} style={{ maxWidth: 420, color: c.textMid, fontSize: 17, lineHeight: 1.75, marginBottom: 48 }}>
-                  One-on-one physiotherapy focused on finding the root cause. Sports injuries, joint and muscle pain, dry needling, cupping, and exercise rehabilitation.
+                  One-on-one physiotherapy built around finding the root cause of your pain and getting you back to what you love doing.
                 </motion.p>
 
                 <motion.div variants={up} className="flex flex-col gap-3 sm:flex-row sm:gap-4" style={{ marginBottom: 48 }}>

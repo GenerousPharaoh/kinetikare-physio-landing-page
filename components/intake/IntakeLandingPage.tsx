@@ -65,6 +65,11 @@ const reviews = [
   { name: 'D Belisle', text: "After knee surgery, Kareem took the time to truly understand my situation and tailor a treatment plan. His professionalism, knowledge, and genuine care made a huge difference in my recovery." },
   { name: 'Mitch Ball', text: "I struggled with rotator cuff, hip, and back pain from weightlifting. His assessments helped me understand what was wrong, and the dry needling and deep tissue work really accelerated my recovery." },
   { name: 'Pasquale Di Clemente', text: "He's great at adjusting each session based on how I'm feeling. The exercises have made a big difference in my strength and balance, and the dry needling and cupping helped loosen my tight muscles." },
+  { name: 'Tami Murzin', text: "I had a shoulder injury and Kareem developed a treatment plan that was both effective and manageable. His knowledge and hands-on approach helped me regain strength and mobility much faster than I expected." },
+  { name: 'Marko Vasilic', text: "I had achilles tendinitis and plantar fasciitis holding me back from basketball. Kareem did a full movement analysis, used dry needling and cupping, and I'm now back to playing comfortably without worrying about flare-ups." },
+  { name: 'Johan Mapa', text: "Kareem treated my plantar fasciitis that had been bothering me for months. After my first appointment, almost all the pain was gone. I always notice improvements in my mobility after each session." },
+  { name: 'Kendra MacCuish', text: "I came in with a bad shoulder injury. Kareem put together a therapy plan including cupping, dry needling, and shockwave therapy that allowed me to reduce my pain while increasing my range of motion." },
+  { name: 'Nader S', text: "I took my elderly father to Kareem for hip and back pain. He took his time to assess the issue carefully and determine the right care. My father's mobility immediately improved." },
 ];
 
 const clinicDetails: Array<{ label: string; value: string; icon: IconComponent }> = [

@@ -47,7 +47,7 @@ const c = {
   heading: '#1B1B2F',
   body: '#555566',
   bodyLight: '#7E7E90',
-  caption: '#A0A0B0',
+  caption: '#737385',
 
   navy: '#0C1322',
   navyLight: '#162035',
@@ -195,7 +195,7 @@ export default function IntakeLandingPage() {
               {/* ── TEXT COLUMN ── */}
               <div>
                 {/* Accepting badge */}
-                <motion.div variants={fadeUp} style={{ display: 'inline-flex', alignItems: 'center', gap: 10, marginBottom: 44, padding: '8px 18px 8px 14px', borderRadius: 999, background: 'rgba(5,150,105,0.06)', border: '1px solid rgba(5,150,105,0.12)' }}>
+                <motion.div variants={fadeUp} style={{ display: 'inline-flex', alignItems: 'center', gap: 10, marginBottom: 48, padding: '8px 18px 8px 14px', borderRadius: 999, background: 'rgba(5,150,105,0.06)', border: '1px solid rgba(5,150,105,0.12)' }}>
                   <span className="relative flex" style={{ width: 8, height: 8 }}>
                     <span className="animate-ping" style={{ position: 'absolute', inset: 0, borderRadius: '50%', backgroundColor: c.emeraldLight, opacity: 0.6 }} />
                     <span style={{ position: 'relative', display: 'block', width: 8, height: 8, borderRadius: '50%', backgroundColor: c.emerald }} />
@@ -232,7 +232,7 @@ export default function IntakeLandingPage() {
                 </motion.div>
 
                 {/* Stars */}
-                <motion.div variants={fadeUp} style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
+                <motion.div variants={fadeUp} style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 24 }}>
                   <Stars size={15} gap={1} />
                   <span style={{ fontSize: 14, fontWeight: 700, color: c.heading }}>5.0</span>
                   <span style={{ fontSize: 13, color: c.bodyLight }}>from 17 Google reviews</span>
@@ -249,7 +249,7 @@ export default function IntakeLandingPage() {
                 </motion.div>
 
                 {/* Credentials */}
-                <motion.p variants={fadeUp} style={{ marginTop: 28, fontSize: 12, color: c.goldDeep, fontWeight: 500, letterSpacing: '0.08em' }}>
+                <motion.p variants={fadeUp} style={{ marginTop: 32, fontSize: 12, color: c.goldDeep, fontWeight: 500, letterSpacing: '0.08em' }}>
                   Registered Physiotherapist, MSc PT, BSc Kin &middot; CPO #20079
                 </motion.p>
               </div>
@@ -303,60 +303,86 @@ export default function IntakeLandingPage() {
                 {/* Vertical gold bar */}
                 <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 3, borderRadius: 2, background: `linear-gradient(180deg, ${c.gold}, ${c.goldDeep})` }} />
 
-                {/* Cycling quote area — fixed height to prevent layout shift */}
-                <div style={{ position: 'relative', minHeight: 'clamp(160px, 22vw, 220px)' }}>
+                {/* Section label + stars */}
+                <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 16, marginBottom: 40 }}>
+                  <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: c.goldDeep }}>Patient Reviews</p>
+                  <span style={{ height: 1, width: 1, background: c.goldLine }} />
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <Stars size={12} gap={1} />
+                    <span style={{ fontSize: 12, fontWeight: 600, color: c.heading }}>5.0 from 17 reviews</span>
+                  </div>
+                </div>
+
+                {/* Cycling quote — FIXED HEIGHT container, content absolutely positioned */}
+                <div style={{ position: 'relative', height: 'clamp(240px, 28vw, 280px)', overflow: 'hidden' }}>
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={activeReview}
-                      initial={{ opacity: 0, y: 12 }}
+                      initial={{ opacity: 0, y: 16 }}
                       animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -12 }}
+                      exit={{ opacity: 0, y: -16 }}
                       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                      style={{ position: 'absolute', top: 0, left: 0, right: 0 }}
                     >
-                      <p style={{ fontFamily: serif, fontSize: 'clamp(1.6rem, 3.2vw, 2.4rem)', fontWeight: 300, lineHeight: 1.45, letterSpacing: '-0.015em', color: c.heading, marginBottom: 28 }}>
+                      <p style={{ fontFamily: serif, fontSize: 'clamp(1.5rem, 2.8vw, 2.2rem)', fontWeight: 300, lineHeight: 1.5, letterSpacing: '-0.015em', color: c.heading, marginBottom: 32 }}>
                         &ldquo;{reviews[activeReview].text}&rdquo;
                       </p>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                        <div style={{ width: 36, height: 36, borderRadius: '50%', background: `linear-gradient(135deg, ${c.gold}, ${c.goldDeep})`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: c.white, fontSize: 14, fontWeight: 700, fontFamily: serif }}>
+                        <div style={{ width: 40, height: 40, borderRadius: '50%', background: `linear-gradient(135deg, ${c.gold}, ${c.goldDeep})`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: c.white, fontSize: 15, fontWeight: 700, fontFamily: serif, flexShrink: 0 }}>
                           {reviews[activeReview].name.charAt(0)}
                         </div>
                         <div>
-                          <p style={{ color: c.heading, fontWeight: 700, fontSize: 14 }}>{reviews[activeReview].name}</p>
-                          <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 2 }}>
-                            <Stars size={11} gap={1} />
-                            <span style={{ fontSize: 11, color: c.bodyLight, fontWeight: 500 }}>Google Review</span>
-                          </div>
+                          <p style={{ color: c.heading, fontWeight: 700, fontSize: 14, lineHeight: 1.3 }}>{reviews[activeReview].name}</p>
+                          <p style={{ fontSize: 11, color: c.bodyLight, fontWeight: 500, marginTop: 2 }}>Google Review</p>
                         </div>
                       </div>
                     </motion.div>
                   </AnimatePresence>
                 </div>
 
-                {/* Progress dots */}
-                <div style={{ display: 'flex', gap: 8, marginTop: 32 }}>
-                  {reviews.map((_, i) => (
-                    <button
-                      key={i}
-                      onClick={() => {
-                        setActiveReview(i);
-                        if (reviewTimer.current) clearInterval(reviewTimer.current);
-                        reviewTimer.current = setInterval(advanceReview, 6000);
-                      }}
-                      aria-label={`Show review ${i + 1}`}
-                      style={{
-                        width: activeReview === i ? 24 : 8,
-                        height: 8,
-                        borderRadius: 4,
-                        border: 'none',
-                        background: activeReview === i
-                          ? `linear-gradient(90deg, ${c.gold}, ${c.goldDeep})`
-                          : c.goldLine,
-                        cursor: 'pointer',
-                        transition: 'width 0.4s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s ease',
-                        padding: 0,
-                      }}
-                    />
-                  ))}
+                {/* Progress dots + Read all link */}
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 32 }}>
+                  <div style={{ display: 'flex', gap: 6 }}>
+                    {reviews.map((_, i) => (
+                      <button
+                        key={i}
+                        onClick={() => {
+                          setActiveReview(i);
+                          if (reviewTimer.current) clearInterval(reviewTimer.current);
+                          reviewTimer.current = setInterval(advanceReview, 6000);
+                        }}
+                        aria-label={`Show review ${i + 1}`}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          width: 32,
+                          height: 44,
+                          border: 'none',
+                          background: 'transparent',
+                          cursor: 'pointer',
+                          padding: 0,
+                        }}
+                      >
+                        <span
+                          style={{
+                            display: 'block',
+                            width: activeReview === i ? 28 : 8,
+                            height: 8,
+                            borderRadius: 4,
+                            background: activeReview === i
+                              ? `linear-gradient(90deg, ${c.gold}, ${c.goldDeep})`
+                              : c.goldLine,
+                            transition: 'width 0.4s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s ease',
+                          }}
+                        />
+                      </button>
+                    ))}
+                  </div>
+                  <a href="https://www.google.com/maps/place/Endorphins+Health+%26+Wellness+Centre" target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: c.goldDeep, fontSize: 13, fontWeight: 700, letterSpacing: '0.04em', cursor: 'pointer', padding: '8px 0' }}>
+                    Read all on Google
+                    <ArrowRightIcon width={14} height={14} aria-hidden="true" />
+                  </a>
                 </div>
               </div>
             </Reveal>
@@ -366,7 +392,7 @@ export default function IntakeLandingPage() {
         {/* ═══════════════════ WHAT TO EXPECT ═══════════════════ */}
         <div style={{ maxWidth: 1000, margin: '0 auto', padding: '0 clamp(1.5rem, 5vw, 3rem)', paddingTop: 'clamp(4rem, 8vw, 6rem)', paddingBottom: 'clamp(6rem, 10vw, 8rem)' }}>
           <Reveal>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 20 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 24 }}>
               <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: c.goldDeep }}>What to Expect</p>
               <span style={{ flex: 1, height: 1, background: c.goldLine, maxWidth: 80 }} />
             </div>
@@ -398,56 +424,13 @@ export default function IntakeLandingPage() {
           </div>
         </div>
 
-        {/* ═══════════════════ REVIEWS ═══════════════════ */}
-        <div style={{ background: `linear-gradient(180deg, ${c.white} 0%, ${c.creamWarm}60 6%, ${c.creamWarm}75 50%, ${c.creamWarm}60 94%, ${c.white} 100%)` }}>
-          <div style={{ maxWidth: 1000, margin: '0 auto', padding: '0 clamp(1.5rem, 5vw, 3rem)', paddingTop: 'clamp(6rem, 10vw, 8rem)', paddingBottom: 'clamp(6rem, 10vw, 8rem)' }}>
-            <Reveal>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 20 }}>
-                <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: c.goldDeep }}>Patient Reviews</p>
-                <span style={{ flex: 1, height: 1, background: c.goldLine, maxWidth: 80 }} />
-              </div>
-              <h2 style={{ fontFamily: serif, color: c.heading, fontWeight: 300, fontSize: 'clamp(2rem, 4vw, 3rem)', lineHeight: 1.1, letterSpacing: '-0.025em', marginBottom: 16 }}>
-                What patients say
-              </h2>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 80 }}>
-                <Stars size={15} gap={1} />
-                <span style={{ fontSize: 14, fontWeight: 700, color: c.heading }}>5.0</span>
-                <span style={{ fontSize: 13, color: c.bodyLight }}>from 17 Google reviews</span>
-              </div>
-            </Reveal>
-
-            {/* Reviews — editorial style with large quotes */}
-            <div className="grid gap-x-16 gap-y-24 sm:grid-cols-2 lg:grid-cols-3">
-              {reviews.map((review, i) => (
-                <Reveal key={review.name} delay={0.05 * i}>
-                  <div style={{ position: 'relative' }}>
-                    <p style={{ fontFamily: serif, fontSize: 56, lineHeight: 0.5, color: c.goldBold, marginBottom: 20, userSelect: 'none' }}>&ldquo;</p>
-                    <p style={{ color: c.body, fontSize: 15, lineHeight: 1.95, marginBottom: 24 }}>{review.text}</p>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                      <div style={{ width: 28, height: 28, borderRadius: '50%', background: `linear-gradient(135deg, ${c.gold}30, ${c.goldDeep}20)`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11, fontWeight: 700, color: c.goldDeep, fontFamily: serif }}>{review.name.charAt(0)}</div>
-                      <p style={{ color: c.heading, fontWeight: 600, fontSize: 13, letterSpacing: '0.02em' }}>{review.name}</p>
-                    </div>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-
-            <Reveal delay={0.25} style={{ marginTop: 64 }}>
-              <a href="https://www.google.com/maps/place/Endorphins+Health+%26+Wellness+Centre" target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, color: c.goldDeep, fontSize: 13, fontWeight: 700, letterSpacing: '0.06em', cursor: 'pointer' }}>
-                Read all reviews on Google
-                <ArrowRightIcon width={14} height={14} aria-hidden="true" />
-              </a>
-            </Reveal>
-          </div>
-        </div>
-
         {/* ═══════════════════ PRICING & DETAILS ═══════════════════ */}
         <div style={{ maxWidth: 1000, margin: '0 auto', padding: '0 clamp(1.5rem, 5vw, 3rem)', paddingTop: 'clamp(6rem, 10vw, 8rem)', paddingBottom: 'clamp(6rem, 10vw, 8rem)' }}>
           <div className="grid gap-24 lg:grid-cols-2">
             {/* Pricing */}
             <Reveal>
               <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 20 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 24 }}>
                   <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: c.goldDeep }}>Fees</p>
                   <span style={{ flex: 1, height: 1, background: c.goldLine, maxWidth: 60 }} />
                 </div>
@@ -455,7 +438,7 @@ export default function IntakeLandingPage() {
                   Transparent pricing
                 </h2>
 
-                <div style={{ display: 'grid', gap: 44, gridTemplateColumns: '1fr 1fr' }}>
+                <div style={{ display: 'grid', gap: 48 }} className="grid-cols-1 sm:!grid-cols-2">
                   {pricingOptions.map((item) => (
                     <div key={item.label}>
                       <p style={{ color: c.goldDeep, fontSize: 11, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 16 }}>{item.label}</p>
@@ -467,7 +450,7 @@ export default function IntakeLandingPage() {
                 </div>
 
                 {/* Thin gold separator */}
-                <div style={{ width: '100%', height: 1, background: c.goldLine, margin: '36px 0' }} />
+                <div style={{ width: '100%', height: 1, background: c.goldLine, margin: '40px 0' }} />
                 <p style={{ color: c.body, fontSize: 14, lineHeight: 1.85 }}>
                   Direct billing available for Sun Life, Manulife, Green Shield Canada, Blue Cross, Canada Life, WSIB, and more.
                 </p>
@@ -477,7 +460,7 @@ export default function IntakeLandingPage() {
             {/* Clinic details */}
             <Reveal delay={0.1}>
               <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 20 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 24 }}>
                   <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: c.goldDeep }}>Clinic Details</p>
                   <span style={{ flex: 1, height: 1, background: c.goldLine, maxWidth: 60 }} />
                 </div>
@@ -485,7 +468,7 @@ export default function IntakeLandingPage() {
                   Burlington &amp; Waterdown
                 </h2>
 
-                <div style={{ display: 'grid', gap: 36 }}>
+                <div style={{ display: 'grid', gap: 40 }}>
                   {clinicDetails.map((detail) => (
                     <div key={detail.label} style={{ display: 'flex', gap: 18, alignItems: 'flex-start' }}>
                       <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 42, height: 42, borderRadius: '50%', background: c.goldFaint, border: `1px solid ${c.goldLine}`, flexShrink: 0, marginTop: 2 }}>
@@ -500,7 +483,7 @@ export default function IntakeLandingPage() {
                 </div>
 
                 {/* Service area pills */}
-                <div className="flex flex-wrap gap-2.5" style={{ marginTop: 36 }}>
+                <div className="flex flex-wrap gap-2.5" style={{ marginTop: 40 }}>
                   {serviceAreas.map((area) => (
                     <span key={area} style={{ padding: '8px 16px', borderRadius: 999, background: c.goldFaint, border: `1px solid ${c.goldLine}`, color: c.body, fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase' }}>{area}</span>
                   ))}
@@ -520,13 +503,13 @@ export default function IntakeLandingPage() {
           <div style={{ position: 'relative', maxWidth: 1000, margin: '0 auto', padding: '0 clamp(1.5rem, 5vw, 3rem)', paddingTop: 'clamp(6rem, 10vw, 8rem)', paddingBottom: 'clamp(6rem, 10vw, 8rem)' }}>
             <Reveal>
               <div className="lg:flex lg:items-end lg:justify-between lg:gap-16">
-                <div style={{ marginBottom: 36 }}>
-                  <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: `${c.gold}aa`, marginBottom: 22 }}>Book Your Assessment</p>
+                <div style={{ marginBottom: 40 }}>
+                  <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: `${c.gold}aa`, marginBottom: 24 }}>Book Your Assessment</p>
                   <h2 style={{ fontFamily: serif, color: c.white, fontWeight: 300, fontSize: 'clamp(2rem, 4vw, 3.2rem)', lineHeight: 1.08, letterSpacing: '-0.025em', marginBottom: 20, maxWidth: 440 }}>
                     Choose a time that<br />works for you
                   </h2>
                   <div style={{ width: 48, height: 2.5, borderRadius: 2, background: `${c.gold}40`, marginBottom: 20 }} />
-                  <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 16, lineHeight: 1.85, maxWidth: 400 }}>
+                  <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 16, lineHeight: 1.85, maxWidth: 400 }}>
                     No referral required. Book online in under a minute or call the clinic directly.
                   </p>
                 </div>

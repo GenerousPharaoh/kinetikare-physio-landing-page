@@ -9,10 +9,11 @@ const JANE_BOOKING_URL =
 interface BookingCTAProps {
   children: React.ReactNode;
   className?: string;
+  style?: React.CSSProperties;
   size?: 'md' | 'lg';
 }
 
-export default function BookingCTA({ children, className, size = 'lg' }: BookingCTAProps) {
+export default function BookingCTA({ children, className, style, size = 'lg' }: BookingCTAProps) {
   const handleClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     let redirected = false;
@@ -51,6 +52,7 @@ export default function BookingCTA({ children, className, size = 'lg' }: Booking
       href={JANE_BOOKING_URL}
       onClick={handleClick}
       data-booking-cta="true"
+      style={style}
       className={cn(
         'group relative inline-flex items-center justify-center font-bold tracking-wide uppercase overflow-hidden rounded-full transition-all duration-300',
         'bg-[#D4AF37] text-slate-900 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] hover:scale-[1.03] active:scale-[0.98]',

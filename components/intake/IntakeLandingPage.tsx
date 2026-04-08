@@ -57,12 +57,14 @@ const conditions = [
 ];
 
 const reviews = [
-  { name: 'Dr. Fel Rocci', text: 'Having worked with Kareem, I am now able to play tennis 4-5 times a week without a setback. Not bad for a 70 year old!' },
-  { name: 'Nickel Chan', text: "Kareem is honestly one of the best physiotherapists I've ever seen. He fixed issues I'd been struggling with for a long time." },
-  { name: 'Thanula G.', text: 'Thorough, knowledgeable, and incredibly attentive. I saw consistent progress and now feel stronger and pain free.' },
-  { name: 'Ryan Darkwah', text: "Kareem found the problem came from my hip and quads. My pain's gone now, and I'm back to playing at full speed." },
-  { name: 'David Espinosa', text: 'He took the time to figure out what was causing it instead of just treating the pain. My hip feels strong again.' },
-  { name: 'Marko Vasilic', text: "He did a full movement analysis and showed me where the extra stress was coming from. I'm back to playing basketball comfortably." },
+  { name: 'Dr. Fel Rocci', text: 'His thorough diagnosis combined with an adaptable approach has been nothing short of amazing. I am now able to play tennis 4-5 times a week without a setback. Not bad for a 70 year old!' },
+  { name: 'Nickel Chan', text: "Kareem is honestly one of the best physiotherapists I've ever seen. The dry needling and manual therapy made a huge difference. He fixed issues I'd been struggling with for a long time." },
+  { name: 'Thanula G.', text: 'I came in with an ankle injury and from the very first session, Kareem was thorough, knowledgeable, and incredibly attentive. I saw consistent progress and now feel stronger and pain free.' },
+  { name: 'Ryan Darkwah', text: "He found that the problem came from weakness in my hip and tension in my quads putting extra strain on my knee. My pain's gone now, and I'm back to playing at full speed." },
+  { name: 'David Espinosa', text: "Kareem took the time to figure out what was causing my hip pain instead of just treating it. The dry needling and cupping made a big difference right away. My hip feels strong again and I've been training hard without any flare-ups." },
+  { name: 'D Belisle', text: "After knee surgery, Kareem took the time to truly understand my situation and tailor a treatment plan. His professionalism, knowledge, and genuine care made a huge difference in my recovery." },
+  { name: 'Mitch Ball', text: "I struggled with rotator cuff, hip, and back pain from weightlifting. His assessments helped me understand what was wrong, and the dry needling and deep tissue work really accelerated my recovery." },
+  { name: 'Pasquale Di Clemente', text: "He's great at adjusting each session based on how I'm feeling. The exercises have made a big difference in my strength and balance, and the dry needling and cupping helped loosen my tight muscles." },
 ];
 
 const clinicDetails: Array<{ label: string; value: string; icon: IconComponent }> = [
@@ -263,7 +265,7 @@ export default function IntakeLandingPage() {
               <div style={{ display: 'flex', justifyContent: 'center', gap: 4, marginBottom: 24 }}><Stars size={18} /></div>
               <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.goldBright, marginBottom: 48 }}>5.0 from 17 Google Reviews</p>
 
-              <div style={{ position: 'relative', height: 'clamp(180px, 24vw, 220px)' }}>
+              <div style={{ position: 'relative', height: 'clamp(200px, 28vw, 250px)' }}>
                 <AnimatePresence mode="wait">
                   <motion.div key={activeReview}
                     initial={{ opacity: 0, y: 24, filter: 'blur(4px)', scale: 0.96 }}

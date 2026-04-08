@@ -223,9 +223,7 @@ export default function IntakeLandingPage() {
                     </span>
                   ))}
                 </motion.div>
-                <motion.p variants={up} style={{ paddingBottom: 48, fontSize: 11, color: c.textFaint, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
-                  Registered Physiotherapist &middot; MSc PT, BSc Kin &middot; CPO #20079
-                </motion.p>
+{/* Credentials moved under portrait name strip */}
               </motion.div>
 
               {/* PORTRAIT */}
@@ -235,7 +233,7 @@ export default function IntakeLandingPage() {
                 </motion.div>
                 <motion.div initial={reduced ? false : { opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.9 }} style={{ marginTop: 20, borderTop: `2px solid ${c.gold}`, paddingTop: 14 }}>
                   <p style={{ fontFamily: serif, fontSize: 17, fontWeight: 700, color: c.black }}>Kareem Hassanein</p>
-                  <p style={{ fontSize: 11, color: c.textLight, marginTop: 4, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase' }}>Registered Physiotherapist</p>
+                  <p style={{ fontSize: 11, color: c.textLight, marginTop: 4, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', lineHeight: 1.5 }}>Registered Physiotherapist &middot; MSc PT, BSc Kin &middot; CPO #20079</p>
                 </motion.div>
               </motion.div>
             </motion.div>

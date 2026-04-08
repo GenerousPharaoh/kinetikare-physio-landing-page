@@ -418,39 +418,34 @@ export default function IntakeLandingPage() {
           </div>
         </div>
 
-        {/* ═══════════ CLINIC — immersive with clinic photo backdrop ═══════════ */}
-        <div style={{ position: 'relative', overflow: 'hidden' }}>
-          {/* Clinic room as subtle background */}
-          <div style={{ position: 'absolute', inset: 0 }}>
-            <img src="/images/clinic-room-may-25.webp" alt="" aria-hidden="true" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 50%', filter: 'blur(2px)' }} />
-            <div style={{ position: 'absolute', inset: 0, background: 'rgba(250,250,249,0.92)' }} />
-          </div>
-
-          <div style={{ position: 'relative', maxWidth: 1000, margin: '0 auto', padding: 'clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem)' }}>
+        {/* ═══════════ CLINIC — clean horizontal layout ═══════════ */}
+        <div style={{ background: c.stone50, borderTop: `1px solid ${c.stone100}` }}>
+          <div style={{ maxWidth: 1000, margin: '0 auto', padding: 'clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem)' }}>
             <Reveal>
-              <div style={{ textAlign: 'center', marginBottom: 48 }}>
-                <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.gold, marginBottom: 16 }}>The Clinic</p>
-                <h2 style={{ fontFamily: serif, color: c.black, fontWeight: 700, fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', lineHeight: 1.1, letterSpacing: '-0.03em' }}>Burlington &amp; Waterdown</h2>
-              </div>
+              <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.gold, marginBottom: 16 }}>The Clinic</p>
+              <h2 style={{ fontFamily: serif, color: c.black, fontWeight: 700, fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: 56 }}>Burlington &amp; Waterdown</h2>
             </Reveal>
 
-            <div className="grid gap-8 sm:grid-cols-3">
+            {/* Horizontal detail rows with gold left accent */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
               {clinicDetails.map((d, i) => (
-                <Reveal key={d.label} delay={0.1 * i} from="bottom">
-                  <div style={{ background: 'rgba(255,255,255,0.88)', borderRadius: 16, padding: 'clamp(28px, 3.5vw, 40px) clamp(24px, 3vw, 32px)', textAlign: 'center', boxShadow: '0 12px 40px -10px rgba(0,0,0,0.06)', border: `1px solid ${c.stone100}`, backdropFilter: 'blur(8px)' }}>
-                    <div style={{ width: 52, height: 52, borderRadius: '50%', background: c.white, border: `1.5px solid ${c.stone200}`, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px', boxShadow: '0 4px 12px -4px rgba(0,0,0,0.04)' }}>
-                      <d.icon width={24} height={24} style={{ color: c.gold }} />
+                <Reveal key={d.label} delay={0.08 * i} from="left">
+                  <div style={{ display: 'flex', gap: 'clamp(16px, 3vw, 24px)', alignItems: 'flex-start', padding: '28px 0', borderBottom: i < clinicDetails.length - 1 ? `1px solid ${c.stone200}` : 'none' }}>
+                    <div style={{ width: 44, height: 44, borderRadius: 12, background: c.white, border: `1px solid ${c.stone200}`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: '0 2px 8px -2px rgba(0,0,0,0.04)' }}>
+                      <d.icon width={20} height={20} style={{ color: c.gold }} />
                     </div>
-                    <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: c.gold, marginBottom: 12 }}>{d.label}</p>
-                    <p style={{ color: c.text, fontSize: 14, lineHeight: 1.85, whiteSpace: 'pre-line' }}>{d.value}</p>
+                    <div style={{ flex: 1 }}>
+                      <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: c.gold, marginBottom: 6 }}>{d.label}</p>
+                      <p style={{ color: c.text, fontSize: 15, lineHeight: 1.75, whiteSpace: 'pre-line' }}>{d.value}</p>
+                    </div>
                   </div>
                 </Reveal>
               ))}
             </div>
 
-            <Reveal delay={0.25}>
-              <div className="flex flex-wrap gap-2 justify-center" style={{ marginTop: 32 }}>
-                {serviceAreas.map((a) => <span key={a} style={{ padding: '6px 14px', fontSize: 11, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', color: c.textMid, background: 'rgba(255,255,255,0.8)', borderRadius: 999, border: `1px solid ${c.stone200}` }}>{a}</span>)}
+            <Reveal delay={0.3}>
+              <div className="flex flex-wrap gap-2" style={{ marginTop: 32 }}>
+                {serviceAreas.map((a) => <span key={a} style={{ padding: '7px 16px', fontSize: 11, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', color: c.textMid, background: c.white, borderRadius: 999, border: `1px solid ${c.stone200}` }}>{a}</span>)}
               </div>
             </Reveal>
           </div>

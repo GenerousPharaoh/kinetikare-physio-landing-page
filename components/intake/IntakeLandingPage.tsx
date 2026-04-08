@@ -138,7 +138,7 @@ export default function IntakeLandingPage() {
       <main className="intake-page" style={{ fontFamily: sans, background: c.bg, color: c.text, WebkitFontSmoothing: 'antialiased', overflow: 'hidden' }}>
 
         {/* ═══════════════ HERO — diagonal bottom edge ═══════════════ */}
-        <section ref={heroRef} className="intake-hero" style={{ position: 'relative', background: c.bg, clipPath: 'polygon(0 0, 100% 0, 100% 92%, 0 100%)', paddingBottom: 'clamp(6rem, 10vw, 10rem)' }}>
+        <section ref={heroRef} className="intake-hero" style={{ position: 'relative', background: c.bg, clipPath: 'polygon(0 0, 100% 0, 100% 95%, 0 100%)', paddingBottom: 'clamp(8rem, 14vw, 14rem)' }}>
           {/* Grain */}
           <div style={{ position: 'absolute', inset: 0, opacity: 0.015, backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E")', backgroundSize: '200px', pointerEvents: 'none' }} />
 
@@ -185,7 +185,7 @@ export default function IntakeLandingPage() {
                     <span key={b} style={{ fontSize: 12, fontWeight: 500, color: c.textLight }}>{b}</span>
                   ))}
                 </motion.div>
-                <motion.p variants={up} style={{ marginTop: 20, fontSize: 11, color: c.textFaint, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+                <motion.p variants={up} style={{ marginTop: 20, paddingBottom: 64, fontSize: 11, color: c.textFaint, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
                   Registered Physiotherapist &middot; MSc PT, BSc Kin &middot; CPO #20079
                 </motion.p>
               </motion.div>
@@ -205,7 +205,7 @@ export default function IntakeLandingPage() {
         </section>
 
         {/* ═══════════ REVIEWS — cinematic dark section with parallax bg ═══════════ */}
-        <div ref={reviewRef} style={{ position: 'relative', overflow: 'hidden', marginTop: '-6vw' }}>
+        <div ref={reviewRef} style={{ position: 'relative', overflow: 'hidden', marginTop: '-4vw' }}>
           <motion.div style={{ position: 'absolute', inset: '-80px 0', y: reduced ? 0 : reviewBgY, scale: reduced ? 1 : reviewBgScale }}>
             <img src="/images/clinic-room-may-25.webp" alt="" aria-hidden="true" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%' }} />
             <div style={{ position: 'absolute', inset: 0, background: 'rgba(17,17,17,0.82)' }} />

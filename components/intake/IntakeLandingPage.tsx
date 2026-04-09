@@ -198,7 +198,7 @@ export default function IntakeLandingPage() {
                 </motion.div>
 
                 <motion.p variants={up} style={{ maxWidth: 460, color: c.textMid, fontSize: 17, lineHeight: 1.75, marginBottom: 36 }}>
-                  One-on-one physiotherapy with Kareem Hassanein to find the root cause, start treatment when appropriate, and leave your first visit with clear next steps.
+                  Personalized one-on-one physiotherapy that gets to the source of your pain so you can move freely and feel like yourself again.
                 </motion.p>
 
                 {/* Mobile portrait card — visible only below lg */}

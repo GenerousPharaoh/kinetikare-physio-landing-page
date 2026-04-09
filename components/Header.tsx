@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, { useState, useEffect, forwardRef, useCallback, useMemo } from 'react';
 import Link from 'next/link';
@@ -9,9 +9,10 @@ import {
   PhoneIcon,
   CalendarDaysIcon,
   MagnifyingGlassIcon,
-  ChevronRightIcon
+  ChevronRightIcon,
 } from '@heroicons/react/24/outline';
 import { conditionCategories } from '@/lib/conditions-data';
+import { BOOKING_PAGE_PATH, JANE_BOOKING_URL } from '@/lib/booking';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
@@ -33,6 +34,8 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
   const [conditionsExpanded, setConditionsExpanded] = useState(false);
   const pathname = usePathname();
   const [hasAnimated, setHasAnimated] = useState(false);
+  const isIntakePage = pathname === BOOKING_PAGE_PATH;
+  const bookingHref = isIntakePage ? JANE_BOOKING_URL : BOOKING_PAGE_PATH;
 
   // Optimized scroll handler
   useEffect(() => {
@@ -65,20 +68,26 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     }
   }, [pathname, scrolled, hasAnimated]);
 
-  const mainNavItems = useMemo(() => [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Services', href: '/services' },
-    { name: 'Treatments', href: '/treatments' },
-    { name: 'Conditions', href: '/conditions' },
-    { name: 'FAQ', href: '/faq' },
-  ], []);
+  const mainNavItems = useMemo(
+    () => [
+      { name: 'Home', href: '/' },
+      { name: 'About', href: '/about' },
+      { name: 'Services', href: '/services' },
+      { name: 'Treatments', href: '/treatments' },
+      { name: 'Conditions', href: '/conditions' },
+      { name: 'FAQ', href: '/faq' },
+    ],
+    []
+  );
 
-  const isCurrentPath = useCallback((href: string) => {
-    if (href === pathname) return true;
-    if (href !== '/' && pathname.startsWith(href)) return true;
-    return false;
-  }, [pathname]);
+  const isCurrentPath = useCallback(
+    (href: string) => {
+      if (href === pathname) return true;
+      if (href !== '/' && pathname.startsWith(href)) return true;
+      return false;
+    },
+    [pathname]
+  );
 
   const handleNavClick = () => {
     setMobileMenuOpen(false);
@@ -93,34 +102,38 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
   const shouldAnimate = pathname === '/' && !scrolled && !hasAnimated;
 
   // Animation Variants - Dynamic based on shouldAnimate
-  const headerContainerVariants = shouldAnimate ? {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.5 // Start slightly after hero swipe begins
+  const headerContainerVariants = shouldAnimate
+    ? {
+        hidden: { opacity: 0 },
+        visible: {
+          opacity: 1,
+          transition: {
+            staggerChildren: 0.1,
+            delayChildren: 0.5, // Start slightly after hero swipe begins
+          },
+        },
       }
-    }
-  } : {
-    hidden: { opacity: 1 }, // Already visible when not animating
-    visible: { opacity: 1 }  // Stay visible
-  };
+    : {
+        hidden: { opacity: 1 }, // Already visible when not animating
+        visible: { opacity: 1 }, // Stay visible
+      };
 
-  const headerItemVariants = shouldAnimate ? {
-    hidden: { opacity: 0, x: -20 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.22, 1, 0.36, 1]
+  const headerItemVariants = shouldAnimate
+    ? {
+        hidden: { opacity: 0, x: -20 },
+        visible: {
+          opacity: 1,
+          x: 0,
+          transition: {
+            duration: 0.8,
+            ease: [0.22, 1, 0.36, 1],
+          },
+        },
       }
-    }
-  } : {
-    hidden: { opacity: 1, x: 0 }, // Already visible when not animating
-    visible: { opacity: 1, x: 0 }  // Stay visible
-  };
+    : {
+        hidden: { opacity: 1, x: 0 }, // Already visible when not animating
+        visible: { opacity: 1, x: 0 }, // Stay visible
+      };
 
   // Only transition on scroll, not on pathname changes (prevents flash during navigation)
   const shouldTransition = pathname === '/';
@@ -129,19 +142,19 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     <>
       <header
         ref={ref}
-        className={`fixed w-full top-0 z-50 border-b ${shouldTransition ? 'transition-all duration-200 ease-in-out' : ''} ${scrolled || pathname !== '/' || mobileMenuOpen
-          ? '!bg-[#020617]/90 backdrop-blur-xl border-white/10 py-3 lg:py-6 shadow-lg'
-          : '!bg-transparent border-transparent py-3 lg:py-6'
-          }`}
+        className={`fixed w-full top-0 z-50 border-b ${shouldTransition ? 'transition-all duration-200 ease-in-out' : ''} ${
+          scrolled || pathname !== '/' || mobileMenuOpen
+            ? `!bg-[#020617]/90 backdrop-blur-xl border-white/10 ${isIntakePage ? 'py-2.5 lg:py-5' : 'py-3 lg:py-6'} shadow-lg`
+            : '!bg-transparent border-transparent py-3 lg:py-6'
+        }`}
       >
         <div className="container mx-auto px-4 lg:px-8">
           <motion.div
             className="flex items-center justify-between"
-            initial={shouldAnimate ? "hidden" : "visible"}
+            initial={shouldAnimate ? 'hidden' : 'visible'}
             animate="visible"
             variants={headerContainerVariants}
           >
-
             {/* Logo Section */}
             <motion.div variants={headerItemVariants}>
               <Link href="/" className="flex items-center gap-2 group relative z-50">
@@ -157,9 +170,15 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 {/* Text Container - Moved down slightly (mt-1) */}
                 <div className="flex flex-row items-center gap-1 mt-1.5 lg:mt-0 lg:flex-row lg:items-center lg:gap-0">
                   <div className="flex items-center tracking-[0.1em] sm:tracking-[0.15em] leading-none">
-                    <span className="text-sm sm:text-lg lg:text-xl font-light !text-white uppercase">Kineti</span>
-                    <span className="text-sm sm:text-lg lg:text-xl font-bold text-[#D4AF37] uppercase">k</span>
-                    <span className="text-sm sm:text-lg lg:text-xl font-light !text-white uppercase">are</span>
+                    <span className="text-sm sm:text-lg lg:text-xl font-light !text-white uppercase">
+                      Kineti
+                    </span>
+                    <span className="text-sm sm:text-lg lg:text-xl font-bold text-[#D4AF37] uppercase">
+                      k
+                    </span>
+                    <span className="text-sm sm:text-lg lg:text-xl font-light !text-white uppercase">
+                      are
+                    </span>
                   </div>
 
                   {/* Desktop Separator */}
@@ -175,14 +194,19 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-2">
               {mainNavItems.map((item) => (
-                <motion.div key={item.name} className="relative group/nav" variants={headerItemVariants}>
+                <motion.div
+                  key={item.name}
+                  className="relative group/nav"
+                  variants={headerItemVariants}
+                >
                   <Link
                     href={item.href}
                     prefetch={false}
-                    className={`relative px-4 py-2 rounded-full text-sm font-medium tracking-wide transition-all duration-300 ${isCurrentPath(item.href)
-                      ? '!text-[#D4AF37] bg-white/10 shadow-[0_0_10px_rgba(212,175,55,0.1)]'
-                      : '!text-white/80 hover:!text-white hover:bg-white/5'
-                      }`}
+                    className={`relative px-4 py-2 rounded-full text-sm font-medium tracking-wide transition-all duration-300 ${
+                      isCurrentPath(item.href)
+                        ? '!text-[#D4AF37] bg-white/10 shadow-[0_0_10px_rgba(212,175,55,0.1)]'
+                        : '!text-white/80 hover:!text-white hover:bg-white/5'
+                    }`}
                   >
                     {item.name}
                   </Link>
@@ -194,7 +218,9 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                         {conditionCategories.map((category) => (
                           <div key={category.slug} className="group/category">
                             <div className="flex items-center justify-between py-2 border-b border-white/5 group-hover/category:border-[#D4AF37]/30 transition-colors">
-                              <span className="text-[#D4AF37] font-medium text-sm tracking-wide">{category.title}</span>
+                              <span className="text-[#D4AF37] font-medium text-sm tracking-wide">
+                                {category.title}
+                              </span>
                             </div>
                             <div className="mt-2 space-y-1">
                               {category.conditions.slice(0, 4).map((condition) => (
@@ -229,20 +255,22 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
             {/* Right Actions - Vertically Aligned */}
             <div className="flex items-center gap-4 lg:gap-6 flex-shrink-0 h-10">
               {/* Search */}
-              <motion.div variants={headerItemVariants}>
-                <button
-                  onMouseEnter={primeSearchModal}
-                  onFocus={primeSearchModal}
-                  onClick={() => {
-                    primeSearchModal();
-                    setSearchModalOpen(true);
-                  }}
-                  aria-label="Open search"
-                  className="hidden sm:flex items-center justify-center w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 !text-white/70 hover:!text-[#D4AF37] transition-all duration-300 border border-white/5 hover:border-[#D4AF37]/30"
-                >
-                  <MagnifyingGlassIcon className="w-5 h-5" />
-                </button>
-              </motion.div>
+              {!isIntakePage ? (
+                <motion.div variants={headerItemVariants}>
+                  <button
+                    onMouseEnter={primeSearchModal}
+                    onFocus={primeSearchModal}
+                    onClick={() => {
+                      primeSearchModal();
+                      setSearchModalOpen(true);
+                    }}
+                    aria-label="Open search"
+                    className="hidden sm:flex items-center justify-center w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 !text-white/70 hover:!text-[#D4AF37] transition-all duration-300 border border-white/5 hover:border-[#D4AF37]/30"
+                  >
+                    <MagnifyingGlassIcon className="w-5 h-5" />
+                  </button>
+                </motion.div>
+              ) : null}
 
               {/* Phone */}
               <motion.div variants={headerItemVariants}>
@@ -260,13 +288,14 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               {/* Book Now Button - Premium Redesign */}
               <motion.div variants={headerItemVariants}>
                 <Link
-                  href="/intake"
+                  href={bookingHref}
+                  prefetch={false}
                   className="hidden sm:flex group relative px-6 py-2.5 bg-[#D4AF37] overflow-hidden rounded-full transition-all duration-300 hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:scale-105"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
                   <span className="relative flex items-center gap-2 text-slate-900 font-bold text-xs tracking-[0.1em] uppercase">
                     <CalendarDaysIcon className="w-4 h-4" />
-                    Book Now
+                    {isIntakePage ? 'Book Assessment' : 'Book Now'}
                   </span>
                 </Link>
               </motion.div>
@@ -308,17 +337,19 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
             >
               <div className="p-6 pt-24 space-y-6">
                 {/* Mobile Search */}
-                <button
-                  onClick={() => {
-                    primeSearchModal();
-                    setSearchModalOpen(true);
-                    setMobileMenuOpen(false);
-                  }}
-                  className="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-white/5 !text-white/70 hover:!text-white hover:bg-white/10 transition-all border border-white/5"
-                >
-                  <MagnifyingGlassIcon className="w-5 h-5" />
-                  <span className="text-sm font-medium">Search...</span>
-                </button>
+                {!isIntakePage ? (
+                  <button
+                    onClick={() => {
+                      primeSearchModal();
+                      setSearchModalOpen(true);
+                      setMobileMenuOpen(false);
+                    }}
+                    className="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-white/5 !text-white/70 hover:!text-white hover:bg-white/10 transition-all border border-white/5"
+                  >
+                    <MagnifyingGlassIcon className="w-5 h-5" />
+                    <span className="text-sm font-medium">Search...</span>
+                  </button>
+                ) : null}
 
                 {/* Mobile Nav Links */}
                 <nav className="space-y-2">
@@ -328,13 +359,16 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                         <div className="space-y-2">
                           <button
                             onClick={() => setConditionsExpanded(!conditionsExpanded)}
-                            className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all ${isCurrentPath(item.href)
-                              ? 'bg-[#D4AF37]/10 !text-[#D4AF37]'
-                              : '!text-white/80 hover:bg-white/5 hover:!text-white'
-                              }`}
+                            className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all ${
+                              isCurrentPath(item.href)
+                                ? 'bg-[#D4AF37]/10 !text-[#D4AF37]'
+                                : '!text-white/80 hover:bg-white/5 hover:!text-white'
+                            }`}
                           >
                             <span className="font-medium tracking-wide">{item.name}</span>
-                            <ChevronRightIcon className={`w-4 h-4 transition-transform duration-300 ${conditionsExpanded ? 'rotate-90' : ''}`} />
+                            <ChevronRightIcon
+                              className={`w-4 h-4 transition-transform duration-300 ${conditionsExpanded ? 'rotate-90' : ''}`}
+                            />
                           </button>
 
                           <AnimatePresence>
@@ -367,10 +401,11 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                           href={item.href}
                           prefetch={false}
                           onClick={handleNavClick}
-                          className={`block px-4 py-3 rounded-xl font-medium tracking-wide transition-all ${isCurrentPath(item.href)
-                            ? 'bg-[#D4AF37]/10 !text-[#D4AF37]'
-                            : '!text-white/80 hover:bg-white/5 hover:!text-white'
-                            }`}
+                          className={`block px-4 py-3 rounded-xl font-medium tracking-wide transition-all ${
+                            isCurrentPath(item.href)
+                              ? 'bg-[#D4AF37]/10 !text-[#D4AF37]'
+                              : '!text-white/80 hover:bg-white/5 hover:!text-white'
+                          }`}
                         >
                           {item.name}
                         </Link>
@@ -389,12 +424,13 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                     <span className="font-medium">905-634-6000</span>
                   </Link>
                   <Link
-                    href="/intake"
+                    href={bookingHref}
+                    prefetch={false}
                     onClick={() => setMobileMenuOpen(false)}
                     className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#D4AF37] text-slate-900 font-bold text-sm tracking-wide hover:bg-[#C9A227] transition-all shadow-lg"
                   >
                     <CalendarDaysIcon className="w-5 h-5" />
-                    Book Now
+                    {isIntakePage ? 'Book Assessment' : 'Book Now'}
                   </Link>
                 </div>
               </div>
@@ -404,10 +440,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
       </AnimatePresence>
 
       {searchModalOpen ? (
-        <SearchModal
-          isOpen={searchModalOpen}
-          onClose={() => setSearchModalOpen(false)}
-        />
+        <SearchModal isOpen={searchModalOpen} onClose={() => setSearchModalOpen(false)} />
       ) : null}
     </>
   );

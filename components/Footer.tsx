@@ -1,7 +1,8 @@
-"use client";
+'use client';
 
 import React from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import {
   MapPin,
   Phone,
@@ -10,35 +11,39 @@ import {
   ArrowUp,
   FacebookLogo,
   InstagramLogo,
-  LinkedinLogo
-} from "@phosphor-icons/react";
+  LinkedinLogo,
+} from '@phosphor-icons/react';
 import Image from 'next/image';
 import BackgroundTexture from './BackgroundTexture';
+import { BOOKING_PAGE_PATH, JANE_BOOKING_URL } from '@/lib/booking';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const pathname = usePathname();
   const mapHref = 'https://maps.app.goo.gl/syZN4FUBgACrtqgK9';
-  const mapEmbedSrc = 'https://www.google.com/maps?q=4631+Palladium+Way+Unit+6+Burlington+ON&output=embed';
+  const mapEmbedSrc =
+    'https://www.google.com/maps?q=4631+Palladium+Way+Unit+6+Burlington+ON&output=embed';
+  const showBackToTop = pathname !== BOOKING_PAGE_PATH;
 
   const contactInfo = [
     {
       icon: <MapPin className="w-5 h-5 text-gold flex-shrink-0" weight="duotone" />,
       text: '4631 Palladium Way, Unit 6, Burlington, ON L7M 0W9',
       href: mapHref,
-      ariaLabel: 'View my location on Google Maps'
+      ariaLabel: 'View my location on Google Maps',
     },
     {
       icon: <Phone className="w-5 h-5 text-gold flex-shrink-0" weight="duotone" />,
       text: '(905) 634-6000',
       href: 'tel:+19056346000',
-      ariaLabel: 'Call my office'
+      ariaLabel: 'Call my office',
     },
     {
       icon: <Envelope className="w-5 h-5 text-gold flex-shrink-0" weight="duotone" />,
       text: 'kareem.hassanein@gmail.com',
       href: 'mailto:kareem.hassanein@gmail.com',
-      ariaLabel: 'Email Kareem Hassanein Physiotherapy'
-    }
+      ariaLabel: 'Email Kareem Hassanein Physiotherapy',
+    },
   ];
 
   const businessHours = [
@@ -46,21 +51,21 @@ export default function Footer() {
     { day: 'Tuesday', hours: '1:30 PM - 8:00 PM' },
     { day: 'Wednesday*', hours: '2:00 PM - 7:30 PM' },
     { day: 'Thursday', hours: '1:30 PM - 8:00 PM' },
-    { day: 'Friday*', hours: '2:00 PM - 7:30 PM' }
+    { day: 'Friday*', hours: '2:00 PM - 7:30 PM' },
   ];
 
   const socialLinks = [
     {
       name: 'LinkedIn',
       href: 'https://www.linkedin.com/in/kareemhassanein',
-      icon: <LinkedinLogo weight="fill" className="w-6 h-6" />
-    }
+      icon: <LinkedinLogo weight="fill" className="w-6 h-6" />,
+    },
   ];
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   };
 
@@ -79,7 +84,7 @@ export default function Footer() {
 
         window.scrollTo({
           top: offsetPosition,
-          behavior: "smooth"
+          behavior: 'smooth',
         });
       }
     }
@@ -116,10 +121,11 @@ export default function Footer() {
 
         {/* Main grid layout */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-
           {/* Contact Information */}
           <div>
-            <h3 className="text-sm font-medium mb-4 text-white uppercase tracking-wider">Contact</h3>
+            <h3 className="text-sm font-medium mb-4 text-white uppercase tracking-wider">
+              Contact
+            </h3>
             <div className="space-y-3 text-white/80 text-sm">
               <div className="flex items-start gap-2">
                 <Phone className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" weight="duotone" />
@@ -129,7 +135,10 @@ export default function Footer() {
               </div>
               <div className="flex items-start gap-2">
                 <Envelope className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" weight="duotone" />
-                <a href="mailto:kareem.hassanein@gmail.com" className="hover:text-gold transition-colors break-all">
+                <a
+                  href="mailto:kareem.hassanein@gmail.com"
+                  className="hover:text-gold transition-colors break-all"
+                >
                   kareem.hassanein@gmail.com
                 </a>
               </div>
@@ -160,37 +169,62 @@ export default function Footer() {
               ))}
               <li className="pt-2 border-t border-white/10 mt-2 space-y-1">
                 <span className="text-white/50 text-xs italic block">* Headon Physio location</span>
-                <span className="text-white/40 text-xs italic block">Direct billing only at Endorphins</span>
+                <span className="text-white/40 text-xs italic block">
+                  Direct billing only at Endorphins
+                </span>
               </li>
             </ul>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-sm font-medium mb-4 text-white uppercase tracking-wider">Quick Links</h3>
+            <h3 className="text-sm font-medium mb-4 text-white uppercase tracking-wider">
+              Quick Links
+            </h3>
             <ul className="space-y-2 text-white/80 text-sm">
               <li>
-                <Link href="/services" prefetch={false} className="hover:text-gold transition-colors">Services</Link>
+                <Link
+                  href="/services"
+                  prefetch={false}
+                  className="hover:text-gold transition-colors"
+                >
+                  Services
+                </Link>
               </li>
               <li>
-                <Link href="/conditions" prefetch={false} className="hover:text-gold transition-colors">Conditions</Link>
+                <Link
+                  href="/conditions"
+                  prefetch={false}
+                  className="hover:text-gold transition-colors"
+                >
+                  Conditions
+                </Link>
               </li>
               <li>
-                <Link href="/about" prefetch={false} className="hover:text-gold transition-colors">About</Link>
+                <Link href="/about" prefetch={false} className="hover:text-gold transition-colors">
+                  About
+                </Link>
               </li>
               <li>
-                <Link href="/faq" prefetch={false} className="hover:text-gold transition-colors">FAQ</Link>
+                <Link href="/faq" prefetch={false} className="hover:text-gold transition-colors">
+                  FAQ
+                </Link>
               </li>
               <li className="pt-2">
                 <a
-                  href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                  href={JANE_BOOKING_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-gold hover:text-gold/80 transition-colors font-medium"
                 >
                   Book Online
                   <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    />
                   </svg>
                 </a>
               </li>
@@ -199,7 +233,9 @@ export default function Footer() {
 
           {/* Connect Section */}
           <div>
-            <h3 className="text-sm font-medium mb-4 text-white uppercase tracking-wider">Connect</h3>
+            <h3 className="text-sm font-medium mb-4 text-white uppercase tracking-wider">
+              Connect
+            </h3>
             <div className="space-y-4">
               {/* Social Links */}
               <div className="flex gap-3">
@@ -212,7 +248,10 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <LinkedinLogo weight="fill" className="w-5 h-5 text-white/80 group-hover:text-white" />
+                    <LinkedinLogo
+                      weight="fill"
+                      className="w-5 h-5 text-white/80 group-hover:text-white"
+                    />
                   </a>
                 ))}
               </div>
@@ -225,7 +264,12 @@ export default function Footer() {
                 className="inline-flex items-center gap-2 text-xs text-gold hover:text-gold/80 transition-colors"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
                 </svg>
                 CPO Verified Registration
               </Link>
@@ -252,23 +296,35 @@ export default function Footer() {
             © {currentYear} KinetiKare Physiotherapy. All rights reserved.
           </p>
           <div className="flex gap-4 text-sm text-white/60">
-            <Link href="/privacy" prefetch={false} className="hover:text-gold transition-colors">Privacy Policy</Link>
+            <Link href="/privacy" prefetch={false} className="hover:text-gold transition-colors">
+              Privacy Policy
+            </Link>
             <span className="text-white/20">•</span>
-            <Link href="/terms" prefetch={false} className="hover:text-gold transition-colors">Terms of Service</Link>
+            <Link href="/terms" prefetch={false} className="hover:text-gold transition-colors">
+              Terms of Service
+            </Link>
             <span className="text-white/20">•</span>
-            <Link href="/accessibility" prefetch={false} className="hover:text-gold transition-colors">Accessibility</Link>
+            <Link
+              href="/accessibility"
+              prefetch={false}
+              className="hover:text-gold transition-colors"
+            >
+              Accessibility
+            </Link>
           </div>
         </div>
       </div>
 
       {/* Back to top button */}
-      <button
-        onClick={scrollToTop}
-        className="fixed bottom-24 md:bottom-6 right-6 w-10 h-10 rounded-full bg-gold shadow-lg hover:bg-gold-dark transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold z-50 flex items-center justify-center"
-        aria-label="Back to top"
-      >
-        <ArrowUp weight="bold" className="w-5 h-5 text-white" />
-      </button>
+      {showBackToTop ? (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-24 md:bottom-6 right-6 w-10 h-10 rounded-full bg-gold shadow-lg hover:bg-gold-dark transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold z-50 flex items-center justify-center"
+          aria-label="Back to top"
+        >
+          <ArrowUp weight="bold" className="w-5 h-5 text-white" />
+        </button>
+      ) : null}
     </footer>
   );
-} 
+}

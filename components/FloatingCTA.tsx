@@ -1,70 +1,73 @@
-"use client";
+'use client';
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { CalendarDaysIcon } from '@heroicons/react/24/outline';
 import { motion, AnimatePresence } from 'framer-motion';
+import { usePathname } from 'next/navigation';
+import { BOOKING_PAGE_PATH, JANE_BOOKING_URL } from '@/lib/booking';
 
 export default function FloatingCTA() {
   const [isVisible, setIsVisible] = useState(false);
-  
+  const pathname = usePathname();
+
   useEffect(() => {
     // Show button after scrolling 500px
     const handleScroll = () => {
       setIsVisible(window.scrollY > 500);
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  if (pathname === BOOKING_PAGE_PATH) {
+    return null;
+  }
+
   const buttonVariants = {
-    hidden: { 
+    hidden: {
       opacity: 0,
-      scale: 0.98
+      scale: 0.98,
     },
-    visible: { 
+    visible: {
       opacity: 1,
       scale: 1,
       transition: {
-        type: "spring",
+        type: 'spring',
         stiffness: 300,
-        damping: 25
-      }
+        damping: 25,
+      },
     },
-    exit: { 
+    exit: {
       opacity: 0,
       scale: 0.98,
       transition: {
-        duration: 0.2
-      }
+        duration: 0.2,
+      },
     },
     hover: {
       scale: 1.05,
-      boxShadow: "0 10px 25px rgba(0, 0, 0, 0.15)"
+      boxShadow: '0 10px 25px rgba(0, 0, 0, 0.15)',
     },
     tap: {
-      scale: 0.95
-    }
+      scale: 0.95,
+    },
   };
 
   return (
     <AnimatePresence>
       {isVisible && (
-        <motion.div 
+        <motion.div
           className="md:hidden fixed bottom-20 right-6 z-50"
           initial="hidden"
           animate="visible"
           exit="exit"
           variants={buttonVariants}
         >
-          <motion.div
-            whileHover="hover"
-            whileTap="tap"
-            variants={buttonVariants}
-          >
+          <motion.div whileHover="hover" whileTap="tap" variants={buttonVariants}>
             <Link
-              href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+              href={JANE_BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 bg-accent hover:bg-accent-dark text-white font-medium px-5 py-3 rounded-full shadow-lg transition-all duration-200"
@@ -78,4 +81,4 @@ export default function FloatingCTA() {
       )}
     </AnimatePresence>
   );
-} 
+}

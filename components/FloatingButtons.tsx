@@ -1,13 +1,16 @@
-"use client";
+'use client';
 
 import React, { useState, useEffect } from 'react';
 // import { PhoneCall, ArrowUp, Calendar } from 'lucide-react';
 import { PhoneIcon, ArrowUpIcon, CalendarDaysIcon } from '@heroicons/react/24/solid'; // Using solid icons
 import { motion, AnimatePresence } from 'framer-motion';
+import { usePathname } from 'next/navigation';
+import { BOOKING_PAGE_PATH, JANE_BOOKING_URL } from '@/lib/booking';
 
 export default function FloatingButtons() {
   const [isVisible, setIsVisible] = useState(false);
   const [showTooltip, setShowTooltip] = useState<string | null>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     const toggleVisibility = () => {
@@ -21,10 +24,14 @@ export default function FloatingButtons() {
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
 
+  if (pathname === BOOKING_PAGE_PATH) {
+    return null;
+  }
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   };
 
@@ -43,46 +50,46 @@ export default function FloatingButtons() {
       opacity: 1,
       transition: {
         staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
+        delayChildren: 0.2,
+      },
+    },
   };
 
   const buttonVariants = {
     hidden: { opacity: 0, y: 20, scale: 0.8 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
+    visible: {
+      opacity: 1,
+      y: 0,
       scale: 1,
       transition: {
-        type: "spring",
+        type: 'spring',
         stiffness: 400,
-        damping: 24
-      }
+        damping: 24,
+      },
     },
     hover: {
       scale: 1.05,
-      boxShadow: "0 10px 25px rgba(0, 0, 0, 0.15)"
+      boxShadow: '0 10px 25px rgba(0, 0, 0, 0.15)',
     },
     tap: {
-      scale: 0.95
-    }
+      scale: 0.95,
+    },
   };
 
   const tooltipVariants = {
     hidden: { opacity: 0, x: 10, scale: 0.9 },
-    visible: { 
-      opacity: 1, 
-      x: 0, 
+    visible: {
+      opacity: 1,
+      x: 0,
       scale: 1,
-      transition: { duration: 0.2, ease: "easeOut" }
+      transition: { duration: 0.2, ease: 'easeOut' },
     },
-    exit: { 
-      opacity: 0, 
-      x: 10, 
+    exit: {
+      opacity: 0,
+      x: 10,
       scale: 0.9,
-      transition: { duration: 0.2, ease: "easeIn" }
-    }
+      transition: { duration: 0.2, ease: 'easeIn' },
+    },
   };
 
   return (
@@ -94,7 +101,7 @@ export default function FloatingButtons() {
     >
       {/* Book Appointment Button */}
       <motion.a
-        href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+        href={JANE_BOOKING_URL}
         target="_blank"
         rel="noopener noreferrer"
         onClick={handleBookClick}
@@ -110,7 +117,7 @@ export default function FloatingButtons() {
         <CalendarDaysIcon className="h-6 w-6" />
         <AnimatePresence>
           {showTooltip === 'book' && (
-            <motion.div 
+            <motion.div
               className="absolute right-[calc(100%+0.5rem)] top-1/2 transform -translate-y-1/2 w-max"
               initial="hidden"
               animate="visible"
@@ -124,7 +131,7 @@ export default function FloatingButtons() {
           )}
         </AnimatePresence>
       </motion.a>
-      
+
       {/* Call Button */}
       <motion.a
         href="tel:+19056346000"
@@ -141,7 +148,7 @@ export default function FloatingButtons() {
         <PhoneIcon className="h-6 w-6" />
         <AnimatePresence>
           {showTooltip === 'call' && (
-            <motion.div 
+            <motion.div
               className="absolute right-[calc(100%+0.5rem)] top-1/2 transform -translate-y-1/2 w-max"
               initial="hidden"
               animate="visible"
@@ -155,7 +162,7 @@ export default function FloatingButtons() {
           )}
         </AnimatePresence>
       </motion.a>
-      
+
       {/* Scroll to Top Button */}
       <AnimatePresence mode="sync">
         {isVisible && (
@@ -176,7 +183,7 @@ export default function FloatingButtons() {
             <ArrowUpIcon className="h-4 w-4 md:h-6 md:w-6" />
             <AnimatePresence>
               {showTooltip === 'top' && (
-                <motion.div 
+                <motion.div
                   className="absolute right-[calc(100%+0.5rem)] top-1/2 transform -translate-y-1/2 w-max"
                   initial="hidden"
                   animate="visible"
@@ -194,4 +201,4 @@ export default function FloatingButtons() {
       </AnimatePresence>
     </motion.div>
   );
-} 
+}

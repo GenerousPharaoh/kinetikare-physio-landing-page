@@ -409,8 +409,8 @@ export default function IntakeLandingPage() {
                           <p style={{ fontSize: 15, fontWeight: 600, color: c.black, marginBottom: 2 }}>{item.name}</p>
                           <p style={{ color: c.textLight, fontSize: 13 }}>{item.detail}</p>
                         </div>
-                        <p style={{ fontFamily: serif, fontSize: 24, fontWeight: 700, color: c.black, whiteSpace: 'nowrap', marginLeft: 24 }}>
-                          <span style={{ color: c.gold, fontSize: 16, fontWeight: 400 }}>$</span>{item.price}
+                        <p style={{ fontSize: 22, fontWeight: 700, color: c.black, whiteSpace: 'nowrap', marginLeft: 24, letterSpacing: '-0.02em' }}>
+                          {item.price}
                         </p>
                       </div>
                     ))}

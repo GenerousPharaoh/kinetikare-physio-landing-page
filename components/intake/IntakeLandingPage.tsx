@@ -55,7 +55,7 @@ const conditionsRow1 = [
   'Sports Injuries', 'Neck Pain', 'Ankle Sprains', 'Tennis Elbow', 'Post-Surgery',
 ];
 const conditionsRow2 = [
-  'Plantar Fasciitis', 'Rotator Cuff', 'Achilles Pain', 'Whiplash',
+  'Plantar Fasciitis', 'Rotator Cuff', 'Achilles Pain', 'IT Band Pain',
   'Running Injuries', 'Frozen Shoulder', 'Arthritis', 'Muscle Strains',
 ];
 
@@ -152,6 +152,15 @@ export default function IntakeLandingPage() {
   useEffect(() => { timer.current = setInterval(next, 5500); return () => { if (timer.current) clearInterval(timer.current); }; }, [next]);
   const go = (i: number) => { setActiveReview(i); if (timer.current) clearInterval(timer.current); timer.current = setInterval(next, 5500); };
 
+  // Mobile detection for marquee speed (mobile needs faster scroll)
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+
   return (
     <>
       <style>{`
@@ -175,7 +184,7 @@ export default function IntakeLandingPage() {
         {/* Floating CTA removed — conflicts with scroll-to-top button */}
 
         {/* ═══════════════ HERO ═══════════════ */}
-        <section ref={heroRef} className="intake-hero" style={{ position: 'relative', background: c.bg, clipPath: 'polygon(0 0, 100% 0, 100% 94%, 0 100%)', paddingBottom: 'clamp(10rem, 16vw, 16rem)' }}>
+        <section ref={heroRef} className="intake-hero" style={{ position: 'relative', background: c.bg, clipPath: 'polygon(0 0, 100% 0, 100% 96%, 0 100%)', paddingBottom: 'clamp(12rem, 18vw, 18rem)' }}>
           <div style={{ position: 'absolute', inset: 0, opacity: 0.015, backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E")', backgroundSize: '200px', pointerEvents: 'none' }} />
 
           <motion.div style={{ position: 'relative', maxWidth: 1200, margin: '0 auto', padding: '0 clamp(1.5rem, 5vw, 4rem)', display: 'flex', minHeight: '100vh', alignItems: 'center', paddingTop: 'clamp(7rem, 14vh, 10rem)', opacity: reduced ? 1 : heroOpacity }}>
@@ -333,7 +342,7 @@ export default function IntakeLandingPage() {
             {/* Row 1 — scrolls left */}
             <motion.div
               animate={{ x: ['0%', '-50%'] }}
-              transition={{ duration: 40, ease: 'linear', repeat: Infinity }}
+              transition={{ duration: isMobile ? 22 : 40, ease: 'linear', repeat: Infinity }}
               style={{ display: 'flex', gap: 12, width: 'max-content', marginBottom: 12 }}
             >
               {[...conditionsRow1, ...conditionsRow1].map((cond, i) => (
@@ -345,7 +354,7 @@ export default function IntakeLandingPage() {
             {/* Row 2 — scrolls right (opposite direction) */}
             <motion.div
               animate={{ x: ['-50%', '0%'] }}
-              transition={{ duration: 45, ease: 'linear', repeat: Infinity }}
+              transition={{ duration: isMobile ? 25 : 45, ease: 'linear', repeat: Infinity }}
               style={{ display: 'flex', gap: 12, width: 'max-content' }}
             >
               {[...conditionsRow2, ...conditionsRow2].map((cond, i) => (
@@ -530,51 +539,6 @@ export default function IntakeLandingPage() {
           </div>
         </div>
 
-        {/* ═══════════ BOTTOM CTA — dark with animated gold glow ═══════════ */}
-        <div style={{ position: 'relative', overflow: 'hidden', background: c.charcoal }}>
-          {/* Animated ambient gold glow */}
-          <motion.div
-            animate={reduced ? undefined : { x: ['-20%', '20%', '-20%'], y: ['-10%', '10%', '-10%'] }}
-            transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-            style={{ position: 'absolute', top: '-40%', left: '10%', width: '80%', height: '180%', background: 'radial-gradient(ellipse at center, rgba(212,175,55,0.07), transparent 50%)', pointerEvents: 'none' }}
-          />
-          {/* Grain */}
-          <div style={{ position: 'absolute', inset: 0, opacity: 0.04, backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E")', backgroundSize: '200px', pointerEvents: 'none' }} />
-
-          <div style={{ position: 'relative', maxWidth: 1100, margin: '0 auto', padding: 'clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem)' }}>
-            <div className="lg:flex lg:items-center lg:justify-between lg:gap-20">
-              {/* Left: text */}
-              <Reveal from="left">
-                <div style={{ maxWidth: 480, marginBottom: 40 }}>
-                  <h2 style={{ fontFamily: serif, color: c.white, fontWeight: 700, fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', lineHeight: 1.05, letterSpacing: '-0.03em', marginBottom: 20 }}>
-                    Ready to move<br /><span style={{ fontWeight: 300, fontStyle: 'italic', color: c.goldBright }}>better?</span>
-                  </h2>
-                  <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: 16, lineHeight: 1.75, marginBottom: 24 }}>No referral required. Book online in under a minute or call the clinic directly.</p>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, fontWeight: 600, color: c.goldBright }}>
-                    <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#34D399' }} />
-                    Afternoon and evening appointments available this week
-                  </div>
-                </div>
-              </Reveal>
-
-              {/* Right: CTAs stacked vertically on this side */}
-              <Reveal from="right" delay={0.15}>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 16, flexShrink: 0 }}>
-                  <BookingCTA size="lg" className="intake-cta-hover w-full sm:w-auto !rounded-none !px-14 !py-5 !text-xs !tracking-[0.25em]" style={{ boxShadow: '0 16px 48px -10px rgba(184,150,12,0.55)' }}>
-                    BOOK ASSESSMENT <ArrowRightIcon width={14} height={14} />
-                  </BookingCTA>
-                  <a href="tel:+19056346000" className="intake-cta-hover inline-flex items-center justify-center gap-3" style={{ padding: '20px 28px', border: '1.5px solid rgba(255,255,255,0.15)', color: c.white, fontSize: 14, fontWeight: 600, letterSpacing: '0.04em', cursor: 'pointer' }}>
-                    <PhoneIcon width={16} height={16} style={{ color: c.goldBright }} /> (905) 634-6000
-                  </a>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 8 }}>
-                    <Stars size={12} />
-                    <span style={{ fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,0.6)' }}>5.0 from 17 Google reviews</span>
-                  </div>
-                </div>
-              </Reveal>
-            </div>
-          </div>
-        </div>
       </main>
     </>
   );

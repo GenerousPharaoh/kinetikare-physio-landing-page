@@ -1,10 +1,8 @@
 'use client';
 
 import { useCallback } from 'react';
+import { JANE_BOOKING_URL } from '@/lib/booking';
 import { cn } from '@/lib/utils';
-
-const JANE_BOOKING_URL =
-  'https://endorphinshealth.janeapp.com/locations/endorphins-health-and-wellness-centre/book#/staff_member/42';
 
 interface BookingCTAProps {
   children: React.ReactNode;
@@ -59,9 +57,7 @@ export default function BookingCTA({ children, className, size = 'lg' }: Booking
       )}
     >
       <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
-      <span className="relative flex items-center gap-2">
-        {children}
-      </span>
+      <span className="relative flex items-center gap-2">{children}</span>
     </a>
   );
 }

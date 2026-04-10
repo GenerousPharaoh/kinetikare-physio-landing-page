@@ -51,12 +51,26 @@ const visitSteps = [
 ];
 
 const conditionsRow1 = [
-  'Back Pain', 'Knee Injuries', 'Shoulder Pain', 'Hip Pain', 'Sciatica',
-  'Sports Injuries', 'Neck Pain', 'Ankle Sprains', 'Tennis Elbow', 'Post-Surgery',
+  { label: 'Back Pain', slug: 'low-back-pain' },
+  { label: 'Knee Injuries', slug: 'knee-pain-patellofemoral' },
+  { label: 'Shoulder Pain', slug: 'shoulder-impingement' },
+  { label: 'Hip Pain', slug: 'hip-osteoarthritis' },
+  { label: 'Sciatica', slug: 'sciatica' },
+  { label: 'Sports Injuries', slug: 'sports-injuries' },
+  { label: 'Neck Pain', slug: 'neck-pain' },
+  { label: 'Ankle Sprains', slug: 'ankle-sprains' },
+  { label: 'Tennis Elbow', slug: 'tennis-elbow' },
+  { label: 'Post-Surgery Rehab', slug: 'post-surgical-rehabilitation' },
 ];
 const conditionsRow2 = [
-  'Plantar Fasciitis', 'Rotator Cuff', 'Achilles Pain', 'IT Band Pain',
-  'Running Injuries', 'Frozen Shoulder', 'Arthritis', 'Muscle Strains',
+  { label: 'Plantar Fasciitis', slug: 'plantar-fasciitis' },
+  { label: 'Rotator Cuff', slug: 'rotator-cuff-injuries' },
+  { label: 'Achilles Pain', slug: 'achilles-tendinopathy' },
+  { label: 'IT Band Pain', slug: 'it-band-syndrome' },
+  { label: 'Running Injuries', slug: 'running-injuries' },
+  { label: 'Frozen Shoulder', slug: 'frozen-shoulder' },
+  { label: 'Arthritis', slug: 'knee-osteoarthritis' },
+  { label: 'Muscle Strains', slug: 'muscle-strains' },
 ];
 
 const reviews = [
@@ -292,6 +306,8 @@ export default function IntakeLandingPage() {
 
         {/* ═══════════ REVIEWS — cinematic parallax ═══════════ */}
         <div ref={reviewRef} style={{ position: 'relative', overflow: 'hidden' }}>
+          {/* Smooth gradient bridge from hero into dark */}
+          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 100, background: `linear-gradient(to bottom, ${c.bg}, transparent)`, zIndex: 3, pointerEvents: 'none' }} />
           <motion.div style={{ position: 'absolute', inset: '-80px 0', y: reduced ? 0 : reviewBgY, scale: reduced ? 1 : reviewBgScale }}>
             <img src="/images/clinic-room-may-25.webp" alt="" aria-hidden="true" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%' }} />
             <div style={{ position: 'absolute', inset: 0, background: 'rgba(17,17,17,0.82)' }} />
@@ -352,9 +368,9 @@ export default function IntakeLandingPage() {
               style={{ display: 'flex', gap: 12, width: 'max-content', marginBottom: 12 }}
             >
               {[...conditionsRow1, ...conditionsRow1].map((cond, i) => (
-                <span key={`r1-${i}`} className="intake-pill" style={{ padding: '10px 20px', fontSize: 14, fontWeight: 500, color: c.text, background: c.stone50, borderRadius: 999, whiteSpace: 'nowrap', border: `1px solid ${c.stone100}`, display: 'inline-block', flexShrink: 0 }}>
-                  {cond}
-                </span>
+                <a key={`r1-${i}`} href={`/conditions/${cond.slug}`} className="intake-pill" style={{ padding: '10px 20px', fontSize: 14, fontWeight: 500, color: c.text, background: c.stone50, borderRadius: 999, whiteSpace: 'nowrap', border: `1px solid ${c.stone100}`, display: 'inline-block', flexShrink: 0, textDecoration: 'none' }}>
+                  {cond.label}
+                </a>
               ))}
             </motion.div>
             {/* Row 2 — scrolls right (opposite direction) */}
@@ -364,9 +380,9 @@ export default function IntakeLandingPage() {
               style={{ display: 'flex', gap: 12, width: 'max-content' }}
             >
               {[...conditionsRow2, ...conditionsRow2].map((cond, i) => (
-                <span key={`r2-${i}`} className="intake-pill" style={{ padding: '10px 20px', fontSize: 14, fontWeight: 500, color: c.text, background: c.stone50, borderRadius: 999, whiteSpace: 'nowrap', border: `1px solid ${c.stone100}`, display: 'inline-block', flexShrink: 0 }}>
-                  {cond}
-                </span>
+                <a key={`r2-${i}`} href={`/conditions/${cond.slug}`} className="intake-pill" style={{ padding: '10px 20px', fontSize: 14, fontWeight: 500, color: c.text, background: c.stone50, borderRadius: 999, whiteSpace: 'nowrap', border: `1px solid ${c.stone100}`, display: 'inline-block', flexShrink: 0, textDecoration: 'none' }}>
+                  {cond.label}
+                </a>
               ))}
             </motion.div>
           </div>
@@ -414,6 +430,24 @@ export default function IntakeLandingPage() {
             </div>
           </div>
         </div>
+
+        {/* ═══════════ MID-PAGE CTA ═══════════ */}
+        <Reveal from="scale">
+          <div style={{ maxWidth: 720, margin: '0 auto', padding: 'clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem)', textAlign: 'center' }}>
+            <p style={{ fontFamily: serif, fontSize: 'clamp(1.4rem, 2.5vw, 1.8rem)', fontWeight: 700, color: c.black, lineHeight: 1.3, marginBottom: 8 }}>
+              Ready to get started?
+            </p>
+            <p style={{ fontSize: 14, color: c.textLight, marginBottom: 24 }}>No referral required. Book online in under a minute.</p>
+            <div className="flex flex-col gap-3 sm:flex-row sm:justify-center sm:gap-4">
+              <BookingCTA size="md" className="intake-cta-hover w-full sm:w-auto !rounded-none !px-10 !py-4 !text-[11px] !tracking-[0.22em]" style={{ boxShadow: '0 12px 36px -8px rgba(184,150,12,0.35)' }}>
+                BOOK ASSESSMENT <ArrowRightIcon width={13} height={13} aria-hidden="true" />
+              </BookingCTA>
+              <a href="tel:+19056346000" className="intake-cta-hover inline-flex items-center justify-center gap-2" style={{ padding: '16px 24px', border: `1.5px solid ${c.stone200}`, color: c.text, fontSize: 13, fontWeight: 600, cursor: 'pointer' }}>
+                <PhoneIcon width={15} height={15} style={{ color: c.gold }} /> (905) 634-6000
+              </a>
+            </div>
+          </div>
+        </Reveal>
 
         {/* ═══════════ PRICING — full-width with treatment photo accent ═══════════ */}
         <div style={{ position: 'relative', background: c.white, overflow: 'hidden' }}>

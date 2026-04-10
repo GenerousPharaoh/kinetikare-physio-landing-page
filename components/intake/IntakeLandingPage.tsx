@@ -150,7 +150,7 @@ export default function IntakeLandingPage() {
   const { scrollYProgress: heroProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
   const photoY = useSpring(useTransform(heroProgress, [0, 1], [0, 70]), { stiffness: 80, damping: 25 });
   const heroTextY = useSpring(useTransform(heroProgress, [0, 1], [0, 40]), { stiffness: 100, damping: 30 });
-  const heroOpacity = useTransform(heroProgress, [0, 0.95], [1, 0]);
+  const heroOpacity = useTransform(heroProgress, [0.3, 1], [1, 0]);
 
   const reviewRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress: reviewProgress } = useScroll({ target: reviewRef, offset: ['start end', 'end start'] });

@@ -195,8 +195,6 @@ export default function IntakeLandingPage() {
 
       <main className="intake-page" style={{ fontFamily: sans, background: c.bg, color: c.text, WebkitFontSmoothing: 'antialiased', overflow: 'hidden' }}>
 
-        {/* Floating CTA removed — conflicts with scroll-to-top button */}
-
         {/* ═══════════════ HERO ═══════════════ */}
         <section ref={heroRef} className="intake-hero" style={{ position: 'relative', background: c.bg, paddingBottom: 'clamp(4rem, 8vw, 6rem)' }}>
           <div style={{ position: 'absolute', inset: 0, opacity: 0.015, backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E")', backgroundSize: '200px', pointerEvents: 'none' }} />
@@ -266,13 +264,12 @@ export default function IntakeLandingPage() {
                     </span>
                   ))}
                 </motion.div>
-{/* Name/credentials shown as overlay on portrait */}
               </motion.div>
 
               {/* PORTRAIT */}
               <motion.div className="hidden lg:block" initial={reduced ? false : { opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1.2, delay: 0.25, ease: [0.22, 1, 0.36, 1] }} style={{ position: 'relative', zIndex: 10 }}>
-                <motion.div style={{ position: 'relative', y: reduced ? 0 : photoY, overflow: 'hidden', aspectRatio: '4 / 5', borderRadius: 4 }}>
-                  <img src="/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png" alt="Kareem Hassanein, Registered Physiotherapist in Burlington" width={826} height={1169} style={{ width: '100%', height: '100%', display: 'block', objectFit: 'cover', objectPosition: 'center 18%', filter: 'contrast(1.03)' }} />
+                <motion.div style={{ position: 'relative', y: reduced ? 0 : photoY, overflow: 'hidden', aspectRatio: '3 / 4', borderRadius: 6 }}>
+                  <img src="/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png" alt="Kareem Hassanein, Registered Physiotherapist in Burlington" width={826} height={1169} style={{ width: '100%', height: '100%', display: 'block', objectFit: 'cover', objectPosition: 'center 12%', filter: 'contrast(1.03)' }} />
 
                   {/* Dark gradient at bottom for overlay legibility */}
                   <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '45%', background: 'linear-gradient(to top, rgba(17,17,17,0.85), rgba(17,17,17,0.2) 60%, transparent)', pointerEvents: 'none' }} />
@@ -412,9 +409,9 @@ export default function IntakeLandingPage() {
                     <div style={{ textAlign: 'center' }}>
                       {/* Icon circle with step number */}
                       <div style={{ position: 'relative', width: 64, height: 64, margin: '0 auto 24px' }}>
-                        <div style={{ width: 64, height: 64, borderRadius: '50%', background: i === 0 ? c.charcoal : c.white, border: i === 0 ? 'none' : `2px solid ${c.stone200}`, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: i === 0 ? '0 12px 32px -8px rgba(17,17,17,0.3)' : '0 6px 16px -4px rgba(0,0,0,0.06)' }}>
+                        <motion.div whileHover={reduced ? undefined : { scale: 1.08, y: -4 }} transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }} style={{ width: 64, height: 64, borderRadius: '50%', background: i === 0 ? c.charcoal : c.white, border: i === 0 ? 'none' : `2px solid ${c.stone200}`, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: i === 0 ? '0 12px 32px -8px rgba(17,17,17,0.3)' : '0 6px 16px -4px rgba(0,0,0,0.06)', cursor: 'default' }}>
                           <step.icon width={26} height={26} style={{ color: i === 0 ? c.goldBright : c.gold }} />
-                        </div>
+                        </motion.div>
                         {/* Step number badge */}
                         <div style={{ position: 'absolute', top: -4, right: -4, width: 22, height: 22, borderRadius: '50%', background: c.goldBright, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11, fontWeight: 700, color: c.white, boxShadow: '0 2px 8px -2px rgba(184,150,12,0.4)' }}>
                           {i + 1}
@@ -464,7 +461,7 @@ export default function IntakeLandingPage() {
                 <div style={{ maxWidth: 520 }} className="lg:!pl-16">
                   <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.gold, marginBottom: 16 }}>Fees</p>
                   <h2 style={{ fontFamily: serif, color: c.black, fontWeight: 700, fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', lineHeight: 1.1, letterSpacing: '-0.02em', marginBottom: 40 }}>
-                    Simple, transparent pricing
+                    Fees &amp; billing
                   </h2>
 
                   {/* Pricing rows */}
@@ -498,6 +495,10 @@ export default function IntakeLandingPage() {
                       </div>
                     ))}
                   </div>
+
+                  <p style={{ color: c.textLight, fontSize: 13, lineHeight: 1.7, marginTop: 24 }}>
+                    Most major insurance plans accepted with direct billing. All prices in CAD.
+                  </p>
                 </div>
               </Reveal>
             </div>
@@ -530,6 +531,11 @@ export default function IntakeLandingPage() {
 
                   <div className="flex flex-wrap gap-2" style={{ marginTop: 28 }}>
                     {serviceAreas.map((a) => <span key={a} style={{ padding: '7px 16px', fontSize: 11, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', color: c.textMid, background: c.white, borderRadius: 999, border: `1px solid ${c.stone200}` }}>{a}</span>)}
+                  </div>
+
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 24 }}>
+                    <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#34D399', flexShrink: 0 }} />
+                    <span style={{ fontSize: 13, fontWeight: 600, color: c.gold }}>Afternoon and evening appointments available this week</span>
                   </div>
                 </div>
               </Reveal>

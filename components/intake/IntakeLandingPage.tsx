@@ -136,7 +136,7 @@ export default function IntakeLandingPage() {
   const { scrollYProgress: heroProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
   const photoY = useSpring(useTransform(heroProgress, [0, 1], [0, 70]), { stiffness: 80, damping: 25 });
   const heroTextY = useSpring(useTransform(heroProgress, [0, 1], [0, 40]), { stiffness: 100, damping: 30 });
-  const heroOpacity = useTransform(heroProgress, [0, 0.85], [1, 0]);
+  const heroOpacity = useTransform(heroProgress, [0, 0.95], [1, 0]);
 
   const reviewRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress: reviewProgress } = useScroll({ target: reviewRef, offset: ['start end', 'end start'] });
@@ -282,6 +282,12 @@ export default function IntakeLandingPage() {
               </motion.div>
             </motion.div>
           </motion.div>
+
+          {/* Premium bottom edge */}
+          <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, zIndex: 5 }}>
+            <div style={{ height: 1, background: `linear-gradient(90deg, transparent 5%, ${c.goldBright}40 30%, ${c.goldBright}60 50%, ${c.goldBright}40 70%, transparent 95%)` }} />
+            <div style={{ height: 40, background: 'linear-gradient(to bottom, rgba(0,0,0,0.04), transparent)', pointerEvents: 'none' }} />
+          </div>
         </section>
 
         {/* ═══════════ REVIEWS — cinematic parallax ═══════════ */}

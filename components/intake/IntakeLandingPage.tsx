@@ -570,7 +570,7 @@ export default function IntakeLandingPage() {
                   <div style={{ borderRadius: 16, overflow: 'hidden', boxShadow: '0 20px 60px -16px rgba(0,0,0,0.12)', border: `1px solid ${c.stone200}`, position: 'relative' }}>
                     <div style={{ position: 'relative' }}>
                       <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2899.3!2d-79.838055!3d43.430782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b63dc42c98809%3A0xd4a0b151c182a858!2sEndorphins%20Health%20%26%20Wellness%20Centre!5e0!3m2!1sen!2sca!4v1700000000000!5m2!1sen!2sca"
+                        src="https://www.google.com/maps?q=Endorphins+Health+%26+Wellness+Centre+4631+Palladium+Way+Burlington+ON&output=embed"
                         width="100%"
                         height="420"
                         style={{ border: 0, display: 'block' }}

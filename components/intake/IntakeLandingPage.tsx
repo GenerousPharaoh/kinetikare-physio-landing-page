@@ -508,6 +508,10 @@ export default function IntakeLandingPage() {
                     <p style={{ color: c.textLight, fontSize: 13, lineHeight: 1.7, marginTop: 16 }}>
                       No referral needed to book. If your plan requires a referral for reimbursement, the team at Endorphins can help you navigate that.
                     </p>
+                    <a href="/faq" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, marginTop: 16, fontSize: 13, fontWeight: 600, color: c.gold, textDecoration: 'none', cursor: 'pointer' }}>
+                      Questions about your first visit?
+                      <ArrowRightIcon width={13} height={13} />
+                    </a>
                   </div>
                 </div>
               </Reveal>

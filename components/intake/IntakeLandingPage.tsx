@@ -181,12 +181,6 @@ export default function IntakeLandingPage() {
       <style>{`
         .intake-page p { font-style: normal !important; }
         .intake-page section { padding: 0 !important; }
-        .intake-page h1, .intake-page h2, .intake-page h3 {
-          font-family: "Playfair Display", var(--font-playfair), Georgia, serif !important;
-          line-height: inherit !important;
-          letter-spacing: inherit !important;
-          font-weight: inherit !important;
-        }
         .intake-hero { min-height: 100vh; min-height: 100dvh; }
         @media (prefers-reduced-motion: reduce) { .intake-page .animate-ping { display: none !important; } }
         .intake-cta-hover { transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s ease !important; }

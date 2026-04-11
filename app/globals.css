@@ -302,12 +302,11 @@ main {
   display: none;
 }
 
-/* Premium heading styles */
+/* Premium heading defaults — no !important, components override freely */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
-  font-weight: 900 !important;
-  letter-spacing: -0.04em !important;
-  line-height: 1.1 !important;
+  font-family: 'Inter', var(--font-inter), system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
 }
 
 /* Hero section name - elegant light serif override */

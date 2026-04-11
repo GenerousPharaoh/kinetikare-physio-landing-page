@@ -1,88 +1,87 @@
-/* 
+/*
  * PREMIUM TYPOGRAPHY SYSTEM
  * Refined weights, optical adjustments, and editorial quality
- * Transforms amateur heavy text into sophisticated presentation
+ * These are BASE defaults — component styles (Tailwind classes,
+ * inline styles) can and should override these as needed.
+ * No !important on heading rules so components stay in control.
  */
 
 /* ============================= */
-/* TYPOGRAPHY RESET & REFINEMENT */
+/* TYPOGRAPHY DEFAULTS           */
 /* ============================= */
 
-/* Override heavy heading weights */
+/* Base heading defaults (no !important — components override freely) */
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
-  font-weight: 600 !important; /* Refined from 900 */
-  letter-spacing: -0.02em !important; /* Reduced from -0.04em */
-  line-height: 1.2 !important; /* Better rhythm */
+  font-family: 'Inter', var(--font-inter), system-ui, -apple-system, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
   color: rgb(26, 32, 58);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Specific weight adjustments for hierarchy */
+/* Specific weight defaults for hierarchy */
 h1, .h1 {
-  font-weight: 300 !important; /* Ultra light for largest headings */
-  letter-spacing: -0.025em !important;
-  line-height: 1.1 !important;
+  font-weight: 300;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
 }
 
 h2, .h2 {
-  font-weight: 400 !important; /* Regular for secondary headings */
-  letter-spacing: -0.02em !important;
-  line-height: 1.15 !important;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
 }
 
 h3, .h3 {
-  font-weight: 500 !important; /* Medium for tertiary */
-  letter-spacing: -0.015em !important;
-  line-height: 1.25 !important;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
 }
 
 h4, .h4 {
-  font-weight: 500 !important;
-  letter-spacing: -0.01em !important;
-  line-height: 1.3 !important;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
 }
 
 h5, .h5 {
-  font-weight: 600 !important;
-  letter-spacing: 0 !important;
-  line-height: 1.4 !important;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.4;
 }
 
 h6, .h6 {
-  font-weight: 600 !important;
-  letter-spacing: 0.01em !important;
-  line-height: 1.5 !important;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.5;
   text-transform: uppercase;
-  font-size: 0.875rem !important;
+  font-size: 0.875rem;
 }
 
 /* ============================= */
 /* BODY TEXT REFINEMENT         */
 /* ============================= */
 
-/* Optimal body text settings */
 p, .body-text {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-weight: 400; /* Never bold for body text */
-  line-height: 1.75; /* Improved from 1.6 */
-  letter-spacing: -0.011em; /* Subtle optical adjustment */
+  font-family: 'Inter', var(--font-inter), system-ui, -apple-system, sans-serif;
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: -0.011em;
   color: rgb(69, 80, 112);
   font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
 }
 
-/* Lead paragraph styling */
 .lead, p.lead {
   font-size: 1.125rem;
   line-height: 1.8;
-  font-weight: 300; /* Light for emphasis through size */
+  font-weight: 300;
   letter-spacing: -0.008em;
   color: rgb(55, 65, 81);
 }
 
-/* Small text refinement */
 .text-sm, small {
   font-size: 0.875rem;
   line-height: 1.6;
@@ -94,30 +93,27 @@ p, .body-text {
 /* PREMIUM TEXT VARIANTS        */
 /* ============================= */
 
-/* Editorial headline style */
 .headline-editorial {
-  font-family: 'Playfair Display', Georgia, serif !important;
+  font-family: 'Playfair Display', var(--font-playfair), Georgia, serif !important;
   font-weight: 400 !important;
   letter-spacing: -0.03em !important;
   line-height: 1.1 !important;
   font-style: normal;
 }
 
-/* Modern sans headline */
 .headline-modern {
-  font-family: 'Inter', sans-serif !important;
-  font-weight: 200 !important; /* Ultra light */
+  font-family: 'Inter', var(--font-inter), sans-serif !important;
+  font-weight: 200 !important;
   letter-spacing: -0.04em !important;
   line-height: 0.95 !important;
   text-transform: none !important;
 }
 
-/* Display text for hero sections */
 .display-text {
   font-size: clamp(2.5rem, 5vw, 4.5rem);
-  font-weight: 300 !important;
-  letter-spacing: -0.03em !important;
-  line-height: 1.05 !important;
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
   background: linear-gradient(135deg, #1A2036 0%, #3A4268 60%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -129,22 +125,19 @@ p, .body-text {
 /* OPTICAL ADJUSTMENTS          */
 /* ============================= */
 
-/* Number adjustments */
 .numeric {
   font-variant-numeric: lining-nums tabular-nums;
   font-feature-settings: 'tnum' 1, 'lnum' 1;
 }
 
-/* All caps refinement */
+/* All caps refinement (no !important — components can override) */
 .uppercase, .text-uppercase {
-  letter-spacing: 0.15em !important; /* More spacing for caps */
-  font-weight: 500 !important; /* Never bold for caps */
-  font-size: 0.875em !important;
+  letter-spacing: 0.15em;
+  font-weight: 500;
 }
 
-/* First letter emphasis */
 .drop-cap::first-letter {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', var(--font-playfair), serif;
   font-weight: 400;
   font-size: 3.5em;
   line-height: 0.9;
@@ -158,19 +151,14 @@ p, .body-text {
 /* ============================= */
 
 a {
-  font-weight: inherit; /* Never force bold on links */
+  font-weight: inherit;
   text-decoration: none;
   position: relative;
   transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Premium underline effect */
 a.link-premium {
-  background-image: linear-gradient(
-    to right,
-    currentColor 0%,
-    currentColor 100%
-  );
+  background-image: linear-gradient(to right, currentColor 0%, currentColor 100%);
   background-size: 0% 1px;
   background-position: 0 100%;
   background-repeat: no-repeat;
@@ -186,23 +174,20 @@ a.link-premium:hover {
 /* ============================= */
 
 button, .btn, [type="button"], [type="submit"] {
-  font-family: 'Inter', sans-serif !important;
-  font-weight: 500 !important; /* Medium weight only */
-  letter-spacing: 0.02em !important;
-  text-transform: none !important;
-  line-height: 1.2 !important;
+  font-family: 'Inter', var(--font-inter), sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
 }
 
-/* Large buttons */
 .btn-lg {
-  font-weight: 400 !important; /* Lighter for larger sizes */
-  letter-spacing: 0.01em !important;
+  font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
-/* Small buttons */
 .btn-sm {
-  font-weight: 600 !important; /* Slightly heavier for small sizes */
-  letter-spacing: 0.03em !important;
+  font-weight: 600;
+  letter-spacing: 0.03em;
 }
 
 /* ============================= */
@@ -218,7 +203,6 @@ li {
   margin-bottom: 0.5rem;
 }
 
-/* Premium bullet points */
 ul.list-premium li::before {
   content: '→';
   color: #B08D57;
@@ -233,8 +217,8 @@ ul.list-premium li::before {
 /* ============================= */
 
 blockquote {
-  font-family: 'Playfair Display', Georgia, serif !important;
-  font-weight: 400 !important;
+  font-family: 'Playfair Display', var(--font-playfair), Georgia, serif;
+  font-weight: 400;
   font-style: italic;
   font-size: 1.25rem;
   line-height: 1.75;
@@ -243,7 +227,7 @@ blockquote {
 }
 
 blockquote cite {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', var(--font-inter), sans-serif;
   font-weight: 500;
   font-style: normal;
   font-size: 0.875rem;
@@ -256,33 +240,31 @@ blockquote cite {
 /* RESPONSIVE TYPOGRAPHY        */
 /* ============================= */
 
-/* Mobile optimizations */
 @media (max-width: 768px) {
   h1, .h1 {
-    font-weight: 400 !important; /* Slightly heavier on mobile */
-    letter-spacing: -0.02em !important;
+    font-weight: 400;
+    letter-spacing: -0.02em;
   }
-  
+
   p, .body-text {
     font-size: 1rem;
     line-height: 1.7;
     letter-spacing: 0;
   }
-  
+
   .display-text {
-    font-weight: 400 !important;
+    font-weight: 400;
   }
 }
 
-/* Large screen refinements */
 @media (min-width: 1280px) {
   h1, .h1 {
-    font-weight: 200 !important; /* Ultra light on large screens */
+    font-weight: 200;
   }
-  
+
   .display-text {
-    font-weight: 200 !important;
-    letter-spacing: -0.04em !important;
+    font-weight: 200;
+    letter-spacing: -0.04em;
   }
 }
 
@@ -290,16 +272,14 @@ blockquote cite {
 /* ANIMATION & TRANSITIONS      */
 /* ============================= */
 
-/* Smooth font weight transitions */
 .weight-transition {
   transition: font-weight 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .weight-transition:hover {
-  font-weight: 500 !important;
+  font-weight: 500;
 }
 
-/* Text reveal animation */
 @keyframes text-reveal {
   from {
     opacity: 0;
@@ -319,23 +299,21 @@ blockquote cite {
 /* ACCESSIBILITY IMPROVEMENTS   */
 /* ============================= */
 
-/* High contrast mode adjustments */
 @media (prefers-contrast: high) {
   h1, h2, h3, h4, h5, h6 {
     font-weight: 600 !important;
   }
-  
+
   p, .body-text {
     font-weight: 400 !important;
   }
 }
 
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .text-reveal {
     animation: none;
   }
-  
+
   .weight-transition {
     transition: none;
   }

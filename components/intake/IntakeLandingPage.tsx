@@ -166,10 +166,6 @@ export default function IntakeLandingPage() {
   useEffect(() => { timer.current = setInterval(next, 5500); return () => { if (timer.current) clearInterval(timer.current); }; }, [next]);
   const go = (i: number) => { setActiveReview(i); if (timer.current) clearInterval(timer.current); timer.current = setInterval(next, 5500); };
 
-  // Full-page scroll progress for the gold line
-  const { scrollYProgress: pageProgress } = useScroll();
-  const smoothPageProgress = useSpring(pageProgress, { stiffness: 50, damping: 20 });
-
   // Mobile detection for marquee speed (mobile needs faster scroll)
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -197,47 +193,11 @@ export default function IntakeLandingPage() {
         @media (min-width: 1024px) { .intake-mobile-portrait { display: none !important; } }
       `}</style>
 
-      <main className="intake-page" style={{ fontFamily: sans, background: c.bg, color: c.text, WebkitFontSmoothing: 'antialiased', overflow: 'hidden', position: 'relative' }}>
-
-        {/* ═══════ SCROLL PROGRESS — thin gold line on left edge ═══════ */}
-        <motion.div
-          style={{
-            position: 'fixed', top: 0, left: 0, width: 3, height: '100vh',
-            background: `linear-gradient(180deg, ${c.goldBright}, ${c.gold})`,
-            transformOrigin: 'top',
-            scaleY: smoothPageProgress,
-            zIndex: 100, opacity: 0.7, borderRadius: '0 2px 2px 0',
-          }}
-          className="hidden lg:block"
-        />
+      <main className="intake-page" style={{ fontFamily: sans, background: c.bg, color: c.text, WebkitFontSmoothing: 'antialiased', overflow: 'hidden' }}>
 
         {/* ═══════════════ HERO ═══════════════ */}
         <section ref={heroRef} className="intake-hero" style={{ position: 'relative', background: c.bg, paddingBottom: 'clamp(4rem, 8vw, 6rem)' }}>
-          {/* Grain texture */}
           <div style={{ position: 'absolute', inset: 0, opacity: 0.015, backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E")', backgroundSize: '200px', pointerEvents: 'none' }} />
-
-          {/* Ambient floating gold circles — slow, subtle, atmospheric */}
-          {!reduced && (
-            <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>
-              {[
-                { size: 180, x: '12%', y: '20%', dur: 25, delay: 0 },
-                { size: 120, x: '75%', y: '65%', dur: 30, delay: 5 },
-                { size: 240, x: '60%', y: '15%', dur: 35, delay: 10 },
-                { size: 100, x: '30%', y: '75%', dur: 28, delay: 3 },
-              ].map((orb, i) => (
-                <motion.div
-                  key={i}
-                  animate={{ y: [0, -20, 0, 15, 0], x: [0, 10, -10, 5, 0] }}
-                  transition={{ duration: orb.dur, repeat: Infinity, ease: 'linear', delay: orb.delay }}
-                  style={{
-                    position: 'absolute', left: orb.x, top: orb.y, width: orb.size, height: orb.size,
-                    borderRadius: '50%', background: `radial-gradient(circle, rgba(212,175,55,0.06), transparent 70%)`,
-                    filter: 'blur(40px)',
-                  }}
-                />
-              ))}
-            </div>
-          )}
 
           <motion.div style={{ position: 'relative', maxWidth: 1200, margin: '0 auto', padding: '0 clamp(1.5rem, 5vw, 4rem)', display: 'flex', alignItems: 'center', paddingTop: 'clamp(7rem, 14vh, 10rem)', paddingBottom: 'clamp(3rem, 6vw, 5rem)', opacity: reduced ? 1 : heroOpacity }}>
             <motion.div initial="hidden" animate="visible" variants={reduced ? undefined : stagger} style={{ display: 'grid', width: '100%', alignItems: 'center', gap: 'clamp(3rem, 6vw, 5rem)', gridTemplateColumns: '1fr' }} className="lg:!grid-cols-[1fr_340px]">
@@ -334,17 +294,9 @@ export default function IntakeLandingPage() {
             </motion.div>
           </motion.div>
 
-          {/* Premium bottom edge with shimmer */}
+          {/* Premium bottom edge */}
           <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, zIndex: 5 }}>
-            <div style={{ position: 'relative', height: 1, background: `linear-gradient(90deg, transparent 5%, ${c.goldBright}40 30%, ${c.goldBright}60 50%, ${c.goldBright}40 70%, transparent 95%)`, overflow: 'hidden' }}>
-              {!reduced && (
-                <motion.div
-                  animate={{ x: ['-100%', '200%'] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: 'linear', repeatDelay: 3 }}
-                  style={{ position: 'absolute', top: 0, width: '30%', height: '100%', background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent)' }}
-                />
-              )}
-            </div>
+            <div style={{ height: 1, background: `linear-gradient(90deg, transparent 5%, ${c.goldBright}40 30%, ${c.goldBright}60 50%, ${c.goldBright}40 70%, transparent 95%)` }} />
             <div style={{ height: 40, background: 'linear-gradient(to bottom, rgba(0,0,0,0.04), transparent)', pointerEvents: 'none' }} />
           </div>
         </section>
@@ -435,10 +387,8 @@ export default function IntakeLandingPage() {
 
         {/* ═══════════ 3-STEP VISUAL TIMELINE — your first visit ═══════════ */}
         <div style={{ background: c.bg, position: 'relative' }}>
-          {/* Gold dot grid texture — subtle atmosphere */}
-          <div style={{ position: 'absolute', inset: 0, opacity: 0.4, backgroundImage: `radial-gradient(circle, ${c.goldBright}08 1px, transparent 1px)`, backgroundSize: '32px 32px', pointerEvents: 'none' }} />
-          {/* Radial glow */}
-          <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '60%', height: '80%', background: `radial-gradient(ellipse at center, rgba(212,175,55,0.05), transparent 60%)`, pointerEvents: 'none' }} />
+          {/* Subtle radial glow behind timeline */}
+          <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '60%', height: '80%', background: `radial-gradient(ellipse at center, rgba(212,175,55,0.04), transparent 60%)`, pointerEvents: 'none' }} />
           <div style={{ maxWidth: 1000, margin: '0 auto', padding: 'clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem)' }}>
             <Reveal>
               <div style={{ textAlign: 'center', marginBottom: 72 }}>
@@ -456,11 +406,7 @@ export default function IntakeLandingPage() {
               <div className="grid gap-12 lg:grid-cols-3" style={{ position: 'relative', zIndex: 1 }}>
                 {visitSteps.map((step, i) => (
                   <Reveal key={step.label} delay={0.15 * i} from="scale">
-                    <div style={{ textAlign: 'center', position: 'relative' }}>
-                      {/* Large watermark number — background depth */}
-                      <div style={{ position: 'absolute', top: -20, left: '50%', transform: 'translateX(-50%)', fontFamily: serif, fontSize: 'clamp(100px, 14vw, 160px)', fontWeight: 700, color: c.stone100, lineHeight: 1, pointerEvents: 'none', userSelect: 'none', opacity: 0.5, zIndex: 0 }}>
-                        {i + 1}
-                      </div>
+                    <div style={{ textAlign: 'center' }}>
                       {/* Icon circle with step number */}
                       <div style={{ position: 'relative', width: 64, height: 64, margin: '0 auto 24px' }}>
                         <motion.div whileHover={reduced ? undefined : { scale: 1.08, y: -4 }} transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }} style={{ width: 64, height: 64, borderRadius: '50%', background: i === 0 ? c.charcoal : c.white, border: i === 0 ? 'none' : `2px solid ${c.stone200}`, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: i === 0 ? '0 12px 32px -8px rgba(17,17,17,0.3)' : '0 6px 16px -4px rgba(0,0,0,0.06)', cursor: 'default' }}>

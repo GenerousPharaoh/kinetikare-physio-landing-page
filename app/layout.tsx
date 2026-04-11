@@ -1,4 +1,5 @@
 import './globals.css';
+import { Inter, Playfair_Display } from 'next/font/google';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
@@ -7,6 +8,20 @@ import ErrorBoundary from '@/components/ErrorBoundary';
 import CookieBanner from '@/components/CookieBanner';
 import BookingTracker from '@/components/BookingTracker';
 import { PerformanceProvider } from '@/context/PerformanceContext';
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-inter',
+});
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-playfair',
+});
 
 export const viewport = {
   width: 'device-width',
@@ -394,17 +409,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <head>
-        {/* Preconnect to Google Fonts for faster loading */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@300;400;500;600;700;800;900&display=swap"
-        />
-      </head>
-      <body>
+    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+      <body className={inter.className}>
         {/* Google Analytics */}
         <GoogleAnalytics />
         {/* Web Vitals tracking */}

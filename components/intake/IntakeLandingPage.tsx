@@ -179,8 +179,14 @@ export default function IntakeLandingPage() {
   return (
     <>
       <style>{`
-        .intake-page, .intake-page * { font-style: normal !important; }
+        .intake-page p { font-style: normal !important; }
         .intake-page section { padding: 0 !important; }
+        .intake-page h1, .intake-page h2, .intake-page h3 {
+          font-family: "Playfair Display", var(--font-playfair), Georgia, serif !important;
+          line-height: inherit !important;
+          letter-spacing: inherit !important;
+          font-weight: inherit !important;
+        }
         .intake-hero { min-height: 100vh; min-height: 100dvh; }
         @media (prefers-reduced-motion: reduce) { .intake-page .animate-ping { display: none !important; } }
         .intake-cta-hover { transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s ease !important; }
@@ -316,7 +322,7 @@ export default function IntakeLandingPage() {
               <div style={{ display: 'flex', justifyContent: 'center', gap: 4, marginBottom: 24 }}><Stars size={18} /></div>
               <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.goldBright, marginBottom: 48 }}>5.0 from 17 Google Reviews</p>
 
-              <div style={{ position: 'relative', height: 'clamp(200px, 28vw, 250px)' }}>
+              <div style={{ position: 'relative', height: 'clamp(260px, 32vw, 280px)' }}>
                 <AnimatePresence mode="wait">
                   <motion.div key={activeReview}
                     initial={{ opacity: 0, y: 24, filter: 'blur(4px)', scale: 0.96 }}
@@ -332,12 +338,17 @@ export default function IntakeLandingPage() {
                 </AnimatePresence>
               </div>
 
-              <div style={{ display: 'flex', justifyContent: 'center', gap: 6, marginTop: 40 }}>
-                {reviews.map((_, i) => (
-                  <button key={i} onClick={() => go(i)} aria-label={`Review ${i + 1}`} style={{ width: 32, height: 44, border: 'none', background: 'transparent', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <span style={{ display: 'block', width: activeReview === i ? 32 : 6, height: 6, borderRadius: 3, background: activeReview === i ? c.goldBright : 'rgba(255,255,255,0.35)', transition: 'all 0.4s cubic-bezier(0.22,1,0.36,1)' }} />
-                  </button>
-                ))}
+              {/* Review counter instead of overflow-prone dots */}
+              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 16, marginTop: 40 }}>
+                <button onClick={() => go((activeReview - 1 + reviews.length) % reviews.length)} aria-label="Previous review" style={{ width: 44, height: 44, border: 'none', background: 'transparent', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(255,255,255,0.5)' }}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 19l-7-7 7-7" /></svg>
+                </button>
+                <span style={{ fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,0.5)', letterSpacing: '0.08em', fontVariantNumeric: 'tabular-nums' }}>
+                  {activeReview + 1} / {reviews.length}
+                </span>
+                <button onClick={() => go((activeReview + 1) % reviews.length)} aria-label="Next review" style={{ width: 44, height: 44, border: 'none', background: 'transparent', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(255,255,255,0.5)' }}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 5l7 7-7 7" /></svg>
+                </button>
               </div>
               <a href="https://www.google.com/maps/place/Endorphins+Health+%26+Wellness+Centre" target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: 'rgba(255,255,255,0.6)', fontSize: 11, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginTop: 24, cursor: 'pointer', padding: '16px 8px' }}>
                 Read all on Google <ArrowRightIcon width={11} height={11} />
@@ -356,8 +367,8 @@ export default function IntakeLandingPage() {
           </Reveal>
           <div style={{ position: 'relative' }}>
             {/* Edge fade masks */}
-            <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 100, background: `linear-gradient(to right, ${c.white}, transparent)`, zIndex: 2, pointerEvents: 'none' }} />
-            <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 100, background: `linear-gradient(to left, ${c.white}, transparent)`, zIndex: 2, pointerEvents: 'none' }} />
+            <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 'clamp(40px, 12vw, 100px)', background: `linear-gradient(to right, ${c.white}, transparent)`, zIndex: 2, pointerEvents: 'none' }} />
+            <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 'clamp(40px, 12vw, 100px)', background: `linear-gradient(to left, ${c.white}, transparent)`, zIndex: 2, pointerEvents: 'none' }} />
             {/* Row 1 — scrolls left */}
             <motion.div
               animate={reduced ? undefined : { x: ['0%', '-50%'] }}

@@ -3,11 +3,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, AnimatePresence, useMotionTemplate, useMotionValue } from 'framer-motion';
+import { motion, AnimatePresence, useMotionTemplate, useMotionValue, useReducedMotion } from 'framer-motion';
 import { CheckCircleIcon, ClockIcon, DocumentCheckIcon, ArrowRightIcon, StarIcon } from '@heroicons/react/24/solid';
 import { DocumentCheckIcon as OutlineDocumentCheckIcon, CheckCircleIcon as OutlineCheckCircleIcon, ClockIcon as OutlineClockIcon } from '@heroicons/react/24/outline';
 
 export default function HeroSection() {
+  const shouldReduceMotion = useReducedMotion();
+
   // Mouse Spotlight Logic
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -94,7 +96,7 @@ export default function HeroSection() {
             <motion.div
               className="relative w-full h-full will-change-transform"
               initial={{ scale: 1.15, x: "0%" }}
-              animate={{
+              animate={shouldReduceMotion ? undefined : {
                 scale: [1.15, 1.2, 1.15, 1.2],
                 x: ["0%", "10%", "5%", "15%"], // Shifted right
                 y: ["0%", "-3%", "0%", "-2%"]
@@ -186,7 +188,7 @@ export default function HeroSection() {
 
                   <motion.div
                     className="flex flex-col gap-3 p-4"
-                    animate={{ y: "-50%" }}
+                    animate={shouldReduceMotion ? undefined : { y: "-50%" }}
                     transition={{
                       duration: 60, // Slower speed
                       ease: "linear",
@@ -280,7 +282,7 @@ export default function HeroSection() {
         <div className="absolute top-[-20%] left-[-10%] w-[80%] h-[120%] bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#1e293b] via-[#0f172a] to-[#0f172a] opacity-90" />
         <motion.div
           className="absolute top-[20%] left-[10%] w-[500px] h-[500px] bg-[#D4AF37]/5 rounded-full blur-[100px]"
-          animate={{
+          animate={shouldReduceMotion ? undefined : {
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.5, 0.3],
           }}
@@ -318,7 +320,7 @@ export default function HeroSection() {
             className="absolute inset-0 bg-gradient-to-b from-transparent via-white/25 to-transparent"
             style={{ height: '30%' }}
             initial={{ y: '-100%' }}
-            animate={{ y: '400%' }}
+            animate={shouldReduceMotion ? undefined : { y: '400%' }}
             transition={{
               duration: 3.5,
               repeat: Infinity,
@@ -439,7 +441,7 @@ export default function HeroSection() {
                 ))}
               </div>
               <span className="text-white/70 text-xs font-medium">5.0 on Google</span>
-              <span className="text-white/40 text-xs">17 reviews</span>
+              <span className="text-white/60 text-xs">17 reviews</span>
             </motion.div>
 
           </motion.div>

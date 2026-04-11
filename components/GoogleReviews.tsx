@@ -279,7 +279,7 @@ export default function GoogleReviews() {
           <div className="md:hidden flex items-center gap-4">
             <button
               onClick={handlePrevious}
-              className="text-gray-400 hover:text-[#B08D57] transition-colors p-1"
+              className="text-gray-400 hover:text-[#B08D57] transition-colors p-3"
               aria-label="Previous review"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -299,7 +299,7 @@ export default function GoogleReviews() {
 
             <button
               onClick={handleNext}
-              className="text-gray-400 hover:text-[#B08D57] transition-colors p-1"
+              className="text-gray-400 hover:text-[#B08D57] transition-colors p-3"
               aria-label="Next review"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

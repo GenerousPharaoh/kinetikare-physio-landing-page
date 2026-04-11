@@ -115,7 +115,7 @@ function Reveal({ children, delay = 0, from = 'bottom', style, className }: {
   if (from === 'scale') { init.scale = 0.9; init.y = 24; }
   return (
     <motion.div ref={ref} initial={reduced ? false : init} animate={reduced || inView ? { opacity: 1, x: 0, y: 0, scale: 1 } : init}
-      transition={{ duration: 0.95, delay, ease: [0.22, 1, 0.36, 1] }} className={className} style={style}>{children}</motion.div>
+      transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }} className={className} style={style}>{children}</motion.div>
   );
 }
 
@@ -185,7 +185,7 @@ export default function IntakeLandingPage() {
         @media (prefers-reduced-motion: reduce) { .intake-page .animate-ping { display: none !important; } }
         .intake-cta-hover { transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s ease !important; }
         .intake-cta-hover:hover { transform: translateY(-3px) !important; box-shadow: 0 20px 56px -12px rgba(184,150,12,0.5) !important; }
-        .intake-pill { transition: all 0.25s cubic-bezier(0.22,1,0.36,1) !important; cursor: default; }
+        .intake-pill { transition: all 0.25s cubic-bezier(0.22,1,0.36,1) !important; cursor: pointer; }
         .intake-pill:hover { transform: translateY(-2px) !important; border-color: #D4AF37 !important; box-shadow: 0 4px 12px -4px rgba(184,150,12,0.15) !important; }
         .intake-page [data-booking-cta] { color: #1C1917 !important; }
         .intake-page [data-booking-cta]:hover { color: #1C1917 !important; }
@@ -212,12 +212,10 @@ export default function IntakeLandingPage() {
                   <span style={{ fontSize: 13, fontWeight: 500, color: '#059669' }}>Accepting new patients</span>
                 </motion.div>
 
-                <motion.h1 variants={up} style={{ fontFamily: serif, fontSize: 'clamp(3rem, 7vw, 5.5rem)', fontWeight: 700, lineHeight: 0.95, letterSpacing: '-0.04em', color: c.black, marginBottom: 8 }}>
-                  Book Your
+                <motion.h1 variants={up} style={{ fontFamily: serif, fontSize: 'clamp(3rem, 7vw, 5.5rem)', fontWeight: 700, lineHeight: 0.95, letterSpacing: '-0.04em', color: c.black, marginBottom: 48 }}>
+                  Book Your<br />
+                  <span style={{ fontWeight: 300, color: c.gold, fontStyle: 'italic' }}>Assessment</span>
                 </motion.h1>
-                <motion.div variants={up} aria-hidden="true" style={{ fontFamily: serif, fontSize: 'clamp(3rem, 7vw, 5.5rem)', fontWeight: 300, lineHeight: 0.95, letterSpacing: '-0.04em', color: c.gold, marginBottom: 48, fontStyle: 'italic' }}>
-                  Assessment
-                </motion.div>
 
                 <motion.p variants={up} style={{ maxWidth: 460, color: c.textMid, fontSize: 17, lineHeight: 1.75, marginBottom: 36 }}>
                   Personalized one-on-one physiotherapy that gets to the source of your pain so you can move freely and feel like yourself again.
@@ -287,7 +285,7 @@ export default function IntakeLandingPage() {
                     <p style={{ fontSize: 11, color: 'rgba(212,175,55,0.95)', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', lineHeight: 1.4 }}>
                       Registered Physiotherapist
                     </p>
-                    <p style={{ fontSize: 10, color: 'rgba(255,255,255,0.55)', fontWeight: 500, letterSpacing: '0.06em', marginTop: 4 }}>
+                    <p style={{ fontSize: 10, color: 'rgba(255,255,255,0.7)', fontWeight: 500, letterSpacing: '0.06em', marginTop: 4 }}>
                       MSc PT &middot; BSc Kin &middot; CPO #20079
                     </p>
                   </motion.div>
@@ -337,11 +335,11 @@ export default function IntakeLandingPage() {
               <div style={{ display: 'flex', justifyContent: 'center', gap: 6, marginTop: 40 }}>
                 {reviews.map((_, i) => (
                   <button key={i} onClick={() => go(i)} aria-label={`Review ${i + 1}`} style={{ width: 32, height: 44, border: 'none', background: 'transparent', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <span style={{ display: 'block', width: activeReview === i ? 32 : 6, height: 6, borderRadius: 3, background: activeReview === i ? c.goldBright : 'rgba(255,255,255,0.18)', transition: 'all 0.4s cubic-bezier(0.22,1,0.36,1)' }} />
+                    <span style={{ display: 'block', width: activeReview === i ? 32 : 6, height: 6, borderRadius: 3, background: activeReview === i ? c.goldBright : 'rgba(255,255,255,0.35)', transition: 'all 0.4s cubic-bezier(0.22,1,0.36,1)' }} />
                   </button>
                 ))}
               </div>
-              <a href="https://www.google.com/maps/place/Endorphins+Health+%26+Wellness+Centre" target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: 'rgba(255,255,255,0.35)', fontSize: 11, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginTop: 24, cursor: 'pointer', padding: '8px 0' }}>
+              <a href="https://www.google.com/maps/place/Endorphins+Health+%26+Wellness+Centre" target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: 'rgba(255,255,255,0.6)', fontSize: 11, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginTop: 24, cursor: 'pointer', padding: '16px 8px' }}>
                 Read all on Google <ArrowRightIcon width={11} height={11} />
               </a>
             </Reveal>
@@ -362,7 +360,7 @@ export default function IntakeLandingPage() {
             <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 100, background: `linear-gradient(to left, ${c.white}, transparent)`, zIndex: 2, pointerEvents: 'none' }} />
             {/* Row 1 — scrolls left */}
             <motion.div
-              animate={{ x: ['0%', '-50%'] }}
+              animate={reduced ? undefined : { x: ['0%', '-50%'] }}
               transition={{ duration: isMobile ? 22 : 40, ease: 'linear', repeat: Infinity }}
               style={{ display: 'flex', gap: 12, width: 'max-content', marginBottom: 12 }}
             >
@@ -374,7 +372,7 @@ export default function IntakeLandingPage() {
             </motion.div>
             {/* Row 2 — scrolls right (opposite direction) */}
             <motion.div
-              animate={{ x: ['-50%', '0%'] }}
+              animate={reduced ? undefined : { x: ['-50%', '0%'] }}
               transition={{ duration: isMobile ? 25 : 45, ease: 'linear', repeat: Infinity }}
               style={{ display: 'flex', gap: 12, width: 'max-content' }}
             >
@@ -505,12 +503,12 @@ export default function IntakeLandingPage() {
                       {['Sun Life', 'Manulife', 'Green Shield', 'Blue Cross', 'Canada Life', 'WSIB', 'Desjardins', 'TELUS Health'].map((ins) => (
                         <span key={ins} style={{ padding: '5px 12px', fontSize: 11, fontWeight: 500, color: c.textMid, background: c.white, borderRadius: 999, border: `1px solid ${c.stone100}` }}>{ins}</span>
                       ))}
-                      <span style={{ padding: '5px 12px', fontSize: 11, fontWeight: 500, color: c.textLight, borderRadius: 999 }}>+ more</span>
+                      <span style={{ padding: '5px 12px', fontSize: 11, fontWeight: 500, color: c.textMid, borderRadius: 999 }}>+ more</span>
                     </div>
                     <p style={{ color: c.textLight, fontSize: 13, lineHeight: 1.7, marginTop: 16 }}>
                       No referral needed to book. If your plan requires a referral for reimbursement, the team at Endorphins can help you navigate that.
                     </p>
-                    <a href="/faq" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, marginTop: 16, fontSize: 13, fontWeight: 600, color: c.gold, textDecoration: 'none', cursor: 'pointer' }}>
+                    <a href="/faq" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, marginTop: 16, padding: '12px 0', fontSize: 13, fontWeight: 600, color: c.gold, textDecoration: 'none', cursor: 'pointer' }}>
                       Questions about your first visit?
                       <ArrowRightIcon width={13} height={13} />
                     </a>

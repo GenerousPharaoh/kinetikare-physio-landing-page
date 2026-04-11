@@ -496,9 +496,19 @@ export default function IntakeLandingPage() {
                     ))}
                   </div>
 
-                  <p style={{ color: c.textLight, fontSize: 13, lineHeight: 1.7, marginTop: 24 }}>
-                    Most major insurance plans accepted with direct billing. All prices in CAD.
-                  </p>
+                  {/* Insurance providers */}
+                  <div style={{ marginTop: 32 }}>
+                    <p style={{ fontSize: 13, fontWeight: 600, color: c.text, marginBottom: 12 }}>Direct billing available for:</p>
+                    <div className="flex flex-wrap gap-2">
+                      {['Sun Life', 'Manulife', 'Green Shield', 'Blue Cross', 'Canada Life', 'WSIB', 'Desjardins', 'TELUS Health'].map((ins) => (
+                        <span key={ins} style={{ padding: '5px 12px', fontSize: 11, fontWeight: 500, color: c.textMid, background: c.white, borderRadius: 999, border: `1px solid ${c.stone100}` }}>{ins}</span>
+                      ))}
+                      <span style={{ padding: '5px 12px', fontSize: 11, fontWeight: 500, color: c.textLight, borderRadius: 999 }}>+ more</span>
+                    </div>
+                    <p style={{ color: c.textLight, fontSize: 13, lineHeight: 1.7, marginTop: 16 }}>
+                      No referral needed to book. If your plan requires a referral for reimbursement, the team at Endorphins can help you navigate that.
+                    </p>
+                  </div>
                 </div>
               </Reveal>
             </div>

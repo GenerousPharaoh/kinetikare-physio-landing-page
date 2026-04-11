@@ -366,7 +366,7 @@ export default function IntakeLandingPage() {
             {/* Row 1 — scrolls left */}
             <motion.div
               animate={reduced ? undefined : { x: ['0%', '-50%'] }}
-              transition={{ duration: isMobile ? 22 : 40, ease: 'linear', repeat: Infinity }}
+              transition={{ duration: isMobile ? 14 : 40, ease: 'linear', repeat: Infinity }}
               style={{ display: 'flex', gap: 12, width: 'max-content', marginBottom: 12 }}
             >
               {[...conditionsRow1, ...conditionsRow1].map((cond, i) => (
@@ -378,7 +378,7 @@ export default function IntakeLandingPage() {
             {/* Row 2 — scrolls right (opposite direction) */}
             <motion.div
               animate={reduced ? undefined : { x: ['-50%', '0%'] }}
-              transition={{ duration: isMobile ? 25 : 45, ease: 'linear', repeat: Infinity }}
+              transition={{ duration: isMobile ? 16 : 45, ease: 'linear', repeat: Infinity }}
               style={{ display: 'flex', gap: 12, width: 'max-content' }}
             >
               {[...conditionsRow2, ...conditionsRow2].map((cond, i) => (

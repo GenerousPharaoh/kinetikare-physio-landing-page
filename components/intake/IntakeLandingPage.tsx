@@ -481,7 +481,7 @@ export default function IntakeLandingPage() {
                           <p style={{ color: c.textLight, fontSize: 13 }}>{item.detail}</p>
                         </div>
                         <p style={{ fontSize: 22, fontWeight: 700, color: c.black, whiteSpace: 'nowrap', marginLeft: 24, letterSpacing: '-0.02em' }}>
-                          {item.price}
+                          ${item.price}
                         </p>
                       </div>
                     ))}
@@ -506,7 +506,7 @@ export default function IntakeLandingPage() {
                     <p style={{ fontSize: 13, fontWeight: 600, color: c.text, marginBottom: 12 }}>Direct billing available for:</p>
                     <div className="flex flex-wrap gap-2">
                       {['Sun Life', 'Manulife', 'Green Shield', 'Blue Cross', 'Canada Life', 'WSIB', 'Desjardins', 'TELUS Health'].map((ins) => (
-                        <span key={ins} style={{ padding: '5px 12px', fontSize: 11, fontWeight: 500, color: c.textMid, background: c.white, borderRadius: 999, border: `1px solid ${c.stone100}` }}>{ins}</span>
+                        <span key={ins} style={{ padding: '8px 16px', fontSize: 13, fontWeight: 500, color: c.text, background: c.white, borderRadius: 999, border: `1px solid ${c.stone100}` }}>{ins}</span>
                       ))}
                       <span style={{ padding: '5px 12px', fontSize: 11, fontWeight: 500, color: c.textMid, borderRadius: 999 }}>+ more</span>
                     </div>

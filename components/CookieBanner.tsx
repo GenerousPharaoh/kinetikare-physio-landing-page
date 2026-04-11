@@ -22,10 +22,10 @@ const CookieBanner = () => {
       return;
     }
 
-    if (!consentStatus) {
+    if (!consentStatus && !isIntakePage) {
       setIsVisible(true);
     }
-  }, []);
+  }, [isIntakePage]);
 
   const handleConsent = (status: 'accepted' | 'declined') => {
     localStorage.setItem(COOKIE_CONSENT_KEY, status);

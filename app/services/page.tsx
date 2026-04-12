@@ -613,10 +613,12 @@ export default function ServicesPage() {
                   <div className="space-y-3 mb-6">
                     {[
                       'Canada Life',
-                      'Sun Life', 
+                      'Sun Life',
                       'Manulife',
                       'Green Shield Canada',
                       'Blue Cross',
+                      'Desjardins',
+                      'TELUS Health',
                       'WSIB'
                     ].map((provider, index) => (
                       <div key={index} className="group/item flex items-center p-4 bg-gradient-to-r from-slate-50/50 to-white rounded-xl border border-slate-200/60 hover:shadow-lg hover:border-[#B08D57]/30 hover:translate-x-1 transition-all duration-500 cursor-default" style={{
@@ -632,13 +634,23 @@ export default function ServicesPage() {
                     ))}
                   </div>
                   
-                  <div className="bg-gradient-to-r from-[#B08D57]/8 to-[#D4AF37]/8 rounded-xl p-5 border border-[#B08D57]/20 backdrop-blur-sm hover:shadow-md transition-all duration-300">
-                    <div className="flex items-center">
-                      <div className="relative mr-3">
-                        <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37]"></div>
-                        <div className="absolute inset-0 w-2.5 h-2.5 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] animate-ping"></div>
+                  <p className="text-sm text-primary-500 italic mb-6">and many more providers</p>
+
+                  <div className="mt-2 p-5 bg-slate-50 rounded-xl border border-slate-200/60">
+                    <p className="text-sm font-semibold text-slate-700 mb-3 tracking-wide uppercase">Session Fees</p>
+                    <div className="flex gap-8">
+                      <div>
+                        <p className="text-xl font-bold text-slate-900">$130</p>
+                        <p className="text-xs text-slate-500">Initial Assessment</p>
                       </div>
-                      <span className="text-primary-700 font-medium">and many more providers</span>
+                      <div>
+                        <p className="text-xl font-bold text-slate-900">$90</p>
+                        <p className="text-xs text-slate-500">Follow-up (30 min)</p>
+                      </div>
+                      <div>
+                        <p className="text-xl font-bold text-slate-900">$145</p>
+                        <p className="text-xs text-slate-500">Follow-up (60 min)</p>
+                      </div>
                     </div>
                   </div>
                 </div>

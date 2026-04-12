@@ -379,7 +379,7 @@ export default function ConditionPageClient({
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="w-full max-w-5xl">
               {/* Breadcrumb */}
-              <nav className="flex items-center space-x-2 text-sm text-slate-600 mb-4">
+              <nav aria-label="Breadcrumb" className="flex items-center space-x-2 text-sm text-slate-600 mb-4">
                 <Link href="/" className="hover:text-[#B08D57] transition-colors duration-200">
                   Home
                 </Link>
@@ -532,7 +532,7 @@ export default function ConditionPageClient({
             <div className="flex gap-6 items-start relative">
               {/* Sidebar Navigation - Desktop - JAVASCRIPT STICKY */}
               <aside id="sidebar-container" className="hidden lg:block w-56 flex-shrink-0">
-                <nav className="sticky top-28 max-h-[calc(100vh-8rem)] overflow-y-auto space-y-3 pr-3">
+                <nav aria-label="Page sections" className="sticky top-28 max-h-[calc(100vh-8rem)] overflow-y-auto space-y-3 pr-3">
                   {/* Navigation Sections - Ultra Smooth */}
                   <div className="space-y-1.5">
                     {/* Overview/Science Section with Sub-navigation */}
@@ -1042,86 +1042,6 @@ export default function ConditionPageClient({
                         </AnimatePresence>
                       )}
 
-                      {/* Treatment Tab */}
-                      {activeTab === 'treatment' && (
-                        <div className="space-y-8">
-                          {condition.treatmentApproach && (
-                            <div className="bg-white rounded-xl p-8 md:p-8 border border-slate-200">
-                              <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
-                                {condition.treatmentApproach.title}
-                              </h2>
-                              <p className="text-base text-slate-700 leading-relaxed max-w-[72ch] mb-8">
-                                {condition.treatmentApproach.description}
-                              </p>
-                              <div className="space-y-3">
-                                {condition.treatmentApproach.techniques.map((technique, index) => {
-                                  const [title, description] = technique.split(': ');
-                                  return (
-                                    <div key={index} className="flex items-start gap-3">
-                                      <CheckCircleIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
-                                      <div>
-                                        <span className="font-medium text-slate-900">{title}</span>
-                                        {description && <span className="text-slate-700 leading-relaxed">: {description}</span>}
-                                      </div>
-                                    </div>
-                                  );
-                                })}
-                              </div>
-                            </div>
-                          )}
-
-                          {condition.evidenceBasedTreatment && condition.evidenceBasedTreatment.length > 0 && (
-                            <div className="bg-slate-50 rounded-xl p-6 md:p-8 border border-slate-200">
-                              <h2 className="text-xl font-semibold text-slate-900 mb-4">
-                                Evidence-Based Treatment Options
-                              </h2>
-                              <div className="space-y-4">
-                                {condition.evidenceBasedTreatment.map((treatment, index) => (
-                                  <div key={index} className="bg-white rounded-lg p-4 border border-slate-200">
-                                    <h3 className="text-xl font-medium leading-tight text-slate-900 mb-3">{treatment.approach}</h3>
-                                    <p className="text-base text-slate-700 leading-relaxed">{treatment.evidence}</p>
-                                    {hasStrongEvidence(treatment) && (
-                                      <p className="text-xs text-amber-600 mt-2 italic">
-                                        Note: Additional studies needed to confirm effectiveness level
-                                      </p>
-                                    )}
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          )}
-
-                          {condition.timeline && condition.timeline.length > 0 && (
-                            <div className="bg-white rounded-xl p-6 md:p-8 border border-slate-200">
-                              <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
-                                Recovery Timeline
-                              </h2>
-                              <div className="relative">
-                                {condition.timeline.map((phase, index) => (
-                                  <div key={index} className="flex gap-4 mb-6 last:mb-0">
-                                    <div className="flex flex-col items-center">
-                                      <div className="w-3 h-3 bg-[#B08D57] rounded-full" />
-                                      {index < condition.timeline!.length - 1 && (
-                                        <div className="w-0.5 h-full bg-[#B08D57]/30 mt-2" />
-                                      )}
-                                    </div>
-                                    <div className="flex-1 pb-6">
-                                      <div className="flex items-center gap-3 mb-2">
-                                        <h3 className="text-xl font-medium leading-tight text-slate-900">{phase.phase}</h3>
-                                        <span className="text-sm text-[#B08D57] bg-[#B08D57]/10 px-2 py-1 rounded">
-                                          {phase.duration}
-                                        </span>
-                                      </div>
-                                      <p className="text-base text-slate-700 leading-relaxed">{phase.description}</p>
-                                    </div>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          )}
-                        </div>
-                      )}
-
                       {/* Research Tab - Premium Design */}
                       {activeTab === 'research' && (
                         <AnimatePresence mode="wait">
@@ -1186,12 +1106,12 @@ export default function ConditionPageClient({
                                                   </div>
 
                                                   <div className="mb-3">
-                                                    <h5 className="text-sm font-medium text-slate-900 mb-1">Research Details:</h5>
+                                                    <h4 className="text-sm font-medium text-slate-900 mb-1">Research Details:</h4>
                                                     <p className="text-slate-700 text-sm leading-relaxed">{research.detail}</p>
                                                   </div>
 
                                                   <div className="p-3 bg-white/60 backdrop-blur rounded-lg border border-white/40">
-                                                    <h5 className="text-sm font-medium text-slate-900 mb-1">Clinical Relevance:</h5>
+                                                    <h4 className="text-sm font-medium text-slate-900 mb-1">Clinical Relevance:</h4>
                                                     <p className="text-slate-700 text-sm leading-relaxed">{research.clinicalRelevance}</p>
                                                   </div>
                                                 </>
@@ -1224,12 +1144,12 @@ export default function ConditionPageClient({
                                                   )}
 
                                                   <div className="mb-3">
-                                                    <h5 className="text-sm font-medium text-slate-900 mb-1">Key Findings:</h5>
+                                                    <h4 className="text-sm font-medium text-slate-900 mb-1">Key Findings:</h4>
                                                     <p className="text-slate-700 text-sm leading-relaxed">{research.findings}</p>
                                                   </div>
 
                                                   <div className="p-3 bg-white/60 backdrop-blur rounded-lg border border-white/40">
-                                                    <h5 className="text-sm font-medium text-slate-900 mb-1">Clinical Relevance:</h5>
+                                                    <h4 className="text-sm font-medium text-slate-900 mb-1">Clinical Relevance:</h4>
                                                     <p className="text-slate-700 text-sm leading-relaxed">{research.relevance}</p>
                                                   </div>
 
@@ -1993,7 +1913,7 @@ export default function ConditionPageClient({
                                               </div>
                                             </div>
                                             <div className="flex-1">
-                                              <h3 className={`text-xs font-semibold ${color.text} group-open:${color.open} uppercase tracking-wider transition-colors`}>
+                                              <h3 className={`text-xs font-semibold ${color.text} group-open:text-[#B08D57] uppercase tracking-wider transition-colors`}>
                                                 {faq.question}
                                               </h3>
                                             </div>
@@ -2240,7 +2160,7 @@ export default function ConditionPageClient({
       </AnimatePresence>
 
       {/* Fixed Bottom Navigation Bar - Mobile Only - Compact */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-gray-200 shadow-2xl z-40 pb-safe">
+      <div role="tablist" className="lg:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-gray-200 shadow-2xl z-40 pb-safe">
         <div className="flex items-center justify-around px-2 py-2">
           {tabs.map((tab) => (
             <button

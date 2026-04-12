@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { useScrollAnimation, useStaggeredAnimation } from '@/hooks/useScrollAnimation';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { 
   MapPinIcon, 
   EnvelopeIcon, 
@@ -28,8 +28,6 @@ export default function ContactSection() {
     animate: { opacity: 1 },
     transition: { duration: 0.3 }
   };
-
-  const { ref: areasRef, containerVariants, itemVariants } = useStaggeredAnimation({ delay: 0, duration: 0.3 });
 
   const serviceAreas = [
     "Waterdown", "Oakville", "Milton", "Hamilton", 
@@ -228,82 +226,25 @@ export default function ContactSection() {
             </motion.div>
           </div>
 
-          {/* Service Areas Section - Clean Modern Design */}
-          <motion.div
-            initial={{ opacity: 1 }}
-            animate={{ opacity: 1 }}
-            className="mt-12 sm:mt-16"
-          >
-            <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-10 lg:p-16 shadow-premium-2 hover:shadow-premium-2-hover shadow-transition border border-slate-100">
-              {/* Clean Header */}
-                <div className="text-center mb-6 sm:mb-16">
-                <div className="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-xl md:rounded-2xl mb-4 md:mb-6 shadow-lg">
-                  <MapPinIcon className="w-6 h-6 md:w-8 md:h-8 text-white" />
-                  </div>
-
-                <h3 className="text-2xl sm:text-4xl lg:text-5xl font-light text-slate-900 mb-3 md:mb-4 tracking-[-0.03em]">
-                  Service <span className="text-[#B08D57]">Area</span>
-                  </h3>
-
-                <div className="space-y-2 md:space-y-4 max-w-3xl mx-auto">
-                  <p className="text-xl md:text-2xl font-light text-slate-800">
-                    Burlington
-                  </p>
-                  <p className="text-sm md:text-lg text-slate-600 leading-relaxed">
-                    Welcoming patients from {serviceAreas.join(", ")} and surrounding areas
-                  </p>
-                </div>
-                </div>
-
-              {/* Clean Description */}
-              <div className="text-center">
-                <div className="bg-slate-50 rounded-xl md:rounded-2xl p-5 sm:p-10 max-w-4xl mx-auto">
-                  <p className="text-base sm:text-xl md:text-2xl text-slate-700 leading-relaxed">
-                    My practice is conveniently located in <span className="font-medium text-[#B08D57]">Burlington</span>, and I'm pleased to extend physiotherapy services to individuals and families throughout nearby communities.
-                  </p>
-                </div>
-              </div>
+          {/* Service Areas */}
+          <div className="mt-12 sm:mt-16 text-center">
+            <h3 className="text-2xl sm:text-3xl font-light text-slate-900 mb-3 tracking-[-0.02em]">
+              Service <span className="text-[#B08D57]">Area</span>
+            </h3>
+            <p className="text-base sm:text-lg text-slate-600 mb-6">
+              Based in <span className="font-medium text-slate-800">Burlington</span>, welcoming patients from nearby communities
+            </p>
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 max-w-3xl mx-auto">
+              {serviceAreas.map((area) => (
+                <span
+                  key={area}
+                  className="px-4 py-2 bg-slate-50 border border-slate-200 rounded-full text-sm sm:text-base text-slate-700 font-normal"
+                >
+                  {area}
+                </span>
+              ))}
             </div>
-          </motion.div>
-
-          {/* Premium Bottom CTA Section */}
-          <motion.div
-            initial={{ opacity: 1, y: 0 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
-            transition={{ duration: 0.5, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="text-center mt-12 sm:mt-16"
-          >
-            <div className="bg-white/95 backdrop-blur-2xl rounded-2xl sm:rounded-[2rem] p-5 sm:p-10 lg:p-16 shadow-premium-3 hover:shadow-premium-3-hover shadow-transition border border-slate-200/60 max-w-5xl mx-auto relative overflow-hidden">
-              {/* Premium background elements */}
-              <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-[#B08D57]/5 to-transparent rounded-full blur-2xl"></div>
-              <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-[#D4AF37]/5 to-transparent rounded-full blur-2xl"></div>
-              
-              <div className="relative z-10">
-                <h3 className="text-xl sm:text-3xl lg:text-4xl font-normal text-slate-900 mb-4 sm:mb-8 tracking-[-0.02em]">
-                  Questions About Treatment?
-                </h3>
-                <p className="text-sm sm:text-lg lg:text-xl text-slate-600 mb-6 sm:mb-12 max-w-3xl mx-auto leading-relaxed font-light">
-                  I'm here to discuss your specific needs and how physiotherapy can help. Let's start a conversation about your health.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
-                  <Link
-                    href="tel:+19056346000"
-                    className="group inline-flex items-center justify-center px-6 py-4 sm:px-8 lg:px-10 sm:py-5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white hover:text-white rounded-2xl font-medium shadow-premium-2 hover:shadow-premium-2-hover shadow-transition hover:scale-105 text-base sm:text-lg"
-                  >
-                    <PhoneIcon className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3" />
-                    <span>Call Now</span>
-                  </Link>
-                  <Link
-                    href="mailto:kareem.hassanein@gmail.com"
-                    className="group inline-flex items-center justify-center px-6 py-4 sm:px-8 lg:px-10 sm:py-5 bg-white border-2 border-slate-200 text-slate-700 rounded-2xl font-medium shadow-premium-1 hover:shadow-premium-1-hover hover:bg-slate-50 hover:border-slate-300 shadow-transition text-base sm:text-lg"
-                  >
-                    <EnvelopeIcon className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3" />
-                    <span>Send Email</span>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </motion.section>

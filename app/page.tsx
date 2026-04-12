@@ -160,15 +160,11 @@ export default function Home() {
 
           <CareJourneySection />
 
-          <SectionDivider variant="gradient" />
-
           <ServicesSection />
 
           <SectionDivider variant="dots" />
 
           <PopularConditionsSection />
-
-          <SectionDivider variant="gradient" />
 
           <GoogleReviews />
 

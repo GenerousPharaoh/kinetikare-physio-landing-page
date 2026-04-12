@@ -52,7 +52,7 @@ export default function BookingCTA({ children, className, style, size = 'lg' }: 
       data-booking-cta="true"
       style={style}
       className={cn(
-        'group relative inline-flex items-center justify-center font-bold tracking-wide uppercase overflow-hidden rounded-full transition-all duration-300',
+        'group relative inline-flex items-center justify-center font-bold tracking-wide uppercase overflow-hidden rounded-full transition-[transform,box-shadow] duration-300',
         'bg-[#D4AF37] text-slate-900 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] hover:scale-[1.03] active:scale-[0.98]',
         size === 'lg' ? 'px-10 py-4 text-sm gap-3' : 'px-7 py-3 text-xs gap-2',
         className

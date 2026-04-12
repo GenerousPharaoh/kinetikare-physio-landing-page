@@ -74,7 +74,7 @@ export default function ServicesSection() {
           </motion.div>
 
           <h2 className="text-4xl md:text-5xl text-primary-cool mb-6 heading-primary">
-            <span className="text-[#B08D57]">Physiotherapy Services in Burlington</span>
+            Physiotherapy Services in <span className="text-[#B08D57]">Burlington</span>
           </h2>
           <div className="w-24 h-1 bg-[#B08D57] mx-auto mb-6"></div>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">

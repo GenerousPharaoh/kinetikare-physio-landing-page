@@ -123,8 +123,8 @@ function GoldDivider({ padding = 48 }: { padding?: number } = {}) {
   const { ref, inView } = useInView({ threshold: 0.5, triggerOnce: true });
   return (
     <div ref={ref} style={{ display: 'flex', justifyContent: 'center', padding: `${padding}px 0` }}>
-      <motion.div initial={{ width: 0 }} animate={inView ? { width: 160 } : { width: 0 }} transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
-        style={{ height: 1, background: `linear-gradient(90deg, transparent, ${c.goldBright}80, ${c.goldBright}, ${c.goldBright}80, transparent)`, borderRadius: 1 }} />
+      <motion.div initial={{ scaleX: 0 }} animate={inView ? { scaleX: 1 } : { scaleX: 0 }} transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+        style={{ width: 160, height: 1, transformOrigin: 'center', background: `linear-gradient(90deg, transparent, ${c.goldBright}80, ${c.goldBright}, ${c.goldBright}80, transparent)`, borderRadius: 1 }} />
     </div>
   );
 }
@@ -134,10 +134,10 @@ function AnimatedTimelineLine() {
   return (
     <div ref={ref} className="hidden lg:block" style={{ position: 'absolute', top: 32, left: '16.66%', right: '16.66%', height: 2, zIndex: 0, overflow: 'hidden' }}>
       <motion.div
-        initial={{ width: '0%' }}
-        animate={inView ? { width: '100%' } : { width: '0%' }}
+        initial={{ scaleX: 0 }}
+        animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
         transition={{ duration: 1.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        style={{ height: '100%', background: `linear-gradient(90deg, ${c.stone200}, ${c.goldBright} 30%, ${c.goldBright} 70%, ${c.stone200})` }}
+        style={{ width: '100%', height: '100%', transformOrigin: 'left', background: `linear-gradient(90deg, ${c.stone200}, ${c.goldBright} 30%, ${c.goldBright} 70%, ${c.stone200})` }}
       />
     </div>
   );

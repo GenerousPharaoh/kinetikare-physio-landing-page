@@ -18,8 +18,6 @@ import { JANE_BOOKING_URL } from '@/lib/booking';
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   const mapHref = 'https://maps.app.goo.gl/syZN4FUBgACrtqgK9';
-  const mapEmbedSrc =
-    'https://www.google.com/maps?q=4631+Palladium+Way+Unit+6+Burlington+ON&output=embed';
   const contactInfo = [
     {
       icon: <MapPin className="w-5 h-5 text-gold flex-shrink-0" weight="duotone" />,
@@ -262,18 +260,11 @@ export default function Footer() {
                 CPO Verified Registration
               </Link>
 
-              {/* Small Map Preview */}
-              <div className="rounded-lg overflow-hidden h-[120px] relative border border-white/10 bg-slate-800">
-                <iframe
-                  src={mapEmbedSrc}
-                  title="Clinic location map"
-                  width="100%"
-                  height="120"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  style={{ border: 0 }}
-                ></iframe>
-              </div>
+              {/* Get Directions link */}
+              <a href="https://maps.app.goo.gl/JC7uKnd9zW4AJPP49" target="_blank" rel="noreferrer" className="block rounded-lg bg-slate-800/50 border border-slate-700/50 p-4 hover:bg-slate-800 transition-colors">
+                <p className="text-sm font-medium text-white mb-1">Get Directions</p>
+                <p className="text-xs text-slate-400">4631 Palladium Way, Unit 6, Burlington, ON</p>
+              </a>
             </div>
           </div>
         </div>

@@ -30,15 +30,17 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     };
   }
 
+  const fallbackDescription = `${treatment.name} physiotherapy treatment in Burlington with Kareem Hassanein, Registered Physiotherapist.`;
+
   return {
     title: `${treatment.name} Burlington | Kareem Hassanein Physiotherapy`,
-    description: treatment.metaDescription,
+    description: treatment.metaDescription || fallbackDescription,
     authors: [SEO_AUTHOR],
     creator: SEO_AUTHOR.name,
     publisher: SEO_PUBLISHER,
     openGraph: {
       title: `${treatment.name} | Physiotherapy Treatment in Burlington`,
-      description: treatment.metaDescription,
+      description: treatment.metaDescription || fallbackDescription,
       type: 'article',
       url: `https://www.kinetikarephysio.com/treatments/${treatment.id}`,
       siteName: 'Kareem Hassanein Physiotherapy',
@@ -58,7 +60,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     twitter: {
       card: 'summary_large_image',
       title: `${treatment.name} | Kareem Hassanein Physiotherapy`,
-      description: treatment.metaDescription,
+      description: treatment.metaDescription || fallbackDescription,
       images: ['https://www.kinetikarephysio.com/images/og-image.jpg'],
     },
     alternates: {

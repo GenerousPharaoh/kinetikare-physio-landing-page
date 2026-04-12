@@ -122,11 +122,10 @@ export default function CareJourneySection() {
             ))}
           </motion.div>
 
-          {/* Mobile scroll hint */}
-          <div className="flex md:hidden justify-center mt-3 gap-1.5">
-            {steps.map((_, i) => (
-              <div key={i} className="w-1.5 h-1.5 rounded-full bg-[#B08D57]/20" />
-            ))}
+          {/* Mobile swipe hint */}
+          <div className="flex items-center justify-center gap-2 mt-4 md:hidden text-slate-400 text-xs">
+            <span>Swipe to explore</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </div>
         </div>
 

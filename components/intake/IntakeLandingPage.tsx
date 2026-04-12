@@ -184,7 +184,7 @@ export default function IntakeLandingPage() {
         @media (prefers-reduced-motion: reduce) { .intake-page .animate-ping { display: none !important; } }
         .intake-cta-hover { transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s ease !important; }
         .intake-cta-hover:hover { transform: translateY(-3px) !important; box-shadow: 0 20px 56px -12px rgba(184,150,12,0.5) !important; }
-        .intake-pill { transition: all 0.25s cubic-bezier(0.22,1,0.36,1) !important; cursor: pointer; }
+        .intake-pill { transition: transform 0.25s cubic-bezier(0.22,1,0.36,1), border-color 0.25s ease, box-shadow 0.25s ease !important; cursor: pointer; }
         .intake-pill:hover { transform: translateY(-2px) !important; border-color: #D4AF37 !important; box-shadow: 0 4px 12px -4px rgba(184,150,12,0.15) !important; }
         .intake-page [data-booking-cta] { color: #1C1917 !important; }
         .intake-page [data-booking-cta]:hover { color: #1C1917 !important; }
@@ -318,9 +318,9 @@ export default function IntakeLandingPage() {
               <div style={{ position: 'relative', height: 'clamp(260px, 32vw, 280px)' }}>
                 <AnimatePresence mode="wait">
                   <motion.div key={activeReview}
-                    initial={{ opacity: 0, y: 24, filter: 'blur(4px)', scale: 0.96 }}
-                    animate={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
-                    exit={{ opacity: 0, y: -24, filter: 'blur(4px)', scale: 0.96 }}
+                    initial={{ opacity: 0, y: 24, scale: 0.96 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -24, scale: 0.96 }}
                     transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
                     style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                     <p style={{ fontFamily: serif, fontSize: 'clamp(1.25rem, 2.4vw, 1.85rem)', fontWeight: 300, lineHeight: 1.65, color: '#FFFFFFEE', maxWidth: 620, margin: '0 auto 32px' }}>

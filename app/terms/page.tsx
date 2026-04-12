@@ -155,12 +155,12 @@ export default function TermsPage() {
 
       {/* Additional Legal Sections */}
       <section>
-        <h3>8. Intellectual Property</h3>
+        <h2>8. Intellectual Property</h2>
         <p>
           All content on my website, including text, graphics, logos, and images, is my property or used with permission and is protected by Canadian copyright laws.
         </p>
 
-        <h3>9. Indemnification</h3>
+        <h2>9. Indemnification</h2>
         <p>You agree to indemnify and hold me harmless from any claims, damages, or expenses arising from:</p>
         <ul>
           <li>Your breach of these Terms of Service</li>
@@ -169,32 +169,32 @@ export default function TermsPage() {
           <li>Your failure to follow treatment recommendations resulting in injury</li>
         </ul>
 
-        <h3>10. Governing Law</h3>
+        <h2>10. Governing Law</h2>
         <p>
           These Terms of Service are governed by the laws of Ontario, Canada. Any disputes shall be resolved in the courts of Ontario.
         </p>
 
-        <h3>11. Regulatory Compliance</h3>
+        <h2>11. Regulatory Compliance</h2>
         <p>
           I am registered with and regulated by the College of Physiotherapists of Ontario. I maintain all required registrations, insurance, and comply with all applicable professional standards and regulations.
         </p>
 
-        <h3>12. Accessibility</h3>
+        <h2>12. Accessibility</h2>
         <p>
           I am committed to providing accessible services in compliance with the Accessibility for Ontarians with Disabilities Act (AODA). Please contact me to discuss any accommodation needs.
         </p>
 
-        <h3>13. Modifications to Terms</h3>
+        <h2>13. Modifications to Terms</h2>
         <p>
           I reserve the right to modify these Terms of Service at any time. Changes will be effective upon posting to my website. Your continued use of my services after changes constitutes acceptance of the modified terms.
         </p>
 
-        <h3>14. Severability</h3>
+        <h2>14. Severability</h2>
         <p>
           If any provision of these Terms is found to be unenforceable or invalid, that provision shall be limited or eliminated to the minimum extent necessary, and the remaining provisions shall remain in full effect.
         </p>
 
-        <h3>15. Entire Agreement</h3>
+        <h2>15. Entire Agreement</h2>
         <p>
           These Terms of Service, together with my Privacy Policy and any consent forms, constitute the entire agreement between you and me regarding the use of my services.
         </p>

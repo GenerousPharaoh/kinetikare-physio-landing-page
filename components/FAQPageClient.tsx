@@ -184,6 +184,7 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full bg-transparent py-3 text-lg text-slate-800 placeholder-slate-400 focus:outline-none font-light"
+                aria-label="Search frequently asked questions"
               />
               {searchQuery && (
                 <button
@@ -321,6 +322,7 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="p-3 bg-white/90 backdrop-blur shadow-lg border border-slate-200 rounded-full text-[#B08D57]"
+            aria-label="Scroll to top"
           >
             <ChevronUpIcon className="w-6 h-6" />
           </button>

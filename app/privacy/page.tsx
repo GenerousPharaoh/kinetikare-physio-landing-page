@@ -149,6 +149,8 @@ export default function PrivacyPage() {
 
       {/* Additional Information */}
       <section>
+        <h2 className="text-xl font-semibold text-slate-800 mt-8 mb-4">Additional Information</h2>
+
         <h3>Retention of Information</h3>
         <p>
           I retain your personal health information for a minimum of 10 years following your last visit, or 10 years after you reach the age of majority (18 years), whichever is longer, as required by the College of Physiotherapists of Ontario. After this period, records are securely destroyed.

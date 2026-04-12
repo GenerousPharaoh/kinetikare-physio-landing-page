@@ -44,7 +44,7 @@ export default function AccessibilityPage() {
         </p>
         <ul>
           <li>Providing documents in alternative formats (large print, electronic formats)</li>
-          <li>Ensuring my website meets WCAG 2.0 Level AA standards</li>
+          <li>Ensuring my website meets WCAG 2.1 Level AA standards</li>
           <li>Responding to accessibility requests in a timely manner</li>
           <li>Providing communication supports as needed</li>
         </ul>
@@ -115,6 +115,8 @@ export default function AccessibilityPage() {
 
       {/* Additional Sections */}
       <section>
+        <h2 className="text-xl font-semibold text-slate-800 mt-8 mb-4">Additional Information</h2>
+
         <h3>Accessible Formats and Communication Supports</h3>
         <p>
           Upon request, I will provide or arrange for accessible formats and communication supports for persons with disabilities in a timely manner and at no additional cost. I will consult with the person making the request to determine the most appropriate accessible format or communication support.

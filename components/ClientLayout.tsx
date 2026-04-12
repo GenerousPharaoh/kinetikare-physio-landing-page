@@ -2,7 +2,6 @@
 
 import React, { useEffect, ReactNode } from 'react';
 import FloatingButtons from '@/components/FloatingButtons';
-import FloatingCTA from '@/components/FloatingCTA';
 import MobileBottomNav from '@/components/MobileBottomNav';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -85,7 +84,6 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
         </div>
         
         {/* UI Components */}
-        <FloatingCTA />
         <FloatingButtons />
         <MobileBottomNav />
         

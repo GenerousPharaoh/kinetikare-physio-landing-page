@@ -156,7 +156,7 @@ export default function FloatingButtons() {
               variants={tooltipVariants}
             >
               <span className="block px-3 py-1.5 bg-green-600/90 backdrop-blur-md border border-green-500/50 text-white text-xs font-medium rounded-md shadow-md whitespace-nowrap">
-                Call Us
+                Call
               </span>
             </motion.div>
           )}

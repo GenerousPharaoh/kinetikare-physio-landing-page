@@ -2,29 +2,24 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import {
   MapPin,
   Phone,
   Envelope,
   Clock,
-  ArrowUp,
   FacebookLogo,
   InstagramLogo,
   LinkedinLogo,
 } from '@phosphor-icons/react';
 import Image from 'next/image';
 import BackgroundTexture from './BackgroundTexture';
-import { BOOKING_PAGE_PATH, JANE_BOOKING_URL } from '@/lib/booking';
+import { JANE_BOOKING_URL } from '@/lib/booking';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const pathname = usePathname();
   const mapHref = 'https://maps.app.goo.gl/syZN4FUBgACrtqgK9';
   const mapEmbedSrc =
     'https://www.google.com/maps?q=4631+Palladium+Way+Unit+6+Burlington+ON&output=embed';
-  const showBackToTop = pathname !== BOOKING_PAGE_PATH;
-
   const contactInfo = [
     {
       icon: <MapPin className="w-5 h-5 text-gold flex-shrink-0" weight="duotone" />,
@@ -61,13 +56,6 @@ export default function Footer() {
       icon: <LinkedinLogo weight="fill" className="w-6 h-6" />,
     },
   ];
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
 
   // Handle navigation for footer links
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -315,16 +303,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Back to top button */}
-      {showBackToTop ? (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-24 md:bottom-6 right-6 w-10 h-10 rounded-full bg-gold shadow-lg hover:bg-gold-dark transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold z-50 flex items-center justify-center"
-          aria-label="Back to top"
-        >
-          <ArrowUp weight="bold" className="w-5 h-5 text-white" />
-        </button>
-      ) : null}
     </footer>
   );
 }

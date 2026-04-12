@@ -7,6 +7,8 @@ import WebVitals from '@/components/WebVitals';
 import ErrorBoundary from '@/components/ErrorBoundary';
 import CookieBanner from '@/components/CookieBanner';
 import BookingTracker from '@/components/BookingTracker';
+import FloatingButtons from '@/components/FloatingButtons';
+import MobileBottomNav from '@/components/MobileBottomNav';
 import { PerformanceProvider } from '@/context/PerformanceContext';
 
 const inter = Inter({
@@ -448,6 +450,8 @@ export default function RootLayout({
           {/* Global site footer */}
           <Footer />
         </PerformanceProvider>
+        <FloatingButtons />
+        <MobileBottomNav />
         <CookieBanner />
         <BookingTracker />
       </body>

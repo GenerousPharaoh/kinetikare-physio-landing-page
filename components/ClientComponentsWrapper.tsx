@@ -17,10 +17,6 @@ const FloatingButtons = dynamic(() => import('@/components/FloatingButtons'), {
   loading: () => null
 });
 
-const FloatingCTA = dynamic(() => import('@/components/FloatingCTA'), { 
-  loading: () => null
-});
-
 const MobileBottomNav = dynamic(() => import('@/components/MobileBottomNav'), { 
   loading: () => null
 });
@@ -50,10 +46,6 @@ const ClientComponentsWrapper = memo(function ClientComponentsWrapper({ children
           <Footer />
         </Suspense>
       </div>
-      
-      <Suspense fallback={null}>
-        <FloatingCTA />
-      </Suspense>
       
       <Suspense fallback={null}>
         <FloatingButtons />

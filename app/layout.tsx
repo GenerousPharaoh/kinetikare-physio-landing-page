@@ -411,6 +411,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body className={inter.className}>
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[#D4AF37] focus:text-white focus:rounded focus:text-sm focus:font-medium">
+          Skip to main content
+        </a>
         {/* Google Analytics */}
         <GoogleAnalytics />
         {/* Web Vitals tracking */}
@@ -440,7 +443,7 @@ export default function RootLayout({
           <Header />
           {/* Page content wrapped in ErrorBoundary */}
           <ErrorBoundary>
-            {children}
+            <div id="main-content">{children}</div>
           </ErrorBoundary>
           {/* Global site footer */}
           <Footer />

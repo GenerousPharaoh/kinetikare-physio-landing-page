@@ -14,6 +14,19 @@ import {
 } from '@heroicons/react/24/outline';
 import MedicalDisclaimer from '@/components/MedicalDisclaimer';
 
+// Slugs featured on the homepage as popular/common conditions
+const popularSlugs = new Set([
+  'low-back-pain',
+  'knee-pain-patellofemoral',
+  'patellar-tendinopathy',
+  'sciatica',
+  'plantar-fasciitis',
+  'rotator-cuff-injuries',
+  'greater-trochanteric-pain-syndrome',
+  'ankle-sprains',
+  'frozen-shoulder',
+]);
+
 interface ConditionCategory {
   title: string;
   subtitle: string;
@@ -150,6 +163,17 @@ function ConditionsPageWithParams({
               <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light mb-8">
                 Personalized care for acute injuries and chronic conditions, tailored to specific needs and recovery goals
               </p>
+
+              {/* Early CTA for visitors unsure which condition applies */}
+              <div className="text-center mb-4">
+                <p className="text-sm text-slate-500 mb-3">Not sure which condition applies to you?</p>
+                <Link
+                  href="/intake"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#D4AF37] text-white text-sm font-semibold rounded hover:bg-[#B08D57] transition-colors"
+                >
+                  Book an assessment
+                </Link>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -317,9 +341,16 @@ function ConditionsPageWithParams({
                                       <CheckCircleIcon className="w-5 h-5 text-white" />
                                     </div>
                                     <div className="flex-1">
-                                      <h3 className="font-semibold text-base text-slate-900 group-hover:text-[#B08D57] transition-colors">
-                                        {mainCondition}
-                                      </h3>
+                                      <div className="flex items-center gap-2">
+                                        <h3 className="font-semibold text-base text-slate-900 group-hover:text-[#B08D57] transition-colors">
+                                          {mainCondition}
+                                        </h3>
+                                        {popularSlugs.has(slug) && (
+                                          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-[#B08D57]/10 text-[#B08D57] border border-[#B08D57]/20">
+                                            Common
+                                          </span>
+                                        )}
+                                      </div>
                                       {details && (
                                         <p className="text-sm text-slate-600 mt-0.5">
                                           {details}

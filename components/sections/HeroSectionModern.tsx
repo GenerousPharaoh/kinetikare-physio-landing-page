@@ -348,7 +348,7 @@ export default function HeroSection() {
             </motion.div>
 
             <motion.div variants={itemVariants} className="mb-6 md:mb-8">
-              <p className="max-w-lg text-sm md:text-base text-white/70 leading-relaxed">
+              <p className="max-w-lg text-base md:text-lg text-white/85 leading-relaxed">
                 One-on-one physiotherapy built around finding the root cause of your pain and getting back to feeling your best.
               </p>
             </motion.div>

@@ -59,6 +59,7 @@ export const reviews = [
 ];
 
 export default function GoogleReviews() {
+  // Total Google reviews (13 featured + 4 not shown)
   const totalGoogleReviews = 17;
   const featuredReviewsCount = reviews.length;
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -186,10 +187,9 @@ export default function GoogleReviews() {
                       scale: review.position === 'current' ? 1 : 0.85
                     }}
                     animate={{
-                      opacity: review.position === 'current' ? 1 : 0.3,
+                      opacity: review.position === 'current' ? 1 : 0.35,
                       x: review.position === 'prev' ? -350 : review.position === 'next' ? 350 : 0,
-                      scale: review.position === 'current' ? 1 : 0.85,
-                      filter: review.position === 'current' ? 'blur(0px)' : 'blur(3px)'
+                      scale: review.position === 'current' ? 1 : 0.88
                     }}
                     exit={{
                       opacity: 0,
@@ -331,7 +331,7 @@ export default function GoogleReviews() {
         {/* Google Reviews Link */}
         <div className="text-center mt-6">
           <a
-            href="https://www.google.com/search?q=kareem+hassanein+physiotherapy+burlington"
+            href="https://www.google.com/maps/place/Endorphins+Health+%26+Wellness+Centre/@43.430782,-79.838055,17z/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors"

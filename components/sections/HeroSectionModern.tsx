@@ -280,20 +280,14 @@ export default function HeroSection() {
 
         {/* Aurora Background Effect */}
         <div className="absolute top-[-20%] left-[-10%] w-[80%] h-[120%] bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#1e293b] via-[#0f172a] to-[#0f172a] opacity-90" />
-        <motion.div
+        <div
           className="absolute top-[20%] left-[10%] w-[500px] h-[500px] bg-[#D4AF37]/5 rounded-full blur-[100px]"
-          animate={shouldReduceMotion ? undefined : {
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          style={{ opacity: 0.4 }}
         />
 
-        {/* Subtle Animated Texture */}
-        <motion.div
+        {/* Subtle Texture */}
+        <div
           className="absolute inset-0 opacity-[0.03] bg-[url('/images/noise.png')] mix-blend-overlay"
-          animate={{ backgroundPosition: ['0% 0%', '100% 100%'] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
         />
 
         {/* Dot Matrix Pattern */}
@@ -314,21 +308,7 @@ export default function HeroSection() {
         variants={goldLineVariants}
         style={{ transform: 'translateZ(0)' }}
       >
-        <div className="relative w-full h-full bg-gradient-to-b from-[#D4AF37] via-[#F5E6B3] to-[#D4AF37] shadow-[0_0_30px_rgba(212,175,55,0.3)] overflow-hidden">
-          {/* Shimmer effect traveling down the line */}
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-b from-transparent via-white/25 to-transparent"
-            style={{ height: '30%' }}
-            initial={{ y: '-100%' }}
-            animate={shouldReduceMotion ? undefined : { y: '400%' }}
-            transition={{
-              duration: 3.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-              repeatDelay: 1.5
-            }}
-          />
-        </div>
+        <div className="w-full h-full bg-gradient-to-b from-[#D4AF37] via-[#F5E6B3] to-[#D4AF37] shadow-[0_0_30px_rgba(212,175,55,0.3)]" />
       </motion.div>
 
       {/* 4. Content Layer - Accounting for mobile browser bars with explicit safe padding */}

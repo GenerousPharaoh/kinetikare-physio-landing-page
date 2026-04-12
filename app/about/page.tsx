@@ -111,18 +111,6 @@ export default function About() {
       iconType: 'document'
     },
     {
-      id: 'communication',
-      title: 'Clear Communication',
-      description: 'Easy-to-understand explanations of findings in accessible language',
-      iconType: 'chat'
-    },
-    {
-      id: 'customization',
-      title: 'Custom Treatment',
-      description: 'A tailored therapy plan addressing your specific recovery goals',
-      iconType: 'adjustments'
-    },
-    {
       id: 'attention',
       title: 'Dedicated Attention',
       description: 'One-on-one, unhurried focus during every treatment session',
@@ -133,12 +121,6 @@ export default function About() {
       title: 'Evidence-Based Care',
       description: 'Proven interventions combining manual therapy, movement retraining, and self-management',
       iconType: 'beaker'
-    },
-    {
-      id: 'collaboration',
-      title: 'Collaborative Approach',
-      description: 'A partnership that respects your input and preferences',
-      iconType: 'userGroup'
     }
   ];
 

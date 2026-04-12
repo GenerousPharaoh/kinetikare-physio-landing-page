@@ -760,7 +760,7 @@ export default function ServicesPage() {
                 
                 {/* CTA Button */}
                 <Link
-                  href="/#contact"
+                  href="/intake"
                   className="inline-flex items-center justify-center px-10 py-4 bg-gradient-to-r from-[#1A2036] to-slate-800 text-white rounded-xl font-medium text-lg transition-all duration-300 shadow-md hover:shadow-xl hover:from-[#B08D57] hover:to-[#D4AF37] hover:text-slate-900 transform hover:-translate-y-0.5"
                 >
                   Book Your Assessment

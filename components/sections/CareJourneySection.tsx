@@ -14,8 +14,8 @@ export default function CareJourneySection() {
       number: "01",
       title: "Initial Assessment",
       description: "Comprehensive evaluation of your condition, medical history, and movement patterns to understand your unique needs.",
-      link: "/about",
-      linkText: "About the approach"
+      link: "/intake",
+      linkText: "Book an assessment"
     },
     {
       number: "02", 
@@ -28,8 +28,8 @@ export default function CareJourneySection() {
       number: "03",
       title: "Active Treatment", 
       description: "Hands-on therapy, exercise prescription, and education to address your specific condition and restore function.",
-      link: "/conditions",
-      linkText: "Treatment areas"
+      link: "/treatments",
+      linkText: "Treatment methods"
     },
     {
       number: "04",
@@ -130,54 +130,7 @@ export default function CareJourneySection() {
           </div>
         </div>
 
-        {/* Bottom CTA - Redesigned */}
-        <motion.div
-          initial={{ opacity: 1, y: 0 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
-          transition={{ duration: 0.5, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-10 md:mt-16"
-        >
-          <div className="relative bg-gradient-to-br from-slate-800 via-slate-900 to-black rounded-2xl sm:rounded-3xl p-5 sm:p-10 lg:p-16 shadow-2xl overflow-hidden">
-            {/* Background pattern */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute inset-0" style={{
-                backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.3) 1px, transparent 0)`,
-                backgroundSize: '32px 32px'
-              }}></div>
-            </div>
 
-            {/* Content */}
-            <div className="relative z-10 text-center max-w-4xl mx-auto">
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-normal text-white mb-3 md:mb-6 leading-tight tracking-[-0.02em]">
-                Ready to Take the Next Step?
-              </h3>
-              <p className="text-base md:text-xl text-white/80 mb-6 md:mb-10 leading-relaxed">
-                Let's start with a comprehensive assessment tailored to your needs.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
-                <a
-                  href="https://endorphinshealth.janeapp.com/#/staff_member/42"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-3.5 md:py-4 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] text-white hover:text-white rounded-xl md:rounded-2xl font-medium shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 text-base md:text-lg"
-                >
-                  Book Your Assessment
-                </a>
-                <a
-                  href="tel:+19056346000"
-                  className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-3.5 md:py-4 bg-white/10 backdrop-blur-sm text-white rounded-xl md:rounded-2xl font-normal border border-white/20 hover:bg-white hover:text-slate-900 transition-all duration-300"
-                >
-                  Call to Discuss
-                </a>
-              </div>
-            </div>
-            
-            {/* Decorative elements */}
-            <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#B08D57]/20 to-transparent rounded-full -translate-y-20 translate-x-20"></div>
-            <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-[#D4AF37]/20 to-transparent rounded-full translate-y-16 -translate-x-16"></div>
-          </div>
-        </motion.div>
       </div>
     </motion.section>
   );

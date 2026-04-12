@@ -290,10 +290,11 @@ export default function GoogleReviews() {
             <div className="w-24 h-0.5 bg-gray-200 rounded-full overflow-hidden">
               <motion.div
                 key={progressKey}
-                className="h-full bg-[#B08D57] rounded-full"
-                initial={{ width: '0%' }}
-                animate={{ width: '100%' }}
+                className="h-full w-full bg-[#B08D57] rounded-full"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
                 transition={{ duration: 7, ease: 'linear' }}
+                style={{ transformOrigin: 'left' }}
               />
             </div>
 

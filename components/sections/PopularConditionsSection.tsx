@@ -50,7 +50,7 @@ export default function PopularConditionsSection() {
                 prefetch={false}
                 className="group rounded-xl border border-slate-200 bg-white p-4 md:p-5 transition-all duration-300 hover:border-[#B08D57] hover:shadow-lg hover:-translate-y-0.5 min-w-[72vw] sm:min-w-[45vw] md:min-w-0 snap-start flex-shrink-0"
               >
-                <p className="text-xs font-medium tracking-wide uppercase text-[#B08D57] mb-1.5 md:mb-2">
+                <p className="text-xs font-medium tracking-wide uppercase text-[#8A6F0A] mb-1.5 md:mb-2">
                   {categoryLabels[condition.category] || 'Condition'}
                 </p>
                 <h3 className="text-base md:text-lg font-medium text-slate-900 leading-tight group-hover:text-[#B08D57] transition-colors">

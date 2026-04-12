@@ -364,7 +364,7 @@ export default function HeroSection() {
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="relative px-8 py-4 bg-[#D4AF37] overflow-hidden rounded-lg sm:rounded-sm shadow-[0_0_20px_rgba(212,175,55,0.2)] hover:shadow-[0_0_40px_rgba(212,175,55,0.4)] transition-all duration-300 flex items-center justify-center gap-3"
+                  className="relative px-8 py-4 bg-[#D4AF37] overflow-hidden rounded-lg sm:rounded-sm shadow-[0_0_20px_rgba(212,175,55,0.2)] hover:shadow-[0_0_40px_rgba(212,175,55,0.4)] transition-[transform,box-shadow,color] duration-300 flex items-center justify-center gap-3"
                 >
                   {/* Sophisticated Shimmer */}
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
@@ -383,7 +383,7 @@ export default function HeroSection() {
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="px-8 py-4 border border-white/20 bg-white/5 backdrop-blur-md hover:bg-white/10 transition-all duration-300 rounded-lg sm:rounded-sm hover:border-[#D4AF37]/30 flex items-center justify-center"
+                  className="px-8 py-4 border border-white/20 bg-white/5 backdrop-blur-md hover:bg-white/10 transition-[transform,background,border-color] duration-300 rounded-lg sm:rounded-sm hover:border-[#D4AF37]/30 flex items-center justify-center"
                 >
                   <span className="text-white text-xs font-bold tracking-[0.15em] uppercase group-hover:text-[#D4AF37] transition-colors">
                     View Services
@@ -401,7 +401,7 @@ export default function HeroSection() {
               ].map((text, index) => (
                 <div
                   key={index}
-                  className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full backdrop-blur-md hover:bg-white/10 transition-all duration-300 hover:border-[#D4AF37]/30 group whitespace-nowrap"
+                  className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full backdrop-blur-md hover:bg-white/10 transition-[background,border-color] duration-300 hover:border-[#D4AF37]/30 group whitespace-nowrap"
                 >
                   <span className="text-white/80 text-[10px] md:text-xs font-medium tracking-wider uppercase group-hover:text-[#D4AF37] transition-colors">{text}</span>
                 </div>

@@ -164,7 +164,7 @@ export default function Home() {
 
           {/* Pricing transparency callout */}
           <div className="text-center py-12 px-6">
-            <p className="text-sm font-medium text-[#B08D57] tracking-wider uppercase mb-3">Transparent Pricing</p>
+            <p className="text-sm font-medium text-[#8A6F0A] tracking-wider uppercase mb-3">Transparent Pricing</p>
             <div className="flex items-center justify-center gap-8 mb-4">
               <div>
                 <p className="text-2xl font-bold text-slate-900">$130</p>

@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import HeroSection from '@/components/sections/HeroSectionModern';
 import AboutSection from '@/components/sections/AboutSection';
-import HealingEnvironmentSection from '@/components/sections/HealingEnvironmentSection';
 import CareJourneySection from '@/components/sections/CareJourneySection';
 import ServicesSection from '@/components/sections/ServicesSection';
 import PopularConditionsSection from '@/components/sections/PopularConditionsSection';
@@ -120,7 +119,7 @@ const personSchema = {
   ]
 };
 
-// Streamlined site structure: Hero → About → Care Journey → Services → Healing Environment → Contact
+// Streamlined site structure: Hero → About → Care Journey → Services → Conditions → Reviews → Contact
 export default function Home() {
   return (
     <>
@@ -172,10 +171,6 @@ export default function Home() {
           <SectionDivider variant="gradient" />
 
           <GoogleReviews />
-
-          <SectionDivider variant="gradient" />
-
-          <HealingEnvironmentSection />
 
           <SectionDivider variant="dots" />
 

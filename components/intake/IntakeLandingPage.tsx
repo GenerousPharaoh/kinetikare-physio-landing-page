@@ -17,7 +17,6 @@ import {
   motion,
   useReducedMotion,
   useScroll,
-  useSpring,
   useTransform,
 } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -149,14 +148,14 @@ export default function IntakeLandingPage() {
   const reduced = useReducedMotion();
   const heroRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress: heroProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
-  const photoY = useSpring(useTransform(heroProgress, [0, 1], [0, 70]), { stiffness: 80, damping: 25 });
-  const heroTextY = useSpring(useTransform(heroProgress, [0, 1], [0, 40]), { stiffness: 100, damping: 30 });
+  // Reduced from 4 useSpring instances to 0 — each spring creates a RAF loop
+  // that contributes to main thread work. Plain useTransform is lightweight.
+  const photoY = useTransform(heroProgress, [0, 1], [0, 50]);
   const heroOpacity = useTransform(heroProgress, [0.3, 1], [1, 0]);
 
   const reviewRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress: reviewProgress } = useScroll({ target: reviewRef, offset: ['start end', 'end start'] });
-  const reviewBgY = useSpring(useTransform(reviewProgress, [0, 1], [-30, 30]), { stiffness: 60, damping: 30 });
-  const reviewBgScale = useSpring(useTransform(reviewProgress, [0, 0.5, 1], [1.1, 1.05, 1]), { stiffness: 60, damping: 30 });
+  const reviewBgY = useTransform(reviewProgress, [0, 1], [-20, 20]);
 
   const stagger = { hidden: { opacity: 1 }, visible: { opacity: 1, transition: { staggerChildren: 0.07, delayChildren: 0.1 } } };
   const up = { hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } } };
@@ -203,7 +202,7 @@ export default function IntakeLandingPage() {
           <motion.div style={{ position: 'relative', maxWidth: 1200, margin: '0 auto', padding: '0 clamp(1.5rem, 5vw, 4rem)', display: 'flex', alignItems: 'center', paddingTop: 'clamp(7rem, 14vh, 10rem)', paddingBottom: 'clamp(3rem, 6vw, 5rem)', opacity: reduced ? 1 : heroOpacity }}>
             <motion.div initial="hidden" animate="visible" variants={reduced ? undefined : stagger} style={{ display: 'grid', width: '100%', alignItems: 'center', gap: 'clamp(3rem, 6vw, 5rem)', gridTemplateColumns: '1fr' }} className="lg:!grid-cols-[1fr_340px]">
 
-              <motion.div style={{ y: reduced ? 0 : heroTextY, paddingTop: 'clamp(0rem, 4vh, 3rem)' }}>
+              <motion.div style={{ paddingTop: 'clamp(0rem, 4vh, 3rem)' }}>
                 <motion.div variants={up} style={{ display: 'inline-flex', alignItems: 'center', gap: 10, marginBottom: 48 }}>
                   <span className="relative flex" style={{ width: 8, height: 8 }}>
                     <span className="animate-ping" style={{ position: 'absolute', inset: 0, borderRadius: '50%', backgroundColor: '#6EE7B7', opacity: 0.6 }} />
@@ -305,7 +304,7 @@ export default function IntakeLandingPage() {
         <div ref={reviewRef} style={{ position: 'relative', overflow: 'hidden' }}>
           {/* Smooth gradient bridge from hero into dark */}
           <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 100, background: `linear-gradient(to bottom, ${c.bg}, transparent)`, zIndex: 3, pointerEvents: 'none' }} />
-          <motion.div style={{ position: 'absolute', inset: '-80px 0', y: reduced ? 0 : reviewBgY, scale: reduced ? 1 : reviewBgScale }}>
+          <motion.div style={{ position: 'absolute', inset: '-80px 0', y: reduced ? 0 : reviewBgY }}>
             <Image src="/images/clinic-room-may-25.webp" alt="" aria-hidden="true" fill loading="lazy" sizes="100vw" style={{ objectFit: 'cover', objectPosition: 'center 40%' }} />
             <div style={{ position: 'absolute', inset: 0, background: 'rgba(17,17,17,0.82)' }} />
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(17,17,17,0.9) 0%, rgba(17,17,17,0.65) 50%, rgba(17,17,17,0.9) 100%)' }} />

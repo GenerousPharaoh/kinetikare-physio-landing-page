@@ -143,9 +143,9 @@ export default function ServicesSection() {
                   src="/images/treatment-photos/treatment-passive-stretching-knee-manual-therapy.jpg"
                   alt="Manual therapy treatment - knee mobilization and stretching technique"
                   fill
-                  className="object-contain group-hover:scale-105 transition-transform duration-700"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
                   style={{ filter: 'contrast(1.05) saturate(1.1)', imageRendering: 'crisp-edges' }}
-                  sizes="(max-width: 768px) 100vw, 1200px"
+                  sizes="(max-width: 768px) 100vw, 576px"
                   quality={82}
                 />
               </div>

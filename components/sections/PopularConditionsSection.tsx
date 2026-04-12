@@ -42,7 +42,7 @@ export default function PopularConditionsSection() {
             </p>
           </div>
 
-          <div className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-3 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0 scrollbar-hide">
+          <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-3 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0 scrollbar-hide">
             {popularConditions.map((condition) => (
               <Link
                 key={condition.slug}

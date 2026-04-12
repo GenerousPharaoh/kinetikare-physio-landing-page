@@ -22,12 +22,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Physiotherapy Treatments | Kareem Hassanein Physiotherapy',
-    description: 'Physiotherapy treatment options in Burlington.',
-    images: ['https://www.kinetikarephysio.com/images/og-image.jpg'],
-  },
   alternates: {
     canonical: 'https://www.kinetikarephysio.com/treatments',
   },

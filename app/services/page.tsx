@@ -343,7 +343,7 @@ export default function ServicesPage() {
             {services.map((service, index) => (
               <div key={service.id} className="group relative h-full">
                 {/* Card Container - Clean Design */}
-                <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden h-full min-h-[480px] border border-slate-100">
+                <div className="bg-white rounded-2xl shadow-lg transition-all duration-500 relative overflow-hidden h-full min-h-[480px] border border-slate-100">
                   {/* Premium gradient accent line at top */}
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#B08D57] via-[#C89F65] to-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   

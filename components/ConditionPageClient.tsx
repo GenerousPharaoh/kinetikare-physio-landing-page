@@ -401,7 +401,7 @@ export default function ConditionPageClient({
               )}
 
               {/* Regional Service Area - Subtle mention */}
-              <p className="text-xs text-slate-400 mt-3">
+              <p className="text-xs text-slate-500 mt-3">
                 Treating {condition.name.toLowerCase()} at our Burlington clinic • Convenient for Waterdown and Flamborough residents
               </p>
 
@@ -444,21 +444,21 @@ export default function ConditionPageClient({
                 <Link
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#B08D57] text-white text-sm font-medium hover:bg-[#997A4B] transition-colors"
+                  className="inline-flex items-center gap-1.5 px-4 py-3 rounded-lg bg-[#B08D57] text-white text-sm font-medium hover:bg-[#997A4B] transition-colors"
                 >
                   <CalendarIcon className="h-4 w-4" />
                   Book Initial Assessment
                 </Link>
                 <Link
                   href="tel:+19056346000"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg border border-slate-300 bg-white text-slate-700 text-sm font-medium hover:border-[#B08D57] hover:text-[#B08D57] transition-colors"
+                  className="inline-flex items-center gap-1.5 px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-700 text-sm font-medium hover:border-[#B08D57] hover:text-[#B08D57] transition-colors"
                 >
                   <PhoneIcon className="h-4 w-4" />
                   Call Clinic
                 </Link>
                 <Link
                   href="/conditions"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg border border-slate-300 bg-white text-slate-700 text-sm font-medium hover:border-[#B08D57] hover:text-[#B08D57] transition-colors"
+                  className="inline-flex items-center gap-1.5 px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-700 text-sm font-medium hover:border-[#B08D57] hover:text-[#B08D57] transition-colors"
                 >
                   View All Conditions
                   <ArrowRightIcon className="h-4 w-4" />
@@ -509,7 +509,7 @@ export default function ConditionPageClient({
                       <button
                         key={chip.id}
                         onClick={chip.onSelect}
-                        className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-colors ${
+                        className={`px-3 py-1.5 min-h-[44px] rounded-full text-xs font-medium border transition-colors ${
                           chip.isActive
                             ? 'bg-slate-900 text-white border-slate-900'
                             : 'bg-white text-slate-700 border-slate-300 hover:border-[#B08D57] hover:text-[#B08D57]'

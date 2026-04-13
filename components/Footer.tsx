@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import {
   MapPin,
@@ -14,6 +14,38 @@ import {
 import Image from 'next/image';
 import BackgroundTexture from './BackgroundTexture';
 import { JANE_BOOKING_URL } from '@/lib/booking';
+
+function FooterMap() {
+  const [showMap, setShowMap] = useState(false);
+  return (
+    <div className="rounded-lg overflow-hidden border border-slate-700/50" style={{ minHeight: 180 }}>
+      {showMap ? (
+        <iframe
+          src="https://www.google.com/maps?q=Endorphins+Health+%26+Wellness+Centre+4631+Palladium+Way+Burlington+ON&output=embed"
+          width="100%"
+          height="180"
+          style={{ border: 0, display: 'block' }}
+          allowFullScreen={false}
+          loading="eager"
+          referrerPolicy="no-referrer-when-downgrade"
+          title="Endorphins Health and Wellness Centre location"
+        />
+      ) : (
+        <button
+          onClick={() => setShowMap(true)}
+          className="w-full h-[180px] bg-slate-800/50 hover:bg-slate-800 transition-colors flex flex-col items-center justify-center gap-3 cursor-pointer"
+          aria-label="Load Google Maps"
+        >
+          <MapPin size={24} className="text-[#D4AF37]" />
+          <div className="text-center">
+            <p className="text-sm font-medium text-white mb-1">View on Map</p>
+            <p className="text-xs text-slate-400">4631 Palladium Way, Unit 6, Burlington</p>
+          </div>
+        </button>
+      )}
+    </div>
+  );
+}
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -260,11 +292,8 @@ export default function Footer() {
                 CPO Verified Registration
               </Link>
 
-              {/* Get Directions link */}
-              <a href="https://maps.app.goo.gl/JC7uKnd9zW4AJPP49" target="_blank" rel="noreferrer" className="block rounded-lg bg-slate-800/50 border border-slate-700/50 p-4 hover:bg-slate-800 transition-colors">
-                <p className="text-sm font-medium text-white mb-1">Get Directions</p>
-                <p className="text-xs text-slate-400">4631 Palladium Way, Unit 6, Burlington, ON</p>
-              </a>
+              {/* Map facade — loads iframe only on click */}
+              <FooterMap />
             </div>
           </div>
         </div>

@@ -93,7 +93,7 @@ export default function ServicesSection() {
         >
           {mainServices.map((service, index) => (
             <motion.div key={service.title} variants={itemVariants} className="group h-full premium-hover-lift">
-              <div className="card-luxury shadow-luxury-medium hover:shadow-luxury-deep transition-all duration-600 h-full flex flex-col premium-hover-glow">
+              <div className="card-luxury shadow-luxury-medium hover:shadow-luxury-deep transition-[transform,box-shadow] duration-600 h-full flex flex-col premium-hover-glow">
                 {/* Service Content */}
                 <h3 className="text-2xl text-slate-900 mb-4 group-hover:text-[#B08D57] transition-colors duration-300 heading-luxury-3">
                   {service.title}
@@ -189,7 +189,7 @@ export default function ServicesSection() {
                     animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.97 }}
                     transition={{ duration: 0.3, delay: index * 0.03 }}
                   >
-                    <div className="bg-gray-50 rounded-lg p-3 border border-gray-200 hover:border-[#B08D57]/50 hover:shadow-md transition-all duration-300">
+                    <div className="bg-gray-50 rounded-lg p-3 border border-gray-200 hover:border-[#B08D57]/50 hover:shadow-md transition-[border-color,box-shadow] duration-300">
                       <h4 className="font-normal text-slate-900 group-hover:text-[#B08D57] transition-colors duration-300 text-sm">
                         {service}
                       </h4>
@@ -231,7 +231,7 @@ export default function ServicesSection() {
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-[#B08D57] hover:bg-[#9A7A4F] text-white hover:text-white px-6 py-2.5 rounded-full font-medium transition-all duration-300 hover:shadow-premium-2 shadow-premium-1 text-sm group"
+                  className="inline-flex items-center gap-2 bg-[#B08D57] hover:bg-[#9A7A4F] text-white hover:text-white px-6 py-2.5 rounded-full font-medium transition-[transform,background,box-shadow] duration-300 hover:shadow-premium-2 shadow-premium-1 text-sm group"
                 >
                   Book Your Assessment
                   <ChevronRightIcon className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-300" />

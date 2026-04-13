@@ -82,7 +82,7 @@ export default function CareJourneySection() {
             {steps.map((step, index) => (
               <motion.div key={step.number} variants={itemVariants} className="relative group h-full min-w-[75vw] sm:min-w-[60vw] md:min-w-0 snap-start">
                 {/* Step Card - Premium glass design */}
-                <div className="h-full glass-luxury rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 shadow-luxury-medium hover:shadow-luxury-deep transition-all duration-600 relative overflow-hidden border-luxury-subtle premium-hover-lift">
+                <div className="h-full glass-luxury rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 shadow-luxury-medium hover:shadow-luxury-deep transition-[transform,box-shadow] duration-600 relative overflow-hidden border-luxury-subtle premium-hover-lift">
                   {/* Premium gradient background */}
                   <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 via-transparent to-[#B08D57]/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 
@@ -106,7 +106,7 @@ export default function CareJourneySection() {
                     {/* Interactive link */}
                     <Link
                       href={step.link}
-                      className="mt-4 md:mt-6 flex items-center text-sm text-[#B08D57] transition-all duration-300 hover:text-[#D4AF37]"
+                      className="mt-4 md:mt-6 flex items-center text-sm text-[#B08D57] transition-colors duration-300 hover:text-[#D4AF37]"
                     >
                       <span className="font-medium">{step.linkText}</span>
                       <svg className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -74,7 +74,7 @@ export default function ContactSection() {
               animate={{ opacity: 1 }}
             >
               {/* Single Consolidated Contact Card */}
-              <div className="glass-luxury rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-12 shadow-luxury-deep hover:shadow-luxury-float transition-all duration-600 border-luxury-subtle premium-hover-glow">
+              <div className="glass-luxury rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-12 shadow-luxury-deep hover:shadow-luxury-float transition-[transform,box-shadow] duration-600 border-luxury-subtle premium-hover-glow">
                 <h3 className="text-2xl sm:text-3xl font-light text-slate-900 mb-8 sm:mb-10 tracking-[-0.02em] text-center">Contact Information</h3>
                 
                 <div className="space-y-6 sm:space-y-8">

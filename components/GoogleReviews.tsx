@@ -200,7 +200,7 @@ export default function GoogleReviews() {
                       }`}
                   >
                     <div className="h-full flex items-center justify-center px-4">
-                      <div className="bg-white rounded-2xl shadow-luxury-deep hover:shadow-luxury-float transition-all duration-600 p-4 sm:p-8 md:p-10 max-w-3xl w-full border border-gray-200 h-[340px] sm:h-[440px] md:h-[500px] flex flex-col relative overflow-hidden">
+                      <div className="bg-white rounded-2xl shadow-luxury-deep hover:shadow-luxury-float transition-[transform,box-shadow] duration-600 p-4 sm:p-8 md:p-10 max-w-3xl w-full border border-gray-200 h-[340px] sm:h-[440px] md:h-[500px] flex flex-col relative overflow-hidden">
                         {/* Google Badge */}
                         <div className="flex items-center gap-2 mb-4 flex-shrink-0 relative z-10">
                           <div className="w-5 h-5 relative">
@@ -319,7 +319,7 @@ export default function GoogleReviews() {
                 aria-label={`Go to review ${index + 1}`}
               >
                 <span
-                  className={`rounded-full transition-all duration-300 ${index === currentIndex
+                  className={`rounded-full transition-[transform,background] duration-300 ${index === currentIndex
                     ? 'w-2 h-2 bg-[#B08D57]'
                     : 'w-1.5 h-1.5 bg-gray-300 hover:bg-[#B08D57]/60'
                     }`}

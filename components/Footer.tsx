@@ -17,8 +17,20 @@ import { JANE_BOOKING_URL } from '@/lib/booking';
 
 function FooterMap() {
   const [showMap, setShowMap] = useState(false);
+  const mapRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    if (!mapRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setShowMap(true); observer.disconnect(); } },
+      { rootMargin: '200px' }
+    );
+    observer.observe(mapRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="rounded-lg overflow-hidden border border-slate-700/50" style={{ minHeight: 180 }}>
+    <div ref={mapRef} className="rounded-lg overflow-hidden border border-slate-700/50" style={{ minHeight: 180 }}>
       {showMap ? (
         <iframe
           src="https://www.google.com/maps?q=Endorphins+Health+%26+Wellness+Centre+4631+Palladium+Way+Burlington+ON&output=embed"
@@ -26,22 +38,13 @@ function FooterMap() {
           height="180"
           style={{ border: 0, display: 'block' }}
           allowFullScreen={false}
-          loading="eager"
           referrerPolicy="no-referrer-when-downgrade"
           title="Endorphins Health and Wellness Centre location"
         />
       ) : (
-        <button
-          onClick={() => setShowMap(true)}
-          className="w-full h-[180px] bg-slate-800/50 hover:bg-slate-800 transition-colors flex flex-col items-center justify-center gap-3 cursor-pointer"
-          aria-label="Load Google Maps"
-        >
-          <MapPin size={24} className="text-[#D4AF37]" />
-          <div className="text-center">
-            <p className="text-sm font-medium text-white mb-1">View on Map</p>
-            <p className="text-xs text-slate-400">4631 Palladium Way, Unit 6, Burlington</p>
-          </div>
-        </button>
+        <div className="w-full h-[180px] bg-slate-800/50 flex items-center justify-center">
+          <p className="text-xs text-slate-500">Loading map...</p>
+        </div>
       )}
     </div>
   );

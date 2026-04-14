@@ -8,7 +8,7 @@ import ErrorBoundary from '@/components/ErrorBoundary';
 import CookieBanner from '@/components/CookieBanner';
 import BookingTracker from '@/components/BookingTracker';
 import FloatingButtons from '@/components/FloatingButtons';
-import MobileBottomNav from '@/components/MobileBottomNav';
+// MobileBottomNav removed — redundant with hamburger menu
 import { PerformanceProvider } from '@/context/PerformanceContext';
 
 const inter = Inter({
@@ -452,7 +452,7 @@ export default function RootLayout({
           <Footer />
         </PerformanceProvider>
         <FloatingButtons />
-        <MobileBottomNav />
+{/* MobileBottomNav removed — redundant with hamburger menu */}
         <CookieBanner />
         <BookingTracker />
       </body>

@@ -34,7 +34,8 @@ export default function HeroSection() {
     { name: "Kendra MacCuish", text: "He put together a therapy plan that allowed me to reduce my pain while increasing my range of motion." },
     { name: "Nader S", text: "Kareem took his time to assess my father's issue. His mobility immediately improved." },
     { name: "Tami Murzin", text: "His knowledge and hands-on approach helped me regain strength and mobility much faster than I expected." },
-    { name: "Pasquale Di Clemente", text: "He's great at adjusting each session based on how I'm feeling. The exercises have made a big difference in my strength and balance." }
+    { name: "Pasquale Di Clemente", text: "He's great at adjusting each session based on how I'm feeling. The exercises have made a big difference in my strength and balance." },
+    { name: "Sean Vandenbarselaar", text: "He figured out the thigh pain was coming from a nerve in my lower back. Nobody had put that together before. A few weeks in the shock pain was gone." }
   ];
 
   // Animation Variants
@@ -421,7 +422,7 @@ export default function HeroSection() {
                 ))}
               </div>
               <span className="text-white/70 text-xs font-medium">5.0 on Google</span>
-              <span className="text-white/60 text-xs">17 reviews</span>
+              <span className="text-white/60 text-xs">18 reviews</span>
             </motion.div>
 
           </motion.div>

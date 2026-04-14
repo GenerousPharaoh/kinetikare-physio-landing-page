@@ -55,12 +55,16 @@ export const reviews = [
   {
     name: "Nickel Chan",
     text: "Kareem is honestly one of the best physiotherapists I've ever seen. He really knows what he's doing and fixed issues I'd been struggling with for a long time. The dry needling and manual therapy made a huge difference. He listens carefully, explains things clearly, and adjusts the treatment based on what actually works. I always leave feeling better and more mobile. Highly recommend him to anyone looking for a great physio."
+  },
+  {
+    name: "Sean Vandenbarselaar",
+    text: "I'm in my fifties, work in sales, and spend most days either at a desk or on a plane. I had lower back pain, plantar fasciitis, a knee that kept giving out on stairs, and a sharp electric-shock pain running down my thigh. He figured out the thigh pain was coming from a nerve in my lower back rather than the thigh itself, and walked me through why it had been moving around the way it was. Nobody had put that together for me before. A few weeks in the shock pain was gone, my knee stopped giving out, and the back quieted down. If you're getting older and stacking up a handful of nagging issues wondering if any of it's actually fixable, he's worth going to see."
   }
 ];
 
 export default function GoogleReviews() {
-  // Total Google reviews (13 featured + 4 not shown)
-  const totalGoogleReviews = 17;
+  // Total Google reviews (14 featured + 4 not shown)
+  const totalGoogleReviews = 18;
   const featuredReviewsCount = reviews.length;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);

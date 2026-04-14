@@ -35,7 +35,8 @@ export default function HeroSection() {
     { name: "Nader S", text: "Kareem took his time to assess my father's issue. His mobility immediately improved." },
     { name: "Tami Murzin", text: "His knowledge and hands-on approach helped me regain strength and mobility much faster than I expected." },
     { name: "Pasquale Di Clemente", text: "He's great at adjusting each session based on how I'm feeling. The exercises have made a big difference in my strength and balance." },
-    { name: "Sean Vandenbarselaar", text: "He figured out the thigh pain was coming from a nerve in my lower back. Nobody had put that together before. A few weeks in the shock pain was gone." }
+    { name: "Sean Vandenbarselaar", text: "He figured out the thigh pain was coming from a nerve in my lower back. Nobody had put that together before. A few weeks in the shock pain was gone." },
+    { name: "Serhiy Sidey", text: "I fight in the UFC. Torn labrum, torn ligament, rotator cuff tear. Kareem caught the wrong post-op protocol and built me the right one. Training hard again." }
   ];
 
   // Animation Variants
@@ -422,7 +423,7 @@ export default function HeroSection() {
                 ))}
               </div>
               <span className="text-white/70 text-xs font-medium">5.0 on Google</span>
-              <span className="text-white/60 text-xs">18 reviews</span>
+              <span className="text-white/60 text-xs">19 reviews</span>
             </motion.div>
 
           </motion.div>

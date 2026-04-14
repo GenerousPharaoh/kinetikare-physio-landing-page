@@ -88,6 +88,7 @@ const reviews = [
   { name: 'Kendra MacCuish', text: "I came in with a bad shoulder injury. Kareem put together a therapy plan including cupping, dry needling, and shockwave therapy that allowed me to reduce my pain while increasing my range of motion." },
   { name: 'Nader S', text: "I took my elderly father to Kareem for hip and back pain. He took his time to assess the issue carefully and determine the right care. My father's mobility immediately improved." },
   { name: 'Sean Vandenbarselaar', text: "He figured out the thigh pain was coming from a nerve in my lower back rather than the thigh itself. Nobody had put that together before. A few weeks in the shock pain was gone, my knee stopped giving out, and the back quieted down." },
+  { name: 'Serhiy Sidey', text: "Torn labrum, torn ligament, and a rotator cuff tear. I fight in the UFC, so coming back at 80% isn't an option. When the surgeon's office sent the wrong post-op protocol, Kareem caught it and built me the right one. Training hard again." },
 ];
 
 const clinicDetails: Array<{ label: string; value: string; icon: IconComponent }> = [
@@ -254,7 +255,7 @@ export default function IntakeLandingPage() {
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                     <Stars size={13} />
                     <span style={{ fontSize: 14, fontWeight: 700, color: c.text }}>5.0</span>
-                    <span style={{ fontSize: 13, color: c.textLight }}>from 18 reviews</span>
+                    <span style={{ fontSize: 13, color: c.textLight }}>from 19 reviews</span>
                   </div>
                   <span style={{ width: 1, height: 14, background: c.stone200 }} className="hidden sm:block" />
                   {['Direct Billing', 'No Referral', 'Evening Hours'].map((b) => (
@@ -317,7 +318,7 @@ export default function IntakeLandingPage() {
           <div style={{ position: 'relative', maxWidth: 780, margin: '0 auto', padding: 'clamp(7rem, 16vw, 14rem) clamp(1.5rem, 5vw, 4rem)', textAlign: 'center' }}>
             <Reveal from="scale">
               <div style={{ display: 'flex', justifyContent: 'center', gap: 4, marginBottom: 24 }}><Stars size={18} /></div>
-              <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.goldBright, marginBottom: 48 }}>5.0 from 18 Google Reviews</p>
+              <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.goldBright, marginBottom: 48 }}>5.0 from 19 Google Reviews</p>
 
               <div style={{ position: 'relative', height: 'clamp(260px, 32vw, 280px)' }}>
                 <AnimatePresence mode="wait">

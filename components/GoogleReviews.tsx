@@ -59,12 +59,16 @@ export const reviews = [
   {
     name: "Sean Vandenbarselaar",
     text: "I'm in my fifties, work in sales, and spend most days either at a desk or on a plane. I had lower back pain, plantar fasciitis, a knee that kept giving out on stairs, and a sharp electric-shock pain running down my thigh. He figured out the thigh pain was coming from a nerve in my lower back rather than the thigh itself, and walked me through why it had been moving around the way it was. Nobody had put that together for me before. A few weeks in the shock pain was gone, my knee stopped giving out, and the back quieted down. If you're getting older and stacking up a handful of nagging issues wondering if any of it's actually fixable, he's worth going to see."
+  },
+  {
+    name: "Serhiy Sidey",
+    text: "Four weeks out from a fight, I dislocated my right shoulder in a takedown at practice. Torn labrum, torn ligament and a rotator cuff tear. Started with Kareem right after the MRI and stayed with him through surgery and the rehab after. I fight in the UFC, so coming back at 80% isn't an option. When the surgeon's office sent the wrong post-op protocol, he caught it and built me the right one. Training hard again and still making progress! Definitely recommend Kareem to any athletes looking to get back to performing at their best!"
   }
 ];
 
 export default function GoogleReviews() {
-  // Total Google reviews (14 featured + 4 not shown)
-  const totalGoogleReviews = 18;
+  // Total Google reviews (15 featured + 4 not shown)
+  const totalGoogleReviews = 19;
   const featuredReviewsCount = reviews.length;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);

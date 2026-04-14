@@ -1,13 +1,39 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useScrollAnimation, useStaggeredAnimation } from '@/hooks/useScrollAnimation';
+import { useInView } from 'react-intersection-observer';
 
 export default function CareJourneySection() {
   const { ref: sectionRef, animationProps } = useScrollAnimation({ yOffset: 30 });
   const { ref: stepsRef, containerVariants, itemVariants, isInView } = useStaggeredAnimation({ delay: 0.1 });
+
+  // Auto-scroll on mobile when section comes into view
+  const scrollElRef = useRef<HTMLDivElement>(null!) as { current: HTMLDivElement | null };
+  const { ref: autoScrollRef, inView: sectionVisible } = useInView({ threshold: 0.3, triggerOnce: true });
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
+
+  useEffect(() => {
+    if (!sectionVisible || !isMobile || !scrollElRef.current) return;
+    const container = scrollElRef.current;
+    const cardWidth = container.firstElementChild?.clientWidth || 0;
+    const gap = 16;
+    let currentCard = 0;
+    const totalCards = container.children.length;
+
+    const interval = setInterval(() => {
+      currentCard = (currentCard + 1) % totalCards;
+      container.scrollTo({ left: currentCard * (cardWidth + gap), behavior: 'smooth' });
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [sectionVisible, isMobile]);
 
   const steps = [
     {
@@ -73,7 +99,7 @@ export default function CareJourneySection() {
           </div>
           
           <motion.div
-            ref={stepsRef}
+            ref={(el: HTMLDivElement | null) => { scrollElRef.current = el; autoScrollRef(el); if (typeof stepsRef === 'function') stepsRef(el); }}
             variants={containerVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}

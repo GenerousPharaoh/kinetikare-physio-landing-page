@@ -1,5 +1,9 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
+import { useInView } from 'react-intersection-observer';
 import { getConditionBySlug } from '@/lib/conditions-data';
 
 const featuredConditionSlugs = [
@@ -24,6 +28,29 @@ const categoryLabels: Record<string, string> = {
 };
 
 export default function PopularConditionsSection() {
+  const scrollContainerRef = useRef<HTMLDivElement>(null!) as { current: HTMLDivElement | null };
+  const { ref: autoScrollRef, inView: sectionVisible } = useInView({ threshold: 0.3, triggerOnce: true });
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
+
+  useEffect(() => {
+    if (!sectionVisible || !isMobile || !scrollContainerRef.current) return;
+    const container = scrollContainerRef.current;
+    const cardWidth = container.firstElementChild?.clientWidth || 0;
+    const gap = 12;
+    let currentCard = 0;
+    const totalCards = container.children.length;
+
+    const interval = setInterval(() => {
+      currentCard = (currentCard + 1) % totalCards;
+      container.scrollTo({ left: currentCard * (cardWidth + gap), behavior: 'smooth' });
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [sectionVisible, isMobile]);
   const popularConditions = featuredConditionSlugs
     .map((slug) => getConditionBySlug(slug))
     .filter((condition): condition is NonNullable<typeof condition> => Boolean(condition));
@@ -42,7 +69,7 @@ export default function PopularConditionsSection() {
             </p>
           </div>
 
-          <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-3 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0 scrollbar-hide">
+          <div ref={(el: HTMLDivElement | null) => { scrollContainerRef.current = el; autoScrollRef(el); }} className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-3 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0 scrollbar-hide">
             {popularConditions.map((condition) => (
               <Link
                 key={condition.slug}

@@ -228,7 +228,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                                   key={condition.slug}
                                   href={`/conditions/${condition.slug}`}
                                   prefetch={false}
-                                  className="block text-xs text-white/60 hover:text-white hover:translate-x-1 transition-all duration-200 py-1"
+                                  className="block text-xs text-white/75 hover:text-white hover:translate-x-1 transition-all duration-200 py-1"
                                 >
                                   {condition.name}
                                 </Link>
@@ -237,7 +237,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                                 <Link
                                   href={`/conditions?tab=${conditionCategories.indexOf(category)}`}
                                   prefetch={false}
-                                  className="block text-[10px] text-[#D4AF37]/70 hover:text-[#D4AF37] uppercase tracking-wider font-bold pt-1"
+                                  className="block text-[10px] text-[#D4AF37] hover:text-[#F5E6B3] uppercase tracking-wider font-bold pt-1"
                                 >
                                   View All ({category.conditions.length})
                                 </Link>

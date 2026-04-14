@@ -227,7 +227,7 @@ export default function ContactSection() {
           </div>
 
           {/* Service Areas */}
-          <div className="mt-12 sm:mt-16 text-center">
+          <div className="mt-12 sm:mt-16 pb-12 sm:pb-16 text-center">
             <h3 className="text-2xl sm:text-3xl font-light text-slate-900 mb-3 tracking-[-0.02em]">
               Service <span className="text-[#B08D57]">Area</span>
             </h3>

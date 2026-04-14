@@ -176,9 +176,7 @@ export default function GoogleReviews() {
           <p className="max-w-2xl mx-auto text-luxury-subtle text-sm md:text-base">
             What patients are saying
           </p>
-          <p className="text-xs md:text-sm text-gray-500 mt-1 md:mt-2">
-            Showing {featuredReviewsCount} featured from {totalGoogleReviews} total
-          </p>
+{/* Review count shown in rating badge above, no need to repeat */}
         </div>
 
         {/* Reviews Carousel */}

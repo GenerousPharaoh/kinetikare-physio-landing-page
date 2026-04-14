@@ -139,15 +139,15 @@ export default function ContactSection() {
                           <div className="space-y-1 pl-2">
                             <div className="flex justify-between text-sm sm:text-base">
                               <span className="text-slate-700">Monday:</span>
-                              <span className="text-slate-800 font-normal">1:30 PM - 8:00 PM</span>
+                              <span className="text-slate-800 font-normal">1:30 PM - 7:30 PM</span>
                             </div>
                             <div className="flex justify-between text-sm sm:text-base">
                               <span className="text-slate-700">Tuesday:</span>
-                              <span className="text-slate-800 font-normal">1:30 PM - 8:00 PM</span>
+                              <span className="text-slate-800 font-normal">3:30 PM - 7:30 PM</span>
                             </div>
                             <div className="flex justify-between text-sm sm:text-base">
                               <span className="text-slate-700">Thursday:</span>
-                              <span className="text-slate-800 font-normal">1:30 PM - 8:00 PM</span>
+                              <span className="text-slate-800 font-normal">1:30 PM - 7:30 PM</span>
                             </div>
                           </div>
                         </div>

@@ -75,10 +75,10 @@ export default function Footer() {
   ];
 
   const businessHours = [
-    { day: 'Monday', hours: '1:30 PM - 8:00 PM' },
-    { day: 'Tuesday', hours: '1:30 PM - 8:00 PM' },
+    { day: 'Monday', hours: '1:30 PM - 7:30 PM' },
+    { day: 'Tuesday', hours: '3:30 PM - 7:30 PM' },
     { day: 'Wednesday*', hours: '2:00 PM - 7:30 PM' },
-    { day: 'Thursday', hours: '1:30 PM - 8:00 PM' },
+    { day: 'Thursday', hours: '1:30 PM - 7:30 PM' },
     { day: 'Friday*', hours: '2:00 PM - 7:30 PM' },
   ];
 

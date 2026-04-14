@@ -143,7 +143,8 @@ const organizationSchema = {
     "longitude": -79.838055
   },
   "openingHoursSpecification": [
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Thursday"], "opens": "13:30", "closes": "20:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Thursday"], "opens": "13:30", "closes": "19:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday"], "opens": "15:30", "closes": "19:30" },
     { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Wednesday", "Friday"], "opens": "14:00", "closes": "19:30" }
   ],
   "priceRange": "$$",

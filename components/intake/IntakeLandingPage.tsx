@@ -91,7 +91,7 @@ const reviews = [
 
 const clinicDetails: Array<{ label: string; value: string; icon: IconComponent }> = [
   { label: 'Location', value: 'Endorphins Health & Wellness Centre\n4631 Palladium Way, Unit 6\nBurlington, ON', icon: MapPinIcon },
-  { label: 'Hours', value: 'Mon / Tue / Thu: 1:30 \u2013 8:00 PM\nWed / Fri: 2:00 \u2013 7:30 PM', icon: ClockIcon },
+  { label: 'Hours', value: 'Mon / Thu: 1:30 \u2013 7:30 PM\nTue: 3:30 \u2013 7:30 PM\nWed / Fri: 2:00 \u2013 7:30 PM', icon: ClockIcon },
   { label: 'Billing', value: 'Direct billing for Sun Life, Manulife, Green Shield, Blue Cross, Canada Life, WSIB, and more.', icon: CreditCardIcon },
 ];
 

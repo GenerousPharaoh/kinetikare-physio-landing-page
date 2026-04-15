@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef, useMemo } from 'react';
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { 
@@ -404,7 +404,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
   }, [searchResults]);
 
   // Save search when selecting a result
-  const handleResultClick = (result: SearchResult) => {
+  const handleResultClick = useCallback((result: SearchResult) => {
     // Save to recent searches
     const newRecent = [searchTerm, ...recentSearches.filter(s => s !== searchTerm)].slice(0, 5);
     setRecentSearches(newRecent);
@@ -433,7 +433,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
     router.push(result.url);
     onClose();
-  };
+  }, [searchTerm, recentSearches, onClose, router]);
 
   // Keyboard navigation
   useEffect(() => {
@@ -463,7 +463,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, results, selectedIndex, onClose]);
+  }, [isOpen, results, selectedIndex, onClose, handleResultClick]);
 
   const getIcon = (type: string, category?: string) => {
     // Special icons for specific categories

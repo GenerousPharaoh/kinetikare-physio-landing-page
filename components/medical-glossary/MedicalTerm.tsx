@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { InformationCircleIcon } from '@heroicons/react/24/outline';
 import { getTermData, MedicalTermData } from '@/lib/medical-glossary-data';
@@ -145,11 +146,13 @@ const MedicalTerm: React.FC<MedicalTermProps> = ({ term, children, onOpenModal }
               {/* Visual preview */}
               {termData.visualReferences[0] && (
                 <div className="mb-3">
-                  <img 
+                  <Image
                     src={termData.visualReferences[0].url}
                     alt={termData.visualReferences[0].alt}
+                    width={288}
+                    height={96}
                     className="w-full h-24 object-cover rounded border border-neutral-200"
-                    loading="lazy"
+                    unoptimized
                   />
                 </div>
               )}

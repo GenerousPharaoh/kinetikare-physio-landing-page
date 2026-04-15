@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 import { XMarkIcon, ChevronLeftIcon, ChevronRightIcon, TagIcon } from '@heroicons/react/24/outline';
 import { MedicalTermData } from '@/lib/medical-glossary-data';
 
@@ -33,6 +34,17 @@ const VisualReferenceModal: React.FC<VisualReferenceModalProps> = ({
     };
   }, [isOpen]);
 
+  const navigateImage = useCallback((direction: 'prev' | 'next') => {
+    if (!termData) return;
+    const totalImages = termData.visualReferences.length;
+    if (direction === 'prev') {
+      setCurrentImageIndex((prev) => (prev - 1 + totalImages) % totalImages);
+    } else {
+      setCurrentImageIndex((prev) => (prev + 1) % totalImages);
+    }
+    setImageLoading(true);
+  }, [termData]);
+
   // Keyboard navigation
   useEffect(() => {
     if (!isOpen || !termData) return;
@@ -53,19 +65,9 @@ const VisualReferenceModal: React.FC<VisualReferenceModalProps> = ({
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, termData, currentImageIndex]);
+  }, [isOpen, termData, navigateImage, onClose]);
 
   if (!termData) return null;
-
-  const navigateImage = (direction: 'prev' | 'next') => {
-    const totalImages = termData.visualReferences.length;
-    if (direction === 'prev') {
-      setCurrentImageIndex((prev) => (prev - 1 + totalImages) % totalImages);
-    } else {
-      setCurrentImageIndex((prev) => (prev + 1) % totalImages);
-    }
-    setImageLoading(true);
-  };
 
   const currentImage = termData.visualReferences[currentImageIndex];
 
@@ -155,13 +157,16 @@ const VisualReferenceModal: React.FC<VisualReferenceModalProps> = ({
                       )}
                       
                       {/* Main image */}
-                      <img
+                      <Image
                         src={currentImage.url}
                         alt={currentImage.alt}
+                        width={800}
+                        height={400}
                         className={`w-full h-auto max-h-[400px] object-contain transition-opacity duration-300 ${
                           imageLoading ? 'opacity-0' : 'opacity-100'
                         }`}
                         onLoad={() => setImageLoading(false)}
+                        unoptimized
                       />
                       
                       {/* Navigation arrows for multiple images */}

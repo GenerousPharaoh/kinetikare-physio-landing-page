@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Physiotherapy in Burlington | Endorphins Health and Wellness Centre',
     description:
-      '1-on-1 physiotherapy in Burlington. 5.0 stars on Google, direct billing, evening appointments, no referral.',
+      '1-on-1 physiotherapy in Burlington. 5.0 stars on Google, direct billing, afternoon and evening appointments, no referral.',
   },
   robots: 'index, follow',
 };

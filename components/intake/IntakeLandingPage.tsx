@@ -213,13 +213,17 @@ export default function IntakeLandingPage() {
                   <span style={{ fontSize: 13, fontWeight: 500, color: '#059669' }}>Accepting new patients</span>
                 </motion.div>
 
-                <motion.h1 variants={up} style={{ fontFamily: serif, fontSize: 'clamp(3rem, 7vw, 5.5rem)', fontWeight: 700, lineHeight: 0.95, letterSpacing: '-0.04em', color: c.black, marginBottom: 48 }}>
-                  Book Your<br />
-                  <span style={{ fontWeight: 300, color: c.gold, fontStyle: 'italic' }}>Assessment</span>
+                <motion.h1 variants={up} style={{ fontFamily: serif, fontSize: 'clamp(3rem, 7vw, 5.5rem)', fontWeight: 700, lineHeight: 0.95, letterSpacing: '-0.04em', color: c.black, marginBottom: 16 }}>
+                  Physiotherapy in<br />
+                  <span style={{ fontWeight: 300, color: c.gold, fontStyle: 'italic' }}>Burlington</span>
                 </motion.h1>
 
+                <motion.p variants={up} style={{ maxWidth: 460, color: c.textMid, fontSize: 15, lineHeight: 1.6, marginBottom: 36 }}>
+                  One-on-one care from a Registered Physiotherapist near you.
+                </motion.p>
+
                 <motion.p variants={up} style={{ maxWidth: 460, color: c.textMid, fontSize: 17, lineHeight: 1.75, marginBottom: 36 }}>
-                  Personalized one-on-one physiotherapy that gets to the source of your pain so you can move freely and feel like yourself again.
+                  Looking for a physiotherapist near you in Burlington or Waterdown? Personalized one-on-one care that gets to the source of your pain so you can move freely.
                 </motion.p>
 
                 {/* Mobile portrait card — visible only below lg */}
@@ -536,7 +540,7 @@ export default function IntakeLandingPage() {
               <Reveal from="left">
                 <div>
                   <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.gold, marginBottom: 16 }}>The Clinic</p>
-                  <h2 style={{ fontFamily: serif, color: c.black, fontWeight: 700, fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: 48 }}>Burlington &amp; Waterdown</h2>
+                  <h2 style={{ fontFamily: serif, color: c.black, fontWeight: 700, fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: 48 }}>Physio Clinic Near You &mdash; Burlington &amp; Waterdown</h2>
 
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
                     {clinicDetails.map((d, i) => (

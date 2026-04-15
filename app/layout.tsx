@@ -76,7 +76,7 @@ export const metadata = {
 
 const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "MedicalBusiness"],
+  "@type": ["PhysicalTherapy", "LocalBusiness", "MedicalBusiness"],
   "@id": "https://www.kinetikarephysio.com/#organization",
   "name": "Kareem Hassanein Physiotherapy",
   "legalName": "Kareem Hassanein Registered Physiotherapy Professional Corporation",

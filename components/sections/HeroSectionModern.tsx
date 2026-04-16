@@ -36,7 +36,8 @@ export default function HeroSection() {
     { name: "Tami Murzin", text: "His knowledge and hands-on approach helped me regain strength and mobility much faster than I expected." },
     { name: "Pasquale Di Clemente", text: "He's great at adjusting each session based on how I'm feeling. The exercises have made a big difference in my strength and balance." },
     { name: "Sean Vandenbarselaar", text: "He figured out the thigh pain was coming from a nerve in my lower back. Nobody had put that together before. A few weeks in the shock pain was gone." },
-    { name: "Serhiy Sidey", text: "I fight in the UFC. Torn labrum, torn ligament, rotator cuff tear. Kareem caught the wrong post-op protocol and built me the right one. Training hard again." }
+    { name: "Serhiy Sidey", text: "I fight in the UFC. Torn labrum, torn ligament, rotator cuff tear. Kareem caught the wrong post-op protocol and built me the right one. Training hard again." },
+    { name: "Raahim Shaikh", text: "Years of knee pain after an ACL tear. Kareem coached me through the progressions with clear targets. My knee feels much stronger, more stable, and better during workouts." }
   ];
 
   // Animation Variants
@@ -423,7 +424,7 @@ export default function HeroSection() {
                 ))}
               </div>
               <span className="text-white/70 text-xs font-medium">5.0 on Google</span>
-              <span className="text-white/60 text-xs">19 reviews</span>
+              <span className="text-white/60 text-xs">20 reviews</span>
             </motion.div>
 
           </motion.div>

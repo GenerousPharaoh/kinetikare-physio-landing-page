@@ -63,12 +63,16 @@ export const reviews = [
   {
     name: "Serhiy Sidey",
     text: "Four weeks out from a fight, I dislocated my right shoulder in a takedown at practice. Torn labrum, torn ligament and a rotator cuff tear. Started with Kareem right after the MRI and stayed with him through surgery and the rehab after. I fight in the UFC, so coming back at 80% isn't an option. When the surgeon's office sent the wrong post-op protocol, he caught it and built me the right one. Training hard again and still making progress! Definitely recommend Kareem to any athletes looking to get back to performing at their best!"
+  },
+  {
+    name: "Raahim Shaikh",
+    text: "I had been dealing with knee pain and weakness for years after an ACL tear in high school, and my knee never felt as strong or stable as it should have. Kareem was great at demonstrating the exercises, coaching me through the progressions, and making sure each phase was challenging my strength and stability in the right way. He also gave me clear targets to work toward, which made it easy to see the progress I was making. My knee feels much stronger now, more stable, and a lot better during workouts and everyday movement."
   }
 ];
 
 export default function GoogleReviews() {
-  // Total Google reviews (15 featured + 4 not shown)
-  const totalGoogleReviews = 19;
+  // Total Google reviews (16 featured + 4 not shown)
+  const totalGoogleReviews = 20;
   const featuredReviewsCount = reviews.length;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);

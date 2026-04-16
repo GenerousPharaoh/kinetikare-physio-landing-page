@@ -319,23 +319,44 @@ export default function GoogleReviews() {
             </button>
           </div>
 
-          {/* Desktop: Dot navigation */}
-          <div className="hidden md:flex justify-center items-center gap-2">
-            {reviews.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => handleDotClick(index)}
-                className="w-8 h-8 flex items-center justify-center border-0 rounded-full focus:ring-2 focus:ring-[#B08D57] focus:ring-offset-2 focus:outline-none cursor-pointer"
-                aria-label={`Go to review ${index + 1}`}
-              >
-                <span
-                  className={`rounded-full transition-[transform,background] duration-300 ${index === currentIndex
-                    ? 'w-2 h-2 bg-[#B08D57]'
-                    : 'w-1.5 h-1.5 bg-gray-300 hover:bg-[#B08D57]/60'
-                    }`}
-                />
-              </button>
-            ))}
+          {/* Desktop: Editorial counter + segmented progress track */}
+          <div className="hidden md:flex items-center gap-5">
+            <span className="text-[11px] tracking-[0.2em] uppercase text-gray-400 tabular-nums font-medium">
+              <span className="text-gray-700">{String(currentIndex + 1).padStart(2, '0')}</span>
+              <span className="mx-2 text-gray-300">/</span>
+              <span>{String(featuredReviewsCount).padStart(2, '0')}</span>
+            </span>
+
+            <div
+              role="tablist"
+              aria-label="Reviews"
+              className="relative flex items-center h-8 gap-[3px]"
+            >
+              {reviews.map((_, index) => {
+                const isActive = index === currentIndex;
+                const isPast = index < currentIndex;
+                return (
+                  <button
+                    key={index}
+                    role="tab"
+                    aria-selected={isActive}
+                    onClick={() => handleDotClick(index)}
+                    className="group h-8 flex items-center justify-center border-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57] focus-visible:ring-offset-2 rounded-sm cursor-pointer"
+                    aria-label={`Go to review ${index + 1}`}
+                  >
+                    <span
+                      className={`block transition-[height,background-color,width] duration-300 ease-out ${
+                        isActive
+                          ? 'w-6 h-[2px] bg-[#B08D57]'
+                          : isPast
+                          ? 'w-4 h-[1px] bg-[#B08D57]/50 group-hover:bg-[#B08D57]'
+                          : 'w-4 h-[1px] bg-gray-300 group-hover:bg-[#B08D57]/60'
+                      }`}
+                    />
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
 

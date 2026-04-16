@@ -352,7 +352,7 @@ export default function HeroSection() {
 
             <motion.div variants={itemVariants} className="mb-6 md:mb-8">
               <p className="max-w-lg text-base md:text-lg text-white/85 leading-relaxed">
-                One-on-one physiotherapy built around finding the root cause of your pain and getting back to feeling your best.
+                One-on-one physiotherapy in Burlington, built around finding the root cause of your pain and getting back to feeling your best.
               </p>
             </motion.div>
 

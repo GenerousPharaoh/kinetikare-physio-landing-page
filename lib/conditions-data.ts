@@ -196,7 +196,7 @@ const spinalConditions: Condition[] = [
     description: 'Whiplash-associated disorders from motor vehicle accidents',
     featured: true,
     priority: 23,
-    metaDescription: 'Whiplash treatment in Burlington. Expert care for motor vehicle accident injuries with early intervention and progressive rehabilitation.',
+    metaDescription: 'Whiplash treatment in Burlington by Kareem Hassanein, Registered Physiotherapist. Motor vehicle accident rehab. Direct billing, no referral, evening hours.',
   },
   {
     id: 'sciatica',
@@ -206,7 +206,7 @@ const spinalConditions: Condition[] = [
     description: 'Nerve root compressions and radiculopathy',
     featured: true,
     priority: 2,
-    metaDescription: 'Sciatica treatment in Burlington. Physiotherapy for nerve pain, leg symptoms, and lumbar-related sciatica using manual therapy and targeted exercise.',
+    metaDescription: 'Sciatica treatment in Burlington by a Registered Physiotherapist. Hands-on care for nerve and leg pain. Direct billing, no referral, evening hours.',
   },
   {
     id: 'disc-herniation',
@@ -263,7 +263,7 @@ const shoulderConditions: Condition[] = [
     description: 'tendinopathy, tears, post-repair',
     featured: true,
     priority: 3,
-    metaDescription: 'Rotator cuff injury treatment in Burlington. Expert physiotherapy for shoulder pain, tears, and tendinopathy using manual therapy and progressive strengthening programs.',
+    metaDescription: 'Rotator cuff treatment in Burlington by Kareem Hassanein, Registered Physiotherapist. Tears, tendinopathy, post-op rehab. Direct billing, evening hours.',
   },
   {
     id: 'shoulder-impingement',
@@ -273,7 +273,7 @@ const shoulderConditions: Condition[] = [
     description: 'Subacromial impingement causing pain with overhead activities',
     featured: true,
     priority: 25,
-    metaDescription: 'Shoulder impingement treatment in Burlington. Expert physiotherapy for subacromial pain using manual therapy and scapular retraining.',
+    metaDescription: 'Shoulder impingement treatment in Burlington by a Registered Physiotherapist. Hands-on care and targeted rehab. Direct billing, no referral, evening hours.',
   },
   {
     id: 'frozen-shoulder',
@@ -360,7 +360,7 @@ const elbowWristConditions: Condition[] = [
     description: 'Median nerve compression at the wrist',
     featured: true,
     priority: 18,
-    metaDescription: 'Carpal tunnel syndrome treatment in Burlington. Non-surgical physiotherapy for median nerve compression using nerve gliding and ergonomic solutions.',
+    metaDescription: 'Carpal tunnel treatment in Burlington by a Registered Physiotherapist. Non-surgical care for median nerve pain. Direct billing, no referral, evening hours.',
   },
   {
     id: 'de-quervains',
@@ -465,7 +465,7 @@ const hipPelvisConditions: Condition[] = [
     description: 'Deep gluteal syndrome causing sciatic-type pain',
     featured: true,
     priority: 20,
-    metaDescription: 'Piriformis syndrome treatment in Burlington. Expert physiotherapy for deep hip pain and sciatica using manual therapy and targeted stretching.',
+    metaDescription: 'Piriformis syndrome treatment in Burlington by a Registered Physiotherapist. Hands-on care for deep hip pain. Direct billing, no referral, evening hours.',
   },
   {
     id: 'si-joint',
@@ -601,7 +601,7 @@ const footAnkleConditions: Condition[] = [
     description: 'Achilles tendon pain, both insertional and mid-portion',
     featured: true,
     priority: 15,
-    metaDescription: 'Achilles tendinopathy treatment in Burlington. Personalized physiotherapy for Achilles pain using eccentric loading and progressive rehabilitation.',
+    metaDescription: 'Achilles tendinopathy treatment in Burlington by a Registered Physiotherapist. Hands-on care and loading programs. Direct billing and evening hours.',
   },
   {
     id: 'shin-splints',

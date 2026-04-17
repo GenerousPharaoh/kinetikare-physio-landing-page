@@ -1314,3 +1314,256 @@ body {
 .custom-scrollbar {
   scroll-behavior: smooth;
 }
+
+/* ============================================================
+   PRINT STYLESHEET
+   Patient-friendly print output for condition pages
+   ============================================================ */
+
+/* Utility: only render during print */
+.print-only {
+  display: none;
+}
+
+@media print {
+  /* Page setup: use Letter/A4 with reasonable margins and a footer byline */
+  @page {
+    size: Letter;
+    margin: 0.6in 0.55in 0.85in 0.55in;
+  }
+
+  /* Reset gradient page background for readable print */
+  html,
+  body {
+    background: #ffffff !important;
+    color: #111111 !important;
+    font-family: Georgia, "Times New Roman", Times, serif !important;
+    font-size: 11pt;
+    line-height: 1.5;
+    width: 100%;
+    max-width: 100%;
+    overflow: visible !important;
+  }
+
+  body {
+    letter-spacing: 0 !important;
+  }
+
+  /* Headings remain sans-serif for visual hierarchy and stay prominent */
+  h1, h2, h3, h4, h5, h6 {
+    color: #000000 !important;
+    font-family: "Inter", system-ui, -apple-system, sans-serif !important;
+    page-break-after: avoid;
+    break-after: avoid-page;
+    page-break-inside: avoid;
+    break-inside: avoid-page;
+  }
+
+  h1 { font-size: 20pt; margin: 0 0 0.4rem; }
+  h2 { font-size: 15pt; margin: 1.1rem 0 0.4rem; }
+  h3 { font-size: 12.5pt; margin: 0.8rem 0 0.3rem; }
+  h4 { font-size: 11.5pt; margin: 0.6rem 0 0.25rem; }
+
+  p, li {
+    color: #1a1a1a !important;
+    font-family: Georgia, "Times New Roman", Times, serif !important;
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* Force single column: disable flex/grid multi-column layouts */
+  .grid,
+  [class*="grid-cols-"],
+  .flex,
+  [class*="md:grid-cols-"],
+  [class*="lg:grid-cols-"] {
+    display: block !important;
+    grid-template-columns: none !important;
+  }
+
+  /* Collapse common max-width containers so content fills the page */
+  .container,
+  [class*="max-w-"] {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* Hide site chrome, navigation, marketing, and interactive UI */
+  header,
+  nav,
+  footer,
+  aside,
+  [role="banner"],
+  [role="navigation"],
+  [role="complementary"],
+  [role="contentinfo"],
+  [aria-label="Navigation"],
+  [aria-label*="navigation" i],
+  [aria-label*="search" i],
+  [data-print-hide],
+  .print-hide,
+  .no-print,
+  .mobile-bottom-nav,
+  .mobile-nav,
+  .site-header,
+  .site-footer,
+  .floating-cta,
+  .floating-button,
+  .scroll-to-top,
+  .back-to-top,
+  .sidebar,
+  .condition-sidebar,
+  .related-conditions,
+  .related-treatments,
+  .pattern-matcher,
+  [data-pattern-matcher],
+  .search-modal,
+  .search-trigger,
+  .copy-link-button,
+  [data-copy-link],
+  button[aria-label*="copy" i],
+  button[aria-label*="share" i],
+  .skip-link,
+  video,
+  iframe {
+    display: none !important;
+  }
+
+  /* Show print-only elements */
+  .print-only {
+    display: block !important;
+  }
+
+  /* Links: readable, and print the URL alongside for reference. Skip
+     same-page anchors and javascript/mailto/tel which are not useful printed. */
+  a {
+    color: #000000 !important;
+    text-decoration: underline;
+  }
+
+  a[href^="http"]::after,
+  a[href^="/"]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    font-style: italic;
+    color: #444444;
+    word-break: break-all;
+  }
+
+  a[href^="#"]::after,
+  a[href^="mailto:"]::after,
+  a[href^="tel:"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+
+  /* Expand every collapsed disclosure so FAQs and details print fully */
+  details {
+    display: block !important;
+  }
+  details > summary {
+    display: none !important;
+  }
+  details > *:not(summary) {
+    display: block !important;
+  }
+  details[open],
+  details:not([open]) {
+    /* Both states render as expanded */
+  }
+
+  /* Also unhide common collapsed/hidden content patterns used in the UI */
+  [hidden],
+  [aria-hidden="true"] {
+    display: revert !important;
+  }
+  [aria-expanded="false"] + * {
+    display: block !important;
+  }
+
+  /* Keep key content sections intact across page breaks */
+  section,
+  article,
+  .faq-item,
+  .differential-diagnosis-item,
+  .clinical-presentation,
+  .pathophysiology,
+  .exercise-progression,
+  blockquote,
+  figure,
+  table,
+  img {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Neutralize heavy visuals that waste ink or obscure text */
+  .bg-dark,
+  .bg-navy,
+  .bg-light,
+  [class*="bg-gradient"],
+  [class*="backdrop-blur"],
+  .glass,
+  .glass-dark,
+  .glass-morphism,
+  .premium-card,
+  .navy-gradient,
+  .gold-gradient {
+    background: #ffffff !important;
+    color: #111111 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-color: #cccccc !important;
+  }
+
+  section::before,
+  section::after {
+    display: none !important;
+  }
+
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Tables print cleanly */
+  table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+  }
+  th, td {
+    border: 1px solid #cccccc !important;
+    padding: 4pt 6pt !important;
+  }
+
+  /* Footer byline on every printed page via @page bottom-center
+     (supported in Chromium print preview). Content lives in the
+     running element defined below. */
+  @page {
+    @bottom-center {
+      content: "Kareem Hassanein, Registered Physiotherapist · CPO #20079 · kinetikarephysio.com · Page " counter(page) " of " counter(pages);
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-size: 9pt;
+      color: #555555;
+    }
+  }
+
+  /* Fallback byline element for browsers that ignore @page margin boxes.
+     Condition page server component can render <div class="print-byline">...</div>
+     and it will only appear on print, once at the end of the document. */
+  .print-byline {
+    display: block !important;
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #cccccc;
+    font-size: 9pt;
+    color: #555555;
+    text-align: center;
+    font-family: Georgia, "Times New Roman", Times, serif;
+  }
+}

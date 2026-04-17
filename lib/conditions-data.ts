@@ -47,7 +47,14 @@ export interface Condition {
   symptoms?: string[];
   causes?: string[];
   understanding?: string;
-  
+
+  /**
+   * ISO date string (e.g. '2026-04-16') indicating when Kareem last reviewed
+   * the clinical content on this page. When present, surfaces in the author
+   * byline as a "Last reviewed" transparency note. Populated by hand.
+   */
+  lastReviewed?: string;
+
   // Medical/Educational content structure
   pathophysiology?: string;  // What's happening at tissue level
   clinicalPresentation?: {

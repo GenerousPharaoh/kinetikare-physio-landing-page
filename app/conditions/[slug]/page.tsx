@@ -186,6 +186,34 @@ export default function ConditionPage({ params }: PageProps) {
   const title = `${condition.name} Treatment in Burlington | Kareem Hassanein Physiotherapy`;
   const description = condition.metaDescription || generateDynamicMetaDescription(condition);
 
+  // Build HowTo entry for exercise progression phases when present
+  const exerciseProgression = condition.exerciseProgression;
+  const howToSchema = exerciseProgression
+    ? {
+        "@type": "HowTo",
+        "@id": `https://www.kinetikarephysio.com/conditions/${params.slug}#rehab-progression`,
+        "name": `Rehabilitation Phases for ${condition.name}`,
+        "description": `Evidence-based progressive rehabilitation phases for ${condition.name}, authored and supervised by Kareem Hassanein, Registered Physiotherapist.`,
+        "author": { "@id": SEO_PERSON_ID },
+        "about": { "@id": "#condition" },
+        "step": [exerciseProgression.phase1, exerciseProgression.phase2, exerciseProgression.phase3].map((phase) => ({
+          "@type": "HowToSection",
+          "name": phase.title,
+          "itemListElement": [
+            {
+              "@type": "HowToStep",
+              "name": phase.title,
+              "text": phase.focus,
+              "itemListElement": (phase.examples || []).map((ex) => ({
+                "@type": "HowToDirection",
+                "text": ex,
+              })),
+            },
+          ],
+        })),
+      }
+    : null;
+
   // Enhanced schema with LocalBusiness and Person for SEO
   const enhancedSchema = {
     "@context": "https://schema.org",
@@ -248,7 +276,8 @@ export default function ConditionPage({ params }: PageProps) {
           "ratingValue": "5.0",
           "reviewCount": "22"
         }
-      }
+      },
+      ...(howToSchema ? [howToSchema] : []),
     ]
   };
 
@@ -348,6 +377,9 @@ export default function ConditionPage({ params }: PageProps) {
         patternCluster={patternCluster}
         patternConditions={patternConditions}
       />
+      <div className="print-only print-byline" aria-hidden="true">
+        Kareem Hassanein, Registered Physiotherapist · CPO #20079 · kinetikarephysio.com
+      </div>
     </>
   );
 }

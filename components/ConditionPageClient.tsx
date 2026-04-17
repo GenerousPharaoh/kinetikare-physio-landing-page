@@ -32,6 +32,9 @@ import { Condition } from '@/lib/conditions-data';
 import { getTreatmentsByCondition } from '@/lib/treatments-data';
 import type { PatternMatcherCluster } from '@/lib/pattern-matchers/knee-cluster';
 import ClinicalObservations from './conditions/ClinicalObservations';
+import AuthorByline from './conditions/AuthorByline';
+import SectionHeading from './conditions/SectionHeading';
+import RelatedConditionsList from './conditions/RelatedConditionsList';
 
 // Lazy-load the Pattern Matcher: only adds to the bundle when used, and only
 // after hydration. ssr:false keeps it out of the initial HTML payload.
@@ -438,9 +441,15 @@ export default function ConditionPageClient({
                 </p>
               )}
 
+              {/* Author byline: E-E-A-T signal with optional last-reviewed date */}
+              <AuthorByline
+                lastReviewed={condition.lastReviewed}
+                conditionName={condition.name}
+              />
+
               {/* Regional Service Area - Subtle mention */}
               <p className="text-xs text-slate-500 mt-3">
-                Treating {condition.name.toLowerCase()} at our Burlington clinic • Convenient for Waterdown and Flamborough residents
+                Treating {condition.name.toLowerCase()} at my Burlington clinic. Convenient for Waterdown and Flamborough residents.
               </p>
 
               {/* Red Flags Disclaimer - Simple expandable that pushes content */}
@@ -948,9 +957,12 @@ export default function ConditionPageClient({
                           >
                             {activeOverviewView === 'pathophysiology' && condition.pathophysiology && (
                               <div className="bg-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-200">
-                                <h2 className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900 mb-8">
+                                <SectionHeading
+                                  id="pathophysiology"
+                                  className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900 mb-8"
+                                >
                                   The Science of {condition.name || 'Your Condition'}
-                                </h2>
+                                </SectionHeading>
                                 <p className="text-base md:text-lg text-slate-700 leading-relaxed max-w-[72ch]">
                                   {condition.pathophysiology}
                                 </p>
@@ -959,9 +971,12 @@ export default function ConditionPageClient({
 
                             {activeOverviewView === 'pathophysiology' && condition.overview && !condition.pathophysiology && (
                               <div className="bg-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-200">
-                                <h2 className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900 mb-8">
+                                <SectionHeading
+                                  id="overview"
+                                  className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900 mb-8"
+                                >
                                   Understanding Your Condition
-                                </h2>
+                                </SectionHeading>
                                 <div className="space-y-6">
                                   {condition.overview.split('\n\n').map((paragraph, index) => (
                                     <p key={index} className="text-base md:text-lg text-slate-700 leading-relaxed max-w-[72ch]">
@@ -974,9 +989,12 @@ export default function ConditionPageClient({
 
                             {activeOverviewView === 'biomechanics' && condition.biomechanics && (
                               <div className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-200">
-                                <h2 className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900 mb-8">
+                                <SectionHeading
+                                  id="contributing-factors"
+                                  className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900 mb-8"
+                                >
                                   Contributing Factors
-                                </h2>
+                                </SectionHeading>
                                 <div className="space-y-6">
                                   {condition.biomechanics.split('\n\n').map((paragraph, index) => (
                                     <p key={index} className="text-base md:text-lg text-slate-700 leading-relaxed max-w-[72ch]">
@@ -1009,9 +1027,12 @@ export default function ConditionPageClient({
                           >
                             {activeClinicalView === 'clinical-presentation' && condition.clinicalPresentation && (
                               <div className="bg-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-200">
-                                <h2 className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900 mb-10">
+                                <SectionHeading
+                                  id="clinical-presentation"
+                                  className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900 mb-10"
+                                >
                                   Clinical Presentation
-                                </h2>
+                                </SectionHeading>
 
                                 {condition.clinicalPresentation.primarySymptoms && (
                                   <div className="mb-10">
@@ -1063,9 +1084,12 @@ export default function ConditionPageClient({
 
                             {activeClinicalView === 'differential' && condition.differentialDiagnosis && condition.differentialDiagnosis.length > 0 && (
                               <div className="bg-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-lg">
-                                <h2 className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900 mb-3">
+                                <SectionHeading
+                                  id="differential-diagnosis"
+                                  className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900 mb-3"
+                                >
                                   Differential Diagnosis
-                                </h2>
+                                </SectionHeading>
                                 <p className="text-base text-slate-600 leading-relaxed mb-10">Conditions with similar presentations:</p>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                   {condition.differentialDiagnosis.map((diff, index) => (
@@ -1091,9 +1115,12 @@ export default function ConditionPageClient({
 
                             {activeClinicalView === 'when-to-seek' && condition.whenToSeek && condition.whenToSeek.length > 0 && (
                               <div className="bg-amber-50 rounded-xl p-8 md:p-8 border border-amber-200">
-                                <h2 className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-6">
+                                <SectionHeading
+                                  id="when-to-seek-help"
+                                  className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-6"
+                                >
                                   When to Seek Professional Help
-                                </h2>
+                                </SectionHeading>
                                 <div className="space-y-3">
                                   {condition.whenToSeek.map((item, index) => (
                                     <div key={index} className="flex items-start gap-3">
@@ -1119,7 +1146,7 @@ export default function ConditionPageClient({
                             transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
                           >
                             {activeResearchView === 'key-research' && condition.keyResearch && condition.keyResearch.length > 0 && (
-                            <div data-section="key-research" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
+                            <div id="key-research" data-section="key-research" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
                               {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/30 via-transparent to-teal-50/20 pointer-events-none"></div>
 
@@ -1263,7 +1290,7 @@ export default function ConditionPageClient({
                             )}
 
                             {activeResearchView === 'research-insights' && condition.researchInsights && condition.researchInsights.length > 0 && (
-                            <div data-section="research-insights" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
+                            <div id="research-insights" data-section="research-insights" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
                               {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-transparent to-indigo-50/20 pointer-events-none"></div>
 
@@ -1367,7 +1394,7 @@ export default function ConditionPageClient({
                           >
                             {/* Integrated Evidence-Based Management - Premium Design */}
                             {activeManagementView === 'evidence-based-treatment' && (condition.evidenceSnapshot || condition.selfManagement) && (
-                            <div data-section="evidence-based" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
+                            <div id="evidence-based-management" data-section="evidence-based" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
                               {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 via-transparent to-blue-50/30 pointer-events-none"></div>
                               
@@ -1560,7 +1587,7 @@ export default function ConditionPageClient({
 
                             {/* Treatment Techniques Section - Collapsible */}
                             {activeManagementView === 'treatment-techniques' && (condition.treatmentApproach || relatedTreatments.length > 0) && (
-                            <div data-section="treatment-techniques" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
+                            <div id="treatment-techniques" data-section="treatment-techniques" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
                               {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-orange-50/30 via-transparent to-amber-50/20 pointer-events-none"></div>
 
@@ -1649,7 +1676,7 @@ export default function ConditionPageClient({
 
                             {/* Recovery Timeline Section - Collapsible */}
                             {activeManagementView === 'timeline' && condition.timeline && condition.timeline.length > 0 && (
-                            <div data-section="timeline" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
+                            <div id="recovery-timeline" data-section="timeline" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
                               {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-teal-50/30 via-transparent to-cyan-50/20 pointer-events-none"></div>
                               
@@ -1711,7 +1738,7 @@ export default function ConditionPageClient({
                             )}
 
                             {activeManagementView === 'prognosis' && condition.prognosis && (
-                            <div data-section="prognosis" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
+                            <div id="prognosis" data-section="prognosis" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
                               {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-purple-50/30 via-transparent to-pink-50/20 pointer-events-none"></div>
                               
@@ -1818,7 +1845,7 @@ export default function ConditionPageClient({
 
                             {/* Measuring Progress Section - Premium Design */}
                             {activeManagementView === 'measuring-success' && condition.measuringProgress && (
-                            <div data-section="measuring" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
+                            <div id="measuring-progress" data-section="measuring" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
                               {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-green-50/30 via-transparent to-emerald-50/20 pointer-events-none"></div>
                               
@@ -1928,7 +1955,7 @@ export default function ConditionPageClient({
 
 
                             {activeManagementView === 'faqs' && condition.faqs && condition.faqs.length > 0 && (
-                            <div data-section="faqs" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
+                            <div id="faqs" data-section="faqs" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
                               {/* Premium gradient overlay */}
                               <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-transparent to-cyan-50/20 pointer-events-none"></div>
                               
@@ -2003,7 +2030,7 @@ export default function ConditionPageClient({
 
                             {/* Recommended Treatments Section */}
                             {activeManagementView === 'recommended-treatments' && relatedTreatments.length > 0 && (
-                              <div data-section="recommended-treatments" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
+                              <div id="recommended-treatments" data-section="recommended-treatments" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
                                 <div className="absolute inset-0 bg-gradient-to-br from-amber-50/30 via-transparent to-orange-50/20 pointer-events-none"></div>
 
                                 <div className="relative">
@@ -2059,25 +2086,14 @@ export default function ConditionPageClient({
                   )}
                 </main>
 
-                {/* Related Conditions - Now inline below content */}
-                {relatedConditions.length > 0 && (
-                  <div className="mt-12 bg-slate-50 rounded-xl p-6 border border-slate-200">
-                    <h3 className="text-lg font-medium text-slate-900 mb-4">Related Conditions</h3>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                      {relatedConditions.slice(0, 4).map((related) => (
-                        <Link
-                          key={related.slug}
-                          href={`/conditions/${related.slug}`}
-                          className="p-3 hover:bg-white rounded-lg transition-colors group text-center"
-                        >
-                          <p className="font-medium text-slate-900 group-hover:text-[#B08D57] transition-colors text-sm">
-                            {related.name}
-                          </p>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
+                {/* Related Conditions - inline below content, now with
+                    relationship badges and one-line explanations from the
+                    intelligentRelationships data map. */}
+                <RelatedConditionsList
+                  currentSlug={conditionSlug}
+                  relatedConditions={relatedConditions}
+                  limit={4}
+                />
               </div>
             </div>
           </div>

@@ -1063,19 +1063,27 @@ Chronic cases can be more challenging, especially when symptoms persist beyond 1
     differentialDiagnosis: [
       {
         condition: "Radial Tunnel Syndrome",
-        distinguishingFeatures: "Pain more distal (4-6 cm below lateral epicondyle), worsens with resisted supination and middle finger extension, no pain with resisted wrist extension"
+        distinguishingFeatures: "Pain localised 4 to 6 cm distal to the lateral epicondyle rather than directly over it, provoked by resisted supination and resisted middle finger extension, typically no pain with resisted wrist extension at the epicondyle itself."
       },
       {
-        condition: "Cervical Radiculopathy (C6-C7)",
-        distinguishingFeatures: "Neck pain with radiation following dermatomal pattern, positive Spurling's test, weakness or sensory changes in specific nerve distribution"
+        condition: "Cervical Radiculopathy (C6 or C7)",
+        distinguishingFeatures: "Neck-dominant pain that radiates into the arm in a dermatomal pattern, positive Spurling's test, and sensory or motor changes in a specific nerve distribution rather than focal lateral epicondyle tenderness."
       },
       {
         condition: "Posterolateral Rotatory Instability",
-        distinguishingFeatures: "Sensation of elbow giving way, positive pivot shift test, history of trauma or previous elbow dislocation"
+        distinguishingFeatures: "Sensation of elbow giving way, apprehension with extension plus supination, positive pivot shift or chair push-up test, and often a history of previous elbow dislocation or significant trauma."
       },
       {
-        condition: "Osteochondritis Dissecans",
-        distinguishingFeatures: "More common in adolescents, catching or locking sensation, visible lesion on imaging"
+        condition: "Radiocapitellar Osteoarthritis or Osteochondritis Dissecans",
+        distinguishingFeatures: "Mechanical symptoms including catching or locking, pain deeper in the joint rather than over the tendon origin, more common in adolescents for osteochondritis dissecans, and findings visible on imaging."
+      },
+      {
+        condition: "Plica or Snapping Triceps",
+        distinguishingFeatures: "Reproducible snapping or clicking sensation on the lateral or posterior elbow with flexion and extension, tenderness posterolateral rather than over the extensor origin, symptoms more movement-related than load-related."
+      },
+      {
+        condition: "Referred Pain from Rotator Cuff or Cervical Facet",
+        distinguishingFeatures: "Diffuse elbow and forearm aching without a single tender point, reproduction of symptoms on shoulder or neck testing rather than elbow loading tests, and pain that does not track reliably with gripping or resisted wrist extension."
       }
     ],
 
@@ -1201,6 +1209,79 @@ Chronic cases can be more challenging, especially when symptoms persist beyond 1
       questionnaires: "Patient-Rated Tennis Elbow Evaluation (PRTEE) is the validated outcome measure for this condition, scoring pain and function out of 100. Score reduction of 11+ points indicates clinically meaningful improvement. Pain-free grip strength as percentage of uninvolved side is key objective measure",
       activityTarget: "Return to work tasks without limitation (typing, manual labor, tool use), sports activities (tennis, golf, weightlifting) with proper technique, and daily activities (carrying groceries, opening jars) without pain or compensatory patterns"
     },
+    faqs: [
+      {
+        question: "Is tennis elbow actually caused by tennis?",
+        answer: "Rarely. Under 10% of cases I see have anything to do with racquet sports. The name stuck because tennis was one of the first activities formally associated with it, but the far more common drivers are computer work with a mouse, trades involving repeated gripping and tool use, and sudden spikes in gym training or yard work. The tissue does not care what activity loaded it, only that the load was more than the tendon could tolerate."
+      },
+      {
+        question: "How long does tennis elbow take to heal?",
+        answer: "With a well-structured loading program, most people notice meaningful change by 6 to 12 weeks, and the majority reach a good or excellent outcome by 3 to 6 months. The JOSPT 2022 Clinical Practice Guideline on lateral elbow tendinopathy (Lucado et al.) supports exercise as the mainstay of care. Longer symptom duration before starting rehab consistently predicts a slower recovery, which is why I push patients not to keep waiting it out."
+      },
+      {
+        question: "Should I get a cortisone shot for tennis elbow?",
+        answer: "I would steer you away from it in most cases. Bisset and colleagues in the BMJ (2006) randomised patients to physiotherapy, corticosteroid injection, or wait-and-see. Injections won at 6 weeks but had significantly worse outcomes at 52 weeks, with high recurrence rates. Coombes et al. in JAMA (2013) confirmed the same pattern, with lower recovery rates at one year in groups that received corticosteroid. Short-term pain relief, long-term penalty."
+      },
+      {
+        question: "Does a tennis elbow strap actually work?",
+        answer: "Counterforce braces can give short-term pain relief during specific tasks by shifting the load point away from the irritated tendon insertion. They are not a treatment in themselves. I use them as a bridge while the loading program builds tendon capacity, not as a substitute for exercise. Wearing a strap without addressing the underlying capacity issue tends to prolong the problem."
+      },
+      {
+        question: "Is it okay to keep using my computer and working while I have tennis elbow?",
+        answer: "Most people need to, and complete rest is usually the wrong answer anyway. What matters is reducing peak load spikes. That can mean a vertical mouse, lowering mouse sensitivity so the wrist does fewer large excursions, keyboard and chair height changes, micro-breaks every 20 to 30 minutes, and tempo changes on high-grip tasks. If your elbow is less irritable by the morning, yesterday's load was acceptable."
+      },
+      {
+        question: "Why does my elbow hurt when I shake someone's hand or lift a coffee cup?",
+        answer: "The extensor carpi radialis brevis tendon, which is the main tendon involved, gets loaded whenever the wrist extensors work to stabilise the hand against a grip. A handshake, a full coffee mug, or a kettle all demand exactly that pattern, and they happen with the elbow fairly straight, which concentrates load at the lateral epicondyle. It is a classic presentation, not a sign of serious damage."
+      },
+      {
+        question: "When should I consider imaging or surgery for tennis elbow?",
+        answer: "Imaging is usually unnecessary up front because the diagnosis is clinical. I consider ultrasound or MRI when symptoms fail to respond to 3 months of appropriate loading, when there is suspicion of a partial tear, or when the story does not fit tendinopathy. Surgery is a last-resort conversation, typically only after 6 to 12 months of well-delivered conservative care has not produced meaningful change."
+      },
+      {
+        question: "Will my tennis elbow come back after it heals?",
+        answer: "Recurrence is a real risk if the loading pattern that caused it has not changed. The tendon can rebuild its capacity, but if your mouse, tool, or training setup still exceeds what that capacity tolerates, symptoms tend to return. I treat the final phase of rehab, heavier strengthening and workplace or sport modifications, as prevention more than rehab."
+      }
+    ],
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Settle the Tendon and Start Loading (Weeks 1 to 3)",
+        focus: "Calm peak symptoms, load the extensor tendon in a way it can tolerate, and set the 24-hour symptom rule as the guide for progression. Isometric contractions offer short-term analgesia and a safe entry point for loading. Activity modification is front-loaded in this phase because reducing daily peak loads matters more than any single exercise.",
+        examples: [
+          "Isometric wrist extension holds, elbow bent to about 90 degrees, forearm supported, resisting into a light weight or band for 5 sets of 30 to 45 seconds at a pain level no higher than 3 out of 10",
+          "Gentle wrist flexor stretch, 3 holds of 30 seconds, 2 to 3 times per day",
+          "Grip squeezes with a soft ball at submaximal effort, 3 sets of 10, avoiding full-range wrist extension under grip",
+          "Scapular setting and row variations with a light band, 3 sets of 10, addressing upstream shoulder support",
+          "Workstation or tool adjustments: mouse switched to vertical or moved closer to the keyboard, chair and desk height checked, micro-breaks every 20 to 30 minutes during gripping tasks"
+        ],
+        progressionCriteria: "Pain during isometric holds at or below 3 out of 10, no more than mild next-day soreness after sessions for a full week, and grip on everyday tasks such as carrying a coffee mug or opening a door no longer provoking sharp pain."
+      },
+      phase2: {
+        title: "Phase 2: Progressive Loading of the Wrist Extensors (Weeks 3 to 8)",
+        focus: "Build tendon capacity with heavier, slower contractions. The Tyler protocol using a flexible rubber bar (eccentric wrist extension with the uninvolved hand assisting the return) has the most specific evidence for lateral epicondylalgia and produces larger improvements than concentric training alone, as confirmed in randomised work by Peterson and colleagues. Some discomfort during loading, up to 5 out of 10, is acceptable provided it settles within 24 hours.",
+        examples: [
+          "Tyler protocol wrist extension with a Flexbar, 3 sets of 15 reps once daily, progressing rubber bar resistance as tolerated",
+          "Heavy slow resistance wrist extension with a dumbbell, 3 seconds up and 3 seconds down, 3 sets of 10 to 15, 3 times per week",
+          "Supination and pronation with a light hammer or weighted lever, 3 sets of 10 to 12 each direction",
+          "Progressive grip work using a grip trainer or towel squeezes across increasing wrist extension angles, 3 sets of 10",
+          "Continued scapular and rotator cuff strengthening, 2 to 3 sets of 10 to 12, to reduce compensatory distal loading"
+        ],
+        progressionCriteria: "Pain-free grip strength within 20% of the unaffected side, no 24-hour flare from heavier sessions for at least 2 consecutive weeks, and PRTEE score reduced by at least 11 points from baseline or clearly tracking downward."
+      },
+      phase3: {
+        title: "Phase 3: Return to Full Work, Sport, and Heavier Loading (Weeks 8 to 16+)",
+        focus: "Rebuild the specific demands of your work and sport. For office workers this means sustained grip, mouse, and keyboard tolerance. For trades and gym-based patients this means tool use, carrying, and overhead or pushing loads. For racquet sports it means technique-appropriate return, often with a coach reviewing backhand mechanics.",
+        examples: [
+          "Bilateral then unilateral heavy carries (farmer carries, suitcase carries) across progressively longer distances",
+          "Pull-ups, rows, and deadlift variations cycled in with attention to grip endurance rather than maximal grip",
+          "Sport-specific return, such as mini-tennis and controlled rallying before full match play, or graded return to hammering and sustained tool use for trades",
+          "Ongoing Tyler protocol or heavy slow resistance wrist work 2 times per week as maintenance during return to sport",
+          "Review of ergonomic set-up once symptoms are controlled, to confirm the load environment has actually changed"
+        ],
+        progressionCriteria: "Pain 2 out of 10 or less during full work or sport demands, symmetrical pain-free grip strength, and two consecutive weeks of full-duty return without a 24-hour symptom flare."
+      }
+    },
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -1353,6 +1434,109 @@ Sudden increases in activity, changes in footwear, or prolonged standing on hard
       questionnaires: "Foot Function Index helps monitor overall progress",
       activityTarget: "Return to desired walking, running, or standing tolerance"
     },
+
+    differentialDiagnosis: [
+      {
+        condition: "Calcaneal Stress Fracture or Calcaneal Bone Stress",
+        distinguishingFeatures: "Pain is reproduced with side-to-side calcaneal squeeze rather than with forefoot dorsiflexion of the toes. Weight-bearing is painful regardless of time of day, and the sharp first-step pattern typical of plantar fasciopathy is absent or relatively minor compared with overall loading pain. Recent rapid training progression or low bone-health risk factors shift suspicion toward bone stress and away from fascia."
+      },
+      {
+        condition: "Fat Pad Contusion or Atrophy",
+        distinguishingFeatures: "Pain sits directly under the centre of the heel rather than slightly in front of the heel bone at the fascia insertion. It worsens with walking barefoot on hard surfaces and eases with well-cushioned shoes, and classic morning first-step pain is often mild or absent. Older adults and athletes with high-impact heel strike patterns are more commonly affected."
+      },
+      {
+        condition: "Baxter's Nerve (First Branch of Lateral Plantar Nerve) Entrapment",
+        distinguishingFeatures: "Burning or tingling quality to the pain, tenderness medial to the heel at the abductor hallucis rather than at the fascia origin, and symptoms that persist or even worsen at rest rather than easing with movement. Classic morning pain is variable. Nerve-specific provocation rather than fascia loading is the reliable reproducer."
+      },
+      {
+        condition: "Tarsal Tunnel Syndrome",
+        distinguishingFeatures: "Numbness, tingling, or burning radiating into the sole and toes along the posterior tibial nerve distribution. Pain often worsens at night or with prolonged standing. A Tinel sign behind the medial malleolus and symptom reproduction on nerve tension testing separate this from plantar fasciopathy."
+      },
+      {
+        condition: "Plantar Fascia Rupture",
+        distinguishingFeatures: "A sudden tearing sensation during a push-off or jump, often with an audible pop, immediate bruising in the arch over the following 24 to 48 hours, and difficulty bearing weight. This is an acute event rather than a gradual build, and it usually needs a period of protected loading before the typical loading programme resumes."
+      },
+      {
+        condition: "Posterior Tibial Tendinopathy",
+        distinguishingFeatures: "Pain tracks behind and below the medial malleolus and up the deep calf rather than at the heel. Single-leg heel raise reveals the heel failing to invert and the arch collapsing. Plantar fascia palpation is usually comfortable while the posterior tibial tendon is reproducibly tender."
+      }
+    ],
+
+    faqs: [
+      {
+        question: "Why does my heel hurt the most with my first steps in the morning?",
+        answer: "That first-step pattern is one of the most reliable features of plantar fasciopathy. Overnight the fascia sits in a shortened position with no load through it. The first steps reload tissue that has not been primed, which reproduces pain sharply. It usually eases within 10 to 15 minutes as the fascia warms up and gets used to the morning loading. Pain that stays sharp beyond that window, or that is accompanied by tingling or burning, pushes the picture toward other causes."
+      },
+      {
+        question: "How long does plantar fasciitis take to get better?",
+        answer: "Most people improve significantly within 3 to 6 months of structured rehab, and a substantial majority are much better within 12 months. However, it is a slow-moving condition and about 10 to 20 percent still have some symptoms beyond a year, particularly if treatment was inconsistent or started very late. The more reliable predictor than any one treatment is consistency with calf and fascia loading, managing daily standing and walking volume, and addressing training spikes rather than pushing through."
+      },
+      {
+        question: "Does stretching actually work for plantar fasciitis?",
+        answer: "Yes, particularly plantar fascia-specific stretching. DiGiovanni and colleagues (JBJS 2003) showed that a tissue-specific plantar fascia stretch, pulling the toes back into extension with the hand, produced better outcomes than calf stretching alone in chronic cases. I typically combine both: calf stretching to restore ankle dorsiflexion and fascia-specific stretching done before first weight-bearing in the morning and before prolonged standing."
+      },
+      {
+        question: "Should I strengthen my foot or just rest?",
+        answer: "Loading generally wins over rest. Rathleff and colleagues (Scandinavian Journal of Medicine and Science in Sports, 2015) compared high-load calf and fascia strengthening against stretching alone and found significantly better short-term outcomes with the loading programme. The exercise is a slow single-leg heel raise with a towel bunched under the toes to put the fascia on tension. Performed every second day, with a slow tempo and progressive load, it consistently outperforms doing nothing."
+      },
+      {
+        question: "Do I need orthotics or new shoes?",
+        answer: "Orthoses and supportive footwear can reduce symptoms, particularly in the short to medium term, and they are a reasonable addition to a loading programme rather than a substitute for it. The JOSPT 2014 heel pain guideline supports foot orthoses as part of a multimodal approach. I usually use them as a bridge while calf and fascia capacity rebuilds, rather than as a long-term dependency."
+      },
+      {
+        question: "Are cortisone injections a good idea?",
+        answer: "Short-term pain relief is often real, but the effect typically fades within weeks and injections carry a small but notable risk of fat pad atrophy and fascia rupture. I rarely recommend cortisone as a first step. When someone has genuinely plateaued after months of consistent loading, a single targeted injection can sometimes break the cycle, but it is not a substitute for loading, footwear, and load management."
+      },
+      {
+        question: "Do night splints help?",
+        answer: "They can reduce morning pain for some people, particularly in cases that have been present for several months. The mechanism is keeping the fascia on a gentle stretch overnight so the first steps are less painful. Evidence is modest and tolerance is mixed because they can disrupt sleep. I use them selectively rather than routinely."
+      },
+      {
+        question: "Can I keep running with plantar fasciitis?",
+        answer: "Often yes, with adjustments. If pain during a run stays at or below about 4 out of 10, settles within 24 hours, and does not rise week over week, running is usually safe. Easing volume by around 30 percent, running on softer surfaces, and avoiding aggressive hill or speed work early on usually keeps things manageable. If the pain pattern does not meet those conditions, a brief pause with cross-training typically gets the runner back to normal volume faster than grinding through."
+      }
+    ],
+
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Pain Control and Tissue Tolerance (Weeks 1 to 4)",
+        focus: "Reduce morning and loading pain while introducing gentle tissue loading. Plantar fascia-specific stretching, supported by DiGiovanni and colleagues in JBJS 2003, is the anchor morning routine. Calf and soleus stretching address the most common impairment, limited ankle dorsiflexion, noted in the JOSPT 2014 heel pain clinical practice guideline. Loading is low-intensity and focused on consistency.",
+        examples: [
+          "Plantar fascia-specific stretch done seated before standing: cross the affected foot over the opposite knee, pull the toes back into extension, hold 10 seconds, repeat 10 times, 3 times daily and always before first weight-bearing in the morning",
+          "Gastrocnemius stretch with the knee straight, 30 seconds, 3 repetitions per side, twice daily",
+          "Soleus stretch with the knee bent, 30 seconds, 3 repetitions per side, twice daily",
+          "Seated heel raises for the soleus with the knee bent to roughly 90 degrees, 3 sets of 15",
+          "Activity pacing: reduce prolonged standing blocks, rotate supportive footwear, introduce short walking breaks during long standing periods"
+        ],
+        progressionCriteria: "Morning first-step pain at 4 out of 10 or less for 7 consecutive days, tolerance of a 20 to 30 minute walk without escalating pain, and no next-day symptom rise after stretching and early loading sessions."
+      },
+      phase2: {
+        title: "Phase 2: High-Load Strength Training (Weeks 4 to 12)",
+        focus: "Rebuild fascia and calf capacity using the Rathleff high-load protocol (Scandinavian Journal of Medicine and Science in Sports, 2015). The key exercise is a slow single-leg heel raise with the toes held in dorsiflexion, performed every second day with a 3-second up, 2-second pause, 3-second down tempo. Load progresses from body weight toward carrying a backpack or using a calf-raise machine, moving from higher-rep sets toward lower-rep, heavier sets across the block. Stretching continues as maintenance rather than as the main intervention.",
+        examples: [
+          "High-load single-leg heel raise on a step with a towel rolled under the toes, 3 sets every second day: week 1 to 2 at 3 sets of 12 reps, progressing to 3 sets of 10, 3 sets of 8, then 3 sets of 6 with added load by week 8 to 12",
+          "Continued calf and plantar fascia-specific stretching as maintenance, daily",
+          "Tibialis posterior and intrinsic foot strengthening such as short-foot holds and resisted foot adduction, 3 sets of 10 to 15",
+          "Hip abductor and glute max strengthening to offload the lower chain, 3 sets of 10 to 12",
+          "Supportive footwear during higher-load daily standing periods, with or without an over-the-counter orthosis"
+        ],
+        progressionCriteria: "Foot Function Index improving meaningfully from baseline, single-leg heel raise with load tolerated at 3 out of 10 pain or less, and consistent tolerance of normal walking and standing demands without next-day flares."
+      },
+      phase3: {
+        title: "Phase 3: Return to Running, Sport, and Prevention (Months 3 to 6+)",
+        focus: "Rebuild impact tolerance and return to running, standing-intensive work, or sport. Loading continues twice weekly to preserve gains and prevent recurrence. Training progression respects the 10 percent weekly rule and reintroduces hills and speed work last. For non-running cases, the aim is full standing and walking tolerance with no functional limitations.",
+        examples: [
+          "Walk-run progression starting at 1 minute run, 2 minutes walk, building toward continuous running on soft surfaces over 3 to 4 weeks",
+          "Plyometric progression from double-leg pogo hops to single-leg hops on soft surface, 3 sets of 10 to 20",
+          "Continued heavy calf raise work, 3 sets of 6 to 12 with load, twice weekly as maintenance",
+          "Gradual reintroduction of hills, speed work, and harder surfaces once continuous easy running is symptom-free",
+          "Training log tracking volume, surface, and symptoms to catch load spikes early"
+        ],
+        progressionCriteria: "Return to desired running, walking, or standing volume without morning first-step pain, Foot Function Index scores stable at or near pre-injury levels, and 4 or more consecutive weeks of symptom-free training or work."
+      }
+    },
+
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -3135,6 +3319,109 @@ Footwear and training surface changes can trigger Achilles problems even in expe
       questionnaires: "VISA-A questionnaire for Achilles function",
       activityTarget: "Return to running or desired activities without limitation"
     },
+
+    differentialDiagnosis: [
+      {
+        condition: "Insertional vs Mid-portion Achilles Tendinopathy",
+        distinguishingFeatures: "Insertional pain sits right at the heel bone and often flares with deep dorsiflexion or uphill running because the tendon gets compressed against the calcaneus. Mid-portion pain sits 2 to 6 cm above the heel in the soft part of the tendon. The distinction matters because insertional cases tolerate less dorsiflexion range during loading, and heel drops below a step are typically avoided early on."
+      },
+      {
+        condition: "Partial or Complete Achilles Rupture",
+        distinguishingFeatures: "A rupture is usually a sudden event with an audible snap or a sense of being kicked in the back of the ankle, immediate weakness pushing off, and a positive Thompson test where squeezing the calf produces no ankle plantarflexion. Tendinopathy builds over weeks, responds to warm-up, and preserves push-off strength."
+      },
+      {
+        condition: "Retrocalcaneal Bursitis or Haglund's Deformity",
+        distinguishingFeatures: "Pain sits at the back of the heel itself rather than in the tendon substance. A visible bony bump at the upper edge of the calcaneus, pain reproduced by squeezing either side of the tendon just above the heel rather than the tendon itself, and strong aggravation from shoe counters pressing on the heel all point away from a primary tendon problem."
+      },
+      {
+        condition: "Posterior Ankle Impingement",
+        distinguishingFeatures: "Pain is deep and posterior rather than along the tendon, and it peaks with forced plantarflexion such as during a calf raise to full height, ballet en pointe, or the push-off phase of a sprint. Calf-raise holds do not reliably reproduce symptoms, while full-range plantarflexion testing does."
+      },
+      {
+        condition: "Posterior Tibial Tendinopathy",
+        distinguishingFeatures: "Pain and swelling track behind and below the medial ankle bone rather than at the Achilles, the arch often feels more fatigued or collapsed, and single-leg heel raise reveals the heel failing to invert. A classically painful Achilles on resisted plantarflexion is often comfortable here, and vice versa."
+      },
+      {
+        condition: "Sural Nerve Irritation",
+        distinguishingFeatures: "Sharp, burning, or tingling pain following the outer border of the Achilles down into the foot, often with a reproducible tender spot over the nerve rather than the tendon. Calf-raise loading typically does not provoke the pain; light percussion or direct nerve tension does."
+      }
+    ],
+
+    faqs: [
+      {
+        question: "How long does Achilles tendinopathy take to get better?",
+        answer: "Meaningful change usually takes 3 months of consistent loading, and full return to running or jumping often sits in the 6 to 12 month range depending on how long symptoms were present before starting rehab. The Silbernagel and Crossley JOSPT 2015 framework and the JOSPT 2018 Achilles clinical practice guideline both set expectations around months, not weeks, because tendon collagen remodels slowly. Patience is part of the treatment."
+      },
+      {
+        question: "Should I stop running with Achilles tendinopathy?",
+        answer: "Usually no. Complete rest tends to detrain the tendon further and symptoms return as soon as running resumes. The Silbernagel pain-monitoring model allows continued running provided pain stays at or below about 5 out of 10 during the run, settles within 24 hours, and does not creep up week over week. If all three conditions hold, running is serving the rehab rather than undermining it."
+      },
+      {
+        question: "Do eccentric heel drops still work, or is heavy slow resistance better?",
+        answer: "Both work. Alfredson's 1998 protocol of 3 sets of 15 heel drops twice daily for 12 weeks produced results strong enough to reshape tendon rehab globally. Beyer and colleagues (AJSM 2015) compared heavy slow resistance against eccentric training at 12 and 52 weeks and found equivalent outcomes with higher patient satisfaction in the heavy slow resistance group at 12 weeks. I typically pick based on equipment access, schedule, and what the person will actually do three times a week."
+      },
+      {
+        question: "Why is my Achilles worst in the morning?",
+        answer: "Morning stiffness is one of the most reliable features of tendinopathy. During sleep the tendon sits in a shortened, unloaded position, and the first weight-bearing steps reload tissue that has not been primed. Stiffness that eases within 10 to 15 minutes, and a warm-up period where the tendon feels better during activity, are classic. Stiffness lasting over 30 minutes or worsening through the day signals that loading needs to be dialled back."
+      },
+      {
+        question: "What is the difference between insertional and mid-portion Achilles tendinopathy?",
+        answer: "Mid-portion pain sits in the soft belly of the tendon 2 to 6 cm above the heel. Insertional pain sits right where the tendon meets the heel bone. The distinction matters because insertional tendons get pinched against the calcaneus when the ankle dorsiflexes deeply, so heel drops off a step are typically avoided early on and flat-ground or slightly-raised calf raises are used instead. Mid-portion cases tolerate and often benefit from the decline heel drop position."
+      },
+      {
+        question: "Are cortisone injections a good idea for Achilles tendinopathy?",
+        answer: "I steer people away from peritendinous cortisone for the Achilles. Pain relief is short-lived, and there is a real concern about tendon weakening and rupture risk with injection into or around a degenerative tendon. The JOSPT 2018 guideline and most current tendinopathy reviews do not support corticosteroid injection as a primary treatment. Progressive loading remains the cornerstone."
+      },
+      {
+        question: "When should I worry about an Achilles rupture versus tendinopathy?",
+        answer: "A rupture is almost always a sudden event, often with a pop or a sensation of being struck in the calf, followed by immediate difficulty pushing off or rising onto the toes. Inability to perform even a small single-leg heel raise, or a positive Thompson test (squeezing the calf while lying face-down fails to move the foot), warrants urgent assessment rather than rehab planning. Tendinopathy, by contrast, builds gradually and preserves most strength."
+      },
+      {
+        question: "Does ultrasound or MRI change the treatment plan for Achilles pain?",
+        answer: "In most cases, no. Imaging often shows tendon thickening, neovascularisation, or focal changes that correlate poorly with symptoms and with prognosis. Two Achilles tendons that look identical on ultrasound can behave completely differently. I order imaging when a partial tear, bursitis, or bone pathology is genuinely on the differential, not as a routine confirmation of tendinopathy."
+      }
+    ],
+
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Pain Control and Isometric Loading (Weeks 1 to 4)",
+        focus: "Bring morning stiffness and first-step pain down to a workable level, and introduce predictable tendon load without aggravation. Isometric calf holds load the tendon heavily without the repetitive length changes that often provoke early-stage Achilles pain. The Silbernagel pain-monitoring model guides dosage: symptoms during and after loading can sit up to 5 out of 10 provided they settle within 24 hours and do not rise week over week.",
+        examples: [
+          "Double-leg calf raise isometric hold at roughly two-thirds of full height, 5 sets of 45 seconds, once daily",
+          "Seated calf raise isometric hold, 5 sets of 30 to 45 seconds, useful when standing holds flare insertional pain",
+          "Slow double-leg calf raises on flat ground, 3 sets of 15, 3 seconds up and 3 seconds down",
+          "Soleus-focused seated calf raise with the knee bent to roughly 90 degrees, 3 sets of 15",
+          "Running volume reduced by 30 to 50 percent, with steepest uphill or speed work paused"
+        ],
+        progressionCriteria: "Morning stiffness under 15 minutes for 7 consecutive days, pain during isometric holds at or below 3 out of 10, and no symptom rise 24 hours after loading sessions."
+      },
+      phase2: {
+        title: "Phase 2: Heavy Slow Resistance or Eccentric Loading (Weeks 4 to 12)",
+        focus: "Rebuild tendon structural capacity. For mid-portion tendinopathy the choice is between Alfredson's heel-drop protocol (3 sets of 15 twice daily off a step, straight-knee and bent-knee versions, seven days a week) and the heavy slow resistance approach that Beyer and colleagues tested in AJSM 2015 (3 sets, 3 times per week, 3 seconds up and 3 seconds down, progressing from 15RM toward 6RM across the block). Outcomes at 52 weeks were equivalent in their trial. For insertional cases the heel stays on flat ground or a slight lift rather than dropping below level, consistent with the JOSPT 2018 guideline's caution about compressive loading at the insertion.",
+        examples: [
+          "Mid-portion: Alfredson heel drops off a step, straight-knee and bent-knee, 3 sets of 15 twice daily",
+          "Alternative: Heavy slow resistance standing calf raise in a Smith machine or with a barbell, 3 sets of 6 to 15 reps, 3 times per week on non-consecutive days",
+          "Seated heavy slow resistance calf raise for the soleus, 3 sets of 6 to 15 reps",
+          "Insertional: floor-level or slightly elevated calf raises only, same tempo and sets, avoiding end-range dorsiflexion",
+          "Running maintained or gradually rebuilt using the 24-hour symptom rule as the gatekeeper"
+        ],
+        progressionCriteria: "Full-range single-leg calf raises at 3 out of 10 pain or less, at least 20 consecutive single-leg raises possible on the affected side, and two weeks of loading sessions tolerated without a 24-hour flare."
+      },
+      phase3: {
+        title: "Phase 3: Energy Storage and Return to Sport (Months 3 to 6+)",
+        focus: "Restore the spring-like, stretch-shortening behaviour the Achilles needs for running, cutting, and jumping. This follows the later stages of the Silbernagel and Crossley 2015 return-to-sport framework: only progress to plyometrics once heavy resistance is comfortable, and rebuild running and sport volume gradually rather than in a single jump.",
+        examples: [
+          "Pogo-style bilateral hops on soft surface, 3 sets of 20, progressing to firm ground",
+          "Single-leg hops in place, then for distance, then with change of direction",
+          "A-skips, bounding, and controlled accelerations",
+          "Running volume rebuild using a 10 percent weekly cap, with hills and speed work reintroduced last",
+          "Sport-specific demands such as cutting for soccer, repeated sprints, or jump-intensive training reintroduced in graded blocks"
+        ],
+        progressionCriteria: "VISA-A score trending upward and above 80 when used, single-leg hop symmetry within 10 percent of the unaffected side, and two consecutive weeks of full training or running volume without a 24-hour symptom flare."
+      }
+    },
+
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -3232,6 +3519,105 @@ Biomechanical factors significantly influence shin splint development. Overprona
     ],
 
     measuringProgress: standardMeasuringProgress,
+
+    differentialDiagnosis: [
+      {
+        condition: "Tibial Stress Fracture",
+        distinguishingFeatures: "Pain concentrates at a single focal point on the tibia rather than spreading along a 5 cm or longer stretch. Hopping on the affected leg or a single-leg calf raise to failure typically reproduces sharp, localised pain and often cannot be tolerated to completion. Night pain and rest pain are far more suggestive of bone stress than of medial tibial stress syndrome, and this combination warrants imaging before loading progresses."
+      },
+      {
+        condition: "Chronic Exertional Compartment Syndrome",
+        distinguishingFeatures: "Pain builds during running in a predictable time or distance window, is often described as tightness, squeezing, or a cramping band of pressure, and may involve numbness or foot slap. It eases within minutes of stopping rather than worsening afterward. Tenderness along the tibial border is typically absent, which is a key separator from medial tibial stress syndrome."
+      },
+      {
+        condition: "Popliteal Artery Entrapment",
+        distinguishingFeatures: "Exercise-induced calf or shin pain with associated coolness, colour change, or fatigue in the foot that resolves quickly with rest. More common in younger athletes and can mimic compartment syndrome. Vascular assessment rather than musculoskeletal loading is the route to diagnosis."
+      },
+      {
+        condition: "Tibialis Posterior or Deep Posterior Compartment Tendinopathy",
+        distinguishingFeatures: "Tenderness tracks behind the medial malleolus and up the deep calf rather than along the tibial crest. Single-leg heel raise reproduces pain and the heel may fail to invert through the motion. Arch fatigue is often more prominent than shin pain."
+      },
+      {
+        condition: "Saphenous or Tibial Nerve Irritation",
+        distinguishingFeatures: "Burning, tingling, or shooting pain along a nerve distribution rather than a diffuse aching along the tibial border. Tenderness to palpation is poorly reproducible, and symptoms often persist at rest rather than being strictly load-dependent."
+      },
+      {
+        condition: "Lumbar-referred Leg Pain",
+        distinguishingFeatures: "Shin symptoms that fluctuate with spinal positions, sitting, or forward bending, rather than with running load. Back pain or a history of disc or nerve root irritation, and reproduction of shin symptoms on neural tension testing, all point upstream rather than to a local shin issue."
+      }
+    ],
+
+    faqs: [
+      {
+        question: "Do I have shin splints or a stress fracture?",
+        answer: "Shin splints produce diffuse tenderness along roughly a 5 cm or longer stretch of the inner tibia, and pain eases somewhat with walking or gentle movement. A stress fracture is usually a single focal spot of bone pain, often with sharp pain on hopping or a single-leg calf raise to failure, and night pain or rest pain is a red flag. When the hop test reproduces sharp focal pain or when tenderness stays pinpoint rather than spread out, I pause running and arrange imaging rather than continuing to load."
+      },
+      {
+        question: "Should I run through shin splints?",
+        answer: "Running through rising shin pain is the fastest route to a stress fracture, so the answer is no when pain is climbing week over week, when the shin is tender after sessions, or when a single-leg hop is painful. Early and mild cases often tolerate reduced volume, softer surfaces, and a higher cadence, but this only works if symptoms stabilise or improve. If they do not, a short window away from running and dedicated calf loading usually resolves things faster than grinding through."
+      },
+      {
+        question: "How long do shin splints take to settle?",
+        answer: "Mild cases caught early often settle in 2 to 4 weeks with load reduction and calf strengthening. Cases that have been building for months typically need 6 to 12 weeks of progressive rehab before full running volume returns. The biggest variable is whether the original training spike is actually modified. Without that, symptoms tend to recur as soon as mileage rebuilds."
+      },
+      {
+        question: "Does increasing running cadence help shin splints?",
+        answer: "Often yes. A higher step rate, typically a 5 to 10 percent increase over habitual cadence, shortens stride length, reduces overstride, and lowers vertical impact loading. Studies on gait retraining in runners show reductions in tibial strain and impact metrics with cadence cueing. It is not a standalone fix, but combined with calf strengthening and a sensible mileage rebuild it is one of the more effective running tweaks."
+      },
+      {
+        question: "Are orthotics or new shoes a solution?",
+        answer: "They can help, but rarely on their own. Medial tibial stress syndrome is primarily a training-load issue layered on top of biomechanical predispositions. Footwear changes and orthoses sometimes reduce medial loading, especially in runners with notable overpronation or collapsing arches, but they do not build bone or tendon capacity. Most runners do better by pairing any footwear adjustment with a structured strength and load-management plan rather than expecting the shoe to do the work."
+      },
+      {
+        question: "Can I cross-train while shin splints heal?",
+        answer: "Yes, and I encourage it. Cycling, pool running, elliptical work, and rowing maintain aerobic fitness without the repetitive tibial loading that drives shin splints. Strength work for calves, glutes, and trunk continues throughout. This keeps the return to running from starting at zero and reduces the temptation to rush mileage rebuild."
+      },
+      {
+        question: "Why did my shin splints come back when I started running again?",
+        answer: "Almost always because the running volume, speed, or surface returned faster than the bone could adapt. Bone remodels on a slower timeline than muscle, and a tibia that was stressed enough to become painful needs a methodical build-up, typically no more than a 10 percent weekly increase and regular down-weeks. Recurrence usually points to either an unresolved strength deficit or a training plan that outran the tissue."
+      }
+    ],
+
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Load Reduction and Early Loading (Weeks 1 to 3)",
+        focus: "Bring tibial tenderness and activity pain down while preserving aerobic fitness and starting to rebuild calf capacity. Running is reduced or paused for 1 to 2 weeks in most cases, with a clear return-to-run criterion: a pain-free single-leg hop and non-tender palpation along the tibial border. Cross-training carries the aerobic load. The Winters et al. work on MTSS diagnosis, including the clinical use of tibial palpation and hop testing, guides both assessment and return-to-run decision-making.",
+        examples: [
+          "Double-leg calf raises on flat ground, 3 sets of 15, 3 seconds up and 3 seconds down",
+          "Seated heel raises for the soleus with the knee bent, 3 sets of 15",
+          "Short-foot and intrinsic foot activation drills, 2 to 3 sets of 10 holds",
+          "Cycling, pool running, elliptical, or rowing to maintain aerobic fitness at conversational intensity",
+          "Hip abductor and glute max strengthening such as side planks and single-leg bridges, 3 sets of 10 to 12"
+        ],
+        progressionCriteria: "Tibial palpation no longer tender, pain-free single-leg hopping for 20 repetitions, double-leg calf raises tolerated without post-exercise shin pain the next morning."
+      },
+      phase2: {
+        title: "Phase 2: Progressive Loading and Return to Running (Weeks 3 to 8)",
+        focus: "Rebuild calf, hip, and running-specific capacity while reintroducing running in structured walk-run intervals. Cadence is checked and, where helpful, increased by 5 to 10 percent from the runner's habitual step rate to reduce tibial loading. Weekly running volume increases by no more than 10 percent, and sessions are spaced to allow bone recovery.",
+        examples: [
+          "Single-leg calf raises, 3 sets of 8 to 15, progressing to loaded calf raises as tolerated",
+          "Soleus-focused seated calf raises with load, 3 sets of 8 to 12",
+          "Step-ups and split squats, 3 sets of 8 to 10 per side, to build single-leg capacity",
+          "Walk-run intervals starting at 1 minute run and 2 minutes walk, progressing toward continuous running on soft surfaces",
+          "Cadence work with a metronome or music at 170 to 180 steps per minute if previously running at a notably lower rate"
+        ],
+        progressionCriteria: "Continuous 20 to 30 minute easy run on soft surface without shin pain during or next-day, 20 or more single-leg calf raises on the affected side, and two consecutive weeks of load progression without symptom rise."
+      },
+      phase3: {
+        title: "Phase 3: Full Training and Prevention (Weeks 8+)",
+        focus: "Return to normal training volume, reintroduce speed, hills, and harder surfaces, and install the habits that keep the tibia loaded within its capacity. The aim is not just symptom resolution but a runner who can take on the next training block without regression. Monitoring weekly load increases, continuing calf and hip strength work, and respecting planned down-weeks are the most reliable preventive tools.",
+        examples: [
+          "Plyometric progression from double-leg pogo hops to single-leg hops in place and for distance, 3 sets of 10 to 20 contacts",
+          "Tempo and interval running reintroduced one quality session per week, gradually building volume",
+          "Hills reintroduced after 2 to 3 weeks of consistent flat running, starting with gentle gradients",
+          "Continued heavy calf raises, 3 sets of 6 to 12 with load, twice weekly",
+          "Training log with weekly volume, surface, and symptom notes to catch future load errors early"
+        ],
+        progressionCriteria: "Return to pre-injury weekly mileage and intensity without shin pain, symmetrical single-leg hop tolerance, and at least 4 consecutive weeks of symptom-free training including at least one quality session per week."
+      }
+    },
+
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -3324,20 +3710,28 @@ Chronic cases persisting beyond 6-12 months can be more challenging and may bene
 
     differentialDiagnosis: [
       {
-        condition: "Ulnar Nerve Compression (Cubital Tunnel Syndrome)",
-        distinguishingFeatures: "Numbness/tingling in ring and small fingers, worse with elbow flexion, positive Tinel's sign at cubital tunnel, may have intrinsic hand muscle weakness"
+        condition: "Ulnar Nerve Compression at the Cubital Tunnel",
+        distinguishingFeatures: "Numbness or tingling into the ring and small fingers rather than focal elbow tenderness, worse with sustained elbow flexion (phone use, sleeping), positive Tinel sign or elbow flexion test at the cubital tunnel, and in advanced cases weakness of the intrinsic hand muscles."
       },
       {
         condition: "Ulnar Collateral Ligament Sprain",
-        distinguishingFeatures: "Pain with valgus stress testing, history of throwing or traumatic injury, instability sensation during throwing/overhead activities"
+        distinguishingFeatures: "Pain and laxity with valgus stress testing, history of throwing or a specific traumatic event, a sense of instability during throwing or overhead loading, and often accompanied by medial flexor-pronator strain rather than isolated tendinopathy."
       },
       {
-        condition: "Cervical Radiculopathy (C7-C8)",
-        distinguishingFeatures: "Neck pain with radiation following dermatomal pattern, positive Spurling's test, weakness or sensory changes in specific nerve distribution"
+        condition: "Cervical Radiculopathy (C7 or C8)",
+        distinguishingFeatures: "Neck-dominant pain that radiates into the arm in a dermatomal pattern, positive Spurling's test, and sensory or motor changes distributed by nerve root rather than confined to the medial epicondyle region."
       },
       {
-        condition: "Medial Elbow Stress Fracture or Avulsion",
-        distinguishingFeatures: "More common in adolescent throwing athletes, acute onset with specific trauma, point tenderness over bone, visible on imaging"
+        condition: "Medial Epicondyle Avulsion or Stress Reaction",
+        distinguishingFeatures: "Acute onset with a specific throwing or pulling event, point tenderness over bone rather than tendon, more common in adolescent throwing athletes with open growth plates, and changes visible on X-ray or MRI."
+      },
+      {
+        condition: "Pronator Syndrome (Median Nerve Compression in the Forearm)",
+        distinguishingFeatures: "Aching along the volar proximal forearm rather than over the medial epicondyle, reproduction of symptoms with resisted pronation, and paresthesia in the median nerve distribution including the palmar cutaneous branch."
+      },
+      {
+        condition: "Referred Pain from Cervical Facet or Rotator Cuff",
+        distinguishingFeatures: "Diffuse aching without a single focal tender point at the medial epicondyle, reproduction of symptoms on shoulder or neck testing rather than wrist flexion or pronation under load, and symptoms that do not track cleanly with gripping activity."
       }
     ],
 
@@ -3463,6 +3857,79 @@ Chronic cases persisting beyond 6-12 months can be more challenging and may bene
       questionnaires: "Patient-Rated Elbow Evaluation (PREE) is the validated outcome measure, scoring pain and function out of 100. Score reduction of 11+ points indicates clinically meaningful improvement. Pain-free grip strength expressed as percentage of uninvolved side provides key objective measure of recovery",
       activityTarget: "Return to work tasks without limitation (computer work, manual labor, tool use), sports activities (golf, tennis, throwing, weightlifting) with proper mechanics, and daily activities (carrying objects, opening containers, household tasks) without pain or compensatory patterns"
     },
+    faqs: [
+      {
+        question: "Is golfer's elbow actually caused by golf?",
+        answer: "Usually not. The StatPearls chapter on medial epicondylitis (Kiel and Kaiser, updated 2026) notes that more than 90% of cases arise outside sport, typically from repetitive occupational activity, lifting, or gym training. Golfers can develop it, but most of the patients I see have it from carrying, gripping, climbing, trades work, or a sudden gym or yard work spike."
+      },
+      {
+        question: "Is golfer's elbow the same as tennis elbow?",
+        answer: "No. They are similar in principle, both are load-related tendinopathies at the elbow, but they affect opposite sides. Golfer's elbow loads the flexor-pronator tendon on the inner elbow, while tennis elbow loads the extensor tendon on the outer elbow. The rehab principles are the same, progressive loading over months, but the specific exercises are different, and the provocative tests used during assessment are different."
+      },
+      {
+        question: "How long does golfer's elbow take to heal?",
+        answer: "The honest answer is that the evidence base for medial epicondylalgia is weaker than for tennis elbow, with fewer high-quality trials. From my clinical experience and the tendinopathy literature, most people see meaningful change by 8 to 12 weeks of structured loading, with full resolution often taking 3 to 6 months. Longer symptom duration consistently predicts a slower recovery, and patients who have been symptomatic for over a year should expect a longer program."
+      },
+      {
+        question: "Should I rest my elbow completely?",
+        answer: "Complete rest usually stalls recovery. Tendinopathies respond to progressive load, not avoidance. Reducing aggravating peaks while continuing gentle, structured loading is what rebuilds tendon capacity. When people take weeks off and then return to full activity, symptoms almost always come back within days because the tendon's capacity has not changed."
+      },
+      {
+        question: "Should I get a cortisone shot for golfer's elbow?",
+        answer: "I am cautious about it. The tendinopathy literature, including Coombes and colleagues' work on lateral epicondyle tendinopathy, consistently shows that corticosteroid injection helps short term but produces worse outcomes at 6 and 12 months compared to exercise, with higher recurrence. Medial epicondylalgia has less high-quality data than lateral, but the pattern of caution applies. I reserve injection as a conversation only when pain genuinely prevents engagement with loading rehab, not as a first-line fix."
+      },
+      {
+        question: "Why do my ring and small fingers feel numb too?",
+        answer: "The ulnar nerve runs right behind the medial epicondyle, and roughly a quarter to a third of medial epicondylalgia cases have some ulnar nerve irritation alongside them. If you are getting numbness or tingling into the ring and small fingers, I specifically test the cubital tunnel and screen for ulnar nerve involvement, because that changes the plan. If nerve symptoms dominate, rehab focuses on nerve mobilisation and positioning, not just the tendon."
+      },
+      {
+        question: "When can I go back to lifting weights or golf?",
+        answer: "Once you can tolerate full-range loading under moderate resistance without a 24-hour flare, and grip strength is close to your unaffected side. For golf, that also means reviewing whether grip size, swing mechanics, or a recent change in practice volume contributed to the original flare. Returning to the exact conditions that caused the problem without changing them is the most common reason I see symptoms recur."
+      },
+      {
+        question: "Do I need an MRI for golfer's elbow?",
+        answer: "Usually not. The diagnosis is clinical: focal tenderness at the medial epicondyle, pain with resisted wrist flexion or pronation, and a history of repetitive load. I consider imaging when symptoms do not respond to an appropriate 3-month loading program, when there is a specific concern about the ulnar collateral ligament in a thrower, or when nerve involvement is significant."
+      }
+    ],
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Calm the Tendon and Begin Loading (Weeks 1 to 3)",
+        focus: "Reduce peak irritation, introduce loading that the tendon can tolerate, and fix any ergonomic or training spikes that set this off. Isometric contractions are useful for analgesia and as a safe starting load. Activity audit comes first: whatever repeatedly loaded the flexor-pronator tendon has to change, at least temporarily, for loading rehab to have a chance.",
+        examples: [
+          "Isometric wrist flexion holds with forearm supported, elbow bent to 90 degrees, resisting into a light weight or band for 5 sets of 30 to 45 seconds at pain no higher than 3 out of 10",
+          "Isometric forearm pronation holds against a fixed object or band, 5 sets of 20 to 30 seconds",
+          "Gentle wrist extensor stretch, 3 holds of 30 seconds, to balance out the program",
+          "Grip squeezes with a soft ball at submaximal effort, 3 sets of 10, avoiding full wrist flexion under grip",
+          "Scapular and rotator cuff setting with a light band, 3 sets of 10, to reduce distal compensation during reaching and lifting"
+        ],
+        progressionCriteria: "Isometric holds comfortable at 3 out of 10 or less, no more than mild next-day soreness after sessions for a full week, and everyday gripping tasks such as carrying groceries or using a kettle no longer provoking sharp medial elbow pain."
+      },
+      phase2: {
+        title: "Phase 2: Progressive Flexor-Pronator Loading (Weeks 3 to 8)",
+        focus: "Build tendon capacity with heavier, slower loading that targets the flexor-pronator group. The evidence for golfer's elbow is less specific than for tennis elbow, but the tendinopathy loading principles transfer: slow tempo, progressive load, and respect for the 24-hour symptom rule. Some discomfort during loading, up to 5 out of 10, is acceptable provided it settles within 24 hours.",
+        examples: [
+          "Heavy slow resistance wrist flexion with a dumbbell, forearm supported palm-up, 3 seconds up and 3 seconds down, 3 sets of 10 to 15, 3 times per week",
+          "Eccentric-emphasis wrist flexion, using the uninvolved hand to assist the lift and lowering slowly over 4 seconds, 3 sets of 10",
+          "Resisted forearm pronation with a hammer or weighted lever, 3 sets of 10 to 12 per side",
+          "Farmer and suitcase carries with moderate load, 3 rounds of 20 to 40 metres, to build grip endurance without extreme peak force",
+          "Continued scapular and posterior chain work, 3 sets of 10 to 12, to reduce distal overload during lifting"
+        ],
+        progressionCriteria: "Pain-free grip within 20% of the unaffected side, ability to complete heavy slow resistance sessions without a 24-hour flare for at least 2 consecutive weeks, and PREE score trending downward from baseline."
+      },
+      phase3: {
+        title: "Phase 3: Return to Full Sport, Work, and Heavier Loading (Weeks 8 to 16+)",
+        focus: "Rebuild tolerance for the actual demands that caused the problem. For desk workers that is sustained grip, mouse, and keyboard time. For trades and gym users that is tool use, repeated lifting, carrying, and overhead work. For golfers and throwers it is a graded return with an honest look at grip size, technique, and training volume.",
+        examples: [
+          "Full-range loaded wrist flexion and pronation at near-maximal tolerated resistance, 3 sets of 8 to 10",
+          "Compound pulling and pressing with attention to grip endurance, such as rows, deadlifts, and chin-ups cycled across the week",
+          "Sport-specific return: for golfers, graded practice (chipping, half-swings, then full swings) before returning to 18 holes; for throwers, a progressive throwing program",
+          "Occupational task rehearsal at realistic duration and load, with micro-breaks planned in",
+          "Maintenance loading 1 to 2 times per week indefinitely once back to full duties, because the reason the tendon failed was capacity, not injury"
+        ],
+        progressionCriteria: "Pain 2 out of 10 or less during full work or sport demands, symmetrical pain-free grip strength, and two consecutive weeks of full-duty return without a 24-hour symptom flare."
+      }
+    },
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -3556,24 +4023,28 @@ The good news is mild to moderate CTS responds well to conservative treatment - 
 
     differentialDiagnosis: [
       {
-        condition: "Cervical Radiculopathy (C6-C7)",
-        distinguishingFeatures: "Neck pain with radiation, different dermatomal pattern (C6 includes thumb AND small finger), positive Spurling's test, weakness patterns different from median nerve distribution"
+        condition: "Cervical Radiculopathy (C6 or C7)",
+        distinguishingFeatures: "Neck-dominant pain that radiates into the arm in a dermatomal pattern rather than median nerve distribution, positive Spurling's test, and weakness or sensory changes that follow a nerve root rather than sparing the small finger."
       },
       {
-        condition: "Pronator Syndrome (Median Nerve Compression at Forearm)",
-        distinguishingFeatures: "Forearm pain and tenderness over pronator teres, no nocturnal predominance, includes palmar cutaneous branch symptoms (palm numbness), pain with resisted pronation"
+        condition: "Pronator Syndrome (Median Nerve Compression in the Forearm)",
+        distinguishingFeatures: "Aching along the volar proximal forearm, no clear nocturnal pattern, symptoms that often include the palmar cutaneous branch territory (central palm numbness, which is spared in classic carpal tunnel syndrome), and reproduction of symptoms with resisted pronation."
       },
       {
         condition: "Thoracic Outlet Syndrome",
-        distinguishingFeatures: "Symptoms entire hand/arm, positional (arm elevation), associated with shoulder/neck pain, positive provocative tests (Roos, Adson's), vascular symptoms possible"
+        distinguishingFeatures: "Symptoms across the whole hand rather than median distribution only, positional dependence (worse with arm elevation or carrying), associated neck and shoulder symptoms, and possible vascular features such as colour or temperature change."
+      },
+      {
+        condition: "Ulnar Nerve Entrapment at the Cubital Tunnel",
+        distinguishingFeatures: "Numbness and tingling in the ring and small fingers (opposite distribution to median nerve), worse with sustained elbow flexion, positive Tinel sign or elbow flexion test at the cubital tunnel, and in advanced cases intrinsic hand weakness."
       },
       {
         condition: "De Quervain's Tenosynovitis",
-        distinguishingFeatures: "Pain radial wrist over thumb tendons, positive Finkelstein's test, no numbness pattern, pain with thumb movement not gripping"
+        distinguishingFeatures: "Sharp localised pain over the radial wrist at the first dorsal compartment, positive Finkelstein test, no numbness or nocturnal pattern, and symptoms reproduced by thumb movement rather than by gripping or sustained wrist positions."
       },
       {
-        condition: "Arthritis (CMC Joint or Wrist)",
-        distinguishingFeatures: "Joint pain and stiffness worse in morning, visible joint changes, pain with joint loading not nerve distribution, no nocturnal paresthesias"
+        condition: "First Carpometacarpal Joint or Wrist Osteoarthritis",
+        distinguishingFeatures: "Joint-line pain and morning stiffness, pain reproduced by joint loading rather than nerve provocation tests, visible joint changes on X-ray, and no characteristic nocturnal numbness pattern."
       }
     ],
 
@@ -3708,6 +4179,79 @@ The good news is mild to moderate CTS responds well to conservative treatment - 
       questionnaires: "Boston Carpal Tunnel Questionnaire (BCTQ) is the validated condition-specific outcome measure with symptom severity scale (11 items) and functional status scale (8 items). Minimum clinically important difference is 1.0 point reduction on symptom scale and 0.7 on functional scale. Levine-Katz questionnaire also widely used",
       activityTarget: "Elimination of nocturnal symptoms requiring night waking, return to work tasks without symptoms (computer work, manual tasks), resumption of recreational activities requiring hand use (sports, musical instruments, crafts), and sustained improvement allowing weaning from night splint without recurrence"
     },
+    faqs: [
+      {
+        question: "Why does my hand go numb at night with carpal tunnel syndrome?",
+        answer: "Most people sleep with their wrists curled into flexion, which dramatically increases pressure inside the carpal tunnel. Sustained over several hours, that pressure starves the median nerve of oxygen, and you wake up with numbness, tingling, or aching that clears when you shake the hand out. This is the single most recognisable pattern of carpal tunnel syndrome, and it is why a neutral-position night splint is such a useful first-line intervention."
+      },
+      {
+        question: "Do wrist splints actually help carpal tunnel syndrome?",
+        answer: "Yes, particularly at night and particularly in mild to moderate cases. The AAOS Clinical Practice Guideline on Management of Carpal Tunnel Syndrome supports splinting as a non-operative option. Cochrane work by Page and colleagues (2012) on splinting also supported symptom relief compared to no treatment. Neutral position matters, because extension splinting also raises tunnel pressure. Compliance is the main factor I see separating people who get better from people who do not."
+      },
+      {
+        question: "Do I need surgery for carpal tunnel syndrome?",
+        answer: "Not everyone. Mild to moderate cases respond to conservative care, including night splinting, activity modification, nerve gliding, and ergonomic changes. Shi and colleagues' 2020 systematic review comparing surgical and non-surgical treatment found surgery tends to produce larger long-term gains for patients who have more severe or persistent disease. I typically recommend surgical consultation when there is constant numbness, visible thenar wasting, motor weakness, or when 6 to 12 weeks of appropriate conservative care has not changed the picture."
+      },
+      {
+        question: "How long should I try splints and therapy before considering surgery?",
+        answer: "For mild to moderate cases, a fair trial is 6 to 12 weeks of consistent nightly splinting plus activity modification and nerve glides. If you see clear symptom improvement in that window, I continue and re-evaluate at 12 weeks. If there is no meaningful change, or symptoms are progressing, I involve a surgical consult earlier rather than later. Severe cases with constant numbness or thenar atrophy should proceed to surgical review straight away, because the nerve damage in that situation is not reliably reversible."
+      },
+      {
+        question: "Can carpal tunnel syndrome go away on its own?",
+        answer: "Sometimes. Pregnancy-related carpal tunnel syndrome very often resolves within weeks of delivery as fluid shifts settle. Mild, activity-related cases can improve with load reduction alone. Most moderate or progressive cases, though, do not spontaneously resolve. They either plateau or worsen, which is why active management matters early rather than waiting to see."
+      },
+      {
+        question: "Will nerve gliding exercises help?",
+        answer: "Nerve and tendon gliding is a reasonable adjunct, and systematic reviews show mixed but generally positive results, particularly for mild to moderate cases when combined with splinting and activity change. They should feel comfortable, not sharp. If gliding exercises make symptoms worse, they are being done too aggressively or the nerve is more irritable than the current dosage tolerates."
+      },
+      {
+        question: "Is carpal tunnel syndrome caused by typing?",
+        answer: "Typing alone is not the whole story. The evidence for pure keyboard use as a direct cause is weaker than people assume. What I see more often is a combination of sustained wrist posture, repetitive forceful gripping, and underlying factors like pregnancy, diabetes, thyroid issues, higher body mass, or anatomically smaller tunnels. Changing the workstation helps many people, but if symptoms do not shift, I screen for the systemic contributors."
+      },
+      {
+        question: "Why are my symptoms in both hands?",
+        answer: "Bilateral carpal tunnel syndrome is common, and often points to a systemic contribution rather than a purely mechanical one. Pregnancy, diabetes, hypothyroidism, and inflammatory arthritis all raise carpal tunnel pressure or compromise nerve resilience on both sides. When I see bilateral presentations, I check medical history more carefully and think about referring back to the family doctor for bloodwork if those have not been reviewed recently."
+      }
+    ],
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Pressure Reduction and Nerve Calm-Down (Weeks 1 to 4)",
+        focus: "The priority in early management is lowering intracarpal tunnel pressure, particularly at night. Shi, Huisstede, and the AAOS Clinical Practice Guideline all converge on night splinting, activity modification, and gentle nerve mobilisation as the foundation of conservative care for mild to moderate cases. Nothing in this phase should provoke sharp pain or numbness during the exercise.",
+        examples: [
+          "Neutral-position wrist splint worn every night, confirmed to hold the wrist in true neutral (not extension)",
+          "Median nerve sliders, keeping elbow bent, opening and closing the hand while the wrist moves through a small pain-free range, 10 slow repetitions 3 to 4 times daily",
+          "Tendon gliding sequence (straight, hook, fist, tabletop, straight fist), 5 repetitions of each position 3 times daily",
+          "Ergonomic setup review: keyboard and mouse at elbow height, wrists kept close to neutral, vertical mouse if tolerated, micro-breaks every 20 to 30 minutes",
+          "Task audit of sustained gripping activities (vibrating tools, heavy pinching), reducing peak duration rather than eliminating the task entirely"
+        ],
+        progressionCriteria: "Nocturnal awakenings reduced compared with baseline, daytime symptoms no longer constant, and nerve glides tolerated without provoking sharp symptoms for at least one to two weeks of consistent splint use."
+      },
+      phase2: {
+        title: "Phase 2: Restore Capacity in the Forearm and Wrist (Weeks 4 to 10)",
+        focus: "Once the nerve is less irritable, start rebuilding the muscular support around the wrist, hand, and proximal chain. This phase is about increasing the hand's tolerance for daily loads without repeating the postures that compress the nerve. Proximal posture and scapular control matter here, because forward head and rounded shoulder postures increase neural tension the whole length of the median nerve.",
+        examples: [
+          "Thumb abduction and opposition strengthening with a light band, 3 sets of 10 to 15, to maintain thenar function",
+          "Wrist flexor and extensor strengthening with a light dumbbell at slow tempo, 3 sets of 10 to 15, through a comfortable pain-free range",
+          "Grip work with a soft ball or putty at submaximal effort, 3 sets of 10, progressing resistance as tolerance allows",
+          "Scapular setting, rows, and external rotation with a light band, 3 sets of 10 to 12, to reduce proximal neural tension",
+          "Progressive median nerve tensioners introduced at low dosage, only if sliders have been fully comfortable for 2 weeks"
+        ],
+        progressionCriteria: "Nocturnal symptoms largely controlled with splint, no constant daytime numbness, grip strength improving on serial testing, and Boston Carpal Tunnel Questionnaire scores trending downward by at least 1 point on symptom severity."
+      },
+      phase3: {
+        title: "Phase 3: Return to Work and Sustained Function (Weeks 10+)",
+        focus: "Consolidate the gains and test whether the hand tolerates realistic workload without symptoms reappearing. The goal is to wean from the night splint, maintain the ergonomic and loading changes, and accept that for many people with a history of carpal tunnel syndrome, ongoing maintenance beats reactive flare management. If symptoms return during this phase despite compliance, surgical consultation moves up the priority list.",
+        examples: [
+          "Task-specific loading that mirrors real work demands (extended typing blocks, tool use intervals, sport-specific grip work) with scheduled micro-breaks",
+          "Full-range wrist flexion and extension strengthening with moderate resistance, 3 sets of 8 to 12, 2 to 3 times per week",
+          "Loaded carries such as farmer walks with moderate dumbbells, building grip endurance",
+          "Periodic reassessment of sleep posture and nightly splint use, considering gradual weaning if symptoms remain absent",
+          "Ongoing maintenance of scapular, cervical, and thoracic mobility, particularly for desk workers"
+        ],
+        progressionCriteria: "Night symptoms no longer requiring splint for control, daytime symptoms minimal or absent during full work duties, BCTQ symptom score within the normal range, and two consecutive weeks of unrestricted activity without a return of constant numbness."
+      }
+    },
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -9401,6 +9945,105 @@ The repetitive nature of typing and mouse use creates cumulative loading on tend
       questionnaires: "Disabilities of Arm, Shoulder and Hand (DASH) questionnaire and work-specific functional assessments to track improvement",
       activityTarget: "Return to full work capacity with proper ergonomic practices and without recurring symptoms"
     },
+    differentialDiagnosis: [
+      {
+        condition: "Lateral Epicondylalgia (Tennis Elbow)",
+        distinguishingFeatures: "Focal pain and tenderness over the lateral epicondyle rather than diffuse forearm aching, reproduced by resisted wrist extension or gripping with the elbow extended, and clearly localised to one side rather than spreading across the upper limb."
+      },
+      {
+        condition: "Medial Epicondylalgia (Golfer's Elbow)",
+        distinguishingFeatures: "Focal tenderness over the medial epicondyle and pain with resisted wrist flexion or forearm pronation. Unlike the broader RSI pattern, symptoms concentrate at a single bony landmark and track with specific load rather than with cumulative sustained posture."
+      },
+      {
+        condition: "Carpal Tunnel Syndrome",
+        distinguishingFeatures: "Numbness and tingling in the median nerve distribution (thumb, index, middle, radial half of ring finger), a clear nocturnal pattern with night waking and hand shaking for relief, and symptoms concentrated at the wrist and hand rather than diffused across the shoulder and forearm."
+      },
+      {
+        condition: "Cervical Radiculopathy",
+        distinguishingFeatures: "Neck-dominant pain with dermatomal radiation into the arm, positive Spurling's test, and nerve-specific motor or sensory findings rather than the fatigue-driven, posture-related aching typical of RSI."
+      },
+      {
+        condition: "Thoracic Outlet Syndrome",
+        distinguishingFeatures: "Positional symptoms that worsen with overhead or sustained arm-elevated postures, whole-hand rather than localised numbness, possible vascular features such as colour or temperature change, and positive provocative tests such as the Roos elevated arm stress test."
+      },
+      {
+        condition: "Inflammatory Arthropathy",
+        distinguishingFeatures: "Prolonged morning stiffness lasting more than 30 to 60 minutes, symmetrical small-joint involvement, swelling or warmth over joints, and systemic symptoms such as fatigue or low-grade fever. These features warrant medical review and bloodwork rather than being managed as RSI."
+      }
+    ],
+    faqs: [
+      {
+        question: "What is a repetitive strain injury exactly?",
+        answer: "RSI is an umbrella term, not a single diagnosis. It covers a cluster of upper limb conditions driven by cumulative load, typically some combination of tendinopathy, nerve irritation, and muscle or myofascial pain. Because it is an umbrella, the first job in clinic is to figure out which specific tissues are actually involved in your case. The treatment plan for tendinopathy is not the same as the plan for nerve entrapment, even if both live under the same RSI label."
+      },
+      {
+        question: "How do I know if my symptoms are serious?",
+        answer: "Persistent numbness, progressive weakness, or muscle wasting are flags that point beyond simple overload, and they warrant proper medical review rather than self-management. Night pain that wakes you, symptoms that do not settle at all with rest, or a rapid progression over days rather than weeks also deserve early assessment. Diffuse aching that improves meaningfully with load reduction and worsens with load spikes is the typical RSI pattern, and that pattern does respond to rehab."
+      },
+      {
+        question: "Should I just stop working to let my RSI heal?",
+        answer: "Usually no, and often stopping completely makes the problem harder to solve. Prolonged total rest tends to deconditioning, and the tissues then become more sensitive to the loads they need to tolerate for real life. What matters more is reducing peak load, spreading activity across the day with micro-breaks, and starting targeted loading rehab. Complete work absence is sometimes necessary short-term, but it is rarely the whole plan."
+      },
+      {
+        question: "Does ergonomic setup actually matter?",
+        answer: "It matters, but it is not magic. A 2018 Cochrane review by Hoe and colleagues on ergonomic interventions for office workers found the effect of ergonomic changes alone is modest and inconsistent. Ergonomic adjustments work best when combined with exercise, load management, and, where relevant, treatment of the specific tissue that is irritated. If someone tells you a new chair alone will fix your RSI, the evidence does not support that."
+      },
+      {
+        question: "Can exercise make RSI worse?",
+        answer: "It can, if the loading is wrong for where the tissue is in its capacity curve. Done well, progressive loading is the main driver of recovery. Done poorly, too much load too early, or the wrong exercise for the specific diagnosis under the RSI umbrella, can flare symptoms. The 24-hour symptom rule is a useful guide: if yesterday's session has settled by the following morning, the dosage was reasonable."
+      },
+      {
+        question: "Why does stress seem to make my RSI worse?",
+        answer: "Stress, poor sleep, and workload pressure genuinely alter how sensitive tissues and the nervous system are to load. The same typing session that felt fine last week can feel like an injury during a high-stress sprint with poor sleep. That is not you imagining it, and it is not malingering. It is a well-described pattern in the chronic pain literature, and it means stress management, sleep, and workload pacing are real parts of the plan, not add-ons."
+      },
+      {
+        question: "How long does RSI take to get better?",
+        answer: "It depends heavily on which tissues are involved and how long the problem has been going on. Early, mild RSI often settles within 6 to 12 weeks of structured rehab and load change. Chronic cases, particularly those over a year in duration or with nerve involvement, often need 3 to 6 months or longer. People who treat the rehab program as maintenance rather than a short course tend to do meaningfully better."
+      },
+      {
+        question: "Is RSI a permanent condition?",
+        answer: "For most people, no. With the right diagnosis, load management, and a rehab program that rebuilds specific tissue capacity, symptoms resolve or become manageable. What tends to make RSI feel permanent is treating it as a single vague diagnosis rather than identifying and addressing the specific tissues driving the pain. When that finally happens, progress usually follows."
+      }
+    ],
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: De-load and Identify the Driver (Weeks 1 to 3)",
+        focus: "Reduce peak load, identify which tissues are actually symptomatic, and start gentle, comfortable movement. RSI is an umbrella term, so this phase also involves refining the diagnosis: is this tendinopathy, nerve irritation, myofascial pain, or a combination? The exercises below assume a cautious, generic upper-limb start point, and get replaced with more specific work once the primary driver is clearer.",
+        examples: [
+          "Micro-break schedule every 20 to 30 minutes during computer or repetitive work, with 30 to 60 seconds of gentle upper limb movement each break",
+          "Neck and shoulder mobility: chin tucks, upper trapezius and levator stretches, and scapular setting, 2 to 3 times per day",
+          "Gentle median and ulnar nerve sliders, 10 slow repetitions 2 to 3 times per day, stopping short of any provocation",
+          "Low-load wrist flexion and extension with a 1 to 2 kg dumbbell through a comfortable range, 2 sets of 10 to 15",
+          "Ergonomic audit: chair and screen height, mouse type and sensitivity, keyboard placement, and sleep posture"
+        ],
+        progressionCriteria: "Baseline symptoms reduced compared with intake, gentle movement tolerated without a 24-hour flare, and a clearer sense of the primary symptomatic tissue (for example, lateral epicondyle vs median nerve vs diffuse myofascial)."
+      },
+      phase2: {
+        title: "Phase 2: Targeted Strengthening and Endurance (Weeks 3 to 8)",
+        focus: "Build capacity in the specific tissues flagged during phase 1. For tendinopathy, this means slow-tempo resistance training, three days per week. For nerve-related symptoms, it means progressive nerve mobilisation and postural support. For diffuse myofascial pain, it means scapular and postural endurance training plus graded return to full work duration. The 2024 meta-analysis of ergonomic interventions in office workers supports pairing these measures with workplace changes rather than relying on either in isolation.",
+        examples: [
+          "Scapular and rotator cuff endurance work (Y-T-W holds, prone horizontal abduction, external rotation with a band), 3 sets of 10 to 15",
+          "Heavy slow resistance wrist flexion or extension targeted at whichever side is symptomatic, 3 sets of 10, 3 days per week",
+          "Grip endurance work with loaded carries (farmer walks), 3 rounds at moderate load",
+          "Progressive nerve tensioners if sliders have been comfortable for 2 weeks, dosed carefully",
+          "Postural endurance work (wall slides, thoracic extension over a foam roller, deep neck flexor holds), 2 to 3 sets daily"
+        ],
+        progressionCriteria: "Pain during target activities down to 2 or 3 out of 10, no 24-hour flare from resistance sessions for at least 2 consecutive weeks, and improving DASH questionnaire scores compared with baseline."
+      },
+      phase3: {
+        title: "Phase 3: Full Return to Work and Load Maintenance (Weeks 8 to 16+)",
+        focus: "Rebuild tolerance for the realistic daily load that triggered the problem and keep it there. This phase usually blends strength maintenance with lifestyle load management: sleep, stress, and training volume all feed back into tissue tolerance. For people with recurring RSI, the important mental shift is treating the rehab program as long-term maintenance, not a short course to complete.",
+        examples: [
+          "Full-duration work sessions with planned micro-breaks, tracked for symptom response",
+          "Compound upper-body strength work (rows, presses, carries) cycled across the week to maintain capacity",
+          "Ongoing wrist and grip loading 1 to 2 times per week at moderate intensity",
+          "Sleep, stress, and workload review, particularly during known high-pressure periods",
+          "Early flare protocol written out in advance: what load to pull back, which exercises to reintroduce first, and when to come back for review"
+        ],
+        progressionCriteria: "Full work capacity for two consecutive weeks without a 24-hour symptom flare, DASH score within functional range, and a clear written plan for managing future load spikes before they become injuries."
+      }
+    },
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 

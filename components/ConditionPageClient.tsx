@@ -3,6 +3,7 @@
 // <!-- REDESIGNED 2025 - ALL CRITICAL ISSUES FIXED -->
 
 import React, { useState, useEffect, useRef } from 'react';
+import dynamic from 'next/dynamic';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import {
@@ -29,11 +30,30 @@ import {
 } from '@heroicons/react/24/outline';
 import { Condition } from '@/lib/conditions-data';
 import { getTreatmentsByCondition } from '@/lib/treatments-data';
+import type { PatternMatcherCluster } from '@/lib/pattern-matchers/knee-cluster';
+
+// Lazy-load the Pattern Matcher: only adds to the bundle when used, and only
+// after hydration. ssr:false keeps it out of the initial HTML payload.
+const PatternMatcher = dynamic(() => import('./conditions/PatternMatcher'), {
+  ssr: false,
+  loading: () => (
+    <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-8 min-h-[220px] flex items-center justify-center text-slate-400 text-sm">
+      Loading pattern check...
+    </div>
+  ),
+});
+
+type PatternClusterConditions = Record<
+  string,
+  { slug: string; name: string; patternMatcher?: Condition['patternMatcher'] }
+>;
 
 interface ConditionPageClientProps {
   condition: Condition;
   relatedConditions: Condition[];
   conditionSlug: string;
+  patternCluster?: PatternMatcherCluster;
+  patternConditions?: PatternClusterConditions;
 }
 
 // Tab interface for better organization
@@ -53,8 +73,14 @@ interface SubSectionChip {
 export default function ConditionPageClient({
   condition,
   relatedConditions,
-  conditionSlug
+  conditionSlug,
+  patternCluster,
+  patternConditions,
 }: ConditionPageClientProps) {
+
+  const hasPatternMatcher = Boolean(
+    patternCluster && patternConditions && condition.patternMatcher?.clusterKey === patternCluster.key,
+  );
 
   // Get related treatments for this condition
   const relatedTreatments = getTreatmentsByCondition(conditionSlug);
@@ -62,7 +88,7 @@ export default function ConditionPageClient({
   // Determine first available tab for this condition
   const getFirstAvailableTab = () => {
     if (condition.pathophysiology || condition.overview || condition.biomechanics) return 'overview';
-    if (condition.clinicalPresentation || condition.differentialDiagnosis || condition.whenToSeek) return 'symptoms';
+    if (condition.clinicalPresentation || condition.differentialDiagnosis || condition.whenToSeek || hasPatternMatcher) return 'symptoms';
     if (condition.selfManagement || condition.prognosis || condition.faqs || condition.treatmentApproach || condition.timeline || condition.evidenceBasedTreatment || relatedTreatments.length > 0) return 'self-care';
     if (condition.keyResearch || condition.researchInsights) return 'research';
     return 'overview'; // fallback
@@ -138,7 +164,7 @@ export default function ConditionPageClient({
       case 'overview':
         return condition.pathophysiology || condition.overview || condition.biomechanics;
       case 'symptoms':
-        return condition.clinicalPresentation || condition.differentialDiagnosis || condition.whenToSeek;
+        return condition.clinicalPresentation || condition.differentialDiagnosis || condition.whenToSeek || hasPatternMatcher;
       case 'research':
         return condition.keyResearch || condition.researchInsights;
       case 'self-care':
@@ -196,6 +222,17 @@ export default function ConditionPageClient({
               isActive: activeClinicalView === 'clinical-presentation',
               onSelect: () => {
                 setActiveClinicalView('clinical-presentation');
+                scrollToContentTop();
+              },
+            }
+          : null,
+        hasPatternMatcher
+          ? {
+              id: 'pattern-matcher',
+              label: 'Is this my pattern?',
+              isActive: activeClinicalView === 'pattern-matcher',
+              onSelect: () => {
+                setActiveClinicalView('pattern-matcher');
                 scrollToContentTop();
               },
             }
@@ -611,7 +648,7 @@ export default function ConditionPageClient({
                             <FireIcon className="h-4 w-4 flex-shrink-0" />
                             <span>Clinical</span>
                           </div>
-                          {(condition.clinicalPresentation || (condition.differentialDiagnosis && condition.differentialDiagnosis.length > 0) || (condition.whenToSeek && condition.whenToSeek.length > 0)) && (
+                          {(condition.clinicalPresentation || (condition.differentialDiagnosis && condition.differentialDiagnosis.length > 0) || (condition.whenToSeek && condition.whenToSeek.length > 0) || hasPatternMatcher) && (
                             <ChevronDownIcon className={`h-4 w-4 transition-transform duration-200 ${activeTab === 'symptoms' ? 'rotate-180' : ''}`} />
                           )}
                         </button>
@@ -635,6 +672,18 @@ export default function ConditionPageClient({
                                 }`}
                               >
                                 Clinical Presentation
+                              </button>
+                            )}
+                            {hasPatternMatcher && (
+                              <button
+                                onClick={() => { setActiveClinicalView('pattern-matcher'); scrollToContentTop(); }}
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
+                                  activeClinicalView === 'pattern-matcher'
+                                    ? 'bg-[#B08D57] text-white font-medium shadow-sm'
+                                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                                }`}
+                              >
+                                Is this my pattern?
                               </button>
                             )}
                             {condition.differentialDiagnosis && condition.differentialDiagnosis.length > 0 && (
@@ -993,6 +1042,14 @@ export default function ConditionPageClient({
                                   </div>
                                 )}
                               </div>
+                            )}
+
+                            {activeClinicalView === 'pattern-matcher' && hasPatternMatcher && patternCluster && patternConditions && (
+                              <PatternMatcher
+                                currentSlug={conditionSlug}
+                                cluster={patternCluster}
+                                conditionsBySlug={patternConditions}
+                              />
                             )}
 
                             {activeClinicalView === 'differential' && condition.differentialDiagnosis && condition.differentialDiagnosis.length > 0 && (

@@ -14,6 +14,7 @@ import {
   SEO_PERSON_ID,
   SEO_PUBLISHER,
 } from '@/lib/seo-metadata';
+import { getCluster, type PatternMatcherCluster } from '@/lib/pattern-matchers/knee-cluster';
 
 interface PageProps {
   params: {
@@ -41,7 +42,11 @@ function generateDynamicMetaDescription(condition: any): string {
     'elbow-wrist-hand': 'elbow, wrist, and hand symptoms',
   };
   const focus = categoryFocus[condition.category] || 'musculoskeletal pain and injury';
-  const baseDescription = `${condition.name} treatment in Burlington for ${focus}. Physiotherapy care with Kareem Hassanein, Registered Physiotherapist. Direct billing available.`;
+
+  const baseDescription = condition.titleIntent === 'informational'
+    ? `${condition.name}: symptoms, causes, and evidence-based treatment explained by Kareem Hassanein, Registered Physiotherapist in Burlington, Ontario.`
+    : `${condition.name} treatment in Burlington for ${focus}. Physiotherapy care with Kareem Hassanein, Registered Physiotherapist. Direct billing available.`;
+
   const maxLength = 158;
 
   if (baseDescription.length <= maxLength) {
@@ -52,6 +57,14 @@ function generateDynamicMetaDescription(condition: any): string {
   const lastSpace = trimmed.lastIndexOf(' ');
   const safeCutoff = lastSpace > 120 ? lastSpace : maxLength;
   return `${trimmed.slice(0, safeCutoff).trimEnd()}...`;
+}
+
+// Pick title format based on search intent. Default is local (Burlington-anchored).
+function generateConditionTitle(condition: any): string {
+  if (condition.titleIntent === 'informational') {
+    return `${condition.name}: Symptoms, Causes & Treatment | Kareem Hassanein, RPT`;
+  }
+  return `${condition.name} Treatment in Burlington | Kareem Hassanein Physiotherapy`;
 }
 
 // Generate metadata for each condition page
@@ -67,7 +80,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const condition = getDetailedCondition(params.slug, baseCondition);
 
-  const title = `${condition.name} Treatment in Burlington | Kareem Hassanein Physiotherapy`;
+  const title = generateConditionTitle(condition);
 
   // Use dynamic meta description based on category if no custom one exists
   const description = condition.metaDescription || generateDynamicMetaDescription(condition);
@@ -118,10 +131,38 @@ export default function ConditionPage({ params }: PageProps) {
 
   const condition = getDetailedCondition(params.slug, baseCondition);
   const relatedConditions = getRelatedConditions(
-    params.slug, 
-    baseCondition.category, 
+    params.slug,
+    baseCondition.category,
     3
   );
+
+  // Build a pattern-matcher cluster payload if this condition participates in one.
+  // We resolve every slug in the cluster to its detailed record so the client
+  // component has access to name + patternMatcher markers without pulling the
+  // large detailed-content module into the client bundle.
+  let patternCluster: PatternMatcherCluster | undefined;
+  let patternConditions:
+    | Record<string, { slug: string; name: string; patternMatcher?: typeof condition.patternMatcher }>
+    | undefined;
+
+  if (condition.patternMatcher?.clusterKey) {
+    const cluster = getCluster(condition.patternMatcher.clusterKey);
+    if (cluster && cluster.conditionSlugs.includes(params.slug)) {
+      patternCluster = cluster;
+      patternConditions = {};
+      for (const slug of cluster.conditionSlugs) {
+        const base = getConditionBySlug(slug);
+        if (!base) continue;
+        const detailed = getDetailedCondition(slug, base);
+        patternConditions[slug] = {
+          slug: detailed.slug,
+          name: detailed.name,
+          patternMatcher: detailed.patternMatcher,
+        };
+      }
+    }
+  }
+
   const title = `${condition.name} Treatment in Burlington | Kareem Hassanein Physiotherapy`;
   const description = condition.metaDescription || generateDynamicMetaDescription(condition);
 
@@ -284,6 +325,8 @@ export default function ConditionPage({ params }: PageProps) {
         condition={condition}
         relatedConditions={relatedConditions}
         conditionSlug={params.slug}
+        patternCluster={patternCluster}
+        patternConditions={patternConditions}
       />
     </>
   );

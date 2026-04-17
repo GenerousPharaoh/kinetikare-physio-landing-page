@@ -36,6 +36,12 @@ export interface Condition {
   featured?: boolean;
   priority?: number;
   metaDescription?: string;
+  /**
+   * Search intent driver for title + meta framing.
+   * - 'local' (default): commercial-intent, Burlington-anchored ("Treatment in Burlington"). Used for priority topics and queries where searchers want a local clinic.
+   * - 'informational': encyclopedia-intent framing ("Symptoms, Causes & Treatment"). Used for pages ranking globally for anatomy/condition-term queries where searchers want info, not a clinic.
+   */
+  titleIntent?: 'local' | 'informational';
   keywords?: string[];
   affectedArea?: string;
   symptoms?: string[];
@@ -146,6 +152,15 @@ export interface Condition {
     explanation: string;
     relevanceScore: number; // 1-10 scale
   }[];
+
+  // Pattern matcher: differential-matching across a cluster of related conditions.
+  // Each marker maps this condition's typical answer for a cluster question.
+  // `strong_yes` / `strong_no` are reserved for genuinely characteristic signals.
+  // Use `neutral` when the signal is ambiguous rather than forcing a direction.
+  patternMatcher?: {
+    clusterKey: string;
+    markers: { questionId: string; signal: 'strong_yes' | 'yes' | 'neutral' | 'no' | 'strong_no' }[];
+  };
 }
 
 export interface ConditionCategory {
@@ -301,7 +316,8 @@ const shoulderConditions: Condition[] = [
     description: 'Nerve and vascular compression in neck and shoulder',
     featured: true,
     priority: 26,
-    metaDescription: 'Thoracic outlet syndrome treatment in Burlington. Personalized care for nerve compression with postural retraining and manual therapy.',
+    titleIntent: 'informational',
+    metaDescription: 'Thoracic outlet syndrome: symptoms, assessment, and evidence-based physiotherapy treatment by Kareem Hassanein, Registered Physiotherapist, Burlington.',
   },
   {
     id: 'biceps-tendinopathy',
@@ -360,7 +376,8 @@ const elbowWristConditions: Condition[] = [
     description: 'Median nerve compression at the wrist',
     featured: true,
     priority: 18,
-    metaDescription: 'Carpal tunnel treatment in Burlington by a Registered Physiotherapist. Non-surgical care for median nerve pain. Direct billing, no referral, evening hours.',
+    titleIntent: 'informational',
+    metaDescription: 'Carpal tunnel syndrome: symptoms, diagnosis, and evidence-based physiotherapy treatment by Kareem Hassanein, Registered Physiotherapist, Burlington.',
   },
   {
     id: 'de-quervains',
@@ -370,7 +387,8 @@ const elbowWristConditions: Condition[] = [
     description: 'Thumb tendon inflammation, common in new parents',
     featured: true,
     priority: 19,
-    metaDescription: "De Quervain's treatment in Burlington. Expert physiotherapy for thumb pain using splinting, manual therapy, and activity modification.",
+    titleIntent: 'informational',
+    metaDescription: "De Quervain's tenosynovitis: thumb-side wrist pain, testing, and evidence-based physiotherapy treatment by Kareem Hassanein, Registered Physiotherapist.",
   },
   {
     id: 'wrist-sprains',
@@ -673,7 +691,8 @@ const footAnkleConditions: Condition[] = [
     name: 'Turf Toe',
     category: 'foot-ankle',
     description: 'Great toe joint sprain, first MTP joint injury',
-    metaDescription: 'Turf toe treatment in Burlington. Sports physiotherapy for great toe sprains using progressive loading and return-to-sport protocols.',
+    titleIntent: 'informational',
+    metaDescription: 'Turf toe: first MTP joint sprain, grading, and evidence-based return-to-sport treatment by Kareem Hassanein, Registered Physiotherapist, Burlington.',
   },
   {
     id: 'severs-disease',
@@ -691,7 +710,8 @@ const footAnkleConditions: Condition[] = [
     name: 'Tarsal Tunnel Syndrome',
     category: 'foot-ankle',
     description: 'Posterior tibial nerve compression, medial ankle numbness',
-    metaDescription: 'Tarsal tunnel syndrome treatment in Burlington. Physiotherapy for nerve compression using neural mobilization and activity modification.',
+    titleIntent: 'informational',
+    metaDescription: 'Tarsal tunnel syndrome: medial ankle nerve compression symptoms and evidence-based physiotherapy treatment by Kareem Hassanein, Registered Physiotherapist.',
   },
 ];
 

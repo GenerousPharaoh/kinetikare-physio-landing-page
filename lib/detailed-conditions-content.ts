@@ -412,16 +412,28 @@ Your movement patterns throughout the day matter tremendously. Tight hip flexors
 
     differentialDiagnosis: [
       {
-        condition: "Piriformis Syndrome",
-        distinguishingFeatures: "Buttock pain without back pain, symptoms with hip movements"
+        condition: "Lumbar Radiculopathy (Disc or Foraminal)",
+        distinguishingFeatures: "Pain follows a dermatomal pattern down the leg with reproduction on straight leg raise or slump test. Often includes specific myotomal weakness or reflex change. Symptoms typically worsen with sitting, forward bending, coughing, or sneezing."
       },
       {
-        condition: "Hip Joint Pathology",
-        distinguishingFeatures: "Groin pain, limited hip rotation, pain with weight bearing"
+        condition: "Piriformis Syndrome / Deep Gluteal Syndrome",
+        distinguishingFeatures: "Deep buttock pain that can refer down the posterior thigh without clear back pain. Reproduced by prolonged sitting, FAIR or seated piriformis stretch testing, and direct palpation of the deep gluteal space. Neurological exam is usually intact."
       },
       {
-        condition: "Peripheral Neuropathy",
-        distinguishingFeatures: "Bilateral symptoms, gradual onset, often starts in feet"
+        condition: "Sacroiliac Joint Dysfunction",
+        distinguishingFeatures: "Pain localized below L5 near the PSIS, often pointed to with one finger. Cluster of provocation tests (distraction, compression, thigh thrust, FABER, Gaenslen) helps confirm. Referral rarely extends below the knee and follows no dermatomal pattern."
+      },
+      {
+        condition: "Hip Osteoarthritis",
+        distinguishingFeatures: "Groin or anterior thigh pain with reduced and painful hip internal rotation. Aggravated by weight-bearing, not by lumbar positions. Neurological testing is normal, and symptoms do not centralize or peripheralize with spinal movement."
+      },
+      {
+        condition: "Proximal Hamstring Tendinopathy",
+        distinguishingFeatures: "Localized ischial tuberosity pain worse with sitting on firm surfaces, lunging, or sprinting. Tender on direct palpation of the hamstring origin and reproduced by resisted hamstring loading, not by neural tension or lumbar extension."
+      },
+      {
+        condition: "Facet-Mediated Referred Pain",
+        distinguishingFeatures: "Somatic referral into the buttock or posterior thigh, typically not past the knee. Aggravated by lumbar extension and rotation rather than flexion. Neurological exam is normal and straight leg raise does not reproduce true radicular symptoms."
       }
     ],
 
@@ -498,22 +510,75 @@ Your movement patterns throughout the day matter tremendously. Tight hip flexors
 
     faqs: [
       {
-        question: "How long does physiotherapy take for sciatica?",
-        answer: "Most people see meaningful improvement within 6 to 12 weeks of consistent physiotherapy. The timeline depends on the severity of nerve compression and how long symptoms have been present. Early intervention generally leads to faster recovery."
+        question: "How long does sciatica take to heal?",
+        answer: "Most people see meaningful improvement within 4 to 6 weeks, and roughly 75 to 90% recover within 12 weeks without surgery, based on NICE guidance (NG59) and a 2020 BMJ systematic review. Recovery is rarely linear, and some leg symptoms can linger for several months even as function returns. In my clinic, I track whether pain is centralizing back toward the spine, which tends to predict faster recovery."
       },
       {
-        question: "Do I need a referral for sciatica treatment in Burlington?",
-        answer: "No referral is needed. You can book a physiotherapy assessment directly. Most insurance plans cover physiotherapy without a doctor's referral, and direct billing is available for major providers."
+        question: "Can I still work with sciatica?",
+        answer: "For most people, yes, and staying at work in some capacity is actually linked to better outcomes. NICE and the Lancet Low Back Pain Series both recommend continued activity rather than bed rest. I typically help patients modify sitting time, lifting demands, and driving exposure during the acute phase. Complete rest beyond a day or two tends to slow recovery, not speed it up."
       },
       {
-        question: "What does physiotherapy for sciatica involve?",
-        answer: "Treatment typically includes directional preference exercises to centralize symptoms, neural mobilization to reduce nerve tension, manual therapy to address joint and soft tissue restrictions, and a progressive home exercise program. Each plan is tailored to your specific presentation."
+        question: "Do I need an MRI for sciatica?",
+        answer: "Usually not in the first 4 to 6 weeks. NICE guidance and the American College of Physicians recommend reserving MRI for cases with red flags, progressive weakness, or symptoms that fail to improve with conservative care and would change management. Imaging too early often shows disc changes that are present in pain-free people and can lead to treatment you do not actually need."
       },
       {
-        question: "Can dry needling help with sciatica?",
-        answer: "Dry needling can be effective for reducing muscle guarding and trigger points in the glutes and piriformis that contribute to sciatic nerve irritation. It is used alongside exercise and manual therapy as part of a comprehensive treatment approach."
+        question: "Is walking good for sciatica?",
+        answer: "Walking is generally helpful as long as it does not send symptoms further down the leg. Gentle, regular walking helps nerve mobility, reduces stiffness, and keeps you out of prolonged sitting, which is one of the biggest aggravators I see. If walking centralizes or eases leg pain, that is a positive sign. If it reliably worsens leg symptoms, I adjust distance, pace, or posture."
+      },
+      {
+        question: "What positions make sciatica worse?",
+        answer: "Prolonged sitting, slumped driving posture, and deep forward bending are the most common aggravators in my clinic, because they increase load on the lumbar discs and narrow the space where the nerve root exits. Coughing, sneezing, and straining can also spike symptoms. Many patients feel better when standing, walking short distances, or lying with the knees supported."
+      },
+      {
+        question: "When should I worry about sciatica?",
+        answer: "Seek urgent medical care for loss of bladder or bowel control, numbness in the saddle area, rapidly progressing leg weakness, or foot drop. These can signal cauda equina syndrome or significant nerve compromise. Severe, unrelenting night pain, unexplained weight loss, or fever with back pain also warrant medical review rather than physiotherapy as a first step."
+      },
+      {
+        question: "Does sciatica always come from a disc?",
+        answer: "No. A herniated disc is the most common cause, but sciatic-type pain can also come from foraminal stenosis, deep gluteal or piriformis involvement, sacroiliac joint irritation, or referred pain from the hip. Part of a good assessment is sorting out which structure is actually driving symptoms, because the treatment plan changes significantly depending on the source."
+      },
+      {
+        question: "Do I need surgery for sciatica?",
+        answer: "Surgery is rarely the first step. A 2019 Cochrane review and the SPORT trial both show that at 1 to 2 years, outcomes for disc-related sciatica are similar between surgery and structured conservative care. Surgery is typically considered when there is progressive neurological loss or when symptoms remain severe and disabling after 6 to 12 weeks of appropriate treatment."
       }
     ],
+    exerciseProgression: {
+      phase1: {
+        title: "Calming the Nerve and Finding a Directional Preference",
+        focus: "Reduce nerve irritation, identify positions and movements that centralize symptoms toward the spine, and restore basic movement tolerance. This phase follows McKenzie-style directional preference testing, which the Clinical Practice Guidelines from JOSPT on low back pain endorse when a clear preference is identified.",
+        examples: [
+          "Prone press-ups (Cobra), 10 repetitions every 2 to 3 hours if extension centralizes symptoms",
+          "Sciatic nerve sliders in long sitting or supine, 10 to 15 slow repetitions, stopping short of leg symptom provocation",
+          "Supported walking in short frequent bouts (5 to 10 minutes, several times per day) rather than one long walk",
+          "Postural resets from sitting using a small lumbar roll and standing breaks every 30 minutes"
+        ],
+        progressionCriteria: "Leg symptoms consistently stay at or above the knee, pain at rest is mild (2 out of 10 or less), and the patient can sit for 20 to 30 minutes without flaring symptoms."
+      },
+      phase2: {
+        title: "Progressive Loading and Motor Control",
+        focus: "Rebuild trunk and hip capacity, restore confident hinging and squatting, and progress nerve mobility work from sliders to tensioners as tolerance allows. This phase draws on the Lancet Low Back Pain Series recommendation that graded exercise and education outperform passive care.",
+        examples: [
+          "Bird dog and dead bug, 2 to 3 sets of 8 to 10 per side, emphasizing a neutral spine",
+          "Hip hinge progressions: broomstick hinge, kettlebell deadlift, and single-leg Romanian deadlift",
+          "Goblet squat to a box, 3 sets of 8 to 10, progressed in depth and load as symptoms allow",
+          "Glute bridges and side-lying hip abduction to address the gluteal weakness I see commonly in this group",
+          "Sciatic nerve tensioners in supine or slump position, short ranges, 8 to 10 controlled repetitions"
+        ],
+        progressionCriteria: "Pain-free or minimal pain (under 3 out of 10) with loaded hinging and squatting, tolerates a full workday with normal sitting, and can walk 30 minutes or more without symptom flare."
+      },
+      phase3: {
+        title: "Return to Full Activity and Resilience",
+        focus: "Restore capacity for the specific demands the patient needs to return to, whether lifting at work, running, or sport. Focus shifts to heavier loading, higher-velocity tasks, and building a maintenance plan to reduce recurrence risk, since recurrence within 12 months is common without ongoing loading.",
+        examples: [
+          "Barbell or trap-bar deadlift built progressively from light loads, 3 to 4 sets of 5",
+          "Front-loaded squats or split squats at working loads, matched to patient goals",
+          "Farmer carries and suitcase carries for trunk and grip, 3 to 4 rounds of 30 to 40 metres",
+          "Running or sport-specific return using a graded return-to-run framework, starting with walk-run intervals",
+          "Twice-weekly maintenance strengthening that the patient can sustain independently"
+        ],
+        progressionCriteria: "Pain-free or near-pain-free with full work, home, and recreational demands, confident in self-managing minor flares, and has a written maintenance plan for ongoing loading."
+      }
+    },
 
     measuringProgress: standardMeasuringProgress,
     accessAndHours: standardAccessAndHours
@@ -663,6 +728,108 @@ The most damaging factor I see is the combination of poor posture with repetitiv
       dayToDay: "I track pain levels with daily activities, range of motion improvements, and strength gains",
       questionnaires: "The DASH or SPADI questionnaire helps monitor functional progress",
       activityTarget: "Specific goals like returning to sport, work tasks, or being able to sleep on affected side"
+    },
+    faqs: [
+      {
+        question: "How do I know if my rotator cuff is torn?",
+        answer: "Clinically, the pattern I look for is weakness that is out of proportion to pain, particularly with resisted testing of a specific tendon, plus a story of sudden loss of strength or chronic overhead aggravation. Classic signs include a positive drop-arm test, weakness on external rotation against resistance, or difficulty lifting the arm overhead without hitching the shoulder blade. Clinical tests are imperfect, so imaging such as ultrasound or MRI is the definitive answer when a tear would change management."
+      },
+      {
+        question: "Can a torn rotator cuff heal without surgery?",
+        answer: "Many tears can become pain-free and functional without surgery, even if the tendon itself does not structurally knit back together. The MOON Shoulder Group studies led by Kuhn and colleagues showed roughly 75% of patients with atraumatic full-thickness tears avoided surgery at 2 years after a structured exercise programme. Moosmayer and colleagues reported similar long-term results at 10 years for small to medium-sized tears. Traumatic tears in younger, active patients are a different conversation, and I refer on promptly when indicated."
+      },
+      {
+        question: "What makes rotator cuff pain worse at night?",
+        answer: "Three main factors: lying on the affected side directly compresses the supraspinatus and the subacromial bursa, the shoulder loses the gravitational unloading it had during the day, and inflammatory mediators build up without movement. Research suggests altered sleep position and reduced blood flow to an already compromised tendon drive this pattern. I usually have patients sleep on the unaffected side with the sore arm supported forward on a pillow, which settles night pain for most people within a couple of weeks."
+      },
+      {
+        question: "How long to recover from rotator cuff surgery?",
+        answer: "Full recovery after arthroscopic rotator cuff repair generally takes 6 to 12 months, not the 6 weeks patients often expect. Typical milestones based on the 2024 post-operative guidelines in the International Journal of Sports Physical Therapy are: 0 to 6 weeks in a sling with passive range only to protect the repair, 6 to 12 weeks active range of motion, 3 to 6 months progressive strengthening, and 6 to 12 months return to higher demand activity. Re-tear rates in the literature range widely depending on tear size and patient factors, which is why graded loading matters."
+      },
+      {
+        question: "Is it safe to lift weights with a rotator cuff injury?",
+        answer: "Often yes, with modifications. Completely resting a painful tendon tends to lead to further deconditioning. Research from Littlewood and Lewis supports progressive loading as a core treatment. Early on I usually cut overhead pressing, upright rows, and behind-the-neck movements, and keep loaded work below shoulder height with rotator cuff isometrics and scapular work added. As symptoms settle and strength returns, I progressively reintroduce overhead loading."
+      },
+      {
+        question: "Do MRIs always show a torn rotator cuff?",
+        answer: "MRI is sensitive but the bigger issue is the reverse: scans often show tears in people with no symptoms at all. A 2014 systematic review by Teunis and colleagues found rotator cuff abnormalities on imaging in roughly 10% of asymptomatic shoulders at age 20, rising past 60% over age 80. That is why I treat the patient, not the scan. If an MRI finding does not match your clinical picture, it should not automatically drive a surgical decision."
+      },
+      {
+        question: "Can rotator cuff injuries heal on their own?",
+        answer: "Tendinopathy and partial tears often improve with appropriate loading, activity modification, and time, but unlike a bone, a structurally torn tendon does not reliably knit back together. What research does show is that pain and function can improve substantially even when the tear itself persists, because you are retraining the surrounding cuff and scapular stabilisers to share load. Leaving symptoms entirely untreated tends to lead to compensation patterns and secondary stiffness."
+      },
+      {
+        question: "Why do I feel weakness but no pain after a sudden injury?",
+        answer: "Painless weakness after a fall or sudden pull on the arm is a finding I take seriously. It can indicate a full-thickness traumatic rotator cuff tear, especially in patients under 65 who suddenly cannot lift the arm to shoulder level. Evidence suggests earlier surgical opinion in this subgroup improves outcomes, as the tendon retracts and the muscle fatty infiltrates over months. In that situation I will refer for imaging and orthopaedic review quickly rather than watch and wait."
+      }
+    ],
+    differentialDiagnosis: [
+      {
+        condition: "Frozen Shoulder (Adhesive Capsulitis)",
+        distinguishingFeatures: "Passive external rotation at the side is significantly restricted and feels capsular, not just painful. Rotator cuff pathology typically preserves passive range and shows a painful arc or resisted weakness rather than global stiffness."
+      },
+      {
+        condition: "Subacromial Pain Syndrome / Bursitis",
+        distinguishingFeatures: "Painful arc between 60 and 120 degrees of abduction, positive Neer and Hawkins-Kennedy tests, and relief with a subacromial anaesthetic injection. Often overlaps with rotator cuff tendinopathy, but structural tendon integrity on imaging is preserved."
+      },
+      {
+        condition: "Biceps Tendinopathy",
+        distinguishingFeatures: "Anterior shoulder pain localised over the bicipital groove, positive Speed and Yergason tests, and pain with resisted elbow flexion or forearm supination. Rotator cuff lesions produce lateral deltoid referral with resisted rotation rather than anterior pain."
+      },
+      {
+        condition: "AC Joint Pathology",
+        distinguishingFeatures: "Pain pinpointed at the top of the shoulder over the AC joint, tenderness on direct palpation, and positive cross-body adduction test. Resisted rotator cuff tests are typically pain-free, which separates it from a primary cuff lesion."
+      },
+      {
+        condition: "Cervical Radiculopathy (C5-C6)",
+        distinguishingFeatures: "Arm pain following a dermatomal pattern, positive Spurling test, and neurological signs such as reflex or myotomal changes. Passive shoulder range of motion is full and resisted cuff testing is usually pain-free."
+      },
+      {
+        condition: "Glenoid Labral Tear (SLAP or Anterior Lesion)",
+        distinguishingFeatures: "Deep clicking or clunking with overhead motion, feelings of instability or apprehension, and positive O'Brien or apprehension tests. More common in younger throwing athletes than in the middle-aged degenerative cuff population."
+      },
+      {
+        condition: "Glenohumeral Osteoarthritis",
+        distinguishingFeatures: "Crepitus with motion, radiographic joint space narrowing and osteophytes, loss of both active and passive range, and grinding rather than catching. Usually presents later in life with a gradual decade-long course."
+      }
+    ],
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Pain Modulation and Isometrics (Weeks 0 to 4)",
+        focus: "Settle symptoms, protect sleep, and reintroduce load in a form the tendon tolerates. Isometric loading has evidence for short-term analgesia in tendinopathy and allows meaningful force production without the angular movement that typically aggravates rotator cuff pain. Work from Lewis and Littlewood and the JOSPT 2022 shoulder CPG supports early graded loading rather than rest.",
+        examples: [
+          "Isometric external rotation against a wall or doorframe at the side, holding 30 to 45 seconds, 4 to 5 repetitions, daily",
+          "Isometric abduction and internal rotation at comparable intensity (roughly 50 to 70% effort, no sharp pain)",
+          "Scapular setting drills and low-row band holds to restore posterior chain control",
+          "Pain-free active range of motion in flexion, abduction, and rotation to maintain mobility",
+          "Activity modification education: removing the specific overhead or end-range provocations driving flare-ups"
+        ],
+        progressionCriteria: "Night pain manageable, resting pain below 3/10, and isometric holds tolerated at 70% effort without symptom flare-up lasting beyond 24 hours."
+      },
+      phase2: {
+        title: "Phase 2: Progressive Loading (Weeks 4 to 12)",
+        focus: "Build tendon and cuff capacity through slow, heavy, progressive resistance. Evidence from Littlewood's SELF study and subsequent trials supports moving beyond isometrics to eccentric and heavy slow resistance work, aiming for enough load to drive adaptation rather than theraband-only programmes indefinitely.",
+        examples: [
+          "Dumbbell or band external rotation at the side, 3 sets of 8 to 12 reps with a controlled 3-second eccentric phase",
+          "Side-lying external rotation progressing weekly by small dumbbell increments",
+          "Prone Y, T, and W exercises and prone rows for scapular stabilisers",
+          "Cable or band horizontal rows emphasising scapular retraction and external rotation",
+          "Loaded carries (farmer and suitcase carry) to train dynamic shoulder girdle stability under load"
+        ],
+        progressionCriteria: "Strength symmetry approaching 80% of the unaffected side on external rotation testing, ability to load a moderate dumbbell through full range without painful catching, and return of overhead reach for daily tasks without compensatory hitching."
+      },
+      phase3: {
+        title: "Phase 3: Return to Overhead, Sport, and High-Demand Work (Months 3 to 6+)",
+        focus: "Restore the capacity to tolerate overhead, ballistic, and end-range loading. This phase is often skipped and is a common reason people recover part-way then plateau. BESS/BOA guidance and current JOSPT recommendations emphasise criterion-based rather than time-based progression for return to sport and heavy occupations.",
+        examples: [
+          "Overhead press progressions, starting with landmine press and advancing to full overhead dumbbell and barbell press",
+          "Pulling variations: pull-ups with assistance as needed, lat pulldowns, and weighted rows",
+          "Plyometric rotator cuff work such as medicine ball chest pass, overhead throw, and rebounder drills for throwing athletes",
+          "Sport or occupation-specific drills (throwing mechanics, swim stroke, overhead lifting patterns) rebuilt with volume progressions",
+          "End-range strength work: full overhead holds, Turkish get-ups, and bottoms-up kettlebell work for stability at length"
+        ],
+        progressionCriteria: "Strength symmetry within 10% of the unaffected side across rotation, abduction, and press testing, pain-free performance of sport or job demands at expected volume, and confidence in the shoulder during unplanned or reactive movements."
+      }
     },
     accessAndHours: standardAccessAndHours
   },
@@ -1269,22 +1436,102 @@ Poor posture compounds the problem significantly. Forward head posture and round
 
     faqs: [
       {
-        question: "How many physiotherapy sessions are needed for frozen shoulder?",
-        answer: "The number of sessions varies by phase and severity, but most people benefit from regular physiotherapy over 3 to 6 months. During the freezing phase, sessions focus on pain control. As the condition progresses to the thawing phase, treatment shifts toward restoring range of motion."
+        question: "How long does frozen shoulder last?",
+        answer: "Honestly, longer than most people want to hear. The classic teaching is 1 to 3 years through freezing, frozen, and thawing phases, but recent long-term data suggests many people have some residual stiffness or discomfort beyond that. A 2017 study by Wong and colleagues found around 40% of patients still had measurable limitations at 4 years. Physiotherapy matched to your phase can shorten the course and improve how much function you recover, but I am careful not to promise a quick fix."
       },
       {
-        question: "What is the difference between frozen shoulder and adhesive capsulitis?",
-        answer: "They are the same condition. Adhesive capsulitis is the clinical term describing the thickening and tightening of the shoulder joint capsule. Frozen shoulder is the common name used because the shoulder progressively loses its ability to move."
+        question: "Will my shoulder ever move normally again?",
+        answer: "Most people regain enough range for daily life, but returning to exactly the motion you had before is not guaranteed. Research from Hand and colleagues following patients for several years showed the majority had good function, yet roughly half reported some mild ongoing stiffness. In my clinic, I aim for pain-free sleep, full overhead reach for daily tasks, and the ability to dress and groom without compensation. Getting the last 10 degrees of end-range rotation back can take many months of consistent work."
       },
       {
-        question: "Can frozen shoulder be treated without surgery?",
-        answer: "Yes. The majority of frozen shoulder cases resolve with conservative treatment including physiotherapy, home exercises, and sometimes corticosteroid injections. Surgery is only considered in rare cases where significant restriction persists despite prolonged rehabilitation."
+        question: "Do cortisone injections help frozen shoulder?",
+        answer: "The evidence supports them for short-term pain relief, particularly in the painful freezing phase. A 2014 BMJ review and multiple later trials show intra-articular corticosteroid injection reduces pain and improves function more quickly than physiotherapy alone in the first 6 to 12 weeks. After that window, differences between groups narrow. I often see the best results when an injection calms the pain enough for someone to actually tolerate the mobility work. Benefits beyond 6 months are less certain."
       },
       {
-        question: "How long does frozen shoulder last with physiotherapy?",
-        answer: "The total duration is typically 12 to 18 months, though it can range from 1 to 3 years. Physiotherapy can shorten the course and improve the final outcome compared to no treatment. Early intervention during the freezing phase tends to produce the best results."
+        question: "Why does my shoulder hurt so much at night?",
+        answer: "Night pain is one of the most recognisable features of frozen shoulder and it has two main drivers. The inflamed capsule becomes more sensitised when you lie still and blood flow pools in the tissues, and any roll onto the affected side directly compresses an already irritated joint. I usually coach patients to sleep on the unaffected side with pillows propping the sore arm forward, or on their back with a small towel roll behind the shoulder blade. Night pain tends to ease as the condition moves out of the freezing phase."
+      },
+      {
+        question: "Do I need surgery for frozen shoulder?",
+        answer: "For the large majority, no. The UK FROST trial published in The Lancet in 2020 compared early structured physiotherapy, manipulation under anaesthesia, and arthroscopic capsular release. At 12 months, outcomes were broadly similar, and physiotherapy was the most cost-effective starting point. I reserve surgical referral conversations for people who have genuinely plateaued after 6 to 9 months of well-delivered conservative care and still cannot meet their daily needs. Surgery carries its own risks and rehabilitation burden."
+      },
+      {
+        question: "Can I prevent frozen shoulder coming back?",
+        answer: "Recurrence in the same shoulder is uncommon, which is reassuring. The other shoulder is involved in roughly 5 to 34% of cases over several years according to older observational data, with higher risk if you have diabetes or thyroid disease. I do not have a guaranteed prevention protocol to offer you, but keeping both shoulders moving through full range regularly, managing underlying metabolic conditions, and addressing any shoulder pain early rather than guarding it for weeks are the practical steps research suggests can help."
+      },
+      {
+        question: "Should I push through the pain when stretching?",
+        answer: "Not in the freezing phase. When the capsule is actively inflamed, aggressive end-range stretching tends to flare symptoms, disturb sleep, and stall progress. In my clinic I use a simple traffic-light rule: stay in the amber zone of tolerable stretch, avoid the red zone of sharp or lingering pain. Once you move into the stiff phase, the tissue tolerates and often requires more vigorous, sustained end-range loading to regain motion. Matching intensity to phase is more important than how hard you push."
+      },
+      {
+        question: "Does frozen shoulder affect people with diabetes differently?",
+        answer: "Yes, and it is worth knowing. People with diabetes are significantly more likely to develop frozen shoulder, the condition often affects both shoulders, and recovery is generally slower. A 2016 systematic review estimated prevalence near 13% in people with diabetes compared to 2 to 5% in the general population. I flag this with patients because it changes expectations on timeline, and tighter blood glucose control is something the wider literature suggests may modestly help tissue healing."
       }
     ],
+    differentialDiagnosis: [
+      {
+        condition: "Rotator Cuff Tear or Tendinopathy",
+        distinguishingFeatures: "Passive range of motion is typically preserved, weakness is more prominent than stiffness, and pain localises to the lateral arm with resisted testing. Frozen shoulder restricts passive external rotation early, which rotator cuff pathology usually does not."
+      },
+      {
+        condition: "Subacromial Bursitis / Impingement Syndrome",
+        distinguishingFeatures: "Painful arc between 60 and 120 degrees with preserved passive range, positive Neer and Hawkins tests, and relief of symptoms with subacromial injection. Frozen shoulder shows global passive restriction, particularly external rotation at the side."
+      },
+      {
+        condition: "Glenohumeral Osteoarthritis",
+        distinguishingFeatures: "Similar loss of passive range and external rotation, but usually seen in older patients with crepitus, radiographic joint space narrowing and osteophytes, and a more gradual decade-long course rather than the 1 to 3 year self-limiting pattern of frozen shoulder."
+      },
+      {
+        condition: "Calcific Tendinitis",
+        distinguishingFeatures: "Often presents with severe acute pain disproportionate to examination findings, visible calcium deposit on plain radiograph or ultrasound, and range of motion limited more by pain guarding than true capsular end-feel."
+      },
+      {
+        condition: "Cervical Radiculopathy (C5-C6)",
+        distinguishingFeatures: "Pain radiates from neck into arm following a dermatomal pattern, positive Spurling test, and passive shoulder range is usually full. Neurological signs such as altered reflexes or myotomal weakness point away from a primary capsular problem."
+      },
+      {
+        condition: "AC Joint Pathology",
+        distinguishingFeatures: "Pain localised to the top of the shoulder over the AC joint, tenderness on direct palpation, positive cross-body adduction test, and preserved glenohumeral passive range. Frozen shoulder pain is typically deep and diffuse with global restriction."
+      }
+    ],
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Freezing Phase (Pain Dominant, Typically 0 to 3 Months In)",
+        focus: "Settle pain and protect sleep while maintaining whatever range you currently have. This phase is highly irritable and aggressive stretching tends to backfire. The Kelley et al. JOSPT clinical practice guideline and its updates recommend low-intensity, pain-guided motion alongside modalities and education rather than end-range loading.",
+        examples: [
+          "Pendulum (Codman) swings in small circles, 1 to 2 minutes, 3 to 4 times daily, using gravity rather than force",
+          "Gentle supported table slides forward and across the body within a pain-free range",
+          "Passive external rotation with a stick, stopping clearly before the painful barrier",
+          "Scapular setting and cervical range of motion drills to reduce neck and upper trap overuse from guarding",
+          "Sleep positioning practice: unaffected side lying with a pillow hugging the sore arm, or supine with a towel roll behind the scapula"
+        ],
+        progressionCriteria: "Night pain reducing to a level that allows most nights of sleep, pain at rest dropping to around 3 out of 10 or less, and movement in mid-range no longer provoking sharp pain."
+      },
+      phase2: {
+        title: "Phase 2: Stiff Phase (Stiffness Dominant, Typically 3 to 9 Months In)",
+        focus: "Now that pain is calmer, restricted capsule tissue is the main barrier. This phase tolerates and often requires more assertive mobilisation. Evidence from Kelley et al. and a 2014 Cochrane review supports combining joint mobilisation with progressive stretching held into the end-range discomfort zone rather than backing off at first resistance.",
+        examples: [
+          "Hands-on grade III to IV glenohumeral mobilisations (posterior and inferior glides) delivered in clinic, paired with immediate home stretching",
+          "Sleeper stretch for internal rotation, holding 30 to 60 seconds, 3 to 5 repetitions, several times daily",
+          "Doorway or corner stretch for flexion and abduction, working progressively deeper week to week",
+          "External rotation stretch at 90 degrees of abduction using a stick or wall, sustained end-range holds",
+          "Table-top forward bend stretch for overhead elevation, allowing body weight to produce the stretch"
+        ],
+        progressionCriteria: "Measurable gains of roughly 10 to 15 degrees in external rotation or flexion over 4 to 6 weeks, ability to reach behind the back to mid-lumbar level, and recovery from stretching within 30 to 60 minutes rather than aggravation lasting into the night."
+      },
+      phase3: {
+        title: "Phase 3: Thawing Phase (Functional Loading, Typically 9+ Months In)",
+        focus: "Once range is returning, the shoulder needs strength and confidence to meet real-world demands. Deconditioning from months of guarding is often substantial. Recent clinical guidance, including the 2022 JOSPT shoulder CPG, supports progressing from isometric into dynamic strengthening as range normalises.",
+        examples: [
+          "Resisted external and internal rotation at the side with a resistance band, building from isometric holds to slow dynamic reps",
+          "Scapular rows and prone Y/T/W exercises to restore posterior chain control of the shoulder blade",
+          "Wall push-up progressions advancing toward standard push-ups for closed-chain loading",
+          "Overhead press with light dumbbells once full active elevation is achieved, progressed by kilograms not reps",
+          "Functional carry, reach, and lift drills that mirror the specific activities you are trying to return to"
+        ],
+        progressionCriteria: "Strength symmetry within roughly 10 to 15% of the unaffected side on external rotation and abduction testing, pain-free overhead reach for daily tasks, and restored sleep and dressing without compensation."
+      }
+    },
 
     measuringProgress: {
       dayToDay: "I track range of motion in all directions, pain levels, and functional abilities",
@@ -1418,6 +1665,100 @@ The "position of no return" happens during cutting movements when your foot plan
     ],
 
     measuringProgress: standardMeasuringProgress,
+    faqs: [
+      {
+        question: "Do I need surgery for an ACL tear?",
+        answer: "Not automatically. Research suggests many people do well with structured rehabilitation alone, particularly if you do not return to cutting, pivoting, or contact sports. The Delaware-Oslo cohort (Grindem et al., BJSM 2018) showed equivalent outcomes between early surgery and rehab with optional delayed surgery at 2 years. The decision depends on your goals, knee stability on testing, associated meniscus or cartilage injuries, and how your knee responds to a 3 month trial of progressive loading."
+      },
+      {
+        question: "Can you live without an ACL?",
+        answer: "Yes, many people do. The ACL is a primary restraint against forward tibial translation and rotation, so the challenge is rotational control during cutting and pivoting. People often grouped as 'copers' regain function through progressive strengthening and neuromuscular training. 'Non-copers' tend to experience giving way episodes and may benefit from reconstruction. Copers and non-copers cannot reliably be predicted at the time of injury, which is why a structured rehab trial before deciding on surgery is evidence-based."
+      },
+      {
+        question: "How long is ACL surgery recovery?",
+        answer: "Return to sport is typically 9 to 12 months post-reconstruction, not the 6 months sometimes quoted. The Aspetar 2023 clinical practice guideline (van Melick et al., BJSM) recommends criterion-based progression through prehab, impairment-based, sport-specific, and return-to-play phases rather than a fixed timeline. Grindem et al. (BJSM 2016) found each month return to sport was delayed up to 9 months reduced reinjury risk by 51 percent. Daily activities return earlier, usually within 3 months."
+      },
+      {
+        question: "What are the chances of reinjury after ACL reconstruction?",
+        answer: "Higher than most people realize. Wiggins et al. (AJSM 2016) meta-analysis reported second ACL injury rates around 23 percent in young athletes returning to cutting and pivoting sport, and about 35 percent in athletes under 25. Kyritsis et al. (BJSM 2016) found athletes who failed return-to-sport criteria had roughly a four-fold higher graft rupture rate. This is why I emphasize meeting objective discharge criteria, not just feeling ready, before clearing return to sport."
+      },
+      {
+        question: "When can I run after ACL surgery?",
+        answer: "Typically between 12 and 16 weeks post-reconstruction, but only once criteria are met, not purely by the calendar. Common benchmarks I use from the Aspetar 2023 guideline include full symmetrical knee extension, minimal effusion, quadriceps strength at least 70 to 80 percent of the other side on isokinetic or handheld dynamometer testing, and pain-free single-leg hopping in place. Running too early on an underpowered quadriceps is one of the most common reasons rehab stalls."
+      },
+      {
+        question: "Do all ACL tears need an MRI?",
+        answer: "MRI is the preferred imaging when ACL injury is clinically suspected because it also shows meniscus, cartilage, and bone bruise involvement, which influence management. A skilled clinical exam using Lachman, pivot shift, and anterior drawer tests has strong diagnostic accuracy for complete ACL ruptures in the right hands. If your history and exam are clearly consistent with an ACL tear and you are proceeding with rehab, imaging is usually still obtained to check for associated injuries that change the plan."
+      },
+      {
+        question: "Can physio fix a partial ACL tear?",
+        answer: "Partial ACL tears are a mixed group, and outcomes depend on the percentage of fibres intact, the functional stability of the knee, and your activity demands. Many partial tears respond well to progressive strengthening, neuromuscular training, and criterion-based return to activity without surgery. Some progress to full tears, particularly in pivoting sport athletes. I reassess stability and function throughout rehab and involve an orthopaedic consultation if the knee continues to give way despite appropriate loading."
+      }
+    ],
+    differentialDiagnosis: [
+      {
+        condition: "Medial Meniscus Tear",
+        distinguishingFeatures: "Joint line tenderness, mechanical catching or locking, positive McMurray or Thessaly test. Often coexists with ACL injury (O'Donoghue triad) but can occur in isolation with a twisting mechanism and less dramatic initial swelling."
+      },
+      {
+        condition: "MCL Sprain",
+        distinguishingFeatures: "Valgus mechanism, tenderness along the medial joint line and ligament course, pain and laxity with valgus stress at 30 degrees of flexion. Swelling is usually more localized and less intra-articular than an ACL tear."
+      },
+      {
+        condition: "PCL Injury",
+        distinguishingFeatures: "Posterior tibial translation on posterior drawer and sag sign, often from dashboard injury or a fall onto a flexed knee. Pain is more often posterior, and acute hemarthrosis is less dramatic than ACL rupture."
+      },
+      {
+        condition: "Patellar Dislocation or Subluxation",
+        distinguishingFeatures: "Lateral patellar translation at time of injury, tenderness over the medial patellofemoral ligament, positive apprehension test. Swelling can mimic ACL tear but the mechanism is usually a direct blow or twisting with the patella tracking laterally."
+      },
+      {
+        condition: "Tibial Plateau Fracture",
+        distinguishingFeatures: "High-energy mechanism, inability to bear weight, significant bony tenderness, and effusion with possible lipohaemarthrosis. Requires imaging for diagnosis and must be excluded before rehab loading."
+      },
+      {
+        condition: "Posterolateral Corner Injury",
+        distinguishingFeatures: "Varus instability, increased external rotation at 30 degrees (dial test), and often missed in isolation. Can coexist with ACL or PCL injury and changes surgical planning if present."
+      }
+    ],
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Early Post-Surgical Recovery (Weeks 0 to 6 post-ACL Reconstruction)",
+        focus: "Protect the graft, restore full symmetrical knee extension, reduce effusion, and re-establish quadriceps activation. Aspetar 2023 (van Melick et al., BJSM) treats this as the impairment-based phase. Loss of full extension in the early weeks is one of the strongest predictors of poor long-term outcomes, so regaining it matters more than pushing range into flexion too fast.",
+        examples: [
+          "Quad sets and straight leg raises without extension lag to restore voluntary quadriceps contraction",
+          "Prone heel hangs and supine heel props to regain full passive knee extension symmetrical to the other side",
+          "Patellar mobilizations in all four directions to prevent stiffness that limits quadriceps function",
+          "Stationary cycling once flexion reaches approximately 110 degrees, starting with high seat and low resistance",
+          "Partial weight-bearing wall sits and mini-squats within pain-free, swelling-free range"
+        ],
+        progressionCriteria: "Full symmetrical knee extension, knee flexion approaching 120 degrees, trace or absent effusion, good quadriceps activation with no extension lag on straight leg raise, and pain-free walking without a brace or crutches as determined by the surgical protocol."
+      },
+      phase2: {
+        title: "Phase 2: Strength and Neuromuscular Control (Weeks 6 to Month 5)",
+        focus: "Build true bilateral strength, restore single-leg control, and reintroduce running once criteria are met. This is where most return-to-sport failures are set in motion, because athletes often progress on time rather than on capacity. Quadriceps strength deficits at this stage strongly predict reinjury (Kyritsis et al., BJSM 2016).",
+        examples: [
+          "Heavy slow resistance leg press, split squats, and Romanian deadlifts progressing toward limb symmetry index above 80 percent",
+          "Step-downs and single-leg squats emphasizing trunk control and avoidance of knee valgus collapse",
+          "Double-leg jump landings progressing to small hops in place once strength criteria are met (typically around month 3 to 4)",
+          "Return to straight-line running progression once quadriceps strength reaches approximately 70 to 80 percent of the other side and single-leg hop in place is pain-free",
+          "Neuromuscular training including perturbation drills, balance board, and reactive stabilization tasks"
+        ],
+        progressionCriteria: "Quadriceps limb symmetry index approximately 90 percent on dynamometer, pain-free running at moderate pace, single-leg squat with good control, and no effusion response to loading."
+      },
+      phase3: {
+        title: "Phase 3: Return to Sport and Performance (Month 6 to 12+)",
+        focus: "Complete return-to-sport test battery before clearing cutting, pivoting, and contact activity. Grindem et al. (BJSM 2016) showed reinjury risk dropped by 51 percent for each month return to sport was delayed up to 9 months in athletes who also passed a criterion-based test battery. I clear athletes using objective criteria, not just months on the calendar.",
+        examples: [
+          "Full return-to-sport hop test battery: single hop for distance, triple hop, crossover hop, and 6 metre timed hop, targeting limb symmetry index of at least 90 percent",
+          "Isokinetic or handheld dynamometry for quadriceps and hamstrings aiming for limb symmetry index of 90 percent or greater",
+          "Progressive agility and change-of-direction drills: T-drill, 5-10-5 shuttle, cutting at 45 then 90 degrees, reactive cutting with a partner",
+          "Sport-specific plyometrics and deceleration training including drop jumps and bounding progressions",
+          "Psychological readiness screen using ACL-RSI (ACL Return to Sport after Injury scale) alongside performance criteria"
+        ],
+        progressionCriteria: "Limb symmetry index of 90 percent or greater on quadriceps and hamstring strength plus all four hop tests, minimum 9 months post-reconstruction, ACL-RSI score supporting psychological readiness, and completion of unrestricted training without pain or effusion."
+      }
+    },
     accessAndHours: standardAccessAndHours
   },
 
@@ -1549,6 +1890,24 @@ Previous injuries create lasting biomechanical changes that predispose you to os
         "Altered walking pattern"
       ],
       typicalPattern: "Gradual onset over years. Pain with activity that improves with rest initially. Progressive functional limitations."
+    },
+
+    patternMatcher: {
+      clusterKey: 'knee',
+      markers: [
+        { questionId: 'pain_below_kneecap_on_tendon', signal: 'no' },
+        { questionId: 'pain_around_kneecap', signal: 'neutral' },
+        { questionId: 'pain_outside_of_knee', signal: 'neutral' },
+        { questionId: 'theatre_sign', signal: 'yes' },
+        { questionId: 'worse_going_downstairs', signal: 'yes' },
+        { questionId: 'pain_with_jumping_or_landing', signal: 'no' },
+        { questionId: 'catching_locking_giving_way', signal: 'neutral' },
+        { questionId: 'pain_running_especially_downhill', signal: 'no' },
+        { questionId: 'morning_stiffness_short', signal: 'strong_yes' },
+        { questionId: 'specific_twist_or_injury_event', signal: 'no' },
+        { questionId: 'worse_after_full_rest', signal: 'no' },
+        { questionId: 'age_over_45', signal: 'strong_yes' },
+      ],
     },
 
     evidenceSnapshot: {
@@ -1710,6 +2069,24 @@ Poor movement mechanics significantly contribute to meniscus problems. Weak glut
       typicalPattern: "Traumatic tears have sudden onset with twisting. Degenerative tears develop gradually. Mechanical symptoms like catching are common."
     },
 
+    patternMatcher: {
+      clusterKey: 'knee',
+      markers: [
+        { questionId: 'pain_below_kneecap_on_tendon', signal: 'no' },
+        { questionId: 'pain_around_kneecap', signal: 'no' },
+        { questionId: 'pain_outside_of_knee', signal: 'neutral' },
+        { questionId: 'theatre_sign', signal: 'neutral' },
+        { questionId: 'worse_going_downstairs', signal: 'yes' },
+        { questionId: 'pain_with_jumping_or_landing', signal: 'neutral' },
+        { questionId: 'catching_locking_giving_way', signal: 'strong_yes' },
+        { questionId: 'pain_running_especially_downhill', signal: 'neutral' },
+        { questionId: 'morning_stiffness_short', signal: 'neutral' },
+        { questionId: 'specific_twist_or_injury_event', signal: 'strong_yes' },
+        { questionId: 'worse_after_full_rest', signal: 'no' },
+        { questionId: 'age_over_45', signal: 'neutral' },
+      ],
+    },
+
     evidenceSnapshot: {
       primaryStrategy: "Progressive exercise therapy achieves equivalent pain relief and functional outcomes to arthroscopic surgery in 80% of degenerative meniscus tears while avoiding surgical risks",
       secondaryStrategy: "Neuromuscular training and quadriceps strengthening improve knee stability and compensate for meniscus function, reducing mechanical symptoms",
@@ -1809,6 +2186,24 @@ Training errors compound the biomechanical issues. Sudden increases in mileage, 
         "Calf tightness"
       ],
       typicalPattern: "Predictable onset during runs. Sharp pain that forces stopping. Resolves with rest but returns with activity."
+    },
+
+    patternMatcher: {
+      clusterKey: 'knee',
+      markers: [
+        { questionId: 'pain_below_kneecap_on_tendon', signal: 'no' },
+        { questionId: 'pain_around_kneecap', signal: 'no' },
+        { questionId: 'pain_outside_of_knee', signal: 'strong_yes' },
+        { questionId: 'theatre_sign', signal: 'no' },
+        { questionId: 'worse_going_downstairs', signal: 'neutral' },
+        { questionId: 'pain_with_jumping_or_landing', signal: 'neutral' },
+        { questionId: 'catching_locking_giving_way', signal: 'no' },
+        { questionId: 'pain_running_especially_downhill', signal: 'strong_yes' },
+        { questionId: 'morning_stiffness_short', signal: 'neutral' },
+        { questionId: 'specific_twist_or_injury_event', signal: 'no' },
+        { questionId: 'worse_after_full_rest', signal: 'no' },
+        { questionId: 'age_over_45', signal: 'neutral' },
+      ],
     },
 
     evidenceSnapshot: {
@@ -2026,6 +2421,100 @@ With chronic ankle instability, the entire lower limb adapts through compensator
     ],
 
     measuringProgress: standardMeasuringProgress,
+    faqs: [
+      {
+        question: "Is it a sprain or a fracture?",
+        answer: "The Ottawa Ankle Rules are the standard screening tool to decide if X-rays are needed. Imaging is warranted if you have bony tenderness over the posterior edge or tip of either malleolus, tenderness at the navicular or base of the 5th metatarsal, or an inability to bear weight for 4 steps both immediately and in the clinic. The rules have sensitivity close to 100 percent for clinically significant fractures. If any of those criteria are present, I refer for imaging before loading the ankle."
+      },
+      {
+        question: "Should I keep walking on a sprained ankle?",
+        answer: "For most grade 1 and grade 2 lateral sprains, yes, within pain tolerance. The PEACE and LOVE framework (Dubois and Esculier, BJSM 2020) has replaced strict RICE. Early protected weight bearing and gradual loading improve outcomes compared to prolonged immobilization. The JOSPT clinical practice guideline (Martin et al., 2021) supports early functional rehabilitation. If you cannot bear weight at all or have a clear fracture pattern, that is different and needs screening first."
+      },
+      {
+        question: "How long does a sprained ankle take to heal?",
+        answer: "Grade 1 sprains typically recover in 1 to 3 weeks, grade 2 in 3 to 6 weeks, and grade 3 in 6 to 12 weeks for baseline function. Tissue remodelling continues for 6 to 12 months. Tassignon et al. identified pain with weight-bearing dorsiflexion and restricted range of motion at 4 weeks as predictors of slower recovery. Feeling normal is not the same as being fully rehabilitated, which is why reinjury is common when people stop at symptom resolution."
+      },
+      {
+        question: "Why does my ankle still feel weak months after I sprained it?",
+        answer: "Roughly 40 percent of people who sprain a lateral ankle ligament go on to develop chronic ankle instability (Doherty et al., BJSM 2016). This involves damaged mechanoreceptors, altered peroneal muscle timing, and compensatory movement strategies, not just ligament laxity. The fix is targeted balance and neuromuscular training, strength work for the peroneals and hip, and progressive loading of sport-specific tasks, not more rest."
+      },
+      {
+        question: "Do I need an MRI for a sprained ankle?",
+        answer: "Usually no. Most lateral ankle sprains are diagnosed clinically and do not require MRI. I consider advanced imaging when symptoms are not improving as expected at 6 to 8 weeks, when there is suspicion of a syndesmotic (high ankle) injury, osteochondral lesion of the talus, peroneal tendon tear, or when mechanical symptoms like locking or catching persist. X-rays per Ottawa Ankle Rules are the appropriate first imaging step if indicated acutely."
+      },
+      {
+        question: "When can I return to sport after an ankle sprain?",
+        answer: "Return to sport is criterion-based, not time-based. I use objective markers from the JOSPT CPG (Martin et al., 2021), including pain-free hopping and cutting, symmetrical single-leg balance (Star Excursion or Y-Balance within 4 cm of the other side), ankle strength within about 90 percent of the uninjured side, and completion of progressive agility and sport-specific drills without apprehension. Depending on grade, this is typically 2 to 8 weeks for simple sprains and longer for grade 3 or high ankle sprains."
+      }
+    ],
+    differentialDiagnosis: [
+      {
+        condition: "Syndesmotic (High Ankle) Sprain",
+        distinguishingFeatures: "Pain above the ankle joint over the tibiofibular ligaments, often from external rotation or hyperdorsiflexion mechanism. Positive squeeze test, external rotation stress test, and prolonged return to sport (typically 2 to 3 times longer than lateral sprain). Often missed initially and benefits from early identification."
+      },
+      {
+        condition: "Peroneal Tendon Injury (Tear or Subluxation)",
+        distinguishingFeatures: "Posterior lateral ankle pain along the peroneal tendons rather than over the ATFL, pain or snapping with active eversion, and sometimes a palpable subluxation behind the lateral malleolus. Often develops after a lateral sprain that is not rehabilitated."
+      },
+      {
+        condition: "Isolated ATFL vs Combined ATFL plus CFL Sprain",
+        distinguishingFeatures: "Isolated ATFL injury shows anterior drawer laxity with neutral ankle but stable talar tilt. Combined ATFL and CFL involvement shows both anterior drawer laxity and increased talar tilt in inversion stress, tends to bruise and swell more, and has longer recovery."
+      },
+      {
+        condition: "Osteochondral Lesion of the Talus",
+        distinguishingFeatures: "Deep, persistent ankle pain beyond the expected sprain timeline, often with mechanical catching, clicking, or locking. May have a positive bounce test or pain with loaded dorsiflexion. Suspect if pain and effusion persist beyond 6 to 8 weeks despite appropriate rehabilitation."
+      },
+      {
+        condition: "5th Metatarsal Fracture (Avulsion or Jones)",
+        distinguishingFeatures: "Bony tenderness at the base of the 5th metatarsal, inability to bear weight, and part of the Ottawa Foot Rules. Jones fractures have notoriously poor healing and require referral. Avulsion fractures of the 5th metatarsal base can occur with the same inversion mechanism as a sprain."
+      },
+      {
+        condition: "Fibular Avulsion Fracture",
+        distinguishingFeatures: "Bony tenderness over the distal fibula, particularly the tip of the lateral malleolus, following an inversion injury. Identified on plain films via Ottawa Ankle Rules. Often managed similarly to a grade 2 or 3 sprain but requires imaging confirmation before aggressive loading."
+      },
+      {
+        condition: "Posterior Tibial Tendon Dysfunction",
+        distinguishingFeatures: "Medial ankle and foot pain, progressive loss of the medial longitudinal arch, and difficulty performing single-leg heel raises. Mechanism is usually gradual overload rather than acute inversion, but can be unmasked or worsened after a lateral sprain alters foot mechanics."
+      }
+    ],
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Acute Protection and Early Loading (Days 0 to 7 to 14)",
+        focus: "Apply the PEACE component of PEACE and LOVE (Dubois and Esculier, BJSM 2020): Protection, Elevation, Avoid anti-inflammatories, Compression, Education. Prolonged rest and routine ice are no longer recommended. The JOSPT CPG (Martin et al., 2021) supports early functional rehabilitation with short-term external support if needed.",
+        examples: [
+          "Protected weight bearing within pain tolerance, using crutches only if gait is antalgic, transitioning off as soon as a normal heel-to-toe gait is achieved",
+          "Ankle pumps and active alphabet tracing in all planes to prevent joint stiffness and maintain fluid movement",
+          "Towel calf stretches and seated dorsiflexion stretching within pain-free range to restore sagittal plane mobility",
+          "Isometric eversion and inversion against a wall or immovable object to activate peroneals and deep invertors without provoking the healing ligament",
+          "Compression wrap or ankle sleeve for swelling management and education on sleep positioning with elevation"
+        ],
+        progressionCriteria: "Pain-free weight-bearing gait without a limp, dorsiflexion within approximately 5 degrees of the uninjured side, swelling reducing day over day, and ability to perform double-leg heel raise without sharp pain."
+      },
+      phase2: {
+        title: "Phase 2: Progressive Loading, Balance, and Strength (Weeks 2 to 6)",
+        focus: "Apply the LOVE component: Load, Optimism, Vascularisation, Exercise. This is the highest-yield phase for preventing chronic ankle instability. Balance and neuromuscular training is the most consistently supported intervention for reducing recurrence (Martin et al., JOSPT 2021; Doherty et al., BJSM 2017).",
+        examples: [
+          "Single-leg balance progression on firm then unstable surfaces (foam pad, BOSU), building to eyes-closed and reactive perturbation drills",
+          "Resisted eversion and inversion with a resistance band, progressing volume and resistance as strength improves",
+          "Single-leg heel raises, progressing from partial range to full range with 3 by 12 to 15 repetitions per side",
+          "Star Excursion or Y-Balance reaches in anterior, posteromedial, and posterolateral directions to restore dynamic stability",
+          "Bilateral then unilateral hopping in place, progressing to forward, lateral, and diagonal hops once pain-free"
+        ],
+        progressionCriteria: "Single-leg balance at least 30 seconds on a firm surface with eyes closed, single-leg heel raise symmetry of 80 percent or greater of the uninjured side, Y-Balance composite reach within 4 cm of the uninjured side, and pain-free hopping in place."
+      },
+      phase3: {
+        title: "Phase 3: Return to Sport and Cutting (Weeks 4 to 12+)",
+        focus: "Restore high-speed, multidirectional tasks with confidence. The JOSPT CPG (Martin et al., 2021) emphasises criterion-based return to sport. Neuromuscular training programs reduce ankle sprain recurrence by around 35 to 50 percent, which is why prevention work carries through into the maintenance phase.",
+        examples: [
+          "Progressive plyometric progression: double-leg to single-leg hops, linear to lateral to rotational hops, and drop landings with quality scoring",
+          "Change-of-direction drills starting with planned cutting at 45 degrees and progressing to 90 and 180 degree cuts, then reactive cutting",
+          "Sport-specific agility ladder, T-drill, and shuttle runs built around the specific demands of your sport",
+          "Fatigue-resistance training by placing balance and single-leg work at the end of a session to mimic late-game demands when reinjury rates rise",
+          "Ongoing neuromuscular maintenance program 2 to 3 times per week, modelled on FIFA 11+ style injury prevention warm-ups"
+        ],
+        progressionCriteria: "Strength symmetry for dorsiflexion, plantarflexion, eversion, and inversion of 90 percent or greater of the uninjured side, symmetrical hop test battery (single, triple, crossover, 6 metre timed) within 90 percent, completion of reactive cutting and sport-specific drills without apprehension, and negative Cumberland Ankle Instability Tool screen if available."
+      }
+    },
     accessAndHours: standardAccessAndHours
   },
 
@@ -3520,61 +4009,109 @@ Sleep positioning creates sustained compression that explains the characteristic
 
     exerciseProgression: {
       phase1: {
-        title: "Phase 1: Calming the System & Creating a Foundation (Weeks 1-6)",
-        focus: "This phase is all about load management and education. We identify every compressive posture in your day and find an alternative. We also start with very basic, non-compressive exercises to activate the gluteal muscles.",
+        title: "Phase 1: Load Management and Isometric Foundation (Weeks 1 to 6)",
+        focus: "Reduce compressive load on the gluteal tendons through posture and sleep modification, and begin isometric hip abduction in non-compressive positions. This mirrors the early weeks of the LEAP trial education plus exercise protocol (Mellor et al., BMJ 2018). The priority is calming the tendon by removing ongoing compression rather than chasing strength gains.",
         examples: [
-          "Isometric Hip Abduction: Lie on back with knees bent and feet flat. Place resistance band around thighs, just above knees. Gently push knees apart against band, holding contraction without movement. This activates gluteal muscles in non-compressive position",
-          "Sleep and sitting modifications: No crossing legs, no hanging on one hip when standing, meticulous attention to sleeping position with pillows",
-          "Activity modification education: Identify and eliminate all compressive postures",
-          "Basic glute activation in prone lying",
-          "Pain education about compression vs. load"
+          "Isometric hip abduction in supine with a band above the knees, 5 sets of 30 to 45 seconds at moderate effort",
+          "Sidelying isometric abduction with the top leg supported on pillows to stay in neutral, 5 sets of 20 to 30 seconds",
+          "Standing isometric hip abduction pressing into a wall, 5 sets of 30 seconds",
+          "Sleep position coaching: pillow between knees and a second between ankles, avoiding the top leg falling forward",
+          "Posture coaching: no leg crossing, no standing with weight shifted onto one hip, feet-under-hips stance cues"
         ],
-        progressionCriteria: "Reduced night pain (sleeping through night without being woken by hip pain), less start-up pain, better understanding of aggravating factors"
+        progressionCriteria: "Sleeping through the night more often than not for 2 consecutive weeks, reduced start-up pain after sitting, and tolerance of 30 to 45 second isometric holds without a 24-hour flare."
       },
       phase2: {
-        title: "Phase 2: Building Robust Capacity (Weeks 7-20)",
-        focus: "Once the tendon is less irritable, we can begin to build strength through range of motion, but still with careful attention to avoiding compression.",
+        title: "Phase 2: Progressive Isotonic Loading Through Range (Weeks 6 to 16)",
+        focus: "Rebuild hip abductor strength through controlled range while continuing to avoid compressive positions. Exercises are progressed from double-leg to single-leg support, and from band resistance to external load, broadly following the LEAP trial exercise progression. The 24-hour symptom response rule guides weekly adjustments.",
         examples: [
-          "Standing Hip Abduction: Stand with affected leg away from wall for support. Keeping torso upright and pelvis level, slowly lift leg out to side without leaning. Strengthens gluteus medius in functional, weight-bearing position",
-          "Side-lying hip abduction with control and proper alignment",
-          "Wall sits with hip abduction component",
-          "Step-downs from low step with control",
-          "Progressive walking program",
-          "Isometric exercises progressed to isotonic through range"
+          "Double-leg bridge progressing to single-leg bridge, 3 sets of 8 to 12 reps",
+          "Sidelying hip abduction with a slight posterior tilt to bias gluteus medius, 3 sets of 10 to 15 reps",
+          "Standing hip abduction with cable or band, 3 sets of 10 reps per side, emphasising level pelvis",
+          "Step-ups to a low step with focus on avoiding hip drop, 3 sets of 8 reps per side",
+          "Sit-to-stand from a slightly raised surface, progressing to a standard chair and then to a lower surface"
         ],
-        progressionCriteria: "Improved strength (can stand on one leg to put pants on without holding on), walking tolerance improved, less pain with stairs"
+        progressionCriteria: "Can stand on one leg for 30 seconds to put on pants without pain, walk on level ground for 30 minutes without a flare, and climb a flight of stairs reciprocally without hip drop or pain above 3 out of 10."
       },
       phase3: {
-        title: "Phase 3: Restoring Full Function & Resilience (Months 4-6+)",
-        focus: "Now we introduce exercises that more closely mimic the demands of walking, running, and climbing stairs. We are building a tendon that can handle the compressive and tensile loads of life.",
+        title: "Phase 3: Functional Capacity and Return to Activity (Months 4 to 6+)",
+        focus: "Rebuild the capacity needed for hills, long walks, hiking, running, and single-leg-dominant sport demands. Exercises integrate hip stability under higher load and controlled exposure to the positions that used to be provocative, once the tendon has shown real adaptation.",
         examples: [
-          "Offset Single Leg Bridge: Lie on back with feet on low step, shift one foot to middle and lift other leg off. Drive through heel to lift hips, keeping pelvis level. High-level strengthening for gluteus maximus and medius",
-          "Single-leg exercises with progression",
-          "Step-ups to comfortable height with control",
-          "Return to hiking, running, or other desired activities with proper progression",
-          "Functional movement patterns for daily activities",
-          "Long-term maintenance program"
+          "Split squats and rear-foot-elevated split squats, 3 sets of 8 reps per side",
+          "Offset single-leg bridge with pause at the top, 3 sets of 8 reps per side",
+          "Step-downs from a moderate step focusing on level pelvis, 3 sets of 8 reps per side",
+          "Progressive hill walking program, starting with gentle gradients and building duration by no more than 10 percent per week",
+          "Return to running or hiking using a graded exposure schedule, or return to training programs such as group fitness classes with load adjusted to current capacity"
         ],
-        progressionCriteria: "Return to desired activities (sleeping through night, walking up hill without ache, feeling stronger and more stable), sustained improvement, confidence in hip stability"
+        progressionCriteria: "Uninterrupted sleep on either side, uphill walking without lateral hip ache, restoration of desired activities (hiking, running, group fitness, or work demands), and confidence in hip stability during single-leg tasks."
       }
     },
 
     differentialDiagnosis: [
       {
         condition: "Hip Osteoarthritis",
-        distinguishingFeatures: "Groin pain primary location, limited internal rotation, morning stiffness pattern"
+        distinguishingFeatures: "Groin pain as the dominant symptom rather than point tenderness on the outer hip, morning stiffness lasting over 30 minutes, loss of hip internal rotation on examination, and often a C-sign where the patient cups the hip from groin to side."
       },
       {
-        condition: "Lumbar Referred Pain",
-        distinguishingFeatures: "Back pain history, dermatomal distribution, positive neural tests"
+        condition: "Femoroacetabular Impingement",
+        distinguishingFeatures: "Anterior groin pain with deep hip flexion and rotation, positive FADIR test, mechanical symptoms such as catching with squatting or getting out of a low car seat, typically a younger active population."
       },
       {
-        condition: "Stress Fracture",
-        distinguishingFeatures: "Recent increase in activity, constant bone pain, positive imaging"
+        condition: "L5 or S1 Radiculopathy Referring to the Lateral Hip",
+        distinguishingFeatures: "Associated back pain or recent history of it, pain that extends below the knee or into the foot, reproduction with slump or straight leg raise testing, altered reflexes or dermatomal numbness."
       },
       {
-        condition: "True Bursitis",
-        distinguishingFeatures: "Rare, usually post-traumatic or infectious, more diffuse swelling"
+        condition: "Meralgia Paresthetica",
+        distinguishingFeatures: "Burning, tingling, or numbness along the front and side of the thigh rather than deep aching pain at the greater trochanter, symptoms worsen with tight belts or prolonged standing, no tenderness on direct palpation of the trochanter."
+      },
+      {
+        condition: "External Snapping Hip (Coxa Saltans Externa)",
+        distinguishingFeatures: "Audible or palpable snap of the iliotibial band over the greater trochanter with hip flexion and extension, symptoms are often more mechanical than painful at rest, reproducible snap on examination."
+      },
+      {
+        condition: "Iliotibial Band Syndrome",
+        distinguishingFeatures: "Pain localised to the lateral knee rather than the hip, provoked by running downhill and repetitive knee flexion around 30 degrees, no tenderness over the greater trochanter itself."
+      },
+      {
+        condition: "Deep Gluteal Syndrome Including Piriformis Involvement",
+        distinguishingFeatures: "Deep buttock pain rather than point tenderness on the outer hip, symptoms worse with prolonged sitting, possible sciatic-pattern referral down the posterior thigh, reproduction with seated piriformis stretch or FAIR test."
+      },
+      {
+        condition: "Lumbar Facet Joint or Sacroiliac Joint Referral",
+        distinguishingFeatures: "Pain pattern shifts with lumbar extension or rotation, tenderness over the lumbar facets or sacroiliac joint, lateral hip tenderness is absent or non-reproducible, cluster of sacroiliac provocation tests often positive."
+      }
+    ],
+    faqs: [
+      {
+        question: "Why does my outer hip hurt at night?",
+        answer: "Night pain is the most characteristic feature of gluteal tendinopathy and comes down to sustained compression of the tendon against the greater trochanter. Lying on the painful side presses the tendon directly. Lying on the other side with the top knee falling forward stretches the iliotibial band across the tendon. Both positions create hours of compressive load at exactly the time the tissue needs to recover. Sleep modification is often the fastest way to reduce overall symptoms."
+      },
+      {
+        question: "Can I sleep on my side with GTPS?",
+        answer: "Yes, with some setup. I generally recommend starting on the non-painful side with a firm pillow between the knees and a second pillow between the ankles, keeping the top leg level with the pelvis rather than falling across the body. Some patients find a small pillow tucked behind them more comfortable than sleeping fully on the back. The goal is to keep the hip out of adduction, which is the position that compresses the gluteal tendons."
+      },
+      {
+        question: "Why is walking uphill worse for my hip?",
+        answer: "Walking uphill, climbing stairs, and stepping onto a curb all demand more hip abductor force to keep the pelvis level during single-leg stance. In gluteal tendinopathy the tendon is already under-capacity, so these tasks push it past its tolerance. Research on hip joint loading shows forces of roughly 238 percent of body weight during normal walking, and uphill walking pushes this higher. This is why graded exposure rather than avoidance is part of rehabilitation."
+      },
+      {
+        question: "Are cortisone injections good for GTPS?",
+        answer: "The 2018 LEAP trial, published in the BMJ by Mellor and colleagues, directly compared education plus exercise with corticosteroid injection and with a wait-and-see approach. At both 8 weeks and 52 weeks, the exercise group had significantly better global outcomes. Injection often helps in the short term, but recurrence is common and long-term outcomes are poorer. I reserve injections for cases where pain is preventing someone from engaging with loading rehabilitation at all."
+      },
+      {
+        question: "How long does gluteal tendinopathy take to heal?",
+        answer: "Most patients see early symptom reduction within 4 to 6 weeks of starting load management and isometric exercises. Building real tendon capacity typically takes 3 to 6 months, and sometimes longer if symptoms have been present for over a year. Post-menopausal women may take longer due to hormonal influences on tendon tissue. I tell patients that sleeping through the night and walking uphill without ache are strong markers that the tendon has rebuilt meaningful capacity."
+      },
+      {
+        question: "Should I stretch my IT band if I have lateral hip pain?",
+        answer: "Generally no. Many classic IT band stretches, such as crossing one leg behind the other and leaning sideways, pull the hip into adduction, which is the exact position that compresses the gluteal tendon against the greater trochanter. Foam rolling directly over the outer hip can do the same. These well-intentioned strategies often keep GTPS flared. Load management, non-compressive strengthening, and posture modification are more productive than stretching the IT band."
+      },
+      {
+        question: "Is walking safe with lateral hip pain?",
+        answer: "Walking is almost always worth keeping in some form. Complete rest is rarely helpful, and deconditioning makes the problem worse. The key is to reduce provocative factors: avoid prolonged walking to the point of flare, break up long walks, choose flatter routes during early rehabilitation, and avoid hill repeats until tolerance builds. I often prescribe a specific daily walking dose and adjust it weekly based on symptom response."
+      },
+      {
+        question: "Is GTPS more common in women?",
+        answer: "Yes. Research suggests women are affected roughly 2 to 4 times more often than men, with peak incidence in the 40 to 60 year age range and a further rise around menopause. The likely factors include wider pelvis mechanics increasing the compressive force through the IT band, and hormonal shifts influencing tendon collagen quality. This does not change the treatment approach, but it does shape the conversation about timeline and expectations."
       }
     ],
 
@@ -5412,30 +5949,52 @@ Body mass significantly influences absolute patellar tendon loading. Each kilogr
       typicalPattern: "Patellar tendinopathy follows a predictable progression through distinct stages. Initially, pain occurs only after intense activity and doesn't affect performance. This progresses to pain during activity that may warm up but returns worse afterward. Advanced stages involve pain during daily activities and inability to participate in sports. The hallmark feature is load-related pain that increases predictably with energy storage activities like jumping. Athletes often describe being able to pinpoint the exact moment in training when pain will begin, such as after a specific number of jumps or at a particular point in their run."
     },
 
+    patternMatcher: {
+      clusterKey: 'knee',
+      markers: [
+        { questionId: 'pain_below_kneecap_on_tendon', signal: 'strong_yes' },
+        { questionId: 'pain_around_kneecap', signal: 'no' },
+        { questionId: 'pain_outside_of_knee', signal: 'no' },
+        { questionId: 'theatre_sign', signal: 'yes' },
+        { questionId: 'worse_going_downstairs', signal: 'neutral' },
+        { questionId: 'pain_with_jumping_or_landing', signal: 'strong_yes' },
+        { questionId: 'catching_locking_giving_way', signal: 'no' },
+        { questionId: 'pain_running_especially_downhill', signal: 'neutral' },
+        { questionId: 'morning_stiffness_short', signal: 'yes' },
+        { questionId: 'specific_twist_or_injury_event', signal: 'no' },
+        { questionId: 'worse_after_full_rest', signal: 'strong_yes' },
+        { questionId: 'age_over_45', signal: 'neutral' },
+      ],
+    },
+
     differentialDiagnosis: [
       {
         condition: "Patellofemoral Pain Syndrome",
-        distinguishingFeatures: "More diffuse anterior knee pain, positive patellar grind test, pain behind rather than below patella, aggravated by stairs and prolonged sitting without the focal tenderness at the inferior pole"
-      },
-      {
-        condition: "Hoffa's Fat Pad Impingement",
-        distinguishingFeatures: "Pain and tenderness lateral to the patellar tendon, swelling in the infrapatellar region, pain with knee extension rather than loading, positive Hoffa's test"
+        distinguishingFeatures: "Diffuse pain behind or around the kneecap rather than focal tenderness at the inferior pole, aggravated by stairs, running, and prolonged sitting with knees bent, positive patellar compression test, and pain is generally not reproduced by single-leg decline squat at the tendon insertion."
       },
       {
         condition: "Quadriceps Tendinopathy",
-        distinguishingFeatures: "Pain at the superior pole of the patella, tenderness above rather than below the patella, similar loading pattern but different location"
+        distinguishingFeatures: "Tenderness at the superior pole of the patella rather than the inferior pole, pain with resisted knee extension and deep squatting, more common in weightlifters and middle-aged athletes than adolescent jumpers."
       },
       {
-        condition: "Osgood-Schlatter Disease (in adolescents)",
-        distinguishingFeatures: "Pain at the tibial tubercle rather than patellar inferior pole, presence of growth plate, typical age 10-15 years, prominence at tibial tuberosity"
+        condition: "Hoffa's Fat Pad Impingement",
+        distinguishingFeatures: "Pain and swelling in the infrapatellar region either side of the tendon, worse with terminal knee extension and prolonged standing, positive Hoffa's test with pain on active extension while the examiner compresses the fat pad."
       },
       {
-        condition: "Patellar Stress Fracture",
-        distinguishingFeatures: "More severe constant pain, pain at rest and night pain, positive MRI for bone edema, history of sudden training increase"
+        condition: "Osgood-Schlatter Disease",
+        distinguishingFeatures: "Focal pain and prominence at the tibial tubercle rather than the patellar inferior pole, typically ages 10 to 15 during growth spurts, visible bony enlargement at the tibial insertion."
       },
       {
         condition: "Plica Syndrome",
-        distinguishingFeatures: "Snapping sensation, pain along medial border of patella, palpable thickened plica band, symptoms with knee flexion/extension cycles"
+        distinguishingFeatures: "Snapping or catching sensation along the medial border of the patella, palpable thickened band that is reproducibly tender, symptoms with repetitive flexion-extension rather than with pure loading tasks."
+      },
+      {
+        condition: "Meniscal Pathology",
+        distinguishingFeatures: "Joint-line tenderness rather than tendon tenderness, mechanical symptoms including catching, locking, or a sensation of giving way, positive McMurray or Thessaly test, often a history of twisting injury."
+      },
+      {
+        condition: "Patellar Stress Fracture or Sinding-Larsen-Johansson",
+        distinguishingFeatures: "Night pain, rest pain, and pain disproportionate to loading history, focal bony rather than tendon tenderness, recent rapid spike in training load, MRI showing bone oedema."
       }
     ],
 
@@ -5579,6 +6138,78 @@ Many athletes fear that continuing to exercise with some pain will damage the te
       questionnaires: "The Victorian Institute of Sport Assessment-Patella (VISA-P) questionnaire is our primary outcome measure, with scores below 80 indicating dysfunction. A 13-point change represents clinically meaningful improvement. We reassess every 4 weeks to track progress",
       activityTarget: "Progressive return through defined stages: pain-free daily activities, then gym-based loading, followed by straight-line running, then sport-specific drills, and finally unrestricted sport participation. Each stage requires symptoms to remain stable for one week before progression"
     },
+    faqs: [
+      {
+        question: "How long does patellar tendinopathy take to heal?",
+        answer: "Most people notice meaningful improvement within 12 weeks of a structured loading program, but full tendon remodelling continues for 6 to 12 months. Research suggests that patients treated within three months of symptom onset have success rates around 85 percent, compared with roughly 50 percent when symptoms have been present for over a year. Consistency with loading matters more than intensity. I set realistic expectations early so patients stay committed during the slow biological timeline."
+      },
+      {
+        question: "Should I stop running or jumping if I have jumper's knee?",
+        answer: "Complete rest is rarely the answer. Tendons need load to remodel, and prolonged rest often weakens the tendon further. What I typically recommend is modifying volume rather than stopping. Reducing jumping and high-speed running by around 50 percent while adding heavy slow resistance work often allows continued sport participation. The guide I use is the 24-hour rule: if pain during activity stays under 5 out of 10 and settles within 24 hours, the load was acceptable."
+      },
+      {
+        question: "Does rest alone help patellar tendinopathy?",
+        answer: "Rest can reduce pain short-term, but it does not stimulate the structural healing the tendon needs. The current evidence base, summarised in the JOSPT 2024 clinical practice guidelines on tendinopathy, is clear that progressive loading is the primary treatment. I have seen many patients cycle through weeks of rest, return to sport, and find the pain comes back quickly. Loading exercises rebuild the tendon's capacity so it can handle sport demands again."
+      },
+      {
+        question: "Are cortisone injections safe for patellar tendinopathy?",
+        answer: "I generally advise caution with cortisone for this condition. While an injection can reduce pain in the short term, systematic reviews show worse long-term outcomes compared with exercise, and corticosteroid can weaken tendon structure. Research by Coombes and colleagues in The Lancet found poorer recovery at one year following injection. I use cortisone conversations as a chance to explain why loading, not suppression of symptoms, is the route back to sport."
+      },
+      {
+        question: "When does patellar tendinopathy need surgery?",
+        answer: "Surgery is uncommon and reserved for patients who have completed at least six months of well-structured loading rehabilitation without meaningful progress. Even then, outcomes from surgery are not dramatically better than continued conservative care in most studies. If a patient is considering surgery, I first review whether the loading program was truly progressive, whether the hip, ankle, and calf were addressed, and whether sleep, training load, and nutrition have been optimised."
+      },
+      {
+        question: "Can I keep playing sport during the season while rehabbing jumper's knee?",
+        answer: "Often yes. Rio and colleagues' work on isometric loading showed that holds such as Spanish squats or wall sits at around 70 percent effort for 45 seconds can produce 30 to 45 minutes of reduced tendon pain, useful before competition or training. I typically combine in-season isometrics with modified jumping volume and reserve heavy slow resistance work for the off-season, when tendon capacity can be built more aggressively."
+      },
+      {
+        question: "What is the difference between patellar tendinopathy and patellofemoral pain?",
+        answer: "Patellar tendinopathy causes focal pain and tenderness at the bottom tip of the kneecap where the tendon attaches, and it behaves predictably with loading activities like jumping or decline squats. Patellofemoral pain is more diffuse, sits behind or around the kneecap, and is aggravated by stairs, running, and prolonged sitting with bent knees. The distinction matters because the rehabilitation programs differ significantly in focus and progression."
+      },
+      {
+        question: "Why does my knee hurt more the day after exercise?",
+        answer: "Tendons respond to load over 24 to 48 hours, so the morning after heavier activity is often when symptoms peak. If pain rises above baseline and stays elevated for more than 24 hours, the previous session was too much for current tendon capacity. I use this as real-time feedback rather than a reason to stop exercising. I simply adjust the next session's load down and continue the program."
+      }
+    ],
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Isometric Loading and Pain Control (Weeks 1 to 4)",
+        focus: "Reduce pain enough to train, start loading the tendon in a predictable way, and establish the 24-hour symptom response rule as the guide for progression. Isometric contractions provide short-term analgesia through cortical inhibition, shown in Rio and colleagues' 2015 work in the British Journal of Sports Medicine, which makes them ideal for in-season athletes.",
+        examples: [
+          "Spanish squat isometric hold with a band around the knees, 5 sets of 45 seconds at roughly 70 percent effort, once daily",
+          "Leg extension isometric hold at 60 degrees knee flexion, 5 sets of 45 seconds",
+          "Wall sit with feet slightly forward, 5 sets of 45 seconds, progressed as tolerated",
+          "Single-leg calf raise, 3 sets of 12, addressing calf capacity that offloads the tendon",
+          "Modified sport volume, typically reducing jumping and sprinting by around 50 percent while preserving fitness work"
+        ],
+        progressionCriteria: "Pain during Spanish squat hold at or below 3 out of 10, morning stiffness lasting under 10 minutes, and no more than mild symptom rise 24 hours after sessions for 7 consecutive days."
+      },
+      phase2: {
+        title: "Phase 2: Heavy Slow Resistance Training (Weeks 4 to 12)",
+        focus: "Build tendon structural capacity using the heavy slow resistance protocol developed by Kongsgaard and colleagues in the Scandinavian Journal of Medicine and Science in Sports, which shows outcomes equivalent to eccentric programs with substantially better adherence. Tempo is 3 seconds down and 3 seconds up under heavier loads. Some pain during loading, up to 5 out of 10, is acceptable provided it settles within 24 hours.",
+        examples: [
+          "Heavy slow resistance leg press, 4 sets of 6 to 15 reps, 3 times per week on non-consecutive days, progressing from 15RM to 6RM over the block",
+          "Heavy slow resistance barbell back squat or goblet squat, same tempo and set structure",
+          "Decline squat on a 25-degree board with added load, 4 sets of 8 to 10 reps, twice per week",
+          "Single-leg press, 3 sets of 8 to 10 reps, to address side-to-side asymmetry",
+          "Continued calf and gluteus medius strengthening, 3 sets of 10 to 12 reps"
+        ],
+        progressionCriteria: "VISA-P score increased by at least 13 points from baseline, single-leg decline squat pain 3 out of 10 or less with full body weight, and heavy slow resistance sessions tolerated without 24-hour symptom flare for at least 2 weeks."
+      },
+      phase3: {
+        title: "Phase 3: Energy Storage and Return to Sport (Months 3 to 6)",
+        focus: "Re-introduce the spring-like, stretch-shortening function of the tendon. This follows the Malliaras and colleagues staged loading framework: only progress to plyometrics once heavy slow resistance is comfortable. Sport-specific demands, such as cutting, repeated jumping, and landing mechanics, are rebuilt gradually.",
+        examples: [
+          "Countermovement jumps, starting at 2 sets of 5 on soft surface, progressing to 4 sets of 10 on firm ground",
+          "Drop jumps from a low box, progressing height only when landing mechanics stay clean",
+          "Bounding and single-leg hops in straight lines, then with change of direction",
+          "Sport-specific drills, such as approach jumps for volleyball or rebounding for basketball, in graded volume",
+          "Return to full training using the 10 percent rule, increasing weekly jumping or sprinting volume by no more than 10 percent"
+        ],
+        progressionCriteria: "VISA-P score above 80, pain 2 out of 10 or less during sport-specific tasks, symmetrical single-leg hop distance within 10 percent of the unaffected side, and two consecutive weeks of full sport training without a 24-hour flare."
+      }
+    },
     accessAndHours: standardAccessAndHours
   },
 
@@ -5614,6 +6245,24 @@ Your foot mechanics also play a role - excessive pronation can create internal r
         "Pain with descending stairs worse than ascending"
       ],
       typicalPattern: "I typically see pain that develops gradually without a specific injury. It's often worse with activities that load the knee in flexion - my patients frequently tell me about pain climbing stairs, getting up from sitting, or after long car rides. The pain tends to be more noticeable during and after activity rather than at rest."
+    },
+
+    patternMatcher: {
+      clusterKey: 'knee',
+      markers: [
+        { questionId: 'pain_below_kneecap_on_tendon', signal: 'no' },
+        { questionId: 'pain_around_kneecap', signal: 'strong_yes' },
+        { questionId: 'pain_outside_of_knee', signal: 'no' },
+        { questionId: 'theatre_sign', signal: 'strong_yes' },
+        { questionId: 'worse_going_downstairs', signal: 'strong_yes' },
+        { questionId: 'pain_with_jumping_or_landing', signal: 'yes' },
+        { questionId: 'catching_locking_giving_way', signal: 'no' },
+        { questionId: 'pain_running_especially_downhill', signal: 'neutral' },
+        { questionId: 'morning_stiffness_short', signal: 'neutral' },
+        { questionId: 'specific_twist_or_injury_event', signal: 'no' },
+        { questionId: 'worse_after_full_rest', signal: 'neutral' },
+        { questionId: 'age_over_45', signal: 'neutral' },
+      ],
     },
 
     evidenceSnapshot: {
@@ -5724,6 +6373,103 @@ Your foot mechanics also play a role - excessive pronation can create internal r
       dayToDay: "I track changes in your pain during specific activities like stairs and squatting, your ability to perform daily tasks without limitation, and improvements in movement quality during functional tests",
       questionnaires: "Anterior Knee Pain Scale to quantify functional limitations and monitor improvement over time",
       activityTarget: "Return to your desired activities - whether that's running, sports participation, or simply navigating stairs without discomfort"
+    },
+    faqs: [
+      {
+        question: "Is walking good for patellofemoral pain?",
+        answer: "Walking on flat ground is generally well tolerated and is one of the first activities I reintroduce. It keeps the knee moving without the high compressive loads of deep squats or downhill running. Patellofemoral joint force is lowest near full extension and rises sharply past about 60 degrees of flexion, which is why stairs and prolonged sitting often flare symptoms more than walking does."
+      },
+      {
+        question: "How long does patellofemoral pain take to heal?",
+        answer: "Most people improve meaningfully within 6 to 12 weeks of consistent exercise therapy, with full resolution often taking 3 to 4 months. The 2019 JOSPT Clinical Practice Guideline supports hip and knee strengthening as the most effective approach. Long-term follow-up studies show roughly 40% of people still have some symptoms at 1 to 5 years if rehabilitation is inconsistent, which is why I emphasize maintenance."
+      },
+      {
+        question: "Do I need an MRI for patellofemoral pain?",
+        answer: "Usually not. Patellofemoral pain is a clinical diagnosis based on history and examination, and imaging does not reliably correlate with symptoms. I consider MRI when symptoms fail to improve with appropriate rehab, when there is true locking or giving way, significant trauma, or signs that point toward meniscal or ligamentous injury, not as a first-line investigation."
+      },
+      {
+        question: "Why does my knee hurt going down stairs more than up?",
+        answer: "Descending stairs is an eccentric, single-leg task with higher patellofemoral joint reaction forces than ascending. Research suggests compressive load on the joint can reach 3 to 5 times body weight during stair descent. If the quadriceps and hip musculature cannot control knee flexion well, the load concentrates on a smaller area of cartilage behind the kneecap, which is a common driver of pain."
+      },
+      {
+        question: "Can I keep running with patellofemoral pain?",
+        answer: "Often yes, with modifications. I typically reduce mileage, avoid steep downhill running, and cue a slightly quicker cadence (around 5 to 10% higher), which research from Heiderscheit and colleagues has shown reduces patellofemoral loading. A pain rule I use is that symptoms should stay at or below 3 out of 10 during the run and settle within 24 hours. Persistent flares mean I reset the load."
+      },
+      {
+        question: "Is patellofemoral pain the same as runner's knee?",
+        answer: "The two terms are used interchangeably, but runner's knee is a general label that can include patellofemoral pain, iliotibial band syndrome, and patellar tendinopathy. Patellofemoral pain specifically refers to pain around or behind the kneecap, usually aggravated by loaded knee flexion activities like squatting, stairs, or prolonged sitting. Sorting out which one a patient has changes the rehab plan."
+      },
+      {
+        question: "Will my knee get worse if I keep exercising?",
+        answer: "Ongoing exercise does not appear to cause joint damage in patellofemoral pain, and research actually links inactivity with worse outcomes. The goal is modifying load, not avoiding it. I teach patients to respect a short-term increase in symptoms after training if it settles within 24 hours, and to reduce intensity or volume if symptoms are worsening week over week."
+      },
+      {
+        question: "Are knee braces or taping helpful for patellofemoral pain?",
+        answer: "They can be a useful short-term adjunct. The 2019 JOSPT guideline gives moderate evidence for patellar taping combined with exercise for short-term pain relief, particularly in the first 4 to 6 weeks. I use taping or a soft sleeve to help someone tolerate their rehab exercises, not as a long-term fix. Strength and movement quality are what drive the sustained change."
+      }
+    ],
+    differentialDiagnosis: [
+      {
+        condition: "Patellar Tendinopathy (Jumper's Knee)",
+        distinguishingFeatures: "Pain localized to the inferior pole of the patella rather than around or behind the kneecap. Reproduced by single-leg decline squat and resisted knee extension. Typically aggravated by jumping, landing, and sprinting rather than by prolonged sitting or stairs."
+      },
+      {
+        condition: "Meniscal Pathology",
+        distinguishingFeatures: "Joint-line tenderness, often with a history of a twisting injury or deep squatting event. True mechanical symptoms like catching, locking, or giving way are more common. Positive McMurray or Thessaly tests support the diagnosis, and symptoms are not dominated by prolonged sitting."
+      },
+      {
+        condition: "Early Tibiofemoral Osteoarthritis",
+        distinguishingFeatures: "Typically older patient group with morning stiffness lasting under 30 minutes, crepitus, and pain along the medial or lateral joint line rather than around the patella. Stiffness after periods of rest improves with movement, and imaging may show joint space narrowing."
+      },
+      {
+        condition: "Iliotibial Band Syndrome",
+        distinguishingFeatures: "Sharp lateral knee pain near the lateral femoral epicondyle, not around the patella. Commonly presents in runners and cyclists, often at a consistent distance or cadence. Tenderness over the lateral epicondyle and pain with repetitive knee flexion around 30 degrees help differentiate."
+      },
+      {
+        condition: "Medial Plica Syndrome",
+        distinguishingFeatures: "Medial knee pain with a palpable, tender band over the medial femoral condyle. Often gives a snapping or clicking sensation with knee flexion and extension. Symptoms may mimic patellofemoral pain but are more focal and reproducible with direct palpation of the plica."
+      },
+      {
+        condition: "Referred Pain from the Hip",
+        distinguishingFeatures: "Anterior knee pain with limited or painful hip internal rotation and a FADIR or FABER test that reproduces knee symptoms. Knee examination is often unremarkable. More common in hip osteoarthritis or femoroacetabular impingement, and should be screened in any anterior knee pain presentation."
+      }
+    ],
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Symptom Settling and Foundational Strength",
+        focus: "Reduce irritability, restore tolerance to daily loading like stairs and sitting, and begin isolated hip and quadriceps strengthening. This follows the 2019 JOSPT Clinical Practice Guideline, which gives strong evidence for combined hip and knee exercise as first-line care.",
+        examples: [
+          "Side-lying hip abduction, 3 sets of 12 to 15, focusing on glute medius activation",
+          "Short-arc quad extensions through a pain-free inner range, 3 sets of 10 to 12",
+          "Wall sit at a shallow angle (under 45 degrees of knee flexion), 3 sets holding 20 to 45 seconds",
+          "Straight leg raise with slight hip external rotation, 3 sets of 10 to 12 per side"
+        ],
+        progressionCriteria: "Pain under 3 out of 10 with daily activities like stairs and getting out of a chair, no increase in symptoms 24 hours after exercise, and the ability to perform prescribed exercises with clean technique."
+      },
+      phase2: {
+        title: "Phase 2: Progressive Loading and Movement Quality",
+        focus: "Load the knee through deeper ranges with good mechanics, add closed-chain and single-leg work, and start addressing the valgus collapse pattern that is often present. Movement retraining with feedback has moderate evidence in the JOSPT CPG and is integrated throughout this phase.",
+        examples: [
+          "Goblet squat to a box, 3 to 4 sets of 8 to 10, progressing depth and load as symptoms allow",
+          "Step-ups and step-downs with cueing to prevent knee collapse, 3 sets of 8 to 10 per side",
+          "Split squats or reverse lunges, 3 sets of 8 to 10 per side",
+          "Single-leg Romanian deadlift for posterior chain and pelvic control, 3 sets of 8 per side",
+          "Spanish squat or heavy slow resistance leg press for tendon and quadriceps loading, 3 sets of 8 to 10"
+        ],
+        progressionCriteria: "Pain-free or minimal pain (under 2 out of 10) through full-depth squatting and single-leg work, good frontal-plane control on step-downs (no visible knee valgus), and tolerance for 2 to 3 strength sessions per week without flare."
+      },
+      phase3: {
+        title: "Phase 3: Return to Sport, Running, and Higher Loads",
+        focus: "Reintroduce the specific demands of the patient's activity, whether that is running, cutting sports, or recreational training. Emphasis is on plyometric capacity, running mechanics, and a sustainable maintenance plan, since recurrence is common without ongoing loading (per the JOSPT CPG).",
+        examples: [
+          "Graded return-to-run program using walk-run intervals, progressing volume then intensity",
+          "Running cadence work cued at a 5 to 10% increase to reduce patellofemoral load",
+          "Bilateral then single-leg hop progressions for landing mechanics, 3 to 4 sets of 6 to 8",
+          "Heavier bilateral squatting and deadlifting matched to the patient's training goals",
+          "Sport-specific drills (cutting, change-of-direction, jumping) layered in once tolerance is confirmed"
+        ],
+        progressionCriteria: "Full return to desired sport or activity with pain 2 out of 10 or less and no 24-hour flare, single-leg hop tests within 10 to 15% of the unaffected side, and a maintenance strengthening plan the patient can sustain at least twice weekly."
+      }
     },
     accessAndHours: standardAccessAndHours
   },

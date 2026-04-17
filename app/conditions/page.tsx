@@ -46,6 +46,20 @@ const topicHubs = [
       'Front, medial, lateral, and posterior knee pain sorted by location so you can find the pattern that fits.',
     region: 'Knee',
   },
+  {
+    href: '/conditions/shoulder-pain',
+    title: 'Shoulder Pain Guide',
+    blurb:
+      'Rotator cuff, frozen shoulder, AC joint, and biceps pain sorted by location so you can find the pattern that fits.',
+    region: 'Shoulder',
+  },
+  {
+    href: '/conditions/elbow-pain',
+    title: 'Elbow Pain Guide',
+    blurb:
+      'Tennis elbow, golfers elbow, and forearm nerve symptoms mapped by location with routing to the right condition page.',
+    region: 'Elbow',
+  },
 ];
 
 // Pain-location / symptom guides. Titles and blurbs mirror what the guides

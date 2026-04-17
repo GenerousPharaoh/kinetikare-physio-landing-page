@@ -26,10 +26,10 @@ import {
 import { getConditionBySlug } from '@/lib/conditions-data';
 import { getTreatmentById } from '@/lib/treatments-data';
 
-const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/hip-pain';
-const PAGE_TITLE = 'Hip Pain Treatment in Burlington | Kareem Hassanein Physiotherapy';
+const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/elbow-pain';
+const PAGE_TITLE = 'Elbow Pain Treatment in Burlington | Kareem Hassanein Physiotherapy';
 const PAGE_DESCRIPTION =
-  'Hip pain treatment in Burlington with Kareem Hassanein, Registered Physiotherapist. Lateral, groin, and deep hip pain assessed and treated. Direct billing.';
+  'Elbow pain treatment in Burlington with Kareem Hassanein, Registered Physiotherapist. Tennis elbow, golfers elbow, and forearm nerve symptoms assessed and treated.';
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
         url: 'https://www.kinetikarephysio.com/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Hip Pain Treatment in Burlington - Kareem Hassanein Physiotherapy',
+        alt: 'Elbow Pain Treatment in Burlington - Kareem Hassanein Physiotherapy',
       },
     ],
   },
@@ -84,99 +84,54 @@ interface LocationGuide {
 
 const locationGuides: LocationGuide[] = [
   {
-    region: 'Side of the hip (lateral)',
-    subtitle: 'Pain over the bony point on the outside of the hip',
+    region: 'Outside of the elbow (lateral epicondyle)',
+    subtitle: 'Pain on the bony point on the outside of the elbow',
     description:
-      'Tender over the greater trochanter, worse lying on that side at night, and cranky when standing on one leg. This is the most common presentation in people over 40, especially post-menopausal women and runners who recently increased volume.',
+      'Point tenderness at the bony bump on the outside of the elbow, with pain on gripping, pouring a kettle, a firm handshake, or lifting a coffee cup by the handle. This is the classic tennis elbow picture, and it is far more common in desk workers and tradespeople than in people who actually play tennis. Wrist extension loading reproduces the symptoms.',
     commonSources: [
       {
-        slug: 'greater-trochanteric-pain-syndrome',
-        label: 'Lateral hip pain / gluteal tendinopathy (GTPS)',
-        note: 'Gluteus medius and minimus tendon irritation at the greater trochanter.',
-      },
-      {
-        slug: 'hip-bursitis',
-        label: 'Hip bursitis',
-        note: 'Secondary bursal irritation, usually part of the broader GTPS picture.',
+        slug: 'tennis-elbow',
+        label: 'Tennis elbow (lateral epicondylopathy)',
+        note: 'Pain on the outside of the elbow with gripping, pouring, and wrist extension loading. Gradual onset is more common than a single injury.',
       },
     ],
   },
   {
-    region: 'Front of the hip and groin',
-    subtitle: 'Deep anterior pain, sometimes a pinch with flexion',
+    region: 'Inside of the elbow (medial epicondyle)',
+    subtitle: 'Pain on the bony point on the inside of the elbow',
     description:
-      'Often described as a pinch or ache deep in the front of the hip or groin. Worse with deep squats, sitting low, getting out of a car, or cutting and pivoting in sport. Stiffness first thing in the morning or after sitting is common with joint-related causes.',
+      'Point tenderness on the inside of the elbow, with pain on wrist flexion loading, gripping rotating forces, throwing, or a golf swing. Pain often settles further down into the forearm flexor mass. Sensitive to a direct knock on the inner elbow. Ulnar nerve symptoms into the ring and pinky fingers can coexist and need screening.',
     commonSources: [
       {
-        slug: 'hip-osteoarthritis',
-        label: 'Hip osteoarthritis',
-        note: 'Joint stiffness and groin pain that worsens with activity and improves with gentle movement.',
-      },
-      {
-        slug: 'femoroacetabular-impingement',
-        label: 'Femoroacetabular impingement (FAI)',
-        note: 'A mechanical pinch at end-range hip flexion, common in younger athletes.',
-      },
-      {
-        slug: 'hip-labral-tears',
-        label: 'Hip labral tears',
-        note: 'Clicking, catching, or a sharp groin pain with rotation or deep flexion.',
-      },
-      {
-        slug: 'groin-strains',
-        label: 'Adductor (groin) strains',
-        note: 'Inner-thigh pain after a sudden change of direction or kick, common in hockey and soccer.',
+        slug: 'golfers-elbow',
+        label: 'Golfers elbow (medial epicondylopathy)',
+        note: 'Pain on the inside of the elbow with wrist flexion, gripping, or throwing load. Often coexists with wrist flexor and pronator tightness.',
       },
     ],
   },
   {
-    region: 'Back of the hip and deep buttock',
-    subtitle: 'Deep posterior ache, sit bone tenderness, or nerve-like pain',
+    region: 'Numbness in the ring and little fingers',
+    subtitle: 'Cubital tunnel pattern at the inner elbow',
     description:
-      'Pain sitting on hard surfaces, aching in the deep buttock, or a sciatic-type symptom that travels down the back of the leg. The source can sit in the joint, in deep gluteal muscles, or in the lumbar spine referring pain into the buttock, so careful assessment matters here.',
+      'Tingling or numbness in the ring and little fingers, often worse when the elbow is bent for long periods such as on the phone, reading, or sleeping with a bent elbow. Sometimes with weakness of grip or clumsiness with fine hand tasks. This is a cubital tunnel picture, where the ulnar nerve is irritated at the inner elbow. No dedicated condition page for cubital tunnel sits on the site yet, but the broader nerve-entrapment context applies. If symptoms are more in the thumb, index, and middle fingers, the source is usually at the wrist.',
     commonSources: [
       {
-        slug: 'proximal-hamstring-tendinopathy',
-        label: 'Proximal hamstring tendinopathy',
-        note: 'Sit-bone pain that flares with sitting, driving, and hill running.',
-      },
-      {
-        slug: 'piriformis-syndrome',
-        label: 'Piriformis syndrome',
-        note: 'Deep buttock pain, sometimes with radiating leg symptoms from sciatic nerve irritation.',
-      },
-      {
-        slug: 'deep-gluteal-syndrome',
-        label: 'Deep gluteal syndrome',
-        note: 'Broader sciatic nerve entrapment in the deep gluteal space, can mimic lumbar radiculopathy.',
-      },
-      {
-        slug: 'si-joint-dysfunction',
-        label: 'Sacroiliac (SI) joint dysfunction',
-        note: 'Pain over the SI joint or upper buttock, provoked by single-leg loading.',
+        slug: 'carpal-tunnel-syndrome',
+        label: 'Carpal tunnel syndrome',
+        note: 'Median nerve compression at the wrist. Numbness in the thumb, index, and middle fingers, often worse at night. Sometimes mistaken for elbow or forearm pain.',
       },
     ],
   },
   {
-    region: 'Hamstrings, and pain that travels down the leg',
-    subtitle: 'Referred and nerve-related symptoms',
+    region: 'Diffuse forearm aching, no single spot',
+    subtitle: 'Broad forearm fatigue with repetitive work',
     description:
-      'Sometimes what people call hip pain is actually referred from the low back. A burning or electric quality, numbness, or pain that runs past the knee points toward a nerve source rather than the hip joint itself. A careful history and physical exam help sort this out.',
+      'Aching that spreads through the forearm without a clear single painful point, usually tied to repetitive gripping, typing, or fine hand work that has outgrown the forearm tissues capacity. The pattern is overload rather than a specific structural injury. Wrist, elbow, and shoulder contributions all need to be assessed together.',
     commonSources: [
       {
-        slug: 'hamstring-strains',
-        label: 'Hamstring strains',
-        note: 'Sudden pull or ache in the back of the thigh, usually after a sprint or acceleration.',
-      },
-      {
-        slug: 'sciatica',
-        label: 'Sciatica',
-        note: 'Nerve root irritation from the lumbar spine producing buttock and leg pain.',
-      },
-      {
-        slug: 'low-back-pain',
-        label: 'Low back pain with referral',
-        note: 'Lumbar joints and discs can refer pain into the hip and buttock without true leg nerve symptoms.',
+        slug: 'repetitive-strain-injuries',
+        label: 'Repetitive strain injuries',
+        note: 'Overuse-related forearm and wrist pain from cumulative load in work, training, or ergonomic set-ups that have drifted.',
       },
     ],
   },
@@ -185,72 +140,72 @@ const locationGuides: LocationGuide[] = [
 // Red flags: when to seek urgent medical care rather than physio
 const redFlags: Array<{ sign: string; action: string }> = [
   {
-    sign: 'Sudden inability to bear weight after a fall or trauma',
-    action: 'Go to emergency to rule out hip or pelvic fracture, especially if over 65 or on bone-affecting medication.',
+    sign: 'Sudden inability to straighten or bend the elbow after a fall or direct trauma',
+    action: 'Go to emergency or urgent care to rule out fracture or dislocation, especially with obvious deformity, bruising, or swelling.',
   },
   {
-    sign: 'Hip pain with fever, chills, or feeling systemically unwell',
-    action: 'See a physician or urgent care to rule out joint infection.',
+    sign: 'Numbness, tingling, or weakness travelling into the hand, or grip weakness developing over time',
+    action: 'See your physician for nerve testing and to decide whether imaging or EMG is appropriate before rehabilitation.',
   },
   {
-    sign: 'Severe, constant pain that is not relieved by any position, particularly at night',
-    action: 'Book a physician review to investigate for stress fracture or other bone pathology.',
+    sign: 'Hot, red, swollen elbow with fever or feeling systemically unwell',
+    action: 'Seek same-day medical review to rule out septic arthritis, gout, or other inflammatory joint conditions.',
   },
   {
-    sign: 'Progressive numbness, weakness, or changes in bowel or bladder control',
-    action: 'Seek emergency care to rule out cauda equina syndrome.',
+    sign: 'Elbow pain with neck, shoulder, or chest symptoms, or with left arm radiation',
+    action: 'Seek urgent medical assessment. Elbow pain can occasionally be a referred symptom of a cervical or cardiac issue.',
   },
   {
-    sign: 'Unexplained weight loss or a history of cancer with new hip pain',
+    sign: 'A snap or pop at the inner elbow during a hard throw, lift, or pull, with immediate pain and weakness',
+    action: 'See a physician or urgent care promptly to assess for ligament or tendon rupture.',
+  },
+  {
+    sign: 'Unexplained weight loss, night pain, or a history of cancer with new elbow pain',
     action: 'See your family physician for medical workup before starting physiotherapy.',
-  },
-  {
-    sign: 'Hip pain in a child or adolescent that limits walking',
-    action: 'See a physician to rule out conditions such as slipped capital femoral epiphysis or Perthes disease.',
   },
 ];
 
 // FAQ content (answer length deliberately varied: short for simple questions, longer for complex)
 const faqs: Array<{ question: string; answer: string }> = [
   {
-    question: 'How do I know if my hip pain is arthritis?',
+    question: 'Do I need an MRI or X-ray for elbow pain?',
     answer:
-      'Hip osteoarthritis usually sits in the groin or deep front of the hip, feels stiff for the first twenty to thirty minutes after rest, and gets cranky with longer walks or stairs. Rotation is often the first range to drop off, which is why people notice it when putting on socks or getting out of a car. I build a working diagnosis from the history and exam, and order imaging only when it is going to change the plan.',
+      'Most elbow pain does not need imaging to start physiotherapy. Tennis elbow and golfers elbow are clinical diagnoses built from history and exam. Imaging becomes useful when the picture points to a structural problem that would change the plan: suspected fracture after trauma, progressive neurological symptoms, a case not responding the way a careful exam predicted, or when a ligament rupture is in question. I flag when imaging will actually change management rather than ordering it by default.',
   },
   {
-    question: 'Can physiotherapy help hip pain without surgery?',
+    question: 'Is it really tennis elbow if I have never played tennis?',
     answer:
-      'For most hip pain, yes. NICE and OARSI guidelines put exercise, education, and load management as first-line care for hip osteoarthritis, and the LEAP trial (BMJ 2018) showed education plus exercise beat a corticosteroid injection for lateral hip pain at one year. Surgery is still the right call for some labral tears and advanced arthritis, but a structured rehab block almost always comes first.',
+      'Almost certainly. The name sticks, but tennis elbow is a lateral elbow tendinopathy most often driven by desk work, trades, gripping sports, or repetitive lifting. In population studies (Shiri et al., American Journal of Epidemiology 2006) prevalence sits around 1 to 1.3 percent in the general population, rising sharply in occupations that combine forceful gripping with repetition. What matters is the pattern on exam, not the sport.',
   },
   {
-    question: 'When should I worry about hip pain?',
+    question: 'Are cortisone injections a good idea for tennis elbow?',
     answer:
-      'Most hip pain is mechanical. Get medical review before physiotherapy if you have had a fall with sudden inability to weight-bear, fever with joint pain, progressive neurological changes, unexplained weight loss, or pain that is severe and unrelieved by any position.',
+      'Usually not as a first step. The Bisset BMJ 2006 trial compared physiotherapy, corticosteroid injection, and wait-and-see. Injections felt better at six weeks but produced worse outcomes at twelve months, with high recurrence. The Coombes JAMA 2013 trial reinforced this, showing that adding an injection to physiotherapy was no better than physiotherapy alone, and the injection group had higher recurrence. Structured rehabilitation is the more reliable path.',
   },
   {
-    question: 'What causes hip pain at night?',
+    question: 'How long does tennis elbow take to get better?',
     answer:
-      'Lying on that side compresses the gluteal tendons against the bony point on the outside of the hip. That is the classic night-pain picture, and it is a hallmark of gluteal tendinopathy. Hip osteoarthritis can also ache at night when the joint loses its capacity to dampen load. The fix is rarely more rest. Sleep position, sitting and standing habits, and a progressive loading program are what usually settle it over a few weeks.',
+      'Most cases respond to eight to twelve weeks of structured loading, though the timeline is dictated by how long the symptoms have been there and how well the load plan can sit alongside work and training demands. The 2022 JOSPT clinical practice guideline for lateral elbow pain (Lucado et al.) supports progressive exercise therapy combined with manual therapy and education as first-line care, with clear dosing rather than long avoidance.',
   },
   {
-    question: 'Is it safe to keep exercising with hip pain?',
+    question: 'Can I keep working or lifting with elbow pain?',
     answer:
-      'Usually yes, with adjustments. Full rest tends to make most hip conditions more reactive, not less. I modify load rather than remove it: adjust volume, drop the specific provoking positions, and swap in pain-tolerant options like cycling, pool work, or lower-load strength training while the irritable tissue rebuilds capacity. I set clear guardrails at the first visit so the dosing is obvious.',
+      'Usually yes, with adjustments. Full rest tends to make tendinopathy more reactive, not less. The typical move is to keep the activity but change the dose, grip diameter, tool weight, volume, or which arm leads, and pair it with a targeted loading program. A simple guide I use in clinic: pain under 3 out of 10 during an activity, settling inside 24 hours, is usually fine. Pain that lingers for days or swelling that keeps returning means the plan needs to change.',
   },
   {
-    question: 'Do I need imaging before starting physiotherapy?',
+    question: 'Why does my ring and little finger feel numb?',
     answer:
-      'For most people, no. Labral fraying, mild cartilage wear, and tendon signal changes show up in pain-free adults all the time, so scans often muddy the picture rather than clarify it. I order imaging when it is going to change management: suspected fracture, progressive neurological symptoms, or a case not progressing the way a thorough exam predicted.',
+      'That pattern usually means the ulnar nerve is being irritated, most commonly at the inner elbow in what is called cubital tunnel syndrome. Prolonged elbow flexion, resting the elbow on hard surfaces, or sleeping with a bent elbow all provoke it. The plan focuses on unloading the nerve at the inner elbow, addressing wrist and shoulder positions in the day, and progressively adding strengthening exercises once symptoms settle. Progressive weakness or wasting in the hand needs medical review.',
   },
   {
-    question: 'How long does hip pain take to recover with physiotherapy?',
+    question: 'What is the difference between tennis elbow and golfers elbow?',
     answer:
-      'The tissue drives the timeline. Muscle strains often settle in four to eight weeks. Gluteal tendinopathy and other tendon-related hip pain typically needs three to six months of progressive loading to rebuild capacity. Hip osteoarthritis is longer-term management, but most people notice meaningful improvement in pain and function inside eight to twelve weeks of structured exercise and hands-on work.',
+      'They are the same type of problem on opposite sides of the elbow. Tennis elbow is lateral epicondylopathy, involving the wrist extensor tendon origin on the outside of the elbow. Golfers elbow is medial epicondylopathy, involving the wrist flexor and pronator tendon origin on the inside. Loading tests distinguish them: wrist extension against resistance provokes tennis elbow, wrist flexion against resistance provokes golfers elbow. Treatment principles are similar but the loading target is different.',
   },
   {
-    question: 'Do you treat hip pain after a hip replacement?',
+    question: 'Do I need a referral to see you for elbow pain in Burlington?',
     answer:
-      'Yes. Post-surgical hip rehab runs in stages: protect the joint early, restore range and gait, then build strength and confidence under load. I follow your surgeon\'s protocol where one exists and adapt based on how your tissues respond. Most people progress through guided exercise work across the first three to four months after surgery.',
+      'No referral needed in Ontario. Most extended health plans cover physiotherapy and I offer direct billing where available. Initial assessments run about an hour and include history, examination, a working diagnosis, and a clear plan. If I think something is outside physiotherapy scope, I coordinate with your family physician or an appropriate consultant rather than push on regardless.',
   },
 ];
 
@@ -264,56 +219,48 @@ interface ResearchItem {
 
 const research: ResearchItem[] = [
   {
-    title: 'Education and exercise outperform corticosteroid injection for lateral hip pain',
-    source: 'Mellor et al., BMJ (LEAP trial)',
-    year: 2018,
-    summary:
-      'In a randomised trial of 204 adults with gluteal tendinopathy, education plus a progressive exercise program produced greater improvements in pain and global rating of change than a single corticosteroid injection at both eight weeks and one year.',
-  },
-  {
-    title: 'OARSI guidelines for non-surgical management of hip osteoarthritis',
-    source: 'OARSI (Bannuru et al.)',
-    year: 2019,
-    summary:
-      'International guideline recommending land-based exercise, education, and self-management as core treatments for hip osteoarthritis, with weight management and structured strengthening as strongly supported adjuncts.',
-  },
-  {
-    title: 'NICE guideline on osteoarthritis assessment and management',
-    source: 'NICE NG226',
+    title: 'Lateral elbow pain and muscle function impairments: clinical practice guideline',
+    source: 'JOSPT (Lucado et al.)',
     year: 2022,
     summary:
-      'UK national guidance identifying therapeutic exercise as a first-line intervention for people with osteoarthritis, alongside information and support, with surgery considered when conservative care has not produced adequate response.',
+      'APTA Academy of Hand and Upper Extremity Physical Therapy and Academy of Orthopaedic Physical Therapy guideline on lateral elbow tendinopathy in adults aged 18 to 65. Supports progressive exercise therapy, manual therapy, patient education, and graded return to work and activity, with clear recommendations on dosing and against passive-only approaches.',
   },
   {
-    title: 'Hip pain and mobility deficits: hip osteoarthritis clinical practice guideline (Revision 2025)',
-    source: 'JOSPT (Koc, Cibulka et al.)',
-    year: 2025,
+    title: 'Mobilisation with movement and exercise, corticosteroid injection, or wait and see for tennis elbow: randomised trial',
+    source: 'Bisset et al., BMJ',
+    year: 2006,
     summary:
-      'Updated APTA Academy of Orthopaedic Physical Therapy guideline recommending progressive strengthening, manual therapy, patient education, and gait and functional training for hip osteoarthritis, with dry needling newly supported for short-term relief in pain, range, strength, and function.',
+      'Single-blind randomised controlled trial in 198 adults with tennis elbow. Physiotherapy combining elbow mobilisation with exercise outperformed wait and see at six weeks. Corticosteroid injection was superior at six weeks but produced significantly worse outcomes than physiotherapy at twelve months, with a recurrence rate of roughly 72 percent in the injection group.',
   },
   {
-    title: 'Improving function in people with hip-related pain: a systematic review and meta-analysis of physiotherapist-led interventions',
-    source: 'Kemp et al., British Journal of Sports Medicine',
-    year: 2020,
+    title: 'Effect of corticosteroid injection, physiotherapy, or both on clinical outcomes in lateral epicondylalgia',
+    source: 'Coombes et al., JAMA',
+    year: 2013,
     summary:
-      'Systematic review synthesising physiotherapist-led exercise, manual therapy, and education for hip-related pain. Found improvements in function, pain, and strength, with hip arthroscopy showing only small short-term benefit over physiotherapy and no significant difference at 24 months.',
+      'Randomised 2x2 factorial trial in 165 adults with unilateral lateral epicondylalgia. Adding corticosteroid injection to physiotherapy did not improve outcomes and was associated with higher recurrence. Physiotherapy alone produced better longer-term results than injection alone, reinforcing a structured rehabilitation-first approach.',
+  },
+  {
+    title: 'Prevalence and determinants of lateral and medial epicondylitis: a population study',
+    source: 'Shiri et al., American Journal of Epidemiology',
+    year: 2006,
+    summary:
+      'Population-based study reporting definite lateral epicondylitis prevalence of 1.3 percent and medial epicondylitis prevalence of 0.4 percent, peaking in adults aged 45 to 54. Smoking, obesity, repetitive work, and forceful activities were identified as independent risk factors, with rates substantially higher in occupational cohorts exposed to sustained gripping.',
+  },
+  {
+    title: 'Effectiveness of physical therapy in treating atraumatic full-thickness rotator cuff tears (MOON cohort)',
+    source: 'Kuhn et al., Journal of Shoulder and Elbow Surgery',
+    year: 2013,
+    summary:
+      'Included here because elbow pain in overhead athletes and lifters frequently sits inside a shoulder-driven chain. Around 75 percent of patients with atraumatic cuff tears avoided surgery at two years with a specific physical therapy protocol, supporting shoulder-first thinking when elbow symptoms travel up the chain.',
   },
 ];
 
 // Conditions to feature in the related block, in display order
 const relatedConditionSlugs: string[] = [
-  'greater-trochanteric-pain-syndrome',
-  'hip-osteoarthritis',
-  'femoroacetabular-impingement',
-  'hip-labral-tears',
-  'hip-bursitis',
-  'proximal-hamstring-tendinopathy',
-  'piriformis-syndrome',
-  'deep-gluteal-syndrome',
-  'si-joint-dysfunction',
-  'groin-strains',
-  'hamstring-strains',
-  'sciatica',
+  'tennis-elbow',
+  'golfers-elbow',
+  'carpal-tunnel-syndrome',
+  'repetitive-strain-injuries',
 ];
 
 const relatedTreatmentIds: string[] = [
@@ -329,7 +276,7 @@ const relatedTreatmentIds: string[] = [
 // Page
 // ---------------------------------------------------------------------------
 
-export default function HipPainHubPage() {
+export default function ElbowPainHubPage() {
   const relatedConditions = relatedConditionSlugs
     .map((slug) => getConditionBySlug(slug))
     .filter((condition): condition is NonNullable<ReturnType<typeof getConditionBySlug>> => Boolean(condition));
@@ -357,7 +304,7 @@ export default function HipPainHubPage() {
       {
         '@type': 'ListItem',
         position: 3,
-        name: 'Hip Pain',
+        name: 'Elbow Pain',
         item: PAGE_URL,
       },
     ],
@@ -378,7 +325,7 @@ export default function HipPainHubPage() {
     },
     about: {
       '@type': 'MedicalCondition',
-      name: 'Hip pain',
+      name: 'Elbow pain',
     },
     audience: {
       '@type': 'PeopleAudience',
@@ -469,22 +416,23 @@ export default function HipPainHubPage() {
                   Conditions
                 </Link>
                 <ChevronRightIcon className="h-3 w-3" />
-                <span className="text-slate-900 font-medium">Hip Pain</span>
+                <span className="text-slate-900 font-medium">Elbow Pain</span>
               </nav>
 
               <h1 className="text-4xl md:text-5xl font-light tracking-tight leading-tight text-slate-900 mb-4">
-                Hip Pain Treatment in Burlington
+                Elbow Pain Treatment in Burlington
               </h1>
 
               <p className="text-lg md:text-xl text-slate-700 leading-relaxed max-w-3xl">
-                Hip pain is rarely one condition. The label covers everything from a gluteal
-                tendon that cannot tolerate side-lying to a deep joint-related pinch in the
-                groin. This page is a guide I use with patients to map where the pain is, what
-                usually drives it, and how I go about treating it.
+                Elbow pain breaks down into a small number of recognisable patterns. Pain on the
+                outside is usually tennis elbow. Pain on the inside is usually golfers elbow.
+                Numbness in the fingers has its own distinct map. This page is a guide I use with
+                patients to sort where the pain is, what usually drives it, and how I go about
+                treating it.
               </p>
 
               <p className="text-xs text-slate-500 mt-3">
-                Assessing and treating hip pain at the Burlington clinic. Convenient for
+                Assessing and treating elbow pain at the Burlington clinic. Convenient for
                 Waterdown, Oakville, Hamilton, Flamborough, and Carlisle residents.
               </p>
 
@@ -548,31 +496,35 @@ export default function HipPainHubPage() {
                   <InformationCircleIcon className="h-5 w-5 text-[#B08D57]" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  First, figure out which hip problem you actually have
+                  Outside, inside, or nerve: elbow pain has a simple map
                 </h2>
               </div>
 
               <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed">
                 <p>
-                  &ldquo;My hip hurts&rdquo; can mean half a dozen different things. One person
-                  points to the bony spot on the side and tells me they cannot sleep on that
-                  side anymore. Another points into the groin and describes a pinch every time
-                  they sink into a deep squat. A third points into the deep buttock and asks
-                  whether this is sciatica. All common, all real, and all treated very
-                  differently. So the first job on your first visit is simply sorting out which
-                  of these pictures is actually yours.
+                  Elbow pain sorts itself cleanly. Pain on the outside of the elbow that flares
+                  when you grip, pour, or shake a hand is almost always tennis elbow. Pain on the
+                  inside that flares with wrist flexion, a golf swing, or a heavy pull is almost
+                  always golfers elbow. Numbness in the ring and little finger points to the
+                  ulnar nerve at the inner elbow. Numbness in the thumb, index, and middle
+                  fingers points to the median nerve at the wrist, even when the pain feels like
+                  it is coming from further up the arm. A diffuse forearm aching without a clear
+                  single painful spot is usually an overuse pattern. Those five pictures cover
+                  most of what walks into clinic.
                 </p>
                 <p>
-                  The honest version: most hip pain in adults is mechanical and manageable.
-                  NICE and OARSI guidelines, the JOSPT hip osteoarthritis CPG revised in 2025,
-                  and the 2018 LEAP trial in the BMJ all point the same way. Education, graded
-                  strengthening, and sensible load management produce the strongest long-term
-                  outcomes. Hands-on work sits alongside that, not in place of it. What changes
-                  between people is the tissue, the history, and how load needs to be dosed.
+                  The honest version: most elbow pain in adults is tendon-driven and responds
+                  well to structured rehabilitation. The JOSPT 2022 lateral elbow pain clinical
+                  practice guideline, the Bisset BMJ 2006 trial, and the Coombes JAMA 2013 trial
+                  all point the same way. Graded exercise therapy, manual therapy as an adjunct,
+                  and clear load management produce the strongest long-term outcomes, while
+                  corticosteroid injections tend to feel better short-term but worsen longer-term
+                  outcomes. What changes between people is the tissue, the work or sport demands
+                  driving it, and how load needs to be dosed.
                 </p>
                 <p>
-                  The rest of this page walks through the common sources of hip pain grouped by
-                  where they sit, the red flags that sit outside physiotherapy scope, how I
+                  The rest of this page walks through the common sources of elbow pain grouped
+                  by where they sit, the red flags that sit outside physiotherapy scope, how I
                   approach the first assessment in clinic, and the questions patients ask me
                   most. If you already know which condition fits your picture, the related
                   conditions block at the bottom links straight to the deeper pages.
@@ -595,9 +547,9 @@ export default function HipPainHubPage() {
                 </h2>
               </div>
               <p className="text-slate-600 max-w-3xl mb-8">
-                A quick guide to the most common sources of hip pain by location. Use it to find
-                the deeper page that most closely matches your pattern. If your picture overlaps a few
-                of these, that is normal and worth an assessment.
+                A quick guide to the most common sources of elbow and forearm pain by location.
+                Use it to find the deeper page that most closely matches your pattern. If your
+                picture overlaps a few of these, that is normal and worth an assessment.
               </p>
 
               <div className="grid md:grid-cols-2 gap-6">
@@ -616,7 +568,7 @@ export default function HipPainHubPage() {
                       </p>
                       <ul className="space-y-3">
                         {guide.commonSources.map((source) => (
-                          <li key={source.slug} className="group">
+                          <li key={`${guide.region}-${source.slug}-${source.label}`} className="group">
                             <Link
                               href={`/conditions/${source.slug}`}
                               className="block rounded-xl border border-slate-200 hover:border-[#B08D57] hover:shadow-sm transition-all p-3"
@@ -647,7 +599,7 @@ export default function HipPainHubPage() {
           </div>
         </section>
 
-        {/* How I approach hip pain */}
+        {/* How I approach elbow pain */}
         <section className="py-12 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
@@ -656,40 +608,45 @@ export default function HipPainHubPage() {
                   <AcademicCapIcon className="h-5 w-5 text-[#B08D57]" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  How I approach hip pain in clinic
+                  How I approach elbow pain in clinic
                 </h2>
               </div>
 
               <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed">
                 <p>
-                  The first appointment runs on questions before it runs on equipment. Where
-                  does it actually hurt, how did it start, what makes it worse, what makes it
-                  better. The small details do real work here. How you cross your legs on the
-                  couch. Whether you can sleep on that side. Whether a recent running block
-                  pushed weekly volume up faster than the tissue could adapt. Whether sitting,
-                  standing, or walking is the main trigger. By the end of the history I usually
-                  have two or three working hypotheses, and the physical exam is about
-                  confirming or ruling them out.
+                  The first appointment runs on questions before it runs on equipment. Where does
+                  the pain sit, how did it start, what makes it worse, what makes it better. The
+                  small details do real work. Whether a new role, sport, or gym block ramped up
+                  gripping faster than the tendon could adapt. Whether it came on after a specific
+                  lift or fall, or gradually over weeks. What your typical day actually looks like
+                  in terms of grip, typing, and tool use. Whether symptoms travel into the hand
+                  or the fingers, and which fingers. By the time the history is done I usually
+                  have two or three working hypotheses, and the physical exam is about confirming
+                  or ruling them out.
                 </p>
                 <p>
-                  I look at how you move before I test what hurts. Watching you walk, squat, and
-                  step tells me more than any single provocation test. From there I check hip
-                  range, strength through the key muscle groups, and the targeted tests that
-                  separate lateral tendon pain from joint pain from posterior nerve-related
-                  pain. Where palpation is clinically indicated, it is directed by the working
-                  hypothesis from the history and movement exam, not a routine sweep of every
-                  landmark.
+                  From there, the exam goes region by region. I watch active elbow and wrist
+                  range, check grip strength where useful, and run the targeted tests that move
+                  the needle: resisted wrist extension and middle-finger extension for tennis
+                  elbow, resisted wrist flexion and pronation for golfers elbow, Tinel and elbow
+                  flexion tests for cubital tunnel, and Phalen and median nerve tests if the
+                  picture points further down the arm. Where palpation is relevant, it is
+                  directed by the working hypothesis rather than applied as a routine sweep. I
+                  screen the neck and shoulder every time, because cervical radiculopathy and
+                  shoulder mechanics can drive apparent elbow pain.
                 </p>
                 <p>
                   The plan that comes out of that is individual, but it tends to have the same
-                  shape. Settle the irritable tissue with a short list of things to stop doing
-                  and a few things to add in. Build capacity with progressive strengthening
-                  exercises dosed to your current tolerance, usually across hip abductors, deep
-                  rotators, glutes, and the trunk. Joint mobilization, soft tissue therapy, dry
-                  needling, or cupping sit alongside that work where they speed things along. I
-                  write the plan down with you and track a handful of markers so we can both
-                  see whether it is actually working. If it is not, I change direction sooner
-                  rather than later.
+                  shape. Settle the irritable tissue by adjusting load rather than removing it,
+                  which might include changing grip diameter, tool choice, desk setup, training
+                  volume, or lifting technique. Build capacity with progressive strengthening
+                  exercises dosed to your current tolerance, usually isometric first if the
+                  tissue is reactive, then slow heavy loading through the wrist extensors or
+                  flexors as tolerance improves. Joint mobilization, soft tissue therapy, dry
+                  needling, or cupping sit alongside that work where they help it move faster. I
+                  write the plan down with you and track a handful of markers so it is clear
+                  whether it is actually working. If it is not, I change direction sooner rather
+                  than later.
                 </p>
               </div>
             </div>
@@ -705,7 +662,7 @@ export default function HipPainHubPage() {
                   <QuestionMarkCircleIcon className="h-5 w-5 text-[#B08D57]" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  Hip pain questions I hear most
+                  Elbow pain questions I hear most
                 </h2>
               </div>
 
@@ -746,9 +703,9 @@ export default function HipPainHubPage() {
                 </h2>
               </div>
               <p className="text-slate-600 max-w-3xl mb-8">
-                The recommendations above draw on national clinical guidelines and published
+                The recommendations above draw on clinical practice guidelines and published
                 trials. Research evolves, but these are the anchor sources I rely on when I plan
-                hip pain care.
+                elbow pain care.
               </p>
 
               <div className="grid md:grid-cols-2 gap-5">
@@ -785,11 +742,11 @@ export default function HipPainHubPage() {
                   <HeartIcon className="h-5 w-5 text-[#B08D57]" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  Related hip and pelvis conditions
+                  Related elbow, forearm, and wrist conditions
                 </h2>
               </div>
               <p className="text-slate-600 max-w-3xl mb-8">
-                Deeper pages for each of the specific conditions that sit under hip pain.
+                Deeper pages for each of the specific conditions that sit under elbow pain.
               </p>
 
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -827,7 +784,7 @@ export default function HipPainHubPage() {
                   <ShieldCheckIcon className="h-5 w-5 text-[#B08D57]" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  Treatments that commonly sit inside a hip plan
+                  Treatments that commonly sit inside an elbow plan
                 </h2>
               </div>
               <p className="text-slate-600 max-w-3xl mb-8">
@@ -875,7 +832,7 @@ export default function HipPainHubPage() {
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
                   <p className="text-slate-300 leading-relaxed">
-                    I see patients for hip pain at Endorphins Health & Wellness Centre in
+                    I see patients for elbow pain at Endorphins Health & Wellness Centre in
                     Burlington. The clinic serves people coming in from Burlington, Waterdown,
                     Oakville, Hamilton, Flamborough, and Carlisle, with free parking on site
                     and a ground-floor entrance.
@@ -935,7 +892,7 @@ export default function HipPainHubPage() {
                       className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-[#B08D57] text-white text-sm font-medium hover:bg-[#997A4B] transition-colors"
                     >
                       <CalendarIcon className="h-4 w-4" />
-                      Book an Initial Hip Assessment
+                      Book an Initial Elbow Assessment
                     </Link>
                   </div>
                 </div>

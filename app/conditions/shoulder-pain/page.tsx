@@ -26,10 +26,10 @@ import {
 import { getConditionBySlug } from '@/lib/conditions-data';
 import { getTreatmentById } from '@/lib/treatments-data';
 
-const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/hip-pain';
-const PAGE_TITLE = 'Hip Pain Treatment in Burlington | Kareem Hassanein Physiotherapy';
+const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/shoulder-pain';
+const PAGE_TITLE = 'Shoulder Pain Treatment in Burlington | Kareem Hassanein Physiotherapy';
 const PAGE_DESCRIPTION =
-  'Hip pain treatment in Burlington with Kareem Hassanein, Registered Physiotherapist. Lateral, groin, and deep hip pain assessed and treated. Direct billing.';
+  'Shoulder pain treatment in Burlington with Kareem Hassanein, Registered Physiotherapist. Rotator cuff, frozen shoulder, AC joint, and biceps pain assessed and treated.';
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
         url: 'https://www.kinetikarephysio.com/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Hip Pain Treatment in Burlington - Kareem Hassanein Physiotherapy',
+        alt: 'Shoulder Pain Treatment in Burlington - Kareem Hassanein Physiotherapy',
       },
     ],
   },
@@ -84,99 +84,87 @@ interface LocationGuide {
 
 const locationGuides: LocationGuide[] = [
   {
-    region: 'Side of the hip (lateral)',
-    subtitle: 'Pain over the bony point on the outside of the hip',
+    region: 'Top of the shoulder (AC joint)',
+    subtitle: 'Tenderness at the bony bump on the top of the shoulder',
     description:
-      'Tender over the greater trochanter, worse lying on that side at night, and cranky when standing on one leg. This is the most common presentation in people over 40, especially post-menopausal women and runners who recently increased volume.',
+      'Pain sits right on top of the shoulder over the acromioclavicular joint, often after a fall onto the tip of the shoulder or years of overhead pressing. Reaching across the body to the opposite shoulder is a classic aggravator, as is lying directly on that side. Point tenderness over that bump is a strong clue.',
     commonSources: [
       {
-        slug: 'greater-trochanteric-pain-syndrome',
-        label: 'Lateral hip pain / gluteal tendinopathy (GTPS)',
-        note: 'Gluteus medius and minimus tendon irritation at the greater trochanter.',
-      },
-      {
-        slug: 'hip-bursitis',
-        label: 'Hip bursitis',
-        note: 'Secondary bursal irritation, usually part of the broader GTPS picture.',
+        slug: 'ac-joint-injuries',
+        label: 'AC joint injuries',
+        note: 'Sprains, separations, or degenerative AC joint pain, tender on top with cross-body reach.',
       },
     ],
   },
   {
-    region: 'Front of the hip and groin',
-    subtitle: 'Deep anterior pain, sometimes a pinch with flexion',
+    region: 'Front of the shoulder (anterior / biceps groove)',
+    subtitle: 'Ache in the front of the shoulder or down the biceps',
     description:
-      'Often described as a pinch or ache deep in the front of the hip or groin. Worse with deep squats, sitting low, getting out of a car, or cutting and pivoting in sport. Stiffness first thing in the morning or after sitting is common with joint-related causes.',
+      'Pain sits in the front of the shoulder, sometimes tracking into the biceps muscle. Often worse with overhead reaching, pulling, or lifting away from the body. Speed and Yergason tests that load the biceps at the front of the shoulder tend to reproduce the symptoms.',
     commonSources: [
       {
-        slug: 'hip-osteoarthritis',
-        label: 'Hip osteoarthritis',
-        note: 'Joint stiffness and groin pain that worsens with activity and improves with gentle movement.',
+        slug: 'biceps-tendinopathy',
+        label: 'Biceps tendinopathy',
+        note: 'Anterior shoulder pain with overhead work, pulling, and biceps loading. Often coexists with rotator cuff issues.',
       },
       {
-        slug: 'femoroacetabular-impingement',
-        label: 'Femoroacetabular impingement (FAI)',
-        note: 'A mechanical pinch at end-range hip flexion, common in younger athletes.',
-      },
-      {
-        slug: 'hip-labral-tears',
-        label: 'Hip labral tears',
-        note: 'Clicking, catching, or a sharp groin pain with rotation or deep flexion.',
-      },
-      {
-        slug: 'groin-strains',
-        label: 'Adductor (groin) strains',
-        note: 'Inner-thigh pain after a sudden change of direction or kick, common in hockey and soccer.',
+        slug: 'shoulder-instability',
+        label: 'Shoulder instability',
+        note: 'Anterior apprehension with overhead positions, sometimes a sense the shoulder wants to slip.',
       },
     ],
   },
   {
-    region: 'Back of the hip and deep buttock',
-    subtitle: 'Deep posterior ache, sit bone tenderness, or nerve-like pain',
+    region: 'Side of the arm (deltoid / lateral)',
+    subtitle: 'Ache down the outside of the upper arm, painful arc on lifting',
     description:
-      'Pain sitting on hard surfaces, aching in the deep buttock, or a sciatic-type symptom that travels down the back of the leg. The source can sit in the joint, in deep gluteal muscles, or in the lumbar spine referring pain into the buttock, so careful assessment matters here.',
+      'Pain referred into the side of the upper arm, with a painful arc between roughly 60 and 120 degrees of shoulder elevation, weakness reaching into a cupboard, and trouble sleeping on that side. This is the classic rotator cuff and subacromial picture, and it is the most common shoulder presentation I see in clinic.',
     commonSources: [
       {
-        slug: 'proximal-hamstring-tendinopathy',
-        label: 'Proximal hamstring tendinopathy',
-        note: 'Sit-bone pain that flares with sitting, driving, and hill running.',
+        slug: 'rotator-cuff-injuries',
+        label: 'Rotator cuff injuries',
+        note: 'Tendinopathy or tears of the rotator cuff. Lateral deltoid referral, painful arc, and weakness with elevation.',
       },
       {
-        slug: 'piriformis-syndrome',
-        label: 'Piriformis syndrome',
-        note: 'Deep buttock pain, sometimes with radiating leg symptoms from sciatic nerve irritation.',
+        slug: 'shoulder-impingement',
+        label: 'Shoulder impingement',
+        note: 'Subacromial pain with overhead reaching and reaching behind the back, often tied to scapular mechanics.',
       },
       {
-        slug: 'deep-gluteal-syndrome',
-        label: 'Deep gluteal syndrome',
-        note: 'Broader sciatic nerve entrapment in the deep gluteal space, can mimic lumbar radiculopathy.',
-      },
-      {
-        slug: 'si-joint-dysfunction',
-        label: 'Sacroiliac (SI) joint dysfunction',
-        note: 'Pain over the SI joint or upper buttock, provoked by single-leg loading.',
+        slug: 'shoulder-bursitis',
+        label: 'Shoulder bursitis',
+        note: 'Subacromial bursal irritation that usually sits within a broader rotator cuff and impingement picture.',
       },
     ],
   },
   {
-    region: 'Hamstrings, and pain that travels down the leg',
-    subtitle: 'Referred and nerve-related symptoms',
+    region: 'Whole shoulder, stiff in every direction',
+    subtitle: 'Global loss of range with passive external rotation restricted',
     description:
-      'Sometimes what people call hip pain is actually referred from the low back. A burning or electric quality, numbness, or pain that runs past the knee points toward a nerve source rather than the hip joint itself. A careful history and physical exam help sort this out.',
+      'A shoulder that cannot get anywhere. Tucking in a shirt, fastening a bra, reaching for a seatbelt, putting on a jacket all become difficult. Night pain is common in the earlier inflammatory phase. The hallmark on exam is passive external rotation that is clearly restricted compared with the other side, often with little difference whether you relax or try to help.',
     commonSources: [
       {
-        slug: 'hamstring-strains',
-        label: 'Hamstring strains',
-        note: 'Sudden pull or ache in the back of the thigh, usually after a sprint or acceleration.',
+        slug: 'frozen-shoulder',
+        label: 'Frozen shoulder (adhesive capsulitis)',
+        note: 'Gradual loss of active and passive range in every direction. Can follow a period of underloading or injury, more common in people aged 40 to 60 and in people with diabetes.',
+      },
+    ],
+  },
+  {
+    region: 'With cervical or neck symptoms',
+    subtitle: 'Shoulder pain paired with neck stiffness or arm symptoms',
+    description:
+      'Pain that sits in the upper trap and top of the shoulder blade, sometimes with pins and needles into the arm or hand, often has a cervical driver rather than a shoulder one. Head position, neck movement, and certain loaded positions change the symptoms. A careful screen separates a true shoulder problem from referred neck pain or cervical radiculopathy.',
+    commonSources: [
+      {
+        slug: 'shoulder-bursitis',
+        label: 'Shoulder bursitis',
+        note: 'Sometimes sits alongside cervical pain and altered scapular mechanics in desk-based workers.',
       },
       {
-        slug: 'sciatica',
-        label: 'Sciatica',
-        note: 'Nerve root irritation from the lumbar spine producing buttock and leg pain.',
-      },
-      {
-        slug: 'low-back-pain',
-        label: 'Low back pain with referral',
-        note: 'Lumbar joints and discs can refer pain into the hip and buttock without true leg nerve symptoms.',
+        slug: 'rotator-cuff-injuries',
+        label: 'Rotator cuff injuries with cervical component',
+        note: 'Rotator cuff pain can coexist with stiff or irritable cervical segments and needs screening for both.',
       },
     ],
   },
@@ -185,72 +173,72 @@ const locationGuides: LocationGuide[] = [
 // Red flags: when to seek urgent medical care rather than physio
 const redFlags: Array<{ sign: string; action: string }> = [
   {
-    sign: 'Sudden inability to bear weight after a fall or trauma',
-    action: 'Go to emergency to rule out hip or pelvic fracture, especially if over 65 or on bone-affecting medication.',
+    sign: 'Sudden inability to lift the arm after trauma, especially with bruising or obvious deformity',
+    action: 'Go to emergency or urgent care to rule out fracture, dislocation, or a significant rotator cuff rupture.',
   },
   {
-    sign: 'Hip pain with fever, chills, or feeling systemically unwell',
-    action: 'See a physician or urgent care to rule out joint infection.',
+    sign: 'Numbness, tingling, or weakness travelling into the hand',
+    action: 'See your physician to investigate possible cervical radiculopathy or peripheral nerve involvement before rehabilitation.',
   },
   {
-    sign: 'Severe, constant pain that is not relieved by any position, particularly at night',
-    action: 'Book a physician review to investigate for stress fracture or other bone pathology.',
+    sign: 'Hot, red, swollen shoulder with fever or feeling systemically unwell',
+    action: 'Seek same-day medical review to rule out septic arthritis or other inflammatory joint conditions.',
   },
   {
-    sign: 'Progressive numbness, weakness, or changes in bowel or bladder control',
-    action: 'Seek emergency care to rule out cauda equina syndrome.',
+    sign: 'Night pain that is severe, constant, and disproportionate to daytime activity',
+    action: 'Book a physician review to investigate for other sources such as bone, cardiac referral, or inflammatory disease.',
   },
   {
-    sign: 'Unexplained weight loss or a history of cancer with new hip pain',
+    sign: 'Left shoulder pain with chest tightness, breathlessness, or nausea',
+    action: 'Call 911 or go to emergency. Shoulder pain can be a referred symptom of a cardiac event.',
+  },
+  {
+    sign: 'Unexplained weight loss, night sweats, or a history of cancer with new shoulder pain',
     action: 'See your family physician for medical workup before starting physiotherapy.',
-  },
-  {
-    sign: 'Hip pain in a child or adolescent that limits walking',
-    action: 'See a physician to rule out conditions such as slipped capital femoral epiphysis or Perthes disease.',
   },
 ];
 
 // FAQ content (answer length deliberately varied: short for simple questions, longer for complex)
 const faqs: Array<{ question: string; answer: string }> = [
   {
-    question: 'How do I know if my hip pain is arthritis?',
+    question: 'Do I need an MRI for shoulder pain?',
     answer:
-      'Hip osteoarthritis usually sits in the groin or deep front of the hip, feels stiff for the first twenty to thirty minutes after rest, and gets cranky with longer walks or stairs. Rotation is often the first range to drop off, which is why people notice it when putting on socks or getting out of a car. I build a working diagnosis from the history and exam, and order imaging only when it is going to change the plan.',
+      'Most shoulder pain does not need imaging to start physiotherapy. Rotator cuff tendinopathy, shoulder impingement, and early frozen shoulder are clinical diagnoses built from history and exam. MRI is most useful when the picture points to a structural problem that would change the plan: suspected full-thickness cuff tear in a younger patient, progressive neurological symptoms, or a case not responding the way a careful exam predicted. I flag when imaging will actually change management rather than ordering it by default.',
   },
   {
-    question: 'Can physiotherapy help hip pain without surgery?',
+    question: 'Can physiotherapy fix a rotator cuff tear?',
     answer:
-      'For most hip pain, yes. NICE and OARSI guidelines put exercise, education, and load management as first-line care for hip osteoarthritis, and the LEAP trial (BMJ 2018) showed education plus exercise beat a corticosteroid injection for lateral hip pain at one year. Surgery is still the right call for some labral tears and advanced arthritis, but a structured rehab block almost always comes first.',
+      'Many atraumatic rotator cuff tears respond well to structured rehabilitation. The MOON cohort study (Kuhn et al., JSES 2013) followed patients with atraumatic full-thickness cuff tears through a specific physical therapy protocol and found roughly 75 percent avoided surgery at two years, with long-term follow-up holding at around ten years. Tears after significant trauma in younger patients, or tears that fail a proper rehab block, are different situations, and I refer on for a surgical opinion when that is the right call.',
   },
   {
-    question: 'When should I worry about hip pain?',
+    question: 'Why does my shoulder hurt at night?',
     answer:
-      'Most hip pain is mechanical. Get medical review before physiotherapy if you have had a fall with sudden inability to weight-bear, fever with joint pain, progressive neurological changes, unexplained weight loss, or pain that is severe and unrelieved by any position.',
+      'Lying on the affected side compresses the rotator cuff and subacromial structures, and rolling off it in your sleep pulls the arm into provocative positions. Rotator cuff tendinopathy and frozen shoulder both tend to flare at night for this reason. Sleep positioning, pillow setup, and a progressive loading plan usually settle it over a few weeks, without needing to rely on anti-inflammatories long-term. Severe, constant night pain that does not ease in any position warrants medical review.',
   },
   {
-    question: 'What causes hip pain at night?',
+    question: 'How long does frozen shoulder take to recover?',
     answer:
-      'Lying on that side compresses the gluteal tendons against the bony point on the outside of the hip. That is the classic night-pain picture, and it is a hallmark of gluteal tendinopathy. Hip osteoarthritis can also ache at night when the joint loses its capacity to dampen load. The fix is rarely more rest. Sleep position, sitting and standing habits, and a progressive loading program are what usually settle it over a few weeks.',
+      'Frozen shoulder runs a long course. The older literature described three phases totalling up to two or three years, though most people see meaningful progress much sooner with structured care. The UK FROST trial (Rangan et al., Lancet 2020) compared early structured physiotherapy with a steroid injection against two surgical options and found no superiority of the surgical treatments on patient-reported outcomes at twelve months. Physiotherapy with a steroid injection where appropriate is a reasonable first-line path for most people.',
   },
   {
-    question: 'Is it safe to keep exercising with hip pain?',
+    question: 'Is it safe to keep training at the gym with shoulder pain?',
     answer:
-      'Usually yes, with adjustments. Full rest tends to make most hip conditions more reactive, not less. I modify load rather than remove it: adjust volume, drop the specific provoking positions, and swap in pain-tolerant options like cycling, pool work, or lower-load strength training while the irritable tissue rebuilds capacity. I set clear guardrails at the first visit so the dosing is obvious.',
+      'Usually yes, with adjustments. Full rest tends to make most shoulder conditions more reactive, not less. The typical move is to drop the specific provoking positions, bench pressing below the shoulder line, deep overhead pressing, or behind-the-neck work, and build around tolerable variations. I pair that with targeted rotator cuff and scapular strengthening exercises dosed to your current tolerance. Pain under 3 out of 10 during a session that settles inside 24 hours is usually fine.',
   },
   {
-    question: 'Do I need imaging before starting physiotherapy?',
+    question: 'What is the difference between impingement and a rotator cuff tear?',
     answer:
-      'For most people, no. Labral fraying, mild cartilage wear, and tendon signal changes show up in pain-free adults all the time, so scans often muddy the picture rather than clarify it. I order imaging when it is going to change management: suspected fracture, progressive neurological symptoms, or a case not progressing the way a thorough exam predicted.',
+      'They sit on a spectrum. Shoulder impingement describes a pattern of subacromial pain, often from altered scapular mechanics, cuff weakness, or overhead load that has outgrown current capacity. Rotator cuff tendinopathy and partial tears are the tissue findings that often accompany it. A full-thickness tear is a different category, with weakness out of proportion to pain and sometimes a clear injury behind it. The assessment clarifies which side of that spectrum your picture sits on.',
   },
   {
-    question: 'How long does hip pain take to recover with physiotherapy?',
+    question: 'Does shoulder surgery work better than physiotherapy?',
     answer:
-      'The tissue drives the timeline. Muscle strains often settle in four to eight weeks. Gluteal tendinopathy and other tendon-related hip pain typically needs three to six months of progressive loading to rebuild capacity. Hip osteoarthritis is longer-term management, but most people notice meaningful improvement in pain and function inside eight to twelve weeks of structured exercise and hands-on work.',
+      'For most non-traumatic shoulder pain, no. The CSAW trial (Beard et al., Lancet 2018) compared arthroscopic subacromial decompression against placebo surgery and against no treatment in patients who had already completed non-operative care. Decompression offered no clinically meaningful advantage over placebo. The JOSPT 2022 rotator cuff guideline specifically recommends against subacromial decompression for rotator cuff tendinopathy. Structured rehabilitation is first-line, and surgery is reserved for cases where it is genuinely indicated.',
   },
   {
-    question: 'Do you treat hip pain after a hip replacement?',
+    question: 'Do I need a referral to see you for shoulder pain in Burlington?',
     answer:
-      'Yes. Post-surgical hip rehab runs in stages: protect the joint early, restore range and gait, then build strength and confidence under load. I follow your surgeon\'s protocol where one exists and adapt based on how your tissues respond. Most people progress through guided exercise work across the first three to four months after surgery.',
+      'No referral needed in Ontario. Most extended health plans cover physiotherapy and I offer direct billing where available. Initial assessments run about an hour and include history, examination, a working diagnosis, and a clear plan. If I think something is outside physiotherapy scope, I coordinate with your family physician or an appropriate consultant rather than push on regardless.',
   },
 ];
 
@@ -264,56 +252,51 @@ interface ResearchItem {
 
 const research: ResearchItem[] = [
   {
-    title: 'Education and exercise outperform corticosteroid injection for lateral hip pain',
-    source: 'Mellor et al., BMJ (LEAP trial)',
-    year: 2018,
-    summary:
-      'In a randomised trial of 204 adults with gluteal tendinopathy, education plus a progressive exercise program produced greater improvements in pain and global rating of change than a single corticosteroid injection at both eight weeks and one year.',
-  },
-  {
-    title: 'OARSI guidelines for non-surgical management of hip osteoarthritis',
-    source: 'OARSI (Bannuru et al.)',
-    year: 2019,
-    summary:
-      'International guideline recommending land-based exercise, education, and self-management as core treatments for hip osteoarthritis, with weight management and structured strengthening as strongly supported adjuncts.',
-  },
-  {
-    title: 'NICE guideline on osteoarthritis assessment and management',
-    source: 'NICE NG226',
+    title: 'Diagnosing, managing, and supporting return to work of adults with rotator cuff disorders: clinical practice guideline',
+    source: 'JOSPT (Lafrance, Desmeules et al.)',
     year: 2022,
     summary:
-      'UK national guidance identifying therapeutic exercise as a first-line intervention for people with osteoarthritis, alongside information and support, with surgery considered when conservative care has not produced adequate response.',
+      'International clinical practice guideline recommending active, task-oriented rehabilitation combining exercise and education as first-line care for rotator cuff disorders. The guideline specifically recommends against subacromial decompression for rotator cuff tendinopathy and positions surgery as appropriate only for selected full-thickness tears.',
   },
   {
-    title: 'Hip pain and mobility deficits: hip osteoarthritis clinical practice guideline (Revision 2025)',
-    source: 'JOSPT (Koc, Cibulka et al.)',
-    year: 2025,
+    title: 'Shoulder pain and mobility deficits: adhesive capsulitis clinical practice guideline',
+    source: 'JOSPT (Kelley et al.)',
+    year: 2013,
     summary:
-      'Updated APTA Academy of Orthopaedic Physical Therapy guideline recommending progressive strengthening, manual therapy, patient education, and gait and functional training for hip osteoarthritis, with dry needling newly supported for short-term relief in pain, range, strength, and function.',
+      'APTA Orthopaedic Section guideline on frozen shoulder. Supports patient education on the natural course, stretching matched to the current irritability stage, joint mobilization, and modalities for pain modulation, with intra-articular corticosteroid injection considered for more severe pain in the inflammatory phase.',
   },
   {
-    title: 'Improving function in people with hip-related pain: a systematic review and meta-analysis of physiotherapist-led interventions',
-    source: 'Kemp et al., British Journal of Sports Medicine',
+    title: 'Management of adults with primary frozen shoulder in secondary care (UK FROST): a three-arm randomised trial',
+    source: 'Rangan et al., The Lancet',
     year: 2020,
     summary:
-      'Systematic review synthesising physiotherapist-led exercise, manual therapy, and education for hip-related pain. Found improvements in function, pain, and strength, with hip arthroscopy showing only small short-term benefit over physiotherapy and no significant difference at 24 months.',
+      'Multicentre pragmatic trial in 503 adults with primary frozen shoulder comparing early structured physiotherapy with steroid injection, manipulation under anaesthesia, and arthroscopic capsular release. None of the three treatments were superior on patient-reported outcomes at twelve months, supporting a physiotherapy-first pathway for most patients.',
+  },
+  {
+    title: 'Arthroscopic subacromial decompression for subacromial shoulder pain (CSAW): a placebo-controlled randomised trial',
+    source: 'Beard et al., The Lancet',
+    year: 2018,
+    summary:
+      'Placebo-controlled trial of 313 adults with subacromial shoulder pain who had already completed non-operative care. Arthroscopic decompression was no better than placebo arthroscopy, questioning the added value of this surgery over conservative management for rotator cuff related shoulder pain.',
+  },
+  {
+    title: 'Effectiveness of physical therapy in treating atraumatic full-thickness rotator cuff tears (MOON cohort)',
+    source: 'Kuhn et al., Journal of Shoulder and Elbow Surgery',
+    year: 2013,
+    summary:
+      'Multicenter prospective cohort study following a specific physical therapy protocol in 452 patients with atraumatic full-thickness rotator cuff tears. Approximately 75 percent avoided surgery at two years, with long-term follow-up from the same cohort showing outcomes holding beyond a decade.',
   },
 ];
 
 // Conditions to feature in the related block, in display order
 const relatedConditionSlugs: string[] = [
-  'greater-trochanteric-pain-syndrome',
-  'hip-osteoarthritis',
-  'femoroacetabular-impingement',
-  'hip-labral-tears',
-  'hip-bursitis',
-  'proximal-hamstring-tendinopathy',
-  'piriformis-syndrome',
-  'deep-gluteal-syndrome',
-  'si-joint-dysfunction',
-  'groin-strains',
-  'hamstring-strains',
-  'sciatica',
+  'rotator-cuff-injuries',
+  'shoulder-impingement',
+  'frozen-shoulder',
+  'shoulder-instability',
+  'biceps-tendinopathy',
+  'ac-joint-injuries',
+  'shoulder-bursitis',
 ];
 
 const relatedTreatmentIds: string[] = [
@@ -329,7 +312,7 @@ const relatedTreatmentIds: string[] = [
 // Page
 // ---------------------------------------------------------------------------
 
-export default function HipPainHubPage() {
+export default function ShoulderPainHubPage() {
   const relatedConditions = relatedConditionSlugs
     .map((slug) => getConditionBySlug(slug))
     .filter((condition): condition is NonNullable<ReturnType<typeof getConditionBySlug>> => Boolean(condition));
@@ -357,7 +340,7 @@ export default function HipPainHubPage() {
       {
         '@type': 'ListItem',
         position: 3,
-        name: 'Hip Pain',
+        name: 'Shoulder Pain',
         item: PAGE_URL,
       },
     ],
@@ -378,7 +361,7 @@ export default function HipPainHubPage() {
     },
     about: {
       '@type': 'MedicalCondition',
-      name: 'Hip pain',
+      name: 'Shoulder pain',
     },
     audience: {
       '@type': 'PeopleAudience',
@@ -469,22 +452,23 @@ export default function HipPainHubPage() {
                   Conditions
                 </Link>
                 <ChevronRightIcon className="h-3 w-3" />
-                <span className="text-slate-900 font-medium">Hip Pain</span>
+                <span className="text-slate-900 font-medium">Shoulder Pain</span>
               </nav>
 
               <h1 className="text-4xl md:text-5xl font-light tracking-tight leading-tight text-slate-900 mb-4">
-                Hip Pain Treatment in Burlington
+                Shoulder Pain Treatment in Burlington
               </h1>
 
               <p className="text-lg md:text-xl text-slate-700 leading-relaxed max-w-3xl">
-                Hip pain is rarely one condition. The label covers everything from a gluteal
-                tendon that cannot tolerate side-lying to a deep joint-related pinch in the
-                groin. This page is a guide I use with patients to map where the pain is, what
-                usually drives it, and how I go about treating it.
+                Shoulder pain is rarely one condition. The label covers everything from a rotator
+                cuff that no longer tolerates overhead work, to an AC joint bruised from a fall,
+                to a whole shoulder that has gradually locked down. This page is a guide I use
+                with patients to map where the pain is, what usually drives it, and how I go
+                about treating it.
               </p>
 
               <p className="text-xs text-slate-500 mt-3">
-                Assessing and treating hip pain at the Burlington clinic. Convenient for
+                Assessing and treating shoulder pain at the Burlington clinic. Convenient for
                 Waterdown, Oakville, Hamilton, Flamborough, and Carlisle residents.
               </p>
 
@@ -548,31 +532,33 @@ export default function HipPainHubPage() {
                   <InformationCircleIcon className="h-5 w-5 text-[#B08D57]" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  First, figure out which hip problem you actually have
+                  Shoulder pain tells its story by location, movement, and age
                 </h2>
               </div>
 
               <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed">
                 <p>
-                  &ldquo;My hip hurts&rdquo; can mean half a dozen different things. One person
-                  points to the bony spot on the side and tells me they cannot sleep on that
-                  side anymore. Another points into the groin and describes a pinch every time
-                  they sink into a deep squat. A third points into the deep buttock and asks
-                  whether this is sciatica. All common, all real, and all treated very
-                  differently. So the first job on your first visit is simply sorting out which
-                  of these pictures is actually yours.
+                  &ldquo;My shoulder hurts&rdquo; can mean half a dozen different things. One
+                  person points to the top of the shoulder and tells me they cannot lie on that
+                  side anymore. Another describes a painful arc partway through lifting the arm
+                  and a weakness reaching into the cupboard. A third cannot tuck in a shirt and
+                  has lost range in every direction. A fourth fell on the tip of the shoulder
+                  last weekend and now cannot reach across the body. All common, all real, and
+                  all treated very differently. So the first job on your first visit is simply
+                  sorting out which of these pictures is actually yours.
                 </p>
                 <p>
-                  The honest version: most hip pain in adults is mechanical and manageable.
-                  NICE and OARSI guidelines, the JOSPT hip osteoarthritis CPG revised in 2025,
-                  and the 2018 LEAP trial in the BMJ all point the same way. Education, graded
-                  strengthening, and sensible load management produce the strongest long-term
-                  outcomes. Hands-on work sits alongside that, not in place of it. What changes
-                  between people is the tissue, the history, and how load needs to be dosed.
+                  The honest version: most shoulder pain in adults is mechanical and manageable.
+                  The JOSPT rotator cuff guideline, the Kelley adhesive capsulitis guideline, the
+                  UK FROST trial in the Lancet, and the CSAW trial of subacromial decompression
+                  all point the same way. Education, graded strengthening, and sensible load
+                  management produce the strongest long-term outcomes. Hands-on work sits
+                  alongside that, not in place of it. What changes between people is the tissue,
+                  the history, and how load needs to be dosed.
                 </p>
                 <p>
-                  The rest of this page walks through the common sources of hip pain grouped by
-                  where they sit, the red flags that sit outside physiotherapy scope, how I
+                  The rest of this page walks through the common sources of shoulder pain grouped
+                  by where they sit, the red flags that sit outside physiotherapy scope, how I
                   approach the first assessment in clinic, and the questions patients ask me
                   most. If you already know which condition fits your picture, the related
                   conditions block at the bottom links straight to the deeper pages.
@@ -595,9 +581,9 @@ export default function HipPainHubPage() {
                 </h2>
               </div>
               <p className="text-slate-600 max-w-3xl mb-8">
-                A quick guide to the most common sources of hip pain by location. Use it to find
-                the deeper page that most closely matches your pattern. If your picture overlaps a few
-                of these, that is normal and worth an assessment.
+                A quick guide to the most common sources of shoulder pain by location. Use it to
+                find the deeper page that most closely matches your pattern. If your picture
+                overlaps a few of these, that is normal and worth an assessment.
               </p>
 
               <div className="grid md:grid-cols-2 gap-6">
@@ -616,7 +602,7 @@ export default function HipPainHubPage() {
                       </p>
                       <ul className="space-y-3">
                         {guide.commonSources.map((source) => (
-                          <li key={source.slug} className="group">
+                          <li key={`${guide.region}-${source.slug}-${source.label}`} className="group">
                             <Link
                               href={`/conditions/${source.slug}`}
                               className="block rounded-xl border border-slate-200 hover:border-[#B08D57] hover:shadow-sm transition-all p-3"
@@ -647,7 +633,7 @@ export default function HipPainHubPage() {
           </div>
         </section>
 
-        {/* How I approach hip pain */}
+        {/* How I approach shoulder pain */}
         <section className="py-12 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
@@ -656,40 +642,44 @@ export default function HipPainHubPage() {
                   <AcademicCapIcon className="h-5 w-5 text-[#B08D57]" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  How I approach hip pain in clinic
+                  How I approach shoulder pain in clinic
                 </h2>
               </div>
 
               <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed">
                 <p>
-                  The first appointment runs on questions before it runs on equipment. Where
-                  does it actually hurt, how did it start, what makes it worse, what makes it
-                  better. The small details do real work here. How you cross your legs on the
-                  couch. Whether you can sleep on that side. Whether a recent running block
-                  pushed weekly volume up faster than the tissue could adapt. Whether sitting,
-                  standing, or walking is the main trigger. By the end of the history I usually
-                  have two or three working hypotheses, and the physical exam is about
-                  confirming or ruling them out.
+                  The first appointment runs on questions before it runs on equipment. Where does
+                  the pain sit, how did it start, what makes it worse, what makes it better. The
+                  small details do real work. Whether you can sleep on that side. Whether
+                  overhead work at the gym, painting a ceiling, or unloading a shelf flared it.
+                  Whether there was a fall onto the shoulder or the tip of the shoulder. Whether
+                  range has been gradually closing down rather than just being painful. By the
+                  end of the history I usually have two or three working hypotheses, and the
+                  physical exam is about confirming or ruling them out.
                 </p>
                 <p>
-                  I look at how you move before I test what hurts. Watching you walk, squat, and
-                  step tells me more than any single provocation test. From there I check hip
-                  range, strength through the key muscle groups, and the targeted tests that
-                  separate lateral tendon pain from joint pain from posterior nerve-related
-                  pain. Where palpation is clinically indicated, it is directed by the working
-                  hypothesis from the history and movement exam, not a routine sweep of every
-                  landmark.
+                  I look at how you move before I test what hurts. Watching you reach overhead,
+                  behind the back, and across the body tells me more than any single provocation
+                  test. From there I check shoulder range actively and passively, strength
+                  through the rotator cuff and scapular muscles, and the targeted tests that
+                  separate the usual patterns: Neer and Hawkins-Kennedy and the painful arc for
+                  subacromial pain, external rotation strength and the drop-arm test for the cuff,
+                  Speed and Yergason for the biceps, cross-body adduction and tenderness for the
+                  AC joint, and clearly restricted passive external rotation as the hallmark of
+                  frozen shoulder. I screen the cervical spine every time, because neck-driven
+                  pain masquerades as shoulder pain more often than people realise.
                 </p>
                 <p>
                   The plan that comes out of that is individual, but it tends to have the same
                   shape. Settle the irritable tissue with a short list of things to stop doing
-                  and a few things to add in. Build capacity with progressive strengthening
-                  exercises dosed to your current tolerance, usually across hip abductors, deep
-                  rotators, glutes, and the trunk. Joint mobilization, soft tissue therapy, dry
-                  needling, or cupping sit alongside that work where they speed things along. I
-                  write the plan down with you and track a handful of markers so we can both
-                  see whether it is actually working. If it is not, I change direction sooner
-                  rather than later.
+                  and a few things to add in, including adjusting training volume, press
+                  variations, or overhead work at home. Build capacity with progressive
+                  strengthening exercises dosed to your current tolerance, usually across the
+                  rotator cuff, the scapular stabilisers, the thoracic spine, and the wider
+                  kinetic chain. Joint mobilization, soft tissue therapy, dry needling, or
+                  cupping sit alongside that work where they speed things along. I write the plan
+                  down with you and track a handful of markers so we can both see whether it is
+                  actually working. If it is not, I change direction sooner rather than later.
                 </p>
               </div>
             </div>
@@ -705,7 +695,7 @@ export default function HipPainHubPage() {
                   <QuestionMarkCircleIcon className="h-5 w-5 text-[#B08D57]" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  Hip pain questions I hear most
+                  Shoulder pain questions I hear most
                 </h2>
               </div>
 
@@ -748,7 +738,7 @@ export default function HipPainHubPage() {
               <p className="text-slate-600 max-w-3xl mb-8">
                 The recommendations above draw on national clinical guidelines and published
                 trials. Research evolves, but these are the anchor sources I rely on when I plan
-                hip pain care.
+                shoulder pain care.
               </p>
 
               <div className="grid md:grid-cols-2 gap-5">
@@ -785,11 +775,11 @@ export default function HipPainHubPage() {
                   <HeartIcon className="h-5 w-5 text-[#B08D57]" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  Related hip and pelvis conditions
+                  Related shoulder and upper limb conditions
                 </h2>
               </div>
               <p className="text-slate-600 max-w-3xl mb-8">
-                Deeper pages for each of the specific conditions that sit under hip pain.
+                Deeper pages for each of the specific conditions that sit under shoulder pain.
               </p>
 
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -827,7 +817,7 @@ export default function HipPainHubPage() {
                   <ShieldCheckIcon className="h-5 w-5 text-[#B08D57]" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  Treatments that commonly sit inside a hip plan
+                  Treatments that commonly sit inside a shoulder plan
                 </h2>
               </div>
               <p className="text-slate-600 max-w-3xl mb-8">
@@ -875,7 +865,7 @@ export default function HipPainHubPage() {
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
                   <p className="text-slate-300 leading-relaxed">
-                    I see patients for hip pain at Endorphins Health & Wellness Centre in
+                    I see patients for shoulder pain at Endorphins Health & Wellness Centre in
                     Burlington. The clinic serves people coming in from Burlington, Waterdown,
                     Oakville, Hamilton, Flamborough, and Carlisle, with free parking on site
                     and a ground-floor entrance.
@@ -935,7 +925,7 @@ export default function HipPainHubPage() {
                       className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-[#B08D57] text-white text-sm font-medium hover:bg-[#997A4B] transition-colors"
                     >
                       <CalendarIcon className="h-4 w-4" />
-                      Book an Initial Hip Assessment
+                      Book an Initial Shoulder Assessment
                     </Link>
                   </div>
                 </div>

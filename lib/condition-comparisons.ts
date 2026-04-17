@@ -682,6 +682,341 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       },
     ],
   },
+
+  // ---------------------------------------------------------------------------
+  // 5. Hip osteoarthritis vs. greater trochanteric pain syndrome (GTPS)
+  // ---------------------------------------------------------------------------
+  // Note on slug choice: the GTPS page on this site uses the slug
+  // `greater-trochanteric-pain-syndrome`. That term has been largely replaced
+  // in the modern literature by "gluteal tendinopathy" as the primary driver
+  // of lateral hip pain, with bursitis considered secondary. The comparison
+  // copy reflects the current tendinopathy framing while keeping the familiar
+  // GTPS label so patients searching either term find the page.
+  {
+    pair: 'hip-osteoarthritis-vs-greater-trochanteric-pain-syndrome',
+    title: 'Hip Osteoarthritis vs. Lateral Hip Pain (GTPS): How to Tell',
+    h1: 'Is it hip osteoarthritis or lateral hip pain (GTPS)?',
+    description:
+      'Hip osteoarthritis or GTPS / gluteal tendinopathy? How to tell them apart by pain location, stiffness, and exam. By Kareem Hassanein, Registered Physiotherapist, Burlington.',
+    conditionA: {
+      slug: 'hip-osteoarthritis',
+      name: 'Hip Osteoarthritis',
+      shortName: 'Hip OA',
+    },
+    conditionB: {
+      slug: 'greater-trochanteric-pain-syndrome',
+      name: 'Greater Trochanteric Pain Syndrome (Lateral Hip Pain)',
+      shortName: 'GTPS / lateral hip',
+    },
+    atAGlance:
+      "Both present as hip pain in middle-aged and older adults, and both get called 'a hip problem' casually, but they live in different tissues. Hip osteoarthritis is a joint problem. Pain sits deep in the groin, range of motion is restricted, and internal rotation is the movement that suffers first. Greater trochanteric pain syndrome, which is mostly gluteal tendinopathy with or without associated bursitis, is a tendon and soft tissue problem on the outside of the hip. The point of tenderness is on the bony bump of the greater trochanter, range of motion at the hip is usually preserved, and the pain pattern is dominated by compression, side-lying, and single-leg loading rather than by stiffness.",
+    distinguishing: [
+      {
+        aspect: 'Where the pain sits',
+        aForA: 'Deep in the groin, sometimes wrapping to the front of the thigh or referring to the knee. When I ask people to point, they often cup the front of the hip rather than the side.',
+        aForB: 'Right on the outside of the hip, over the bony point of the greater trochanter. People can usually put one finger on the spot. Pain may refer down the outside of the thigh but rarely into the groin.',
+      },
+      {
+        aspect: 'Stiffness pattern',
+        aForA: 'Morning stiffness that eases with movement, typically lasting under 30 minutes. Stiffness also after prolonged sitting, with a characteristic "start-up" feeling getting out of a chair.',
+        aForB: 'Not a stiffness-dominant presentation. The hip does not feel globally tight. The issue is sharp, localised pain with specific loads and positions.',
+      },
+      {
+        aspect: 'Hip internal rotation',
+        aForA: 'Restricted and often painful, especially in flexion. Loss of internal rotation is one of the most reliable clinical markers for hip OA.',
+        aForB: 'Usually preserved and comfortable. If internal rotation is significantly limited, a co-existing or primary intra-articular problem should be considered.',
+      },
+      {
+        aspect: 'Lying on the affected side',
+        aForA: 'Often tolerable or mildly uncomfortable. Sleep disturbance tends to come from overall stiffness rather than from direct side pressure.',
+        aForB: 'Classic aggravator. Night pain lying on the painful side is one of the strongest pointers to GTPS, and lying on the opposite side with the top knee falling across the body can hurt too because it compresses the tendons.',
+      },
+      {
+        aspect: 'Single-leg stance',
+        aForA: 'Usually manageable for 30 seconds, although prolonged standing can ache in the groin. A Trendelenburg drop is not the main finding.',
+        aForB: 'Reproduces pain over the greater trochanter within 30 seconds in many cases. A visible pelvic drop on the stance side (Trendelenburg sign) supports gluteal tendon involvement because the glutes are failing to hold the pelvis level.',
+      },
+      {
+        aspect: 'Stairs, hills, and uneven ground',
+        aForA: 'Stairs are often uncomfortable, particularly going up with the affected leg, because of the demand on hip flexion and rotation in the groin.',
+        aForB: 'Walking uphill, climbing stairs, and stepping off a curb all compress the gluteal tendons against the trochanter. These are classic aggravators and often describe why running flared it.',
+      },
+      {
+        aspect: 'Imaging findings',
+        aForA: 'X-ray shows joint space narrowing, subchondral sclerosis, cysts, or osteophytes. Radiographs are more informative than MRI for OA and are usually sufficient.',
+        aForB: 'Imaging is usually not needed. When obtained, MRI or ultrasound may show gluteus medius or minimus tendinopathy, partial tears, or trochanteric bursa fluid. Incidental findings are common in asymptomatic adults.',
+      },
+      {
+        aspect: 'Typical age and sex',
+        aForA: 'Commonly 50 plus, rising sharply with age. Affects men and women. Prior hip injury, FAI, or dysplasia raise the odds.',
+        aForB: 'Most common in women aged 40 to 60. Women outnumber men by roughly 2 to 4 to 1 in published series. Often coincides with changes in running volume, new walking programs, or long periods of sitting with crossed legs.',
+      },
+    ],
+    specificTests: [
+      {
+        test: 'Hip internal rotation range of motion in flexion',
+        whatItShows:
+          'With you on your back and the hip and knee bent to 90 degrees, I rotate the lower leg outward to measure internal rotation at the hip. A painful, hard block short of the other side is one of the most useful bedside markers for hip OA.',
+      },
+      {
+        test: 'FABER test (Flexion, Abduction, External Rotation)',
+        whatItShows:
+          "You lie on your back and I place the ankle of the affected leg on the opposite knee in a figure-four position. Deep groin pain points toward the hip joint (OA or labral irritation). Pain felt over the lateral hip or sacroiliac region points elsewhere.",
+      },
+      {
+        test: 'FADIR test (Flexion, Adduction, Internal Rotation)',
+        whatItShows:
+          "The hip is flexed, then pulled across the body and internally rotated. Sharp groin pain supports an intra-articular source such as hip OA or labral pathology. It is sensitive but not specific, so I combine it with range and history.",
+      },
+      {
+        test: 'Single-leg stance test (30 seconds)',
+        whatItShows:
+          "You stand on the affected leg for up to 30 seconds. Reproduction of focal pain over the greater trochanter within that window, with or without a visible pelvic drop, is one of the best clinical pointers to gluteal tendinopathy and GTPS.",
+      },
+      {
+        test: 'Palpation over the greater trochanter',
+        whatItShows:
+          'Direct pressure over the greater trochanter reproduces the familiar pain in GTPS. Pain with palpation plus positive single-leg stance and pain on resisted hip abduction is a strong clinical triad for gluteal tendinopathy.',
+      },
+    ],
+    whenItIsA:
+      "Your pattern more closely matches hip osteoarthritis if the pain sits in the groin or front of the hip, morning stiffness lasts around half an hour before easing, internal rotation feels blocked and painful, and stairs or sitting for a long time start the hip up stiffly. Getting out of a car or putting on socks and shoes is often awkward. Pain referring to the knee from the groin is not uncommon, which is why knee pain in an older adult always deserves a hip screen.",
+    whenItIsB:
+      "Your pattern more closely matches GTPS or gluteal tendinopathy if the pain is on the outside of the hip and you can put a finger on it, lying on that side at night wakes you, walking uphill or climbing stairs flares it, and standing on one leg reproduces it within thirty seconds. There is often a recent change in walking or running volume, a new weight-loss ramp-up, or a long stretch of sitting with crossed legs.",
+    whenUncertain:
+      "The two can coexist, and occasionally present together in one hip, which is exactly when an exam earns its keep. I check passive internal rotation first because it does most of the work separating OA from soft-tissue lateral pain. Then I palpate the greater trochanter, run single-leg stance, and test resisted hip abduction. If internal rotation is clean and lateral palpation reproduces your familiar pain, GTPS moves up the list. If internal rotation is clearly limited and groin pain dominates, imaging with plain x-rays (not MRI first) is reasonable to confirm OA and plan accordingly.",
+    overlap:
+      "Older adults with hip OA often develop secondary gluteal tendinopathy because the joint changes shift load patterns through the pelvis and the glutes work under tougher conditions. Equally, a person with long-standing GTPS can protect the hip in ways that feed stiffness and eventually reveal or accelerate early OA. Treating one and ignoring the other is a common reason lateral hip pain or post-arthroplasty stiffness lingers longer than expected.",
+    relatedTreatmentIds: [
+      'exercise-therapy',
+      'joint-mobilization',
+      'soft-tissue-myofascial-release',
+      'dry-needling',
+      'post-surgical-rehabilitation',
+    ],
+    faqs: [
+      {
+        question: "I have pain on the outside of my hip. Is that always GTPS or bursitis?",
+        answer:
+          "Usually it is gluteal tendinopathy rather than pure bursitis. The modern framing of lateral hip pain, including on imaging, points to the gluteus medius and minimus tendons as the main drivers, with any bursal irritation considered secondary. The rehab target is the same: calm the compressive positions that squash the tendons against the trochanter, then build load capacity through progressive strengthening exercises.",
+      },
+      {
+        question: 'Do I need an X-ray or MRI to find out which one it is?',
+        answer:
+          "Often not to start. Hip OA is suspected clinically from groin pain with restricted internal rotation and morning stiffness, and confirmed with a plain x-ray if imaging is needed. GTPS is a clinical diagnosis from lateral tenderness, night pain on that side, and positive single-leg stance. MRI is reserved for cases that are not responding, that suggest a significant tendon tear, or when surgical decisions are on the table. Incidental findings on MRI are common in pain-free adults, so imaging is not a substitute for a careful exam.",
+      },
+      {
+        question: "Why does my hip OA pain show up in my knee?",
+        answer:
+          "Referral from the hip to the knee is common because the nerves supplying the hip joint also supply parts of the knee. It is one of the classic reasons older adults with isolated knee pain get an unexpected hip finding on exam. When the knee hurts but internal rotation of the hip is limited and painful, I always screen the hip before settling on a knee diagnosis.",
+      },
+      {
+        question: "Will strengthening make my GTPS worse before it gets better?",
+        answer:
+          "It can flare briefly if the early dose is wrong. The common mistake is starting with stretching or standing abductions, both of which compress the tendons. The better sequence is reducing the compressive loads first (sleep position, crossed legs, wide standing base, walking cadence), then introducing isometric holds, and only then progressing to functional strengthening. Done in that order, pain usually eases within a few weeks and the tendon capacity builds over the next two to three months.",
+      },
+      {
+        question: 'Can hip OA be managed without surgery?',
+        answer:
+          "Yes, often for a long time. The current clinical guideline for hip OA recommends education, exercise therapy, and weight management as first-line care, with manual therapy, strengthening exercises, and gait work all having a role. Injections and surgery sit as later options for those whose function and sleep are significantly affected despite a proper rehab trial. I plan around keeping you active, not around managing decline.",
+      },
+      {
+        question: "I was told it is just bursitis and given an injection. It came back. Why?",
+        answer:
+          "Because the underlying driver was likely gluteal tendinopathy, and injections can quiet the pain without changing the load pattern that irritated the tendons in the first place. The 2018 LEAP trial compared education plus exercise, corticosteroid injection, and wait-and-see for gluteal tendinopathy. At both 8 weeks and 12 months, education plus exercise outperformed injection on global improvement and pain. Injections have a role, but they are not the whole plan.",
+      },
+    ],
+    evidenceNotes: [
+      {
+        claim:
+          'The current clinical practice guideline for hip osteoarthritis recommends patient education, exercise therapy, weight management, manual therapy, and gait training as first-line non-surgical management.',
+        source:
+          'Koc TA Jr, Cibulka M, Enseki KR, et al. "Hip Pain and Mobility Deficits - Hip Osteoarthritis: Revision 2025." JOSPT Clinical Practice Guideline. Journal of Orthopaedic & Sports Physical Therapy 2025; 55(11): CPG1-CPG95.',
+      },
+      {
+        claim:
+          'For gluteal tendinopathy, education plus a progressive loading program outperformed corticosteroid injection and a wait-and-see approach at 8 weeks and 52 weeks for global improvement and pain.',
+        source:
+          'Mellor R, Bennell K, Grimaldi A, et al. "Education plus exercise versus corticosteroid injection use versus a wait and see approach on global outcome and pain from gluteal tendinopathy: prospective, single blinded, randomised clinical trial." BMJ 2018; 361: k1662.',
+      },
+      {
+        claim:
+          'Lateral hip pain traditionally labelled trochanteric bursitis is primarily driven by gluteal tendinopathy. Clinical diagnosis relies on localised tenderness, pain with single-leg loading, and pain on resisted abduction rather than on imaging.',
+        source:
+          'Grimaldi A, Fearon A. "Gluteal Tendinopathy: Integrating Pathomechanics and Clinical Features in Its Management." JOSPT 2015; 45(11): 910-922.',
+      },
+    ],
+  },
+
+  // ---------------------------------------------------------------------------
+  // 6. ACL injuries vs. meniscus tears
+  // ---------------------------------------------------------------------------
+  {
+    pair: 'acl-injuries-vs-meniscus-tears',
+    title: 'ACL Injury vs. Meniscus Tear: How to Tell Them Apart',
+    h1: 'Is it an ACL injury or a meniscus tear?',
+    description:
+      'ACL injury or meniscus tear? How to tell them apart by mechanism, swelling timing, and tests. By Kareem Hassanein, Registered Physiotherapist, Burlington.',
+    conditionA: {
+      slug: 'acl-injuries',
+      name: 'ACL Injuries',
+      shortName: 'ACL injury',
+    },
+    conditionB: {
+      slug: 'meniscus-tears',
+      name: 'Meniscus Tears',
+      shortName: 'Meniscus tear',
+    },
+    atAGlance:
+      "Both commonly follow a twisting knee injury, and both show up frequently in skiers, court sports, and soccer. They often travel together too. The classic O'Donoghue triad combines ACL rupture, medial collateral ligament injury, and a medial meniscus tear. Despite the overlap, the mechanism, swelling timing, exam findings, and natural history differ enough that the two can usually be separated clinically in the first visit. The reason this matters is practical: the management decisions, timelines, and return-to-sport plans look quite different.",
+    distinguishing: [
+      {
+        aspect: 'Typical mechanism',
+        aForA: 'A non-contact pivot, deceleration, or awkward landing with the knee in slight flexion and the tibia rotating. Many people describe a loud pop and an immediate sense that something gave way.',
+        aForB: 'A twisting motion with the foot planted, often in a squat or deep flexion (getting up from gardening, rotating in a scrum, ski bindings not releasing cleanly). A pop is less common and, when present, is usually quieter.',
+      },
+      {
+        aspect: 'Swelling timing',
+        aForA: 'Rapid. Significant swelling within 0 to 6 hours reflects blood in the joint (haemarthrosis) and is strongly associated with ACL rupture, intra-articular fracture, or patellar dislocation.',
+        aForB: 'Slower. Swelling typically builds over 12 to 48 hours as joint fluid accumulates, and is often more modest than in an acute ACL injury.',
+      },
+      {
+        aspect: 'Ability to weight-bear and walk immediately after',
+        aForA: 'Often very difficult in the first minutes, with a feeling that the knee will buckle. Many athletes cannot continue play. Some regain enough control to limp off, but the knee rarely feels trustworthy.',
+        aForB: "Usually possible to walk, sometimes with a limp. Many people finish the activity and only notice significant trouble the next morning. If the knee is truly locked and will not straighten, that is a different picture (a displaced bucket-handle tear).",
+      },
+      {
+        aspect: 'Mechanical symptoms',
+        aForA: "Giving way or buckling with change of direction. Catching and true locking are less typical from the ACL itself unless there is an associated meniscus tear or loose body.",
+        aForB: 'Catching, clicking, or locking with specific movements, particularly in deep flexion or pivoting. Some patients describe a sense of the knee getting stuck briefly and then releasing.',
+      },
+      {
+        aspect: 'Lachman test',
+        aForA: 'Positive. Increased anterior translation of the tibia with a soft or absent end-feel. Lachman is the most sensitive and specific bedside test for ACL rupture.',
+        aForB: 'Negative. A torn meniscus does not change anterior laxity. If Lachman is positive in someone you suspect of a meniscus tear, ACL involvement needs to be ruled out.',
+      },
+      {
+        aspect: 'McMurray and Thessaly',
+        aForA: 'Usually negative unless there is a co-existing meniscus tear. An irritable knee after ACL rupture can still be painful with these tests, but without a mechanical click.',
+        aForB: 'Often positive. A palpable or audible click plus reproduced pain at the joint line during McMurray, or pain with weight-bearing rotation on the Thessaly test, supports a meniscal source.',
+      },
+      {
+        aspect: 'Joint-line tenderness',
+        aForA: 'Not typically a dominant finding unless the cruciate injury is sitting alongside a meniscus tear.',
+        aForB: 'Focal tenderness along the medial or lateral joint line is one of the most useful clinical pointers to a meniscus tear, particularly when combined with a consistent history.',
+      },
+      {
+        aspect: 'Imaging findings',
+        aForA: 'MRI is the standard confirmatory test. It shows full-thickness or partial rupture of the ACL, plus associated bone bruising, meniscus tears, and collateral ligament damage.',
+        aForB: 'MRI shows the tear location, pattern (radial, horizontal, bucket-handle, root tear), and any displaced fragments. Incidental meniscal changes are very common on MRI in pain-free adults over 40, so imaging always has to be interpreted alongside the clinical picture.',
+      },
+    ],
+    specificTests: [
+      {
+        test: 'Lachman test',
+        whatItShows:
+          'With your knee bent to about 20 to 30 degrees, I stabilise the thigh and pull the tibia forward. Increased forward translation with a soft or absent end-feel compared to the other side is the most accurate bedside sign of ACL rupture.',
+      },
+      {
+        test: 'Anterior drawer test',
+        whatItShows:
+          'With the knee bent to 90 degrees and the foot stabilised, I pull the tibia forward. Less sensitive than Lachman in the acute setting because hamstring guarding masks laxity, but useful when Lachman findings are ambiguous.',
+      },
+      {
+        test: 'Pivot shift test',
+        whatItShows:
+          "A provocative test for rotational instability from ACL rupture. It is difficult to tolerate in the acute setting because of pain and muscle guarding, but is highly specific when clearly positive.",
+      },
+      {
+        test: "McMurray test",
+        whatItShows:
+          "With you on your back, I flex and rotate the knee while palpating the joint line. A palpable click with reproduction of your familiar pain at the joint line supports a meniscus tear. Pain alone without a click is less specific.",
+      },
+      {
+        test: 'Thessaly test (20 degrees)',
+        whatItShows:
+          "You stand on the affected leg with the knee bent to about 20 degrees and rotate your body left and right. Reproduction of joint-line pain, catching, or locking during the rotation supports a meniscal source. Reasonable accuracy in middle-aged patients, though not perfect.",
+      },
+      {
+        test: 'Joint-line palpation',
+        whatItShows:
+          "I press carefully along the medial and lateral joint lines with the knee flexed. Focal tenderness, especially posteromedial or posterolateral, is a useful clinical pointer to a meniscus tear and correlates with arthroscopic findings more than any single provocation test.",
+      },
+    ],
+    whenItIsA:
+      "Your pattern more closely matches an ACL injury if there was a non-contact pivot or deceleration, you felt or heard a loud pop, the knee swelled up significantly within hours, and you felt the knee give way. Returning to cutting or pivoting since the event has felt unsafe, and the Lachman test reproduces increased laxity on the affected side. The history often sits on top of sports like soccer, basketball, skiing, or volleyball.",
+    whenItIsB:
+      "Your pattern more closely matches a meniscus tear if the injury happened while twisting with the foot planted, often in a squat or deep flexion, the swelling built up slowly over a day or two rather than immediately, and you now notice catching, clicking, or a feeling of the knee briefly locking. Joint-line tenderness and a positive McMurray or Thessaly reinforce the picture. Degenerative meniscal tears can also appear with no clear injury in adults over 40.",
+    whenUncertain:
+      "The two genuinely overlap, and they co-occur often enough that a clean split is not always possible clinically. I take a careful mechanism history, look at swelling timing, run Lachman first (it does most of the work on the ACL question), then McMurray, Thessaly, and joint-line palpation for the meniscus. If Lachman is clearly positive or the knee is grossly unstable, I refer for MRI and orthopaedic review on an expedited basis. If the clinical picture is a clean meniscus pattern and the knee is not locked, a trial of exercise-based physiotherapy is reasonable first, because recent trials show that for many degenerative and non-obstructive tears, rehabilitation is comparable to arthroscopy over two to five years.",
+    overlap:
+      "The O'Donoghue triad is a real clinical pattern: ACL rupture, MCL injury, and medial meniscus tear from a valgus-pivot mechanism. That is why I always screen for a meniscus in someone with a confirmed ACL injury, and I always check ligamentous stability in someone presenting with meniscus symptoms after a bigger twist than their history first suggests. In middle-aged adults, degenerative meniscal changes also sit alongside early knee OA, which changes the rehab plan and pushes strongly toward exercise-first management.",
+    relatedTreatmentIds: [
+      'exercise-therapy',
+      'sports-rehab-return-to-sport',
+      'post-surgical-rehabilitation',
+      'joint-mobilization',
+      'soft-tissue-myofascial-release',
+    ],
+    faqs: [
+      {
+        question: 'Do I need surgery for an ACL tear?',
+        answer:
+          "Not automatically. The decision depends on your activity demands, knee stability during daily life and sport, and whether other structures (meniscus root tears, significant collateral injury) are involved. Structured rehabilitation first, sometimes called cross-bracing or the Cross Bracing Protocol in newer literature, is a reasonable path for many patients. Competitive pivoting athletes and people with persistent instability despite good rehab are stronger surgical candidates. I plan around your goals and how the knee behaves, not around the MRI image alone.",
+      },
+      {
+        question: 'Do I need surgery for a meniscus tear?',
+        answer:
+          "Often no, particularly for degenerative tears in middle-aged adults. Three major randomised trials (METEOR, FIDELITY, and ESCAPE) showed that exercise-based physiotherapy is comparable to arthroscopic partial meniscectomy for degenerative and non-obstructive meniscal tears over two to five years. The exceptions that still lean surgical are a truly locked knee (bucket-handle displacement), large traumatic tears in younger athletes, and some root tears where early repair protects the joint.",
+      },
+      {
+        question: 'Why did my knee swell up so fast after my injury?',
+        answer:
+          "Fast swelling within six hours usually reflects bleeding into the joint, which comes from a vascular structure. The ACL is the most common cause, followed by intra-articular fracture and acute patellar dislocation. A classic meniscus tear typically produces slower joint effusion over twelve to forty-eight hours as synovial fluid accumulates. The timing is one of the most helpful pieces of history you can give me in the first visit.",
+      },
+      {
+        question: "Can I test my ACL myself?",
+        answer:
+          "Not reliably. Self-Lachman is difficult because you cannot relax the hamstrings on the injured leg while also applying the force. What you can do is compare how safe the knee feels on deceleration, single-leg squats, and slow changes of direction versus the other leg. If there is a real sense that the knee is moving beneath you or could buckle, that warrants a proper exam rather than self-diagnosis.",
+      },
+      {
+        question: 'My MRI shows a meniscus tear but I cannot remember an injury. Is that normal?',
+        answer:
+          "Yes, and more common than people expect. Degenerative meniscal tears appear on MRI in a large proportion of asymptomatic adults over 40, and the frequency rises with age. An MRI tear alone does not decide management. What matters is the clinical picture: joint-line tenderness, mechanical symptoms, response to an exercise trial, and whether the knee is functionally limiting you. Imaging guides, it does not lead.",
+      },
+      {
+        question: 'How long does rehab take for each?',
+        answer:
+          "Meniscus tear rehabilitation for non-surgical management often sees meaningful gains over 8 to 12 weeks with progressive strengthening exercises and load management. Post-meniscectomy rehab is similar. ACL timelines are longer because the tissue itself is more involved. Non-surgical ACL rehab commonly runs 4 to 9 months depending on activity goals, and post-operative ACL reconstruction rehab typically targets 9 to 12 months before return to cutting and pivoting sport, with the Aspetar 2023 guideline recommending objective return-to-sport criteria rather than time alone.",
+      },
+    ],
+    evidenceNotes: [
+      {
+        claim:
+          'Rehabilitation after ACL reconstruction should progress using objective criteria rather than time alone, with exercise therapy as the mainstay and psychological readiness assessed alongside physical milestones before return to sport.',
+        source:
+          'Kotsifaki R, Korakakis V, King E, et al. "Aspetar clinical practice guideline on rehabilitation after anterior cruciate ligament reconstruction." British Journal of Sports Medicine 2023; 57(9): 500-514.',
+      },
+      {
+        claim:
+          'In patients with a meniscal tear and mild to moderate knee osteoarthritis, arthroscopic partial meniscectomy plus physical therapy did not produce better functional outcomes at 6 or 12 months than a structured physical therapy program alone.',
+        source:
+          'Katz JN, Brophy RH, Chaisson CE, et al. "Surgery versus Physical Therapy for a Meniscal Tear and Osteoarthritis" (METEOR trial). New England Journal of Medicine 2013; 368(18): 1675-1684.',
+      },
+      {
+        claim:
+          'For patients with symptoms of a degenerative medial meniscus tear and no knee osteoarthritis, outcomes after arthroscopic partial meniscectomy were no better than after sham surgery.',
+        source:
+          'Sihvonen R, Paavola M, Malmivaara A, et al. "Arthroscopic Partial Meniscectomy versus Sham Surgery for a Degenerative Meniscal Tear" (FIDELITY trial). New England Journal of Medicine 2013; 369(26): 2515-2524.',
+      },
+      {
+        claim:
+          'For middle-aged patients with non-obstructive meniscal tears, exercise-based physical therapy was non-inferior to arthroscopic partial meniscectomy for patient-reported knee function at 24 months, with non-inferiority maintained at 5-year follow-up.',
+        source:
+          'van de Graaf VA, Noorduyn JCA, Willigenburg NW, et al. "Effect of Early Surgery vs Physical Therapy on Knee Function Among Patients With Nonobstructive Meniscal Tears" (ESCAPE trial). JAMA 2018; 320(13): 1328-1337.',
+      },
+    ],
+  },
 ];
 
 export function getComparisonByPair(pair: string): ConditionComparison | undefined {

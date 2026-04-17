@@ -694,14 +694,14 @@ export default function PainBelowKneecapGuidePage() {
                   them out.
                 </p>
                 <p>
-                  On examination, I palpate the inferior pole of the patella, the patellar
-                  tendon, the tibial tubercle, and the fat pad either side of the tendon. I
-                  watch a double-leg squat, a single-leg squat, a step-down, and, if it is
-                  appropriate for you, a controlled hop. I check hip and quadriceps strength
-                  because deficits there are often part of the load equation. A loaded
-                  knee-extension task, such as a decline squat, is useful for tendon pain: it
-                  typically reproduces the familiar spot pain in tendinopathy and not in most of
-                  the mimics.
+                  On examination I watch a double-leg squat, a single-leg squat, a step-down,
+                  and, where appropriate, a controlled hop. I check hip and quadriceps strength,
+                  because deficits there are often part of the load equation. Where palpation is
+                  clinically indicated, it is directed by the working hypothesis from the
+                  history and movement exam, not a routine sweep of every structure in the
+                  region. A loaded knee-extension task, such as a decline squat, is useful for
+                  tendon pain: it typically reproduces the familiar spot pain in tendinopathy
+                  and not in most of the mimics.
                 </p>
                 <p>
                   The plan that comes out of that is individual. For patellar tendinopathy the

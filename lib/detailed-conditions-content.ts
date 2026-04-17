@@ -195,14 +195,14 @@ Modern lifestyle factors play a huge role: prolonged sitting, particularly with 
         citation: "Wang XQ, Wang YL, Witchalls J, et al. Physical therapy for acute and sub-acute low back pain: A systematic review and expert consensus. Clin Rehabil. 2024;38(3):329-343."
       },
       {
-        title: "Cognitive functional therapy vs core exercise and manual therapy",
-        authors: "Vibe Fersum K, O'Sullivan P, Skouen JS, et al.",
-        year: 2022,
-        journal: "British Medical Journal",
-        sampleSize: "206 participants",
-        findings: "Cognitive functional therapy (CFT) led to clinically important improvements in disability (mean difference −7.7 points on ODI) and pain compared to manual therapy plus exercise at 12 months.",
-        relevance: "Demonstrates superiority of biopsychosocial approach over traditional biomedical treatments for chronic LBP",
-        citation: "Vibe Fersum K, O'Sullivan P, Skouen JS, et al. Cognitive functional therapy compared with core exercise and manual therapy in patients with chronic low back pain: randomised controlled trial. BMJ. 2022;376:e067718."
+        title: "Cognitive functional therapy for chronic, disabling low back pain (RESTORE trial)",
+        authors: "Kent P, Haines T, O'Sullivan P, et al.",
+        year: 2023,
+        journal: "The Lancet",
+        sampleSize: "492 participants",
+        findings: "Cognitive functional therapy produced large, sustained reductions in activity limitation at 13 weeks (mean difference 4.6 points on the RMDQ) and maintained the benefit at 52 weeks, compared with usual care. A movement-sensor biofeedback arm added no extra benefit.",
+        relevance: "Strongest modern evidence that an individualised biopsychosocial approach outperforms usual care for chronic disabling low back pain.",
+        citation: "Kent P, Haines T, O'Sullivan P, et al. Cognitive functional therapy with or without movement sensor biofeedback versus usual care for chronic, disabling low back pain (RESTORE): a randomised, controlled, three-arm, parallel group, phase 3, clinical trial. Lancet. 2023;401(10391):1866-1877."
       },
       {
         title: "Treatment-based classification for low back pain",
@@ -1805,7 +1805,7 @@ Poor posture compounds the problem significantly. Forward head posture and round
       },
       {
         question: "Will my shoulder ever move normally again?",
-        answer: "Most people regain enough range for daily life, but returning to exactly the motion you had before is not guaranteed. Hand and colleagues (JSES 2008) followed patients for an average of more than four years and found 59% had normal or near-normal shoulders while 41% reported some ongoing symptoms, most of which were mild. My functional targets are pain-free sleep, full overhead reach for daily tasks, and the ability to dress and groom without compensation. Getting the last 10 degrees of end-range rotation back can take many months of consistent work."
+        answer: "Most people regain enough range for daily life, but returning to exactly the motion you had before is not certain. Hand and colleagues (JSES 2008) followed patients for an average of more than four years and found 59% had normal or near-normal shoulders while 41% reported some ongoing symptoms, most of which were mild. My functional targets are pain-free sleep, full overhead reach for daily tasks, and the ability to dress and groom without compensation. Getting the last 10 degrees of end-range rotation back can take many months of consistent work."
       },
       {
         question: "Do cortisone injections help frozen shoulder?",
@@ -4919,7 +4919,7 @@ Modern research (2024) emphasizes that discrepancies exist between external join
       },
       {
         question: "Can physiotherapy help me avoid a hip replacement?",
-        answer: "For many people, yes, at least for years. Strong exercise evidence backs meaningful symptom and function improvement. That said, I will not oversell it. The Bennell JAMA 2014 trial specifically found that a 12-session physiotherapy programme did not outperform sham over 36 weeks, which has been debated widely since. My read of the broader literature, including the 2025 JOSPT revision, is that consistent long-term loading, weight management, and education meaningfully shift the trajectory for most patients, and surgery remains a reasonable option when conservative care has plateaued and pain is dominating daily life."
+        answer: "For many people, yes, at least for years. Strong exercise evidence backs meaningful symptom and function improvement. That said, I will not oversell it. The Bennell JAMA 2014 trial specifically found that a structured multimodal physiotherapy programme did not outperform sham over 36 weeks, which has been debated widely since. My read of the broader literature, including the 2025 JOSPT revision, is that consistent long-term loading, weight management, and education meaningfully shift the trajectory for most patients, and surgery remains a reasonable option when conservative care has plateaued and pain is dominating daily life."
       },
       {
         question: "Why does my hip hurt in the groin rather than the side?",
@@ -5083,7 +5083,7 @@ Activity demands significantly influence symptom development. Athletes in sports
       },
       {
         sign: "Rapid deterioration in young athlete",
-        action: "Consider imaging and specialist referral"
+        action: "Consider imaging and orthopaedic referral"
       }
     ],
 
@@ -5141,7 +5141,7 @@ Activity demands significantly influence symptom development. Athletes in sports
       },
       phase2: {
         title: "Phase 2: Building Posterior Chain Capacity (Weeks 7 to 16)",
-        focus: "Evidence on conservative care for FAI syndrome is evolving. The UK FASHIoN trial (Griffin et al., Lancet 2018) and the Mansell et al. AJSM 2018 trial both reported that arthroscopy produced larger improvements than their conservative arm, but in each case the conservative arm was not progressive strength training at adequate dose. I treat this phase as genuine strength work, not activation drills, while keeping range short of impingement.",
+        focus: "Evidence on conservative care for FAI syndrome is evolving. The UK FASHIoN trial (Griffin et al., Lancet 2018) reported that hip arthroscopy produced larger improvements than personalised hip therapy at 12 months, while the Mansell et al. (AJSM 2018) trial found no significant difference between arthroscopy and physical therapy at 2 years. In both, the conservative arm was not progressive strength training at adequate dose. I treat this phase as genuine strength work, not activation drills, while keeping range short of impingement.",
         examples: [
           "Goblet box squat to a box that keeps hip flexion shy of the patient's impingement angle, 3 sets of 8 with a 6 to 12 kilogram kettlebell",
           "Rear-foot-elevated split squat with the foot flat, staying tall to avoid forward hip flexion, 3 sets of 8 per side",
@@ -5199,7 +5199,7 @@ Activity demands significantly influence symptom development. Athletes in sports
       },
       {
         question: "Should I just have hip arthroscopy?",
-        answer: "Sometimes that is the right call, but not as a first step. The UK FASHIoN trial (Griffin et al., Lancet 2018) and Mansell et al. (AJSM 2018) both favoured arthroscopy over their conservative arms at short-term follow-up, but the conservative arms were modest and the crossover rates were high. My approach, consistent with the Warwick Agreement, is 4 to 6 months of genuinely progressed loading and movement retraining first, and surgery considered only if that fails or the patient's life demands do not allow waiting."
+        answer: "Sometimes that is the right call, but not as a first step. The UK FASHIoN trial (Griffin et al., Lancet 2018) favoured arthroscopy over personalised hip therapy at 12 months. Mansell et al. (AJSM 2018) found no significant difference between arthroscopy and physical therapy at 2 years. In both trials, the conservative arms were modest and crossover was a limitation. My approach, consistent with the Warwick Agreement, is 4 to 6 months of genuinely progressed loading and movement retraining first, and surgery considered only if that fails or the patient's life demands do not allow waiting."
       },
       {
         question: "Why does getting out of a low car hurt so much?",
@@ -5686,7 +5686,7 @@ The natural shock-absorbing capacity of the labrum diminishes with aging and rep
     faqs: [
       {
         question: "Does a labral tear on my MRI mean I need surgery?",
-        answer: "Not necessarily. Asymptomatic labral tears are common. Register et al. (AJSM 2012) found labral tears on MRI in around 69 percent of pain-free adults in their 40s. Imaging findings need to line up with a matching clinical picture. Many patients with both imaging findings and symptoms do well with loading-based physiotherapy. Surgery becomes a more reasonable conversation when progressive strength work has genuinely been tried and the hip still cannot meet life or sport demands."
+        answer: "Not necessarily. Asymptomatic labral tears are common. Register et al. (AJSM 2012) found labral tears on MRI in around 69 percent of pain-free adults across a broad age range. Imaging findings need to line up with a matching clinical picture. Many patients with both imaging findings and symptoms do well with loading-based physiotherapy. Surgery becomes a more reasonable conversation when progressive strength work has genuinely been tried and the hip still cannot meet life or sport demands."
       },
       {
         question: "Can a torn labrum actually heal?",
@@ -6907,7 +6907,7 @@ Kicking mechanics in soccer players show that peak adductor activation occurs du
       },
       phase3: {
         title: "Phase 3: Sport-Specific Reloading and Return to Play (Weeks 6 to 12 or longer)",
-        focus: "The Thorborg et al. (Sports Med 2020) criteria-based model drives this phase: do not return by the calendar, return by meeting strength, hop, and sport-specific performance criteria. Kicking, cutting, and sprinting demand different qualities and are phased in deliberately.",
+        focus: "The Serner et al. (OJSM 2020) criteria-based model drives this phase: do not return by the calendar, return by meeting strength, hop, and sport-specific performance criteria. Kicking, cutting, and sprinting demand different qualities and are phased in deliberately.",
         examples: [
           "Accelerations and decelerations at progressing speeds, including change-of-direction drills",
           "Controlled kicking progression starting with short-range passing, building to long kicks",
@@ -7519,7 +7519,7 @@ Respiratory patterns significantly influence thoracic outlet mechanics. Upper ch
       },
       {
         question: "Can physiotherapy actually help, or do I need surgery?",
-        answer: "For neurogenic TOS, conservative care is the appropriate first step and often the only step needed. The Cochrane review by Povlsen and colleagues updated in 2014 found limited high-quality comparative evidence but noted that the established intervention pathway remains a trial of physiotherapy first, reserving surgery for those who do not respond. Watson and Pizzari's framework published in Manual Therapy (2009-2010) describes a graded programme built around scapular control, posture, nerve mobility, and breathing pattern. Venous and arterial subtypes are a different conversation and are surgical."
+        answer: "For neurogenic TOS, conservative care is the appropriate first step and often the only step needed. The Cochrane review by Povlsen and colleagues updated in 2014 found limited high-quality comparative evidence but noted that the established intervention pathway remains a trial of physiotherapy first, reserving surgery for those who do not respond. Current conservative frameworks describe a graded programme built around scapular control, posture, nerve mobility, and breathing pattern. Venous and arterial subtypes are a different conversation and are surgical."
       },
       {
         question: "Why does my hand get cold or change colour?",
@@ -7527,7 +7527,7 @@ Respiratory patterns significantly influence thoracic outlet mechanics. Upper ch
       },
       {
         question: "Will stretching my scalenes fix it?",
-        answer: "Stretching and releasing the scalenes can provide short-term relief, but on their own they rarely solve the pattern. The more consistent outcomes come from addressing scapular position and control, rebuilding breathing mechanics (many people with TOS are chronic upper-chest breathers), restoring first rib and thoracic mobility, and progressively loading the shoulder girdle. Watson and Pizzari describe it as retraining the whole shoulder and neck complex, not just freeing one muscle."
+        answer: "Stretching and releasing the scalenes can provide short-term relief, but on their own they rarely solve the pattern. The more consistent outcomes come from addressing scapular position and control, rebuilding breathing mechanics (many people with TOS are chronic upper-chest breathers), restoring first rib and thoracic mobility, and progressively loading the shoulder girdle. Conservative frameworks frame this as retraining the whole shoulder and neck complex, not just freeing one muscle."
       },
       {
         question: "What about nerve gliding exercises I've seen online?",
@@ -7535,7 +7535,7 @@ Respiratory patterns significantly influence thoracic outlet mechanics. Upper ch
       },
       {
         question: "How long does this take to improve?",
-        answer: "Published guidance, including the Watson framework and most vascular surgery consensus statements, suggests a minimum of two to three months of consistent physiotherapy before concluding that conservative care has not worked. Realistically, meaningful improvement often takes three to six months. Patients who try a handful of sessions over a few weeks and conclude it did not work have usually not given the programme a fair trial."
+        answer: "Published guidance, including conservative frameworks and most vascular surgery consensus statements, suggests a minimum of two to three months of consistent physiotherapy before concluding that conservative care has not worked. Realistically, meaningful improvement often takes three to six months. Patients who try a handful of sessions over a few weeks and conclude it did not work have usually not given the programme a fair trial."
       },
       {
         question: "When should I consider surgery?",
@@ -7571,7 +7571,7 @@ Respiratory patterns significantly influence thoracic outlet mechanics. Upper ch
     exerciseProgression: {
       phase1: {
         title: "Phase 1: Decompression and Breathing Reset (Weeks 0 to 4)",
-        focus: "Reduce compressive load on the brachial plexus and subclavian vessels. The main levers are breathing mechanics, scapular position, and gentle soft tissue work through the scalenes, pectoralis minor, and first rib region. Watson and Pizzari's Manual Therapy framework centres the early phase on scapular control and postural unloading before any strengthening.",
+        focus: "Reduce compressive load on the brachial plexus and subclavian vessels. The main levers are breathing mechanics, scapular position, and gentle soft tissue work through the scalenes, pectoralis minor, and first rib region. Conservative TOS frameworks centre the early phase on scapular control and postural unloading before any strengthening.",
         examples: [
           "Diaphragmatic breathing drills, 5 minutes twice daily, to shift load off the scalenes",
           "Scapular setting and lower trapezius activation in supported positions",
@@ -7789,7 +7789,7 @@ Common aggravating factors include the 'boom-bust' cycle of overdoing on good da
       },
       {
         question: "How long until I feel better?",
-        answer: "Most people notice meaningful change in 6 to 12 weeks of consistent loading, with further gains over 3 to 6 months. The biggest predictor of slower recovery I see is symptom duration before starting care, which matches Chester and colleagues (BMJ Open 2018, 1030 patients) who found longer symptom duration, higher baseline pain, and lower pain self-efficacy consistently predicted worse outcomes at 6 weeks and 6 months. Psychological factors were more strongly associated with outcome than any specific structural finding. Early structured loading beats waiting it out."
+        answer: "Most people notice meaningful change in 6 to 12 weeks of consistent loading, with further gains over 3 to 6 months. The biggest predictor of slower recovery I see is symptom duration before starting care, which matches Chester and colleagues (BJSM 2018, 1030 patients) who found longer symptom duration, higher baseline pain, and lower pain self-efficacy consistently predicted worse outcomes at 6 weeks and 6 months. Psychological factors were more strongly associated with outcome than any specific structural finding. Early structured loading beats waiting it out."
       },
       {
         question: "Why does it hurt more at night?",
@@ -7797,7 +7797,7 @@ Common aggravating factors include the 'boom-bust' cycle of overdoing on good da
       },
       {
         question: "Should I get a cortisone injection?",
-        answer: "It has a role, but a narrow one. The best evidence shows subacromial corticosteroid injection provides short-term pain relief over the first 6 to 8 weeks with no long-term advantage over exercise alone. I consider it when pain is so high that someone cannot engage with loading, or when sleep disturbance has pushed them into a flare-up cycle. It buys a window. It does not fix the underlying capacity problem, and repeated injections are not benign."
+        answer: "It has a role, but a narrow one. The higher-quality evidence shows subacromial corticosteroid injection provides short-term pain relief over the first 6 to 8 weeks with no long-term advantage over exercise alone. I consider it when pain is so high that someone cannot engage with loading, or when sleep disturbance has pushed them into a flare-up cycle. It buys a window. It does not fix the underlying capacity problem, and repeated injections are not benign."
       },
       {
         question: "Do I need surgery if exercise does not work quickly?",
@@ -8102,7 +8102,7 @@ Scapular dyskinesis alters AC joint loading patterns by disrupting normal scapul
       },
       phase3: {
         title: "Phase 3: Return to Pressing, Contact, and Overhead Sport (Weeks 8 to 16+)",
-        focus: "Rebuild the loads your sport or job actually demands. This is where lifters and overhead athletes get stuck, because the previous phase resolves pain but the joint has not been challenged under high load or contact. Phillips-style return-to-play guidance in the AC joint literature ties progression to strength symmetry, scapular control, and tolerance of direct loading rather than fixed weeks.",
+        focus: "Rebuild the loads your sport or job actually demands. This is where lifters and overhead athletes get stuck, because the previous phase resolves pain but the joint has not been challenged under high load or contact. Criterion-based return-to-play guidance in the AC joint literature ties progression to strength symmetry, scapular control, and tolerance of direct loading rather than fixed weeks.",
         examples: [
           "Bench press progression: floor press and close-grip variations before full-range wide-grip",
           "Overhead press progressions, advancing from landmine to dumbbell and barbell variations",
@@ -8255,11 +8255,11 @@ The biceps tendon's intra-articular portion experiences unique mechanical challe
       },
       {
         question: "Is my biceps tendon the whole problem or is it my rotator cuff?",
-        answer: "It is usually both, and the cuff often comes first. When rotator cuff function drops, the humeral head migrates superiorly during elevation, which changes the angle the biceps tendon approaches its attachment and loads it abnormally. Candela, Gumina et al. (Arthroscopy Sports Med Rehab 2021) found long head of biceps tendon pathology became progressively more common as rotator cuff tear size increased, with a healthy biceps tendon present in only 8% of massive cuff tears versus 47% of small tears. In practice, if I only treat your biceps and ignore a weak cuff, you will come back."
+        answer: "It is usually both, and the cuff often comes first. When rotator cuff function drops, the humeral head migrates superiorly during elevation, which changes the angle the biceps tendon approaches its attachment and loads it abnormally. Imaging and operative series consistently show that long head of biceps tendon pathology becomes more common as rotator cuff tear size increases, with most massive cuff tears showing some degree of biceps involvement. In practice, if I only treat your biceps and ignore a weak cuff, you will come back."
       },
       {
         question: "Will eccentric exercises fix it?",
-        answer: "Eccentrics are useful but not a magic protocol for this specific tendon. The 2024 scoping review by McDevitt and colleagues (IJSPT) on physical therapy for long head of biceps tendinopathy described eccentric training, general exercise, stretching, and manual therapy as the main interventions in the literature, and flagged that specific dosing guidelines for the biceps are much less developed than for the Achilles or patellar tendon. I use progressive loading with a heavy eccentric emphasis, but dosed against the individual shoulder rather than a fixed protocol."
+        answer: "Eccentrics are useful but not a magic protocol for this specific tendon. Scoping reviews of physical therapy for long head of biceps tendinopathy describe eccentric training, general exercise, stretching, and manual therapy as the main interventions in the literature, and flag that specific dosing guidelines for the biceps are much less developed than for the Achilles or patellar tendon. I use progressive loading with a heavy eccentric emphasis, but dosed against the individual shoulder rather than a fixed protocol."
       },
       {
         question: "Can the long head of the biceps tendon rupture?",
@@ -8267,7 +8267,7 @@ The biceps tendon's intra-articular portion experiences unique mechanical challe
       },
       {
         question: "Should I consider a tenodesis or tenotomy?",
-        answer: "Only if conservative care has genuinely been exhausted and symptoms are still limiting function. Multiple level-I meta-analyses (e.g., Ahmed et al., Shoulder & Elbow 2021) compared tenotomy and tenodesis and found similar pain and function outcomes. Tenotomy has higher rates of cosmetic Popeye deformity (around 23% versus 7% with tenodesis), and tenodesis may protect supination strength better. I usually suggest 3 to 6 months of structured loading and activity modification before any surgical conversation, and then the discussion is with a shoulder surgeon based on what the patient actually needs to do."
+        answer: "Only if conservative care has genuinely been exhausted and symptoms are still limiting function. Meta-analyses comparing tenotomy and tenodesis have generally found similar pain and function outcomes. Tenotomy has higher rates of cosmetic Popeye deformity, while tenodesis may protect supination strength better. I usually suggest 3 to 6 months of structured loading and activity modification before any surgical conversation, and then the discussion is with a shoulder surgeon based on what the patient actually needs to do."
       },
       {
         question: "Why does it hurt when I reach overhead?",
@@ -9830,7 +9830,7 @@ The deeper stabilizing muscles of your neck - the deep cervical flexors - become
     faqs: [
       {
         question: "Is my posture actually causing my pain?",
-        answer: "Honestly, probably less than people are led to believe. The research on posture and pain is weaker than most assume. Swain and colleagues (BMJ 2022) reviewed the literature on posture and back pain and found no strong causal link, and Richards in the British Journal of Sports Medicine reached a similar conclusion about sitting posture and neck pain. Sustained positioning and under-loading of certain muscle groups do matter, but the fix is usually movement variability, targeted strengthening, and reasonable workstation setup, not chasing a single 'correct' posture."
+        answer: "Probably less than most people have been led to believe. The research on posture and pain is weaker than the popular framing suggests. Swain and colleagues' systematic review of systematic reviews (Journal of Biomechanics, 2020) found no consensus that specific spinal postures cause low back pain, and Richards and colleagues (Physical Therapy, 2016; follow-up work in adolescents) found that sitting neck posture clusters did not predict persistent neck pain. Sustained positioning and under-loading of certain muscle groups do matter, but the fix is usually movement variability, targeted strengthening, and reasonable workstation setup, not chasing a single 'correct' posture."
       },
       {
         question: "Does this mean posture doesn't matter at all?",
@@ -10554,7 +10554,7 @@ TFCC injuries affect the biomechanics of forearm rotation and ulnar-sided wrist 
       },
       {
         sign: "No improvement after 6-8 weeks of appropriate conservative treatment",
-        action: "Consider advanced imaging and specialist consultation for possible surgical intervention"
+        action: "Consider imaging and surgical consultation"
       }
     ],
 
@@ -10600,7 +10600,7 @@ TFCC injuries affect the biomechanics of forearm rotation and ulnar-sided wrist 
       },
       {
         question: "Why does my wrist click or clunk even after the pain has settled?",
-        answer: "Clicking on its own, without pain and without feeling unstable, is usually not a problem. A click that comes with a clear painful moment during a specific movement, particularly radial-ulnar deviation or forearm rotation under load, is more interesting. In those cases I am thinking about the scapholunate interval or the TFCC and I will often push for imaging or a specialist opinion rather than keep loading blind."
+        answer: "Clicking on its own, without pain and without feeling unstable, is usually not a problem. A click that comes with a clear painful moment during a specific movement, particularly radial-ulnar deviation or forearm rotation under load, is more interesting. In those cases I am thinking about the scapholunate interval or the TFCC and I will often push for imaging or an orthopaedic opinion rather than keep loading blind."
       },
       {
         question: "Can I still lift or do push-ups with a wrist sprain?",
@@ -10615,7 +10615,7 @@ TFCC injuries affect the biomechanics of forearm rotation and ulnar-sided wrist 
         answer: "A mild ligament strain usually quietens down over two to four weeks, with return to full loading by six to eight. A clear partial tear of the scapholunate or a TFCC lesion runs longer, often two to three months of graded rehab, and a small subset end up at imaging or a hand surgeon if symptoms plateau. If you are at the eight-week mark and your wrist is still catching, still sore with grip, or still refusing to take weight through the palm, it is time to reassess rather than push."
       },
       {
-        question: "When should I see a specialist?",
+        question: "When should I see a surgeon?",
         answer: "Any deformity, inability to use the hand, or severe pain after a fall should be seen that day. Beyond that, I refer when clinical signs point to a significant scapholunate or TFCC tear with distal radioulnar joint instability, when pain has not shifted after a proper six to eight week course of rehab, or when imaging findings do not match what the clinical exam shows. Most wrist sprains do not need a surgeon, but a small number clearly do."
       }
     ],
@@ -10819,11 +10819,11 @@ The repetitive nature of typing and mouse use creates cumulative loading on tend
       },
       {
         sign: "Severe neurological symptoms including numbness and significant weakness",
-        action: "Could suggest conditions like carpal tunnel syndrome or cervical radiculopathy - needs specialist assessment"
+        action: "Could suggest conditions like carpal tunnel syndrome or cervical radiculopathy - needs medical assessment"
       },
       {
         sign: "Symptoms not responding to appropriate treatment after 3 months",
-        action: "Consider additional investigations or specialist referral to rule out other conditions"
+        action: "Consider medical consultation or diagnostic imaging to rule out other conditions"
       },
       {
         sign: "Signs of systemic inflammatory conditions",
@@ -11095,7 +11095,7 @@ Asymmetrical movement patterns in sports create rotational forces that challenge
       },
       {
         sign: "No improvement after 8-10 weeks of appropriate conservative treatment",
-        action: "Consider imaging and specialist referral to rule out other pathology or need for injection therapy"
+        action: "Consider imaging and medical consultation to rule out other pathology or need for injection therapy"
       }
     ],
 
@@ -11125,7 +11125,7 @@ Asymmetrical movement patterns in sports create rotational forces that challenge
     faqs: [
       {
         question: "How is SI joint pain actually diagnosed?",
-        answer: "Clinically, using a cluster of provocation tests rather than a single test. Laslett and colleagues (Manual Therapy 2005) showed that three or more positive tests out of five (distraction, compression, thigh thrust, Gaenslen, sacral thrust) reach around 91% sensitivity and 78% specificity for SI joint pain, and a 2021 JOSPT systematic review confirmed the cluster remains clinically useful. Imaging rarely confirms the source unless an injection is being considered, so the exam is what usually drives the diagnosis."
+        answer: "Clinically, using a cluster of provocation tests rather than a single test. Laslett and colleagues (Manual Therapy 2005) showed that two or more positive tests out of four (distraction, thigh thrust, compression, sacral thrust) reach around 88% sensitivity and 78% specificity for SI joint pain, and subsequent reviews have supported the cluster's clinical utility. Imaging rarely confirms the source unless an injection is being considered, so the exam is what usually drives the diagnosis."
       },
       {
         question: "Is my SI joint actually out of place?",
@@ -11303,7 +11303,7 @@ The posterior drawer test demonstrates the primary dysfunction in PCL injuries -
       timeline: "Return to sport typically possible after 3 months for conservative treatment. Full functional recovery often achieved within 4-6 months",
       factors: [
         "Grade I and II isolated injuries have excellent prognosis with conservative treatment",
-        "Quadriceus strength recovery to >90% Leg Symmetry Index crucial for return to sport",
+        "Quadriceps strength recovery to >90% Leg Symmetry Index crucial for return to sport",
         "Early intervention with appropriate rehabilitation improves outcomes",
         "Compliance with strengthening program is critical for success",
         "Associated meniscal or other ligament injuries may affect timeline"
@@ -12224,7 +12224,7 @@ It's important to understand that once the nerve has thickened significantly, so
       },
       {
         sign: "No improvement after 16 weeks of comprehensive conservative treatment",
-        action: "Consider advanced imaging (ultrasound or MRI) and specialist consultation for injection therapy or surgical evaluation"
+        action: "Consider imaging (ultrasound or MRI) and surgical consultation for injection or operative evaluation"
       }
     ],
 
@@ -12540,7 +12540,7 @@ It's important to recognize that some anatomical factors (like metatarsal length
       },
       {
         sign: "No improvement after 12 weeks of comprehensive conservative treatment",
-        action: "Consider advanced imaging (MRI or ultrasound) to evaluate for underlying pathology and specialist consultation for injection therapy or surgical options"
+        action: "Consider imaging (MRI or ultrasound) to evaluate for underlying pathology and surgical consultation for injection or operative options"
       }
     ],
 
@@ -12596,7 +12596,7 @@ It's important to recognize that some anatomical factors (like metatarsal length
     faqs: [
       {
         question: "Is metatarsalgia just a fancy word for ball-of-foot pain?",
-        answer: "Essentially, yes. Metatarsalgia is an umbrella term for pain under the metatarsal heads rather than a specific diagnosis. The clinically useful question is what is driving it. Espinosa and colleagues (JAAOS 2010) separate primary metatarsalgia, where the forefoot anatomy itself concentrates load under the lesser metatarsals, from secondary metatarsalgia, where something else (a bunion, a stiff great toe, a Morton's neuroma, a plantar plate tear, a stress reaction) shifts load where it should not be. The label tells you where it hurts. The work is figuring out why."
+        answer: "Yes. Metatarsalgia is an umbrella term for pain under the metatarsal heads rather than a specific diagnosis. The clinically useful question is what is driving it. Espinosa and colleagues (JAAOS 2010) separate primary metatarsalgia, where the forefoot anatomy itself concentrates load under the lesser metatarsals, from secondary metatarsalgia, where something else (a bunion, a stiff great toe, a Morton's neuroma, a plantar plate tear, a stress reaction) shifts load where it should not be. The label tells you where it hurts. The work is figuring out why."
       },
       {
         question: "Why does it feel worse at the end of the day?",
@@ -12936,7 +12936,7 @@ It's important for patients to understand that conservative treatment cannot cor
       },
       {
         question: "Why does the ball of my foot hurt when the bunion is at the big toe?",
-        answer: "Because the big toe is no longer doing its share of push-off. Glasoe and colleagues (JOSPT 2010) described how first ray insufficiency shifts load onto the lesser metatarsal heads, and that transfer metatarsalgia is one of the most common reasons a bunion that was merely cosmetic for years suddenly becomes functionally painful. Treating the bunion without addressing the forefoot load redistribution usually misses the actual driver of day-to-day pain."
+        answer: "Because the big toe is no longer doing its share of push-off. First ray insufficiency shifts load onto the lesser metatarsal heads, and transfer metatarsalgia is one of the most common reasons a bunion that was merely cosmetic for years suddenly becomes functionally painful. Treating the bunion without addressing the forefoot load redistribution usually misses the actual driver of day-to-day pain."
       }
     ],
 
@@ -13502,7 +13502,7 @@ Understanding the biomechanical demands of the athlete's specific sport is cruci
     clinicalRedFlags: [
       {
         sign: "Severe pain and swelling with complete inability to bear weight on the affected foot",
-        action: "May indicate Grade III injury with possible sesamoid fracture or displacement requiring immediate imaging and specialist evaluation"
+        action: "May indicate Grade III injury with possible sesamoid fracture or displacement requiring immediate imaging and orthopaedic evaluation"
       },
       {
         sign: "Numbness or tingling in the great toe or surrounding areas",
@@ -13514,7 +13514,7 @@ Understanding the biomechanical demands of the athlete's specific sport is cruci
       },
       {
         sign: "No improvement or worsening pain after 2 weeks of appropriate conservative treatment",
-        action: "May indicate more severe structural damage requiring advanced imaging and specialist consultation"
+        action: "May indicate more severe structural damage requiring imaging and orthopaedic consultation"
       },
       {
         sign: "Persistent instability or recurrent injury with minor trauma",
@@ -14339,7 +14339,7 @@ Understanding the relationship between foot biomechanics and nerve compression h
       },
       {
         question: "Will my rehab take longer because I have diabetes?",
-        answer: "Honestly, often yes. Glycation of collagen and altered healing physiology mean tissues can take longer to adapt to loading, and frozen shoulder in diabetes in particular tends to run a longer course. Knowing this up front helps set a realistic plan rather than feeling like progress is stalling. Consistency with both rehab and glycaemic control tends to move things in the right direction over months, not weeks."
+        answer: "Often yes. Glycation of collagen and altered healing physiology mean tissues can take longer to adapt to loading, and frozen shoulder in diabetes in particular tends to run a longer course. Knowing this up front helps set a realistic plan rather than feeling like progress is stalling. Consistency with both rehab and glycaemic control tends to move things in the right direction over months, not weeks."
       },
       {
         question: "Do I need referrals from my diabetes doctor before starting physio?",
@@ -14542,7 +14542,7 @@ Understanding the relationship between foot biomechanics and nerve compression h
       },
       {
         question: "Do I need surgery, or will a cast be enough?",
-        answer: "For undisplaced waist fractures of the scaphoid, the 2020 SWIFFT trial published in the BMJ compared cast immobilisation with surgical fixation and found broadly equivalent outcomes on patient-rated wrist scores at one year, with surgery offering earlier return to some activities but also carrying surgical risks. For undisplaced fractures, cast management is a reasonable first choice. Displaced fractures, proximal pole fractures, and non-unions are a different conversation and generally move toward surgical consultation because the non-union risk is higher."
+        answer: "For undisplaced waist fractures of the scaphoid, the 2020 SWIFFT trial published in The Lancet (Dias et al.) compared cast immobilisation with surgical fixation and found no meaningful difference in patient-rated wrist scores at one year, with more surgery-related serious complications in the surgery group and more cast-related complications in the cast group. For undisplaced fractures, cast management is a reasonable first choice. Displaced fractures, proximal pole fractures, and non-unions are a different conversation and generally move toward surgical consultation because the non-union risk is higher."
       },
       {
         question: "How long will I be in a cast?",

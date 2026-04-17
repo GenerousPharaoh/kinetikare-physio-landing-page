@@ -237,7 +237,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                                 <Link
                                   href={`/conditions?tab=${conditionCategories.indexOf(category)}`}
                                   prefetch={false}
-                                  className="block text-[10px] text-[#D4AF37] hover:text-[#F5E6B3] uppercase tracking-wider font-bold pt-1"
+                                  className="block text-[11px] text-[#F5E6B3] hover:text-white uppercase tracking-wider font-bold pt-1"
                                 >
                                   View All ({category.conditions.length})
                                 </Link>

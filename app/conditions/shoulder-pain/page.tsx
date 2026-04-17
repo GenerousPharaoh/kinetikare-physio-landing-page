@@ -25,6 +25,7 @@ import {
 } from '@/lib/seo-metadata';
 import { getConditionBySlug } from '@/lib/conditions-data';
 import { getTreatmentById } from '@/lib/treatments-data';
+import ConsentNote from '@/components/conditions/ConsentNote';
 
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/shoulder-pain';
 const PAGE_TITLE = 'Shoulder Pain Treatment in Burlington | Kareem Hassanein Physiotherapy';
@@ -678,10 +679,11 @@ export default function ShoulderPainHubPage() {
                   rotator cuff, the scapular stabilisers, the thoracic spine, and the wider
                   kinetic chain. Joint mobilization, soft tissue therapy, dry needling, or
                   cupping sit alongside that work where they speed things along. I write the plan
-                  down with you and track a handful of markers so we can both see whether it is
+                  down with you and track a handful of markers so you can see whether it is
                   actually working. If it is not, I change direction sooner rather than later.
                 </p>
               </div>
+              <ConsentNote />
             </div>
           </div>
         </section>

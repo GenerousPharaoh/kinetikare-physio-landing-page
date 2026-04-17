@@ -26,6 +26,7 @@ import {
 } from '@/lib/seo-metadata';
 import { getConditionBySlug } from '@/lib/conditions-data';
 import { getTreatmentById } from '@/lib/treatments-data';
+import ConsentNote from '@/components/conditions/ConsentNote';
 
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/pain-guides/fluid-on-the-knee';
 const PAGE_TITLE = 'Fluid on the Knee: What Causes Knee Swelling | Kareem Hassanein';
@@ -759,6 +760,7 @@ export default function FluidOnTheKneeGuidePage() {
                   and cupping sit alongside that work where they speed things along.
                 </p>
               </div>
+              <ConsentNote />
             </div>
           </div>
         </section>

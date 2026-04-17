@@ -25,6 +25,7 @@ import {
 } from '@/lib/seo-metadata';
 import { getConditionBySlug } from '@/lib/conditions-data';
 import { getTreatmentById } from '@/lib/treatments-data';
+import ConsentNote from '@/components/conditions/ConsentNote';
 
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/knee-pain';
 const PAGE_TITLE = 'Knee Pain Treatment in Burlington | Kareem Hassanein Physiotherapy';
@@ -713,6 +714,7 @@ export default function KneePainHubPage() {
                   later.
                 </p>
               </div>
+              <ConsentNote />
             </div>
           </div>
         </section>

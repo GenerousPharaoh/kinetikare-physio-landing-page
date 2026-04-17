@@ -36,6 +36,7 @@ import AuthorByline from './conditions/AuthorByline';
 import SectionHeading from './conditions/SectionHeading';
 import RelatedConditionsList from './conditions/RelatedConditionsList';
 import ComparisonCrossLinks from './conditions/ComparisonCrossLinks';
+import ConsentNote from './conditions/ConsentNote';
 
 // Lazy-load the Pattern Matcher: only adds to the bundle when used, and only
 // after hydration. ssr:false keeps it out of the initial HTML payload.
@@ -2102,6 +2103,11 @@ export default function ConditionPageClient({
                   conditionSlug={conditionSlug}
                   currentConditionName={condition.name}
                 />
+
+                {/* Consent + alternatives note. Communicates that every part of an
+                    assessment happens with informed consent and alternative
+                    approaches are always available. Mounted once per condition page. */}
+                <ConsentNote />
               </div>
             </div>
           </div>

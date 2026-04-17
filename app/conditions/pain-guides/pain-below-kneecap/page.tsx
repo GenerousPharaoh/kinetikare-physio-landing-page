@@ -26,6 +26,7 @@ import {
 } from '@/lib/seo-metadata';
 import { getConditionBySlug } from '@/lib/conditions-data';
 import { getTreatmentById } from '@/lib/treatments-data';
+import ConsentNote from '@/components/conditions/ConsentNote';
 
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/pain-guides/pain-below-kneecap';
 const PAGE_TITLE = 'Pain Right Below the Kneecap: What It Usually Is | Kareem Hassanein';
@@ -714,6 +715,7 @@ export default function PainBelowKneecapGuidePage() {
                   cupping sit alongside the loading work where they help it progress.
                 </p>
               </div>
+              <ConsentNote />
             </div>
           </div>
         </section>

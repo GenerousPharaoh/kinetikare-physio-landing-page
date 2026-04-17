@@ -1536,6 +1536,24 @@ Sudden increases in activity, changes in footwear, or prolonged standing on hard
       }
     },
 
+    patternMatcher: {
+      clusterKey: 'foot-ankle',
+      markers: [
+        { questionId: 'pain_under_heel_plantar', signal: 'strong_yes' },
+        { questionId: 'pain_back_of_heel_or_cord', signal: 'no' },
+        { questionId: 'pain_medial_arch_or_below_inner_ankle', signal: 'neutral' },
+        { questionId: 'pain_forefoot_between_toes', signal: 'no' },
+        { questionId: 'pain_lateral_foot_or_behind_outer_ankle', signal: 'no' },
+        { questionId: 'first_step_morning_pain', signal: 'strong_yes' },
+        { questionId: 'warms_up_then_worse_after', signal: 'yes' },
+        { questionId: 'arch_collapse_or_cant_rise_on_toes', signal: 'no' },
+        { questionId: 'better_in_wide_toe_box', signal: 'neutral' },
+        { questionId: 'history_of_rolled_ankles', signal: 'neutral' },
+        { questionId: 'pain_with_push_off_running', signal: 'yes' },
+        { questionId: 'numbness_or_burning_in_toes', signal: 'no' },
+      ],
+    },
+
     lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
@@ -2227,7 +2245,109 @@ Prolonged sitting followed by sudden movement is another classic pattern. When y
       }
     ],
 
+    differentialDiagnosis: [
+      {
+        condition: "Lumbar Radiculopathy from Foraminal Stenosis",
+        distinguishingFeatures: "Older patient, gradual onset, leg symptoms worse with extension and standing rather than flexion or sitting. Imaging often shows bony foraminal narrowing rather than a discrete extrusion. Directional preference typically runs opposite to the classic herniation pattern."
+      },
+      {
+        condition: "Deep Gluteal Syndrome / Piriformis Involvement",
+        distinguishingFeatures: "Deep buttock pain with referral into the posterior thigh, rarely below the knee, no clear back pain, and a normal neurological exam. Reproduced by prolonged sitting, seated piriformis stretch, or palpation of the deep gluteal space, not by spinal loading."
+      },
+      {
+        condition: "Sacroiliac Joint Pain",
+        distinguishingFeatures: "One-sided pain near the PSIS, often pointed to with one finger. Pain rarely extends below the knee and does not follow a dermatomal pattern. A cluster of provocation tests (distraction, compression, thigh thrust, FABER, Gaenslen) is more informative than any single test."
+      },
+      {
+        condition: "Facet-Mediated Pain with Somatic Referral",
+        distinguishingFeatures: "Paraspinal pain aggravated by extension and rotation, with referral into the buttock or posterior thigh that stops at or above the knee. Straight leg raise is negative, neurological exam is normal, and symptoms do not centralize or peripheralize with repeated movement testing."
+      },
+      {
+        condition: "Hip Intra-articular Pathology",
+        distinguishingFeatures: "Anterior groin or lateral hip pain reproduced by FADIR or FABER rather than lumbar loading. Limited and painful hip internal rotation is often the clearest finding. Symptoms track with weight-bearing activity rather than spinal posture or Valsalva."
+      },
+      {
+        condition: "Cauda Equina Syndrome",
+        distinguishingFeatures: "Saddle numbness, urinary retention or incontinence, faecal incontinence, bilateral leg weakness, or rapidly progressive neurological deficit. Any of these flips the clinical picture from physiotherapy to an emergency department. I screen for this every visit in anyone with significant radicular symptoms."
+      }
+    ],
+
+    exerciseProgression: {
+      phase1: {
+        title: "Settling Symptoms and Finding a Directional Preference",
+        focus: "Reduce nerve irritation and identify which positions and movements consistently move pain away from the leg and back toward the spine. Directional preference testing is a core recommendation of the JOSPT Clinical Practice Guidelines on low back pain (George et al., 2021).",
+        examples: [
+          "Prone press-ups every 2 to 3 hours if extension centralizes symptoms, 10 repetitions per set",
+          "Supported prone lying or prone on elbows for 3 to 5 minutes as a resting position if tolerated",
+          "Gentle sciatic nerve sliders in long sitting or supine, 10 to 15 slow repetitions, stopping short of any increase in leg symptoms",
+          "Short walking bouts of 5 to 10 minutes several times per day, using posture cues that feel best",
+          "Standing breaks every 20 to 30 minutes and a small lumbar roll for sitting"
+        ],
+        progressionCriteria: "Leg symptoms consistently stay at or above the knee, rest pain is 2/10 or lower, sitting tolerance reaches 20 to 30 minutes, and the patient can identify at least one movement that reliably centralizes symptoms."
+      },
+      phase2: {
+        title: "Restoring Load Tolerance and Motor Control",
+        focus: "Rebuild trunk and hip capacity so the spine tolerates daily loads again. Graded exercise and education outperform passive care in the Lancet Low Back Pain Series (Foster et al., 2018). Neural mobility work progresses from sliders toward tensioners as leg symptoms settle.",
+        examples: [
+          "Bird dog and dead bug, 2 to 3 sets of 8 to 10 per side, emphasizing a neutral spine",
+          "Hip hinge patterning from a broomstick to a kettlebell deadlift, progressed by load rather than range",
+          "Goblet squat to a box, 3 sets of 8 to 10, depth guided by symptom response",
+          "Glute bridges and side-lying hip abduction to address gluteal weakness common in this group",
+          "Short-range sciatic nerve tensioners in supine or slump, 8 to 10 controlled repetitions"
+        ],
+        progressionCriteria: "Loaded hinging and squatting with pain under 3/10, a full workday with normal sitting tolerated, and 30 minutes of walking without symptom spread into the leg."
+      },
+      phase3: {
+        title: "Return to Full Activity and Reducing Recurrence",
+        focus: "Rebuild capacity for the specific demands the patient is returning to, whether lifting at work, running, or recreational sport. Heavier loading and higher-velocity tasks are layered in, with a simple maintenance plan to reduce the risk of another episode.",
+        examples: [
+          "Trap-bar or conventional deadlift built progressively from light loads, 3 to 4 sets of 5",
+          "Front-loaded squats or split squats at working loads, matched to patient goals",
+          "Farmer and suitcase carries for trunk and grip, 3 to 4 rounds of 30 to 40 metres",
+          "Graded return to running or sport using walk-run intervals as the entry point",
+          "Twice-weekly maintenance strengthening that the patient can sustain on their own"
+        ],
+        progressionCriteria: "Full work, home, and recreational demands with minimal or no symptoms, confidence in self-managing minor flares, and a written maintenance plan the patient owns."
+      }
+    },
+
+    faqs: [
+      {
+        question: "Will my disc herniation heal on its own?",
+        answer: "Often, yes. Systematic reviews of serial MRI studies show that most herniations shrink over time, with higher resorption rates for larger extrusions and sequestrations than for small bulges or protrusions. Symptom improvement usually precedes imaging change, which is why I track function rather than imaging week to week. The size of the herniation on your scan does not neatly predict how bad it feels, nor how quickly you will recover."
+      },
+      {
+        question: "Do I need surgery for a herniated disc?",
+        answer: "Most people do not. The SPORT trial (Weinstein et al., JAMA 2006) and its follow-up studies found that at 1 to 2 years, outcomes between surgery and structured conservative care for lumbar disc herniation converge, though surgery can produce faster early relief. Surgery is typically reserved for progressive neurological loss, cauda equina syndrome, or pain and disability that remain severe after 6 to 12 weeks of appropriate non-surgical management."
+      },
+      {
+        question: "How long does recovery take?",
+        answer: "Most people see meaningful change within 4 to 6 weeks, and the majority recover within 3 months. Full resolution of residual symptoms can take 3 to 6 months, sometimes longer for larger herniations. Recovery is rarely a straight line. I watch for centralization, improved sitting tolerance, and return of strength rather than waiting for a perfect pain-free day."
+      },
+      {
+        question: "My MRI says disc herniation. Does that mean I am damaged?",
+        answer: "Not in the way people usually fear. Jensen et al. (NEJM 1994) found disc bulges in 52% of pain-free adults and protrusions in 27%. Brinjikji et al. (AJNR 2015) reported disc degeneration in 37% of asymptomatic 20-year-olds and 96% of 80-year-olds. Imaging findings are common in people with no back pain at all. A herniation on your scan is a finding to interpret alongside your symptoms, your physical exam, and your goals, not a verdict on your spine."
+      },
+      {
+        question: "Can I still exercise with a disc herniation?",
+        answer: "In most cases, yes, and staying active is linked to better outcomes than rest in both NICE NG59 and the Lancet Low Back Pain Series. The specifics matter. Early on, I usually pull back on deep forward bending under load, heavy rotational lifting, and long runs, while keeping walking, supported positions, and symptom-guided loading in the program. What you can do changes week to week as symptoms settle."
+      },
+      {
+        question: "What about epidural steroid injections?",
+        answer: "NICE NG59 supports considering an epidural of local anaesthetic and steroid for acute and severe sciatica. The evidence base suggests short-term pain relief with limited long-term benefit and no clear effect on the need for surgery. They can be useful when pain is blocking progress with rehab, but they work best as a bridge to active treatment rather than as a standalone plan."
+      },
+      {
+        question: "Should I avoid bending forward for good?",
+        answer: "No. Permanent avoidance tends to produce a fragile, fearful back rather than a resilient one. There are reasons to respect flexion early on, especially first thing in the morning when discs are more hydrated and vulnerable, and when combining bending with twisting and load. The end goal is to bend and load the spine confidently again, in stages your tissues can handle."
+      },
+      {
+        question: "When should I get urgent medical care?",
+        answer: "Loss of bladder or bowel control, numbness in the saddle area, rapidly progressing leg weakness, foot drop, or bilateral leg symptoms all warrant an emergency department visit. Severe unrelenting night pain, unexplained weight loss, or fever with back pain should be reviewed by a physician before starting physiotherapy."
+      }
+    ],
+
     measuringProgress: standardMeasuringProgress,
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -3419,6 +3539,24 @@ Footwear and training surface changes can trigger Achilles problems even in expe
         ],
         progressionCriteria: "VISA-A score trending upward and above 80 when used, single-leg hop symmetry within 10 percent of the unaffected side, and two consecutive weeks of full training or running volume without a 24-hour symptom flare."
       }
+    },
+
+    patternMatcher: {
+      clusterKey: 'foot-ankle',
+      markers: [
+        { questionId: 'pain_under_heel_plantar', signal: 'no' },
+        { questionId: 'pain_back_of_heel_or_cord', signal: 'strong_yes' },
+        { questionId: 'pain_medial_arch_or_below_inner_ankle', signal: 'no' },
+        { questionId: 'pain_forefoot_between_toes', signal: 'no' },
+        { questionId: 'pain_lateral_foot_or_behind_outer_ankle', signal: 'no' },
+        { questionId: 'first_step_morning_pain', signal: 'yes' },
+        { questionId: 'warms_up_then_worse_after', signal: 'strong_yes' },
+        { questionId: 'arch_collapse_or_cant_rise_on_toes', signal: 'no' },
+        { questionId: 'better_in_wide_toe_box', signal: 'neutral' },
+        { questionId: 'history_of_rolled_ankles', signal: 'neutral' },
+        { questionId: 'pain_with_push_off_running', signal: 'strong_yes' },
+        { questionId: 'numbness_or_burning_in_toes', signal: 'no' },
+      ],
     },
 
     lastReviewed: '2026-04-16',
@@ -8161,6 +8299,105 @@ Contact sports create the highest risk for MCL injuries through direct trauma me
     ],
 
     measuringProgress: standardMeasuringProgress,
+    faqs: [
+      {
+        question: "Do I need surgery for a torn MCL?",
+        answer: "Usually not. Isolated MCL tears, including complete Grade III injuries, heal well with structured rehabilitation in the large majority of cases. This is one of the few knee ligaments with strong biological healing capacity, and older natural-history work by Indelicato and more recent systematic reviews consistently support non-operative management as the default. Surgery is considered when the MCL is torn in combination with an ACL, PCL, or posterolateral corner injury, when the tibial-sided avulsion fails to heal, or when persistent valgus laxity remains after a full rehabilitation trial."
+      },
+      {
+        question: "Is LCL injury treated the same way as MCL?",
+        answer: "No, and this is where I try to be honest with patients. The MCL is a broad ligament with good blood supply and heals predictably. The LCL is a smaller cord-like structure with less favourable healing, and it rarely injures in isolation. Grade I and II LCL sprains can be managed conservatively, but a Grade III LCL tear, especially with any posterolateral corner involvement, often needs a surgical opinion early. Missing a posterolateral corner injury and rehabbing it as a simple sprain is a known way to end up with a chronically unstable knee."
+      },
+      {
+        question: "How long until I can run and return to sport?",
+        answer: "Grade I sprains tend to return to running in 2 to 3 weeks and sport by 4 weeks. Grade II is typically 4 to 8 weeks, with sport-specific cutting work starting once single-leg strength and control approach the other side. Grade III isolated MCL injuries often take 8 to 12 weeks for return to sport when the rest of the knee is stable. These are ranges, not promises. I use criteria like pain-free single-leg squat, symmetrical hop performance, and confidence on cutting drills rather than a pure calendar date."
+      },
+      {
+        question: "Do I need to wear a knee brace?",
+        answer: "A hinged knee brace limiting valgus or varus stress is reasonable during the early healing phase for Grade II and III injuries, and I often use one to let patients stay mobile without worrying about an awkward step. It is not a lifetime commitment. The goal is to wean off the brace as strength and neuromuscular control return, because long-term bracing does not strengthen the ligament and can create a dependency that slows confidence-building."
+      },
+      {
+        question: "Will I always be unstable after an MCL tear?",
+        answer: "Most people regain functional stability, but some end up with a small amount of residual laxity on clinical testing that never fully disappears. What matters more is whether the knee feels stable during cutting, pivoting, and deceleration, and that is driven by quadriceps strength, hip control, and neuromuscular retraining rather than by millimetres of laxity on an exam table. Patients who commit to progressive strengthening and return-to-sport testing overwhelmingly report a knee they trust, even if the ligament itself heals slightly longer than the other side."
+      },
+      {
+        question: "Do I need an MRI?",
+        answer: "For a clear isolated MCL sprain with a typical valgus mechanism, localized medial tenderness, and stable varus, Lachman, and posterior drawer testing, imaging is not mandatory to start rehabilitation. I send for MRI when the mechanism or exam suggests a combined injury, when the LCL or posterolateral corner is in question, when there is joint-line tenderness suggesting a meniscus tear, or when a patient is not progressing as expected. Imaging should change the plan, not just reassure."
+      },
+      {
+        question: "Can I still exercise during recovery?",
+        answer: "Yes, and I strongly prefer that you do. Early protected loading and range-of-motion work produce better outcomes than immobilization, which is supported by the Grant J Athl Train 2013 review among others. Upper body training, stationary cycling within comfortable range, hip and core work, and single-leg balance on the uninjured side can all continue. What changes is the dose and the knee-specific exercises, not the fact of training."
+      },
+      {
+        question: "Will this cause arthritis later?",
+        answer: "Isolated MCL injuries that heal well do not have a strong link to later osteoarthritis. The risk rises when the MCL injury is part of a multi-ligament event, when there is an associated meniscus tear, or when the knee is left with persistent laxity and altered loading. That is part of why I do not treat a grade III MCL as a trivial injury, even when it heals without surgery: the quality of the rehabilitation affects the mechanical environment of the joint for years afterward."
+      }
+    ],
+    differentialDiagnosis: [
+      {
+        condition: "Medial Meniscus Tear",
+        distinguishingFeatures: "Joint-line tenderness rather than tenderness along the MCL course, mechanical catching or locking, positive McMurray or Thessaly test. Often follows a twisting mechanism with the foot planted rather than a pure valgus blow."
+      },
+      {
+        condition: "ACL Tear with Associated MCL Injury",
+        distinguishingFeatures: "Large acute effusion within hours, pop at time of injury, positive Lachman and pivot shift, and a sense of the knee giving way. An isolated MCL sprain typically produces more localized swelling over the ligament and a stable Lachman."
+      },
+      {
+        condition: "Posterolateral Corner Injury",
+        distinguishingFeatures: "Varus instability, increased external rotation at 30 degrees on the dial test, and often a hyperextension or posterolateral blow mechanism. Easy to miss when attention stays fixed on the obvious lateral-sided pain and commonly co-occurs with cruciate injuries."
+      },
+      {
+        condition: "Pes Anserine Bursitis or Tendinopathy",
+        distinguishingFeatures: "Pain two to three fingerbreadths below the medial joint line at the pes insertion rather than over the MCL proper, gradual onset with overuse rather than a distinct trauma, and no valgus laxity on stress testing."
+      },
+      {
+        condition: "Iliotibial Band Syndrome",
+        distinguishingFeatures: "Lateral knee pain at the epicondyle that can be confused with LCL pain, but it is reproduced by repetitive knee flexion-extension such as running rather than by varus stress, and there is no laxity on clinical testing."
+      },
+      {
+        condition: "Tibial Plateau or Proximal Fibula Fracture",
+        distinguishingFeatures: "High-energy mechanism, bony rather than ligamentous tenderness, and often inability to bear weight. Proximal fibula tenderness after a varus injury in particular should raise concern for an avulsion associated with LCL or posterolateral corner disruption and warrants imaging."
+      }
+    ],
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Protected Healing (Weeks 0 to 3)",
+        focus: "Control swelling, protect the ligament from further valgus or varus stress, restore range of motion within comfortable limits, and keep the quadriceps active. The Logerstedt et al. JOSPT CPG on knee stability and movement coordination impairments supports early protected motion over immobilization for collateral ligament injuries, because prolonged rest weakens both the ligament and the surrounding musculature.",
+        examples: [
+          "Quad sets and straight leg raises in all four planes to maintain quadriceps volume without valgus or varus load",
+          "Pain-free active and active-assisted knee flexion and extension, progressing range as guarding settles",
+          "Stationary bike once flexion reaches approximately 100 degrees, with a high seat and low resistance",
+          "Hinged knee brace for Grade II and III injuries during walking and light daily activity",
+          "Hip abductor and external rotator isometrics in standing or sidelying to preload proximal control"
+        ],
+        progressionCriteria: "Minimal to trace effusion, near-symmetrical range of motion, ability to walk without a limp inside the brace, quadriceps activation with no extension lag on straight leg raise, and pain-free low-load closed-chain work."
+      },
+      phase2: {
+        title: "Phase 2: Strength and Single-Leg Control (Weeks 3 to 8)",
+        focus: "Rebuild bilateral and single-leg strength, reintroduce frontal-plane loading under control, and restore confidence in valgus and varus directions. This is the phase where I see the most avoidable setbacks, because patients feel good and skip the slow work that actually protects the ligament.",
+        examples: [
+          "Progressive leg press, split squats, and Romanian deadlifts building toward limb symmetry above 80 percent",
+          "Step-ups and step-downs with a mirror or video check to catch knee collapse into valgus",
+          "Lateral band walks, single-leg hip thrusts, and Copenhagen adductor holds to load the medial chain under control",
+          "Single-leg balance progressions on firm then unstable surfaces, adding head and trunk movements",
+          "Pool running and gradual on-land jog-walk intervals once straight-line running is tolerated without reactive swelling"
+        ],
+        progressionCriteria: "Quadriceps and hamstring limb symmetry around 85 to 90 percent, pain-free single-leg squat with controlled frontal-plane alignment, and effusion that does not flare within 24 hours of training."
+      },
+      phase3: {
+        title: "Phase 3: Return to Cutting and Sport (Weeks 6 to 12+, grade-dependent)",
+        focus: "Reintroduce change-of-direction, deceleration, and contact tolerance. Grade I injuries often reach this phase around weeks 4 to 6. Grade III isolated MCL injuries more typically enter it at 8 to 12 weeks. The point of the phase is not calendar time, it is demonstrating that the knee tolerates the specific demands of the sport being returned to.",
+        examples: [
+          "Hop test battery including single hop for distance, triple hop, crossover hop, and timed 6 metre hop targeting limb symmetry of 90 percent or greater",
+          "Progressive change-of-direction work: 45 degree cuts, 90 degree cuts, then reactive cutting off a partner or cue",
+          "Plyometric progression from bilateral to unilateral landings, adding deceleration and lateral bounding",
+          "Sport-specific drills that reintroduce planned and unplanned valgus or varus loading under supervision",
+          "Return-to-contact progression for collision sports, starting with controlled drills before full competition"
+        ],
+        progressionCriteria: "Limb symmetry index of 90 percent or greater on strength and hop testing, clean change-of-direction mechanics without valgus collapse, no effusion response to training, and subjective confidence in the knee during sport-specific tasks."
+      }
+    },
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -8884,6 +9121,108 @@ This increased load on the facet joints can lead to inflammation and pain. Addit
       questionnaires: "Oswestry Disability Index to track functional limitations and assess improvement over time",
       activityTarget: "Maintaining your desired activity level while effectively managing symptom variability"
     },
+
+    differentialDiagnosis: [
+      {
+        condition: "Mechanical Low Back Pain (Non-Specific)",
+        distinguishingFeatures: "The more common label for the same clinical presentation. Most cases labelled as DDD on imaging behave like mechanical low back pain: variable, movement-responsive, no leg symptoms, normal neurological exam. Treatment is essentially the same, which is why the DDD label often adds fear without changing the plan."
+      },
+      {
+        condition: "Lumbar Radiculopathy",
+        distinguishingFeatures: "Leg pain that follows a dermatomal pattern, reproduced by straight leg raise or slump test, and often accompanied by specific myotomal weakness or a changed reflex. If true leg-dominant pain is present, the working diagnosis shifts from DDD toward disc-related radiculopathy."
+      },
+      {
+        condition: "Facet Joint Pain",
+        distinguishingFeatures: "Paraspinal pain worse with extension and rotation, better with flexion, and often pointed to with one or two fingers just lateral to the spine. Referral may reach the buttock or posterior thigh but rarely past the knee, with a normal neurological exam."
+      },
+      {
+        condition: "Spinal Stenosis",
+        distinguishingFeatures: "Leg-dominant pain or heaviness that develops with walking and standing, eased by sitting or leaning forward. More common in patients over 60. Pattern centres on positional neurogenic claudication rather than the flexion-aggravated pattern typical of DDD."
+      },
+      {
+        condition: "Sacroiliac Joint Pain",
+        distinguishingFeatures: "One-sided pain near the PSIS reproduced with a cluster of provocation tests (distraction, compression, thigh thrust, FABER, Gaenslen). Pain rarely extends below the knee and does not follow a dermatomal pattern."
+      },
+      {
+        condition: "Vertebral Compression Fracture",
+        distinguishingFeatures: "Localized, often point-tender pain after relatively minor trauma, or insidious onset in patients with osteoporosis risk factors or long-term corticosteroid use. Sharp pain with Valsalva, sit-to-stand, or sneezing. This is a medical imaging and physician referral question, not a DDD question."
+      }
+    ],
+
+    exerciseProgression: {
+      phase1: {
+        title: "Calming Symptoms and Building Confidence in Movement",
+        focus: "Reduce pain sensitivity, restore basic movement tolerance, and reframe what the DDD label actually means clinically. Education and graded exposure to movement are consistent first-line recommendations across the JOSPT CPG (George et al., 2021), the ACP guideline (Qaseem et al., 2017), and NICE NG59.",
+        examples: [
+          "Cat-cow and pelvic tilts, 10 slow repetitions, used as a morning mobility routine",
+          "Supported child's pose or prone on elbows, 2 to 3 minutes, guided by comfort",
+          "Short, frequent walking bouts of 10 to 15 minutes rather than one long walk",
+          "Diaphragmatic breathing and a simple pacing plan to break up long sitting",
+          "A plain-language explanation of imaging findings and what DDD is and is not"
+        ],
+        progressionCriteria: "Pain at rest is 2/10 or lower, daily walking reaches 20 to 30 minutes comfortably, and the patient can describe one or two activities they are doing more of rather than less."
+      },
+      phase2: {
+        title: "Building Trunk and Hip Capacity",
+        focus: "Rebuild capacity in the trunk, hips, and legs so the spine handles daily and occupational loads without repeated flares. Strengthening and graded loading are supported as first-line management across major low back pain guidelines.",
+        examples: [
+          "Bird dog and dead bug, 2 to 3 sets of 8 to 10 per side, emphasizing a neutral spine",
+          "Glute bridges progressing to single-leg bridges, 2 to 3 sets of 10",
+          "Goblet squat to a box, 3 sets of 8 to 10, depth guided by symptom response",
+          "Hip hinge patterning from broomstick to kettlebell deadlift, progressed by load",
+          "Side plank and suitcase carry to address lateral trunk and anti-rotation control"
+        ],
+        progressionCriteria: "A full workday tolerated without meaningful flare, loaded hinging and squatting at comfortable working loads, and flares (when they occur) settle within days rather than weeks."
+      },
+      phase3: {
+        title: "Returning to Full Activity and Managing the Long Game",
+        focus: "Match training to the real demands of the patient's life, whether that is gardening, heavy lifting at work, running, or recreational sport. The aim here is durability and a realistic self-management plan, since DDD is not something that goes away on imaging.",
+        examples: [
+          "Trap-bar or conventional deadlift built progressively from light loads, 3 to 4 sets of 5",
+          "Front-loaded squats or split squats at working loads, matched to patient goals",
+          "Farmer and suitcase carries for trunk and grip, 3 to 4 rounds of 30 to 40 metres",
+          "Graded return to running or sport using walk-run intervals as the entry point",
+          "A two to three day per week maintenance routine the patient can sustain independently"
+        ],
+        progressionCriteria: "Full work, home, and recreational demands tolerated with minimal symptoms, confidence in self-managing flares, and a simple written plan the patient owns."
+      }
+    },
+
+    faqs: [
+      {
+        question: "What does 'degenerative disc disease' actually mean?",
+        answer: "It is a descriptive imaging label, not a disease in the usual sense. It describes age-related changes in the discs such as loss of height, reduced water content, and small annular changes. Brinjikji et al. (AJNR 2015) found disc degeneration in 37% of completely pain-free 20-year-olds and 96% of asymptomatic 80-year-olds. The finding is so common in healthy people that it is closer to a description of the spine getting older than a diagnosis that explains symptoms on its own."
+      },
+      {
+        question: "My MRI looks scary. How worried should I be?",
+        answer: "In the vast majority of cases, much less worried than the report sounds. Terms like 'disc desiccation,' 'mild bulging,' 'facet arthropathy,' and 'degenerative changes' show up on the scans of many people with zero back pain. Jensen et al. (NEJM 1994) found disc bulges in 52% and protrusions in 27% of pain-free adults. I pay close attention to red flags and to the match between the scan and your actual symptoms, not to scary sounding words in isolation."
+      },
+      {
+        question: "Will this get worse over time?",
+        answer: "Disc imaging findings generally accumulate with age, but symptoms do not reliably follow the same curve. Plenty of people develop more imaging findings over the years without getting worse, and some feel better as flares become less frequent with conditioning. Worsening pain is not inevitable, and it is not a foregone conclusion that DDD seen in your 40s means disability in your 60s."
+      },
+      {
+        question: "Is there a cure for DDD?",
+        answer: "There is no treatment that reverses age-related disc changes, and that is the wrong question to aim at. The useful question is how to build a back that handles your life with fewer flares and faster recoveries. That is what exercise, strength work, education, and sensible load management do. ACP (Qaseem et al., 2017) and NICE NG59 both recommend non-pharmacological, active care as first-line."
+      },
+      {
+        question: "Should I stop lifting weights or running?",
+        answer: "Usually not. Strength training and running are two of the better long-term investments you can make for a back with DDD, provided load and progression are managed. Avoidance tends to deconditioning, which makes flares more frequent, not less. During an acute flare I temporarily pull back on heavy or deeply flexed loading, then rebuild systematically."
+      },
+      {
+        question: "Do I need surgery for degenerative disc disease?",
+        answer: "Very rarely. NICE NG59 explicitly recommends against spinal fusion for low back pain outside of a trial and against disc replacement for low back pain. Surgery can have a role in radiculopathy or stenosis that is not responding to thorough conservative care, but DDD alone is not typically a surgical problem."
+      },
+      {
+        question: "Will a back brace or corset help?",
+        answer: "Not meaningfully for DDD. NICE NG59 recommends against belts and corsets, foot orthotics, and rocker sole shoes for low back pain. They can feel reassuring short term, but they do not build the capacity that actually reduces flares."
+      },
+      {
+        question: "When should I worry about back pain with DDD?",
+        answer: "Seek medical review for loss of bladder or bowel control, saddle numbness, rapidly progressing leg weakness or foot drop, bilateral leg symptoms, unexplained weight loss, fever with back pain, or severe unrelenting night pain. These are not typical DDD patterns and warrant physician assessment before starting physiotherapy."
+      }
+    ],
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -10485,6 +10824,97 @@ The posterior drawer test demonstrates the primary dysfunction in PCL injuries -
       questionnaires: "Lysholm Knee Score and Tegner Activity Scale to monitor functional improvements and activity level progression",
       activityTarget: "Return to your desired sport or activity level with >90% quadriceps strength and confidence in knee stability"
     },
+    faqs: [
+      {
+        question: "Do I need surgery for a PCL tear?",
+        answer: "Isolated Grade I and II PCL injuries respond well to non-operative management in most cases, and even many Grade III isolated tears do surprisingly well with a quadriceps-focused program. Pierce et al. (AJSM 2013) and Wang et al. (JOSPT 2018) both support conservative care as the default for isolated injuries, reporting good functional outcomes and high return-to-sport rates. Surgery becomes more likely when the PCL injury is combined with ACL, posterolateral corner, or medial-sided ligament damage, or when persistent posterior instability limits daily function after a full rehabilitation trial."
+      },
+      {
+        question: "Why is my knee pain less dramatic than my friend's ACL tear?",
+        answer: "PCL injuries tend to be quieter than ACL tears, which is part of why they are missed. Swelling is often modest, the classic pop is less common, and many people describe a vague ache behind the knee with a sense of looseness rather than frank instability. The usual mechanisms are a direct blow to the front of a bent knee, a dashboard-style impact, or a fall onto a flexed knee with the foot pointed down. If any of that matches your story and the knee has not felt right, it is worth a careful exam including posterior drawer and sag sign."
+      },
+      {
+        question: "Why is the rehab so quadriceps-focused?",
+        answer: "Your quadriceps actively resists the tibia sliding backward, which is exactly the motion a damaged PCL fails to restrain. Stronger quadriceps means the tibia stays where it should during walking, stairs, squatting, and sport, even if the ligament itself never becomes fully tight again. That biomechanical logic is why the bulk of the evidence base and the Logerstedt JOSPT CPG lean heavily on progressive quadriceps loading as the central intervention."
+      },
+      {
+        question: "Why am I being told to avoid hamstring exercises early on?",
+        answer: "The hamstrings pull the tibia posteriorly, which is the exact direction of stress the healing PCL cannot tolerate well. In the first several weeks I avoid isolated hamstring curls and heavy Romanian deadlifts, not because hamstrings are bad but because the timing is wrong. As healing progresses, hamstring loading is reintroduced in ways that do not create a posterior shear force, and by the later phases of rehabilitation they are trained normally."
+      },
+      {
+        question: "How long until I can return to sport?",
+        answer: "For isolated Grade I and II injuries, return to sport is often possible around 3 months once strength and control criteria are met. Grade III isolated injuries typically take 4 to 6 months, sometimes longer for cutting and pivoting sports. The timeline depends more on objective markers, specifically quadriceps limb symmetry above 90 percent, pain-free single-leg work, and a tolerated return-to-running progression, than on a calendar."
+      },
+      {
+        question: "Do I need a brace?",
+        answer: "Dynamic PCL braces that apply an anterior force on the proximal tibia can be useful during the first 6 to 12 weeks of healing, particularly for Grade II and III injuries, because they reduce posterior sag while loading begins. I do not use them forever. The aim is to rely on quadriceps strength and neuromuscular control by the later phases rather than on external support."
+      },
+      {
+        question: "Will I get arthritis from this?",
+        answer: "Long-term data show a modest rise in radiographic osteoarthritis after PCL injury even with non-operative management, more so when there is associated meniscus or cartilage damage. That said, most people maintain good subjective function for more than a decade after isolated PCL injury when rehabilitated well. This is part of why I take the quadriceps program seriously: muscle-driven control of tibial position is the most practical tool for protecting the joint surface over time."
+      }
+    ],
+    differentialDiagnosis: [
+      {
+        condition: "ACL Tear",
+        distinguishingFeatures: "Large acute hemarthrosis, audible pop, positive Lachman and pivot shift, and prominent rotational instability with cutting. PCL tears typically show less dramatic effusion and positive posterior drawer or sag sign rather than anterior laxity."
+      },
+      {
+        condition: "Posterolateral Corner Injury",
+        distinguishingFeatures: "Varus instability, increased external rotation at 30 degrees on the dial test, and often coexists with PCL injury. When the dial test shows increased external rotation at both 30 and 90 degrees, it suggests combined PCL and PLC involvement, which changes surgical decision-making."
+      },
+      {
+        condition: "Posterior Meniscal Root Tear",
+        distinguishingFeatures: "Posterior knee pain and mechanical symptoms without the characteristic PCL mechanism, imaging showing meniscal extrusion or root disruption, and a negative posterior drawer. Can mimic the vague posterior ache of a PCL injury but without posterior tibial translation on exam."
+      },
+      {
+        condition: "Proximal Tibiofibular Joint Injury",
+        distinguishingFeatures: "Pain and tenderness localized to the proximal fibula rather than the popliteal fossa, anterior or posterior fibular head translation on palpation, and often a twisting mechanism with the knee flexed and foot inverted. Can co-exist with LCL or PLC injury."
+      },
+      {
+        condition: "Baker's Cyst or Posterior Capsule Strain",
+        distinguishingFeatures: "Posterior knee fullness and tightness often secondary to an intra-articular problem such as meniscus tear or arthritis, without the posterior drawer findings of a PCL injury. Usually gradual or post-activity rather than tied to a specific dashboard-type mechanism."
+      }
+    ],
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Protect the Ligament and Wake Up the Quadriceps (Weeks 0 to 6)",
+        focus: "Minimize posterior tibial translation, maintain range of motion without forcing deep flexion, and re-establish confident quadriceps activation. The Pierce et al. (AJSM 2013) and Bedi Sports Med Arthrosc Rev protocols both emphasize prone positioning, quadriceps-dominant loading, and avoidance of isolated hamstring contraction during this window.",
+        examples: [
+          "Quad sets and straight leg raises performed supine with a small towel roll under the ankle to support full extension",
+          "Prone knee flexion active-assisted to around 90 degrees, avoiding forced hyperflexion in the first few weeks",
+          "Patellar mobilizations in all four directions to keep the quadriceps mechanism gliding",
+          "Mini-squats and wall sits to a shallow angle, keeping the tibia forward rather than allowing posterior sag",
+          "Dynamic PCL brace during walking and daily activity for Grade II and III injuries"
+        ],
+        progressionCriteria: "Full symmetrical knee extension, flexion to approximately 110 to 120 degrees, trace or absent effusion, clean quadriceps activation with no extension lag, and pain-free walking in the brace as surgical or conservative protocol allows."
+      },
+      phase2: {
+        title: "Phase 2: Strength, Single-Leg Control, and Return to Running (Weeks 6 to Month 4)",
+        focus: "Build real strength in the quadriceps and hip, slowly reintroduce controlled hamstring loading, and prepare the knee for running. Wang et al. (JOSPT 2018) reported strong functional outcomes from protocols that progress closed-chain loading steadily while keeping the tibia anteriorly supported.",
+        examples: [
+          "Leg press, heel-elevated squats, and Bulgarian split squats emphasizing quadriceps dominance and a forward tibia",
+          "Step-ups and step-downs with attention to knee tracking and absence of posterior sag",
+          "Hip thrusts and glute bridges for posterior chain work without isolated hamstring shear",
+          "Progressive hamstring reintroduction starting with long-lever isometrics and advancing to Nordic progressions in the late phase only",
+          "Return-to-running program beginning with treadmill walk-jog intervals once strength criteria are met, typically around month 3"
+        ],
+        progressionCriteria: "Quadriceps limb symmetry approaching 85 to 90 percent on dynamometry, pain-free single-leg squat to 60 degrees with controlled alignment, tolerance of straight-line jogging without reactive effusion, and minimal posterior sag on clinical testing."
+      },
+      phase3: {
+        title: "Phase 3: Return to Sport and Performance (Month 4 to 6+)",
+        focus: "Complete hop and strength testing, reintroduce cutting and deceleration, and layer in sport-specific demands. Objective discharge criteria are what drive clearance, not the calendar.",
+        examples: [
+          "Full hop test battery: single hop, triple hop, crossover hop, and 6 metre timed hop targeting limb symmetry of 90 percent or greater",
+          "Handheld or isokinetic quadriceps testing aiming for limb symmetry of 90 percent or greater",
+          "Progressive plyometrics from bilateral to unilateral landings, adding deceleration and bounding tasks",
+          "Change-of-direction work starting with planned cuts at 45 and 90 degrees, progressing to reactive cutting with a partner or cue",
+          "Sport-specific drills and graded return-to-contact progression for collision athletes"
+        ],
+        progressionCriteria: "Limb symmetry index of 90 percent or greater on strength and hop testing, minimal to no posterior sag, clean mechanics on change-of-direction work, no effusion response to training, and subjective confidence in the knee during sport-specific loads."
+      }
+    },
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -10637,6 +11067,123 @@ When ankle proprioception is impaired following sprains, the peroneal muscles mu
       questionnaires: "Foot and Ankle Ability Measure (FAAM) and Victorian Institute of Sport Assessment-Achilles (VISA-A) adapted for peroneal tendons",
       activityTarget: "Return to your desired activities including sports and uneven terrain walking without recurring lateral ankle pain"
     },
+
+    differentialDiagnosis: [
+      {
+        condition: "Chronic Lateral Ankle Ligament Injury or Instability",
+        distinguishingFeatures: "Pain sits over the anterior talofibular or calcaneofibular ligaments at the outside of the joint, with a history of one clear sprain and a feeling that the ankle gives way on uneven ground. The peroneal tendons themselves feel comfortable on resisted eversion, and tenderness does not track behind and below the lateral malleolus in the way tendinopathy does. The two often coexist, so the clinical question is which one is currently driving symptoms."
+      },
+      {
+        condition: "Peroneal Tendon Tear or Subluxation",
+        distinguishingFeatures: "A palpable snap or a feeling of the tendons flicking over the back of the lateral malleolus during active foot eversion points toward subluxation rather than straightforward tendinopathy. A sharp increase in pain with a specific cutting or landing event, persistent swelling, and a tendon that feels thickened with a focal divot on palpation raise concern for a split or partial tear and change the imaging threshold."
+      },
+      {
+        condition: "Lateral Ankle Bone Stress Injury",
+        distinguishingFeatures: "Pain is reproduced with bony percussion or side-to-side compression of the fibula rather than with resisted eversion. Weight-bearing pain persists regardless of warm-up, and night pain at rest is more common. Recent rapid training progression in a runner or hiker, or a stress riser like a single long day on rough terrain, raises suspicion."
+      },
+      {
+        condition: "Sinus Tarsi Syndrome",
+        distinguishingFeatures: "Pain localises to the small depression just in front of the lateral malleolus, worst on uneven ground and when landing from a hop with the foot everted. The peroneal tendons themselves are non-tender and resisted eversion is comfortable. A history of repeated ankle sprains with persistent lateral ankle discomfort is typical."
+      },
+      {
+        condition: "Sural Nerve Irritation",
+        distinguishingFeatures: "The pain has a burning or tingling quality and follows the outer border of the foot rather than sitting in the tendon. Light percussion over the nerve behind the lateral malleolus reproduces symptoms, while resisted eversion and direct tendon loading do not. Tight boot tops or a previous surgical scar are common contributors."
+      },
+      {
+        condition: "Cuboid Syndrome",
+        distinguishingFeatures: "Deep pain on the outer midfoot rather than behind the lateral malleolus, often with a sense of something clunking or locking when pushing off. Cuboid-specific provocation such as direct plantar pressure under the cuboid reproduces the symptoms. Peroneal tendon palpation is usually comfortable, and resisted eversion is not the primary reproducer."
+      }
+    ],
+
+    faqs: [
+      {
+        question: "Why does the outside of my ankle hurt if I did not roll it recently?",
+        answer: "A history of rolled ankles years ago still matters. Once the lateral ligaments have been stretched, the peroneal tendons take on more of the stabilising work during walking and running, particularly on uneven ground. Over time that extra demand can overload the tendons even without a fresh sprain. This is why peroneal tendinopathy and chronic ankle instability so often travel together, and why rehab has to address both the tendon and the underlying instability rather than only the painful side."
+      },
+      {
+        question: "How long does peroneal tendinopathy usually take to settle?",
+        answer: "Most people see meaningful change inside 8 to 12 weeks of consistent loading, with full return to running, hiking, or cutting sports often landing in the 3 to 6 month range. Cases that have been grumbling for over a year, or that have developed on a background of untreated ankle instability, take longer. The two biggest predictors of a faster timeline are catching it early and sticking with a progressive loading program rather than cycling through rest, flare, rest."
+      },
+      {
+        question: "Should I rest completely, or keep moving?",
+        answer: "Complete rest is rarely the answer. The tendon needs load to remodel, and long periods off just delay the conversation. Most people do better on a modified plan: drop the aggravating volume by roughly a third, swap uneven-terrain running for flatter surfaces for a few weeks, and add a specific peroneal loading program twice weekly. The 24-hour rule is the gatekeeper. If pain during activity stays under about 5 out of 10 and settles within 24 hours, the dosage is acceptable."
+      },
+      {
+        question: "Do orthotics help peroneal tendinopathy?",
+        answer: "They can, particularly when the foot sits in chronic inversion or when an old cavus (high-arched) foot posture is overloading the lateral column. A lateral wedge or a lateral flare on the orthotic offloads the peroneals during stance. Orthotics are a support, not a cure. I use them as a bridge while strengthening rebuilds capacity, not as a long-term substitute for the loading program."
+      },
+      {
+        question: "What is the difference between peroneal tendinopathy and an ankle sprain that just will not heal?",
+        answer: "A typical lateral ankle sprain irritates the anterior talofibular ligament at the front of the joint, and symptoms usually centre on a specific spot just below the bony bump on the outside. Peroneal tendinopathy sits behind and below that bump, travels down the outer foot, and is reliably reproduced by resisted eversion. Sprains that do not settle after 6 to 8 weeks often have a peroneal component that has been missed, and the rehab needs to shift toward tendon loading rather than early-sprain protocols."
+      },
+      {
+        question: "Can I keep running with peroneal tendinopathy?",
+        answer: "Usually yes, with adjustments. Dropping weekly mileage by around a third, running on flatter surfaces temporarily, and spacing runs at least 48 hours apart gives the tendon time to adapt. Hills, trails, and speed work come back last. If the pain climbs above 5 out of 10 during runs, or morning stiffness starts lasting more than 15 minutes, the loading has outpaced the tendon and the plan needs to scale back for a week or two."
+      },
+      {
+        question: "Is an ankle brace a good idea, or does it make me weaker?",
+        answer: "In the short term, a lace-up brace during higher-risk activity, such as trail runs, basketball, or hiking, reduces inversion torque on the tendon and often allows training to continue. It does not weaken the foot provided rehab keeps building strength underneath it. The brace is a partner to the loading program, not a replacement. Most people phase it out once tolerance is back and balance work is consistent."
+      }
+    ],
+
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Calming the Tendon and Reclaiming Balance (Weeks 1 to 4)",
+        focus: "Bring day-to-day symptoms down to a workable level and begin to restore the peroneal activation that typically lags after sprain-related instability. Isometric eversion is the anchor loading exercise, because it loads the tendon heavily without the repeated length changes that often provoke early irritation. Balance work rebuilds the proprioceptive input the lateral ankle has lost, given the delayed peroneal activation documented in chronic ankle instability research.",
+        examples: [
+          "Isometric eversion against a wall or a stable band, 5 sets of 45 seconds at a moderate effort, once daily",
+          "Seated band eversion for isotonic tolerance, 3 sets of 12 to 15, slow tempo",
+          "Single-leg balance on firm ground, eyes open, progressing to eyes closed, 3 sets of 30 seconds",
+          "Calf raise variations on flat ground, 3 sets of 12, to share load with the triceps surae",
+          "Activity modification: reduce uneven-terrain running and hill work by roughly 50 percent, keep volume on flatter surfaces"
+        ],
+        progressionCriteria: "Pain during isometric eversion at or below 3 out of 10 for 7 consecutive days, single-leg balance on firm ground for 30 seconds without wobble, and no symptom rise 24 hours after loading sessions."
+      },
+      phase2: {
+        title: "Phase 2: Progressive Loading and Instability Challenge (Weeks 4 to 10)",
+        focus: "Build peroneal strength through range and add graded instability. Progressive loading is the common thread across tendon rehab, and for this group it pairs naturally with the balance retraining that addresses the underlying chronic ankle instability picture. Some discomfort during loading is acceptable provided it settles within 24 hours and does not climb week over week.",
+        examples: [
+          "Heavy slow resistance eversion with a long band or cable, 3 sets of 6 to 10 reps, 3 seconds out and 3 seconds back, 3 times per week",
+          "Eccentric eversion with a manual overload, focusing on slow return from the everted position, 3 sets of 8 to 10",
+          "Single-leg calf raise with the heel off a small step, 3 sets of 8 to 12, emphasising control on descent",
+          "Single-leg balance on a foam pad or Airex, with reaches in multiple directions, 3 sets of 8 per direction per side",
+          "Walking lunges and lateral step-ups to load the foot in functional positions, 3 sets of 8 to 10"
+        ],
+        progressionCriteria: "Heavy slow resistance eversion tolerated at 3 out of 10 pain or less, single-leg heel raise at full range for 15 reps per side, stable balance on foam for 30 seconds with eyes closed, and two consecutive weeks of loading without a 24-hour flare."
+      },
+      phase3: {
+        title: "Phase 3: Return to Terrain, Cutting, and Sport (Months 3 to 6)",
+        focus: "Restore the reactive stability the peroneal tendons are asked to deliver on uneven ground and in sport. Hopping, cutting, and landing rebuild the spring-like function the tendon needs, and trail or court surfaces are reintroduced gradually rather than in one jump. This phase also consolidates the instability work, since the highest recurrence risk sits in people who return to sport with the tendon settled but the ankle still underprepared.",
+        examples: [
+          "Double-leg pogo hops progressing to single-leg hops in place on firm ground, 3 sets of 15 to 20",
+          "Lateral hop-and-stick onto the affected leg, 3 sets of 8, with a 2-second hold on landing",
+          "Cutting drills starting at 45 degrees and progressing to 90, at submaximal then maximal intent",
+          "Graded return to trail, hill, or uneven-surface training, using the 10 percent weekly volume rule",
+          "Sport-specific reintegration, such as change of direction drills for soccer or court sports, in blocks with full recovery between"
+        ],
+        progressionCriteria: "Single-leg hop symmetry within 10 percent of the unaffected side, return to previous training volume and terrain without next-day flares, FAAM Sport subscale trending toward pre-injury levels, and two consecutive weeks of full training without a symptom rise."
+      }
+    },
+
+    patternMatcher: {
+      clusterKey: 'foot-ankle',
+      markers: [
+        { questionId: 'pain_under_heel_plantar', signal: 'no' },
+        { questionId: 'pain_back_of_heel_or_cord', signal: 'no' },
+        { questionId: 'pain_medial_arch_or_below_inner_ankle', signal: 'no' },
+        { questionId: 'pain_forefoot_between_toes', signal: 'no' },
+        { questionId: 'pain_lateral_foot_or_behind_outer_ankle', signal: 'strong_yes' },
+        { questionId: 'first_step_morning_pain', signal: 'neutral' },
+        { questionId: 'warms_up_then_worse_after', signal: 'yes' },
+        { questionId: 'arch_collapse_or_cant_rise_on_toes', signal: 'no' },
+        { questionId: 'better_in_wide_toe_box', signal: 'neutral' },
+        { questionId: 'history_of_rolled_ankles', signal: 'strong_yes' },
+        { questionId: 'pain_with_push_off_running', signal: 'yes' },
+        { questionId: 'numbness_or_burning_in_toes', signal: 'no' },
+      ],
+    },
+
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -10861,6 +11408,96 @@ Conservative treatment success depends heavily on early intervention and patient
       questionnaires: "Foot and Ankle Ability Measure (FAAM) for overall function, American Orthopedic Foot and Ankle Society (AOFAS) Hindfoot Scale for condition-specific outcomes, and Visual Analog Scales for pain tracking",
       activityTarget: "Maintain or improve your desired activity level with appropriate arch support while preventing deformity progression"
     },
+
+    faqs: [
+      {
+        question: "My arch is dropping and the inside of my ankle hurts. Is this actually treatable without surgery?",
+        answer: "In early stages, yes, and the evidence is surprisingly strong on this. Alvarez and colleagues reported in Foot and Ankle International that a structured non-operative protocol combining a short articulated brace or orthosis with high-repetition tibialis posterior strengthening produced a good outcome in roughly 89 percent of patients with stage I or II disease. Kulig and colleagues in Physical Therapy showed that adding eccentric or concentric resistive exercise to orthoses and stretching further reduced pain and improved function. The common thread is early recognition and consistent orthotic use paired with a real strengthening program, rather than rest alone."
+      },
+      {
+        question: "Why cannot I rise up on my toes on the painful side anymore?",
+        answer: "A single-leg heel rise depends on the posterior tibial tendon inverting the heel and locking the midfoot so the calf can push through a stable lever. When the tendon has failed, the heel cannot invert, the midfoot stays mobile, and the calf pushes into a collapsing arch rather than a rigid foot. The heel rise falters or does not happen at all. It is one of the most reliable signs in the clinic, and the gradual return of that movement is one of the first things I track as rehab progresses."
+      },
+      {
+        question: "Do I really have to wear the orthotic all the time?",
+        answer: "In the early months, largely yes. The orthotic is doing the work the tendon currently cannot, which is what gives the tendon a chance to adapt without the arch continuing to collapse under it. Alvarez's protocol used a short articulated brace for the early phase before transitioning to a functional foot orthosis. Long term, many patients taper down to wearing the orthosis only during higher-demand standing and walking, but this is a stepwise reduction as strength returns, not an immediate choice."
+      },
+      {
+        question: "What is the difference between posterior tibial tendon dysfunction and plantar fasciitis?",
+        answer: "Plantar fasciitis sits in the heel under the sole and is worst on the first steps in the morning. Posterior tibial tendon dysfunction sits along the inside of the ankle and arch, can ache throughout a long day of standing rather than just in the morning, and is often paired with a visibly dropping arch and difficulty rising onto the toes. The two can coexist, which is part of why a careful exam matters more than self-diagnosis from a search engine."
+      },
+      {
+        question: "How did this even start? I do not remember an injury.",
+        answer: "That is typical. Johnson and Strom's original 1989 description and most subsequent work describe an insidious onset, often in women over 40, sometimes triggered by a modest increase in standing or walking, a weight gain, or a stretch of unsupportive footwear. Diabetes, inflammatory arthritis, and prior ankle trauma raise the risk. The tendon does not fail in a single moment. It fails slowly under cumulative load until the arch begins to give and the pain pattern becomes recognisable."
+      },
+      {
+        question: "Will the arch come back once I start strengthening?",
+        answer: "Not usually. Once the spring ligament and surrounding tissues have stretched, the shape of the foot rarely reverses fully even with successful rehab. The realistic goal is to halt further collapse, regain function, and get the pain down. Many people return to long walks, hiking, and standing-intensive work with a flatter foot that is strong, controlled, and comfortable, which is a very different situation from one that is flattening further every year."
+      },
+      {
+        question: "When is surgery actually on the table?",
+        answer: "Surgery enters the conversation when the deformity becomes rigid, when the hindfoot no longer corrects passively, or when conservative care has been done well for at least six months without meaningful improvement. Stage III and IV disease, where the subtalar or ankle joint is involved, typically exceeds what rehabilitation alone can address. Before that point, the priority is giving a well-structured orthotic and loading program a genuine trial, because most stage I and II patients do not end up in the surgical path."
+      }
+    ],
+
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Offloading and Re-engaging the Tendon (Weeks 1 to 6)",
+        focus: "Protect the tendon from the pronation loads that have been overwhelming it, and start waking up tibialis posterior activation. The Alvarez and Kulig protocols both begin with consistent orthotic or brace wear as the floor of the program, then layer in high-repetition, low-load exercise. Day-to-day the aim is a clearly less painful foot at the end of a standing day, even if the heel rise is not yet back.",
+        examples: [
+          "Consistent wear of a functional foot orthosis or articulated ankle-foot brace during all weight-bearing, as framed in the Alvarez protocol",
+          "Seated heel rises with the knee extended and a towel under the toes, 3 sets of 15 to 20, slow and controlled",
+          "Resisted foot inversion with a long band, seated, 3 sets of 15 to 20, emphasising a clean, slow movement rather than speed",
+          "Short-foot holds: gently doming the arch without curling the toes, 3 sets of 10 with 10-second holds",
+          "Reduce prolonged standing blocks where possible, and rotate supportive footwear rather than spending the day in flat, flexible shoes"
+        ],
+        progressionCriteria: "End-of-day medial ankle pain down meaningfully from baseline for 7 consecutive days, at least a half heel rise on the affected side, and orthosis or brace well tolerated during the full waking day."
+      },
+      phase2: {
+        title: "Phase 2: Progressive Loading and Single-Leg Control (Weeks 6 to 16)",
+        focus: "Build tendon capacity with progressively heavier, slower eccentric and concentric work. Kulig and colleagues in Physical Therapy reported moderate additional benefit when eccentric tibialis posterior resistive exercise was added to orthoses and stretching, compared with orthoses and stretching alone. The bent-knee heel rise biases the soleus and tibialis posterior complex and is a better fit for this condition than a straight-knee heel rise early on.",
+        examples: [
+          "Double-leg heel rises with the heels pushed slightly into inversion at the top, 3 sets of 12 to 15, 3 seconds up and 3 seconds down",
+          "Progress to single-leg heel rise on the affected side, starting at partial range and building toward full height and 15 reps per side",
+          "Resisted eccentric foot inversion from an everted position, with a band or manual overload, 3 sets of 10",
+          "Single-leg balance with a forward reach, on firm ground first, progressing to a foam pad, 3 sets of 8 per direction",
+          "Continued orthotic use during all standing and walking; gastrocnemius and soleus stretching daily to keep ankle dorsiflexion honest"
+        ],
+        progressionCriteria: "Single-leg heel rise for at least 10 clean reps per side, medial ankle pain at 3 out of 10 or less during loading, and two consecutive weeks without next-day symptom flares following heavier sessions."
+      },
+      phase3: {
+        title: "Phase 3: Return to Walking Volume and Activity (Months 4 to 6+)",
+        focus: "Rebuild tolerance for long walks, standing-intensive work, and, where appropriate, low-impact running or hiking. This is not a return-to-sprint phase for most patients. The goal is a comfortable, capable foot in daily life, and a structure that does not continue to deform. Ongoing orthotic use and twice-weekly maintenance loading keep the gains.",
+        examples: [
+          "Walking volume progression on softer surfaces, using a 10 percent weekly increase as the cap",
+          "Step-ups and step-downs with controlled foot posture, 3 sets of 8 to 10",
+          "Loaded carries and farmer's walks with the orthotic in place, to rebuild standing and carrying tolerance",
+          "Graded low-impact cardio: cycling, swimming, or elliptical work maintained throughout, with gradual reintroduction of hiking if tolerated",
+          "Twice-weekly single-leg heel rise work at heavier loads as maintenance, indefinitely"
+        ],
+        progressionCriteria: "Return to previous daily standing and walking demands without end-of-day medial ankle pain, FAAM scores trending toward pre-symptom levels, and no further visible arch collapse on clinical reassessment over 8 weeks."
+      }
+    },
+
+    patternMatcher: {
+      clusterKey: 'foot-ankle',
+      markers: [
+        { questionId: 'pain_under_heel_plantar', signal: 'no' },
+        { questionId: 'pain_back_of_heel_or_cord', signal: 'no' },
+        { questionId: 'pain_medial_arch_or_below_inner_ankle', signal: 'strong_yes' },
+        { questionId: 'pain_forefoot_between_toes', signal: 'no' },
+        { questionId: 'pain_lateral_foot_or_behind_outer_ankle', signal: 'no' },
+        { questionId: 'first_step_morning_pain', signal: 'neutral' },
+        { questionId: 'warms_up_then_worse_after', signal: 'neutral' },
+        { questionId: 'arch_collapse_or_cant_rise_on_toes', signal: 'strong_yes' },
+        { questionId: 'better_in_wide_toe_box', signal: 'neutral' },
+        { questionId: 'history_of_rolled_ankles', signal: 'neutral' },
+        { questionId: 'pain_with_push_off_running', signal: 'yes' },
+        { questionId: 'numbness_or_burning_in_toes', signal: 'no' },
+      ],
+    },
+
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -11087,6 +11724,92 @@ It's important to understand that once the nerve has thickened significantly, so
       questionnaires: "Foot and Ankle Ability Measure (FAAM) for functional assessment, Manchester-Oxford Foot Questionnaire (MOXFQ) for quality of life, and Visual Analog Scales for specific symptom tracking",
       activityTarget: "Return to desired activities and professional footwear requirements without forefoot pain or functional limitations"
     },
+
+    faqs: [
+      {
+        question: "Why does it feel like there is a pebble or a lump in my shoe when there is nothing there?",
+        answer: "That phantom pebble feeling is one of the most recognisable features of Morton's neuroma. The enlarged nerve sits between the bones of the forefoot, and during push-off the metatarsal heads squeeze it. The brain interprets the pressure and altered nerve signalling as something under the foot rather than as a nerve problem. People try different insoles and shoes for months before realising the sensation is coming from inside the foot, not outside it."
+      },
+      {
+        question: "Do I really have to give up the shoes I like?",
+        answer: "Not forever, and not entirely, but during the active treatment phase the shoe choice is doing most of the work. Narrow toe boxes and raised heels push the metatarsal heads together and drive pressure up through the forefoot, which is exactly what the irritated nerve cannot tolerate. A wider toe box and a heel under about 2 cm, used consistently for a few months, gives the nerve a chance to settle. Many people return to a dressier shoe afterwards, but often on a more selective basis than before."
+      },
+      {
+        question: "Is a cortisone injection a shortcut I should take?",
+        answer: "It can help, but I rarely lead with it. The evidence supports ultrasound-guided corticosteroid injection as an effective option when conservative measures have not resolved symptoms, with reasonable pain relief reported over months. The issue is that the mechanical cause, often footwear and forefoot loading, does not change with the injection. If those are not corrected, the pain tends to come back. I prefer to get the mechanical picture settled first, then consider injection if genuine conservative care has not moved the needle."
+      },
+      {
+        question: "How do metatarsal pads actually help, and where do they go?",
+        answer: "A metatarsal pad sits behind the painful interspace, not on top of it. By lifting the metatarsal shafts from behind, the pad opens up the space between the metatarsal heads during push-off and takes the squeeze off the nerve. Placement matters. A pad set too far forward often makes symptoms worse, because it pushes directly into the sensitive area rather than behind it. Getting the position right is usually the difference between a pad that clearly helps and one that the patient quickly abandons."
+      },
+      {
+        question: "Will this ever go away completely, or am I stuck managing it forever?",
+        answer: "Most well-treated cases settle substantially, and many people return to pain-free daily life. What does not always fully reverse is the nerve thickening itself, which may stay somewhat enlarged even after pain resolves. A subset of patients have mild residual numbness in the affected toes as a trade-off for eliminating the shock-like pain. Systematic reviews of conservative care are consistent that early recognition and footwear modification produce the best outcomes, and late-stage cases need more aggressive options."
+      },
+      {
+        question: "What is the difference between Morton's neuroma and metatarsalgia?",
+        answer: "Metatarsalgia describes mechanical overload under the metatarsal heads, often with calluses and a bruised, aching quality. Morton's neuroma is a nerve problem between the metatarsal heads, with electric shock, burning, or tingling radiating into the toes, often with a sense of something underfoot. They can coexist. When both are present, the treatment order usually goes footwear first, then forefoot offloading, then a closer look at which component is lingering."
+      }
+    ],
+
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Calming the Nerve and Offloading the Forefoot (Weeks 1 to 4)",
+        focus: "Reduce the squeeze on the nerve during walking, then introduce gentle mobility work around the forefoot. Most of the phase 1 improvement comes from footwear change, targeted metatarsal padding, and a genuine drop in time spent in restrictive shoes. Exercise in this phase is supportive rather than curative.",
+        examples: [
+          "Daily wear of a shoe with a clearly wider toe box and a heel under roughly 2 cm, during work, commuting, and errands",
+          "Metatarsal pad placed proximal to the painful interspace, positioned by a clinician initially, then checked for tolerance over the first week",
+          "Toe splay and toe spreader use at home for 5 to 10 minutes, to counter the forefoot compression built up over years of narrow shoes",
+          "Gentle interdigital mobilisation: pinching the skin between the toes and separating them softly, 10 slow repetitions per interspace, daily",
+          "Activity modification: reduce long walks in the aggravating shoes, and spend part of each day barefoot or in a foot-shaped sandal around the home"
+        ],
+        progressionCriteria: "Symptom-free walking for 20 to 30 minutes in a wider shoe with the metatarsal pad in place, forefoot pain during the day down meaningfully from baseline, and no flare-ups requiring shoe removal mid-day for 7 consecutive days."
+      },
+      phase2: {
+        title: "Phase 2: Building Intrinsic Foot Capacity (Weeks 4 to 10)",
+        focus: "Once the nerve has calmed, rebuild the strength and control of the intrinsic foot muscles that support the transverse arch. Stronger intrinsics help share forefoot load across all five metatarsal heads rather than concentrating it between the middle three, which is part of what drove the problem in the first place. This phase runs alongside continued wide toe box wear and metatarsal pad use.",
+        examples: [
+          "Short-foot exercise: gently shortening the arch by pulling the ball of the foot toward the heel without curling the toes, 3 sets of 10 with 10-second holds",
+          "Toe splay holds, actively spreading the toes apart, 3 sets of 10 with 5-second holds, progressing from seated to standing",
+          "Towel scrunches and toe pickups to train intrinsic foot control, 2 sets of 15 to 20 reps per foot",
+          "Single-leg balance on firm ground with a neutral foot posture, 3 sets of 30 to 45 seconds, progressing to a foam pad",
+          "Calf raise variations with the heel moving cleanly over the second toe, 3 sets of 12 to 15, to reinforce forefoot alignment during push-off"
+        ],
+        progressionCriteria: "A visible short-foot hold without toe clawing, single-leg balance on foam for 30 seconds with a stable forefoot, and a normal daily walking volume in appropriate shoes without forefoot pain or the pebble sensation."
+      },
+      phase3: {
+        title: "Phase 3: Return to Activity and Long-Term Footwear Strategy (Months 3+)",
+        focus: "Rebuild tolerance for the activities that previously provoked symptoms, including longer walks, running where relevant, and the occasional narrower or dressier shoe. The long-term strategy is not total shoe avoidance but informed shoe choice, with daily wear anchored in foot-shaped footwear and narrower shoes used selectively.",
+        examples: [
+          "Gradual progression of walking or running volume using a 10 percent weekly cap, with forefoot strike reintroduced cautiously if relevant",
+          "Intrinsic foot strengthening continued twice weekly as maintenance, rather than daily",
+          "Selective reintroduction of narrower or dressier shoes for shorter blocks, paired with recovery time in wider shoes rather than all-day wear",
+          "Bodyweight or light load calf and single-leg work maintained to keep the forefoot mechanics honest",
+          "Periodic footwear reviews every 6 to 12 months, because sock thickness, shoe wear, and foot shape all change over time"
+        ],
+        progressionCriteria: "Return to preferred activities without forefoot pain or numbness, symptom-free tolerance of previously aggravating shoes for meaningful blocks of time, and a clear long-term footwear plan that the patient feels willing to stick with."
+      }
+    },
+
+    patternMatcher: {
+      clusterKey: 'foot-ankle',
+      markers: [
+        { questionId: 'pain_under_heel_plantar', signal: 'no' },
+        { questionId: 'pain_back_of_heel_or_cord', signal: 'no' },
+        { questionId: 'pain_medial_arch_or_below_inner_ankle', signal: 'no' },
+        { questionId: 'pain_forefoot_between_toes', signal: 'strong_yes' },
+        { questionId: 'pain_lateral_foot_or_behind_outer_ankle', signal: 'no' },
+        { questionId: 'first_step_morning_pain', signal: 'no' },
+        { questionId: 'warms_up_then_worse_after', signal: 'neutral' },
+        { questionId: 'arch_collapse_or_cant_rise_on_toes', signal: 'no' },
+        { questionId: 'better_in_wide_toe_box', signal: 'strong_yes' },
+        { questionId: 'history_of_rolled_ankles', signal: 'no' },
+        { questionId: 'pain_with_push_off_running', signal: 'yes' },
+        { questionId: 'numbness_or_burning_in_toes', signal: 'strong_yes' },
+      ],
+    },
+
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 

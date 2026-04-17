@@ -38,31 +38,26 @@ const regionHubs: {
   slug: string;
   label: string;
   blurb: string;
-  glyph: string;
 }[] = [
   {
     slug: 'hip-pain',
     label: 'Hip Pain',
     blurb: 'Lateral hip, groin, deep buttock pain, and what the pattern usually points to.',
-    glyph: 'Hip',
   },
   {
     slug: 'knee-pain',
     label: 'Knee Pain',
     blurb: 'Front, inside, outside, or back-of-knee pain, mapped to the most likely causes.',
-    glyph: 'Knee',
   },
   {
     slug: 'shoulder-pain',
     label: 'Shoulder Pain',
     blurb: 'Rotator cuff, stiffness, impingement, and instability sorted by symptom pattern.',
-    glyph: 'Shldr',
   },
   {
     slug: 'elbow-pain',
     label: 'Elbow Pain',
     blurb: 'Tennis elbow, golfer\u2019s elbow, nerve irritation, and elbow stiffness at a glance.',
-    glyph: 'Elbow',
   },
 ];
 
@@ -134,9 +129,6 @@ export default function PopularConditionsSection() {
                   prefetch={false}
                   className="group relative rounded-xl border border-slate-200 bg-white p-4 md:p-6 transition-all duration-300 hover:border-[#B08D57] hover:shadow-lg hover:-translate-y-0.5"
                 >
-                  <div className="flex items-center justify-center w-11 h-11 md:w-12 md:h-12 mb-3 md:mb-4 rounded-full bg-[#B08D57]/10 border border-[#B08D57]/20 text-[#8A6F0A] text-[11px] md:text-xs font-semibold tracking-wide group-hover:bg-[#B08D57]/15 transition-colors">
-                    {region.glyph}
-                  </div>
                   <h3 className="text-base md:text-lg font-medium text-slate-900 leading-tight group-hover:text-[#B08D57] transition-colors">
                     {region.label}
                   </h3>

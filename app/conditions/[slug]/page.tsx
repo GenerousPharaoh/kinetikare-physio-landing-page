@@ -22,6 +22,7 @@ import { LOW_BACK_CLUSTER } from '@/lib/pattern-matchers/low-back-cluster';
 import { SHOULDER_CLUSTER } from '@/lib/pattern-matchers/shoulder-cluster';
 import { HIP_CLUSTER } from '@/lib/pattern-matchers/hip-cluster';
 import { ELBOW_CLUSTER } from '@/lib/pattern-matchers/elbow-cluster';
+import { FOOT_ANKLE_CLUSTER } from '@/lib/pattern-matchers/foot-ankle-cluster';
 
 // Registry of all pattern-matcher clusters. Keyed by the cluster key string
 // used in each condition's patternMatcher.clusterKey field. Adding a new
@@ -32,6 +33,7 @@ const PATTERN_CLUSTERS: Record<string, PatternMatcherCluster> = {
   [SHOULDER_CLUSTER.key]: SHOULDER_CLUSTER,
   [HIP_CLUSTER.key]: HIP_CLUSTER,
   [ELBOW_CLUSTER.key]: ELBOW_CLUSTER,
+  [FOOT_ANKLE_CLUSTER.key]: FOOT_ANKLE_CLUSTER,
 };
 
 function getCluster(key: string): PatternMatcherCluster | undefined {

@@ -35,6 +35,7 @@ import ClinicalObservations from './conditions/ClinicalObservations';
 import AuthorByline from './conditions/AuthorByline';
 import SectionHeading from './conditions/SectionHeading';
 import RelatedConditionsList from './conditions/RelatedConditionsList';
+import ComparisonCrossLinks from './conditions/ComparisonCrossLinks';
 
 // Lazy-load the Pattern Matcher: only adds to the bundle when used, and only
 // after hydration. ssr:false keeps it out of the initial HTML payload.
@@ -2093,6 +2094,13 @@ export default function ConditionPageClient({
                   currentSlug={conditionSlug}
                   relatedConditions={relatedConditions}
                   limit={4}
+                />
+
+                {/* Cross-links to any "X vs. Y" comparison pages that feature
+                    this condition. Renders nothing when no comparison exists. */}
+                <ComparisonCrossLinks
+                  conditionSlug={conditionSlug}
+                  currentConditionName={condition.name}
                 />
               </div>
             </div>

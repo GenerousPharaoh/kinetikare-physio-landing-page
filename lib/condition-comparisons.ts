@@ -511,6 +511,177 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       },
     ],
   },
+
+  // ---------------------------------------------------------------------------
+  // 4. Sciatica vs. piriformis syndrome
+  // ---------------------------------------------------------------------------
+  // Note on slug choice: the modern clinical framing prefers "deep gluteal
+  // syndrome" as a broader umbrella for extrapelvic sciatic nerve entrapment,
+  // with piriformis syndrome treated as one pattern within it. I chose
+  // `piriformis-syndrome` here because that is the higher-traffic patient
+  // search term and matches the existing condition page slug. The deep gluteal
+  // syndrome framing is acknowledged inside the body copy (atAGlance and
+  // overlap) so patients searching either label land on the right content.
+  {
+    pair: 'sciatica-vs-piriformis-syndrome',
+    title: 'Sciatica vs. Piriformis Syndrome: How to Tell Them Apart',
+    h1: 'Is it sciatica or piriformis syndrome?',
+    description:
+      'Sciatica or piriformis syndrome? How to tell nerve-root pain from deep gluteal referral by pattern, tests, and exam. By Kareem Hassanein, Registered Physiotherapist, Burlington.',
+    conditionA: {
+      slug: 'sciatica',
+      name: 'Sciatica',
+      shortName: 'Sciatica',
+    },
+    conditionB: {
+      slug: 'piriformis-syndrome',
+      name: 'Piriformis Syndrome',
+      shortName: 'Piriformis syndrome',
+    },
+    atAGlance:
+      "Both can send pain from the buttock down the back of the leg, and both get lumped together as 'sciatica' in everyday language. True sciatica is nerve-root irritation at the lumbar spine, most often from a disc, that produces a dermatomal pattern of symptoms and, in more involved cases, changes in reflexes, strength, or sensation. Piriformis syndrome, now often discussed under the broader heading of deep gluteal syndrome, is compression or irritation of the sciatic nerve in the buttock itself, below the spine. Same nerve, different location. The leg symptoms can look similar on the surface, but the history, provocation pattern, and exam findings separate them.",
+    distinguishing: [
+      {
+        aspect: 'Where the pain starts',
+        aForA: 'Usually in the low back or sacral area first, then travels down the buttock and leg. Many people can draw a line showing the path of the pain from spine to foot.',
+        aForB: 'Starts in the deep buttock, often one focal area under or beside the sit-bone. Low back is typically not the primary complaint.',
+      },
+      {
+        aspect: 'Nerve-type signs in the leg',
+        aForA: 'Numbness, tingling, or weakness in a dermatomal pattern (for example L5 causing weakness lifting the big toe, or S1 causing a reduced ankle reflex). Present in the more clearly radicular cases.',
+        aForB: 'Numbness and tingling can occur but are usually vaguer and less mappable. Reflex changes and true myotomal weakness are uncommon. If they are clearly present, a spinal source is more likely.',
+      },
+      {
+        aspect: 'What provokes it',
+        aForA: 'Bending forward, sitting for long periods, coughing or sneezing (because these raise pressure on an irritated nerve root), morning stiffness after lying down.',
+        aForB: 'Prolonged sitting on a hard seat, crossing the legs, getting up from the car, running, and direct pressure on the deep buttock. Wallet-in-the-back-pocket flares are classic.',
+      },
+      {
+        aspect: 'How lumbar positions change it',
+        aForA: 'Often shifts with spine positions. Repeated extension (lying on the stomach, standing tall) can centralise the leg pain back toward the spine. This is a useful positive sign.',
+        aForB: 'Spinal movements do not meaningfully change the symptom. The pain is tied to piriformis loading, sitting pressure, and hip rotation rather than to spine position.',
+      },
+      {
+        aspect: 'Straight leg raise',
+        aForA: 'Classic reproduction of leg pain between roughly 30 and 70 degrees of passive hip flexion. Strongly suggestive of nerve-root irritation, especially when it reproduces your familiar leg pain rather than just tightness.',
+        aForB: 'Can be uncomfortable in the buttock, particularly with added internal rotation, but true reproduction of leg pain in the radicular pattern is less consistent.',
+      },
+      {
+        aspect: 'Local buttock tenderness',
+        aForA: 'Usually not strikingly tender when I press into the deep buttock at the greater sciatic notch. The problem is upstream at the spine.',
+        aForB: 'Focal tenderness when I press into the deep buttock near the greater sciatic notch, often reproducing your familiar pain. This is one of the most helpful bedside findings.',
+      },
+      {
+        aspect: 'Sitting behaviour',
+        aForA: 'Sitting is often uncomfortable because of the lumbar load, and you may shift position frequently. Leg pain may build with sustained sitting but is not strictly one-sided from seat pressure.',
+        aForB: 'A specific pattern: pain builds the longer you sit on that cheek, and relief comes from shifting weight to the other side. Long drives and movie seats are common aggravators.',
+      },
+      {
+        aspect: 'Red-flag screening',
+        aForA: 'Saddle numbness, progressive weakness in the leg, or bladder and bowel changes are urgent and send someone straight to emergency care for cauda equina screening. Rare, but the screen is always part of the first visit.',
+        aForB: 'Red flags are uncommon from piriformis alone. Persistent deep buttock pain with night pain or systemic symptoms still warrants a broader screen.',
+      },
+    ],
+    specificTests: [
+      {
+        test: 'Straight leg raise (Lasegue)',
+        whatItShows:
+          'I lift your straight leg passively while you lie on your back. Reproduction of your familiar leg pain between roughly 30 and 70 degrees points to nerve-root irritation. Tightness only in the hamstring is not a positive test.',
+      },
+      {
+        test: 'Slump test',
+        whatItShows:
+          'You sit slumped, tuck the chin, and straighten the knee. This tensions the neural system from the spine down. Reproduction of your leg pain is another signal of radicular involvement. It is more sensitive than straight leg raise in some patterns.',
+      },
+      {
+        test: 'FAIR test (Flexion, Adduction, Internal Rotation)',
+        whatItShows:
+          'With the hip flexed and the knee pulled across the body into internal rotation, the piriformis is stretched against the sciatic nerve. Reproduction of deep buttock pain and sciatic-type referral supports piriformis syndrome.',
+      },
+      {
+        test: 'Seated piriformis stretch test',
+        whatItShows:
+          'You sit, I passively adduct and internally rotate the flexed hip while palpating over the piriformis. Reproduction of your familiar pain is supportive. A 2008 cadaver and clinical study reported reasonable sensitivity and specificity for piriformis-type sciatic nerve entrapment.',
+      },
+      {
+        test: 'Pace sign (resisted hip abduction and external rotation in sitting)',
+        whatItShows:
+          'Resisted contraction of the piriformis from a seated position reproduces deep buttock pain when the muscle is irritable. Useful alongside palpation and the FAIR test rather than as a standalone.',
+      },
+      {
+        test: 'Neurological screen (reflexes, myotomes, dermatomes)',
+        whatItShows:
+          'Ankle and knee reflexes, big-toe extension and plantarflexion strength, and sensation mapping help identify a specific nerve root. Clear objective deficits in a nerve-root pattern strongly support a spinal source over piriformis.',
+      },
+    ],
+    whenItIsA:
+      "Your pattern more closely matches sciatica if the pain started in the low back or the sacral area before spreading down the leg, it follows a clean strip down the leg rather than sitting in the buttock, coughing or sneezing makes it worse, and you have objective nerve signs like dermatomal numbness, a reduced reflex, or big-toe weakness. Bending forward provokes it and lying down or repeated extension often eases it over minutes. A recent bend-and-lift episode, a long drive, or a gradual onset over a few days is a common setup.",
+    whenItIsB:
+      "Your pattern more closely matches piriformis syndrome if the pain is centred in the deep buttock rather than the back, sitting on that side for any length of time reliably flares it, direct pressure into the deep buttock reproduces your familiar pain, and spinal movements do not really change anything. Objective nerve-root signs are absent or vague. A recent increase in running volume, new long drives, a new bike fit, or sitting on a thick wallet are common triggers.",
+    whenUncertain:
+      "These two can look similar on the surface, and about 5 to 10 percent of sciatic-type presentations are thought to come from a non-discogenic source in the deep gluteal region. The exam does most of the work. I run the neurological screen first, then the tension tests (straight leg raise and slump), then the piriformis-specific tests (FAIR, seated piriformis stretch, Pace, deep palpation). If the neurological screen is clean and the piriformis tests reproduce your pain cleanly, piriformis syndrome moves up the list. If the neurological screen shows dermatomal numbness, a lost reflex, or clear myotomal weakness, the spine is the more likely source and I plan around that. MRI is not needed in most cases to start treatment. I reserve it for progressive neurological loss, red-flag features, or symptoms that are not changing on the expected timeline.",
+    overlap:
+      "Both can coexist, and chronic lumbar dysfunction often sits alongside piriformis and deep gluteal irritability because the whole posterior chain compensates together. A person with a previous disc episode can later develop piriformis-dominant symptoms, and someone with long-standing piriformis pain can eventually pick up secondary low-back stiffness. That is why I screen the lumbar spine, SI joint, hip, and deep gluteal region on the first visit rather than assuming the label.",
+    relatedTreatmentIds: [
+      'exercise-therapy',
+      'joint-mobilization',
+      'soft-tissue-myofascial-release',
+      'dry-needling',
+      'sports-rehab-return-to-sport',
+    ],
+    faqs: [
+      {
+        question: 'My doctor said I have sciatica. Could it actually be piriformis syndrome?',
+        answer:
+          "Possibly. 'Sciatica' is often used as a general label for any leg pain that travels down from the buttock, which includes both nerve-root irritation from the spine and sciatic nerve irritation in the deep gluteal region. A focused exam sorts it. If the low back is not tender, spinal movements do not change the symptom, and pressing into the deep buttock reproduces your familiar pain, piriformis or deep gluteal involvement moves up the list.",
+      },
+      {
+        question: 'Do I need an MRI to find out which one it is?',
+        answer:
+          "Usually no. MRI is useful when there are progressive neurological signs, red-flag features, or when symptoms are not responding on the expected rehab timeline. For most people, a careful history and exam distinguishes the two well enough to start treatment. Imaging also picks up incidental findings in pain-free adults very often, so it is not a shortcut to a diagnosis.",
+      },
+      {
+        question: 'Why does sitting make piriformis pain so much worse?',
+        answer:
+          "The sciatic nerve runs either under or through the piriformis muscle, right at the greater sciatic notch. Sitting compresses the nerve and the surrounding deep gluteal structures against the chair, which irritates the tissue further if the muscle is already guarding. That is why soft seats, shifting weight frequently, and breaking up long drives help more than stretching alone in the short term.",
+      },
+      {
+        question: 'Will stretching my piriformis fix it?',
+        answer:
+          "Stretching alone rarely fixes it. A short window of gentle nerve glides and piriformis stretching can calm things, but the sustainable plan usually includes strengthening the gluteus medius and deep hip rotators, changing the loading that set it off (long sitting, running volume, bike fit, wallet), and sometimes dry needling into the deep gluteal region for symptom relief. Stretching a guarding muscle without changing its job tends to give short-lived results.",
+      },
+      {
+        question: 'Is sciatica dangerous?',
+        answer:
+          "Most sciatica is not dangerous and settles with time and targeted rehab. The specific situations that need urgent attention are saddle numbness (numbness in the groin or inner thighs), loss of bladder or bowel control, and progressive weakness in the leg. Those features raise concern for cauda equina syndrome and warrant emergency assessment rather than a physiotherapy visit.",
+      },
+      {
+        question: 'How long does each typically take to settle?',
+        answer:
+          "Straightforward sciatica from a disc often improves meaningfully over four to twelve weeks of targeted rehab, though tissue healing can take several months even after pain has resolved. Piriformis or deep gluteal pain usually responds faster to load-change plus specific strengthening, often within four to eight weeks, provided the provoking loads are actually modified. Longer-standing cases of either take longer, and I reassess rather than push on if progress stalls by about four weeks.",
+      },
+    ],
+    evidenceNotes: [
+      {
+        claim:
+          'Deep gluteal syndrome describes extrapelvic sciatic nerve entrapment in the posterior hip and is an important non-discogenic cause of sciatic-type pain. Piriformis syndrome is one pattern within this spectrum.',
+        source:
+          'Martin HD, Reddy M, Gomez-Hoyos J. "Deep gluteal syndrome." Journal of Hip Preservation Surgery 2015; 2(2): 99-107.',
+      },
+      {
+        claim:
+          'For most people with low back pain and sciatica, imaging is not routinely required at first assessment. A structured history and physical examination guide management, and imaging is reserved for situations where it would change the plan.',
+        source:
+          'National Institute for Health and Care Excellence. "Low back pain and sciatica in over 16s: assessment and management." NICE Guideline NG59, 2016 (updated 2020).',
+      },
+      {
+        claim:
+          'A systematic review identified buttock pain, pain aggravated by sitting, tenderness near the greater sciatic notch, and pain with manoeuvres that tension the piriformis as the most consistent clinical features of piriformis syndrome.',
+        source:
+          'Hopayian K, Danielyan A. "Four symptoms define the piriformis syndrome: an updated systematic review of its clinical features." European Journal of Orthopaedic Surgery & Traumatology 2018; 28(2): 155-164.',
+      },
+    ],
+  },
 ];
 
 export function getComparisonByPair(pair: string): ConditionComparison | undefined {
@@ -519,4 +690,19 @@ export function getComparisonByPair(pair: string): ConditionComparison | undefin
 
 export function getAllComparisonPairs(): string[] {
   return CONDITION_COMPARISONS.map((c) => c.pair);
+}
+
+/**
+ * Returns any comparison page that features the given condition slug as
+ * either conditionA or conditionB. Used by the condition detail page to
+ * cross-link its "X vs. Y" page when one exists.
+ */
+export function getComparisonsForCondition(
+  conditionSlug: string,
+): ConditionComparison[] {
+  return CONDITION_COMPARISONS.filter(
+    (c) =>
+      c.conditionA.slug === conditionSlug ||
+      c.conditionB.slug === conditionSlug,
+  );
 }

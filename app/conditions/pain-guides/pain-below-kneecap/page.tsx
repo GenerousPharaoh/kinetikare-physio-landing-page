@@ -15,6 +15,7 @@ import {
   ArrowRightIcon,
   ClockIcon,
   ShieldCheckIcon,
+  HandRaisedIcon,
 } from '@heroicons/react/24/outline';
 import {
   CONTENT_LAST_MODIFIED_ISO,
@@ -26,10 +27,10 @@ import {
 import { getConditionBySlug } from '@/lib/conditions-data';
 import { getTreatmentById } from '@/lib/treatments-data';
 
-const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/hip-pain';
-const PAGE_TITLE = 'Hip Pain Treatment in Burlington | Kareem Hassanein Physiotherapy';
+const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/pain-guides/pain-below-kneecap';
+const PAGE_TITLE = 'Pain Right Below the Kneecap: What It Usually Is | Kareem Hassanein';
 const PAGE_DESCRIPTION =
-  'Hip pain treatment in Burlington with Kareem Hassanein, Registered Physiotherapist. Lateral, groin, and deep hip pain assessed and treated. Direct billing.';
+  'A Registered Physiotherapist\'s guide to pain right below the kneecap in Burlington. Likely causes, a simple one-finger test, and when to seek care.';
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -52,7 +53,7 @@ export const metadata: Metadata = {
         url: 'https://www.kinetikarephysio.com/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Hip Pain Treatment in Burlington - Kareem Hassanein Physiotherapy',
+        alt: 'Pain Right Below the Kneecap - Kareem Hassanein Physiotherapy',
       },
     ],
   },
@@ -68,193 +69,132 @@ export const metadata: Metadata = {
 };
 
 // ---------------------------------------------------------------------------
-// Content (kept inline: this hub is a single-purpose landing page)
+// Content
 // ---------------------------------------------------------------------------
 
-interface LocationGuide {
-  region: string;
-  subtitle: string;
-  description: string;
-  commonSources: Array<{
-    slug: string;
-    label: string;
-    note: string;
-  }>;
+interface Scenario {
+  slug: string;
+  label: string;
+  pattern: string;
+  note: string;
 }
 
-const locationGuides: LocationGuide[] = [
+const scenarios: Scenario[] = [
   {
-    region: 'Side of the hip (lateral)',
-    subtitle: 'Pain over the bony point on the outside of the hip',
-    description:
-      'Tender over the greater trochanter, worse lying on that side at night, and cranky when standing on one leg. This is the most common presentation in people over 40, especially post-menopausal women and runners who recently increased volume.',
-    commonSources: [
-      {
-        slug: 'greater-trochanteric-pain-syndrome',
-        label: 'Lateral hip pain / gluteal tendinopathy (GTPS)',
-        note: 'Gluteus medius and minimus tendon irritation at the greater trochanter.',
-      },
-      {
-        slug: 'hip-bursitis',
-        label: 'Hip bursitis',
-        note: 'Secondary bursal irritation, usually part of the broader GTPS picture.',
-      },
-    ],
+    slug: 'patellar-tendinopathy',
+    label: 'Patellar tendinopathy (jumper\'s knee)',
+    pattern: 'A single tender spot right at the bottom tip of the kneecap, worse with jumping, landing, deep squats, and the first few minutes of running. Usually warms up briefly, then settles back in afterwards.',
+    note: 'The classic pattern for pain right below the kneecap in active adults. Load-related, localised, and slow to rebuild once it has set in.',
   },
   {
-    region: 'Front of the hip and groin',
-    subtitle: 'Deep anterior pain, sometimes a pinch with flexion',
-    description:
-      'Often described as a pinch or ache deep in the front of the hip or groin. Worse with deep squats, sitting low, getting out of a car, or cutting and pivoting in sport. Stiffness first thing in the morning or after sitting is common with joint-related causes.',
-    commonSources: [
-      {
-        slug: 'hip-osteoarthritis',
-        label: 'Hip osteoarthritis',
-        note: 'Joint stiffness and groin pain that worsens with activity and improves with gentle movement.',
-      },
-      {
-        slug: 'femoroacetabular-impingement',
-        label: 'Femoroacetabular impingement (FAI)',
-        note: 'A mechanical pinch at end-range hip flexion, common in younger athletes.',
-      },
-      {
-        slug: 'hip-labral-tears',
-        label: 'Hip labral tears',
-        note: 'Clicking, catching, or a sharp groin pain with rotation or deep flexion.',
-      },
-      {
-        slug: 'groin-strains',
-        label: 'Adductor (groin) strains',
-        note: 'Inner-thigh pain after a sudden change of direction or kick, common in hockey and soccer.',
-      },
-    ],
+    slug: 'knee-pain-patellofemoral',
+    label: 'Patellofemoral pain',
+    pattern: 'More diffuse ache around or under the kneecap, not pinpoint. Worse with stairs, prolonged sitting with bent knees, running downhill, and deep squatting. Often both knees over time.',
+    note: 'When the pain is not a single fingertip spot and smears around the kneecap margins, patellofemoral pain is more likely than tendinopathy.',
   },
   {
-    region: 'Back of the hip and deep buttock',
-    subtitle: 'Deep posterior ache, sit bone tenderness, or nerve-like pain',
-    description:
-      'Pain sitting on hard surfaces, aching in the deep buttock, or a sciatic-type symptom that travels down the back of the leg. The source can sit in the joint, in deep gluteal muscles, or in the lumbar spine referring pain into the buttock, so careful assessment matters here.',
-    commonSources: [
-      {
-        slug: 'proximal-hamstring-tendinopathy',
-        label: 'Proximal hamstring tendinopathy',
-        note: 'Sit-bone pain that flares with sitting, driving, and hill running.',
-      },
-      {
-        slug: 'piriformis-syndrome',
-        label: 'Piriformis syndrome',
-        note: 'Deep buttock pain, sometimes with radiating leg symptoms from sciatic nerve irritation.',
-      },
-      {
-        slug: 'deep-gluteal-syndrome',
-        label: 'Deep gluteal syndrome',
-        note: 'Broader sciatic nerve entrapment in the deep gluteal space, can mimic lumbar radiculopathy.',
-      },
-      {
-        slug: 'si-joint-dysfunction',
-        label: 'Sacroiliac (SI) joint dysfunction',
-        note: 'Pain over the SI joint or upper buttock, provoked by single-leg loading.',
-      },
-    ],
+    slug: 'severs-disease',
+    label: 'Sever\'s disease (growing athletes, heel version)',
+    pattern: 'Heel pain in a child or young adolescent during a growth spurt, worse with running, jumping, and cleated sports. Sits at the back of the heel rather than below the kneecap, but often comes up in the same conversation.',
+    note: 'Different site than pain below the kneecap, but the same growth-plate mechanism as Osgood-Schlatter and often confused in young athletes.',
   },
   {
-    region: 'Hamstrings, and pain that travels down the leg',
-    subtitle: 'Referred and nerve-related symptoms',
-    description:
-      'Sometimes what people call hip pain is actually referred from the low back. A burning or electric quality, numbness, or pain that runs past the knee points toward a nerve source rather than the hip joint itself. A careful history and physical exam help sort this out.',
-    commonSources: [
-      {
-        slug: 'hamstring-strains',
-        label: 'Hamstring strains',
-        note: 'Sudden pull or ache in the back of the thigh, usually after a sprint or acceleration.',
-      },
-      {
-        slug: 'sciatica',
-        label: 'Sciatica',
-        note: 'Nerve root irritation from the lumbar spine producing buttock and leg pain.',
-      },
-      {
-        slug: 'low-back-pain',
-        label: 'Low back pain with referral',
-        note: 'Lumbar joints and discs can refer pain into the hip and buttock without true leg nerve symptoms.',
-      },
-    ],
+    slug: 'knee-osteoarthritis',
+    label: 'Early knee osteoarthritis',
+    pattern: 'Aching around the knee that stiffens up after sitting and takes a few minutes to ease with movement. Worse with longer walks, stairs, and kneeling. Common from the mid-forties onward.',
+    note: 'Less typical as a pure pain-below-the-kneecap picture, but worth considering when the pain is diffuse, joint-feeling, and age fits.',
   },
 ];
 
-// Red flags: when to seek urgent medical care rather than physio
+// Scenarios we describe but cannot deep-link to (no dedicated condition page on the site yet)
+interface UnlinkedScenario {
+  label: string;
+  pattern: string;
+  note: string;
+}
+
+const unlinkedScenarios: UnlinkedScenario[] = [
+  {
+    label: 'Osgood-Schlatter disease (growing athletes)',
+    pattern: 'A tender bump at the top of the shinbone, just below the kneecap, in a child or young adolescent, often 10 to 15 years old. Worse with running, jumping, kneeling, and cleated sports. The bump is actually the tibial tubercle being pulled on during a growth spurt.',
+    note: 'This is the most common reason a young athlete has pain just below the kneecap. Usually self-limiting with activity modification and guided strengthening, based on Rathleff and colleagues in the Orthopaedic Journal of Sports Medicine (2020).',
+  },
+  {
+    label: 'Sinding-Larsen-Johansson syndrome',
+    pattern: 'Pain right at the bottom tip of the kneecap in a growing athlete, with tenderness on pressing the inferior pole. Same age group as Osgood-Schlatter, same triggers, slightly different anatomical site.',
+    note: 'Think of this as the kneecap-end version of Osgood-Schlatter. Managed on similar lines: modify load, rebuild strength, return to sport in stages.',
+  },
+  {
+    label: 'Infrapatellar fat pad irritation',
+    pattern: 'Pain right under the kneecap that feels worse with the knee held fully straight, especially during prolonged standing or walking on level ground. Often tender when pinched directly under the kneecap on either side of the tendon.',
+    note: 'A common mimic of patellar tendinopathy. Tends to dislike hyperextension, whereas tendinopathy tends to dislike deep knee bends under load.',
+  },
+  {
+    label: 'Infrapatellar bursitis (clergyman\'s knee)',
+    pattern: 'A soft, fluid-filled swelling just below the kneecap after kneeling work, gardening, flooring, or plumbing. Localised, tender, and usually without the load-related pattern of a tendon problem.',
+    note: 'Usually settles with modifying kneeling load and protecting the area. Worth flagging if it becomes warm, red, or systemic, which points elsewhere.',
+  },
+];
+
+// Red flags
 const redFlags: Array<{ sign: string; action: string }> = [
   {
-    sign: 'Sudden inability to bear weight after a fall or trauma',
-    action: 'Go to emergency to rule out hip or pelvic fracture, especially if over 65 or on bone-affecting medication.',
+    sign: 'Warm, red, swollen knee with fever or feeling systemically unwell',
+    action: 'Seek same-day medical assessment. Septic arthritis and certain inflammatory conditions need workup before physiotherapy.',
   },
   {
-    sign: 'Hip pain with fever, chills, or feeling systemically unwell',
-    action: 'See a physician or urgent care to rule out joint infection.',
+    sign: 'Sudden inability to straighten the knee, or a locked-feeling knee after a twist',
+    action: 'See a physician or urgent care. A mechanically locked knee often needs orthopaedic review before rehabilitation can progress.',
   },
   {
-    sign: 'Severe, constant pain that is not relieved by any position, particularly at night',
-    action: 'Book a physician review to investigate for stress fracture or other bone pathology.',
+    sign: 'A pop, sudden giving way, and immediate large swelling after trauma',
+    action: 'Go to emergency or urgent care to rule out a significant ligament or osteochondral injury, in line with the Ottawa Knee Rules.',
   },
   {
-    sign: 'Progressive numbness, weakness, or changes in bowel or bladder control',
-    action: 'Seek emergency care to rule out cauda equina syndrome.',
+    sign: 'Pain right below the kneecap in a child who is also limping and unwell',
+    action: 'See a physician. Paediatric hip or systemic conditions sometimes refer pain toward the knee and need medical workup.',
   },
   {
-    sign: 'Unexplained weight loss or a history of cancer with new hip pain',
+    sign: 'Night pain that is not related to position, with unexplained weight loss',
     action: 'See your family physician for medical workup before starting physiotherapy.',
   },
-  {
-    sign: 'Hip pain in a child or adolescent that limits walking',
-    action: 'See a physician to rule out conditions such as slipped capital femoral epiphysis or Perthes disease.',
-  },
 ];
 
-// FAQ content (answer length deliberately varied: short for simple questions, longer for complex)
+// FAQ
 const faqs: Array<{ question: string; answer: string }> = [
   {
-    question: 'How do I know if my hip pain is arthritis?',
+    question: 'Why does the pain sit right under my kneecap and nowhere else?',
     answer:
-      'Hip osteoarthritis usually sits in the groin or deep front of the hip, feels stiff for the first twenty to thirty minutes after rest, and gets cranky with longer walks or stairs. Rotation is often the first range to drop off, which is why people notice it when putting on socks or getting out of a car. I build a working diagnosis from the history and exam, and order imaging only when it is going to change the plan.',
+      'The patellar tendon inserts into the bottom tip of the kneecap, and tendon pain tends to be very focal. A single fingertip can usually cover the tender spot. Malliaras and colleagues in JOSPT (2015) call this pinpoint inferior-pole pain, plus load-related pain, the hallmark of patellar tendinopathy. If the pain is more diffuse and wraps around the kneecap margin, the pattern fits patellofemoral pain better.',
   },
   {
-    question: 'Can physiotherapy help hip pain without surgery?',
+    question: 'Is pain below the kneecap the same as patellar tendinitis?',
     answer:
-      'For most hip pain, yes. NICE and OARSI guidelines put exercise, education, and load management as first-line care for hip osteoarthritis, and the LEAP trial (BMJ 2018) showed education plus exercise beat a corticosteroid injection for lateral hip pain at one year. Surgery is still the right call for some labral tears and advanced arthritis, but a structured rehab block almost always comes first.',
+      'Clinically, yes, most of the time. The older term tendinitis implies active inflammation, and current tendon research shows that load-related tendon pain is more about structural change and a failed healing response than classic inflammation. That is why the preferred term is tendinopathy. The practical point is the same: graded loading rebuilds the tendon, rest alone rarely does.',
   },
   {
-    question: 'When should I worry about hip pain?',
+    question: 'Should I stop running or jumping if I have pain below the kneecap?',
     answer:
-      'Most hip pain is mechanical. Get medical review before physiotherapy if you have had a fall with sudden inability to weight-bear, fever with joint pain, progressive neurological changes, unexplained weight loss, or pain that is severe and unrelieved by any position.',
+      'Usually no, but the dose needs to change. Full rest tends to make patellar tendon pain more reactive, not less. A rule I use in clinic: pain under about 3 out of 10 during and just after the session, settling within 24 hours and not progressively worsening week to week, is usually fine to train through while I build capacity with you. Pain that climbs into a 5 or higher, or a knee that stiffens overnight, means the plan needs adjusting.',
   },
   {
-    question: 'What causes hip pain at night?',
+    question: 'My teenager has a painful bump right below their kneecap. Is that serious?',
     answer:
-      'Lying on that side compresses the gluteal tendons against the bony point on the outside of the hip. That is the classic night-pain picture, and it is a hallmark of gluteal tendinopathy. Hip osteoarthritis can also ache at night when the joint loses its capacity to dampen load. The fix is rarely more rest. Sleep position, sitting and standing habits, and a progressive loading program are what usually settle it over a few weeks.',
+      'The most common reason is Osgood-Schlatter, a growth-plate irritation at the top of the shinbone where the patellar tendon attaches. It is not dangerous, almost always settles with age and guided management, and responds well to activity modification plus knee strengthening. Rathleff and colleagues in the Orthopaedic Journal of Sports Medicine (2020) showed 80 percent reporting a successful outcome at 12 weeks and 90 percent at one year with that approach.',
   },
   {
-    question: 'Is it safe to keep exercising with hip pain?',
+    question: 'Does imaging help if the pain is right below the kneecap?',
     answer:
-      'Usually yes, with adjustments. Full rest tends to make most hip conditions more reactive, not less. I modify load rather than remove it: adjust volume, drop the specific provoking positions, and swap in pain-tolerant options like cycling, pool work, or lower-load strength training while the irritable tissue rebuilds capacity. I set clear guardrails at the first visit so the dosing is obvious.',
+      'Usually not as a starting point. The diagnosis of patellar tendinopathy is clinical, based on a careful history and a tender inferior pole that hurts with loaded knee extension. Imaging changes show up in pain-free tendons all the time, which can muddy rather than clarify the picture. I order imaging when it will change the plan, such as after an acute trauma with swelling, a mechanically locked knee, or a case that is not tracking the way the clinical pattern predicted.',
   },
   {
-    question: 'Do I need imaging before starting physiotherapy?',
+    question: 'How long does pain right below the kneecap take to resolve?',
     answer:
-      'For most people, no. Labral fraying, mild cartilage wear, and tendon signal changes show up in pain-free adults all the time, so scans often muddy the picture rather than clarify it. I order imaging when it is going to change management: suspected fracture, progressive neurological symptoms, or a case not progressing the way a thorough exam predicted.',
-  },
-  {
-    question: 'How long does hip pain take to recover with physiotherapy?',
-    answer:
-      'The tissue drives the timeline. Muscle strains often settle in four to eight weeks. Gluteal tendinopathy and other tendon-related hip pain typically needs three to six months of progressive loading to rebuild capacity. Hip osteoarthritis is longer-term management, but most people notice meaningful improvement in pain and function inside eight to twelve weeks of structured exercise and hands-on work.',
-  },
-  {
-    question: 'Do you treat hip pain after a hip replacement?',
-    answer:
-      'Yes. Post-surgical hip rehab runs in stages: protect the joint early, restore range and gait, then build strength and confidence under load. I follow your surgeon\'s protocol where one exists and adapt based on how your tissues respond. Most people progress through guided exercise work across the first three to four months after surgery.',
+      'It depends on the tissue. An irritable patellar tendinopathy typically needs three to six months of progressive, well-dosed loading to rebuild capacity reliably. Patellofemoral pain and fat pad irritation often respond inside six to twelve weeks. Osgood-Schlatter in a growing athlete usually improves within a few months of sensible activity modification and strengthening, even though the bump itself can persist. Rushing tends to lengthen the timeline.',
   },
 ];
 
-// Evidence / research citations
+// Evidence / research
 interface ResearchItem {
   title: string;
   source: string;
@@ -264,72 +204,66 @@ interface ResearchItem {
 
 const research: ResearchItem[] = [
   {
-    title: 'Education and exercise outperform corticosteroid injection for lateral hip pain',
-    source: 'Mellor et al., BMJ (LEAP trial)',
-    year: 2018,
+    title: 'Patellar tendinopathy: clinical diagnosis, load management, and advice for challenging case presentations',
+    source: 'Malliaras, Cook, Purdam, Rio. JOSPT',
+    year: 2015,
     summary:
-      'In a randomised trial of 204 adults with gluteal tendinopathy, education plus a progressive exercise program produced greater improvements in pain and global rating of change than a single corticosteroid injection at both eight weeks and one year.',
+      'Narrative review and clinical commentary published in the Journal of Orthopaedic & Sports Physical Therapy. Describes pain localised to the inferior pole of the patella and load-related pain with knee-extensor demand as the hallmark features of patellar tendinopathy, and positions progressive load management as the core of care.',
   },
   {
-    title: 'OARSI guidelines for non-surgical management of hip osteoarthritis',
-    source: 'OARSI (Bannuru et al.)',
+    title: 'Is tendon pathology a continuum? A pathology model to explain the clinical presentation of load-induced tendinopathy',
+    source: 'Cook & Purdam, British Journal of Sports Medicine',
+    year: 2009,
+    summary:
+      'Proposes a continuum model of tendon pathology (reactive, disrepair, degenerative) that has shaped current tendon rehabilitation. Reinforces why graded loading, rather than passive rest, is the foundation of patellar tendon care.',
+  },
+  {
+    title: 'Patellofemoral pain: clinical practice guidelines',
+    source: 'Willy et al., JOSPT',
     year: 2019,
     summary:
-      'International guideline recommending land-based exercise, education, and self-management as core treatments for hip osteoarthritis, with weight management and structured strengthening as strongly supported adjuncts.',
+      'APTA Academy of Orthopaedic Physical Therapy clinical practice guideline supporting combined hip and knee strengthening, patient education, gait retraining where appropriate, and activity modification as first-line management for patellofemoral pain, with manual therapy as an adjunct.',
   },
   {
-    title: 'NICE guideline on osteoarthritis assessment and management',
-    source: 'NICE NG226',
-    year: 2022,
-    summary:
-      'UK national guidance identifying therapeutic exercise as a first-line intervention for people with osteoarthritis, alongside information and support, with surgery considered when conservative care has not produced adequate response.',
-  },
-  {
-    title: 'Hip pain and mobility deficits: hip osteoarthritis clinical practice guideline (Revision 2025)',
-    source: 'JOSPT (Koc, Cibulka et al.)',
-    year: 2025,
-    summary:
-      'Updated APTA Academy of Orthopaedic Physical Therapy guideline recommending progressive strengthening, manual therapy, patient education, and gait and functional training for hip osteoarthritis, with dry needling newly supported for short-term relief in pain, range, strength, and function.',
-  },
-  {
-    title: 'Improving function in people with hip-related pain: a systematic review and meta-analysis of physiotherapist-led interventions',
-    source: 'Kemp et al., British Journal of Sports Medicine',
+    title: 'Activity modification and knee strengthening for Osgood-Schlatter disease: a prospective cohort study',
+    source: 'Rathleff et al., Orthopaedic Journal of Sports Medicine',
     year: 2020,
     summary:
-      'Systematic review synthesising physiotherapist-led exercise, manual therapy, and education for hip-related pain. Found improvements in function, pain, and strength, with hip arthroscopy showing only small short-term benefit over physiotherapy and no significant difference at 24 months.',
+      'Prospective cohort of 51 adolescents (ages 10 to 14) with Osgood-Schlatter disease. A 12-week program of activity modification and knee strengthening produced self-reported successful outcomes in 80 percent of participants at 12 weeks and 90 percent at one year, supporting structured conservative care.',
   },
 ];
 
-// Conditions to feature in the related block, in display order
+// Related condition slugs (must exist in conditions-data.ts)
 const relatedConditionSlugs: string[] = [
-  'greater-trochanteric-pain-syndrome',
-  'hip-osteoarthritis',
-  'femoroacetabular-impingement',
-  'hip-labral-tears',
-  'hip-bursitis',
-  'proximal-hamstring-tendinopathy',
-  'piriformis-syndrome',
-  'deep-gluteal-syndrome',
-  'si-joint-dysfunction',
-  'groin-strains',
-  'hamstring-strains',
-  'sciatica',
+  'patellar-tendinopathy',
+  'knee-pain-patellofemoral',
+  'severs-disease',
+  'knee-osteoarthritis',
+  'meniscus-tears',
+  'it-band-syndrome',
 ];
 
 const relatedTreatmentIds: string[] = [
   'exercise-therapy',
+  'sports-rehab-return-to-sport',
   'joint-mobilization',
   'dry-needling',
-  'cupping-therapy',
   'soft-tissue-myofascial-release',
-  'sports-rehab-return-to-sport',
+  'cupping-therapy',
 ];
 
 // ---------------------------------------------------------------------------
 // Page
 // ---------------------------------------------------------------------------
 
-export default function HipPainHubPage() {
+export default function PainBelowKneecapGuidePage() {
+  const linkedScenarios = scenarios
+    .map((scenario) => {
+      const condition = getConditionBySlug(scenario.slug);
+      return condition ? { ...scenario, conditionName: condition.name } : null;
+    })
+    .filter((value): value is Scenario & { conditionName: string } => Boolean(value));
+
   const relatedConditions = relatedConditionSlugs
     .map((slug) => getConditionBySlug(slug))
     .filter((condition): condition is NonNullable<ReturnType<typeof getConditionBySlug>> => Boolean(condition));
@@ -357,7 +291,13 @@ export default function HipPainHubPage() {
       {
         '@type': 'ListItem',
         position: 3,
-        name: 'Hip Pain',
+        name: 'Pain Guides',
+        item: 'https://www.kinetikarephysio.com/conditions/pain-guides',
+      },
+      {
+        '@type': 'ListItem',
+        position: 4,
+        name: 'Pain Right Below the Kneecap',
         item: PAGE_URL,
       },
     ],
@@ -378,7 +318,7 @@ export default function HipPainHubPage() {
     },
     about: {
       '@type': 'MedicalCondition',
-      name: 'Hip pain',
+      name: 'Pain right below the kneecap',
     },
     audience: {
       '@type': 'PeopleAudience',
@@ -469,22 +409,27 @@ export default function HipPainHubPage() {
                   Conditions
                 </Link>
                 <ChevronRightIcon className="h-3 w-3" />
-                <span className="text-slate-900 font-medium">Hip Pain</span>
+                <Link href="/conditions/knee-pain" className="hover:text-[#B08D57] transition-colors duration-200">
+                  Knee Pain
+                </Link>
+                <ChevronRightIcon className="h-3 w-3" />
+                <span className="text-slate-900 font-medium">Pain Below the Kneecap</span>
               </nav>
 
               <h1 className="text-4xl md:text-5xl font-light tracking-tight leading-tight text-slate-900 mb-4">
-                Hip Pain Treatment in Burlington
+                Pain Right Below the Kneecap: What It Usually Is
               </h1>
 
               <p className="text-lg md:text-xl text-slate-700 leading-relaxed max-w-3xl">
-                Hip pain is rarely one condition. The label covers everything from a gluteal
-                tendon that cannot tolerate side-lying to a deep joint-related pinch in the
-                groin. This page is a guide I use with patients to map where the pain is, what
-                usually drives it, and how I go about treating it.
+                Patients describe this one very consistently: a tender spot right at the bottom
+                tip of the kneecap that flares with running, jumping, stairs, or deep squats.
+                In most active adults that pattern points toward patellar tendinopathy, but a
+                few other things sit on the differential. This guide walks through how I sort
+                them out and which condition page to read next.
               </p>
 
               <p className="text-xs text-slate-500 mt-3">
-                Assessing and treating hip pain at the Burlington clinic. Convenient for
+                Assessing and treating knee pain at the Burlington clinic. Convenient for
                 Waterdown, Oakville, Hamilton, Flamborough, and Carlisle residents.
               </p>
 
@@ -528,10 +473,10 @@ export default function HipPainHubPage() {
                   Call Clinic
                 </Link>
                 <Link
-                  href="/conditions"
+                  href="/conditions/knee-pain"
                   className="inline-flex items-center gap-1.5 px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-700 text-sm font-medium hover:border-[#B08D57] hover:text-[#B08D57] transition-colors"
                 >
-                  View All Conditions
+                  Broader Knee Pain Guide
                   <ArrowRightIcon className="h-4 w-4" />
                 </Link>
               </div>
@@ -548,42 +493,107 @@ export default function HipPainHubPage() {
                   <InformationCircleIcon className="h-5 w-5 text-[#B08D57]" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  First, figure out which hip problem you actually have
+                  A small anatomical area, a short list of likely causes
                 </h2>
               </div>
 
               <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed">
                 <p>
-                  &ldquo;My hip hurts&rdquo; can mean half a dozen different things. One person
-                  points to the bony spot on the side and tells me they cannot sleep on that
-                  side anymore. Another points into the groin and describes a pinch every time
-                  they sink into a deep squat. A third points into the deep buttock and asks
-                  whether this is sciatica. All common, all real, and all treated very
-                  differently. So the first job on your first visit is simply sorting out which
-                  of these pictures is actually yours.
+                  When patients say the pain sits right below the kneecap, they are usually
+                  pointing at the lower tip of the patella or the tendon that runs from there
+                  down to the top of the shinbone. That is a small area with only a few
+                  structures in it, which is actually good news for sorting out what is going on.
                 </p>
                 <p>
-                  The honest version: most hip pain in adults is mechanical and manageable.
-                  NICE and OARSI guidelines, the JOSPT hip osteoarthritis CPG revised in 2025,
-                  and the 2018 LEAP trial in the BMJ all point the same way. Education, graded
-                  strengthening, and sensible load management produce the strongest long-term
-                  outcomes. Hands-on work sits alongside that, not in place of it. What changes
-                  between people is the tissue, the history, and how load needs to be dosed.
+                  In active adults, the most common driver is patellar tendinopathy. The
+                  patellar tendon inserts into the inferior pole of the patella, and tendon
+                  pain there is typically very focal, load-related, and cranky with jumping,
+                  landing, deep squats, and the first few minutes of running. Malliaras and
+                  colleagues in JOSPT (2015) describe pinpoint inferior-pole pain plus
+                  load-related pain as the hallmark of this condition.
                 </p>
                 <p>
-                  The rest of this page walks through the common sources of hip pain grouped by
-                  where they sit, the red flags that sit outside physiotherapy scope, how I
-                  approach the first assessment in clinic, and the questions patients ask me
-                  most. If you already know which condition fits your picture, the related
-                  conditions block at the bottom links straight to the deeper pages.
+                  In growing athletes, the picture shifts. The two common patterns in this age
+                  group are Osgood-Schlatter, where the tibial tubercle is pulled on by the
+                  patellar tendon during a growth spurt, and Sinding-Larsen-Johansson
+                  syndrome, which sits right at the lower tip of the kneecap itself. Both
+                  respond well to structured activity modification and knee strengthening, as
+                  Rathleff and colleagues showed in the Orthopaedic Journal of Sports Medicine
+                  (2020).
+                </p>
+                <p>
+                  A few other patterns can mimic the tendon: fat pad irritation under the
+                  kneecap, infrapatellar bursitis after heavy kneeling work, and sometimes a
+                  broader patellofemoral pain presentation that creeps down toward the tendon.
+                  Sorting between these is what the next section is about.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Where does it hurt? location guide */}
+        {/* One-finger test */}
         <section className="py-12 bg-slate-50/60">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2.5 bg-slate-900 rounded-xl">
+                  <HandRaisedIcon className="h-5 w-5 text-[#B08D57]" />
+                </div>
+                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
+                  The one-finger test
+                </h2>
+              </div>
+
+              <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed">
+                <p>
+                  A simple thing I ask patients to do in the first visit: sit with the knee
+                  comfortably bent and try to point to the single most tender spot with one
+                  fingertip. Where the finger lands carries real diagnostic information.
+                </p>
+                <ul>
+                  <li>
+                    <strong>Fingertip lands on the very bottom tip of the kneecap:</strong>
+                    {' '}
+                    patellar tendinopathy is the most likely candidate. Expect the pain to flare
+                    with jumping, landing, deep squatting, and the first few minutes of
+                    running, and to be load-related in a predictable way.
+                  </li>
+                  <li>
+                    <strong>Fingertip lands on the bump at the top of the shinbone:</strong>
+                    {' '}
+                    in a child or young adolescent, this is classic for Osgood-Schlatter
+                    disease. In an adult, it is worth assessing for distal patellar tendon
+                    involvement or a localised bursitis.
+                  </li>
+                  <li>
+                    <strong>Tenderness is more around the edges of the kneecap than one
+                    spot:</strong>
+                    {' '}
+                    the pattern fits patellofemoral pain more than a tendon problem. Stairs,
+                    prolonged sitting, and deep squats are the usual triggers.
+                  </li>
+                  <li>
+                    <strong>Tenderness right under the kneecap, worse when the knee is held
+                    fully straight:</strong>
+                    {' '}
+                    fat pad irritation is more likely. This one often dislikes standing with
+                    a locked knee, whereas a tendon tends to dislike loaded knee bending.
+                  </li>
+                </ul>
+                <p>
+                  No single test is perfect in isolation. I use the fingertip location
+                  alongside a careful history and a handful of loaded movement tests to build
+                  the working picture. The short list above is a useful way to narrow things
+                  down before an assessment.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Likely causes with links */}
+        <section className="py-12 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto">
               <div className="flex items-center gap-3 mb-2">
@@ -591,64 +601,78 @@ export default function HipPainHubPage() {
                   <MapPinIcon className="h-5 w-5 text-[#B08D57]" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  Where does it hurt?
+                  Likely causes of pain below the kneecap
                 </h2>
               </div>
               <p className="text-slate-600 max-w-3xl mb-8">
-                A quick guide to the most common sources of hip pain by location. Use it to find
-                the deeper page that most closely matches your pattern. If your picture overlaps a few
-                of these, that is normal and worth an assessment.
+                The scenarios below cover most of what I see in clinic for this specific
+                complaint. Where a deeper condition page exists on this site, the card links
+                straight to it.
               </p>
 
               <div className="grid md:grid-cols-2 gap-6">
-                {locationGuides.map((guide) => (
-                  <div
-                    key={guide.region}
-                    className="relative bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden"
+                {linkedScenarios.map((scenario) => (
+                  <Link
+                    key={scenario.slug}
+                    href={`/conditions/${scenario.slug}`}
+                    className="group relative bg-white rounded-2xl shadow-sm border border-slate-100 hover:border-[#B08D57] hover:shadow-md transition-all overflow-hidden"
                   >
                     <div className="bg-gradient-to-r from-slate-900 to-slate-800 px-6 py-4">
-                      <h3 className="text-lg font-semibold text-white tracking-tight">{guide.region}</h3>
-                      <p className="text-xs text-slate-300 mt-0.5">{guide.subtitle}</p>
+                      <h3 className="text-lg font-semibold text-white tracking-tight group-hover:text-[#B08D57] transition-colors">
+                        {scenario.label}
+                      </h3>
                     </div>
                     <div className="p-6">
-                      <p className="text-slate-700 text-sm leading-relaxed mb-5">
-                        {guide.description}
+                      <p className="text-sm font-semibold text-slate-900 mb-1">Pattern</p>
+                      <p className="text-slate-700 text-sm leading-relaxed mb-4">
+                        {scenario.pattern}
                       </p>
-                      <ul className="space-y-3">
-                        {guide.commonSources.map((source) => (
-                          <li key={source.slug} className="group">
-                            <Link
-                              href={`/conditions/${source.slug}`}
-                              className="block rounded-xl border border-slate-200 hover:border-[#B08D57] hover:shadow-sm transition-all p-3"
-                            >
-                              <div className="flex items-start gap-3">
-                                <div className="mt-1 h-2 w-2 bg-[#B08D57] rounded-full flex-shrink-0" />
-                                <div className="flex-1">
-                                  <div className="flex items-center justify-between gap-3">
-                                    <span className="font-medium text-slate-900 group-hover:text-[#B08D57] transition-colors text-sm">
-                                      {source.label}
-                                    </span>
-                                    <ChevronRightIcon className="h-4 w-4 text-slate-400 group-hover:text-[#B08D57] transition-colors flex-shrink-0" />
-                                  </div>
-                                  <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                                    {source.note}
-                                  </p>
-                                </div>
-                              </div>
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
+                      <p className="text-sm font-semibold text-slate-900 mb-1">Why it fits</p>
+                      <p className="text-slate-700 text-sm leading-relaxed">
+                        {scenario.note}
+                      </p>
+                      <div className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#B08D57]">
+                        Read the {scenario.conditionName.toLowerCase()} guide
+                        <ArrowRightIcon className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
+
+              {unlinkedScenarios.length > 0 && (
+                <div className="mt-10">
+                  <h3 className="text-lg font-semibold text-slate-900 mb-4">
+                    Also worth considering (assessed in clinic, no standalone page yet)
+                  </h3>
+                  <div className="grid md:grid-cols-2 gap-5">
+                    {unlinkedScenarios.map((scenario) => (
+                      <div
+                        key={scenario.label}
+                        className="bg-slate-50 rounded-xl p-5 border border-slate-200"
+                      >
+                        <h4 className="text-base font-semibold text-slate-900 mb-2">
+                          {scenario.label}
+                        </h4>
+                        <p className="text-sm font-semibold text-slate-700 mb-1">Pattern</p>
+                        <p className="text-sm text-slate-700 leading-relaxed mb-3">
+                          {scenario.pattern}
+                        </p>
+                        <p className="text-sm font-semibold text-slate-700 mb-1">Why it fits</p>
+                        <p className="text-sm text-slate-700 leading-relaxed">
+                          {scenario.note}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </section>
 
-        {/* How I approach hip pain */}
-        <section className="py-12 bg-white">
+        {/* How I approach it */}
+        <section className="py-12 bg-slate-50/60">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
               <div className="flex items-center gap-3 mb-4">
@@ -656,40 +680,38 @@ export default function HipPainHubPage() {
                   <AcademicCapIcon className="h-5 w-5 text-[#B08D57]" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  How I approach hip pain in clinic
+                  How I approach pain below the kneecap in clinic
                 </h2>
               </div>
 
               <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed">
                 <p>
-                  The first appointment runs on questions before it runs on equipment. Where
-                  does it actually hurt, how did it start, what makes it worse, what makes it
-                  better. The small details do real work here. How you cross your legs on the
-                  couch. Whether you can sleep on that side. Whether a recent running block
-                  pushed weekly volume up faster than the tissue could adapt. Whether sitting,
-                  standing, or walking is the main trigger. By the end of the history I usually
-                  have two or three working hypotheses, and the physical exam is about
-                  confirming or ruling them out.
+                  The first appointment runs on questions before it runs on equipment. Age, the
+                  activity the pain is tied to, how long it has been there, whether jumping and
+                  deep squatting are the main triggers, whether it warms up then resettles, and
+                  whether the pain is truly pinpoint or more spread out. By the time the history
+                  is done I usually have two working hypotheses, and the exam confirms or rules
+                  them out.
                 </p>
                 <p>
-                  I look at how you move before I test what hurts. Watching you walk, squat, and
-                  step tells me more than any single provocation test. From there I check hip
-                  range, strength through the key muscle groups, and the targeted tests that
-                  separate lateral tendon pain from joint pain from posterior nerve-related
-                  pain. I palpate the greater trochanter, the groin, the hamstring origin, and
-                  the SI joint with intent, because tenderness pattern is genuinely useful
-                  information when it is read in context with everything else.
+                  On examination, I palpate the inferior pole of the patella, the patellar
+                  tendon, the tibial tubercle, and the fat pad either side of the tendon. I
+                  watch a double-leg squat, a single-leg squat, a step-down, and, if it is
+                  appropriate for you, a controlled hop. I check hip and quadriceps strength
+                  because deficits there are often part of the load equation. A loaded
+                  knee-extension task, such as a decline squat, is useful for tendon pain: it
+                  typically reproduces the familiar spot pain in tendinopathy and not in most of
+                  the mimics.
                 </p>
                 <p>
-                  The plan that comes out of that is individual, but it tends to have the same
-                  shape. Settle the irritable tissue with a short list of things to stop doing
-                  and a few things to add in. Build capacity with progressive strengthening
-                  exercises dosed to your current tolerance, usually across hip abductors, deep
-                  rotators, glutes, and the trunk. Joint mobilization, soft tissue therapy, dry
-                  needling, or cupping sit alongside that work where they speed things along. I
-                  write the plan down with you and track a handful of markers so we can both
-                  see whether it is actually working. If it is not, I change direction sooner
-                  rather than later.
+                  The plan that comes out of that is individual. For patellar tendinopathy the
+                  backbone is progressive, well-dosed loading across isometric, heavy slow
+                  resistance, and energy-storage work as tolerance grows, paired with honest
+                  training adjustments. For Osgood-Schlatter and Sinding-Larsen-Johansson I lean
+                  on the Rathleff framework: modify load, rebuild strength, return to sport in
+                  stages. For fat pad irritation I settle the tissue, then rebuild tolerance for
+                  extension loading. Joint mobilization, soft tissue therapy, dry needling, and
+                  cupping sit alongside the loading work where they help it progress.
                 </p>
               </div>
             </div>
@@ -697,7 +719,7 @@ export default function HipPainHubPage() {
         </section>
 
         {/* FAQ */}
-        <section className="py-12 bg-slate-50/60">
+        <section className="py-12 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
               <div className="flex items-center gap-3 mb-4">
@@ -705,7 +727,7 @@ export default function HipPainHubPage() {
                   <QuestionMarkCircleIcon className="h-5 w-5 text-[#B08D57]" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  Hip pain questions I hear most
+                  Pain-below-kneecap questions I hear most
                 </h2>
               </div>
 
@@ -733,8 +755,8 @@ export default function HipPainHubPage() {
           </div>
         </section>
 
-        {/* Evidence section */}
-        <section className="py-12 bg-white">
+        {/* Evidence */}
+        <section className="py-12 bg-slate-50/60">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto">
               <div className="flex items-center gap-3 mb-4">
@@ -746,16 +768,16 @@ export default function HipPainHubPage() {
                 </h2>
               </div>
               <p className="text-slate-600 max-w-3xl mb-8">
-                The recommendations above draw on national clinical guidelines and published
-                trials. Research evolves, but these are the anchor sources I rely on when I plan
-                hip pain care.
+                Published sources that underpin the recommendations above. Research evolves,
+                but these are the anchor references I rely on when I plan care for pain below
+                the kneecap.
               </p>
 
               <div className="grid md:grid-cols-2 gap-5">
                 {research.map((item) => (
                   <div
                     key={item.title}
-                    className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-6 border border-slate-200"
+                    className="bg-gradient-to-br from-white to-slate-50 rounded-xl p-6 border border-slate-200"
                   >
                     <div className="flex items-center gap-2 mb-2">
                       <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-[#B08D57]/10 text-[#B08D57] text-xs font-semibold uppercase tracking-wider">
@@ -777,7 +799,7 @@ export default function HipPainHubPage() {
         </section>
 
         {/* Related conditions */}
-        <section className="py-12 bg-slate-50/60">
+        <section className="py-12 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-6xl mx-auto">
               <div className="flex items-center gap-3 mb-4">
@@ -785,11 +807,12 @@ export default function HipPainHubPage() {
                   <HeartIcon className="h-5 w-5 text-[#B08D57]" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  Related hip and pelvis conditions
+                  Related knee conditions
                 </h2>
               </div>
               <p className="text-slate-600 max-w-3xl mb-8">
-                Deeper pages for each of the specific conditions that sit under hip pain.
+                Deeper pages for the specific conditions that most often explain pain below
+                the kneecap, plus a few neighbours worth knowing about.
               </p>
 
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -819,7 +842,7 @@ export default function HipPainHubPage() {
         </section>
 
         {/* Related treatments */}
-        <section className="py-12 bg-white">
+        <section className="py-12 bg-slate-50/60">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-6xl mx-auto">
               <div className="flex items-center gap-3 mb-4">
@@ -827,7 +850,7 @@ export default function HipPainHubPage() {
                   <ShieldCheckIcon className="h-5 w-5 text-[#B08D57]" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  Treatments that commonly sit inside a hip plan
+                  Treatments that commonly sit inside a plan for pain below the kneecap
                 </h2>
               </div>
               <p className="text-slate-600 max-w-3xl mb-8">
@@ -875,7 +898,7 @@ export default function HipPainHubPage() {
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
                   <p className="text-slate-300 leading-relaxed">
-                    I see patients for hip pain at Endorphins Health & Wellness Centre in
+                    I see patients for knee pain at Endorphins Health & Wellness Centre in
                     Burlington. The clinic serves people coming in from Burlington, Waterdown,
                     Oakville, Hamilton, Flamborough, and Carlisle, with free parking on site
                     and a ground-floor entrance.
@@ -935,7 +958,7 @@ export default function HipPainHubPage() {
                       className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-[#B08D57] text-white text-sm font-medium hover:bg-[#997A4B] transition-colors"
                     >
                       <CalendarIcon className="h-4 w-4" />
-                      Book an Initial Hip Assessment
+                      Book an Initial Knee Assessment
                     </Link>
                   </div>
                 </div>

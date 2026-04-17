@@ -977,6 +977,23 @@ The most damaging factor I see is the combination of poor posture with repetitiv
   },
 
   'tennis-elbow': {
+    patternMatcher: {
+      clusterKey: 'elbow',
+      markers: [
+        { questionId: 'pain_outer_elbow_bump', signal: 'strong_yes' },
+        { questionId: 'pain_inner_elbow_bump', signal: 'no' },
+        { questionId: 'pain_with_gripping_or_handshake', signal: 'strong_yes' },
+        { questionId: 'pain_with_wrist_flexion_or_pronation', signal: 'no' },
+        { questionId: 'tingling_thumb_index_middle', signal: 'no' },
+        { questionId: 'night_waking_with_numb_hand', signal: 'no' },
+        { questionId: 'diffuse_aching_forearm_no_single_spot', signal: 'no' },
+        { questionId: 'started_with_task_spike', signal: 'yes' },
+        { questionId: 'worse_after_full_rest_elbow', signal: 'yes' },
+        { questionId: 'symptoms_spread_across_neck_shoulder_forearm', signal: 'no' },
+        { questionId: 'weak_grip_or_dropping_objects', signal: 'yes' },
+      ],
+    },
+
     pathophysiology: `Lateral epicondylalgia (tennis elbow) is a degenerative tendinopathy affecting the common extensor tendon origin at the lateral epicondyle, primarily involving the extensor carpi radialis brevis (ECRB) tendon. Despite the name, fewer than 10% of cases occur in tennis players. The condition is characterized by a failed healing response resulting in angiofibroblastic degeneration rather than acute inflammation.
 
 The pathophysiology begins with repetitive mechanical overload of the wrist extensors exceeding the tendon's adaptive capacity. This leads to microtears, disorganized collagen structure, increased ground substance, neovascularization, and neurogenic inflammation. Histologically, the tissue shows angiofibroblastic hyperplasia with absence of inflammatory cells, confirming this is tendinosis rather than tendinitis.
@@ -3210,6 +3227,23 @@ Biomechanical factors significantly influence shin splint development. Overprona
   },
 
   'golfers-elbow': {
+    patternMatcher: {
+      clusterKey: 'elbow',
+      markers: [
+        { questionId: 'pain_outer_elbow_bump', signal: 'no' },
+        { questionId: 'pain_inner_elbow_bump', signal: 'strong_yes' },
+        { questionId: 'pain_with_gripping_or_handshake', signal: 'neutral' },
+        { questionId: 'pain_with_wrist_flexion_or_pronation', signal: 'strong_yes' },
+        { questionId: 'tingling_thumb_index_middle', signal: 'no' },
+        { questionId: 'night_waking_with_numb_hand', signal: 'no' },
+        { questionId: 'diffuse_aching_forearm_no_single_spot', signal: 'no' },
+        { questionId: 'started_with_task_spike', signal: 'yes' },
+        { questionId: 'worse_after_full_rest_elbow', signal: 'yes' },
+        { questionId: 'symptoms_spread_across_neck_shoulder_forearm', signal: 'no' },
+        { questionId: 'weak_grip_or_dropping_objects', signal: 'neutral' },
+      ],
+    },
+
     pathophysiology: `Medial epicondylalgia (golfer's elbow) is a degenerative tendinopathy affecting the common flexor-pronator tendon origin at the medial epicondyle of the humerus, primarily involving the pronator teres and flexor carpi radialis tendons. Despite the name, fewer than 10% of cases occur in golfers. The condition represents a failed healing response resulting in tendinosis rather than tendinitis, characterized by angiofibroblastic degeneration, disorganized collagen structure, increased mucoid ground substance, and neovascularization.
 
 The pathophysiological process begins with repetitive mechanical overload of the wrist flexors and forearm pronators exceeding the tendon's capacity for adaptation and repair. This creates microtears in the tendon structure that accumulate faster than the tissue can heal. The body's attempt to repair this damage results in disorganized collagen deposition, increased vascularity with neurogenic ingrowth, and eventual structural weakening rather than strengthening. Histologically, biopsies show angiofibroblastic hyperplasia with absence of inflammatory cells, confirming this as degenerative tendinosis rather than acute inflammation.
@@ -3424,6 +3458,23 @@ Chronic cases persisting beyond 6-12 months can be more challenging and may bene
   },
 
   'carpal-tunnel-syndrome': {
+    patternMatcher: {
+      clusterKey: 'elbow',
+      markers: [
+        { questionId: 'pain_outer_elbow_bump', signal: 'no' },
+        { questionId: 'pain_inner_elbow_bump', signal: 'no' },
+        { questionId: 'pain_with_gripping_or_handshake', signal: 'neutral' },
+        { questionId: 'pain_with_wrist_flexion_or_pronation', signal: 'neutral' },
+        { questionId: 'tingling_thumb_index_middle', signal: 'strong_yes' },
+        { questionId: 'night_waking_with_numb_hand', signal: 'strong_yes' },
+        { questionId: 'diffuse_aching_forearm_no_single_spot', signal: 'neutral' },
+        { questionId: 'started_with_task_spike', signal: 'neutral' },
+        { questionId: 'worse_after_full_rest_elbow', signal: 'no' },
+        { questionId: 'symptoms_spread_across_neck_shoulder_forearm', signal: 'neutral' },
+        { questionId: 'weak_grip_or_dropping_objects', signal: 'yes' },
+      ],
+    },
+
     pathophysiology: `Carpal tunnel syndrome (CTS) is a peripheral nerve compression neuropathy resulting from increased pressure on the median nerve as it passes through the carpal tunnel at the wrist. The carpal tunnel is an anatomically confined space bounded by carpal bones dorsally and the transverse carpal ligament (flexor retinaculum) volarly. Nine flexor tendons (four flexor digitorum superficialis, four flexor digitorum profundus, and flexor pollicis longus) pass through this tunnel alongside the median nerve, creating potential for compression when tunnel pressure exceeds capillary perfusion pressure (30 mmHg).
 
 The pathophysiological cascade begins with mechanical compression causing impaired microvascular blood flow to the nerve (ischemia) and reduced venous drainage (congestion). This leads to nerve edema, further increasing tunnel pressure in a vicious cycle. Initially, compression affects the myelin sheath causing focal demyelination at the compression site, manifesting as intermittent paresthesias and nocturnal symptoms. With sustained compression, axonal degeneration develops, progressing from distal sensory fibers to motor fibers, eventually causing permanent sensory loss and thenar muscle atrophy if untreated.
@@ -9150,6 +9201,23 @@ TFCC injuries affect the biomechanics of forearm rotation and ulnar-sided wrist 
   },
 
   'repetitive-strain-injuries': {
+    patternMatcher: {
+      clusterKey: 'elbow',
+      markers: [
+        { questionId: 'pain_outer_elbow_bump', signal: 'neutral' },
+        { questionId: 'pain_inner_elbow_bump', signal: 'neutral' },
+        { questionId: 'pain_with_gripping_or_handshake', signal: 'neutral' },
+        { questionId: 'pain_with_wrist_flexion_or_pronation', signal: 'neutral' },
+        { questionId: 'tingling_thumb_index_middle', signal: 'neutral' },
+        { questionId: 'night_waking_with_numb_hand', signal: 'no' },
+        { questionId: 'diffuse_aching_forearm_no_single_spot', signal: 'strong_yes' },
+        { questionId: 'started_with_task_spike', signal: 'strong_yes' },
+        { questionId: 'worse_after_full_rest_elbow', signal: 'neutral' },
+        { questionId: 'symptoms_spread_across_neck_shoulder_forearm', signal: 'strong_yes' },
+        { questionId: 'weak_grip_or_dropping_objects', signal: 'neutral' },
+      ],
+    },
+
     pathophysiology: `Repetitive strain injuries (RSI) develop when tissues are subjected to repeated low-level stress over extended periods, exceeding their capacity to recover between episodes of use. This creates a cycle of microtrauma and incomplete healing that gradually leads to tissue breakdown and sensitization of pain pathways.
 
 The pathophysiology involves multiple systems: musculoskeletal tissues experience microscopic damage from repetitive loading, while the nervous system becomes increasingly sensitive to normal stimuli. This process, called peripheral and central sensitization, means that activities which were once painless now trigger significant discomfort.

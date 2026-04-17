@@ -15,6 +15,7 @@ import {
   ArrowRightIcon,
   ClockIcon,
   ShieldCheckIcon,
+  ClipboardDocumentListIcon,
 } from '@heroicons/react/24/outline';
 import {
   CONTENT_LAST_MODIFIED_ISO,
@@ -26,10 +27,10 @@ import {
 import { getConditionBySlug } from '@/lib/conditions-data';
 import { getTreatmentById } from '@/lib/treatments-data';
 
-const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/hip-pain';
-const PAGE_TITLE = 'Hip Pain Treatment in Burlington | Kareem Hassanein Physiotherapy';
+const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/pain-guides/fluid-on-the-knee';
+const PAGE_TITLE = 'Fluid on the Knee: What Causes Knee Swelling | Kareem Hassanein';
 const PAGE_DESCRIPTION =
-  'Hip pain treatment in Burlington with Kareem Hassanein, Registered Physiotherapist. Lateral, groin, and deep hip pain assessed and treated. Direct billing.';
+  'A Registered Physiotherapist\'s guide to fluid on the knee in Burlington. Onset patterns, likely causes, red flags, and when to seek care.';
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -52,7 +53,7 @@ export const metadata: Metadata = {
         url: 'https://www.kinetikarephysio.com/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Hip Pain Treatment in Burlington - Kareem Hassanein Physiotherapy',
+        alt: 'Fluid on the Knee - Kareem Hassanein Physiotherapy',
       },
     ],
   },
@@ -68,193 +69,204 @@ export const metadata: Metadata = {
 };
 
 // ---------------------------------------------------------------------------
-// Content (kept inline: this hub is a single-purpose landing page)
+// Content
 // ---------------------------------------------------------------------------
 
-interface LocationGuide {
-  region: string;
+interface OnsetGroup {
+  heading: string;
   subtitle: string;
   description: string;
-  commonSources: Array<{
-    slug: string;
+  causes: Array<{
+    slug?: string;
     label: string;
     note: string;
+    urgency?: 'medical' | 'routine';
   }>;
 }
 
-const locationGuides: LocationGuide[] = [
+const onsetGroups: OnsetGroup[] = [
   {
-    region: 'Side of the hip (lateral)',
-    subtitle: 'Pain over the bony point on the outside of the hip',
+    heading: 'Sudden, within hours of injury',
+    subtitle: 'Acute traumatic effusion, often blood inside the joint',
     description:
-      'Tender over the greater trochanter, worse lying on that side at night, and cranky when standing on one leg. This is the most common presentation in people over 40, especially post-menopausal women and runners who recently increased volume.',
-    commonSources: [
+      'A knee that balloons up within an hour or two of a pop, a twist, or a direct blow usually has blood inside the joint (a haemarthrosis). Johnson in American Family Physician (2000) notes that rapid effusion within a few hours of injury carries a high likelihood of significant intra-articular damage. Most of these warrant medical assessment before, or alongside, starting physiotherapy.',
+    causes: [
       {
-        slug: 'greater-trochanteric-pain-syndrome',
-        label: 'Lateral hip pain / gluteal tendinopathy (GTPS)',
-        note: 'Gluteus medius and minimus tendon irritation at the greater trochanter.',
+        slug: 'acl-injuries',
+        label: 'ACL tear',
+        note: 'A pop, immediate swelling, and a knee that feels unstable on pivots. ACL rupture is the single most common cause of traumatic haemarthrosis in adults.',
       },
       {
-        slug: 'hip-bursitis',
-        label: 'Hip bursitis',
-        note: 'Secondary bursal irritation, usually part of the broader GTPS picture.',
+        label: 'Patellar dislocation',
+        note: 'Usually a pivot or landing where the kneecap visibly shifts out of place, often relocating on its own. Swelling and bruising follow quickly.',
+        urgency: 'medical',
+      },
+      {
+        label: 'Tibial plateau or osteochondral fracture',
+        note: 'High-energy trauma, falls from a height, or a direct blow to the knee. Marked pain on weight-bearing and rapid swelling. Ottawa Knee Rules help decide on X-ray.',
+        urgency: 'medical',
       },
     ],
   },
   {
-    region: 'Front of the hip and groin',
-    subtitle: 'Deep anterior pain, sometimes a pinch with flexion',
+    heading: 'Over 24 to 48 hours after injury',
+    subtitle: 'Delayed effusion, often soft tissue or joint surface',
     description:
-      'Often described as a pinch or ache deep in the front of the hip or groin. Worse with deep squats, sitting low, getting out of a car, or cutting and pivoting in sport. Stiffness first thing in the morning or after sitting is common with joint-related causes.',
-    commonSources: [
+      'Swelling that creeps in over the day or two after a twist or fall more commonly reflects synovial fluid accumulating in response to injury, rather than frank bleeding. Meniscus tears, ligament sprains, and bone bruises typically show this pattern. Most of these are manageable with structured physiotherapy once serious injury has been ruled out.',
+    causes: [
       {
-        slug: 'hip-osteoarthritis',
-        label: 'Hip osteoarthritis',
-        note: 'Joint stiffness and groin pain that worsens with activity and improves with gentle movement.',
+        slug: 'meniscus-tears',
+        label: 'Meniscus tears',
+        note: 'Twisting injury with joint-line pain, a sense of catching or locking, and swelling that builds over the next day or two.',
       },
       {
-        slug: 'femoroacetabular-impingement',
-        label: 'Femoroacetabular impingement (FAI)',
-        note: 'A mechanical pinch at end-range hip flexion, common in younger athletes.',
+        slug: 'mcl-lcl-sprains',
+        label: 'MCL or LCL sprains',
+        note: 'A valgus or varus force, pain on the inside or outside of the knee, and modest swelling that appears in the day after injury.',
       },
       {
-        slug: 'hip-labral-tears',
-        label: 'Hip labral tears',
-        note: 'Clicking, catching, or a sharp groin pain with rotation or deep flexion.',
+        slug: 'pcl-injuries',
+        label: 'PCL injury',
+        note: 'Dashboard-type trauma or a fall onto a bent knee. Often modest swelling with a deep posterior ache and a sense of instability going downstairs.',
       },
       {
-        slug: 'groin-strains',
-        label: 'Adductor (groin) strains',
-        note: 'Inner-thigh pain after a sudden change of direction or kick, common in hockey and soccer.',
+        label: 'Bone bruise or minor osteochondral injury',
+        note: 'Trauma without frank fracture, with a deep dull ache and modest delayed swelling. Usually confirmed on MRI when imaging is warranted.',
       },
     ],
   },
   {
-    region: 'Back of the hip and deep buttock',
-    subtitle: 'Deep posterior ache, sit bone tenderness, or nerve-like pain',
+    heading: 'Gradual and chronic',
+    subtitle: 'Recurring or ongoing swelling without a new injury',
     description:
-      'Pain sitting on hard surfaces, aching in the deep buttock, or a sciatic-type symptom that travels down the back of the leg. The source can sit in the joint, in deep gluteal muscles, or in the lumbar spine referring pain into the buttock, so careful assessment matters here.',
-    commonSources: [
+      'A knee that swells after longer walks, flares after a busy week, or sits mildly puffy most of the time usually has a non-traumatic driver. Osteoarthritis is the most common cause in adults over 50, often with a Baker\'s cyst behind the knee. Inflammatory arthritis and crystal-related conditions such as gout show up differently and need a medical workup alongside physiotherapy.',
+    causes: [
       {
-        slug: 'proximal-hamstring-tendinopathy',
-        label: 'Proximal hamstring tendinopathy',
-        note: 'Sit-bone pain that flares with sitting, driving, and hill running.',
+        slug: 'knee-osteoarthritis',
+        label: 'Knee osteoarthritis',
+        note: 'Gradual ache and stiffness that worsens with longer activity and can produce recurrent low-grade swelling, sometimes with a Baker\'s cyst behind the knee.',
       },
       {
-        slug: 'piriformis-syndrome',
-        label: 'Piriformis syndrome',
-        note: 'Deep buttock pain, sometimes with radiating leg symptoms from sciatic nerve irritation.',
+        label: 'Baker\'s (popliteal) cyst',
+        note: 'Fullness or a soft lump behind the knee, often secondary to an intra-articular problem that is producing extra fluid. Rarely the primary issue on its own.',
       },
       {
-        slug: 'deep-gluteal-syndrome',
-        label: 'Deep gluteal syndrome',
-        note: 'Broader sciatic nerve entrapment in the deep gluteal space, can mimic lumbar radiculopathy.',
+        label: 'Inflammatory arthritis (rheumatoid, psoriatic, other)',
+        note: 'Morning stiffness that lasts over an hour, multiple joints involved, and persistent effusion. Needs medical workup, and physiotherapy sits alongside medical management.',
+        urgency: 'medical',
       },
       {
-        slug: 'si-joint-dysfunction',
-        label: 'Sacroiliac (SI) joint dysfunction',
-        note: 'Pain over the SI joint or upper buttock, provoked by single-leg loading.',
+        label: 'Gout or other crystal arthropathy',
+        note: 'Sudden, hot, exquisitely painful swelling, often at night. Needs medical assessment and pharmacological management. Physiotherapy is not the first line in an acute flare.',
+        urgency: 'medical',
       },
     ],
   },
   {
-    region: 'Hamstrings, and pain that travels down the leg',
-    subtitle: 'Referred and nerve-related symptoms',
+    heading: 'Hot, red, and systemically unwell',
+    subtitle: 'Needs medical assessment before physiotherapy',
     description:
-      'Sometimes what people call hip pain is actually referred from the low back. A burning or electric quality, numbness, or pain that runs past the knee points toward a nerve source rather than the hip joint itself. A careful history and physical exam help sort this out.',
-    commonSources: [
+      'A hot, red, swollen joint with fever, chills, or feeling generally unwell is a medical red flag until proven otherwise. Mathews and colleagues in the Lancet (2010) describe bacterial septic arthritis as a medical emergency with significant morbidity. This presentation warrants same-day medical review.',
+    causes: [
       {
-        slug: 'hamstring-strains',
-        label: 'Hamstring strains',
-        note: 'Sudden pull or ache in the back of the thigh, usually after a sprint or acceleration.',
+        label: 'Septic arthritis',
+        note: 'Rapid onset of severe pain, marked swelling, warmth, redness, and systemic illness. A medical emergency requiring joint aspiration and antibiotics.',
+        urgency: 'medical',
       },
       {
-        slug: 'sciatica',
-        label: 'Sciatica',
-        note: 'Nerve root irritation from the lumbar spine producing buttock and leg pain.',
-      },
-      {
-        slug: 'low-back-pain',
-        label: 'Low back pain with referral',
-        note: 'Lumbar joints and discs can refer pain into the hip and buttock without true leg nerve symptoms.',
+        label: 'Reactive or infection-related arthritis',
+        note: 'Follows a recent infection elsewhere (gut, urinary, or respiratory). Needs medical assessment. Physiotherapy is a later-stage adjunct.',
+        urgency: 'medical',
       },
     ],
   },
 ];
 
-// Red flags: when to seek urgent medical care rather than physio
+// Extra local-swelling causes (extra-articular) that come up for patients
+interface Mimic {
+  label: string;
+  note: string;
+  urgency?: 'medical' | 'routine';
+}
+
+const extraArticular: Mimic[] = [
+  {
+    label: 'Prepatellar bursitis (housemaid\'s knee)',
+    note: 'A localised fluid-filled bump over the front of the kneecap, usually after prolonged kneeling. Feels soft and superficial, and unlike a true joint effusion the rest of the knee is not tight or full.',
+  },
+  {
+    label: 'Infrapatellar bursitis (clergyman\'s knee)',
+    note: 'Similar to above but sits just below the kneecap. Often seen in flooring, plumbing, or religious practices involving long kneeling.',
+  },
+  {
+    label: 'Quadriceps or patellar tendon thickening',
+    note: 'Not truly swelling, but a firm fullness above or below the kneecap from chronic tendon-related change. No fluid wave, no effusion tests.',
+  },
+];
+
+// Red flags
 const redFlags: Array<{ sign: string; action: string }> = [
   {
-    sign: 'Sudden inability to bear weight after a fall or trauma',
-    action: 'Go to emergency to rule out hip or pelvic fracture, especially if over 65 or on bone-affecting medication.',
+    sign: 'Hot, red, and swollen knee with fever or feeling systemically unwell',
+    action: 'Seek same-day medical assessment to rule out septic arthritis or another infection-driven process.',
   },
   {
-    sign: 'Hip pain with fever, chills, or feeling systemically unwell',
-    action: 'See a physician or urgent care to rule out joint infection.',
+    sign: 'Sudden large swelling within an hour or two of trauma, with inability to bear weight',
+    action: 'Go to emergency or urgent care to rule out ACL rupture, fracture, or significant ligament injury, in line with the Ottawa Knee Rules.',
   },
   {
-    sign: 'Severe, constant pain that is not relieved by any position, particularly at night',
-    action: 'Book a physician review to investigate for stress fracture or other bone pathology.',
+    sign: 'Locked knee that cannot be straightened or bent fully after a twist',
+    action: 'See a physician promptly. A mechanically locked knee often needs orthopaedic review before rehabilitation can progress safely.',
   },
   {
-    sign: 'Progressive numbness, weakness, or changes in bowel or bladder control',
-    action: 'Seek emergency care to rule out cauda equina syndrome.',
+    sign: 'Calf pain, warmth, or swelling behind the knee, particularly after travel, surgery, or long periods of bed rest',
+    action: 'Seek urgent medical assessment to rule out deep vein thrombosis before starting physiotherapy.',
   },
   {
-    sign: 'Unexplained weight loss or a history of cancer with new hip pain',
+    sign: 'Unexplained weight loss, night pain, or a history of cancer with new knee swelling',
     action: 'See your family physician for medical workup before starting physiotherapy.',
   },
   {
-    sign: 'Hip pain in a child or adolescent that limits walking',
-    action: 'See a physician to rule out conditions such as slipped capital femoral epiphysis or Perthes disease.',
+    sign: 'Progressive numbness, weakness, or foot drop alongside the knee swelling',
+    action: 'See your physician to investigate potential nerve involvement or lumbar radiculopathy before rehabilitation.',
   },
 ];
 
-// FAQ content (answer length deliberately varied: short for simple questions, longer for complex)
+// FAQ
 const faqs: Array<{ question: string; answer: string }> = [
   {
-    question: 'How do I know if my hip pain is arthritis?',
+    question: 'Is fluid on the knee the same as a knee effusion?',
     answer:
-      'Hip osteoarthritis usually sits in the groin or deep front of the hip, feels stiff for the first twenty to thirty minutes after rest, and gets cranky with longer walks or stairs. Rotation is often the first range to drop off, which is why people notice it when putting on socks or getting out of a car. I build a working diagnosis from the history and exam, and order imaging only when it is going to change the plan.',
+      'Yes. Fluid on the knee is the everyday term for a knee joint effusion, which simply means extra fluid inside the knee joint. A true effusion sits in the suprapatellar pouch and makes the whole knee feel tight and full. A bump directly over the front of the kneecap is usually prepatellar bursitis, which sits outside the joint and behaves differently.',
   },
   {
-    question: 'Can physiotherapy help hip pain without surgery?',
+    question: 'Does knee swelling always mean a serious injury?',
     answer:
-      'For most hip pain, yes. NICE and OARSI guidelines put exercise, education, and load management as first-line care for hip osteoarthritis, and the LEAP trial (BMJ 2018) showed education plus exercise beat a corticosteroid injection for lateral hip pain at one year. Surgery is still the right call for some labral tears and advanced arthritis, but a structured rehab block almost always comes first.',
+      'No. Most chronic, low-grade knee swelling in adults is driven by osteoarthritis or an irritable joint adapting to load. Swelling that comes on within an hour or two of a twist, a pop, or a direct blow is more concerning because it often means blood inside the joint, which points toward injuries like ACL tears or fractures. Those deserve a medical check before you lean into rehab.',
   },
   {
-    question: 'When should I worry about hip pain?',
+    question: 'Should I drain fluid from my knee?',
     answer:
-      'Most hip pain is mechanical. Get medical review before physiotherapy if you have had a fall with sudden inability to weight-bear, fever with joint pain, progressive neurological changes, unexplained weight loss, or pain that is severe and unrelieved by any position.',
+      'That is a medical decision, not a physiotherapy one. Aspiration is mostly considered when a joint is very tense and painful, when diagnostic fluid analysis is needed (for example to confirm or exclude septic arthritis or gout), or when it is part of a corticosteroid injection. For most garden-variety osteoarthritis effusions, the fluid settles as the underlying flare settles. I can help you decide whether it is worth raising with your physician, and I do not perform aspiration myself.',
   },
   {
-    question: 'What causes hip pain at night?',
+    question: 'Will physiotherapy help if my knee keeps swelling?',
     answer:
-      'Lying on that side compresses the gluteal tendons against the bony point on the outside of the hip. That is the classic night-pain picture, and it is a hallmark of gluteal tendinopathy. Hip osteoarthritis can also ache at night when the joint loses its capacity to dampen load. The fix is rarely more rest. Sleep position, sitting and standing habits, and a progressive loading program are what usually settle it over a few weeks.',
+      'Often yes, once serious or systemic causes have been ruled out. For osteoarthritis, the OARSI 2019 guidelines and NICE NG226 both position structured exercise, education, and self-management as first-line care, and recurrent low-grade swelling usually settles as the joint becomes better conditioned and load is better managed. For post-traumatic cases, structured rehabilitation is almost always part of the pathway, sometimes alongside surgery for specific injuries.',
   },
   {
-    question: 'Is it safe to keep exercising with hip pain?',
+    question: 'Is ice or heat better for knee swelling?',
     answer:
-      'Usually yes, with adjustments. Full rest tends to make most hip conditions more reactive, not less. I modify load rather than remove it: adjust volume, drop the specific provoking positions, and swap in pain-tolerant options like cycling, pool work, or lower-load strength training while the irritable tissue rebuilds capacity. I set clear guardrails at the first visit so the dosing is obvious.',
+      'Both are comfort measures. Ice is more useful in the first 48 to 72 hours after an acute injury or a reactive flare with obvious swelling, in short 10 to 15 minute bouts. Heat tends to be more comfortable for chronic stiffness and for osteoarthritis between flares. Neither changes the underlying pathology on its own. Compression, elevation, and getting the knee gently moving in a tolerable range tend to do more.',
   },
   {
-    question: 'Do I need imaging before starting physiotherapy?',
+    question: 'Do I need an MRI if my knee keeps filling with fluid?',
     answer:
-      'For most people, no. Labral fraying, mild cartilage wear, and tendon signal changes show up in pain-free adults all the time, so scans often muddy the picture rather than clarify it. I order imaging when it is going to change management: suspected fracture, progressive neurological symptoms, or a case not progressing the way a thorough exam predicted.',
-  },
-  {
-    question: 'How long does hip pain take to recover with physiotherapy?',
-    answer:
-      'The tissue drives the timeline. Muscle strains often settle in four to eight weeks. Gluteal tendinopathy and other tendon-related hip pain typically needs three to six months of progressive loading to rebuild capacity. Hip osteoarthritis is longer-term management, but most people notice meaningful improvement in pain and function inside eight to twelve weeks of structured exercise and hands-on work.',
-  },
-  {
-    question: 'Do you treat hip pain after a hip replacement?',
-    answer:
-      'Yes. Post-surgical hip rehab runs in stages: protect the joint early, restore range and gait, then build strength and confidence under load. I follow your surgeon\'s protocol where one exists and adapt based on how your tissues respond. Most people progress through guided exercise work across the first three to four months after surgery.',
+      'Not always. For chronic osteoarthritis-pattern effusions, plain X-rays are usually more useful than MRI as a first step. After acute trauma, the Ottawa Knee Rules help decide whether an X-ray is sensible, and MRI is considered when a significant internal injury is suspected or when a case is not tracking the way the clinical pattern predicted. I flag when imaging will actually change the plan, rather than ordering it by default.',
   },
 ];
 
-// Evidence / research citations
+// Evidence / research
 interface ResearchItem {
   title: string;
   source: string;
@@ -264,72 +276,59 @@ interface ResearchItem {
 
 const research: ResearchItem[] = [
   {
-    title: 'Education and exercise outperform corticosteroid injection for lateral hip pain',
-    source: 'Mellor et al., BMJ (LEAP trial)',
-    year: 2018,
+    title: 'Acute knee effusions: a systematic approach to diagnosis',
+    source: 'Johnson MW, American Family Physician',
+    year: 2000,
     summary:
-      'In a randomised trial of 204 adults with gluteal tendinopathy, education plus a progressive exercise program produced greater improvements in pain and global rating of change than a single corticosteroid injection at both eight weeks and one year.',
+      'Clinical review in American Family Physician describing a structured approach to acute knee effusion. Notes that effusion within a few hours of injury carries a high likelihood of significant osseous, ligamentous, or meniscal injury, while atraumatic effusions more often reflect arthritis, infection, or crystal disease.',
   },
   {
-    title: 'OARSI guidelines for non-surgical management of hip osteoarthritis',
-    source: 'OARSI (Bannuru et al.)',
+    title: 'Bacterial septic arthritis in adults',
+    source: 'Mathews et al., The Lancet',
+    year: 2010,
+    summary:
+      'Lancet review of native-joint septic arthritis in adults. Frames septic arthritis as a medical emergency with significant morbidity and mortality, emphasising the need for urgent assessment and joint aspiration in any hot, acutely swollen, systemically unwell joint.',
+  },
+  {
+    title: 'OARSI guidelines for the non-surgical management of knee osteoarthritis',
+    source: 'OARSI (Bannuru et al.), Osteoarthritis and Cartilage',
     year: 2019,
     summary:
-      'International guideline recommending land-based exercise, education, and self-management as core treatments for hip osteoarthritis, with weight management and structured strengthening as strongly supported adjuncts.',
+      'International guideline strongly recommending land-based exercise, structured education, and self-management as core treatments for knee osteoarthritis, which is the most common driver of recurrent low-grade effusion in adults over 50.',
   },
   {
-    title: 'NICE guideline on osteoarthritis assessment and management',
-    source: 'NICE NG226',
-    year: 2022,
+    title: 'Ottawa Knee Rules for decision-making on knee radiography',
+    source: 'Stiell et al., JAMA',
+    year: 1997,
     summary:
-      'UK national guidance identifying therapeutic exercise as a first-line intervention for people with osteoarthritis, alongside information and support, with surgery considered when conservative care has not produced adequate response.',
-  },
-  {
-    title: 'Hip pain and mobility deficits: hip osteoarthritis clinical practice guideline (Revision 2025)',
-    source: 'JOSPT (Koc, Cibulka et al.)',
-    year: 2025,
-    summary:
-      'Updated APTA Academy of Orthopaedic Physical Therapy guideline recommending progressive strengthening, manual therapy, patient education, and gait and functional training for hip osteoarthritis, with dry needling newly supported for short-term relief in pain, range, strength, and function.',
-  },
-  {
-    title: 'Improving function in people with hip-related pain: a systematic review and meta-analysis of physiotherapist-led interventions',
-    source: 'Kemp et al., British Journal of Sports Medicine',
-    year: 2020,
-    summary:
-      'Systematic review synthesising physiotherapist-led exercise, manual therapy, and education for hip-related pain. Found improvements in function, pain, and strength, with hip arthroscopy showing only small short-term benefit over physiotherapy and no significant difference at 24 months.',
+      'Validated clinical decision rule for when to image an acutely injured knee. Criteria include age 55 or over, inability to flex the knee to 90 degrees, isolated tenderness over the patella or fibular head, and inability to bear weight for four steps. Sensitivity approaches 100 percent for clinically important fractures.',
   },
 ];
 
-// Conditions to feature in the related block, in display order
+// Related condition slugs (must exist)
 const relatedConditionSlugs: string[] = [
-  'greater-trochanteric-pain-syndrome',
-  'hip-osteoarthritis',
-  'femoroacetabular-impingement',
-  'hip-labral-tears',
-  'hip-bursitis',
-  'proximal-hamstring-tendinopathy',
-  'piriformis-syndrome',
-  'deep-gluteal-syndrome',
-  'si-joint-dysfunction',
-  'groin-strains',
-  'hamstring-strains',
-  'sciatica',
+  'knee-osteoarthritis',
+  'acl-injuries',
+  'meniscus-tears',
+  'mcl-lcl-sprains',
+  'pcl-injuries',
+  'knee-pain-patellofemoral',
 ];
 
 const relatedTreatmentIds: string[] = [
   'exercise-therapy',
-  'joint-mobilization',
-  'dry-needling',
-  'cupping-therapy',
-  'soft-tissue-myofascial-release',
   'sports-rehab-return-to-sport',
+  'joint-mobilization',
+  'soft-tissue-myofascial-release',
+  'post-surgical-rehabilitation',
+  'cupping-therapy',
 ];
 
 // ---------------------------------------------------------------------------
 // Page
 // ---------------------------------------------------------------------------
 
-export default function HipPainHubPage() {
+export default function FluidOnTheKneeGuidePage() {
   const relatedConditions = relatedConditionSlugs
     .map((slug) => getConditionBySlug(slug))
     .filter((condition): condition is NonNullable<ReturnType<typeof getConditionBySlug>> => Boolean(condition));
@@ -357,7 +356,13 @@ export default function HipPainHubPage() {
       {
         '@type': 'ListItem',
         position: 3,
-        name: 'Hip Pain',
+        name: 'Pain Guides',
+        item: 'https://www.kinetikarephysio.com/conditions/pain-guides',
+      },
+      {
+        '@type': 'ListItem',
+        position: 4,
+        name: 'Fluid on the Knee',
         item: PAGE_URL,
       },
     ],
@@ -378,7 +383,7 @@ export default function HipPainHubPage() {
     },
     about: {
       '@type': 'MedicalCondition',
-      name: 'Hip pain',
+      name: 'Knee joint effusion (fluid on the knee)',
     },
     audience: {
       '@type': 'PeopleAudience',
@@ -469,22 +474,27 @@ export default function HipPainHubPage() {
                   Conditions
                 </Link>
                 <ChevronRightIcon className="h-3 w-3" />
-                <span className="text-slate-900 font-medium">Hip Pain</span>
+                <Link href="/conditions/knee-pain" className="hover:text-[#B08D57] transition-colors duration-200">
+                  Knee Pain
+                </Link>
+                <ChevronRightIcon className="h-3 w-3" />
+                <span className="text-slate-900 font-medium">Fluid on the Knee</span>
               </nav>
 
               <h1 className="text-4xl md:text-5xl font-light tracking-tight leading-tight text-slate-900 mb-4">
-                Hip Pain Treatment in Burlington
+                Fluid on the Knee: What Causes Knee Swelling
               </h1>
 
               <p className="text-lg md:text-xl text-slate-700 leading-relaxed max-w-3xl">
-                Hip pain is rarely one condition. The label covers everything from a gluteal
-                tendon that cannot tolerate side-lying to a deep joint-related pinch in the
-                groin. This page is a guide I use with patients to map where the pain is, what
-                usually drives it, and how I go about treating it.
+                &ldquo;Fluid on the knee&rdquo; is the everyday way patients describe a knee
+                joint effusion. The useful question is rarely whether there is fluid, but
+                where it sits, how fast it came on, and what is driving it. This guide walks
+                through how I think about it, what is usually worth doing first, and when to
+                skip physiotherapy and go straight to medical care.
               </p>
 
               <p className="text-xs text-slate-500 mt-3">
-                Assessing and treating hip pain at the Burlington clinic. Convenient for
+                Assessing and treating knee pain at the Burlington clinic. Convenient for
                 Waterdown, Oakville, Hamilton, Flamborough, and Carlisle residents.
               </p>
 
@@ -528,10 +538,10 @@ export default function HipPainHubPage() {
                   Call Clinic
                 </Link>
                 <Link
-                  href="/conditions"
+                  href="/conditions/knee-pain"
                   className="inline-flex items-center gap-1.5 px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-700 text-sm font-medium hover:border-[#B08D57] hover:text-[#B08D57] transition-colors"
                 >
-                  View All Conditions
+                  Broader Knee Pain Guide
                   <ArrowRightIcon className="h-4 w-4" />
                 </Link>
               </div>
@@ -548,96 +558,119 @@ export default function HipPainHubPage() {
                   <InformationCircleIcon className="h-5 w-5 text-[#B08D57]" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  First, figure out which hip problem you actually have
+                  Inside the joint or outside the joint
                 </h2>
               </div>
 
               <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed">
                 <p>
-                  &ldquo;My hip hurts&rdquo; can mean half a dozen different things. One person
-                  points to the bony spot on the side and tells me they cannot sleep on that
-                  side anymore. Another points into the groin and describes a pinch every time
-                  they sink into a deep squat. A third points into the deep buttock and asks
-                  whether this is sciatica. All common, all real, and all treated very
-                  differently. So the first job on your first visit is simply sorting out which
-                  of these pictures is actually yours.
+                  The first thing I sort out is where the swelling actually sits. A true knee
+                  effusion is inside the joint capsule. It fills the suprapatellar pouch
+                  above the kneecap, the whole knee feels tight and full, bending and
+                  straightening feel restricted, and the kneecap can be pushed gently down
+                  onto the underlying bone and bounced back up (the ballottable patella
+                  sign). That is different from a soft, well-defined bump directly over the
+                  front of the kneecap, which is usually prepatellar bursitis sitting outside
+                  the joint capsule.
                 </p>
                 <p>
-                  The honest version: most hip pain in adults is mechanical and manageable.
-                  NICE and OARSI guidelines, the JOSPT hip osteoarthritis CPG revised in 2025,
-                  and the 2018 LEAP trial in the BMJ all point the same way. Education, graded
-                  strengthening, and sensible load management produce the strongest long-term
-                  outcomes. Hands-on work sits alongside that, not in place of it. What changes
-                  between people is the tissue, the history, and how load needs to be dosed.
+                  The difference matters for what comes next. Intra-articular effusions
+                  reflect something happening inside the joint, whether that is an injury, an
+                  arthritic flare, a crystal arthropathy, or, rarely, an infection.
+                  Extra-articular bursae and tendon-related fullness behave more like
+                  localised soft-tissue problems and usually settle without any concern about
+                  the joint itself.
                 </p>
                 <p>
-                  The rest of this page walks through the common sources of hip pain grouped by
-                  where they sit, the red flags that sit outside physiotherapy scope, how I
-                  approach the first assessment in clinic, and the questions patients ask me
-                  most. If you already know which condition fits your picture, the related
-                  conditions block at the bottom links straight to the deeper pages.
+                  From there the next question is how quickly the swelling came on, because
+                  the pace of onset is a surprisingly good clue to the driver. The sections
+                  below walk through the four common onset patterns I see and what each one
+                  usually points toward.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Where does it hurt? location guide */}
+        {/* Onset groups */}
         <section className="py-12 bg-slate-50/60">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto">
               <div className="flex items-center gap-3 mb-2">
                 <div className="p-2.5 bg-slate-900 rounded-xl">
-                  <MapPinIcon className="h-5 w-5 text-[#B08D57]" />
+                  <ClipboardDocumentListIcon className="h-5 w-5 text-[#B08D57]" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  Where does it hurt?
+                  When did the swelling come on?
                 </h2>
               </div>
               <p className="text-slate-600 max-w-3xl mb-8">
-                A quick guide to the most common sources of hip pain by location. Use it to find
-                the deeper page that most closely matches your pattern. If your picture overlaps a few
-                of these, that is normal and worth an assessment.
+                Onset pattern is a strong first clue. Use this guide to find the group that
+                most closely matches your story, then use the linked condition pages to go deeper.
               </p>
 
-              <div className="grid md:grid-cols-2 gap-6">
-                {locationGuides.map((guide) => (
+              <div className="space-y-6">
+                {onsetGroups.map((group) => (
                   <div
-                    key={guide.region}
-                    className="relative bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden"
+                    key={group.heading}
+                    className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden"
                   >
                     <div className="bg-gradient-to-r from-slate-900 to-slate-800 px-6 py-4">
-                      <h3 className="text-lg font-semibold text-white tracking-tight">{guide.region}</h3>
-                      <p className="text-xs text-slate-300 mt-0.5">{guide.subtitle}</p>
+                      <h3 className="text-lg font-semibold text-white tracking-tight">{group.heading}</h3>
+                      <p className="text-xs text-slate-300 mt-0.5">{group.subtitle}</p>
                     </div>
                     <div className="p-6">
                       <p className="text-slate-700 text-sm leading-relaxed mb-5">
-                        {guide.description}
+                        {group.description}
                       </p>
                       <ul className="space-y-3">
-                        {guide.commonSources.map((source) => (
-                          <li key={source.slug} className="group">
-                            <Link
-                              href={`/conditions/${source.slug}`}
-                              className="block rounded-xl border border-slate-200 hover:border-[#B08D57] hover:shadow-sm transition-all p-3"
-                            >
-                              <div className="flex items-start gap-3">
-                                <div className="mt-1 h-2 w-2 bg-[#B08D57] rounded-full flex-shrink-0" />
-                                <div className="flex-1">
-                                  <div className="flex items-center justify-between gap-3">
-                                    <span className="font-medium text-slate-900 group-hover:text-[#B08D57] transition-colors text-sm">
-                                      {source.label}
-                                    </span>
-                                    <ChevronRightIcon className="h-4 w-4 text-slate-400 group-hover:text-[#B08D57] transition-colors flex-shrink-0" />
-                                  </div>
-                                  <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                                    {source.note}
-                                  </p>
+                        {group.causes.map((cause) => {
+                          const content = (
+                            <>
+                              <div className="mt-1 h-2 w-2 bg-[#B08D57] rounded-full flex-shrink-0" />
+                              <div className="flex-1">
+                                <div className="flex items-center justify-between gap-3">
+                                  <span className="font-medium text-slate-900 text-sm">
+                                    {cause.label}
+                                  </span>
+                                  {cause.slug && (
+                                    <ChevronRightIcon className="h-4 w-4 text-slate-400 flex-shrink-0" />
+                                  )}
                                 </div>
+                                <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                                  {cause.note}
+                                </p>
+                                {cause.urgency === 'medical' && (
+                                  <p className="text-[11px] text-red-700 mt-1 font-medium">
+                                    Warrants medical review before or alongside physiotherapy.
+                                  </p>
+                                )}
                               </div>
-                            </Link>
-                          </li>
-                        ))}
+                            </>
+                          );
+
+                          if (cause.slug) {
+                            return (
+                              <li key={`${group.heading}-${cause.label}`} className="group">
+                                <Link
+                                  href={`/conditions/${cause.slug}`}
+                                  className="flex items-start gap-3 rounded-xl border border-slate-200 hover:border-[#B08D57] hover:shadow-sm transition-all p-3"
+                                >
+                                  {content}
+                                </Link>
+                              </li>
+                            );
+                          }
+
+                          return (
+                            <li
+                              key={`${group.heading}-${cause.label}`}
+                              className="flex items-start gap-3 rounded-xl border border-slate-200 bg-slate-50 p-3"
+                            >
+                              {content}
+                            </li>
+                          );
+                        })}
                       </ul>
                     </div>
                   </div>
@@ -647,8 +680,45 @@ export default function HipPainHubPage() {
           </div>
         </section>
 
-        {/* How I approach hip pain */}
+        {/* Extra-articular mimics */}
         <section className="py-12 bg-white">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2.5 bg-slate-900 rounded-xl">
+                  <InformationCircleIcon className="h-5 w-5 text-[#B08D57]" />
+                </div>
+                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
+                  Swelling outside the joint (common mimics)
+                </h2>
+              </div>
+              <p className="text-slate-600 mb-6">
+                These are not true knee effusions, but patients often describe them as fluid
+                on the knee because of how they look and feel. They are generally more benign
+                and easier to settle than an intra-articular effusion.
+              </p>
+
+              <div className="grid md:grid-cols-2 gap-4">
+                {extraArticular.map((item) => (
+                  <div
+                    key={item.label}
+                    className="bg-slate-50 rounded-xl p-5 border border-slate-200"
+                  >
+                    <h3 className="text-base font-semibold text-slate-900 mb-2">
+                      {item.label}
+                    </h3>
+                    <p className="text-sm text-slate-700 leading-relaxed">
+                      {item.note}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* How I approach it */}
+        <section className="py-12 bg-slate-50/60">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
               <div className="flex items-center gap-3 mb-4">
@@ -656,40 +726,37 @@ export default function HipPainHubPage() {
                   <AcademicCapIcon className="h-5 w-5 text-[#B08D57]" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  How I approach hip pain in clinic
+                  How I approach a swollen knee in clinic
                 </h2>
               </div>
 
               <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed">
                 <p>
-                  The first appointment runs on questions before it runs on equipment. Where
-                  does it actually hurt, how did it start, what makes it worse, what makes it
-                  better. The small details do real work here. How you cross your legs on the
-                  couch. Whether you can sleep on that side. Whether a recent running block
-                  pushed weekly volume up faster than the tissue could adapt. Whether sitting,
-                  standing, or walking is the main trigger. By the end of the history I usually
-                  have two or three working hypotheses, and the physical exam is about
-                  confirming or ruling them out.
+                  The first appointment runs on questions before it runs on equipment. How
+                  quickly did it swell. Was there a twist, a pop, or a direct blow. Does it
+                  settle overnight or just stay full. Is the knee hot. Are any other joints
+                  involved. Is there fever or feeling systemically unwell. The pace of onset
+                  and the associated signs do most of the diagnostic work here.
                 </p>
                 <p>
-                  I look at how you move before I test what hurts. Watching you walk, squat, and
-                  step tells me more than any single provocation test. From there I check hip
-                  range, strength through the key muscle groups, and the targeted tests that
-                  separate lateral tendon pain from joint pain from posterior nerve-related
-                  pain. I palpate the greater trochanter, the groin, the hamstring origin, and
-                  the SI joint with intent, because tenderness pattern is genuinely useful
-                  information when it is read in context with everything else.
+                  On examination I look at the knee in standing and lying. I check for a true
+                  effusion with the sweep test and the ballottable patella sign, compare
+                  warmth side-to-side, look at range of motion, and assess gait. Where the
+                  story points toward structural injury, I use targeted tests: Lachman and
+                  anterior drawer for the ACL, McMurray and joint-line tenderness for the
+                  meniscus, varus and valgus stress for the collaterals. After acute trauma I
+                  use the Ottawa Knee Rules to decide whether an X-ray is worth chasing, and
+                  I am upfront when the picture warrants medical review before rehab.
                 </p>
                 <p>
-                  The plan that comes out of that is individual, but it tends to have the same
-                  shape. Settle the irritable tissue with a short list of things to stop doing
-                  and a few things to add in. Build capacity with progressive strengthening
-                  exercises dosed to your current tolerance, usually across hip abductors, deep
-                  rotators, glutes, and the trunk. Joint mobilization, soft tissue therapy, dry
-                  needling, or cupping sit alongside that work where they speed things along. I
-                  write the plan down with you and track a handful of markers so we can both
-                  see whether it is actually working. If it is not, I change direction sooner
-                  rather than later.
+                  The plan depends on the driver. For osteoarthritis-pattern effusions the
+                  backbone is graded exercise and self-management, in line with OARSI and
+                  NICE. For post-traumatic effusions the work is staged: settle the
+                  irritable tissue, restore range and gait, rebuild strength, and return to
+                  function. For any picture that looks septic, crystal-related, or
+                  inflammatory in a new way, I route you to medical care first and come
+                  back to rehab in the right order afterwards. Joint mobilization, soft tissue therapy,
+                  and cupping sit alongside that work where they speed things along.
                 </p>
               </div>
             </div>
@@ -697,7 +764,7 @@ export default function HipPainHubPage() {
         </section>
 
         {/* FAQ */}
-        <section className="py-12 bg-slate-50/60">
+        <section className="py-12 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
               <div className="flex items-center gap-3 mb-4">
@@ -705,7 +772,7 @@ export default function HipPainHubPage() {
                   <QuestionMarkCircleIcon className="h-5 w-5 text-[#B08D57]" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  Hip pain questions I hear most
+                  Fluid-on-the-knee questions I hear most
                 </h2>
               </div>
 
@@ -733,8 +800,8 @@ export default function HipPainHubPage() {
           </div>
         </section>
 
-        {/* Evidence section */}
-        <section className="py-12 bg-white">
+        {/* Evidence */}
+        <section className="py-12 bg-slate-50/60">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto">
               <div className="flex items-center gap-3 mb-4">
@@ -746,16 +813,16 @@ export default function HipPainHubPage() {
                 </h2>
               </div>
               <p className="text-slate-600 max-w-3xl mb-8">
-                The recommendations above draw on national clinical guidelines and published
-                trials. Research evolves, but these are the anchor sources I rely on when I plan
-                hip pain care.
+                Published sources that underpin the triage logic and care recommendations
+                above. Research evolves, but these are the anchor references I rely on for
+                patients presenting with fluid on the knee.
               </p>
 
               <div className="grid md:grid-cols-2 gap-5">
                 {research.map((item) => (
                   <div
                     key={item.title}
-                    className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-6 border border-slate-200"
+                    className="bg-gradient-to-br from-white to-slate-50 rounded-xl p-6 border border-slate-200"
                   >
                     <div className="flex items-center gap-2 mb-2">
                       <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-[#B08D57]/10 text-[#B08D57] text-xs font-semibold uppercase tracking-wider">
@@ -777,7 +844,7 @@ export default function HipPainHubPage() {
         </section>
 
         {/* Related conditions */}
-        <section className="py-12 bg-slate-50/60">
+        <section className="py-12 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-6xl mx-auto">
               <div className="flex items-center gap-3 mb-4">
@@ -785,11 +852,11 @@ export default function HipPainHubPage() {
                   <HeartIcon className="h-5 w-5 text-[#B08D57]" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  Related hip and pelvis conditions
+                  Related knee conditions
                 </h2>
               </div>
               <p className="text-slate-600 max-w-3xl mb-8">
-                Deeper pages for each of the specific conditions that sit under hip pain.
+                Deeper pages for the conditions that most often produce fluid on the knee.
               </p>
 
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -819,7 +886,7 @@ export default function HipPainHubPage() {
         </section>
 
         {/* Related treatments */}
-        <section className="py-12 bg-white">
+        <section className="py-12 bg-slate-50/60">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-6xl mx-auto">
               <div className="flex items-center gap-3 mb-4">
@@ -827,12 +894,12 @@ export default function HipPainHubPage() {
                   <ShieldCheckIcon className="h-5 w-5 text-[#B08D57]" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  Treatments that commonly sit inside a hip plan
+                  Treatments that commonly sit inside a plan for a swollen knee
                 </h2>
               </div>
               <p className="text-slate-600 max-w-3xl mb-8">
                 None of these are stand-alone fixes. They are pieces that fit inside a plan
-                built around your specific diagnosis and goals.
+                built around the underlying cause of your knee swelling.
               </p>
 
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -875,10 +942,10 @@ export default function HipPainHubPage() {
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
                   <p className="text-slate-300 leading-relaxed">
-                    I see patients for hip pain at Endorphins Health & Wellness Centre in
-                    Burlington. The clinic serves people coming in from Burlington, Waterdown,
-                    Oakville, Hamilton, Flamborough, and Carlisle, with free parking on site
-                    and a ground-floor entrance.
+                    I see patients for knee pain and swelling at Endorphins Health & Wellness
+                    Centre in Burlington. The clinic serves people coming in from Burlington,
+                    Waterdown, Oakville, Hamilton, Flamborough, and Carlisle, with free
+                    parking on site and a ground-floor entrance.
                   </p>
                   <div className="mt-6 space-y-3 text-sm">
                     <div className="flex items-start gap-3">
@@ -935,7 +1002,7 @@ export default function HipPainHubPage() {
                       className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-[#B08D57] text-white text-sm font-medium hover:bg-[#997A4B] transition-colors"
                     >
                       <CalendarIcon className="h-4 w-4" />
-                      Book an Initial Hip Assessment
+                      Book an Initial Knee Assessment
                     </Link>
                   </div>
                 </div>

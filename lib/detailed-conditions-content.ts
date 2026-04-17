@@ -316,6 +316,7 @@ Modern lifestyle factors play a huge role: prolonged sitting, particularly with 
     },
 
     measuringProgress: standardMeasuringProgress,
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -705,6 +706,7 @@ Your movement patterns throughout the day matter tremendously. Tight hip flexors
     },
 
     measuringProgress: standardMeasuringProgress,
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -973,6 +975,7 @@ The most damaging factor I see is the combination of poor posture with repetitiv
       ],
     },
 
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -1715,6 +1718,7 @@ Poor posture compounds the problem significantly. Forward head posture and round
       ],
     },
 
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -1936,6 +1940,7 @@ The "position of no return" happens during cutting movements when your foot plan
         progressionCriteria: "Limb symmetry index of 90 percent or greater on quadriceps and hamstring strength plus all four hop tests, minimum 9 months post-reconstruction, ACL-RSI score supporting psychological readiness, and completion of unrestricted training without pain or effusion."
       }
     },
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -2312,6 +2317,7 @@ Previous injuries create lasting biomechanical changes that predispose you to os
         progressionCriteria: "Return to desired recreational activity with pain 2 out of 10 or less and no 24-hour flare, KOOS or WOMAC scores at or above the patient's personal target, and a maintenance plan the patient can realistically sustain without supervision."
       }
     },
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -2531,6 +2537,7 @@ Poor movement mechanics significantly contribute to meniscus problems. Weak glut
         progressionCriteria: "Single-leg hop distance within 10 percent of the unaffected side, full sport-specific drills with pain 2 out of 10 or less and no 24-hour flare, and two consecutive weeks of return-to-training volume without symptom regression."
       }
     },
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -2748,6 +2755,7 @@ Training errors compound the biomechanical issues. Sudden increases in mileage, 
         progressionCriteria: "Return to target weekly running volume with pain 2 out of 10 or less, tolerance for downhill and faster work without symptom return, and a sustainable maintenance plan of 2 strength sessions per week."
       }
     },
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -2986,6 +2994,7 @@ With chronic ankle instability, the entire lower limb adapts through compensator
         progressionCriteria: "Strength symmetry for dorsiflexion, plantarflexion, eversion, and inversion of 90 percent or greater of the uninjured side, symmetrical hop test battery (single, triple, crossover, 6 metre timed) within 90 percent, completion of reactive cutting and sport-specific drills without apprehension, and negative Cumberland Ankle Instability Tool screen if available."
       }
     },
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -4201,6 +4210,7 @@ Modern research (2024) emphasizes that discrepancies exist between external join
     },
 
     measuringProgress: standardMeasuringProgress,
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -4480,6 +4490,7 @@ Activity demands significantly influence symptom development. Athletes in sports
     },
 
     measuringProgress: standardMeasuringProgress,
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -4769,6 +4780,7 @@ Sleep positioning creates sustained compression that explains the characteristic
     },
 
     measuringProgress: standardMeasuringProgress,
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -5008,6 +5020,7 @@ The natural shock-absorbing capacity of the labrum diminishes with aging and rep
     },
 
     measuringProgress: standardMeasuringProgress,
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -5210,6 +5223,7 @@ Muscle weakness, particularly of the hip abductors, creates abnormal loading pat
     ],
 
     measuringProgress: standardMeasuringProgress,
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -5430,6 +5444,7 @@ Prolonged nerve compression creates a cascade of pathophysiological changes beyo
     ],
 
     measuringProgress: standardMeasuringProgress,
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -5704,6 +5719,7 @@ Gluteal muscle weakness creates compensatory hamstring overload during functiona
     },
 
     measuringProgress: standardMeasuringProgress,
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -5927,6 +5943,7 @@ The relationship between pelvic positioning and piriformis length significantly 
     },
 
     measuringProgress: standardMeasuringProgress,
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -6183,6 +6200,7 @@ Kicking mechanics in soccer players show that peak adductor activation occurs du
     ],
 
     measuringProgress: standardMeasuringProgress,
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -6395,6 +6413,7 @@ Hamstring strength asymmetries between legs create altered sprint biomechanics t
     ],
 
     measuringProgress: standardMeasuringProgress,
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -6621,6 +6640,7 @@ The facet joints' orientation in the lumbar spine makes them particularly vulner
     },
 
     measuringProgress: standardMeasuringProgress,
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -7010,6 +7030,7 @@ Common aggravating factors include the 'boom-bust' cycle of overdoing on good da
     },
 
     measuringProgress: standardMeasuringProgress,
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -7244,6 +7265,7 @@ Scapular dyskinesis alters AC joint loading patterns by disrupting normal scapul
     },
 
     measuringProgress: standardMeasuringProgress,
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -7478,6 +7500,7 @@ The biceps tendon's intra-articular portion experiences unique mechanical challe
     },
 
     measuringProgress: standardMeasuringProgress,
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -7905,6 +7928,7 @@ Many athletes fear that continuing to exercise with some pain will damage the te
         progressionCriteria: "VISA-P score above 80, pain 2 out of 10 or less during sport-specific tasks, symmetrical single-leg hop distance within 10 percent of the unaffected side, and two consecutive weeks of full sport training without a 24-hour flare."
       }
     },
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -8166,6 +8190,7 @@ Your foot mechanics also play a role - excessive pronation can create internal r
         progressionCriteria: "Full return to desired sport or activity with pain 2 out of 10 or less and no 24-hour flare, single-leg hop tests within 10 to 15% of the unaffected side, and a maintenance strengthening plan the patient can sustain at least twice weekly."
       }
     },
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -8577,6 +8602,7 @@ Walking on an incline often feels easier than walking on flat ground because the
       }
     },
 
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -9659,6 +9685,7 @@ Asymmetrical movement patterns in sports create rotational forces that challenge
       }
     },
 
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 

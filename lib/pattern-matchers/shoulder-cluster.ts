@@ -38,6 +38,7 @@ const STANDARD_OPTIONS: { value: MatcherAnswer; label: string }[] = [
 export const SHOULDER_CLUSTER: PatternMatcherCluster = {
   key: 'shoulder',
   label: 'Shoulder pain pattern check',
+  regionNoun: 'shoulder',
   conditionSlugs: [
     'rotator-cuff-injuries',
     'frozen-shoulder',
@@ -48,60 +49,59 @@ export const SHOULDER_CLUSTER: PatternMatcherCluster = {
   questions: [
     {
       id: 'pain_top_of_shoulder_ac',
-      text: 'Is the pain right on top of the shoulder, on the bump where the collarbone meets the shoulder?',
-      helper: 'A small, pinpoint spot you can press with one finger on the top of the shoulder.',
+      text: 'Is there a pinpoint sore spot right on top of the shoulder, on the bump where the collarbone meets the shoulder?',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'pain_outside_deltoid',
-      text: 'Is the pain more on the outside of the shoulder, in the middle of the deltoid, where your sleeve sits?',
+      text: 'Is the main pain more on the outside of the shoulder, in the meat of the deltoid where a sleeve sits?',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'pain_front_of_shoulder',
-      text: 'Is the pain mostly at the front of the shoulder, near the crease where the arm meets the chest?',
+      text: 'Is the main pain at the front of the shoulder, near the crease where the arm meets the chest?',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'painful_arc_overhead',
-      text: 'When you lift your arm out to the side, is there a painful zone in the middle of the range that eases when you go higher?',
-      helper: 'Painful between roughly shoulder height and ear height, then easier once you reach straight up.',
+      text: 'Lifting your arm out to the side, is there a painful zone around shoulder to ear height that eases once you go higher?',
+      helper: 'Known as a painful arc.',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'cant_reach_behind_back',
-      text: 'Is it hard or painful to reach behind your back, for example to tuck in a shirt or fasten a bra?',
+      text: 'Is reaching behind your back tough, for example tucking in a shirt or fastening a bra?',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'passive_motion_restricted_all_directions',
-      text: 'When someone else moves your arm for you while you relax, is the movement still blocked or painful in every direction?',
-      helper: 'Classic pattern for a frozen shoulder, where even passive motion is limited.',
+      text: 'If someone else moves your arm for you while you stay relaxed, is it still blocked or painful in every direction?',
+      helper: 'A classic pattern for a frozen shoulder, where even assisted motion is limited.',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'weakness_lifting_or_external_rotation',
-      text: 'Does the arm feel weak when lifting overhead, or when rotating the arm outward against resistance?',
+      text: 'Does the arm feel truly weak when lifting overhead or rotating outward against resistance, not just sore?',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'night_pain_lying_on_shoulder',
-      text: 'Does the pain wake you up at night, especially when you roll onto that shoulder?',
+      text: 'Does rolling onto that shoulder at night wake you up?',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'cross_body_reach_painful',
-      text: 'Does reaching across your body, like putting on a seatbelt, pinch the top of the shoulder?',
+      text: 'Does reaching across your body, like grabbing a seatbelt, pinch the top of the shoulder?',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'specific_fall_on_shoulder',
-      text: 'Did this start after a specific fall onto the shoulder, a hit, or a sudden pull on the arm?',
+      text: 'Did this kick off with a fall onto the shoulder, a direct hit, or a sudden pull on the arm?',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'gradual_progressive_stiffening',
-      text: 'Has the shoulder gradually become stiffer over weeks or months, with the range getting smaller over time?',
+      text: 'Over weeks or months, has the shoulder gradually tightened up, with the range getting smaller as time goes on?',
       options: STANDARD_OPTIONS,
     },
   ],

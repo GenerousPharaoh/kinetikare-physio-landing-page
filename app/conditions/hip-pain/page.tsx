@@ -210,47 +210,47 @@ const redFlags: Array<{ sign: string; action: string }> = [
   },
 ];
 
-// FAQ content (answers sit in the 300-500 character range)
+// FAQ content (answer length deliberately varied: short for simple questions, longer for complex)
 const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'How do I know if my hip pain is arthritis?',
     answer:
-      'Hip osteoarthritis typically shows up as groin or deep front-of-hip pain with stiffness first thing in the morning or after sitting. Rotation is usually limited, and pain often eases with gentle movement but flares with longer walks or stairs. A history of imaging is not required to start physiotherapy, but I use clinical tests and movement patterns to build a working diagnosis and decide when imaging actually changes the plan.',
+      'Hip osteoarthritis usually sits in the groin or deep front of the hip, feels stiff for the first twenty to thirty minutes after rest, and gets cranky with longer walks or stairs. Rotation is often the first range to drop off, which is why people notice it when putting on socks or getting out of a car. I build a working diagnosis from the history and exam, and order imaging only when it is going to change the plan.',
   },
   {
     question: 'Can physiotherapy help hip pain without surgery?',
     answer:
-      'For most hip pain presentations, yes. NICE and OARSI guidelines recommend exercise therapy, education, and load management as first-line care for hip osteoarthritis, and the 2018 LEAP trial (BMJ) showed education plus exercise outperformed corticosteroid injection for lateral hip pain at one year. Surgery is a reasonable option for some labral tears and advanced arthritis, but a structured course of physiotherapy is usually a sensible first step.',
+      'For most hip pain, yes. NICE and OARSI guidelines put exercise, education, and load management as first-line care for hip osteoarthritis, and the LEAP trial (BMJ 2018) showed education plus exercise beat a corticosteroid injection for lateral hip pain at one year. Surgery is still the right call for some labral tears and advanced arthritis, but a structured rehab block almost always comes first.',
   },
   {
     question: 'When should I worry about hip pain?',
     answer:
-      'Most hip pain is mechanical and responds well to assessment and rehabilitation. See a physician promptly if you have a fall with sudden inability to weight-bear, fever with joint pain, progressive neurological symptoms, unexplained weight loss with new pain, or pain that is severe and unrelieved by any position. Those red flags sit outside physiotherapy scope and need medical workup first.',
+      'Most hip pain is mechanical. Get medical review before physiotherapy if you have had a fall with sudden inability to weight-bear, fever with joint pain, progressive neurological changes, unexplained weight loss, or pain that is severe and unrelieved by any position.',
   },
   {
     question: 'What causes hip pain at night?',
     answer:
-      'Night pain is classic for lateral hip pain and gluteal tendinopathy because side-lying compresses the tendons against the greater trochanter. Hip osteoarthritis can also cause night aching as cartilage loses its ability to dampen load. The fix is rarely rest alone. Changing sleep position, adjusting sitting and standing habits, and progressively loading the tendon or joint usually settles the pattern over several weeks.',
+      'Lying on that side compresses the gluteal tendons against the bony point on the outside of the hip. That is the classic night-pain picture, and it is a hallmark of gluteal tendinopathy. Hip osteoarthritis can also ache at night when the joint loses its capacity to dampen load. The fix is rarely more rest. Sleep position, sitting and standing habits, and a progressive loading program are what usually settle it over a few weeks.',
   },
   {
     question: 'Is it safe to keep exercising with hip pain?',
     answer:
-      'Usually, yes. Complete rest tends to make most hip conditions more sensitive, not less. The goal is to modify load rather than remove it. That means adjusting volume, avoiding specific aggravating positions, and often switching to pain-tolerant options such as cycling, pool work, or lower-load strength training while the irritable tissue is rebuilding capacity. I set clear guardrails at the first appointment so you know what to do and what to avoid.',
+      'Usually yes, with adjustments. Full rest tends to make most hip conditions more reactive, not less. I modify load rather than remove it: adjust volume, drop the specific provoking positions, and swap in pain-tolerant options like cycling, pool work, or lower-load strength training while the irritable tissue rebuilds capacity. I set clear guardrails at the first visit so the dosing is obvious.',
   },
   {
     question: 'Do I need imaging before starting physiotherapy?',
     answer:
-      'For most people, no. Imaging findings such as labral fraying, mild cartilage wear, and tendon signal changes are common in pain-free adults, so scans can confuse more than they clarify. I start with a thorough history and physical exam and recommend imaging only when it will change management, for example suspected fracture, progressive neurological symptoms, or when conservative care is not progressing as expected.',
+      'For most people, no. Labral fraying, mild cartilage wear, and tendon signal changes show up in pain-free adults all the time, so scans often muddy the picture rather than clarify it. I order imaging when it is going to change management: suspected fracture, progressive neurological symptoms, or a case not progressing the way a thorough exam predicted.',
   },
   {
     question: 'How long does hip pain take to recover with physiotherapy?',
     answer:
-      'It depends on the tissue and the history. Acute muscle strains often settle in four to eight weeks. Tendon-related pain such as gluteal tendinopathy typically needs three to six months of progressive loading to rebuild capacity. Hip osteoarthritis is a longer-term management picture, but most people see meaningful gains in pain and function within eight to twelve weeks of structured exercise and manual therapy.',
+      'The tissue drives the timeline. Muscle strains often settle in four to eight weeks. Gluteal tendinopathy and other tendon-related hip pain typically needs three to six months of progressive loading to rebuild capacity. Hip osteoarthritis is longer-term management, but most people notice meaningful improvement in pain and function inside eight to twelve weeks of structured exercise and hands-on work.',
   },
   {
     question: 'Do you treat hip pain after a hip replacement?',
     answer:
-      'Yes. Post-surgical hip rehabilitation follows staged progressions: protecting the joint early, restoring range and gait, then rebuilding strength and confidence with load. I coordinate with your surgeon\'s protocol where one exists and adjust based on how your tissues are actually responding. Most people move through guided exercise progressions across the first three to four months after surgery.',
+      'Yes. Post-surgical hip rehab runs in stages: protect the joint early, restore range and gait, then build strength and confidence under load. I follow your surgeon\'s protocol where one exists and adapt based on how your tissues respond. Most people progress through guided exercise work across the first three to four months after surgery.',
   },
 ];
 
@@ -285,18 +285,18 @@ const research: ResearchItem[] = [
       'UK national guidance identifying therapeutic exercise as a first-line intervention for people with osteoarthritis, alongside information and support, with surgery considered when conservative care has not produced adequate response.',
   },
   {
-    title: 'Clinical practice guideline on hip pain and mobility deficits (hip osteoarthritis)',
-    source: 'JOSPT (Cibulka et al.)',
-    year: 2017,
+    title: 'Hip pain and mobility deficits: hip osteoarthritis clinical practice guideline (Revision 2025)',
+    source: 'JOSPT (Koc, Cibulka et al.)',
+    year: 2025,
     summary:
-      'APTA Orthopaedic Section guideline supporting manual therapy combined with exercise for people with hip osteoarthritis, with guidance on patient education, flexibility, gait training, and functional re-education.',
+      'Updated APTA Academy of Orthopaedic Physical Therapy guideline recommending progressive strengthening, manual therapy, patient education, and gait and functional training for hip osteoarthritis, with dry needling newly supported for short-term relief in pain, range, strength, and function.',
   },
   {
-    title: 'Exercise therapy for patients with femoroacetabular impingement syndrome',
+    title: 'Improving function in people with hip-related pain: a systematic review and meta-analysis of physiotherapist-led interventions',
     source: 'Kemp et al., British Journal of Sports Medicine',
     year: 2020,
     summary:
-      'Synthesis of evidence supporting structured physiotherapy-led exercise for FAI syndrome, with improvements in hip-related function, strength, and symptoms over three to six month programs, including comparisons with arthroscopic surgery.',
+      'Systematic review synthesising physiotherapist-led exercise, manual therapy, and education for hip-related pain. Found improvements in function, pain, and strength, with hip arthroscopy showing only small short-term benefit over physiotherapy and no significant difference at 24 months.',
   },
 ];
 
@@ -548,35 +548,34 @@ export default function HipPainHubPage() {
                   <InformationCircleIcon className="h-5 w-5 text-[#B08D57]" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  Hip pain is not one thing
+                  First, figure out which hip problem you actually have
                 </h2>
               </div>
 
               <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed">
                 <p>
-                  When someone books in for hip pain, the first job is to figure out what they
-                  actually mean. One person points to the bony spot on the side of their hip and
-                  talks about not being able to sleep on that side. Another points to their
-                  groin and describes a pinch when they squat low. A third points into the deep
-                  buttock and wonders whether this is sciatica. These are all real and common,
-                  and they respond to very different treatment plans.
+                  &ldquo;My hip hurts&rdquo; can mean half a dozen different things. One person
+                  points to the bony spot on the side and tells me they cannot sleep on that
+                  side anymore. Another points into the groin and describes a pinch every time
+                  they sink into a deep squat. A third points into the deep buttock and asks
+                  whether this is sciatica. All common, all real, and all treated very
+                  differently. So the first job on your first visit is simply sorting out which
+                  of these pictures is actually yours.
                 </p>
                 <p>
-                  The honest version is this: most hip pain in adults is mechanical and
-                  manageable. Clinical guidelines from NICE and OARSI, and trials like the 2018
-                  LEAP study in the BMJ, all point in the same direction for the most common
-                  presentations. Education, graded exercise, and load management produce the
-                  strongest long-term outcomes, and passive treatments tend to work well when
-                  they sit alongside that, not instead of it. What changes between people is
-                  the tissue, the history, and how the load needs to be dosed.
+                  The honest version: most hip pain in adults is mechanical and manageable.
+                  NICE and OARSI guidelines, the JOSPT hip osteoarthritis CPG revised in 2025,
+                  and the 2018 LEAP trial in the BMJ all point the same way. Education, graded
+                  strengthening, and sensible load management produce the strongest long-term
+                  outcomes. Hands-on work sits alongside that, not in place of it. What changes
+                  between people is the tissue, the history, and how load needs to be dosed.
                 </p>
                 <p>
-                  This page walks through how I think about the common sources of hip pain based
-                  on where it sits, what to do about red flags that sit outside physiotherapy
-                  scope, how I approach the first assessment in clinic, and answers to the
-                  questions I hear most often. If you already know which condition fits your
-                  pattern, there are direct links to the deeper treatment pages in the related
-                  conditions block at the bottom of this page.
+                  The rest of this page walks through the common sources of hip pain grouped by
+                  where they sit, the red flags that sit outside physiotherapy scope, how I
+                  approach the first assessment in clinic, and the questions patients ask me
+                  most. If you already know which condition fits your picture, the related
+                  conditions block at the bottom links straight to the deeper pages.
                 </p>
               </div>
             </div>
@@ -663,33 +662,34 @@ export default function HipPainHubPage() {
 
               <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed">
                 <p>
-                  The first appointment is built around questions, not equipment. I want to know
-                  where the pain sits, how it started, what makes it worse, and what makes it
-                  better. Small details matter: the way you cross your legs on the couch, how
-                  you sleep, whether a recent running block pushed volume up quickly, and
-                  whether sitting, standing, or walking is the main trigger. By the time the
-                  history is done, I usually have two or three working hypotheses, and the
-                  physical exam is there to confirm or rule them out.
+                  The first appointment runs on questions before it runs on equipment. Where
+                  does it actually hurt, how did it start, what makes it worse, what makes it
+                  better. The small details do real work here. How you cross your legs on the
+                  couch. Whether you can sleep on that side. Whether a recent running block
+                  pushed weekly volume up faster than the tissue could adapt. Whether sitting,
+                  standing, or walking is the main trigger. By the end of the history I usually
+                  have two or three working hypotheses, and the physical exam is about
+                  confirming or ruling them out.
                 </p>
                 <p>
-                  From there, the physical exam goes region by region. I look at how you move,
-                  not just how you hurt. That means watching you walk, squat, and step, then
-                  testing hip range, strength in the key muscle groups, and the specific
-                  provocation tests that help separate lateral tendon pain from joint pain or
-                  posterior nerve-related pain. I palpate the greater trochanter, the groin, the
-                  hamstring origin, and the SI joint with intent, because tenderness pattern is
-                  genuinely useful information when it is taken in context with everything else.
+                  I look at how you move before I test what hurts. Watching you walk, squat, and
+                  step tells me more than any single provocation test. From there I check hip
+                  range, strength through the key muscle groups, and the targeted tests that
+                  separate lateral tendon pain from joint pain from posterior nerve-related
+                  pain. I palpate the greater trochanter, the groin, the hamstring origin, and
+                  the SI joint with intent, because tenderness pattern is genuinely useful
+                  information when it is read in context with everything else.
                 </p>
                 <p>
-                  The plan that comes out of that assessment is always individualised, but it
-                  tends to have a similar shape. First, I help settle the irritable tissue
-                  with a short list of things to stop doing and a few things to add in. Then I
-                  build capacity with progressive strengthening exercises dosed to your current
-                  tolerance, usually a combination of hip abductors, deep rotators, glutes, and
-                  the trunk. Joint mobilization, soft tissue therapy, dry needling, or cupping
-                  can sit alongside that work to help it move along more comfortably. I write
-                  the plan down with you and track a few simple markers so it is clear whether
-                  it is working. If it is not, I change direction sooner rather than later.
+                  The plan that comes out of that is individual, but it tends to have the same
+                  shape. Settle the irritable tissue with a short list of things to stop doing
+                  and a few things to add in. Build capacity with progressive strengthening
+                  exercises dosed to your current tolerance, usually across hip abductors, deep
+                  rotators, glutes, and the trunk. Joint mobilization, soft tissue therapy, dry
+                  needling, or cupping sit alongside that work where they speed things along. I
+                  write the plan down with you and track a handful of markers so we can both
+                  see whether it is actually working. If it is not, I change direction sooner
+                  rather than later.
                 </p>
               </div>
             </div>

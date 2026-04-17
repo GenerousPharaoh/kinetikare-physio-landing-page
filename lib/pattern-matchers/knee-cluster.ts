@@ -30,6 +30,7 @@ export interface PatternMatcherQuestion {
 export interface PatternMatcherCluster {
   key: string;
   label: string;          // short UI label, e.g. 'Knee pain pattern check'
+  regionNoun: string;     // singular noun used in UI copy, e.g. 'knee', 'hip', 'shoulder', 'low back'
   conditionSlugs: string[];
   questions: PatternMatcherQuestion[];
 }
@@ -45,6 +46,7 @@ const STANDARD_OPTIONS: { value: MatcherAnswer; label: string }[] = [
 export const KNEE_CLUSTER: PatternMatcherCluster = {
   key: 'knee',
   label: 'Knee pain pattern check',
+  regionNoun: 'knee',
   conditionSlugs: [
     'knee-pain-patellofemoral',
     'patellar-tendinopathy',
@@ -55,60 +57,62 @@ export const KNEE_CLUSTER: PatternMatcherCluster = {
   questions: [
     {
       id: 'pain_below_kneecap_on_tendon',
-      text: 'Is the pain mostly right below your kneecap, on the tendon, in one specific spot?',
-      helper: 'A small, pinpoint area you can press with one finger on the tendon just under the kneecap.',
+      text: 'If you press with one finger on the tendon just below your kneecap, is that the worst spot?',
+      helper: 'A pinpoint, localised sore spot on the tendon itself rather than a diffuse ache.',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'pain_around_kneecap',
-      text: 'Is the pain more around or behind the kneecap itself, not pinpoint?',
-      helper: 'A diffuse ache that is hard to point to exactly.',
+      text: 'Is the pain vaguer, around or behind the kneecap, and hard to point to with one finger?',
+      helper: 'A diffuse ache rather than a pinpoint spot.',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'pain_outside_of_knee',
-      text: 'Is the pain on the outside of the knee, toward the side of the leg?',
+      text: 'Is the pain mainly on the outer side of the knee, toward the outside of the leg?',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'theatre_sign',
-      text: 'Does the knee hurt more after sitting still for a long time, for example after a long movie or car ride?',
+      text: 'After sitting with the knee bent for a long stretch, like a movie or long drive, does it hurt more when you stand up?',
+      helper: 'Sometimes called the theatre sign.',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'worse_going_downstairs',
-      text: 'Is going down stairs harder or more painful than going up?',
+      text: 'Is going down stairs noticeably worse than going up?',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'pain_with_jumping_or_landing',
-      text: 'Does it hurt most with jumping or landing, or deep squatting?',
+      text: 'Is it worst with jumping, landing, or sinking into a deep squat?',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'catching_locking_giving_way',
-      text: 'Does the knee catch, lock, or give way on you?',
+      text: 'Does the knee ever catch, briefly lock, or give way underneath you?',
       helper: 'A sudden block in movement, or a feeling that the knee briefly drops out from under you.',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'pain_running_especially_downhill',
-      text: 'Does the pain come on with running, especially downhill, at a fairly predictable distance or time?',
+      text: 'Does the pain come on at roughly the same point in a run, and is downhill running worse than flat?',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'morning_stiffness_short',
-      text: 'Is the knee stiff in the morning or after resting, easing up within about 30 minutes of moving?',
+      text: 'Does the knee feel stiff first thing in the morning, easing up inside about half an hour?',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'specific_twist_or_injury_event',
-      text: 'Was there a specific event where the knee twisted, was hit, or you heard a pop?',
+      text: 'Can you trace this back to a specific twist, impact, or pop?',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'worse_after_full_rest',
-      text: 'Is the knee paradoxically worse after a long rest, like a week off, and then better once you warm up?',
+      text: 'Does a full week off make the knee feel worse, not better, and does it settle once you warm up?',
+      helper: 'A paradox that is common with reactive tendon pain.',
       options: STANDARD_OPTIONS,
     },
     {

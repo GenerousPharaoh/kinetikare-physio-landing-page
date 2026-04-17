@@ -397,7 +397,7 @@ export default function PatternMatcher({
               Is this my pattern?
             </h2>
             <p className="mt-1 text-sm md:text-base text-slate-600 leading-relaxed max-w-[58ch]">
-              A few questions to compare your own pattern against the common knee conditions.
+              A few questions to compare your own pattern against the common {cluster.regionNoun} conditions.
               This is not a diagnosis. It is a way to see which pattern your answers most resemble,
               so an in-person assessment has a starting point.
             </p>
@@ -555,12 +555,13 @@ function ResultView({ verdict, cluster, currentSlug, onRestart }: ResultViewProp
           <InformationCircleIcon className="h-6 w-6 text-[#B08D57] flex-shrink-0 mt-0.5" aria-hidden="true" />
           <div>
             <h3 className="text-xl font-semibold text-slate-900 tracking-tight">
-              These answers don&rsquo;t strongly match any single pattern.
+              Your answers don&rsquo;t line up with any single pattern.
             </h3>
             <p className="mt-2 text-base text-slate-700 leading-relaxed max-w-[62ch]">
-              That is not unusual. Many knee presentations overlap, and some don&rsquo;t fit the
-              common textbook patterns cleanly. A hands-on assessment is how these get sorted out.
-              I check how the knee moves, test specific structures, and watch how you load it.
+              That happens. {capitalize(cluster.regionNoun)} presentations overlap, and some
+              genuinely do not fit a tidy textbook pattern. This is where an in-person assessment
+              pulls its weight. I watch how the {cluster.regionNoun} moves, test specific
+              structures, and see how it behaves under load.
             </p>
           </div>
         </div>
@@ -625,8 +626,8 @@ function ResultView({ verdict, cluster, currentSlug, onRestart }: ResultViewProp
         <span className="text-[#B08D57]">more than one pattern</span>.
       </h3>
       <p className="mt-3 text-base text-slate-700 leading-relaxed max-w-[64ch]">
-        A physical exam is how these are distinguished. Both of these match what you described.
-        Here is what lines up with each, based on your answers.
+        Both of these match parts of what you described. A hands-on exam is what separates them
+        cleanly. Here is what lines up with each, based on your answers.
       </p>
 
       <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -638,7 +639,7 @@ function ResultView({ verdict, cluster, currentSlug, onRestart }: ResultViewProp
       <div className="mt-6 rounded-lg border border-slate-200 bg-slate-50/60 p-4">
         <p className="text-sm text-slate-600 leading-relaxed">
           <span className="font-medium text-slate-800">What typically distinguishes them:</span>{' '}
-          {buildDistinguishingNote(candidates)}
+          {buildDistinguishingNote(candidates, cluster.regionNoun)}
         </p>
       </div>
 
@@ -738,10 +739,10 @@ function buildLopsidedReasoning(top: ConditionScore): string {
   return `${lead}. That pattern fits ${top.name} more cleanly than the other conditions on this page.`;
 }
 
-function buildDistinguishingNote(candidates: ConditionScore[]): string {
+function buildDistinguishingNote(candidates: ConditionScore[], regionNoun: string): string {
   if (candidates.length < 2) return '';
   const [a, b] = candidates;
-  return `On exam, ${a.name} and ${b.name} tend to separate by where the knee is most tender, how it behaves under specific loads, and what shows up on movement testing. That is what I work through during an assessment.`;
+  return `On exam, ${a.name} and ${b.name} usually separate by where the ${regionNoun} is most tender, how it behaves under specific loads, and which movements or special tests reproduce the pain. That is what I work through during an assessment.`;
 }
 
 function capitalize(s: string): string {

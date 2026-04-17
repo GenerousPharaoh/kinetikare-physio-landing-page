@@ -35,6 +35,7 @@ const STANDARD_OPTIONS: { value: MatcherAnswer; label: string }[] = [
 export const HIP_CLUSTER: PatternMatcherCluster = {
   key: 'hip',
   label: 'Hip pain pattern check',
+  regionNoun: 'hip',
   conditionSlugs: [
     'greater-trochanteric-pain-syndrome',
     'hip-osteoarthritis',
@@ -45,55 +46,53 @@ export const HIP_CLUSTER: PatternMatcherCluster = {
   questions: [
     {
       id: 'pain_groin_or_front_of_hip',
-      text: 'Is the pain mostly in the groin or the front crease of the hip?',
-      helper: 'The fold where the thigh meets the pelvis, not the side of the hip.',
+      text: 'Is the main pain in your groin or in the crease at the front of the hip?',
+      helper: 'The fold where the thigh meets the pelvis, not the bony side of the hip.',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'pain_outside_of_hip',
-      text: 'Is the pain mostly on the outside of the hip, on the bony bump you lie on?',
-      helper: 'The spot where your side would touch the mattress when lying on that side.',
+      text: 'Is the main pain over the bony bump on the outside of the hip, the spot your side rests on in bed?',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'pain_at_sit_bone',
-      text: 'Is the pain right at the sit bone, where the back of the thigh meets the buttock?',
-      helper: 'The spot that presses into a hard chair.',
+      text: 'Is the main pain right at the sit bone, the spot that presses into a hard chair?',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'worse_deep_hip_flexion',
-      text: 'Does the groin pain worsen with deep hip bending, like getting out of a low car, squatting, or sitting cross-legged?',
+      text: 'Do deep hip positions flare it, for example getting out of a low car, sinking into a squat, or sitting cross-legged?',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'catching_or_clicking_with_pivot',
-      text: 'Does the hip catch, click, or pinch when you twist, pivot, or change direction?',
+      text: 'Does the hip pinch, click, or catch when you twist, pivot, or change direction?',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'worse_lying_on_that_side',
-      text: 'Does lying on that side at night hurt, or make the outside of the hip ache within a few minutes?',
+      text: 'Within a few minutes of lying on that side at night, does the outside of the hip start to ache?',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'worse_prolonged_sitting_hard_chair',
-      text: 'Does sitting for a long time on a hard chair bring on pain at the sit bone or upper hamstring?',
+      text: 'Is a long sit on a firm seat, like a drive or a ballgame, what really flares the sit bone or upper hamstring?',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'worse_uphill_or_lengthened_hamstring',
-      text: 'Does pain at the back of the hip worsen with running uphill, lunges, or stretching the hamstring?',
+      text: 'Does running uphill, lunging, or stretching the hamstring aggravate pain at the back of the hip?',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'morning_stiffness_hip_short',
-      text: 'Is the hip stiff first thing in the morning, easing up within about 30 minutes of moving?',
+      text: 'Is the hip stiff first thing in the morning and does it loosen off inside about half an hour of moving?',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'loss_of_rotation_putting_on_socks',
-      text: 'Is it harder to put on socks, cut toenails, or get in and out of a car on that side?',
+      text: 'Are small things like putting on socks, clipping toenails, or getting in and out of a car harder on that side?',
       options: STANDARD_OPTIONS,
     },
     {

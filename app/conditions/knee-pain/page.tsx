@@ -223,47 +223,47 @@ const redFlags: Array<{ sign: string; action: string }> = [
   },
 ];
 
-// FAQ content (answers sit in the 300-500 character range)
+// FAQ content (answer length deliberately varied: short for simple questions, longer for complex)
 const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'Why does my knee hurt going down stairs?',
     answer:
-      'Going down stairs loads the front of the knee heavily, with forces that can reach three to four times body weight at the patellofemoral joint. Pain in this position is classic for patellofemoral pain, patellar tendinopathy, and early knee osteoarthritis. It is usually a sign that quadriceps and hip strength are not yet matched to the demand. Structured loading, not avoidance, is typically what changes it.',
+      'Stair negotiation loads the front of the knee heavily: patellofemoral joint forces sit around three times body weight, climbing a touch higher on descent in many people. That position is classic for patellofemoral pain, patellar tendinopathy, and early knee osteoarthritis, and it usually tells me quadriceps and hip strength are not yet matched to the demand. Structured loading, not avoidance, is what changes it.',
   },
   {
     question: 'Is it safe to keep running with knee pain?',
     answer:
-      'Often, yes, with the right adjustments. Complete rest tends to make most knee conditions more reactive rather than less. The usual approach is to modify volume, surface, and pace, and to add strengthening exercises that target the hip and quadriceps. A simple rule I use in clinic: pain that stays under a 3 out of 10 during a run and settles within 24 hours is usually acceptable. Pain that lingers for days, or a knee that swells after running, is a signal to change the plan.',
+      'Often yes, with adjustments. Full rest tends to make most knee conditions more reactive, not less. The usual move is to modify volume, surface, and pace, and add hip and quadriceps strengthening. A simple rule I use in clinic: pain under 3 out of 10 during the run, settling inside 24 hours, is usually fine to train through. Pain that lingers for days, or a knee that swells after a run, means the plan needs to change.',
   },
   {
     question: 'When do I need an MRI for knee pain?',
     answer:
-      'For most knee pain, imaging is not needed to start physiotherapy. The Ottawa Knee Rules help decide when an X-ray is sensible after acute trauma. MRI tends to be most useful when a significant internal injury is suspected, such as a torn ACL, a locked knee from a displaced meniscal fragment, or persistent mechanical symptoms that are not responding to conservative care. I flag when imaging will actually change the plan rather than ordering it by default.',
+      'Most knee pain does not need imaging to start physiotherapy. For acute trauma, the Ottawa Knee Rules guide whether an X-ray is sensible. MRI is most useful when a significant internal injury is suspected: an ACL tear, a mechanically locked knee, or persistent mechanical symptoms that are not responding to conservative care. I flag when imaging will actually change the plan rather than ordering it by default.',
   },
   {
     question: 'Can physiotherapy fix a meniscus tear?',
     answer:
-      'Many meniscal tears do well without surgery. Research including the 2013 METEOR trial and the 2016 ESCAPE trial published in JAMA showed that structured physiotherapy produced outcomes comparable to arthroscopic partial meniscectomy at six to twelve months for degenerative meniscal tears. Surgery is still appropriate for certain presentations, such as a true mechanical lock or younger athletes with specific tear patterns, and I help flag when a surgical opinion is worth pursuing.',
+      'Many degenerative meniscal tears do well without surgery. The METEOR trial (NEJM 2013) and the ESCAPE trial (JAMA 2018) both showed that structured physiotherapy produced outcomes comparable to arthroscopic partial meniscectomy, with ESCAPE holding at five-year follow-up. Surgery is still the right call for certain presentations, for example a true mechanical lock or specific tear patterns in younger athletes, and I flag when a surgical opinion is worth pursuing.',
   },
   {
     question: 'How long does knee pain take to heal?',
     answer:
-      'It depends on the tissue and the history. Simple muscle strains and mild MCL sprains often settle in four to eight weeks. Patellofemoral pain and IT band syndrome typically respond to six to twelve weeks of structured loading. Patellar tendinopathy usually needs three to six months of progressive rehabilitation. Knee osteoarthritis is a longer-term management picture, and most people see meaningful improvement in pain and function within eight to twelve weeks of guided exercise.',
+      'The tissue drives it. Simple muscle strains and mild MCL sprains often settle in four to eight weeks. Patellofemoral pain and IT band syndrome usually respond to six to twelve weeks of structured loading. Patellar tendinopathy typically needs three to six months of progressive rehab to rebuild capacity. Knee osteoarthritis is longer-term management, but most people see meaningful gains in pain and function inside eight to twelve weeks of guided exercise.',
   },
   {
     question: 'Will knee pain go away on its own?',
     answer:
-      'Mild, short-lived knee pain after a new activity often does settle with a few days of sensible load reduction. Pain that has been around more than a few weeks, pain with swelling, or pain that keeps coming back with the same activity usually needs a structured plan to resolve. Waiting it out often prolongs the issue and can let strength deficits and movement habits lock in, which makes eventual recovery slower.',
+      'Short-lived knee pain after a new activity often does, with a few days of sensible load reduction. Pain that has been there more than a few weeks, pain with swelling, or pain that keeps coming back with the same activity usually needs a structured plan. Waiting it out often prolongs things and lets strength deficits and movement habits settle in, which makes eventual recovery slower.',
   },
   {
     question: 'Should I use ice or heat for knee pain?',
     answer:
-      'Both can be useful, and neither changes the underlying pathology. Ice is most helpful in the first 48 to 72 hours after an acute injury or a flare with swelling, used in short 10 to 15 minute bouts. Heat tends to be more comfortable for chronic stiffness and muscle guarding, such as osteoarthritis or tendon-related pain. I treat them as comfort measures that help you keep moving, not as treatments in themselves.',
+      'Both are comfort measures, and neither changes the underlying pathology. Ice helps most in the first 48 to 72 hours after an acute injury or a flare with swelling, in short 10 to 15 minute bouts. Heat tends to be more comfortable for chronic stiffness and muscle guarding, like osteoarthritis or tendon-related pain. I treat them as things that help you keep moving, not as treatments in themselves.',
   },
   {
     question: 'Do I need a referral to see you for knee pain in Burlington?',
     answer:
-      'No referral is required to see a Registered Physiotherapist in Ontario. Most extended health plans cover physiotherapy directly and I offer direct billing where available. Initial assessments run about an hour and include history, examination, a working diagnosis, and a clear plan. If I think something is outside physiotherapy scope, I coordinate with your family physician or the appropriate medical consultant rather than push on regardless.',
+      'No referral needed in Ontario. Most extended health plans cover physiotherapy and I offer direct billing where available. Initial assessments run about an hour and include history, examination, a working diagnosis, and a clear plan. If I think something is outside physiotherapy scope, I coordinate with your family physician or an appropriate consultant rather than push on regardless.',
   },
 ];
 
@@ -565,36 +565,35 @@ export default function KneePainHubPage() {
                   <InformationCircleIcon className="h-5 w-5 text-[#B08D57]" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
-                  Knee pain is not one thing
+                  The knee has a small number of common stories
                 </h2>
               </div>
 
               <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed">
                 <p>
-                  When someone books in for knee pain, the first job is to figure out what they
-                  actually mean. One person points to the front of the kneecap and talks about
-                  stairs being the worst part of the day. Another points to the inner joint line
-                  and describes a sharp catch when they pivot in a game. A third describes a
-                  whole-knee stiffness that takes twenty minutes to unlock in the morning. These
-                  are all real and common, and they respond to very different treatment plans.
+                  Most of the knee pain I see in clinic falls into a handful of recognisable
+                  stories. Stairs being the worst part of a runner&rsquo;s day. A sharp catch on
+                  the inside of the joint the first time you pivot in a game since a twist last
+                  week. A whole-knee stiffness that takes twenty minutes to unlock in the
+                  morning and then eases until bedtime. A burning outer-knee pain that shows up
+                  at roughly the same point in every long run. These are different conditions
+                  with different treatment plans, but each one has a signature.
                 </p>
                 <p>
-                  The honest version is this: most knee pain in adults is mechanical and
-                  manageable. Clinical guidelines from NICE, OARSI, and JOSPT, along with trials
-                  such as METEOR in the New England Journal of Medicine and ESCAPE in JAMA, all
-                  point in the same direction for the most common presentations. Education,
-                  graded strengthening, and sensible load management produce the strongest
-                  long-term outcomes, and passive treatments tend to work well when they sit
-                  alongside that, not instead of it. What changes between people is the tissue,
-                  the history, and how load needs to be dosed.
+                  The honest version: most knee pain in adults is mechanical and manageable.
+                  NICE, OARSI, and the JOSPT patellofemoral CPG all agree, and the big trials
+                  on degenerative meniscal tears, METEOR in the New England Journal of Medicine
+                  and ESCAPE in JAMA, point the same way. Education, graded strengthening, and
+                  sensible load management produce the strongest long-term outcomes. Hands-on
+                  work sits alongside that, not in place of it. What changes between people is
+                  the tissue, the history, and how load needs to be dosed.
                 </p>
                 <p>
-                  This page walks through how I think about the common sources of knee pain
-                  based on where it sits, what to do about red flags that sit outside
-                  physiotherapy scope, how I approach the first assessment in clinic, and
-                  answers to the questions I hear most often. If you already know which
-                  condition fits your pattern, there are direct links to the deeper treatment
-                  pages in the related conditions block at the bottom of this page.
+                  The rest of this page works through the common sources of knee pain grouped
+                  by where they sit, the red flags that need medical review before physio, how
+                  I approach the first assessment in clinic, and the questions patients ask me
+                  most. If you already know which condition fits your picture, the related
+                  conditions block at the bottom links straight to the deeper pages.
                 </p>
               </div>
             </div>
@@ -681,37 +680,37 @@ export default function KneePainHubPage() {
 
               <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed">
                 <p>
-                  The first appointment is built around questions, not equipment. I want to
-                  know where the pain sits, how it started, what makes it worse, and what makes
-                  it better. Small details matter: whether a new running block pushed weekly
-                  mileage up quickly, whether the pain came on after a specific twist or a
-                  direct blow, how stairs feel compared with flat ground, and whether the knee
-                  is swelling, clicking, or giving way. By the time the history is done, I
-                  usually have two or three working hypotheses, and the physical exam is there
-                  to confirm or rule them out.
+                  The first appointment runs on questions before it runs on equipment. Where
+                  does the pain sit, how did it start, what makes it worse, what makes it
+                  better. The small details do real work. Whether a new running block pushed
+                  weekly mileage up faster than the tissue could adapt. Whether this came on
+                  after a specific twist or a direct blow. How stairs feel compared with flat
+                  ground. Whether the knee has been swelling, clicking, or giving way. By the
+                  time the history is done I usually have two or three working hypotheses, and
+                  the exam is about confirming or ruling them out.
                 </p>
                 <p>
-                  From there, the physical exam goes region by region. I watch how you walk,
-                  squat, step down, and if relevant, land from a small hop. I check knee range,
-                  quadriceps and hip strength, and targeted special tests such as Lachman and
-                  anterior drawer for the ACL, posterior drawer for the PCL, valgus and varus
-                  stress for the collaterals, McMurray and joint-line tenderness for the
-                  meniscus, and compression and inhibition tests for the patellofemoral joint.
-                  I use the Ottawa Knee Rules after acute trauma to decide whether an X-ray is
-                  worth pursuing, and I am honest when the picture warrants medical imaging
+                  From there, the exam goes region by region. I watch how you walk, squat, step
+                  down, and if it is relevant, land from a small hop. I check range, quadriceps
+                  and hip strength, and the targeted tests that actually move the needle:
+                  Lachman and anterior drawer for the ACL, posterior drawer for the PCL, valgus
+                  and varus stress for the collaterals, McMurray and joint-line tenderness for
+                  the meniscus, and compression and inhibition tests for the patellofemoral
+                  joint. After acute trauma I use the Ottawa Knee Rules to decide whether an
+                  X-ray is worth chasing, and I am upfront when the picture warrants imaging
                   rather than more rehab time.
                 </p>
                 <p>
-                  The plan that comes out of that assessment is always individualised, but it
-                  tends to have a similar shape. First, I help settle the irritable tissue with
-                  a short list of things to stop doing and a few things to add in, including
-                  modifying load, footwear, or training surface where it makes sense. Then I
-                  build capacity with progressive strengthening exercises dosed to your current
-                  tolerance, usually a combination of quadriceps, hip abductors, glutes, hamstrings,
-                  and calves. Joint mobilization, soft tissue therapy, dry needling, or cupping
-                  can sit alongside that work to help it move along more comfortably. I write
-                  the plan down with you and track a few simple markers so it is clear whether
-                  it is working. If it is not, I change direction sooner rather than later.
+                  The plan that comes out of that is individual, but it has a familiar shape.
+                  Settle the irritable tissue with a short list of things to stop doing and a
+                  few things to add in, which might include adjusting training surface, volume,
+                  or footwear. Build capacity with progressive strengthening exercises dosed to
+                  your current tolerance, usually across quadriceps, hip abductors, glutes,
+                  hamstrings, and calves. Joint mobilization, soft tissue therapy, dry needling,
+                  or cupping sit alongside that work where they help it move faster. I write
+                  the plan down with you and track a handful of markers so it is clear whether
+                  it is actually working. If it is not, I change direction sooner rather than
+                  later.
                 </p>
               </div>
             </div>

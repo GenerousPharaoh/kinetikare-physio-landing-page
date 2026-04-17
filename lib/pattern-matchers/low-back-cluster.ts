@@ -38,6 +38,7 @@ const STANDARD_OPTIONS: { value: MatcherAnswer; label: string }[] = [
 export const LOW_BACK_CLUSTER: PatternMatcherCluster = {
   key: 'low-back',
   label: 'Low back pain pattern check',
+  regionNoun: 'low back',
   conditionSlugs: [
     'low-back-pain',
     'sciatica',
@@ -49,19 +50,19 @@ export const LOW_BACK_CLUSTER: PatternMatcherCluster = {
   questions: [
     {
       id: 'pain_central_low_back',
-      text: 'Is the pain mostly in the centre of your low back, across both sides of the spine?',
+      text: 'Is the pain spread across the centre of your low back, above the belt line, on both sides of the spine?',
       helper: 'Not one-sided, not deep in the buttock, but across the lower back itself.',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'pain_one_sided_buttock_or_si',
-      text: 'Is the pain mostly on one side, right around the dimple of the buttock or the back of the pelvis?',
-      helper: 'A focal area you can point to with one or two fingers near the top of the buttock.',
+      text: 'Is there a focal sore spot on one side only, near the dimple above the buttock?',
+      helper: 'A small area you can cover with a couple of fingers at the back of the pelvis.',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'pain_radiates_below_knee',
-      text: 'Does pain, numbness, or tingling travel down the leg past the knee, sometimes into the calf or foot?',
+      text: 'Does pain, numbness, or pins and needles travel down the leg past the knee, into the calf or foot?',
       options: STANDARD_OPTIONS,
     },
     {
@@ -72,33 +73,33 @@ export const LOW_BACK_CLUSTER: PatternMatcherCluster = {
     },
     {
       id: 'worse_with_bending_or_sitting',
-      text: 'Is the pain worse with bending forward, slouched sitting, or lifting from the floor?',
+      text: 'Is it worse when you bend forward, slouch in a chair, or lift something off the floor?',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'worse_with_standing_or_extension',
-      text: 'Is the pain worse with standing for a long time, walking, or bending backward?',
+      text: 'Is it worse with standing a long time, walking, or arching backward?',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'eases_with_sitting_or_leaning_forward',
-      text: 'When you walk for a while, does the pain ease when you sit down or lean forward on a grocery cart?',
-      helper: 'Classic pattern for narrowing of the spinal canal.',
+      text: 'After walking for a while, does it settle once you sit down or lean forward on a grocery cart?',
+      helper: 'A classic pattern for narrowing of the spinal canal.',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'worse_single_leg_activities',
-      text: 'Is the pain worse when you stand on one leg, climb stairs, or roll over in bed?',
+      text: 'Is it worse on single-leg moves, like standing on one foot, climbing stairs, or rolling over in bed?',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'worse_prolonged_sitting',
-      text: 'Does sitting for a long time, especially on a firm or uneven surface, make the buttock pain worse?',
+      text: 'After a long sit on a firm or uneven surface, is the buttock or sit-bone area much worse?',
       options: STANDARD_OPTIONS,
     },
     {
       id: 'specific_lifting_or_twisting_event',
-      text: 'Did this start after a specific lifting, bending, or twisting event?',
+      text: 'Can you pin the start of this to a specific lift, awkward twist, or bend?',
       options: STANDARD_OPTIONS,
     },
     {

@@ -4611,6 +4611,75 @@ The good news is 70-80% of cases respond to conservative treatment with thumb sp
       questionnaires: "Quick Disabilities of the Arm, Shoulder and Hand (QuickDASH) questionnaire is the validated outcome measure for upper extremity conditions. Patient-Rated Wrist Evaluation (PRWE) also used for wrist-specific assessment. Numeric Pain Rating Scale (0-10) tracked for pain at rest and with specific activities. Visual analog scale for subjective swelling sensation",
       activityTarget: "Pain-free infant lifting and care for new mothers, return to occupational activities requiring repetitive thumb use (hairdressing, gardening, assembly work) without limitation, resumption of recreational activities (crafts, texting, gaming, sports) with proper technique, and sustained improvement allowing discontinuation of daytime splinting without recurrence"
     },
+    faqs: [
+      {
+        question: "Why does my thumb-side wrist hurt so much when I lift my baby?",
+        answer: "That specific pattern, sharp pain on the radial wrist just above the thumb when you scoop a baby up under the arms, is the textbook De Quervain's presentation. The scoop loads the abductor pollicis longus and extensor pollicis brevis tendons as they bend around the radial styloid. New parents repeat that movement dozens of times a day, often with the wrist deviated and the thumb extended under load. It is one of the most common reasons post-partum patients end up in front of me."
+      },
+      {
+        question: "Is Finkelstein's test enough to diagnose this?",
+        answer: "It is the cornerstone of the clinical diagnosis, but it is not the whole picture. A positive Finkelstein's combined with tenderness directly over the first dorsal compartment and a story that fits (new parenting, a spike in thumb-loading activity, hairdressing, racquet sports) is usually all you need. What I am also doing is ruling out thumb CMC arthritis, intersection syndrome, a scaphoid problem, and superficial radial nerve irritation. Those can all sit close by and be mistaken for each other."
+      },
+      {
+        question: "Do I really have to wear a thumb spica splint?",
+        answer: "Yes, and consistency matters. A thumb spica that holds the wrist and the thumb interphalangeal joint still takes load off the first compartment and lets the sheath calm down. Huisstede and colleagues' 2018 systematic review in Archives of Physical Medicine and Rehabilitation supports splinting, particularly combined with corticosteroid injection when injection is needed. Two or three weeks of consistent use usually makes a noticeable difference. Wearing the splint only when convenient is the most common reason I see treatment stall."
+      },
+      {
+        question: "Will a cortisone injection fix this?",
+        answer: "For many people with a confirmed De Quervain's, a well-placed corticosteroid injection into the first dorsal compartment helps significantly, particularly when combined with a thumb spica. Anatomical septations are common, and injections that miss a septated sub-compartment do not work as well, which is why ultrasound-guided injection tends to outperform landmark-based in the literature. Injection is not something I do myself, but I often coordinate with the physician who does."
+      },
+      {
+        question: "How long until it settles?",
+        answer: "Most mild and moderate cases I see meaningfully improve within four to six weeks of consistent splinting, activity modification, and graded exercise. Post-partum cases often continue to settle over a few months as the hormonal picture shifts and the lifting pattern improves. Cases that have been smouldering for more than six months, or that have already failed injection, tend to be slower and sometimes end up at a surgical consult."
+      },
+      {
+        question: "Can I still pick up my baby?",
+        answer: "Yes, but the technique needs to change. Scooping under the arms with the thumb sticking out is the exact movement that keeps irritating the tendons. I coach patients to scoop with a wider, forearm-supported lift, palm-up where possible, keeping the thumbs close to the side of the hand rather than flared out. Small changes to how you lift, burp, and feed add up quickly over a day."
+      },
+      {
+        question: "Do I need surgery?",
+        answer: "Usually not. Surgical release of the first dorsal compartment is effective when it is needed, but the path almost always starts with a thumb spica, activity change, and graded rehab, then a corticosteroid injection if conservative care plateaus. Surgery is reserved for people who have failed a proper trial of conservative care including injection, or for clear anatomical reasons like a separate EPB sub-compartment that keeps blocking injection success."
+      }
+    ],
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Calm the compartment (Weeks 1 to 3)",
+        focus: "The first job is to reduce friction at the first dorsal compartment and take the sting out of daily tasks. That means consistent thumb spica use, pain-free movement only, and a deliberate audit of how the thumb is being loaded during the day. Nothing in this phase should reproduce the sharp radial-sided pain.",
+        examples: [
+          "Off-the-shelf or custom thumb spica that immobilises the wrist and the thumb IP joint, worn during waking hours for 2 to 3 weeks",
+          "Pain-free thumb IP and MCP flexion and extension, 10 slow repetitions 3 times daily, to prevent stiffness",
+          "Lifting technique coaching for new parents: wide forearm-supported scoop, palm-up where possible, thumbs tucked close to the hand",
+          "Ice over the radial styloid 10 to 15 minutes after aggravating activities if it helps symptoms",
+          "Task audit: reduce sustained pinching (phone scrolling, gardening shears, scissors) rather than eliminating every activity"
+        ],
+        progressionCriteria: "Tenderness at the radial styloid clearly reduced, Finkelstein's test still uncomfortable but no longer sharp, and the thumb can move through pain-free range without a flare for one to two weeks of consistent splint use."
+      },
+      phase2: {
+        title: "Phase 2: Rebuild tolerance (Weeks 3 to 8)",
+        focus: "Once the sheath is calmer, start restoring capacity in the thumb, wrist, and proximal chain. The aim is to tolerate everyday loads again without re-igniting the compartment. Proximal posture and scapular control matter, because distal overuse often reflects a poorly supported upper chain.",
+        examples: [
+          "Isometric thumb abduction and extension holds, 5 seconds on, 5 seconds off, 3 sets of 10, at a load that never provokes radial-sided pain",
+          "Tendon gliding through the first compartment: pain-free thumb circumduction and opposition, avoiding the Finkelstein end-range until symptoms are gone",
+          "Wrist flexor and extensor strengthening with a light dumbbell, slow tempo, 3 sets of 10 to 15 through a comfortable range",
+          "Scapular setting, rows, and external rotation with a light band, 3 sets of 10 to 12, to unload a poorly supported upper chain",
+          "Weaning the splint during low-demand activities first, keeping it on for baby care, gardening, or sustained pinching"
+        ],
+        progressionCriteria: "Finkelstein's test no longer sharp, tenderness at the radial styloid minimal to absent, thumb abduction strength symmetrical on manual testing, and everyday tasks like jar-opening or infant care tolerated without a flare."
+      },
+      phase3: {
+        title: "Phase 3: Return to real demand (Weeks 8+)",
+        focus: "Now the hand has to tolerate the demands that caused the problem in the first place, often infant care, occupational pinching, or racquet and stick sports. The goal is full, resilient thumb and wrist loading, with technique changes kept in for the long run. If a flare happens here, the plan pulls back one phase rather than starting from scratch.",
+        examples: [
+          "Task-specific loading that mimics real demand: longer holds with infant care, sustained tool use, sport-specific grip work, with planned micro-breaks",
+          "Full-range thumb and wrist strengthening with moderate resistance, 3 sets of 8 to 12, two to three times per week",
+          "Grip and pinch progression with a dynamometer or putty, targeting symmetry with the uninjured side",
+          "Loaded carries (farmer walks) with moderate dumbbells for grip endurance",
+          "Ongoing thoracic and scapular maintenance work, particularly for desk workers and new parents who spend long hours feeding in supported positions"
+        ],
+        progressionCriteria: "Two consecutive weeks of full daily and occupational demand without pain, symmetrical thumb and grip strength, no need for the splint outside of heavy one-off tasks, and a clear plan for what to do if a flare appears."
+      }
+    },
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -7439,6 +7508,105 @@ Respiratory patterns significantly influence thoracic outlet mechanics. Upper ch
     ],
 
     measuringProgress: standardMeasuringProgress,
+    faqs: [
+      {
+        question: "What actually is thoracic outlet syndrome?",
+        answer: "TOS is compression of the brachial plexus nerves, the subclavian vein, or the subclavian artery as they pass through the narrow space between the neck, first rib, and collarbone. There are three subtypes. Neurogenic TOS, where the nerves are compressed, accounts for the large majority of cases in published series from Sanders, Illig, and the Society for Vascular Surgery reporting standards. Venous TOS (Paget-Schroetter) and arterial TOS are uncommon but serious and are managed surgically. The three are genuinely different conditions that happen to share a name, and knowing which one you have changes everything about the plan."
+      },
+      {
+        question: "How is neurogenic TOS different from a pinched nerve in the neck?",
+        answer: "Cervical radiculopathy usually gives symptoms in a specific dermatome linked to a single nerve root, reproduced by Spurling's test with neck positioning. Neurogenic TOS tends to produce diffuse arm and hand symptoms that are worse with the arm overhead or with carrying, often involving an ulnar-sided distribution into the ring and little finger. On examination, TOS symptoms reproduce with provocative positions like the elevated arm stress test, not with neck compression. The two can coexist, and I assess both when the picture is mixed."
+      },
+      {
+        question: "Can physiotherapy actually help, or do I need surgery?",
+        answer: "For neurogenic TOS, conservative care is the appropriate first step and often the only step needed. The Cochrane review by Povlsen and colleagues updated in 2014 found limited high-quality comparative evidence but noted that the established intervention pathway remains a trial of physiotherapy first, reserving surgery for those who do not respond. Watson and Pizzari's framework published in Manual Therapy (2009-2010) describes a graded programme built around scapular control, posture, nerve mobility, and breathing pattern. Venous and arterial subtypes are a different conversation and are surgical."
+      },
+      {
+        question: "Why does my hand get cold or change colour?",
+        answer: "Colour change, coldness, or a swollen, purplish arm after activity can point toward vascular involvement (venous or arterial TOS) rather than the far more common neurogenic type. Venous TOS classically presents with a swollen, heavy, bluish arm, often after repetitive overhead work or an effort event. Arterial TOS can cause a pale, cold, weak hand with loss of pulse in provocative positions. Both require prompt vascular assessment. If you are seeing real colour or temperature changes, I want you seen by a vascular physician, not treated in the clinic first."
+      },
+      {
+        question: "Will stretching my scalenes fix it?",
+        answer: "Stretching and releasing the scalenes can provide short-term relief, but on their own they rarely solve the pattern. The more consistent outcomes come from addressing scapular position and control, rebuilding breathing mechanics (many people with TOS are chronic upper-chest breathers), restoring first rib and thoracic mobility, and progressively loading the shoulder girdle. Watson and Pizzari describe it as retraining the whole shoulder and neck complex, not just freeing one muscle."
+      },
+      {
+        question: "What about nerve gliding exercises I've seen online?",
+        answer: "Neural mobilisation has a role, but it needs to be dosed carefully in irritable TOS. Aggressive median or ulnar nerve flossing early on often flares symptoms. I usually start with gentle, small-range sliders in positions that do not put the nerve on maximal tension, and layer in more demanding tensioners only once symptoms are settling and scapular control is improving. Done well, it is useful. Done aggressively, it often backfires."
+      },
+      {
+        question: "How long does this take to improve?",
+        answer: "Published guidance, including the Watson framework and most vascular surgery consensus statements, suggests a minimum of two to three months of consistent physiotherapy before concluding that conservative care has not worked. Realistically, meaningful improvement often takes three to six months. Patients who try a handful of sessions over a few weeks and conclude it did not work have usually not given the programme a fair trial."
+      },
+      {
+        question: "When should I consider surgery?",
+        answer: "For neurogenic TOS, surgery (typically first rib resection and scalenectomy) is considered after a proper conservative trial of at least three to six months has failed, with clear electrodiagnostic or imaging findings when relevant, and with a surgeon experienced in TOS. The Society for Vascular Surgery reporting standards published by Illig and colleagues in 2016 set out how candidates should be evaluated. For venous or arterial TOS, surgical decompression is often the primary treatment and the timeline is much shorter."
+      }
+    ],
+    differentialDiagnosis: [
+      {
+        condition: "Cervical Radiculopathy",
+        distinguishingFeatures: "Neck-dominant pain referring into the arm in a specific dermatome, reproduced by Spurling's test, with matching reflex or myotomal changes. Not reproduced by overhead arm positioning in the way TOS provocations typically are."
+      },
+      {
+        condition: "Cubital Tunnel Syndrome",
+        distinguishingFeatures: "Ulnar nerve symptoms isolated to the medial elbow and ring and little fingers, reproduced by elbow flexion rather than arm elevation, with tenderness or a positive Tinel sign at the cubital tunnel."
+      },
+      {
+        condition: "Carpal Tunnel Syndrome",
+        distinguishingFeatures: "Median distribution symptoms (thumb, index, middle finger), night waking with hand numbness, positive Phalen and Tinel tests at the wrist. Not reproduced by overhead arm positions."
+      },
+      {
+        condition: "Rotator Cuff Related Shoulder Pain",
+        distinguishingFeatures: "Localised lateral shoulder pain with a painful arc and weakness on resisted cuff testing, not the diffuse arm and hand symptoms of neurogenic TOS. Neural provocation tests are negative."
+      },
+      {
+        condition: "Venous Thoracic Outlet Syndrome (Paget-Schroetter)",
+        distinguishingFeatures: "Acute arm swelling, heaviness, and bluish discolouration, often after repetitive overhead work or an effort event. Requires urgent vascular imaging and is managed by vascular surgery rather than physiotherapy alone."
+      },
+      {
+        condition: "Arterial Thoracic Outlet Syndrome",
+        distinguishingFeatures: "Pale, cold, weak hand, sometimes with pulse loss in provocative positions and embolic phenomena. Uncommon but limb-threatening, and a surgical condition."
+      }
+    ],
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Decompression and Breathing Reset (Weeks 0 to 4)",
+        focus: "Reduce compressive load on the brachial plexus and subclavian vessels. The main levers are breathing mechanics, scapular position, and gentle soft tissue work through the scalenes, pectoralis minor, and first rib region. Watson and Pizzari's Manual Therapy framework centres the early phase on scapular control and postural unloading before any strengthening.",
+        examples: [
+          "Diaphragmatic breathing drills, 5 minutes twice daily, to shift load off the scalenes",
+          "Scapular setting and lower trapezius activation in supported positions",
+          "Gentle scalene, upper trapezius, and pectoralis minor self-release and stretching within comfortable range",
+          "Cervical retraction and thoracic extension mobility work over a foam roller or chair back",
+          "Activity modification: removing sustained overhead work, heavy backpacks, and sleeping with arms above head"
+        ],
+        progressionCriteria: "Reduction in symptom provocation with overhead positioning, tolerance of five minutes of arm-elevated activity without flare, and consistent diaphragmatic breathing at rest."
+      },
+      phase2: {
+        title: "Phase 2: Scapular Control and Neural Mobility (Weeks 4 to 10)",
+        focus: "Build the scapular stabilisers and introduce graded neural mobilisation. Evidence from conservative TOS literature consistently points to scapular mechanics and nerve mobility as the two most reliable drivers of change in neurogenic TOS.",
+        examples: [
+          "Prone Y, T, and W holds and supported rows for lower trapezius and posterior cuff",
+          "Serratus anterior activation with wall slides and push-up-plus variations",
+          "Graded median and ulnar nerve sliders in non-provocative ranges, progressing to gentle tensioners as symptoms allow",
+          "Loaded carries (suitcase and farmer carry) to train shoulder girdle control under gravity",
+          "Ergonomic review of workstation, sleep position, and load-carrying patterns"
+        ],
+        progressionCriteria: "Symmetrical shoulder girdle strength on basic testing, nerve glide drills tolerated without lasting flare, and ability to work or train for an hour without typical provocation."
+      },
+      phase3: {
+        title: "Phase 3: Return to Overhead, Work, and Sport (Months 3 to 6+)",
+        focus: "Rebuild tolerance for the specific overhead, sustained-load, or sport-specific demands that drove or perpetuated symptoms. This is where many conservative programmes stop short, and it is often why symptoms creep back.",
+        examples: [
+          "Progressive overhead pressing (landmine, dumbbell, barbell) once scapular and cuff capacity allow",
+          "Pull-up progressions and loaded rowing work for posterior chain strength",
+          "Sport-specific drills: swim stroke reintegration, throwing programme, lifting patterns, or occupation-specific tasks",
+          "Cardiovascular conditioning that does not trigger symptoms, often starting with lower-body focused work and reintroducing arm-driven cardio gradually",
+          "Continued postural, breathing, and ergonomic maintenance to prevent recurrence"
+        ],
+        progressionCriteria: "Full return to desired work, training, or sport demands without reproducible TOS symptoms, stable scapular and cervical posture under load, and self-directed maintenance programme established."
+      }
+    },
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -9633,6 +9801,97 @@ The deeper stabilizing muscles of your neck - the deep cervical flexors - become
       questionnaires: "Neck Disability Index and posture-specific outcome measures to track functional improvements",
       activityTarget: "Being able to work or perform daily activities for extended periods without developing pain or excessive fatigue"
     },
+    differentialDiagnosis: [
+      {
+        condition: "Cervicogenic Headache",
+        distinguishingFeatures: "Unilateral headache triggered or reproduced by sustained neck positions or neck movement, with tenderness and restriction at the upper cervical segments. The head symptom, not the posture, is the main complaint. This often coexists with a postural pattern rather than being caused by it directly."
+      },
+      {
+        condition: "Mechanical Neck Pain",
+        distinguishingFeatures: "Pain localized to the neck itself with movement-specific aggravating patterns, often responding quickly to mobilization and exercise. Postural pattern may look similar on exam but the driver is local cervical irritability rather than sustained loading."
+      },
+      {
+        condition: "Thoracic Outlet Syndrome",
+        distinguishingFeatures: "Arm-dominant symptoms including numbness, tingling, or heaviness with overhead or sustained arm positions, often reproduced by provocation tests like Roos or Adson. Postural pattern can be a contributor, but the neurovascular symptoms are the defining feature."
+      },
+      {
+        condition: "Cervical Radiculopathy",
+        distinguishingFeatures: "Arm pain following a dermatomal pattern, sometimes with weakness or reflex change, often with a positive Spurling's test. This is a nerve-root problem, not a postural pattern."
+      },
+      {
+        condition: "Thoracic Hyperkyphosis (structural, including Scheuermann's)",
+        distinguishingFeatures: "Increased thoracic curve that does not correct with active effort or prone extension, often visible from adolescence on imaging with vertebral wedging. Behaves differently from a habitual posture that corrects on cue."
+      },
+      {
+        condition: "Inflammatory Spondyloarthropathy",
+        distinguishingFeatures: "Insidious spinal stiffness under age 45, morning stiffness over 30 minutes, symptoms that improve with activity rather than worsening with sustained positions, often with peripheral joint or systemic features. Worth screening for when the history does not fit a load-related pattern."
+      }
+    ],
+    faqs: [
+      {
+        question: "Is my posture actually causing my pain?",
+        answer: "Honestly, probably less than people are led to believe. The research on posture and pain is weaker than most assume. Swain and colleagues (BMJ 2022) reviewed the literature on posture and back pain and found no strong causal link, and Richards in the British Journal of Sports Medicine reached a similar conclusion about sitting posture and neck pain. Sustained positioning and under-loading of certain muscle groups do matter, but the fix is usually movement variability, targeted strengthening, and reasonable workstation setup, not chasing a single 'correct' posture."
+      },
+      {
+        question: "Does this mean posture doesn't matter at all?",
+        answer: "No. Spending most of the day in any one position, good or bad, tends to produce stiffness and discomfort. The stronger predictors of pain are things like movement variability, overall fitness, sleep, stress, and total daily load, not a photograph of your silhouette. I still care about how people sit, but I care more about how often they change position and how much their tissues can tolerate."
+      },
+      {
+        question: "Will pulling my shoulders back fix the pain?",
+        answer: "For a few minutes, maybe. Long-term, effortful 'pulling back' is not a durable strategy. What tends to help more is building endurance in the mid-back and deep neck flexors, adding movement breaks, and strengthening so the default upright position costs less effort. The aim is capacity, not posing."
+      },
+      {
+        question: "Do I need a standing desk or ergonomic chair?",
+        answer: "Helpful for some, not essential. A sit-stand setup lets you shift positions, which is the real benefit. But a sit-stand desk used in one static position all day is no better than a regular chair. If budget is tight, the higher-yield changes are monitor at eye level, feet supported, forearms supported, and a timer to remind you to move every 30 to 45 minutes."
+      },
+      {
+        question: "How long before I notice a change?",
+        answer: "Most people feel less end-of-day tension within 3 to 4 weeks of consistent work. Real changes in muscle endurance and habit take 8 to 12 weeks. Visible changes in resting posture, if they happen at all, happen slowly and are less important than symptom and function changes."
+      },
+      {
+        question: "Can I fix this without going to a physio?",
+        answer: "For mild cases, yes. Movement breaks, daily mid-back and deep neck flexor work, ergonomic tweaks, and general strengthening will get many people where they want to be. If you have arm symptoms, persistent headaches, sleep disruption from pain, or no progress after 6 to 8 weeks of honest effort, an assessment is worthwhile to rule out other drivers and tailor the plan."
+      }
+    ],
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Reduce Tension, Build Awareness (Weeks 1 to 3)",
+        focus: "Calm the areas carrying most of the load (upper trapezius, pectorals, suboccipitals) and wake up the under-used mid-back and deep neck flexors. The point is not a perfect posture, it is a less tiring default and better variability across the day.",
+        examples: [
+          "Chin tuck in supine, 2 sets of 10 with 5-second holds, daily",
+          "Thoracic extension over a foam roller or rolled towel, 10 controlled reps, daily",
+          "Doorway pectoral stretch, 3 sets of 30 seconds per side, daily",
+          "Upper trapezius and levator scapulae stretches, 3 sets of 30 seconds per side, daily",
+          "Movement break every 30 to 45 minutes at work, even just 60 seconds of walking or shoulder rolls"
+        ],
+        progressionCriteria: "Able to perform chin tucks without neck pain, daily end-of-day neck or upper back tension reduced by at least a third, and movement breaks happening consistently across a normal workday."
+      },
+      phase2: {
+        title: "Phase 2: Build Endurance in the Postural Chain (Weeks 3 to 8)",
+        focus: "Shift from mobility work to capacity. The goal is endurance in the deep neck flexors, mid and lower trapezius, serratus anterior, and thoracic extensors so upright positions cost less effort over a long day.",
+        examples: [
+          "Deep neck flexor endurance progression (craniocervical flexion with or without biofeedback), 2 sets of 10 with 10-second holds",
+          "Prone Y, T, W raises with light weight, 2 to 3 sets of 10 to 12",
+          "Scapular rows (band or cable), 3 sets of 10 to 12 with a 2-second hold at end range",
+          "Wall slides progressing to standing with light resistance, 3 sets of 10",
+          "Thoracic extension in 4-point kneeling or with a dowel, 2 sets of 10 reps"
+        ],
+        progressionCriteria: "Able to hold craniocervical flexion endurance target (around 10 reps at 10 seconds) without substitution, prone Y-T-W completed with good scapular control, and a full workday without significant end-of-day upper back or neck fatigue."
+      },
+      phase3: {
+        title: "Phase 3: Integrate Into Strength and Daily Life (Months 2 to 4)",
+        focus: "Move from isolated postural exercises to general strength training and habits that stick. This is where the work becomes about load tolerance across the whole body rather than a narrow posture protocol.",
+        examples: [
+          "Compound pulling work (rows, face pulls, band pull-aparts), 3 sets of 8 to 12, twice per week",
+          "Compound pushing work (push-ups, landmine press, overhead press to tolerance), 3 sets of 8 to 12, twice per week",
+          "Deadlift pattern or hip hinge work, 3 sets of 6 to 10, to build posterior chain capacity",
+          "Carries (farmer carry, suitcase carry), 3 sets of 30 to 40 metres, for upright trunk endurance",
+          "Sustained habit: movement break every 30 to 45 minutes across a workday, plus strength training twice per week"
+        ],
+        progressionCriteria: "Strength training twice per week sustained for at least 4 weeks, end-of-day neck and upper back symptoms minimal or absent on normal work days, and an honest self-report that position changes and movement breaks are automatic rather than effortful."
+      }
+    },
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -9789,6 +10048,105 @@ The kinetic chain from your feet to your fingertips influences shoulder stabilit
       questionnaires: "Western Ontario Shoulder Instability Index (WOSI) and Oxford Shoulder Instability Score (OSIS) to monitor functional improvements",
       activityTarget: "Return to your desired activities with confidence and without episodes of instability or significant apprehension"
     },
+    faqs: [
+      {
+        question: "I dislocated my shoulder once. Will it happen again?",
+        answer: "Age at first dislocation is the single biggest predictor. Hovelius's 25-year follow-up published in JBJS (2008) tracked 255 primary anterior dislocations treated non-operatively and found roughly half of shoulders in the 12 to 25 year age group eventually required stabilisation surgery or remained recurrent, while outcomes in patients 26 to 40 years were noticeably better. Data from the West Point and US military cohorts show similarly high re-dislocation rates in young contact athletes. If you are under 25, in-season in a collision sport, or had a large bony Bankart lesion on imaging, the odds of re-dislocation without surgery are genuinely high and worth discussing with an orthopaedic surgeon early."
+      },
+      {
+        question: "Do I need surgery after a first dislocation?",
+        answer: "It depends on who you are and what you do. For a young contact or overhead athlete with a clean traumatic dislocation and a Bankart lesion on MRI, early surgical stabilisation is increasingly supported by the literature. For an older patient, a lower-demand individual, or someone with atraumatic or multidirectional instability, a structured rehabilitation trial is the appropriate first step. I talk through these factors honestly rather than defaulting to either camp."
+      },
+      {
+        question: "What about atraumatic instability, where nothing obvious happened?",
+        answer: "Atraumatic instability, including multidirectional instability, responds well to structured rehabilitation in most cases. The Derby Shoulder Instability Programme led by Bateman and colleagues, and the Watson MDI programme, both report meaningful improvements in pain, function, and perceived stability with progressive scapular and rotator cuff retraining. Surgery is reserved for those who do not respond to an adequate rehabilitation trial, typically six months or more."
+      },
+      {
+        question: "How long before I can get back to sport?",
+        answer: "For conservative management of atraumatic instability, a realistic window is three to six months of progressive rehabilitation before unrestricted return to collision or overhead sport. Recent data in athletes show that roughly three-quarters return to play after conservative rehab, though recurrence rates are substantial, especially in collision athletes. Post-surgical timelines after Bankart repair typically run four to six months. Psychological readiness matters. Published work using the Shoulder Instability Return to Sport After Injury scale shows athletes scoring below 55 have significantly higher re-injury rates."
+      },
+      {
+        question: "Can I strengthen my way out of a loose shoulder?",
+        answer: "For many people, yes. Rebuilding the rotator cuff, periscapular muscles, and the kinetic chain from the core down improves dynamic stability meaningfully. This works well for atraumatic and multidirectional instability, and as part of post-operative rehab. It is less reliable when a large structural defect, such as a significant bony Bankart or engaging Hill-Sachs lesion, is driving mechanical dislocation."
+      },
+      {
+        question: "Why does my shoulder feel unstable even though it hasn't fully dislocated?",
+        answer: "Subluxation, where the ball partially slips then reduces, and pure functional apprehension are both common. A labral tear, capsular redundancy, or altered neuromuscular control can all present this way. On examination I am looking for a positive apprehension and relocation test, signs of generalised ligamentous laxity, and scapular control under load. Imaging is useful when the pattern does not fit, but the clinical picture usually drives the plan."
+      },
+      {
+        question: "What is a SLAP tear and is it the same thing as instability?",
+        answer: "A SLAP tear is a tear of the superior labrum, the rim of cartilage at the top of the socket where the biceps tendon anchors. Burkhart and Morgan's peel-back work described how late cocking in the throwing motion can extend these tears posteriorly. SLAP lesions can cause deep clicking, pain with overhead loading, and a sense of microinstability, but they are a distinct entity from the frank dislocation pattern most people mean by shoulder instability. Management is usually conservative first."
+      },
+      {
+        question: "What does rehab actually look like for this?",
+        answer: "Early work is isometric, position-safe loading of the rotator cuff with the arm at the side, plus scapular control drills to rebuild the platform the glenohumeral joint needs. From there I progress to dynamic rotator cuff work, closed-chain stability exercises, and proprioceptive challenges. Later phases reintroduce end-range loading, plyometrics, and sport-specific demands in a controlled way. The whole programme is built on the Derby and Watson frameworks with adjustments for your specific pattern."
+      }
+    ],
+    differentialDiagnosis: [
+      {
+        condition: "Rotator Cuff Tear or Tendinopathy",
+        distinguishingFeatures: "Weakness with resisted rotation and a painful arc, typically without a clear sensation of the shoulder slipping. Apprehension and relocation tests are negative. More common over age 40 as a primary cause."
+      },
+      {
+        condition: "SLAP Lesion or Labral Tear Without Frank Instability",
+        distinguishingFeatures: "Deep clicking, pain with overhead loading, and positive O'Brien or dynamic labral shear tests. The patient often describes a vague sense of internal catching rather than the ball leaving the socket."
+      },
+      {
+        condition: "Multidirectional Instability with Hypermobility",
+        distinguishingFeatures: "Symptoms in more than one direction, a Beighton score suggesting generalised laxity, and no clear trauma. Frequently bilateral and often responds well to the Watson or Derby-style programmes."
+      },
+      {
+        condition: "Cervical Radiculopathy",
+        distinguishingFeatures: "Arm symptoms follow a dermatomal pattern, reproduced by Spurling's test rather than shoulder positioning. Shoulder-specific instability tests are negative."
+      },
+      {
+        condition: "Suprascapular Neuropathy",
+        distinguishingFeatures: "Posterolateral shoulder ache with weakness and wasting of supraspinatus or infraspinatus, often in volleyball players or those with a paralabral cyst on imaging. Apprehension is absent."
+      },
+      {
+        condition: "Posterior Shoulder Instability",
+        distinguishingFeatures: "Pain and slipping with the arm in flexion, adduction, and internal rotation (bench press or push-up positions). Posterior jerk and Kim tests are positive. Common in contact athletes and weight-lifters and easy to miss if only anterior instability is tested."
+      }
+    ],
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Protected Stabilisation (Weeks 0 to 6)",
+        focus: "Rebuild a safe base of rotator cuff and scapular control while the capsule and labrum calm down. The Derby and Watson programmes both start with position-safe loading, avoiding end-range abduction and external rotation in the early weeks. The aim is dense, pain-free repetitions that restore the brain-to-shoulder conversation, not maximal load.",
+        examples: [
+          "Isometric internal and external rotation with the arm at the side, 5 sets of 5 to 10 second holds at 50 to 70% effort",
+          "Scapular setting drills (low row, scapular clock) with mirror feedback to confirm quality",
+          "Closed-chain wall push-ups with controlled scapular protraction and retraction",
+          "Pendulum and small-arc active range of motion within a pain-free zone",
+          "Education on positions to avoid for now, typically forced external rotation at 90 degrees abduction and loaded overhead reaching"
+        ],
+        progressionCriteria: "No apprehension or subluxation events for four consecutive weeks, pain-free isometrics at 70% effort, and good scapular control through unloaded active range of motion."
+      },
+      phase2: {
+        title: "Phase 2: Dynamic Strengthening and Proprioception (Weeks 6 to 16)",
+        focus: "Layer in dynamic loading of the rotator cuff, deltoid, and scapular stabilisers in progressively more demanding positions. Proprioceptive and closed-chain work is central. Research on atraumatic instability shows that addressing scapular control and neuromuscular coordination, not just raw strength, is what changes stability.",
+        examples: [
+          "Banded external rotation at the side progressing to 45 degrees abduction, 3 sets of 10 to 12 reps",
+          "Prone Y, T, W, and I exercises for the posterior scapular chain",
+          "Rhythmic stabilisation drills in varied arm positions with a training partner or wall",
+          "Half-kneeling bottoms-up kettlebell holds and presses for proprioceptive demand",
+          "Cable or band diagonals (D1 and D2 PNF patterns) as tolerance grows"
+        ],
+        progressionCriteria: "Strength within 85% of the unaffected side on rotation testing, confident control through full active range, and no apprehension with planned overhead movements."
+      },
+      phase3: {
+        title: "Phase 3: Return to Sport or High-Demand Activity (Months 4 to 6+)",
+        focus: "Rebuild the capacity to handle unplanned, ballistic, and contact demands. This phase is most often cut short and is the main reason athletes re-dislocate. Criterion-based progression with plyometrics and sport-specific drills matches the Watson and Derby framework for return to play.",
+        examples: [
+          "Plyometric drills: ball slams, wall rebounders, and medicine ball throws in functional positions",
+          "Loaded overhead work, starting with landmine press and advancing to barbell or dumbbell overhead pressing",
+          "Sport-specific skill rehearsal with volume progression (throwing programme, swim intervals, tackling drills non-contact then contact)",
+          "Perturbation and reactive tasks including unstable-surface work and partner-driven rhythmic stabilisation",
+          "Psychological readiness check using the SIRSI scale before unrestricted return to competition"
+        ],
+        progressionCriteria: "Strength symmetry within 10% of the unaffected side, tolerance of sport-specific load and volume without apprehension or subluxation, and SIRSI score indicating readiness for full participation."
+      }
+    },
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -9950,6 +10308,105 @@ Rotator cuff weakness, particularly in the posterior and inferior aspects, allow
       questionnaires: "Shoulder Pain and Disability Index (SPADI) to monitor functional improvements and pain reduction over time",
       activityTarget: "Return to full overhead activities and sleeping comfortably without recurring shoulder pain"
     },
+    faqs: [
+      {
+        question: "Is shoulder bursitis actually its own condition?",
+        answer: "Not really, most of the time. Isolated inflammation of the subacromial bursa without involvement of the surrounding rotator cuff tendons is uncommon. Jeremy Lewis's 2016 Manual Therapy paper on rotator cuff related shoulder pain and the 2022 JOSPT rotator cuff disorders clinical practice guideline both frame this as a continuum: the bursa, the supraspinatus tendon, and the capsule share one small space and get irritated together. When a report says bursitis, what it usually means is the whole subacromial complex is unhappy. This matters because treatment has to address the mechanics, not just the bursa."
+      },
+      {
+        question: "Will a cortisone injection fix it?",
+        answer: "It will probably help in the short term, and may not help in the long term. The Cochrane review of corticosteroid injections for shoulder pain found modest short-term benefit (roughly the first four to six weeks) compared to placebo, with limited evidence of benefit beyond that and no clear advantage over well-structured physiotherapy at three to six months. I do not object to injections when pain is disabling and someone cannot engage with exercise, but I treat them as a window to do the loading work, not a standalone solution. A 2023 randomised trial in chronic subacromial bursitis reported much higher recurrence rates in the injection-only group than in the physiotherapy group."
+      },
+      {
+        question: "Why does my shoulder hurt more at night?",
+        answer: "A few things stack up at night. Lying on the affected side compresses the bursa and supraspinatus tendon, you lose the gravitational unloading that upright posture provides during the day, and blood flow to an already irritable area drops. I usually ask people to sleep on the opposite side with a pillow supporting the sore arm forward, or on their back with a small towel roll behind the scapula. Most people see a meaningful reduction in night pain within a couple of weeks."
+      },
+      {
+        question: "Should I rest or keep moving?",
+        answer: "Keep moving within reasonable limits. Complete rest tends to make shoulder pain worse because the rotator cuff quickly loses capacity and the joint stiffens. What I usually modify is the provocative activity (overhead work, reaching behind, sleeping position) rather than general movement. Light loading of the rotator cuff with isometrics and low-load external rotation is safe from the start for most subacromial presentations."
+      },
+      {
+        question: "How long will this take to settle?",
+        answer: "Realistic timelines are six to twelve weeks for meaningful improvement with a progressive programme. Around half of people are substantially better by six to eight weeks, and most of the rest continue to improve toward three months. Symptom duration before starting care is the biggest predictor of a slower recovery. Once pain has been present for over three months, I expect a longer road and set expectations accordingly."
+      },
+      {
+        question: "Do I need imaging?",
+        answer: "Not for most presentations. Shoulder ultrasound and MRI pick up bursal thickening, partial cuff tears, and acromial shape changes in very high rates of pain-free shoulders, so they often add more uncertainty than clarity. I use imaging when I see suspicion of a significant rotator cuff tear, when there is red flag history like trauma with loss of active elevation, or when symptoms are not responding to six to eight weeks of appropriate rehab."
+      },
+      {
+        question: "Is this going to turn into frozen shoulder?",
+        answer: "Not usually. Frozen shoulder has a distinct clinical picture (global loss of passive range of motion, particularly external rotation with the arm at the side) that is quite different from subacromial pain, which typically preserves passive range. That said, if someone guards their shoulder for months because of pain, secondary stiffness can creep in, which is another reason I prefer not to let people rest into complete immobility."
+      },
+      {
+        question: "What exercises actually make a difference?",
+        answer: "Three buckets, in this order: isometric and low-load rotator cuff work at the side to reduce irritability, scapular control drills to restore the platform the shoulder needs, and then progressive loading into ranges and positions that matter for your life and sport. The 2022 JOSPT guideline and Lewis's rotator cuff related shoulder pain framework both support active, task-oriented rehabilitation over passive treatments. Details matter: sets, reps, tempo, and progression are what separate a programme that changes pain from one that just ticks boxes."
+      }
+    ],
+    differentialDiagnosis: [
+      {
+        condition: "Rotator Cuff Tendinopathy or Partial Tear",
+        distinguishingFeatures: "Overlaps heavily with bursitis in the clinic, but weakness on resisted testing of a specific tendon points more toward tendon involvement. These frequently coexist and Lewis's rotator cuff related shoulder pain framework treats them as one continuum rather than separate labels."
+      },
+      {
+        condition: "Frozen Shoulder (Adhesive Capsulitis)",
+        distinguishingFeatures: "Global loss of passive range of motion, especially external rotation at the side, with a capsular end feel. Subacromial bursitis typically preserves passive range and presents with a painful arc rather than global stiffness."
+      },
+      {
+        condition: "AC Joint Pathology",
+        distinguishingFeatures: "Pain pinpointed at the top of the shoulder over the AC joint, tender on direct palpation, and worse with cross-body adduction. Subacromial presentations refer to the lateral deltoid rather than over the AC joint."
+      },
+      {
+        condition: "Calcific Tendinopathy",
+        distinguishingFeatures: "Often a more acute onset with disproportionately severe pain, sometimes with visible calcium deposit on X-ray or ultrasound. Timeline and severity pattern differ from typical bursitis, though clinical tests overlap."
+      },
+      {
+        condition: "Cervical Radiculopathy (C5-C6)",
+        distinguishingFeatures: "Arm symptoms in a dermatomal pattern, positive Spurling's test, and pain reproduced by neck positioning rather than by direct shoulder loading. Passive shoulder range is preserved."
+      },
+      {
+        condition: "Biceps Tendinopathy",
+        distinguishingFeatures: "Anterior shoulder pain localised over the bicipital groove, positive Speed and Yergason tests, and pain with resisted elbow flexion. Lateral deltoid referral from the cuff or bursa is absent."
+      }
+    ],
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Settle Irritability (Weeks 0 to 3)",
+        focus: "Drop pain below the threshold where the bursa and surrounding cuff can tolerate active loading. Isometric loading has evidence for short-term pain relief in tendinopathy and lets you produce force without the movement that typically aggravates subacromial pain. The 2022 JOSPT CPG supports active rehabilitation over rest from day one.",
+        examples: [
+          "Isometric external and internal rotation at the side, 4 to 5 holds of 30 to 45 seconds, daily",
+          "Pain-free pendulum and small-arc active range of motion",
+          "Scapular setting drills and supported low rows for posterior chain activation",
+          "Sleep position modification and activity pacing education to reduce nightly flare-ups",
+          "Relative rest from the specific provocative tasks (usually overhead reaching, lifting above shoulder height, sleeping on the affected side)"
+        ],
+        progressionCriteria: "Night pain manageable, resting pain below 3/10, and isometric holds tolerated at 70% effort without a flare-up lasting beyond 24 hours."
+      },
+      phase2: {
+        title: "Phase 2: Restore Capacity (Weeks 3 to 10)",
+        focus: "Build rotator cuff and scapular strength through progressively heavier resistance, which is the evidence-based driver of long-term improvement. Lewis's rotator cuff related shoulder pain framework and the 2022 JOSPT guideline both emphasise moving beyond light bands once irritability allows.",
+        examples: [
+          "Dumbbell or cable external rotation at the side, 3 sets of 8 to 12 reps with a controlled eccentric",
+          "Side-lying external rotation progressing weekly by small dumbbell increments",
+          "Prone Y, T, and W holds, and supported horizontal rows for scapular retraction",
+          "Cable or band face pulls emphasising scapular retraction and posterior cuff activation",
+          "Loaded carries (farmer and suitcase) to train shoulder girdle stability under load"
+        ],
+        progressionCriteria: "Strength symmetry approaching 80% of the unaffected side on rotation testing, pain-free loading through full active range, and tolerance of moderate daily overhead reach."
+      },
+      phase3: {
+        title: "Phase 3: Return to Overhead and Sport (Months 2.5 to 5)",
+        focus: "Restore capacity for overhead, ballistic, and end-range demands. Skipping this phase is why people plateau at partial recovery. Criterion-based rather than time-based progression matches the JOSPT guidance on rotator cuff rehabilitation.",
+        examples: [
+          "Overhead press progressions, starting with landmine press and advancing to full overhead dumbbell and barbell press",
+          "Pulling work: lat pulldowns, progressions toward full pull-ups or assisted variations",
+          "Plyometric rotator cuff work (medicine ball chest pass, overhead throw, rebounder drills) for throwing athletes",
+          "Sport or occupation-specific skill rehearsal with volume progression",
+          "End-range strength work such as full overhead holds, Turkish get-ups, and bottoms-up kettlebell work for stability at length"
+        ],
+        progressionCriteria: "Strength symmetry within 10% of the unaffected side across rotation, abduction, and press testing, pain-free sport or occupation demands at expected volume, and confident overhead reaching in unplanned movements."
+      }
+    },
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -10106,6 +10563,101 @@ TFCC injuries affect the biomechanics of forearm rotation and ulnar-sided wrist 
       questionnaires: "Patient-Rated Wrist Evaluation (PRWE) and Disabilities of Arm, Shoulder and Hand (DASH) questionnaire to track functional improvements",
       activityTarget: "Return to full gripping and weight-bearing activities on the hands without pain or instability"
     },
+    differentialDiagnosis: [
+      {
+        condition: "Scaphoid Fracture",
+        distinguishingFeatures: "Fall on an outstretched hand with sharp pain in the anatomical snuffbox, tenderness over the scaphoid tubercle, pain with axial loading of the thumb, and snuffbox swelling. The clinical tests are sensitive but not specific, so the threshold for imaging should stay low because a missed scaphoid fracture risks non-union and avascular necrosis."
+      },
+      {
+        condition: "Distal Radius Fracture",
+        distinguishingFeatures: "Obvious deformity, marked swelling, and inability to weight-bear through the wrist immediately after a fall. Pain tends to localise more centrally over the distal radius rather than to one ligamentous complex. Plain films confirm the diagnosis."
+      },
+      {
+        condition: "Scapholunate Ligament Injury",
+        distinguishingFeatures: "Dorsal radial wrist pain, a painful click or clunk with radial-ulnar deviation, tenderness just distal to Lister's tubercle, and a positive Watson scaphoid shift test. Sensitivity of the Watson test varies widely in the literature, so a high-energy fall on an outstretched hand with dorsal wrist pain still warrants imaging review even when the test is subtle."
+      },
+      {
+        condition: "Triangular Fibrocartilage Complex (TFCC) Injury",
+        distinguishingFeatures: "Ulnar-sided wrist pain, pain with forearm rotation under load (opening jars, turning a door handle), tenderness in the fovea between the ulnar styloid and the FCU tendon, and symptom reproduction with the ulnar grind test. Sander and colleagues' work supports a conservative trial for stable TFCC lesions before considering arthroscopy."
+      },
+      {
+        condition: "De Quervain's Tenosynovitis",
+        distinguishingFeatures: "Sharp pain over the first dorsal compartment (thumb side) rather than diffuse post-traumatic wrist pain, positive Finkelstein's test, and symptoms driven by repetitive thumb loading rather than a single trauma. Often coexists with a wrist sprain pattern in new parents who also fell."
+      },
+      {
+        condition: "Extensor Carpi Ulnaris (ECU) Subluxation or Tendinopathy",
+        distinguishingFeatures: "Ulnar-sided pain with a palpable snap as the forearm pronates and supinates under load, tenderness along the ECU groove, and reproduction with resisted wrist extension and ulnar deviation in supination. Commonly seen in racquet sports and after a forced supination injury."
+      }
+    ],
+    faqs: [
+      {
+        question: "I fell on my hand last week, how do I know if it is broken versus sprained?",
+        answer: "You probably cannot tell from the outside, and that is why a fall on an outstretched hand with persistent wrist pain deserves an X-ray. A scaphoid fracture in particular can look and feel like a bad sprain, and Rhemrev and colleagues' 2011 review in the International Journal of Emergency Medicine is clear that the clinical tests are sensitive but not specific. If there is tenderness in the anatomical snuffbox, pain with axial loading of the thumb, or pain that is not steadily improving after a week, I would want imaging before settling on a sprain diagnosis."
+      },
+      {
+        question: "Does a wrist sprain always need a brace?",
+        answer: "A short course of bracing, usually one to three weeks, helps an acute ligament-dominant injury settle. The point is to protect the ligament while pain and swelling come down, not to immobilise you for months. For ulnar-sided TFCC patterns and low-grade scapholunate irritations, I tend to use a brace for pain control and protect it during sport, then transition into progressive loading quickly. Immobilisation beyond what the ligament needs tends to stiffen the wrist and slow the return to sport."
+      },
+      {
+        question: "Why does my wrist click or clunk even after the pain has settled?",
+        answer: "Clicking on its own, without pain and without feeling unstable, is usually not a problem. A click that comes with a clear painful moment during a specific movement, particularly radial-ulnar deviation or forearm rotation under load, is more interesting. In those cases I am thinking about the scapholunate interval or the TFCC and I will often push for imaging or a specialist opinion rather than keep loading blind."
+      },
+      {
+        question: "Can I still lift or do push-ups with a wrist sprain?",
+        answer: "Not while it is hot. Weight-bearing through the wrist in extension is the one loading pattern most sprains really dislike early on. I will take you through pain-free loading alternatives first, things like dumbbell work with a neutral grip, push-up variations on fists or on handles, and then rebuild full weight-bearing through the palm once the tissue can tolerate it. Forcing through the sharp pain buys nothing and tends to drag the recovery out."
+      },
+      {
+        question: "What is the dart throwing motion and why does everyone keep mentioning it?",
+        answer: "It is the path your wrist takes when you throw a dart, from radial extension to ulnar flexion. Through that arc the scapholunate interosseous ligament is under far less strain than it is during pure flexion or pure extension. Early in rehab, especially after a scapholunate-type injury, it is a useful way to keep the wrist moving without stressing the ligament, and there is a growing body of work supporting its use in scapholunate and TFCC rehab."
+      },
+      {
+        question: "How long should a wrist sprain take to heal?",
+        answer: "A mild ligament strain usually quietens down over two to four weeks, with return to full loading by six to eight. A clear partial tear of the scapholunate or a TFCC lesion runs longer, often two to three months of graded rehab, and a small subset end up at imaging or a hand surgeon if symptoms plateau. If you are at the eight-week mark and your wrist is still catching, still sore with grip, or still refusing to take weight through the palm, it is time to reassess rather than push."
+      },
+      {
+        question: "When should I see a specialist?",
+        answer: "Any deformity, inability to use the hand, or severe pain after a fall should be seen that day. Beyond that, I refer when clinical signs point to a significant scapholunate or TFCC tear with distal radioulnar joint instability, when pain has not shifted after a proper six to eight week course of rehab, or when imaging findings do not match what the clinical exam shows. Most wrist sprains do not need a surgeon, but a small number clearly do."
+      }
+    ],
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Protect and settle (Weeks 0 to 3)",
+        focus: "Acute ligament sprains need a short window to calm down. The point here is pain control, protection from the movement that aggravates the injured structure, and keeping the surrounding joints moving so the hand does not stiffen. Everything in this phase sits below pain threshold.",
+        examples: [
+          "Removable wrist brace during aggravating tasks and for sport, not worn 24/7 unless symptoms are severe",
+          "Pain-free active range of motion for the fingers, thumb, elbow, and shoulder, several times per day",
+          "Gentle pain-free wrist circles and forearm pronation-supination, 10 slow reps 2 to 3 times daily",
+          "Ice over the painful area 10 to 15 minutes after aggravating activity in the first few days if it helps",
+          "Deliberate reduction of push-ups, heavy gripping, and weight-bearing through the extended wrist"
+        ],
+        progressionCriteria: "Pain at rest minimal, swelling settling, pain-free active wrist range recovering, and no sharp catching or clunking with day-to-day tasks for at least a few days before increasing load."
+      },
+      phase2: {
+        title: "Phase 2: Controlled loading and movement quality (Weeks 3 to 8)",
+        focus: "Once the acute phase is over, the job is to restore capacity in the muscles that stabilise the wrist, particularly those supporting the scapholunate and distal radioulnar joint. Dart throwing motion plays a central role here because it moves the wrist while keeping strain off the scapholunate interval. Grip capacity gets its own focused attention.",
+        examples: [
+          "Dart throwing motion drills, from radial extension to ulnar flexion, unloaded then with a light dumbbell, 3 sets of 10",
+          "Wrist flexor and extensor isometrics progressing to slow concentric and eccentric work with a 1 to 2 kg dumbbell, 3 sets of 10 to 15",
+          "Forearm pronation and supination with a light hammer or dumbbell, 3 sets of 10, through pain-free range",
+          "Grip work with soft putty or a stress ball, progressing to a hand trainer, 3 sets of 10 submaximal",
+          "Proprioceptive work: unloaded hand on a small ball, controlled rocking through safe directions, 2 to 3 minutes at a time"
+        ],
+        progressionCriteria: "Pain-free full active wrist range, grip strength recovering toward the uninjured side on serial testing, no catching or clunking with loaded movement, and the wrist tolerating light tabletop weight-bearing without a flare."
+      },
+      phase3: {
+        title: "Phase 3: Return to weight-bearing and sport (Weeks 8+)",
+        focus: "Now the wrist has to cope with real demand: push-ups, loaded carries, gripping under fatigue, and sport-specific forces. The goal is full, resilient loading without symptoms and with confidence in the joint. Anyone returning to contact or fall-prone sport also needs a fall plan.",
+        examples: [
+          "Graded weight-bearing progression: wall push-ups, tabletop push-ups, floor push-ups on fists or handles, then on flat palms",
+          "Loaded carries (farmer walks) with progressively heavier dumbbells for grip endurance and wrist stability under load",
+          "Sport-specific drills: racquet swings, stickwork, throwing mechanics, climbing holds, at submaximal effort first",
+          "Perturbation work: loaded ball tosses, unstable-surface hand support, to rebuild reflexive wrist stability",
+          "Fall technique practice for contact or fall-prone sports, aiming to absorb force through a flexed elbow rather than a locked, extended wrist"
+        ],
+        progressionCriteria: "Two consecutive weeks of full training or full work demand without a flare, symmetrical grip strength within about 10 percent of the uninjured side, confident weight-bearing through the palm, and no recurrence of catching, clunking, or giving-way."
+      }
+    },
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -12040,6 +12592,78 @@ It's important to recognize that some anatomical factors (like metatarsal length
       questionnaires: "Foot and Ankle Ability Measure (FAAM) for functional assessment, Manchester-Oxford Foot Questionnaire (MOXFQ) for quality of life impact, and Visual Analog Scales for activity-specific pain tracking",
       activityTarget: "Return to desired activities including exercise, work tasks, and recreational pursuits without ball-of-foot pain or functional limitations"
     },
+
+    faqs: [
+      {
+        question: "Is metatarsalgia just a fancy word for ball-of-foot pain?",
+        answer: "Essentially, yes. Metatarsalgia is an umbrella term for pain under the metatarsal heads rather than a specific diagnosis. The clinically useful question is what is driving it. Espinosa and colleagues (JAAOS 2010) separate primary metatarsalgia, where the forefoot anatomy itself concentrates load under the lesser metatarsals, from secondary metatarsalgia, where something else (a bunion, a stiff great toe, a Morton's neuroma, a plantar plate tear, a stress reaction) shifts load where it should not be. The label tells you where it hurts. The work is figuring out why."
+      },
+      {
+        question: "Why does it feel worse at the end of the day?",
+        answer: "Forefoot loading is cumulative. Every step during a long standing or walking day sends multiples of body weight through the metatarsal heads. With less fat pad cushioning or an anatomical variant concentrating pressure, the tissue runs out of buffer by late afternoon and the aching quality dominates. Taking the shoes off and the relief feels instant because the compression from the upper stops. That pattern, pain that tracks with time on feet and settles with unloading, is classic mechanical overload."
+      },
+      {
+        question: "Where does the metatarsal pad actually go?",
+        answer: "Behind the painful metatarsal head, not on top of it. The pad lifts the metatarsal shaft from underneath, which opens space between the heads and takes the peak pressure off the sore one. Placement is roughly 5 to 10 mm proximal to the tender spot. A pad that sits directly under the painful head tends to make things worse, which is the most common reason people try metatarsal pads, hate them, and give up. When positioning is right, the pad is usually tolerated well within a day or two."
+      },
+      {
+        question: "Do I need custom orthotics or will over-the-counter work?",
+        answer: "For most people, a well-positioned metatarsal pad added to a decent off-the-shelf insole is a reasonable starting point. Custom orthoses tend to be worth the investment when the foot shape is unusual, when there is a rigid deformity already shaping how load lands, or when basic pads and footwear changes have been given a fair trial and have not settled symptoms. I try the simpler version first and escalate only if it is not doing the job."
+      },
+      {
+        question: "How do I tell this apart from Morton's neuroma?",
+        answer: "Metatarsalgia tends to feel bruised, deep, and aching under the ball of the foot, often with a callus building up over the painful head. Morton's neuroma tends to feel electric, burning, or like a pebble in the shoe, with tingling or numbness into adjacent toes. They can coexist. When both are present, treating the mechanical overload first often settles the nerve component too, because shrinking the load on the forefoot also reduces the squeeze on the nerve."
+      },
+      {
+        question: "Can strengthening really change ball-of-foot pain?",
+        answer: "It can, but it works slowly and only pairs well with offloading. McKeon and colleagues (Sports Health 2023) describe the intrinsic foot muscles as a core system for the forefoot, and weak intrinsics leave the transverse arch unsupported, concentrating load under the middle metatarsals. Short-foot holds, toe splay work, and calf raise variations done consistently over two to three months change how the forefoot shares load. Strengthening on its own rarely fixes a genuinely mechanically overloaded forefoot, but combined with pad placement and footwear work, it is a reliable part of the picture."
+      },
+      {
+        question: "When should I worry about a stress fracture rather than metatarsalgia?",
+        answer: "A stress fracture usually declares itself with point tenderness over the bone, not the soft tissue, and pain that does not ease promptly when weight is off the foot. Night ache, a sharper quality on percussion, and a clear training spike in the preceding weeks shift suspicion that way. Metatarsalgia from overload should ease meaningfully within a minute or two of sitting down. When it does not, when weight-bearing is painful from the first step regardless of time of day, imaging is worth getting rather than grinding through."
+      }
+    ],
+
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Offload and Settle (Weeks 1 to 4)",
+        focus: "Take peak pressure off the sore metatarsal heads and calm the surrounding tissue. Most of the early improvement comes from shoe changes, accurate metatarsal pad placement, and a reduction in time spent in aggravating footwear. Exercise in this phase is supportive and gentle.",
+        examples: [
+          "Metatarsal pad placed proximal to the tender metatarsal head, positioned initially in clinic then reviewed after a week for tolerance",
+          "Daily wear of a shoe with adequate forefoot cushioning, a roomy toe box, and a heel under roughly 2 cm, during work and walking",
+          "Gentle calf and soleus stretching, 30 seconds for 3 repetitions per side twice daily, to restore ankle dorsiflexion and reduce forefoot loading time",
+          "Toe splay and short-foot holds introduced seated, 10 slow repetitions with 5-second holds, to begin reawakening the intrinsic foot muscles",
+          "Activity modification: reduce prolonged standing blocks, break up long walks, and add a cushioned insole or secondary pair of supportive shoes if switching occupations or surfaces during the day"
+        ],
+        progressionCriteria: "Walking tolerance of 20 to 30 minutes in supportive footwear with the pad in place without escalating forefoot pain, reduction in end-of-day aching compared to baseline, and no need to remove shoes for relief during the work day for 7 consecutive days."
+      },
+      phase2: {
+        title: "Phase 2: Build Forefoot Capacity (Weeks 4 to 10)",
+        focus: "Once the acute overload has settled, rebuild the intrinsic foot musculature and calf complex that share forefoot load. Stronger intrinsics maintain the transverse arch and help distribute pressure across all five metatarsal heads rather than funnelling it under the middle three. Pad and footwear strategy continues throughout.",
+        examples: [
+          "Short-foot exercise progressed from seated to standing, 3 sets of 10 with 10-second holds, performed without toe clawing",
+          "Toe splay holds against a resistance band looped around the forefoot, 3 sets of 10 with 5-second holds",
+          "Towel scrunches and single-toe lifts (raising the big toe while keeping the lesser toes down, then reversing), 2 sets of 15 per direction",
+          "Single-leg calf raises with the heel tracking cleanly over the second toe, 3 sets of 12 to 15, progressed from floor to step",
+          "Single-leg balance on firm ground progressing to a foam pad, 3 sets of 30 to 45 seconds, emphasising a stable, wide forefoot contact"
+        ],
+        progressionCriteria: "A visible short-foot hold without toe clawing, single-leg calf raise for 15 clean reps without forefoot pain above 3 out of 10, and return to normal daily walking and standing volume in appropriate shoes without next-day flares."
+      },
+      phase3: {
+        title: "Phase 3: Return to Loading and Long-Term Strategy (Months 3+)",
+        focus: "Rebuild tolerance for the activities that previously provoked symptoms, including longer walks, running where relevant, and standing-intensive work. The long-term strategy is informed footwear use paired with maintenance strengthening, rather than permanent avoidance.",
+        examples: [
+          "Walk-run progression for runners, using a 10 percent weekly cap on volume, with softer surfaces reintroduced first and speed work last",
+          "Continued intrinsic foot and calf strengthening twice weekly as maintenance rather than daily",
+          "Plyometric progression from double-leg pogo hops to single-leg forefoot bounces on a soft surface, 3 sets of 10 to 20, for athletes",
+          "Footwear audit every 6 to 12 months, including checking for midsole compression and whether the pad position still matches the current painful area",
+          "Selective reintroduction of narrower or dressier shoes for shorter blocks, with recovery in wider, cushioned footwear rather than all-day wear"
+        ],
+        progressionCriteria: "Return to desired walking, running, or occupational demands without ball-of-foot pain or next-day flares, comfortable tolerance of previously aggravating shoes for meaningful blocks, and a maintenance plan that the patient is willing to stick with."
+      }
+    },
+
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -12284,6 +12908,80 @@ It's important for patients to understand that conservative treatment cannot cor
       questionnaires: "Manchester-Oxford Foot Questionnaire (MOXFQ) for symptom tracking, American Orthopaedic Foot and Ankle Society (AOFAS) Hallux Score for functional assessment, and patient-specific functional scale for activity goals",
       activityTarget: "Maintain pain-free function for desired daily and recreational activities while slowing deformity progression and preventing development of secondary foot problems"
     },
+
+    faqs: [
+      {
+        question: "Can physiotherapy actually straighten my bunion?",
+        answer: "No, and I would be honest with anyone who says otherwise. Hallux valgus is a structural, three-dimensional deformity involving the first metatarsal, the proximal phalanx, and the sesamoid complex. Conservative care does not reverse that structure. What it can reliably do is reduce pain, improve how the forefoot shares load, maintain joint mobility, and slow progression. A Cochrane review of conservative interventions (Ferrari and colleagues) concluded that surgery tends to do better for pain than orthoses and exercise, but also that non-surgical measures remain a reasonable first line for people who are not ready for or not suitable for surgery."
+      },
+      {
+        question: "So what is the point of exercise if it will not fix the bunion?",
+        answer: "The point is function, not cosmesis. Abdalbary and a handful of small trials have shown that intrinsic foot strengthening, toe separator use, and first ray mobilisation can modestly reduce the hallux valgus angle and more reliably reduce pain over months. The bigger prize, though, is keeping the joint mobile, keeping the abductor hallucis engaged, and preventing the secondary problems, transfer metatarsalgia, lesser toe deformities, compensatory gait changes, that tend to cause more disability than the bunion itself."
+      },
+      {
+        question: "Are toe spacers and bunion splints worth using?",
+        answer: "Toe spacers, used consistently, can reduce pain and improve the angle slightly while they are in place. Night splints have mixed evidence. They are not a substitute for active work, but they are a reasonable adjunct when the forefoot is being actively irritated or when worn alongside daily intrinsic foot exercises. I prefer silicone spacers that can be worn with wide toe box shoes during the day, rather than rigid splints that only get used at night and skip the active loading piece."
+      },
+      {
+        question: "What does the right shoe look like?",
+        answer: "Wide toe box so the hallux is not being forced further into valgus with every step, low heel so forefoot load is not multiplied, and a soft upper that does not grind on the bunion. The length of the shoe matters less than the width across the forefoot, which is why a lot of people are technically in the right size but in the wrong shape. A shoe that is quiet on the feet for a full day, with room for a toe spacer if desired, is doing most of the conservative work."
+      },
+      {
+        question: "When is surgery actually the right call?",
+        answer: "When pain is limiting daily life despite a genuine trial of conservative care, when the deformity is progressing fast enough that lesser toe deformities or transfer pain are appearing, or when the joint itself is becoming arthritic and motion is being lost. Bunion surgery has evolved considerably and outcomes for appropriately selected patients are generally good, but it is not a small procedure and recovery is measured in months. I stay neutral on the decision and focus on making sure the conservative column has been honestly tried before the surgical column is opened."
+      },
+      {
+        question: "Will my bunion keep getting worse no matter what I do?",
+        answer: "Most bunions are slowly progressive, but the rate varies widely between people and is not entirely fixed. Good footwear, consistent intrinsic foot loading, and managing contributors like excessive pronation can slow progression meaningfully. Genetics and first ray laxity set the baseline, daily choices influence the trajectory. The expectation I set with people is that the clock cannot be stopped, but daily care can often buy years of comfortable function, which for many is enough."
+      },
+      {
+        question: "Why does the ball of my foot hurt when the bunion is at the big toe?",
+        answer: "Because the big toe is no longer doing its share of push-off. Glasoe and colleagues (JOSPT 2010) described how first ray insufficiency shifts load onto the lesser metatarsal heads, and that transfer metatarsalgia is one of the most common reasons a bunion that was merely cosmetic for years suddenly becomes functionally painful. Treating the bunion without addressing the forefoot load redistribution usually misses the actual driver of day-to-day pain."
+      }
+    ],
+
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Calm the Joint and Protect the Forefoot (Weeks 1 to 4)",
+        focus: "Reduce the daily irritation at the bunion and the ball of the foot. Footwear swaps and a toe spacer tend to do most of the work here, with gentle mobility and intrinsic activation introduced alongside. Structural correction is not the goal of this phase. Symptom control and joint preservation are.",
+        examples: [
+          "Daily wear of a wide toe box shoe with a low heel, ideally with silicone toe spacer in situ for most of the day",
+          "Big toe joint range of motion: gentle passive flexion and extension of the hallux, 2 sets of 10 to 15 slow repetitions, twice daily, kept well within comfort",
+          "Abductor hallucis activation seated, actively sliding the big toe away from the second toe without curling, 3 sets of 10 repetitions with 5-second holds",
+          "Metatarsal pad placement behind the lesser metatarsal heads if transfer pain under the ball of the foot is a significant feature",
+          "Activity modification: reduce time in narrow or elevated shoes, break up long standing blocks, avoid bare feet on hard surfaces during flares"
+        ],
+        progressionCriteria: "Bunion and forefoot pain reliably at 3 out of 10 or less during a normal day in the updated footwear, a visible and repeatable active big toe abduction contraction even if small, and no shoe-related flare that requires rest for 7 consecutive days."
+      },
+      phase2: {
+        title: "Phase 2: Intrinsic Foot Strengthening and First Ray Mobility (Weeks 4 to 12)",
+        focus: "Rebuild the intrinsic foot musculature, with a particular focus on abductor hallucis, and maintain first ray and big toe joint mobility. This is the phase where evidence for structural benefit is strongest, based on studies of toe-spread-out exercises and intensive multimodal conservative programs. Consistency matters more than intensity.",
+        examples: [
+          "Toe-spread-out exercise: seated then standing, actively spreading the toes apart including the big toe, 3 sets of 10 with 5-second holds, progressed to dynamic variations",
+          "Short-foot holds, shortening the medial arch by drawing the ball of the foot back without curling the toes, 3 sets of 10 with 10-second holds",
+          "Resisted abductor hallucis work using a band looped between the two big toes, pulling the hallux away from the midline, 3 sets of 15",
+          "Big toe flexion strengthening with toes under a light resistance such as a folded towel, 3 sets of 15",
+          "Self-mobilisation of the first metatarsophalangeal joint into extension, sustained 20 to 30 second holds within comfort, performed before weight-bearing activity",
+          "Single-leg calf raises with heel tracking over the second toe, 3 sets of 12 to 15, to reinforce first ray loading during push-off"
+        ],
+        progressionCriteria: "A clearly visible active big toe abduction, short-foot hold for 10 seconds without toe clawing, big toe dorsiflexion preserved near baseline, and normal daily walking volume in appropriate footwear without bunion or forefoot pain."
+      },
+      phase3: {
+        title: "Phase 3: Maintenance and Long-Term Progression Management (Months 3+)",
+        focus: "Preserve the gains. Continue intrinsic strengthening at a maintenance dose and watch for early signs of progression, transfer pain, lesser toe drift, so they can be addressed before they become established. For people returning to running or higher-demand activities, rebuild tolerance with attention to forefoot mechanics.",
+        examples: [
+          "Intrinsic foot work 2 to 3 times weekly at maintenance dose rather than daily",
+          "Continued toe spacer use during daily activity where tolerated",
+          "Running or walking volume progressed using a 10 percent weekly rule, with attention to whether the big toe push-off is staying active",
+          "Periodic footwear audit every 6 to 12 months to check width, heel height, and upper wear at the bunion",
+          "Re-introduction of narrower or dressier footwear for shorter blocks, paired with recovery time in wide toe box shoes rather than all-day wear",
+          "Early review with a foot and ankle surgeon if pain escalates meaningfully, transfer metatarsalgia becomes persistent, or lesser toe deformity is developing"
+        ],
+        progressionCriteria: "Stable, comfortable function in desired daily activities, preserved big toe active abduction and joint mobility, and a maintenance routine the patient is realistically willing to sustain over the long term."
+      }
+    },
+
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -12528,6 +13226,79 @@ The progressive nature of the condition means that periodic reassessment and tre
       questionnaires: "Foot and Ankle Ability Measure (FAAM) for functional assessment, American Orthopaedic Foot and Ankle Society (AOFAS) Hallux Score for condition-specific evaluation, and Visual Analog Scales for pain tracking",
       activityTarget: "Maintain pain-free function for desired daily activities while preserving available joint motion and preventing development of secondary problems from compensatory movements"
     },
+
+    faqs: [
+      {
+        question: "What is the difference between hallux rigidus and a bunion?",
+        answer: "A bunion is a deformity of direction, the big toe drifts laterally and the metatarsal drifts medially. Hallux rigidus is a loss of motion, the big toe simply stops bending upward. People often assume any big toe problem is a bunion because they know that word, but hallux rigidus is a distinct condition, it is the most common arthritis of the foot, and the treatment differs. Bunions generally need wide toe boxes and a focus on shape. Hallux rigidus needs stiff soles and a focus on removing the demand for dorsiflexion during push-off."
+      },
+      {
+        question: "Can exercise restore the motion I have lost?",
+        answer: "Usually not all of it, but often meaningfully more than people expect. Shamus and colleagues showed that manual therapy combined with an exercise programme produced large improvements in first MTP range of motion compared to controls, even in established cases. What exercise cannot do is regrow cartilage or remove dorsal bone spurs. So the honest framing is that early and moderate hallux rigidus often responds well to mobility and loading work, while late-stage rigidus with a large dorsal spur and near-zero motion is more about managing function than recovering lost movement."
+      },
+      {
+        question: "Why does a stiff-soled shoe help when it feels like the joint should move more?",
+        answer: "Counterintuitive, but consistent. A rigid sole or a rocker bottom allows the foot to roll forward during push-off without the big toe having to bend. That eliminates the joint impingement that drives the pain. Beeson and others writing on hallux rigidus management have repeatedly pointed to stiff-soled, rocker footwear as one of the most reliable conservative interventions. The goal is not permanent immobilisation. It is to remove the daily repetitive bending that keeps the joint inflamed, so mobility work and loading can actually produce gains."
+      },
+      {
+        question: "I have a bump on top of my big toe, is that arthritis or a bunion?",
+        answer: "If the bump is on the top of the joint and is prominent with shoes rubbing on it, that is a dorsal osteophyte, which is characteristic of hallux rigidus. A bunion sits on the inside of the foot at the base of the big toe. The two can coexist. A quick test at home: actively bend the big toe upward and see if the motion is clearly limited compared to the other foot. Loss of extension is hallux rigidus territory."
+      },
+      {
+        question: "Is cheilectomy or fusion in my future?",
+        answer: "Possibly, but not necessarily. Grady and colleagues found that roughly 55 percent of patients respond well to conservative management with orthoses and manual therapy, preventing or substantially delaying surgery. For those who do progress, cheilectomy (shaving the dorsal spur) has good outcomes in mild to moderate disease, while fusion becomes the more reliable option in end-stage arthritis. I stay neutral on surgery and focus on whether conservative care is actually giving you the function you need. When it is not, a foot and ankle surgeon is the right next conversation."
+      },
+      {
+        question: "Can I still run or play sport with this?",
+        answer: "Often yes, with adjustments. The key variables are how much great toe dorsiflexion your sport demands and whether stiff-soled footwear, carbon plates, or rocker modifications can offload the joint during that activity. Runners often do well on stiffer shoes with forefoot rocker. Yoga and dance, which load the big toe into deep extension repeatedly, are the hardest to keep going without modification. An honest conversation about which activities matter most usually leads to a practical plan rather than a blanket stop."
+      },
+      {
+        question: "My morning stiffness is worse than my daytime pain. Is that a bad sign?",
+        answer: "It is a typical sign, not a bad one. Arthritic joints stiffen up during rest and limber up as the synovial fluid warms and distributes. Morning stiffness that clears within about 20 to 30 minutes is consistent with osteoarthritis of the first MTP. Stiffness that is severe, prolonged, affects multiple joints, or is accompanied by swelling or systemic symptoms deserves a medical workup to rule out inflammatory arthritis rather than simple degenerative change."
+      }
+    ],
+
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Unload and Calm (Weeks 1 to 4)",
+        focus: "Take the daily impingement off the joint and start gentle mobility work. Footwear choice, a stiff sole or rocker if one is tolerated, and a reduction in activities that force repetitive toe extension do most of the early work. Exercise is introduced in comfortable ranges and never forced.",
+        examples: [
+          "Transition to a stiff-soled shoe or rocker-bottom trainer for daily wear, accepting a 2 to 3 week adaptation period for gait to adjust",
+          "Gentle big toe mobility: slow, pain-free flexion and extension of the hallux through available range, 2 sets of 10 to 15 repetitions, twice daily, staying well within comfort",
+          "Self-mobilisation of the first MTP joint using a gentle distraction and glide, held 20 to 30 seconds, 3 to 5 repetitions, performed before weight-bearing activity",
+          "Calf and soleus stretching, 30 seconds for 3 repetitions per side, to reduce the demand on forefoot push-off",
+          "Activity modification: avoid barefoot walking on hard surfaces and aggressive toe extension activities such as deep lunges, yoga toe stands, and incline walking during flares"
+        ],
+        progressionCriteria: "Daytime pain at 3 out of 10 or less in the adapted footwear, morning stiffness clearing within 30 minutes, and tolerance of gentle mobility work without next-day symptom rise for 7 consecutive days."
+      },
+      phase2: {
+        title: "Phase 2: Mobility, Manual Therapy, and Progressive Loading (Weeks 4 to 12)",
+        focus: "Work the mobility that is genuinely available and begin loading the surrounding structures. Evidence for manual therapy combined with loading is reasonable for mild to moderate hallux rigidus, based on Shamus and colleagues and broader manual therapy reviews. The realistic goal is preserved and modestly improved function rather than full restoration of normal motion.",
+        examples: [
+          "Big toe active range of motion into available extension, 3 sets of 15 slow, sustained holds at end range, daily",
+          "Supervised mobilisation of the first MTP joint in clinic, typically grade III and IV mobilisations in physiological directions that are tolerated well",
+          "Short-foot holds and toe splay to reinforce intrinsic foot activation around the stiffened joint, 3 sets of 10 with 10-second holds",
+          "Seated and then standing calf raises, progressing from heel-over-second-toe tracking with minimal great toe extension, to higher-range variations as tolerated, 3 sets of 12",
+          "Big toe flexor strengthening by curling a towel under the forefoot or a resisted band, 3 sets of 15",
+          "Low-impact cardiovascular work (cycling, elliptical, swimming) maintained as tolerance for walking builds"
+        ],
+        progressionCriteria: "Improvement in active big toe extension compared to baseline, tolerance of 30 to 45 minutes of walking in adapted footwear without pain above 3 out of 10, and return to most routine daily activities without compensatory gait changes."
+      },
+      phase3: {
+        title: "Phase 3: Return to Activity and Long-Term Management (Months 3+)",
+        focus: "Rebuild tolerance for activities that matter, with the understanding that hallux rigidus is a progressive condition requiring long-term management. Maintenance mobility and loading, thoughtful footwear rotation, and early escalation when symptoms change are the core of the long-term plan.",
+        examples: [
+          "Running progression for runners using a stiff-soled shoe with forefoot rocker, applying a 10 percent weekly volume rule and avoiding aggressive hill work early",
+          "Maintenance mobility and intrinsic foot work 2 to 3 times weekly rather than daily",
+          "Strategic footwear rotation: stiff-soled rocker shoe for high-demand days, more flexible options only for short, low-demand wear",
+          "Sport-specific adaptations for activities requiring deep great toe extension: modification, stiffer insoles, or carbon plate options where feasible",
+          "Planned review if symptoms change meaningfully, morning stiffness lengthens substantially, or activity tolerance drops, so imaging and surgical consultation can be considered before function deteriorates"
+        ],
+        progressionCriteria: "Comfortable function in chosen daily and recreational activities with adapted footwear, stable or improving joint motion at follow-up assessment, and a clear long-term plan for footwear, maintenance exercise, and monitoring that the patient can sustain."
+      }
+    },
+
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -12770,6 +13541,79 @@ Understanding the biomechanical demands of the athlete's specific sport is cruci
       questionnaires: "Foot and Ankle Ability Measure (FAAM) for functional assessment, sport-specific return-to-play questionnaires, and Visual Analog Scales for pain monitoring during different activities",
       activityTarget: "Complete return to desired sports and activities without pain, instability, or functional limitation while maintaining normal great toe biomechanics"
     },
+
+    faqs: [
+      {
+        question: "I jammed my big toe playing soccer. Is it really a serious injury?",
+        answer: "It can be. Turf toe sits on a spectrum. Clanton and others classify it from grade 1 (plantar capsule stretch with minimal tissue damage) through grade 3 (complete plantar plate rupture, often with sesamoid involvement). Grade 1 often looks unremarkable on examination and resolves in a week or two. Grade 3 can end a season and carries a real risk of chronic instability if mismanaged. The injury mechanism of a foot planted flat with force driving the big toe into hyperextension, classic in football, soccer, and rugby, is the one to take seriously regardless of how mild the first day feels."
+      },
+      {
+        question: "Why do I need imaging for a toe sprain?",
+        answer: "Most grade 1 injuries do not need imaging. For anything that does not settle on expected timelines, or where there was significant force, an X-ray rules out sesamoid fracture and avulsion fragments, and MRI evaluates the plantar plate directly. The reason matters, grade 3 injuries with plantar plate disruption behave differently from grade 1, and missing that distinction early usually means a much longer rehab later."
+      },
+      {
+        question: "What does taping actually do?",
+        answer: "Turf toe taping restricts excessive dorsiflexion, the movement that reproduced the injury. It does not immobilise the toe completely but puts a hard ceiling on how far the joint can extend under load. Combined with a stiff-soled shoe or a carbon plate insert, taping lets grade 1 and mild grade 2 injuries keep participating in rehab without reinjuring the healing plantar plate. It is a bridge, not a substitute for tissue healing, and it comes off as strength and confidence return."
+      },
+      {
+        question: "How long before I can get back to sport?",
+        answer: "Grade 1 is usually 1 to 3 weeks to sport-specific training. Grade 2 is often 3 to 6 weeks. Grade 3, particularly if managed non-operatively, can be 8 to 12 weeks or more, and surgical cases routinely need 3 to 4 months or longer. Return-to-play criteria matter more than the calendar, though. I look for painless push-off, full or near-full dorsiflexion compared to the other side, normal single-leg heel raise, and confidence with cutting and sprinting before clearing full contact or full match intensity."
+      },
+      {
+        question: "Can turf toe cause long-term problems?",
+        answer: "Yes, particularly when grade 3 injuries are under-treated or when people rush back from a grade 2 before the tissue is ready. McCormick and colleagues (American Journal of Sports Medicine) documented the link between unresolved plantar plate injuries and chronic first MTP instability, progressive hallux valgus, and early post-traumatic arthritis. The good news is that when grading is accurate and rehab is respected, most athletes return to full performance without long-term sequelae. The key is honest grading early, not heroic grinding through."
+      },
+      {
+        question: "Do I actually need to avoid barefoot walking at home?",
+        answer: "For the first few weeks of a grade 2 or 3, yes. Bare feet on hard floors force the big toe into dorsiflexion with every step, which is the exact mechanism you are trying to protect. A stiff-soled house slipper or recovery sandal with a firm footbed is a simple fix. For grade 1, once the acute pain has settled, short periods barefoot are usually fine."
+      },
+      {
+        question: "Does a carbon plate in the shoe really help?",
+        answer: "It does, for the same reason a stiff-soled shoe helps hallux rigidus. The plate reduces the dorsiflexion demand on the first MTP during push-off, which lets you walk and eventually train without continually stressing the healing tissue. Most sports stores now sell turf toe plates or stiff carbon inserts, and they are one of the more cost-effective items in the conservative toolbox. Pair them with proper taping during sport and most grade 1 and 2 athletes manage well."
+      }
+    ],
+
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Protect and Calm (Days 1 to 14, grade-dependent)",
+        focus: "Protect the healing capsule and plantar plate, control swelling, and maintain ankle and foot mobility where it is safe to do so. Protection level scales with injury grade. Grade 1 may only need taping and footwear modification. Grade 2 typically needs a stiff-soled shoe or walking boot. Grade 3 usually requires a period of strict immobilisation, often in a walker boot with a Morton's extension, and surgical review if plantar plate rupture is suspected.",
+        examples: [
+          "Relative rest from sport and cutting activities, with footwear locked into a stiff-soled shoe, carbon plate insert, or walker boot depending on grade",
+          "Turf toe taping with a dorsal block that restricts end-range hallux extension, applied for any weight-bearing activity during the protection period",
+          "Ice applied for 15 to 20 minutes every 2 to 3 hours during the first 48 to 72 hours, with elevation above heart level when seated",
+          "Pain-free ankle dorsiflexion and plantarflexion range of motion, 2 sets of 10 to 15, to prevent stiffness up the chain",
+          "Gentle non-weight-bearing hallux flexion within pain-free range, avoiding any forced extension during this phase"
+        ],
+        progressionCriteria: "Swelling and pain at rest settled, weight-bearing in the protective footwear achievable without pain above 3 out of 10, and tolerance of gentle pain-free hallux flexion for 7 consecutive days."
+      },
+      phase2: {
+        title: "Phase 2: Restore Motion and Rebuild Strength (Weeks 2 to 6, grade-dependent)",
+        focus: "Systematically restore hallux motion through available range without pushing into painful dorsiflexion, and rebuild the flexor and intrinsic capacity that the plantar plate relies on for dynamic stability. Protection continues during functional activity but is gradually reduced during rehab sessions.",
+        examples: [
+          "Active hallux flexion and pain-free extension within tolerance, 3 sets of 15 with 5-second holds, progressed weekly as symptoms allow",
+          "Manual therapy in clinic to address any capsular restriction that develops during the protection phase, applied within pain-free ranges",
+          "Flexor hallucis longus and brevis strengthening using towel scrunches and resisted band flexion, 3 sets of 15",
+          "Short-foot holds and toe splay to reinforce intrinsic foot control, 3 sets of 10 with 10-second holds",
+          "Double-leg and single-leg calf raises with heel tracking over the second toe, progressing from supported to unsupported, 3 sets of 12 to 15",
+          "Single-leg balance progressing from firm ground to foam pad, emphasising stable forefoot contact, 3 sets of 30 to 45 seconds"
+        ],
+        progressionCriteria: "Near-full hallux range of motion compared to the uninjured side, single-leg heel raise performed cleanly with no more than mild discomfort, and tolerance of light jogging in linear directions without reproduction of injury pain."
+      },
+      phase3: {
+        title: "Phase 3: Return to Sport and Re-Injury Prevention (Weeks 4 to 12+, grade-dependent)",
+        focus: "Rebuild sport-specific demands in a graded, criterion-based progression. Linear running comes before change of direction, unresisted agility before contact, and full-intensity sport before match conditions. Taping and stiff plates remain in use during this phase for grade 2 and 3 athletes, tapering off as strength and confidence consolidate.",
+        examples: [
+          "Jogging progressed to running in straight lines, then gentle curves, then cutting patterns, applying a 10 percent weekly volume rule",
+          "Plyometric progression from double-leg pogo hops to single-leg forefoot hops, 3 sets of 10 to 20, on a forgiving surface",
+          "Sport-specific agility drills including cone work, side-shuffles, and eventually change-of-direction at progressive speeds",
+          "Position-specific work reintroduced for football, soccer, rugby, and basketball athletes, with carbon plate or turf toe taping retained during initial return to contact",
+          "Maintenance strengthening of intrinsic foot, flexor hallucis, and calf complex, 2 to 3 sessions weekly, sustained through the season to reduce re-injury risk"
+        ],
+        progressionCriteria: "Full, symmetrical hallux motion, painless sport-specific testing (cutting, acceleration, deceleration) at full intensity, and athlete and clinician agreement on readiness for contested training and then competition. Grade 3 athletes should meet additional strength and imaging criteria where relevant before full return."
+      }
+    },
+
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -13020,6 +13864,75 @@ The condition serves as an important lesson in listening to the body's signals a
       questionnaires: "Pediatric Foot and Ankle Ability Measure (pFAAM), sport-specific return-to-play readiness scales, and parent-reported outcome measures for activity participation",
       activityTarget: "Full return to desired sports and activities without heel pain, maintaining long-term habits of calf flexibility and appropriate training progression"
     },
+    faqs: [
+      {
+        question: "Will my child grow out of Sever's disease?",
+        answer: "Yes. Sever's is an apophysitis of the calcaneal growth plate, and once that growth plate fuses (typically around age 14 to 16), the vulnerable structure no longer exists. Rathleff and colleagues tracked a cohort of children with the condition and found that the vast majority returned to full activity well before skeletal maturity, often within a few months of starting sensible management. It is a self-limiting condition, not a progressive injury."
+      },
+      {
+        question: "Does my child need to stop sports completely?",
+        answer: "Rarely. Complete rest deconditions the athlete and tends to delay return rather than help it. The usual plan is a temporary reduction in running and jumping volume, not removal. Most children can keep playing in some form while the heel settles, provided pain during and after activity stays manageable and settles overnight."
+      },
+      {
+        question: "How long until the pain goes away?",
+        answer: "With activity modification, calf flexibility work, heel cups, and supportive footwear, most children feel clearly better within 2 to 4 weeks. Full resolution typically takes 2 to 6 months. Bilateral cases tend to take longer than one-sided cases. The condition does not recur once the growth plate has closed."
+      },
+      {
+        question: "Why does the pain come back every season?",
+        answer: "Sever's tends to flare when training load jumps quickly, like the start of a soccer season or a growth spurt combined with new activity. The common pattern I see is a child who felt fine all summer, starts three practices a week in September on turf, and has heel pain by week two. The fix is smoothing out those load spikes and maintaining calf flexibility year round rather than only when symptoms appear."
+      },
+      {
+        question: "Do heel cups actually help?",
+        answer: "For many kids, yes. They cushion heel strike and can reduce pain enough to keep playing. A 2021 RCT in children with calcaneal apophysitis found custom foot orthoses outperformed simple heel lifts, but both reduced pain. I usually start with a good heel cup and supportive footwear before moving to custom orthotics, since the simple options are cheap and often enough."
+      },
+      {
+        question: "Do I need an X-ray?",
+        answer: "Imaging is not usually needed to diagnose Sever's. It is a clinical diagnosis based on age, activity history, and a positive heel squeeze test. Imaging becomes relevant when the presentation is atypical, when pain is present at rest or at night, when there is a history of a specific injury, or when symptoms fail to improve with appropriate management over 8 to 12 weeks. In those cases I refer for imaging to rule out other causes."
+      },
+      {
+        question: "What footwear helps most during a flare?",
+        answer: "Well-cushioned running shoes with a firm heel counter, replaced when they are visibly worn. Avoid flat, unsupportive shoes (including worn-out cleats and barefoot-style shoes) during a flare. On hard indoor court surfaces, adding a heel cup often makes a noticeable difference."
+      }
+    ],
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Settle the Heel (Weeks 1 to 3)",
+        focus: "Calm the apophysis by reducing running and jumping volume, improving calf length, and cushioning heel strike. The aim is to keep the child in sport in some form while the growth plate settles.",
+        examples: [
+          "Gastrocnemius stretch against a wall, knee straight, 3 sets of 30 seconds, both sides, twice daily",
+          "Soleus stretch against a wall, knee bent, 3 sets of 30 seconds, both sides, twice daily",
+          "Heel cup or gel heel pad in both sport and school shoes",
+          "Temporary reduction of running and jumping to roughly 50 percent of usual weekly volume, with cross-training like swimming or cycling to maintain fitness",
+          "Ice for 10 to 15 minutes after any aggravating session"
+        ],
+        progressionCriteria: "Heel squeeze tenderness clearly reduced, pain during normal walking at or under 2 out of 10, and no more than mild next-morning symptoms after modified training for 7 consecutive days."
+      },
+      phase2: {
+        title: "Phase 2: Rebuild Calf and Foot Capacity (Weeks 3 to 8)",
+        focus: "Restore calf strength and foot control so the posterior chain can absorb running and jumping loads again. Calf flexibility work continues. Loading is introduced gradually and monitored using the 24-hour symptom response.",
+        examples: [
+          "Bilateral heel raise, 3 sets of 12 to 15, progressing to controlled tempo (2 seconds up, 2 seconds hold, 3 seconds down)",
+          "Single-leg heel raise, building from 6 to 15 reps as tolerated",
+          "Single-leg balance work (30 to 45 seconds per side), progressing to balance on foam or uneven surface",
+          "Short-foot and toe-yoga exercises to build foot intrinsic capacity",
+          "Gradual reintroduction of running, starting with run/walk intervals on soft surfaces"
+        ],
+        progressionCriteria: "15 controlled single-leg heel raises without heel pain, calf flexibility within a few centimetres of the unaffected side on a weight-bearing lunge test, and pain-free jogging for 10 minutes on a supportive surface."
+      },
+      phase3: {
+        title: "Phase 3: Return to Sport with Load Management (Months 2 to 4)",
+        focus: "Rebuild sport-specific demands (cutting, repeated jumping, sprinting) using graded volume increases. The goal is not just symptom freedom, it is teaching the child and family to recognize load spikes, growth spurts, and footwear issues that typically trigger recurrence.",
+        examples: [
+          "Bilateral jumping with soft landings, 2 sets of 10, progressing to single-leg hopping in straight lines",
+          "Short acceleration drills (10 to 20 metres), progressing to change of direction work",
+          "Progressive return to team training using a 10 to 15 percent weekly volume increase rule for running and jumping",
+          "Full sport practice with one modified session per week during early return",
+          "Ongoing calf flexibility and heel raise work 2 to 3 times per week as a maintenance habit"
+        ],
+        progressionCriteria: "Two consecutive weeks of full team training and competition without heel pain, symmetrical calf strength (single-leg heel raise within 2 reps of the other side), and a family-level plan for managing the next growth spurt or season change."
+      }
+    },
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   },
 
@@ -13270,6 +14183,625 @@ Understanding the relationship between foot biomechanics and nerve compression h
       questionnaires: "Foot and Ankle Ability Measure (FAAM) for functional assessment, neuropathy-specific questionnaires for symptom tracking, and sleep quality assessments for monitoring night symptom improvements",
       activityTarget: "Complete elimination of nerve-related symptoms with full return to desired activities, restoration of normal foot sensation and function, and prevention of symptom recurrence"
     },
+    accessAndHours: standardAccessAndHours
+  },
+
+  'stress-fractures': {
+    differentialDiagnosis: [
+      {
+        condition: "Medial Tibial Stress Syndrome (Shin Splints)",
+        distinguishingFeatures: "Diffuse aching along the posteromedial tibial border over several centimetres rather than a focal pencil-point tender spot. Pain warms up and often settles during a run, whereas a tibial stress fracture tends to stay focal and worsens as loading continues. Normal bone scan or MRI, or at most mild periosteal signal rather than a discrete fracture line."
+      },
+      {
+        condition: "High-Risk Stress Fracture Sites (Femoral Neck, Anterior Tibia, Navicular, 5th Metatarsal Base)",
+        distinguishingFeatures: "These sites sit on the tension side of bone or in watershed blood-supply zones and carry higher risk of non-union or complete fracture. Groin pain with hip loading, anterior shin pain with a dreaded black line on imaging, deep midfoot pain with N-spot tenderness, or pain at the proximal fifth metatarsal. These presentations need orthopaedic review, not conservative rehab alone."
+      },
+      {
+        condition: "Low-Risk Stress Fracture Sites (Posteromedial Tibia, 2nd to 4th Metatarsal Shafts, Fibula, Calcaneus)",
+        distinguishingFeatures: "Focal bony tenderness with load-related pain that eases with rest, on the compression side of bone or in well-vascularised areas. Typically respond to relative rest, loading modification, and a graduated return without surgical input."
+      },
+      {
+        condition: "Tendinopathy at the Same Region",
+        distinguishingFeatures: "Tendon tenderness rather than bony tenderness on careful palpation, pain that warms up with activity rather than progressively worsening, and a load-response pattern over 24 to 48 hours rather than a sharp focal point. Useful distinction at the Achilles, tibialis posterior, and peroneal tendons where stress injuries can coexist."
+      },
+      {
+        condition: "Bone Stress Injury Without Fracture Line",
+        distinguishingFeatures: "Earlier point on the same continuum. Focal bony tenderness and training-related pain, MRI showing bone marrow oedema without a cortical fracture line. Managed similarly to low-risk stress fractures but usually with a shorter timeline to return."
+      },
+      {
+        condition: "Nerve Entrapment or Exertional Compartment Syndrome",
+        distinguishingFeatures: "Pain reliably tied to a specific distance or intensity, often with tightness, numbness, or weakness that resolves within minutes of stopping. Palpation is not focally tender over bone. Usually needs exercise-provoked compartment pressure testing if suspected."
+      }
+    ],
+    faqs: [
+      {
+        question: "Is a stress fracture the same as a regular broken bone?",
+        answer: "Not quite. A stress fracture is a small crack in bone caused by repetitive loading that outpaces the bone's ability to remodel. An acute fracture comes from a single high-force event. Stress fractures usually do not displace and often heal with protected loading rather than casting or surgery. The caveat is that some high-risk sites, like the femoral neck, anterior tibia, navicular, and the proximal fifth metatarsal, behave more unpredictably and need orthopaedic review early."
+      },
+      {
+        question: "How long does a stress fracture take to heal?",
+        answer: "Most low-risk stress fractures, such as posteromedial tibia, fibula, or a metatarsal shaft, settle over roughly 6 to 8 weeks of protected loading, with a graduated return to running over the following 4 to 8 weeks. High-risk sites often need longer periods of offloading and formal medical review. Healing timelines also depend on age, nutrition, hormonal health, and whether the original training load and any underlying drivers are addressed."
+      },
+      {
+        question: "Can I keep running with a stress fracture?",
+        answer: "Running through a stress fracture usually makes it worse. Pain that is focal over bone, worsens through a run, and lingers afterward is a signal to stop running and get it assessed. Once diagnosed, the general approach is to offload enough that daily walking is pain-free, maintain fitness with non-impact work like cycling or pool running, and rebuild running volume gradually once bony tenderness resolves."
+      },
+      {
+        question: "What causes stress fractures in the first place?",
+        answer: "The dominant cause is a mismatch between training load and recovery. Rapid increases in weekly mileage, sudden additions of hills or speed work, changes in surface or footwear, and inadequate recovery between sessions all concentrate load on bone faster than it can adapt. Low energy availability, menstrual irregularity, low bone mineral density, and low vitamin D or calcium status add to the risk. Relative Energy Deficiency in Sport, as outlined in the 2018 IOC consensus, is a recognised driver in endurance and aesthetic-sport athletes."
+      },
+      {
+        question: "Do I need an MRI to diagnose a stress fracture?",
+        answer: "MRI is the most sensitive imaging for bone stress injury and shows marrow oedema before any cortical crack appears. Plain X-rays often look normal for the first two to three weeks and can still be normal even with a confirmed stress fracture. When the clinical picture is clear and the site is low-risk, treatment can start without imaging. When a high-risk site is suspected, or recovery is stalling, MRI is worth pursuing."
+      },
+      {
+        question: "What is a high-risk stress fracture?",
+        answer: "High-risk sites are locations where the fracture sits on the tension side of bone, or in a watershed blood-supply zone, so the risk of non-union, displacement, or conversion to a complete fracture is higher. The femoral neck, anterior tibial cortex, tarsal navicular, and the base of the fifth metatarsal are the classic examples. These need prompt orthopaedic involvement rather than conservative rehab alone."
+      },
+      {
+        question: "Should I take calcium or vitamin D supplements while I heal?",
+        answer: "If your intake is low, correcting calcium and vitamin D is reasonable and often recommended. The bigger question is total energy availability. In endurance and aesthetic-sport athletes, undereating relative to training volume quietly undermines bone health, menstrual function, and tissue repair. A conversation with your physician or a sports dietitian to review bloods, intake, and training is often more useful than supplements alone."
+      },
+      {
+        question: "How do I stop this from happening again?",
+        answer: "Return to running is the rehab, not the finish line. Most recurrences trace back to jumping back into previous mileage too fast or not addressing what caused the first one. I work with you on a graded return, usually starting with walk-run intervals once pain-free on daily walks, limiting weekly increases, adding strength work for the relevant area, and reviewing training periodisation, footwear, nutrition, and sleep. For athletes with repeated stress injuries, screening for bone health and energy availability is important."
+      }
+    ],
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Protected Loading and Pain Control (Weeks 0 to 4 to 6)",
+        focus: "Offload the injured bone enough to allow pain-free daily activity, preserve aerobic fitness with non-impact work, and start strengthening around the area without provoking bony pain. For high-risk sites, loading decisions are guided by the orthopaedic plan rather than symptoms alone.",
+        examples: [
+          "Pain-free daily walking, using a boot, crutches, or assistive device if needed to keep walking below a pain threshold",
+          "Non-impact aerobic work to maintain cardiovascular fitness, such as cycling, pool running, or upper-body ergometer, 3 to 5 sessions per week",
+          "Isometric and light isotonic strengthening around the injured region, avoiding direct compressive or bending load on the fracture site",
+          "Hip and trunk strengthening that does not stress the fracture site, 2 to 3 sessions per week",
+          "Review of training load, nutrition, sleep, and menstrual health where relevant, with medical input if RED-S is suspected"
+        ],
+        progressionCriteria: "Pain-free daily walking, no focal bony tenderness on careful palpation, and clearance for progressive loading from the treating clinician (particularly at high-risk sites)."
+      },
+      phase2: {
+        title: "Phase 2: Graduated Impact Reintroduction (Weeks 4 to 6 through 10 to 12)",
+        focus: "Rebuild bone tolerance to impact in small, controlled doses. Sessions are kept short and well-spaced, and volume is increased only when the previous step is reliably symptom-free for several days.",
+        examples: [
+          "Low-level impact drills, such as slow skipping or gentle pogo hops on a soft surface, for short durations",
+          "Walk-run intervals starting around 1 minute of running in 4 to 5 minutes of walking, building slowly over several sessions",
+          "Single-leg strength work relevant to the injured region, such as calf raises for tibial and metatarsal injuries or hip and glute work for femoral neck recovery",
+          "Continued non-impact aerobic work on non-running days to maintain fitness without over-stressing bone",
+          "Monitoring of 24-hour symptom response, training diary, and any return of focal bony pain"
+        ],
+        progressionCriteria: "Steady walk-run progression without return of focal bony pain, no next-day flare, and confidence to complete 20 to 30 minutes of continuous easy running at the end of the block."
+      },
+      phase3: {
+        title: "Phase 3: Return to Sport and Load Management (Months 3 to 6 and beyond)",
+        focus: "Rebuild running or sport volume to pre-injury levels while keeping weekly increases conservative. The goal is not only a return to running but a training structure that respects bone adaptation and addresses the factors that drove the original injury.",
+        examples: [
+          "Gradual increases in weekly running volume, typically keeping weekly increases modest and taking periodic easier weeks",
+          "Reintroduction of hills, faster running, or sport-specific drills once base mileage is comfortable",
+          "Ongoing strength training 2 to 3 times per week, including heavier lower-body work to support bone remodelling",
+          "Plyometric progression, starting bilateral on soft surfaces and advancing to single-leg and firmer surfaces only when mechanics stay clean",
+          "Periodic review of training load, nutrition, sleep, and, where relevant, bone health markers with the medical team"
+        ],
+        progressionCriteria: "Return to full sport or pre-injury running volume without focal bony pain, symmetrical single-leg hop and calf-raise capacity where applicable, and a training plan that limits weekly increases and includes scheduled recovery."
+      }
+    },
+    lastReviewed: '2026-04-16',
+    accessAndHours: standardAccessAndHours
+  },
+
+  'diabetes-related-conditions': {
+    differentialDiagnosis: [
+      {
+        condition: "Adhesive Capsulitis (Frozen Shoulder) in Diabetes",
+        distinguishingFeatures: "Global loss of active and passive shoulder range, particularly external rotation, with a firm end-feel. Prevalence is notably higher in people with diabetes than in the general population, and presentations in diabetes are often bilateral and more resistant to treatment. Pain dominates early, stiffness dominates later."
+      },
+      {
+        condition: "Diabetic Peripheral Neuropathy",
+        distinguishingFeatures: "Symmetric stocking-and-glove burning, tingling, or numbness, worse at night, with reduced sensation on monofilament or vibration testing. Balance and foot-position awareness may be reduced, raising fall and foot-ulcer risk. Management sits alongside medical glycaemic control, not as an isolated musculoskeletal problem."
+      },
+      {
+        condition: "Carpal Tunnel Syndrome in Diabetes",
+        distinguishingFeatures: "Numbness and tingling in the thumb, index, middle, and half of the ring finger, often worse at night, with a positive Phalen or Tinel sign. Incidence is higher in diabetes. Where peripheral neuropathy coexists, presentation can be atypical and clinical findings may be mixed."
+      },
+      {
+        condition: "Dupuytren's Disease",
+        distinguishingFeatures: "Painless palmar nodules and cords, progressing to finger flexion contractures, most often at the ring and little fingers. More common in people with longstanding diabetes. Does not respond meaningfully to stretching alone, and medical or surgical input is often needed once function is limited."
+      },
+      {
+        condition: "Limited Joint Mobility Syndrome / Diabetic Cheiroarthropathy ('Stiff Hand')",
+        distinguishingFeatures: "Painless loss of small-joint finger mobility, often with waxy thickened skin on the dorsum of the hands and a positive prayer sign where the palms cannot be brought fully together. Strongly associated with long-duration or poorly controlled diabetes."
+      },
+      {
+        condition: "Trigger Finger (Stenosing Tenosynovitis)",
+        distinguishingFeatures: "Painful catching or locking of a finger during flexion, with a tender nodule at the A1 pulley. Higher prevalence in people with diabetes and often multi-digit. Splinting and corticosteroid injection are less reliably successful than in non-diabetic patients."
+      }
+    ],
+    faqs: [
+      {
+        question: "Why does diabetes cause so many musculoskeletal problems?",
+        answer: "Chronic hyperglycaemia drives non-enzymatic glycation of collagen, which makes connective tissue stiffer and slower to remodel. Add in altered small-vessel blood flow and changes in nerve function, and the result is a higher rate of stiff, painful tissue conditions, particularly in the shoulder and hand. Tissue healing after any musculoskeletal injury also tends to be slower when blood sugar is poorly controlled."
+      },
+      {
+        question: "Is frozen shoulder really more common in diabetes?",
+        answer: "Yes. A 2016 meta-analysis by Zreik and colleagues estimated roughly 13 percent prevalence of frozen shoulder in people with diabetes, compared with around 5 percent in the general population. Frozen shoulder in diabetes is often bilateral, more resistant to treatment, and has a more protracted course. That does not mean rehab does not work, but expectations around timeline need to be realistic."
+      },
+      {
+        question: "Can physiotherapy help diabetic peripheral neuropathy?",
+        answer: "Physiotherapy does not reverse nerve damage, but it plays a real role in fall prevention, balance, strengthening, and helping you stay active safely. The ADA position statement by Pop-Busui and colleagues in Diabetes Care 2017 supports regular exercise for people with diabetic neuropathy, with attention to footwear, skin checks, and starting below the threshold that provokes symptoms. Working alongside your diabetes team is important."
+      },
+      {
+        question: "Should I exercise if my blood sugar is not well controlled?",
+        answer: "Generally yes, with some sensible adjustments. Colberg and colleagues' 2016 position statement in Diabetes Care supports regular aerobic and resistance training for almost everyone with diabetes, because exercise improves glycaemic control, cardiovascular health, and musculoskeletal function. If blood sugars are very high or very unstable, coordination with your physician or diabetes nurse is important before progressing load, and any new foot sores or unusual symptoms need medical review."
+      },
+      {
+        question: "Why is my hand stiff and clawing, even though it does not hurt?",
+        answer: "That pattern is often limited joint mobility syndrome or Dupuytren's disease, both of which occur more frequently in people with longstanding diabetes. Stretching alone rarely reverses established contractures. I focus on preserving the function you have, managing grip and dexterity for daily tasks, and flagging when medical or surgical input is appropriate."
+      },
+      {
+        question: "Will my rehab take longer because I have diabetes?",
+        answer: "Honestly, often yes. Glycation of collagen and altered healing physiology mean tissues can take longer to adapt to loading, and frozen shoulder in diabetes in particular tends to run a longer course. Knowing this up front helps set a realistic plan rather than feeling like progress is stalling. Consistency with both rehab and glycaemic control tends to move things in the right direction over months, not weeks."
+      },
+      {
+        question: "Do I need referrals from my diabetes doctor before starting physio?",
+        answer: "In Ontario, a referral is not required to see a Registered Physiotherapist. That said, when diabetes is part of the picture, co-management with your family physician, endocrinologist, or diabetes nurse is valuable, particularly around foot care, glycaemic targets, and medication adjustments if exercise is changing. I am happy to communicate with your medical team."
+      },
+      {
+        question: "What red flags should I watch for in my feet?",
+        answer: "New foot ulcers, persistent redness or warmth, sudden unexplained swelling of the foot or ankle, or a sudden change in foot shape warrant urgent medical review, not physiotherapy first. These can signal infection or Charcot neuroarthropathy, both of which are more common when peripheral neuropathy is present. Daily foot checks and well-fitting footwear are sensible baseline habits."
+      }
+    ],
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Safe Start and Symptom Control",
+        focus: "Establish a baseline that respects current tissue irritability, glycaemic stability, and any neuropathy or foot-health considerations. Early sessions are about building trust in movement, not pushing volume. Coordination with the medical team happens here where relevant.",
+        examples: [
+          "Low-intensity aerobic work 20 to 30 minutes most days, guided by Colberg and colleagues' Diabetes Care 2016 recommendations, starting at an intensity that feels easy to moderate",
+          "Range-of-motion and gentle mobility work targeting the affected region, such as pendulum and supported external rotation work for frozen shoulder",
+          "Foot checks and footwear review at every session where peripheral neuropathy is present",
+          "Isometric and light resistance work to introduce loading without provoking symptom flare",
+          "Blood glucose awareness around sessions, with snacks and hydration as advised by the medical team"
+        ],
+        progressionCriteria: "Consistent attendance with tolerable symptom levels, stable blood sugars around exercise, no new foot-skin concerns, and a clear sense of which movements are currently easy, manageable, and off-limits."
+      },
+      phase2: {
+        title: "Phase 2: Progressive Strengthening and Capacity",
+        focus: "Build strength and movement capacity with a graded, predictable load progression. Tissue in people with diabetes often adapts more slowly, so progressions are a little more conservative but still deliberate. Strengthening exercises are central, not optional.",
+        examples: [
+          "Resistance training 2 to 3 times per week, covering major movement patterns with progressive load over weeks to months",
+          "Shoulder mobility and rotator cuff work for frozen shoulder presentations, with joint mobilization in-clinic when indicated",
+          "Hand and forearm conditioning for carpal tunnel and stiff-hand presentations, with attention to grip endurance rather than single-effort strength",
+          "Balance and single-leg work for peripheral neuropathy, starting at supported stances and progressing as safely tolerated",
+          "Aerobic work progressing toward 150 minutes per week of moderate activity, as per ADA guidance, split across most days"
+        ],
+        progressionCriteria: "Meaningful gains in strength, range, or functional tolerance over 4 to 6 weeks, no recurring flare-ups, stable foot skin where relevant, and growing confidence using the affected area in daily tasks."
+      },
+      phase3: {
+        title: "Phase 3: Sustained Load and Long-Term Management",
+        focus: "Consolidate what has been built into a training habit that continues to support glycaemic control, tissue health, and function over the long term. For many people with diabetes, rehab is not finite, it transitions into ongoing maintenance.",
+        examples: [
+          "Ongoing resistance and aerobic training aligned with ADA and Colberg recommendations, reviewed every few months",
+          "Continued attention to foot health, footwear, and daily checks for those with peripheral neuropathy",
+          "Task-specific return to work, hobby, or sport activities with a graded loading plan",
+          "Planned periodic check-ins to adjust the program as medical status, medications, or life demands change",
+          "Coordination with the diabetes team so that changes in glycaemic control or medication are reflected in exercise planning"
+        ],
+        progressionCriteria: "A training pattern the person can sustain independently, clear markers of when to check in with the physio or medical team, and function that matches the goals set at the start of care."
+      }
+    },
+    lastReviewed: '2026-04-16',
+    accessAndHours: standardAccessAndHours
+  },
+
+  'growth-plate-injuries': {
+    differentialDiagnosis: [
+      {
+        condition: "Salter-Harris Physeal Fracture (Types I to V)",
+        distinguishingFeatures: "Acute injury with focal pain directly over a growth plate, often after a clear mechanism such as a fall or tackle. Salter and Harris's 1963 classification describes five patterns, from slippage through the growth plate (Type I) to crush injury (Type V). Any suspected Salter-Harris fracture needs imaging and orthopaedic review, because types III, IV, and V carry higher risk of growth disturbance."
+      },
+      {
+        condition: "Osgood-Schlatter Disease (Tibial Tubercle Apophysitis)",
+        distinguishingFeatures: "Traction apophysitis at the tibial tubercle in growing athletes, with pain, swelling, and a prominent tender bump just below the kneecap. Worse with jumping, running, and kneeling. Typically self-limiting as skeletal maturity is reached, managed with load modification rather than complete rest."
+      },
+      {
+        condition: "Sever's Disease (Calcaneal Apophysitis)",
+        distinguishingFeatures: "Heel pain in growing children, often 8 to 14 years old, worse with running and jumping, with tenderness on mediolateral calcaneal squeeze. Commonly bilateral. Shoe cushioning, heel lifts, calf flexibility, and load modification usually do the heavy lifting."
+      },
+      {
+        condition: "Sinding-Larsen-Johansson Syndrome",
+        distinguishingFeatures: "Traction apophysitis at the inferior pole of the patella, the pediatric mirror of patellar tendinopathy. Focal anterior knee pain worse with jumping and running, tenderness at the bottom tip of the patella. Settles with load management through skeletal maturity."
+      },
+      {
+        condition: "Little League Shoulder / Elbow (Proximal Humeral and Medial Epicondylar Apophysitis)",
+        distinguishingFeatures: "Overuse injuries in young throwing athletes, with pain over the proximal humeral physis or medial elbow. Often linked to high pitch counts or year-round throwing. DiFiori and colleagues' 2014 consensus on pediatric overuse injuries highlights load monitoring as central to prevention and recovery."
+      },
+      {
+        condition: "Slipped Capital Femoral Epiphysis (SCFE)",
+        distinguishingFeatures: "Adolescent, often with elevated BMI, presenting with hip, groin, or referred knee pain and a limp. Externally rotated posture of the affected leg, loss of internal rotation, obligatory external rotation on hip flexion. Requires urgent orthopaedic assessment, not physiotherapy as a first line."
+      }
+    ],
+    faqs: [
+      {
+        question: "What is a growth plate and why is it vulnerable?",
+        answer: "A growth plate, or physis, is a zone of cartilage near the ends of long bones where lengthwise growth happens through childhood and adolescence. Because cartilage is mechanically weaker than the surrounding bone, the physis can be injured by forces that an adult bone would absorb without issue. That is why Salter-Harris fractures and apophysitis patterns are pediatric and adolescent problems rather than adult ones."
+      },
+      {
+        question: "Is Osgood-Schlatter serious?",
+        answer: "It is usually benign and self-limiting, but it is real pain and it can sideline a young athlete from sport they care about. The tibial tubercle stays tender and prominent because the patellar tendon pulls repeatedly on an immature apophysis. Management is mostly load modification, relative rest from the most provocative activities, calf and quadriceps mobility, and reassurance. Symptoms usually settle once the apophysis fuses around mid-to-late adolescence."
+      },
+      {
+        question: "Does my child need to stop sport completely?",
+        answer: "Rarely. For most apophysitis patterns, such as Sever's, Osgood-Schlatter, and Sinding-Larsen-Johansson, complete rest is not the goal. DiFiori and colleagues' 2014 consensus on pediatric overuse injuries supports modifying training load, reducing volume of the most aggravating tasks, and keeping the child engaged in sport where possible. Complete rest is reserved for acute fractures or when pain is changing gait and function."
+      },
+      {
+        question: "How are Salter-Harris fractures different from apophysitis?",
+        answer: "Salter-Harris injuries are acute fractures through or near the growth plate, usually after a specific traumatic event. They are classified Type I through V based on where the fracture line runs, and types III, IV, and V have higher risk of growth disturbance. Apophysitis is a gradual traction overuse injury at a secondary growth centre, such as the tibial tubercle or calcaneus, without a fracture. Management and urgency differ substantially."
+      },
+      {
+        question: "Will my child end up with uneven legs or a deformity?",
+        answer: "The honest answer is that most pediatric physeal injuries heal without any long-term growth disturbance, but a minority do cause partial or full growth arrest, especially with Salter-Harris types III, IV, and V. That is why acute injuries with suspected physeal involvement are followed up by the orthopaedic team over months, not just weeks. Apophysitis conditions do not typically cause long-term deformity."
+      },
+      {
+        question: "What is an appropriate training load for a young athlete?",
+        answer: "Broad principles from the DiFiori and colleagues 2014 consensus include at least one to two rest days per week, avoiding year-round single-sport specialisation before mid-adolescence, keeping training hours per week from exceeding the child's age as a rough guide, and respecting pain signals rather than pushing through. Coaches, parents, and the child all have a role in the conversation, not just the physio."
+      },
+      {
+        question: "Do I need an X-ray?",
+        answer: "If the injury is acute with suspected fracture, yes, imaging is part of the initial workup. For apophysitis presentations with a classic clinical picture, such as a 12-year-old gymnast with bilateral heel pain and positive calcaneal squeeze, imaging often adds little. I usually escalate to imaging when the story does not match the exam, when symptoms are not settling as expected, or when a higher-risk pattern is suspected."
+      },
+      {
+        question: "When can my child return to full sport?",
+        answer: "For apophysitis conditions, return to sport is graded rather than binary. Once pain is tolerable with daily activity and single-leg loading, a progressive return to running, then jumping, then sport-specific drills, then full training, is the usual path. For Salter-Harris fractures, return is guided by the orthopaedic team and depends on the fracture type, healing, and any activity restrictions they set."
+      }
+    ],
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Symptom Control and Load Reduction",
+        focus: "Bring symptoms under control by reducing the volume of the most provocative tasks rather than stopping sport outright. Confirm that a higher-risk pattern has been ruled out. Keep the child engaged and motivated.",
+        examples: [
+          "Relative rest from the most aggravating activities, such as repeated jumping for Osgood-Schlatter or running on hard surfaces for Sever's",
+          "Preserving non-aggravating training, such as skill work, swimming, or cycling, to maintain fitness and enjoyment",
+          "Gentle mobility work for calves, hamstrings, and quadriceps as appropriate to the region",
+          "Footwear review, with heel cups or cushioning where appropriate for Sever's",
+          "Education for the child and parent on the nature of the condition and expected timelines"
+        ],
+        progressionCriteria: "Daily activity and school tolerated without pain, pain with sport reduced to a manageable level, no night pain or pain at rest, and child and family clear on what is happening."
+      },
+      phase2: {
+        title: "Phase 2: Progressive Strengthening and Graduated Loading",
+        focus: "Rebuild strength and loading capacity in the affected region while keeping overall training volume at a level the growth plate can tolerate. Strengthening exercises are central, and progressions are slower than in adult rehab.",
+        examples: [
+          "Progressive calf and quadriceps strengthening for lower-limb apophysitis, starting with body weight and progressing to loaded variations as tolerated",
+          "Scapular and rotator cuff work for throwing-related upper-limb presentations, with attention to overall throwing volume",
+          "Single-leg balance and hop progressions on soft surfaces before firm surfaces, and bilateral before unilateral",
+          "Sport-specific skill work in small doses, alongside ongoing cross-training",
+          "Simple load monitoring, such as a training diary or traffic-light pain scale, so progressions are driven by response rather than guesswork"
+        ],
+        progressionCriteria: "Tolerating progressive single-leg loading without symptom flare, able to run and jump at moderate intensity without next-day pain, and strength asymmetries noticeably reduced."
+      },
+      phase3: {
+        title: "Phase 3: Return to Full Sport and Long-Term Load Management",
+        focus: "Bring the child back to full training and competition with a sustainable load pattern that respects the growing skeleton. This is where training culture and conversations with coaches and parents matter as much as the exercises themselves.",
+        examples: [
+          "Graded return to full training, following the principles in DiFiori and colleagues' 2014 consensus on pediatric overuse injuries",
+          "Weekly training volume limited to sensible levels relative to age, with scheduled rest days and periods of reduced load",
+          "Ongoing strength and mobility work built into a short home program, typically two to three sessions per week",
+          "Periodic review, particularly around growth spurts, when tissue tolerance can shift quickly",
+          "Open conversation about early specialisation, multi-sport participation, and preserving long-term enjoyment of sport"
+        ],
+        progressionCriteria: "Full participation in sport without pain that limits performance, no recurrence on careful load progression, and a training structure the family can maintain independently."
+      }
+    },
+    lastReviewed: '2026-04-16',
+    accessAndHours: standardAccessAndHours
+  },
+
+  'scaphoid-fractures': {
+    differentialDiagnosis: [
+      {
+        condition: "Wrist Sprain (Scapholunate Ligament Strain)",
+        distinguishingFeatures: "Dorsal wrist pain rather than snuffbox pain, no clear tenderness over the scaphoid tubercle, pain more central in the wrist, and usually less pain with axial loading of the thumb. Because the Watson scaphoid shift test has variable sensitivity, a fall on an outstretched hand with persistent wrist pain still warrants imaging before settling on a sprain diagnosis."
+      },
+      {
+        condition: "Distal Radius Fracture",
+        distinguishingFeatures: "Dorsal or volar tenderness over the distal radius rather than the anatomical snuffbox, often with a visible deformity or marked swelling. Mechanism is similar, a fall on an outstretched hand, which is why imaging should always include dedicated scaphoid views in addition to standard wrist views."
+      },
+      {
+        condition: "De Quervain's Tenosynovitis",
+        distinguishingFeatures: "Gradual onset radial-sided wrist pain rather than acute post-traumatic pain, positive Finkelstein's test, tenderness over the first dorsal compartment rather than in the floor of the snuffbox, and no history of a significant fall."
+      },
+      {
+        condition: "First Carpometacarpal (Thumb Base) Osteoarthritis",
+        distinguishingFeatures: "Pain more distal at the base of the thumb rather than in the snuffbox, tenderness with thumb CMC grind testing, radiographic joint changes in an older population, and no clear inciting fall or trauma."
+      },
+      {
+        condition: "Radial Styloid Fracture or Contusion",
+        distinguishingFeatures: "Point tenderness directly over the radial styloid rather than in the scaphoid tubercle or snuffbox floor, often with localised swelling and bruising. Radiographs clarify the distinction, and I would not accept a styloid contusion label unless the scaphoid has been imaged adequately."
+      },
+      {
+        condition: "Superficial Radial Nerve Irritation",
+        distinguishingFeatures: "Burning or tingling over the dorsoradial hand rather than deep snuffbox pain, often with a positive Tinel sign over the nerve at the radial forearm, and pain that does not change meaningfully with axial loading of the thumb."
+      }
+    ],
+
+    faqs: [
+      {
+        question: "I fell on my hand and my wrist still hurts. How do I know if it is broken or sprained?",
+        answer: "You probably cannot tell from the outside, and the clinical exam only takes you so far. Rhemrev and colleagues' 2011 review in the International Journal of Emergency Medicine makes the point that the classic bedside tests, snuffbox tenderness, pain with axial loading of the thumb, and scaphoid compression, are sensitive but not specific. They are good at raising suspicion, but they cannot rule a fracture in or out on their own. If snuffbox pain, thumb-loading pain, or persistent wrist pain are still there a week after a fall on an outstretched hand, I want imaging before I accept a sprain diagnosis."
+      },
+      {
+        question: "Why do people worry so much about scaphoid fractures compared with other wrist injuries?",
+        answer: "Two reasons. First, the scaphoid has an unusual blood supply that runs from distal to proximal, so a fracture near the proximal pole can disrupt blood flow to the bone fragment, which raises the risk of avascular necrosis. Second, the non-union rate is higher than for most other wrist bones, particularly for displaced or proximal fractures. A missed or undertreated scaphoid fracture can become a long-term wrist problem, so the threshold for imaging should stay low."
+      },
+      {
+        question: "What tests will a clinician actually do at the bedside?",
+        answer: "I am looking to build a hypothesis rather than tick boxes. Steinmann and colleagues (2006) described three bedside manoeuvres that together raise or lower suspicion: tenderness in the anatomical snuffbox, tenderness over the scaphoid tubercle on the palm side, and pain with axial compression through the thumb. None of them is diagnostic on its own, but combined with the story of the fall and the pattern of pain, they tell me whether imaging is urgent or whether a cautious watchful period is reasonable. I still send for imaging when the picture fits, because the cost of missing a scaphoid fracture is much higher than the cost of an X-ray."
+      },
+      {
+        question: "The X-ray was clear but my wrist still hurts. What now?",
+        answer: "Early X-rays miss a meaningful share of scaphoid fractures. The practical approach in many settings is to treat as a suspected scaphoid fracture, immobilise, and re-image at around 10 to 14 days, or move to MRI or CT earlier if symptoms are severe or the person cannot tolerate waiting. I would not accept a single clear X-ray as the final word when snuffbox tenderness and thumb-loading pain are still clearly present."
+      },
+      {
+        question: "Do I need surgery, or will a cast be enough?",
+        answer: "For undisplaced waist fractures of the scaphoid, the 2020 SWIFFT trial published in the BMJ compared cast immobilisation with surgical fixation and found broadly equivalent outcomes on patient-rated wrist scores at one year, with surgery offering earlier return to some activities but also carrying surgical risks. For undisplaced fractures, cast management is a reasonable first choice. Displaced fractures, proximal pole fractures, and non-unions are a different conversation and generally move toward surgical consultation because the non-union risk is higher."
+      },
+      {
+        question: "How long will I be in a cast?",
+        answer: "Typical non-operative treatment for an undisplaced scaphoid waist fracture is around 6 to 12 weeks of cast immobilisation, with repeat imaging to confirm healing before the cast comes off. Proximal pole fractures often heal more slowly and may need longer. Exact timing depends on fracture location, imaging findings, and the surgeon or sports medicine physician overseeing care."
+      },
+      {
+        question: "What does physiotherapy look like after the cast comes off?",
+        answer: "The wrist is usually stiff, the forearm muscles are deconditioned, and people are understandably cautious about loading the hand. My early work is gentle range of motion for the wrist, forearm, and thumb, gradually rebuilding grip strength, restoring proprioception, and introducing loading progressions that respect the healing tissue. I do not rush axial loading through the hand and I keep a close eye on any return of snuffbox pain, because that would prompt a conversation with the treating physician before pushing forward."
+      },
+      {
+        question: "Will my wrist ever feel normal again?",
+        answer: "Most undisplaced fractures that are recognised early and managed appropriately heal and return close to normal function. Stiffness and grip weakness usually resolve with structured rehabilitation. The cases that struggle are often the ones that were missed initially, that went on to non-union, or that involved the proximal pole. That is why I take the initial picture seriously and do not shortcut the diagnosis."
+      }
+    ],
+
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Post-Immobilisation Mobility and Protective Loading (Weeks 0 to 4 after cast removal)",
+        focus: "The first block of rehab is about restoring comfortable range of motion to the wrist, forearm, and thumb after weeks of immobilisation, without putting the healing scaphoid under shear or compressive loads it is not ready for. Nothing in this phase should reproduce snuffbox pain or pain with axial loading of the thumb. If it does, I scale back and check in with the treating physician before progressing.",
+        examples: [
+          "Gentle active wrist flexion, extension, and radial and ulnar deviation in a pain-free range, 10 slow repetitions, 3 to 4 times daily",
+          "Forearm pronation and supination with the elbow tucked at the side, 10 repetitions, 3 times daily, progressing from unweighted to a light broomstick hold",
+          "Thumb opposition and gentle circumduction, avoiding forceful axial loading through the thumb tip",
+          "Tendon gliding sequence for the fingers (straight, hook, fist, tabletop, straight fist), 5 repetitions of each position 3 times daily",
+          "Edema management with elevation, gentle retrograde massage, and compressive sleeve as tolerated"
+        ],
+        progressionCriteria: "Full or near-full pain-free active wrist range of motion, no snuffbox tenderness with daily tasks, and comfortable light grip on a soft ball without provoking thumb-side pain. Clearance from the treating physician to begin loading is assumed before moving to phase 2."
+      },
+      phase2: {
+        title: "Phase 2: Restoring Grip and Forearm Capacity (Weeks 4 to 10)",
+        focus: "Once range of motion is restored and the bone is clinically healed, the priority shifts to rebuilding forearm and hand strength, grip endurance, and wrist proprioception. The bone has healed but the muscular and proprioceptive system around the wrist has been offline for weeks. Progress is gradual, and I watch for any return of pain with thumb loading as a signal to back off.",
+        examples: [
+          "Progressive grip work with putty or a soft ball, 3 sets of 10 to 15, gradually increasing resistance as tolerated",
+          "Wrist flexor and extensor strengthening with a light dumbbell at slow tempo, 3 sets of 10 to 12",
+          "Pronation and supination strengthening with a light hammer held short, then progressively lengthened for leverage, 3 sets of 10",
+          "Radial and ulnar deviation strengthening with a light weight, 3 sets of 10",
+          "Proprioceptive work with a small ball rolled in circles under the palm on a table, then progressed to a wobble board for the hand"
+        ],
+        progressionCriteria: "Grip strength trending back toward the uninjured side on serial testing, no snuffbox or thumb-base pain with daily tasks or light loading, and comfortable tolerance of pronation, supination, and wrist motion under a moderate resistance band."
+      },
+      phase3: {
+        title: "Phase 3: Return to Sport, Work, and Loaded Hand Use (Months 3+)",
+        focus: "This phase tests whether the wrist tolerates the loads of real life: push-ups, bench pressing, racquet and stick sports, manual trades, and contact sports. I add axial loading gradually, I keep an eye on any delayed pain the day after harder sessions, and I do not rush people back to activities that put them at risk of another fall onto the hand before their confidence and strength are genuinely there.",
+        examples: [
+          "Wall push-ups progressing to incline push-ups and then floor push-ups, 3 sets of 8 to 12, with a neutral wrist position",
+          "Loaded carries such as suitcase and farmer walks with moderate dumbbells, building grip endurance over time",
+          "Sport-specific reintroduction where relevant, for example racquet work starting with mini-tennis or shadow swings before full hitting",
+          "Wrist stabiliser work in weight-bearing positions such as quadruped, tall kneeling plank, and side plank on the hand",
+          "Full-range wrist flexion and extension strengthening with moderate resistance, 3 sets of 8 to 12, 2 to 3 times per week as maintenance"
+        ],
+        progressionCriteria: "Return to pre-injury activities without snuffbox pain during or the morning after, grip and pronation-supination strength within a small tolerance of the uninjured side, and confidence catching body weight on the hand in activities like push-ups or controlled falls in sport."
+      }
+    },
+
+    lastReviewed: '2026-04-16',
+    accessAndHours: standardAccessAndHours
+  },
+
+  'hammer-toe-deformities': {
+    differentialDiagnosis: [
+      {
+        condition: "Claw Toe Deformity",
+        distinguishingFeatures: "Involves flexion at both the proximal and distal interphalangeal joints with extension at the MTP joint, rather than the isolated PIP flexion of a true hammer toe. Often associated with neurological conditions or systemic disease, and tends to affect multiple toes symmetrically."
+      },
+      {
+        condition: "Mallet Toe Deformity",
+        distinguishingFeatures: "Flexion at the distal interphalangeal joint only, with a normal proximal interphalangeal joint, unlike the PIP-dominant deformity of a hammer toe. Most often affects the second toe and often arises from pressure from an adjacent longer toe or a tight shoe toe box."
+      },
+      {
+        condition: "Morton's Neuroma",
+        distinguishingFeatures: "Burning, electric, or shock-like pain in the forefoot with numbness into adjacent toes, rather than pain localised to a dorsal prominence over a flexed PIP joint. Symptoms are relieved by shoe removal and forefoot massage, and toe deformity may coexist but is not the primary driver of pain."
+      },
+      {
+        condition: "Metatarsophalangeal Joint Synovitis or Plantar Plate Injury",
+        distinguishingFeatures: "Pain and swelling localised to the MTP joint, often with a positive drawer test and a toe that is drifting or elevating, rather than a dorsal PIP prominence. Plantar plate injury most commonly involves the second toe and can progress to a crossover deformity."
+      },
+      {
+        condition: "Hallux Valgus with Secondary Lesser Toe Deformity",
+        distinguishingFeatures: "Primary deformity at the first MTP joint with lateral deviation of the great toe, which then crowds the lesser toes and can drive secondary hammer toe changes. Treatment focus often shifts toward the first ray rather than the lesser toe in isolation."
+      }
+    ],
+
+    faqs: [
+      {
+        question: "What actually is a hammer toe?",
+        answer: "A hammer toe is a deformity of one of the lesser toes, most often the second, where the proximal interphalangeal joint sits in a fixed or semi-fixed flexed position. The tip of the toe points down, the middle knuckle of the toe points up, and the MTP joint at the base often sits in a slightly extended position. In the early phase the toe is flexible and can be straightened passively. Over time the joint capsule and tendons tighten and the deformity becomes rigid."
+      },
+      {
+        question: "Why does this happen?",
+        answer: "Several things combine. A long second toe crammed into a tight or pointed shoe toe box is a common mechanical driver. Hallux valgus deformity at the big toe can push the lesser toes into altered positions. Chronic imbalance between the long and short flexors of the toe, weak intrinsic foot muscles, and elevated heel footwear that concentrates load on the forefoot all contribute. In many cases the deformity develops slowly over years before pain or a visible callus brings the person in."
+      },
+      {
+        question: "Can physiotherapy reverse a hammer toe?",
+        answer: "That depends on whether the deformity is still flexible or has become rigid. Flexible hammer toes tend to respond reasonably well to a combination of footwear changes, intrinsic foot strengthening, toe splinting or taping, and addressing the broader forefoot mechanics that drove the problem. Rigid, fixed deformities do not straighten with conservative care. In those cases, the realistic goal of physiotherapy is to reduce pain, offload pressure points, preserve mobility in neighbouring joints, and help the person decide whether and when surgical consultation is appropriate."
+      },
+      {
+        question: "What does the evidence actually show for conservative care?",
+        answer: "Coughlin and colleagues' work on lesser toe deformities, and later reviews, are consistent that the evidence base for conservative management is limited and largely drawn from expert practice rather than large trials. What is reasonable is that footwear with a wide and deep toe box, strengthening of the intrinsic foot muscles, and toe splints or silicone sleeves to offload pressure can improve symptoms and slow progression in flexible deformities. I am honest with patients that the high-quality evidence for any one technique is thin, so the emphasis is on consistent, sensible mechanics rather than any single miracle exercise."
+      },
+      {
+        question: "What kind of shoe should I be wearing?",
+        answer: "A shoe with a wide, deep, and roughly foot-shaped toe box, a heel under about 2 cm, and flexibility through the forefoot. The aim is to give the toes room to sit in their natural spread rather than being squeezed into a tapered point. If a callus, corn, or blister is developing on the top of the toe from a shoe, the shoe is too shallow or too tight. I suggest patients walk around in shoes on a solid floor before buying, rather than trusting the size label alone."
+      },
+      {
+        question: "When should I see a surgeon?",
+        answer: "When the deformity is rigid, painful despite reasonable footwear and conservative care, associated with recurrent ulceration or infection (particularly in people with diabetes or peripheral neuropathy), or when it is interfering significantly with walking, work, or quality of life. Surgical options range from soft tissue procedures in more flexible cases to joint fusion or resection arthroplasty in rigid cases. The point of conservative care first is not to avoid surgery at all costs, it is to make sure surgery is actually needed before someone goes through it."
+      },
+      {
+        question: "Will toe splints or crests actually help?",
+        answer: "They can be useful adjuncts rather than a cure on their own. Silicone crests under the toes, gel sleeves over a painful PIP joint, and taping to gently straighten a flexible toe can reduce pressure and pain during the day. They work well when paired with shoe changes and foot strengthening. For a rigid toe, they are mostly about offloading and comfort rather than changing the shape of the joint."
+      }
+    ],
+
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Unload the Forefoot and Start Intrinsic Activation (Weeks 1 to 4)",
+        focus: "Early work is about giving the forefoot and the affected toe a break. That means wider and deeper toe box shoes worn consistently, offloading the top of the PIP joint with silicone sleeves or padding if a corn or callus is present, and introducing gentle activation of the intrinsic foot muscles that have usually been dormant for years. Nothing in this phase should provoke sharp toe pain or skin breakdown.",
+        examples: [
+          "Daily wear of a shoe with a wide, deep, foot-shaped toe box and a heel under roughly 2 cm",
+          "Silicone toe sleeve or gel cap over a painful dorsal PIP prominence if footwear pressure is a factor",
+          "Short-foot exercise, gently shortening the arch by pulling the ball of the foot toward the heel without curling the toes, 3 sets of 10 with 10-second holds",
+          "Passive toe straightening and gentle PIP joint mobility work, holding the corrected position for 10 seconds, 10 repetitions per session, only within a comfortable range",
+          "Toe splay holds, actively spreading the toes apart, 3 sets of 10 with 5-second holds, seated to start"
+        ],
+        progressionCriteria: "Comfort during daily walking in wider footwear, no active skin breakdown over the toe, and consistent daily performance of the short-foot and toe splay work without cramping or pain."
+      },
+      phase2: {
+        title: "Phase 2: Build Intrinsic Foot and Lesser Toe Control (Weeks 4 to 10)",
+        focus: "Once the toe is less irritable, the work shifts to rebuilding strength and coordination in the intrinsic foot muscles and the muscles that balance the long and short flexors of the toe. Stronger intrinsics and better toe control help share forefoot load more evenly and slow the progression of a flexible deformity. This phase runs alongside continued footwear and offloading adjustments.",
+        examples: [
+          "Progressive short-foot holds, moving from seated to standing on two feet, then to single-leg stance, 3 sets of 10 to 15",
+          "Towel scrunches with the toes and marble or small-object pickups, 2 sets of 15 to 20 repetitions per foot",
+          "Toe splay holds progressed to standing, 3 sets of 10 with 5-second holds",
+          "Calf raise variations with the heel moving cleanly over the second toe, 3 sets of 12 to 15, to reinforce forefoot alignment during push-off",
+          "Single-leg balance on firm ground with a neutral foot posture, 3 sets of 30 to 45 seconds, progressing to a foam pad as tolerated"
+        ],
+        progressionCriteria: "A visible short-foot hold without toe clawing, single-leg balance on foam for 30 seconds with a stable forefoot, and a reduction in day-to-day pain or pressure symptoms at the affected toe."
+      },
+      phase3: {
+        title: "Phase 3: Maintain Mechanics and Protect the Forefoot Long Term (Months 3+)",
+        focus: "For flexible deformities, long-term strategy is about protecting the gains with consistent footwear, maintenance strengthening, and ongoing attention to the rest of the forefoot. For fixed deformities, this phase is about stable, pain-tolerant function and clear conversations about when surgical review is worthwhile. The work is less about any single exercise and more about a durable routine.",
+        examples: [
+          "Intrinsic foot strengthening continued twice weekly as maintenance, rather than daily",
+          "Periodic shoe reviews every 6 to 12 months, because sock thickness, shoe wear, and foot shape all change over time",
+          "Gradual build-up of walking or low-impact activity volume using a sensible weekly cap, rather than sudden spikes",
+          "Calf and single-leg work maintained with moderate resistance to keep forefoot mechanics honest",
+          "Re-evaluation of pain, function, and deformity progression every 3 to 6 months, with a surgical opinion considered if symptoms are worsening despite good conservative care"
+        ],
+        progressionCriteria: "Comfortable daily walking in appropriate footwear, stable or slowly improving toe position in flexible cases, and a clear understanding of the threshold at which a surgical opinion would be helpful."
+      }
+    },
+
+    lastReviewed: '2026-04-16',
+    accessAndHours: standardAccessAndHours
+  },
+
+  'patella-fractures': {
+    differentialDiagnosis: [
+      {
+        condition: "Quadriceps Tendon Rupture",
+        distinguishingFeatures: "Palpable gap above the patella rather than at the bone, inability to actively extend the knee against gravity, and a high-riding patella. Mechanism often involves a sudden eccentric load in an older patient or someone with tendon-weakening risk factors."
+      },
+      {
+        condition: "Patellar Tendon Rupture",
+        distinguishingFeatures: "Palpable gap below the patella, inability to extend the knee, and a high-riding patella on plain imaging. Typical in younger, athletic patients after a sudden jump or landing, and the extensor mechanism is incompetent on examination."
+      },
+      {
+        condition: "Patellar Dislocation or Subluxation",
+        distinguishingFeatures: "History of a twisting or valgus injury with the knee giving way, apprehension with lateral patellar translation on examination, and medial retinacular tenderness. The patella itself is usually intact on imaging, though a medial patellar facet or lateral femoral condyle osteochondral injury can occur."
+      },
+      {
+        condition: "Bipartite Patella",
+        distinguishingFeatures: "A developmental variant with a separate, usually superolateral, ossification centre, often found incidentally on imaging. There is typically no acute trauma, the margins are rounded and sclerotic rather than sharp, and the extensor mechanism is intact."
+      },
+      {
+        condition: "Osteochondral Injury of the Patella or Trochlea",
+        distinguishingFeatures: "Acute onset pain and effusion after a twisting or direct injury, with mechanical symptoms such as catching or locking, but no clear fracture line on plain X-ray. MRI clarifies the cartilage surface and any loose body."
+      },
+      {
+        condition: "Prepatellar Bursitis",
+        distinguishingFeatures: "A well-defined, fluctuant swelling in front of the patella rather than bone tenderness or extensor mechanism compromise, often with a history of repeated kneeling rather than an acute high-energy impact, and preserved active knee extension."
+      }
+    ],
+
+    faqs: [
+      {
+        question: "How does a patella usually get fractured?",
+        answer: "Two main mechanisms. The first is a direct blow to the front of the knee, for example a dashboard injury in a car collision or a fall directly onto the kneecap. The second is an indirect eccentric overload, where the quadriceps contracts hard against a flexing knee and pulls the patella apart. Direct mechanisms tend to produce more comminuted, multi-fragment patterns, indirect ones tend to produce transverse patterns. Both can disrupt the extensor mechanism, which is the main thing that decides whether surgery is needed."
+      },
+      {
+        question: "How is the decision made between a cast or brace and surgery?",
+        answer: "The short answer is whether the extensor mechanism still works and whether the bone fragments are displaced. Lazaro and colleagues' 2011 summary in the Journal of the American Academy of Orthopaedic Surgeons describes the common non-operative criteria: an undisplaced or minimally displaced fracture, an intact extensor mechanism (the patient can straight leg raise or actively extend the knee against gravity), and an articular step of less than roughly 3 mm. Fractures that fail those criteria generally go to the operating room for fixation, because the knee joint surface and the extensor mechanism matter for long-term function."
+      },
+      {
+        question: "What does non-operative treatment look like day to day?",
+        answer: "Typically a period of immobilisation in a brace locked in extension or near-full extension, protected weight-bearing as tolerated depending on surgeon guidance, and gradual reintroduction of knee flexion and quadriceps activation over weeks rather than days. Gwinner and colleagues' 2016 EFORT Open Reviews overview is useful here: the priority is protecting the healing bone while not letting the quadriceps completely shut down or the knee stiffen permanently. Early isometric quadriceps contractions and straight leg raises are usually safe and helpful once the surgeon is satisfied with fracture stability."
+      },
+      {
+        question: "Why is the quadriceps the focus of rehab after a patella fracture?",
+        answer: "Because the patella is a sesamoid inside the quadriceps tendon, and the whole job of the extensor mechanism is to extend the knee against gravity and decelerate it during walking, stair descent, and sport. After a fracture, the quadriceps often shows marked inhibition and atrophy within days. Restoring quad activation, then strength, then capacity to absorb and produce force through the knee, is what rebuilds a confident, functional leg. Without that work, people plateau with a stiff and weak knee even if the bone itself has healed."
+      },
+      {
+        question: "Can I expect to get back to sport?",
+        answer: "Many people do, but the timeline is long and the criteria matter more than the calendar. Typical return-to-sport criteria after patella fracture include pain-free full knee range of motion, quadriceps strength within about 10 to 15 percent of the uninjured side on objective testing, symmetry in single-leg functional tests such as a single-leg squat and a hop battery, and confidence in sport-specific movements. Rushing back before those benchmarks risks re-injury or persistent anterior knee pain. I build the rehab around the criteria, not the weeks."
+      },
+      {
+        question: "Will I have arthritis in this knee later?",
+        answer: "The risk is higher than for an uninjured knee, particularly when the articular surface was disrupted or when there is residual step-off in the joint. Gwinner and colleagues note that post-traumatic patellofemoral osteoarthritis is a recognised long-term outcome after patella fracture, more so when reduction was imperfect or the injury was severe. That is one reason good early management matters. It is also why ongoing quadriceps strength and sensible loading through the years ahead is worth the time, because it directly protects the joint."
+      },
+      {
+        question: "When can I start bending the knee again?",
+        answer: "That is a surgeon-led decision and depends on the fracture pattern, whether it was fixed surgically, and how stable the construct is. In broad terms, light, protected flexion is often introduced within the first few weeks after surgical fixation or once a non-operative fracture is clinically stable. Aggressive early flexion through a fragile construct can fail the fixation or the bone. I follow the operating surgeon's specific protocol rather than a generic template, and I communicate with that team when timing is unclear."
+      },
+      {
+        question: "Do I still need physiotherapy if the fracture was undisplaced?",
+        answer: "Yes, and it is often underestimated. Even without surgery, a patella fracture shuts down the quadriceps and stiffens the knee during the protected phase. People who skip structured rehab after a conservatively managed patella fracture frequently end up with a weaker, more painful knee that struggles with stairs and hills for months. Structured rehab shortens the gap between healed bone and a usable leg."
+      }
+    ],
+
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Protect the Fracture and Wake Up the Quadriceps (Weeks 0 to 6)",
+        focus: "The early phase is dictated by whether the fracture was managed operatively or non-operatively, and by the surgeon's protocol. The common ground is that the bone needs to be protected and the quadriceps needs to be given every chance not to shut down completely. I work inside the brace settings and weight-bearing instructions provided, and I do not push flexion or resisted knee extension beyond what the surgical team has cleared.",
+        examples: [
+          "Isometric quadriceps sets in the brace with the knee in extension, 10 to 15 repetitions with 5-second holds, several times daily",
+          "Straight leg raises in the brace, if cleared by the surgeon, 3 sets of 10, with a focus on keeping the knee fully locked",
+          "Ankle pumps and calf activation to reduce swelling and maintain lower leg circulation",
+          "Gentle passive or assisted knee flexion within the surgeon's allowed range, often starting around 30 to 60 degrees and progressing week by week",
+          "Pain and swelling control with ice, elevation, and compression as appropriate"
+        ],
+        progressionCriteria: "Clear evidence of quadriceps activation with a visible contraction and a straight leg raise without a lag, pain and swelling trending down, and surgical clearance to progress range of motion and weight-bearing into phase 2."
+      },
+      phase2: {
+        title: "Phase 2: Rebuild Range, Strength, and Confident Weight-Bearing (Weeks 6 to 16)",
+        focus: "Once the bone is clinically stable and the surgeon has cleared progression, the focus shifts to restoring knee range of motion, rebuilding the quadriceps and surrounding hip musculature, and reintroducing full weight-bearing function. This phase often spans the brace wean. I watch for any delayed pain after sessions, because that is one of the more sensitive signals that the load is too fast.",
+        examples: [
+          "Progressive closed-chain quad work, starting with shallow partial squats against a wall and mini-squats, 3 sets of 10 to 12",
+          "Step-ups and step-downs onto a low step, progressing height as control allows, 3 sets of 8 to 10 per side",
+          "Stationary bike with progressive range of motion once flexion allows a comfortable full revolution, starting at very low resistance",
+          "Hip abductor and extensor strengthening with band work and bridges, 3 sets of 10 to 15, to share load through the whole leg",
+          "Single-leg balance on firm ground, progressing to foam as proprioception improves, 3 sets of 30 to 45 seconds"
+        ],
+        progressionCriteria: "Full or near-full pain-free knee range of motion, a controlled single-leg squat to partial depth without the knee collapsing inward, quadriceps strength clearly improving on serial testing, and comfortable stair ascent and descent with a reciprocal pattern."
+      },
+      phase3: {
+        title: "Phase 3: Return to Running, Sport, and Impact Work (Months 4+)",
+        focus: "The final phase is about turning a stable, strong leg into one that can tolerate impact, deceleration, and the demands of the activities the person actually cares about. Progress is criteria-driven, not date-driven. I use measurable benchmarks for strength and hop symmetry before clearing contact or high-speed sport, and I accept that some people will take six months and some will take closer to a year.",
+        examples: [
+          "Progressive strengthening with heavier closed-chain work such as split squats, Bulgarian split squats, and moderate-load squats, 3 sets of 6 to 10",
+          "Linear running progression from walk-jog intervals to steady running, then to tempo work, with attention to any anterior knee pain the day after",
+          "Agility and change-of-direction work starting with low-intensity cutting drills and progressing toward sport-specific patterns",
+          "Hop testing battery including single hop, triple hop, and crossover hop to compare sides, used as a progression gate rather than just an outcome measure",
+          "Sport-specific reintroduction layered in only once strength and hop symmetry benchmarks are met, rather than on a fixed calendar"
+        ],
+        progressionCriteria: "Quadriceps strength within a small tolerance of the uninjured side on isometric or isokinetic testing, symmetry on the hop test battery, confidence with sport-specific deceleration and cutting, and no meaningful day-after pain or effusion after progressive sessions."
+      }
+    },
+
+    lastReviewed: '2026-04-16',
     accessAndHours: standardAccessAndHours
   }
 };

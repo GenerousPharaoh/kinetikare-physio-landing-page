@@ -365,6 +365,15 @@ const shoulderConditions: Condition[] = [
     priority: 27,
     metaDescription: 'AC joint injury treatment in Burlington. Expert care for shoulder separations with targeted strengthening and return-to-sport protocols.',
   },
+  {
+    id: 'diabetes-related-conditions',
+    slug: 'diabetes-related-conditions',
+    name: 'Diabetes-Related Musculoskeletal Conditions',
+    category: 'shoulder',
+    description: 'Frozen shoulder, diabetic peripheral neuropathy, carpal tunnel, and stiff-hand syndrome associated with diabetes',
+    titleIntent: 'informational',
+    metaDescription: 'Musculoskeletal conditions linked with diabetes: frozen shoulder, peripheral neuropathy, carpal tunnel. Co-managed physiotherapy by Kareem Hassanein, RPT.',
+  },
 ];
 
 const elbowWristConditions: Condition[] = [
@@ -417,6 +426,15 @@ const elbowWristConditions: Condition[] = [
     category: 'elbow-wrist-hand',
     description: 'Ligament and soft tissue injuries',
     metaDescription: 'Wrist sprain treatment in Burlington. Comprehensive physiotherapy for wrist injuries with progressive strengthening and return to activity.',
+  },
+  {
+    id: 'scaphoid-fractures',
+    slug: 'scaphoid-fractures',
+    name: 'Scaphoid Fractures',
+    category: 'elbow-wrist-hand',
+    description: 'Wrist bone fracture after a fall on the outstretched hand',
+    titleIntent: 'informational',
+    metaDescription: 'Scaphoid fracture: snuffbox pain after a fall on the outstretched hand, imaging, and post-cast rehabilitation by Kareem Hassanein, Registered Physiotherapist.',
   },
   {
     id: 'repetitive-strain',
@@ -608,6 +626,15 @@ const kneeConditions: Condition[] = [
     description: 'Degenerative joint disease management',
     metaDescription: 'Knee arthritis treatment in Burlington. Evidence-based physiotherapy to reduce pain, improve mobility, and delay surgery for knee osteoarthritis.',
   },
+  {
+    id: 'patella-fractures',
+    slug: 'patella-fractures',
+    name: 'Patella Fractures',
+    category: 'knee',
+    description: 'Kneecap fracture after a direct blow or fall onto the knee',
+    titleIntent: 'informational',
+    metaDescription: 'Patella fracture: extensor mechanism assessment, non-operative criteria, and quadriceps-driven rehabilitation by Kareem Hassanein, Registered Physiotherapist.',
+  },
 ];
 
 const footAnkleConditions: Condition[] = [
@@ -732,6 +759,33 @@ const footAnkleConditions: Condition[] = [
     description: 'Posterior tibial nerve compression, medial ankle numbness',
     titleIntent: 'informational',
     metaDescription: 'Tarsal tunnel syndrome: medial ankle nerve compression symptoms and evidence-based physiotherapy treatment by Kareem Hassanein, Registered Physiotherapist.',
+  },
+  {
+    id: 'hammer-toe-deformities',
+    slug: 'hammer-toe-deformities',
+    name: 'Hammer Toe Deformities',
+    category: 'foot-ankle',
+    description: 'Lesser toe deformity with flexed PIP joint, flexible or fixed',
+    titleIntent: 'informational',
+    metaDescription: 'Hammer toe deformity: footwear changes, intrinsic foot strengthening, and when conservative care is appropriate, from Kareem Hassanein, Registered Physiotherapist.',
+  },
+  {
+    id: 'stress-fractures',
+    slug: 'stress-fractures',
+    name: 'Stress Fractures',
+    category: 'foot-ankle',
+    description: 'Bone stress injuries from accumulated load, most common in tibia, navicular, and metatarsals',
+    titleIntent: 'informational',
+    metaDescription: 'Stress fractures: high-risk vs low-risk sites, imaging, and graduated return to loading by Kareem Hassanein, Registered Physiotherapist in Burlington, Ontario.',
+  },
+  {
+    id: 'growth-plate-injuries',
+    slug: 'growth-plate-injuries',
+    name: 'Growth Plate Injuries',
+    category: 'foot-ankle',
+    description: 'Pediatric physeal and apophyseal injuries, including Salter-Harris fractures and traction apophysitis',
+    titleIntent: 'informational',
+    metaDescription: 'Growth plate injuries in young athletes: Salter-Harris framework, apophysitis, and load management guidance from Kareem Hassanein, Registered Physiotherapist.',
   },
 ];
 

@@ -424,7 +424,7 @@ export default function HeroSection() {
                 ))}
               </div>
               <span className="text-white/70 text-xs font-medium">5.0 on Google</span>
-              <span className="text-white/60 text-xs">20 reviews</span>
+              <span className="text-white/60 text-xs">22 reviews</span>
             </motion.div>
 
           </motion.div>

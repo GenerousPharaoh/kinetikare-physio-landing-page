@@ -431,7 +431,7 @@ export default function HipPainHubPage() {
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '5.0',
-      reviewCount: '20',
+      reviewCount: '22',
     },
   };
 

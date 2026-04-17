@@ -226,7 +226,7 @@ export default function ConditionPage({ params }: PageProps) {
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "5.0",
-          "reviewCount": "20"
+          "reviewCount": "22"
         }
       }
     ]

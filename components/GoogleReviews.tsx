@@ -67,12 +67,20 @@ export const reviews = [
   {
     name: "Raahim Shaikh",
     text: "I had been dealing with knee pain and weakness for years after an ACL tear in high school, and my knee never felt as strong or stable as it should have. Kareem was great at demonstrating the exercises, coaching me through the progressions, and making sure each phase was challenging my strength and stability in the right way. He also gave me clear targets to work toward, which made it easy to see the progress I was making. My knee feels much stronger now, more stable, and a lot better during workouts and everyday movement."
+  },
+  {
+    name: "Darius C",
+    text: "I've been seeing Kareem for about six years now, and I can't recommend him highly enough. He's incredibly knowledgeable and does a great job explaining things in a way that helps you truly understand what's going on with your body. He's thorough, dedicated, and clearly committed to getting the best possible results. I've gone to him for a variety of injuries, strains, and general aches, and each time I leave feeling stronger and more confident in my movement."
+  },
+  {
+    name: "Lucas Picard",
+    text: "Highly recommend Kareem! He helped a ton with my chronic lower back pain. The hands on treatment was really effective and he showed me some great strategies to relax the tension in my hips and hamstrings."
   }
 ];
 
 export default function GoogleReviews() {
-  // Total Google reviews (16 featured + 4 not shown)
-  const totalGoogleReviews = 20;
+  // Total Google reviews (19 featured + 3 not shown)
+  const totalGoogleReviews = 22;
   const featuredReviewsCount = reviews.length;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);

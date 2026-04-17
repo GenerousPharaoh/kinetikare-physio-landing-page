@@ -5088,6 +5088,76 @@ Muscle weakness, particularly of the hip abductors, creates abnormal loading pat
       }
     ],
 
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Offload the Side and Calm Irritability (Weeks 1 to 4)",
+        focus: "Lateral hip bursitis is almost always riding on top of gluteal tendinopathy, so the early job mirrors the LEAP trial approach (Mellor et al., BMJ 2018): reduce compression of the tendon and bursa against the greater trochanter, keep the hip moving, and start non-provocative isometric loading. Sleep and sitting positions often dictate early progress more than any single exercise.",
+        examples: [
+          "Side-lying with a pillow between the knees to keep the hip out of adduction overnight",
+          "Isometric hip abduction against a wall in standing, 5 sets of 30 to 45 seconds, twice daily",
+          "Prone isometric glute squeeze, 5 sets of 10 seconds, as a low-threat starter",
+          "Short walk breaks every 30 to 45 minutes, avoiding crossed-leg sitting and hanging on one hip in standing",
+          "Eliminate deep IT band foam rolling directly over the greater trochanter while it is tender"
+        ],
+        progressionCriteria: "Sleeping through the night without rolling off the sore side, walking 10 to 15 minutes pain-free, and isometric abduction holds tolerated at 45 seconds without a next-day flare."
+      },
+      phase2: {
+        title: "Phase 2: Load the Glutes Through Range (Weeks 4 to 12)",
+        focus: "This follows the load-capacity principle: once irritability is down, the gluteus medius and minimus need real work, not stretching. The LEAP protocol used functional, hip-abduction-biased exercises with gradual progression of load and range. Pain during exercise up to around 3 or 4 out of 10 is acceptable as long as it settles within 24 hours.",
+        examples: [
+          "Sidelying hip abduction with a neutral pelvis, 3 sets of 8 to 12 per side, progressing to ankle weights",
+          "Banded hip hitches standing on a low step, 3 sets of 8 to 10 per side",
+          "Double-leg glute bridge progressing to single-leg bridge, 3 sets of 8",
+          "Split squat and step-up variations, 3 sets of 6 to 10 per side, cueing a level pelvis",
+          "Walking programme building duration before speed or hills"
+        ],
+        progressionCriteria: "Pain-free single-leg stance for 30 seconds with a level pelvis, step-up and split squat pain-free, and everyday walking for an hour without flare."
+      },
+      phase3: {
+        title: "Phase 3: Return to Running, Hiking, and Load (Months 3 to 6)",
+        focus: "Final phase rebuilds higher-force capacity and the ability to tolerate lateral loading demands of running, hiking, and sport. Recurrence in lateral hip pain usually tracks back to a drop in gluteal loading, so the exit plan includes a minimum weekly maintenance dose.",
+        examples: [
+          "Heavier bilateral loading: trap-bar deadlift or Romanian deadlift at 3 to 4 sets of 6 to 8",
+          "Single-leg Romanian deadlift and rear-foot-elevated split squat under load",
+          "Graded walk-run return, flat terrain before inclines, conservative 10 percent weekly progression",
+          "Lateral step-downs and controlled lateral bounds for runners and field-sport athletes",
+          "Twice-weekly hip maintenance the patient will actually keep doing"
+        ],
+        progressionCriteria: "Full return to desired running, hiking, or sport volumes without overnight flares, confident side-sleeping, and a written weekly maintenance plan."
+      }
+    },
+
+    faqs: [
+      {
+        question: "Is my hip bursitis actually bursitis?",
+        answer: "Usually not as an isolated problem. The term stuck around for decades, but imaging and surgical studies showed that most lateral hip pain labelled trochanteric bursitis is really gluteal tendinopathy, sometimes with secondary bursal irritation. The practical point: treatment that targets the tendon (progressive loading, reducing compression) works; treatment that targets only the bursa (rest, repeated steroid injections) usually does not hold."
+      },
+      {
+        question: "Will a cortisone injection fix it?",
+        answer: "Short-term yes, long-term often no. The LEAP trial (Mellor et al., BMJ 2018) compared education and exercise against corticosteroid injection and a wait-and-see approach. At 8 weeks, steroid injection beat waiting. By 12 months, education plus exercise was clearly superior on both pain and global improvement. I use injection selectively when pain is stopping someone from engaging with rehab, not as the plan itself."
+      },
+      {
+        question: "Why does it hurt most at night?",
+        answer: "Because lying on the sore side directly compresses the tendon and bursa against the greater trochanter for hours, and lying on the opposite side lets the top leg drop into adduction, which also compresses the structures. A pillow between the knees, a softer mattress topper on the affected side, or sleeping partially on the back usually changes things within a week or two."
+      },
+      {
+        question: "Should I stretch my IT band or foam roll it?",
+        answer: "No, not during the irritable phase. Aggressive IT band stretching and direct foam rolling over the greater trochanter add compression to the exact structures that are already compressed. I swap those for gentle mobility through the hip and trunk, and targeted loading of the glutes."
+      },
+      {
+        question: "How long does this take to settle?",
+        answer: "A typical time frame is 6 to 12 weeks for meaningful symptom change and 3 to 6 months to build durable capacity. Longer in people who have had it for years or who keep returning to the sleeping and sitting positions that loaded it. The LEAP programme ran 14 sessions over 8 weeks, which is a reasonable yardstick for the active phase."
+      },
+      {
+        question: "Can I still run or walk?",
+        answer: "Usually yes at a reduced and modified dose. Flat walking is generally fine. Running often stays in for recreational runners if there is no overnight flare. Hill running, long runs, and camber running are the usual early triggers. I dose by the next-morning response rather than by pushing through."
+      },
+      {
+        question: "Do I need an MRI or ultrasound?",
+        answer: "Not routinely. Imaging finds tendon changes and bursal fluid in many people without lateral hip pain, so the result rarely changes the plan. I order imaging when the history is atypical, when symptoms do not progress after a fair trial of loading, or when I am considering an image-guided injection."
+      }
+    ],
+
     measuringProgress: standardMeasuringProgress,
     accessAndHours: standardAccessAndHours
   },
@@ -5235,6 +5305,76 @@ Prolonged nerve compression creates a cascade of pathophysiological changes beyo
       {
         condition: "Sacroiliac Joint Dysfunction",
         distinguishingFeatures: "SI joint tenderness, positive SI provocation tests"
+      }
+    ],
+
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Desensitise the Nerve, Offload the Buttock (Weeks 1 to 4)",
+        focus: "The early goal is calming sciatic nerve irritability and the deep rotator muscle tone compressing it. Martin et al. (J Hip Preserv Surg 2015) describe the deep gluteal space as a tunnel whose dimensions are altered by hip position, which is why the earliest wins usually come from sitting and sleep set-up rather than from any one exercise.",
+        examples: [
+          "Sciatic nerve sliders in supine or long-sitting, 10 to 15 slow repetitions, stopping short of any leg symptom reproduction",
+          "Gentle supine figure-4 positional hold at the first sense of stretch, 30 to 45 seconds, only if pain-free",
+          "Clamshell and side-lying hip abduction with a light band, 2 sets of 10 to 12 per side",
+          "Diaphragmatic breathing in hook-lying plus standing and walking breaks every 20 to 30 minutes",
+          "Sitting modifications: firm wedge cushion, offload the sore side, no back-pocket wallet, no cross-legged sitting"
+        ],
+        progressionCriteria: "Leg symptoms stay at or above mid-thigh, sitting for 30 minutes is tolerable, and deep gluteal palpation tenderness has dropped by roughly half."
+      },
+      phase2: {
+        title: "Phase 2: Strengthen the Hip, Progress Nerve Mobility (Weeks 4 to 12)",
+        focus: "Deep gluteal symptoms typically sit on top of gluteus medius and maximus weakness that drives the deeper rotators to compensate. Phase two shares the load across the larger hip muscles and moves nerve work from sliders to gentle tensioners.",
+        examples: [
+          "Glute bridge progressing to single-leg bridge, 3 sets of 8 to 12",
+          "Banded lateral walks and monster walks, 2 to 3 sets of 10 to 12 steps each direction",
+          "Split squat and step-up variations with a level pelvis, 3 sets of 6 to 10 per side",
+          "Short-range sciatic nerve tensioners in supine or slump position, 8 to 10 controlled reps",
+          "Hip hinge progressions: kettlebell deadlift, then single-leg Romanian deadlift"
+        ],
+        progressionCriteria: "Single-leg bridge and step-up without reproducing buttock or leg symptoms, an hour of sitting with a flare under 3 out of 10, and a light walking or cycling programme back in the week."
+      },
+      phase3: {
+        title: "Phase 3: Rebuild Capacity and Recurrence-Proof (Months 3 to 6)",
+        focus: "The final phase restores capacity for running, sport, or demanding work and gives the patient a minimum maintenance dose. Deep gluteal syndrome comes back when hip loading drops off, so the exit plan matters as much as the acute rehab.",
+        examples: [
+          "Loaded hinges (trap-bar or conventional deadlift), 3 to 4 sets of 3 to 6 at working load",
+          "Front squat or rear-foot-elevated split squat at working loads",
+          "Graded walk-run progression on flat terrain before hills or speed",
+          "Low pogo hops progressing to lateral bounds for field-sport athletes",
+          "Twice-weekly hip and trunk maintenance the patient will sustain independently"
+        ],
+        progressionCriteria: "Full return to sport and work demands, independent flare management, and a written weekly plan the patient will actually do."
+      }
+    },
+
+    faqs: [
+      {
+        question: "Is this sciatica from my back?",
+        answer: "Not usually, and that is the point of the diagnosis. Classical sciatica from a lumbar disc reproduces with straight leg raise, slump testing, and often comes with back pain or a clear dermatomal pattern. Deep gluteal syndrome reproduces with direct palpation in the buttock and with positions that load the sciatic nerve in the deep gluteal space. Martin et al. (J Hip Preserv Surg 2015) framed it clearly: this is non-discogenic, extrapelvic sciatic nerve entrapment. Same nerve, different location."
+      },
+      {
+        question: "Why does sitting make it so much worse?",
+        answer: "Sitting compresses the soft tissues of the buttock between the sitting bone and the seat, and hip flexion combined with adduction and internal rotation narrows the deep gluteal space itself. You have to sit badly to feel it, and most people sit exactly that way all day. For flares, I recommend standing breaks every 20 to 30 minutes and a firm wedge cushion that offloads the sore side."
+      },
+      {
+        question: "Should I stretch my piriformis aggressively?",
+        answer: "No. Forcing end-range stretches on an already sensitised nerve often makes symptoms worse the next day. Gentle positional holds that do not reproduce leg symptoms, combined with nerve gliding and glute strengthening, settle this more reliably than repeatedly yanking the knee to the opposite shoulder."
+      },
+      {
+        question: "Do I need an MRI?",
+        answer: "Not for most cases. The diagnosis is clinical and relies on a negative lumbar spine exam combined with specific provocation of the deep gluteal space. MRI is reserved for red flags, failure to progress with conservative care, or when the differential remains unclear. Ultrasound with an experienced operator sometimes adds value for targeted injection planning."
+      },
+      {
+        question: "How long does it take to settle?",
+        answer: "Most cases settle meaningfully over 6 to 12 weeks, though a chronic presentation with deconditioned glutes can take longer. Duration before starting rehab is the biggest predictor of speed. Systematic reviews of surgical management (Kay et al., Arthroscopy 2017) reserve surgery for clearly identified structural entrapment after a fair conservative trial, which most people never need."
+      },
+      {
+        question: "Can I keep running?",
+        answer: "Often yes, at a modified dose, provided running does not reliably flare leg symptoms. Short, flat, easy-paced runs are usually tolerated before long runs, hills, or speed. The flare pattern I see most often is long sitting before or after a run, not the run itself."
+      },
+      {
+        question: "What actually compresses the nerve if it is not always the piriformis?",
+        answer: "The deep gluteal space has several possible culprits: the piriformis in some anatomical variants, fibrous bands, the gemelli-obturator internus group, the hamstring origin, and vascular structures. Hernando et al. (Skeletal Radiology 2015) mapped this thoroughly. Part of the assessment is working out which structure is most likely in your case so the loading plan targets the right one."
       }
     ],
 
@@ -5921,6 +6061,76 @@ Kicking mechanics in soccer players show that peak adductor activation occurs du
       }
     ],
 
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Protect, Load Gently, and Establish Pain-Free Isometrics (Days 1 to 14)",
+        focus: "The 2023 Sports Health clinical concepts paper and the earlier Hölmich protocol agree on one thing: early pain-free loading beats prolonged rest. Pain-free isometric adduction within the first few days sets the floor for the whole programme. This phase is about keeping the tissue active while it knits, not resting it flat.",
+        examples: [
+          "Short-lever ball squeeze between the knees in hook-lying, 5 sets of 20 seconds at sub-maximal effort, twice daily",
+          "Long-lever ball squeeze with legs straight, same dose, once daily tolerance is established",
+          "Side-lying active hip adduction through a short pain-free range, 2 sets of 8 to 10",
+          "Stationary bike or light walk for aerobic maintenance if pain-free",
+          "Ice after session if it helps symptoms, compression shorts if tolerated"
+        ],
+        progressionCriteria: "Pain-free long-lever isometric squeeze at moderate effort, walking fully pain-free, tenderness over the adductor longus clearly reduced."
+      },
+      phase2: {
+        title: "Phase 2: Strength Through Range and the Copenhagen Progression (Weeks 2 to 6)",
+        focus: "The Copenhagen adduction exercise is the standout evidence for rebuilding adductor capacity and preventing recurrence. Harøy et al. (BJSM 2019) showed a 41 percent reduction in groin injury incidence in male footballers using this protocol twice to three times weekly. The Hölmich protocol (Lancet 1999) is the older cousin and still the backbone for longstanding cases. Range, load, and eccentric work all progress together.",
+        examples: [
+          "Copenhagen adduction exercise starting at short-lever (knee support), progressing to long-lever, 3 sets of 6 to 10 per side, 2 to 3 sessions per week",
+          "Sidelying hip adduction with light ankle weight, 3 sets of 8 to 12",
+          "Cable or band standing hip adduction, 3 sets of 10",
+          "Sliding disc lateral lunge with emphasis on eccentric control, 3 sets of 6 to 8 per side",
+          "Low-intensity jogging introduced when single-leg hopping is symptom-free"
+        ],
+        progressionCriteria: "Long-lever Copenhagen adduction for 3 sets of 8 pain-free, symmetric single-leg hop and lateral hop without pain, sprint-tempo straight-line running tolerated."
+      },
+      phase3: {
+        title: "Phase 3: Sport-Specific Reloading and Return to Play (Weeks 6 to 12 or longer)",
+        focus: "The Thorborg et al. (Sports Med 2020) criteria-based model drives this phase: do not return by the calendar, return by meeting strength, hop, and sport-specific performance criteria. Kicking, cutting, and sprinting demand different qualities and are phased in deliberately.",
+        examples: [
+          "Accelerations and decelerations at progressing speeds, including change-of-direction drills",
+          "Controlled kicking progression starting with short-range passing, building to long kicks",
+          "Heavy resisted hip adduction at 80 percent plus adductor-to-abductor symmetry, 4 sets of 6",
+          "Sport-specific intervals and small-sided drills before full training",
+          "Continuation of Copenhagen adduction exercise twice weekly long term as prevention"
+        ],
+        progressionCriteria: "Adductor-to-abductor strength ratio at or above 80 percent, symptom-free full training, and a maintenance plan including Copenhagen adduction twice weekly through the season."
+      }
+    },
+
+    faqs: [
+      {
+        question: "How long before I am back playing?",
+        answer: "Depends on grade. Grade 1 typically gets back in 1 to 3 weeks, grade 2 in 2 to 6 weeks, and partial or high-grade tears in 2 to 3 months (King et al., Sports Health 2023). The criteria matter more than the calendar. Returning when pain-free but weak is the single biggest reason groin strains recur."
+      },
+      {
+        question: "Is this a pulled muscle or a sports hernia?",
+        answer: "Different problems, and they need different plans. A classic adductor strain is tender right over the adductor longus origin and reproduces with resisted adduction. A sports hernia (inguinal-related groin pain in the Doha classification) sits deeper, around the inguinal canal, often flares with coughing, sneezing, or sit-ups, and does not reproduce cleanly with a simple squeeze test. Serner et al. (AJSM 2015) showed that clinical examination maps well to imaging for adductor injuries but misses more with other groin pain entities, which is why history and exam have to work together."
+      },
+      {
+        question: "Should I rest or should I train?",
+        answer: "Rest the first two or three days while things are acutely painful. After that, pain-free loading beats continued rest. The Hölmich protocol showed decades ago that active training returned athletes with longstanding adductor pain to sport at a much higher rate than passive physiotherapy, and the same early-loading pattern shows up across more recent guidelines."
+      },
+      {
+        question: "What is the Copenhagen adduction exercise and do I have to do it?",
+        answer: "It is a side-lying, partner-supported (or bench-supported) adduction exercise that loads the adductors through a long lever in a controlled eccentric. Harøy et al. (BJSM 2019) showed a 41 percent reduction in groin injury incidence across a full football season in men using it two to three times per week. I build it into almost every groin rehab and leave it in as long-term prevention for anyone in kicking or cutting sports."
+      },
+      {
+        question: "Why does it still hurt weeks later?",
+        answer: "Usually one of three things: the load was advanced too fast, the loading plan was under-dosed (light bands for a kicking athlete is not enough), or the diagnosis is not isolated adductor strain. Persistent pain beyond six to eight weeks is a reason to re-examine and sometimes image. Chronic cases often sit in adductor-related groin pain plus a second entity like pubic-related pain, which changes the programme."
+      },
+      {
+        question: "Do I need an MRI?",
+        answer: "Not for most acute adductor strains. The diagnosis is clinical, and imaging rarely changes the plan in the first few weeks. I consider imaging for a high-grade injury with extensive bruising, for suspected bony or tendon avulsion, when symptoms fail to settle with appropriate loading, or when the history points to inguinal or pubic involvement rather than pure adductor strain."
+      },
+      {
+        question: "Can I prevent this happening again?",
+        answer: "Largely yes. Two things drive recurrence: incomplete rehab (returning before strength and hop symmetry are back) and losing adductor loading during the season. Keep the Copenhagen adduction exercise in twice weekly. Keep adductor strength at or above 80 percent of abductor strength. Warm up properly before kicking sessions. The data on the first point is consistent across modern groin literature."
+      }
+    ],
+
     measuringProgress: standardMeasuringProgress,
     accessAndHours: standardAccessAndHours
   },
@@ -5963,10 +6173,10 @@ Hamstring strength asymmetries between legs create altered sprint biomechanics t
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Progressive eccentric strengthening reduces re-injury risk by 80% and achieves complete symptom resolution in 85% of calf strain cases within 6-8 weeks",
-      secondaryStrategy: "Criteria-based rehabilitation programs ensure safe return to sport by systematically progressing through strength, power, and sport-specific loading phases",
-      preventionStrategy: "Regular calf strengthening and proper warm-up routines prevent 70% of calf strain injuries in recreational and competitive athletes",
-      sources: "British Journal of Sports Medicine Consensus"
+      primaryStrategy: "The Askling L-protocol (lengthened-state eccentric loading) shortened return-to-sport time to a median of 28 days compared with 51 days for conventional concentric protocols in acute hamstring strains.",
+      secondaryStrategy: "Criteria-based return-to-sport assessment (pain-free sprinting, symmetrical eccentric strength, full hip flexion range) guides safe progression. The JOSPT 2022 Hamstring Strain Injury Clinical Practice Guideline endorses this framework.",
+      preventionStrategy: "Nordic hamstring exercise programs reduce hamstring injury rates by roughly 50 percent across team sports, based on Van Dyk and colleagues' 2019 British Journal of Sports Medicine meta-analysis of over 8,000 athletes.",
+      sources: "Askling BJSM 2013; Van Dyk BJSM 2019; JOSPT Hamstring Strain Injury CPG 2022 (Martin et al.)"
     },
 
     whatToExpect: {
@@ -6029,6 +6239,107 @@ Hamstring strength asymmetries between legs create altered sprint biomechanics t
         year: 2022,
         findings: "L-protocol reduces re-injury significantly",
         relevance: "Guides exercise prescription"
+      }
+    ],
+
+    differentialDiagnosis: [
+      {
+        condition: "Proximal Hamstring Tendinopathy",
+        distinguishingFeatures: "Gradual onset rather than a sudden tear event, pain localised to the ischial tuberosity, classic sitting pain. Resisted knee flexion provokes pain but the history is one of insidious load-related irritation, not an acute strain."
+      },
+      {
+        condition: "Proximal Hamstring Avulsion",
+        distinguishingFeatures: "Acute traumatic mechanism, often during sprinting, waterskiing, or a sudden slip. Significant weakness with resisted knee flexion, marked bruising tracking down the posterior thigh, and a palpable gap or retraction in some cases. MRI indicated and surgical consult in complete or high-grade partial avulsions (Lempainen et al., Muscles Ligaments Tendons J 2015)."
+      },
+      {
+        condition: "Lumbar Radiculopathy (L5 or S1)",
+        distinguishingFeatures: "Posterior thigh pain that extends below the knee, reproduced by straight leg raise or slump testing rather than by local palpation or resisted knee flexion, often with dermatomal symptoms, reflex or sensory changes, and a back pain history."
+      },
+      {
+        condition: "Sciatic Nerve Irritation / Deep Gluteal Syndrome",
+        distinguishingFeatures: "Burning or tingling quality to the pain, symptoms worsened by sitting and reproduced by deep gluteal palpation or sciatic nerve provocation testing. Direct palpation of the hamstring belly and resisted knee flexion are less provocative than for a true strain (Martin et al., J Hip Preserv Surg 2015)."
+      },
+      {
+        condition: "Referred Pain from the Sacroiliac Joint",
+        distinguishingFeatures: "Posterior pelvic pain that can refer down the upper posterior thigh but rarely below the knee, reproduced by an SI provocation cluster rather than by resisted hamstring loading."
+      },
+      {
+        condition: "Ischial Apophyseal Avulsion (Adolescent Athletes)",
+        distinguishingFeatures: "Skeletally immature athlete with sudden posterior pain during sprinting, hurdling, or kicking. Plain film shows avulsion of the ischial apophysis. Clinically looks like a severe hamstring strain but management differs, including possible surgical consult for significantly displaced fragments."
+      }
+    ],
+
+    exerciseProgression: {
+      phase1: {
+        title: "Phase 1: Protect the Tissue, Load Pain-Free, Walk Normally (Days 1 to 14)",
+        focus: "The JOSPT 2022 Hamstring Strain Injury Clinical Practice Guideline is clear that hamstring-specific loading, including eccentrics, should start early and be guided by pain tolerance. The first win is walking without a limp and getting pain-free isometric hamstring activation. Pollock et al. (BJSM 2014) also reminds clinicians that location within the musculotendinous unit matters: proximal intratendinous injuries are slower healers and demand more respect in this phase.",
+        examples: [
+          "Supine isometric hamstring press-down against a low box or the floor, 5 sets of 20 seconds at sub-maximal pain-free effort, twice daily",
+          "Long-sit isometric hamstring contraction with heel on a raised surface, 5 sets of 10 to 15 seconds",
+          "Prone knee bend through a short pain-free range, 2 sets of 10 to 12",
+          "Walking programme progressing duration before speed",
+          "Light stationary bike if tolerated, upright position rather than deep forward lean"
+        ],
+        progressionCriteria: "Walking fully pain-free, isometric contraction at moderate effort without sharp pain, and palpation tenderness along the hamstring clearly reduced."
+      },
+      phase2: {
+        title: "Phase 2: Eccentric Loading Through Range (Weeks 2 to 6)",
+        focus: "Askling et al. (Br J Sports Med 2013) randomised acute hamstring injuries in footballers to an eccentric, lengthening-biased programme (the L-protocol) or conventional exercises and showed a striking return-to-play difference (mean 28 days versus 51 days). The lengthening exercises are the engine of this phase. Range is extended cautiously as symptoms allow, and stretching-type injuries are progressed more conservatively than sprinting-type.",
+        examples: [
+          "Single-leg Romanian deadlift starting with bodyweight, building to a light dumbbell, 3 sets of 6 to 8 per side with a 3-second eccentric tempo",
+          "The Extender exercise (Askling L-protocol): supine with hip flexed, slow active knee extension into the stretch, 3 sets of 6 per side",
+          "The Diver exercise: single-leg hip hinge with trunk forward, controlled eccentric, 3 sets of 6",
+          "Nordic hamstring lower-only variations, eccentric only, starting with a very short range, 3 sets of 3 to 5",
+          "Jogging introduced at low volume when single-leg hop is symmetric and pain-free"
+        ],
+        progressionCriteria: "Pain-free eccentric work to long range, symmetric single-leg hop and single-leg bridge endurance test, and low-volume jogging tolerated without next-day flare."
+      },
+      phase3: {
+        title: "Phase 3: High-Speed Running, Nordic Loading, and Return to Sport (Weeks 6 to 16)",
+        focus: "High-speed running exposure is the phase that most often gets short-changed, and it is the phase where recurrences happen. Van Dyk et al. (BJSM 2019) meta-analysed 8,459 athletes and showed that programmes including the Nordic hamstring exercise halve hamstring injury rates. The Nordic is mandatory here, not optional. Return is criterion-based, not calendar-based.",
+        examples: [
+          "Full Nordic hamstring curl, progressing assisted to unassisted, 3 sets of 5 reps, 2 sessions per week",
+          "Progressive sprint exposure from 50 percent to 80 percent to 95 percent peak speed across 2 to 4 weeks",
+          "Change-of-direction and deceleration drills layered on once straight-line running is comfortable",
+          "Sport-specific intervals and small-sided game exposure before full training",
+          "Maintenance dose of Nordic hamstring exercise and Romanian deadlift built into the in-season plan"
+        ],
+        progressionCriteria: "Symmetric hamstring strength on handheld or dynamometer testing, completion of a full sport-specific running exposure without symptoms, and a written in-season maintenance plan that keeps the Nordic in."
+      }
+    },
+
+    faqs: [
+      {
+        question: "How long am I out?",
+        answer: "It depends on grade and location. A typical grade 1 returns to sport in 2 to 3 weeks. Grade 2 usually takes 4 to 8 weeks. Grade 3 complete tears sit at 3 to 6 months. The British Athletics Muscle Injury Classification (Pollock et al., BJSM 2014) added that intratendinous (type c) injuries are slower than myofascial (type a) injuries at the same apparent grade, so the MRI location changes the timeline. Time frames are useful for planning, but return is determined by meeting criteria, not by the calendar."
+      },
+      {
+        question: "Sprinting or stretching injury, and does it matter?",
+        answer: "It matters a lot. Askling described two patterns that behave very differently. Sprinting-type strains happen at high speed and usually heal faster. Stretching-type strains happen at long muscle length (high kick, hurdler's stretch, water skiing) and take significantly longer to settle. In the Askling 2013 trial, stretching-type injuries took nearly twice as long to return as sprinting-type on the same protocol. The history dictates how aggressive I am with end-range loading."
+      },
+      {
+        question: "Why do hamstring injuries come back?",
+        answer: "Two main reasons. First, returning to full pace before the tissue has rebuilt capacity at long muscle lengths. Second, dropping the eccentric work once the acute pain has gone. About 75 to 80 percent of recurrences happen at or near the original site, which points to the scarred region stays more mechanically vulnerable if the surrounding tissue is not loaded properly."
+      },
+      {
+        question: "Do I have to do Nordic hamstring curls?",
+        answer: "Strongly yes for anyone returning to running, kicking, or cutting sport. Van Dyk et al. (BJSM 2019) pooled 15 studies across 8,459 athletes and found inclusion of the Nordic in a prevention programme roughly halved hamstring injury rates. It is not a pleasant exercise, but the effect size is larger than almost anything else in the rehab toolbox."
+      },
+      {
+        question: "When can I start running again?",
+        answer: "When single-leg hop, isometric hamstring strength, and pain-free eccentric loading are symmetric. Running usually returns in phase two for most grade 1 and low-grade 2 strains. Start on flat ground at easy pace, short durations, and build volume before speed. Speed work is gated until late phase three."
+      },
+      {
+        question: "Is stretching a good idea?",
+        answer: "In the acute phase, aggressive end-range stretching usually delays healing, particularly for stretching-type injuries. Gentle range work and early eccentric loading do more for long-term length than static stretching. I rarely prescribe formal hamstring stretches in the early weeks."
+      },
+      {
+        question: "Do I need an MRI?",
+        answer: "Not for most straightforward strains. I use MRI when I suspect a proximal avulsion, when the injury is in-season for a high-level athlete and prognosis drives selection decisions, or when recovery is stalling and a structural cause needs to be ruled in or out. The JOSPT 2022 CPG considers imaging useful for prognostication in competitive athletes but not necessary for most rehab plans."
+      },
+      {
+        question: "What if I feel it twinge again while running?",
+        answer: "Stop the session that day and drop back one phase in the loading plan for 3 to 5 days. A twinge is data, not failure. Most often it means the next step in the progression was too big or the warm-up was too short. I reassess with isometric testing, pain-free range, and hop symmetry before resuming at the previous tolerated volume."
       }
     ],
 

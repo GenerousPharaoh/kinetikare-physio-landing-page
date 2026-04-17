@@ -208,6 +208,23 @@ Modern lifestyle factors play a huge role: prolonged sitting, particularly with 
       "Long-term Effectiveness: Exercise therapy benefits are maintained at 12 months, while injection-based treatments show no long-term advantage over placebo"
     ],
 
+    patternMatcher: {
+      clusterKey: 'low-back',
+      markers: [
+        { questionId: 'pain_central_low_back', signal: 'strong_yes' },
+        { questionId: 'pain_one_sided_buttock_or_si', signal: 'no' },
+        { questionId: 'pain_radiates_below_knee', signal: 'no' },
+        { questionId: 'pain_deep_in_buttock', signal: 'no' },
+        { questionId: 'worse_with_bending_or_sitting', signal: 'yes' },
+        { questionId: 'worse_with_standing_or_extension', signal: 'neutral' },
+        { questionId: 'eases_with_sitting_or_leaning_forward', signal: 'neutral' },
+        { questionId: 'worse_single_leg_activities', signal: 'neutral' },
+        { questionId: 'worse_prolonged_sitting', signal: 'yes' },
+        { questionId: 'specific_lifting_or_twisting_event', signal: 'yes' },
+        { questionId: 'age_over_60', signal: 'neutral' },
+      ],
+    },
+
     measuringProgress: standardMeasuringProgress,
     accessAndHours: standardAccessAndHours
   },
@@ -580,6 +597,23 @@ Your movement patterns throughout the day matter tremendously. Tight hip flexors
       }
     },
 
+    patternMatcher: {
+      clusterKey: 'low-back',
+      markers: [
+        { questionId: 'pain_central_low_back', signal: 'no' },
+        { questionId: 'pain_one_sided_buttock_or_si', signal: 'neutral' },
+        { questionId: 'pain_radiates_below_knee', signal: 'strong_yes' },
+        { questionId: 'pain_deep_in_buttock', signal: 'neutral' },
+        { questionId: 'worse_with_bending_or_sitting', signal: 'yes' },
+        { questionId: 'worse_with_standing_or_extension', signal: 'neutral' },
+        { questionId: 'eases_with_sitting_or_leaning_forward', signal: 'neutral' },
+        { questionId: 'worse_single_leg_activities', signal: 'neutral' },
+        { questionId: 'worse_prolonged_sitting', signal: 'yes' },
+        { questionId: 'specific_lifting_or_twisting_event', signal: 'yes' },
+        { questionId: 'age_over_60', signal: 'neutral' },
+      ],
+    },
+
     measuringProgress: standardMeasuringProgress,
     accessAndHours: standardAccessAndHours
   },
@@ -831,6 +865,24 @@ The most damaging factor I see is the combination of poor posture with repetitiv
         progressionCriteria: "Strength symmetry within 10% of the unaffected side across rotation, abduction, and press testing, pain-free performance of sport or job demands at expected volume, and confidence in the shoulder during unplanned or reactive movements."
       }
     },
+
+    patternMatcher: {
+      clusterKey: 'shoulder',
+      markers: [
+        { questionId: 'pain_top_of_shoulder_ac', signal: 'no' },
+        { questionId: 'pain_outside_deltoid', signal: 'strong_yes' },
+        { questionId: 'pain_front_of_shoulder', signal: 'neutral' },
+        { questionId: 'painful_arc_overhead', signal: 'yes' },
+        { questionId: 'cant_reach_behind_back', signal: 'yes' },
+        { questionId: 'passive_motion_restricted_all_directions', signal: 'no' },
+        { questionId: 'weakness_lifting_or_external_rotation', signal: 'strong_yes' },
+        { questionId: 'night_pain_lying_on_shoulder', signal: 'strong_yes' },
+        { questionId: 'cross_body_reach_painful', signal: 'neutral' },
+        { questionId: 'specific_fall_on_shoulder', signal: 'yes' },
+        { questionId: 'gradual_progressive_stiffening', signal: 'no' },
+      ],
+    },
+
     accessAndHours: standardAccessAndHours
   },
 
@@ -1538,6 +1590,24 @@ Poor posture compounds the problem significantly. Forward head posture and round
       questionnaires: "SPADI (Shoulder Pain and Disability Index) monitors progress",
       activityTarget: "Return to overhead reaching, dressing independently, and sleeping comfortably"
     },
+
+    patternMatcher: {
+      clusterKey: 'shoulder',
+      markers: [
+        { questionId: 'pain_top_of_shoulder_ac', signal: 'no' },
+        { questionId: 'pain_outside_deltoid', signal: 'neutral' },
+        { questionId: 'pain_front_of_shoulder', signal: 'neutral' },
+        { questionId: 'painful_arc_overhead', signal: 'no' },
+        { questionId: 'cant_reach_behind_back', signal: 'strong_yes' },
+        { questionId: 'passive_motion_restricted_all_directions', signal: 'strong_yes' },
+        { questionId: 'weakness_lifting_or_external_rotation', signal: 'no' },
+        { questionId: 'night_pain_lying_on_shoulder', signal: 'strong_yes' },
+        { questionId: 'cross_body_reach_painful', signal: 'neutral' },
+        { questionId: 'specific_fall_on_shoulder', signal: 'no' },
+        { questionId: 'gradual_progressive_stiffening', signal: 'strong_yes' },
+      ],
+    },
+
     accessAndHours: standardAccessAndHours
   },
 
@@ -3618,6 +3688,23 @@ Modern research (2024) emphasizes that discrepancies exist between external join
       }
     },
 
+    patternMatcher: {
+      clusterKey: 'hip',
+      markers: [
+        { questionId: 'pain_groin_or_front_of_hip', signal: 'strong_yes' },
+        { questionId: 'pain_outside_of_hip', signal: 'no' },
+        { questionId: 'pain_at_sit_bone', signal: 'no' },
+        { questionId: 'worse_deep_hip_flexion', signal: 'yes' },
+        { questionId: 'catching_or_clicking_with_pivot', signal: 'neutral' },
+        { questionId: 'worse_lying_on_that_side', signal: 'neutral' },
+        { questionId: 'worse_prolonged_sitting_hard_chair', signal: 'no' },
+        { questionId: 'worse_uphill_or_lengthened_hamstring', signal: 'no' },
+        { questionId: 'morning_stiffness_hip_short', signal: 'strong_yes' },
+        { questionId: 'loss_of_rotation_putting_on_socks', signal: 'strong_yes' },
+        { questionId: 'age_over_50_hip', signal: 'strong_yes' },
+      ],
+    },
+
     measuringProgress: standardMeasuringProgress,
     accessAndHours: standardAccessAndHours
   },
@@ -3842,6 +3929,23 @@ Activity demands significantly influence symptom development. Athletes in sports
         distinguishingFeatures: "Lower abdominal pain, pain with Valsalva maneuvers"
       }
     ],
+
+    patternMatcher: {
+      clusterKey: 'hip',
+      markers: [
+        { questionId: 'pain_groin_or_front_of_hip', signal: 'strong_yes' },
+        { questionId: 'pain_outside_of_hip', signal: 'no' },
+        { questionId: 'pain_at_sit_bone', signal: 'no' },
+        { questionId: 'worse_deep_hip_flexion', signal: 'strong_yes' },
+        { questionId: 'catching_or_clicking_with_pivot', signal: 'yes' },
+        { questionId: 'worse_lying_on_that_side', signal: 'no' },
+        { questionId: 'worse_prolonged_sitting_hard_chair', signal: 'no' },
+        { questionId: 'worse_uphill_or_lengthened_hamstring', signal: 'no' },
+        { questionId: 'morning_stiffness_hip_short', signal: 'neutral' },
+        { questionId: 'loss_of_rotation_putting_on_socks', signal: 'yes' },
+        { questionId: 'age_over_50_hip', signal: 'no' },
+      ],
+    },
 
     measuringProgress: standardMeasuringProgress,
     accessAndHours: standardAccessAndHours
@@ -4115,6 +4219,23 @@ Sleep positioning creates sustained compression that explains the characteristic
       }
     ],
 
+    patternMatcher: {
+      clusterKey: 'hip',
+      markers: [
+        { questionId: 'pain_groin_or_front_of_hip', signal: 'no' },
+        { questionId: 'pain_outside_of_hip', signal: 'strong_yes' },
+        { questionId: 'pain_at_sit_bone', signal: 'no' },
+        { questionId: 'worse_deep_hip_flexion', signal: 'no' },
+        { questionId: 'catching_or_clicking_with_pivot', signal: 'no' },
+        { questionId: 'worse_lying_on_that_side', signal: 'strong_yes' },
+        { questionId: 'worse_prolonged_sitting_hard_chair', signal: 'neutral' },
+        { questionId: 'worse_uphill_or_lengthened_hamstring', signal: 'no' },
+        { questionId: 'morning_stiffness_hip_short', signal: 'neutral' },
+        { questionId: 'loss_of_rotation_putting_on_socks', signal: 'no' },
+        { questionId: 'age_over_50_hip', signal: 'yes' },
+      ],
+    },
+
     measuringProgress: standardMeasuringProgress,
     accessAndHours: standardAccessAndHours
   },
@@ -4254,6 +4375,23 @@ The natural shock-absorbing capacity of the labrum diminishes with aging and rep
         distinguishingFeatures: "Medial groin pain, pain with adduction"
       }
     ],
+
+    patternMatcher: {
+      clusterKey: 'hip',
+      markers: [
+        { questionId: 'pain_groin_or_front_of_hip', signal: 'strong_yes' },
+        { questionId: 'pain_outside_of_hip', signal: 'no' },
+        { questionId: 'pain_at_sit_bone', signal: 'no' },
+        { questionId: 'worse_deep_hip_flexion', signal: 'yes' },
+        { questionId: 'catching_or_clicking_with_pivot', signal: 'strong_yes' },
+        { questionId: 'worse_lying_on_that_side', signal: 'neutral' },
+        { questionId: 'worse_prolonged_sitting_hard_chair', signal: 'no' },
+        { questionId: 'worse_uphill_or_lengthened_hamstring', signal: 'no' },
+        { questionId: 'morning_stiffness_hip_short', signal: 'no' },
+        { questionId: 'loss_of_rotation_putting_on_socks', signal: 'neutral' },
+        { questionId: 'age_over_50_hip', signal: 'no' },
+      ],
+    },
 
     measuringProgress: standardMeasuringProgress,
     accessAndHours: standardAccessAndHours
@@ -4757,6 +4895,23 @@ Gluteal muscle weakness creates compensatory hamstring overload during functiona
       }
     ],
 
+    patternMatcher: {
+      clusterKey: 'hip',
+      markers: [
+        { questionId: 'pain_groin_or_front_of_hip', signal: 'no' },
+        { questionId: 'pain_outside_of_hip', signal: 'no' },
+        { questionId: 'pain_at_sit_bone', signal: 'strong_yes' },
+        { questionId: 'worse_deep_hip_flexion', signal: 'neutral' },
+        { questionId: 'catching_or_clicking_with_pivot', signal: 'no' },
+        { questionId: 'worse_lying_on_that_side', signal: 'no' },
+        { questionId: 'worse_prolonged_sitting_hard_chair', signal: 'strong_yes' },
+        { questionId: 'worse_uphill_or_lengthened_hamstring', signal: 'strong_yes' },
+        { questionId: 'morning_stiffness_hip_short', signal: 'no' },
+        { questionId: 'loss_of_rotation_putting_on_socks', signal: 'no' },
+        { questionId: 'age_over_50_hip', signal: 'neutral' },
+      ],
+    },
+
     measuringProgress: standardMeasuringProgress,
     accessAndHours: standardAccessAndHours
   },
@@ -4865,6 +5020,23 @@ The relationship between pelvic positioning and piriformis length significantly 
         relevance: "Supports comprehensive treatment"
       }
     ],
+
+    patternMatcher: {
+      clusterKey: 'low-back',
+      markers: [
+        { questionId: 'pain_central_low_back', signal: 'no' },
+        { questionId: 'pain_one_sided_buttock_or_si', signal: 'yes' },
+        { questionId: 'pain_radiates_below_knee', signal: 'yes' },
+        { questionId: 'pain_deep_in_buttock', signal: 'strong_yes' },
+        { questionId: 'worse_with_bending_or_sitting', signal: 'neutral' },
+        { questionId: 'worse_with_standing_or_extension', signal: 'no' },
+        { questionId: 'eases_with_sitting_or_leaning_forward', signal: 'no' },
+        { questionId: 'worse_single_leg_activities', signal: 'neutral' },
+        { questionId: 'worse_prolonged_sitting', signal: 'strong_yes' },
+        { questionId: 'specific_lifting_or_twisting_event', signal: 'no' },
+        { questionId: 'age_over_60', signal: 'no' },
+      ],
+    },
 
     measuringProgress: standardMeasuringProgress,
     accessAndHours: standardAccessAndHours
@@ -5279,6 +5451,23 @@ The facet joints' orientation in the lumbar spine makes them particularly vulner
       }
     ],
 
+    patternMatcher: {
+      clusterKey: 'low-back',
+      markers: [
+        { questionId: 'pain_central_low_back', signal: 'neutral' },
+        { questionId: 'pain_one_sided_buttock_or_si', signal: 'yes' },
+        { questionId: 'pain_radiates_below_knee', signal: 'no' },
+        { questionId: 'pain_deep_in_buttock', signal: 'no' },
+        { questionId: 'worse_with_bending_or_sitting', signal: 'neutral' },
+        { questionId: 'worse_with_standing_or_extension', signal: 'strong_yes' },
+        { questionId: 'eases_with_sitting_or_leaning_forward', signal: 'yes' },
+        { questionId: 'worse_single_leg_activities', signal: 'neutral' },
+        { questionId: 'worse_prolonged_sitting', signal: 'neutral' },
+        { questionId: 'specific_lifting_or_twisting_event', signal: 'neutral' },
+        { questionId: 'age_over_60', signal: 'neutral' },
+      ],
+    },
+
     measuringProgress: standardMeasuringProgress,
     accessAndHours: standardAccessAndHours
   },
@@ -5400,6 +5589,23 @@ Respiratory patterns significantly influence thoracic outlet mechanics. Upper ch
   },
 
   'shoulder-impingement': {
+    patternMatcher: {
+      clusterKey: 'shoulder',
+      markers: [
+        { questionId: 'pain_top_of_shoulder_ac', signal: 'no' },
+        { questionId: 'pain_outside_deltoid', signal: 'yes' },
+        { questionId: 'pain_front_of_shoulder', signal: 'yes' },
+        { questionId: 'painful_arc_overhead', signal: 'strong_yes' },
+        { questionId: 'cant_reach_behind_back', signal: 'yes' },
+        { questionId: 'passive_motion_restricted_all_directions', signal: 'no' },
+        { questionId: 'weakness_lifting_or_external_rotation', signal: 'yes' },
+        { questionId: 'night_pain_lying_on_shoulder', signal: 'yes' },
+        { questionId: 'cross_body_reach_painful', signal: 'neutral' },
+        { questionId: 'specific_fall_on_shoulder', signal: 'no' },
+        { questionId: 'gradual_progressive_stiffening', signal: 'no' },
+      ],
+    },
+
     pathophysiology: `Shoulder impingement (subacromial pain syndrome) involves irritation of the rotator cuff tendons and bursa in the subacromial space. Despite the name, it's now understood as more than just mechanical compression. The tendons develop degenerative changes and the bursa becomes thickened, not from simple pinching but from a complex interaction of factors.
 
 Modern understanding shifts away from blaming the shape of your acromion (the 'hooked' acromion seen on X-rays is common in pain-free shoulders too). Instead, we focus on functional problems: how your shoulder blade moves, rotator cuff strength, and posture all play crucial roles. Shoulder impingement frequently coexists with rotator cuff injuries, as both conditions share similar underlying biomechanical issues. In some cases, untreated impingement may contribute to the development of shoulder bursitis, and chronic impingement can lead to compensatory patterns that contribute to frozen shoulder.`,
@@ -5555,6 +5761,23 @@ Common aggravating factors include the 'boom-bust' cycle of overdoing on good da
   },
 
   'ac-joint-injuries': {
+    patternMatcher: {
+      clusterKey: 'shoulder',
+      markers: [
+        { questionId: 'pain_top_of_shoulder_ac', signal: 'strong_yes' },
+        { questionId: 'pain_outside_deltoid', signal: 'no' },
+        { questionId: 'pain_front_of_shoulder', signal: 'neutral' },
+        { questionId: 'painful_arc_overhead', signal: 'neutral' },
+        { questionId: 'cant_reach_behind_back', signal: 'no' },
+        { questionId: 'passive_motion_restricted_all_directions', signal: 'no' },
+        { questionId: 'weakness_lifting_or_external_rotation', signal: 'no' },
+        { questionId: 'night_pain_lying_on_shoulder', signal: 'yes' },
+        { questionId: 'cross_body_reach_painful', signal: 'strong_yes' },
+        { questionId: 'specific_fall_on_shoulder', signal: 'strong_yes' },
+        { questionId: 'gradual_progressive_stiffening', signal: 'no' },
+      ],
+    },
+
     pathophysiology: `AC joint injuries involve damage to ligaments connecting the clavicle to the acromion. These range from sprains to complete separations. The joint is superficial and vulnerable to direct trauma.`,
 
     biomechanics: `The acromioclavicular joint functions as a critical link in the kinetic chain transferring forces between your arm and axial skeleton. Despite its small size, this joint must accommodate substantial loads during upper extremity activities while allowing the scapula to rotate and translate relative to the clavicle. The AC joint's stability depends on both intrinsic capsular ligaments and extrinsic coracoclavicular ligaments (conoid and trapezoid), with each system serving distinct mechanical functions.
@@ -5671,6 +5894,23 @@ Scapular dyskinesis alters AC joint loading patterns by disrupting normal scapul
   },
 
   'biceps-tendinopathy': {
+    patternMatcher: {
+      clusterKey: 'shoulder',
+      markers: [
+        { questionId: 'pain_top_of_shoulder_ac', signal: 'no' },
+        { questionId: 'pain_outside_deltoid', signal: 'no' },
+        { questionId: 'pain_front_of_shoulder', signal: 'strong_yes' },
+        { questionId: 'painful_arc_overhead', signal: 'neutral' },
+        { questionId: 'cant_reach_behind_back', signal: 'neutral' },
+        { questionId: 'passive_motion_restricted_all_directions', signal: 'no' },
+        { questionId: 'weakness_lifting_or_external_rotation', signal: 'neutral' },
+        { questionId: 'night_pain_lying_on_shoulder', signal: 'yes' },
+        { questionId: 'cross_body_reach_painful', signal: 'neutral' },
+        { questionId: 'specific_fall_on_shoulder', signal: 'no' },
+        { questionId: 'gradual_progressive_stiffening', signal: 'no' },
+      ],
+    },
+
     pathophysiology: `Biceps tendinopathy involves degeneration of the long head of biceps tendon. The tendon runs through the bicipital groove and into the shoulder joint, making it vulnerable to impingement and wear.`,
 
     biomechanics: `The long head of the biceps tendon follows a complex anatomical path that makes it vulnerable to mechanical irritation. Originating from the supraglenoid tubercle inside the shoulder joint, the tendon travels through the rotator interval, makes a sharp turn over the humeral head, and descends through the narrow bicipital groove between the greater and lesser tuberosities. This circuitous route exposes the tendon to friction, compression, and tensile forces during shoulder movements.
@@ -6767,6 +7007,24 @@ Walking on an incline often feels easier than walking on flat ground because the
       questionnaires: "Swiss Spinal Stenosis Questionnaire to monitor symptom severity and functional impact over time",
       activityTarget: "Maximizing your walking capacity and maintaining independence with daily activities"
     },
+
+    patternMatcher: {
+      clusterKey: 'low-back',
+      markers: [
+        { questionId: 'pain_central_low_back', signal: 'neutral' },
+        { questionId: 'pain_one_sided_buttock_or_si', signal: 'no' },
+        { questionId: 'pain_radiates_below_knee', signal: 'yes' },
+        { questionId: 'pain_deep_in_buttock', signal: 'neutral' },
+        { questionId: 'worse_with_bending_or_sitting', signal: 'no' },
+        { questionId: 'worse_with_standing_or_extension', signal: 'strong_yes' },
+        { questionId: 'eases_with_sitting_or_leaning_forward', signal: 'strong_yes' },
+        { questionId: 'worse_single_leg_activities', signal: 'no' },
+        { questionId: 'worse_prolonged_sitting', signal: 'no' },
+        { questionId: 'specific_lifting_or_twisting_event', signal: 'no' },
+        { questionId: 'age_over_60', signal: 'strong_yes' },
+      ],
+    },
+
     accessAndHours: standardAccessAndHours
   },
 
@@ -7717,6 +7975,24 @@ Asymmetrical movement patterns in sports create rotational forces that challenge
       questionnaires: "Oswestry Disability Index and pain scales to monitor functional improvements and pain reduction over time",
       activityTarget: "Return to full functional activities including sports and exercise without recurring SI joint symptoms"
     },
+
+    patternMatcher: {
+      clusterKey: 'low-back',
+      markers: [
+        { questionId: 'pain_central_low_back', signal: 'no' },
+        { questionId: 'pain_one_sided_buttock_or_si', signal: 'strong_yes' },
+        { questionId: 'pain_radiates_below_knee', signal: 'no' },
+        { questionId: 'pain_deep_in_buttock', signal: 'no' },
+        { questionId: 'worse_with_bending_or_sitting', signal: 'neutral' },
+        { questionId: 'worse_with_standing_or_extension', signal: 'neutral' },
+        { questionId: 'eases_with_sitting_or_leaning_forward', signal: 'no' },
+        { questionId: 'worse_single_leg_activities', signal: 'strong_yes' },
+        { questionId: 'worse_prolonged_sitting', signal: 'yes' },
+        { questionId: 'specific_lifting_or_twisting_event', signal: 'yes' },
+        { questionId: 'age_over_60', signal: 'no' },
+      ],
+    },
+
     accessAndHours: standardAccessAndHours
   },
 

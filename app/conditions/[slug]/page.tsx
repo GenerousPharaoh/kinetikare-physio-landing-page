@@ -14,7 +14,27 @@ import {
   SEO_PERSON_ID,
   SEO_PUBLISHER,
 } from '@/lib/seo-metadata';
-import { getCluster, type PatternMatcherCluster } from '@/lib/pattern-matchers/knee-cluster';
+import {
+  KNEE_CLUSTER,
+  type PatternMatcherCluster,
+} from '@/lib/pattern-matchers/knee-cluster';
+import { LOW_BACK_CLUSTER } from '@/lib/pattern-matchers/low-back-cluster';
+import { SHOULDER_CLUSTER } from '@/lib/pattern-matchers/shoulder-cluster';
+import { HIP_CLUSTER } from '@/lib/pattern-matchers/hip-cluster';
+
+// Registry of all pattern-matcher clusters. Keyed by the cluster key string
+// used in each condition's patternMatcher.clusterKey field. Adding a new
+// cluster is a one-line change here plus the cluster file itself.
+const PATTERN_CLUSTERS: Record<string, PatternMatcherCluster> = {
+  [KNEE_CLUSTER.key]: KNEE_CLUSTER,
+  [LOW_BACK_CLUSTER.key]: LOW_BACK_CLUSTER,
+  [SHOULDER_CLUSTER.key]: SHOULDER_CLUSTER,
+  [HIP_CLUSTER.key]: HIP_CLUSTER,
+};
+
+function getCluster(key: string): PatternMatcherCluster | undefined {
+  return PATTERN_CLUSTERS[key];
+}
 
 interface PageProps {
   params: {

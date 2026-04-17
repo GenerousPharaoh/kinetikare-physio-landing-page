@@ -78,6 +78,19 @@ export interface Condition {
     sign: string;
     action: string;
   }[];
+  /**
+   * First-person "Patterns I see in clinic" note — Kareem's own clinical observations
+   * on this condition: patterns he sees repeatedly, misdiagnoses he commonly untangles,
+   * honest commentary on what imaging reports actually mean, etc. 150-250 words typical.
+   *
+   * Purely editorial / E-E-A-T content. Populated by Kareem by hand, not from literature.
+   * When present, renders as a distinct boxed callout on the condition page.
+   */
+  clinicalObservations?: {
+    title?: string;  // defaults to "Patterns I see in clinic" when omitted
+    body: string;    // first-person prose, no em dashes, no "we/us/our"
+    lastReviewed?: string;  // ISO date string, e.g. '2026-04-16', for transparency
+  };
   keyResearch?: ConditionResearch[];
   specificTests?: SpecificTest[];
   

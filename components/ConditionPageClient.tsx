@@ -31,6 +31,7 @@ import {
 import { Condition } from '@/lib/conditions-data';
 import { getTreatmentsByCondition } from '@/lib/treatments-data';
 import type { PatternMatcherCluster } from '@/lib/pattern-matchers/knee-cluster';
+import ClinicalObservations from './conditions/ClinicalObservations';
 
 // Lazy-load the Pattern Matcher: only adds to the bundle when used, and only
 // after hydration. ssr:false keeps it out of the initial HTML payload.
@@ -936,6 +937,7 @@ export default function ConditionPageClient({
                     >
                       {/* Overview Tab */}
                       {activeTab === 'overview' && (
+                        <>
                         <AnimatePresence mode="wait">
                           <motion.div
                             key={activeOverviewView}
@@ -986,6 +988,13 @@ export default function ConditionPageClient({
                             )}
                           </motion.div>
                         </AnimatePresence>
+
+                        {condition.clinicalObservations && (
+                          <div className="mt-8">
+                            <ClinicalObservations observations={condition.clinicalObservations} />
+                          </div>
+                        )}
+                      </>
                       )}
 
                       {/* Symptoms Tab */}

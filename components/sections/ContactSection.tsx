@@ -163,7 +163,7 @@ export default function ContactSection() {
                               <span>Friday*:</span>
                               <span>2:00 PM - 7:30 PM</span>
                             </div>
-                            <p className="text-xs text-slate-400 italic mt-1">*Headon Physio location</p>
+                            <p className="text-xs text-slate-500 italic mt-1">*Headon Physio location</p>
                           </div>
                         </div>
                       </div>
@@ -196,6 +196,7 @@ export default function ContactSection() {
                   <Link
                     href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="group inline-flex items-center justify-center px-6 py-4 sm:px-8 sm:py-6 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-2xl font-medium shadow-premium-2 hover:shadow-premium-2-hover hover:from-[#B08D57] hover:to-[#D4AF37] hover:text-white shadow-transition hover:scale-105 text-lg sm:text-xl mb-6 sm:mb-8"
                   >
                     <span>Book Appointment</span>

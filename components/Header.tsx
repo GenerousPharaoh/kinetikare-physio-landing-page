@@ -304,12 +304,14 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="lg:hidden relative z-50 w-10 h-10 flex items-center justify-center !text-white hover:!text-[#D4AF37] transition-colors"
-                aria-label="Toggle mobile menu"
+                aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+                aria-expanded={mobileMenuOpen}
+                aria-controls="mobile-menu-panel"
               >
                 {mobileMenuOpen ? (
-                  <XMarkIcon className="w-7 h-7" />
+                  <XMarkIcon className="w-7 h-7" aria-hidden="true" />
                 ) : (
-                  <Bars3Icon className="w-7 h-7" />
+                  <Bars3Icon className="w-7 h-7" aria-hidden="true" />
                 )}
               </button>
             </div>
@@ -329,6 +331,10 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               onClick={() => setMobileMenuOpen(false)}
             />
             <motion.div
+              id="mobile-menu-panel"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Navigation menu"
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}

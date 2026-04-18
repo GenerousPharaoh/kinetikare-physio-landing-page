@@ -10,9 +10,11 @@ export default function CareJourneySection() {
   const { ref: sectionRef, animationProps } = useScrollAnimation({ yOffset: 30 });
   const { ref: stepsRef, containerVariants, itemVariants, isInView } = useStaggeredAnimation({ delay: 0.1 });
 
-  // Auto-scroll on mobile when section comes into view
+  // Auto-scroll on mobile when section comes into view. Pauses when the
+  // section scrolls out of view (triggerOnce: false) so the interval stops
+  // running while the user is elsewhere on the page.
   const scrollElRef = useRef<HTMLDivElement>(null!) as { current: HTMLDivElement | null };
-  const { ref: autoScrollRef, inView: sectionVisible } = useInView({ threshold: 0.3, triggerOnce: true });
+  const { ref: autoScrollRef, inView: sectionVisible } = useInView({ threshold: 0.3 });
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -26,13 +28,23 @@ export default function CareJourneySection() {
     const gap = 16;
     let currentCard = 0;
     const totalCards = container.children.length;
+    let userInterrupted = false;
+
+    // If the user starts scrolling the row themselves, stop auto-advancing
+    // so we don't fight their touch input.
+    const onUserScroll = () => { userInterrupted = true; };
+    container.addEventListener('touchstart', onUserScroll, { passive: true });
 
     const interval = setInterval(() => {
+      if (userInterrupted) return;
       currentCard = (currentCard + 1) % totalCards;
       container.scrollTo({ left: currentCard * (cardWidth + gap), behavior: 'smooth' });
     }, 3000);
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+      container.removeEventListener('touchstart', onUserScroll);
+    };
   }, [sectionVisible, isMobile]);
 
   const steps = [
@@ -149,9 +161,9 @@ export default function CareJourneySection() {
           </motion.div>
 
           {/* Mobile swipe hint */}
-          <div className="flex items-center justify-center gap-2 mt-4 md:hidden text-slate-400 text-xs">
+          <div className="flex items-center justify-center gap-2 mt-4 md:hidden text-slate-500 text-xs">
             <span>Swipe to explore</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </div>
         </div>
 

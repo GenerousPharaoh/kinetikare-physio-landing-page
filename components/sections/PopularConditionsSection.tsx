@@ -76,7 +76,7 @@ const comparisonChips = CONDITION_COMPARISONS.map((c) => ({
 
 export default function PopularConditionsSection() {
   const scrollContainerRef = useRef<HTMLDivElement>(null!) as { current: HTMLDivElement | null };
-  const { ref: autoScrollRef, inView: sectionVisible } = useInView({ threshold: 0.3, triggerOnce: true });
+  const { ref: autoScrollRef, inView: sectionVisible } = useInView({ threshold: 0.3 });
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -90,13 +90,21 @@ export default function PopularConditionsSection() {
     const gap = 12;
     let currentCard = 0;
     const totalCards = container.children.length;
+    let userInterrupted = false;
+
+    const onUserScroll = () => { userInterrupted = true; };
+    container.addEventListener('touchstart', onUserScroll, { passive: true });
 
     const interval = setInterval(() => {
+      if (userInterrupted) return;
       currentCard = (currentCard + 1) % totalCards;
       container.scrollTo({ left: currentCard * (cardWidth + gap), behavior: 'smooth' });
     }, 3000);
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+      container.removeEventListener('touchstart', onUserScroll);
+    };
   }, [sectionVisible, isMobile]);
   const popularConditions = featuredConditionSlugs
     .map((slug) => getConditionBySlug(slug))

@@ -3,12 +3,17 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, AnimatePresence, useMotionTemplate, useMotionValue, useReducedMotion } from 'framer-motion';
+import { motion, AnimatePresence, useMotionTemplate, useMotionValue, useReducedMotion, useInView } from 'framer-motion';
 import { CheckCircleIcon, ClockIcon, DocumentCheckIcon, ArrowRightIcon, StarIcon } from '@heroicons/react/24/solid';
 import { DocumentCheckIcon as OutlineDocumentCheckIcon, CheckCircleIcon as OutlineCheckCircleIcon, ClockIcon as OutlineClockIcon } from '@heroicons/react/24/outline';
 
 export default function HeroSection() {
   const shouldReduceMotion = useReducedMotion();
+
+  // Pause the expensive background pan + vertical review marquee whenever the
+  // hero is scrolled off-screen. Cuts idle CPU/battery drain on long pages.
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const isHeroInView = useInView(sectionRef, { amount: 0.05 });
 
   // Mouse Spotlight Logic
   const mouseX = useMotionValue(0);
@@ -83,6 +88,7 @@ export default function HeroSection() {
 
   return (
     <section
+      ref={sectionRef}
       className="relative min-h-[100dvh] w-full overflow-hidden bg-[#020617] group"
       onMouseMove={handleMouseMove}
     >
@@ -99,7 +105,7 @@ export default function HeroSection() {
             <motion.div
               className="relative w-full h-full will-change-transform"
               initial={{ scale: 1.15, x: "0%" }}
-              animate={shouldReduceMotion ? undefined : {
+              animate={(shouldReduceMotion || !isHeroInView) ? undefined : {
                 scale: [1.15, 1.2, 1.15, 1.2],
                 x: ["0%", "10%", "5%", "15%"], // Shifted right
                 y: ["0%", "-3%", "0%", "-2%"]
@@ -191,7 +197,7 @@ export default function HeroSection() {
 
                   <motion.div
                     className="flex flex-col gap-3 p-4"
-                    animate={shouldReduceMotion ? undefined : { y: "-50%" }}
+                    animate={(shouldReduceMotion || !isHeroInView) ? undefined : { y: "-50%" }}
                     transition={{
                       duration: 60, // Slower speed
                       ease: "linear",
@@ -245,11 +251,11 @@ export default function HeroSection() {
           </div>
         </motion.div>
 
-        {/* Mobile Background */}
-        <div className="absolute inset-0 md:hidden">
+        {/* Mobile Background (decorative duplicate of the desktop image) */}
+        <div className="absolute inset-0 md:hidden" aria-hidden="true">
           <Image
             src="/images/clinic-pic-may-2025.jpg"
-            alt="KinetiKare Physiotherapy clinic"
+            alt=""
             fill
             quality={82}
             className="object-cover"
@@ -423,8 +429,8 @@ export default function HeroSection() {
                   <StarIcon key={i} className="w-3.5 h-3.5 text-[#D4AF37]" />
                 ))}
               </div>
-              <span className="text-white/70 text-xs font-medium">5.0 on Google</span>
-              <span className="text-white/60 text-xs">22 reviews</span>
+              <span className="text-white/80 text-xs font-medium">5.0 on Google</span>
+              <span className="text-white/70 text-xs">22 reviews</span>
             </motion.div>
 
           </motion.div>

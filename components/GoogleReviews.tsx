@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 
 export const reviews = [
   {
@@ -84,7 +84,24 @@ export default function GoogleReviews() {
   const featuredReviewsCount = reviews.length;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isPaused, setIsPaused] = useState(false);
   const [progressKey, setProgressKey] = useState(0);
+
+  // Pause the carousel interval whenever the section is scrolled off-screen.
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const isSectionInView = useInView(sectionRef, { amount: 0.1 });
+
+  // Restore autoplay after the user stops interacting for 20s, instead of
+  // leaving autoplay permanently disabled after the first click.
+  const resumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const pauseForInteraction = () => {
+    setIsAutoPlaying(false);
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    resumeTimerRef.current = setTimeout(() => setIsAutoPlaying(true), 20000);
+  };
+  useEffect(() => () => {
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+  }, []);
 
   // Generate Review schema for each review
   const reviewsSchema = {
@@ -119,14 +136,14 @@ export default function GoogleReviews() {
   };
 
   useEffect(() => {
-    if (!isAutoPlaying) return;
+    if (!isAutoPlaying || !isSectionInView || isPaused) return;
 
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % reviews.length);
     }, 7000); // Change review every 7 seconds
 
     return () => clearInterval(interval);
-  }, [isAutoPlaying]);
+  }, [isAutoPlaying, isSectionInView, isPaused]);
 
   // Reset progress bar animation when slide changes
   useEffect(() => {
@@ -134,17 +151,17 @@ export default function GoogleReviews() {
   }, [currentIndex]);
 
   const handlePrevious = () => {
-    setIsAutoPlaying(false);
+    pauseForInteraction();
     setCurrentIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
   };
 
   const handleNext = () => {
-    setIsAutoPlaying(false);
+    pauseForInteraction();
     setCurrentIndex((prev) => (prev + 1) % reviews.length);
   };
 
   const handleDotClick = (index: number) => {
-    setIsAutoPlaying(false);
+    pauseForInteraction();
     setCurrentIndex(index);
   };
 
@@ -160,7 +177,14 @@ export default function GoogleReviews() {
   };
 
   return (
-    <section className="section-luxury-spacing bg-gradient-to-b from-white to-gray-50 texture-luxury">
+    <section
+      ref={sectionRef}
+      className="section-luxury-spacing bg-gradient-to-b from-white to-gray-50 texture-luxury"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onFocus={() => setIsPaused(true)}
+      onBlur={() => setIsPaused(false)}
+    >
       {/* Review Schema */}
       <script
         type="application/ld+json"

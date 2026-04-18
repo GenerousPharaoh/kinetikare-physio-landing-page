@@ -63,7 +63,7 @@ export default function AboutSection() {
               </motion.div>
 
               <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl text-primary-warm mb-4 md:mb-6 heading-luxury-2">
-                Kareem Hassanein
+                A Physiotherapist Who Has Been There
               </motion.h2>
 
               <motion.div variants={itemVariants} className="text-base md:text-lg mb-6 md:mb-8 space-y-3 md:space-y-4 text-luxury-subtle">

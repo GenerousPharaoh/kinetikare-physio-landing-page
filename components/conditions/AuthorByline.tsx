@@ -54,7 +54,7 @@ export default function AuthorByline({ lastReviewed, conditionName }: AuthorByli
       aria-label={ariaLabel}
       className="mt-5 border-t border-b border-slate-200/80 py-3"
     >
-      <address className="not-italic flex flex-col md:flex-row md:items-center md:flex-wrap gap-x-3 gap-y-1 text-xs text-slate-600">
+      <address className="not-italic flex flex-col md:flex-row md:items-center md:flex-wrap gap-x-3 gap-y-1 text-sm md:text-xs text-slate-600">
         <span className="flex items-center gap-2">
           <span
             aria-hidden="true"
@@ -105,7 +105,7 @@ export default function AuthorByline({ lastReviewed, conditionName }: AuthorByli
       </address>
 
       {reviewed?.label && (
-        <p className="mt-1.5 text-[11px] text-slate-500">
+        <p className="mt-1.5 text-xs text-slate-500">
           Last reviewed:{' '}
           <time dateTime={reviewed.datetime} className="text-slate-600">
             {reviewed.label}

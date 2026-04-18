@@ -4,7 +4,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, MotionConfig } from 'framer-motion';
 import Link from 'next/link';
 import {
   ChevronRightIcon,
@@ -405,10 +405,10 @@ export default function ConditionPageClient({
   };
 
   return (
-    <>
+    <MotionConfig reducedMotion="user">
       <div className="min-h-screen">
         {/* Reading progress indicator */}
-        <div className="fixed top-[72px] lg:top-24 left-0 right-0 z-30 pointer-events-none">
+        <div aria-hidden="true" className="fixed top-[72px] lg:top-24 left-0 right-0 z-30 pointer-events-none">
           <div className="h-0.5 bg-slate-200/70">
             <div
               className="h-full bg-[#B08D57] transition-[width] duration-150"
@@ -534,8 +534,9 @@ export default function ConditionPageClient({
                               : 'bg-slate-50 text-slate-700 hover:bg-slate-100 hover:text-slate-900'
                           }`}
                           aria-pressed={isActive}
+                          aria-current={isActive ? 'page' : undefined}
                         >
-                          <Icon className="h-4 w-4" />
+                          <Icon className="h-4 w-4" aria-hidden="true" />
                           {tab.label}
                         </button>
                       );
@@ -549,24 +550,29 @@ export default function ConditionPageClient({
 
               {/* Sub-section quick navigation */}
               {subSectionChips.length > 1 && (
-                <div className="mt-4 -mx-1 px-1 overflow-x-auto">
-                  <p className="text-[11px] uppercase tracking-wide text-slate-500 mb-2 px-1">
+                <div className="mt-4">
+                  <p className="text-xs uppercase tracking-wide text-slate-500 mb-2 px-1">
                     Inside {activeTabLabel}
                   </p>
-                  <div className="inline-flex items-center gap-2 min-w-max pb-1">
-                    {subSectionChips.map((chip) => (
-                      <button
-                        key={chip.id}
-                        onClick={chip.onSelect}
-                        className={`px-3 py-1.5 min-h-[44px] rounded-full text-xs font-medium border transition-colors ${
-                          chip.isActive
-                            ? 'bg-slate-900 text-white border-slate-900'
-                            : 'bg-white text-slate-700 border-slate-300 hover:border-[#B08D57] hover:text-[#B08D57]'
-                        }`}
-                      >
-                        {chip.label}
-                      </button>
-                    ))}
+                  <div className="relative -mx-1">
+                    <div className="overflow-x-auto scrollbar-hide px-1 [mask-image:linear-gradient(to_right,transparent,black_12px,black_calc(100%-20px),transparent)] md:[mask-image:none]">
+                      <div className="inline-flex items-center gap-2 min-w-max pb-1">
+                        {subSectionChips.map((chip) => (
+                          <button
+                            key={chip.id}
+                            onClick={chip.onSelect}
+                            aria-current={chip.isActive ? 'true' : undefined}
+                            className={`px-3 py-1.5 min-h-[44px] rounded-full text-xs font-medium border transition-colors ${
+                              chip.isActive
+                                ? 'bg-slate-900 text-white border-slate-900'
+                                : 'bg-white text-slate-700 border-slate-300 hover:border-[#B08D57] hover:text-[#B08D57]'
+                            }`}
+                          >
+                            {chip.label}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
               )}
@@ -2001,7 +2007,7 @@ export default function ConditionPageClient({
                                       
                                       return (
                                         <details key={index} className={`group relative bg-gradient-to-r ${color.bg} rounded-xl p-6 border ${color.border} hover:shadow-md transition-all`}>
-                                          <summary className="flex gap-4 cursor-pointer list-none">
+                                          <summary className="flex gap-4 cursor-pointer list-none items-center">
                                             <div className="flex-shrink-0">
                                               <div className={`w-12 h-12 bg-gradient-to-br ${color.icon} rounded-xl flex items-center justify-center shadow-lg transition-transform group-open:rotate-12`}>
                                                 <span className="text-white font-semibold text-lg">Q{index + 1}</span>
@@ -2012,6 +2018,10 @@ export default function ConditionPageClient({
                                                 {faq.question}
                                               </h3>
                                             </div>
+                                            <ChevronDownIcon
+                                              aria-hidden="true"
+                                              className="flex-shrink-0 h-5 w-5 text-slate-400 group-hover:text-slate-600 group-open:text-[#B08D57] transition-transform duration-200 group-open:rotate-180"
+                                            />
                                           </summary>
                                           <div className="mt-4 ml-16">
                                             <p className="text-slate-700 text-sm leading-relaxed">
@@ -2094,7 +2104,7 @@ export default function ConditionPageClient({
                 <RelatedConditionsList
                   currentSlug={conditionSlug}
                   relatedConditions={relatedConditions}
-                  limit={4}
+                  limit={6}
                 />
 
                 {/* Cross-links to any "X vs. Y" comparison pages that feature
@@ -2256,36 +2266,44 @@ export default function ConditionPageClient({
       </AnimatePresence>
 
       {/* Fixed Bottom Navigation Bar - Mobile Only - Compact */}
-      <div role="tablist" className="lg:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-gray-200 shadow-2xl z-40 pb-safe">
+      <div role="tablist" aria-label="Condition page sections" className="lg:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-gray-200 shadow-2xl z-40 pb-safe">
         <div className="flex items-center justify-around px-2 py-2">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => {
-                setActiveTab(tab.id);
-                scrollToContentTop();
-              }}
-              className={`flex flex-col items-center gap-0.5 px-2 py-1.5 rounded-lg transition-all duration-200 min-w-[60px] ${
-                activeTab === tab.id
-                  ? 'bg-[#B08D57]/15 text-[#8c6d3d] shadow-sm'
-                  : 'text-gray-500 hover:text-slate-700'
-              }`}
-            >
-              <tab.icon className="h-4 w-4" />
-              <span className="text-[10px] font-medium leading-tight">{tab.label}</span>
-            </button>
-          ))}
+          {tabs.map((tab) => {
+            const isActive = activeTab === tab.id;
+            return (
+              <button
+                key={tab.id}
+                role="tab"
+                aria-selected={isActive}
+                aria-current={isActive ? 'page' : undefined}
+                onClick={() => {
+                  setActiveTab(tab.id);
+                  scrollToContentTop();
+                }}
+                className={`flex flex-col items-center justify-center gap-0.5 px-2 py-2 rounded-lg transition-all duration-200 min-w-[60px] min-h-[48px] ${
+                  isActive
+                    ? 'bg-[#B08D57]/15 text-[#8c6d3d] shadow-sm'
+                    : 'text-gray-600 hover:text-slate-700'
+                }`}
+              >
+                <tab.icon className="h-5 w-5" aria-hidden="true" />
+                <span className="text-[11px] font-medium leading-tight">{tab.label}</span>
+              </button>
+            );
+          })}
           <button
             onClick={() => setMobileNavOpen(true)}
-            className={`flex flex-col items-center gap-0.5 px-2 py-1.5 rounded-lg transition-all duration-200 min-w-[60px] ${
-              mobileNavOpen ? 'bg-[#B08D57]/15 text-[#8c6d3d]' : 'text-gray-500 hover:text-slate-700'
+            aria-label="Open navigation menu"
+            aria-expanded={mobileNavOpen}
+            className={`flex flex-col items-center justify-center gap-0.5 px-2 py-2 rounded-lg transition-all duration-200 min-w-[60px] min-h-[48px] ${
+              mobileNavOpen ? 'bg-[#B08D57]/15 text-[#8c6d3d]' : 'text-gray-600 hover:text-slate-700'
             }`}
           >
-            <Bars3Icon className="h-4 w-4" />
-            <span className="text-[10px] font-medium leading-tight">More</span>
+            <Bars3Icon className="h-5 w-5" aria-hidden="true" />
+            <span className="text-[11px] font-medium leading-tight">More</span>
           </button>
         </div>
       </div>
-    </>
+    </MotionConfig>
   );
 }

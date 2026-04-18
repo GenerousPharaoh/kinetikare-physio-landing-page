@@ -76,14 +76,14 @@ const RELATIONSHIP_STYLE: Record<
 interface RelatedConditionsListProps {
   currentSlug: string;
   relatedConditions: Condition[];
-  /** Max cards shown. Defaults to 4. */
+  /** Max cards shown. Defaults to 6. */
   limit?: number;
 }
 
 export default function RelatedConditionsList({
   currentSlug,
   relatedConditions,
-  limit = 4,
+  limit = 6,
 }: RelatedConditionsListProps) {
   if (!relatedConditions || relatedConditions.length === 0) return null;
 

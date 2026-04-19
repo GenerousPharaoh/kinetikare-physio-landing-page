@@ -36,6 +36,12 @@ export interface TermProps {
 
 const MOBILE_BREAKPOINT_PX = 640;
 
+// Only one Term popover should be visible at a time. When a Term opens,
+// it dispatches this event; every other Term listens for it and closes
+// itself if the event wasn't its own. Keeps implementation lightweight
+// (no context provider required around the component tree).
+const TERM_OPEN_EVENT = 'kk-term-open';
+
 export default function Term({ termId, children }: TermProps) {
   const entry: GlossaryEntry | undefined = GLOSSARY[termId];
   const popoverId = useId();
@@ -46,6 +52,24 @@ export default function Term({ termId, children }: TermProps) {
   const [isMobile, setIsMobile] = useState(false);
 
   const close = useCallback(() => setOpen(false), []);
+
+  // When a different Term announces itself open, close this one.
+  useEffect(() => {
+    const onOtherOpen = (e: Event) => {
+      const detail = (e as CustomEvent<{ id: string }>).detail;
+      if (detail?.id !== popoverId) setOpen(false);
+    };
+    document.addEventListener(TERM_OPEN_EVENT, onOtherOpen);
+    return () => document.removeEventListener(TERM_OPEN_EVENT, onOtherOpen);
+  }, [popoverId]);
+
+  // When this Term opens, announce it so sibling Terms can close.
+  useEffect(() => {
+    if (!open) return;
+    document.dispatchEvent(
+      new CustomEvent(TERM_OPEN_EVENT, { detail: { id: popoverId } }),
+    );
+  }, [open, popoverId]);
 
   // Track mobile vs desktop so we can switch the rendering model. Media
   // query listener rather than a one-shot on mount so rotation / resize

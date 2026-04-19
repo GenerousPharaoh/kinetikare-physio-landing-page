@@ -28,7 +28,7 @@ export const GLOSSARY: Record<string, GlossaryEntry> = {
   pathophysiology: {
     term: 'pathophysiology',
     definition:
-      'The biological processes in the body that produce a disease or injury, and how those processes cause the symptoms you experience.',
+      'The story of how a condition actually develops inside the body, and why it causes the specific symptoms you feel.',
   },
   biomechanics: {
     term: 'biomechanics',
@@ -43,7 +43,7 @@ export const GLOSSARY: Record<string, GlossaryEntry> = {
   eccentric: {
     term: 'eccentric contraction',
     definition:
-      'A muscle working while it lengthens under load, for example the lowering phase of a squat. Central to tendon rehab because it loads the tendon under control.',
+      'A muscle that is working while it is being stretched, like the slow lowering phase of a squat. Useful in tendon rehab because it loads the tendon in a controlled way.',
     aliases: ['eccentric', 'eccentric exercise', 'eccentric contractions', 'eccentric loading'],
   },
   isometric: {
@@ -55,7 +55,7 @@ export const GLOSSARY: Record<string, GlossaryEntry> = {
   neovascularization: {
     term: 'neovascularization',
     definition:
-      'New blood vessel growth in a tissue that is normally low in vessels. In painful tendons, these new vessels bring nerve fibers that contribute to the pain.',
+      'New blood vessels growing into a tissue that normally has very few. In sore tendons these new vessels bring nerve endings with them and add to the pain.',
     aliases: ['neovascularisation'],
   },
   proprioception: {
@@ -76,7 +76,7 @@ export const GLOSSARY: Record<string, GlossaryEntry> = {
   'visa-p': {
     term: 'VISA-P',
     definition:
-      'A validated questionnaire (0\u2013100) that tracks patellar tendon pain and function over time. A 13-point change is considered clinically meaningful.',
+      'A short questionnaire scored 0 to 100 that tracks how much your patellar tendon pain is affecting daily activity and sport. Useful for seeing progress over weeks.',
   },
   dorsiflexion: {
     term: 'dorsiflexion',
@@ -97,7 +97,7 @@ export const GLOSSARY: Record<string, GlossaryEntry> = {
   'radiculopathy': {
     term: 'radiculopathy',
     definition:
-      'Irritation of a spinal nerve root, causing pain, tingling, numbness or weakness along the path of that nerve.',
+      'Pain, tingling, numbness or weakness that travels along a limb because a nerve is being irritated where it leaves the spine.',
   },
   impingement: {
     term: 'impingement',
@@ -124,7 +124,7 @@ export const GLOSSARY: Record<string, GlossaryEntry> = {
   labrum: {
     term: 'labrum',
     definition:
-      'A cartilage rim that deepens the shoulder or hip socket and helps hold the ball of the joint in place. Can be torn or frayed with injury or repetitive load.',
+      'A cartilage ring around the rim of the shoulder or hip socket that makes the socket a bit deeper so the ball of the joint sits more securely.',
     aliases: ['labral'],
   },
   effusion: {
@@ -147,23 +147,23 @@ export const GLOSSARY: Record<string, GlossaryEntry> = {
   bursitis: {
     term: 'bursitis',
     definition:
-      'Irritation of a bursa, usually from compression or repetitive load. Produces focal tenderness and can ache when the joint is pressed or loaded in specific positions.',
+      'When a bursa becomes irritated, usually from being pressed on or used the same way over and over. Often feels sore when you touch the spot or load the joint a certain way.',
   },
   sensitization: {
     term: 'sensitization',
     definition:
-      'A change in the nervous system that amplifies pain signals, so normal load feels more painful than it should. Reversible with graded loading and time.',
+      'When the nervous system becomes extra-reactive and makes everyday movement feel more painful than it should. It can settle again with time and gradual, measured loading.',
     aliases: ['sensitisation', 'sensitized', 'sensitised'],
   },
   'scapular-dyskinesis': {
     term: 'scapular dyskinesis',
     definition:
-      'Altered movement or resting position of the shoulder blade during arm motion. Often contributes to shoulder pain rather than being the sole cause.',
+      'When the shoulder blade moves or sits in an unhelpful way when you raise your arm. Often contributes to shoulder pain rather than being the only cause.',
   },
   apophysis: {
     term: 'apophysis',
     definition:
-      'A growth-plate site where a tendon attaches to a bone in young athletes. Can become irritated when a tendon repeatedly pulls on it (e.g. Osgood-Schlatter at the knee).',
+      'A soft growth zone where a tendon attaches to a bone in young athletes. It can get sore when the tendon repeatedly tugs on it (e.g. Osgood-Schlatter at the knee).',
     aliases: ['apophyseal', 'apophyses'],
   },
   retinaculum: {
@@ -204,7 +204,7 @@ export const GLOSSARY: Record<string, GlossaryEntry> = {
   myofascial: {
     term: 'myofascial',
     definition:
-      'Relating to muscle and its surrounding fascia together. "Myofascial pain" describes a combined pattern of muscle tenderness and restricted fascial glide.',
+      'Describes muscle and the fascia wrapped around it together. Myofascial pain usually feels like a combination of muscle tenderness and tissue that does not glide as freely as it should.',
   },
   instability: {
     term: 'instability',
@@ -219,7 +219,7 @@ export const GLOSSARY: Record<string, GlossaryEntry> = {
   pathology: {
     term: 'pathology',
     definition:
-      'An underlying disease process or tissue change that a clinician is looking to identify. Not every ache has a discrete pathology.',
+      'A specific problem with a tissue or a specific disease process. Not every ache has an obvious pathology behind it.',
     aliases: ['pathologies'],
   },
   stenosis: {
@@ -303,7 +303,7 @@ export const GLOSSARY: Record<string, GlossaryEntry> = {
   'end-feel': {
     term: 'end-feel',
     definition:
-      'How a joint feels at the very end of its range when the therapist moves it: firm, soft, bony or empty. Each quality points to different structures.',
+      'How a joint feels at the very end of its range when the therapist moves it: firm, soft, bony or empty. Each one tells us something different about what is limiting the joint.',
     aliases: ['end feel'],
   },
   'joint-mobilization': {

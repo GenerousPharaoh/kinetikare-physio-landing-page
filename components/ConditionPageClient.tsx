@@ -257,27 +257,48 @@ export default function ConditionPageClient({
 
           // Manual sticky: on lg+, pin the aside with position:fixed when
           // the placeholder's top crosses the sticky line. Placeholder
-          // reserves the layout space so content doesn't reflow.
+          // reserves the layout space so content doesn't reflow. When the
+          // content column (flex parent) nears its end, release the aside
+          // so it doesn't overlap the footer CTA.
           const placeholder = sidebarPlaceholderRef.current;
           const aside = document.getElementById('sidebar-container');
           if (placeholder && aside && window.innerWidth >= 1024) {
             const placeholderRect = placeholder.getBoundingClientRect();
             const asideHeight = aside.offsetHeight || 0;
-            const needsStick = placeholderRect.top <= STICKY_OFFSET;
-            if (needsStick) {
-              aside.style.position = 'fixed';
-              aside.style.top = `${STICKY_OFFSET}px`;
-              aside.style.left = `${placeholderRect.left}px`;
-              aside.style.width = `${placeholder.offsetWidth}px`;
-              // Ensure placeholder keeps reserving space in document flow.
-              if (!placeholder.style.minHeight && asideHeight > 0) {
-                placeholder.style.minHeight = `${asideHeight}px`;
-              }
-            } else {
+            // Flex parent wraps sidebar + content column; its bottom edge
+            // is the true "end of article" for sticky purposes.
+            const flexParent = placeholder.parentElement;
+            const parentRect = flexParent?.getBoundingClientRect();
+            const parentBottom = parentRect ? parentRect.bottom : Infinity;
+
+            const atTop = placeholderRect.top > STICKY_OFFSET;
+            // If the content column's bottom is above (STICKY_OFFSET + aside
+            // height + gutter), we're near the end — park aside absolute at
+            // the bottom of the placeholder.
+            const bottomOverlapThreshold = STICKY_OFFSET + asideHeight + 24;
+            const nearBottom = parentBottom < bottomOverlapThreshold;
+
+            if (atTop) {
               aside.style.position = '';
               aside.style.top = '';
               aside.style.left = '';
               aside.style.width = '';
+              placeholder.style.minHeight = '';
+            } else if (nearBottom && flexParent) {
+              // Pin at bottom: place aside absolute within placeholder so
+              // it sits flush with flex parent's bottom edge.
+              const offsetFromPlaceholderTop = (flexParent.offsetHeight) - (placeholder.offsetTop - flexParent.offsetTop) - asideHeight;
+              aside.style.position = 'absolute';
+              aside.style.top = `${Math.max(0, offsetFromPlaceholderTop)}px`;
+              aside.style.left = '';
+              aside.style.width = '';
+              if (asideHeight > 0) placeholder.style.minHeight = `${asideHeight}px`;
+            } else {
+              aside.style.position = 'fixed';
+              aside.style.top = `${STICKY_OFFSET}px`;
+              aside.style.left = `${placeholderRect.left}px`;
+              aside.style.width = `${placeholder.offsetWidth}px`;
+              if (asideHeight > 0) placeholder.style.minHeight = `${asideHeight}px`;
             }
           } else if (aside) {
             // Mobile or no placeholder: clear any inline positioning
@@ -1360,11 +1381,11 @@ export default function ConditionPageClient({
                                                     <ExclamationCircleIcon className="h-4 w-4 text-amber-600 mt-0.5 flex-shrink-0" aria-hidden="true" />
                                                     <div className="flex-1">
                                                       <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-amber-700 mb-1.5">Important precautions</p>
-                                                      <ul className="text-xs text-slate-600 space-y-1">
+                                                      <ul className="text-xs text-slate-600 space-y-1.5">
                                                         {strategy.precautions.map((precaution, pIndex) => (
-                                                          <li key={pIndex} className="flex items-start">
-                                                            <span className="mr-1.5" aria-hidden="true">·</span>
-                                                            <span>{precaution}</span>
+                                                          <li key={pIndex} className="flex items-start gap-2">
+                                                            <span aria-hidden="true" className="mt-[7px] h-1 w-1 flex-shrink-0 rounded-full bg-amber-500" />
+                                                            <span className="leading-relaxed">{precaution}</span>
                                                           </li>
                                                         ))}
                                                       </ul>
@@ -1769,59 +1790,52 @@ export default function ConditionPageClient({
                 </button>
               </div>
 
-              {/* Navigation Content - sub-sections of the active tab (primary);
-                  the 4 top-level tabs already live in the bottom tab bar, so we
-                  don't duplicate them here. */}
-              <div className="p-6">
-                {subSectionChips.length > 1 ? (
-                  <>
-                    <p className="text-xs uppercase tracking-[0.18em] text-[#B08D57] mb-3">
-                      Inside {activeTabLabel}
-                    </p>
-                    <div className="space-y-2">
-                      {subSectionChips.map((chip) => (
-                        <button
-                          key={chip.id}
-                          onClick={() => {
-                            chip.onSelect();
-                            setMobileNavOpen(false);
-                          }}
-                          className={`w-full text-left px-3 py-2.5 rounded-lg text-sm transition-colors ${
-                            chip.isActive
-                              ? 'bg-slate-900 text-white'
-                              : 'bg-slate-50 text-slate-700 hover:bg-slate-100'
-                          }`}
-                        >
-                          {chip.label}
-                        </button>
-                      ))}
+              {/* Navigation Content - full page ToC. All tabs listed, and the
+                  active tab's sub-sections are expanded beneath it so users
+                  can jump to any part of the condition page from anywhere. */}
+              <div className="p-6 space-y-2">
+                {tabs.map((tab) => {
+                  const isActive = activeTab === tab.id;
+                  const Icon = tab.icon;
+                  return (
+                    <div key={tab.id}>
+                      <button
+                        onClick={() => {
+                          setActiveTab(tab.id);
+                          setMobileNavOpen(false);
+                        }}
+                        className={`w-full flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                          isActive
+                            ? 'bg-slate-50 text-slate-900 font-semibold'
+                            : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                        }`}
+                      >
+                        <Icon className="h-4 w-4 flex-shrink-0" />
+                        <span>{tab.label}</span>
+                      </button>
+                      {isActive && subSectionChips.length > 1 && (
+                        <div className="mt-1 ml-5 pl-3 border-l-2 border-l-[#B08D57]/25 space-y-1">
+                          {subSectionChips.map((chip) => (
+                            <button
+                              key={chip.id}
+                              onClick={() => {
+                                chip.onSelect();
+                                setMobileNavOpen(false);
+                              }}
+                              className={`w-full text-left px-2.5 py-1.5 rounded text-xs transition-colors ${
+                                chip.isActive
+                                  ? 'text-slate-900 font-semibold'
+                                  : 'text-slate-500 hover:text-slate-900'
+                              }`}
+                            >
+                              {chip.label}
+                            </button>
+                          ))}
+                        </div>
+                      )}
                     </div>
-                  </>
-                ) : (
-                  <div className="space-y-3">
-                    {tabs.map((tab) => {
-                      const isActive = activeTab === tab.id;
-                      const Icon = tab.icon;
-                      return (
-                        <button
-                          key={tab.id}
-                          onClick={() => {
-                            setActiveTab(tab.id);
-                            setMobileNavOpen(false);
-                          }}
-                          className={`w-full flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                            isActive
-                              ? 'bg-[#B08D57] text-white'
-                              : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
-                          }`}
-                        >
-                          <Icon className="h-4 w-4 flex-shrink-0" />
-                          <span>{tab.label}</span>
-                        </button>
-                      );
-                    })}
-                  </div>
-                )}
+                  );
+                })}
               </div>
             </motion.div>
           </>
@@ -1855,19 +1869,17 @@ export default function ConditionPageClient({
               </button>
             );
           })}
-          {subSectionChips.length > 1 && (
-            <button
-              onClick={() => setMobileNavOpen(true)}
-              aria-label={`Jump within ${activeTabLabel}`}
-              aria-expanded={mobileNavOpen}
-              className={`flex flex-col items-center justify-center gap-0.5 px-2 py-2 rounded-lg transition-colors duration-200 min-w-[60px] min-h-[48px] ${
-                mobileNavOpen ? 'bg-[#B08D57]/15 text-[#8c6d3d]' : 'text-gray-600 hover:text-slate-700'
-              }`}
-            >
-              <Bars3Icon className="h-5 w-5" aria-hidden="true" />
-              <span className="text-[11px] font-medium leading-tight">Jump to</span>
-            </button>
-          )}
+          <button
+            onClick={() => setMobileNavOpen(true)}
+            aria-label="Open section navigation"
+            aria-expanded={mobileNavOpen}
+            className={`flex flex-col items-center justify-center gap-0.5 px-2 py-2 rounded-lg transition-colors duration-200 min-w-[60px] min-h-[48px] ${
+              mobileNavOpen ? 'bg-[#B08D57]/15 text-[#8c6d3d]' : 'text-gray-600 hover:text-slate-700'
+            }`}
+          >
+            <Bars3Icon className="h-5 w-5" aria-hidden="true" />
+            <span className="text-[11px] font-medium leading-tight">Sections</span>
+          </button>
         </div>
       </div>
     </MotionConfig>

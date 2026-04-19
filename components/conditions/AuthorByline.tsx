@@ -28,19 +28,18 @@ const CLINIC_NAME = 'Endorphins Health & Wellness Centre';
 const CLINIC_CITY = 'Burlington';
 const CLINIC_URL = 'https://endorphinshealth.com';
 
+const MONTH_NAMES = [
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December',
+];
+
 function formatReviewedDate(iso: string): { label: string | null; datetime: string } {
   const parsed = new Date(iso);
   if (Number.isNaN(parsed.getTime())) {
     return { label: null, datetime: iso };
   }
-  return {
-    label: parsed.toLocaleDateString('en-CA', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    }),
-    datetime: iso,
-  };
+  const label = `${MONTH_NAMES[parsed.getUTCMonth()]} ${parsed.getUTCDate()}, ${parsed.getUTCFullYear()}`;
+  return { label, datetime: iso };
 }
 
 export default function AuthorByline({ lastReviewed, conditionName }: AuthorBylineProps) {

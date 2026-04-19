@@ -365,6 +365,9 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                         <div className="space-y-2">
                           <button
                             onClick={() => setConditionsExpanded(!conditionsExpanded)}
+                            aria-expanded={conditionsExpanded}
+                            aria-controls="mobile-conditions-submenu"
+                            aria-haspopup="true"
                             className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all ${
                               isCurrentPath(item.href)
                                 ? 'bg-[#D4AF37]/10 !text-[#D4AF37]'
@@ -380,6 +383,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                           <AnimatePresence>
                             {conditionsExpanded && (
                               <motion.div
+                                id="mobile-conditions-submenu"
                                 initial={{ height: 0, opacity: 0 }}
                                 animate={{ height: 'auto', opacity: 1 }}
                                 exit={{ height: 0, opacity: 0 }}

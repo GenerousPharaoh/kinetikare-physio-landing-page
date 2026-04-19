@@ -29,15 +29,15 @@ interface ClinicalObservationsProps {
 const DEFAULT_TITLE = 'Patterns I see in clinic';
 const KICKER = 'From the clinic';
 
+const MONTH_NAMES = [
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December',
+];
+
 function formatReviewedDate(iso: string): string | null {
-  // Accept ISO-ish strings; fall back to the raw value if parsing fails.
   const parsed = new Date(iso);
   if (Number.isNaN(parsed.getTime())) return null;
-  return parsed.toLocaleDateString('en-CA', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
+  return `${MONTH_NAMES[parsed.getUTCMonth()]} ${parsed.getUTCDate()}, ${parsed.getUTCFullYear()}`;
 }
 
 export default function ClinicalObservations({ observations }: ClinicalObservationsProps) {

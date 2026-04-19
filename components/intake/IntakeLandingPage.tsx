@@ -260,7 +260,7 @@ export default function IntakeLandingPage() {
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                     <Stars size={13} />
                     <span style={{ fontSize: 14, fontWeight: 700, color: c.text }}>5.0</span>
-                    <span style={{ fontSize: 13, color: c.textLight }}>from 20 reviews</span>
+                    <span style={{ fontSize: 13, color: c.textLight }}>from 22 reviews</span>
                   </div>
                   <span style={{ width: 1, height: 14, background: c.stone200 }} className="hidden sm:block" />
                   {['Direct Billing', 'No Referral', 'Evening Hours'].map((b) => (
@@ -378,11 +378,21 @@ export default function IntakeLandingPage() {
               transition={{ duration: isMobile ? 14 : 40, ease: 'linear', repeat: Infinity }}
               style={{ display: 'flex', gap: 12, width: 'max-content', marginBottom: 12 }}
             >
-              {[...conditionsRow1, ...conditionsRow1].map((cond, i) => (
-                <a key={`r1-${i}`} href={`/conditions/${cond.slug}`} className="intake-pill" style={{ padding: '10px 20px', fontSize: 14, fontWeight: 500, color: c.text, background: c.stone50, borderRadius: 999, whiteSpace: 'nowrap', border: `1px solid ${c.stone100}`, display: 'inline-block', flexShrink: 0, textDecoration: 'none' }}>
-                  {cond.label}
-                </a>
-              ))}
+              {[...conditionsRow1, ...conditionsRow1].map((cond, i) => {
+                const isDuplicate = i >= conditionsRow1.length;
+                return (
+                  <a
+                    key={`r1-${i}`}
+                    href={`/conditions/${cond.slug}`}
+                    className="intake-pill"
+                    aria-hidden={isDuplicate || undefined}
+                    tabIndex={isDuplicate ? -1 : undefined}
+                    style={{ padding: '10px 20px', fontSize: 14, fontWeight: 500, color: c.text, background: c.stone50, borderRadius: 999, whiteSpace: 'nowrap', border: `1px solid ${c.stone100}`, display: 'inline-block', flexShrink: 0, textDecoration: 'none' }}
+                  >
+                    {cond.label}
+                  </a>
+                );
+              })}
             </motion.div>
             {/* Row 2 — scrolls right (opposite direction) */}
             <motion.div
@@ -390,11 +400,21 @@ export default function IntakeLandingPage() {
               transition={{ duration: isMobile ? 16 : 45, ease: 'linear', repeat: Infinity }}
               style={{ display: 'flex', gap: 12, width: 'max-content' }}
             >
-              {[...conditionsRow2, ...conditionsRow2].map((cond, i) => (
-                <a key={`r2-${i}`} href={`/conditions/${cond.slug}`} className="intake-pill" style={{ padding: '10px 20px', fontSize: 14, fontWeight: 500, color: c.text, background: c.stone50, borderRadius: 999, whiteSpace: 'nowrap', border: `1px solid ${c.stone100}`, display: 'inline-block', flexShrink: 0, textDecoration: 'none' }}>
-                  {cond.label}
-                </a>
-              ))}
+              {[...conditionsRow2, ...conditionsRow2].map((cond, i) => {
+                const isDuplicate = i >= conditionsRow2.length;
+                return (
+                  <a
+                    key={`r2-${i}`}
+                    href={`/conditions/${cond.slug}`}
+                    className="intake-pill"
+                    aria-hidden={isDuplicate || undefined}
+                    tabIndex={isDuplicate ? -1 : undefined}
+                    style={{ padding: '10px 20px', fontSize: 14, fontWeight: 500, color: c.text, background: c.stone50, borderRadius: 999, whiteSpace: 'nowrap', border: `1px solid ${c.stone100}`, display: 'inline-block', flexShrink: 0, textDecoration: 'none' }}
+                  >
+                    {cond.label}
+                  </a>
+                );
+              })}
             </motion.div>
           </div>
         </div>

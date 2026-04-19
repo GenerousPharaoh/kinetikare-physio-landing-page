@@ -73,7 +73,8 @@ export default function ComparisonCrossLinks({
                   />
                 </div>
 
-                <span className="mt-3 inline-flex items-center self-start px-2 py-0.5 rounded-full border text-[10px] font-medium uppercase tracking-wide bg-amber-50/70 text-amber-800 border-amber-200/70">
+                <span className="mt-3 inline-flex items-center gap-1.5 self-start px-2 py-0.5 rounded-full border text-[10px] font-medium uppercase tracking-wide bg-slate-50 text-slate-600 border-slate-200">
+                  <span className="h-1 w-1 rounded-full bg-[#B08D57]" aria-hidden="true" />
                   Compare side by side
                 </span>
 

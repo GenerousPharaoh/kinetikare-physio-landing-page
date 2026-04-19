@@ -40,38 +40,12 @@ const RELATIONSHIP_LABEL: Record<RelationshipType, string> = {
   treatment: 'Similar treatment approach',
 };
 
-// Subtle colour accents per relationship type. Each sits on a near-white
-// background so the overall density of the card grid stays calm.
-const RELATIONSHIP_STYLE: Record<
-  RelationshipType,
-  { pillBg: string; pillText: string; pillBorder: string }
-> = {
-  anatomical: {
-    pillBg: 'bg-slate-50',
-    pillText: 'text-slate-700',
-    pillBorder: 'border-slate-200',
-  },
-  symptomatic: {
-    pillBg: 'bg-amber-50/70',
-    pillText: 'text-amber-800',
-    pillBorder: 'border-amber-200/70',
-  },
-  causal: {
-    pillBg: 'bg-rose-50/70',
-    pillText: 'text-rose-800',
-    pillBorder: 'border-rose-200/70',
-  },
-  biomechanical: {
-    pillBg: 'bg-blue-50/70',
-    pillText: 'text-blue-800',
-    pillBorder: 'border-blue-200/70',
-  },
-  treatment: {
-    pillBg: 'bg-emerald-50/70',
-    pillText: 'text-emerald-800',
-    pillBorder: 'border-emerald-200/70',
-  },
-};
+// One understated pill style for every relationship type. The label text
+// carries all the meaning; colour does no work here and previously clashed
+// with the page's muted gold/slate language. A single small gold dot keeps
+// the editorial voice without turning the grid into a colour legend.
+const RELATIONSHIP_PILL_CLASS =
+  'bg-slate-50 text-slate-600 border-slate-200';
 
 interface RelatedConditionsListProps {
   currentSlug: string;
@@ -114,9 +88,6 @@ export default function RelatedConditionsList({
       <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {items.map((related) => {
           const meta = relationshipBySlug.get(related.slug);
-          const style = meta
-            ? RELATIONSHIP_STYLE[meta.relationshipType]
-            : null;
           const label = meta ? RELATIONSHIP_LABEL[meta.relationshipType] : null;
 
           return (
@@ -135,10 +106,14 @@ export default function RelatedConditionsList({
                   />
                 </div>
 
-                {label && style && (
+                {label && (
                   <span
-                    className={`mt-3 inline-flex items-center self-start px-2 py-0.5 rounded-full border text-[10px] font-medium uppercase tracking-wide ${style.pillBg} ${style.pillText} ${style.pillBorder}`}
+                    className={`mt-3 inline-flex items-center gap-1.5 self-start px-2 py-0.5 rounded-full border text-[10px] font-medium uppercase tracking-wide ${RELATIONSHIP_PILL_CLASS}`}
                   >
+                    <span
+                      className="h-1 w-1 rounded-full bg-[#B08D57]"
+                      aria-hidden="true"
+                    />
                     {label}
                   </span>
                 )}

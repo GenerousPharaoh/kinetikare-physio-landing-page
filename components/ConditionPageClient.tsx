@@ -517,13 +517,18 @@ export default function ConditionPageClient({
               {/* Quick in-page navigation */}
               <div className="mt-4 max-w-4xl">
                 <div className="rounded-xl border border-slate-200 bg-white p-2">
-                  <div className="flex flex-wrap items-center gap-2">
+                  <div role="tablist" aria-label="Condition page sections" className="flex flex-wrap items-center gap-2">
                     {tabs.map((tab) => {
                       const Icon = tab.icon;
                       const isActive = activeTab === tab.id;
                       return (
                         <button
                           key={tab.id}
+                          id={`condition-tab-${tab.id}`}
+                          role="tab"
+                          aria-selected={isActive}
+                          aria-controls="condition-tabpanel"
+                          tabIndex={isActive ? 0 : -1}
                           onClick={() => {
                             setActiveTab(tab.id);
                             scrollToContentTop();
@@ -533,8 +538,6 @@ export default function ConditionPageClient({
                               ? 'bg-[#B08D57] text-white shadow-sm'
                               : 'bg-slate-50 text-slate-700 hover:bg-slate-100 hover:text-slate-900'
                           }`}
-                          aria-pressed={isActive}
-                          aria-current={isActive ? 'page' : undefined}
                         >
                           <Icon className="h-4 w-4" aria-hidden="true" />
                           {tab.label}
@@ -947,6 +950,10 @@ export default function ConditionPageClient({
                   <AnimatePresence mode="wait" initial={false}>
                     <motion.div
                       key={activeTab}
+                      id="condition-tabpanel"
+                      role="tabpanel"
+                      aria-labelledby={`condition-tab-${activeTab}`}
+                      tabIndex={0}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
@@ -2275,7 +2282,8 @@ export default function ConditionPageClient({
                 key={tab.id}
                 role="tab"
                 aria-selected={isActive}
-                aria-current={isActive ? 'page' : undefined}
+                aria-controls="condition-tabpanel"
+                tabIndex={isActive ? 0 : -1}
                 onClick={() => {
                   setActiveTab(tab.id);
                   scrollToContentTop();

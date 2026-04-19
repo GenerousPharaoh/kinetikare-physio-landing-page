@@ -258,9 +258,11 @@ function ConditionsPageWithParams({
                   <button
                     key={item.name}
                     type="button"
+                    id={`conditions-filter-tab-${item.tab}`}
                     role="tab"
                     aria-selected={isActive}
-                    aria-current={isActive ? 'page' : undefined}
+                    aria-controls="conditions-filter-tabpanel"
+                    tabIndex={isActive ? 0 : -1}
                     onClick={() => handleTabChange(item.tab)}
                     style={{ touchAction: 'manipulation' }}
                     className={`relative px-6 py-2.5 min-h-[44px] rounded-full font-semibold text-sm transition-all duration-300 md:transform md:hover:-translate-y-0.5 border-2 ${isActive
@@ -437,8 +439,10 @@ function ConditionsPageWithParams({
               // immediately with a short crossfade.
               <motion.div
                 key={activeTab}
+                id="conditions-filter-tabpanel"
                 role="tabpanel"
-                aria-label={conditionCategories[activeTab].title}
+                aria-labelledby={`conditions-filter-tab-${activeTab}`}
+                tabIndex={0}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.15, ease: 'easeOut' }}

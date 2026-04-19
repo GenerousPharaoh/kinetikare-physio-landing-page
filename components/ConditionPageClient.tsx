@@ -971,7 +971,7 @@ export default function ConditionPageClient({
                             transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
                           >
                             {activeOverviewView === 'pathophysiology' && condition.pathophysiology && (
-                              <div className="bg-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-200">
+                              <div className="bg-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-sm">
                                 <SectionHeading
                                   id="pathophysiology"
                                   className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900 mb-8"
@@ -985,7 +985,7 @@ export default function ConditionPageClient({
                             )}
 
                             {activeOverviewView === 'pathophysiology' && condition.overview && !condition.pathophysiology && (
-                              <div className="bg-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-200">
+                              <div className="bg-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-sm">
                                 <SectionHeading
                                   id="overview"
                                   className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900 mb-8"
@@ -1003,7 +1003,7 @@ export default function ConditionPageClient({
                             )}
 
                             {activeOverviewView === 'biomechanics' && condition.biomechanics && (
-                              <div className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-200">
+                              <div className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-sm">
                                 <SectionHeading
                                   id="contributing-factors"
                                   className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900 mb-8"
@@ -1041,7 +1041,7 @@ export default function ConditionPageClient({
                             transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
                           >
                             {activeClinicalView === 'clinical-presentation' && condition.clinicalPresentation && (
-                              <div className="bg-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-200">
+                              <div className="bg-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-sm">
                                 <SectionHeading
                                   id="clinical-presentation"
                                   className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900 mb-10"
@@ -1054,7 +1054,7 @@ export default function ConditionPageClient({
                                     <h3 className="text-xl font-semibold leading-tight text-slate-900 mb-6">Primary Symptoms</h3>
                                     <div className="grid md:grid-cols-2 gap-4">
                                       {condition.clinicalPresentation.primarySymptoms.map((symptom, index) => (
-                                        <div key={index} className="flex items-start gap-3 p-4 rounded-lg bg-white border border-slate-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+                                        <div key={index} className="flex items-start gap-3 p-4 rounded-lg bg-white border border-slate-100">
                                           <CheckCircleIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" />
                                           <span className="text-base md:text-lg text-slate-700 leading-relaxed">{symptom}</span>
                                         </div>
@@ -1108,7 +1108,7 @@ export default function ConditionPageClient({
                                 <p className="text-base text-slate-600 leading-relaxed mb-10">Conditions with similar presentations:</p>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                   {condition.differentialDiagnosis.map((diff, index) => (
-                                    <div key={index} className="group relative bg-gradient-to-br from-white to-slate-50/50 rounded-2xl p-7 border border-slate-200 shadow-md hover:shadow-xl hover:-translate-y-1 hover:border-[#B08D57]/30 transition-all duration-200">
+                                    <div key={index} className="relative bg-gradient-to-br from-white to-slate-50/50 rounded-2xl p-7 border border-slate-200 shadow-sm">
                                       <div className="flex items-start gap-4">
                                         <div className="flex-shrink-0">
                                           <div className="w-12 h-12 bg-gradient-to-br from-[#B08D57] to-[#967745] rounded-xl flex items-center justify-center shadow-lg">
@@ -1194,7 +1194,7 @@ export default function ConditionPageClient({
                                       const isNewFormat = research.finding && research.detail && research.clinicalRelevance;
 
                                       return (
-                                        <div key={index} className="group relative bg-white/90 backdrop-blur-xl rounded-2xl p-7 border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-200 break-inside-avoid mb-6">
+                                        <div key={index} className="relative bg-white/90 backdrop-blur-xl rounded-2xl p-7 border border-slate-100 shadow-sm break-inside-avoid mb-6">
                                           <div className="flex gap-4">
                                             <div className="flex-shrink-0">
                                               <div className={`w-12 h-12 bg-gradient-to-br ${color.icon} rounded-xl flex items-center justify-center shadow-lg`}>
@@ -1447,11 +1447,11 @@ export default function ConditionPageClient({
                                       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                                         {/* Primary Strategy Card */}
                                         {(condition.evidenceSnapshot.primaryStrategy || condition.evidenceSnapshot.firstLine) && (
-                                          <div className="group relative bg-gradient-to-br from-emerald-50 via-white to-white rounded-2xl p-7 border-2 border-emerald-100 shadow-md hover:shadow-xl hover:-translate-y-1 hover:border-emerald-200 transition-all duration-200 overflow-hidden">
+                                          <div className="relative bg-gradient-to-br from-emerald-50 via-white to-white rounded-2xl p-7 border-2 border-emerald-100 shadow-sm overflow-hidden">
                                             <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-500/5 rounded-full blur-2xl"></div>
                                             <div className="relative space-y-5">
                                               <div className="flex justify-center">
-                                                <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-200">
+                                                <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center shadow-sm">
                                                   <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                                                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                                   </svg>
@@ -1469,11 +1469,11 @@ export default function ConditionPageClient({
                                         
                                         {/* Secondary Strategy Card */}
                                         {(condition.evidenceSnapshot.secondaryStrategy || condition.evidenceSnapshot.imaging) && (
-                                          <div className="group relative bg-gradient-to-br from-blue-50 via-white to-white rounded-2xl p-7 border-2 border-blue-100 shadow-md hover:shadow-xl hover:-translate-y-1 hover:border-blue-200 transition-all duration-200 overflow-hidden">
+                                          <div className="relative bg-gradient-to-br from-blue-50 via-white to-white rounded-2xl p-7 border-2 border-blue-100 shadow-sm overflow-hidden">
                                             <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 rounded-full blur-2xl"></div>
                                             <div className="relative space-y-5">
                                               <div className="flex justify-center">
-                                                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-200">
+                                                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-sm">
                                                   <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                                                     <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                                                   </svg>
@@ -1491,11 +1491,11 @@ export default function ConditionPageClient({
 
                                         {/* Prevention Strategy Card */}
                                         {(condition.evidenceSnapshot.preventionStrategy || condition.evidenceSnapshot.management) && (
-                                          <div className="group relative bg-gradient-to-br from-violet-50 via-white to-white rounded-2xl p-7 border-2 border-violet-100 shadow-md hover:shadow-xl hover:-translate-y-1 hover:border-violet-200 transition-all duration-200 overflow-hidden">
+                                          <div className="relative bg-gradient-to-br from-violet-50 via-white to-white rounded-2xl p-7 border-2 border-violet-100 shadow-sm overflow-hidden">
                                             <div className="absolute top-0 right-0 w-24 h-24 bg-violet-500/5 rounded-full blur-2xl"></div>
                                             <div className="relative space-y-5">
                                               <div className="flex justify-center">
-                                                <div className="w-16 h-16 bg-gradient-to-br from-violet-500 to-violet-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-200">
+                                                <div className="w-16 h-16 bg-gradient-to-br from-violet-500 to-violet-600 rounded-2xl flex items-center justify-center shadow-sm">
                                                   <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                                                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
                                                   </svg>
@@ -1534,7 +1534,7 @@ export default function ConditionPageClient({
                                           const color = colors[index % colors.length];
                                           
                                           return (
-                                            <div key={index} className="group relative bg-white/80 backdrop-blur-xl rounded-2xl p-6 border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                                            <div key={index} className="relative bg-white/80 backdrop-blur-xl rounded-2xl p-6 border border-slate-100 shadow-sm">
                                               <div className="flex gap-4">
                                                 <div className="flex-shrink-0">
                                                   <div className={`w-12 h-12 bg-gradient-to-br ${color.icon} rounded-xl flex items-center justify-center shadow-lg`}>
@@ -2069,9 +2069,9 @@ export default function ConditionPageClient({
                                     <div className="grid md:grid-cols-2 gap-6">
                                       {relatedTreatments.map((treatment, index) => (
                                         <Link key={treatment.id} href={`/treatments/${treatment.id}`}>
-                                          <div className="group relative bg-gradient-to-br from-white to-amber-50/30 rounded-xl p-6 border border-amber-100 hover:border-[#B08D57] hover:shadow-xl transition-all duration-300 cursor-pointer h-full flex flex-col">
+                                          <div className="relative bg-gradient-to-br from-white to-amber-50/30 rounded-xl p-6 border border-amber-100 hover:border-[#B08D57] hover:shadow-md transition-[border-color,box-shadow] duration-200 cursor-pointer h-full flex flex-col">
                                             <div className="flex items-start gap-4 mb-4">
-                                              <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#B08D57] to-[#C09A65] rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                                              <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#B08D57] to-[#C09A65] rounded-xl flex items-center justify-center shadow-sm">
                                                 <HeartIcon className="h-6 w-6 text-white" />
                                               </div>
                                               <div className="flex-1">
@@ -2150,7 +2150,7 @@ export default function ConditionPageClient({
                 <Link
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-[#B08D57] hover:bg-[#997A4B] text-white hover:text-white rounded-lg font-medium transition-all duration-300 shadow-premium-1 hover:shadow-premium-2 hover:scale-[1.02] group"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-[#B08D57] hover:bg-[#997A4B] text-white hover:text-white rounded-lg font-medium transition-colors duration-200 shadow-premium-1 hover:shadow-premium-2 group"
                 >
                   Book Assessment
                   <ArrowRightIcon className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
@@ -2213,37 +2213,13 @@ export default function ConditionPageClient({
                 </button>
               </div>
 
-              {/* Navigation Content - Same as desktop sidebar */}
-              <div className="p-6 space-y-3">
-                {tabs.map((tab) => {
-                  const isActive = activeTab === tab.id;
-                  const Icon = tab.icon;
-
-                  return (
-                    <div key={tab.id}>
-                      <button
-                        onClick={() => {
-                          setActiveTab(tab.id);
-                          setMobileNavOpen(false);
-                        }}
-                        className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
-                          isActive
-                            ? 'bg-[#B08D57] text-white shadow-md'
-                            : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900 hover:shadow-sm'
-                        }`}
-                      >
-                        <div className="flex items-center gap-2">
-                          <Icon className="h-4 w-4 flex-shrink-0" />
-                          <span>{tab.label}</span>
-                        </div>
-                      </button>
-                    </div>
-                  );
-                })}
-
-                {subSectionChips.length > 1 && (
-                  <div className="pt-4 mt-4 border-t border-slate-200">
-                    <p className="text-xs uppercase tracking-wide text-slate-500 mb-2">
+              {/* Navigation Content - sub-sections of the active tab (primary);
+                  the 4 top-level tabs already live in the bottom tab bar, so we
+                  don't duplicate them here. */}
+              <div className="p-6">
+                {subSectionChips.length > 1 ? (
+                  <>
+                    <p className="text-xs uppercase tracking-[0.18em] text-[#B08D57] mb-3">
                       Inside {activeTabLabel}
                     </p>
                     <div className="space-y-2">
@@ -2254,7 +2230,7 @@ export default function ConditionPageClient({
                             chip.onSelect();
                             setMobileNavOpen(false);
                           }}
-                          className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${
+                          className={`w-full text-left px-3 py-2.5 rounded-lg text-sm transition-colors ${
                             chip.isActive
                               ? 'bg-slate-900 text-white'
                               : 'bg-slate-50 text-slate-700 hover:bg-slate-100'
@@ -2264,6 +2240,30 @@ export default function ConditionPageClient({
                         </button>
                       ))}
                     </div>
+                  </>
+                ) : (
+                  <div className="space-y-3">
+                    {tabs.map((tab) => {
+                      const isActive = activeTab === tab.id;
+                      const Icon = tab.icon;
+                      return (
+                        <button
+                          key={tab.id}
+                          onClick={() => {
+                            setActiveTab(tab.id);
+                            setMobileNavOpen(false);
+                          }}
+                          className={`w-full flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                            isActive
+                              ? 'bg-[#B08D57] text-white'
+                              : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+                          }`}
+                        >
+                          <Icon className="h-4 w-4 flex-shrink-0" />
+                          <span>{tab.label}</span>
+                        </button>
+                      );
+                    })}
                   </div>
                 )}
               </div>
@@ -2299,17 +2299,19 @@ export default function ConditionPageClient({
               </button>
             );
           })}
-          <button
-            onClick={() => setMobileNavOpen(true)}
-            aria-label="Open navigation menu"
-            aria-expanded={mobileNavOpen}
-            className={`flex flex-col items-center justify-center gap-0.5 px-2 py-2 rounded-lg transition-all duration-200 min-w-[60px] min-h-[48px] ${
-              mobileNavOpen ? 'bg-[#B08D57]/15 text-[#8c6d3d]' : 'text-gray-600 hover:text-slate-700'
-            }`}
-          >
-            <Bars3Icon className="h-5 w-5" aria-hidden="true" />
-            <span className="text-[11px] font-medium leading-tight">More</span>
-          </button>
+          {subSectionChips.length > 1 && (
+            <button
+              onClick={() => setMobileNavOpen(true)}
+              aria-label={`Jump within ${activeTabLabel}`}
+              aria-expanded={mobileNavOpen}
+              className={`flex flex-col items-center justify-center gap-0.5 px-2 py-2 rounded-lg transition-colors duration-200 min-w-[60px] min-h-[48px] ${
+                mobileNavOpen ? 'bg-[#B08D57]/15 text-[#8c6d3d]' : 'text-gray-600 hover:text-slate-700'
+              }`}
+            >
+              <Bars3Icon className="h-5 w-5" aria-hidden="true" />
+              <span className="text-[11px] font-medium leading-tight">Jump to</span>
+            </button>
+          )}
         </div>
       </div>
     </MotionConfig>

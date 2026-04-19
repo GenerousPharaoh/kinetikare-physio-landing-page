@@ -2,9 +2,10 @@
 
 // <!-- UI REDESIGN 2024 - PREMIUM MEDICAL AESTHETIC -->
 
-import React, { useState, useMemo, useEffect, useRef } from 'react';
+import React, { useState, useMemo, useEffect, useRef, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import {
   MagnifyingGlassIcon,
   ChevronRightIcon,
@@ -86,6 +87,7 @@ function ConditionsPageWithParams({
 }: ConditionsPageClientProps) {
   const [activeTab, setActiveTab] = useState(0);
   const [searchQuery, setSearchQuery] = useState('');
+  const searchParams = useSearchParams();
 
   // Quick navigation sections - moved up to be available in useEffect
   const quickNavItems = [
@@ -97,10 +99,12 @@ function ConditionsPageWithParams({
     { name: "Foot & Ankle", tab: 5 },
   ];
 
-  // Remember the user's tab selection using URL query and localStorage
+  // Remember the user's tab selection using URL query and localStorage.
+  // Re-runs whenever the ?tab=N query param changes so that a soft
+  // client-side navigation from the header dropdown to /conditions?tab=3
+  // actually updates the active tab on an already-mounted page.
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const tabParam = params.get('tab');
+    const tabParam = searchParams?.get('tab');
 
     if (tabParam && !isNaN(Number(tabParam))) {
       const tabNumber = Number(tabParam);
@@ -111,7 +115,7 @@ function ConditionsPageWithParams({
       }
     }
 
-    // Fall back to localStorage (for returning users)
+    // No tab param: fall back to localStorage for returning users.
     const savedTab = localStorage.getItem('conditionsActiveTab');
     if (savedTab && !isNaN(Number(savedTab))) {
       const tabNumber = Number(savedTab);
@@ -119,7 +123,7 @@ function ConditionsPageWithParams({
         setActiveTab(tabNumber);
       }
     }
-  }, [conditionCategories.length]);
+  }, [searchParams, conditionCategories.length]);
 
   // Save tab selection to localStorage when changed. On mobile the tab content
   // sits below the filter pills, so also scroll the content into view so the
@@ -633,5 +637,12 @@ function ConditionsPageWithParams({
 }
 
 export default function ConditionsPageClient(props: ConditionsPageClientProps) {
-  return <ConditionsPageWithParams {...props} />;
+  // useSearchParams requires a Suspense boundary on the client side. Wrap
+  // the real component so Next.js can defer client-only URL reads without
+  // blocking the server render.
+  return (
+    <Suspense fallback={null}>
+      <ConditionsPageWithParams {...props} />
+    </Suspense>
+  );
 }

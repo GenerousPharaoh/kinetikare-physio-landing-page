@@ -916,11 +916,18 @@ export default function ConditionPageClient({
                               >
                                 The Science of {condition.name || 'Your Condition'}
                               </SectionHeading>
-                              <div className="space-y-5">
+                              <div className="space-y-6">
                                 {(() => {
                                   const used = new Set<string>();
                                   return condition.pathophysiology.split('\n\n').map((paragraph, index) => (
-                                    <p key={index} className="text-base md:text-lg text-slate-700 leading-relaxed max-w-[72ch]">
+                                    <p
+                                      key={index}
+                                      className={
+                                        index === 0
+                                          ? 'text-lg md:text-xl text-slate-800 leading-relaxed max-w-[68ch]'
+                                          : 'text-base md:text-lg text-slate-700 leading-relaxed max-w-[68ch]'
+                                      }
+                                    >
                                       <GlossaryText text={paragraph} usedTerms={used} />
                                     </p>
                                   ));
@@ -942,7 +949,14 @@ export default function ConditionPageClient({
                                 {(() => {
                                   const used = new Set<string>();
                                   return condition.overview.split('\n\n').map((paragraph, index) => (
-                                    <p key={index} className="text-base md:text-lg text-slate-700 leading-relaxed max-w-[72ch]">
+                                    <p
+                                      key={index}
+                                      className={
+                                        index === 0
+                                          ? 'text-lg md:text-xl text-slate-800 leading-relaxed max-w-[68ch]'
+                                          : 'text-base md:text-lg text-slate-700 leading-relaxed max-w-[68ch]'
+                                      }
+                                    >
                                       <GlossaryText text={paragraph} usedTerms={used} />
                                     </p>
                                   ));
@@ -964,7 +978,14 @@ export default function ConditionPageClient({
                                 {(() => {
                                   const used = new Set<string>();
                                   return condition.biomechanics.split('\n\n').map((paragraph, index) => (
-                                    <p key={index} className="text-base md:text-lg text-slate-700 leading-relaxed max-w-[72ch]">
+                                    <p
+                                      key={index}
+                                      className={
+                                        index === 0
+                                          ? 'text-lg md:text-xl text-slate-800 leading-relaxed max-w-[68ch]'
+                                          : 'text-base md:text-lg text-slate-700 leading-relaxed max-w-[68ch]'
+                                      }
+                                    >
                                       <GlossaryText text={paragraph} usedTerms={used} />
                                     </p>
                                   ));

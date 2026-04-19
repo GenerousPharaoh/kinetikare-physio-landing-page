@@ -908,7 +908,7 @@ export default function ConditionPageClient({
                         <>
                         <div className="space-y-8">
                           {condition.pathophysiology && (
-                            <div id="pathophysiology-section" data-section="pathophysiology" className="bg-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-sm scroll-mt-28">
+                            <div id="pathophysiology-section" data-section="pathophysiology" className="bg-white rounded-xl p-6 sm:p-8 md:p-10 lg:p-12 border border-slate-200 shadow-sm scroll-mt-28">
                               <SectionHeading
                                 id="pathophysiology"
                                 kicker="Overview"
@@ -930,7 +930,7 @@ export default function ConditionPageClient({
                           )}
 
                           {condition.overview && !condition.pathophysiology && (
-                            <div id="pathophysiology-section" data-section="pathophysiology" className="bg-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-sm scroll-mt-28">
+                            <div id="pathophysiology-section" data-section="pathophysiology" className="bg-white rounded-xl p-6 sm:p-8 md:p-10 lg:p-12 border border-slate-200 shadow-sm scroll-mt-28">
                               <SectionHeading
                                 id="overview"
                                 kicker="Overview"
@@ -952,7 +952,7 @@ export default function ConditionPageClient({
                           )}
 
                           {condition.biomechanics && (
-                            <div id="biomechanics-section" data-section="biomechanics" className="bg-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-sm scroll-mt-28">
+                            <div id="biomechanics-section" data-section="biomechanics" className="bg-white rounded-xl p-6 sm:p-8 md:p-10 lg:p-12 border border-slate-200 shadow-sm scroll-mt-28">
                               <SectionHeading
                                 id="contributing-factors"
                                 kicker="Overview"
@@ -1024,7 +1024,7 @@ export default function ConditionPageClient({
 
                         <div className="space-y-8">
                           {condition.clinicalPresentation && (
-                            <div id="clinical-presentation-section" data-section="clinical-presentation" className="bg-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-sm scroll-mt-28">
+                            <div id="clinical-presentation-section" data-section="clinical-presentation" className="bg-white rounded-xl p-6 sm:p-8 md:p-10 lg:p-12 border border-slate-200 shadow-sm scroll-mt-28">
                                 <SectionHeading
                                   id="clinical-presentation"
                                   kicker="Symptoms"
@@ -1062,12 +1062,9 @@ export default function ConditionPageClient({
                                 )}
 
                                 {condition.clinicalPresentation.typicalPattern && (
-                                  <div className="relative p-8 md:p-10 bg-gradient-to-br from-[#B08D57]/8 via-[#B08D57]/5 to-transparent rounded-2xl border border-[#B08D57]/20 shadow-md overflow-hidden">
-                                    <div className="absolute top-0 right-0 w-32 h-32 bg-[#B08D57]/5 rounded-full blur-3xl"></div>
-                                    <div className="relative">
-                                      <h3 className="text-xl font-semibold leading-tight text-slate-900 mb-5">Typical Pattern</h3>
-                                      <p className="text-base md:text-lg text-slate-700 leading-relaxed max-w-[72ch]">{condition.clinicalPresentation.typicalPattern}</p>
-                                    </div>
+                                  <div className="relative bg-white rounded-xl p-6 md:p-7 border border-slate-200 border-l-4 border-l-[#B08D57] shadow-sm">
+                                    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57] mb-3">Typical pattern</p>
+                                    <p className="text-base text-slate-700 leading-relaxed max-w-[72ch]">{condition.clinicalPresentation.typicalPattern}</p>
                                   </div>
                                 )}
                             </div>
@@ -1084,7 +1081,7 @@ export default function ConditionPageClient({
                           )}
 
                           {condition.differentialDiagnosis && condition.differentialDiagnosis.length > 0 && (
-                            <div id="differential-section" data-section="differential" className="bg-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-sm scroll-mt-28">
+                            <div id="differential-section" data-section="differential" className="bg-white rounded-xl p-6 sm:p-8 md:p-10 lg:p-12 border border-slate-200 shadow-sm scroll-mt-28">
                               <SectionHeading
                                 id="differential-diagnosis"
                                 kicker="Symptoms"
@@ -1110,7 +1107,7 @@ export default function ConditionPageClient({
                           )}
 
                           {condition.whenToSeek && condition.whenToSeek.length > 0 && (
-                            <div id="when-to-seek-section" data-section="when-to-seek" className="bg-white rounded-xl p-8 md:p-10 border border-slate-200 border-l-4 border-l-amber-500 shadow-sm scroll-mt-28">
+                            <div id="when-to-seek-section" data-section="when-to-seek" className="bg-white rounded-xl p-6 sm:p-8 md:p-10 border border-slate-200 border-l-4 border-l-amber-500 shadow-sm scroll-mt-28">
                               <div className="mb-4 flex items-center gap-2.5">
                                 <ExclamationTriangleIcon className="h-4 w-4 text-amber-600" aria-hidden="true" />
                                 <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-amber-700">When to seek professional help</p>
@@ -1135,7 +1132,7 @@ export default function ConditionPageClient({
                           {condition.keyResearch && condition.keyResearch.length > 0 && (
                             <div id="key-research" data-section="key-research" className="relative bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden scroll-mt-40">
                               <div className="relative">
-                                <div className="px-8 pt-8 pb-6 border-b border-slate-100">
+                                <div className="px-6 sm:px-8 pt-6 sm:pt-8 pb-5 sm:pb-6 border-b border-slate-100">
                                   <div className="mb-3 flex items-center gap-2.5">
                                     <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-[#B08D57]" />
                                     <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">Research</p>
@@ -1144,7 +1141,7 @@ export default function ConditionPageClient({
                                   <p className="mt-2 text-sm text-slate-600 max-w-[60ch]">Peer-reviewed studies supporting the treatment approach.</p>
                                 </div>
 
-                                <div className="p-8">
+                                <div className="p-6 sm:p-8">
                                   <div className="columns-1 md:columns-2 gap-6 space-y-6">
                                     {condition.keyResearch.map((research, index) => {
                                       // Unified editorial card: white, gold left rule, numeric kicker.
@@ -1250,7 +1247,7 @@ export default function ConditionPageClient({
                           {condition.researchInsights && condition.researchInsights.length > 0 && (
                             <div id="research-insights" data-section="research-insights" className="relative bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden scroll-mt-28">
                               <div className="relative">
-                                <div className="px-8 pt-8 pb-6 border-b border-slate-100">
+                                <div className="px-6 sm:px-8 pt-6 sm:pt-8 pb-5 sm:pb-6 border-b border-slate-100">
                                   <div className="mb-3 flex items-center gap-2.5">
                                     <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-[#B08D57]" />
                                     <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">Research</p>
@@ -1259,7 +1256,7 @@ export default function ConditionPageClient({
                                   <p className="mt-2 text-sm text-slate-600 max-w-[60ch]">Clinical implications and practice recommendations.</p>
                                 </div>
 
-                                      <div className="p-8">
+                                      <div className="p-6 sm:p-8">
                                   <div className="space-y-4">
                                     {condition.researchInsights.map((insight, index) => {
                                       const colonIndex = insight.indexOf(':');
@@ -1303,7 +1300,7 @@ export default function ConditionPageClient({
                           {(condition.evidenceSnapshot || condition.selfManagement) && (
                             <div id="evidence-based-management" data-section="evidence-based" className="relative bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden scroll-mt-40">
                               <div className="relative">
-                                <div className="px-8 pt-8 pb-6 border-b border-slate-100">
+                                <div className="px-6 sm:px-8 pt-6 sm:pt-8 pb-5 sm:pb-6 border-b border-slate-100">
                                   <div className="mb-3 flex items-center gap-2.5">
                                     <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-[#B08D57]" />
                                     <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">Management</p>
@@ -1312,7 +1309,7 @@ export default function ConditionPageClient({
                                   <p className="mt-2 text-sm text-slate-600 max-w-[60ch]">Treatment strategies with the strongest support in the current literature.</p>
                                 </div>
                                 
-                                      <div className="p-8">
+                                      <div className="p-6 sm:p-8">
                                   <div className="space-y-8">
                                     {/* Evidence Snapshot Cards - unified editorial pattern:
                                         white card, gold left rule, numeric kicker, uniform type.
@@ -1367,10 +1364,10 @@ export default function ConditionPageClient({
                                     {condition.selfManagement && condition.selfManagement.length > 0 && (
                                       <div className="space-y-6">
                                         {condition.evidenceSnapshot && (
-                                          <div className="flex items-center gap-3 mt-8 mb-6">
-                                            <div className="h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent flex-1"></div>
-                                            <span className="text-xs font-medium text-slate-500 uppercase tracking-wider">Detailed Management Strategies</span>
-                                            <div className="h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent flex-1"></div>
+                                          <div className="mt-8 mb-6 pt-6 border-t border-slate-200">
+                                            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">
+                                              Detailed management strategies
+                                            </p>
                                           </div>
                                         )}
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -1438,7 +1435,7 @@ export default function ConditionPageClient({
                             {(condition.treatmentApproach || relatedTreatments.length > 0) && (
                             <div id="treatment-techniques" data-section="treatment-techniques" className="relative bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden scroll-mt-40">
                               <div className="relative">
-                                <div className="px-8 pt-8 pb-6 border-b border-slate-100">
+                                <div className="px-6 sm:px-8 pt-6 sm:pt-8 pb-5 sm:pb-6 border-b border-slate-100">
                                   <div className="mb-3 flex items-center gap-2.5">
                                     <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-[#B08D57]" />
                                     <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">Management</p>
@@ -1447,7 +1444,7 @@ export default function ConditionPageClient({
                                   <p className="mt-2 text-sm text-slate-600 max-w-[60ch]">Evidence-based manual therapy and intervention approaches.</p>
                                 </div>
 
-                                      <div className="p-8">
+                                      <div className="p-6 sm:p-8">
                                         {condition.treatmentApproach && (
                                           <>
                                             <p className="text-base text-slate-700 leading-relaxed max-w-[72ch] mb-6">
@@ -1504,7 +1501,7 @@ export default function ConditionPageClient({
                             {condition.timeline && condition.timeline.length > 0 && (
                             <div id="recovery-timeline" data-section="timeline" className="relative bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden scroll-mt-40">
                               <div className="relative">
-                                <div className="px-8 pt-8 pb-6 border-b border-slate-100">
+                                <div className="px-6 sm:px-8 pt-6 sm:pt-8 pb-5 sm:pb-6 border-b border-slate-100">
                                   <div className="mb-3 flex items-center gap-2.5">
                                     <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-[#B08D57]" />
                                     <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">Management</p>
@@ -1513,24 +1510,24 @@ export default function ConditionPageClient({
                                   <p className="mt-2 text-sm text-slate-600 max-w-[60ch]">Phases and milestones typical of the recovery arc.</p>
                                 </div>
                                 
-                                      <div className="p-8">
+                                      <div className="p-6 sm:p-8">
                                         <div className="relative">
                                           {condition.timeline.map((phase, index) => (
                                             <div key={index} className="flex gap-4 mb-6 last:mb-0">
-                                              <div className="flex flex-col items-center">
-                                                <div className="w-3 h-3 bg-teal-600 rounded-full" />
+                                              <div className="flex flex-col items-center" aria-hidden="true">
+                                                <div className="mt-2 w-2.5 h-2.5 bg-[#B08D57] rounded-full" />
                                                 {index < condition.timeline!.length - 1 && (
-                                                  <div className="w-0.5 h-full bg-teal-600/30 mt-2" />
+                                                  <div className="w-px flex-1 bg-slate-200 mt-2" />
                                                 )}
                                               </div>
-                                              <div className="flex-1 pb-6">
-                                                <div className="flex items-center gap-3 mb-2">
-                                                  <h3 className="text-xl font-medium leading-tight text-slate-900">{phase.phase}</h3>
-                                                  <span className="text-sm text-teal-700 bg-teal-100 px-3 py-1 rounded-full">
+                                              <div className="flex-1 pb-4">
+                                                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-2">
+                                                  <h3 className="text-lg md:text-xl font-medium leading-tight text-slate-900">{phase.phase}</h3>
+                                                  <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">
                                                     {phase.duration}
                                                   </span>
                                                 </div>
-                                                <p className="text-base text-slate-700 leading-relaxed">{phase.description}</p>
+                                                <p className="text-base text-slate-700 leading-relaxed max-w-[72ch]">{phase.description}</p>
                                               </div>
                                             </div>
                                           ))}
@@ -1543,7 +1540,7 @@ export default function ConditionPageClient({
                             {condition.prognosis && (
                             <div id="prognosis" data-section="prognosis" className="relative bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden scroll-mt-40">
                               <div className="relative">
-                                <div className="px-8 pt-8 pb-6 border-b border-slate-100">
+                                <div className="px-6 sm:px-8 pt-6 sm:pt-8 pb-5 sm:pb-6 border-b border-slate-100">
                                   <div className="mb-3 flex items-center gap-2.5">
                                     <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-[#B08D57]" />
                                     <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">Management</p>
@@ -1552,7 +1549,7 @@ export default function ConditionPageClient({
                                   <p className="mt-2 text-sm text-slate-600 max-w-[60ch]">What outcomes and recovery factors typically look like.</p>
                                 </div>
                                 
-                                      <div className="p-8">
+                                      <div className="p-6 sm:p-8">
                                   <div className="space-y-5">
                                     {/* Timeline Card */}
                                     <div className="relative bg-white rounded-xl p-6 border border-slate-200 border-l-4 border-l-[#B08D57] shadow-sm">
@@ -1592,7 +1589,7 @@ export default function ConditionPageClient({
                             {condition.measuringProgress && (
                             <div id="measuring-progress" data-section="measuring" className="relative bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden scroll-mt-40">
                               <div className="relative">
-                                <div className="px-8 pt-8 pb-6 border-b border-slate-100">
+                                <div className="px-6 sm:px-8 pt-6 sm:pt-8 pb-5 sm:pb-6 border-b border-slate-100">
                                   <div className="mb-3 flex items-center gap-2.5">
                                     <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-[#B08D57]" />
                                     <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">Management</p>
@@ -1601,7 +1598,7 @@ export default function ConditionPageClient({
                                   <p className="mt-2 text-sm text-slate-600 max-w-[60ch]">How to track the recovery arc week to week.</p>
                                 </div>
                                 
-                                      <div className="p-8">
+                                      <div className="p-6 sm:p-8">
                                   <div className="space-y-5">
                                     <div className="relative bg-white rounded-xl p-6 border border-slate-200 border-l-4 border-l-[#B08D57] shadow-sm">
                                       <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57] mb-2">Day-to-day tracking</p>
@@ -1640,7 +1637,7 @@ export default function ConditionPageClient({
                             {condition.faqs && condition.faqs.length > 0 && (
                             <div id="faqs" data-section="faqs" className="relative bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden scroll-mt-40">
                               <div className="relative">
-                                <div className="px-8 pt-8 pb-6 border-b border-slate-100">
+                                <div className="px-6 sm:px-8 pt-6 sm:pt-8 pb-5 sm:pb-6 border-b border-slate-100">
                                   <div className="mb-3 flex items-center gap-2.5">
                                     <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-[#B08D57]" />
                                     <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">Management</p>
@@ -1649,12 +1646,12 @@ export default function ConditionPageClient({
                                   <p className="mt-2 text-sm text-slate-600 max-w-[60ch]">Common concerns and answers about this condition.</p>
                                 </div>
                                 
-                                      <div className="p-8">
+                                      <div className="p-6 sm:p-8">
                                   <div className="space-y-3">
                                     {condition.faqs.map((faq, index) => {
                                       const qLabel = `Q${String(index + 1).padStart(2, '0')}`;
                                       return (
-                                        <details key={index} className="group relative bg-white rounded-xl border border-slate-200 open:border-l-4 open:border-l-[#B08D57] shadow-sm transition-[border-width,border-color] duration-200">
+                                        <details key={index} className="group relative bg-white rounded-xl border border-slate-200 border-l-[3px] border-l-transparent open:border-l-[#B08D57] shadow-sm transition-colors duration-200">
                                           <summary className="flex gap-4 cursor-pointer list-none items-start p-6">
                                             <span aria-hidden="true" className="flex-shrink-0 text-sm font-semibold text-[#B08D57] tabular-nums pt-0.5">
                                               {qLabel}

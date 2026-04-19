@@ -54,7 +54,7 @@ export default function ClinicalObservations({ observations }: ClinicalObservati
   return (
     <aside
       aria-label={title}
-      className="relative bg-white rounded-xl border border-slate-200 border-l-4 border-l-[#B08D57] shadow-sm p-8 md:p-10"
+      className="relative bg-white rounded-xl border border-slate-200 border-l-4 border-l-[#B08D57] shadow-sm p-6 sm:p-8 md:p-10"
     >
       <div className="mb-4 flex items-center gap-3">
         <span

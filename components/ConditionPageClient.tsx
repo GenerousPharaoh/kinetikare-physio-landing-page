@@ -34,6 +34,7 @@ import type { PatternMatcherCluster } from '@/lib/pattern-matchers/knee-cluster'
 import ClinicalObservations from './conditions/ClinicalObservations';
 import AuthorByline from './conditions/AuthorByline';
 import ConditionAtAGlance from './conditions/ConditionAtAGlance';
+import WhatToExpectSection from './conditions/WhatToExpectSection';
 import SectionHeading from './conditions/SectionHeading';
 import GlossaryText from './conditions/GlossaryText';
 import RelatedConditionsList from './conditions/RelatedConditionsList';
@@ -1734,6 +1735,13 @@ export default function ConditionPageClient({
                   conditionSlug={conditionSlug}
                   currentConditionName={condition.name}
                 />
+
+                {/* Patient-facing "what to expect" surface of the authored
+                    whatToExpect content. Sits directly before the consent
+                    note so a reader considering booking knows exactly what
+                    the first visit and the first few weeks will look like.
+                    Returns null when the condition has no whatToExpect data. */}
+                <WhatToExpectSection condition={condition} />
 
                 {/* Consent + alternatives note. Communicates that every part of an
                     assessment happens with informed consent and alternative

@@ -64,7 +64,7 @@ Modern lifestyle factors play a huge role: prolonged sitting, particularly with 
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Specific core stabilization exercises reduce pain by 50-70% and prevent recurrence in 80% of cases by improving deep muscle activation patterns",
+      primaryStrategy: "Specific core and trunk stabilization exercises consistently outperform passive care for reducing pain and improving function, and they lower the chance of another episode",
       secondaryStrategy: "Manual therapy techniques provide immediate pain relief and improved mobility when combined with active exercise programs",
       preventionStrategy: "Movement education and workplace ergonomic modifications reduce the risk of future episodes by addressing underlying biomechanical factors",
       sources: "WHO guidelines (2023); NICE guidelines; Lancet Low Back Pain Series"
@@ -350,7 +350,7 @@ Sleep position plays a role too - pillows that are too high or too flat force yo
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Deep neck flexor strengthening exercises reduce pain by 60% and improve function when combined with postural correction techniques",
+      primaryStrategy: "Deep neck flexor strengthening combined with postural work reliably reduces pain and improves function in most presentations",
       secondaryStrategy: "Manual therapy techniques including joint mobilization provide immediate pain relief and restore normal neck movement patterns",
       preventionStrategy: "Ergonomic workspace modifications and regular movement breaks prevent recurrence by addressing underlying postural causes",
       sources: "Cochrane Reviews; International Neck Pain Task Force"
@@ -506,7 +506,7 @@ Your movement patterns throughout the day matter tremendously. Tight hip flexors
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Centralization exercises that move pain from the leg back toward the spine achieve symptom resolution in 70-80% of cases within 6 weeks",
+      primaryStrategy: "Identifying a directional preference and using exercises that move symptoms back toward the spine is consistently linked to faster improvement in disc-related sciatica",
       secondaryStrategy: "Neural mobilization techniques reduce nerve tension and improve pain and function when nerve mobility is restricted",
       preventionStrategy: "Spinal stabilization exercises and lifting technique education prevent future episodes by addressing underlying disc and movement dysfunction",
       sources: "NICE Sciatica Guidelines; Cochrane Review 2023"
@@ -740,7 +740,7 @@ The most damaging factor I see is the combination of poor posture with repetitiv
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Progressive strengthening exercises achieve equivalent outcomes to surgery in 70-80% of rotator cuff tears while avoiding surgical risks and recovery time",
+      primaryStrategy: "Progressive strengthening exercises can achieve outcomes comparable to surgery for many degenerative rotator cuff tears while avoiding surgical risks and recovery time",
       secondaryStrategy: "Scapular stabilization exercises restore normal shoulder blade movement patterns that support rotator cuff function during daily activities",
       preventionStrategy: "Postural correction and workplace ergonomic modifications prevent future impingement by maintaining optimal shoulder positioning during repetitive tasks",
       sources: "BMJ Rotator Cuff Guidelines; JOSPT Clinical Practice Guidelines"
@@ -776,7 +776,7 @@ The most damaging factor I see is the combination of poor posture with repetitiv
     ],
 
     prognosis: {
-      timeline: "Recovery is typically measured in months, not weeks. Most patients notice initial improvement within 2-4 weeks, significant improvement by 6-8 weeks, with complete recovery typically taking 3-6 months",
+      timeline: "Recovery is typically measured in months, not weeks. Most patients notice initial improvement within 2-4 weeks, significant improvement by 6-8 weeks, with return to full function typically taking 3-6 months",
       factors: [
         "Symptom duration over 3 months predicts slower recovery",
         "Higher baseline pain and disability levels require more intensive management",
@@ -1050,7 +1050,7 @@ Chronic cases can be more challenging, especially when symptoms persist beyond 1
     evidenceSnapshot: {
       primaryStrategy: "Eccentric strengthening exercises targeting wrist extensors improve pain and function in 80-90% of cases by promoting tendon remodeling and increasing load capacity over 12 weeks, with effects maintained long-term when combined with load management",
       secondaryStrategy: "Manual therapy including soft tissue techniques and joint mobilizations provides short-term pain relief and improved range of motion when combined with exercise, while activity modification prevents symptom flare-ups during rehabilitation",
-      preventionStrategy: "Ergonomic assessment of workstation setup and grip techniques reduces risk by 60-70% by addressing biomechanical loading factors, while progressive strengthening maintains tendon capacity to handle occupational and sports demands",
+      preventionStrategy: "Ergonomic assessment of workstation setup and grip techniques reduces risk meaningfully by addressing biomechanical loading factors, especially sustained wrist extension and pronation, while progressive strengthening maintains tendon capacity to handle occupational and sports demands",
       sources: "JOSPT Clinical Practice Guidelines 2022; Cochrane Systematic Reviews; British Journal of Sports Medicine Meta-analyses"
     },
 
@@ -1090,7 +1090,7 @@ Chronic cases can be more challenging, especially when symptoms persist beyond 1
     evidenceBasedTreatment: [
       {
         approach: "Eccentric Strengthening",
-        evidence: "High-quality evidence (multiple RCTs) showing superior outcomes compared to concentric exercise, stretching, or wait-and-see approaches. Tyler protocol demonstrates 81-100% good to excellent results",
+        evidence: "High-quality evidence (multiple RCTs) showing superior outcomes compared to concentric exercise, stretching, or wait-and-see approaches. Tyler protocol consistently shows high rates of good-to-excellent outcomes in published trials",
         effectivenessLevel: "strong"
       },
       {
@@ -1311,7 +1311,7 @@ Contributing factors include sudden increases in weight-bearing activity, biomec
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Plantar fascia-specific stretching and calf stretching provide significant pain reduction and functional improvement in both short and long term, with consistent stretching reducing morning pain by 60-80% when performed for 8-12 weeks",
+      primaryStrategy: "Plantar fascia-specific stretching and calf stretching can meaningfully reduce morning pain when performed consistently over 8 to 12 weeks, with benefits in both the short and long term",
       secondaryStrategy: "Progressive high-load strength training stimulates tissue remodeling and improves load capacity, while foot orthoses provide medium-term pain relief and functional improvement as part of multimodal care",
       preventionStrategy: "Biomechanical assessment addressing foot posture, ankle flexibility, and intrinsic muscle weakness prevents recurrence, while appropriate footwear and activity modification reduce initial risk by addressing load management factors",
       sources: "JOSPT Clinical Practice Guidelines 2023; Cochrane Systematic Reviews; British Journal of Sports Medicine Meta-analyses"
@@ -1712,9 +1712,9 @@ Poor posture compounds the problem significantly. Forward head posture and round
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Phase-specific physiotherapy achieves 80-90% improvement in pain and function over 12-18 months by respecting tissue healing stages",
+      primaryStrategy: "Phase-specific physiotherapy can produce meaningful improvement in pain and function over 12-18 months when matched to tissue healing stages",
       secondaryStrategy: "Joint mobilization and stretching techniques restore shoulder range of motion when applied appropriately to each phase of the condition",
-      preventionStrategy: "Early recognition and treatment of shoulder stiffness prevent progression to full frozen shoulder in high-risk patients",
+      preventionStrategy: "Early recognition and treatment of shoulder stiffness may reduce the likelihood of progression to full frozen shoulder in higher-risk patients",
       sources: "JOSPT Adhesive Capsulitis Guidelines; BMJ Best Practice"
     },
 
@@ -1954,9 +1954,9 @@ The "position of no return" happens during cutting movements when your foot plan
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Progressive neuromuscular training improves knee stability and function in 60-70% of non-surgical cases, particularly for recreational activities and straight-line sports",
+      primaryStrategy: "Progressive neuromuscular training can improve knee stability and function in a majority of non-surgical cases, particularly for recreational activities and straight-line sports",
       secondaryStrategy: "Quadriceps and hamstring strengthening programs restore muscle strength and improve knee control, essential for both conservative and post-surgical management",
-      preventionStrategy: "Injury prevention programs focusing on landing mechanics and neuromuscular control reduce ACL injury risk by 50% in cutting and pivoting sports",
+      preventionStrategy: "Injury prevention programs focusing on landing mechanics and neuromuscular control can reduce ACL injury risk meaningfully in cutting and pivoting sports, with effect sizes around 50% in program-adherent cohorts",
       sources: "JOSPT ACL Guidelines; British Journal of Sports Medicine Consensus"
     },
 
@@ -2176,7 +2176,7 @@ Prolonged sitting followed by sudden movement is another classic pattern. When y
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Centralization-based exercises successfully resolve symptoms in 70-80% of disc herniations within 6 weeks by reducing nerve compression and allowing disc rehydration",
+      primaryStrategy: "Centralization-based exercises are consistently the most reliable early intervention for disc-related symptoms and often bring meaningful relief within the first several weeks",
       secondaryStrategy: "Neural mobilization techniques reduce nerve sensitivity and improve mobility when combined with directional exercises that promote centralization of symptoms",
       preventionStrategy: "Movement education focusing on spine-sparing strategies and proper lifting mechanics prevents 60% of recurrent disc episodes",
       sources: "Spine Journal Guidelines; Cochrane Reviews"
@@ -2209,7 +2209,7 @@ Prolonged sitting followed by sudden movement is another classic pattern. When y
         "Early movement helps recovery",
         "Smoking impairs healing"
       ],
-      naturalHistory: "90% of herniations resorb over time. Surgery needed in less than 10% of cases"
+      naturalHistory: "Most herniations get smaller over time on imaging, and most people recover without surgery"
     },
 
     selfManagement: [
@@ -2397,7 +2397,7 @@ Previous injuries create lasting biomechanical changes that predispose you to os
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Progressive quadriceps strengthening combined with low-impact aerobic exercise reduces pain by 40% and improves function equivalent to joint replacement in many patients",
+      primaryStrategy: "Progressive quadriceps strengthening combined with low-impact aerobic exercise reduces pain and improves function meaningfully for most patients, often enough to defer surgery",
       secondaryStrategy: "Weight management achieving even 5-10% weight loss significantly reduces knee loading and slows arthritis progression while improving symptoms",
       preventionStrategy: "Early intervention with exercise therapy and movement optimization can delay disease progression and reduce the need for surgical intervention by 30-40%",
       sources: "OARSI Guidelines; Arthritis Foundation Recommendations"
@@ -2673,7 +2673,7 @@ Poor movement mechanics significantly contribute to meniscus problems. Weak glut
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Progressive exercise therapy achieves equivalent pain relief and functional outcomes to arthroscopic surgery in 80% of degenerative meniscus tears while avoiding surgical risks",
+      primaryStrategy: "Progressive exercise therapy can achieve outcomes comparable to arthroscopic surgery for most degenerative meniscus tears (ESCAPE, METEOR, FIDELITY trials) while avoiding surgical risks",
       secondaryStrategy: "Neuromuscular training and quadriceps strengthening improve knee stability and compensate for meniscus function, reducing mechanical symptoms",
       preventionStrategy: "Maintaining knee flexibility and quadriceps strength can prevent meniscus injury progression and reduce the risk of secondary osteoarthritis development",
       sources: "BMJ Meniscus Guidelines; JOSPT Clinical Practice Guidelines"
@@ -3099,7 +3099,7 @@ With chronic ankle instability, the entire lower limb adapts through compensator
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Early functional mobilization with progressive exercise reduces chronic ankle instability development from 70% to 20% and achieves faster recovery than immobilization approaches",
+      primaryStrategy: "Early functional mobilization with progressive exercise can substantially reduce the risk of developing chronic ankle instability compared with immobilization approaches, and supports faster recovery",
       secondaryStrategy: "Balance and proprioception training combined with strengthening reduces re-injury risk by 40% and effectively addresses the neuromuscular deficits that lead to chronic instability",
       preventionStrategy: "Structured neuromuscular training programs incorporating balance, plyometrics, and sport-specific movements prevent 35% of initial ankle sprains and reduce recurrence by 50% in high-risk populations",
       sources: "JOSPT Clinical Practice Guidelines 2021; British Journal of Sports Medicine Consensus Statement; Cochrane Systematic Reviews"
@@ -3157,7 +3157,7 @@ With chronic ankle instability, the entire lower limb adapts through compensator
     evidenceBasedTreatment: [
       {
         approach: "Balance and Proprioception Training",
-        evidence: "Reduces re-injury risk by 40%",
+        evidence: "Associated with meaningful reductions in re-injury risk in high-quality trials",
         effectivenessLevel: "strong"
       },
       {
@@ -3336,7 +3336,7 @@ Footwear and training surface changes can trigger Achilles problems even in expe
     evidenceSnapshot: {
       primaryStrategy: "Exercise therapy including eccentric loading and heavy-slow resistance training achieves pain reduction and functional improvement in 60-90% of cases, with no clear superiority between methods for mid-portion tendinopathy",
       secondaryStrategy: "Extracorporeal shockwave therapy provides effective adjunct treatment for recalcitrant cases, with evidence supporting improved pain relief and function when combined with exercise programs",
-      preventionStrategy: "Load management and biomechanical assessment prevent training errors that cause 70% of cases, while addressing risk factors like calf weakness and ankle stiffness significantly reduces recurrence",
+      preventionStrategy: "Load management and biomechanical assessment address the training errors that underlie most cases, while addressing risk factors like calf weakness and ankle stiffness significantly reduces recurrence",
       sources: "JOSPT Clinical Practice Guidelines; British Journal of Sports Medicine Consensus; Cochrane Systematic Reviews on Exercise Therapy"
     },
 
@@ -3349,7 +3349,7 @@ Footwear and training surface changes can trigger Achilles problems even in expe
     evidenceBasedTreatment: [
       {
         approach: "Eccentric Exercise Protocol",
-        evidence: "60-90% success rate with consistent application",
+        evidence: "Demonstrates good pain and functional outcomes in the majority of cases with consistent application",
         effectivenessLevel: "strong"
       },
       {
@@ -3591,9 +3591,9 @@ Biomechanical factors significantly influence shin splint development. Overprona
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Progressive loading combined with gait retraining reduces tibial stress by 20-30% and achieves pain resolution in 70-80% of cases within 6-8 weeks",
+      primaryStrategy: "Progressive loading combined with gait retraining can reduce tibial loading and help most runners return to pain-free training within 6 to 8 weeks",
       secondaryStrategy: "Training modification and cross-training maintain fitness while allowing bone adaptation and reducing repetitive loading forces on the tibia",
-      preventionStrategy: "Gradual training progression and running form optimization prevent 60% of medial tibial stress syndrome cases in recreational and competitive runners",
+      preventionStrategy: "Gradual training progression and running form optimization can meaningfully reduce the incidence of medial tibial stress syndrome in recreational and competitive runners",
       sources: "Sports Medicine Running Injury Guidelines"
     },
 
@@ -4149,7 +4149,7 @@ The good news is mild to moderate CTS responds well to conservative treatment - 
     evidenceSnapshot: {
       primaryStrategy: "Night splinting in neutral wrist position reduces symptoms by 60-70% in mild to moderate cases over 4-12 weeks by preventing sustained wrist flexion during sleep that elevates carpal tunnel pressure, with effects maintained long-term when combined with activity modification",
       secondaryStrategy: "Nerve and tendon gliding exercises improve median nerve mobility through the carpal tunnel and reduce adhesions, while corticosteroid injection provides short to medium-term symptom relief for moderate cases (3-6 months benefit) though effect diminishes over time",
-      preventionStrategy: "Workplace ergonomic modifications maintaining neutral wrist postures during computer work and manual tasks reduce CTS incidence by 40-50% in high-risk occupations, while regular microbreaks and grip strength training address modifiable risk factors",
+      preventionStrategy: "Workplace ergonomic changes that maintain neutral wrist postures and regular micro-breaks reduce symptom severity in high-risk occupations, while grip strength training addresses modifiable risk factors",
       sources: "American Academy of Orthopaedic Surgeons Clinical Practice Guidelines; Cochrane Systematic Reviews; AAOS Appropriate Use Criteria"
     },
 
@@ -4451,7 +4451,7 @@ The good news is 70-80% of cases respond to conservative treatment with thumb sp
     evidenceSnapshot: {
       primaryStrategy: "Thumb spica splinting immobilizing the thumb and wrist combined with activity modification achieves symptom resolution in 70-80% of cases within 4-6 weeks by reducing friction within the first dorsal compartment and allowing inflammatory resolution",
       secondaryStrategy: "Corticosteroid injection into the first dorsal compartment provides 60-80% success rate when splinting fails, with higher efficacy when ultrasound-guided to ensure medication reaches all compartment septations. Manual therapy and tendon gliding exercises address mobility restrictions and prevent adhesions",
-      preventionStrategy: "Ergonomic modifications for infant lifting (supporting baby's weight on forearm rather than with extended thumb), proper tool and smartphone use techniques, and strengthening of thumb and wrist stabilizers reduce incidence by 50-60% in high-risk populations including new mothers and repetitive workers",
+      preventionStrategy: "Modified lifting technique (supporting baby's weight on forearm rather than with extended thumb), ergonomic tool and smartphone use, and thumb and wrist strengthening lower the risk of recurrence in high-risk groups including new mothers and repetitive workers",
       sources: "American Society for Surgery of the Hand Clinical Practice Guidelines; Journal of Hand Therapy Evidence-Based Reviews; Cochrane Database Systematic Reviews"
     },
 
@@ -4721,9 +4721,9 @@ Modern research (2024) emphasizes that discrepancies exist between external join
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Progressive therapeutic exercise combined with manual therapy achieves pain reduction equivalent to surgery in many patients, with 60-80% experiencing significant functional improvement",
+      primaryStrategy: "Exercise therapy can match surgery for pain and function in many patients, with most seeing meaningful improvement over several months",
       secondaryStrategy: "Patient education about load-capacity principles and activity modification enables self-management and reduces fear-avoidance behaviors that contribute to disability",
-      preventionStrategy: "Early intervention with strengthening and mobility exercises can delay disease progression and postpone or eliminate the need for joint replacement surgery",
+      preventionStrategy: "Early intervention with strengthening and mobility exercises can delay progression and, for some patients, postpone joint replacement",
       sources: "2018 JOSPT Clinical Practice Guidelines for Hip Pain and Mobility Deficits"
     },
 
@@ -5006,7 +5006,7 @@ Activity demands significantly influence symptom development. Athletes in sports
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Conservative management with movement modification and posterior chain strengthening achieves significant symptom relief in 70-80% of FAI syndrome cases without surgical intervention",
+      primaryStrategy: "Conservative management with movement modification and posterior chain strengthening resolves symptoms for most patients with FAI syndrome without surgery",
       secondaryStrategy: "Activity modification to avoid impingement zones combined with muscle rebalancing reduces pain and allows return to sport activities within safe movement ranges",
       preventionStrategy: "Early identification and movement training in high-risk athletes prevents progression from asymptomatic structural abnormalities to symptomatic FAI syndrome",
       sources: "2016 Warwick Agreement on FAI Syndrome; Hip Preservation Society Guidelines"
@@ -5287,7 +5287,7 @@ Sleep positioning creates sustained compression that explains the characteristic
     evidenceSnapshot: {
       primaryStrategy: "Education and progressive loading exercises prove superior to corticosteroid injections, with 75% of patients showing significant improvement at 8 weeks and maintained gains at 1 year",
       secondaryStrategy: "Load management focusing on compression avoidance combined with isometric strengthening calms tendon irritation while building capacity for functional activities",
-      preventionStrategy: "Avoiding sudden training load increases and maintaining proper sleep positioning prevents 60% of gluteal tendinopathy cases, particularly in post-menopausal women",
+      preventionStrategy: "Avoiding sudden training load increases and maintaining sleep positioning that keeps the hip out of adduction reduces the likelihood of gluteal tendinopathy",
       sources: "2018 LEAP Trial (BMJ); Gluteal Tendinopathy Clinical Guidelines"
     },
 
@@ -5575,7 +5575,7 @@ The natural shock-absorbing capacity of the labrum diminishes with aging and rep
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Conservative management with hip strengthening and movement pattern training achieves successful outcomes in 60-70% of labral tears, avoiding the need for surgical intervention",
+      primaryStrategy: "Conservative management with hip strengthening and movement retraining allows many patients with labral tears to avoid surgery",
       secondaryStrategy: "Activity modification combined with addressing underlying FAI morphology reduces labral stress and allows healing while maintaining functional activities",
       preventionStrategy: "Early identification and treatment of hip impingement prevents labral tear progression and reduces the risk of secondary osteoarthritis development",
       sources: "Hip Preservation Society Guidelines; International Hip Dysplasia Institute recommendations"
@@ -5813,7 +5813,7 @@ Muscle weakness, particularly of the hip abductors, creates abnormal loading pat
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Activity modification combined with progressive strengthening resolves acute hip bursitis in 80-90% of cases within 6-8 weeks by reducing bursal irritation and addressing underlying causes",
+      primaryStrategy: "Activity modification combined with progressive strengthening resolves most acute hip bursitis presentations within 6 to 8 weeks by reducing bursal irritation and addressing underlying causes",
       secondaryStrategy: "Anti-inflammatory measures and manual therapy provide immediate symptom relief while corrective exercises address biomechanical factors that led to bursal inflammation",
       preventionStrategy: "Proper training progression and addressing muscle imbalances prevent 70% of hip bursitis cases in active individuals and athletes",
       sources: "American College of Rheumatology guidelines; Sports medicine literature"
@@ -6023,7 +6023,7 @@ Prolonged nerve compression creates a cascade of pathophysiological changes beyo
     evidenceSnapshot: {
       primaryStrategy: "Neural mobilization combined with deep muscle release and strengthening achieves symptom resolution in 70-85% of deep gluteal syndrome cases by reducing nerve compression and improving function",
       secondaryStrategy: "Activity modification and postural correction address contributing factors while gentle sustained stretching reduces tension in the piriformis and deep rotator muscles",
-      preventionStrategy: "Proper sitting ergonomics and regular hip mobility exercises prevent 60% of deep gluteal syndrome cases in desk workers and prolonged sitters",
+      preventionStrategy: "Sitting breaks and regular hip mobility reduce the likelihood of deep gluteal irritation in desk workers",
       sources: "Clinical practice guidelines for piriformis syndrome; peripheral nerve entrapment literature"
     },
 
@@ -6235,7 +6235,7 @@ Gluteal muscle weakness creates compensatory hamstring overload during functiona
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Progressive loading program with systematic progression from isometric to heavy slow resistance training achieves excellent outcomes in 80-90% of proximal hamstring tendinopathy cases",
+      primaryStrategy: "Progressive loading from isometrics through heavy slow resistance is the most reliable approach for proximal hamstring tendinopathy, though recovery is typically slow",
       secondaryStrategy: "Load management and sitting posture modification provide symptom relief while allowing tendon adaptation through controlled exercise progression",
       preventionStrategy: "Gradual training progression and avoiding sudden increases in hill running or speed work prevents 70% of proximal hamstring tendinopathy cases in runners",
       sources: "2015 JOSPT Goom et al. rehabilitation progression; Tendinopathy research literature"
@@ -6514,7 +6514,7 @@ The relationship between pelvic positioning and piriformis length significantly 
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Progressive hip strengthening combined with piriformis stretching resolves symptoms in 75-85% of piriformis syndrome cases by addressing underlying weakness and muscle tension",
+      primaryStrategy: "Graded hip strengthening and gentle nerve mobility work, paired with sitting modifications, resolve symptoms for most patients with deep gluteal or piriformis-driven pain",
       secondaryStrategy: "Activity modification and postural correction reduce irritating factors while neural mobilization techniques improve sciatic nerve mobility",
       preventionStrategy: "Regular hip strengthening and avoiding prolonged sitting prevent 60% of piriformis syndrome cases in sedentary workers and athletes",
       sources: "Clinical Reviews in Physical Therapy"
@@ -7206,7 +7206,7 @@ The facet joints' orientation in the lumbar spine makes them particularly vulner
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Manual therapy combined with specific exercise therapy achieves significant pain reduction and functional improvement in 70-80% of mechanical back pain cases within 6-8 weeks",
+      primaryStrategy: "Manual therapy combined with targeted strengthening is the most consistently supported approach for facet-driven pain and usually produces meaningful change within a couple of months",
       secondaryStrategy: "Movement restoration and spinal strengthening exercises address underlying movement dysfunctions while building resilience against future episodes",
       preventionStrategy: "Regular spine strengthening and movement education prevent 50% of recurrent back pain episodes by improving spinal stability and movement quality",
       sources: "Spine Journal Reviews"
@@ -7433,7 +7433,7 @@ Respiratory patterns significantly influence thoracic outlet mechanics. Upper ch
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Conservative management with postural correction, nerve mobilization, and strengthening achieves successful outcomes in 60-70% of thoracic outlet syndrome cases within 8-12 weeks",
+      primaryStrategy: "Conservative care centred on scapular control, nerve mobility, and breathing mechanics is the appropriate first step for neurogenic TOS, with meaningful change typically taking three to six months",
       secondaryStrategy: "Movement re-education and ergonomic modifications address contributing factors while reducing compression on neurovascular structures in the thoracic outlet",
       preventionStrategy: "Proper workplace ergonomics and regular upper extremity strengthening prevent 50% of thoracic outlet syndrome cases in desk workers and overhead athletes",
       sources: "Journal of Vascular Surgery Guidelines"
@@ -7657,9 +7657,9 @@ Common aggravating factors include the 'boom-bust' cycle of overdoing on good da
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Structured exercise therapy addressing scapular control and rotator cuff strength achieves equivalent outcomes to surgery in 70-90% of cases with lower risk and cost",
+      primaryStrategy: "Structured exercise therapy addressing scapular control and rotator cuff strength produces outcomes comparable to surgery for the majority of patients, with lower risk and cost",
       secondaryStrategy: "Manual therapy and corticosteroid injections provide short-term symptom relief while exercise programs address underlying biomechanical factors",
-      preventionStrategy: "Scapular stabilization exercises and postural correction prevent 43% of future shoulder injuries by maintaining optimal shoulder mechanics",
+      preventionStrategy: "Scapular stabilisation and postural work reduce shoulder injury risk in athletes with scapular dyskinesis",
       sources: "JOSPT Shoulder Guidelines"
     },
 
@@ -7965,7 +7965,7 @@ Scapular dyskinesis alters AC joint loading patterns by disrupting normal scapul
     ],
 
     prognosis: {
-      timeline: "Grade I: 2-4 weeks, Grade II: 4-6 weeks, Grade III: 8-12 weeks",
+      timeline: "Typical ranges: Grade I around 2-4 weeks, Grade II around 4-6 weeks, Grade III often 8-12 weeks, with actual return driven by strength and scapular control rather than the calendar",
       factors: [
         "Injury grade",
         "Activity demands",
@@ -8174,7 +8174,7 @@ The biceps tendon's intra-articular portion experiences unique mechanical challe
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Eccentric strengthening exercises promote tendon remodeling and healing in biceps tendinopathy with significant improvement in 70-80% of cases over 12 weeks",
+      primaryStrategy: "Progressive eccentric and heavy-slow loading can improve pain and function for most patients with biceps tendinopathy, though biceps-specific dosing evidence is still limited",
       secondaryStrategy: "Addressing associated shoulder pathology including impingement and rotator cuff dysfunction is essential as biceps issues rarely occur in isolation",
       preventionStrategy: "Shoulder mechanics optimization and postural correction prevent biceps tendon overload by maintaining proper glenohumeral positioning during activities",
       sources: "Shoulder & Elbow Journal Reviews"
@@ -8392,9 +8392,9 @@ Contact sports create the highest risk for MCL injuries through direct trauma me
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Conservative management with early mobilization and progressive strengthening achieves excellent outcomes for Grade I-II MCL/LCL sprains with full return to sport in 85-90% of cases",
+      primaryStrategy: "Most Grade I and II MCL/LCL sprains return to sport with structured conservative care built around early mobilization and progressive strengthening",
       secondaryStrategy: "Functional bracing provides stability during healing phases while allowing controlled movement and preventing joint stiffness",
-      preventionStrategy: "Neuromuscular training programs focusing on landing mechanics and knee control reduce collateral ligament injury risk by 50% in pivoting sports",
+      preventionStrategy: "Neuromuscular training programs focusing on landing mechanics and knee control can meaningfully reduce collateral ligament injury risk in pivoting sports",
       sources: "Sports Medicine Knee Guidelines"
     },
 
@@ -8668,7 +8668,7 @@ Body mass significantly influences absolute patellar tendon loading. Each kilogr
     evidenceSnapshot: {
       primaryStrategy: "Progressive tendon loading combining isometric, heavy slow resistance, or moderate resistance training shows superior outcomes to eccentric exercise alone, with 70-85% achieving significant improvement at 12 weeks according to 2024 systematic reviews",
       secondaryStrategy: "In-season isometric loading protocols provide immediate pain relief allowing continued sport participation while longer-term heavy slow resistance programs build tendon capacity during off-season periods",
-      preventionStrategy: "Gradual training load progression limiting weekly increases to less than 30%, combined with landing technique optimization and calf flexibility maintenance, reduces patellar tendinopathy incidence by 50-67% in jumping athletes",
+      preventionStrategy: "Gradual training load progression combined with landing technique and calf flexibility work can meaningfully reduce patellar tendinopathy incidence in jumping athletes",
       sources: "2024 Network Meta-analysis in Heliyon; 2024 Frontiers in Rehabilitation Sciences Systematic Review; JOSPT Clinical Practice Guidelines 2024 Update"
     },
 
@@ -8693,7 +8693,7 @@ Many athletes fear that continuing to exercise with some pain will damage the te
     evidenceBasedTreatment: [
       {
         approach: "Isometric Loading Protocol",
-        evidence: "Isometric holds at 70% maximum voluntary contraction for 45 seconds x 5 repetitions provide immediate pain relief lasting 45 minutes and reduce cortical inhibition. Athletes report 50-75% pain reduction immediately post-exercise, allowing continued sport participation",
+        evidence: "Isometric holds at 70% maximum voluntary contraction for 45 seconds x 5 repetitions can reduce pain for a short window after the set, which some athletes use before training (Rio et al. 2015, with mixed replication since)",
         effectivenessLevel: "strong"
       },
       {
@@ -8721,7 +8721,7 @@ Many athletes fear that continuing to exercise with some pain will damage the te
     prognosis: {
       timeline: "Most athletes experience significant improvement within 12 weeks of appropriate loading programs, with 70-80% achieving full return to sport by 3-6 months. However, complete tendon remodeling continues for 6-12 months. In-season athletes can often continue playing with modified training while undergoing rehabilitation",
       factors: [
-        "Duration of symptoms before treatment initiation - those treated within 3 months have 85% success rate versus 50% for symptoms over 12 months",
+        "Duration of symptoms before treatment initiation - patients treated earlier generally respond better than those with symptoms over a year, though individual response varies",
         "Adherence to progressive loading program correlates directly with outcomes - high compliance achieves 80% success versus 30% with poor compliance",
         "Training load management during rehabilitation determines both recovery speed and recurrence risk",
         "Baseline VISA-P score below 50 and older age (over 30) associated with longer recovery times",
@@ -8757,7 +8757,7 @@ Many athletes fear that continuing to exercise with some pain will damage the te
       },
       {
         strategy: "Progressive Loading Using Decline Squat",
-        rationale: "The 25-degree decline position increases load on the patellar tendon by 30% compared to flat surface, providing optimal stimulus for adaptation while being easily controlled",
+        rationale: "The decline position loads the patellar tendon more than a level-surface squat, giving a useful therapeutic stimulus while being easily controlled",
         precautions: ["Start with body weight only before adding resistance", "Use slow, controlled tempo (3 seconds down, 3 up)", "Some pain during exercise is acceptable but should settle within 24 hours"]
       },
       {
@@ -9426,7 +9426,7 @@ Walking on an incline often feels easier than walking on flat ground because the
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Exercise therapy focusing on spinal flexion mobility and cardiovascular fitness improves walking capacity by 30-50% and delays the need for surgical intervention in many patients",
+      primaryStrategy: "Flexion-biased exercise, strength work, and cardio (often cycling) meaningfully improve walking tolerance for most patients and can delay or avoid surgery",
       secondaryStrategy: "Activity modification using positioning strategies and adaptive equipment allows maintained function while managing neurogenic claudication symptoms",
       preventionStrategy: "Early intervention with flexibility exercises and cardiovascular fitness can slow functional decline and maintain independence in daily activities",
       sources: "Clinical practice guidelines; Cochrane reviews; North American Spine Society recommendations"
@@ -9689,9 +9689,9 @@ The deeper stabilizing muscles of your neck - the deep cervical flexors - become
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Exercise therapy combining deep cervical flexor strengthening with pectoral and upper trap stretching reduces pain by 60-70% and improves postural alignment within 8-12 weeks",
+      primaryStrategy: "Targeted strengthening of the deep neck flexors and mid-back, combined with movement variability and sensible ergonomics, reliably reduces symptoms and end-of-day fatigue",
       secondaryStrategy: "Workplace ergonomic modifications and movement breaks prevent symptom progression while corrective exercises address underlying muscle imbalances",
-      preventionStrategy: "Regular postural awareness training and ergonomic education prevent 70% of work-related postural dysfunction by addressing underlying causes",
+      preventionStrategy: "Regular postural awareness training and ergonomic education substantially reduce work-related postural dysfunction by addressing underlying causes",
       sources: "Systematic reviews on upper crossed syndrome; evidence on exercise therapy for postural dysfunction"
     },
 
@@ -9931,9 +9931,9 @@ The kinetic chain from your feet to your fingertips influences shoulder stabilit
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Evidence-based exercise programs achieve 80-90% success rates for atraumatic shoulder instability through strengthening dynamic stabilizers and improving neuromuscular control",
+      primaryStrategy: "Structured exercise programmes produce meaningful improvement in pain, function and perceived stability for most patients with atraumatic instability through strengthening dynamic stabilizers and improving neuromuscular control",
       secondaryStrategy: "Proprioceptive training and scapular stabilization exercises restore shoulder stability while avoiding provocative positions during healing phases",
-      preventionStrategy: "Regular shoulder strengthening and proper technique training prevent 60% of shoulder instability episodes in overhead athletes and active individuals",
+      preventionStrategy: "Regular shoulder strengthening and technique training reduce instability episodes in overhead athletes and active individuals",
       sources: "Derby Shoulder Instability Programme; Watson Instability Program; systematic reviews on rehabilitation effectiveness"
     },
 
@@ -10188,7 +10188,7 @@ Rotator cuff weakness, particularly in the posterior and inferior aspects, allow
     evidenceSnapshot: {
       primaryStrategy: "Conservative physiotherapy addressing underlying mechanical factors achieves significant pain reduction in 70-80% of shoulder bursitis cases by correcting scapular mechanics and rotator cuff function",
       secondaryStrategy: "Anti-inflammatory modalities and activity modification provide symptom relief while corrective exercises address postural and biomechanical contributors",
-      preventionStrategy: "Proper shoulder mechanics training and regular strengthening exercises prevent 60% of shoulder bursitis cases by maintaining optimal subacromial space",
+      preventionStrategy: "Proper shoulder mechanics and regular strengthening reduce recurrence by maintaining subacromial space",
       sources: "Cleveland Clinic guidelines; Mayo Clinic recommendations; Physiopedia systematic reviews"
     },
 
@@ -10716,7 +10716,7 @@ The repetitive nature of typing and mouse use creates cumulative loading on tend
     evidenceSnapshot: {
       primaryStrategy: "Multimodal approach combining exercise therapy, ergonomic modification, and stress management achieves significant symptom reduction in 60-70% of RSI cases through addressing multiple contributing factors",
       secondaryStrategy: "Activity modification and workplace interventions provide immediate relief while corrective exercises address underlying muscle imbalances and postural dysfunction",
-      preventionStrategy: "Proper ergonomic setup and regular movement breaks prevent 80% of computer-related RSI cases by reducing cumulative loading and maintaining healthy movement patterns",
+      preventionStrategy: "Ergonomic setup and regular movement breaks reduce cumulative loading and lower the risk of computer-related symptoms, particularly when combined with targeted exercise",
       sources: "NHS guidelines; Cleveland Clinic recommendations; systematic reviews on RSI interventions; occupational health research"
     },
 
@@ -10982,7 +10982,7 @@ Asymmetrical movement patterns in sports create rotational forces that challenge
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Multimodal physiotherapy combining manual therapy with targeted exercise achieves significant pain reduction and functional improvement in 70-80% of SI joint dysfunction cases",
+      primaryStrategy: "Combining manual therapy with targeted strengthening of the deep trunk and glutes reliably improves function in SI joint presentations, with most cases responding within a couple of months",
       secondaryStrategy: "Motor control training and deep stabilizer strengthening address underlying force closure dysfunction while manual therapy provides immediate symptom relief",
       preventionStrategy: "Core strengthening and movement education prevent 60% of SI joint dysfunction cases by maintaining optimal pelvic stability and force transfer",
       sources: "Systematic reviews on SI joint interventions; AAFP clinical guidelines; evidence-based rehabilitation protocols"
@@ -11259,9 +11259,9 @@ The posterior drawer test demonstrates the primary dysfunction in PCL injuries -
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Conservative treatment with structured quadriceps-focused rehabilitation achieves excellent functional outcomes in 80-90% of isolated PCL injuries, avoiding the need for surgical intervention",
+      primaryStrategy: "Most isolated PCL injuries do well with quadriceps-focused rehabilitation, avoiding surgery in the majority of cases",
       secondaryStrategy: "Protected weight-bearing and hamstring strengthening avoidance in early phases allows ligament healing while quadriceps strengthening compensates for stability loss",
-      preventionStrategy: "Proper landing technique training and neuromuscular control programs reduce PCL injury risk by 40% in high-risk sports and activities",
+      preventionStrategy: "Landing technique training and neuromuscular control programs may reduce PCL injury risk in higher-risk sports",
       sources: "Sports medicine literature; systematic reviews on PCL rehabilitation; return-to-play algorithms emphasizing conservative treatment"
     },
 
@@ -11509,7 +11509,7 @@ When ankle proprioception is impaired following sprains, the peroneal muscles mu
     evidenceSnapshot: {
       primaryStrategy: "Combined progressive loading and ankle stability training achieve good outcomes in 70-80% of peroneal tendinopathy cases, with addressing underlying chronic ankle instability being crucial for successful long-term outcomes",
       secondaryStrategy: "Eccentric strengthening promotes tendon remodeling while proprioceptive training addresses the neuromuscular deficits that contribute to both ankle instability and peroneal overload",
-      preventionStrategy: "Early rehabilitation of ankle sprains and prevention of chronic ankle instability reduces peroneal tendinopathy risk by 60%, as these conditions share common pathophysiological pathways",
+      preventionStrategy: "Early rehabilitation of ankle sprains and prevention of chronic ankle instability meaningfully reduces peroneal tendinopathy risk, as these conditions share common pathophysiological pathways",
       sources: "Case series and clinical experience; ankle instability research from JOSPT Guidelines; expert consensus on rehabilitation approaches"
     },
 
@@ -11779,7 +11779,7 @@ Risk factors that predispose to biomechanical failure include obesity (increasin
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Early stage conservative management with orthotic intervention and posterior tibial strengthening shows 70-89% success in preventing progression to rigid deformity requiring surgical reconstruction",
+      primaryStrategy: "Early stage conservative management with orthotic intervention and tibialis posterior strengthening has a strong track record of preventing progression to rigid deformity requiring surgical reconstruction",
       secondaryStrategy: "Comprehensive rehabilitation addressing kinetic chain dysfunction and activity modification prevents symptom flares while maintaining function during tendon remodeling",
       preventionStrategy: "Recognition of early medial ankle pain patterns and risk factor modification (weight management, diabetes control) prevent progression to advanced stages requiring complex reconstruction",
       sources: "Progressive Collapsing Foot Deformity Guidelines 2023; AOFAS Clinical Practice Guidelines; Stage-specific Treatment Outcomes Meta-analyses"
@@ -11849,7 +11849,7 @@ Risk factors that predispose to biomechanical failure include obesity (increasin
         "BMI significantly impacts outcomes with obesity predicting poorer response to conservative treatment",
         "Diabetes mellitus associated with delayed healing and higher failure rates",
         "Age >60 years correlates with reduced likelihood of avoiding surgical intervention",
-        "Compliance with orthotic wear is critical - non-adherent patients show 3x higher progression rates",
+        "Compliance with orthotic wear is one of the strongest predictors of whether the condition stabilises",
         "Symptom duration >2 years associated with poorer conservative outcomes"
       ],
       naturalHistory: "PTTD is inherently progressive without intervention. Stage I may remain stable for years but commonly progresses to Stage II within 2-5 years. Stage II almost universally progresses to Stage III without adequate treatment. Conservative management can halt progression in 70-89% of Stage I-II cases, while advanced stages require surgical reconstruction to prevent disability"
@@ -12095,7 +12095,7 @@ The plantar fascia's role in maintaining arch stability affects metatarsal mecha
     evidenceSnapshot: {
       primaryStrategy: "Conservative treatment combining footwear modification, metatarsal padding, and activity modification achieves 80-85% success rates when initiated within 6 months of symptom onset",
       secondaryStrategy: "Corticosteroid injections provide 60-80% short-term relief but show diminishing returns with repeated use; sclerosing alcohol injections offer more durable outcomes than steroids",
-      preventionStrategy: "Proper footwear education with emphasis on toe box width and heel height limitations prevents recurrence in >90% of successfully treated cases",
+      preventionStrategy: "Footwear education targeting toe box width and heel height substantially reduces recurrence after successful treatment",
       sources: "Cochrane Systematic Reviews 2021; Journal of Foot and Ankle Surgery Meta-analyses; American College of Foot and Ankle Surgeons Clinical Practice Guidelines"
     },
 
@@ -12411,7 +12411,7 @@ Intrinsic foot muscle weakness contributes to metatarsalgia by reducing the foot
     evidenceSnapshot: {
       primaryStrategy: "Load redistribution through properly fitted orthotic devices with metatarsal padding provides significant pain relief in 75-90% of patients within 8-12 weeks of consistent use",
       secondaryStrategy: "Intrinsic foot muscle strengthening combined with calf flexibility exercises addresses underlying biomechanical dysfunction and reduces recurrence rates by 60-70%",
-      preventionStrategy: "Appropriate footwear selection with adequate forefoot cushioning and gradual activity progression prevents mechanical overload and symptom development in 85% of at-risk individuals",
+      preventionStrategy: "Appropriate footwear selection with adequate forefoot cushioning and gradual activity progression reduces the mechanical overload that drives most presentations in at-risk individuals",
       sources: "Journal of Foot and Ankle Research 2023; Clinical Biomechanics Meta-analyses; American Podiatric Medical Association Treatment Guidelines"
     },
 
@@ -12467,7 +12467,7 @@ Intrinsic foot muscle weakness contributes to metatarsalgia by reducing the foot
       },
       {
         approach: "Footwear Modification and Education",
-        evidence: "Shoes with adequate forefoot cushioning, low heels, and proper width significantly reduce symptoms. Patient education about proper footwear selection prevents recurrence in 80% of cases",
+        evidence: "Shoes with adequate forefoot cushioning, low heels, and proper width significantly reduce symptoms. Patient education on footwear selection is consistently linked to lower recurrence rates",
         effectivenessLevel: "strong"
       }
     ],
@@ -12752,7 +12752,7 @@ Ground reaction force patterns change significantly with hallux valgus progressi
     evidenceSnapshot: {
       primaryStrategy: "Conservative management combining footwear modification, padding, and orthotic therapy achieves satisfactory symptom relief in 73-80% of patients without halting deformity progression",
       secondaryStrategy: "Targeted exercises and manual therapy techniques help maintain joint mobility and muscle balance, potentially slowing progression rates by 15-25% when combined with other interventions",
-      preventionStrategy: "Early intervention with proper footwear education and biomechanical assessment can prevent 60-70% of symptomatic presentations in at-risk individuals",
+      preventionStrategy: "Early intervention with footwear education and biomechanical assessment can meaningfully reduce the chance of symptomatic progression in at-risk individuals",
       sources: "Cochrane Systematic Reviews on hallux valgus; American Podiatric Medical Association Clinical Practice Guidelines; International Weight Bearing CT Studies"
     },
 
@@ -13114,7 +13114,7 @@ The progressive nature of the condition means that periodic reassessment and tre
     evidenceBasedTreatment: [
       {
         approach: "Specialized Footwear with Rigid Sole and Rocker Bottom",
-        evidence: "Clinical studies demonstrate 75-85% symptom improvement with properly designed shoes that eliminate the need for great toe dorsiflexion during push-off",
+        evidence: "Clinical studies show that properly designed rigid-soled and rocker-bottom shoes produce reliable symptom improvement in most mild to moderate cases by eliminating the need for great toe dorsiflexion during push-off",
         effectivenessLevel: "strong"
       },
       {
@@ -13385,7 +13385,7 @@ The return to normal biomechanics requires restoration of both joint stability a
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Early accurate grading and appropriate protection based on injury severity achieves 90-95% successful return to sport, with Grade I injuries returning in 1-2 weeks and Grade III injuries requiring 8-12 weeks",
+      primaryStrategy: "Early accurate grading and appropriate protection based on injury severity produces reliable return-to-sport outcomes when respected, with Grade I injuries returning in 1-2 weeks and Grade III injuries requiring 8-12 weeks",
       secondaryStrategy: "Progressive rehabilitation emphasizing range of motion restoration, strengthening, and sport-specific training reduces re-injury rates to less than 5% when properly implemented",
       preventionStrategy: "Appropriate footwear with rigid forefoot support and proper playing surface maintenance can reduce turf toe incidence by up to 50% in high-risk sports",
       sources: "American Journal of Sports Medicine systematic reviews; Foot and Ankle International clinical practice guidelines; Sports Health consensus statements"
@@ -13752,12 +13752,12 @@ The condition serves as an important lesson in listening to the body's signals a
     evidenceBasedTreatment: [
       {
         approach: "Activity Modification and Load Management",
-        evidence: "Reducing high-impact activities while maintaining fitness through swimming, cycling, and modified training reduces symptoms in 90% of cases within 4-8 weeks",
+        evidence: "Reducing high-impact activities while maintaining fitness through swimming, cycling, and modified training helps most children improve within 4 to 8 weeks",
         effectivenessLevel: "strong"
       },
       {
         approach: "Gastrocnemius and Soleus Stretching Program",
-        evidence: "Daily calf stretching reduces tension on the growth plate and accelerates symptom resolution, with studies showing 30% faster recovery when combined with activity modification",
+        evidence: "Daily calf stretching reduces tension on the growth plate and may shorten recovery when combined with activity modification",
         effectivenessLevel: "strong"
       },
       {

@@ -454,29 +454,31 @@ export default function ConditionPageClient({
                 Treating {condition.name.toLowerCase()} at my Burlington clinic. Convenient for Waterdown and Flamborough residents.
               </p>
 
-              {/* Primary actions */}
-              <div className="mt-5 flex flex-wrap items-center gap-2">
+              {/* Primary actions: single primary CTA + inline text links so
+                  the hero stops looking like a button rack. */}
+              <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
                 <Link
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
-                  className="inline-flex items-center gap-1.5 px-4 py-3 rounded-lg bg-[#B08D57] text-white text-sm font-medium hover:bg-[#997A4B] transition-colors"
+                  className="inline-flex items-center gap-1.5 px-5 py-3 rounded-lg bg-[#B08D57] text-white text-sm font-medium hover:bg-[#997A4B] transition-colors"
                 >
                   <CalendarIcon className="h-4 w-4" />
                   Book Initial Assessment
                 </Link>
                 <Link
                   href="tel:+19056346000"
-                  className="inline-flex items-center gap-1.5 px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-700 text-sm font-medium hover:border-[#B08D57] hover:text-[#B08D57] transition-colors"
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-700 hover:text-[#B08D57] transition-colors"
                 >
-                  <PhoneIcon className="h-4 w-4" />
-                  Call Clinic
+                  <PhoneIcon className="h-4 w-4" aria-hidden="true" />
+                  Call clinic
                 </Link>
+                <span aria-hidden="true" className="hidden sm:inline h-4 w-px bg-slate-300" />
                 <Link
                   href="/conditions"
-                  className="inline-flex items-center gap-1.5 px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-700 text-sm font-medium hover:border-[#B08D57] hover:text-[#B08D57] transition-colors"
+                  className="inline-flex items-center gap-1 text-sm font-medium text-slate-600 hover:text-[#B08D57] transition-colors"
                 >
-                  View All Conditions
-                  <ArrowRightIcon className="h-4 w-4" />
+                  View all conditions
+                  <ArrowRightIcon className="h-3.5 w-3.5" aria-hidden="true" />
                 </Link>
               </div>
 
@@ -971,7 +973,7 @@ export default function ConditionPageClient({
                             )}
 
                             {activeOverviewView === 'biomechanics' && condition.biomechanics && (
-                              <div className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-sm">
+                              <div className="bg-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-sm">
                                 <SectionHeading
                                   id="contributing-factors"
                                   kicker="Overview"
@@ -1192,94 +1194,72 @@ export default function ConditionPageClient({
                                 <div className="p-8">
                                   <div className="columns-1 md:columns-2 gap-6 space-y-6">
                                     {condition.keyResearch.map((research, index) => {
-                                      const colors = [
-                                        { bg: 'from-emerald-50/50 to-emerald-50/20', border: 'border-emerald-100', icon: 'from-emerald-500 to-emerald-600', text: 'text-emerald-700' },
-                                        { bg: 'from-blue-50/50 to-blue-50/20', border: 'border-blue-100', icon: 'from-blue-500 to-blue-600', text: 'text-blue-700' },
-                                        { bg: 'from-purple-50/50 to-purple-50/20', border: 'border-purple-100', icon: 'from-purple-500 to-purple-600', text: 'text-purple-700' },
-                                        { bg: 'from-teal-50/50 to-teal-50/20', border: 'border-teal-100', icon: 'from-teal-500 to-teal-600', text: 'text-teal-700' },
-                                      ];
-                                      const color = colors[index % colors.length];
-
-                                      // Check if this is NEW FORMAT (finding/detail/clinicalRelevance) or OLD FORMAT (title/authors/findings)
+                                      // Unified editorial card: white, gold left rule, numeric kicker.
+                                      // No chromatic differentiation between research items.
                                       const isNewFormat = research.finding && research.detail && research.clinicalRelevance;
+                                      const indexLabel = String(index + 1).padStart(2, '0');
 
                                       return (
-                                        <div key={index} className="relative bg-white/90 backdrop-blur-xl rounded-2xl p-7 border border-slate-100 shadow-sm break-inside-avoid mb-6">
-                                          <div className="flex gap-4">
-                                            <div className="flex-shrink-0">
-                                              <div className={`w-12 h-12 bg-gradient-to-br ${color.icon} rounded-xl flex items-center justify-center shadow-lg`}>
-                                                <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                                                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                                                </svg>
-                                              </div>
-                                            </div>
-                                            <div className="flex-1">
-                                              {isNewFormat ? (
-                                                // NEW FORMAT RENDERING
-                                                <>
-                                                  <div className="mb-3">
-                                                    <h3 className={`text-base font-semibold ${color.text} mb-2 leading-tight`}>
-                                                      {research.finding}
-                                                    </h3>
-                                                  </div>
-
-                                                  <div className="mb-3">
-                                                    <h4 className="text-sm font-medium text-slate-900 mb-1">Research Details:</h4>
-                                                    <p className="text-slate-700 text-sm leading-relaxed">{research.detail}</p>
-                                                  </div>
-
-                                                  <div className="p-3 bg-white/60 backdrop-blur rounded-lg border border-white/40">
-                                                    <h4 className="text-sm font-medium text-slate-900 mb-1">Clinical Relevance:</h4>
-                                                    <p className="text-slate-700 text-sm leading-relaxed">{research.clinicalRelevance}</p>
-                                                  </div>
-                                                </>
-                                              ) : (
-                                                // OLD FORMAT RENDERING
-                                                <>
-                                                  <div className="flex items-start justify-between mb-3">
-                                                    <h3 className={`text-xs font-semibold ${color.text} uppercase tracking-wider mb-2`}>
-                                                      {research.authors && `${research.authors} (${research.year})`}
-                                                      {!research.authors && research.title}
-                                                    </h3>
-                                                    {research.year && (
-                                                      <span className="text-xs text-slate-500 bg-white/80 backdrop-blur px-3 py-1.5 rounded-full font-medium">
-                                                        {research.year}
-                                                      </span>
-                                                    )}
-                                                  </div>
-
-                                                  {research.authors && (
-                                                    <h4 className="font-medium text-slate-900 mb-3 text-lg leading-tight">
-                                                      {research.title}
-                                                    </h4>
-                                                  )}
-
-                                                  {research.journal && (
-                                                    <p className="text-sm text-slate-600 italic mb-3">
-                                                      Published in: {research.journal}
-                                                      {research.sampleSize && ` • Sample Size: ${research.sampleSize}`}
-                                                    </p>
-                                                  )}
-
-                                                  <div className="mb-3">
-                                                    <h4 className="text-sm font-medium text-slate-900 mb-1">Key Findings:</h4>
-                                                    <p className="text-slate-700 text-sm leading-relaxed">{research.findings}</p>
-                                                  </div>
-
-                                                  <div className="p-3 bg-white/60 backdrop-blur rounded-lg border border-white/40">
-                                                    <h4 className="text-sm font-medium text-slate-900 mb-1">Clinical Relevance:</h4>
-                                                    <p className="text-slate-700 text-sm leading-relaxed">{research.relevance}</p>
-                                                  </div>
-
-                                                  {research.citation && (
-                                                    <div className="mt-3 pt-3 border-t border-slate-200/60">
-                                                      <p className="text-xs text-slate-500 font-mono">{research.citation}</p>
-                                                    </div>
-                                                  )}
-                                                </>
-                                              )}
-                                            </div>
+                                        <div key={index} className="relative bg-white rounded-xl p-6 md:p-7 border border-slate-200 border-l-4 border-l-[#B08D57] shadow-sm break-inside-avoid mb-6">
+                                          <div className="mb-4 flex items-center gap-2.5">
+                                            <span aria-hidden="true" className="text-sm font-semibold text-[#B08D57] tabular-nums">{indexLabel}</span>
+                                            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">
+                                              {isNewFormat ? 'Finding' : (research.authors ? `${research.authors}${research.year ? ` · ${research.year}` : ''}` : 'Study')}
+                                            </p>
                                           </div>
+
+                                          {isNewFormat ? (
+                                            <>
+                                              <h3 className="text-base md:text-lg font-semibold text-slate-900 mb-4 leading-snug max-w-[58ch]">
+                                                {research.finding}
+                                              </h3>
+
+                                              <div className="mb-4">
+                                                <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500 mb-1.5">Research details</p>
+                                                <p className="text-slate-700 text-sm leading-relaxed max-w-[58ch]">{research.detail}</p>
+                                              </div>
+
+                                              <div className="pt-4 border-t border-slate-100">
+                                                <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500 mb-1.5">Clinical relevance</p>
+                                                <p className="text-slate-700 text-sm leading-relaxed max-w-[58ch]">{research.clinicalRelevance}</p>
+                                              </div>
+                                            </>
+                                          ) : (
+                                            <>
+                                              {research.title && (
+                                                <h3 className="text-base md:text-lg font-semibold text-slate-900 mb-3 leading-snug max-w-[58ch]">
+                                                  {research.title}
+                                                </h3>
+                                              )}
+
+                                              {research.journal && (
+                                                <p className="text-sm text-slate-600 italic mb-4">
+                                                  {research.journal}
+                                                  {research.sampleSize && ` · n=${research.sampleSize}`}
+                                                </p>
+                                              )}
+
+                                              {research.findings && (
+                                                <div className="mb-4">
+                                                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500 mb-1.5">Key findings</p>
+                                                  <p className="text-slate-700 text-sm leading-relaxed max-w-[58ch]">{research.findings}</p>
+                                                </div>
+                                              )}
+
+                                              {research.relevance && (
+                                                <div className="pt-4 border-t border-slate-100">
+                                                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500 mb-1.5">Clinical relevance</p>
+                                                  <p className="text-slate-700 text-sm leading-relaxed max-w-[58ch]">{research.relevance}</p>
+                                                </div>
+                                              )}
+
+                                              {research.citation && (
+                                                <p className="mt-4 pt-4 border-t border-slate-100 text-xs text-slate-500 font-mono leading-relaxed">
+                                                  {research.citation}
+                                                </p>
+                                              )}
+                                            </>
+                                          )}
                                         </div>
                                       );
                                     })}
@@ -1347,41 +1327,22 @@ export default function ConditionPageClient({
                                       className="overflow-hidden"
                                     >
                                       <div className="p-8">
-                                  <div className="space-y-5">
+                                  <div className="space-y-4">
                                     {condition.researchInsights.map((insight, index) => {
                                       const colonIndex = insight.indexOf(':');
                                       const topic = colonIndex > -1 ? insight.substring(0, colonIndex).trim() : '';
                                       const finding = colonIndex > -1 ? insight.substring(colonIndex + 1).trim() : insight;
-                                      
-                                      const colors = [
-                                        { bg: 'from-blue-50/50 to-blue-50/20', border: 'border-blue-100', icon: 'from-blue-500 to-blue-600', text: 'text-blue-700' },
-                                        { bg: 'from-indigo-50/50 to-indigo-50/20', border: 'border-indigo-100', icon: 'from-indigo-500 to-indigo-600', text: 'text-indigo-700' },
-                                        { bg: 'from-violet-50/50 to-violet-50/20', border: 'border-violet-100', icon: 'from-violet-500 to-violet-600', text: 'text-violet-700' },
-                                        { bg: 'from-cyan-50/50 to-cyan-50/20', border: 'border-cyan-100', icon: 'from-cyan-500 to-cyan-600', text: 'text-cyan-700' },
-                                      ];
-                                      const color = colors[index % colors.length];
-                                      
+
                                       return (
-                                        <div key={index} className={`group relative bg-gradient-to-r ${color.bg} rounded-xl p-6 border ${color.border} hover:shadow-md transition-all`}>
-                                          <div className="flex gap-4">
-                                            <div className="flex-shrink-0">
-                                              <div className={`w-12 h-12 bg-gradient-to-br ${color.icon} rounded-xl flex items-center justify-center shadow-lg`}>
-                                                <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                                                  <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                                                </svg>
-                                              </div>
-                                            </div>
-                                            <div className="flex-1">
-                                              {topic ? (
-                                                <>
-                                                  <h3 className={`text-xs font-semibold ${color.text} uppercase tracking-wider mb-2`}>{topic}</h3>
-                                                  <p className="text-slate-700 text-sm leading-relaxed">{finding}</p>
-                                                </>
-                                              ) : (
-                                                <p className="text-slate-700 text-sm leading-relaxed">{finding}</p>
-                                              )}
-                                            </div>
-                                          </div>
+                                        <div key={index} className="relative bg-white rounded-xl p-6 border border-slate-200 border-l-4 border-l-[#B08D57] shadow-sm">
+                                          {topic ? (
+                                            <>
+                                              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57] mb-2">{topic}</p>
+                                              <p className="text-slate-700 text-sm md:text-base leading-relaxed max-w-[72ch]">{finding}</p>
+                                            </>
+                                          ) : (
+                                            <p className="text-slate-700 text-sm md:text-base leading-relaxed max-w-[72ch]">{finding}</p>
+                                          )}
                                         </div>
                                       );
                                     })}

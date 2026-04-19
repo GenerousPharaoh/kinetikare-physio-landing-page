@@ -34,6 +34,7 @@ import type { PatternMatcherCluster } from '@/lib/pattern-matchers/knee-cluster'
 import ClinicalObservations from './conditions/ClinicalObservations';
 import AuthorByline from './conditions/AuthorByline';
 import SectionHeading from './conditions/SectionHeading';
+import GlossaryText from './conditions/GlossaryText';
 import RelatedConditionsList from './conditions/RelatedConditionsList';
 import ComparisonCrossLinks from './conditions/ComparisonCrossLinks';
 import ConsentNote from './conditions/ConsentNote';
@@ -916,11 +917,14 @@ export default function ConditionPageClient({
                                 The Science of {condition.name || 'Your Condition'}
                               </SectionHeading>
                               <div className="space-y-5">
-                                {condition.pathophysiology.split('\n\n').map((paragraph, index) => (
-                                  <p key={index} className="text-base md:text-lg text-slate-700 leading-relaxed max-w-[72ch]">
-                                    {paragraph}
-                                  </p>
-                                ))}
+                                {(() => {
+                                  const used = new Set<string>();
+                                  return condition.pathophysiology.split('\n\n').map((paragraph, index) => (
+                                    <p key={index} className="text-base md:text-lg text-slate-700 leading-relaxed max-w-[72ch]">
+                                      <GlossaryText text={paragraph} usedTerms={used} />
+                                    </p>
+                                  ));
+                                })()}
                               </div>
                             </div>
                           )}
@@ -935,11 +939,14 @@ export default function ConditionPageClient({
                                 Understanding Your Condition
                               </SectionHeading>
                               <div className="space-y-6">
-                                {condition.overview.split('\n\n').map((paragraph, index) => (
-                                  <p key={index} className="text-base md:text-lg text-slate-700 leading-relaxed max-w-[72ch]">
-                                    {paragraph}
-                                  </p>
-                                ))}
+                                {(() => {
+                                  const used = new Set<string>();
+                                  return condition.overview.split('\n\n').map((paragraph, index) => (
+                                    <p key={index} className="text-base md:text-lg text-slate-700 leading-relaxed max-w-[72ch]">
+                                      <GlossaryText text={paragraph} usedTerms={used} />
+                                    </p>
+                                  ));
+                                })()}
                               </div>
                             </div>
                           )}
@@ -954,11 +961,14 @@ export default function ConditionPageClient({
                                 Contributing Factors
                               </SectionHeading>
                               <div className="space-y-6">
-                                {condition.biomechanics.split('\n\n').map((paragraph, index) => (
-                                  <p key={index} className="text-base md:text-lg text-slate-700 leading-relaxed max-w-[72ch]">
-                                    {paragraph}
-                                  </p>
-                                ))}
+                                {(() => {
+                                  const used = new Set<string>();
+                                  return condition.biomechanics.split('\n\n').map((paragraph, index) => (
+                                    <p key={index} className="text-base md:text-lg text-slate-700 leading-relaxed max-w-[72ch]">
+                                      <GlossaryText text={paragraph} usedTerms={used} />
+                                    </p>
+                                  ));
+                                })()}
                               </div>
                             </div>
                           )}

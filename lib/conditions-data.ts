@@ -1259,43 +1259,52 @@ const intelligentRelationships: Record<string, Array<{
   ]
 };
 
+// "treatment" relationships link cross-anatomy conditions that share a
+// treatment approach (e.g. patellar tendinopathy -> tennis elbow). On a
+// page about a knee condition these are noise: a reader searching knee
+// pain gains nothing from being pointed at an elbow page that happens to
+// use similar loading protocols. We keep them in the data map in case we
+// ever want a dedicated "treatment pattern" view, but we filter them out
+// of user-facing "Related Conditions" everywhere on the site.
+const isAnatomicallyOrClinicallyRelated = (
+  rel: { relationshipType: string },
+): boolean => rel.relationshipType !== 'treatment';
+
 // Get related conditions using intelligent algorithm
 export const getRelatedConditions = (currentSlug: string, category: string, limit: number = 3): Condition[] => {
   const allConditions = getAllConditions();
-  
-  // Get intelligent relationships for this condition
-  const relationships = intelligentRelationships[currentSlug] || [];
-  
-  // Sort by relevance score and filter out non-existent conditions
+
+  const relationships = (intelligentRelationships[currentSlug] || [])
+    .filter(isAnatomicallyOrClinicallyRelated);
+
   const relatedSlugs = relationships
     .sort((a, b) => b.relevanceScore - a.relevanceScore)
     .slice(0, limit)
     .map(rel => rel.slug);
-  
-  // Get the actual condition objects
+
   const relatedConditions = relatedSlugs
     .map(slug => allConditions.find(condition => condition.slug === slug))
     .filter((condition): condition is Condition => condition !== undefined);
-  
-  // If we don't have enough intelligent relationships, fall back to category-based
+
   if (relatedConditions.length < limit) {
     const categoryFallback = allConditions
-      .filter(condition => 
-        condition.slug !== currentSlug && 
+      .filter(condition =>
+        condition.slug !== currentSlug &&
         condition.category === category &&
         !relatedSlugs.includes(condition.slug)
       )
       .slice(0, limit - relatedConditions.length);
-    
+
     relatedConditions.push(...categoryFallback);
   }
-  
+
   return relatedConditions.slice(0, limit);
 };
 
 // Get detailed relationship information for a condition
 export const getDetailedRelationships = (conditionSlug: string) => {
-  return intelligentRelationships[conditionSlug] || [];
+  return (intelligentRelationships[conditionSlug] || [])
+    .filter(isAnatomicallyOrClinicallyRelated);
 };
 
 // Additional service areas (not individual pages)

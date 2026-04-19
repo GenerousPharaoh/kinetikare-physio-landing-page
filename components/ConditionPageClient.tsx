@@ -427,7 +427,7 @@ export default function ConditionPageClient({
                 <Link
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
-                  className="inline-flex items-center gap-1.5 px-5 py-3 rounded-lg bg-[#B08D57] text-white text-sm font-medium hover:bg-[#997A4B] transition-colors"
+                  className="inline-flex items-center gap-1.5 px-5 py-3 rounded-lg bg-[#B08D57] text-white text-sm font-medium hover:bg-[#997A4B] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/50 focus-visible:ring-offset-2"
                 >
                   <CalendarIcon className="h-4 w-4" />
                   Book Initial Assessment
@@ -442,10 +442,10 @@ export default function ConditionPageClient({
                 <span aria-hidden="true" className="hidden sm:inline h-4 w-px bg-slate-300" />
                 <Link
                   href="/conditions"
-                  className="inline-flex items-center gap-1 text-sm font-medium text-slate-600 hover:text-[#B08D57] transition-colors"
+                  className="group inline-flex items-center gap-1 text-sm font-medium text-slate-600 hover:text-[#B08D57] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-2 rounded"
                 >
                   View all conditions
-                  <ArrowRightIcon className="h-3.5 w-3.5" aria-hidden="true" />
+                  <ArrowRightIcon className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden="true" />
                 </Link>
               </div>
 
@@ -472,7 +472,7 @@ export default function ConditionPageClient({
                             setActiveTab(tab.id);
                             scrollToContentTop();
                           }}
-                          className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                          className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-1 ${
                             isActive
                               ? 'bg-[#B08D57] text-white shadow-sm'
                               : 'bg-slate-50 text-slate-700 hover:bg-slate-100 hover:text-slate-900'
@@ -501,7 +501,7 @@ export default function ConditionPageClient({
                             key={chip.id}
                             onClick={chip.onSelect}
                             aria-current={chip.isActive ? 'true' : undefined}
-                            className={`px-3 py-1.5 min-h-[44px] rounded-full text-xs font-medium border transition-colors ${
+                            className={`px-3 py-1.5 min-h-[44px] rounded-full text-xs font-medium border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-1 ${
                               chip.isActive
                                 ? 'bg-slate-900 text-white border-slate-900'
                                 : 'bg-white text-slate-700 border-slate-300 hover:border-[#B08D57] hover:text-[#B08D57]'
@@ -542,7 +542,7 @@ export default function ConditionPageClient({
                             setActiveTab('overview');
                             scrollToContentTop();
                           }}
-                          className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
+                          className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-1 ${
                             activeTab === 'overview'
                               ? 'bg-slate-50 text-slate-900 font-semibold'
                               : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
@@ -563,13 +563,13 @@ export default function ConditionPageClient({
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.15, ease: [0.4, 0, 0.2, 1] }}
+                            transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
                             className="ml-3 mt-1.5 space-y-1 border-l-2 border-l-[#B08D57]/25 pl-3"
                           >
                             {condition.pathophysiology && (
                               <button
                                 onClick={() => scrollToSubSection('pathophysiology-section')}
-                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded ${
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-1 ${
                                   activeSubSection === 'pathophysiology-section'
                                     ? 'text-slate-900 font-semibold'
                                     : 'text-slate-500 hover:text-slate-900'
@@ -581,7 +581,7 @@ export default function ConditionPageClient({
                             {condition.biomechanics && (
                               <button
                                 onClick={() => scrollToSubSection('biomechanics-section')}
-                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded ${
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-1 ${
                                   activeSubSection === 'biomechanics-section'
                                     ? 'text-slate-900 font-semibold'
                                     : 'text-slate-500 hover:text-slate-900'
@@ -600,7 +600,7 @@ export default function ConditionPageClient({
                       <div>
                         <button
                           onClick={() => { setActiveTab('symptoms'); scrollToContentTop(); }}
-                          className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                          className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-1 ${
                             activeTab === 'symptoms'
                               ? 'bg-slate-50 text-slate-900 font-semibold'
                               : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
@@ -621,13 +621,13 @@ export default function ConditionPageClient({
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                            transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
                             className="ml-3 mt-1.5 space-y-1 border-l-2 border-l-[#B08D57]/25 pl-3"
                           >
                             {condition.clinicalPresentation && (
                               <button
                                 onClick={() => scrollToSubSection('clinical-presentation-section')}
-                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded ${
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-1 ${
                                   activeSubSection === 'clinical-presentation-section'
                                     ? 'text-slate-900 font-semibold'
                                     : 'text-slate-500 hover:text-slate-900'
@@ -639,7 +639,7 @@ export default function ConditionPageClient({
                             {hasPatternMatcher && (
                               <button
                                 onClick={() => scrollToSubSection('pattern-matcher-section')}
-                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded ${
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-1 ${
                                   activeSubSection === 'pattern-matcher-section'
                                     ? 'text-slate-900 font-semibold'
                                     : 'text-slate-500 hover:text-slate-900'
@@ -651,7 +651,7 @@ export default function ConditionPageClient({
                             {condition.differentialDiagnosis && condition.differentialDiagnosis.length > 0 && (
                               <button
                                 onClick={() => scrollToSubSection('differential-section')}
-                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded ${
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-1 ${
                                   activeSubSection === 'differential-section'
                                     ? 'text-slate-900 font-semibold'
                                     : 'text-slate-500 hover:text-slate-900'
@@ -663,7 +663,7 @@ export default function ConditionPageClient({
                             {condition.whenToSeek && condition.whenToSeek.length > 0 && (
                               <button
                                 onClick={() => scrollToSubSection('when-to-seek-section')}
-                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded ${
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-1 ${
                                   activeSubSection === 'when-to-seek-section'
                                     ? 'text-slate-900 font-semibold'
                                     : 'text-slate-500 hover:text-slate-900'
@@ -682,7 +682,7 @@ export default function ConditionPageClient({
                       <div>
                         <button
                           onClick={() => { setActiveTab('self-care'); scrollToContentTop(); }}
-                          className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                          className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-1 ${
                             activeTab === 'self-care'
                               ? 'bg-slate-50 text-slate-900 font-semibold'
                               : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
@@ -701,12 +701,12 @@ export default function ConditionPageClient({
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                            transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
                             className="ml-3 mt-1.5 space-y-1 border-l-2 border-l-[#B08D57]/25 pl-3"
                           >
                             <button
                               onClick={() => scrollToSubSection('evidence-based-management')}
-                              className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded ${
+                              className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-1 ${
                                 activeSubSection === 'evidence-based-management'
                                   ? 'text-slate-900 font-semibold'
                                   : 'text-slate-500 hover:text-slate-900'
@@ -717,7 +717,7 @@ export default function ConditionPageClient({
                             {(condition.treatmentApproach || relatedTreatments.length > 0) && (
                               <button
                                 onClick={() => scrollToSubSection('treatment-techniques')}
-                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded ${
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-1 ${
                                   activeSubSection === 'treatment-techniques'
                                     ? 'text-slate-900 font-semibold'
                                     : 'text-slate-500 hover:text-slate-900'
@@ -729,7 +729,7 @@ export default function ConditionPageClient({
                             {condition.timeline && (
                               <button
                                 onClick={() => scrollToSubSection('recovery-timeline')}
-                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded ${
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-1 ${
                                   activeSubSection === 'recovery-timeline'
                                     ? 'text-slate-900 font-semibold'
                                     : 'text-slate-500 hover:text-slate-900'
@@ -741,7 +741,7 @@ export default function ConditionPageClient({
                             {condition.prognosis && (
                               <button
                                 onClick={() => scrollToSubSection('prognosis')}
-                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded ${
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-1 ${
                                   activeSubSection === 'prognosis'
                                     ? 'text-slate-900 font-semibold'
                                     : 'text-slate-500 hover:text-slate-900'
@@ -753,7 +753,7 @@ export default function ConditionPageClient({
                             {condition.measuringProgress && (
                               <button
                                 onClick={() => scrollToSubSection('measuring-progress')}
-                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded ${
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-1 ${
                                   activeSubSection === 'measuring-progress'
                                     ? 'text-slate-900 font-semibold'
                                     : 'text-slate-500 hover:text-slate-900'
@@ -765,7 +765,7 @@ export default function ConditionPageClient({
                             {condition.faqs && (
                               <button
                                 onClick={() => scrollToSubSection('faqs')}
-                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded ${
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-1 ${
                                   activeSubSection === 'faqs'
                                     ? 'text-slate-900 font-semibold'
                                     : 'text-slate-500 hover:text-slate-900'
@@ -784,7 +784,7 @@ export default function ConditionPageClient({
                       <div>
                         <button
                           onClick={() => { setActiveTab('research'); scrollToContentTop(); }}
-                          className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                          className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-1 ${
                             activeTab === 'research'
                               ? 'bg-slate-50 text-slate-900 font-semibold'
                               : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
@@ -805,13 +805,13 @@ export default function ConditionPageClient({
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                            transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
                             className="ml-3 mt-1.5 space-y-1 border-l-2 border-l-[#B08D57]/25 pl-3"
                           >
                             {condition.keyResearch && condition.keyResearch.length > 0 && (
                               <button
                                 onClick={() => scrollToSubSection('key-research')}
-                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded ${
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-1 ${
                                   activeSubSection === 'key-research'
                                     ? 'text-slate-900 font-semibold'
                                     : 'text-slate-500 hover:text-slate-900'
@@ -823,7 +823,7 @@ export default function ConditionPageClient({
                             {condition.researchInsights && condition.researchInsights.length > 0 && (
                               <button
                                 onClick={() => scrollToSubSection('research-insights')}
-                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded ${
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-1 ${
                                   activeSubSection === 'research-insights'
                                     ? 'text-slate-900 font-semibold'
                                     : 'text-slate-500 hover:text-slate-900'
@@ -1692,8 +1692,8 @@ export default function ConditionPageClient({
                                       const qLabel = `Q${String(index + 1).padStart(2, '0')}`;
                                       const faqUsed = new Set<string>();
                                       return (
-                                        <details key={index} className="group relative bg-white rounded-xl border border-slate-200 border-l-[3px] border-l-transparent open:border-l-[#B08D57] shadow-sm transition-colors duration-200">
-                                          <summary className="flex gap-4 cursor-pointer list-none items-start p-6">
+                                        <details key={index} className="group relative bg-white rounded-xl border border-slate-200 border-l-[3px] border-l-transparent hover:border-slate-300 open:border-l-[#B08D57] open:hover:border-slate-200 shadow-sm transition-colors duration-200">
+                                          <summary className="flex gap-4 cursor-pointer list-none items-start p-6 rounded-xl hover:bg-slate-50/60 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-1 group-open:rounded-b-none">
                                             <span aria-hidden="true" className="flex-shrink-0 text-sm font-semibold text-[#B08D57] tabular-nums pt-0.5">
                                               {qLabel}
                                             </span>
@@ -1906,7 +1906,7 @@ export default function ConditionPageClient({
                   setActiveTab(tab.id);
                   scrollToContentTop();
                 }}
-                className={`flex flex-col items-center justify-center gap-0.5 px-2 py-2 rounded-lg transition-all duration-200 min-w-[60px] min-h-[48px] ${
+                className={`flex flex-col items-center justify-center gap-0.5 px-2 py-2 rounded-lg transition-all duration-200 min-w-[60px] min-h-[48px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-1 ${
                   isActive
                     ? 'bg-[#B08D57]/15 text-[#8c6d3d] shadow-sm'
                     : 'text-gray-600 hover:text-slate-700'
@@ -1921,7 +1921,7 @@ export default function ConditionPageClient({
             onClick={() => setMobileNavOpen(true)}
             aria-label="Open section navigation"
             aria-expanded={mobileNavOpen}
-            className={`flex flex-col items-center justify-center gap-0.5 px-2 py-2 rounded-lg transition-colors duration-200 min-w-[60px] min-h-[48px] ${
+            className={`flex flex-col items-center justify-center gap-0.5 px-2 py-2 rounded-lg transition-colors duration-200 min-w-[60px] min-h-[48px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-1 ${
               mobileNavOpen ? 'bg-[#B08D57]/15 text-[#8c6d3d]' : 'text-gray-600 hover:text-slate-700'
             }`}
           >

@@ -985,7 +985,7 @@ export default function ConditionPageClient({
                             >
                               <div className="mb-4 flex items-center gap-2.5">
                                 <ExclamationTriangleIcon className="h-4 w-4 text-red-600" aria-hidden="true" />
-                                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-red-700">
+                                <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-red-700">
                                   When to seek immediate medical attention
                                 </p>
                               </div>
@@ -1088,7 +1088,7 @@ export default function ConditionPageClient({
                                   <div key={index} className="relative bg-white rounded-xl p-6 border border-slate-200 border-l-4 border-l-[#B08D57] shadow-sm">
                                     <div className="mb-3 flex items-center gap-2.5">
                                       <span aria-hidden="true" className="text-sm font-semibold text-[#B08D57] tabular-nums">{String(index + 1).padStart(2, '0')}</span>
-                                      <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">{diff.condition}</p>
+                                      <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">{diff.condition}</p>
                                     </div>
                                     <p className="text-slate-700 text-sm md:text-base leading-relaxed max-w-[58ch]">
                                       <span className="font-semibold text-slate-900">Key differences:</span> {diff.distinguishingFeatures}
@@ -1103,7 +1103,7 @@ export default function ConditionPageClient({
                             <div id="when-to-seek-section" data-section="when-to-seek" className="bg-white rounded-xl p-8 md:p-10 border border-slate-200 border-l-4 border-l-amber-500 shadow-sm scroll-mt-28">
                               <div className="mb-4 flex items-center gap-2.5">
                                 <ExclamationTriangleIcon className="h-4 w-4 text-amber-600" aria-hidden="true" />
-                                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-amber-700">When to seek professional help</p>
+                                <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-amber-700">When to seek professional help</p>
                               </div>
                               <div className="space-y-3">
                                 {condition.whenToSeek.map((item, index) => (
@@ -1128,7 +1128,7 @@ export default function ConditionPageClient({
                                 <div className="px-8 pt-8 pb-6 border-b border-slate-100">
                                   <div className="mb-3 flex items-center gap-2.5">
                                     <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-[#B08D57]" />
-                                    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">Research</p>
+                                    <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">Research</p>
                                   </div>
                                   <h2 className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900">Key Research &amp; Evidence</h2>
                                   <p className="mt-2 text-sm text-slate-600 max-w-[60ch]">Peer-reviewed studies supporting the treatment approach.</p>
@@ -1146,7 +1146,7 @@ export default function ConditionPageClient({
                                         <div key={index} className="relative bg-white rounded-xl p-6 md:p-7 border border-slate-200 border-l-4 border-l-[#B08D57] shadow-sm break-inside-avoid mb-6">
                                           <div className="mb-4 flex items-center gap-2.5">
                                             <span aria-hidden="true" className="text-sm font-semibold text-[#B08D57] tabular-nums">{indexLabel}</span>
-                                            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">
+                                            <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">
                                               {isNewFormat ? 'Finding' : (research.authors ? `${research.authors}${research.year ? ` · ${research.year}` : ''}` : 'Study')}
                                             </p>
                                           </div>
@@ -1243,7 +1243,7 @@ export default function ConditionPageClient({
                                 <div className="px-8 pt-8 pb-6 border-b border-slate-100">
                                   <div className="mb-3 flex items-center gap-2.5">
                                     <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-[#B08D57]" />
-                                    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">Research</p>
+                                    <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">Research</p>
                                   </div>
                                   <h2 className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900">Research Insights</h2>
                                   <p className="mt-2 text-sm text-slate-600 max-w-[60ch]">Clinical implications and practice recommendations.</p>
@@ -1296,7 +1296,7 @@ export default function ConditionPageClient({
                                 <div className="px-8 pt-8 pb-6 border-b border-slate-100">
                                   <div className="mb-3 flex items-center gap-2.5">
                                     <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-[#B08D57]" />
-                                    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">Management</p>
+                                    <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">Management</p>
                                   </div>
                                   <h2 className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900">Evidence-Based Management</h2>
                                   <p className="mt-2 text-sm text-slate-600 max-w-[60ch]">Treatment strategies with the strongest support in the current literature.</p>
@@ -1313,7 +1313,7 @@ export default function ConditionPageClient({
                                           <div className="relative bg-white rounded-xl border border-slate-200 border-l-4 border-l-[#B08D57] shadow-sm p-7 h-full flex flex-col">
                                             <div className="mb-4 flex items-center gap-2.5">
                                               <span aria-hidden="true" className="text-sm font-semibold text-[#B08D57] tabular-nums">01</span>
-                                              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">
+                                              <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">
                                                 Primary approach
                                               </p>
                                             </div>
@@ -1327,7 +1327,7 @@ export default function ConditionPageClient({
                                           <div className="relative bg-white rounded-xl border border-slate-200 border-l-4 border-l-[#B08D57] shadow-sm p-7 h-full flex flex-col">
                                             <div className="mb-4 flex items-center gap-2.5">
                                               <span aria-hidden="true" className="text-sm font-semibold text-[#B08D57] tabular-nums">02</span>
-                                              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">
+                                              <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">
                                                 Complementary
                                               </p>
                                             </div>
@@ -1341,7 +1341,7 @@ export default function ConditionPageClient({
                                           <div className="relative bg-white rounded-xl border border-slate-200 border-l-4 border-l-[#B08D57] shadow-sm p-7 h-full flex flex-col">
                                             <div className="mb-4 flex items-center gap-2.5">
                                               <span aria-hidden="true" className="text-sm font-semibold text-[#B08D57] tabular-nums">03</span>
-                                              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">
+                                              <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">
                                                 Prevention &amp; long-term
                                               </p>
                                             </div>
@@ -1370,7 +1370,7 @@ export default function ConditionPageClient({
                                             <div key={index} className="relative bg-white rounded-xl p-6 border border-slate-200 border-l-4 border-l-[#B08D57] shadow-sm">
                                               <div className="mb-3 flex items-center gap-2.5">
                                                 <span aria-hidden="true" className="text-sm font-semibold text-[#B08D57] tabular-nums">{indexLabel}</span>
-                                                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">{strategy.strategy}</p>
+                                                <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">{strategy.strategy}</p>
                                               </div>
                                               <p className="text-slate-700 text-sm md:text-base leading-relaxed mb-4 max-w-[58ch]">
                                                 {strategy.rationale}
@@ -1431,7 +1431,7 @@ export default function ConditionPageClient({
                                 <div className="px-8 pt-8 pb-6 border-b border-slate-100">
                                   <div className="mb-3 flex items-center gap-2.5">
                                     <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-[#B08D57]" />
-                                    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">Management</p>
+                                    <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">Management</p>
                                   </div>
                                   <h2 className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900">Treatment Techniques</h2>
                                   <p className="mt-2 text-sm text-slate-600 max-w-[60ch]">Evidence-based manual therapy and intervention approaches.</p>
@@ -1497,7 +1497,7 @@ export default function ConditionPageClient({
                                 <div className="px-8 pt-8 pb-6 border-b border-slate-100">
                                   <div className="mb-3 flex items-center gap-2.5">
                                     <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-[#B08D57]" />
-                                    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">Management</p>
+                                    <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">Management</p>
                                   </div>
                                   <h2 className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900">Recovery Timeline</h2>
                                   <p className="mt-2 text-sm text-slate-600 max-w-[60ch]">Phases and milestones typical of the recovery arc.</p>
@@ -1536,7 +1536,7 @@ export default function ConditionPageClient({
                                 <div className="px-8 pt-8 pb-6 border-b border-slate-100">
                                   <div className="mb-3 flex items-center gap-2.5">
                                     <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-[#B08D57]" />
-                                    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">Management</p>
+                                    <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">Management</p>
                                   </div>
                                   <h2 className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900">Prognosis &amp; Recovery</h2>
                                   <p className="mt-2 text-sm text-slate-600 max-w-[60ch]">What outcomes and recovery factors typically look like.</p>
@@ -1585,7 +1585,7 @@ export default function ConditionPageClient({
                                 <div className="px-8 pt-8 pb-6 border-b border-slate-100">
                                   <div className="mb-3 flex items-center gap-2.5">
                                     <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-[#B08D57]" />
-                                    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">Management</p>
+                                    <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">Management</p>
                                   </div>
                                   <h2 className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900">Measuring Progress</h2>
                                   <p className="mt-2 text-sm text-slate-600 max-w-[60ch]">How to track the recovery arc week to week.</p>
@@ -1633,7 +1633,7 @@ export default function ConditionPageClient({
                                 <div className="px-8 pt-8 pb-6 border-b border-slate-100">
                                   <div className="mb-3 flex items-center gap-2.5">
                                     <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-[#B08D57]" />
-                                    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">Management</p>
+                                    <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">Management</p>
                                   </div>
                                   <h2 className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900">Frequently Asked Questions</h2>
                                   <p className="mt-2 text-sm text-slate-600 max-w-[60ch]">Common concerns and answers about this condition.</p>

@@ -61,7 +61,7 @@ export default function ClinicalObservations({ observations }: ClinicalObservati
           aria-hidden="true"
           className="inline-block h-2 w-2 rounded-full bg-[#B08D57]"
         />
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#B08D57]">
+        <p className="m-0 text-xs font-semibold uppercase tracking-[0.18em] text-[#B08D57]">
           {KICKER}
         </p>
       </div>

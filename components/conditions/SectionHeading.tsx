@@ -91,7 +91,7 @@ export default function SectionHeading({
             aria-hidden="true"
             className="inline-block h-1.5 w-1.5 rounded-full bg-[#B08D57]"
           />
-          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">
+          <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">
             {kicker}
           </p>
         </div>

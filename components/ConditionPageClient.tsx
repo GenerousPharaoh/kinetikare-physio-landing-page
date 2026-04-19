@@ -103,46 +103,37 @@ export default function ConditionPageClient({
   const [activeTab, setActiveTab] = useState(getFirstAvailableTab());
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
-  // Active sub-views for each tab (instead of scrolling/collapsible)
-  const [activeOverviewView, setActiveOverviewView] = useState<string>('pathophysiology');
-  const [activeClinicalView, setActiveClinicalView] = useState<string>('clinical-presentation');
-  const [activeManagementView, setActiveManagementView] = useState<string>('evidence-based-treatment');
-  const [activeResearchView, setActiveResearchView] = useState<string>('key-research');
-
-  const expandedResearchSections: { [key: string]: boolean } = {
-    'key-research': true,
-    'research-insights': true
-  };
-  const expandedManagementSections: { [key: string]: boolean } = {
-    'evidence-based': true,
-    'treatment-techniques': true,
-    'timeline': true,
-    'prognosis': true,
-    'measuring': true,
-    'faqs': true
-  };
+  // Each tab's sub-sections are all rendered and stacked. Sidebar
+  // sub-items scroll to the matching section anchor and a scrollspy
+  // updates which sub-item is "current". `activeSubSection` is the
+  // section id currently in view for the active tab.
+  const [activeSubSection, setActiveSubSection] = useState<string>('');
 
   // Sidebar state
   const [scrollProgress, setScrollProgress] = useState(0);
   const contentContainerRef = useRef<HTMLDivElement>(null);
+  const sidebarPlaceholderRef = useRef<HTMLDivElement>(null);
 
-  // Scroll to top of content container
+  // Scroll to top of content container (used when switching top-level tabs)
   const scrollToContentTop = () => {
-    // Delay to allow content swap animation to complete
-    setTimeout(() => {
-      if (contentContainerRef.current) {
-        const headerHeight = 96; // Fixed header
-        const padding = 32; // Extra padding from top
-        const element = contentContainerRef.current;
-        const elementTop = element.getBoundingClientRect().top + window.pageYOffset;
-        const scrollToPosition = elementTop - headerHeight - padding;
+    if (contentContainerRef.current) {
+      const headerHeight = 96; // Fixed header
+      const padding = 32; // Extra padding from top
+      const elementTop = contentContainerRef.current.getBoundingClientRect().top + window.pageYOffset;
+      const scrollToPosition = elementTop - headerHeight - padding;
+      window.scrollTo({ top: scrollToPosition, behavior: 'smooth' });
+    }
+  };
 
-        window.scrollTo({
-          top: scrollToPosition,
-          behavior: 'smooth'
-        });
-      }
-    }, 350); // Match the longest AnimatePresence duration (0.3s + buffer)
+  // Scroll to a specific sub-section anchor within the current tab.
+  // Uses scroll-margin-top on the element so the sticky header isn't
+  // covering the heading. Updates activeSubSection optimistically so
+  // the sidebar highlights immediately even before the scrollspy fires.
+  const scrollToSubSection = (sectionId: string) => {
+    const el = document.getElementById(sectionId);
+    if (!el) return;
+    setActiveSubSection(sectionId);
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   // Check if condition has detailed content
@@ -192,185 +183,67 @@ export default function ConditionPageClient({
   const activeTabLabel = tabs.find((tab) => tab.id === activeTab)?.label ?? 'Section';
 
   const subSectionChips: SubSectionChip[] = (() => {
+    const chip = (id: string, label: string): SubSectionChip => ({
+      id,
+      label,
+      isActive: activeSubSection === id,
+      onSelect: () => scrollToSubSection(id),
+    });
+
     if (activeTab === 'overview') {
       return [
-        condition.pathophysiology
-          ? {
-              id: 'pathophysiology',
-              label: 'Pathophysiology',
-              isActive: activeOverviewView === 'pathophysiology',
-              onSelect: () => {
-                setActiveOverviewView('pathophysiology');
-                scrollToContentTop();
-              },
-            }
-          : null,
-        condition.biomechanics
-          ? {
-              id: 'biomechanics',
-              label: 'Contributing Factors',
-              isActive: activeOverviewView === 'biomechanics',
-              onSelect: () => {
-                setActiveOverviewView('biomechanics');
-                scrollToContentTop();
-              },
-            }
-          : null,
-      ].filter((chip): chip is SubSectionChip => Boolean(chip));
+        condition.pathophysiology ? chip('pathophysiology-section', 'Pathophysiology') : null,
+        condition.biomechanics ? chip('biomechanics-section', 'Contributing Factors') : null,
+      ].filter((c): c is SubSectionChip => Boolean(c));
     }
 
     if (activeTab === 'symptoms') {
       return [
-        condition.clinicalPresentation
-          ? {
-              id: 'clinical-presentation',
-              label: 'Clinical Presentation',
-              isActive: activeClinicalView === 'clinical-presentation',
-              onSelect: () => {
-                setActiveClinicalView('clinical-presentation');
-                scrollToContentTop();
-              },
-            }
-          : null,
-        hasPatternMatcher
-          ? {
-              id: 'pattern-matcher',
-              label: 'Is this my pattern?',
-              isActive: activeClinicalView === 'pattern-matcher',
-              onSelect: () => {
-                setActiveClinicalView('pattern-matcher');
-                scrollToContentTop();
-              },
-            }
-          : null,
+        condition.clinicalPresentation ? chip('clinical-presentation-section', 'Clinical Presentation') : null,
+        hasPatternMatcher ? chip('pattern-matcher-section', 'Is this my pattern?') : null,
         condition.differentialDiagnosis && condition.differentialDiagnosis.length > 0
-          ? {
-              id: 'differential',
-              label: 'Differential Diagnosis',
-              isActive: activeClinicalView === 'differential',
-              onSelect: () => {
-                setActiveClinicalView('differential');
-                scrollToContentTop();
-              },
-            }
-          : null,
+          ? chip('differential-section', 'Differential Diagnosis') : null,
         condition.whenToSeek && condition.whenToSeek.length > 0
-          ? {
-              id: 'when-to-seek',
-              label: 'When to Seek Help',
-              isActive: activeClinicalView === 'when-to-seek',
-              onSelect: () => {
-                setActiveClinicalView('when-to-seek');
-                scrollToContentTop();
-              },
-            }
-          : null,
-      ].filter((chip): chip is SubSectionChip => Boolean(chip));
+          ? chip('when-to-seek-section', 'When to Seek Help') : null,
+      ].filter((c): c is SubSectionChip => Boolean(c));
     }
 
     if (activeTab === 'self-care') {
       return [
-        {
-          id: 'evidence-based-treatment',
-          label: 'Evidence-Based Treatment',
-          isActive: activeManagementView === 'evidence-based-treatment',
-          onSelect: () => {
-            setActiveManagementView('evidence-based-treatment');
-            scrollToContentTop();
-          },
-        },
+        (condition.evidenceSnapshot || condition.selfManagement)
+          ? chip('evidence-based-management', 'Evidence-Based Treatment') : null,
         (condition.treatmentApproach || relatedTreatments.length > 0)
-          ? {
-              id: 'treatment-techniques',
-              label: 'Treatment Techniques',
-              isActive: activeManagementView === 'treatment-techniques',
-              onSelect: () => {
-                setActiveManagementView('treatment-techniques');
-                scrollToContentTop();
-              },
-            }
-          : null,
+          ? chip('treatment-techniques', 'Treatment Techniques') : null,
         condition.timeline && condition.timeline.length > 0
-          ? {
-              id: 'timeline',
-              label: 'Recovery Timeline',
-              isActive: activeManagementView === 'timeline',
-              onSelect: () => {
-                setActiveManagementView('timeline');
-                scrollToContentTop();
-              },
-            }
-          : null,
-        condition.prognosis
-          ? {
-              id: 'prognosis',
-              label: 'Prognosis & Outcomes',
-              isActive: activeManagementView === 'prognosis',
-              onSelect: () => {
-                setActiveManagementView('prognosis');
-                scrollToContentTop();
-              },
-            }
-          : null,
-        condition.measuringProgress
-          ? {
-              id: 'measuring-success',
-              label: 'Measuring Progress',
-              isActive: activeManagementView === 'measuring-success',
-              onSelect: () => {
-                setActiveManagementView('measuring-success');
-                scrollToContentTop();
-              },
-            }
-          : null,
-        condition.faqs && condition.faqs.length > 0
-          ? {
-              id: 'faqs',
-              label: 'FAQs',
-              isActive: activeManagementView === 'faqs',
-              onSelect: () => {
-                setActiveManagementView('faqs');
-                scrollToContentTop();
-              },
-            }
-          : null,
-      ].filter((chip): chip is SubSectionChip => Boolean(chip));
+          ? chip('recovery-timeline', 'Recovery Timeline') : null,
+        condition.prognosis ? chip('prognosis', 'Prognosis & Outcomes') : null,
+        condition.measuringProgress ? chip('measuring-progress', 'Measuring Progress') : null,
+        condition.faqs && condition.faqs.length > 0 ? chip('faqs', 'FAQs') : null,
+      ].filter((c): c is SubSectionChip => Boolean(c));
     }
 
     if (activeTab === 'research') {
       return [
         condition.keyResearch && condition.keyResearch.length > 0
-          ? {
-              id: 'key-research',
-              label: 'Key Research',
-              isActive: activeResearchView === 'key-research',
-              onSelect: () => {
-                setActiveResearchView('key-research');
-                scrollToContentTop();
-              },
-            }
-          : null,
+          ? chip('key-research', 'Key Research') : null,
         condition.researchInsights && condition.researchInsights.length > 0
-          ? {
-              id: 'research-insights',
-              label: 'Research Insights',
-              isActive: activeResearchView === 'research-insights',
-              onSelect: () => {
-                setActiveResearchView('research-insights');
-                scrollToContentTop();
-              },
-            }
-          : null,
-      ].filter((chip): chip is SubSectionChip => Boolean(chip));
+          ? chip('research-insights', 'Research Insights') : null,
+      ].filter((c): c is SubSectionChip => Boolean(c));
     }
 
     return [];
   })();
 
 
-  // Track page reading progress for the top progress indicator
+  // Track page reading progress + JS-based sidebar sticky. Sticky CSS
+  // is broken globally by `html { overflow-x: hidden }` (no practical
+  // way to remove without breaking horizontal-scroll containment), so we
+  // pin the aside with position: fixed when the placeholder scrolls past
+  // the sticky line, and restore absolute/static when scrolled back up
+  // or near the bottom of the placeholder.
   useEffect(() => {
     let ticking = false;
+    const STICKY_OFFSET = 112;
 
     const handleScroll = () => {
       if (!ticking) {
@@ -381,6 +254,39 @@ export default function ConditionPageClient({
           const scrollableHeight = Math.max(documentHeight - windowHeight, 1);
           const progress = Math.min(100, Math.max(0, (scrollTop / scrollableHeight) * 100));
           setScrollProgress(progress);
+
+          // Manual sticky: on lg+, pin the aside with position:fixed when
+          // the placeholder's top crosses the sticky line. Placeholder
+          // reserves the layout space so content doesn't reflow.
+          const placeholder = sidebarPlaceholderRef.current;
+          const aside = document.getElementById('sidebar-container');
+          if (placeholder && aside && window.innerWidth >= 1024) {
+            const placeholderRect = placeholder.getBoundingClientRect();
+            const asideHeight = aside.offsetHeight || 0;
+            const needsStick = placeholderRect.top <= STICKY_OFFSET;
+            if (needsStick) {
+              aside.style.position = 'fixed';
+              aside.style.top = `${STICKY_OFFSET}px`;
+              aside.style.left = `${placeholderRect.left}px`;
+              aside.style.width = `${placeholder.offsetWidth}px`;
+              // Ensure placeholder keeps reserving space in document flow.
+              if (!placeholder.style.minHeight && asideHeight > 0) {
+                placeholder.style.minHeight = `${asideHeight}px`;
+              }
+            } else {
+              aside.style.position = '';
+              aside.style.top = '';
+              aside.style.left = '';
+              aside.style.width = '';
+            }
+          } else if (aside) {
+            // Mobile or no placeholder: clear any inline positioning
+            aside.style.position = '';
+            aside.style.top = '';
+            aside.style.left = '';
+            aside.style.width = '';
+            if (placeholder) placeholder.style.minHeight = '';
+          }
 
           ticking = false;
         });
@@ -397,6 +303,50 @@ export default function ConditionPageClient({
       window.removeEventListener('resize', handleScroll);
     };
   }, []);
+
+  // Scrollspy: update activeSubSection based on which sub-section is
+  // currently closest to the top of the viewport (below the sticky
+  // header). Re-runs when the active tab changes so each tab's sections
+  // are tracked independently.
+  useEffect(() => {
+    const ids = subSectionChips.map((c) => c.id);
+    if (ids.length === 0) {
+      setActiveSubSection('');
+      return;
+    }
+
+    // Default to the first section until the user scrolls past it.
+    setActiveSubSection(ids[0]);
+
+    const elements = ids
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+
+    if (elements.length === 0) return;
+
+    // Trigger when a section crosses the upper ~30% of the viewport,
+    // accounting for the sticky header (~96px). rootMargin shifts the
+    // intersection line so the sidebar highlights the section the user
+    // is actively reading, not the one barely entering from below.
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible.length > 0) {
+          setActiveSubSection(visible[0].target.id);
+        }
+      },
+      {
+        rootMargin: '-128px 0px -60% 0px',
+        threshold: 0,
+      }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeTab, conditionSlug]);
 
   // Check if we need multiple citations
   const hasStrongEvidence = (treatment: any) => {
@@ -552,9 +502,14 @@ export default function ConditionPageClient({
         <section className="pt-6 pb-28 md:pb-24 lg:pb-16 bg-white min-h-screen">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="flex gap-6 items-start relative">
-              {/* Sidebar Navigation - Desktop - JAVASCRIPT STICKY */}
-              <aside id="sidebar-container" className="hidden lg:block w-56 flex-shrink-0">
-                <nav aria-label="Page sections" className="sticky top-28 max-h-[calc(100vh-8rem)] overflow-y-auto space-y-3 pr-3">
+              {/* Sidebar Navigation - Desktop. position:sticky is unreliable
+                  here because <html> has overflow-x: hidden globally, which
+                  silently breaks sticky for every descendant. We use a JS
+                  sticky via useEffect below: toggle .is-stuck on the aside
+                  when its placeholder top crosses the sticky line. */}
+              <div className="hidden lg:block w-56 flex-shrink-0 self-start relative" ref={sidebarPlaceholderRef}>
+                <aside id="sidebar-container" className="w-56">
+                  <nav aria-label="Page sections" className="max-h-[calc(100vh-8rem)] overflow-y-auto space-y-3 pr-3">
                   {/* Navigation Sections - Ultra Smooth */}
                   <div className="space-y-1.5">
                     {/* Overview/Science Section with Sub-navigation */}
@@ -591,9 +546,9 @@ export default function ConditionPageClient({
                           >
                             {condition.pathophysiology && (
                               <button
-                                onClick={() => { setActiveOverviewView('pathophysiology'); scrollToContentTop(); }}
-                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
-                                  activeOverviewView === 'pathophysiology'
+                                onClick={() => scrollToSubSection('pathophysiology-section')}
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded ${
+                                  activeSubSection === 'pathophysiology-section'
                                     ? 'text-slate-900 font-semibold'
                                     : 'text-slate-500 hover:text-slate-900'
                                 }`}
@@ -603,9 +558,9 @@ export default function ConditionPageClient({
                             )}
                             {condition.biomechanics && (
                               <button
-                                onClick={() => { setActiveOverviewView('biomechanics'); scrollToContentTop(); }}
-                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
-                                  activeOverviewView === 'biomechanics'
+                                onClick={() => scrollToSubSection('biomechanics-section')}
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded ${
+                                  activeSubSection === 'biomechanics-section'
                                     ? 'text-slate-900 font-semibold'
                                     : 'text-slate-500 hover:text-slate-900'
                                 }`}
@@ -649,9 +604,9 @@ export default function ConditionPageClient({
                           >
                             {condition.clinicalPresentation && (
                               <button
-                                onClick={() => { setActiveClinicalView('clinical-presentation'); scrollToContentTop(); }}
-                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
-                                  activeClinicalView === 'clinical-presentation'
+                                onClick={() => scrollToSubSection('clinical-presentation-section')}
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded ${
+                                  activeSubSection === 'clinical-presentation-section'
                                     ? 'text-slate-900 font-semibold'
                                     : 'text-slate-500 hover:text-slate-900'
                                 }`}
@@ -661,9 +616,9 @@ export default function ConditionPageClient({
                             )}
                             {hasPatternMatcher && (
                               <button
-                                onClick={() => { setActiveClinicalView('pattern-matcher'); scrollToContentTop(); }}
-                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
-                                  activeClinicalView === 'pattern-matcher'
+                                onClick={() => scrollToSubSection('pattern-matcher-section')}
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded ${
+                                  activeSubSection === 'pattern-matcher-section'
                                     ? 'text-slate-900 font-semibold'
                                     : 'text-slate-500 hover:text-slate-900'
                                 }`}
@@ -673,9 +628,9 @@ export default function ConditionPageClient({
                             )}
                             {condition.differentialDiagnosis && condition.differentialDiagnosis.length > 0 && (
                               <button
-                                onClick={() => { setActiveClinicalView('differential'); scrollToContentTop(); }}
-                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
-                                  activeClinicalView === 'differential'
+                                onClick={() => scrollToSubSection('differential-section')}
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded ${
+                                  activeSubSection === 'differential-section'
                                     ? 'text-slate-900 font-semibold'
                                     : 'text-slate-500 hover:text-slate-900'
                                 }`}
@@ -685,9 +640,9 @@ export default function ConditionPageClient({
                             )}
                             {condition.whenToSeek && condition.whenToSeek.length > 0 && (
                               <button
-                                onClick={() => { setActiveClinicalView('when-to-seek'); scrollToContentTop(); }}
-                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
-                                  activeClinicalView === 'when-to-seek'
+                                onClick={() => scrollToSubSection('when-to-seek-section')}
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded ${
+                                  activeSubSection === 'when-to-seek-section'
                                     ? 'text-slate-900 font-semibold'
                                     : 'text-slate-500 hover:text-slate-900'
                                 }`}
@@ -728,20 +683,20 @@ export default function ConditionPageClient({
                             className="ml-3 mt-1.5 space-y-1 border-l-2 border-l-[#B08D57]/25 pl-3"
                           >
                             <button
-                              onClick={() => { setActiveManagementView('evidence-based-treatment'); scrollToContentTop(); }}
-                              className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
-                                activeManagementView === 'evidence-based-treatment'
-                                  ? 'bg-[#B08D57] text-white font-medium shadow-sm'
-                                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                              onClick={() => scrollToSubSection('evidence-based-management')}
+                              className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded ${
+                                activeSubSection === 'evidence-based-management'
+                                  ? 'text-slate-900 font-semibold'
+                                  : 'text-slate-500 hover:text-slate-900'
                               }`}
                             >
                               Evidence-Based Treatment
                             </button>
                             {(condition.treatmentApproach || relatedTreatments.length > 0) && (
                               <button
-                                onClick={() => { setActiveManagementView('treatment-techniques'); scrollToContentTop(); }}
-                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
-                                  activeManagementView === 'treatment-techniques'
+                                onClick={() => scrollToSubSection('treatment-techniques')}
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded ${
+                                  activeSubSection === 'treatment-techniques'
                                     ? 'text-slate-900 font-semibold'
                                     : 'text-slate-500 hover:text-slate-900'
                                 }`}
@@ -751,9 +706,9 @@ export default function ConditionPageClient({
                             )}
                             {condition.timeline && (
                               <button
-                                onClick={() => { setActiveManagementView('timeline'); scrollToContentTop(); }}
-                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
-                                  activeManagementView === 'timeline'
+                                onClick={() => scrollToSubSection('recovery-timeline')}
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded ${
+                                  activeSubSection === 'recovery-timeline'
                                     ? 'text-slate-900 font-semibold'
                                     : 'text-slate-500 hover:text-slate-900'
                                 }`}
@@ -763,9 +718,9 @@ export default function ConditionPageClient({
                             )}
                             {condition.prognosis && (
                               <button
-                                onClick={() => { setActiveManagementView('prognosis'); scrollToContentTop(); }}
-                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
-                                  activeManagementView === 'prognosis'
+                                onClick={() => scrollToSubSection('prognosis')}
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded ${
+                                  activeSubSection === 'prognosis'
                                     ? 'text-slate-900 font-semibold'
                                     : 'text-slate-500 hover:text-slate-900'
                                 }`}
@@ -775,9 +730,9 @@ export default function ConditionPageClient({
                             )}
                             {condition.measuringProgress && (
                               <button
-                                onClick={() => { setActiveManagementView('measuring-success'); scrollToContentTop(); }}
-                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
-                                  activeManagementView === 'measuring-success'
+                                onClick={() => scrollToSubSection('measuring-progress')}
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded ${
+                                  activeSubSection === 'measuring-progress'
                                     ? 'text-slate-900 font-semibold'
                                     : 'text-slate-500 hover:text-slate-900'
                                 }`}
@@ -787,9 +742,9 @@ export default function ConditionPageClient({
                             )}
                             {condition.faqs && (
                               <button
-                                onClick={() => { setActiveManagementView('faqs'); scrollToContentTop(); }}
-                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
-                                  activeManagementView === 'faqs'
+                                onClick={() => scrollToSubSection('faqs')}
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded ${
+                                  activeSubSection === 'faqs'
                                     ? 'text-slate-900 font-semibold'
                                     : 'text-slate-500 hover:text-slate-900'
                                 }`}
@@ -833,9 +788,9 @@ export default function ConditionPageClient({
                           >
                             {condition.keyResearch && condition.keyResearch.length > 0 && (
                               <button
-                                onClick={() => { setActiveResearchView('key-research'); scrollToContentTop(); }}
-                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
-                                  activeResearchView === 'key-research'
+                                onClick={() => scrollToSubSection('key-research')}
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded ${
+                                  activeSubSection === 'key-research'
                                     ? 'text-slate-900 font-semibold'
                                     : 'text-slate-500 hover:text-slate-900'
                                 }`}
@@ -845,9 +800,9 @@ export default function ConditionPageClient({
                             )}
                             {condition.researchInsights && condition.researchInsights.length > 0 && (
                               <button
-                                onClick={() => { setActiveResearchView('research-insights'); scrollToContentTop(); }}
-                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
-                                  activeResearchView === 'research-insights'
+                                onClick={() => scrollToSubSection('research-insights')}
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded ${
+                                  activeSubSection === 'research-insights'
                                     ? 'text-slate-900 font-semibold'
                                     : 'text-slate-500 hover:text-slate-900'
                                 }`}
@@ -861,7 +816,8 @@ export default function ConditionPageClient({
                     )}
                   </div>
                 </nav>
-              </aside>
+                </aside>
+              </div>
 
               {/* Main Content */}
               <div className="flex-1 min-w-0">
@@ -923,75 +879,69 @@ export default function ConditionPageClient({
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.15, ease: [0.4, 0, 0.2, 1] }}
                     >
-                      {/* Overview Tab */}
+                      {/* Overview Tab - all sub-sections stacked; sidebar
+                          sub-items scroll to the respective anchor rather
+                          than swapping content. */}
                       {activeTab === 'overview' && (
                         <>
-                        <AnimatePresence mode="wait">
-                          <motion.div
-                            key={activeOverviewView}
-                            initial={{ opacity: 0, x: 10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -10 }}
-                            transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
-                          >
-                            {activeOverviewView === 'pathophysiology' && condition.pathophysiology && (
-                              <div className="bg-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-sm">
-                                <SectionHeading
-                                  id="pathophysiology"
-                                  kicker="Overview"
-                                  className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900 mb-8"
-                                >
-                                  The Science of {condition.name || 'Your Condition'}
-                                </SectionHeading>
-                                <div className="space-y-5">
-                                  {condition.pathophysiology.split('\n\n').map((paragraph, index) => (
-                                    <p key={index} className="text-base md:text-lg text-slate-700 leading-relaxed max-w-[72ch]">
-                                      {paragraph}
-                                    </p>
-                                  ))}
-                                </div>
+                        <div className="space-y-8">
+                          {condition.pathophysiology && (
+                            <div id="pathophysiology-section" data-section="pathophysiology" className="bg-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-sm scroll-mt-28">
+                              <SectionHeading
+                                id="pathophysiology"
+                                kicker="Overview"
+                                className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900 mb-8"
+                              >
+                                The Science of {condition.name || 'Your Condition'}
+                              </SectionHeading>
+                              <div className="space-y-5">
+                                {condition.pathophysiology.split('\n\n').map((paragraph, index) => (
+                                  <p key={index} className="text-base md:text-lg text-slate-700 leading-relaxed max-w-[72ch]">
+                                    {paragraph}
+                                  </p>
+                                ))}
                               </div>
-                            )}
+                            </div>
+                          )}
 
-                            {activeOverviewView === 'pathophysiology' && condition.overview && !condition.pathophysiology && (
-                              <div className="bg-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-sm">
-                                <SectionHeading
-                                  id="overview"
-                                  kicker="Overview"
-                                  className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900 mb-8"
-                                >
-                                  Understanding Your Condition
-                                </SectionHeading>
-                                <div className="space-y-6">
-                                  {condition.overview.split('\n\n').map((paragraph, index) => (
-                                    <p key={index} className="text-base md:text-lg text-slate-700 leading-relaxed max-w-[72ch]">
-                                      {paragraph}
-                                    </p>
-                                  ))}
-                                </div>
+                          {condition.overview && !condition.pathophysiology && (
+                            <div id="pathophysiology-section" data-section="pathophysiology" className="bg-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-sm scroll-mt-28">
+                              <SectionHeading
+                                id="overview"
+                                kicker="Overview"
+                                className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900 mb-8"
+                              >
+                                Understanding Your Condition
+                              </SectionHeading>
+                              <div className="space-y-6">
+                                {condition.overview.split('\n\n').map((paragraph, index) => (
+                                  <p key={index} className="text-base md:text-lg text-slate-700 leading-relaxed max-w-[72ch]">
+                                    {paragraph}
+                                  </p>
+                                ))}
                               </div>
-                            )}
+                            </div>
+                          )}
 
-                            {activeOverviewView === 'biomechanics' && condition.biomechanics && (
-                              <div className="bg-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-sm">
-                                <SectionHeading
-                                  id="contributing-factors"
-                                  kicker="Overview"
-                                  className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900 mb-8"
-                                >
-                                  Contributing Factors
-                                </SectionHeading>
-                                <div className="space-y-6">
-                                  {condition.biomechanics.split('\n\n').map((paragraph, index) => (
-                                    <p key={index} className="text-base md:text-lg text-slate-700 leading-relaxed max-w-[72ch]">
-                                      {paragraph}
-                                    </p>
-                                  ))}
-                                </div>
+                          {condition.biomechanics && (
+                            <div id="biomechanics-section" data-section="biomechanics" className="bg-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-sm scroll-mt-28">
+                              <SectionHeading
+                                id="contributing-factors"
+                                kicker="Overview"
+                                className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900 mb-8"
+                              >
+                                Contributing Factors
+                              </SectionHeading>
+                              <div className="space-y-6">
+                                {condition.biomechanics.split('\n\n').map((paragraph, index) => (
+                                  <p key={index} className="text-base md:text-lg text-slate-700 leading-relaxed max-w-[72ch]">
+                                    {paragraph}
+                                  </p>
+                                ))}
                               </div>
-                            )}
-                          </motion.div>
-                        </AnimatePresence>
+                            </div>
+                          )}
+                        </div>
 
                         {condition.clinicalObservations && (
                           <div className="mt-8">
@@ -1041,16 +991,9 @@ export default function ConditionPageClient({
                             </aside>
                           )}
 
-                        <AnimatePresence mode="wait">
-                          <motion.div
-                            key={activeClinicalView}
-                            initial={{ opacity: 0, x: 10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -10 }}
-                            transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
-                          >
-                            {activeClinicalView === 'clinical-presentation' && condition.clinicalPresentation && (
-                              <div className="bg-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-sm">
+                        <div className="space-y-8">
+                          {condition.clinicalPresentation && (
+                            <div id="clinical-presentation-section" data-section="clinical-presentation" className="bg-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-sm scroll-mt-28">
                                 <SectionHeading
                                   id="clinical-presentation"
                                   kicker="Symptoms"
@@ -1096,83 +1039,69 @@ export default function ConditionPageClient({
                                     </div>
                                   </div>
                                 )}
-                              </div>
-                            )}
+                            </div>
+                          )}
 
-                            {activeClinicalView === 'pattern-matcher' && hasPatternMatcher && patternCluster && patternConditions && (
+                          {hasPatternMatcher && patternCluster && patternConditions && (
+                            <div id="pattern-matcher-section" data-section="pattern-matcher" className="scroll-mt-28">
                               <PatternMatcher
                                 currentSlug={conditionSlug}
                                 cluster={patternCluster}
                                 conditionsBySlug={patternConditions}
                               />
-                            )}
+                            </div>
+                          )}
 
-                            {activeClinicalView === 'differential' && condition.differentialDiagnosis && condition.differentialDiagnosis.length > 0 && (
-                              <div className="bg-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-lg">
-                                <SectionHeading
-                                  id="differential-diagnosis"
-                                  kicker="Symptoms"
-                                  className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900 mb-3"
-                                >
-                                  Differential Diagnosis
-                                </SectionHeading>
-                                <p className="text-base text-slate-600 leading-relaxed mb-10">Conditions with similar presentations:</p>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                  {condition.differentialDiagnosis.map((diff, index) => (
-                                    <div key={index} className="relative bg-gradient-to-br from-white to-slate-50/50 rounded-2xl p-7 border border-slate-200 shadow-sm">
-                                      <div className="flex items-start gap-4">
-                                        <div className="flex-shrink-0">
-                                          <div className="w-12 h-12 bg-gradient-to-br from-[#B08D57] to-[#967745] rounded-xl flex items-center justify-center shadow-lg">
-                                            <span className="text-white font-semibold text-base">{index + 1}</span>
-                                          </div>
-                                        </div>
-                                        <div className="flex-1">
-                                          <h3 className="text-lg font-bold text-slate-900 mb-3 group-hover:text-[#B08D57] transition-colors">{diff.condition}</h3>
-                                          <p className="text-sm text-slate-700 leading-relaxed">
-                                            <span className="font-medium">Key differences:</span> {diff.distinguishingFeatures}
-                                          </p>
-                                        </div>
-                                      </div>
+                          {condition.differentialDiagnosis && condition.differentialDiagnosis.length > 0 && (
+                            <div id="differential-section" data-section="differential" className="bg-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-sm scroll-mt-28">
+                              <SectionHeading
+                                id="differential-diagnosis"
+                                kicker="Symptoms"
+                                className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900 mb-3"
+                              >
+                                Differential Diagnosis
+                              </SectionHeading>
+                              <p className="text-base text-slate-600 leading-relaxed mb-10">Conditions with similar presentations:</p>
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                {condition.differentialDiagnosis.map((diff, index) => (
+                                  <div key={index} className="relative bg-white rounded-xl p-6 border border-slate-200 border-l-4 border-l-[#B08D57] shadow-sm">
+                                    <div className="mb-3 flex items-center gap-2.5">
+                                      <span aria-hidden="true" className="text-sm font-semibold text-[#B08D57] tabular-nums">{String(index + 1).padStart(2, '0')}</span>
+                                      <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">{diff.condition}</p>
                                     </div>
-                                  ))}
-                                </div>
+                                    <p className="text-slate-700 text-sm md:text-base leading-relaxed max-w-[58ch]">
+                                      <span className="font-semibold text-slate-900">Key differences:</span> {diff.distinguishingFeatures}
+                                    </p>
+                                  </div>
+                                ))}
                               </div>
-                            )}
+                            </div>
+                          )}
 
-                            {activeClinicalView === 'when-to-seek' && condition.whenToSeek && condition.whenToSeek.length > 0 && (
-                              <div className="bg-amber-50 rounded-xl p-8 md:p-8 border border-amber-200">
-                                <SectionHeading
-                                  id="when-to-seek-help"
-                                  className="text-2xl font-medium tracking-tight leading-tight text-slate-900 mb-6"
-                                >
-                                  When to Seek Professional Help
-                                </SectionHeading>
-                                <div className="space-y-3">
-                                  {condition.whenToSeek.map((item, index) => (
-                                    <div key={index} className="flex items-start gap-3">
-                                      <CheckCircleIcon className="h-5 w-5 text-amber-600 mt-0.5 flex-shrink-0" />
-                                      <span className="text-base text-slate-700 leading-relaxed">{item}</span>
-                                    </div>
-                                  ))}
-                                </div>
+                          {condition.whenToSeek && condition.whenToSeek.length > 0 && (
+                            <div id="when-to-seek-section" data-section="when-to-seek" className="bg-white rounded-xl p-8 md:p-10 border border-slate-200 border-l-4 border-l-amber-500 shadow-sm scroll-mt-28">
+                              <div className="mb-4 flex items-center gap-2.5">
+                                <ExclamationTriangleIcon className="h-4 w-4 text-amber-600" aria-hidden="true" />
+                                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-amber-700">When to seek professional help</p>
                               </div>
-                            )}
-                          </motion.div>
-                        </AnimatePresence>
+                              <div className="space-y-3">
+                                {condition.whenToSeek.map((item, index) => (
+                                  <div key={index} className="flex items-start gap-3">
+                                    <CheckCircleIcon className="h-5 w-5 text-amber-600 mt-0.5 flex-shrink-0" aria-hidden="true" />
+                                    <span className="text-base text-slate-700 leading-relaxed max-w-[72ch]">{item}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
                         </>
                       )}
 
-                      {/* Research Tab - Premium Design */}
+                      {/* Research Tab - all sub-sections stacked */}
                       {activeTab === 'research' && (
-                        <AnimatePresence mode="wait">
-                          <motion.div
-                            key={activeResearchView}
-                            initial={{ opacity: 0, x: 10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -10 }}
-                            transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
-                          >
-                            {activeResearchView === 'key-research' && condition.keyResearch && condition.keyResearch.length > 0 && (
+                        <div className="space-y-8">
+                          {condition.keyResearch && condition.keyResearch.length > 0 && (
                             <div id="key-research" data-section="key-research" className="relative bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden scroll-mt-40">
                               <div className="relative">
                                 <div className="px-8 pt-8 pb-6 border-b border-slate-100">
@@ -1287,8 +1216,8 @@ export default function ConditionPageClient({
                             </div>
                             )}
 
-                            {activeResearchView === 'research-insights' && condition.researchInsights && condition.researchInsights.length > 0 && (
-                            <div id="research-insights" data-section="research-insights" className="relative bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden scroll-mt-40">
+                          {condition.researchInsights && condition.researchInsights.length > 0 && (
+                            <div id="research-insights" data-section="research-insights" className="relative bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden scroll-mt-28">
                               <div className="relative">
                                 <div className="px-8 pt-8 pb-6 border-b border-slate-100">
                                   <div className="mb-3 flex items-center gap-2.5">
@@ -1298,16 +1227,7 @@ export default function ConditionPageClient({
                                   <h2 className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900">Research Insights</h2>
                                   <p className="mt-2 text-sm text-slate-600 max-w-[60ch]">Clinical implications and practice recommendations.</p>
                                 </div>
-                                
-                                <AnimatePresence initial={false}>
-                                  {expandedResearchSections['research-insights'] && (
-                                    <motion.div 
-                                      initial={{ height: 0, opacity: 0 }}
-                                      animate={{ height: 'auto', opacity: 1 }}
-                                      exit={{ height: 0, opacity: 0 }}
-                                      transition={{ duration: 0.2, ease: "easeInOut" }}
-                                      className="overflow-hidden"
-                                    >
+
                                       <div className="p-8">
                                   <div className="space-y-4">
                                     {condition.researchInsights.map((insight, index) => {
@@ -1340,28 +1260,16 @@ export default function ConditionPageClient({
                                     </div>
                                   </div>
                                       </div>
-                                    </motion.div>
-                                  )}
-                                </AnimatePresence>
                               </div>
                             </div>
-                            )}
-                          </motion.div>
-                        </AnimatePresence>
+                          )}
+                        </div>
                       )}
 
                       {/* Management Tab */}
                       {activeTab === 'self-care' && (
-                        <AnimatePresence mode="wait">
-                          <motion.div
-                            key={activeManagementView}
-                            initial={{ opacity: 0, x: 10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -10 }}
-                            transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
-                          >
-                            {/* Integrated Evidence-Based Management - Premium Design */}
-                            {activeManagementView === 'evidence-based-treatment' && (condition.evidenceSnapshot || condition.selfManagement) && (
+                        <div className="space-y-8">
+                          {(condition.evidenceSnapshot || condition.selfManagement) && (
                             <div id="evidence-based-management" data-section="evidence-based" className="relative bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden scroll-mt-40">
                               <div className="relative">
                                 <div className="px-8 pt-8 pb-6 border-b border-slate-100">
@@ -1373,15 +1281,6 @@ export default function ConditionPageClient({
                                   <p className="mt-2 text-sm text-slate-600 max-w-[60ch]">Treatment strategies with the strongest support in the current literature.</p>
                                 </div>
                                 
-                                <AnimatePresence initial={false}>
-                                  {expandedManagementSections['evidence-based'] && (
-                                    <motion.div 
-                                      initial={{ height: 0, opacity: 0 }}
-                                      animate={{ height: 'auto', opacity: 1 }}
-                                      exit={{ height: 0, opacity: 0 }}
-                                      transition={{ duration: 0.2, ease: "easeInOut" }}
-                                      className="overflow-hidden"
-                                    >
                                       <div className="p-8">
                                   <div className="space-y-8">
                                     {/* Evidence Snapshot Cards - unified editorial pattern:
@@ -1500,15 +1399,12 @@ export default function ConditionPageClient({
                                     )}
                                   </div>
                                       </div>
-                                    </motion.div>
-                                  )}
-                                </AnimatePresence>
                               </div>
                             </div>
-                            )}
+                          )}
 
-                            {/* Treatment Techniques Section - Collapsible */}
-                            {activeManagementView === 'treatment-techniques' && (condition.treatmentApproach || relatedTreatments.length > 0) && (
+                            {/* Treatment Techniques Section */}
+                            {(condition.treatmentApproach || relatedTreatments.length > 0) && (
                             <div id="treatment-techniques" data-section="treatment-techniques" className="relative bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden scroll-mt-40">
                               <div className="relative">
                                 <div className="px-8 pt-8 pb-6 border-b border-slate-100">
@@ -1520,15 +1416,6 @@ export default function ConditionPageClient({
                                   <p className="mt-2 text-sm text-slate-600 max-w-[60ch]">Evidence-based manual therapy and intervention approaches.</p>
                                 </div>
 
-                                <AnimatePresence initial={false}>
-                                  {expandedManagementSections['treatment-techniques'] && (
-                                    <motion.div
-                                      initial={{ height: 0, opacity: 0 }}
-                                      animate={{ height: 'auto', opacity: 1 }}
-                                      exit={{ height: 0, opacity: 0 }}
-                                      transition={{ duration: 0.2, ease: "easeInOut" }}
-                                      className="overflow-hidden"
-                                    >
                                       <div className="p-8">
                                         {condition.treatmentApproach && (
                                           <>
@@ -1578,15 +1465,12 @@ export default function ConditionPageClient({
                                           </div>
                                         )}
                                       </div>
-                                    </motion.div>
-                                  )}
-                                </AnimatePresence>
                               </div>
                             </div>
-                            )}
+                          )}
 
-                            {/* Recovery Timeline Section - Collapsible */}
-                            {activeManagementView === 'timeline' && condition.timeline && condition.timeline.length > 0 && (
+                            {/* Recovery Timeline Section */}
+                            {condition.timeline && condition.timeline.length > 0 && (
                             <div id="recovery-timeline" data-section="timeline" className="relative bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden scroll-mt-40">
                               <div className="relative">
                                 <div className="px-8 pt-8 pb-6 border-b border-slate-100">
@@ -1598,15 +1482,6 @@ export default function ConditionPageClient({
                                   <p className="mt-2 text-sm text-slate-600 max-w-[60ch]">Phases and milestones typical of the recovery arc.</p>
                                 </div>
                                 
-                                <AnimatePresence initial={false}>
-                                  {expandedManagementSections['timeline'] && (
-                                    <motion.div 
-                                      initial={{ height: 0, opacity: 0 }}
-                                      animate={{ height: 'auto', opacity: 1 }}
-                                      exit={{ height: 0, opacity: 0 }}
-                                      transition={{ duration: 0.2, ease: "easeInOut" }}
-                                      className="overflow-hidden"
-                                    >
                                       <div className="p-8">
                                         <div className="relative">
                                           {condition.timeline.map((phase, index) => (
@@ -1630,14 +1505,11 @@ export default function ConditionPageClient({
                                           ))}
                                         </div>
                                       </div>
-                                    </motion.div>
-                                  )}
-                                </AnimatePresence>
                               </div>
                             </div>
-                            )}
+                          )}
 
-                            {activeManagementView === 'prognosis' && condition.prognosis && (
+                            {condition.prognosis && (
                             <div id="prognosis" data-section="prognosis" className="relative bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden scroll-mt-40">
                               <div className="relative">
                                 <div className="px-8 pt-8 pb-6 border-b border-slate-100">
@@ -1649,15 +1521,6 @@ export default function ConditionPageClient({
                                   <p className="mt-2 text-sm text-slate-600 max-w-[60ch]">What outcomes and recovery factors typically look like.</p>
                                 </div>
                                 
-                                <AnimatePresence>
-                                  {expandedManagementSections['prognosis'] && (
-                                    <motion.div
-                                      initial={{ height: 0, opacity: 0 }}
-                                      animate={{ height: 'auto', opacity: 1 }}
-                                      exit={{ height: 0, opacity: 0 }}
-                                      transition={{ duration: 0.3 }}
-                                      className="overflow-hidden"
-                                    >
                                       <div className="p-8">
                                   <div className="space-y-5">
                                     {/* Timeline Card */}
@@ -1690,15 +1553,12 @@ export default function ConditionPageClient({
                                     )}
                                   </div>
                                       </div>
-                                    </motion.div>
-                                  )}
-                                </AnimatePresence>
                               </div>
                             </div>
                           )}
 
-                            {/* Measuring Progress Section - Premium Design */}
-                            {activeManagementView === 'measuring-success' && condition.measuringProgress && (
+                            {/* Measuring Progress Section */}
+                            {condition.measuringProgress && (
                             <div id="measuring-progress" data-section="measuring" className="relative bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden scroll-mt-40">
                               <div className="relative">
                                 <div className="px-8 pt-8 pb-6 border-b border-slate-100">
@@ -1710,15 +1570,6 @@ export default function ConditionPageClient({
                                   <p className="mt-2 text-sm text-slate-600 max-w-[60ch]">How to track the recovery arc week to week.</p>
                                 </div>
                                 
-                                <AnimatePresence>
-                                  {expandedManagementSections['measuring'] && (
-                                    <motion.div
-                                      initial={{ height: 0, opacity: 0 }}
-                                      animate={{ height: 'auto', opacity: 1 }}
-                                      exit={{ height: 0, opacity: 0 }}
-                                      transition={{ duration: 0.3 }}
-                                      className="overflow-hidden"
-                                    >
                                       <div className="p-8">
                                   <div className="space-y-5">
                                     <div className="relative bg-white rounded-xl p-6 border border-slate-200 border-l-4 border-l-[#B08D57] shadow-sm">
@@ -1751,15 +1602,11 @@ export default function ConditionPageClient({
                                     </div>
                                   </div>
                                       </div>
-                                    </motion.div>
-                                  )}
-                                </AnimatePresence>
                               </div>
                             </div>
                           )}
 
-
-                            {activeManagementView === 'faqs' && condition.faqs && condition.faqs.length > 0 && (
+                            {condition.faqs && condition.faqs.length > 0 && (
                             <div id="faqs" data-section="faqs" className="relative bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden scroll-mt-40">
                               <div className="relative">
                                 <div className="px-8 pt-8 pb-6 border-b border-slate-100">
@@ -1771,15 +1618,6 @@ export default function ConditionPageClient({
                                   <p className="mt-2 text-sm text-slate-600 max-w-[60ch]">Common concerns and answers about this condition.</p>
                                 </div>
                                 
-                                <AnimatePresence>
-                                  {expandedManagementSections['faqs'] && (
-                                    <motion.div
-                                      initial={{ height: 0, opacity: 0 }}
-                                      animate={{ height: 'auto', opacity: 1 }}
-                                      exit={{ height: 0, opacity: 0 }}
-                                      transition={{ duration: 0.3 }}
-                                      className="overflow-hidden"
-                                    >
                                       <div className="p-8">
                                   <div className="space-y-3">
                                     {condition.faqs.map((faq, index) => {
@@ -1812,51 +1650,11 @@ export default function ConditionPageClient({
                                     })}
                                   </div>
                                       </div>
-                                    </motion.div>
-                                  )}
-                                </AnimatePresence>
                               </div>
                             </div>
-                            )}
+                          )}
 
-                            {/* Recommended Treatments Section */}
-                            {activeManagementView === 'recommended-treatments' && relatedTreatments.length > 0 && (
-                              <div id="recommended-treatments" data-section="recommended-treatments" className="relative bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden scroll-mt-40">
-                                <div className="relative">
-                                  <div className="px-8 pt-8 pb-6 border-b border-slate-100">
-                                    <div className="mb-3 flex items-center gap-2.5">
-                                      <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-[#B08D57]" />
-                                      <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">Management</p>
-                                    </div>
-                                    <h2 className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900">Recommended Treatments</h2>
-                                    <p className="mt-2 text-sm text-slate-600 max-w-[60ch]">Evidence-based approaches for this condition.</p>
-                                  </div>
-
-                                  <div className="p-8">
-                                    <div className="grid md:grid-cols-2 gap-6">
-                                      {relatedTreatments.map((treatment) => (
-                                        <Link key={treatment.id} href={`/treatments/${treatment.id}`} className="group">
-                                          <div className="relative bg-white rounded-xl p-6 border border-slate-200 hover:border-[#B08D57] hover:shadow-md transition-[border-color,box-shadow] duration-200 cursor-pointer h-full flex flex-col">
-                                            <h3 className="text-lg font-semibold text-slate-900 group-hover:text-[#B08D57] transition-colors mb-3">
-                                              {treatment.name}
-                                            </h3>
-                                            <p className="text-slate-600 text-sm leading-relaxed flex-grow mb-4">
-                                              {treatment.shortDescription}
-                                            </p>
-                                            <div className="inline-flex items-center text-[#B08D57] font-medium text-sm">
-                                              <span>Explore {treatment.name}</span>
-                                              <ArrowRightIcon className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
-                                            </div>
-                                          </div>
-                                        </Link>
-                                      ))}
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            )}
-                          </motion.div>
-                        </AnimatePresence>
+                        </div>
                       )}
                     </motion.div>
                   </AnimatePresence>

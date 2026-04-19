@@ -1085,7 +1085,9 @@ export default function ConditionPageClient({
                                 {condition.clinicalPresentation.typicalPattern && (
                                   <div className="relative bg-white rounded-xl p-6 md:p-7 border border-slate-200 border-l-4 border-l-[#B08D57] shadow-sm">
                                     <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57] mb-3">Typical pattern</p>
-                                    <p className="text-base text-slate-700 leading-relaxed max-w-[72ch]">{condition.clinicalPresentation.typicalPattern}</p>
+                                    <p className="text-base text-slate-700 leading-relaxed max-w-[72ch]">
+                                      <GlossaryText text={condition.clinicalPresentation.typicalPattern} />
+                                    </p>
                                   </div>
                                 )}
                             </div>
@@ -1401,7 +1403,7 @@ export default function ConditionPageClient({
                                                 <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">{strategy.strategy}</p>
                                               </div>
                                               <p className="text-slate-700 text-sm md:text-base leading-relaxed mb-4 max-w-[58ch]">
-                                                {strategy.rationale}
+                                                <GlossaryText text={strategy.rationale} />
                                               </p>
                                               {strategy.precautions && strategy.precautions.length > 0 && (
                                                 <div className="mt-4 pt-4 border-t border-slate-100">
@@ -1575,14 +1577,18 @@ export default function ConditionPageClient({
                                     {/* Timeline Card */}
                                     <div className="relative bg-white rounded-xl p-6 border border-slate-200 border-l-4 border-l-[#B08D57] shadow-sm">
                                       <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57] mb-2">Expected timeline</p>
-                                      <p className="text-slate-700 text-sm md:text-base leading-relaxed max-w-[72ch]">{condition.prognosis.timeline}</p>
+                                      <p className="text-slate-700 text-sm md:text-base leading-relaxed max-w-[72ch]">
+                                        <GlossaryText text={condition.prognosis.timeline} />
+                                      </p>
                                     </div>
 
                                     {/* Natural History Card */}
                                     {condition.prognosis.naturalHistory && (
                                       <div className="relative bg-white rounded-xl p-6 border border-slate-200 border-l-4 border-l-[#B08D57] shadow-sm">
                                         <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57] mb-2">Natural history</p>
-                                        <p className="text-slate-700 text-sm md:text-base leading-relaxed max-w-[72ch]">{condition.prognosis.naturalHistory}</p>
+                                        <p className="text-slate-700 text-sm md:text-base leading-relaxed max-w-[72ch]">
+                                          <GlossaryText text={condition.prognosis.naturalHistory} />
+                                        </p>
                                       </div>
                                     )}
 
@@ -1623,7 +1629,9 @@ export default function ConditionPageClient({
                                   <div className="space-y-5">
                                     <div className="relative bg-white rounded-xl p-6 border border-slate-200 border-l-4 border-l-[#B08D57] shadow-sm">
                                       <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57] mb-2">Day-to-day tracking</p>
-                                      <p className="text-slate-700 text-sm md:text-base leading-relaxed max-w-[72ch]">{condition.measuringProgress.dayToDay}</p>
+                                      <p className="text-slate-700 text-sm md:text-base leading-relaxed max-w-[72ch]">
+                                        <GlossaryText text={condition.measuringProgress.dayToDay} />
+                                      </p>
                                     </div>
 
                                     {condition.measuringProgress.questionnaires && (
@@ -1647,7 +1655,9 @@ export default function ConditionPageClient({
 
                                     <div className="relative bg-white rounded-xl p-6 border border-slate-200 border-l-4 border-l-[#B08D57] shadow-sm">
                                       <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57] mb-2">Activity targets</p>
-                                      <p className="text-slate-700 text-sm md:text-base leading-relaxed max-w-[72ch]">{condition.measuringProgress.activityTarget}</p>
+                                      <p className="text-slate-700 text-sm md:text-base leading-relaxed max-w-[72ch]">
+                                        <GlossaryText text={condition.measuringProgress.activityTarget} />
+                                      </p>
                                     </div>
                                   </div>
                                       </div>

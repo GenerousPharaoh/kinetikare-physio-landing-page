@@ -285,97 +285,6 @@ function ConditionsPageWithParams({
             </div>
           </div>
 
-          {/* Discovery: topic hubs, pain guides, comparisons.
-              Hidden when search is active to keep the results view focused. */}
-          {!searchQuery && (topicHubs.length > 0 || painGuides.length > 0 || comparisons.length > 0) && (
-            <div className="max-w-6xl mx-auto px-4 mb-12 space-y-8">
-              {topicHubs.length > 0 && (
-                <section aria-labelledby="topic-hubs-heading">
-                  <div className="flex items-baseline justify-between mb-4">
-                    <h2 id="topic-hubs-heading" className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
-                      Topic guides
-                    </h2>
-                    <span className="text-xs text-slate-400">Pain sorted by body region</span>
-                  </div>
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    {topicHubs.map((hub) => (
-                      <Link
-                        key={hub.href}
-                        href={hub.href}
-                        className="group block rounded-xl border border-slate-200 bg-white p-5 hover:border-[#B08D57] hover:shadow-md transition-all"
-                      >
-                        <div className="flex items-start gap-3">
-                          <span className="inline-flex h-9 w-9 flex-none items-center justify-center rounded-lg bg-[#B08D57]/10 text-[#B08D57]">
-                            <MapPinIcon className="h-5 w-5" />
-                          </span>
-                          <div className="flex-1 min-w-0">
-                            <h3 className="text-base font-semibold text-slate-900 group-hover:text-[#B08D57] transition-colors">
-                              {hub.title}
-                            </h3>
-                            <p className="mt-1 text-sm text-slate-600 leading-relaxed">{hub.blurb}</p>
-                          </div>
-                          <ArrowRightIcon className="h-4 w-4 text-slate-400 group-hover:text-[#B08D57] group-hover:translate-x-0.5 transition-all flex-none mt-1" />
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                </section>
-              )}
-
-              {painGuides.length > 0 && (
-                <section aria-labelledby="pain-guides-heading">
-                  <div className="flex items-baseline justify-between mb-4">
-                    <h2 id="pain-guides-heading" className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
-                      Start with the symptom
-                    </h2>
-                    <Link href="/conditions/pain-guides" className="text-xs text-[#B08D57] hover:underline">
-                      View all guides
-                    </Link>
-                  </div>
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    {painGuides.map((guide) => (
-                      <Link
-                        key={guide.href}
-                        href={guide.href}
-                        className="group block rounded-xl border border-slate-200 bg-slate-50 p-5 hover:bg-white hover:border-[#B08D57] hover:shadow-sm transition-all"
-                      >
-                        <h3 className="text-base font-semibold text-slate-900 group-hover:text-[#B08D57] transition-colors">
-                          {guide.title}
-                        </h3>
-                        <p className="mt-1 text-sm text-slate-600 leading-relaxed">{guide.blurb}</p>
-                      </Link>
-                    ))}
-                  </div>
-                </section>
-              )}
-
-              {comparisons.length > 0 && (
-                <section aria-labelledby="comparisons-heading">
-                  <div className="flex items-baseline justify-between mb-4">
-                    <h2 id="comparisons-heading" className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
-                      Commonly confused
-                    </h2>
-                    <Link href="/conditions/compare" className="text-xs text-[#B08D57] hover:underline">
-                      All comparisons
-                    </Link>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {comparisons.map((c) => (
-                      <Link
-                        key={c.pair}
-                        href={c.href}
-                        className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 hover:border-[#B08D57] hover:text-[#B08D57] transition-colors"
-                      >
-                        <ArrowsRightLeftIcon className="h-3.5 w-3.5" />
-                        {c.label}
-                      </Link>
-                    ))}
-                  </div>
-                </section>
-              )}
-            </div>
-          )}
-
           {/* Tab Content */}
           <div ref={contentRef} className="max-w-6xl mx-auto scroll-mt-24">
             {searchQuery ? (
@@ -509,6 +418,109 @@ function ConditionsPageWithParams({
               </motion.div>
             )}
           </div>
+
+          {/* Discovery: topic hubs, pain guides, comparisons. Rendered AFTER
+              the active-region condition list so a reader who came to "filter
+              by body region" sees the matching conditions first, and only
+              encounters alternative browse paths once that primary list is
+              visible. Hidden when search is active to keep results focused. */}
+          {!searchQuery && (topicHubs.length > 0 || painGuides.length > 0 || comparisons.length > 0) && (
+            <div className="max-w-6xl mx-auto px-4 mt-16 pt-12 border-t border-slate-200 space-y-10">
+              <div className="text-center">
+                <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">
+                  Other ways to explore
+                </p>
+                <p className="mt-2 text-sm text-slate-500">
+                  Browse by symptom or by common look-alike conditions.
+                </p>
+              </div>
+
+              {topicHubs.length > 0 && (
+                <section aria-labelledby="topic-hubs-heading">
+                  <div className="flex items-baseline justify-between mb-4">
+                    <h2 id="topic-hubs-heading" className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+                      Topic guides
+                    </h2>
+                    <span className="text-xs text-slate-400">Pain sorted by body region</span>
+                  </div>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    {topicHubs.map((hub) => (
+                      <Link
+                        key={hub.href}
+                        href={hub.href}
+                        className="group block rounded-xl border border-slate-200 bg-white p-5 hover:border-[#B08D57] hover:shadow-md transition-all"
+                      >
+                        <div className="flex items-start gap-3">
+                          <span className="inline-flex h-9 w-9 flex-none items-center justify-center rounded-lg bg-[#B08D57]/10 text-[#B08D57]">
+                            <MapPinIcon className="h-5 w-5" />
+                          </span>
+                          <div className="flex-1 min-w-0">
+                            <h3 className="text-base font-semibold text-slate-900 group-hover:text-[#B08D57] transition-colors">
+                              {hub.title}
+                            </h3>
+                            <p className="mt-1 text-sm text-slate-600 leading-relaxed">{hub.blurb}</p>
+                          </div>
+                          <ArrowRightIcon className="h-4 w-4 text-slate-400 group-hover:text-[#B08D57] group-hover:translate-x-0.5 transition-all flex-none mt-1" />
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </section>
+              )}
+
+              {painGuides.length > 0 && (
+                <section aria-labelledby="pain-guides-heading">
+                  <div className="flex items-baseline justify-between mb-4">
+                    <h2 id="pain-guides-heading" className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+                      Start with the symptom
+                    </h2>
+                    <Link href="/conditions/pain-guides" className="text-xs text-[#B08D57] hover:underline">
+                      View all guides
+                    </Link>
+                  </div>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    {painGuides.map((guide) => (
+                      <Link
+                        key={guide.href}
+                        href={guide.href}
+                        className="group block rounded-xl border border-slate-200 bg-slate-50 p-5 hover:bg-white hover:border-[#B08D57] hover:shadow-sm transition-all"
+                      >
+                        <h3 className="text-base font-semibold text-slate-900 group-hover:text-[#B08D57] transition-colors">
+                          {guide.title}
+                        </h3>
+                        <p className="mt-1 text-sm text-slate-600 leading-relaxed">{guide.blurb}</p>
+                      </Link>
+                    ))}
+                  </div>
+                </section>
+              )}
+
+              {comparisons.length > 0 && (
+                <section aria-labelledby="comparisons-heading">
+                  <div className="flex items-baseline justify-between mb-4">
+                    <h2 id="comparisons-heading" className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+                      Commonly confused
+                    </h2>
+                    <Link href="/conditions/compare" className="text-xs text-[#B08D57] hover:underline">
+                      All comparisons
+                    </Link>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {comparisons.map((c) => (
+                      <Link
+                        key={c.pair}
+                        href={c.href}
+                        className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 hover:border-[#B08D57] hover:text-[#B08D57] transition-colors"
+                      >
+                        <ArrowsRightLeftIcon className="h-3.5 w-3.5" />
+                        {c.label}
+                      </Link>
+                    ))}
+                  </div>
+                </section>
+              )}
+            </div>
+          )}
         </div>
       </section>
 

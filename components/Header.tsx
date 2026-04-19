@@ -215,13 +215,21 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   {item.name === 'Conditions' && (
                     <div className="absolute left-1/2 -translate-x-1/2 top-full pt-6 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 ease-out">
                       <div className="w-[600px] bg-[#020617]/95 backdrop-blur-2xl rounded-2xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] p-6 grid grid-cols-2 gap-x-8 gap-y-4">
-                        {conditionCategories.map((category) => (
+                        {conditionCategories.map((category, categoryIndex) => (
                           <div key={category.slug} className="group/category">
-                            <div className="flex items-center justify-between py-2 border-b border-white/5 group-hover/category:border-[#D4AF37]/30 transition-colors">
-                              <span className="text-[#D4AF37] font-medium text-sm tracking-wide">
+                            <Link
+                              href={`/conditions?tab=${categoryIndex}`}
+                              prefetch={false}
+                              className="flex items-center justify-between py-2 border-b border-white/5 group-hover/category:border-[#D4AF37]/30 transition-colors hover:!text-white"
+                            >
+                              <span className="text-[#D4AF37] font-medium text-sm tracking-wide group-hover/category:text-[#F5E6B3] transition-colors">
                                 {category.title}
                               </span>
-                            </div>
+                              <ChevronRightIcon
+                                aria-hidden="true"
+                                className="w-3.5 h-3.5 text-[#D4AF37]/50 group-hover/category:text-[#D4AF37] group-hover/category:translate-x-0.5 transition-all"
+                              />
+                            </Link>
                             <div className="mt-2 space-y-1">
                               {category.conditions.slice(0, 4).map((condition) => (
                                 <Link

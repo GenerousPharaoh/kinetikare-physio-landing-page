@@ -7809,7 +7809,7 @@ Common aggravating factors include the 'boom-bust' cycle of overdoing on good da
       },
       {
         question: "Is bad posture causing this?",
-        answer: "Posture matters less than the internet would have you believe, and more than nothing. Cross-sectional studies have not shown a strong link between a specific resting posture and shoulder pain, so I do not spend much clinic time straightening people into an idealised upright position. What does matter is positional variety and cuff capacity: getting out of sustained end-range postures, moving regularly, and having enough strength to tolerate the positions your day requires."
+        answer: "Less than most people assume, but not nothing. Cross-sectional studies have not shown a strong link between a specific resting posture and shoulder pain, so I do not spend much clinic time straightening people into an idealised upright position. What does matter is positional variety and cuff capacity: getting out of sustained end-range postures, moving regularly, and having enough strength to tolerate the positions your day requires."
       }
     ],
 

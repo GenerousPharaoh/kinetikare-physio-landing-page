@@ -1173,22 +1173,15 @@ export default function ConditionPageClient({
                             transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
                           >
                             {activeResearchView === 'key-research' && condition.keyResearch && condition.keyResearch.length > 0 && (
-                            <div id="key-research" data-section="key-research" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
-                              {/* Premium gradient overlay */}
-                              <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/30 via-transparent to-teal-50/20 pointer-events-none"></div>
-
+                            <div id="key-research" data-section="key-research" className="relative bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden scroll-mt-40">
                               <div className="relative">
-                                {/* Header with gradient accent */}
-                                <div className="bg-gradient-to-r from-emerald-900 to-emerald-700 px-8 py-6">
-                                  <div className="flex items-center gap-3">
-                                    <div className="p-2.5 bg-white/10 backdrop-blur rounded-xl border border-white/20">
-                                      <BeakerIcon className="h-6 w-6 text-white" />
-                                    </div>
-                                    <div>
-                                      <h2 className="text-2xl font-medium tracking-tight leading-tight text-white">Key Research & Evidence</h2>
-                                      <p className="text-sm text-emerald-200 mt-1">Peer-reviewed studies supporting treatment approaches</p>
-                                    </div>
+                                <div className="px-8 pt-8 pb-6 border-b border-slate-100">
+                                  <div className="mb-3 flex items-center gap-2.5">
+                                    <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-[#B08D57]" />
+                                    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">Research</p>
                                   </div>
+                                  <h2 className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900">Key Research &amp; Evidence</h2>
+                                  <p className="mt-2 text-sm text-slate-600 max-w-[60ch]">Peer-reviewed studies supporting the treatment approach.</p>
                                 </div>
 
                                 <div className="p-8">
@@ -1295,26 +1288,15 @@ export default function ConditionPageClient({
                             )}
 
                             {activeResearchView === 'research-insights' && condition.researchInsights && condition.researchInsights.length > 0 && (
-                            <div id="research-insights" data-section="research-insights" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
-                              {/* Premium gradient overlay */}
-                              <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-transparent to-indigo-50/20 pointer-events-none"></div>
-
+                            <div id="research-insights" data-section="research-insights" className="relative bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden scroll-mt-40">
                               <div className="relative">
-                                {/* Header with gradient accent - Clickable */}
-                                <div 
-                                  className="bg-gradient-to-r from-blue-900 to-blue-700 px-8 py-6 transition-all"
-                                >
-                                  <div className="flex items-center justify-between">
-                                    <div className="flex items-center gap-3">
-                                      <div className="p-2.5 bg-white/10 backdrop-blur rounded-xl border border-white/20">
-                                        <ChartBarIcon className="h-6 w-6 text-white" />
-                                      </div>
-                                      <div>
-                                        <h2 className="text-2xl font-medium tracking-tight leading-tight text-white">Research Insights</h2>
-                                        <p className="text-sm text-blue-200 mt-1">Clinical implications and practice recommendations</p>
-                                      </div>
-                                    </div>
+                                <div className="px-8 pt-8 pb-6 border-b border-slate-100">
+                                  <div className="mb-3 flex items-center gap-2.5">
+                                    <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-[#B08D57]" />
+                                    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">Research</p>
                                   </div>
+                                  <h2 className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900">Research Insights</h2>
+                                  <p className="mt-2 text-sm text-slate-600 max-w-[60ch]">Clinical implications and practice recommendations.</p>
                                 </div>
                                 
                                 <AnimatePresence initial={false}>
@@ -1380,26 +1362,15 @@ export default function ConditionPageClient({
                           >
                             {/* Integrated Evidence-Based Management - Premium Design */}
                             {activeManagementView === 'evidence-based-treatment' && (condition.evidenceSnapshot || condition.selfManagement) && (
-                            <div id="evidence-based-management" data-section="evidence-based" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
-                              {/* Premium gradient overlay */}
-                              <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 via-transparent to-blue-50/30 pointer-events-none"></div>
-                              
+                            <div id="evidence-based-management" data-section="evidence-based" className="relative bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden scroll-mt-40">
                               <div className="relative">
-                                {/* Header with gradient accent - Now clickable */}
-                                <div 
-                                  className="bg-gradient-to-r from-slate-900 to-slate-700 px-8 py-6 transition-all"
-                                >
-                                  <div className="flex items-center justify-between">
-                                    <div className="flex items-center gap-3">
-                                      <div className="p-2.5 bg-white/10 backdrop-blur rounded-xl border border-white/20">
-                                        <BeakerIcon className="h-6 w-6 text-white" />
-                                      </div>
-                                      <div>
-                                        <h2 className="text-2xl font-medium tracking-tight leading-tight text-white">Evidence-Based Management</h2>
-                                        <p className="text-sm text-slate-200 mt-1">Comprehensive treatment strategies with proven outcomes</p>
-                                      </div>
-                                    </div>
+                                <div className="px-8 pt-8 pb-6 border-b border-slate-100">
+                                  <div className="mb-3 flex items-center gap-2.5">
+                                    <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-[#B08D57]" />
+                                    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">Management</p>
                                   </div>
+                                  <h2 className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900">Evidence-Based Management</h2>
+                                  <p className="mt-2 text-sm text-slate-600 max-w-[60ch]">Treatment strategies with the strongest support in the current literature.</p>
                                 </div>
                                 
                                 <AnimatePresence initial={false}>
@@ -1551,26 +1522,15 @@ export default function ConditionPageClient({
 
                             {/* Treatment Techniques Section - Collapsible */}
                             {activeManagementView === 'treatment-techniques' && (condition.treatmentApproach || relatedTreatments.length > 0) && (
-                            <div id="treatment-techniques" data-section="treatment-techniques" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
-                              {/* Premium gradient overlay */}
-                              <div className="absolute inset-0 bg-gradient-to-br from-orange-50/30 via-transparent to-amber-50/20 pointer-events-none"></div>
-
+                            <div id="treatment-techniques" data-section="treatment-techniques" className="relative bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden scroll-mt-40">
                               <div className="relative">
-                                {/* Header with gradient accent - Clickable */}
-                                <div
-                                  className="bg-gradient-to-r from-orange-900 to-amber-700 px-8 py-6 transition-all"
-                                >
-                                  <div className="flex items-center justify-between">
-                                    <div className="flex items-center gap-3">
-                                      <div className="p-2.5 bg-white/10 backdrop-blur rounded-xl border border-white/20">
-                                        <AcademicCapIcon className="h-6 w-6 text-white" />
-                                      </div>
-                                      <div>
-                                        <h2 className="text-2xl font-medium tracking-tight leading-tight text-white">Treatment Techniques</h2>
-                                        <p className="text-sm text-orange-200 mt-1">Evidence-based manual therapy and intervention approaches</p>
-                                      </div>
-                                    </div>
+                                <div className="px-8 pt-8 pb-6 border-b border-slate-100">
+                                  <div className="mb-3 flex items-center gap-2.5">
+                                    <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-[#B08D57]" />
+                                    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">Management</p>
                                   </div>
+                                  <h2 className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900">Treatment Techniques</h2>
+                                  <p className="mt-2 text-sm text-slate-600 max-w-[60ch]">Evidence-based manual therapy and intervention approaches.</p>
                                 </div>
 
                                 <AnimatePresence initial={false}>
@@ -1640,26 +1600,15 @@ export default function ConditionPageClient({
 
                             {/* Recovery Timeline Section - Collapsible */}
                             {activeManagementView === 'timeline' && condition.timeline && condition.timeline.length > 0 && (
-                            <div id="recovery-timeline" data-section="timeline" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
-                              {/* Premium gradient overlay */}
-                              <div className="absolute inset-0 bg-gradient-to-br from-teal-50/30 via-transparent to-cyan-50/20 pointer-events-none"></div>
-                              
+                            <div id="recovery-timeline" data-section="timeline" className="relative bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden scroll-mt-40">
                               <div className="relative">
-                                {/* Header with gradient accent - Clickable */}
-                                <div 
-                                  className="bg-gradient-to-r from-teal-900 to-cyan-700 px-8 py-6 transition-all"
-                                >
-                                  <div className="flex items-center justify-between">
-                                    <div className="flex items-center gap-3">
-                                      <div className="p-2.5 bg-white/10 backdrop-blur rounded-xl border border-white/20">
-                                        <ClockIcon className="h-6 w-6 text-white" />
-                                      </div>
-                                      <div>
-                                        <h2 className="text-2xl font-medium tracking-tight leading-tight text-white">Recovery Timeline</h2>
-                                        <p className="text-sm text-teal-200 mt-1">Expected phases and milestones in your recovery journey</p>
-                                      </div>
-                                    </div>
+                                <div className="px-8 pt-8 pb-6 border-b border-slate-100">
+                                  <div className="mb-3 flex items-center gap-2.5">
+                                    <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-[#B08D57]" />
+                                    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">Management</p>
                                   </div>
+                                  <h2 className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900">Recovery Timeline</h2>
+                                  <p className="mt-2 text-sm text-slate-600 max-w-[60ch]">Phases and milestones typical of the recovery arc.</p>
                                 </div>
                                 
                                 <AnimatePresence initial={false}>
@@ -1702,28 +1651,15 @@ export default function ConditionPageClient({
                             )}
 
                             {activeManagementView === 'prognosis' && condition.prognosis && (
-                            <div id="prognosis" data-section="prognosis" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
-                              {/* Premium gradient overlay */}
-                              <div className="absolute inset-0 bg-gradient-to-br from-purple-50/30 via-transparent to-pink-50/20 pointer-events-none"></div>
-                              
+                            <div id="prognosis" data-section="prognosis" className="relative bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden scroll-mt-40">
                               <div className="relative">
-                                {/* Header with gradient accent - Clickable */}
-                                <div 
-                                  className="bg-gradient-to-r from-purple-900 to-purple-700 px-8 py-6 transition-all"
-                                >
-                                  <div className="flex items-center justify-between">
-                                    <div className="flex items-center gap-3">
-                                      <div className="p-2.5 bg-white/10 backdrop-blur rounded-xl border border-white/20">
-                                        <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                                          <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                                        </svg>
-                                      </div>
-                                      <div>
-                                        <h2 className="text-2xl font-medium tracking-tight leading-tight text-white">Prognosis & Recovery</h2>
-                                        <p className="text-sm text-purple-200 mt-1">Expected outcomes and recovery factors</p>
-                                      </div>
-                                    </div>
+                                <div className="px-8 pt-8 pb-6 border-b border-slate-100">
+                                  <div className="mb-3 flex items-center gap-2.5">
+                                    <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-[#B08D57]" />
+                                    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">Management</p>
                                   </div>
+                                  <h2 className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900">Prognosis &amp; Recovery</h2>
+                                  <p className="mt-2 text-sm text-slate-600 max-w-[60ch]">What outcomes and recovery factors typically look like.</p>
                                 </div>
                                 
                                 <AnimatePresence>
@@ -1809,28 +1745,15 @@ export default function ConditionPageClient({
 
                             {/* Measuring Progress Section - Premium Design */}
                             {activeManagementView === 'measuring-success' && condition.measuringProgress && (
-                            <div id="measuring-progress" data-section="measuring" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
-                              {/* Premium gradient overlay */}
-                              <div className="absolute inset-0 bg-gradient-to-br from-green-50/30 via-transparent to-emerald-50/20 pointer-events-none"></div>
-                              
+                            <div id="measuring-progress" data-section="measuring" className="relative bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden scroll-mt-40">
                               <div className="relative">
-                                {/* Header with gradient accent */}
-                                <div 
-                                  className="bg-gradient-to-r from-green-900 to-green-700 px-8 py-6 transition-all"
-                                >
-                                  <div className="flex items-center justify-between">
-                                    <div className="flex items-center gap-3">
-                                      <div className="p-2.5 bg-white/10 backdrop-blur rounded-xl border border-white/20">
-                                        <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                                        </svg>
-                                      </div>
-                                      <div>
-                                        <h2 className="text-2xl font-medium tracking-tight leading-tight text-white">Measuring Progress</h2>
-                                        <p className="text-sm text-green-200 mt-1">Track your recovery journey</p>
-                                      </div>
-                                    </div>
+                                <div className="px-8 pt-8 pb-6 border-b border-slate-100">
+                                  <div className="mb-3 flex items-center gap-2.5">
+                                    <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-[#B08D57]" />
+                                    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">Management</p>
                                   </div>
+                                  <h2 className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900">Measuring Progress</h2>
+                                  <p className="mt-2 text-sm text-slate-600 max-w-[60ch]">How to track the recovery arc week to week.</p>
                                 </div>
                                 
                                 <AnimatePresence>
@@ -1919,26 +1842,15 @@ export default function ConditionPageClient({
 
 
                             {activeManagementView === 'faqs' && condition.faqs && condition.faqs.length > 0 && (
-                            <div id="faqs" data-section="faqs" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
-                              {/* Premium gradient overlay */}
-                              <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-transparent to-cyan-50/20 pointer-events-none"></div>
-                              
+                            <div id="faqs" data-section="faqs" className="relative bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden scroll-mt-40">
                               <div className="relative">
-                                {/* Header with gradient accent */}
-                                <div 
-                                  className="bg-gradient-to-r from-blue-900 to-blue-700 px-8 py-6 transition-all"
-                                >
-                                  <div className="flex items-center justify-between">
-                                    <div className="flex items-center gap-3">
-                                      <div className="p-2.5 bg-white/10 backdrop-blur rounded-xl border border-white/20">
-                                        <QuestionMarkCircleIcon className="h-6 w-6 text-white" />
-                                      </div>
-                                      <div>
-                                        <h2 className="text-2xl font-medium tracking-tight leading-tight text-white">Frequently Asked Questions</h2>
-                                        <p className="text-sm text-blue-200 mt-1">Common concerns and answers</p>
-                                      </div>
-                                    </div>
+                                <div className="px-8 pt-8 pb-6 border-b border-slate-100">
+                                  <div className="mb-3 flex items-center gap-2.5">
+                                    <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-[#B08D57]" />
+                                    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">Management</p>
                                   </div>
+                                  <h2 className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900">Frequently Asked Questions</h2>
+                                  <p className="mt-2 text-sm text-slate-600 max-w-[60ch]">Common concerns and answers about this condition.</p>
                                 </div>
                                 
                                 <AnimatePresence>

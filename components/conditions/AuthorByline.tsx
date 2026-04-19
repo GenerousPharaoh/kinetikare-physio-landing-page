@@ -10,6 +10,16 @@ import Link from 'next/link';
  * number, practice location, and (when provided) the date the content was
  * last reviewed.
  *
+ * Layout principles:
+ *  - Mobile: stacked block, left-aligned. Name + role on one line (wraps if
+ *    necessary). Credentials / CPO on their own muted line. Clinic and
+ *    last-reviewed share a trailing line separated by a middot, wrapping
+ *    cleanly when there isn't room.
+ *  - Desktop: same block, slightly tighter — nothing is pushed to the right
+ *    edge of the hero column, so the byline can never orphan a fragment.
+ *  - No card chrome: single top border, mutes into the page like an
+ *    editorial byline rather than a component.
+ *
  * Server component: purely presentational, no state.
  */
 
@@ -42,6 +52,14 @@ function formatReviewedDate(iso: string): { label: string | null; datetime: stri
   return { label, datetime: iso };
 }
 
+function Divider() {
+  return (
+    <span aria-hidden="true" className="text-slate-300">
+      &middot;
+    </span>
+  );
+}
+
 export default function AuthorByline({ lastReviewed, conditionName }: AuthorBylineProps) {
   const reviewed = lastReviewed ? formatReviewedDate(lastReviewed) : null;
   const ariaLabel = conditionName
@@ -51,34 +69,27 @@ export default function AuthorByline({ lastReviewed, conditionName }: AuthorByli
   return (
     <aside
       aria-label={ariaLabel}
-      className="mt-5 border-t border-b border-slate-200/80 py-3"
+      className="mt-6 border-t border-slate-200/80 pt-3"
     >
-      <address className="not-italic flex flex-col md:flex-row md:items-center md:flex-wrap gap-x-3 gap-y-1 text-sm md:text-xs text-slate-600">
-        <span className="flex items-center gap-2">
-          <span
-            aria-hidden="true"
-            className="inline-block h-1.5 w-1.5 rounded-full bg-[#B08D57]"
-          />
-          <span className="text-slate-500">Written and reviewed by</span>
-        </span>
-
-        <span className="flex flex-wrap items-baseline gap-x-2 gap-y-0">
+      <address className="not-italic text-[13px] leading-relaxed text-slate-600">
+        {/* Line 1: person. Name is the visual anchor; role follows on the
+            same line. Credentials and CPO fall to a softer secondary line
+            so the primary line never has to fight for room with 4 tokens. */}
+        <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
           <Link
             href="/about"
-            className="font-semibold text-slate-900 hover:text-[#B08D57] transition-colors"
+            className="text-slate-900 font-semibold tracking-tight hover:text-[#B08D57] transition-colors"
           >
             {AUTHOR_NAME}
           </Link>
-          <span className="text-slate-700">,</span>
           <span className="text-slate-700">{AUTHOR_ROLE}</span>
-          <span className="text-slate-400" aria-hidden="true">
-            &middot;
-          </span>
-          <span className="text-slate-600">{AUTHOR_CREDENTIALS}</span>
-          <span className="text-slate-400" aria-hidden="true">
-            &middot;
-          </span>
-          <span className="text-slate-600">
+        </div>
+
+        {/* Line 2: credentials + CPO registration, quieter. */}
+        <div className="mt-0.5 flex flex-wrap items-baseline gap-x-2 gap-y-0.5 text-slate-500">
+          <span>{AUTHOR_CREDENTIALS}</span>
+          <Divider />
+          <span>
             <abbr
               title="College of Physiotherapists of Ontario registration"
               className="no-underline"
@@ -87,30 +98,36 @@ export default function AuthorByline({ lastReviewed, conditionName }: AuthorByli
             </abbr>{' '}
             {CPO_REGISTRATION}
           </span>
-        </span>
+        </div>
 
-        <span className="flex flex-wrap items-baseline gap-x-2 gap-y-0 md:ml-auto">
-          <span className="text-slate-500">Practicing at</span>
-          <Link
-            href={CLINIC_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-medium text-slate-700 hover:text-[#B08D57] transition-colors"
-          >
-            {CLINIC_NAME}
-          </Link>
-          <span className="text-slate-500">, {CLINIC_CITY}</span>
-        </span>
+        {/* Line 3: where + when, joined by a middot. Wraps onto a new line
+            on narrow viewports without either fragment being stranded. */}
+        <div className="mt-1 flex flex-wrap items-baseline gap-x-2 gap-y-0.5 text-slate-500">
+          <span>
+            Practicing at{' '}
+            <Link
+              href={CLINIC_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-700 hover:text-[#B08D57] transition-colors"
+            >
+              {CLINIC_NAME}
+            </Link>
+            , {CLINIC_CITY}
+          </span>
+          {reviewed?.label && (
+            <>
+              <Divider />
+              <span>
+                Last reviewed{' '}
+                <time dateTime={reviewed.datetime} className="text-slate-600">
+                  {reviewed.label}
+                </time>
+              </span>
+            </>
+          )}
+        </div>
       </address>
-
-      {reviewed?.label && (
-        <p className="mt-1.5 text-xs text-slate-500">
-          Last reviewed:{' '}
-          <time dateTime={reviewed.datetime} className="text-slate-600">
-            {reviewed.label}
-          </time>
-        </p>
-      )}
     </aside>
   );
 }

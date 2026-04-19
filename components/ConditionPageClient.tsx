@@ -33,6 +33,7 @@ import { getTreatmentsByCondition } from '@/lib/treatments-data';
 import type { PatternMatcherCluster } from '@/lib/pattern-matchers/knee-cluster';
 import ClinicalObservations from './conditions/ClinicalObservations';
 import AuthorByline from './conditions/AuthorByline';
+import ConditionAtAGlance from './conditions/ConditionAtAGlance';
 import SectionHeading from './conditions/SectionHeading';
 import GlossaryText from './conditions/GlossaryText';
 import RelatedConditionsList from './conditions/RelatedConditionsList';
@@ -519,6 +520,14 @@ export default function ConditionPageClient({
           </div>
         </section>
 
+        {/* Patient-first TL;DR: recovery timeframe, first-visit snapshot,
+            and what actually helps. Renders nothing when none of the
+            source fields exist on this condition. */}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="w-full max-w-5xl">
+            <ConditionAtAGlance condition={condition} />
+          </div>
+        </div>
 
         {/* Main Content Area with Sidebar */}
         <section className="pt-6 pb-28 md:pb-24 lg:pb-16 bg-white min-h-screen">

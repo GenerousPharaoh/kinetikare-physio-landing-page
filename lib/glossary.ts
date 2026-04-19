@@ -206,4 +206,120 @@ export const GLOSSARY: Record<string, GlossaryEntry> = {
     definition:
       'Relating to muscle and its surrounding fascia together. "Myofascial pain" describes a combined pattern of muscle tenderness and restricted fascial glide.',
   },
+  instability: {
+    term: 'instability',
+    definition:
+      'A joint that feels loose or gives way, lacking the normal muscular and ligament control that keeps it tracking smoothly.',
+  },
+  'rotator-cuff': {
+    term: 'rotator cuff',
+    definition:
+      'The four small shoulder muscles and their tendons that control and stabilize the ball of the shoulder as the arm moves.',
+  },
+  pathology: {
+    term: 'pathology',
+    definition:
+      'An underlying disease process or tissue change that a clinician is looking to identify. Not every ache has a discrete pathology.',
+    aliases: ['pathologies'],
+  },
+  stenosis: {
+    term: 'stenosis',
+    definition:
+      'Narrowing of a space, often a spinal canal or the opening where a nerve exits. Can contribute to pins and needles or heavy legs with walking.',
+  },
+  herniation: {
+    term: 'herniation',
+    definition:
+      'Disc material bulging beyond its normal boundary. Most herniations settle with time and loading; the size on imaging does not predict how sore you will be.',
+    aliases: ['herniations', 'herniated'],
+  },
+  laxity: {
+    term: 'laxity',
+    definition:
+      'Excess looseness in a joint or ligament. Some laxity is normal and inherited; it only matters when it goes with symptoms.',
+  },
+  crepitus: {
+    term: 'crepitus',
+    definition:
+      'A grinding, clicking or crackling sensation or sound from a joint. Common and usually harmless if there is no pain or swelling alongside it.',
+  },
+  glenohumeral: {
+    term: 'glenohumeral',
+    definition:
+      'The ball-and-socket joint of the shoulder, where the head of the upper arm bone meets the shallow socket on the shoulder blade.',
+  },
+  piriformis: {
+    term: 'piriformis',
+    definition:
+      'A deep muscle in the buttock. When it tightens around the sciatic nerve beneath it, it can produce buttock pain that travels down the leg.',
+  },
+  'sciatic-nerve': {
+    term: 'sciatic nerve',
+    definition:
+      'The long nerve that runs from the low back through the buttock and down the back of the leg. Irritation anywhere along its path is called sciatica.',
+    aliases: ['sciatic'],
+  },
+  'facet-joint': {
+    term: 'facet joint',
+    definition:
+      'Small paired joints at the back of each vertebra that guide how the spine bends and twists. They can become painful with sustained extension or rotation.',
+    aliases: ['facet joints'],
+  },
+  sacroiliac: {
+    term: 'sacroiliac',
+    definition:
+      'The joint between the sacrum at the base of the spine and the pelvis. Often shortened to SI joint. Can refer pain into the buttock or groin.',
+    aliases: ['SI joint', 'sacroiliac joint', 'sacroiliac joints'],
+  },
+  'nerve-root': {
+    term: 'nerve root',
+    definition:
+      'Where a spinal nerve exits the spine between two vertebrae. Compression or irritation here can cause pain, pins and needles, or weakness down a limb.',
+    aliases: ['nerve roots'],
+  },
+  'iliotibial-band': {
+    term: 'iliotibial band',
+    definition:
+      'A thick strip of fascia running along the outer thigh from hip to knee. Commonly called the IT band. Can become tender with repetitive knee bending.',
+    aliases: ['IT band', 'iliotibial'],
+  },
+  tenosynovitis: {
+    term: 'tenosynovitis',
+    definition:
+      'Irritation of the thin sheath that wraps a tendon, often producing swelling and pain with movement. Common at the wrist, thumb and ankle.',
+  },
+  osteophyte: {
+    term: 'osteophyte',
+    definition:
+      'A small bony outgrowth at the edge of a joint, often called a bone spur. Common on imaging with age and does not necessarily cause pain on its own.',
+    aliases: ['osteophytes', 'bone spur', 'bone spurs'],
+  },
+  centralization: {
+    term: 'centralization',
+    definition:
+      'When spinal pain retreats from the leg or arm back toward the spine during specific movements. Often a useful sign for guiding exercise choice.',
+    aliases: ['centralisation', 'centralize', 'centralise'],
+  },
+  'end-feel': {
+    term: 'end-feel',
+    definition:
+      'How a joint feels at the very end of its range when the therapist moves it — firm, soft, bony or empty. Each quality points to different structures.',
+    aliases: ['end feel'],
+  },
+  'joint-mobilization': {
+    term: 'joint mobilization',
+    definition:
+      'Gentle, graded hands-on movements applied to a joint by the therapist, used to ease pain and restore range without forceful thrusts.',
+    aliases: ['joint mobilisation'],
+  },
+  'dry-needling': {
+    term: 'dry needling',
+    definition:
+      'Thin solid needles inserted into trigger points or taut muscle bands for a short treatment. Different from acupuncture in both theory and target.',
+  },
+  'manual-therapy': {
+    term: 'manual therapy',
+    definition:
+      'An umbrella term for hands-on treatment, including joint mobilization, soft-tissue work and guided movement.',
+  },
 };

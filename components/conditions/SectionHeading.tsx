@@ -31,6 +31,12 @@ export interface SectionHeadingProps {
   /** Optional extra classes for the wrapper <div>. */
   wrapperClassName?: string;
   /**
+   * Optional uppercase kicker label rendered above the heading (e.g. "OVERVIEW",
+   * "SYMPTOMS"). Small caps + gold accent dot. Gives each major section a
+   * clearer editorial entry without touching the heading itself.
+   */
+  kicker?: string;
+  /**
    * When `true`, apply `scroll-mt-28` by default so the anchored section
    * does not sit under the sticky header. Defaults to `true`.
    */
@@ -43,6 +49,7 @@ export default function SectionHeading({
   children,
   className = '',
   wrapperClassName = '',
+  kicker,
   scrollOffset = true,
 }: SectionHeadingProps) {
   const [copied, setCopied] = useState(false);
@@ -77,10 +84,22 @@ export default function SectionHeading({
   const scrollClass = scrollOffset ? 'scroll-mt-28' : '';
 
   return (
-    <div className={`group/heading relative flex items-start gap-2 ${scrollClass} ${wrapperClassName}`}>
-      <HeadingTag id={id} className={className}>
-        {children}
-      </HeadingTag>
+    <div className={`${scrollClass} ${wrapperClassName}`}>
+      {kicker && (
+        <div className="mb-3 flex items-center gap-2.5">
+          <span
+            aria-hidden="true"
+            className="inline-block h-1.5 w-1.5 rounded-full bg-[#B08D57]"
+          />
+          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">
+            {kicker}
+          </p>
+        </div>
+      )}
+      <div className="group/heading relative flex items-start gap-2">
+        <HeadingTag id={id} className={className}>
+          {children}
+        </HeadingTag>
       <button
         type="button"
         onClick={handleCopy}
@@ -102,6 +121,7 @@ export default function SectionHeading({
       >
         Link copied
       </span>
+      </div>
     </div>
   );
 }

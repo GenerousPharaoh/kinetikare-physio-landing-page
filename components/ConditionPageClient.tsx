@@ -454,40 +454,6 @@ export default function ConditionPageClient({
                 Treating {condition.name.toLowerCase()} at my Burlington clinic. Convenient for Waterdown and Flamborough residents.
               </p>
 
-              {/* Red Flags Disclaimer - Simple expandable that pushes content */}
-              {((condition.clinicalRedFlags && condition.clinicalRedFlags.length > 0) || 
-                (condition.redFlags && condition.redFlags.length > 0)) && (
-                <details className="group mt-3">
-                  <summary className="flex items-center gap-1.5 cursor-pointer list-none text-xs text-red-700 hover:text-red-800 transition-colors">
-                    <ExclamationTriangleIcon className="h-3.5 w-3.5" />
-                    <span className="underline">Important: When to seek immediate medical attention</span>
-                    <ChevronDownIcon className="h-3.5 w-3.5 group-open:rotate-180 transition-transform" />
-                  </summary>
-                  <div className="mt-2 p-3 bg-red-50 rounded-lg border border-red-200">
-                    <div className="grid md:grid-cols-2 gap-3">
-                      {condition.clinicalRedFlags ? (
-                        condition.clinicalRedFlags.map((flag, index) => (
-                          <div key={index} className="flex items-start gap-2 text-xs">
-                            <div className="mt-[5px] h-1.5 w-1.5 bg-red-500 rounded-full flex-shrink-0" />
-                            <div className="flex-1">
-                              <p className="font-medium text-red-900 leading-tight">{flag.sign}</p>
-                              <p className="text-red-700 mt-0.5 leading-tight">{flag.action}</p>
-                            </div>
-                          </div>
-                        ))
-                      ) : (
-                        condition.redFlags?.map((flag, index) => (
-                          <div key={index} className="flex items-start gap-2 text-xs">
-                            <div className="mt-[5px] h-1.5 w-1.5 bg-red-500 rounded-full flex-shrink-0" />
-                            <span className="text-red-800 flex-1 leading-tight">{flag}</span>
-                          </div>
-                        ))
-                      )}
-                    </div>
-                  </div>
-                </details>
-              )}
-
               {/* Primary actions */}
               <div className="mt-5 flex flex-wrap items-center gap-2">
                 <Link
@@ -974,6 +940,7 @@ export default function ConditionPageClient({
                               <div className="bg-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-sm">
                                 <SectionHeading
                                   id="pathophysiology"
+                                  kicker="Overview"
                                   className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900 mb-8"
                                 >
                                   The Science of {condition.name || 'Your Condition'}
@@ -988,6 +955,7 @@ export default function ConditionPageClient({
                               <div className="bg-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-sm">
                                 <SectionHeading
                                   id="overview"
+                                  kicker="Overview"
                                   className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900 mb-8"
                                 >
                                   Understanding Your Condition
@@ -1006,6 +974,7 @@ export default function ConditionPageClient({
                               <div className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-sm">
                                 <SectionHeading
                                   id="contributing-factors"
+                                  kicker="Overview"
                                   className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900 mb-8"
                                 >
                                   Contributing Factors
@@ -1032,6 +1001,44 @@ export default function ConditionPageClient({
 
                       {/* Symptoms Tab */}
                       {activeTab === 'symptoms' && (
+                        <>
+                          {/* Urgent red-flag callout - moved here from hero so it
+                              sits in context with symptom information */}
+                          {((condition.clinicalRedFlags && condition.clinicalRedFlags.length > 0) ||
+                            (condition.redFlags && condition.redFlags.length > 0)) && (
+                            <aside
+                              aria-label="When to seek immediate medical attention"
+                              className="mb-6 bg-white rounded-xl border border-red-200 border-l-4 border-l-red-600 shadow-sm p-6 md:p-8"
+                            >
+                              <div className="mb-4 flex items-center gap-2.5">
+                                <ExclamationTriangleIcon className="h-4 w-4 text-red-600" aria-hidden="true" />
+                                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-red-700">
+                                  When to seek immediate medical attention
+                                </p>
+                              </div>
+                              <div className="grid md:grid-cols-2 gap-x-8 gap-y-3">
+                                {condition.clinicalRedFlags ? (
+                                  condition.clinicalRedFlags.map((flag, index) => (
+                                    <div key={index} className="flex items-start gap-2 text-sm">
+                                      <div className="mt-[7px] h-1.5 w-1.5 bg-red-500 rounded-full flex-shrink-0" />
+                                      <div className="flex-1">
+                                        <p className="font-medium text-slate-900 leading-snug">{flag.sign}</p>
+                                        <p className="text-slate-600 mt-0.5 leading-snug">{flag.action}</p>
+                                      </div>
+                                    </div>
+                                  ))
+                                ) : (
+                                  condition.redFlags?.map((flag, index) => (
+                                    <div key={index} className="flex items-start gap-2 text-sm">
+                                      <div className="mt-[7px] h-1.5 w-1.5 bg-red-500 rounded-full flex-shrink-0" />
+                                      <span className="text-slate-800 flex-1 leading-snug">{flag}</span>
+                                    </div>
+                                  ))
+                                )}
+                              </div>
+                            </aside>
+                          )}
+
                         <AnimatePresence mode="wait">
                           <motion.div
                             key={activeClinicalView}
@@ -1044,6 +1051,7 @@ export default function ConditionPageClient({
                               <div className="bg-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-sm">
                                 <SectionHeading
                                   id="clinical-presentation"
+                                  kicker="Symptoms"
                                   className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900 mb-10"
                                 >
                                   Clinical Presentation
@@ -1101,6 +1109,7 @@ export default function ConditionPageClient({
                               <div className="bg-white rounded-xl p-10 md:p-12 border border-slate-200 shadow-lg">
                                 <SectionHeading
                                   id="differential-diagnosis"
+                                  kicker="Symptoms"
                                   className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900 mb-3"
                                 >
                                   Differential Diagnosis
@@ -1148,6 +1157,7 @@ export default function ConditionPageClient({
                             )}
                           </motion.div>
                         </AnimatePresence>
+                        </>
                       )}
 
                       {/* Research Tab - Premium Design */}
@@ -1442,72 +1452,50 @@ export default function ConditionPageClient({
                                     >
                                       <div className="p-8">
                                   <div className="space-y-8">
-                                    {/* Evidence Snapshot Cards - 3 COLUMN GRID */}
+                                    {/* Evidence Snapshot Cards - unified editorial pattern:
+                                        white card, gold left rule, numeric kicker, uniform type.
+                                        Differentiation comes from the label and number, not color. */}
                                     {condition.evidenceSnapshot && (
                                       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                        {/* Primary Strategy Card */}
                                         {(condition.evidenceSnapshot.primaryStrategy || condition.evidenceSnapshot.firstLine) && (
-                                          <div className="relative bg-gradient-to-br from-emerald-50 via-white to-white rounded-2xl p-7 border-2 border-emerald-100 shadow-sm overflow-hidden">
-                                            <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-500/5 rounded-full blur-2xl"></div>
-                                            <div className="relative space-y-5">
-                                              <div className="flex justify-center">
-                                                <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center shadow-sm">
-                                                  <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                                                  </svg>
-                                                </div>
-                                              </div>
-                                              <div className="text-center">
-                                                <h3 className="text-xs font-bold text-emerald-700 uppercase tracking-wider mb-4">Primary Treatment Approach</h3>
-                                                <p className="text-slate-700 text-sm md:text-base leading-relaxed">
-                                                  {condition.evidenceSnapshot.primaryStrategy || condition.evidenceSnapshot.firstLine}
-                                                </p>
-                                              </div>
+                                          <div className="relative bg-white rounded-xl border border-slate-200 border-l-4 border-l-[#B08D57] shadow-sm p-7 h-full flex flex-col">
+                                            <div className="mb-4 flex items-center gap-2.5">
+                                              <span aria-hidden="true" className="text-sm font-semibold text-[#B08D57] tabular-nums">01</span>
+                                              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">
+                                                Primary approach
+                                              </p>
                                             </div>
-                                          </div>
-                                        )}
-                                        
-                                        {/* Secondary Strategy Card */}
-                                        {(condition.evidenceSnapshot.secondaryStrategy || condition.evidenceSnapshot.imaging) && (
-                                          <div className="relative bg-gradient-to-br from-blue-50 via-white to-white rounded-2xl p-7 border-2 border-blue-100 shadow-sm overflow-hidden">
-                                            <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 rounded-full blur-2xl"></div>
-                                            <div className="relative space-y-5">
-                                              <div className="flex justify-center">
-                                                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-sm">
-                                                  <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                                                  </svg>
-                                                </div>
-                                              </div>
-                                              <div className="text-center">
-                                                <h3 className="text-xs font-bold text-blue-700 uppercase tracking-wider mb-4">Complementary Interventions</h3>
-                                                <p className="text-slate-700 text-sm md:text-base leading-relaxed">
-                                                  {condition.evidenceSnapshot.secondaryStrategy || condition.evidenceSnapshot.imaging}
-                                                </p>
-                                              </div>
-                                            </div>
+                                            <p className="text-slate-700 text-sm md:text-base leading-relaxed max-w-[58ch]">
+                                              {condition.evidenceSnapshot.primaryStrategy || condition.evidenceSnapshot.firstLine}
+                                            </p>
                                           </div>
                                         )}
 
-                                        {/* Prevention Strategy Card */}
-                                        {(condition.evidenceSnapshot.preventionStrategy || condition.evidenceSnapshot.management) && (
-                                          <div className="relative bg-gradient-to-br from-violet-50 via-white to-white rounded-2xl p-7 border-2 border-violet-100 shadow-sm overflow-hidden">
-                                            <div className="absolute top-0 right-0 w-24 h-24 bg-violet-500/5 rounded-full blur-2xl"></div>
-                                            <div className="relative space-y-5">
-                                              <div className="flex justify-center">
-                                                <div className="w-16 h-16 bg-gradient-to-br from-violet-500 to-violet-600 rounded-2xl flex items-center justify-center shadow-sm">
-                                                  <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-                                                  </svg>
-                                                </div>
-                                              </div>
-                                              <div className="text-center">
-                                                <h3 className="text-xs font-bold text-violet-700 uppercase tracking-wider mb-4">Prevention & Long-term Care</h3>
-                                                <p className="text-slate-700 text-sm md:text-base leading-relaxed">
-                                                  {condition.evidenceSnapshot.preventionStrategy || condition.evidenceSnapshot.management}
-                                                </p>
-                                              </div>
+                                        {(condition.evidenceSnapshot.secondaryStrategy || condition.evidenceSnapshot.imaging) && (
+                                          <div className="relative bg-white rounded-xl border border-slate-200 border-l-4 border-l-[#B08D57] shadow-sm p-7 h-full flex flex-col">
+                                            <div className="mb-4 flex items-center gap-2.5">
+                                              <span aria-hidden="true" className="text-sm font-semibold text-[#B08D57] tabular-nums">02</span>
+                                              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">
+                                                Complementary
+                                              </p>
                                             </div>
+                                            <p className="text-slate-700 text-sm md:text-base leading-relaxed max-w-[58ch]">
+                                              {condition.evidenceSnapshot.secondaryStrategy || condition.evidenceSnapshot.imaging}
+                                            </p>
+                                          </div>
+                                        )}
+
+                                        {(condition.evidenceSnapshot.preventionStrategy || condition.evidenceSnapshot.management) && (
+                                          <div className="relative bg-white rounded-xl border border-slate-200 border-l-4 border-l-[#B08D57] shadow-sm p-7 h-full flex flex-col">
+                                            <div className="mb-4 flex items-center gap-2.5">
+                                              <span aria-hidden="true" className="text-sm font-semibold text-[#B08D57] tabular-nums">03</span>
+                                              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">
+                                                Prevention &amp; long-term
+                                              </p>
+                                            </div>
+                                            <p className="text-slate-700 text-sm md:text-base leading-relaxed max-w-[58ch]">
+                                              {condition.evidenceSnapshot.preventionStrategy || condition.evidenceSnapshot.management}
+                                            </p>
                                           </div>
                                         )}
                                       </div>

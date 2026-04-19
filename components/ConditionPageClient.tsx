@@ -1074,8 +1074,8 @@ export default function ConditionPageClient({
                                     <div className="grid md:grid-cols-2 gap-3">
                                       {condition.clinicalPresentation.associatedSymptoms.map((symptom, index) => (
                                         <div key={index} className="flex items-start gap-3 p-3 rounded-lg bg-slate-50/50 border border-slate-100 hover:bg-white hover:shadow-sm transition-all duration-200">
-                                          <div className="mt-1.5 h-1.5 w-1.5 bg-[#B08D57] rounded-full flex-shrink-0" />
-                                          <span className="text-sm md:text-base text-slate-700 leading-relaxed">{symptom}</span>
+                                          <div className="mt-[9px] h-1.5 w-1.5 bg-[#B08D57] rounded-full flex-shrink-0" />
+                                          <span className="text-sm md:text-base text-slate-700 leading-relaxed max-w-[52ch]">{symptom}</span>
                                         </div>
                                       ))}
                                     </div>
@@ -1410,12 +1410,12 @@ export default function ConditionPageClient({
                                                   <div className="flex items-start gap-2">
                                                     <ExclamationCircleIcon className="h-4 w-4 text-amber-600 mt-0.5 flex-shrink-0" aria-hidden="true" />
                                                     <div className="flex-1">
-                                                      <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-amber-700 mb-1.5">Important precautions</p>
-                                                      <ul className="text-xs text-slate-600 space-y-1.5">
+                                                      <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-amber-700 mb-2">Important precautions</p>
+                                                      <ul className="text-sm text-slate-600 space-y-2">
                                                         {strategy.precautions.map((precaution, pIndex) => (
-                                                          <li key={pIndex} className="flex items-start gap-2">
-                                                            <span aria-hidden="true" className="mt-[7px] h-1 w-1 flex-shrink-0 rounded-full bg-amber-500" />
-                                                            <span className="leading-relaxed">{precaution}</span>
+                                                          <li key={pIndex} className="flex items-start gap-2.5">
+                                                            <span aria-hidden="true" className="mt-[8px] h-1 w-1 flex-shrink-0 rounded-full bg-amber-500" />
+                                                            <span className="leading-relaxed max-w-[58ch]">{precaution}</span>
                                                           </li>
                                                         ))}
                                                       </ul>
@@ -1595,12 +1595,12 @@ export default function ConditionPageClient({
                                     {/* Recovery Factors */}
                                     {condition.prognosis.factors && condition.prognosis.factors.length > 0 && (
                                       <div className="relative bg-white rounded-xl p-6 border border-slate-200 border-l-4 border-l-[#B08D57] shadow-sm">
-                                        <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57] mb-3">Factors affecting recovery</p>
-                                        <div className="grid md:grid-cols-2 gap-x-6 gap-y-2">
+                                        <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57] mb-4">Factors affecting recovery</p>
+                                        <div className="grid md:grid-cols-2 gap-x-6 gap-y-3">
                                           {condition.prognosis.factors.map((factor, index) => (
-                                            <div key={index} className="flex items-start gap-2">
+                                            <div key={index} className="flex items-start gap-2.5">
                                               <CheckCircleIcon className="h-4 w-4 text-[#B08D57] mt-0.5 flex-shrink-0" aria-hidden="true" />
-                                              <span className="text-sm text-slate-700 leading-relaxed">{factor}</span>
+                                              <span className="text-sm md:text-base text-slate-700 leading-relaxed max-w-[40ch]">{factor}</span>
                                             </div>
                                           ))}
                                         </div>

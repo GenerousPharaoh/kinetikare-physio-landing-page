@@ -43,13 +43,13 @@ export const GLOSSARY: Record<string, GlossaryEntry> = {
   eccentric: {
     term: 'eccentric contraction',
     definition:
-      'A muscle working while it lengthens under load — the lowering phase of a squat or the controlled drop of a decline squat. Central to tendon rehab.',
+      'A muscle working while it lengthens under load, for example the lowering phase of a squat. Central to tendon rehab because it loads the tendon under control.',
     aliases: ['eccentric', 'eccentric exercise', 'eccentric contractions', 'eccentric loading'],
   },
   isometric: {
     term: 'isometric contraction',
     definition:
-      'A muscle working without changing length — like holding a wall sit. Useful early in tendon rehab because it relieves pain while loading the tendon.',
+      'A muscle working without changing length, like holding a wall sit. Useful early in tendon rehab because it relieves pain while still loading the tendon.',
     aliases: ['isometric', 'isometric loading', 'isometric contractions'],
   },
   neovascularization: {
@@ -66,7 +66,7 @@ export const GLOSSARY: Record<string, GlossaryEntry> = {
   'kinetic-chain': {
     term: 'kinetic chain',
     definition:
-      'The linked segments of the body that work together in movement \u2014 foot, ankle, knee, hip, trunk. Problems in one link often show up as pain further along.',
+      'The linked segments of the body that work together in movement: foot, ankle, knee, hip, trunk. Problems in one link often show up as pain further along.',
   },
   patellofemoral: {
     term: 'patellofemoral',
@@ -163,19 +163,19 @@ export const GLOSSARY: Record<string, GlossaryEntry> = {
   apophysis: {
     term: 'apophysis',
     definition:
-      'A growth-plate site where a tendon attaches to a bone, present in growing athletes. Can become irritated by repetitive traction (e.g. Osgood-Schlatter at the knee).',
+      'A growth-plate site where a tendon attaches to a bone in young athletes. Can become irritated when a tendon repeatedly pulls on it (e.g. Osgood-Schlatter at the knee).',
     aliases: ['apophyseal', 'apophyses'],
   },
   retinaculum: {
     term: 'retinaculum',
     definition:
-      'A band of connective tissue that holds tendons in place across a joint so they track correctly during movement — most familiar at the ankle and wrist.',
+      'A band of connective tissue that holds tendons in place across a joint so they track correctly during movement. Most familiar at the ankle and wrist.',
     aliases: ['retinacula', 'retinacular'],
   },
   subluxation: {
     term: 'subluxation',
     definition:
-      'A partial, usually brief separation of a joint that resolves on its own, unlike a full dislocation. Can leave the joint feeling loose or apprehensive afterwards.',
+      'A partial, usually brief separation of a joint that slips back on its own, unlike a full dislocation. Can leave the joint feeling loose or unsteady afterwards.',
     aliases: ['subluxations', 'sublux', 'subluxes', 'subluxing'],
   },
   plantarflexion: {
@@ -303,7 +303,7 @@ export const GLOSSARY: Record<string, GlossaryEntry> = {
   'end-feel': {
     term: 'end-feel',
     definition:
-      'How a joint feels at the very end of its range when the therapist moves it — firm, soft, bony or empty. Each quality points to different structures.',
+      'How a joint feels at the very end of its range when the therapist moves it: firm, soft, bony or empty. Each quality points to different structures.',
     aliases: ['end feel'],
   },
   'joint-mobilization': {

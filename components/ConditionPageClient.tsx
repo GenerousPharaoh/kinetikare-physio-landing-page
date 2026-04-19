@@ -449,11 +449,6 @@ export default function ConditionPageClient({
                 conditionName={condition.name}
               />
 
-              {/* Regional Service Area - Subtle mention */}
-              <p className="text-xs text-slate-500 mt-3">
-                Treating {condition.name.toLowerCase()} at my Burlington clinic. Convenient for Waterdown and Flamborough residents.
-              </p>
-
               {/* Primary actions: single primary CTA + inline text links so
                   the hero stops looking like a button rack. */}
               <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
@@ -482,8 +477,12 @@ export default function ConditionPageClient({
                 </Link>
               </div>
 
-              {/* Quick in-page navigation */}
-              <div className="mt-4 max-w-4xl">
+              {/* Mobile / tablet in-page tab nav. Hidden on lg+ because the
+                  desktop sticky sidebar (plus mobile bottom bar + drawer)
+                  already handle navigation. Keeping three synchronized navs
+                  visible on desktop was the single biggest source of visual
+                  noise in the hero. */}
+              <div className="mt-4 max-w-4xl lg:hidden">
                 <div className="rounded-xl border border-slate-200 bg-white p-2">
                   <div role="tablist" aria-label="Condition page sections" className="flex flex-wrap items-center gap-2">
                     {tabs.map((tab) => {
@@ -514,14 +513,11 @@ export default function ConditionPageClient({
                     })}
                   </div>
                 </div>
-                <p className="mt-2 px-1 text-sm text-slate-600">
-                  {tabGuides[activeTab]}
-                </p>
               </div>
 
-              {/* Sub-section quick navigation */}
+              {/* Mobile / tablet sub-section quick navigation - hidden on lg+ */}
               {subSectionChips.length > 1 && (
-                <div className="mt-4">
+                <div className="mt-4 lg:hidden">
                   <p className="text-xs uppercase tracking-wide text-slate-500 mb-2 px-1">
                     Inside {activeTabLabel}
                   </p>
@@ -571,8 +567,8 @@ export default function ConditionPageClient({
                           }}
                           className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
                             activeTab === 'overview'
-                              ? 'bg-[#B08D57] text-white shadow-md'
-                              : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900 hover:shadow-sm'
+                              ? 'bg-slate-50 text-slate-900 font-semibold'
+                              : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
                           }`}
                         >
                           <div className="flex items-center gap-2">
@@ -591,15 +587,15 @@ export default function ConditionPageClient({
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.15, ease: [0.4, 0, 0.2, 1] }}
-                            className="ml-3 mt-1.5 space-y-1 border-l-2 border-slate-200 pl-3"
+                            className="ml-3 mt-1.5 space-y-1 border-l-2 border-l-[#B08D57]/25 pl-3"
                           >
                             {condition.pathophysiology && (
                               <button
                                 onClick={() => { setActiveOverviewView('pathophysiology'); scrollToContentTop(); }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeOverviewView === 'pathophysiology'
-                                    ? 'bg-[#B08D57] text-white font-medium shadow-sm'
-                                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                                    ? 'text-slate-900 font-semibold'
+                                    : 'text-slate-500 hover:text-slate-900'
                                 }`}
                               >
                                 Pathophysiology
@@ -610,8 +606,8 @@ export default function ConditionPageClient({
                                 onClick={() => { setActiveOverviewView('biomechanics'); scrollToContentTop(); }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeOverviewView === 'biomechanics'
-                                    ? 'bg-[#B08D57] text-white font-medium shadow-sm'
-                                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                                    ? 'text-slate-900 font-semibold'
+                                    : 'text-slate-500 hover:text-slate-900'
                                 }`}
                               >
                                 Contributing Factors
@@ -629,8 +625,8 @@ export default function ConditionPageClient({
                           onClick={() => { setActiveTab('symptoms'); scrollToContentTop(); }}
                           className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                             activeTab === 'symptoms'
-                              ? 'bg-[#B08D57] text-white shadow-md'
-                              : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900 hover:shadow-sm'
+                              ? 'bg-slate-50 text-slate-900 font-semibold'
+                              : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
                           }`}
                         >
                           <div className="flex items-center gap-2">
@@ -649,15 +645,15 @@ export default function ConditionPageClient({
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                            className="ml-3 mt-1.5 space-y-1 border-l-2 border-slate-200 pl-3"
+                            className="ml-3 mt-1.5 space-y-1 border-l-2 border-l-[#B08D57]/25 pl-3"
                           >
                             {condition.clinicalPresentation && (
                               <button
                                 onClick={() => { setActiveClinicalView('clinical-presentation'); scrollToContentTop(); }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeClinicalView === 'clinical-presentation'
-                                    ? 'bg-[#B08D57] text-white font-medium shadow-sm'
-                                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                                    ? 'text-slate-900 font-semibold'
+                                    : 'text-slate-500 hover:text-slate-900'
                                 }`}
                               >
                                 Clinical Presentation
@@ -668,8 +664,8 @@ export default function ConditionPageClient({
                                 onClick={() => { setActiveClinicalView('pattern-matcher'); scrollToContentTop(); }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeClinicalView === 'pattern-matcher'
-                                    ? 'bg-[#B08D57] text-white font-medium shadow-sm'
-                                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                                    ? 'text-slate-900 font-semibold'
+                                    : 'text-slate-500 hover:text-slate-900'
                                 }`}
                               >
                                 Is this my pattern?
@@ -680,8 +676,8 @@ export default function ConditionPageClient({
                                 onClick={() => { setActiveClinicalView('differential'); scrollToContentTop(); }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeClinicalView === 'differential'
-                                    ? 'bg-[#B08D57] text-white font-medium shadow-sm'
-                                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                                    ? 'text-slate-900 font-semibold'
+                                    : 'text-slate-500 hover:text-slate-900'
                                 }`}
                               >
                                 Differential Diagnosis
@@ -692,8 +688,8 @@ export default function ConditionPageClient({
                                 onClick={() => { setActiveClinicalView('when-to-seek'); scrollToContentTop(); }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeClinicalView === 'when-to-seek'
-                                    ? 'bg-[#B08D57] text-white font-medium shadow-sm'
-                                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                                    ? 'text-slate-900 font-semibold'
+                                    : 'text-slate-500 hover:text-slate-900'
                                 }`}
                               >
                                 When to Seek Help
@@ -711,8 +707,8 @@ export default function ConditionPageClient({
                           onClick={() => { setActiveTab('self-care'); scrollToContentTop(); }}
                           className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                             activeTab === 'self-care'
-                              ? 'bg-[#B08D57] text-white shadow-md'
-                              : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900 hover:shadow-sm'
+                              ? 'bg-slate-50 text-slate-900 font-semibold'
+                              : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
                           }`}
                         >
                           <div className="flex items-center gap-2">
@@ -729,7 +725,7 @@ export default function ConditionPageClient({
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                            className="ml-3 mt-1.5 space-y-1 border-l-2 border-slate-200 pl-3"
+                            className="ml-3 mt-1.5 space-y-1 border-l-2 border-l-[#B08D57]/25 pl-3"
                           >
                             <button
                               onClick={() => { setActiveManagementView('evidence-based-treatment'); scrollToContentTop(); }}
@@ -746,8 +742,8 @@ export default function ConditionPageClient({
                                 onClick={() => { setActiveManagementView('treatment-techniques'); scrollToContentTop(); }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeManagementView === 'treatment-techniques'
-                                    ? 'bg-[#B08D57] text-white font-medium shadow-sm'
-                                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                                    ? 'text-slate-900 font-semibold'
+                                    : 'text-slate-500 hover:text-slate-900'
                                 }`}
                               >
                                 Treatment Techniques
@@ -758,8 +754,8 @@ export default function ConditionPageClient({
                                 onClick={() => { setActiveManagementView('timeline'); scrollToContentTop(); }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeManagementView === 'timeline'
-                                    ? 'bg-[#B08D57] text-white font-medium shadow-sm'
-                                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                                    ? 'text-slate-900 font-semibold'
+                                    : 'text-slate-500 hover:text-slate-900'
                                 }`}
                               >
                                 Recovery Timeline
@@ -770,8 +766,8 @@ export default function ConditionPageClient({
                                 onClick={() => { setActiveManagementView('prognosis'); scrollToContentTop(); }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeManagementView === 'prognosis'
-                                    ? 'bg-[#B08D57] text-white font-medium shadow-sm'
-                                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                                    ? 'text-slate-900 font-semibold'
+                                    : 'text-slate-500 hover:text-slate-900'
                                 }`}
                               >
                                 Prognosis & Outcomes
@@ -782,8 +778,8 @@ export default function ConditionPageClient({
                                 onClick={() => { setActiveManagementView('measuring-success'); scrollToContentTop(); }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeManagementView === 'measuring-success'
-                                    ? 'bg-[#B08D57] text-white font-medium shadow-sm'
-                                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                                    ? 'text-slate-900 font-semibold'
+                                    : 'text-slate-500 hover:text-slate-900'
                                 }`}
                               >
                                 Measuring Progress
@@ -794,8 +790,8 @@ export default function ConditionPageClient({
                                 onClick={() => { setActiveManagementView('faqs'); scrollToContentTop(); }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeManagementView === 'faqs'
-                                    ? 'bg-[#B08D57] text-white font-medium shadow-sm'
-                                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                                    ? 'text-slate-900 font-semibold'
+                                    : 'text-slate-500 hover:text-slate-900'
                                 }`}
                               >
                                 FAQs
@@ -813,8 +809,8 @@ export default function ConditionPageClient({
                           onClick={() => { setActiveTab('research'); scrollToContentTop(); }}
                           className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                             activeTab === 'research'
-                              ? 'bg-[#B08D57] text-white shadow-md'
-                              : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900 hover:shadow-sm'
+                              ? 'bg-slate-50 text-slate-900 font-semibold'
+                              : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
                           }`}
                         >
                           <div className="flex items-center gap-2">
@@ -833,15 +829,15 @@ export default function ConditionPageClient({
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                            className="ml-3 mt-1.5 space-y-1 border-l-2 border-slate-200 pl-3"
+                            className="ml-3 mt-1.5 space-y-1 border-l-2 border-l-[#B08D57]/25 pl-3"
                           >
                             {condition.keyResearch && condition.keyResearch.length > 0 && (
                               <button
                                 onClick={() => { setActiveResearchView('key-research'); scrollToContentTop(); }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeResearchView === 'key-research'
-                                    ? 'bg-[#B08D57] text-white font-medium shadow-sm'
-                                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                                    ? 'text-slate-900 font-semibold'
+                                    : 'text-slate-500 hover:text-slate-900'
                                 }`}
                               >
                                 Key Research & Evidence
@@ -852,8 +848,8 @@ export default function ConditionPageClient({
                                 onClick={() => { setActiveResearchView('research-insights'); scrollToContentTop(); }}
                                 className={`w-full text-left px-2.5 py-1.5 text-xs transition-all duration-200 ease-out rounded ${
                                   activeResearchView === 'research-insights'
-                                    ? 'bg-[#B08D57] text-white font-medium shadow-sm'
-                                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                                    ? 'text-slate-900 font-semibold'
+                                    : 'text-slate-500 hover:text-slate-900'
                                 }`}
                               >
                                 Research Insights
@@ -947,9 +943,13 @@ export default function ConditionPageClient({
                                 >
                                   The Science of {condition.name || 'Your Condition'}
                                 </SectionHeading>
-                                <p className="text-base md:text-lg text-slate-700 leading-relaxed max-w-[72ch]">
-                                  {condition.pathophysiology}
-                                </p>
+                                <div className="space-y-5">
+                                  {condition.pathophysiology.split('\n\n').map((paragraph, index) => (
+                                    <p key={index} className="text-base md:text-lg text-slate-700 leading-relaxed max-w-[72ch]">
+                                      {paragraph}
+                                    </p>
+                                  ))}
+                                </div>
                               </div>
                             )}
 
@@ -1445,53 +1445,40 @@ export default function ConditionPageClient({
                                         )}
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                                         {condition.selfManagement.map((strategy, index) => {
-                                          const colors = [
-                                            { bg: 'from-amber-50/50 to-amber-50/20', border: 'border-amber-100', icon: 'from-amber-500 to-amber-600', text: 'text-amber-700' },
-                                            { bg: 'from-teal-50/50 to-teal-50/20', border: 'border-teal-100', icon: 'from-teal-500 to-teal-600', text: 'text-teal-700' },
-                                            { bg: 'from-rose-50/50 to-rose-50/20', border: 'border-rose-100', icon: 'from-rose-500 to-rose-600', text: 'text-rose-700' },
-                                            { bg: 'from-indigo-50/50 to-indigo-50/20', border: 'border-indigo-100', icon: 'from-indigo-500 to-indigo-600', text: 'text-indigo-700' },
-                                          ];
-                                          const color = colors[index % colors.length];
-                                          
+                                          const indexLabel = String(index + 1).padStart(2, '0');
                                           return (
-                                            <div key={index} className="relative bg-white/80 backdrop-blur-xl rounded-2xl p-6 border border-slate-100 shadow-sm">
-                                              <div className="flex gap-4">
-                                                <div className="flex-shrink-0">
-                                                  <div className={`w-12 h-12 bg-gradient-to-br ${color.icon} rounded-xl flex items-center justify-center shadow-lg`}>
-                                                    <span className="text-white font-semibold text-lg">{index + 1}</span>
+                                            <div key={index} className="relative bg-white rounded-xl p-6 border border-slate-200 border-l-4 border-l-[#B08D57] shadow-sm">
+                                              <div className="mb-3 flex items-center gap-2.5">
+                                                <span aria-hidden="true" className="text-sm font-semibold text-[#B08D57] tabular-nums">{indexLabel}</span>
+                                                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">{strategy.strategy}</p>
+                                              </div>
+                                              <p className="text-slate-700 text-sm md:text-base leading-relaxed mb-4 max-w-[58ch]">
+                                                {strategy.rationale}
+                                              </p>
+                                              {strategy.precautions && strategy.precautions.length > 0 && (
+                                                <div className="mt-4 pt-4 border-t border-slate-100">
+                                                  <div className="flex items-start gap-2">
+                                                    <ExclamationCircleIcon className="h-4 w-4 text-amber-600 mt-0.5 flex-shrink-0" aria-hidden="true" />
+                                                    <div className="flex-1">
+                                                      <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-amber-700 mb-1.5">Important precautions</p>
+                                                      <ul className="text-xs text-slate-600 space-y-1">
+                                                        {strategy.precautions.map((precaution, pIndex) => (
+                                                          <li key={pIndex} className="flex items-start">
+                                                            <span className="mr-1.5" aria-hidden="true">·</span>
+                                                            <span>{precaution}</span>
+                                                          </li>
+                                                        ))}
+                                                      </ul>
+                                                    </div>
                                                   </div>
                                                 </div>
-                                                <div className="flex-1">
-                                                  <h3 className={`text-xs font-semibold ${color.text} uppercase tracking-wider mb-2`}>{strategy.strategy}</h3>
-                                                  <p className="text-slate-700 text-sm leading-relaxed mb-3">
-                                                    {strategy.rationale}
-                                                  </p>
-                                                  {strategy.precautions && strategy.precautions.length > 0 && (
-                                                    <div className="mt-3 p-3 bg-amber-50/70 backdrop-blur rounded-lg border border-amber-200">
-                                                      <div className="flex items-start gap-2">
-                                                        <ExclamationCircleIcon className="h-4 w-4 text-amber-600 mt-0.5 flex-shrink-0" />
-                                                        <div className="flex-1">
-                                                          <p className="text-xs font-medium text-amber-900 mb-1">Important Precautions</p>
-                                                          <ul className="text-xs text-amber-800 space-y-1">
-                                                            {strategy.precautions.map((precaution, pIndex) => (
-                                                              <li key={pIndex} className="flex items-start">
-                                                                <span className="mr-1.5">•</span>
-                                                                <span>{precaution}</span>
-                                                              </li>
-                                                            ))}
-                                                          </ul>
-                                                        </div>
-                                                      </div>
-                                                    </div>
-                                                  )}
-                                                  {strategy.strategy.toLowerCase().includes('nutrition') && (
-                                                    <p className="text-xs text-slate-500 mt-3 italic flex items-center gap-1">
-                                                      <InformationCircleIcon className="h-3 w-3" />
-                                                      Nutritional advice is general guidance. Consult a registered dietitian for personalized plans.
-                                                    </p>
-                                                  )}
-                                                </div>
-                                              </div>
+                                              )}
+                                              {strategy.strategy.toLowerCase().includes('nutrition') && (
+                                                <p className="text-xs text-slate-500 mt-3 italic flex items-center gap-1">
+                                                  <InformationCircleIcon className="h-3 w-3" aria-hidden="true" />
+                                                  Nutritional advice is general guidance. Consult a registered dietitian for personalized plans.
+                                                </p>
+                                              )}
                                             </div>
                                           );
                                         })}
@@ -1552,10 +1539,10 @@ export default function ConditionPageClient({
                                               {condition.treatmentApproach.techniques.map((technique, index) => {
                                                 const [title, description] = technique.split(': ');
                                                 return (
-                                                  <div key={index} className="flex items-start gap-3 p-4 bg-gradient-to-r from-orange-50/50 to-amber-50/30 rounded-lg border border-orange-100">
-                                                    <CheckCircleIcon className="h-5 w-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                                                  <div key={index} className="flex items-start gap-3 p-4 rounded-lg bg-slate-50 border border-slate-200">
+                                                    <CheckCircleIcon className="h-5 w-5 text-[#B08D57] mt-0.5 flex-shrink-0" aria-hidden="true" />
                                                     <div>
-                                                      <span className="font-medium text-slate-900">{title}</span>
+                                                      <span className="font-semibold text-slate-900">{title}</span>
                                                       {description && <span className="text-slate-700 leading-relaxed">: {description}</span>}
                                                     </div>
                                                   </div>
@@ -1567,22 +1554,22 @@ export default function ConditionPageClient({
 
                                         {/* Recommended Treatments - Inside Treatment Techniques */}
                                         {relatedTreatments.length > 0 && (
-                                          <div className="mt-8 pt-8 border-t border-orange-200">
-                                            <h3 className="text-lg font-semibold text-slate-900 mb-2">Recommended Treatment Approaches</h3>
-                                            <p className="text-sm text-gray-600 mb-4 italic">Treatment approaches are individualized to each patient's needs and goals. All interventions require explicit informed consent, and treatment plans are collaboratively modified based on your preferences and response to care.</p>
+                                          <div className="mt-8 pt-8 border-t border-slate-200">
+                                            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57] mb-2">Recommended treatment approaches</p>
+                                            <p className="text-sm text-slate-600 mb-5 max-w-[68ch]">Treatment approaches are individualized to each patient's needs and goals. All interventions require explicit informed consent, and treatment plans are collaboratively modified based on your preferences and response to care.</p>
                                             <div className="grid md:grid-cols-2 gap-4">
                                               {relatedTreatments.map((treatment) => (
-                                                <Link key={treatment.id} href={`/treatments/${treatment.id}`}>
-                                                  <div className="group relative bg-gradient-to-br from-white to-amber-50/30 rounded-lg p-5 border border-amber-100 hover:border-[#B08D57] hover:shadow-lg transition-all duration-300 cursor-pointer h-full flex flex-col">
+                                                <Link key={treatment.id} href={`/treatments/${treatment.id}`} className="group">
+                                                  <div className="relative bg-white rounded-lg p-5 border border-slate-200 hover:border-[#B08D57] hover:shadow-md transition-[border-color,box-shadow] duration-200 cursor-pointer h-full flex flex-col">
                                                     <h4 className="text-base font-semibold text-slate-900 group-hover:text-[#B08D57] transition-colors mb-2">
                                                       {treatment.name}
                                                     </h4>
-                                                    <p className="text-gray-600 text-sm leading-relaxed flex-grow mb-3">
+                                                    <p className="text-slate-600 text-sm leading-relaxed flex-grow mb-3">
                                                       {treatment.shortDescription}
                                                     </p>
-                                                    <div className="flex items-center text-[#B08D57] font-medium text-sm group-hover:gap-2 transition-all">
+                                                    <div className="inline-flex items-center text-[#B08D57] font-medium text-sm">
                                                       <span>Explore {treatment.name}</span>
-                                                      <ArrowRightIcon className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                                                      <ArrowRightIcon className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                                                     </div>
                                                   </div>
                                                 </Link>
@@ -1674,63 +1661,30 @@ export default function ConditionPageClient({
                                       <div className="p-8">
                                   <div className="space-y-5">
                                     {/* Timeline Card */}
-                                    <div className="group relative bg-gradient-to-r from-purple-50/50 to-purple-50/20 rounded-xl p-6 border border-purple-100 hover:shadow-md transition-all">
-                                      <div className="flex gap-4">
-                                        <div className="flex-shrink-0">
-                                          <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
-                                            <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                                              <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                            </svg>
-                                          </div>
-                                        </div>
-                                        <div className="flex-1">
-                                          <h3 className="text-xs font-semibold text-purple-700 uppercase tracking-wider mb-2">Expected Timeline</h3>
-                                          <p className="text-slate-700 text-sm leading-relaxed">{condition.prognosis.timeline}</p>
-                                        </div>
-                                      </div>
+                                    <div className="relative bg-white rounded-xl p-6 border border-slate-200 border-l-4 border-l-[#B08D57] shadow-sm">
+                                      <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57] mb-2">Expected timeline</p>
+                                      <p className="text-slate-700 text-sm md:text-base leading-relaxed max-w-[72ch]">{condition.prognosis.timeline}</p>
                                     </div>
-                                    
+
                                     {/* Natural History Card */}
                                     {condition.prognosis.naturalHistory && (
-                                      <div className="group relative bg-gradient-to-r from-pink-50/50 to-pink-50/20 rounded-xl p-6 border border-pink-100 hover:shadow-md transition-all">
-                                        <div className="flex gap-4">
-                                          <div className="flex-shrink-0">
-                                            <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-pink-600 rounded-xl flex items-center justify-center shadow-lg">
-                                              <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                              </svg>
-                                            </div>
-                                          </div>
-                                          <div className="flex-1">
-                                            <h3 className="text-xs font-semibold text-pink-700 uppercase tracking-wider mb-2">Natural History</h3>
-                                            <p className="text-slate-700 text-sm leading-relaxed">{condition.prognosis.naturalHistory}</p>
-                                          </div>
-                                        </div>
+                                      <div className="relative bg-white rounded-xl p-6 border border-slate-200 border-l-4 border-l-[#B08D57] shadow-sm">
+                                        <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57] mb-2">Natural history</p>
+                                        <p className="text-slate-700 text-sm md:text-base leading-relaxed max-w-[72ch]">{condition.prognosis.naturalHistory}</p>
                                       </div>
                                     )}
-                                    
+
                                     {/* Recovery Factors */}
                                     {condition.prognosis.factors && condition.prognosis.factors.length > 0 && (
-                                      <div className="group relative bg-gradient-to-r from-indigo-50/50 to-indigo-50/20 rounded-xl p-6 border border-indigo-100 hover:shadow-md transition-all">
-                                        <div className="flex gap-4">
-                                          <div className="flex-shrink-0">
-                                            <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
-                                              <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-                                              </svg>
+                                      <div className="relative bg-white rounded-xl p-6 border border-slate-200 border-l-4 border-l-[#B08D57] shadow-sm">
+                                        <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57] mb-3">Factors affecting recovery</p>
+                                        <div className="grid md:grid-cols-2 gap-x-6 gap-y-2">
+                                          {condition.prognosis.factors.map((factor, index) => (
+                                            <div key={index} className="flex items-start gap-2">
+                                              <CheckCircleIcon className="h-4 w-4 text-[#B08D57] mt-0.5 flex-shrink-0" aria-hidden="true" />
+                                              <span className="text-sm text-slate-700 leading-relaxed">{factor}</span>
                                             </div>
-                                          </div>
-                                          <div className="flex-1">
-                                            <h3 className="text-xs font-semibold text-indigo-700 uppercase tracking-wider mb-3">Factors Affecting Recovery</h3>
-                                            <div className="grid md:grid-cols-2 gap-3">
-                                              {condition.prognosis.factors.map((factor, index) => (
-                                                <div key={index} className="flex items-start gap-2">
-                                                  <CheckCircleIcon className="h-4 w-4 text-indigo-500 mt-0.5 flex-shrink-0" />
-                                                  <span className="text-sm text-slate-700">{factor}</span>
-                                                </div>
-                                              ))}
-                                            </div>
-                                          </div>
+                                          ))}
                                         </div>
                                       </div>
                                     )}
@@ -1767,69 +1721,33 @@ export default function ConditionPageClient({
                                     >
                                       <div className="p-8">
                                   <div className="space-y-5">
-                                    {/* Day-to-Day Tracking Card */}
-                                    <div className="group relative bg-gradient-to-r from-green-50/50 to-green-50/20 rounded-xl p-6 border border-green-100 hover:shadow-md transition-all">
-                                      <div className="flex gap-4">
-                                        <div className="flex-shrink-0">
-                                          <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg">
-                                            <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                                              <path strokeLinecap="round" strokeLinejoin="round" d="M6 2v20m0-10h4m4 0h4m-4-5v10" />
-                                            </svg>
-                                          </div>
-                                        </div>
-                                        <div className="flex-1">
-                                          <h3 className="text-xs font-semibold text-green-700 uppercase tracking-wider mb-2">Day-to-Day Tracking</h3>
-                                          <p className="text-slate-700 text-sm leading-relaxed">{condition.measuringProgress.dayToDay}</p>
-                                        </div>
-                                      </div>
+                                    <div className="relative bg-white rounded-xl p-6 border border-slate-200 border-l-4 border-l-[#B08D57] shadow-sm">
+                                      <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57] mb-2">Day-to-day tracking</p>
+                                      <p className="text-slate-700 text-sm md:text-base leading-relaxed max-w-[72ch]">{condition.measuringProgress.dayToDay}</p>
                                     </div>
-                                    
-                                    {/* Assessment Tools Card */}
+
                                     {condition.measuringProgress.questionnaires && (
-                                      <div className="group relative bg-gradient-to-r from-emerald-50/50 to-emerald-50/20 rounded-xl p-6 border border-emerald-100 hover:shadow-md transition-all">
-                                        <div className="flex gap-4">
-                                          <div className="flex-shrink-0">
-                                            <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
-                                              <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                              </svg>
-                                            </div>
-                                          </div>
-                                          <div className="flex-1">
-                                            <h3 className="text-xs font-semibold text-emerald-700 uppercase tracking-wider mb-2">Assessment Tools</h3>
-                                            <p className="text-slate-700 text-sm leading-relaxed" dangerouslySetInnerHTML={{ 
-                                              __html: condition.measuringProgress.questionnaires
-                                                .replace(/\b(DASH)\b/g, '<a href="https://www.physio-pedia.com/DASH_Outcome_Measure" target="_blank" rel="noopener noreferrer" class="text-emerald-600 underline hover:text-emerald-800 font-medium">$1</a>')
-                                                .replace(/\b(SPADI)\b/g, '<a href="https://www.physiotutors.com/questionnaires/shoulder-pain-disability-index-spadi/" target="_blank" rel="noopener noreferrer" class="text-emerald-600 underline hover:text-emerald-800 font-medium">$1</a>')
-                                                .replace(/\b(ODI|Oswestry Disability Index)\b/g, '<a href="https://www.physio-pedia.com/Oswestry_Disability_Index" target="_blank" rel="noopener noreferrer" class="text-emerald-600 underline hover:text-emerald-800 font-medium">$1</a>')
-                                                .replace(/\b(NPRS|Numeric Pain Rating Scale)\b/g, '<a href="https://www.physio-pedia.com/Numeric_Pain_Rating_Scale" target="_blank" rel="noopener noreferrer" class="text-emerald-600 underline hover:text-emerald-800 font-medium">$1</a>')
-                                                .replace(/\b(VAS|Visual Analogue Scale)\b/g, '<a href="https://www.physio-pedia.com/Visual_Analogue_Scale" target="_blank" rel="noopener noreferrer" class="text-emerald-600 underline hover:text-emerald-800 font-medium">$1</a>')
-                                                .replace(/\b(Roland-Morris)\b/g, '<a href="https://www.physio-pedia.com/Roland_Morris_Disability_Questionnaire" target="_blank" rel="noopener noreferrer" class="text-emerald-600 underline hover:text-emerald-800 font-medium">$1</a>')
-                                                .replace(/\b(KOOS)\b/g, '<a href="https://www.physio-pedia.com/Knee_injury_and_Osteoarthritis_Outcome_Score" target="_blank" rel="noopener noreferrer" class="text-emerald-600 underline hover:text-emerald-800 font-medium">$1</a>')
-                                                .replace(/\b(WOMAC)\b/g, '<a href="https://www.physio-pedia.com/Western_Ontario_and_McMaster_Universities_Osteoarthritis_Index_(WOMAC)" target="_blank" rel="noopener noreferrer" class="text-emerald-600 underline hover:text-emerald-800 font-medium">$1</a>')
-                                                .replace(/\b(LEFS|Lower Extremity Functional Scale)\b/g, '<a href="https://www.physio-pedia.com/Lower_Extremity_Functional_Scale" target="_blank" rel="noopener noreferrer" class="text-emerald-600 underline hover:text-emerald-800 font-medium">$1</a>')
-                                                .replace(/\b(PSFS|Patient Specific Functional Scale)\b/g, '<a href="https://www.physio-pedia.com/Patient_Specific_Functional_Scale" target="_blank" rel="noopener noreferrer" class="text-emerald-600 underline hover:text-emerald-800 font-medium">$1</a>')
-                                            }} />
-                                          </div>
-                                        </div>
+                                      <div className="relative bg-white rounded-xl p-6 border border-slate-200 border-l-4 border-l-[#B08D57] shadow-sm">
+                                        <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57] mb-2">Assessment tools</p>
+                                        <p className="text-slate-700 text-sm md:text-base leading-relaxed max-w-[72ch]" dangerouslySetInnerHTML={{
+                                          __html: condition.measuringProgress.questionnaires
+                                            .replace(/\b(DASH)\b/g, '<a href="https://www.physio-pedia.com/DASH_Outcome_Measure" target="_blank" rel="noopener noreferrer" class="text-[#B08D57] underline hover:text-[#997A4B] font-medium">$1</a>')
+                                            .replace(/\b(SPADI)\b/g, '<a href="https://www.physiotutors.com/questionnaires/shoulder-pain-disability-index-spadi/" target="_blank" rel="noopener noreferrer" class="text-[#B08D57] underline hover:text-[#997A4B] font-medium">$1</a>')
+                                            .replace(/\b(ODI|Oswestry Disability Index)\b/g, '<a href="https://www.physio-pedia.com/Oswestry_Disability_Index" target="_blank" rel="noopener noreferrer" class="text-[#B08D57] underline hover:text-[#997A4B] font-medium">$1</a>')
+                                            .replace(/\b(NPRS|Numeric Pain Rating Scale)\b/g, '<a href="https://www.physio-pedia.com/Numeric_Pain_Rating_Scale" target="_blank" rel="noopener noreferrer" class="text-[#B08D57] underline hover:text-[#997A4B] font-medium">$1</a>')
+                                            .replace(/\b(VAS|Visual Analogue Scale)\b/g, '<a href="https://www.physio-pedia.com/Visual_Analogue_Scale" target="_blank" rel="noopener noreferrer" class="text-[#B08D57] underline hover:text-[#997A4B] font-medium">$1</a>')
+                                            .replace(/\b(Roland-Morris)\b/g, '<a href="https://www.physio-pedia.com/Roland_Morris_Disability_Questionnaire" target="_blank" rel="noopener noreferrer" class="text-[#B08D57] underline hover:text-[#997A4B] font-medium">$1</a>')
+                                            .replace(/\b(KOOS)\b/g, '<a href="https://www.physio-pedia.com/Knee_injury_and_Osteoarthritis_Outcome_Score" target="_blank" rel="noopener noreferrer" class="text-[#B08D57] underline hover:text-[#997A4B] font-medium">$1</a>')
+                                            .replace(/\b(WOMAC)\b/g, '<a href="https://www.physio-pedia.com/Western_Ontario_and_McMaster_Universities_Osteoarthritis_Index_(WOMAC)" target="_blank" rel="noopener noreferrer" class="text-[#B08D57] underline hover:text-[#997A4B] font-medium">$1</a>')
+                                            .replace(/\b(LEFS|Lower Extremity Functional Scale)\b/g, '<a href="https://www.physio-pedia.com/Lower_Extremity_Functional_Scale" target="_blank" rel="noopener noreferrer" class="text-[#B08D57] underline hover:text-[#997A4B] font-medium">$1</a>')
+                                            .replace(/\b(PSFS|Patient Specific Functional Scale)\b/g, '<a href="https://www.physio-pedia.com/Patient_Specific_Functional_Scale" target="_blank" rel="noopener noreferrer" class="text-[#B08D57] underline hover:text-[#997A4B] font-medium">$1</a>')
+                                        }} />
                                       </div>
                                     )}
-                                    
-                                    {/* Activity Targets Card */}
-                                    <div className="group relative bg-gradient-to-r from-teal-50/50 to-teal-50/20 rounded-xl p-6 border border-teal-100 hover:shadow-md transition-all">
-                                      <div className="flex gap-4">
-                                        <div className="flex-shrink-0">
-                                          <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl flex items-center justify-center shadow-lg">
-                                            <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                                              <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                            </svg>
-                                          </div>
-                                        </div>
-                                        <div className="flex-1">
-                                          <h3 className="text-xs font-semibold text-teal-700 uppercase tracking-wider mb-2">Activity Targets</h3>
-                                          <p className="text-slate-700 text-sm leading-relaxed">{condition.measuringProgress.activityTarget}</p>
-                                        </div>
-                                      </div>
+
+                                    <div className="relative bg-white rounded-xl p-6 border border-slate-200 border-l-4 border-l-[#B08D57] shadow-sm">
+                                      <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57] mb-2">Activity targets</p>
+                                      <p className="text-slate-700 text-sm md:text-base leading-relaxed max-w-[72ch]">{condition.measuringProgress.activityTarget}</p>
                                     </div>
                                   </div>
                                       </div>
@@ -1863,38 +1781,31 @@ export default function ConditionPageClient({
                                       className="overflow-hidden"
                                     >
                                       <div className="p-8">
-                                  <div className="space-y-5">
+                                  <div className="space-y-3">
                                     {condition.faqs.map((faq, index) => {
-                                      const colors = [
-                                        { bg: 'from-blue-50/50 to-blue-50/20', border: 'border-blue-100', icon: 'from-blue-500 to-blue-600', text: 'text-blue-700', open: 'text-blue-800' },
-                                        { bg: 'from-cyan-50/50 to-cyan-50/20', border: 'border-cyan-100', icon: 'from-cyan-500 to-cyan-600', text: 'text-cyan-700', open: 'text-cyan-800' },
-                                        { bg: 'from-sky-50/50 to-sky-50/20', border: 'border-sky-100', icon: 'from-sky-500 to-sky-600', text: 'text-sky-700', open: 'text-sky-800' },
-                                        { bg: 'from-indigo-50/50 to-indigo-50/20', border: 'border-indigo-100', icon: 'from-indigo-500 to-indigo-600', text: 'text-indigo-700', open: 'text-indigo-800' },
-                                      ];
-                                      const color = colors[index % colors.length];
-                                      
+                                      const qLabel = `Q${String(index + 1).padStart(2, '0')}`;
                                       return (
-                                        <details key={index} className={`group relative bg-gradient-to-r ${color.bg} rounded-xl p-6 border ${color.border} hover:shadow-md transition-all`}>
-                                          <summary className="flex gap-4 cursor-pointer list-none items-center">
-                                            <div className="flex-shrink-0">
-                                              <div className={`w-12 h-12 bg-gradient-to-br ${color.icon} rounded-xl flex items-center justify-center shadow-lg transition-transform group-open:rotate-12`}>
-                                                <span className="text-white font-semibold text-lg">Q{index + 1}</span>
-                                              </div>
-                                            </div>
+                                        <details key={index} className="group relative bg-white rounded-xl border border-slate-200 open:border-l-4 open:border-l-[#B08D57] shadow-sm transition-[border-width,border-color] duration-200">
+                                          <summary className="flex gap-4 cursor-pointer list-none items-start p-6">
+                                            <span aria-hidden="true" className="flex-shrink-0 text-sm font-semibold text-[#B08D57] tabular-nums pt-0.5">
+                                              {qLabel}
+                                            </span>
                                             <div className="flex-1">
-                                              <h3 className={`text-xs font-semibold ${color.text} group-open:text-[#B08D57] uppercase tracking-wider transition-colors`}>
+                                              <h3 className="text-base md:text-lg font-semibold text-slate-900 leading-snug group-open:text-[#8c6d3d] transition-colors">
                                                 {faq.question}
                                               </h3>
                                             </div>
                                             <ChevronDownIcon
                                               aria-hidden="true"
-                                              className="flex-shrink-0 h-5 w-5 text-slate-400 group-hover:text-slate-600 group-open:text-[#B08D57] transition-transform duration-200 group-open:rotate-180"
+                                              className="flex-shrink-0 h-5 w-5 text-slate-400 mt-1 group-hover:text-slate-600 group-open:text-[#B08D57] transition-transform duration-200 group-open:rotate-180"
                                             />
                                           </summary>
-                                          <div className="mt-4 ml-16">
-                                            <p className="text-slate-700 text-sm leading-relaxed">
-                                              {faq.answer}
-                                            </p>
+                                          <div className="px-6 pb-6">
+                                            <div className="ml-10 border-t border-slate-100 pt-4">
+                                              <p className="text-slate-700 text-sm md:text-base leading-relaxed max-w-[72ch]">
+                                                {faq.answer}
+                                              </p>
+                                            </div>
                                           </div>
                                         </details>
                                       );
@@ -1910,45 +1821,31 @@ export default function ConditionPageClient({
 
                             {/* Recommended Treatments Section */}
                             {activeManagementView === 'recommended-treatments' && relatedTreatments.length > 0 && (
-                              <div id="recommended-treatments" data-section="recommended-treatments" className="relative bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden scroll-mt-40">
-                                <div className="absolute inset-0 bg-gradient-to-br from-amber-50/30 via-transparent to-orange-50/20 pointer-events-none"></div>
-
+                              <div id="recommended-treatments" data-section="recommended-treatments" className="relative bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden scroll-mt-40">
                                 <div className="relative">
-                                  <div className="bg-gradient-to-r from-[#B08D57] to-[#C09A65] px-8 py-6">
-                                    <div className="flex items-center gap-3">
-                                      <div className="p-2.5 bg-white/10 backdrop-blur rounded-xl border border-white/20">
-                                        <HeartIcon className="h-6 w-6 text-white" />
-                                      </div>
-                                      <div>
-                                        <h2 className="text-2xl font-medium tracking-tight leading-tight text-white">Recommended Treatments</h2>
-                                        <p className="text-sm text-amber-100 mt-1">Evidence-based approaches for this condition</p>
-                                      </div>
+                                  <div className="px-8 pt-8 pb-6 border-b border-slate-100">
+                                    <div className="mb-3 flex items-center gap-2.5">
+                                      <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-[#B08D57]" />
+                                      <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">Management</p>
                                     </div>
+                                    <h2 className="text-3xl md:text-4xl font-light tracking-tight leading-tight text-slate-900">Recommended Treatments</h2>
+                                    <p className="mt-2 text-sm text-slate-600 max-w-[60ch]">Evidence-based approaches for this condition.</p>
                                   </div>
 
                                   <div className="p-8">
                                     <div className="grid md:grid-cols-2 gap-6">
-                                      {relatedTreatments.map((treatment, index) => (
-                                        <Link key={treatment.id} href={`/treatments/${treatment.id}`}>
-                                          <div className="relative bg-gradient-to-br from-white to-amber-50/30 rounded-xl p-6 border border-amber-100 hover:border-[#B08D57] hover:shadow-md transition-[border-color,box-shadow] duration-200 cursor-pointer h-full flex flex-col">
-                                            <div className="flex items-start gap-4 mb-4">
-                                              <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#B08D57] to-[#C09A65] rounded-xl flex items-center justify-center shadow-sm">
-                                                <HeartIcon className="h-6 w-6 text-white" />
-                                              </div>
-                                              <div className="flex-1">
-                                                <h3 className="text-lg font-semibold text-slate-900 group-hover:text-[#B08D57] transition-colors">
-                                                  {treatment.name}
-                                                </h3>
-                                              </div>
-                                            </div>
-
-                                            <p className="text-gray-600 text-sm leading-relaxed flex-grow mb-4">
+                                      {relatedTreatments.map((treatment) => (
+                                        <Link key={treatment.id} href={`/treatments/${treatment.id}`} className="group">
+                                          <div className="relative bg-white rounded-xl p-6 border border-slate-200 hover:border-[#B08D57] hover:shadow-md transition-[border-color,box-shadow] duration-200 cursor-pointer h-full flex flex-col">
+                                            <h3 className="text-lg font-semibold text-slate-900 group-hover:text-[#B08D57] transition-colors mb-3">
+                                              {treatment.name}
+                                            </h3>
+                                            <p className="text-slate-600 text-sm leading-relaxed flex-grow mb-4">
                                               {treatment.shortDescription}
                                             </p>
-
-                                            <div className="flex items-center text-[#B08D57] font-medium text-sm group-hover:gap-2 transition-all">
+                                            <div className="inline-flex items-center text-[#B08D57] font-medium text-sm">
                                               <span>Explore {treatment.name}</span>
-                                              <ArrowRightIcon className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                                              <ArrowRightIcon className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                                             </div>
                                           </div>
                                         </Link>

@@ -20,8 +20,6 @@ import {
   HeartIcon,
   ChartBarIcon,
   InformationCircleIcon,
-  Bars3Icon,
-  XMarkIcon,
   ChevronDownIcon,
   ExclamationCircleIcon,
   FireIcon,
@@ -102,7 +100,6 @@ export default function ConditionPageClient({
   };
 
   const [activeTab, setActiveTab] = useState(getFirstAvailableTab());
-  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   // Each tab's sub-sections are all rendered and stacked. Sidebar
   // sub-items scroll to the matching section anchor and a scrollspy
@@ -487,34 +484,9 @@ export default function ConditionPageClient({
                 </div>
               </div>
 
-              {/* Mobile / tablet sub-section quick navigation - hidden on lg+ */}
-              {subSectionChips.length > 1 && (
-                <div className="mt-4 lg:hidden">
-                  <p className="text-xs uppercase tracking-wide text-slate-500 mb-2 px-1">
-                    Inside {activeTabLabel}
-                  </p>
-                  <div className="relative -mx-1">
-                    <div className="overflow-x-auto scrollbar-hide px-1 [mask-image:linear-gradient(to_right,transparent,black_12px,black_calc(100%-20px),transparent)] md:[mask-image:none]">
-                      <div className="inline-flex items-center gap-2 min-w-max pb-1">
-                        {subSectionChips.map((chip) => (
-                          <button
-                            key={chip.id}
-                            onClick={chip.onSelect}
-                            aria-current={chip.isActive ? 'true' : undefined}
-                            className={`px-3 py-1.5 min-h-[44px] rounded-full text-xs font-medium border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-1 ${
-                              chip.isActive
-                                ? 'bg-slate-900 text-white border-slate-900'
-                                : 'bg-white text-slate-700 border-slate-300 hover:border-[#B08D57] hover:text-[#B08D57]'
-                            }`}
-                          >
-                            {chip.label}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
+              {/* Mobile sub-section quick-nav is rendered above the fixed
+                  bottom tab bar so it stays reachable while the page
+                  scrolls; nothing to render in the hero on mobile. */}
             </div>
           </div>
         </section>
@@ -1465,7 +1437,7 @@ export default function ConditionPageClient({
 
                             {/* Treatment Techniques Section */}
                             {(condition.treatmentApproach || relatedTreatments.length > 0) && (
-                            <div id="treatment-techniques" data-section="treatment-techniques" className="relative bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden scroll-mt-40">
+                            <div id="treatment-techniques" data-section="treatment-techniques" className="relative bg-white rounded-2xl shadow-sm border border-slate-200 scroll-mt-40">
                               <div className="relative">
                                 <div className="px-6 sm:px-8 pt-6 sm:pt-8 pb-5 sm:pb-6 border-b border-slate-100">
                                   <div className="mb-3 flex items-center gap-2.5">
@@ -1804,95 +1776,39 @@ export default function ConditionPageClient({
       </div>
 
 
-      {/* Mobile Navigation Drawer */}
-      <AnimatePresence>
-        {mobileNavOpen && (
-          <>
-            {/* Overlay */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="lg:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50"
-              onClick={() => setMobileNavOpen(false)}
-            />
-
-            {/* Drawer */}
-            <motion.div
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-              className="lg:hidden fixed right-0 top-0 bottom-0 w-80 max-w-[85vw] bg-white shadow-2xl z-50 overflow-y-auto"
-            >
-              {/* Header */}
-              <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
-                <h2 className="text-lg font-semibold text-gray-900">Navigation</h2>
-                <button
-                  onClick={() => setMobileNavOpen(false)}
-                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-                  aria-label="Close navigation"
-                >
-                  <XMarkIcon className="h-5 w-5 text-gray-600" />
-                </button>
+      {/* Fixed Bottom Navigation Bar - Mobile Only.
+          Sub-section chip strip sits directly above the tab bar so a reader
+          can jump inside the active tab (e.g. from Evidence-Based Treatment
+          to FAQs within Management) without scrolling the whole page. The
+          drawer-based "Sections" button was removed: it duplicated what the
+          four tabs + these sticky chips already surface. */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 pb-safe bg-white/95 backdrop-blur-md border-t border-gray-200 shadow-2xl">
+        {subSectionChips.length > 1 && (
+          <nav
+            aria-label={`Sub-sections within ${activeTabLabel}`}
+            className="border-b border-slate-100"
+          >
+            <div className="overflow-x-auto scrollbar-hide px-3 py-2 [mask-image:linear-gradient(to_right,transparent,black_12px,black_calc(100%-20px),transparent)]">
+              <div className="inline-flex items-center gap-2 min-w-max">
+                {subSectionChips.map((chip) => (
+                  <button
+                    key={chip.id}
+                    onClick={chip.onSelect}
+                    aria-current={chip.isActive ? 'true' : undefined}
+                    className={`px-3 py-1.5 min-h-[36px] rounded-full text-[11px] font-medium border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-1 ${
+                      chip.isActive
+                        ? 'bg-slate-900 text-white border-slate-900'
+                        : 'bg-white text-slate-700 border-slate-300 hover:border-[#B08D57] hover:text-[#B08D57]'
+                    }`}
+                  >
+                    {chip.label}
+                  </button>
+                ))}
               </div>
-
-              {/* Navigation Content - full page ToC. All tabs listed, and the
-                  active tab's sub-sections are expanded beneath it so users
-                  can jump to any part of the condition page from anywhere. */}
-              <div className="p-6 space-y-2">
-                {tabs.map((tab) => {
-                  const isActive = activeTab === tab.id;
-                  const Icon = tab.icon;
-                  return (
-                    <div key={tab.id}>
-                      <button
-                        onClick={() => {
-                          setActiveTab(tab.id);
-                          setMobileNavOpen(false);
-                        }}
-                        className={`w-full flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                          isActive
-                            ? 'bg-slate-50 text-slate-900 font-semibold'
-                            : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
-                        }`}
-                      >
-                        <Icon className="h-4 w-4 flex-shrink-0" />
-                        <span>{tab.label}</span>
-                      </button>
-                      {isActive && subSectionChips.length > 1 && (
-                        <div className="mt-1 ml-5 pl-3 border-l-2 border-l-[#B08D57]/25 space-y-1">
-                          {subSectionChips.map((chip) => (
-                            <button
-                              key={chip.id}
-                              onClick={() => {
-                                chip.onSelect();
-                                setMobileNavOpen(false);
-                              }}
-                              className={`w-full text-left px-2.5 py-1.5 rounded text-xs transition-colors ${
-                                chip.isActive
-                                  ? 'text-slate-900 font-semibold'
-                                  : 'text-slate-500 hover:text-slate-900'
-                              }`}
-                            >
-                              {chip.label}
-                            </button>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            </motion.div>
-          </>
+            </div>
+          </nav>
         )}
-      </AnimatePresence>
-
-      {/* Fixed Bottom Navigation Bar - Mobile Only - Compact */}
-      <div role="tablist" aria-label="Condition page sections" className="lg:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-gray-200 shadow-2xl z-40 pb-safe">
-        <div className="flex items-center justify-around px-2 py-2">
+        <div role="tablist" aria-label="Condition page sections" className="flex items-center justify-around px-2 py-2">
           {tabs.map((tab) => {
             const isActive = activeTab === tab.id;
             return (
@@ -1917,17 +1833,6 @@ export default function ConditionPageClient({
               </button>
             );
           })}
-          <button
-            onClick={() => setMobileNavOpen(true)}
-            aria-label="Open section navigation"
-            aria-expanded={mobileNavOpen}
-            className={`flex flex-col items-center justify-center gap-0.5 px-2 py-2 rounded-lg transition-colors duration-200 min-w-[60px] min-h-[48px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-1 ${
-              mobileNavOpen ? 'bg-[#B08D57]/15 text-[#8c6d3d]' : 'text-gray-600 hover:text-slate-700'
-            }`}
-          >
-            <Bars3Icon className="h-5 w-5" aria-hidden="true" />
-            <span className="text-[11px] font-medium leading-tight">Sections</span>
-          </button>
         </div>
       </div>
     </MotionConfig>

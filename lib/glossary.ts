@@ -99,4 +99,111 @@ export const GLOSSARY: Record<string, GlossaryEntry> = {
     definition:
       'Irritation of a spinal nerve root, causing pain, tingling, numbness or weakness along the path of that nerve.',
   },
+  impingement: {
+    term: 'impingement',
+    definition:
+      'Pinching or compression of soft tissue (tendon, bursa, nerve) between two bones during movement. Often felt as a sharp catch at specific joint angles.',
+    aliases: ['impinge', 'impinged', 'impinges', 'impinging'],
+  },
+  valgus: {
+    term: 'valgus',
+    definition:
+      'A knee or foot position that caves inward, for example the knee drifting toward the midline during a squat or landing. Changes how load passes through the joint.',
+  },
+  varus: {
+    term: 'varus',
+    definition:
+      'A knee or foot position that bows outward, the opposite of valgus. Shifts load toward the outer side of the joint.',
+  },
+  meniscus: {
+    term: 'meniscus',
+    definition:
+      'One of two C-shaped cartilage cushions inside the knee that help distribute load and stabilize the joint. Tears can be from injury or gradual wear.',
+    aliases: ['menisci', 'meniscal'],
+  },
+  labrum: {
+    term: 'labrum',
+    definition:
+      'A cartilage rim that deepens the shoulder or hip socket and helps hold the ball of the joint in place. Can be torn or frayed with injury or repetitive load.',
+    aliases: ['labral'],
+  },
+  effusion: {
+    term: 'joint effusion',
+    definition:
+      'Fluid that has built up inside a joint capsule, the medical term for a visibly swollen joint. Often a sign the joint is irritated and deserves a lighter load.',
+    aliases: ['effusions'],
+  },
+  fasciitis: {
+    term: 'fasciitis',
+    definition:
+      'Irritation of fascia, the connective tissue that wraps muscles and other structures. "Plantar fasciitis" is the best-known example, at the bottom of the foot.',
+  },
+  bursa: {
+    term: 'bursa',
+    definition:
+      'A small fluid-filled sac that cushions the sliding surfaces between tendons, muscles and bone. Several bursae sit around most major joints.',
+    aliases: ['bursae', 'bursal'],
+  },
+  bursitis: {
+    term: 'bursitis',
+    definition:
+      'Irritation of a bursa, usually from compression or repetitive load. Produces focal tenderness and can ache when the joint is pressed or loaded in specific positions.',
+  },
+  sensitization: {
+    term: 'sensitization',
+    definition:
+      'A change in the nervous system that amplifies pain signals, so normal load feels more painful than it should. Reversible with graded loading and time.',
+    aliases: ['sensitisation', 'sensitized', 'sensitised'],
+  },
+  'scapular-dyskinesis': {
+    term: 'scapular dyskinesis',
+    definition:
+      'Altered movement or resting position of the shoulder blade during arm motion. Often contributes to shoulder pain rather than being the sole cause.',
+  },
+  apophysis: {
+    term: 'apophysis',
+    definition:
+      'A growth-plate site where a tendon attaches to a bone, present in growing athletes. Can become irritated by repetitive traction (e.g. Osgood-Schlatter at the knee).',
+    aliases: ['apophyseal', 'apophyses'],
+  },
+  retinaculum: {
+    term: 'retinaculum',
+    definition:
+      'A band of connective tissue that holds tendons in place across a joint so they track correctly during movement — most familiar at the ankle and wrist.',
+    aliases: ['retinacula', 'retinacular'],
+  },
+  subluxation: {
+    term: 'subluxation',
+    definition:
+      'A partial, usually brief separation of a joint that resolves on its own, unlike a full dislocation. Can leave the joint feeling loose or apprehensive afterwards.',
+    aliases: ['subluxations', 'sublux', 'subluxes', 'subluxing'],
+  },
+  plantarflexion: {
+    term: 'plantarflexion',
+    definition:
+      'Pointing the foot downward, the opposite of dorsiflexion. Used heavily in push-off during walking, running and jumping.',
+    aliases: ['plantar flexion', 'plantarflex', 'plantarflexed'],
+  },
+  avulsion: {
+    term: 'avulsion',
+    definition:
+      'An injury where a tendon or ligament pulls a small fragment of bone off at its attachment. Usually managed conservatively unless the fragment has shifted significantly.',
+    aliases: ['avulsions', 'avulsed'],
+  },
+  'referred-pain': {
+    term: 'referred pain',
+    definition:
+      'Pain felt at a distance from its actual source, for example hip joint problems that present as knee pain. Why the most tender spot isn\u2019t always the cause.',
+  },
+  degenerative: {
+    term: 'degenerative',
+    definition:
+      'Gradual wear and remodeling of a tissue over time. Common on imaging after age 40 and often painless; not a verdict on future function.',
+    aliases: ['degeneration'],
+  },
+  myofascial: {
+    term: 'myofascial',
+    definition:
+      'Relating to muscle and its surrounding fascia together. "Myofascial pain" describes a combined pattern of muscle tenderness and restricted fascial glide.',
+  },
 };

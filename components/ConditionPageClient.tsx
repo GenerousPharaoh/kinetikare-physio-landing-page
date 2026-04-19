@@ -1114,17 +1114,21 @@ export default function ConditionPageClient({
                               </SectionHeading>
                               <p className="text-base text-slate-600 leading-relaxed mb-10">Conditions with similar presentations:</p>
                               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                {condition.differentialDiagnosis.map((diff, index) => (
-                                  <div key={index} className="relative bg-white rounded-xl p-6 border border-slate-200 border-l-4 border-l-[#B08D57] shadow-sm">
-                                    <div className="mb-3 flex items-center gap-2.5">
-                                      <span aria-hidden="true" className="text-sm font-semibold text-[#B08D57] tabular-nums">{String(index + 1).padStart(2, '0')}</span>
-                                      <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">{diff.condition}</p>
+                                {condition.differentialDiagnosis.map((diff, index) => {
+                                  const diffUsed = new Set<string>();
+                                  return (
+                                    <div key={index} className="relative bg-white rounded-xl p-6 border border-slate-200 border-l-4 border-l-[#B08D57] shadow-sm">
+                                      <div className="mb-3 flex items-center gap-2.5">
+                                        <span aria-hidden="true" className="text-sm font-semibold text-[#B08D57] tabular-nums">{String(index + 1).padStart(2, '0')}</span>
+                                        <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">{diff.condition}</p>
+                                      </div>
+                                      <p className="text-slate-700 text-sm md:text-base leading-relaxed max-w-[58ch]">
+                                        <span className="font-semibold text-slate-900">Key differences:</span>{' '}
+                                        <GlossaryText text={diff.distinguishingFeatures} usedTerms={diffUsed} />
+                                      </p>
                                     </div>
-                                    <p className="text-slate-700 text-sm md:text-base leading-relaxed max-w-[58ch]">
-                                      <span className="font-semibold text-slate-900">Key differences:</span> {diff.distinguishingFeatures}
-                                    </p>
-                                  </div>
-                                ))}
+                                  );
+                                })}
                               </div>
                             </div>
                           )}
@@ -1285,16 +1289,21 @@ export default function ConditionPageClient({
                                       const colonIndex = insight.indexOf(':');
                                       const topic = colonIndex > -1 ? insight.substring(0, colonIndex).trim() : '';
                                       const finding = colonIndex > -1 ? insight.substring(colonIndex + 1).trim() : insight;
+                                      const insightUsed = new Set<string>();
 
                                       return (
                                         <div key={index} className="relative bg-white rounded-xl p-6 border border-slate-200 border-l-4 border-l-[#B08D57] shadow-sm">
                                           {topic ? (
                                             <>
                                               <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57] mb-2">{topic}</p>
-                                              <p className="text-slate-700 text-sm md:text-base leading-relaxed max-w-[72ch]">{finding}</p>
+                                              <p className="text-slate-700 text-sm md:text-base leading-relaxed max-w-[72ch]">
+                                                <GlossaryText text={finding} usedTerms={insightUsed} />
+                                              </p>
                                             </>
                                           ) : (
-                                            <p className="text-slate-700 text-sm md:text-base leading-relaxed max-w-[72ch]">{finding}</p>
+                                            <p className="text-slate-700 text-sm md:text-base leading-relaxed max-w-[72ch]">
+                                              <GlossaryText text={finding} usedTerms={insightUsed} />
+                                            </p>
                                           )}
                                         </div>
                                       );
@@ -1348,7 +1357,7 @@ export default function ConditionPageClient({
                                               </p>
                                             </div>
                                             <p className="text-slate-700 text-sm md:text-base leading-relaxed max-w-[58ch]">
-                                              {condition.evidenceSnapshot.primaryStrategy || condition.evidenceSnapshot.firstLine}
+                                              <GlossaryText text={(condition.evidenceSnapshot.primaryStrategy || condition.evidenceSnapshot.firstLine) as string} />
                                             </p>
                                           </div>
                                         )}
@@ -1362,7 +1371,7 @@ export default function ConditionPageClient({
                                               </p>
                                             </div>
                                             <p className="text-slate-700 text-sm md:text-base leading-relaxed max-w-[58ch]">
-                                              {condition.evidenceSnapshot.secondaryStrategy || condition.evidenceSnapshot.imaging}
+                                              <GlossaryText text={(condition.evidenceSnapshot.secondaryStrategy || condition.evidenceSnapshot.imaging) as string} />
                                             </p>
                                           </div>
                                         )}
@@ -1376,7 +1385,7 @@ export default function ConditionPageClient({
                                               </p>
                                             </div>
                                             <p className="text-slate-700 text-sm md:text-base leading-relaxed max-w-[58ch]">
-                                              {condition.evidenceSnapshot.preventionStrategy || condition.evidenceSnapshot.management}
+                                              <GlossaryText text={(condition.evidenceSnapshot.preventionStrategy || condition.evidenceSnapshot.management) as string} />
                                             </p>
                                           </div>
                                         )}
@@ -1681,6 +1690,7 @@ export default function ConditionPageClient({
                                   <div className="space-y-3">
                                     {condition.faqs.map((faq, index) => {
                                       const qLabel = `Q${String(index + 1).padStart(2, '0')}`;
+                                      const faqUsed = new Set<string>();
                                       return (
                                         <details key={index} className="group relative bg-white rounded-xl border border-slate-200 border-l-[3px] border-l-transparent open:border-l-[#B08D57] shadow-sm transition-colors duration-200">
                                           <summary className="flex gap-4 cursor-pointer list-none items-start p-6">
@@ -1700,7 +1710,7 @@ export default function ConditionPageClient({
                                           <div className="px-6 pb-6">
                                             <div className="ml-10 border-t border-slate-100 pt-4">
                                               <p className="text-slate-700 text-sm md:text-base leading-relaxed max-w-[72ch]">
-                                                {faq.answer}
+                                                <GlossaryText text={faq.answer} usedTerms={faqUsed} />
                                               </p>
                                             </div>
                                           </div>

@@ -72,7 +72,7 @@ const HealingEnvironmentSection = () => {
             <div className="relative group overflow-hidden rounded-3xl shadow-premium-3 hover:shadow-premium-3-hover shadow-transition">
               <div className="aspect-[1/1] relative">
                 <Image
-                  src="/images/clinic-pic-may-2025.jpg"
+                  src="/images/clinic-pic-may-2025.webp"
                   alt="Modern Treatment Room at KinetiKare"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"

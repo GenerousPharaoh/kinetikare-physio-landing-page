@@ -48,87 +48,11 @@ export const metadata: Metadata = {
   },
 };
 
-// Person Schema for Kareem Hassanein - helps with branded searches
-const personSchema = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Kareem Hassanein",
-  "jobTitle": "Registered Physiotherapist",
-  "description": "Registered Physiotherapist in Burlington providing sports injury rehabilitation, knee and hip pain treatment, dry needling, cupping, and evidence-based physiotherapy care.",
-  "url": "https://www.kinetikarephysio.com",
-  "image": "https://www.kinetikarephysio.com/images/kareem-profile.webp",
-  "telephone": "+19056346000",
-  "email": "kareem.hassanein@gmail.com",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "4631 Palladium Way, Unit 6",
-    "addressLocality": "Burlington",
-    "addressRegion": "ON",
-    "postalCode": "L7M 0W9",
-    "addressCountry": "CA"
-  },
-  "worksFor": {
-    "@type": "Organization",
-    "@id": "https://www.kinetikarephysio.com/#organization",
-    "name": "Kareem Hassanein Physiotherapy",
-    "alternateName": ["Kareem Hassanein Physio", "KinetiKare", "Kareem Physio Burlington"]
-  },
-  "hasCredential": [
-    {
-      "@type": "EducationalOccupationalCredential",
-      "name": "Master of Science in Physiotherapy",
-      "credentialCategory": "degree",
-      "recognizedBy": {
-        "@type": "Organization",
-        "name": "Robert Gordon University"
-      }
-    },
-    {
-      "@type": "EducationalOccupationalCredential",
-      "name": "Integrated Musculoskeletal (AIM) Physiotherapy Program Level 2 Upper and Lower",
-      "credentialCategory": "certificate",
-      "recognizedBy": {
-        "@type": "Organization",
-        "name": "Canadian Academy of Manipulative Physiotherapy"
-      }
-    }
-  ],
-  "knowsAbout": [
-    "Manual Therapy",
-    "Cupping Therapy",
-    "Sports Rehabilitation",
-    "Sports Injury Rehabilitation",
-    "Dry Needling",
-    "Exercise Therapy",
-    "Knee Pain Treatment",
-    "Hip Pain Treatment",
-    "Pain Management",
-    "Movement Assessment"
-  ],
-  "areaServed": [
-    "Burlington, ON",
-    "Waterdown, ON",
-    "Oakville, ON",
-    "Flamborough, ON",
-    "Carlisle, ON"
-  ],
-  "sameAs": [
-    "https://endorphinshealth.com/team/kareem-hassanein/",
-    "https://portal.collegept.org/en-US/public-register/display-member-contact/?id=757882d7-8c40-eb11-a813-000d3af427b4",
-    "https://www.linkedin.com/in/kareemhassanein"
-  ]
-};
-
 // Streamlined site structure: Hero → About → Care Journey → Services → Conditions → Reviews → Contact
+// Person schema is provided site-wide via app/layout.tsx (id: #kareem-hassanein).
 export default function Home() {
   return (
     <>
-      {/* Person Schema for Kareem Hassanein */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
-      />
-
       {/* Force dark background on homepage to prevent white flash before hydration */}
       <style dangerouslySetInnerHTML={{ __html: `html { background: #020617 !important; }` }} />
 

@@ -118,7 +118,7 @@ export default function HeroSection() {
               }}
             >
               <Image
-                src="/images/clinic-pic-may-2025.jpg"
+                src="/images/clinic-pic-may-2025.webp"
                 alt="KinetiKare Physiotherapy clinic"
                 fill
                 priority
@@ -254,7 +254,7 @@ export default function HeroSection() {
         {/* Mobile Background (decorative duplicate of the desktop image) */}
         <div className="absolute inset-0 md:hidden" aria-hidden="true">
           <Image
-            src="/images/clinic-pic-may-2025.jpg"
+            src="/images/clinic-pic-may-2025.webp"
             alt=""
             fill
             quality={82}

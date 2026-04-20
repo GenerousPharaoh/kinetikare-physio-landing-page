@@ -981,7 +981,7 @@ export default function FluidOnTheKneeGuidePage() {
                     </li>
                     <li className="flex items-center justify-between border-b border-slate-800 pb-2">
                       <span className="text-slate-300">Tuesday</span>
-                      <span className="text-white">1:30 PM - 7:30 PM</span>
+                      <span className="text-white">3:30 PM - 7:30 PM</span>
                     </li>
                     <li className="flex items-center justify-between border-b border-slate-800 pb-2">
                       <span className="text-slate-300">Wednesday</span>

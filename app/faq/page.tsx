@@ -28,14 +28,15 @@ function extractPlainText(answer: string | React.ReactNode): string {
   // This handles the case where answer is a React element
   const textParts: string[] = [];
 
-  const extractText = (node: any): void => {
+  const extractText = (node: React.ReactNode): void => {
     if (typeof node === 'string') {
       textParts.push(node);
     } else if (Array.isArray(node)) {
       node.forEach(extractText);
-    } else if (node && typeof node === 'object') {
-      if (node.props && node.props.children) {
-        extractText(node.props.children);
+    } else if (node && typeof node === 'object' && 'props' in node) {
+      const element = node as React.ReactElement;
+      if (element.props && (element.props as { children?: React.ReactNode }).children) {
+        extractText((element.props as { children?: React.ReactNode }).children);
       }
     }
   };

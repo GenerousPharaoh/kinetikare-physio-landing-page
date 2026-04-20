@@ -4,7 +4,8 @@ import ConditionPageClient from '@/components/ConditionPageClient';
 import {
   getAllConditions,
   getConditionBySlug,
-  getRelatedConditions
+  getRelatedConditions,
+  type Condition
 } from '@/lib/conditions-data';
 import { getDetailedCondition } from '@/lib/detailed-conditions-content';
 import {
@@ -56,7 +57,7 @@ export async function generateStaticParams() {
 }
 
 // Helper function to generate dynamic meta descriptions based on condition category
-function generateDynamicMetaDescription(condition: any): string {
+function generateDynamicMetaDescription(condition: Condition): string {
   const categoryFocus: Record<string, string> = {
     'spinal-health': 'back and neck symptoms',
     shoulder: 'shoulder pain and stiffness',
@@ -84,7 +85,7 @@ function generateDynamicMetaDescription(condition: any): string {
 }
 
 // Pick title format based on search intent. Default is local (Burlington-anchored).
-function generateConditionTitle(condition: any): string {
+function generateConditionTitle(condition: Condition): string {
   if (condition.titleIntent === 'informational') {
     return `${condition.name}: Symptoms, Causes & Treatment | Kareem Hassanein, RPT`;
   }

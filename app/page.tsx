@@ -86,21 +86,19 @@ export default function Home() {
 
           <ServicesSection />
 
-          {/* Pricing transparency callout */}
-          <div className="text-center py-12 px-6">
-            <p className="text-sm font-medium text-[#8A6F0A] tracking-wider uppercase mb-3">Transparent Pricing</p>
-            <div className="flex items-center justify-center gap-8 mb-4">
-              <div>
-                <p className="text-2xl font-bold text-slate-900">$130</p>
-                <p className="text-xs text-slate-500">Initial Assessment</p>
-              </div>
-              <div className="w-px h-10 bg-slate-200" />
-              <div>
-                <p className="text-2xl font-bold text-slate-900">$90</p>
-                <p className="text-xs text-slate-500">Follow-up (30 min)</p>
-              </div>
+          {/* Billing + pricing note */}
+          <div className="text-center py-12 px-6 max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl text-slate-900 font-light leading-snug mb-3">
+              Direct billing to most major insurance providers.
+            </p>
+            <p className="text-base text-slate-600 mb-6">
+              No referral needed.
+            </p>
+            <div className="flex items-center justify-center gap-5 text-sm text-slate-500">
+              <span><span className="text-slate-700 font-medium">$130</span> initial assessment</span>
+              <span className="w-1 h-1 rounded-full bg-slate-300" aria-hidden="true" />
+              <span><span className="text-slate-700 font-medium">$90</span> follow-up (30 min)</span>
             </div>
-            <p className="text-sm text-slate-500">Direct billing available for most major insurance providers. No referral needed.</p>
           </div>
 
           <SectionDivider variant="dots" />

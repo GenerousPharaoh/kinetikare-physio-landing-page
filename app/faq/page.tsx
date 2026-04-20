@@ -113,7 +113,7 @@ const faqCategories: FAQCategory[] = [
           <>
             Your first visit is dedicated to thoroughly understanding you and your situation.
             {'\n\n'}
-            <strong>Conversation:</strong> We will have a detailed discussion about your current symptoms, your goals for physiotherapy, your daily activities and lifestyle, and your relevant health history. This includes past injuries or conditions, surgeries, as well as any medications you are currently taking. Understanding this full picture is crucial for ensuring your safety and developing the most effective treatment plan for you.
+            <strong>Conversation:</strong> I will have a detailed discussion with you about your current symptoms, your goals for physiotherapy, your daily activities and lifestyle, and your relevant health history. This includes past injuries or conditions, surgeries, as well as any medications you are currently taking. Understanding this full picture is crucial for ensuring your safety and developing the most effective treatment plan for you.
             {'\n\n'}
             <strong>Assessment:</strong> I will propose an assessment approach, explain what it involves, and then evaluate your movement, strength, joint mobility, and muscle control relevant to your concern.
             {'\n\n'}
@@ -632,7 +632,7 @@ const faqCategories: FAQCategory[] = [
         question: `What if I have received conflicting advice from another healthcare provider?`,
         answer: (
           <>
-            That happens sometimes, and it is okay. Different providers may have different perspectives or focus on different aspects of your health. My role is to help you understand your current situation based on my assessment. We will focus on what makes sense for you now, integrate useful information from others where appropriate, and build a clear path forward together. My focus is on clarity and collaboration, not contradiction.{' '}
+            That happens sometimes, and it is okay. Different providers may have different perspectives or focus on different aspects of your health. My role is to help you understand your current situation based on my assessment. Together, we will focus on what makes sense for you now, integrate useful information from others where appropriate, and build a clear path forward. My focus is on clarity and collaboration, not contradiction.{' '}
             <Link href="/about" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
               Read about my collaborative approach
             </Link>
@@ -918,7 +918,7 @@ const faqCategories: FAQCategory[] = [
         question: `Is physiotherapy covered by OHIP in Ontario?`,
         answer: (
           <>
-            No, private physiotherapy services are not covered by OHIP (Ontario Health Insurance Plan). However, many extended health insurance plans do provide coverage for physiotherapy. Our clinic offers direct billing to most major insurance providers including Canada Life, Sun Life, Manulife, Green Shield Canada, Blue Cross, and others. Check with your insurance provider about your specific coverage.
+            No, private physiotherapy services are not covered by OHIP (Ontario Health Insurance Plan). However, many extended health insurance plans do provide coverage for physiotherapy. I offer direct billing to most major insurance providers including Canada Life, Sun Life, Manulife, Green Shield Canada, Blue Cross, and others. Check with your insurance provider about your specific coverage.
             <div className="mt-4 pt-4 border-t border-gray-200">
               <p className="text-xs font-medium text-gray-500 mb-2">Related Resources:</p>
               <div className="flex flex-wrap gap-2">

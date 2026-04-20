@@ -218,7 +218,7 @@ const formatAnswer = (answer: string | React.ReactNode) => {
         }
 
         // Highlight key terms with consistent styling
-        const keyTerms = ["Conversation:", "Assessment:", "Plan:", "I Reassess Thoroughly:", "We Adjust the Strategy:", "I Collaborate and Advocate:", "Listening Attentively:", "Communicating Clearly & Honestly:", "Empowering You:", "Dedicated Time & Attention:", "Looking Holistically:", "Emphasis on Education and Active Participation:", "Partnership in Goal Setting:"];
+        const keyTerms = ["Conversation:", "Assessment:", "Plan:", "I Reassess Thoroughly:", "I Adjust the Strategy:", "I Collaborate and Advocate:", "Listening Attentively:", "Communicating Clearly & Honestly:", "Empowering You:", "Dedicated Time & Attention:", "Looking Holistically:", "Emphasis on Education and Active Participation:", "Partnership in Goal Setting:"];
         for (const term of keyTerms) {
           if (paragraph.includes(term)) {
             const parts = paragraph.split(term);
@@ -331,7 +331,7 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, defaultOpen = null }
               aria-expanded={isActive}
               aria-controls={answerId}
               onClick={() => toggleQuestion(index)}
-              className="flex items-start justify-between w-full py-6 text-left group focus:outline-none"
+              className="flex items-start justify-between w-full py-6 text-left group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/50 focus-visible:ring-offset-2 focus-visible:rounded-sm"
             >
               <span className="flex-1 pr-6 flex items-start gap-4">
                 <span className={`text-2xl font-light tabular-nums opacity-20 transition-colors duration-300 ${isActive ? 'text-[#B08D57] opacity-100' : 'group-hover:text-[#B08D57] group-hover:opacity-40'

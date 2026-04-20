@@ -33,6 +33,7 @@ export const viewport = {
 };
 
 export const metadata = {
+  metadataBase: new URL('https://www.kinetikarephysio.com'),
   title: 'Kareem Hassanein Physiotherapy Burlington | Registered Physiotherapist',
   description: 'Kareem Hassanein, Registered Physiotherapist in Burlington. Physiotherapy care for back pain, sports injuries, knee pain, neck pain, and sciatica with direct billing and evening appointments.',
   authors: [{ name: 'Kareem Hassanein', url: 'https://www.kinetikarephysio.com/about' }],

@@ -40,7 +40,7 @@ export const symptomMappings = [
 ];
 
 export const bodyPartConditions = {
-  'neck': ['Neck Pain', 'Whiplash', 'Cervical Strain', 'Headaches', 'Torticollis'],
+  'neck': ['Neck Pain', 'Whiplash', 'Cervical Strain', 'Torticollis'],
   'shoulder': ['Rotator Cuff', 'Frozen Shoulder', 'Shoulder Impingement', 'Shoulder Instability'],
   'back': ['Low Back Pain', 'Sciatica', 'Disc Issues', 'Muscle Strain', 'Postural Pain'],
   'upper back': ['Thoracic Pain', 'Rib Dysfunction', 'Postural Syndrome'],
@@ -218,7 +218,7 @@ export const activityInjuries = [
   {
     activity: 'desk work',
     keywords: ['desk', 'computer', 'office', 'sitting', 'work from home'],
-    conditions: ['Neck Pain', 'Upper Back Pain', 'Carpal Tunnel', 'Headaches'],
+    conditions: ['Neck Pain', 'Upper Back Pain', 'Carpal Tunnel'],
     advice: 'Ergonomic solutions and treatment'
   }
 ];

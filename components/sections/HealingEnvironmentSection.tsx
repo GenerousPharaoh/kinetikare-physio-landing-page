@@ -15,7 +15,7 @@ const HealingEnvironmentSection = () => {
   const locationImage = {
     src: '/images/facebook-image.jpg',
     alt: 'Clinic Building',
-    title: 'Our Location'
+    title: 'My Location'
   };
 
   const clinicFeatures = [

@@ -232,6 +232,7 @@ function ConditionsPageWithParams({
                 placeholder="Search conditions (e.g., back pain, knee injury, arthritis...)"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
+                aria-label="Search conditions"
                 className="w-full pl-14 pr-6 py-4 bg-white border-2 border-gray-200 rounded-2xl focus:outline-none focus:border-[#B08D57] transition-all duration-300 text-gray-900 placeholder-gray-400 shadow-sm hover:shadow-md"
               />
             </div>

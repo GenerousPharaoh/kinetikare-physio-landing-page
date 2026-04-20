@@ -132,7 +132,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
     if (hasEmergency) {
       searchResults.push({
         type: 'page',
-        title: '🚨 URGENT CARE NEEDED',
+        title: 'URGENT CARE NEEDED',
         description: 'Call immediately: 905-634-6000 or visit emergency room',
         url: 'tel:905-634-6000',
         category: 'emergency',
@@ -147,7 +147,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
     if (hasBooking) {
       searchResults.push({
         type: 'page',
-        title: '📅 Book Your Assessment',
+        title: 'Book Your Assessment',
         description: 'Click to schedule with Kareem - Evening appointments available',
         url: 'https://endorphinshealth.janeapp.com/#/staff_member/42',
         category: 'booking',
@@ -165,13 +165,9 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
       });
       
       if (strongMatch) {
-        const urgencyIcon = mapping.urgency === 'emergency' ? '🚨' : 
-                           mapping.urgency === 'high' ? '⚡' : 
-                           mapping.urgency === 'moderate' ? '⏰' : '📋';
-        
         searchResults.push({
           type: 'condition',
-          title: `${urgencyIcon} ${mapping.action}`,
+          title: mapping.action,
           description: `Common with: ${mapping.conditions.slice(0, 2).join(', ')}${mapping.conditions.length > 2 ? '...' : ''}`,
           url: mapping.urgency === 'emergency' ? 'tel:905-634-6000' : 'https://endorphinshealth.janeapp.com/#/staff_member/42',
           category: `${mapping.urgency} priority`,
@@ -252,7 +248,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
           searchResults.push({
             type: 'page',
             title: `View All ${bodyPart.charAt(0).toUpperCase() + bodyPart.slice(1)} Conditions`,
-            description: `Browse all ${bodyPart} conditions we treat`,
+            description: `Browse all ${bodyPart} conditions treated`,
             url: '/conditions',
             category: 'conditions',
             score: 250
@@ -346,8 +342,8 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
     if (hasInsurance) {
       searchResults.push({
         type: 'faq',
-        title: '💳 Insurance & Direct Billing',
-        description: 'We bill most insurance companies directly - no upfront payment needed',
+        title: 'Insurance & Direct Billing',
+        description: 'Direct billing to most insurance companies - no upfront payment needed',
         url: '/faq#insurance',
         category: 'billing',
         score: 450
@@ -361,7 +357,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
     if (hasLocation) {
       searchResults.push({
         type: 'page',
-        title: '📍 Clinic Location & Hours',
+        title: 'Clinic Location & Hours',
         description: '4631 Palladium Way, Burlington - Evening appointments available',
         url: '/#contact',
         category: 'location',
@@ -550,11 +546,13 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                         placeholder="Search conditions, treatments..."
+                        aria-label="Search conditions and treatments"
                         className="w-full pl-10 sm:pl-14 pr-3 sm:pr-4 py-3 sm:py-4 bg-white/10 backdrop-blur border border-white/20 rounded-xl text-white placeholder-white/60 focus:outline-none focus:bg-white/20 focus:border-white/40 transition-all text-base sm:text-lg"
                       />
                     </div>
                     <button
                       onClick={onClose}
+                      aria-label="Close search"
                       className="p-2 sm:p-3 bg-white/10 backdrop-blur border border-white/20 rounded-xl hover:bg-white/20 transition-colors"
                     >
                       <XMarkIcon className="h-5 sm:h-6 w-5 sm:w-6 text-white" />

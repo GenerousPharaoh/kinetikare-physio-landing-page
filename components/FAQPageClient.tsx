@@ -183,7 +183,7 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
                 placeholder="Search for answers..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-transparent py-3 text-lg text-slate-800 placeholder-slate-400 focus:outline-none font-light"
+                className="w-full bg-transparent py-3 text-lg text-slate-800 placeholder-slate-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/50 focus-visible:ring-offset-2 focus-visible:rounded-sm font-light"
                 aria-label="Search frequently asked questions"
               />
               {searchQuery && (

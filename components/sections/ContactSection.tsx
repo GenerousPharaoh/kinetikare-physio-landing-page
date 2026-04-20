@@ -87,7 +87,7 @@ export default function ContactSection() {
                       <h4 className="text-base sm:text-lg font-normal text-slate-900 mb-2">Location</h4>
                       <div className="space-y-1">
                         <p className="font-normal text-slate-900 text-sm sm:text-base">Endorphins Health and Wellness Centre</p>
-                        <p className="text-slate-600 text-sm sm:text-base">4631 Palladium Wy Unit 6</p>
+                        <p className="text-slate-600 text-sm sm:text-base">4631 Palladium Way, Unit 6</p>
                         <p className="text-slate-600 text-sm sm:text-base">Burlington, ON L7M 0W9</p>
                       </div>
                     </div>

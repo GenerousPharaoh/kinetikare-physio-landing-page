@@ -579,7 +579,6 @@ export const treatments: Treatment[] = [
       'Upper crossed syndrome',
       'Lower back pain',
       'Shoulder impingement',
-      'Headaches',
       'Postural dysfunction'
     ],
     process: [

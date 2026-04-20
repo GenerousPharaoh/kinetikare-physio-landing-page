@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     description:
       '1-on-1 physiotherapy in Burlington. 5.0 stars on Google, direct billing, afternoon and evening appointments, no referral.',
   },
-  robots: 'index, follow',
+  robots: 'noindex, follow',
 };
 
 export default function IntakePage() {

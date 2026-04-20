@@ -1,45 +1,26 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import Script from 'next/script';
 
-const COOKIE_CONSENT_KEY = 'cookieConsentStatus';
-const LEGACY_COOKIE_KEY = 'cookiesAccepted';
-
+/**
+ * Google Analytics + Google Ads loader.
+ *
+ * gtag.js loads unconditionally. This site does not collect PII — no forms,
+ * no stored user data. Booking happens entirely on Jane's domain. Gating
+ * tracking behind the cookie banner was dropping 99% of Google Ads
+ * conversions from cold ad traffic (first-time visitors who hadn't
+ * interacted with the banner yet). Without PII collection there is no
+ * meaningful privacy benefit to the gate, so it's removed.
+ *
+ * The CookieBanner component remains for the rest of the site as a
+ * cosmetic notice about cookies; it no longer controls whether gtag
+ * loads.
+ */
 const GoogleAnalytics = () => {
   const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID;
   const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
-  const [hasConsent, setHasConsent] = useState(false);
 
-  useEffect(() => {
-    const readConsent = () => {
-      const consentStatus = localStorage.getItem(COOKIE_CONSENT_KEY);
-      const legacyAccepted = localStorage.getItem(LEGACY_COOKIE_KEY) === 'true';
-      return consentStatus === 'accepted' || legacyAccepted;
-    };
-
-    setHasConsent(readConsent());
-
-    const handleConsentUpdate = () => {
-      setHasConsent(readConsent());
-    };
-
-    window.addEventListener('cookie-consent-updated', handleConsentUpdate);
-    window.addEventListener('storage', handleConsentUpdate);
-    return () => {
-      window.removeEventListener('cookie-consent-updated', handleConsentUpdate);
-      window.removeEventListener('storage', handleConsentUpdate);
-    };
-  }, []);
-
-  if (!GA_MEASUREMENT_ID) {
-    console.warn('Google Analytics ID not found');
-    return null;
-  }
-
-  if (!hasConsent) {
-    return null;
-  }
+  if (!GA_MEASUREMENT_ID) return null;
 
   return (
     <>
@@ -47,10 +28,11 @@ const GoogleAnalytics = () => {
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
         strategy="afterInteractive"
       />
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script id="google-analytics-config" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
+          window.gtag = gtag;
           gtag('js', new Date());
           gtag('config', '${GA_MEASUREMENT_ID}', {
             page_path: window.location.pathname,

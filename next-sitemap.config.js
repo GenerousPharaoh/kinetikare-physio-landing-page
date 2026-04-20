@@ -23,9 +23,20 @@ const contentLastModified = {
     'app/layout.tsx',
     'components/Header.tsx',
     'components/Footer.tsx',
+    'components/sections/HeroSectionModern.tsx',
+    'components/sections/PopularConditionsSection.tsx',
+    'components/sections/ServicesSection.tsx',
+    'components/sections/CareJourneySection.tsx',
   ]),
-  about: getLatestMTime(['app/about/page.tsx']),
-  services: getLatestMTime(['app/services/page.tsx']),
+  about: getLatestMTime([
+    'app/about/page.tsx',
+    'components/about/AboutHero.tsx',
+    'components/CommitmentCarousel.tsx',
+  ]),
+  services: getLatestMTime([
+    'app/services/page.tsx',
+    'components/services/ServicesHero.tsx',
+  ]),
   faq: getLatestMTime([
     'app/faq/page.tsx',
     'components/FAQPageClient.tsx',
@@ -33,18 +44,33 @@ const contentLastModified = {
   ]),
   conditions: getLatestMTime([
     'app/conditions/[slug]/page.tsx',
+    'app/conditions/page.tsx',
+    'app/conditions/knee-pain/page.tsx',
+    'app/conditions/hip-pain/page.tsx',
+    'app/conditions/shoulder-pain/page.tsx',
+    'app/conditions/elbow-pain/page.tsx',
+    'app/conditions/compare/page.tsx',
+    'app/conditions/compare/[pair]/page.tsx',
     'components/ConditionPageClient.tsx',
+    'components/ConditionsPageClient.tsx',
+    'components/conditions/Term.tsx',
+    'components/conditions/ComparisonCrossLinks.tsx',
+    'components/conditions/RelatedConditionsList.tsx',
     'lib/conditions-data.ts',
     'lib/detailed-conditions-content.ts',
+    'lib/condition-comparisons.ts',
+    'lib/glossary.ts',
   ]),
   treatments: getLatestMTime([
     'app/treatments/[slug]/page.tsx',
+    'app/treatments/page.tsx',
     'components/treatments/TreatmentHero.tsx',
     'components/treatments/TreatmentContent.tsx',
     'components/treatments/TreatmentProcess.tsx',
     'components/treatments/TreatmentFAQ.tsx',
     'lib/treatments-data.ts',
   ]),
+  accessibility: getLatestMTime(['app/accessibility/page.tsx']),
 };
 
 const pathLastModified = (pathName) => {
@@ -54,6 +80,7 @@ const pathLastModified = (pathName) => {
   if (pathName === '/faq') return contentLastModified.faq;
   if (pathName === '/conditions' || pathName.startsWith('/conditions/')) return contentLastModified.conditions;
   if (pathName === '/treatments' || pathName.startsWith('/treatments/')) return contentLastModified.treatments;
+  if (pathName === '/accessibility') return contentLastModified.accessibility;
   return undefined;
 };
 
@@ -63,7 +90,7 @@ module.exports = {
   autoLastmod: false,
   generateRobotsTxt: true,
   generateIndexSitemap: false,
-  exclude: ['/api/*', '/admin/*', '/_next/*', '/sitemap.xml', '/robots.txt', '/privacy', '/terms'],
+  exclude: ['/api/*', '/admin/*', '/_next/*', '/sitemap.xml', '/robots.txt', '/privacy', '/terms', '/intake'],
   robotsTxtOptions: {
     policies: [
       {
@@ -89,6 +116,20 @@ module.exports = {
       '/conditions': 0.8,
       '/faq': 0.5,
       '/accessibility': 0.3,
+      // Pages matched to active Google Ads target keywords — bump crawl priority
+      '/conditions/knee-pain': 0.9,
+      '/conditions/knee-pain-patellofemoral': 0.9,
+      '/conditions/patellar-tendinopathy': 0.9,
+      '/conditions/greater-trochanteric-pain-syndrome': 0.9,
+      '/conditions/low-back-pain': 0.9,
+      '/conditions/hip-pain': 0.9,
+      '/conditions/rotator-cuff-injuries': 0.9,
+      '/conditions/shoulder-impingement': 0.9,
+      '/conditions/plantar-fasciitis': 0.9,
+      '/conditions/frozen-shoulder': 0.9,
+      '/treatments/dry-needling': 0.9,
+      '/treatments/cupping-therapy': 0.9,
+      '/treatments/sports-rehab-return-to-sport': 0.9,
     };
 
     const customChangefreq = {

@@ -75,12 +75,16 @@ export const reviews = [
   {
     name: "Lucas Picard",
     text: "Highly recommend Kareem! He helped a ton with my chronic lower back pain. The hands on treatment was really effective and he showed me some great strategies to relax the tension in my hips and hamstrings."
+  },
+  {
+    name: "Daria N",
+    text: "I started seeing Kareem after years of chronic back pain, plus newer hip pain and morning stiffness that had gotten bad enough to affect how I moved every time I got out of bed. I teach dance, and at that point I had started to think pain and stiffness were just something I had to live with. Kareem was thorough, thoughtful, and clear from the beginning. He helped me understand what was going on, and the plan he gave me felt realistic and easy enough to stay consistent with. Nothing felt generic or overwhelming, and that made a big difference. The targeted treatments he provided always left me feeling relief. Now I am back to teaching full classes without pain, my mornings feel normal again, and even long days at my desk do not affect me the way they used to. I had tried other treatments before without much progress, so I am really glad I found him. If you are looking for a physio in Burlington, I would definitely recommend Kareem!"
   }
 ];
 
 export default function GoogleReviews() {
-  // Total Google reviews (19 featured + 3 not shown)
-  const totalGoogleReviews = 22;
+  // Total Google reviews (featured in carousel + a few not shown here)
+  const totalGoogleReviews = 23;
   const featuredReviewsCount = reviews.length;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);

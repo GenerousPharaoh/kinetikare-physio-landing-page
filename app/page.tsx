@@ -87,13 +87,33 @@ export default function Home() {
           <ServicesSection />
 
           {/* Billing + pricing note */}
-          <div className="text-center py-12 px-6 max-w-2xl mx-auto">
+          <div className="text-center py-14 px-6 max-w-3xl mx-auto">
             <p className="text-xl md:text-2xl text-slate-900 font-light leading-snug mb-3">
               Direct billing to most major insurance providers.
             </p>
-            <p className="text-base text-slate-600 mb-6">
+            <p className="text-base text-slate-600 mb-10">
               No referral needed.
             </p>
+
+            {/* Insurer roster — editorial list with gold dot separators */}
+            <div className="flex flex-wrap items-center justify-center gap-y-3 mb-10">
+              {['Canada Life', 'Sun Life', 'Manulife', 'Green Shield', 'Blue Cross', 'Desjardins', 'TELUS Health'].map((name, i, arr) => (
+                <span
+                  key={name}
+                  className="inline-flex items-center whitespace-nowrap text-[11px] md:text-xs tracking-[0.25em] uppercase text-slate-500"
+                >
+                  {name}
+                  {i < arr.length - 1 && (
+                    <span
+                      className="w-[3px] h-[3px] rounded-full bg-[#B08D57]/60 mx-5"
+                      aria-hidden="true"
+                    />
+                  )}
+                </span>
+              ))}
+            </div>
+
+            {/* Pricing */}
             <div className="flex items-center justify-center gap-5 text-sm text-slate-500">
               <span><span className="text-slate-700 font-medium">$130</span> initial assessment</span>
               <span className="w-1 h-1 rounded-full bg-slate-300" aria-hidden="true" />

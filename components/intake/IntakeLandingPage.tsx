@@ -46,31 +46,33 @@ type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
 /* ─── DATA ─── */
 const visitSteps = [
   { icon: MagnifyingGlassIcon, label: 'Assess', title: 'Find the root cause', text: 'A thorough movement and injury assessment to understand exactly what is driving the problem.' },
-  { icon: HandRaisedIcon, label: 'Treat', title: 'Start treatment immediately', text: 'Hands-on care in the same visit. Joint mobilization, dry needling, or soft tissue work based on findings.' },
+  { icon: HandRaisedIcon, label: 'Treat', title: 'Start treatment immediately', text: 'Hands-on care in the same visit. Dry needling, joint mobilization, and soft tissue work based on your assessment findings.' },
   { icon: ClipboardDocumentCheckIcon, label: 'Plan', title: 'Leave with a clear plan', text: 'Specific exercises, a recovery timeline, and measurable goals to track your progress.' },
 ];
 
-const conditionsRow1 = [
+type ConditionPill = { label: string; slug: string; href?: string };
+
+const conditionsRow1: ConditionPill[] = [
   { label: 'Back Pain', slug: 'low-back-pain' },
   { label: 'Knee Injuries', slug: 'knee-pain-patellofemoral' },
-  { label: 'Shoulder Pain', slug: 'shoulder-impingement' },
+  { label: 'Shoulder Impingement', slug: 'shoulder-impingement' },
   { label: 'Hip Pain', slug: 'hip-osteoarthritis' },
   { label: 'Sciatica', slug: 'sciatica' },
-  { label: 'Sports Injuries', slug: 'sports-injuries' },
+  { label: 'Sports Physio', slug: 'sports-rehab-return-to-sport', href: '/treatments/sports-rehab-return-to-sport' },
   { label: 'Neck Pain', slug: 'neck-pain' },
   { label: 'Ankle Sprains', slug: 'ankle-sprains' },
   { label: 'Tennis Elbow', slug: 'tennis-elbow' },
-  { label: 'Post-Surgery Rehab', slug: 'post-surgical-rehabilitation' },
+  { label: 'Post-Surgery Rehab', slug: 'post-surgical-rehabilitation', href: '/treatments/post-surgical-rehabilitation' },
 ];
-const conditionsRow2 = [
+const conditionsRow2: ConditionPill[] = [
   { label: 'Plantar Fasciitis', slug: 'plantar-fasciitis' },
   { label: 'Rotator Cuff', slug: 'rotator-cuff-injuries' },
   { label: 'Achilles Pain', slug: 'achilles-tendinopathy' },
   { label: 'IT Band Pain', slug: 'it-band-syndrome' },
-  { label: 'Running Injuries', slug: 'running-injuries' },
+  { label: 'Shin Splints', slug: 'shin-splints' },
   { label: 'Frozen Shoulder', slug: 'frozen-shoulder' },
   { label: 'Arthritis', slug: 'knee-osteoarthritis' },
-  { label: 'Muscle Strains', slug: 'muscle-strains' },
+  { label: 'Hamstring Strains', slug: 'hamstring-strains' },
 ];
 
 const reviews = [
@@ -224,7 +226,7 @@ export default function IntakeLandingPage() {
                 </motion.p>
 
                 <motion.p variants={up} style={{ maxWidth: 460, color: c.textMid, fontSize: 17, lineHeight: 1.75, marginBottom: 36 }}>
-                  Looking for a physiotherapist near you in Burlington or Waterdown? Personalized one-on-one care that gets to the source of your pain so you can move freely.
+                  Searching for physiotherapy near me in Burlington or Waterdown? One-on-one care from a Registered Physiotherapist that gets to the source of your pain so you can move freely.
                 </motion.p>
 
                 {/* Mobile portrait card — visible only below lg */}
@@ -342,13 +344,11 @@ export default function IntakeLandingPage() {
               </div>
 
               {/* Review counter instead of overflow-prone dots */}
-              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 16, marginTop: 40 }}>
+              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 20, marginTop: 40 }}>
                 <button onClick={() => go((activeReview - 1 + reviews.length) % reviews.length)} aria-label="Previous review" style={{ width: 44, height: 44, border: 'none', background: 'transparent', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(255,255,255,0.5)' }}>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 19l-7-7 7-7" /></svg>
                 </button>
-                <span style={{ fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,0.5)', letterSpacing: '0.08em', fontVariantNumeric: 'tabular-nums' }}>
-                  {activeReview + 1} / {reviews.length}
-                </span>
+                <span aria-hidden="true" style={{ width: 4, height: 4, borderRadius: '50%', background: 'rgba(212,175,55,0.6)' }} />
                 <button onClick={() => go((activeReview + 1) % reviews.length)} aria-label="Next review" style={{ width: 44, height: 44, border: 'none', background: 'transparent', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(255,255,255,0.5)' }}>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 5l7 7-7 7" /></svg>
                 </button>
@@ -383,7 +383,7 @@ export default function IntakeLandingPage() {
                 return (
                   <a
                     key={`r1-${i}`}
-                    href={`/conditions/${cond.slug}`}
+                    href={cond.href ?? `/conditions/${cond.slug}`}
                     className="intake-pill"
                     aria-hidden={isDuplicate || undefined}
                     tabIndex={isDuplicate ? -1 : undefined}
@@ -405,7 +405,7 @@ export default function IntakeLandingPage() {
                 return (
                   <a
                     key={`r2-${i}`}
-                    href={`/conditions/${cond.slug}`}
+                    href={cond.href ?? `/conditions/${cond.slug}`}
                     className="intake-pill"
                     aria-hidden={isDuplicate || undefined}
                     tabIndex={isDuplicate ? -1 : undefined}

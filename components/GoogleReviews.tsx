@@ -79,12 +79,16 @@ export const reviews = [
   {
     name: "Daria N",
     text: "I started seeing Kareem after years of chronic back pain, plus newer hip pain and morning stiffness that had gotten bad enough to affect how I moved every time I got out of bed. I teach dance, and at that point I had started to think pain and stiffness were just something I had to live with. Kareem was thorough, thoughtful, and clear from the beginning. He helped me understand what was going on, and the plan he gave me felt realistic and easy enough to stay consistent with. Nothing felt generic or overwhelming, and that made a big difference. The targeted treatments he provided always left me feeling relief. Now I am back to teaching full classes without pain, my mornings feel normal again, and even long days at my desk do not affect me the way they used to. I had tried other treatments before without much progress, so I am really glad I found him. If you are looking for a physio in Burlington, I would definitely recommend Kareem!"
+  },
+  {
+    name: "Jeff Postma",
+    text: "I play basketball, and for months every jump shot came with a twinge in my shoulder that just kept getting worse the more I played. Kareem assessed it and found that it was coming from weakness in one of my rotator cuff muscles. He built me a program that started with basic strengthening and worked up to movements that challenged it more dynamically. He also did trigger point release on the tight spots that were holding me back, and he explained everything along the way so I knew what we were doing and why. He was straight with me about timelines and what to expect at each stage, so I always knew where I stood in the recovery. Within 8 weeks I was back to shooting without even thinking about my shoulder. Highly recommend!"
   }
 ];
 
 export default function GoogleReviews() {
   // Total Google reviews (featured in carousel + a few not shown here)
-  const totalGoogleReviews = 23;
+  const totalGoogleReviews = 24;
   const featuredReviewsCount = reviews.length;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);

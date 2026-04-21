@@ -93,6 +93,7 @@ const reviews = [
   { name: 'Serhiy Sidey', text: "Torn labrum, torn ligament, and a rotator cuff tear. I fight in the UFC, so coming back at 80% isn't an option. When the surgeon's office sent the wrong post-op protocol, Kareem caught it and built me the right one. Training hard again." },
   { name: 'Raahim Shaikh', text: "Years of knee pain and weakness after an ACL tear. Kareem coached me through the progressions with clear targets to work toward. My knee feels much stronger, more stable, and a lot better during workouts." },
   { name: 'Daria N', text: "After years of chronic back pain plus newer hip pain and morning stiffness, Kareem was thorough and clear from the beginning. The plan felt realistic and easy to stay consistent with. I am back to teaching full dance classes without pain, and my mornings feel normal again." },
+  { name: 'Jeff Postma', text: "Every jump shot came with a twinge in my shoulder that kept getting worse. Kareem found it was coming from a weak rotator cuff muscle and built a program that started basic and worked up to dynamic movements. He was straight with me about timelines. Within 8 weeks I was shooting without even thinking about my shoulder." },
 ];
 
 const clinicDetails: Array<{ label: string; value: string; icon: IconComponent }> = [
@@ -263,7 +264,7 @@ export default function IntakeLandingPage() {
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                     <Stars size={13} />
                     <span style={{ fontSize: 14, fontWeight: 700, color: c.text }}>5.0</span>
-                    <span style={{ fontSize: 13, color: c.textLight }}>from 23 reviews</span>
+                    <span style={{ fontSize: 13, color: c.textLight }}>from 24 reviews</span>
                   </div>
                   <span style={{ width: 1, height: 14, background: c.stone200 }} className="hidden sm:block" />
                   {['Direct Billing', 'No Referral', 'Evening Hours'].map((b) => (
@@ -326,7 +327,7 @@ export default function IntakeLandingPage() {
           <div style={{ position: 'relative', maxWidth: 780, margin: '0 auto', padding: 'clamp(7rem, 16vw, 14rem) clamp(1.5rem, 5vw, 4rem)', textAlign: 'center' }}>
             <Reveal from="scale">
               <div style={{ display: 'flex', justifyContent: 'center', gap: 4, marginBottom: 24 }}><Stars size={18} /></div>
-              <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.goldBright, marginBottom: 48 }}>5.0 from 23 Google Reviews</p>
+              <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.goldBright, marginBottom: 48 }}>5.0 from 24 Google Reviews</p>
 
               <div style={{ position: 'relative', height: 'clamp(260px, 32vw, 280px)' }}>
                 <AnimatePresence mode="wait">

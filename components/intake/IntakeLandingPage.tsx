@@ -98,7 +98,7 @@ const reviews = [
 const clinicDetails: Array<{ label: string; value: string; icon: IconComponent }> = [
   { label: 'Location', value: 'Endorphins Health & Wellness Centre\n4631 Palladium Way, Unit 6\nBurlington, ON', icon: MapPinIcon },
   { label: 'Hours', value: 'Mon / Thu: 1:30 \u2013 7:30 PM\nTue: 3:30 \u2013 7:30 PM\nWed / Fri: 2:00 \u2013 7:30 PM', icon: ClockIcon },
-  { label: 'Billing', value: 'Direct billing for Sun Life, Manulife, Green Shield, Blue Cross, Canada Life, WSIB, and more.', icon: CreditCardIcon },
+  { label: 'Billing', value: 'Direct billing for Sun Life, Manulife, Green Shield, Blue Cross, Canada Life, TELUS Health, and more.', icon: CreditCardIcon },
 ];
 
 const serviceAreas = ['Burlington', 'Waterdown', 'Flamborough', 'Carlisle', 'Oakville'];
@@ -535,7 +535,7 @@ export default function IntakeLandingPage() {
                   <div style={{ marginTop: 32 }}>
                     <p style={{ fontSize: 13, fontWeight: 600, color: c.text, marginBottom: 12 }}>Direct billing available for:</p>
                     <div className="flex flex-wrap gap-2">
-                      {['Sun Life', 'Manulife', 'Green Shield', 'Blue Cross', 'Canada Life', 'WSIB', 'Desjardins', 'TELUS Health'].map((ins) => (
+                      {['Sun Life', 'Manulife', 'Green Shield', 'Blue Cross', 'Canada Life', 'Desjardins', 'TELUS Health'].map((ins) => (
                         <span key={ins} style={{ padding: '8px 16px', fontSize: 13, fontWeight: 500, color: c.text, background: c.white, borderRadius: 999, border: `1px solid ${c.stone100}` }}>{ins}</span>
                       ))}
                       <span style={{ padding: '5px 12px', fontSize: 11, fontWeight: 500, color: c.textMid, borderRadius: 999 }}>+ more</span>

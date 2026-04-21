@@ -618,8 +618,7 @@ export default function ServicesPage() {
                       'Green Shield Canada',
                       'Blue Cross',
                       'Desjardins',
-                      'TELUS Health',
-                      'WSIB'
+                      'TELUS Health'
                     ].map((provider, index) => (
                       <div key={index} className="group/item flex items-center p-4 bg-gradient-to-r from-slate-50/50 to-white rounded-xl border border-slate-200/60 hover:shadow-lg hover:border-[#B08D57]/30 hover:translate-x-1 transition-all duration-500 cursor-default" style={{
                         animationDelay: `${index * 0.05}s`,

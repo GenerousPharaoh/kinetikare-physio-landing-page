@@ -236,7 +236,6 @@ const organizationSchema = {
     {"@type": "HealthInsurancePlan", "name": "Manulife"},
     {"@type": "HealthInsurancePlan", "name": "Green Shield Canada"},
     {"@type": "HealthInsurancePlan", "name": "Blue Cross"},
-    {"@type": "HealthInsurancePlan", "name": "WSIB"},
     {"@type": "HealthInsurancePlan", "name": "Desjardins Insurance"},
     {"@type": "HealthInsurancePlan", "name": "Empire Life"},
     {"@type": "HealthInsurancePlan", "name": "Equitable Life"},

@@ -97,20 +97,21 @@ export default function Home() {
 
             {/* Insurer roster — editorial list with gold dot separators */}
             <div className="flex flex-wrap items-center justify-center gap-y-3 mb-10">
-              {['Canada Life', 'Sun Life', 'Manulife', 'Green Shield', 'Blue Cross', 'Desjardins', 'TELUS Health'].map((name, i, arr) => (
+              {['Canada Life', 'Sun Life', 'Manulife', 'Green Shield', 'Blue Cross', 'Desjardins', 'TELUS Health'].map((name) => (
                 <span
                   key={name}
                   className="inline-flex items-center whitespace-nowrap text-[11px] md:text-xs tracking-[0.25em] uppercase text-slate-500"
                 >
                   {name}
-                  {i < arr.length - 1 && (
-                    <span
-                      className="w-[3px] h-[3px] rounded-full bg-[#B08D57]/60 mx-5"
-                      aria-hidden="true"
-                    />
-                  )}
+                  <span
+                    className="w-[3px] h-[3px] rounded-full bg-[#B08D57]/60 mx-5"
+                    aria-hidden="true"
+                  />
                 </span>
               ))}
+              <span className="inline-flex items-center whitespace-nowrap text-[11px] md:text-xs text-slate-400 italic">
+                and more
+              </span>
             </div>
 
             {/* Pricing */}

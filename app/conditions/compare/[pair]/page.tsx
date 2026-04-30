@@ -695,21 +695,21 @@ export default function ConditionComparisonPage({
         )}
 
         {/* Access and hours */}
-        <section className="py-12 bg-slate-900 text-white">
+        <section className="py-12 bg-slate-50/60">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2.5 bg-[#B08D57] rounded-xl">
                   <MapPinIcon className="h-5 w-5 text-white" />
                 </div>
-                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-white">
+                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
                   Book an assessment
                 </h2>
               </div>
 
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <p className="text-slate-300 leading-relaxed">
+                  <p className="text-slate-600 leading-relaxed">
                     If this page has helped you narrow things down, or if it has left
                     you wanting a proper exam, I see patients at Endorphins Health &
                     Wellness Centre in Burlington. Direct insurance billing is
@@ -719,10 +719,10 @@ export default function ConditionComparisonPage({
                     <div className="flex items-start gap-3">
                       <MapPinIcon className="h-5 w-5 text-[#B08D57] flex-shrink-0 mt-0.5" />
                       <div>
-                        <p className="font-medium text-white">
+                        <p className="font-medium text-slate-900">
                           4631 Palladium Way, Unit 6
                         </p>
-                        <p className="text-slate-400">Burlington, ON L7M 0W9</p>
+                        <p className="text-slate-600">Burlington, ON L7M 0W9</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
@@ -730,11 +730,11 @@ export default function ConditionComparisonPage({
                       <div>
                         <a
                           href="tel:+19056346000"
-                          className="font-medium text-white hover:text-[#B08D57] transition-colors"
+                          className="font-medium text-slate-900 hover:text-[#B08D57] transition-colors"
                         >
                           (905) 634-6000
                         </a>
-                        <p className="text-slate-400 text-xs">
+                        <p className="text-slate-500 text-xs">
                           Direct billing. No referral needed.
                         </p>
                       </div>
@@ -743,30 +743,30 @@ export default function ConditionComparisonPage({
                 </div>
 
                 <div>
-                  <div className="flex items-center gap-2 mb-3 text-sm text-[#B08D57] font-semibold uppercase tracking-wider">
+                  <div className="flex items-center gap-2 mb-3 text-sm text-[#8A6F0A] font-semibold uppercase tracking-wider">
                     <ClockIcon className="h-4 w-4" />
                     Burlington hours
                   </div>
                   <ul className="space-y-2 text-sm">
-                    <li className="flex items-center justify-between border-b border-slate-800 pb-2">
-                      <span className="text-slate-300">Monday</span>
-                      <span className="text-white">1:30 PM - 7:30 PM</span>
+                    <li className="flex items-center justify-between border-b border-slate-200 pb-2">
+                      <span className="text-slate-600">Monday</span>
+                      <span className="text-slate-900 font-medium">1:30 PM - 7:30 PM</span>
                     </li>
-                    <li className="flex items-center justify-between border-b border-slate-800 pb-2">
-                      <span className="text-slate-300">Tuesday</span>
-                      <span className="text-white">3:30 PM - 7:30 PM</span>
+                    <li className="flex items-center justify-between border-b border-slate-200 pb-2">
+                      <span className="text-slate-600">Tuesday</span>
+                      <span className="text-slate-900 font-medium">3:30 PM - 7:30 PM</span>
                     </li>
-                    <li className="flex items-center justify-between border-b border-slate-800 pb-2">
-                      <span className="text-slate-300">Wednesday</span>
-                      <span className="text-white">2:00 PM - 7:30 PM</span>
+                    <li className="flex items-center justify-between border-b border-slate-200 pb-2">
+                      <span className="text-slate-600">Wednesday</span>
+                      <span className="text-slate-900 font-medium">2:00 PM - 7:30 PM</span>
                     </li>
-                    <li className="flex items-center justify-between border-b border-slate-800 pb-2">
-                      <span className="text-slate-300">Thursday</span>
-                      <span className="text-white">1:30 PM - 7:30 PM</span>
+                    <li className="flex items-center justify-between border-b border-slate-200 pb-2">
+                      <span className="text-slate-600">Thursday</span>
+                      <span className="text-slate-900 font-medium">1:30 PM - 7:30 PM</span>
                     </li>
                     <li className="flex items-center justify-between">
-                      <span className="text-slate-300">Friday</span>
-                      <span className="text-white">2:00 PM - 7:30 PM</span>
+                      <span className="text-slate-600">Friday</span>
+                      <span className="text-slate-900 font-medium">2:00 PM - 7:30 PM</span>
                     </li>
                   </ul>
 

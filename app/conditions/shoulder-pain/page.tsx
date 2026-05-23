@@ -415,7 +415,7 @@ export default function ShoulderPainHubPage() {
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '5.0',
-      reviewCount: '22',
+      reviewCount: '25',
     },
   };
 

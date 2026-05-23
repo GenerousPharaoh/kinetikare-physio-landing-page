@@ -83,12 +83,16 @@ export const reviews = [
   {
     name: "Jeff Postma",
     text: "I play basketball, and for months every jump shot came with a twinge in my shoulder that just kept getting worse the more I played. Kareem assessed it and found that it was coming from weakness in one of my rotator cuff muscles. He built me a program that started with basic strengthening and worked up to movements that challenged it more dynamically. He also did trigger point release on the tight spots that were holding me back, and he explained everything along the way so I knew what we were doing and why. He was straight with me about timelines and what to expect at each stage, so I always knew where I stood in the recovery. Within 8 weeks I was back to shooting without even thinking about my shoulder. Highly recommend!"
+  },
+  {
+    name: "Tamara M",
+    text: "Kareem was very knowledgeable and warm, immediately creating a safe and welcoming environment for me as a client. As someone with a few different challenges within my body I felt as though he was incredibly thorough and by the time I left my initial appointment I already felt better. I look forward to doing the targeted exercises he prepared for me. I highly recommend Kareem if you are looking for a kind and competent physiotherapist."
   }
 ];
 
 export default function GoogleReviews() {
   // Total Google reviews (featured in carousel + a few not shown here)
-  const totalGoogleReviews = 24;
+  const totalGoogleReviews = 25;
   const featuredReviewsCount = reviews.length;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);

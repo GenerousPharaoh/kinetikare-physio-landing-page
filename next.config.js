@@ -38,11 +38,10 @@ const nextConfig = {
       {
         source: '/(.*)',
         headers: [
-          // CSP temporarily removed to isolate iframe issue
-          // {
-          //   key: 'Content-Security-Policy',
-          //   value: "default-src 'self'; img-src 'self' data: https: http:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https: http:; style-src 'self' 'unsafe-inline' https:; font-src 'self' https:; connect-src 'self' https:; frame-src 'self' https://maps.google.com https://www.google.com https://*.google.com http://maps.google.com http://www.google.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';",
-          // },
+          {
+            key: 'Content-Security-Policy',
+            value: "default-src 'self'; img-src 'self' data: blob: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' data: https:; connect-src 'self' https:; frame-src 'self' https://www.google.com https://maps.google.com https://*.google.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://endorphinshealth.janeapp.com;",
+          },
           {
             key: 'Strict-Transport-Security',
             value: 'max-age=63072000; includeSubDomains; preload',
@@ -51,11 +50,11 @@ const nextConfig = {
             key: 'X-Content-Type-Options',
             value: 'nosniff',
           },
-          // X-Frame-Options removed - was blocking Google Maps iframe
-          // {
-          //   key: 'X-Frame-Options',
-          //   value: 'DENY',
-          // },
+          {
+            // SAMEORIGIN (not DENY) so internal previews still work; CSP frame-ancestors handles outbound clickjacking protection.
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN',
+          },
           {
             key: 'X-XSS-Protection',
             value: '1; mode=block',
@@ -63,6 +62,10 @@ const nextConfig = {
           {
             key: 'Referrer-Policy',
             value: 'origin-when-cross-origin',
+          },
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
           },
         ],
       },

@@ -117,6 +117,17 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
     }
   }, [isOpen]);
 
+  // Lock body scroll while the modal is open so the page behind doesn't
+  // scroll under it on touch devices.
+  useEffect(() => {
+    if (!isOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [isOpen]);
+
   // Intelligent search with contextual understanding
   const searchResults = useMemo(() => {
     if (!searchTerm || searchTerm.length < 2) return [];

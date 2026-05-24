@@ -48,8 +48,8 @@ const CookieBanner = () => {
       aria-label="Cookie consent"
       className="fixed z-[70] bottom-3 left-3 right-3 sm:left-1/2 sm:right-auto sm:-translate-x-1/2 sm:w-[min(34rem,calc(100%-2rem))] bg-slate-900/95 backdrop-blur-md rounded-2xl border border-[#B08D57]/30 shadow-2xl"
     >
-      <div className="flex flex-col gap-2.5 px-3.5 py-3 sm:flex-row sm:items-center sm:gap-3 sm:px-4 sm:py-3">
-        <p className="text-[12px] leading-snug text-slate-200 sm:flex-1 sm:text-[13px]">
+      <div className="flex items-center gap-2.5 px-3 py-2 sm:gap-3 sm:px-4 sm:py-2.5">
+        <p className="flex-1 text-[11px] leading-tight text-slate-200 sm:text-[13px]">
           This site uses essential and analytics cookies to improve website performance.
           <a
             href="/privacy"
@@ -58,16 +58,16 @@ const CookieBanner = () => {
             Privacy Policy
           </a>
         </p>
-        <div className="flex gap-2 sm:shrink-0">
+        <div className="flex shrink-0 gap-1.5 sm:gap-2">
           <button
             onClick={() => handleConsent('declined')}
-            className="flex-1 sm:flex-initial rounded-lg border border-slate-500/60 px-3 py-1.5 text-[12px] font-medium text-slate-200 transition hover:border-slate-300 hover:text-white"
+            className="rounded-md border border-slate-500/60 px-2.5 py-1 text-[11px] font-medium text-slate-200 transition hover:border-slate-300 hover:text-white sm:px-3 sm:py-1.5 sm:text-[12px]"
           >
             Decline
           </button>
           <button
             onClick={() => handleConsent('accepted')}
-            className="flex-1 sm:flex-initial rounded-lg bg-[#B08D57] px-3 py-1.5 text-[12px] font-medium text-white transition hover:bg-[#9a7747]"
+            className="rounded-md bg-[#B08D57] px-2.5 py-1 text-[11px] font-medium text-white transition hover:bg-[#9a7747] sm:px-3 sm:py-1.5 sm:text-[12px]"
           >
             Accept
           </button>

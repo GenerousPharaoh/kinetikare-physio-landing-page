@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Link from 'next/link';
-// import { Phone, Calendar } from 'lucide-react';
 import { PhoneIcon, CalendarDaysIcon } from '@heroicons/react/24/outline';
 
 interface BookingSectionProps {

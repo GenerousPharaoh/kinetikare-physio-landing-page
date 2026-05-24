@@ -9,6 +9,16 @@ const nextConfig = {
     NEXT_DEPLOYMENT_ID: Date.now().toString(),
   },
   
+  // Optimize barrel-file imports for these libs so unused exports
+  // don't ship to the client (helps INP + JS payload on mobile).
+  experimental: {
+    optimizePackageImports: [
+      'framer-motion',
+      '@phosphor-icons/react',
+      '@heroicons/react',
+    ],
+  },
+
   // Enhanced image configuration for better SEO and performance
   images: {
     remotePatterns: [

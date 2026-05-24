@@ -29,7 +29,9 @@ export const viewport = {
   width: 'device-width',
   initialScale: 1.0,
   maximumScale: 5.0,
-  viewportFit: 'cover'
+  viewportFit: 'cover',
+  themeColor: '#B08D57',
+  colorScheme: 'light' as const,
 };
 
 export const metadata = {
@@ -65,7 +67,6 @@ export const metadata = {
   other: {
     'google': 'notranslate',
     'copyright': 'Kareem Hassanein Physiotherapy',
-    'theme-color': '#B08D57',
     'msapplication-TileColor': '#B08D57',
     'apple-mobile-web-app-title': 'Kareem Physio',
     'geo.region': 'CA-ON',
@@ -414,6 +415,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+      <head>
+        {/* Speed up first analytics + tag manager call. */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.google-analytics.com" crossOrigin="anonymous" />
+      </head>
       <body className={inter.className}>
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[#D4AF37] focus:text-white focus:rounded focus:text-sm focus:font-medium">
           Skip to main content

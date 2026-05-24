@@ -17,6 +17,20 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Respect prefers-reduced-motion at the CSS layer too. Belt-and-suspenders
+   alongside the framer-motion useReducedMotion checks in JS — covers any
+   CSS-driven animation/transition we might have missed. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* Premium Navigation Bar Animations */
 @keyframes shimmer {
   0% {

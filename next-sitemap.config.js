@@ -98,6 +98,14 @@ module.exports = {
         allow: '/',
         disallow: ['/api/', '/admin/', '/_next/', '/temp/', '/ai-conversations/', '/tests/'],
       },
+      // Explicitly allow AI crawlers so the site is eligible for LLM citations
+      // (ChatGPT, Claude, Perplexity, Google AI Overviews, Common Crawl).
+      { userAgent: 'GPTBot', allow: '/' },
+      { userAgent: 'ClaudeBot', allow: '/' },
+      { userAgent: 'anthropic-ai', allow: '/' },
+      { userAgent: 'PerplexityBot', allow: '/' },
+      { userAgent: 'Google-Extended', allow: '/' },
+      { userAgent: 'CCBot', allow: '/' },
     ],
     additionalSitemaps: [
       'https://www.kinetikarephysio.com/sitemap.xml',

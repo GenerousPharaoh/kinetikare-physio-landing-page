@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { FiArrowLeft } from 'react-icons/fi';
+import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 
 interface LegalPageLayoutProps {
   title: string;
@@ -30,7 +30,7 @@ export default function LegalPageLayout({ title, effectiveDate, children }: Lega
               href="/"
               className="inline-flex items-center text-white/90 hover:text-white transition-colors duration-200 mb-8 group"
             >
-              <FiArrowLeft className="mr-2 group-hover:-translate-x-1 transition-transform duration-200" />
+              <ArrowLeftIcon className="mr-2 w-5 h-5 group-hover:-translate-x-1 transition-transform duration-200" />
               Back to Home
             </Link>
             

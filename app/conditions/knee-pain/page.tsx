@@ -30,7 +30,7 @@ import ConsentNote from '@/components/conditions/ConsentNote';
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/knee-pain';
 const PAGE_TITLE = 'Knee Pain Treatment in Burlington | Kareem Hassanein Physiotherapy';
 const PAGE_DESCRIPTION =
-  'Knee pain treatment in Burlington with Kareem Hassanein, Registered Physiotherapist. Front, medial, lateral, and posterior knee pain assessed and treated. Direct billing.';
+  'Knee pain treatment in Burlington. Front, medial, lateral, and posterior knee pain assessed and treated by a Registered Physiotherapist.';
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,

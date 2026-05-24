@@ -2,13 +2,14 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { useScrollAnimation, useStaggeredAnimation } from '@/hooks/useScrollAnimation';
 import { useInView } from 'react-intersection-observer';
 
 export default function CareJourneySection() {
   const { ref: sectionRef, animationProps } = useScrollAnimation({ yOffset: 30 });
   const { ref: stepsRef, containerVariants, itemVariants, isInView } = useStaggeredAnimation({ delay: 0.1 });
+  const prefersReducedMotion = useReducedMotion();
 
   // Auto-scroll on mobile when section comes into view. Pauses when the
   // section scrolls out of view (triggerOnce: false) so the interval stops
@@ -22,7 +23,7 @@ export default function CareJourneySection() {
   }, []);
 
   useEffect(() => {
-    if (!sectionVisible || !isMobile || !scrollElRef.current) return;
+    if (prefersReducedMotion || !sectionVisible || !isMobile || !scrollElRef.current) return;
     const container = scrollElRef.current;
     const cardWidth = container.firstElementChild?.clientWidth || 0;
     const gap = 16;
@@ -45,7 +46,7 @@ export default function CareJourneySection() {
       clearInterval(interval);
       container.removeEventListener('touchstart', onUserScroll);
     };
-  }, [sectionVisible, isMobile]);
+  }, [sectionVisible, isMobile, prefersReducedMotion]);
 
   const steps = [
     {

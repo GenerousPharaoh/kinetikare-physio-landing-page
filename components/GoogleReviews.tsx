@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { motion, AnimatePresence, useInView, useReducedMotion } from 'framer-motion';
 
 export const reviews = [
   {
@@ -94,6 +94,7 @@ export default function GoogleReviews() {
   // Total Google reviews (featured in carousel + a few not shown here)
   const totalGoogleReviews = 25;
   const featuredReviewsCount = reviews.length;
+  const prefersReducedMotion = useReducedMotion();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
@@ -148,14 +149,14 @@ export default function GoogleReviews() {
   };
 
   useEffect(() => {
-    if (!isAutoPlaying || !isSectionInView || isPaused) return;
+    if (prefersReducedMotion || !isAutoPlaying || !isSectionInView || isPaused) return;
 
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % reviews.length);
     }, 7000); // Change review every 7 seconds
 
     return () => clearInterval(interval);
-  }, [isAutoPlaying, isSectionInView, isPaused]);
+  }, [isAutoPlaying, isSectionInView, isPaused, prefersReducedMotion]);
 
   // Reset progress bar animation when slide changes
   useEffect(() => {

@@ -10,8 +10,8 @@ import SectionDivider from '@/components/SectionDivider';
 
 // SEO Metadata for Homepage
 export const metadata: Metadata = {
-  title: 'Physiotherapy in Burlington | Sports Rehab, Knee Pain, Dry Needling & Cupping',
-  description: 'One-on-one physiotherapy in Burlington for sports injuries, knee and hip pain, sciatica, dry needling, cupping, and rehabilitation with Kareem Hassanein. Direct billing and evening appointments.',
+  title: 'Burlington Physiotherapy | Sports Rehab, Dry Needling, Cupping',
+  description: 'One-on-one physiotherapy in Burlington for sports injuries, knee and hip pain, dry needling, and cupping. Direct billing and evening appointments.',
   openGraph: {
     title: 'Burlington Physiotherapy | Sports Rehab, Dry Needling & Cupping',
     description: 'Registered Physiotherapist in Burlington offering sports rehabilitation, knee and hip pain treatment, dry needling, cupping, and exercise-based rehab.',

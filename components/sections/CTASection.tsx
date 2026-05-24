@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { FaCalendarAlt, FaPhoneAlt } from 'react-icons/fa';
+import { CalendarIcon, PhoneIcon } from '@heroicons/react/24/outline';
 
 export function CTASection() {
   return (
@@ -22,13 +22,13 @@ export function CTASection() {
               rel="noopener noreferrer"
               className="bg-[#B08D57] hover:bg-[#A17D47] text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center"
             >
-              <FaCalendarAlt className="mr-2" /> Book Today
+              <CalendarIcon className="mr-2 w-5 h-5" /> Book Today
             </a>
             <Link 
               href="tel:+19056346000"
               className="bg-white text-primary-800 hover:bg-gray-100 font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center border border-primary-800/10"
             >
-              <FaPhoneAlt className="mr-2" /> Call 905-634-6000
+              <PhoneIcon className="mr-2 w-5 h-5" /> Call 905-634-6000
             </Link>
           </div>
         </div>

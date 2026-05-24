@@ -424,6 +424,7 @@ export default function ConditionPageClient({
                 <Link
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 px-5 py-3 rounded-lg bg-[#B08D57] text-white text-sm font-medium hover:bg-[#997A4B] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/50 focus-visible:ring-offset-2"
                 >
                   <CalendarIcon className="h-4 w-4" />
@@ -1747,6 +1748,7 @@ export default function ConditionPageClient({
                 <Link
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center px-6 py-3 bg-[#B08D57] hover:bg-[#997A4B] text-white hover:text-white rounded-lg font-medium transition-colors duration-200 shadow-premium-1 hover:shadow-premium-2 group"
                 >
                   Book Assessment

@@ -701,7 +701,9 @@ function BookCta({ onRestart }: { onRestart: () => void }) {
   return (
     <div className="mt-4 flex flex-col sm:flex-row gap-3">
       <Link
-        href="/book"
+        href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+        target="_blank"
+        rel="noopener noreferrer"
         className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#B08D57] px-5 py-3 text-sm font-medium text-white shadow-sm hover:bg-[#8c6d3d] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#B08D57]"
       >
         Book an assessment

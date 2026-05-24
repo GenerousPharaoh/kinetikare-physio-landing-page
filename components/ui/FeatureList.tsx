@@ -1,6 +1,6 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { CheckCircle2Icon } from 'lucide-react';
+import { CheckCircleIcon } from '@heroicons/react/24/solid';
 
 interface FeatureItem {
   text: string;
@@ -29,7 +29,7 @@ const FeatureList: React.FC<FeatureListProps> = ({
       {items.map((item, index) => (
         <li key={index} className={cn('feature-list-item', itemClassName)}>
           <div className={cn('feature-list-icon', iconClassName)}>
-            {item.icon || <CheckCircle2Icon className="w-4 h-4 md:w-5 md:h-5 text-accent" />}
+            {item.icon || <CheckCircleIcon className="w-4 h-4 md:w-5 md:h-5 text-accent" />}
           </div>
           <span className={cn('feature-list-text', textClassName)}>
             {item.text}

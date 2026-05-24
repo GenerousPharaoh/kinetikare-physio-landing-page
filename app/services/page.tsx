@@ -7,8 +7,8 @@ import ServicesHero from '@/components/services/ServicesHero';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Physiotherapy Services in Burlington | Sports Rehab, Dry Needling & Cupping',
-  description: 'Physiotherapy services in Burlington for sports injuries, knee and hip pain, dry needling, cupping, exercise rehab, and post-surgical recovery. Direct billing available.',
+  title: 'Burlington Physiotherapy Services | Sports Rehab, Dry Needling',
+  description: 'Burlington physiotherapy for sports injuries, knee and hip pain, dry needling, cupping, exercise rehab, and post-surgical recovery. Direct billing.',
   metadataBase: new URL('https://www.kinetikarephysio.com'),
   openGraph: {
     title: 'Burlington Physiotherapy Services | Sports Rehab, Dry Needling & Cupping',
@@ -759,7 +759,9 @@ export default function ServicesPage() {
                 
                 {/* CTA Button */}
                 <Link
-                  href="/intake"
+                  href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center px-10 py-4 bg-gradient-to-r from-[#1A2036] to-slate-800 text-white rounded-xl font-medium text-lg transition-all duration-300 shadow-md hover:shadow-xl hover:from-[#B08D57] hover:to-[#D4AF37] hover:text-slate-900 transform hover:-translate-y-0.5"
                 >
                   Book Your Assessment

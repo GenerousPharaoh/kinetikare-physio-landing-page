@@ -202,6 +202,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   <Link
                     href={item.href}
                     prefetch={false}
+                    aria-current={isCurrentPath(item.href) ? 'page' : undefined}
                     className={`relative px-4 py-2 rounded-full text-sm font-medium tracking-wide transition-all duration-300 ${
                       isCurrentPath(item.href)
                         ? '!text-[#D4AF37] bg-white/10 shadow-[0_0_10px_rgba(212,175,55,0.1)]'
@@ -419,6 +420,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                           href={item.href}
                           prefetch={false}
                           onClick={handleNavClick}
+                          aria-current={isCurrentPath(item.href) ? 'page' : undefined}
                           className={`block px-4 py-3 rounded-xl font-medium tracking-wide transition-all ${
                             isCurrentPath(item.href)
                               ? 'bg-[#D4AF37]/10 !text-[#D4AF37]'

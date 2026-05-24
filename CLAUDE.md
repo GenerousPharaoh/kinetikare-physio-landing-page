@@ -15,8 +15,44 @@
 - Production server: `npm run start -- -p 5010`
 
 Notes:
-- `npm run build` also runs `next-sitemap` and regenerates `public/sitemap.xml`.
+- `npm run build` also runs `next-sitemap` and regenerates `public/sitemap.xml` **and** `public/robots.txt`. Do not hand-edit `robots.txt` — your changes will be wiped on the next build. Edit `next-sitemap.config.js` and let postbuild regenerate.
 - Local profiling artifacts are written under `output/` and are ignored by git.
+
+## Booking Flow Architecture
+
+**All in-site "Book" CTAs go directly to Jane**, not through `/intake`:
+
+```
+https://endorphinshealth.janeapp.com/locations/endorphins-health-and-wellness-centre/book#/staff_member/42
+```
+
+Constants live in `lib/booking.ts`:
+- `JANE_BOOKING_URL` — use this for every internal booking CTA
+- `BOOKING_PAGE_PATH = '/intake'` — **do not route booking CTAs through this**. It exists so `BookingTracker.tsx` and `CookieBanner.tsx` can detect "user is on the ads landing page."
+
+The `/intake` page is reserved for **Google Ads traffic only**:
+- It is the destination URL set on Google Ads campaigns
+- `BookingTracker.tsx` is hard-scoped to `AD_LANDING_PATH = '/intake'` so the conversion event only fires when a click happens on that page
+- It is excluded from `sitemap.xml` (see `next-sitemap.config.js`)
+- It has no internal links pointing to it (verified May 24, 2026)
+- The page itself is technically indexable; if you want it stripped from organic SERPs, add `robots: { index: false, follow: true }` to `app/intake/page.tsx`
+
+When adding a new booking CTA anywhere, use `JANE_BOOKING_URL` + `target="_blank"` + `rel="noopener noreferrer"`. Never use `/intake` or `/book` as a booking destination.
+
+## Schema reviewCount is multi-sourced
+
+The Google review count appears in 9 places that must stay in sync when the count changes:
+- `app/layout.tsx` (Organization schema)
+- `app/conditions/[slug]/page.tsx` (dynamic condition pages)
+- `app/conditions/{hip-pain,knee-pain,shoulder-pain,elbow-pain}/page.tsx`
+- `app/conditions/pain-guides/page.tsx`
+- `app/conditions/pain-guides/{pain-below-kneecap,fluid-on-the-knee}/page.tsx`
+
+Plus two UI surfaces:
+- `components/GoogleReviews.tsx` (`totalGoogleReviews` constant)
+- `components/sections/HeroSectionModern.tsx` (the hero badge)
+
+The displayed count reflects the **actual Google total**. The carousel itself shows a curated subset, not all reviews — this mismatch is intentional, not a bug.
 
 ## Current Business / SEO Direction
 
@@ -63,6 +99,19 @@ As of March 26, 2026, the site SEO work is intentionally focused on the niches t
 - `privacy` and `terms` are `noindex,follow`
 - Sitemap `lastmod` now reflects content freshness logic rather than deploy time
 - Ignored `keywords` meta clutter was removed from main pages
+
+### Comprehensive audit pass completed on May 24, 2026
+
+- Routed every in-site booking CTA directly to Jane (Header, services page, conditions index, Care Journey, PatternMatcher) — `/intake` is now ads-only (see Booking Flow Architecture above)
+- Restored Content-Security-Policy in `next.config.js` with `frame-src` allowlist for Google Maps + `form-action` for Jane; X-Frame-Options set to SAMEORIGIN; Permissions-Policy added
+- `experimental.optimizePackageImports` enabled in `next.config.js` for `framer-motion`, `@phosphor-icons/react`, `@heroicons/react`
+- Dropped `lucide-react` and `react-icons` (migrated 3 import sites to `@heroicons/react`)
+- AI crawler allowlist (GPTBot, ClaudeBot, anthropic-ai, PerplexityBot, Google-Extended, CCBot) added to `next-sitemap.config.js` so the robots.txt regeneration includes them
+- Accessibility: `aria-current="page"` on Header nav; `useReducedMotion()` gating CareJourney auto-scroll and GoogleReviews carousel; global `prefers-reduced-motion` CSS in `globals.css`; SearchModal body-scroll lock
+- Theme + color-scheme moved to Next 14 viewport export
+- Resource hints (preconnect to googletagmanager.com + google-analytics.com) added in `app/layout.tsx` `<head>`
+- Meta title/description tightening on homepage, services, knee-pain (all now within SERP truncation thresholds)
+- `npm audit fix` ran transitive bumps (14 → 6 vulnerabilities; remaining 6 require Next 14→16)
 
 ### Focused SEO strengthening pass completed on March 26, 2026
 
@@ -113,14 +162,17 @@ As of March 26, 2026, the site SEO work is intentionally focused on the niches t
 
 ## Current Gaps / Next Likely Priorities
 
-### Highest remaining structural gap
+### Open items from the May 24, 2026 audit
 
-- The site does not yet have a true broad `hip pain` landing page for Burlington
-- There is a strong targeted page for lateral hip pain / gluteal tendinopathy, but not a broader hip-pain hub
+- **Next.js 14 → 16 upgrade** — 6 high-severity advisories remain after the partial `npm audit fix`. All require the 14→16 jump (App Router behavior shifts; deserves its own session with proper migration + staging deploy).
+- **Hero JPG (`/public/images/clinic-pic-may-2025.jpg`, 1.8 MB)** — the `.webp` twin already exists at 775 KB and `next/image` auto-converts, so the raw JPG in `/public/` is just the source asset, not what ships. Could be deleted but no perf impact either way.
+- **Gold text contrast** — `text-[#B08D57]` on white computes to ~4.2:1 (below the 4.5:1 AA threshold for normal text). Used in a handful of FAQ accordion headings. Visual-design judgment call before tweaking the brand color.
+- **FAQ schema breadth** — only ~5 of 60+ condition pages carry FAQ JSON-LD. Highest-yield LLM-citation format per current research; expansion is a content-writing task.
+- **Carousel swipe gestures on mobile** — `GoogleReviews` and `CommitmentCarousel` are arrow/dot-only; mobile users on `CommitmentCarousel` have only dots since arrows are `hidden sm:flex`.
 
 ### Monitoring priorities
 
-After March 26, 2026 changes, monitor Search Console for:
+Monitor Search Console for:
 
 - `physiotherapy burlington`
 - `knee pain treatment burlington`
@@ -128,11 +180,6 @@ After March 26, 2026 changes, monitor Search Console for:
 - `hip pain treatment burlington`
 - `cupping therapy burlington`
 - `dry needling physiotherapy burlington`
-
-Suggested review checkpoints:
-
-- April 23, 2026
-- May 7, 2026
 
 ## Design / UX Preference
 

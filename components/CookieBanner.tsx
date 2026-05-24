@@ -44,50 +44,30 @@ const CookieBanner = () => {
 
   return (
     <div
-      className={`fixed z-[70] bg-slate-900/95 backdrop-blur-md ${
-        isIntakePage
-          ? 'bottom-3 left-3 right-3 rounded-2xl border border-[#B08D57]/30 shadow-2xl md:left-1/2 md:right-auto md:w-[min(46rem,calc(100%-2rem))] md:-translate-x-1/2'
-          : 'bottom-0 left-0 right-0 border-t border-[#B08D57]/30'
-      }`}
+      role="region"
+      aria-label="Cookie consent"
+      className="fixed z-[70] bottom-3 left-3 right-3 sm:left-1/2 sm:right-auto sm:-translate-x-1/2 sm:w-[min(34rem,calc(100%-2rem))] bg-slate-900/95 backdrop-blur-md rounded-2xl border border-[#B08D57]/30 shadow-2xl"
     >
-      <div
-        className={`container mx-auto flex flex-col gap-4 px-4 py-4 ${
-          isIntakePage ? 'sm:gap-3 sm:px-5 sm:py-3.5 md:px-5' : ''
-        } md:flex-row md:items-center md:justify-between`}
-      >
-        <div
-          className={`text-slate-100 ${
-            isIntakePage
-              ? 'text-[12px] leading-5 sm:text-[13px] sm:leading-5 md:text-sm'
-              : 'text-sm'
-          }`}
-        >
+      <div className="flex flex-col gap-2.5 px-3.5 py-3 sm:flex-row sm:items-center sm:gap-3 sm:px-4 sm:py-3">
+        <p className="text-[12px] leading-snug text-slate-200 sm:flex-1 sm:text-[13px]">
           This site uses essential and analytics cookies to improve website performance.
           <a
             href="/privacy"
-            className={`text-[#D4AF37] underline underline-offset-2 ${isIntakePage ? 'ml-1.5' : 'ml-2'}`}
+            className="ml-1 text-[#D4AF37] underline underline-offset-2 hover:text-[#E0C158]"
           >
             Privacy Policy
           </a>
-        </div>
-        <div
-          className={`${
-            isIntakePage ? 'grid grid-cols-2 gap-2 sm:flex sm:justify-end' : 'flex gap-2'
-          } md:justify-end`}
-        >
+        </p>
+        <div className="flex gap-2 sm:shrink-0">
           <button
             onClick={() => handleConsent('declined')}
-            className={`rounded-lg border border-slate-500/60 px-4 py-2 text-sm font-medium text-slate-200 transition hover:border-slate-300 hover:text-white ${
-              isIntakePage ? 'w-full' : ''
-            }`}
+            className="flex-1 sm:flex-initial rounded-lg border border-slate-500/60 px-3 py-1.5 text-[12px] font-medium text-slate-200 transition hover:border-slate-300 hover:text-white"
           >
             Decline
           </button>
           <button
             onClick={() => handleConsent('accepted')}
-            className={`rounded-lg bg-[#B08D57] px-4 py-2 text-sm font-medium text-white transition hover:bg-[#9a7747] ${
-              isIntakePage ? 'w-full' : ''
-            }`}
+            className="flex-1 sm:flex-initial rounded-lg bg-[#B08D57] px-3 py-1.5 text-[12px] font-medium text-white transition hover:bg-[#9a7747]"
           >
             Accept
           </button>

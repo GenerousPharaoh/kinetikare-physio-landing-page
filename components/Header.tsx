@@ -35,7 +35,10 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
   const pathname = usePathname();
   const [hasAnimated, setHasAnimated] = useState(false);
   const isIntakePage = pathname === BOOKING_PAGE_PATH;
-  const bookingHref = isIntakePage ? JANE_BOOKING_URL : BOOKING_PAGE_PATH;
+  // Always route the header Book button straight to Jane. The /intake page
+  // is reserved for paid traffic landing on it via Google Ads — organic
+  // visitors should not be funneled through it.
+  const bookingHref = JANE_BOOKING_URL;
 
   // Optimized scroll handler
   useEffect(() => {
@@ -298,6 +301,8 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               <motion.div variants={headerItemVariants}>
                 <Link
                   href={bookingHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   prefetch={false}
                   className="hidden sm:flex group relative px-6 py-2.5 bg-[#D4AF37] overflow-hidden rounded-full transition-all duration-300 hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:scale-105"
                 >
@@ -445,6 +450,8 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   </Link>
                   <Link
                     href={bookingHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     prefetch={false}
                     onClick={() => setMobileMenuOpen(false)}
                     className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#D4AF37] text-slate-900 font-bold text-sm tracking-wide hover:bg-[#C9A227] transition-all shadow-lg"

@@ -197,7 +197,9 @@ function ConditionsPageWithParams({
               <div className="text-center mb-4">
                 <p className="text-sm text-slate-500 mb-3">Not sure which condition applies to you?</p>
                 <Link
-                  href="/intake"
+                  href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-[#D4AF37] text-white text-sm font-semibold rounded hover:bg-[#B08D57] transition-colors"
                 >
                   Book an assessment

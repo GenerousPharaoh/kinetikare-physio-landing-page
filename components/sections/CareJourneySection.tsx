@@ -52,8 +52,9 @@ export default function CareJourneySection() {
       number: "01",
       title: "Initial Assessment",
       description: "Comprehensive evaluation of your condition, medical history, and movement patterns to understand your unique needs.",
-      link: "/intake",
-      linkText: "Book an assessment"
+      link: "https://endorphinshealth.janeapp.com/#/staff_member/42",
+      linkText: "Book an assessment",
+      external: true
     },
     {
       number: "02", 
@@ -144,6 +145,7 @@ export default function CareJourneySection() {
                     {/* Interactive link */}
                     <Link
                       href={step.link}
+                      {...(step.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                       className="mt-4 md:mt-6 flex items-center text-sm text-[#B08D57] transition-colors duration-300 hover:text-[#D4AF37]"
                     >
                       <span className="font-medium">{step.linkText}</span>

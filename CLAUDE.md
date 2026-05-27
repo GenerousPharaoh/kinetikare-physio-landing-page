@@ -28,14 +28,15 @@ https://endorphinshealth.janeapp.com/locations/endorphins-health-and-wellness-ce
 
 Constants live in `lib/booking.ts`:
 - `JANE_BOOKING_URL` — use this for every internal booking CTA
-- `BOOKING_PAGE_PATH = '/intake'` — **do not route booking CTAs through this**. It exists so `BookingTracker.tsx` and `CookieBanner.tsx` can detect "user is on the ads landing page."
+- `BOOKING_PAGE_PATH = '/intake'` — **do not route booking CTAs through this**. It exists so `CookieBanner.tsx` can detect "user is on the ads landing page."
 
 The `/intake` page is reserved for **Google Ads traffic only**:
 - It is the destination URL set on Google Ads campaigns
-- `BookingTracker.tsx` is hard-scoped to `AD_LANDING_PATH = '/intake'` so the conversion event only fires when a click happens on that page
 - It is excluded from `sitemap.xml` (see `next-sitemap.config.js`)
 - It has no internal links pointing to it (verified May 24, 2026)
 - The page itself is technically indexable; if you want it stripped from organic SERPs, add `robots: { index: false, follow: true }` to `app/intake/page.tsx`
+
+`BookingTracker.tsx` fires the Google Ads conversion sitewide on any Jane App or `tel:` link click. Attribution is handled by Google Ads via the `_gcl_aw` GCLID cookie — clicks from users without a recent ad interaction fire the event but are not credited to any campaign and do not push spend. Scoping conversion to `/intake` only was tried (commit `5efdeaa` on 2026-05-19, reverted 2026-05-26) and dropped legitimate multi-page ad-driven journeys (ad → /intake → another page → Book Now).
 
 When adding a new booking CTA anywhere, use `JANE_BOOKING_URL` + `target="_blank"` + `rel="noopener noreferrer"`. Never use `/intake` or `/book` as a booking destination.
 

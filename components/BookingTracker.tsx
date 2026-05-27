@@ -5,16 +5,17 @@ import { useEffect } from 'react';
 const JANE_DOMAIN = 'janeapp.com';
 const GA_ID = 'G-65FN5BN480';
 const ADS_CONVERSION_ID = 'AW-18069490191/eeANCJi7n5ccEI-UmqhD';
-const AD_LANDING_PATH = '/intake';
 
 /**
  * Global click interceptor for Jane App booking links and phone-number links.
+ * Fires GA4 events and the Google Ads conversion sitewide.
  *
- * GA4 events fire sitewide (engagement analytics). The Google Ads conversion
- * only fires when the click happens on the ad landing page (/intake). Firing
- * it sitewide would credit existing patients using the homepage as a shortcut
- * to JaneApp — those clicks are not ad-driven and inflate the conversion
- * count.
+ * Conversion attribution is handled by Google Ads via the `_gcl_aw` GCLID
+ * cookie. Clicks from users without a GCLID (no recent ad interaction) fire
+ * the event but are not credited to any campaign and do not push spend.
+ * Scoping conversion firing to the ad landing page would drop legitimate
+ * multi-page ad-driven journeys (ad → /intake → another page → Book Now)
+ * where the GCLID is still present but the final click is off /intake.
  *
  * BookingCTA on the intake page has its own handler and is skipped here via
  * the data-booking-cta attribute to avoid double-firing.
@@ -42,9 +43,6 @@ export default function BookingTracker() {
         event_label: anchor.closest('[data-booking-source]')?.getAttribute('data-booking-source') || 'site_link',
         send_to: GA_ID,
       });
-
-      const isAdLanding = window.location.pathname === AD_LANDING_PATH;
-      if (!isAdLanding) return;
 
       window.gtag('event', 'conversion', {
         send_to: ADS_CONVERSION_ID,

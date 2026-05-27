@@ -1,5 +1,7 @@
 'use client';
 
+import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import Script from 'next/script';
 
 /**
@@ -15,10 +17,26 @@ import Script from 'next/script';
  * EEA defaults), which prevents the `_gcl_aw` cookie from being written
  * and breaks Google Ads attribution from ad click → site visit →
  * Book Now click.
+ *
+ * Initial `gtag('config', ...)` only fires the first pageview. Next.js App
+ * Router client-side navigation does not retrigger it, so we manually fire
+ * `page_view` on pathname/search changes to capture deeper-in-site views.
  */
 const GoogleAnalytics = () => {
   const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID;
   const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
+  const pathname = usePathname();
+
+  useEffect(() => {
+    if (!GA_MEASUREMENT_ID) return;
+    if (typeof window === 'undefined' || typeof window.gtag !== 'function') return;
+    window.gtag('event', 'page_view', {
+      page_path: pathname,
+      page_location: window.location.href,
+      page_title: document.title,
+      send_to: GA_MEASUREMENT_ID,
+    });
+  }, [pathname, GA_MEASUREMENT_ID]);
 
   if (!GA_MEASUREMENT_ID) return null;
 
@@ -42,6 +60,7 @@ const GoogleAnalytics = () => {
           gtag('js', new Date());
           gtag('config', '${GA_MEASUREMENT_ID}', {
             page_path: window.location.pathname,
+            send_page_view: false,
           });
           ${GOOGLE_ADS_ID ? `gtag('config', '${GOOGLE_ADS_ID}');` : ''}
         `}

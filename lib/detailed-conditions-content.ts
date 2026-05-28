@@ -5949,7 +5949,7 @@ Muscle weakness, particularly of the hip abductors, creates abnormal loading pat
       },
       {
         question: "Will a cortisone injection fix it?",
-        answer: "Short-term yes, long-term often no. The LEAP trial (Mellor et al., BMJ 2018) compared education and exercise against corticosteroid injection and a wait-and-see approach. At 8 weeks, steroid injection beat waiting. By 12 months, education plus exercise was clearly superior on both pain and global improvement. Injection is worth considering selectively when pain is stopping someone from engaging with rehab, not as the plan itself."
+        answer: "Short-term yes, long-term often no. The LEAP trial (Mellor et al., BMJ 2018) compared education and exercise against corticosteroid injection and a wait-and-see approach. At 8 weeks, steroid injection beat waiting. By 12 months, education plus exercise was clearly superior on both pain and global improvement. Injection is worth considering selectively when pain is stopping someone from engaging with rehab, not as the plan itself. Injection is not something I do myself — when that route makes sense I coordinate with a sports medicine physician who handles the procedure, and we plan the rehab work around it."
       },
       {
         question: "Why does it hurt most at night?",
@@ -8044,7 +8044,7 @@ Scapular dyskinesis alters AC joint loading patterns by disrupting normal scapul
       },
       {
         question: "Does a cortisone injection help?",
-        answer: "It can help in degenerative AC arthritis or chronic post-traumatic pain, where a targeted intra-articular injection can produce meaningful short-term relief and allow loading work to progress. For acute high-grade separations, injection is not the main play since the pain reflects ligamentous injury, not joint inflammation. Injection is worth considering sparingly in the chronic setting when symptoms are blocking rehab, not as a first response."
+        answer: "It can help in degenerative AC arthritis or chronic post-traumatic pain, where a targeted intra-articular injection can produce meaningful short-term relief and allow loading work to progress. For acute high-grade separations, injection is not the main play since the pain reflects ligamentous injury, not joint inflammation. Injection is worth considering sparingly in the chronic setting when symptoms are blocking rehab, not as a first response. Injection itself is something I coordinate with a sports medicine physician — they perform the procedure, and we time the loading work around it."
       }
     ],
 
@@ -10315,7 +10315,7 @@ Rotator cuff weakness, particularly in the posterior and inferior aspects, allow
       },
       {
         question: "Will a cortisone injection fix it?",
-        answer: "It will probably help in the short term, and may not help in the long term. The Cochrane review of corticosteroid injections for shoulder pain found modest short-term benefit (roughly the first four to six weeks) compared to placebo, with limited evidence of benefit beyond that and no clear advantage over well-structured physiotherapy at three to six months. I do not object to injections when pain is disabling and someone cannot engage with exercise, but they are best used as a window to do the loading work, not a standalone solution. A 2023 randomised trial in chronic subacromial bursitis reported much higher recurrence rates in the injection-only group than in the physiotherapy group."
+        answer: "It will probably help in the short term, and may not help in the long term. The Cochrane review of corticosteroid injections for shoulder pain found modest short-term benefit (roughly the first four to six weeks) compared to placebo, with limited evidence of benefit beyond that and no clear advantage over well-structured physiotherapy at three to six months. I do not object to injections when pain is disabling and someone cannot engage with exercise, but they are best used as a window to do the loading work, not a standalone solution. Injection is not something I do myself — when that route makes sense I coordinate with a sports medicine physician who performs the procedure. A 2023 randomised trial in chronic subacromial bursitis reported much higher recurrence rates in the injection-only group than in the physiotherapy group."
       },
       {
         question: "Why does my shoulder hurt more at night?",

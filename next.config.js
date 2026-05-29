@@ -3,12 +3,7 @@
 const nextConfig = {
   reactStrictMode: false, // Temporarily disabled to fix Framer Motion animations in dev
   swcMinify: true,
-  
-  // Add Deployment ID for version skew protection
-  env: {
-    NEXT_DEPLOYMENT_ID: Date.now().toString(),
-  },
-  
+
   // Optimize barrel-file imports for these libs so unused exports
   // don't ship to the client (helps INP + JS payload on mobile).
   experimental: {

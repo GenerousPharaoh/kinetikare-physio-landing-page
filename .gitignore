@@ -57,6 +57,12 @@ next-env.d.ts
 /components/sections/GoogleReviews*.tsx
 /app/api/google-reviews/
 
+# Scratch files / local reports (not part of the deployed app)
+/ai-conversations/
+/button-import.txt
+/elbow-wrist-hand-conditions-expanded.txt
+/public/icons/IMPORTANT_README.txt
+
 # macOS metadata files
 ._*
 .DS_Store

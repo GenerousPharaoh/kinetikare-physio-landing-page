@@ -61,6 +61,7 @@ const ContactCTA: React.FC<ContactCTAProps> = ({
               <Link 
                 href="https://endorphinshealth.janeapp.com/#/staff_member/42" 
                 target="_blank"
+                rel="noopener noreferrer"
                 className="bg-accent hover:bg-accent-dark text-white font-medium px-8 py-4 rounded-xl transition-all duration-300 flex items-center shadow-lg"
               >
                 <PhoneIcon className="w-5 h-5 mr-2" />

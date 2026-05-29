@@ -265,6 +265,7 @@ export default function ConditionComparisonPage({
                 <Link
                   href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 px-4 py-3 rounded-lg bg-[#B08D57] text-white text-sm font-medium hover:bg-[#997A4B] transition-colors"
                 >
                   <CalendarIcon className="h-4 w-4" />
@@ -774,6 +775,7 @@ export default function ConditionComparisonPage({
                     <Link
                       href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-[#B08D57] text-white text-sm font-medium hover:bg-[#997A4B] transition-colors"
                     >
                       <CalendarIcon className="h-4 w-4" />

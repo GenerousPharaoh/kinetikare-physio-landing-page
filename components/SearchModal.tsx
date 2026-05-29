@@ -671,6 +671,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                                   <Link
                                     href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                                     target="_blank"
+                                    rel="noopener noreferrer"
                                     className="block w-full px-3 py-2 bg-orange-500 text-white text-center text-sm font-medium rounded-lg hover:bg-orange-600 transition-colors"
                                     onClick={onClose}
                                   >
@@ -755,6 +756,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                           <Link
                             href="https://endorphinshealth.janeapp.com/#/staff_member/42"
                             target="_blank"
+                            rel="noopener noreferrer"
                             className="flex items-center gap-3 p-3 bg-gradient-to-r from-green-50 to-green-100 border border-green-200 rounded-lg hover:border-green-300 transition-colors group"
                             onClick={onClose}
                           >

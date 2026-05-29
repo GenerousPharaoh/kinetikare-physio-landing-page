@@ -1,3 +1,4 @@
+import { serializeJsonLd } from '@/lib/structured-data';
 import React from 'react';
 import { Metadata } from 'next';
 import ConditionsPageClient from '@/components/ConditionsPageClient';
@@ -152,11 +153,11 @@ export default function ConditionsPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(itemListSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbSchema) }}
       />
       <ConditionsPageClient
         conditionCategories={formattedCategories}

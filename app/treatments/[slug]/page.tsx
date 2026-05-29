@@ -1,3 +1,4 @@
+import { serializeJsonLd } from '@/lib/structured-data';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getTreatmentById, getAllTreatments } from '@/lib/treatments-data';
@@ -135,11 +136,11 @@ export default function TreatmentPage({ params }: { params: { slug: string } }) 
     <main className="min-h-screen bg-background">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalProcedureSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(medicalProcedureSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(pageSchema) }}
       />
       <TreatmentHero treatment={treatment} />
       <TreatmentContent treatment={treatment} />

@@ -1,3 +1,4 @@
+import { serializeJsonLd } from '@/lib/structured-data';
 import './globals.css';
 import { Inter, Playfair_Display } from 'next/font/google';
 import Header from '@/components/Header';
@@ -432,19 +433,19 @@ export default function RootLayout({
         {/* Schema.org structured data */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(organizationSchema) }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(brandSchema) }}
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(brandSchema) }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(websiteSchema) }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(personSchema) }}
         />
 
         {/* Performance optimization provider */}

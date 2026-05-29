@@ -1,3 +1,4 @@
+import { serializeJsonLd } from '@/lib/structured-data';
 import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
@@ -310,14 +311,14 @@ export default function ServicesPage() {
       {/* Breadcrumb Schema Markup */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbSchema) }}
       />
 
       {/* Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(servicesStructuredData),
+          __html: serializeJsonLd(servicesStructuredData),
         }}
       />
 
@@ -325,7 +326,7 @@ export default function ServicesPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(medicalProceduresSchema),
+          __html: serializeJsonLd(medicalProceduresSchema),
         }}
       />
 

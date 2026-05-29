@@ -1,3 +1,4 @@
+import { serializeJsonLd } from '@/lib/structured-data';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import {
@@ -440,19 +441,19 @@ export default function HipPainHubPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(pageSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(localBusinessSchema) }}
       />
 
       <div className="min-h-screen">

@@ -1,3 +1,4 @@
+import { serializeJsonLd } from '@/lib/structured-data';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import ConditionPageClient from '@/components/ConditionPageClient';
@@ -359,20 +360,20 @@ export default function ConditionPage({ params }: PageProps) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(enhancedSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(enhancedSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(pageSchema) }}
       />
       {faqSchema && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqSchema) }}
         />
       )}
       <ConditionPageClient

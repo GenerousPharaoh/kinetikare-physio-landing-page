@@ -1,5 +1,6 @@
 'use client';
 
+import { serializeJsonLd } from '@/lib/structured-data';
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Treatment } from '@/lib/treatments-data';
@@ -30,7 +31,7 @@ export default function TreatmentFAQ({ treatment }: TreatmentFAQProps) {
     <section className="py-8 lg:py-12 bg-white">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqSchema) }}
       />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div

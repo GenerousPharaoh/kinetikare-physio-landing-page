@@ -1,3 +1,4 @@
+import { serializeJsonLd } from '@/lib/structured-data';
 import Link from 'next/link';
 import ClientImage from '@/components/ClientImage';
 import { CheckBadgeIcon } from '@heroicons/react/24/solid';
@@ -129,7 +130,7 @@ export default function About() {
       {/* Person Schema for SEO */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(personSchema) }}
       />
 
       <main className="min-h-screen flex flex-col text-primary-700 bg-white">

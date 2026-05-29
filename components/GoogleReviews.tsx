@@ -1,5 +1,6 @@
 'use client';
 
+import { serializeJsonLd } from '@/lib/structured-data';
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useInView, useReducedMotion } from 'framer-motion';
 
@@ -201,7 +202,7 @@ export default function GoogleReviews() {
       {/* Review Schema */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewsSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(reviewsSchema) }}
       />
       <div className="container mx-auto px-5 sm:px-6">
         {/* Header */}

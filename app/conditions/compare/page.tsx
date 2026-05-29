@@ -1,3 +1,4 @@
+import { serializeJsonLd } from '@/lib/structured-data';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import {
@@ -103,11 +104,11 @@ export default function ComparisonIndexPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(webPageSchema) }}
       />
 
       <div className="min-h-screen">

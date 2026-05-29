@@ -1,3 +1,4 @@
+import { serializeJsonLd } from '@/lib/structured-data';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -199,15 +200,15 @@ export default function ConditionComparisonPage({
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalWebPageSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(medicalWebPageSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqSchema) }}
       />
 
       <div className="min-h-screen">

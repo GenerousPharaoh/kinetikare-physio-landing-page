@@ -18,6 +18,13 @@ import Script from 'next/script';
  * and breaks Google Ads attribution from ad click → site visit →
  * Book Now click.
  *
+ * Cross-domain linker is configured for endorphinshealth.janeapp.com.
+ * gtag intercepts native `<a>` clicks targeting that domain and decorates
+ * the href with `?_gl=<encoded ga cookie>` so JaneApp's gtag inherits the
+ * same client_id and Google Ads can attribute the booking back to the
+ * originating ad click. BookingCTA must not call e.preventDefault() —
+ * doing so suppresses the linker's click hook.
+ *
  * Initial `gtag('config', ...)` only fires the first pageview. Next.js App
  * Router client-side navigation does not retrigger it, so we manually fire
  * `page_view` on pathname/search changes to capture deeper-in-site views.
@@ -61,8 +68,12 @@ const GoogleAnalytics = () => {
           gtag('config', '${GA_MEASUREMENT_ID}', {
             page_path: window.location.pathname,
             send_page_view: false,
+            linker: {
+              domains: ['endorphinshealth.janeapp.com'],
+              decorate_forms: true,
+            },
           });
-          ${GOOGLE_ADS_ID ? `gtag('config', '${GOOGLE_ADS_ID}');` : ''}
+          ${GOOGLE_ADS_ID ? `gtag('config', '${GOOGLE_ADS_ID}', { linker: { domains: ['endorphinshealth.janeapp.com'], decorate_forms: true } });` : ''}
         `}
       </Script>
     </>

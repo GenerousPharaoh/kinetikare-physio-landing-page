@@ -12,37 +12,27 @@ interface BookingCTAProps {
 }
 
 export default function BookingCTA({ children, className, style, size = 'lg' }: BookingCTAProps) {
-  const handleClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    let redirected = false;
+  // No preventDefault, no programmatic redirect. The native <a> click must
+  // proceed so gtag's cross-domain linker can decorate the JaneApp URL with
+  // ?_gl=... Without it, JaneApp's gtag creates a fresh client_id on arrival
+  // and Google Ads cannot attribute the booking back to the ad click.
+  // transport_type: 'beacon' fires the conversion async (navigator.sendBeacon)
+  // so it sends reliably even as navigation begins.
+  const handleClick = useCallback(() => {
+    if (typeof window === 'undefined' || typeof window.gtag !== 'function') return;
 
-    const doRedirect = () => {
-      if (redirected) return;
-      redirected = true;
-      window.location.href = JANE_BOOKING_URL;
-    };
+    window.gtag('event', 'booking_click', {
+      event_category: 'conversion',
+      event_label: 'intake_page_cta',
+      send_to: process.env.NEXT_PUBLIC_GA_ID || 'G-65FN5BN480',
+    });
 
-    if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-      // GA4 event
-      window.gtag('event', 'booking_click', {
-        event_category: 'conversion',
-        event_label: 'intake_page_cta',
-        send_to: process.env.NEXT_PUBLIC_GA_ID || 'G-65FN5BN480',
-      });
-
-      // Google Ads conversion
-      window.gtag('event', 'conversion', {
-        send_to: 'AW-18069490191/eeANCJi7n5ccEI-UmqhD',
-        value: 130,
-        currency: 'CAD',
-        transport_type: 'beacon',
-        event_callback: doRedirect,
-      });
-
-      setTimeout(doRedirect, 1500);
-    } else {
-      doRedirect();
-    }
+    window.gtag('event', 'conversion', {
+      send_to: 'AW-18069490191/eeANCJi7n5ccEI-UmqhD',
+      value: 130,
+      currency: 'CAD',
+      transport_type: 'beacon',
+    });
   }, []);
 
   return (

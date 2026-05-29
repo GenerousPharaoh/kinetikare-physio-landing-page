@@ -22,8 +22,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const treatment = getTreatmentById(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const treatment = getTreatmentById(slug);
   
   if (!treatment) {
     return {
@@ -70,8 +71,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function TreatmentPage({ params }: { params: { slug: string } }) {
-  const treatment = getTreatmentById(params.slug);
+export default async function TreatmentPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const treatment = getTreatmentById(slug);
 
   if (!treatment) {
     notFound();

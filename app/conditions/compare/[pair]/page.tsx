@@ -45,9 +45,10 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { pair: string };
+  params: Promise<{ pair: string }>;
 }): Promise<Metadata> {
-  const comparison = getComparisonByPair(params.pair);
+  const { pair } = await params;
+  const comparison = getComparisonByPair(pair);
 
   if (!comparison) {
     return {
@@ -95,12 +96,13 @@ export async function generateMetadata({
   };
 }
 
-export default function ConditionComparisonPage({
+export default async function ConditionComparisonPage({
   params,
 }: {
-  params: { pair: string };
+  params: Promise<{ pair: string }>;
 }) {
-  const comparison = getComparisonByPair(params.pair);
+  const { pair } = await params;
+  const comparison = getComparisonByPair(pair);
 
   if (!comparison) {
     notFound();

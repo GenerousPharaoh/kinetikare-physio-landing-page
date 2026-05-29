@@ -2,7 +2,10 @@
 
 const nextConfig = {
   reactStrictMode: false, // Temporarily disabled to fix Framer Motion animations in dev
-  swcMinify: true,
+
+  // Pin the workspace root so Next 16 does not infer it from a stray parent
+  // lockfile (~/package-lock.json); keeps output file tracing scoped here.
+  outputFileTracingRoot: __dirname,
 
   // Optimize barrel-file imports for these libs so unused exports
   // don't ship to the client (helps INP + JS payload on mobile).

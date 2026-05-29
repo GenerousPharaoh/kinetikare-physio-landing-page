@@ -43,9 +43,9 @@ function getCluster(key: string): PatternMatcherCluster | undefined {
 }
 
 interface PageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 // Generate static params for all conditions
@@ -95,7 +95,8 @@ function generateConditionTitle(condition: Condition): string {
 
 // Generate metadata for each condition page
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const baseCondition = getConditionBySlug(params.slug);
+  const { slug } = await params;
+  const baseCondition = getConditionBySlug(slug);
 
   if (!baseCondition) {
     return {
@@ -104,7 +105,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
-  const condition = getDetailedCondition(params.slug, baseCondition);
+  const condition = getDetailedCondition(slug, baseCondition);
 
   const title = generateConditionTitle(condition);
 
@@ -120,7 +121,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title,
       description,
-      url: `https://www.kinetikarephysio.com/conditions/${params.slug}`,
+      url: `https://www.kinetikarephysio.com/conditions/${slug}`,
       type: 'article',
       siteName: 'Kareem Hassanein Physiotherapy',
       authors: [SEO_AUTHOR.name],
@@ -143,21 +144,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       images: ['https://www.kinetikarephysio.com/images/og-image.jpg'],
     },
     alternates: {
-      canonical: `https://www.kinetikarephysio.com/conditions/${params.slug}`,
+      canonical: `https://www.kinetikarephysio.com/conditions/${slug}`,
     },
   };
 }
 
-export default function ConditionPage({ params }: PageProps) {
-  const baseCondition = getConditionBySlug(params.slug);
+export default async function ConditionPage({ params }: PageProps) {
+  const { slug } = await params;
+  const baseCondition = getConditionBySlug(slug);
   
   if (!baseCondition) {
     notFound();
   }
 
-  const condition = getDetailedCondition(params.slug, baseCondition);
+  const condition = getDetailedCondition(slug, baseCondition);
   const relatedConditions = getRelatedConditions(
-    params.slug,
+    slug,
     baseCondition.category,
     3
   );
@@ -173,7 +175,7 @@ export default function ConditionPage({ params }: PageProps) {
 
   if (condition.patternMatcher?.clusterKey) {
     const cluster = getCluster(condition.patternMatcher.clusterKey);
-    if (cluster && cluster.conditionSlugs.includes(params.slug)) {
+    if (cluster && cluster.conditionSlugs.includes(slug)) {
       patternCluster = cluster;
       patternConditions = {};
       for (const slug of cluster.conditionSlugs) {
@@ -197,7 +199,7 @@ export default function ConditionPage({ params }: PageProps) {
   const howToSchema = exerciseProgression
     ? {
         "@type": "HowTo",
-        "@id": `https://www.kinetikarephysio.com/conditions/${params.slug}#rehab-progression`,
+        "@id": `https://www.kinetikarephysio.com/conditions/${slug}#rehab-progression`,
         "name": `Rehabilitation Phases for ${condition.name}`,
         "description": `Evidence-based progressive rehabilitation phases for ${condition.name}, authored and supervised by Kareem Hassanein, Registered Physiotherapist.`,
         "author": { "@id": SEO_PERSON_ID },
@@ -307,7 +309,7 @@ export default function ConditionPage({ params }: PageProps) {
         "@type": "ListItem",
         "position": 3,
         "name": condition.name,
-        "item": `https://www.kinetikarephysio.com/conditions/${params.slug}`
+        "item": `https://www.kinetikarephysio.com/conditions/${slug}`
       }
     ]
   };
@@ -315,8 +317,8 @@ export default function ConditionPage({ params }: PageProps) {
   const pageSchema = {
     '@context': 'https://schema.org',
     '@type': 'MedicalWebPage',
-    '@id': `https://www.kinetikarephysio.com/conditions/${params.slug}#webpage`,
-    url: `https://www.kinetikarephysio.com/conditions/${params.slug}`,
+    '@id': `https://www.kinetikarephysio.com/conditions/${slug}#webpage`,
+    url: `https://www.kinetikarephysio.com/conditions/${slug}`,
     name: title,
     description,
     author: {
@@ -379,7 +381,7 @@ export default function ConditionPage({ params }: PageProps) {
       <ConditionPageClient
         condition={condition}
         relatedConditions={relatedConditions}
-        conditionSlug={params.slug}
+        conditionSlug={slug}
         patternCluster={patternCluster}
         patternConditions={patternConditions}
       />

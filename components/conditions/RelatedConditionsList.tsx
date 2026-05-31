@@ -101,7 +101,7 @@ export default function RelatedConditionsList({
                     {related.name}
                   </p>
                   <ArrowRightIcon
-                    className="h-3.5 w-3.5 text-slate-300 group-hover:text-[#B08D57] group-hover:translate-x-0.5 flex-shrink-0 mt-0.5 transition-all"
+                    className="h-3.5 w-3.5 text-slate-300 group-hover:text-[#B08D57] group-hover:translate-x-1 flex-shrink-0 mt-0.5 transition-all"
                     aria-hidden="true"
                   />
                 </div>

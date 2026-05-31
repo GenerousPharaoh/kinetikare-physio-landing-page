@@ -134,7 +134,25 @@ export default function CommitmentCarousel({ items }: CommitmentCarouselProps) {
         </button>
       </div>
 
-      {/* Removed dot indicators - not needed */}
+      {/* Mobile dot navigation (arrows are hidden below sm) */}
+      <div className="flex sm:hidden items-center justify-center gap-1 mt-4">
+        {items.map((item, index) => (
+          <button
+            key={item.id}
+            type="button"
+            onClick={() => goToSlide(index)}
+            aria-label={`Show ${item.title}`}
+            aria-current={index === currentSlide ? 'true' : undefined}
+            className="p-2 group shadow-none"
+          >
+            <span
+              className={`block h-2 rounded-full transition-all duration-300 ${
+                index === currentSlide ? 'w-6 bg-[#B08D57]' : 'w-2 bg-slate-300 group-hover:bg-slate-400'
+              }`}
+            />
+          </button>
+        ))}
+      </div>
 
       {/* Progress bar - Minimal spacing */}
       <div className="mt-3 sm:mt-4 md:mt-6 max-w-xs sm:max-w-md mx-auto px-4 sm:px-0">

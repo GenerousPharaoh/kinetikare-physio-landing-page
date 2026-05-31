@@ -8,19 +8,36 @@ import { BOOKING_PAGE_PATH, JANE_BOOKING_URL } from '@/lib/booking';
 
 export default function FloatingButtons() {
   const [isVisible, setIsVisible] = useState(false);
+  const [tucked, setTucked] = useState(false);
   const [showTooltip, setShowTooltip] = useState<string | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.pageYOffset > 500) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
+    let lastY = window.pageYOffset;
+    let ticking = false;
+    const update = () => {
+      const cur = window.pageYOffset;
+      setIsVisible(cur > 500);
+      // Tuck the stack off-screen while scrolling down so it never sits on top
+      // of content; bring it back the moment the user scrolls up.
+      if (Math.abs(cur - lastY) > 4) {
+        if (cur > lastY && cur > 300) {
+          setTucked(true);
+        } else if (cur < lastY) {
+          setTucked(false);
+        }
+        lastY = cur;
+      }
+      ticking = false;
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(update);
+        ticking = true;
       }
     };
-    window.addEventListener('scroll', toggleVisibility);
-    return () => window.removeEventListener('scroll', toggleVisibility);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   if (pathname === BOOKING_PAGE_PATH) {
@@ -47,10 +64,16 @@ export default function FloatingButtons() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
+      x: 0,
       transition: {
         staggerChildren: 0.1,
         delayChildren: 0.2,
       },
+    },
+    tucked: {
+      opacity: 0,
+      x: 96,
+      transition: { duration: 0.25, ease: 'easeIn' },
     },
   };
 
@@ -95,8 +118,9 @@ export default function FloatingButtons() {
     <motion.div
       className="fixed bottom-24 right-4 md:bottom-5 md:right-5 z-40 flex flex-col space-y-2 md:space-y-3"
       initial="hidden"
-      animate="visible"
+      animate={tucked ? 'tucked' : 'visible'}
       variants={containerVariants}
+      style={{ pointerEvents: tucked ? 'none' : 'auto' }}
     >
       {/* Book Appointment Button */}
       <motion.a

@@ -458,8 +458,8 @@ export default function RootLayout({
           </ErrorBoundary>
           {/* Global site footer */}
           <Footer />
+          <FloatingButtons />
         </PerformanceProvider>
-        <FloatingButtons />
 {/* MobileBottomNav removed — redundant with hamburger menu */}
         <CookieBanner />
         <BookingTracker />

@@ -31,6 +31,7 @@ const c = {
   textLight: '#78716C',
   textFaint: '#A8A29E',
   gold: '#B8960C',
+  goldText: '#8A6F0A',
   goldBright: '#D4AF37',
   bg: '#FAFAF9',
   white: '#FFFFFF',
@@ -244,7 +245,7 @@ export default function IntakeLandingPage() {
                     />
                     <div>
                       <p style={{ fontFamily: serif, fontSize: 16, fontWeight: 700, color: c.black, marginBottom: 4 }}>Kareem Hassanein</p>
-                      <p style={{ fontSize: 11, color: c.gold, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 4 }}>Registered Physiotherapist</p>
+                      <p style={{ fontSize: 11, color: c.goldText, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 4 }}>Registered Physiotherapist</p>
                       <p style={{ fontSize: 10, color: c.textLight, fontWeight: 500, letterSpacing: '0.04em' }}>MSc PT, BSc Kin &middot; CPO #20079</p>
                     </div>
                   </div>
@@ -327,7 +328,7 @@ export default function IntakeLandingPage() {
           <div style={{ position: 'relative', maxWidth: 780, margin: '0 auto', padding: 'clamp(7rem, 16vw, 14rem) clamp(1.5rem, 5vw, 4rem)', textAlign: 'center' }}>
             <Reveal from="scale">
               <div style={{ display: 'flex', justifyContent: 'center', gap: 4, marginBottom: 24 }}><Stars size={18} /></div>
-              <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.goldBright, marginBottom: 48 }}>5.0 from 24 Google Reviews</p>
+              <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.goldText, marginBottom: 48 }}>5.0 from 24 Google Reviews</p>
 
               <div style={{ position: 'relative', height: 'clamp(260px, 32vw, 280px)' }}>
                 <AnimatePresence mode="wait">
@@ -340,7 +341,7 @@ export default function IntakeLandingPage() {
                     <p style={{ fontFamily: serif, fontSize: 'clamp(1.25rem, 2.4vw, 1.85rem)', fontWeight: 300, lineHeight: 1.65, color: '#FFFFFFEE', maxWidth: 620, margin: '0 auto 32px' }}>
                       &ldquo;{reviews[activeReview].text}&rdquo;
                     </p>
-                    <p style={{ fontSize: 13, fontWeight: 700, color: c.goldBright, letterSpacing: '0.12em', textTransform: 'uppercase' }}>{reviews[activeReview].name}</p>
+                    <p style={{ fontSize: 13, fontWeight: 700, color: c.goldText, letterSpacing: '0.12em', textTransform: 'uppercase' }}>{reviews[activeReview].name}</p>
                   </motion.div>
                 </AnimatePresence>
               </div>
@@ -368,7 +369,7 @@ export default function IntakeLandingPage() {
         {/* ═══════════ CONDITIONS — dual marquee rows ═══════════ */}
         <div style={{ background: c.white, paddingTop: 'clamp(3rem, 6vw, 4rem)', paddingBottom: 'clamp(3rem, 6vw, 4rem)', overflow: 'hidden' }}>
           <Reveal>
-            <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.gold, textAlign: 'center', marginBottom: 32 }}>Conditions Treated</p>
+            <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.goldText, textAlign: 'center', marginBottom: 32 }}>Conditions Treated</p>
           </Reveal>
           <div style={{ position: 'relative' }}>
             {/* Edge fade masks */}
@@ -428,7 +429,7 @@ export default function IntakeLandingPage() {
           <div style={{ maxWidth: 1000, margin: '0 auto', padding: 'clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem)' }}>
             <Reveal>
               <div style={{ textAlign: 'center', marginBottom: 72 }}>
-                <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.gold, marginBottom: 16 }}>Your First Visit</p>
+                <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.goldText, marginBottom: 16 }}>Your First Visit</p>
                 <h2 style={{ fontFamily: serif, color: c.black, fontWeight: 700, fontSize: 'clamp(2rem, 4vw, 3rem)', lineHeight: 1.08, letterSpacing: '-0.03em' }}>
                   Assessment to action<br /><span style={{ fontWeight: 300, fontStyle: 'italic', color: c.gold }}>in one visit</span>
                 </h2>
@@ -453,7 +454,7 @@ export default function IntakeLandingPage() {
                           {i + 1}
                         </div>
                       </div>
-                      <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.gold, marginBottom: 8 }}>{step.label}</p>
+                      <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.goldText, marginBottom: 8 }}>{step.label}</p>
                       <h3 style={{ fontFamily: serif, color: c.black, fontWeight: 700, fontSize: 20, lineHeight: 1.3, marginBottom: 12 }}>{step.title}</h3>
                       <p style={{ color: c.textMid, fontSize: 14, lineHeight: 1.75, maxWidth: 280, margin: '0 auto' }}>{step.text}</p>
                     </div>
@@ -495,7 +496,7 @@ export default function IntakeLandingPage() {
             <div className="lg:flex lg:justify-end">
               <Reveal from="right">
                 <div style={{ maxWidth: 520 }} className="lg:!pl-16">
-                  <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.gold, marginBottom: 16 }}>Fees</p>
+                  <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.goldText, marginBottom: 16 }}>Fees</p>
                   <h2 style={{ fontFamily: serif, color: c.black, fontWeight: 700, fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', lineHeight: 1.1, letterSpacing: '-0.02em', marginBottom: 40 }}>
                     Fees &amp; billing
                   </h2>
@@ -544,7 +545,7 @@ export default function IntakeLandingPage() {
                     <p style={{ color: c.textLight, fontSize: 13, lineHeight: 1.7, marginTop: 16 }}>
                       No referral needed to book. If your plan requires a referral for reimbursement, the team at Endorphins can help you navigate that.
                     </p>
-                    <a href="/faq" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, marginTop: 16, padding: '12px 0', fontSize: 13, fontWeight: 600, color: c.gold, textDecoration: 'none', cursor: 'pointer' }}>
+                    <a href="/faq" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, marginTop: 16, padding: '12px 0', fontSize: 13, fontWeight: 600, color: c.goldText, textDecoration: 'none', cursor: 'pointer' }}>
                       Questions about your first visit?
                       <ArrowRightIcon width={13} height={13} />
                     </a>
@@ -562,7 +563,7 @@ export default function IntakeLandingPage() {
               {/* Left: details */}
               <Reveal from="left">
                 <div>
-                  <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.gold, marginBottom: 16 }}>The Clinic</p>
+                  <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.goldText, marginBottom: 16 }}>The Clinic</p>
                   <h2 style={{ fontFamily: serif, color: c.black, fontWeight: 700, fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: 48 }}>Physio Clinic Near You &mdash; Burlington &amp; Waterdown</h2>
 
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
@@ -572,7 +573,7 @@ export default function IntakeLandingPage() {
                           <d.icon width={18} height={18} style={{ color: c.gold }} />
                         </div>
                         <div style={{ flex: 1 }}>
-                          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: c.gold, marginBottom: 6 }}>{d.label}</p>
+                          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: c.goldText, marginBottom: 6 }}>{d.label}</p>
                           <p style={{ color: c.text, fontSize: 15, lineHeight: 1.75, whiteSpace: 'pre-line' }}>{d.value}</p>
                         </div>
                       </div>
@@ -585,7 +586,7 @@ export default function IntakeLandingPage() {
 
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 24 }}>
                     <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#34D399', flexShrink: 0 }} />
-                    <span style={{ fontSize: 13, fontWeight: 600, color: c.gold }}>Afternoon and evening appointments available this week</span>
+                    <span style={{ fontSize: 13, fontWeight: 600, color: c.goldText }}>Afternoon and evening appointments available this week</span>
                   </div>
                 </div>
               </Reveal>

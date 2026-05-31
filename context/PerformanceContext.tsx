@@ -1,6 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import { MotionConfig } from 'framer-motion';
 import { useDevicePerformance } from '@/hooks/useDevicePerformance';
 
 interface PerformanceContextType {
@@ -57,7 +58,7 @@ export function PerformanceProvider({ children }: { children: React.ReactNode })
         performanceMode,
       }}
     >
-      {children}
+      <MotionConfig reducedMotion="user">{children}</MotionConfig>
     </PerformanceContext.Provider>
   );
 }

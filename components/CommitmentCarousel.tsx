@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { 
   DocumentTextIcon, 
   ChatBubbleBottomCenterTextIcon,
@@ -47,17 +47,18 @@ const getIcon = (iconType: string) => {
 export default function CommitmentCarousel({ items }: CommitmentCarouselProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const shouldReduceMotion = useReducedMotion();
 
-  // Auto-play functionality
+  // Auto-play functionality (disabled when the user prefers reduced motion)
   useEffect(() => {
-    if (!isAutoPlaying) return;
-    
+    if (!isAutoPlaying || shouldReduceMotion) return;
+
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % items.length);
     }, 4000);
 
     return () => clearInterval(interval);
-  }, [isAutoPlaying, items.length]);
+  }, [isAutoPlaying, shouldReduceMotion, items.length]);
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);

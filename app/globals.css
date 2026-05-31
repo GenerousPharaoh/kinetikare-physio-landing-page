@@ -253,16 +253,19 @@ body {
   font-weight: 400;
 }
 
-/* PREVENT ALL NESTED SCROLLING */
-/* Global overflow management - only allow scrolling on the document body */
+/* Clip horizontal overflow WITHOUT turning html/body into scroll containers.
+   overflow-x: hidden forces the other axis to compute to auto, which made the
+   viewport scroll land on body/html; because body persists across App Router
+   navigations, its scroll position carried into the next page. overflow-x: clip
+   keeps the viewport as the single scroller, so new pages start at the top and
+   back/forward restores position normally. */
 html {
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow-x: clip;
   scroll-behavior: smooth;
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
   overflow-y: visible;
   position: relative;
 }
@@ -1185,7 +1188,7 @@ label {
 
 /* Comprehensive overflow fixes */
 html {
-  overflow-x: hidden;
+  overflow-x: clip;
   width: 100%;
   max-width: 100vw;
 }

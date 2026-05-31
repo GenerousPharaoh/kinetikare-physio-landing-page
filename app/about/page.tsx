@@ -228,7 +228,7 @@ export default function About() {
                         href="https://portal.collegept.org/en-US/public-register/display-member-contact/?id=757882d7-8c40-eb11-a813-000d3af427b4"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center w-full px-2 py-1.5 text-xs font-medium text-[#B08D57] bg-[#B08D57]/10 border border-[#B08D57]/20 rounded-lg hover:bg-[#B08D57]/20 hover:border-[#B08D57]/30 transition-all duration-300"
+                        className="inline-flex items-center justify-center w-full px-2 py-1.5 text-xs font-medium text-[#8A6F0A] bg-[#B08D57]/10 border border-[#B08D57]/20 rounded-lg hover:bg-[#B08D57]/20 hover:border-[#B08D57]/30 transition-all duration-300"
                       >
                         <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -346,7 +346,7 @@ export default function About() {
                           href="https://portal.collegept.org/en-US/public-register/display-member-contact/?id=757882d7-8c40-eb11-a813-000d3af427b4"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center w-full px-3 py-2 text-xs font-medium text-[#B08D57] bg-[#B08D57]/10 border border-[#B08D57]/20 rounded-lg hover:bg-[#B08D57]/20 hover:border-[#B08D57]/30 transition-all duration-300"
+                          className="inline-flex items-center justify-center w-full px-3 py-2 text-xs font-medium text-[#8A6F0A] bg-[#B08D57]/10 border border-[#B08D57]/20 rounded-lg hover:bg-[#B08D57]/20 hover:border-[#B08D57]/30 transition-all duration-300"
                         >
                           <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -431,7 +431,7 @@ export default function About() {
                       <div className="relative z-10">
                         <p className="text-base sm:text-lg lg:text-xl text-slate-700 leading-relaxed mb-4 sm:mb-6">
                           My path to physiotherapy began through personal experience. While playing competitive soccer and studying Kinesiology at{" "}
-                          <span className="font-semibold text-[#B08D57]">McMaster University</span>, I suffered significant injuries including disc herniations that required extensive rehabilitation. That challenging recovery journey gave me firsthand insight into what patients truly go through - the frustration, the setbacks, and ultimately the triumphs. Now serving <span className="font-semibold text-slate-800">Burlington, Waterdown, and surrounding areas</span>, I combine professional expertise with genuine empathy born from my own recovery experience.
+                          <span className="font-semibold text-[#8A6F0A]">McMaster University</span>, I suffered significant injuries including disc herniations that required extensive rehabilitation. That challenging recovery journey gave me firsthand insight into what patients truly go through - the frustration, the setbacks, and ultimately the triumphs. Now serving <span className="font-semibold text-slate-800">Burlington, Waterdown, and surrounding areas</span>, I combine professional expertise with genuine empathy born from my own recovery experience.
                         </p>
                       </div>
                     </div>
@@ -442,7 +442,7 @@ export default function About() {
                       <div className="relative z-10">
                         <p className="text-base sm:text-lg lg:text-xl text-slate-700 leading-relaxed mb-4 sm:mb-6">
                           This experience shaped my approach when I pursued my{" "}
-                          <span className="font-semibold text-[#B08D57]">Master's in Physiotherapy at Robert Gordon University</span>. Having been through the recovery process myself, I understand the importance of clear communication, realistic expectations, and genuine support throughout <span className="font-semibold text-slate-800">Halton Region and beyond</span>.
+                          <span className="font-semibold text-[#8A6F0A]">Master's in Physiotherapy at Robert Gordon University</span>. Having been through the recovery process myself, I understand the importance of clear communication, realistic expectations, and genuine support throughout <span className="font-semibold text-slate-800">Halton Region and beyond</span>.
                         </p>
                       </div>
                     </div>
@@ -680,7 +680,7 @@ export default function About() {
                               <h5 className="font-bold text-slate-800 text-lg sm:text-xl group-hover:text-[#B08D57] transition-colors duration-300">
                                 Bachelor of Science in Kinesiology
                               </h5>
-                              <span className="inline-flex items-center px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs font-semibold bg-[#B08D57]/10 text-[#B08D57] border border-[#B08D57]/20 whitespace-nowrap">
+                              <span className="inline-flex items-center px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs font-semibold bg-[#B08D57]/10 text-[#8A6F0A] border border-[#B08D57]/20 whitespace-nowrap">
                                 Honours
                               </span>
                             </div>
@@ -719,7 +719,7 @@ export default function About() {
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
                         <div className="flex-1">
                           <div className="font-bold text-slate-800 text-xl mb-2">Manual Therapy Training</div>
-                          <div className="text-[#B08D57] font-semibold text-base mb-1">Manual Therapy Techniques</div>
+                          <div className="text-[#8A6F0A] font-semibold text-base mb-1">Manual Therapy Techniques</div>
                           <div className="text-slate-600 text-sm leading-relaxed">Certification in orthopedic manual physical therapy techniques</div>
                         </div>
                       </div>
@@ -730,7 +730,7 @@ export default function About() {
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
                         <div className="flex-1">
                           <div className="font-bold text-slate-800 text-xl mb-2">Certified Dry Needling</div>
-                          <div className="text-[#B08D57] font-semibold text-base mb-1">Practitioner</div>
+                          <div className="text-[#8A6F0A] font-semibold text-base mb-1">Practitioner</div>
                           <div className="text-slate-600 text-sm leading-relaxed">Certification in dry needling for trigger point release and pain management</div>
                         </div>
                       </div>
@@ -741,7 +741,7 @@ export default function About() {
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
                         <div className="flex-1">
                           <div className="font-bold text-slate-800 text-xl mb-2">Continuing Education</div>
-                          <div className="text-[#B08D57] font-semibold text-base mb-1">Ongoing Professional Development</div>
+                          <div className="text-[#8A6F0A] font-semibold text-base mb-1">Ongoing Professional Development</div>
                           <div className="text-slate-600 text-sm leading-relaxed">Regular advancement in evidence-based treatment techniques</div>
                         </div>
                       </div>
@@ -771,7 +771,7 @@ export default function About() {
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
                         <div className="flex-1">
                           <div className="font-bold text-slate-800 text-xl mb-2">5+ Years Clinical Practice</div>
-                          <div className="text-[#B08D57] font-semibold text-base mb-1">Physiotherapy</div>
+                          <div className="text-[#8A6F0A] font-semibold text-base mb-1">Physiotherapy</div>
                           <div className="text-slate-600 text-sm leading-relaxed">Comprehensive patient care across diverse conditions and populations</div>
                         </div>
                       </div>
@@ -782,7 +782,7 @@ export default function About() {
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
                         <div className="flex-1">
                           <div className="font-bold text-slate-800 text-xl mb-2">6,000+ Hours Personal Training</div>
-                          <div className="text-[#B08D57] font-semibold text-base mb-1">Fitness & Conditioning</div>
+                          <div className="text-[#8A6F0A] font-semibold text-base mb-1">Fitness & Conditioning</div>
                           <div className="text-slate-600 text-sm leading-relaxed">Extensive experience in movement analysis and exercise prescription</div>
                         </div>
                       </div>
@@ -793,7 +793,7 @@ export default function About() {
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
                         <div className="flex-1">
                           <div className="font-bold text-slate-800 text-xl mb-2">Assistant Fitness Manager (GoodLife Fitness)</div>
-                          <div className="text-[#B08D57] font-semibold text-base mb-1">Leadership & Operations</div>
+                          <div className="text-[#8A6F0A] font-semibold text-base mb-1">Leadership & Operations</div>
                           <div className="text-slate-600 text-sm leading-relaxed">Team management and facility operations in fitness environment</div>
                         </div>
                       </div>
@@ -820,7 +820,7 @@ export default function About() {
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
                         <div className="flex-1">
                           <div className="font-bold text-slate-800 text-xl mb-2">Semi-Professional Soccer</div>
-                          <div className="text-[#B08D57] font-semibold text-base mb-1">Cove Rangers, Scotland</div>
+                          <div className="text-[#8A6F0A] font-semibold text-base mb-1">Cove Rangers, Scotland</div>
                           <div className="text-slate-600 text-sm leading-relaxed">Competitive experience at high-level football in Scottish leagues</div>
                         </div>
                       </div>
@@ -831,7 +831,7 @@ export default function About() {
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
                         <div className="flex-1">
                           <div className="font-bold text-slate-800 text-xl mb-2">Canadian Soccer League</div>
-                          <div className="text-[#B08D57] font-semibold text-base mb-1">Brantford Galaxy</div>
+                          <div className="text-[#8A6F0A] font-semibold text-base mb-1">Brantford Galaxy</div>
                           <div className="text-slate-600 text-sm leading-relaxed">Semi-professional league experience in Canadian competitive soccer</div>
                   </div>
                 </div>
@@ -842,7 +842,7 @@ export default function About() {
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] mt-2 flex-shrink-0 shadow-sm"></div>
                         <div className="flex-1">
                           <div className="font-bold text-slate-800 text-xl mb-2">Injury & Recovery Experience</div>
-                          <div className="text-[#B08D57] font-semibold text-base mb-1">Personal Journey</div>
+                          <div className="text-[#8A6F0A] font-semibold text-base mb-1">Personal Journey</div>
                           <div className="text-slate-600 text-sm leading-relaxed">Firsthand understanding of athletic injury, rehabilitation, and return to sport</div>
                         </div>
                       </div>
@@ -859,7 +859,7 @@ export default function About() {
       <section className="py-8 sm:py-12 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-6 sm:mb-10 md:mb-16">
-            <span className="inline-block px-3 sm:px-5 py-1 sm:py-1.5 bg-[#D4AF37]/10 text-[#B08D57] text-[10px] sm:text-xs md:text-sm font-medium rounded-full mb-2 sm:mb-4">
+            <span className="inline-block px-3 sm:px-5 py-1 sm:py-1.5 bg-[#D4AF37]/10 text-[#8A6F0A] text-[10px] sm:text-xs md:text-sm font-medium rounded-full mb-2 sm:mb-4">
               My Professional Guarantee
             </span>
           

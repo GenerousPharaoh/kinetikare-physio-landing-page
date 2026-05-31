@@ -12,7 +12,7 @@ export default function NotFound() {
     <main className="min-h-[70vh] flex items-center justify-center px-5">
       <div className="max-w-lg w-full text-center">
         {/* 404 indicator */}
-        <p className="text-sm font-medium tracking-widest uppercase text-[#B08D57] mb-4">
+        <p className="text-sm font-medium tracking-widest uppercase text-[#8A6F0A] mb-4">
           404
         </p>
 
@@ -57,7 +57,7 @@ export default function NotFound() {
 
         <p className="mt-6 text-xs text-slate-400">
           Call{' '}
-          <a href="tel:+19056346000" className="text-[#B08D57] hover:underline">
+          <a href="tel:+19056346000" className="text-[#8A6F0A] hover:underline">
             (905) 634-6000
           </a>
           {' '}if you need help finding what you&apos;re looking for.

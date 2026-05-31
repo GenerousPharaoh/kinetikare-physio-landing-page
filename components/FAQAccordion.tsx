@@ -344,7 +344,7 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, defaultOpen = null }
                     {decodeHtmlEntities(item.question)}
                   </span>
                   {item.category && (
-                    <span className="mt-1 text-xs font-medium text-[#B08D57] uppercase tracking-wider opacity-80">
+                    <span className="mt-1 text-xs font-medium text-[#8A6F0A] uppercase tracking-wider opacity-80">
                       {item.category}
                     </span>
                   )}
@@ -354,7 +354,7 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, defaultOpen = null }
                 animate={{ rotate: isActive ? 180 : 0 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
                 className={`flex-shrink-0 w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center transition-all duration-300 ${isActive
-                    ? 'border-[#B08D57] text-[#B08D57] bg-[#B08D57]/5'
+                    ? 'border-[#B08D57] text-[#8A6F0A] bg-[#B08D57]/5'
                     : 'text-slate-400 group-hover:border-[#B08D57]/50 group-hover:text-[#B08D57]'
                   }`}
               >

@@ -752,7 +752,7 @@ export default function ShoulderPainHubPage() {
                     className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-6 border border-slate-200"
                   >
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-[#B08D57]/10 text-[#B08D57] text-xs font-semibold uppercase tracking-wider">
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-[#B08D57]/10 text-[#8A6F0A] text-xs font-semibold uppercase tracking-wider">
                         {item.year}
                       </span>
                       <span className="text-xs text-slate-500">{item.source}</span>
@@ -801,7 +801,7 @@ export default function ShoulderPainHubPage() {
                         {condition.description}
                       </p>
                     )}
-                    <div className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-[#B08D57]">
+                    <div className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-[#8A6F0A]">
                       Read the {condition.name.toLowerCase()} guide
                       <ArrowRightIcon className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
                     </div>
@@ -842,7 +842,7 @@ export default function ShoulderPainHubPage() {
                     <p className="text-sm text-slate-600 leading-relaxed flex-grow">
                       {treatment.shortDescription}
                     </p>
-                    <div className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#B08D57]">
+                    <div className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#8A6F0A]">
                       Explore {treatment.name}
                       <ArrowRightIcon className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
                     </div>

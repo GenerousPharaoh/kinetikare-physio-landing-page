@@ -91,7 +91,7 @@ export default function SectionHeading({
             aria-hidden="true"
             className="inline-block h-1.5 w-1.5 rounded-full bg-[#B08D57]"
           />
-          <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">
+          <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#8A6F0A]">
             {kicker}
           </p>
         </div>
@@ -115,7 +115,7 @@ export default function SectionHeading({
       <span
         role="status"
         aria-live="polite"
-        className={`pointer-events-none absolute left-0 top-full mt-1 text-xs font-medium text-[#B08D57] transition-opacity duration-150 ${
+        className={`pointer-events-none absolute left-0 top-full mt-1 text-xs font-medium text-[#8A6F0A] transition-opacity duration-150 ${
           copied ? 'opacity-100' : 'opacity-0'
         }`}
       >

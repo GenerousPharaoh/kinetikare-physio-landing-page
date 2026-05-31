@@ -414,7 +414,7 @@ function ConditionsPageWithParams({
           {!searchQuery && (topicHubs.length > 0 || painGuides.length > 0 || comparisons.length > 0) && (
             <div className="max-w-6xl mx-auto px-4 mt-16 pt-12 border-t border-slate-200 space-y-10">
               <div className="text-center">
-                <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B08D57]">
+                <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#8A6F0A]">
                   Other ways to explore
                 </p>
                 <p className="mt-2 text-sm text-slate-500">
@@ -461,7 +461,7 @@ function ConditionsPageWithParams({
                     <h2 id="pain-guides-heading" className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
                       Start with the symptom
                     </h2>
-                    <Link href="/conditions/pain-guides" className="text-xs text-[#B08D57] hover:underline">
+                    <Link href="/conditions/pain-guides" className="text-xs text-[#8A6F0A] hover:underline">
                       View all guides
                     </Link>
                   </div>
@@ -488,7 +488,7 @@ function ConditionsPageWithParams({
                     <h2 id="comparisons-heading" className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
                       Commonly confused
                     </h2>
-                    <Link href="/conditions/compare" className="text-xs text-[#B08D57] hover:underline">
+                    <Link href="/conditions/compare" className="text-xs text-[#8A6F0A] hover:underline">
                       All comparisons
                     </Link>
                   </div>
@@ -548,7 +548,7 @@ function ConditionsPageWithParams({
                     {/* Number Badge */}
                     <div className="relative">
                       <div className="inline-flex items-center justify-center w-12 h-12 bg-[#B08D57]/10 rounded-lg mb-4">
-                        <span className="text-[#B08D57] font-semibold text-lg">{index + 1}</span>
+                        <span className="text-[#8A6F0A] font-semibold text-lg">{index + 1}</span>
                       </div>
 
                       <h3 className="font-semibold text-lg text-slate-900 mb-3 group-hover:text-[#B08D57] transition-colors">

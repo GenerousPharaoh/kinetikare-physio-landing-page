@@ -274,7 +274,7 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
                     <div key={index}>
                       {item.category && (
                         <div className="mb-2 ml-1">
-                          <span className="text-[10px] font-bold text-[#B08D57] uppercase tracking-widest">
+                          <span className="text-[10px] font-bold text-[#8A6F0A] uppercase tracking-widest">
                             {item.category}
                           </span>
                         </div>

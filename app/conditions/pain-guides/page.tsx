@@ -245,7 +245,7 @@ export default function PainGuidesIndexPage() {
                     href={guide.href}
                     className="group bg-white rounded-2xl p-6 border border-slate-200 hover:border-[#B08D57] hover:shadow-md transition-all flex flex-col"
                   >
-                    <span className="text-xs uppercase tracking-wider text-[#B08D57] font-semibold mb-2">
+                    <span className="text-xs uppercase tracking-wider text-[#8A6F0A] font-semibold mb-2">
                       {guide.region}
                     </span>
                     <h3 className="text-xl font-semibold text-slate-900 group-hover:text-[#B08D57] transition-colors mb-2">
@@ -254,7 +254,7 @@ export default function PainGuidesIndexPage() {
                     <p className="text-sm text-slate-700 leading-relaxed flex-grow">
                       {guide.blurb}
                     </p>
-                    <div className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#B08D57]">
+                    <div className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#8A6F0A]">
                       Read the guide
                       <ArrowRightIcon className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
                     </div>

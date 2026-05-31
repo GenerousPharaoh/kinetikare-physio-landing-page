@@ -147,7 +147,7 @@ export default function CareJourneySection() {
                     <Link
                       href={step.link}
                       {...(step.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                      className="mt-4 md:mt-6 flex items-center text-sm text-[#B08D57] transition-colors duration-300 hover:text-[#D4AF37]"
+                      className="mt-4 md:mt-6 flex items-center text-sm text-[#8A6F0A] transition-colors duration-300 hover:text-[#D4AF37]"
                     >
                       <span className="font-medium">{step.linkText}</span>
                       <svg className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">

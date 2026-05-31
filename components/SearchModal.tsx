@@ -517,7 +517,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
       case 'location':
         return 'bg-purple-100 text-purple-700 border-purple-200';
       default:
-        return 'bg-[#B08D57]/10 text-[#B08D57] border-[#B08D57]/20';
+        return 'bg-[#B08D57]/10 text-[#8A6F0A] border-[#B08D57]/20';
     }
   };
 

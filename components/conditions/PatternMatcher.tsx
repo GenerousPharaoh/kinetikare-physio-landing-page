@@ -578,7 +578,7 @@ function ResultView({ verdict, cluster, currentSlug, onRestart }: ResultViewProp
       <div>
         <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-slate-900">
           Your answers most resemble{' '}
-          <span className="text-[#B08D57]">{top.name}</span>.
+          <span className="text-[#8A6F0A]">{top.name}</span>.
         </h3>
         <p className="mt-3 text-base text-slate-700 leading-relaxed max-w-[64ch]">
           {reasoning}
@@ -623,7 +623,7 @@ function ResultView({ verdict, cluster, currentSlug, onRestart }: ResultViewProp
     <div>
       <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-slate-900">
         Your answers fit{' '}
-        <span className="text-[#B08D57]">more than one pattern</span>.
+        <span className="text-[#8A6F0A]">more than one pattern</span>.
       </h3>
       <p className="mt-3 text-base text-slate-700 leading-relaxed max-w-[64ch]">
         Both of these match parts of what you described. A hands-on exam is what separates them

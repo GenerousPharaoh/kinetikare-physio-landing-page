@@ -102,7 +102,7 @@ export default function ContactSection() {
                       <h4 className="text-base sm:text-lg font-normal text-slate-900 mb-2">Email</h4>
                       <a 
                         href="mailto:kareem.hassanein@gmail.com"
-                        className="text-[#B08D57] hover:text-[#D4AF37] transition-colors duration-300 font-normal text-sm sm:text-base lg:text-lg break-all"
+                        className="text-[#8A6F0A] hover:text-[#D4AF37] transition-colors duration-300 font-normal text-sm sm:text-base lg:text-lg break-all"
                       >
                         kareem.hassanein@gmail.com
                       </a>
@@ -118,7 +118,7 @@ export default function ContactSection() {
                       <h4 className="text-base sm:text-lg font-normal text-slate-900 mb-2">Phone</h4>
                       <a 
                         href="tel:+19056346000"
-                        className="text-[#B08D57] hover:text-[#D4AF37] transition-colors duration-300 font-normal text-sm sm:text-base lg:text-lg"
+                        className="text-[#8A6F0A] hover:text-[#D4AF37] transition-colors duration-300 font-normal text-sm sm:text-base lg:text-lg"
                       >
                         (905) 634-6000
                       </a>
@@ -135,7 +135,7 @@ export default function ContactSection() {
                       <div className="space-y-3">
                         {/* Endorphins Location */}
                         <div>
-                          <p className="text-xs text-[#B08D57] font-medium mb-1">Endorphins Health & Wellness</p>
+                          <p className="text-xs text-[#8A6F0A] font-medium mb-1">Endorphins Health & Wellness</p>
                           <div className="space-y-1 pl-2">
                             <div className="flex justify-between text-sm sm:text-base">
                               <span className="text-slate-700">Monday:</span>

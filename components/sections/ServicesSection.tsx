@@ -116,7 +116,7 @@ export default function ServicesSection() {
                 <div className="mt-auto">
                   <Link
                     href={service.href}
-                    className="inline-flex items-center text-[#B08D57] hover:text-[#D4AF37] font-normal transition-colors duration-300"
+                    className="inline-flex items-center text-[#8A6F0A] hover:text-[#D4AF37] font-normal transition-colors duration-300"
                   >
                     <span>{service.cta}</span>
                     <ChevronRightIcon className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" />
@@ -200,7 +200,7 @@ export default function ServicesSection() {
 
               {/* Treatment Approach Section */}
               <div className="border-t border-gray-200 pt-6 flex-grow">
-                <h4 className="text-lg font-light text-[#B08D57] mb-3">
+                <h4 className="text-lg font-light text-[#8A6F0A] mb-3">
                   Treatment Approach
                 </h4>
                 <div className="space-y-3">

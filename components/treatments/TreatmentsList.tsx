@@ -84,7 +84,7 @@ export default function TreatmentsList() {
                         </span>
                       ))}
                     </div>
-                    <div className="flex items-center text-[#B08D57] font-medium text-sm group-hover:gap-2 transition-all">
+                    <div className="flex items-center text-[#8A6F0A] font-medium text-sm group-hover:gap-2 transition-all">
                       <span>View treatment</span>
                       <ArrowRightIcon className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                     </div>
@@ -133,7 +133,7 @@ export default function TreatmentsList() {
                               <p className="text-gray-600 text-sm mb-6 line-clamp-2 leading-relaxed flex-grow">
                                 {treatment.shortDescription}
                               </p>
-                              <div className="flex items-center text-[#B08D57] font-medium text-sm group-hover:gap-2 transition-all duration-300">
+                              <div className="flex items-center text-[#8A6F0A] font-medium text-sm group-hover:gap-2 transition-all duration-300">
                                 <span>Explore Treatment</span>
                                 <ArrowRightIcon className="w-4 h-4 ml-1 group-hover:translate-x-2 transition-transform duration-300" />
                               </div>

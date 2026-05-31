@@ -43,11 +43,11 @@ const services = [
     description: (
       <>
         Hands-on techniques to mobilize joints, reduce pain, and restore function through targeted soft tissue techniques.{' '}
-        <Link href="/treatments/joint-mobilization" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+        <Link href="/treatments/joint-mobilization" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
           Learn about joint mobilization
         </Link>
         {' '}or{' '}
-        <Link href="/treatments/soft-tissue-myofascial-release" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+        <Link href="/treatments/soft-tissue-myofascial-release" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
           myofascial release techniques
         </Link>
         .
@@ -66,7 +66,7 @@ const services = [
     description: (
       <>
         Tailored rehabilitation for athletes to recover from injury and return to their sport safely and stronger.{' '}
-        <Link href="/treatments/sports-rehab-return-to-sport" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+        <Link href="/treatments/sports-rehab-return-to-sport" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
           Explore sports rehabilitation approach
         </Link>
         .
@@ -85,11 +85,11 @@ const services = [
     description: (
       <>
         Precision therapy using thin filiform needles to release trigger points and relieve muscular pain and tension.{' '}
-        <Link href="/treatments/dry-needling" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+        <Link href="/treatments/dry-needling" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
           Learn about dry needling
         </Link>
         {' '}or{' '}
-        <Link href="/faq" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+        <Link href="/faq" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
           read common questions
         </Link>
         .
@@ -108,11 +108,11 @@ const services = [
     description: (
       <>
         Customized exercise programs designed to restore function, build strength, and prevent injury recurrence.{' '}
-        <Link href="/treatments/exercise-therapy" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+        <Link href="/treatments/exercise-therapy" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
           Explore exercise therapy
         </Link>
         {' '}or{' '}
-        <Link href="/faq" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+        <Link href="/faq" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
           read common questions
         </Link>
         .
@@ -131,11 +131,11 @@ const services = [
     description: (
       <>
         Comprehensive analysis of your posture and work environment to address pain and prevent future issues.{' '}
-        <Link href="/treatments/postural-assessment" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+        <Link href="/treatments/postural-assessment" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
           Learn about postural assessment
         </Link>
         {' '}or{' '}
-        <Link href="/faq" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+        <Link href="/faq" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
           read common questions
         </Link>
         .
@@ -154,15 +154,15 @@ const services = [
     description: (
       <>
         Evidence-based approaches to reduce pain and improve quality of life through targeted interventions including cupping and IASTM.{' '}
-        <Link href="/treatments/cupping-therapy" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+        <Link href="/treatments/cupping-therapy" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
           Learn about cupping
         </Link>
         ,{' '}
-        <Link href="/treatments/iastm" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+        <Link href="/treatments/iastm" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
           IASTM
         </Link>
         , or{' '}
-        <Link href="/treatments/pain-education" className="text-[#B08D57] hover:text-[#D4AF37] underline transition-colors duration-300">
+        <Link href="/treatments/pain-education" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300">
           pain education
         </Link>
         .
@@ -371,7 +371,7 @@ export default function ServicesPage() {
                     {/* Benefits section with cleaner design */}
                     <div className="px-8 pb-8 pt-6 mt-auto">
                       <div className="border-t border-slate-100 pt-6">
-                        <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#B08D57] mb-4">
+                        <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#8A6F0A] mb-4">
                           Benefits
                         </h3>
                         <ul className="space-y-2.5">
@@ -416,7 +416,7 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center mb-20">
             {/* Badge */}
-            <div className="inline-flex items-center px-6 py-2.5 bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 backdrop-blur-sm text-[#B08D57] text-sm font-medium rounded-full mb-8 border border-[#B08D57]/20 shadow-sm transition-all duration-300 cursor-default">
+            <div className="inline-flex items-center px-6 py-2.5 bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 backdrop-blur-sm text-[#8A6F0A] text-sm font-medium rounded-full mb-8 border border-[#B08D57]/20 shadow-sm transition-all duration-300 cursor-default">
               <div className="w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full mr-3"></div>
               <span className="uppercase tracking-wider">Treatment Journey</span>
             </div>
@@ -563,7 +563,7 @@ export default function ServicesPage() {
           <div className="max-w-4xl mx-auto">
             {/* Premium Header */}
             <div className="text-center mb-20">
-              <div className="inline-flex items-center px-6 py-2.5 bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 backdrop-blur-sm text-[#B08D57] text-sm font-medium rounded-full mb-8 border border-[#B08D57]/20 shadow-sm transition-all duration-300 cursor-default">
+              <div className="inline-flex items-center px-6 py-2.5 bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 backdrop-blur-sm text-[#8A6F0A] text-sm font-medium rounded-full mb-8 border border-[#B08D57]/20 shadow-sm transition-all duration-300 cursor-default">
                 <div className="w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full mr-3"></div>
                 <span className="uppercase tracking-wider">Insurance & Billing</span>
               </div>
@@ -745,7 +745,7 @@ export default function ServicesPage() {
                 {/* Badge */}
                 <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 backdrop-blur-sm rounded-full border border-[#B08D57]/20 mb-8">
                   <div className="w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full mr-3"></div>
-                  <span className="text-xs font-medium uppercase tracking-wider text-[#B08D57]">Next Steps</span>
+                  <span className="text-xs font-medium uppercase tracking-wider text-[#8A6F0A]">Next Steps</span>
                 </div>
                 
                 {/* Title */}

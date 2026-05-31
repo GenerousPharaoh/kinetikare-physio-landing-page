@@ -302,7 +302,7 @@ export default async function ConditionComparisonPage({
                   href={`/conditions/${comparison.conditionA.slug}`}
                   className="group bg-gradient-to-br from-slate-50 to-white rounded-2xl p-6 border border-slate-200 hover:border-[#B08D57] hover:shadow-sm transition-all"
                 >
-                  <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#B08D57] mb-2">
+                  <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#8A6F0A] mb-2">
                     <span>Condition A</span>
                   </div>
                   <h2 className="text-xl font-semibold text-slate-900 group-hover:text-[#B08D57] transition-colors mb-2">
@@ -313,7 +313,7 @@ export default async function ConditionComparisonPage({
                       {conditionA.description}
                     </p>
                   )}
-                  <div className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#B08D57]">
+                  <div className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#8A6F0A]">
                     Read the full {comparison.conditionA.shortName.toLowerCase()} page
                     <ArrowRightIcon className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
                   </div>
@@ -323,7 +323,7 @@ export default async function ConditionComparisonPage({
                   href={`/conditions/${comparison.conditionB.slug}`}
                   className="group bg-gradient-to-br from-slate-50 to-white rounded-2xl p-6 border border-slate-200 hover:border-[#B08D57] hover:shadow-sm transition-all"
                 >
-                  <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#B08D57] mb-2">
+                  <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#8A6F0A] mb-2">
                     <span>Condition B</span>
                   </div>
                   <h2 className="text-xl font-semibold text-slate-900 group-hover:text-[#B08D57] transition-colors mb-2">
@@ -334,7 +334,7 @@ export default async function ConditionComparisonPage({
                       {conditionB.description}
                     </p>
                   )}
-                  <div className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#B08D57]">
+                  <div className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#8A6F0A]">
                     Read the full {comparison.conditionB.shortName.toLowerCase()} page
                     <ArrowRightIcon className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
                   </div>
@@ -415,7 +415,7 @@ export default async function ConditionComparisonPage({
                     </div>
                     <div className="p-5 space-y-4">
                       <div>
-                        <p className="text-xs font-semibold uppercase tracking-wider text-[#B08D57] mb-1">
+                        <p className="text-xs font-semibold uppercase tracking-wider text-[#8A6F0A] mb-1">
                           {comparison.conditionA.shortName}
                         </p>
                         <p className="text-sm text-slate-700 leading-relaxed">
@@ -423,7 +423,7 @@ export default async function ConditionComparisonPage({
                         </p>
                       </div>
                       <div className="pt-4 border-t border-slate-100">
-                        <p className="text-xs font-semibold uppercase tracking-wider text-[#B08D57] mb-1">
+                        <p className="text-xs font-semibold uppercase tracking-wider text-[#8A6F0A] mb-1">
                           {comparison.conditionB.shortName}
                         </p>
                         <p className="text-sm text-slate-700 leading-relaxed">
@@ -505,7 +505,7 @@ export default async function ConditionComparisonPage({
               <div className="grid md:grid-cols-2 gap-5">
                 <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-[#B08D57]/10 text-[#B08D57] text-xs font-semibold uppercase tracking-wider">
+                    <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-[#B08D57]/10 text-[#8A6F0A] text-xs font-semibold uppercase tracking-wider">
                       More likely
                     </span>
                     <h3 className="text-lg font-semibold text-slate-900">
@@ -517,7 +517,7 @@ export default async function ConditionComparisonPage({
                   </p>
                   <Link
                     href={`/conditions/${comparison.conditionA.slug}`}
-                    className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#B08D57] hover:text-[#997A4B]"
+                    className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#8A6F0A] hover:text-[#997A4B]"
                   >
                     Read the {comparison.conditionA.shortName.toLowerCase()} page
                     <ArrowRightIcon className="h-4 w-4" />
@@ -526,7 +526,7 @@ export default async function ConditionComparisonPage({
 
                 <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-[#B08D57]/10 text-[#B08D57] text-xs font-semibold uppercase tracking-wider">
+                    <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-[#B08D57]/10 text-[#8A6F0A] text-xs font-semibold uppercase tracking-wider">
                       More likely
                     </span>
                     <h3 className="text-lg font-semibold text-slate-900">
@@ -538,7 +538,7 @@ export default async function ConditionComparisonPage({
                   </p>
                   <Link
                     href={`/conditions/${comparison.conditionB.slug}`}
-                    className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#B08D57] hover:text-[#997A4B]"
+                    className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#8A6F0A] hover:text-[#997A4B]"
                   >
                     Read the {comparison.conditionB.shortName.toLowerCase()} page
                     <ArrowRightIcon className="h-4 w-4" />
@@ -686,7 +686,7 @@ export default async function ConditionComparisonPage({
                       <p className="text-sm text-slate-600 leading-relaxed flex-grow">
                         {treatment.shortDescription}
                       </p>
-                      <div className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#B08D57]">
+                      <div className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#8A6F0A]">
                         Explore {treatment.name}
                         <ArrowRightIcon className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
                       </div>

@@ -177,7 +177,7 @@ export default function Term({ termId, children }: TermProps) {
             placement === 'top' ? 'bottom-full mb-2' : 'top-full mt-2'
           } left-0 w-[min(20rem,calc(100vw-2rem))] bg-white rounded-md border border-slate-200 shadow-lg shadow-slate-900/5 p-3.5 text-left normal-case`}
         >
-          <p className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-[#B08D57]">
+          <p className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-[#8A6F0A]">
             {entry.term}
           </p>
           <p className="mt-1.5 text-[13px] text-slate-700 leading-relaxed">
@@ -206,7 +206,7 @@ export default function Term({ termId, children }: TermProps) {
             className="term-sheet fixed inset-x-3 bottom-3 z-50 mx-auto max-w-md rounded-2xl bg-white border border-slate-200 shadow-xl shadow-slate-900/10 p-4 pr-10 text-left normal-case"
             style={{ paddingBottom: 'max(1rem, env(safe-area-inset-bottom))' }}
           >
-            <p className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-[#B08D57]">
+            <p className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-[#8A6F0A]">
               {entry.term}
             </p>
             <p className="mt-1.5 text-[14px] text-slate-700 leading-relaxed">

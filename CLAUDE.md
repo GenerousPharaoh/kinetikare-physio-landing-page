@@ -83,6 +83,12 @@ As of March 26, 2026, the site SEO work is intentionally focused on the niches t
 
 ## Recent Work Already Completed
 
+### Accessibility and UI polish pass completed on 2026-05-30
+
+- Global `<MotionConfig reducedMotion="user">` added in `context/PerformanceContext.tsx` so all Framer Motion respects `prefers-reduced-motion`; `CommitmentCarousel` auto-advance is now gated by `useReducedMotion()`.
+- Small static gold text darkened from `#B08D57` to `#8A6F0A` for WCAG AA (see "Gold text contrast" under Current Gaps for scope and the residual tinted-badge case).
+- `CommitmentCarousel` mobile dot navigation added; `GoogleReviews` mobile arrows bumped to a 44px tap target; `RelatedConditionsList` hover-arrow nudge.
+
 ### Performance / delivery improvements
 
 - Removed unused Trustindex loading
@@ -167,9 +173,9 @@ As of March 26, 2026, the site SEO work is intentionally focused on the niches t
 
 - **Next.js 14 → 16 upgrade — DONE (2026-05-29, commit `1591ce8`).** Now on Next 16.2.6 + React 19.2; cleared all 4 high-severity advisories (SSRF, RSC DoS, image-optimization DoS, cache poisoning). Builds stay on webpack via `next build --webpack` so the custom React-single-instance webpack config is preserved (Turbopack migration deferred). `params` is async in the 3 dynamic routes (`conditions/[slug]`, `conditions/compare/[pair]`, `treatments/[slug]`). Lint moved to ESLint 9 flat config (`eslint.config.mjs`; `next lint` was removed in 16), ruleset preserved — the new React-Compiler readiness rules (`react-hooks/refs`, `set-state-in-effect`, `immutability`) are disabled to match prior behaviour and are a future cleanup. Remaining `npm audit`: 2 moderate, build-time-only (nested `postcss` in Next's deps; awaits a future Next patch).
 - **Hero JPG (`/public/images/clinic-pic-may-2025.jpg`, 1.8 MB)** — the `.webp` twin already exists at 775 KB and `next/image` auto-converts, so the raw JPG in `/public/` is just the source asset, not what ships. Could be deleted but no perf impact either way.
-- **Gold text contrast** — `text-[#B08D57]` on white computes to ~4.2:1 (below the 4.5:1 AA threshold for normal text). Used in a handful of FAQ accordion headings. Visual-design judgment call before tweaking the brand color.
-- **FAQ schema breadth** — only ~5 of 60+ condition pages carry FAQ JSON-LD. Highest-yield LLM-citation format per current research; expansion is a content-writing task.
-- **Carousel swipe gestures on mobile** — `GoogleReviews` and `CommitmentCarousel` are arrow/dot-only; mobile users on `CommitmentCarousel` have only dots since arrows are `hidden sm:flex`.
+- **Gold text contrast** (addressed 2026-05-30): small static gold text moved from `#B08D57` (~4.2:1 on white) to the darker `#8A6F0A` (~4.8:1) already used for eyebrow labels on curated pages. Icons, hover states, large display headings, and gold-on-dark were left as `#B08D57`. 269 instances across 26 files. Residual: small badges on a `bg-[#B08D57]/10` tint sit at ~4.39:1, a hair under AA at that size (the tint is the limiter, not the text); closing it would need a slightly darker gold for tinted badges or a more neutral badge background.
+- **FAQ schema breadth** (not a real gap): the dynamic condition template (`app/conditions/[slug]/page.tsx` lines 342-380) builds a `FAQPage` schema from each condition's `faqs` and emits it whenever present, so every condition that carries FAQ data (~58 in `lib/detailed-conditions-content.ts`) ships FAQ JSON-LD. The curated pages and `/faq` emit their own `FAQPage` too. The earlier "~5 pages" figure only counted hand-built static pages and missed the dynamic coverage.
+- **Carousel swipe gestures on mobile**: `GoogleReviews` and `CommitmentCarousel` are still arrow/dot-only (no swipe/drag). `CommitmentCarousel` gained mobile dot navigation on 2026-05-30 and its auto-advance now pauses under `prefers-reduced-motion`. True swipe/drag is the remaining enhancement on both.
 
 ### Monitoring priorities
 

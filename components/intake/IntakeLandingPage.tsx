@@ -601,9 +601,9 @@ export default function IntakeLandingPage() {
                     {serviceAreas.map((a) => <span key={a} style={{ padding: '7px 16px', fontSize: 11, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', color: c.textMid, background: c.white, borderRadius: 999, border: `1px solid ${c.stone200}` }}>{a}</span>)}
                   </div>
 
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 24 }}>
-                    <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#34D399', flexShrink: 0 }} />
-                    <span style={{ fontSize: 13, fontWeight: 600, color: c.goldText }}>Afternoon and evening appointments available this week</span>
+                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: 8, marginTop: 24 }}>
+                    <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#34D399', flexShrink: 0, marginTop: 8 }} />
+                    <span style={{ fontSize: 13, fontWeight: 600, color: c.goldText, lineHeight: 1.6 }}>Afternoon and evening appointments available this week</span>
                   </div>
                 </div>
               </Reveal>
@@ -619,14 +619,14 @@ export default function IntakeLandingPage() {
                   <div style={{ borderRadius: 16, overflow: 'hidden', boxShadow: '0 20px 60px -16px rgba(0,0,0,0.12)', border: `1px solid ${c.stone200}`, position: 'relative' }}>
                     <div style={{ position: 'relative' }}>
                       <iframe
-                        src="https://www.google.com/maps?q=4631+Palladium+Way+Unit+6+Burlington+ON+L7M+0W9&output=embed"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2898.519514705003!2d-79.82862318760941!3d43.40797126813572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b61c9d9d9c40f%3A0xadd452d206e4b1b3!2sKareem%20Hassanein%20-%20Registered%20Physiotherapist!5e0!3m2!1sen!2sus!4v1780331305119!5m2!1sen!2sus"
                         width="100%"
                         height="420"
                         style={{ border: 0, display: 'block', pointerEvents: isMobile ? 'none' : 'auto' }}
                         allowFullScreen={false}
                         loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"
-                        title="Endorphins Health and Wellness Centre location"
+                        title="Kareem Hassanein, Registered Physiotherapist location"
                       />
                     </div>
                     {/* Gold gradient overlay at bottom */}

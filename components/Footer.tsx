@@ -34,13 +34,13 @@ function FooterMap() {
     <div ref={mapRef} className="rounded-lg overflow-hidden border border-slate-700/50" style={{ minHeight: 180 }}>
       {showMap ? (
         <iframe
-          src="https://www.google.com/maps?q=Endorphins+Health+%26+Wellness+Centre+4631+Palladium+Way+Burlington+ON&output=embed"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2898.519514705003!2d-79.82862318760941!3d43.40797126813572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b61c9d9d9c40f%3A0xadd452d206e4b1b3!2sKareem%20Hassanein%20-%20Registered%20Physiotherapist!5e0!3m2!1sen!2sus!4v1780331305119!5m2!1sen!2sus"
           width="100%"
           height="180"
           style={{ border: 0, display: 'block' }}
           allowFullScreen={false}
           referrerPolicy="no-referrer-when-downgrade"
-          title="Endorphins Health and Wellness Centre location"
+          title="Kareem Hassanein, Registered Physiotherapist location"
         />
       ) : (
         <div className="w-full h-[180px] bg-slate-800/50 flex items-center justify-center">

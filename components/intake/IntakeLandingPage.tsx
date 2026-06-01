@@ -1,6 +1,6 @@
 'use client';
 
-import type { CSSProperties, ComponentType, ReactNode, SVGProps } from 'react';
+import type { CSSProperties, ComponentType, ReactNode, SVGProps, TouchEvent } from 'react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import {
@@ -174,6 +174,22 @@ export default function IntakeLandingPage() {
   useEffect(() => { timer.current = setInterval(next, 5500); return () => { if (timer.current) clearInterval(timer.current); }; }, [next]);
   const go = (i: number) => { setActiveReview(i); if (timer.current) clearInterval(timer.current); timer.current = setInterval(next, 5500); };
 
+  // Touch swipe for the reviews carousel: advance on a clearly horizontal swipe,
+  // ignore vertical movement so page scrolling is unaffected.
+  const reviewSwipeStart = useRef<{ x: number; y: number } | null>(null);
+  const onReviewTouchStart = (e: TouchEvent) => {
+    reviewSwipeStart.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+  };
+  const onReviewTouchEnd = (e: TouchEvent) => {
+    if (!reviewSwipeStart.current) return;
+    const dx = e.changedTouches[0].clientX - reviewSwipeStart.current.x;
+    const dy = e.changedTouches[0].clientY - reviewSwipeStart.current.y;
+    reviewSwipeStart.current = null;
+    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.4) {
+      go(dx < 0 ? (activeReview + 1) % reviews.length : (activeReview - 1 + reviews.length) % reviews.length);
+    }
+  };
+
   // Mobile detection for marquee speed (mobile needs faster scroll)
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -340,7 +356,7 @@ export default function IntakeLandingPage() {
               <div style={{ display: 'flex', justifyContent: 'center', gap: 4, marginBottom: 24 }}><Stars size={18} /></div>
               <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.goldBright, marginBottom: 48 }}>5.0 from 24 Google Reviews</p>
 
-              <div style={{ position: 'relative', height: isMobile ? 440 : 'clamp(260px, 32vw, 280px)' }}>
+              <div onTouchStart={onReviewTouchStart} onTouchEnd={onReviewTouchEnd} style={{ position: 'relative', height: isMobile ? 440 : 'clamp(260px, 32vw, 280px)' }}>
                 <AnimatePresence mode="wait">
                   <motion.div key={activeReview}
                     initial={{ opacity: 0, y: 24, scale: 0.96 }}

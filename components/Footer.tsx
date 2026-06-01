@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import {
   MapPin,
   Phone,
@@ -13,7 +14,7 @@ import {
 } from '@phosphor-icons/react';
 import Image from 'next/image';
 import BackgroundTexture from './BackgroundTexture';
-import { JANE_BOOKING_URL } from '@/lib/booking';
+import { BOOKING_PAGE_PATH, JANE_BOOKING_URL } from '@/lib/booking';
 
 function FooterMap() {
   const [showMap, setShowMap] = useState(false);
@@ -51,6 +52,8 @@ function FooterMap() {
 }
 
 export default function Footer() {
+  const pathname = usePathname();
+  const isIntakePage = pathname === BOOKING_PAGE_PATH;
   const currentYear = new Date().getFullYear();
   const mapHref = 'https://maps.app.goo.gl/syZN4FUBgACrtqgK9';
   const contactInfo = [
@@ -140,7 +143,8 @@ export default function Footer() {
           </Link>
         </div>
 
-        {/* Main grid layout */}
+        {/* Main grid layout (omitted on the ads landing page to keep it focused) */}
+        {!isIntakePage && (
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Contact Information */}
           <div>
@@ -300,6 +304,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
+        )}
 
         {/* Bottom section */}
         <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center">

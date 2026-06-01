@@ -194,7 +194,8 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               </Link>
             </motion.div>
 
-            {/* Desktop Navigation */}
+            {/* Desktop Navigation (hidden on the ads landing page to reduce exits) */}
+            {!isIntakePage && (
             <nav className="hidden lg:flex items-center gap-2">
               {mainNavItems.map((item) => (
                 <motion.div
@@ -263,6 +264,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 </motion.div>
               ))}
             </nav>
+            )}
 
             {/* Right Actions - Vertically Aligned */}
             <div className="flex items-center gap-4 lg:gap-6 flex-shrink-0 h-10">
@@ -304,17 +306,25 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   target="_blank"
                   rel="noopener noreferrer"
                   prefetch={false}
-                  className="hidden sm:flex group relative px-6 py-2.5 bg-[#D4AF37] overflow-hidden rounded-full transition-all duration-300 hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:scale-105"
+                  className={`${isIntakePage ? 'flex px-4 py-2 sm:px-6 sm:py-2.5' : 'hidden sm:flex px-6 py-2.5'} group relative bg-[#D4AF37] overflow-hidden rounded-full transition-all duration-300 hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:scale-105`}
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
                   <span className="relative flex items-center gap-2 text-slate-900 font-bold text-xs tracking-[0.1em] uppercase">
                     <CalendarDaysIcon className="w-4 h-4" />
-                    {isIntakePage ? 'Book Assessment' : 'Book Now'}
+                    {isIntakePage ? (
+                      <>
+                        <span className="sm:hidden">Book</span>
+                        <span className="hidden sm:inline">Book Assessment</span>
+                      </>
+                    ) : (
+                      'Book Now'
+                    )}
                   </span>
                 </Link>
               </motion.div>
 
-              {/* Mobile Menu Toggle - Force Visibility & Alignment */}
+              {/* Mobile Menu Toggle (hidden on the ads landing page) */}
+              {!isIntakePage && (
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="lg:hidden relative z-50 w-10 h-10 flex items-center justify-center !text-white hover:!text-[#D4AF37] transition-colors"
@@ -328,6 +338,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   <Bars3Icon className="w-7 h-7" aria-hidden="true" />
                 )}
               </button>
+              )}
             </div>
           </motion.div>
         </div>

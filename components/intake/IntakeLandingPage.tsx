@@ -183,6 +183,10 @@ export default function IntakeLandingPage() {
     return () => window.removeEventListener('resize', check);
   }, []);
 
+  // Pause the condition marquee on hover (desktop) and while pressed (touch)
+  // so the auto-scrolling pills become tappable/clickable targets.
+  const [marqueePaused, setMarqueePaused] = useState(false);
+
   return (
     <>
       <style>{`
@@ -199,6 +203,12 @@ export default function IntakeLandingPage() {
         .intake-page [data-booking-cta]:visited { color: #1C1917 !important; }
         .intake-mobile-portrait { display: block !important; }
         @media (min-width: 1024px) { .intake-mobile-portrait { display: none !important; } }
+        @keyframes intake-marquee-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        @keyframes intake-marquee-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+        .intake-marquee-row { animation-timing-function: linear; animation-iteration-count: infinite; will-change: transform; }
+        .intake-marquee-track:hover .intake-marquee-row,
+        .intake-marquee-track.is-paused .intake-marquee-row { animation-play-state: paused; }
+        @media (prefers-reduced-motion: reduce) { .intake-marquee-row { animation: none !important; } }
       `}</style>
 
       <main className="intake-page" style={{ fontFamily: sans, background: c.bg, color: c.text, WebkitFontSmoothing: 'antialiased', overflow: 'hidden' }}>
@@ -229,7 +239,7 @@ export default function IntakeLandingPage() {
                 </motion.p>
 
                 <motion.p variants={up} style={{ maxWidth: 460, color: c.textMid, fontSize: 17, lineHeight: 1.75, marginBottom: 36 }}>
-                  Searching for physiotherapy near me in Burlington or Waterdown? One-on-one care from a Registered Physiotherapist that gets to the source of your pain so you can move freely.
+                  Searching for physiotherapy near me in Burlington or Waterdown? Care that gets to the source of your pain so you can move freely.
                 </motion.p>
 
                 {/* Mobile portrait card — visible only below lg */}
@@ -328,9 +338,9 @@ export default function IntakeLandingPage() {
           <div style={{ position: 'relative', maxWidth: 780, margin: '0 auto', padding: 'clamp(7rem, 16vw, 14rem) clamp(1.5rem, 5vw, 4rem)', textAlign: 'center' }}>
             <Reveal from="scale">
               <div style={{ display: 'flex', justifyContent: 'center', gap: 4, marginBottom: 24 }}><Stars size={18} /></div>
-              <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.goldText, marginBottom: 48 }}>5.0 from 24 Google Reviews</p>
+              <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.goldBright, marginBottom: 48 }}>5.0 from 24 Google Reviews</p>
 
-              <div style={{ position: 'relative', height: 'clamp(260px, 32vw, 280px)' }}>
+              <div style={{ position: 'relative', height: isMobile ? 440 : 'clamp(260px, 32vw, 280px)' }}>
                 <AnimatePresence mode="wait">
                   <motion.div key={activeReview}
                     initial={{ opacity: 0, y: 24, scale: 0.96 }}
@@ -341,7 +351,7 @@ export default function IntakeLandingPage() {
                     <p style={{ fontFamily: serif, fontSize: 'clamp(1.25rem, 2.4vw, 1.85rem)', fontWeight: 300, lineHeight: 1.65, color: '#FFFFFFEE', maxWidth: 620, margin: '0 auto 32px' }}>
                       &ldquo;{reviews[activeReview].text}&rdquo;
                     </p>
-                    <p style={{ fontSize: 13, fontWeight: 700, color: c.goldText, letterSpacing: '0.12em', textTransform: 'uppercase' }}>{reviews[activeReview].name}</p>
+                    <p style={{ fontSize: 13, fontWeight: 700, color: c.goldBright, letterSpacing: '0.12em', textTransform: 'uppercase' }}>{reviews[activeReview].name}</p>
                   </motion.div>
                 </AnimatePresence>
               </div>
@@ -371,15 +381,21 @@ export default function IntakeLandingPage() {
           <Reveal>
             <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.goldText, textAlign: 'center', marginBottom: 32 }}>Conditions Treated</p>
           </Reveal>
-          <div style={{ position: 'relative' }}>
+          <div
+            className={`intake-marquee-track${marqueePaused ? ' is-paused' : ''}`}
+            onPointerDown={() => setMarqueePaused(true)}
+            onPointerUp={() => setMarqueePaused(false)}
+            onPointerCancel={() => setMarqueePaused(false)}
+            onPointerLeave={() => setMarqueePaused(false)}
+            style={{ position: 'relative' }}
+          >
             {/* Edge fade masks */}
             <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 'clamp(40px, 12vw, 100px)', background: `linear-gradient(to right, ${c.white}, transparent)`, zIndex: 2, pointerEvents: 'none' }} />
             <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 'clamp(40px, 12vw, 100px)', background: `linear-gradient(to left, ${c.white}, transparent)`, zIndex: 2, pointerEvents: 'none' }} />
-            {/* Row 1 — scrolls left */}
-            <motion.div
-              animate={reduced ? undefined : { x: ['0%', '-50%'] }}
-              transition={{ duration: isMobile ? 14 : 40, ease: 'linear', repeat: Infinity }}
-              style={{ display: 'flex', gap: 12, width: 'max-content', marginBottom: 12 }}
+            {/* Row 1 — scrolls left (CSS marquee; pauses on hover/touch) */}
+            <div
+              className="intake-marquee-row"
+              style={{ display: 'flex', gap: 12, width: 'max-content', marginBottom: 12, animationName: 'intake-marquee-left', animationDuration: isMobile ? '14s' : '40s' }}
             >
               {[...conditionsRow1, ...conditionsRow1].map((cond, i) => {
                 const isDuplicate = i >= conditionsRow1.length;
@@ -396,12 +412,11 @@ export default function IntakeLandingPage() {
                   </a>
                 );
               })}
-            </motion.div>
-            {/* Row 2 — scrolls right (opposite direction) */}
-            <motion.div
-              animate={reduced ? undefined : { x: ['-50%', '0%'] }}
-              transition={{ duration: isMobile ? 16 : 45, ease: 'linear', repeat: Infinity }}
-              style={{ display: 'flex', gap: 12, width: 'max-content' }}
+            </div>
+            {/* Row 2 — scrolls right (CSS marquee; pauses on hover/touch) */}
+            <div
+              className="intake-marquee-row"
+              style={{ display: 'flex', gap: 12, width: 'max-content', animationName: 'intake-marquee-right', animationDuration: isMobile ? '16s' : '45s' }}
             >
               {[...conditionsRow2, ...conditionsRow2].map((cond, i) => {
                 const isDuplicate = i >= conditionsRow2.length;
@@ -418,7 +433,7 @@ export default function IntakeLandingPage() {
                   </a>
                 );
               })}
-            </motion.div>
+            </div>
           </div>
         </div>
 
@@ -564,7 +579,7 @@ export default function IntakeLandingPage() {
               <Reveal from="left">
                 <div>
                   <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.goldText, marginBottom: 16 }}>The Clinic</p>
-                  <h2 style={{ fontFamily: serif, color: c.black, fontWeight: 700, fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: 48 }}>Physio Clinic Near You &mdash; Burlington &amp; Waterdown</h2>
+                  <h2 style={{ fontFamily: serif, color: c.black, fontWeight: 700, fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: 48 }}>Physio Clinic Near You in Burlington &amp; Waterdown</h2>
 
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
                     {clinicDetails.map((d, i) => (

@@ -186,6 +186,18 @@ html {
   max-width: 100vw;
 }
 
+/* Modern text wrapping: balance multi-line display headings (avoids single-word
+   orphans on the last line) and avoid orphans in paragraphs. Progressive
+   enhancement — browsers without support fall back to normal wrapping. */
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+p {
+  text-wrap: pretty;
+}
+
 /* Glass morphism styling - enhanced */
 .glass-morphism {
   background: rgba(255, 255, 255, 0.65);

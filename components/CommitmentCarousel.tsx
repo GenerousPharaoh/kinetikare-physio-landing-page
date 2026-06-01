@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { 
   DocumentTextIcon, 
@@ -79,10 +79,27 @@ export default function CommitmentCarousel({ items }: CommitmentCarouselProps) {
     setTimeout(() => setIsAutoPlaying(true), 10000);
   };
 
+  // Touch swipe: advance only on a clearly horizontal swipe so vertical page
+  // scrolling is left untouched. Reuses next/prevSlide (which pause auto-play).
+  const swipeStart = useRef<{ x: number; y: number } | null>(null);
+  const handleTouchStart = (e: React.TouchEvent) => {
+    swipeStart.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+  };
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (!swipeStart.current) return;
+    const dx = e.changedTouches[0].clientX - swipeStart.current.x;
+    const dy = e.changedTouches[0].clientY - swipeStart.current.y;
+    swipeStart.current = null;
+    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.4) {
+      if (dx < 0) nextSlide();
+      else prevSlide();
+    }
+  };
+
   return (
     <div className="max-w-5xl mx-auto">
       {/* Main carousel */}
-      <div className="relative bg-gradient-to-br from-white to-slate-50 rounded-3xl shadow-xl border border-slate-200/50 overflow-hidden">
+      <div className="relative bg-gradient-to-br from-white to-slate-50 rounded-3xl shadow-xl border border-slate-200/50 overflow-hidden" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
         <div className="relative">
           <AnimatePresence mode="wait">
             <motion.div

@@ -179,6 +179,24 @@ export default function GoogleReviews() {
     setCurrentIndex(index);
   };
 
+  // Touch swipe: advance only on a clearly horizontal swipe so vertical page
+  // scrolling is left untouched. Reuses handleNext/handlePrevious (which pause
+  // auto-play), so behaviour matches the arrow controls.
+  const swipeStart = useRef<{ x: number; y: number } | null>(null);
+  const onCarouselTouchStart = (e: React.TouchEvent) => {
+    swipeStart.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+  };
+  const onCarouselTouchEnd = (e: React.TouchEvent) => {
+    if (!swipeStart.current) return;
+    const dx = e.changedTouches[0].clientX - swipeStart.current.x;
+    const dy = e.changedTouches[0].clientY - swipeStart.current.y;
+    swipeStart.current = null;
+    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.4) {
+      if (dx < 0) handleNext();
+      else handlePrevious();
+    }
+  };
+
   // Get visible reviews for carousel (current, prev, next)
   const getVisibleReviews = () => {
     const prevIndex = (currentIndex - 1 + reviews.length) % reviews.length;
@@ -231,7 +249,7 @@ export default function GoogleReviews() {
 
         {/* Reviews Carousel */}
         <div className="relative max-w-6xl mx-auto">
-          <div className="overflow-hidden rounded-2xl">
+          <div className="overflow-hidden rounded-2xl" onTouchStart={onCarouselTouchStart} onTouchEnd={onCarouselTouchEnd}>
             <div className="relative h-[380px] sm:h-[480px] md:h-[550px]">
               <AnimatePresence mode="wait">
                 {getVisibleReviews().map((review, index) => (

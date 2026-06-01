@@ -361,7 +361,9 @@ export default function IntakeLandingPage() {
                 <button onClick={() => go((activeReview - 1 + reviews.length) % reviews.length)} aria-label="Previous review" style={{ width: 44, height: 44, border: 'none', background: 'transparent', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(255,255,255,0.5)' }}>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 19l-7-7 7-7" /></svg>
                 </button>
-                <span aria-hidden="true" style={{ width: 4, height: 4, borderRadius: '50%', background: 'rgba(212,175,55,0.6)' }} />
+                <span aria-live="polite" style={{ minWidth: 56, textAlign: 'center', fontSize: 12, fontWeight: 600, letterSpacing: '0.12em', color: 'rgba(255,255,255,0.85)', fontVariantNumeric: 'tabular-nums' }}>
+                  {activeReview + 1} <span style={{ color: 'rgba(255,255,255,0.4)' }}>/ {reviews.length}</span>
+                </span>
                 <button onClick={() => go((activeReview + 1) % reviews.length)} aria-label="Next review" style={{ width: 44, height: 44, border: 'none', background: 'transparent', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(255,255,255,0.5)' }}>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 5l7 7-7 7" /></svg>
                 </button>
@@ -441,7 +443,7 @@ export default function IntakeLandingPage() {
         <div style={{ background: c.bg, position: 'relative' }}>
           {/* Subtle radial glow behind timeline */}
           <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '60%', height: '80%', background: `radial-gradient(ellipse at center, rgba(212,175,55,0.04), transparent 60%)`, pointerEvents: 'none' }} />
-          <div style={{ maxWidth: 1000, margin: '0 auto', padding: 'clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem)' }}>
+          <div style={{ maxWidth: 1000, margin: '0 auto', padding: 'clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem) clamp(3rem, 6vw, 4.5rem)' }}>
             <Reveal>
               <div style={{ textAlign: 'center', marginBottom: 72 }}>
                 <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: c.goldText, marginBottom: 16 }}>Your First Visit</p>
@@ -482,7 +484,7 @@ export default function IntakeLandingPage() {
 
         {/* ═══════════ MID-PAGE CTA ═══════════ */}
         <Reveal from="scale">
-          <div style={{ maxWidth: 720, margin: '0 auto', padding: 'clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem)', textAlign: 'center' }}>
+          <div style={{ maxWidth: 720, margin: '0 auto', padding: 'clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 5vw, 4rem)', textAlign: 'center' }}>
             <p style={{ fontFamily: serif, fontSize: 'clamp(1.4rem, 2.5vw, 1.8rem)', fontWeight: 700, color: c.black, lineHeight: 1.3, marginBottom: 8 }}>
               Ready to get started?
             </p>
@@ -617,10 +619,10 @@ export default function IntakeLandingPage() {
                   <div style={{ borderRadius: 16, overflow: 'hidden', boxShadow: '0 20px 60px -16px rgba(0,0,0,0.12)', border: `1px solid ${c.stone200}`, position: 'relative' }}>
                     <div style={{ position: 'relative' }}>
                       <iframe
-                        src="https://www.google.com/maps?q=Endorphins+Health+%26+Wellness+Centre+4631+Palladium+Way+Burlington+ON&output=embed"
+                        src="https://www.google.com/maps?q=4631+Palladium+Way+Unit+6+Burlington+ON+L7M+0W9&output=embed"
                         width="100%"
                         height="420"
-                        style={{ border: 0, display: 'block' }}
+                        style={{ border: 0, display: 'block', pointerEvents: isMobile ? 'none' : 'auto' }}
                         allowFullScreen={false}
                         loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"

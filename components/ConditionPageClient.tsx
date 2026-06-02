@@ -117,6 +117,13 @@ const REHAB_PROGRESSION_SLUGS = new Set<string>([
   'diabetes-related-conditions',
 ]);
 
+// TEMPORARY (2026-06-02): the Research tab (keyResearch + researchInsights) is
+// suppressed site-wide while the cited statistics are being rebuilt against
+// verified sources. A citation audit found ~46% of research claims were
+// fabricated or misattributed. Flip this to false to restore the Research tab
+// once the data is corrected. The underlying data is untouched.
+const SUPPRESS_RESEARCH_SECTIONS: boolean = true;
+
 type PatternClusterConditions = Record<
   string,
   { slug: string; name: string; patternMatcher?: Condition['patternMatcher'] }
@@ -172,7 +179,7 @@ export default function ConditionPageClient({
     if (condition.pathophysiology || condition.overview || condition.biomechanics) return 'overview';
     if (condition.clinicalPresentation || condition.differentialDiagnosis || condition.whenToSeek || hasPatternMatcher) return 'symptoms';
     if (condition.selfManagement || condition.prognosis || condition.faqs || condition.treatmentApproach || condition.timeline || condition.evidenceBasedTreatment || relatedTreatments.length > 0) return 'self-care';
-    if (condition.keyResearch || condition.researchInsights) return 'research';
+    if (!SUPPRESS_RESEARCH_SECTIONS && (condition.keyResearch || condition.researchInsights)) return 'research';
     return 'overview'; // fallback
   };
 
@@ -238,7 +245,7 @@ export default function ConditionPageClient({
       case 'symptoms':
         return condition.clinicalPresentation || condition.differentialDiagnosis || condition.whenToSeek || hasPatternMatcher;
       case 'research':
-        return condition.keyResearch || condition.researchInsights;
+        return !SUPPRESS_RESEARCH_SECTIONS && (condition.keyResearch || condition.researchInsights);
       case 'self-care':
         // Now includes treatment approach and timeline content
         return condition.selfManagement || condition.prognosis || condition.faqs ||

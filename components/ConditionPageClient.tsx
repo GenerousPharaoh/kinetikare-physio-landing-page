@@ -30,6 +30,7 @@ import { Condition } from '@/lib/conditions-data';
 import { getTreatmentsByCondition } from '@/lib/treatments-data';
 import type { PatternMatcherCluster } from '@/lib/pattern-matchers/knee-cluster';
 import ClinicalObservations from './conditions/ClinicalObservations';
+import ExerciseProgression from './conditions/ExerciseProgression';
 import AuthorByline from './conditions/AuthorByline';
 import SectionHeading from './conditions/SectionHeading';
 import GlossaryText from './conditions/GlossaryText';
@@ -47,6 +48,19 @@ const PatternMatcher = dynamic(() => import('./conditions/PatternMatcher'), {
     </div>
   ),
 });
+
+// Conditions whose three-phase exercise progression has been individually
+// reviewed and is approved to render publicly. Kept narrow on purpose; grow it
+// as each remaining condition's progression is checked.
+const REHAB_PROGRESSION_SLUGS = new Set<string>([
+  'low-back-pain',
+  'sciatica',
+  'patellar-tendinopathy',
+  'knee-pain-patellofemoral',
+  'greater-trochanteric-pain-syndrome',
+  'rotator-cuff-injuries',
+  'achilles-tendinopathy',
+]);
 
 type PatternClusterConditions = Record<
   string,
@@ -89,6 +103,14 @@ export default function ConditionPageClient({
 
   // Get related treatments for this condition
   const relatedTreatments = getTreatmentsByCondition(conditionSlug);
+
+  // Rehabilitation progression: surfaced for a vetted first batch whose
+  // three-phase progressions have each been individually reviewed. The same
+  // data also feeds the HowTo JSON-LD (#rehab-progression), so rendering it
+  // here makes that structured data match visible content. Expand as reviewed.
+  const showRehabProgression = Boolean(
+    condition.exerciseProgression && REHAB_PROGRESSION_SLUGS.has(conditionSlug),
+  );
 
   // Determine first available tab for this condition
   const getFirstAvailableTab = () => {
@@ -212,6 +234,7 @@ export default function ConditionPageClient({
           ? chip('evidence-based-management', 'Evidence-Based Treatment') : null,
         (condition.treatmentApproach || relatedTreatments.length > 0)
           ? chip('treatment-techniques', 'Treatment Techniques') : null,
+        showRehabProgression ? chip('rehab-progression', 'Exercise Phases') : null,
         condition.timeline && condition.timeline.length > 0
           ? chip('recovery-timeline', 'Recovery Timeline') : null,
         condition.prognosis ? chip('prognosis', 'Prognosis & Outcomes') : null,
@@ -697,6 +720,18 @@ export default function ConditionPageClient({
                                 }`}
                               >
                                 Treatment Techniques
+                              </button>
+                            )}
+                            {showRehabProgression && (
+                              <button
+                                onClick={() => scrollToSubSection('rehab-progression')}
+                                className={`w-full text-left px-2.5 py-1.5 text-xs transition-colors duration-150 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-1 ${
+                                  activeSubSection === 'rehab-progression'
+                                    ? 'text-slate-900 font-semibold'
+                                    : 'text-slate-500 hover:text-slate-900'
+                                }`}
+                              >
+                                Exercise Phases
                               </button>
                             )}
                             {condition.timeline && (
@@ -1501,6 +1536,14 @@ export default function ConditionPageClient({
                               </div>
                             </div>
                           )}
+
+                            {/* Rehabilitation progression (vetted conditions only) */}
+                            {showRehabProgression && (
+                              <ExerciseProgression
+                                progression={condition.exerciseProgression}
+                                conditionName={condition.name}
+                              />
+                            )}
 
                             {/* Recovery Timeline Section */}
                             {condition.timeline && condition.timeline.length > 0 && (

@@ -50,16 +50,71 @@ const PatternMatcher = dynamic(() => import('./conditions/PatternMatcher'), {
 });
 
 // Conditions whose three-phase exercise progression has been individually
-// reviewed and is approved to render publicly. Kept narrow on purpose; grow it
-// as each remaining condition's progression is checked.
+// reviewed (clinical accuracy, citation validity, safety, CPO-regulatory
+// language, and appropriateness for self-directed public education) and cleared
+// to render publicly. 46 of the 58 conditions that carry progression data.
+//
+// Deliberately held back and NOT listed here:
+//   - acl-injuries, shoulder-instability, stress-fractures, scaphoid-fractures,
+//     patella-fractures: need an explicit population / clearance scope line
+//     before public self-directed use (post-surgical-only scope, acute vs
+//     atraumatic, or loading gated on imaging-confirmed union).
+//   - golfers-elbow, shoulder-impingement, si-joint-dysfunction, pcl-injuries,
+//     metatarsalgia, turf-toe, growth-plate-injuries: citation, regulatory, or
+//     pediatric-scope fixes required in the underlying data first.
 const REHAB_PROGRESSION_SLUGS = new Set<string>([
+  // Spine + SI joint
   'low-back-pain',
   'sciatica',
+  'disc-herniation',
+  'degenerative-disc-disease',
+  'spinal-stenosis',
+  'facet-joint-syndrome',
+  'postural-dysfunction',
+  // Hip + pelvis
+  'greater-trochanteric-pain-syndrome',
+  'hip-osteoarthritis',
+  'femoroacetabular-impingement',
+  'hip-labral-tears',
+  'hip-bursitis',
+  'deep-gluteal-syndrome',
+  'piriformis-syndrome',
+  'proximal-hamstring-tendinopathy',
+  'groin-strains',
+  'hamstring-strains',
+  // Knee
   'patellar-tendinopathy',
   'knee-pain-patellofemoral',
-  'greater-trochanteric-pain-syndrome',
-  'rotator-cuff-injuries',
+  'knee-osteoarthritis',
+  'meniscus-tears',
+  'it-band-syndrome',
+  'mcl-lcl-sprains',
+  // Lower leg, ankle + foot
   'achilles-tendinopathy',
+  'ankle-sprains',
+  'shin-splints',
+  'peroneal-tendinopathy',
+  'posterior-tibial-tendon-dysfunction',
+  'plantar-fasciitis',
+  'mortons-neuroma',
+  'hallux-valgus',
+  'hallux-rigidus',
+  'hammer-toe-deformities',
+  'severs-disease',
+  // Shoulder, elbow, wrist + hand
+  'rotator-cuff-injuries',
+  'frozen-shoulder',
+  'shoulder-bursitis',
+  'ac-joint-injuries',
+  'biceps-tendinopathy',
+  'thoracic-outlet-syndrome',
+  'tennis-elbow',
+  'carpal-tunnel-syndrome',
+  'de-quervains-tenosynovitis',
+  'wrist-sprains',
+  'repetitive-strain-injuries',
+  // Systemic
+  'diabetes-related-conditions',
 ]);
 
 type PatternClusterConditions = Record<

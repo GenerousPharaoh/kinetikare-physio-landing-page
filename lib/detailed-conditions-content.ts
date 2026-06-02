@@ -192,7 +192,7 @@ Modern lifestyle factors play a huge role: prolonged sitting, particularly with 
         sampleSize: "22 international expert panel",
         findings: "Strong evidence supports manual therapy combined with exercise for acute LBP. Multidisciplinary treatment more effective than single interventions for pain intensity reduction.",
         relevance: "Provides current expert consensus on optimal physiotherapy approaches for acute presentations",
-        citation: "Wang XQ, Wang YL, Witchalls J, et al. Physical therapy for acute and sub-acute low back pain: A systematic review and expert consensus. Clin Rehabil. 2024;38(3):329-343."
+        citation: "Wang XQ, Wang YL, Witchalls J, et al. Physical therapy for acute and sub-acute low back pain: A systematic review and expert consensus. Clin Rehabil. 2024;38(6):715-731."
       },
       {
         title: "Cognitive functional therapy for chronic, disabling low back pain (RESTORE trial)",
@@ -207,20 +207,20 @@ Modern lifestyle factors play a huge role: prolonged sitting, particularly with 
       {
         title: "Treatment-based classification for low back pain",
         authors: "Fritz JM, Cleland JA, Childs JD",
-        year: 2021,
+        year: 2007,
         journal: "Journal of Orthopaedic & Sports Physical Therapy",
-        sampleSize: "220 participants",
-        findings: "Classification-based physical therapy with thrust mobilization combined with exercise showed greater improvement in disability after 4 weeks (effect size 0.58) and 3 months compared to usual care.",
+        sampleSize: "Clinical commentary",
+        findings: "Outlines a treatment-based classification system that subgroups patients with low back pain by clinical presentation to match them to specific physiotherapy approaches, rather than applying a single generic protocol.",
         relevance: "Supports individualized treatment approach based on clinical presentation rather than generic protocols",
-        citation: "Fritz JM, Cleland JA, Childs JD. Subgrouping patients with low back pain: evolution of a classification approach to physical therapy. J Orthop Sports Phys Ther. 2021;51(11):CPG1-CPG60."
+        citation: "Fritz JM, Cleland JA, Childs JD. Subgrouping patients with low back pain: evolution of a classification approach to physical therapy. J Orthop Sports Phys Ther. 2007;37(6):290-302."
       }
     ],
 
     researchInsights: [
-      "Exercise Dose-Response: Moderate-certainty evidence from 249 studies shows that exercise frequency of 2-3 sessions per week for 8-12 weeks provides optimal outcomes for chronic low back pain",
+      "Exercise Therapy: Moderate-certainty evidence from a Cochrane review of 249 studies shows exercise is probably effective for chronic low back pain compared with no treatment, usual care, or placebo, though the evidence was too heterogeneous to recommend a single optimal exercise type or dose (Hayden et al., 2021)",
       "Treatment Sequencing: Studies demonstrate that starting with manual therapy to reduce irritability, then progressing to exercise therapy, produces superior outcomes compared to exercise alone in acute presentations",
-      "Biopsychosocial Approach: Cognitive functional therapy addressing pain beliefs and movement fears shows 40% greater improvement in disability compared to traditional biomedical approaches",
-      "Classification Benefits: Patients matched to treatment based on clinical presentation (Treatment-Based Classification) show 58% better outcomes than generic exercise programs",
+      "Biopsychosocial Approach: Cognitive functional therapy addressing pain beliefs and movement fears can produce greater improvement in disability than a traditional biomedical approach (Kent et al., RESTORE trial, Lancet 2023)",
+      "Classification Benefits: Patients matched to treatment based on their clinical presentation (Treatment-Based Classification) can experience better outcomes than those given a generic exercise programme",
       "Long-term Effectiveness: Exercise therapy benefits are maintained at 12 months, while injection-based treatments show no long-term advantage over placebo"
     ],
 
@@ -442,33 +442,33 @@ Sleep position plays a role too - pillows that are too high or too flat force yo
     keyResearch: [
       {
         title: "Deep cervical flexors training vs conventional physiotherapy",
-        authors: "Ahmed MI, Ghafar MA, Elhafez SM",
+        authors: "Amin FS, Abdel-Aal NM, El Shater BS",
         year: 2024,
         journal: "Bulletin of Faculty of Physical Therapy",
         sampleSize: "60 participants",
         findings: "Deep cervical flexors training plus conventional therapy showed greater improvement in proprioception and pain reduction compared to conventional therapy alone after 4 weeks of treatment.",
         relevance: "Supports specific targeting of deep neck stabilizer muscles rather than general exercise approaches",
-        citation: "Ahmed MI, Ghafar MA, Elhafez SM. Effect of Maitland mobilization versus deep cervical flexors muscles training on proprioception in adults with chronic mechanical neck pain. Bull Fac Phys Ther. 2024;29(1):200."
+        citation: "Amin FS, Abdel-Aal NM, El Shater BS. Effect of Maitland mobilization versus deep cervical flexors muscles training on proprioception in adults with chronic mechanical neck pain: a randomized controlled trial. Bull Fac Phys Ther. 2024;29:34."
       },
       {
         title: "Motor control training with pressure biofeedback for neck pain",
-        authors: "Saadat Z, Hosseinifar M, Akbari A, et al.",
+        authors: "Tsiringakis G, Dimitriadis Z, Triantafylloy E, McLean S",
         year: 2020,
         journal: "Musculoskeletal Science and Practice",
         sampleSize: "Meta-analysis of 10 studies",
         findings: "Motor control training of deep neck flexors with pressure biofeedback was more effective than strength-endurance training for improving pain (Hedges' g = 0.323) and disability (Hedges g = 0.401).",
         relevance: "Demonstrates importance of precise motor control retraining over general strengthening for neck dysfunction",
-        citation: "Saadat Z, Hosseinifar M, Akbari A, et al. Motor control training of deep neck flexors with pressure biofeedback improves pain and disability in patients with neck pain. Musculoskelet Sci Pract. 2020;48:102862."
+        citation: "Tsiringakis G, Dimitriadis Z, Triantafylloy E, McLean S. Motor control training of deep neck flexors with pressure biofeedback improves pain and disability in patients with neck pain: A systematic review and meta-analysis. Musculoskelet Sci Pract. 2020;50:102220."
       },
       {
         title: "PNF vs cranio-cervical flexor training for chronic neck pain",
-        authors: "Suresh R, Maiya AG, Kamath SU",
+        authors: "Suresh V, Venkatesan P, Babu K",
         year: 2024,
         journal: "Physiotherapy Research International",
         sampleSize: "66 participants",
         findings: "Both PNF treatment and craniocervical flexor training showed similar beneficial effects for pain and function in chronic mechanical neck pain patients after 4 weeks of intervention.",
         relevance: "Provides evidence for multiple effective treatment approaches, supporting individualized treatment selection",
-        citation: "Suresh R, Maiya AG, Kamath SU. Effect of proprioceptive neuromuscular facilitation and cranio-cervical flexor training on pain and function in chronic mechanical neck pain. Physiother Res Int. 2024;29(1):e2058."
+        citation: "Suresh V, Venkatesan P, Babu K. Effect of proprioceptive neuromuscular facilitation and cranio-cervical flexor training on pain and function in chronic mechanical neck pain: A randomized clinical trial. Physiother Res Int. 2024;29(1):e2058."
       }
     ],
 
@@ -609,10 +609,10 @@ Your movement patterns throughout the day matter tremendously. Tight hip flexors
 
     keyResearch: [
       {
-        title: "Sciatica Management Review",
+        title: "How effective are physiotherapy interventions in treating people with sciatica? A systematic review and meta-analysis (Dove et al., European Spine Journal)",
         year: 2023,
-        findings: "Early physiotherapy reduces need for surgery and improves long-term outcomes",
-        relevance: "Supports early intervention approach"
+        findings: "This review of 18 trials (2699 participants) found the evidence on physiotherapy for sciatica is limited and heterogeneous, with most trials at high risk of bias; physiotherapy was favoured over minimal intervention such as advice alone for pain in the long term, but overall the authors concluded there is not yet enough high-quality evidence to make firm recommendations",
+        relevance: "Sets realistic expectations: physiotherapy can help, particularly compared with advice alone, but the evidence base is still uncertain, so care is tailored to the individual presentation"
       }
     ],
 
@@ -819,34 +819,34 @@ The most damaging factor I see is the combination of poor posture with repetitiv
 
     keyResearch: [
       {
-        title: "Exercise therapy for rotator cuff tears: Systematic review and meta-analysis",
+        title: "Effectiveness of conservative interventions including exercise, manual therapy and medical management in adults with shoulder impingement: a systematic review and meta-analysis of RCTs",
         authors: "Steuri R, Sattelmayer M, Elsig S, et al.",
-        year: 2022,
-        journal: "Journal of Rehabilitation Medicine",
-        sampleSize: "Systematic review of multiple RCTs",
-        findings: "Exercise therapy shows equivalent outcomes to surgery for degenerative rotator cuff tears. Conservative management effective in reducing pain and improving function with lower risk profile and cost-effectiveness compared to surgical intervention.",
-        relevance: "Provides strong evidence supporting exercise therapy as first-line treatment for rotator cuff tears, particularly degenerative tears",
-        citation: "Steuri R, Sattelmayer M, Elsig S, et al. Exercise therapy for rotator cuff tears: systematic review and meta-analysis. J Rehabil Med. 2022;54:jrm00285."
+        year: 2017,
+        journal: "British Journal of Sports Medicine",
+        sampleSize: "Systematic review and meta-analysis of randomised controlled trials",
+        findings: "Exercise was superior to non-exercise control interventions for pain in adults with shoulder impingement, and specific exercises were superior to generic exercises. Manual therapy added to exercise gave a small additional benefit at short-term follow-up. The authors concluded exercise should be considered for patients with shoulder impingement symptoms, though the overall quality of evidence was low.",
+        relevance: "Supports loaded, specific exercise as a first-line conservative approach for shoulder impingement, which commonly overlaps with rotator cuff tendinopathy",
+        citation: "Steuri R, Sattelmayer M, Elsig S, et al. Effectiveness of conservative interventions including exercise, manual therapy and medical management in adults with shoulder impingement: a systematic review and meta-analysis of RCTs. Br J Sports Med. 2017;51(18):1340-1347."
       },
       {
-        title: "Post-operative rehabilitation concepts for rotator cuff repair",
+        title: "The American Society of Shoulder and Elbow Therapists' consensus statement on rehabilitation following arthroscopic rotator cuff repair",
         authors: "Thigpen CA, Shaffer MA, Gaunt BW, et al.",
-        year: 2024,
-        journal: "International Journal of Sports Physical Therapy",
-        sampleSize: "Clinical review",
-        findings: "Rehabilitation protocols should be tailored based on different phases of tendon healing. Early passive motion, progressive strengthening, and addressing predictable deficits in range of motion, flexibility, strength, and scapular control are essential components.",
-        relevance: "Guides evidence-based post-surgical rehabilitation with emphasis on tissue healing phases and systematic progression",
-        citation: "Thigpen CA, Shaffer MA, Gaunt BW, et al. Rotator cuff repair: post-operative rehabilitation concepts. Int J Sports Phys Ther. 2024;19(3):385-395."
+        year: 2016,
+        journal: "Journal of Shoulder and Elbow Surgery",
+        sampleSize: "Multidisciplinary expert consensus statement",
+        findings: "Rehabilitation is guided by the gradual application of controlled stress to the healing repair, accounting for tear size, tissue quality, and patient factors. The recommended framework includes about two weeks of strict immobilisation, protected passive range of motion through roughly weeks two to six, restoration of active range of motion, and progressive strengthening beginning around postoperative week twelve, followed by a functional progression toward return to demanding activity.",
+        relevance: "Guides post-surgical rehabilitation with emphasis on tissue-healing phases and staged, criterion-based progression",
+        citation: "Thigpen CA, Shaffer MA, Gaunt BW, et al. The American Society of Shoulder and Elbow Therapists' consensus statement on rehabilitation following arthroscopic rotator cuff repair. J Shoulder Elbow Surg. 2016;25(4):521-535."
       },
       {
-        title: "Rotator cuff repair rehabilitation: Level I and II systematic review",
-        authors: "Mazuquin BF, Wright AC, Russell S, et al.",
+        title: "Effectiveness of early versus delayed rehabilitation following rotator cuff repair: systematic review and meta-analyses",
+        authors: "Mazuquin B, Moffatt M, Gill P, et al.",
         year: 2021,
-        journal: "Archives of Physical Medicine and Rehabilitation",
-        sampleSize: "Level I and II evidence synthesis",
-        findings: "Despite advances in surgical techniques, recurrent tears remain problematic (13-94% in some cases). Success relies on communication between surgical and rehabilitation staff. Combined interventions addressing range of motion, strength, and scapular control show superior outcomes.",
-        relevance: "Emphasizes importance of comprehensive rehabilitation approach and multidisciplinary communication for optimal outcomes",
-        citation: "Mazuquin BF, Wright AC, Russell S, et al. Rotator cuff repair rehabilitation: a level I and II systematic review. Arch Phys Med Rehabil. 2021;102(5):971-982."
+        journal: "PLoS One",
+        sampleSize: "20 randomised controlled trials, 1841 patients",
+        findings: "Across 20 trials there were no significant differences between early and delayed or standard rehabilitation for pain and function at most follow-ups, with small differences in range of movement favouring early rehabilitation. Importantly, early mobilisation did not increase the risk of re-tears, though rehabilitation protocols varied widely.",
+        relevance: "Informs the timing of loading after rotator cuff repair and supports protected early movement without raising re-tear risk",
+        citation: "Mazuquin B, Moffatt M, Gill P, et al. Effectiveness of early versus delayed rehabilitation following rotator cuff repair: systematic review and meta-analyses. PLoS One. 2021;16(5):e0252137."
       }
     ],
 
@@ -870,7 +870,7 @@ The most damaging factor I see is the combination of poor posture with repetitiv
       },
       {
         question: "How long to recover from rotator cuff surgery?",
-        answer: "Full recovery after arthroscopic rotator cuff repair generally takes 6 to 12 months, not the 6 weeks patients often expect. Typical milestones based on the 2024 post-operative guidelines in the International Journal of Sports Physical Therapy are: 0 to 6 weeks in a sling with passive range only to protect the repair, 6 to 12 weeks active range of motion, 3 to 6 months progressive strengthening, and 6 to 12 months return to higher demand activity. Re-tear rates in the literature range widely depending on tear size and patient factors, which is why graded loading matters."
+        answer: "Full recovery after arthroscopic rotator cuff repair generally takes 6 to 12 months, not the 6 weeks patients often expect. Typical milestones, in line with the American Society of Shoulder and Elbow Therapists' consensus statement on rehabilitation after arthroscopic rotator cuff repair (Thigpen and colleagues, J Shoulder Elbow Surg 2016), are: an early period of relative immobilisation with protected passive range only to protect the repair, restoration of active range of motion, progressive strengthening generally introduced around 12 weeks, and a staged return to higher demand activity over the following months. Re-tear rates in the literature range widely depending on tear size and patient factors, which is why graded loading matters."
       },
       {
         question: "Is it safe to lift weights with a rotator cuff injury?",
@@ -1090,7 +1090,7 @@ Chronic cases can be more challenging, especially when symptoms persist beyond 1
     evidenceBasedTreatment: [
       {
         approach: "Eccentric Strengthening",
-        evidence: "High-quality evidence (multiple RCTs) showing superior outcomes compared to concentric exercise, stretching, or wait-and-see approaches. Tyler protocol consistently shows high rates of good-to-excellent outcomes in published trials",
+        evidence: "High-quality evidence (multiple RCTs) showing superior outcomes compared to concentric exercise, stretching, or wait-and-see approaches. The Tyler eccentric protocol using a flexible rubber bar has direct randomised-trial support for improving pain and function",
         effectivenessLevel: "strong"
       },
       {
@@ -1188,18 +1188,18 @@ Chronic cases can be more challenging, especially when symptoms persist beyond 1
 
     keyResearch: [
       {
-        finding: "Eccentric exercise produces 81-100% good to excellent results versus 0-33% for controls",
-        detail: "Systematic review and meta-analysis of randomized controlled trials published in British Journal of Sports Medicine (2023) examining eccentric strengthening protocols found standardized mean difference of 0.85 (95% CI: 0.62-1.08) for pain reduction and 0.73 (95% CI: 0.51-0.95) for functional improvement at 12 weeks compared to control interventions. Tyler protocol specifically demonstrated 81-100% good to excellent outcomes in multiple studies versus 0-33% in wait-and-see groups",
+        finding: "Eccentric wrist-extensor loading can improve pain and function more than control or wait-and-see approaches",
+        detail: "In a randomised controlled trial of eccentric wrist-extensor loading for chronic lateral epicondylosis (Tyler TF, Thomas GC, Nicholas SJ, McHugh MP, 2010, Journal of Shoulder and Elbow Surgery), adding an isolated eccentric exercise using a flexible rubber bar to standard physiotherapy produced significantly greater improvements in pain and function than standard physiotherapy alone. Broader systematic reviews of exercise for lateral epicondylalgia similarly favour progressive loading over passive or wait-and-see care, though reported effect sizes vary across trials",
         clinicalRelevance: "Eccentric strengthening represents first-line treatment with highest level of evidence, producing large effect sizes for both pain and function. The specific loading protocol matters - Tyler protocol using Therabar or similar device has strongest evidence base and should be prescribed systematically with appropriate progression"
       },
       {
         finding: "Corticosteroid injections provide short-term relief but worse long-term outcomes than physiotherapy",
-        detail: "Cochrane systematic review (2022) analyzing 26 trials found corticosteroid injections produce superior pain relief at 4 weeks (mean difference of 1.5 points on 10-point scale, 95% CI: 1.1-1.9) compared to placebo or physiotherapy, but significantly worse outcomes at 6 and 12 months. Combined corticosteroid plus exercise therapy showed inferior long-term results compared to exercise alone, with 26% recurrence rate in injection group versus 9% in exercise-only group",
+        detail: "A randomised controlled trial (Coombes BK, Bisset L, Brooks P, Khan A, Vicenzino B, 2013, JAMA) found that corticosteroid injection gave better short-term relief but significantly lower complete recovery at one year and higher recurrence than placebo injection or physiotherapy. These findings are consistent with earlier work by Bisset and colleagues (BMJ, 2006), in which corticosteroid injection outperformed physiotherapy and wait-and-see at six weeks but produced worse outcomes and more recurrences by 52 weeks",
         clinicalRelevance: "While injections offer short-term pain relief that may facilitate early exercise participation, they do not improve long-term outcomes and may actually impair tendon healing. Should be reserved for cases where pain prevents engagement with exercise therapy, not used as standalone treatment, and always combined with progressive loading program"
       },
       {
         finding: "Work-related lateral epicondylalgia requires longer treatment and has worse prognosis",
-        detail: "Prospective cohort study published in Journal of Occupational Rehabilitation (2021) following 312 workers with tennis elbow found work-related cases required average 5.7 months to achieve good outcome versus 3.2 months for non-work-related cases. Factors associated with prolonged recovery included inability to modify work tasks (HR 2.4, 95% CI: 1.6-3.5), high physical demands (HR 1.9, 95% CI: 1.3-2.8), and low job control (HR 1.7, 95% CI: 1.1-2.5). Return-to-work rate at 12 months was 74% for work-related versus 92% for non-work-related cases",
+        detail: "Across the occupational lateral epicondylalgia literature, higher physical job demands, inability to modify aggravating work tasks, and lower job control are associated with slower recovery and a more prolonged course. Cases linked to repetitive forceful gripping at work tend to take longer to settle than non-occupational cases, which is why early ergonomic modification and graded return to duties are emphasised, though precise recovery times vary between individuals",
         clinicalRelevance: "Occupational cases require more aggressive early intervention, ergonomic modifications, and potentially longer rehabilitation periods. Communication with employers about modified duties during rehabilitation phase is critical for optimal outcomes. Inability to temporarily modify work tasks is single strongest predictor of poor prognosis and should prompt consideration of occupational rehabilitation services"
       }
     ],
@@ -1385,43 +1385,43 @@ Contributing factors include sudden increases in weight-bearing activity, biomec
     keyResearch: [
       {
         title: "Physiotherapeutic interventions for plantar fasciitis: Systematic review and meta-analysis",
-        authors: "Raj MA, Panchal N, Tiwari A, et al.",
+        authors: "Raj S, Sharma C, Sundus H",
         year: 2025,
         journal: "Musculoskeletal Care",
         sampleSize: "1,196 participants (21 RCTs)",
         findings: "ESWT and kinesiology taping showed most promising results. Physiotherapeutic interventions modestly reduced pain in short term but showed limited impact on functional improvement. ESWT demonstrated effectiveness in medium and long term compared to controls.",
         relevance: "Most recent comprehensive analysis showing ESWT as most effective treatment modality with evidence for short-term benefits of various physiotherapy approaches",
-        citation: "Raj MA, Panchal N, Tiwari A, et al. Effect of different physiotherapeutic interventions in plantar fasciitis: A systematic review and meta‐analysis of randomized controlled trials. Musculoskelet Care. 2025;23(1):e70151."
+        citation: "Raj S, Sharma C, Sundus H. Effect of different physiotherapeutic interventions in plantar fasciitis: A systematic review and meta‐analysis of randomized controlled trials. Musculoskelet Care. 2025;23(3):e70151."
       },
       {
         title: "Shockwave therapy effectiveness on tendinopathies: Systematic review and meta-analysis",
-        authors: "Li S, Wang K, Sun H, et al.",
+        authors: "Charles R, Fang L, Zhu R, Wang J",
         year: 2023,
         journal: "Frontiers in Immunology",
         sampleSize: "Large systematic review",
         findings: "For plantar fasciitis, ESWT significantly affects short- and long-term pain and function. Focused shockwave therapy associated with higher success rate and greater pain reduction compared with sham therapy in chronic plantar fasciitis patients.",
         relevance: "Establishes ESWT as evidence-based treatment with significant body of research supporting its use for plantar fasciitis",
-        citation: "Li S, Wang K, Sun H, et al. The effectiveness of shockwave therapy on patellar tendinopathy, Achilles tendinopathy, and plantar fasciitis: a systematic review and meta-analysis. Front Immunol. 2023;14:1193835."
+        citation: "Charles R, Fang L, Zhu R, Wang J. The effectiveness of shockwave therapy on patellar tendinopathy, Achilles tendinopathy, and plantar fasciitis: a systematic review and meta-analysis. Front Immunol. 2023;14:1193835."
       },
       {
         title: "Manual therapy for plantar fasciitis: Systematic review",
-        authors: "Fraser JJ, Corbett R, Donner C, et al.",
-        year: 2020,
-        journal: "Physical Therapy Reviews",
+        authors: "Fraser JJ, Corbett R, Donner C, Hertel J",
+        year: 2018,
+        journal: "Journal of Manual & Manipulative Therapy",
         sampleSize: "Systematic review of multiple studies",
         findings: "Manual therapy combined with stretching or strengthening led to greater improvements in function and pain pressure thresholds. MT showed significant benefits in pain relief and functional improvement, with combining MT with adjunct therapies further enhancing recovery.",
         relevance: "Supports manual therapy as safe, effective, and non-invasive treatment option for chronic plantar fasciitis when combined with other interventions",
-        citation: "Fraser JJ, Corbett R, Donner C, et al. Does manual therapy improve pain and function in patients with plantar fasciitis? A systematic review. Phys Ther Rev. 2020;25(4):261-278."
+        citation: "Fraser JJ, Corbett R, Donner C, Hertel J. Does manual therapy improve pain and function in patients with plantar fasciitis? A systematic review. J Man Manip Ther. 2018;26(2):55-65."
       },
       {
         title: "Plantar fascia-specific stretching vs Achilles tendon stretching",
-        authors: "Kamonseki DH, Gonçalves GA, Yi LC, et al.",
-        year: 2019,
-        journal: "Clinical Rehabilitation", 
+        authors: "Siriphorn A, Eksakulkla S",
+        year: 2020,
+        journal: "Journal of Bodywork and Movement Therapies", 
         sampleSize: "Meta-analysis of 8 RCTs",
         findings: "Moderate quality evidence in favor of plantar fascia-specific stretching (PFSS) over Achilles tendon or calf stretching (CS) for reducing pain in short term (less than 3 months). PFSS showed superior outcomes compared to general stretching approaches.",
         relevance: "Demonstrates importance of tissue-specific stretching techniques rather than general approaches for optimal treatment outcomes",
-        citation: "Kamonseki DH, Gonçalves GA, Yi LC, et al. Effect of stretching with and without muscle strengthening exercises for the foot and hip in patients with plantar fasciitis. Clin Rehabil. 2019;33(12):1936-1946."
+        citation: "Siriphorn A, Eksakulkla S. Calf stretching and plantar fascia-specific stretching for plantar fasciitis: A systematic review and meta-analysis. J Bodyw Mov Ther. 2020;24(4):222-232."
       }
     ],
 
@@ -1667,10 +1667,12 @@ The speed of impact doesn't have to be high to cause injury - whiplash can occur
 
     keyResearch: [
       {
-        title: "Early vs Delayed Mobilization for Whiplash",
-        year: 2020,
-        findings: "Early mobilization reduces chronic pain by 40% compared to immobilization",
-        relevance: "Supports active treatment approach from onset"
+        title: "Active intervention in patients with whiplash-associated disorders improves long-term prognosis: a randomized controlled clinical trial",
+        authors: "Rosenfeld M, Seferiadis A, Carlsson J, Gunnarsson R",
+        journal: "Spine (Phila Pa 1976). 2003;28(22):2491-2498",
+        year: 2003,
+        findings: "In this randomized controlled trial, early active intervention (frequent active cervical movements) significantly reduced pain intensity and sick leave compared with a standard program of rest and a soft collar, and at three years only the early active group had regained a total cervical range of motion comparable to uninjured controls.",
+        relevance: "Supports an active, movement-based approach from onset rather than rest and collar immobilization."
       }
     ],
 
@@ -1791,10 +1793,10 @@ Poor posture compounds the problem significantly. Forward head posture and round
 
     keyResearch: [
       {
-        title: "Physiotherapy vs Steroid Injection for Frozen Shoulder",
-        year: 2021,
-        findings: "Combined approach superior to either treatment alone",
-        relevance: "Supports multimodal treatment strategy"
+        title: "Intraarticular Corticosteroids, Supervised Physiotherapy, or a Combination of the Two in the Treatment of Adhesive Capsulitis of the Shoulder",
+        year: 2003,
+        findings: "Carette and colleagues randomised 93 patients with frozen shoulder; corticosteroid injection combined with physiotherapy produced the fastest early improvement in pain and range of motion, with injection contributing most to short-term gains",
+        relevance: "Supports combining injection with physiotherapy for faster early relief rather than either alone"
       }
     ],
 
@@ -2027,23 +2029,23 @@ The "position of no return" happens during cutting movements when your foot plan
       },
       {
         title: "Exercise intervention effectiveness after ACL surgery: Systematic review and meta-analysis",
-        authors: "Wang X, Liu H, Chen Y, et al.",
+        authors: "Zhou H, Qian J, Xing YM, Cui L, Bu YF",
         year: 2025,
         journal: "Frontiers in Physiology",
         sampleSize: "552 participants (11 RCTs)",
         findings: "Exercise therapy showed significant improvements in multiple outcomes including knee function, pain reduction, and muscle strength. Accelerated rehabilitation protocols with early weight bearing and open kinetic chain exercises showed effectiveness.",
         relevance: "Demonstrates robust evidence for exercise therapy effectiveness with specific benefits for function and strength recovery after ACL reconstruction",
-        citation: "Wang X, Liu H, Chen Y, et al. How effective is the addition of specific exercise therapy for patients after anterior cruciate ligament surgery? A systematic review and meta-analysis. Front Physiol. 2025;16:1501458."
+        citation: "Zhou H, Qian J, Xing YM, Cui L, Bu YF. How effective is the addition of specific exercise therapy for patients after anterior cruciate ligament surgery? A systematic review and meta-analysis. Front Physiol. 2025;16:1501458."
       },
       {
         title: "Rehabilitation after ACL injury: Review and recommendations",
-        authors: "Gokeler A, Dingenen B, Hewett TE",
+        authors: "Jenkins SM, Guzman A, Gardner BB, et al.",
         year: 2022,
         journal: "Current Reviews in Musculoskeletal Medicine",
         sampleSize: "Systematic review",
         findings: "Return to sport rates: 81% return to any sport, 65% return to preinjury level, 55% return to competitive level. Psychosocial factors including fear of reinjury significantly impact outcomes. At 2 years post-ACLR, patients are nearly 6 times more likely to suffer second ACL injury.",
         relevance: "Highlights importance of addressing both physical and psychological aspects of ACL rehabilitation, with realistic expectations for return to sport outcomes",
-        citation: "Gokeler A, Dingenen B, Hewett TE. Rehabilitation after anterior cruciate ligament injury: review of current literature and recommendations. Curr Rev Musculoskelet Med. 2022;15(2):125-137."
+        citation: "Jenkins SM, Guzman A, Gardner BB, et al. Rehabilitation after anterior cruciate ligament injury: review of current literature and recommendations. Curr Rev Musculoskelet Med. 2022;15(3):170-179."
       }
     ],
 
@@ -2238,9 +2240,9 @@ Prolonged sitting followed by sudden movement is another classic pattern. When y
 
     keyResearch: [
       {
-        title: "Natural History of Disc Herniation",
-        year: 2022,
-        findings: "Most herniations decrease in size over 6-12 months",
+        title: "The probability of spontaneous regression of lumbar herniated disc: a systematic review (Chiu et al., Clin Rehabil 2015)",
+        year: 2015,
+        findings: "Spontaneous regression of conservatively managed lumbar herniations was common, with higher resorption rates for larger herniations: about 96% of sequestrations, 70% of extrusions, 41% of protrusions, and 13% of bulges showed regression",
         relevance: "Supports conservative management approach"
       }
     ],
@@ -2470,13 +2472,13 @@ Previous injuries create lasting biomechanical changes that predispose you to os
     keyResearch: [
       {
         title: "Exercise therapy for knee osteoarthritis: Network meta-analysis",
-        authors: "Zeng C, Li H, Yang T, et al.",
+        authors: "Mo L, Jiang B, Mei T, Zhou D",
         year: 2023,
         journal: "Orthopaedic Journal of Sports Medicine", 
         sampleSize: "2,646 participants (39 RCTs)",
         findings: "Traditional exercise therapies (tai chi, qi gong), yoga, Pilates, aquatic exercise and muscle strengthening were significantly effective in alleviating knee osteoarthritis symptoms. Exercise showed moderate effect sizes for pain and function.",
         relevance: "Demonstrates multiple effective exercise modalities for knee OA with strong evidence base supporting exercise as first-line treatment",
-        citation: "Zeng C, Li H, Yang T, et al. Exercise therapy for knee osteoarthritis: A systematic review and network meta-analysis. Orthop J Sports Med. 2023;11(6):23259671231178399."
+        citation: "Mo L, Jiang B, Mei T, Zhou D. Exercise Therapy for Knee Osteoarthritis: A Systematic Review and Network Meta-analysis. Orthop J Sports Med. 2023;11(5):23259671231172773."
       },
       {
         title: "OARSI guidelines for non-surgical management of knee osteoarthritis",
@@ -2490,23 +2492,23 @@ Previous injuries create lasting biomechanical changes that predispose you to os
       },
       {
         title: "Aquatic exercise for knee osteoarthritis: Systematic review",
-        authors: "Dong R, Wu Y, Wang S, et al.",
+        authors: "Ma J, Chen X, Xin J, Niu X, Liu Z, Zhao Q",
         year: 2022,
         journal: "Journal of Orthopaedic Surgery and Research",
         sampleSize: "Multiple RCTs meta-analysis",
         findings: "Aquatic physical therapy showed significant improvements in WOMAC pain (SMD = −1.09, p = 0.02), VAS pain (SMD = −0.55, p = 0.01), and WOMAC physical function (SMD = −0.57, p = 0.05) with moderate quality evidence.",
         relevance: "Provides specific evidence for aquatic therapy as effective alternative to land-based exercise with additional benefits for pain-sensitive patients",
-        citation: "Dong R, Wu Y, Wang S, et al. Overall treatment effects of aquatic physical therapy in knee osteoarthritis: a systematic review and meta-analysis. J Orthop Surg Res. 2022;17(1):85."
+        citation: "Ma J, Chen X, Xin J, Niu X, Liu Z, Zhao Q. Overall treatment effects of aquatic physical therapy in knee osteoarthritis: a systematic review and meta-analysis. J Orthop Surg Res. 2022;17(1):190."
       },
       {
         title: "Manual therapy for knee osteoarthritis: Systematic review and meta-analysis",
-        authors: "Anwer S, Alghadir A, Zafar H, et al.",
+        authors: "Zhu B, Ba H, Kong L, Fu Y, Ren J, Zhu Q, Fang M",
         year: 2024,
         journal: "Systematic Reviews",
         sampleSize: "Multiple studies meta-analysis",
         findings: "Manual therapy may be effective at reducing pain in patients with knee osteoarthritis and may be more effective after a 4-week treatment period. Combining manual therapy with therapeutic exercise induced increased functionality and reduced pain in the long term.",
         relevance: "Supports manual therapy as adjunct to exercise therapy, particularly when combined for enhanced long-term outcomes",
-        citation: "Anwer S, Alghadir A, Zafar H, et al. The effects of manual therapy in pain and safety of patients with knee osteoarthritis: a systematic review and meta-analysis. Syst Rev. 2024;13(1):67."
+        citation: "Zhu B, Ba H, Kong L, Fu Y, Ren J, Zhu Q, Fang M. The effects of manual therapy in pain and safety of patients with knee osteoarthritis: a systematic review and meta-analysis. Syst Rev. 2024;13(1):60."
       }
     ],
 
@@ -2949,9 +2951,9 @@ Training errors compound the biomechanical issues. Sudden increases in mileage, 
 
     keyResearch: [
       {
-        title: "Hip Strength and IT Band Syndrome",
-        year: 2020,
-        findings: "Hip strengthening reduces symptoms by 45% in runners",
+        title: "Hip Abductor Weakness in Distance Runners with Iliotibial Band Syndrome (Fredericson et al., Clinical Journal of Sport Medicine)",
+        year: 2000,
+        findings: "In a case series of 24 distance runners with ITBS, a 6-week hip abductor (gluteus medius) strengthening program left 22 of 24 pain-free and able to return to running, with no recurrence at 6 months",
         relevance: "Supports hip-focused rehabilitation"
       }
     ],
@@ -3117,34 +3119,34 @@ With chronic ankle instability, the entire lower limb adapts through compensator
         citation: "Martin RL, Davenport TE, Paulseth S, et al. Ankle stability and movement coordination impairments: ankle ligament sprains clinical practice guideline linked to the international classification of functioning, disability and health from the orthopaedic section of the American Physical Therapy Association. J Orthop Sports Phys Ther. 2021;51(4):CPG1-CPG80."
       },
       {
-        title: "Functional treatment of acute lateral ankle ligament injuries: what is the evidence?",
+        title: "Diagnosis, treatment and prevention of ankle sprains: update of an evidence-based clinical guideline",
         authors: "Vuurberg G, Hoorntje A, Wink LM, et al.",
-        year: 2022,
-        journal: "Sports Medicine",
-        sampleSize: "Multiple systematic reviews and meta-analyses",
-        findings: "Functional treatment with early mobilization leads to faster return to work and physical activity compared to immobilization. Combined exercise and manual therapy approaches show superior outcomes for pain reduction and functional recovery.",
-        relevance: "Demonstrates clear superiority of functional treatment approaches over traditional immobilization methods for acute ankle sprains",
-        citation: "Vuurberg G, Hoorntje A, Wink LM, et al. Functional treatment of acute lateral ankle ligament injuries: what is the evidence? Sports Med. 2022;52(1):39-56."
+        year: 2018,
+        journal: "British Journal of Sports Medicine",
+        sampleSize: "Evidence-based clinical guideline update",
+        findings: "Functional treatment with early mobilization can support faster return to work and activity compared with immobilization, and supervised exercise can help reduce the risk of recurrent sprains. Neuromuscular and proprioceptive training is recommended during rehabilitation.",
+        relevance: "Provides an evidence-based framework favouring functional treatment and supervised exercise over prolonged immobilization for acute lateral ankle sprains",
+        citation: "Vuurberg G, Hoorntje A, Wink LM, et al. Diagnosis, treatment and prevention of ankle sprains: update of an evidence-based clinical guideline. Br J Sports Med. 2018;52(15):956."
       },
       {
-        title: "Prevention of ankle sprains in sports: a systematic review of the evidence",
-        authors: "Al-Mohrej OA, Al-Kenani NS",
-        year: 2024,
-        journal: "Sports Medicine",
-        sampleSize: "31 studies, 38,570 participants",
-        findings: "Neuromuscular training programs reduce ankle sprain risk by 35% in various sports. Balance and proprioceptive training components are most effective, with programs incorporating multiple components showing greatest injury prevention benefits.",
-        relevance: "Provides strong evidence for preventive strategies that can be incorporated into rehabilitation to prevent recurrence and initial injury in high-risk individuals",
-        citation: "Al-Mohrej OA, Al-Kenani NS. Prevention of ankle sprains in sports: a systematic review of the evidence. Sports Med. 2024;54(2):349-364."
+        title: "The effectiveness of proprioceptive training in preventing ankle sprains in sporting populations: a systematic review and meta-analysis",
+        authors: "Schiftan GS, Ross LA, Hahne AJ",
+        year: 2015,
+        journal: "Journal of Science and Medicine in Sport",
+        sampleSize: "7 studies, 3726 participants",
+        findings: "Proprioceptive training was associated with a reduced incidence of ankle sprains, with the effect most pronounced in athletes who had a history of previous ankle sprain. This supports balance and proprioceptive work as a preventive component during rehabilitation.",
+        relevance: "Supports proprioceptive and balance training as a preventive strategy that can be incorporated into rehabilitation to reduce recurrence, particularly in those with prior sprains",
+        citation: "Schiftan GS, Ross LA, Hahne AJ. The effectiveness of proprioceptive training in preventing ankle sprains in sporting populations: a systematic review and meta-analysis. J Sci Med Sport. 2015;18(3):238-244."
       },
       {
-        title: "Prognostic factors for recovery after acute ankle sprains: a systematic review",
-        authors: "Tassignon B, Verschueren J, Delahunt E, et al.",
-        year: 2021,
-        journal: "Orthopaedic Journal of Sports Medicine",
-        sampleSize: "18 studies, 2,460 participants",
-        findings: "Pain during weight-bearing dorsiflexion at 4 weeks and restricted range of motion are key predictors of delayed recovery. Early initiation of weight-bearing and functional exercises within first week significantly improves long-term outcomes.",
-        relevance: "Identifies prognostic factors that guide treatment intensity and help predict which patients need more aggressive rehabilitation approaches",
-        citation: "Tassignon B, Verschueren J, Delahunt E, et al. Prognostic factors for recovery after acute lateral ankle sprain: a systematic review. Orthop J Sports Med. 2021;9(1):2325967120976923."
+        title: "Prognostic factors for recovery following acute lateral ankle ligament sprain: a systematic review",
+        authors: "Thompson JY, Byrne C, Williams MA, Keene DJ, Schlussel MM, Lamb SE",
+        year: 2017,
+        journal: "BMC Musculoskeletal Disorders",
+        sampleSize: "Systematic review of prognostic studies",
+        findings: "More severe baseline injury and greater pain were associated with poorer recovery following acute lateral ankle ligament sprain, though the authors noted heterogeneity and limited high-quality prognostic evidence. This helps identify patients who may need more structured rehabilitation.",
+        relevance: "Identifies prognostic factors that can guide treatment intensity and help anticipate which patients may need more structured rehabilitation",
+        citation: "Thompson JY, Byrne C, Williams MA, Keene DJ, Schlussel MM, Lamb SE. Prognostic factors for recovery following acute lateral ankle ligament sprain: a systematic review. BMC Musculoskelet Disord. 2017;18(1):421."
       }
     ],
 
@@ -3215,7 +3217,7 @@ With chronic ankle instability, the entire lower limb adapts through compensator
       },
       {
         question: "How long does a sprained ankle take to heal?",
-        answer: "Grade 1 sprains typically recover in 1 to 3 weeks, grade 2 in 3 to 6 weeks, and grade 3 in 6 to 12 weeks for baseline function. Tissue remodelling continues for 6 to 12 months. Tassignon et al. identified pain with weight-bearing dorsiflexion and restricted range of motion at 4 weeks as predictors of slower recovery. Feeling normal is not the same as being fully rehabilitated, which is why reinjury is common when people stop at symptom resolution."
+        answer: "Grade 1 sprains typically recover in 1 to 3 weeks, grade 2 in 3 to 6 weeks, and grade 3 in 6 to 12 weeks for baseline function. Tissue remodelling continues for 6 to 12 months. More severe initial injury and higher pain levels have been associated with slower recovery, and ongoing pain with weight-bearing dorsiflexion and restricted range of motion are reasons I monitor recovery closely (Thompson et al., BMC Musculoskelet Disord 2017). Feeling normal is not the same as being fully rehabilitated, which is why reinjury is common when people stop at symptom resolution."
       },
       {
         question: "Why does my ankle still feel weak months after I sprained it?",
@@ -3393,44 +3395,44 @@ Footwear and training surface changes can trigger Achilles problems even in expe
 
     keyResearch: [
       {
-        title: "Exercise therapy for mid-portion Achilles tendinopathy: A systematic review and meta-analysis",
-        authors: "Murphy MC, Travers MJ, Gibson W, et al.",
-        year: 2021,
-        journal: "Sports Medicine",
-        sampleSize: "33 studies, 1,358 participants",
-        findings: "Exercise therapy demonstrates moderate effectiveness for pain reduction and function improvement in mid-portion Achilles tendinopathy. No significant difference found between eccentric exercises and other exercise interventions, suggesting various loading protocols can be effective.",
-        relevance: "Establishes exercise as evidence-based first-line treatment while supporting flexibility in exercise prescription rather than adherence to strict eccentric protocols",
-        citation: "Murphy MC, Travers MJ, Gibson W, et al. Exercise therapy for mid-portion Achilles tendinopathy: a systematic review and meta-analysis. Sports Med. 2021;51(10):2151-2169."
+        title: "Efficacy of heavy eccentric calf training for treating mid-portion Achilles tendinopathy: a systematic review and meta-analysis",
+        authors: "Murphy MC, Travers MJ, Chivers P, et al.",
+        year: 2019,
+        journal: "British Journal of Sports Medicine",
+        sampleSize: "7 randomised controlled trials",
+        findings: "Heavy eccentric calf training appeared superior to natural history and to traditional physiotherapy for pain and function on the VISA-A scale, but was not clearly superior to other exercise interventions, with any difference unlikely to be clinically meaningful. The authors emphasise that the small sample sizes and methodological limitations of the included trials mean these estimates remain uncertain.",
+        relevance: "Supports loaded exercise as a first-line approach for mid-portion Achilles tendinopathy while indicating that no single loading protocol is clearly superior, allowing exercise prescription to be individualised",
+        citation: "Murphy MC, Travers MJ, Chivers P, et al. Efficacy of heavy eccentric calf training for treating mid-portion Achilles tendinopathy: a systematic review and meta-analysis. Br J Sports Med. 2019;53(17):1070-1077."
       },
       {
-        title: "Heavy-slow resistance training versus eccentric training for mid-portion Achilles tendinopathy: a randomized controlled trial",
+        title: "Heavy Slow Resistance Versus Eccentric Training as Treatment for Achilles Tendinopathy: A Randomized Controlled Trial",
         authors: "Beyer R, Kongsgaard M, Hougs Kjær B, et al.",
-        year: 2020,
+        year: 2015,
         journal: "American Journal of Sports Medicine",
         sampleSize: "58 participants",
-        findings: "Heavy slow resistance training showed equivalent outcomes to traditional eccentric exercises at 52-week follow-up. Both groups demonstrated significant improvements in VISA-A scores and pain reduction, with HSR training showing better patient satisfaction and adherence.",
+        findings: "Heavy slow resistance training showed equivalent outcomes to traditional eccentric exercises at 52-week follow-up. Both groups demonstrated significant, lasting improvements in VISA-A scores and activity pain, with heavy slow resistance tending toward greater patient satisfaction at 12 weeks and higher training compliance across the programme.",
         relevance: "Provides evidence that multiple loading strategies are effective, allowing clinicians to individualize exercise prescription based on patient preference and adherence factors",
-        citation: "Beyer R, Kongsgaard M, Hougs Kjær B, et al. Heavy slow resistance versus eccentric training as treatment for Achilles tendinopathy: a randomized controlled trial. Am J Sports Med. 2020;48(12):2935-2944."
+        citation: "Beyer R, Kongsgaard M, Hougs Kjær B, et al. Heavy slow resistance versus eccentric training as treatment for Achilles tendinopathy: a randomized controlled trial. Am J Sports Med. 2015;43(7):1704-1711."
       },
       {
-        title: "Prognostic factors in Achilles tendinopathy: A systematic review",
-        authors: "Murphy MC, Travers MJ, Chivers P, et al.",
-        year: 2020,
-        journal: "Clinical Rehabilitation",
-        sampleSize: "Systematic review of prognostic studies",
-        findings: "Age, sex, and baseline pain levels during provocative tests emerged as most consistent prognostic factors. Limited ankle dorsiflexion ROM associated with poorer outcomes, while imaging findings and symptom duration showed limited prognostic value.",
-        relevance: "Guides clinical decision-making and helps identify patients who may require modified treatment approaches or have realistic expectations about recovery timeline",
-        citation: "Murphy MC, Travers MJ, Chivers P, et al. Prognostic factors in Achilles tendinopathy: a systematic review. Clin Rehabil. 2020;34(7):889-903."
-      },
-      {
-        title: "Extracorporeal shockwave therapy in Achilles tendinopathy: A systematic review and meta-analysis",
-        authors: "Chen B, Li HY, Zhang CW, et al.",
+        title: "Factors associated with outcome following exercise interventions for Achilles tendinopathy: A systematic review",
+        authors: "Färnqvist K, Morrissey D, Malliaras P.",
         year: 2021,
-        journal: "Frontiers in Medicine",
-        sampleSize: "15 RCTs, 965 participants",
-        findings: "ESWT showed significant improvements in pain and function scores compared to control treatments. Medium-energy ESWT demonstrated superior outcomes compared to low-energy protocols, with benefits maintained at long-term follow-up.",
-        relevance: "Establishes ESWT as evidence-based adjunct treatment for recalcitrant cases where exercise therapy alone provides insufficient improvement",
-        citation: "Chen B, Li HY, Zhang CW, et al. Extracorporeal shockwave therapy for patients with Achilles tendinopathy: a systematic review and meta-analysis. Front Med (Lausanne). 2021;8:609361."
+        journal: "Physiotherapy Research International",
+        sampleSize: "6 studies, 11 factors",
+        findings: "Across six low-quality studies examining eleven possible factors, no factor consistently predicted outcome after exercise for Achilles tendinopathy. Symptom duration and age were not associated with change in VISA-A, while baseline pain and function, sex, BMI and imaging measures showed only inconsistent associations. The authors caution that the poor quality of evidence prevents firm prognostic conclusions.",
+        relevance: "Tempers expectations about predicting who will respond to exercise, reinforcing that loading should be trialled rather than withheld based on baseline characteristics or imaging",
+        citation: "Färnqvist K, Morrissey D, Malliaras P. Factors associated with outcome following exercise interventions for Achilles tendinopathy: a systematic review. Physiother Res Int. 2021;26(2):e1889."
+      },
+      {
+        title: "Rate of Improvement of Pain and Function in Mid-Portion Achilles Tendinopathy with Loading Protocols: A Systematic Review and Longitudinal Meta-Analysis",
+        authors: "Murphy M, Travers M, Gibson W, et al.",
+        year: 2018,
+        journal: "Sports Medicine",
+        sampleSize: "24 studies",
+        findings: "Pain and function improved gradually over the course of loading programmes, with meaningful change accruing over months rather than weeks. The pooled data showed VISA-A scores continuing to improve well beyond the early weeks of treatment, underscoring that recovery from mid-portion Achilles tendinopathy with exercise is slow.",
+        relevance: "Sets realistic expectations for recovery timelines, helping patients understand that loaded rehabilitation works gradually and that persistence over months is part of the treatment",
+        citation: "Murphy M, Travers M, Gibson W, et al. Rate of improvement of pain and function in mid-portion Achilles tendinopathy with loading protocols: a systematic review and longitudinal meta-analysis. Sports Med. 2018;48(8):1875-1891."
       }
     ],
 
@@ -3649,10 +3651,10 @@ Biomechanical factors significantly influence shin splint development. Overprona
 
     keyResearch: [
       {
-        title: "Gait Retraining for Shin Splints",
-        year: 2020,
-        findings: "Increased cadence reduces symptoms",
-        relevance: "Supports running form modification"
+        title: "Gait retraining to reduce lower extremity loading in runners",
+        year: 2011,
+        findings: "Real-time gait retraining cueing runners toward a softer landing reduced peak tibial acceleration and impact loading, which are mechanisms relevant to tibial stress",
+        relevance: "Supports running form modification, including cadence and landing cues, to lower tibial loading"
       }
     ],
 
@@ -3975,17 +3977,17 @@ Chronic cases persisting beyond 6-12 months can be more challenging and may bene
     keyResearch: [
       {
         finding: "Eccentric exercise produces superior outcomes compared to concentric exercise and stretching",
-        detail: "Systematic review published in American Journal of Sports Medicine (2021) analyzing 12 randomized controlled trials found eccentric strengthening programs demonstrated standardized mean difference of 0.71 (95% CI: 0.48-0.94) for pain reduction and 0.65 (95% CI: 0.43-0.87) for functional improvement at 12 weeks compared to concentric exercise, stretching, or control interventions. Success rates defined as good to excellent outcomes ranged from 72-88% in eccentric training groups versus 45-58% in comparison groups",
+        detail: "A systematic review of eccentric and other resistance exercise for medial epicondylalgia (See, Loo and Jaafar, Complementary Therapies in Medicine, 2026) identified only five eligible studies (around 143 participants), with between-group superiority of the exercise intervention demonstrated in just one randomised controlled trial. The authors concluded that exercise, including eccentric loading, can reduce pain and improve function but that the evidence base for medial epicondylalgia is limited and lower in quality than for lateral epicondylalgia, so specific effect sizes should be interpreted with caution",
         clinicalRelevance: "Eccentric strengthening represents gold standard first-line treatment with moderate to large effect sizes for both pain and function. The specific loading protocol with controlled lengthening phase is critical - generic strengthening without eccentric emphasis shows inferior results"
       },
       {
         finding: "Corticosteroid injections provide short-term relief but inferior long-term outcomes and higher recurrence",
-        detail: "Meta-analysis in British Journal of Sports Medicine (2022) examining 18 studies found corticosteroid injections produced superior pain relief at 4-6 weeks (mean difference 1.8 points on 10-point scale, 95% CI: 1.3-2.3) compared to placebo, physiotherapy, or wait-and-see, but significantly worse outcomes at 6 and 12 months. Recurrence rates were 31% in injection groups versus 12% in exercise therapy groups. Combined injection plus exercise showed no benefit over exercise alone and trended toward worse long-term outcomes",
+        detail: "A randomised controlled trial of corticosteroid injection, physiotherapy, or both for elbow tendinopathy (Coombes, Bisset, Brooks, Khan and Vicenzino, JAMA, 2013) found that corticosteroid injection improved short-term outcomes but produced significantly lower rates of complete recovery and higher rates of recurrence at one year compared with placebo injection. This trial studied lateral epicondylalgia; high-quality data specific to medial epicondylalgia are sparser, but the same pattern of short-term benefit and worse long-term outcome is generally applied with caution to the medial side",
         clinicalRelevance: "While injections offer meaningful short-term pain relief that may facilitate early exercise participation, they do not improve and may impair long-term outcomes. Reserve for cases where pain severely limits exercise engagement, never use as standalone treatment, and always combine with progressive loading program"
       },
       {
         finding: "Work-related medial epicondylalgia shows slower recovery and requires ergonomic intervention",
-        detail: "Prospective cohort study in Journal of Occupational and Environmental Medicine (2020) following 248 manual workers with golfer's elbow found occupational cases required average 6.4 months to achieve good outcome versus 3.8 months for recreational sports-related cases. Factors predicting prolonged recovery included inability to modify work tasks (hazard ratio 2.6, 95% CI: 1.7-3.9), high grip force requirements (HR 2.1, 95% CI: 1.4-3.2), and limited job autonomy (HR 1.8, 95% CI: 1.2-2.7). Return-to-work without restrictions achieved by 68% of occupational cases versus 89% of sports cases at 12 months",
+        detail: "A workplace study of medial epicondylitis in occupational settings (Descatha, Leclerc, Chastang and Roquelaure, Journal of Occupational and Environmental Medicine, 2003) examined a large cohort of repetitive-work employees and identified forceful work as an independent risk factor (odds ratio around 1.95). On follow-up of affected workers roughly three years later, about 81 percent had recovered, indicating that occupational medial epicondylitis is associated with forceful, repetitive demands and that recovery, while common, can be prolonged in a meaningful minority",
         clinicalRelevance: "Occupational cases require more intensive intervention including ergonomic workplace modifications, communication with employers about temporary duty restrictions, and potentially longer rehabilitation timelines. Inability to modify work demands during healing phase is strongest predictor of poor outcome and chronicity, warranting occupational health involvement"
       }
     ],
@@ -4296,18 +4298,18 @@ The good news is mild to moderate CTS responds well to conservative treatment - 
 
     keyResearch: [
       {
-        finding: "Night splinting produces symptom improvement in 60-70% of mild-moderate CTS at 6 weeks with sustained benefit",
-        detail: "Cochrane systematic review (2023) analyzing 19 randomized controlled trials with 1,190 patients found neutral position wrist splinting produced statistically significant symptom reduction (standardized mean difference -0.56, 95% CI: -0.78 to -0.34) and functional improvement (-0.37, 95% CI: -0.60 to -0.14) compared to no treatment at 6 weeks. Effect sizes larger for nocturnal symptoms specifically (SMD -0.71). Benefits maintained at 12 months in compliance patients. Neutral position superior to extension splinting",
+        finding: "Night-time wrist splinting is associated with a higher rate of overall symptom improvement than no treatment in mild to moderate CTS",
+        detail: "Cochrane systematic review (Karjalainen and colleagues, 2023) including 29 randomized trials with 1,937 adults found that wrist splinting may provide only small, uncertain benefits in symptoms and hand function compared with no active treatment (mean Boston Carpal Tunnel Questionnaire symptom score 0.37 points better, below the threshold considered clinically important; low-certainty evidence). The clearest signal was that night-time splinting was associated with a higher rate of overall improvement in the short term (risk ratio 3.86) than no treatment. As a low-cost intervention with no plausible long-term harm, splinting can be a reasonable first-line option, particularly for people not interested in injections or surgery",
         clinicalRelevance: "Night splinting represents first-line treatment with moderate effect sizes and sustained benefits for mild-moderate CTS. Neutral wrist position critical - extension splinting counterproductive. Patient education regarding consistent nightly use essential as compliance strongly predicts outcomes. Cost-effective intervention that prevents or delays surgery in majority of appropriate candidates"
       },
       {
         finding: "Corticosteroid injection superior to placebo at 4 weeks and 3 months but inferior to surgery at 12 months",
-        detail: "Network meta-analysis published in Lancet (2021) examining 102 trials with 8,524 patients found corticosteroid injection produced mean symptom severity reduction of 0.77 points (95% CI: 0.64-0.89) on 5-point scale at 1 month, maintained at 3 months (0.63, 95% CI: 0.45-0.81) but diminished by 12 months (0.29, 95% CI: 0.09-0.49). Surgical decompression showed sustained benefit at 12 months (1.47, 95% CI: 1.26-1.67). Injection success rate 70% at 6 weeks but only 40% at 12 months. Ultrasound-guided injection superior to landmark-based (mean difference 0.35 points, 95% CI: 0.17-0.53)",
+        detail: "Cochrane systematic review (Ashworth and colleagues, 2023) of 14 randomized trials with 994 participants found local corticosteroid injection probably improves symptoms compared with placebo at up to three months (standardized mean difference -0.77, 95% CI: -0.94 to -0.59) and at up to six months (SMD -0.58, 95% CI: -0.89 to -0.28), with a probable small reduction in the need for surgery at 12 months (risk ratio 0.84, 95% CI: 0.72 to 0.98); this was moderate-certainty evidence. A separate Cochrane review of surgical versus non-surgical treatment (Lusa, Karjalainen and colleagues, 2024; 14 trials, 1,231 participants) found surgery probably yields a higher rate of clinical improvement than splinting in the long term (risk ratio 2.10) but no clinically important difference in BCTQ symptom or function scores, while reducing later referral to surgery",
         clinicalRelevance: "Corticosteroid injection provides meaningful medium-term relief useful for patients preferring to avoid surgery, pregnant patients who cannot have surgery until postpartum, or as diagnostic trial before surgery. However, effect diminishes over 6-12 months with less than half maintaining benefit at one year. Not alternative to surgery for long-term management but valuable temporizing measure. Ultrasound guidance improves outcomes by ensuring accurate injection placement"
       },
       {
-        finding: "Severe CTS defined by constant numbness or thenar atrophy has poor response to conservative treatment",
-        detail: "Prospective cohort study in Journal of Bone and Joint Surgery (2020) following 364 patients stratified by electrodiagnostic severity found mild CTS (intermittent symptoms, normal motor latency) showed 72% success with conservative treatment at 6 months. Moderate CTS (prolonged sensory latency) showed 54% success. Severe CTS (absent sensory responses or fibrillation potentials indicating denervation) showed only 18% success with conservative care versus 87% good outcomes with surgery. Thenar atrophy at presentation predicted surgical need with 89% sensitivity and 76% specificity. Symptom duration over 12 months reduced conservative treatment success by 45%",
+        finding: "More severe or persistent CTS tends to respond better to surgery than to continued conservative care",
+        detail: "Cochrane systematic review of surgical versus non-surgical treatment for CTS (Lusa, Karjalainen and colleagues, 2024) pooled 14 randomized trials with 1,231 participants and found that surgery probably produces a higher rate of long-term clinical improvement than splinting (risk ratio 2.10, 95% CI: 1.04 to 4.24) and reduces later referral to surgery, though it does not provide a clinically important advantage in BCTQ symptom or function scores. The review notes that people with more severe symptoms, a strong preference for clinical improvement, and reluctance to persist with non-surgical options may reasonably choose surgery, while those with tolerable symptoms can start with non-surgical care and proceed to surgery only if needed",
         clinicalRelevance: "Severity stratification essential for treatment decisions. Mild-moderate cases warrant 8-12 week conservative trial with splinting and activity modification. Severe CTS with constant numbness, motor involvement, or symptoms over 12 months should proceed directly to surgical consultation as conservative treatment success rate too low to justify delayed definitive treatment that risks permanent nerve damage. Electrodiagnostic testing valuable for determining severity when clinical presentation unclear"
       }
     ],
@@ -4590,18 +4592,18 @@ The good news is 70-80% of cases respond to conservative treatment with thumb sp
 
     keyResearch: [
       {
-        finding: "Ultrasound-guided corticosteroid injection achieves 83% success rate versus 61% for landmark-based injection",
-        detail: "Randomized controlled trial published in Journal of Hand Surgery (European Volume) in 2021 comparing 124 patients receiving either ultrasound-guided or landmark-based corticosteroid injection found success rates of 83% (95% CI: 74-92%) for ultrasound-guided versus 61% (95% CI: 50-72%) for landmark-based at 6-month follow-up. Ultrasound guidance allowed identification of septations subdividing the first compartment (present in 52% of cases) and ensured injection reached all affected subcompartments. Recurrence rates were 9% for ultrasound-guided versus 27% for landmark-based",
+        finding: "Ultrasound-guided corticosteroid injection is more accurate than blind injection, and anatomical septations are common in De Quervain's disease",
+        detail: "A systematic review and meta-analysis by Abi-Rafeh and colleagues (Plastic and Reconstructive Surgery, 2022) examined ultrasound use in De Quervain's disease. It found that an intercompartmental septum was significantly more common in the surgical De Quervain's population than in the general cadaveric population (67% versus 35%). Ultrasound-guided corticosteroid injections were more accurate than manual landmark-based injections (90 to 100% versus 40 to 100% accurate placement) and were associated with better reported treatment success rates (73 to 100% versus 59 to 83%)",
         clinicalRelevance: "Anatomical variations including compartment septations are common and significantly impact injection success. Ultrasound guidance substantially improves outcomes by ensuring accurate placement and complete compartment coverage. When injection is indicated, ultrasound guidance should be used when available to maximize success and minimize need for repeat injections or surgery"
       },
       {
-        finding: "Thumb spica splinting for minimum 4 weeks produces 70% success rate, superior to shorter durations",
-        detail: "Systematic review and meta-analysis published in Hand Therapy (2022) examining 12 randomized controlled trials with 847 patients found thumb spica splinting for 4-6 weeks achieved symptom resolution in 70% (95% CI: 64-76%) of cases compared to 45% (95% CI: 38-52%) with splinting under 4 weeks. Splints immobilizing the thumb interphalangeal joint showed superior outcomes (OR 2.1, 95% CI: 1.4-3.2) compared to designs leaving thumb IP free. Combined splinting plus activity modification showed additive benefit over splinting alone (82% vs 67% success)",
+        finding: "Combining a thumb orthosis with corticosteroid injection is more effective than either treatment alone for De Quervain's disease",
+        detail: "A systematic review and meta-analysis by Cavaleri and colleagues (Journal of Hand Therapy, 2016) compared corticosteroid injection with hand therapy in De Quervain's disease. Both injection and hand therapy improved pain and function from baseline, with no significant difference between the two approaches across the trials examined. However, significantly more people were treated successfully when a combined orthosis plus corticosteroid injection approach was used than with an orthosis alone (relative risk 0.53, 95% CI 0.35-0.80) or injection alone (relative risk 0.76, 95% CI 0.64-0.89), supporting a combined conservative approach",
         clinicalRelevance: "Splint design and duration significantly impact outcomes. Optimal results require comprehensive thumb and wrist immobilization for minimum 4 weeks combined with activity modification - shorter durations or less restrictive splints produce inferior results. Patient education regarding compliance critical as many discontinue splinting prematurely when initial symptoms improve, leading to recurrence"
       },
       {
-        finding: "Pregnancy and postpartum status increase De Quervain's risk 7-fold with peak incidence 4-10 weeks postpartum",
-        detail: "Prospective cohort study in American Journal of Obstetrics and Gynecology (2020) following 1,854 pregnant women found De Quervain's incidence of 11.2% during pregnancy and postpartum versus 1.6% in age-matched controls (RR 7.1, 95% CI: 4.8-10.5). Peak onset occurred 4-10 weeks postpartum (68% of cases) coinciding with maximum infant lifting demands and persistent hormonal influences. Bilateral presentation occurred in 58% of cases. Conservative treatment with splinting and ergonomic education achieved resolution in 78% by 6 months postpartum without injection or surgery, supporting expectant approach for pregnancy-related cases",
+        finding: "Pregnancy and the postpartum period are recognised high-risk times for De Quervain's tenosynovitis, with specific gestational risk factors identified",
+        detail: "A population-based study by Bae and colleagues (Clinics in Orthopaedic Surgery, 2022) using South Korean national insurance data found pregnancy-related De Quervain's tenosynovitis in roughly 2.1 of every 100 pregnant women (34,342 cases among 1,601,501 pregnancies), with age 30 years or older, multiple gestation, cesarean delivery, hypertensive disorders of pregnancy, and underlying rheumatoid arthritis identified as significant risk factors. A separate case-control study by Daglan and colleagues (Hand (N Y), 2023) of 63 postpartum women with De Quervain's compared with 630 controls found that a pregnancy longer than 40 weeks (odds ratio 5.81) and first childbirth (odds ratio 2.23) were associated with higher risk",
         clinicalRelevance: "Pregnancy and early postpartum represent extremely high-risk period due to combined hormonal and biomechanical factors. However, high spontaneous resolution rate by 6 months postpartum as hormones normalize and infant lifting technique improves supports conservative management as first-line approach. Early intervention with splinting and ergonomic education for infant care can prevent progression to chronic cases. Patients should be counseled that conservative treatment success rate is higher than in non-pregnancy-related cases"
       }
     ],
@@ -4805,22 +4807,16 @@ Modern research (2024) emphasizes that discrepancies exist between external join
 
     keyResearch: [
       {
-        title: "Hip Osteoarthritis Clinical Practice Guidelines",
-        year: 2018,
-        findings: "Strong evidence for exercise therapy and manual therapy. Exercise can be as effective as surgery for many patients",
+        title: "Hip Pain and Mobility Deficits - Hip Osteoarthritis: Revision 2017 (JOSPT Clinical Practice Guidelines)",
+        year: 2017,
+        findings: "Strong recommendation for individualised exercise therapy and for manual therapy combined with exercise to improve pain, mobility, and function in hip osteoarthritis",
         relevance: "Establishes conservative care as evidence-based first-line treatment"
       },
       {
-        title: "Exercise vs Surgery for Hip OA",
-        year: 2022,
-        findings: "No significant difference in outcomes between exercise therapy and total hip replacement at 2 years for appropriate candidates",
-        relevance: "Supports trying conservative management before considering surgery"
-      },
-      {
-        title: "Load-Capacity Model in OA",
-        year: 2019,
-        findings: "Understanding load-capacity relationship improves patient outcomes and reduces fear-avoidance",
-        relevance: "Guides exercise prescription and patient education"
+        title: "Total Hip Replacement or Resistance Training for Severe Hip Osteoarthritis (PROHIP)",
+        year: 2024,
+        findings: "In severe hip osteoarthritis, total hip replacement led to greater improvement in self-reported pain and function at 6 months than a resistance training programme (mean Oxford Hip Score change about 15.9 vs 4.5 points)",
+        relevance: "Clarifies that surgery can outperform exercise in severe disease, while conservative care remains a reasonable first-line option in milder presentations"
       }
     ],
 
@@ -5095,16 +5091,16 @@ Activity demands significantly influence symptom development. Athletes in sports
         relevance: "Establishes diagnostic criteria and treatment approach"
       },
       {
-        title: "Conservative vs Surgical Management",
-        year: 2019,
-        findings: "No significant difference in outcomes between physiotherapy and surgery at 12 months for many patients",
-        relevance: "Supports trying conservative management first"
+        title: "UK FASHIoN Trial: Hip Arthroscopy vs Physiotherapy (Griffin et al., Lancet)",
+        year: 2018,
+        findings: "Both hip arthroscopy and a personalised physiotherapist-led programme improved hip-related quality of life at 12 months. Arthroscopy produced a modestly larger improvement (adjusted mean iHOT-33 difference 6.8, 95% CI 1.7 to 12.0), supporting an initial trial of progressed conservative care for many patients before considering surgery",
+        relevance: "Shows physiotherapist-led care meaningfully improves symptoms, supporting a trial of conservative management before surgery"
       },
       {
-        title: "Hip Strengthening in FAI",
-        year: 2020,
-        findings: "Targeted hip strengthening programs reduce pain and improve function in FAI syndrome",
-        relevance: "Evidence for specific exercise approach"
+        title: "Arthroscopy vs Physical Therapy for FAI Syndrome, 2-Year Follow-up (Mansell et al., AJSM)",
+        year: 2018,
+        findings: "In a randomised controlled trial with 2-year follow-up, supervised physical therapy and arthroscopic surgery produced similar improvements, with no significant difference in patient-reported outcomes between groups (note the high crossover from therapy to surgery)",
+        relevance: "Supports supervised physiotherapy as a reasonable first-line option for FAI syndrome"
       }
     ],
 
@@ -5374,15 +5370,15 @@ Sleep positioning creates sustained compression that explains the characteristic
         relevance: "Establishes exercise as first-line treatment over injection"
       },
       {
-        title: "Gluteal Tendinopathy Load Management",
-        year: 2016,
-        findings: "Compression is primary aggravating factor. Load modification essential for recovery",
+        title: "Grimaldi & Fearon - Gluteal Tendinopathy: Pathomechanics and Management (JOSPT)",
+        year: 2015,
+        findings: "Describes how compression of the gluteal tendons against the greater trochanter, driven by hip adduction postures, is a key contributor to gluteal tendinopathy, supporting load management and avoidance of compressive positions",
         relevance: "Guides activity modification strategies"
       },
       {
-        title: "Progressive Loading in Tendinopathy",
-        year: 2019,
-        findings: "Systematic progression from isometric to isotonic to energy storage exercises optimizes tendon adaptation",
+        title: "Cook & Purdam - Tendon Pathology Continuum and Load-Based Management (BJSM)",
+        year: 2009,
+        findings: "Proposes a tendon pathology continuum and the load-based rehabilitation framework that underpins staged loading, progressing from isometric to isotonic to energy-storage exercise as tendon capacity improves",
         relevance: "Evidence-based exercise progression"
       }
     ],
@@ -5643,15 +5639,19 @@ The natural shock-absorbing capacity of the labrum diminishes with aging and rep
 
     keyResearch: [
       {
-        title: "Conservative Management of Labral Tears",
-        year: 2019,
-        findings: "Physiotherapy effective for many patients with symptomatic labral tears",
+        title: "Physiotherapist-Led Interventions for Hip-Related Pain (Systematic Review and Meta-Analysis)",
+        authors: "Kemp JL, et al.",
+        journal: "British Journal of Sports Medicine",
+        year: 2020,
+        findings: "This systematic review and meta-analysis found that physiotherapist-led interventions, built around hip and lumbopelvic strengthening and functional loading, can improve pain and function in people with hip-related pain, supporting physiotherapy as a reasonable first-line approach for hip-related pain that includes labral involvement",
         relevance: "Supports conservative management as first-line treatment"
       },
       {
-        title: "Natural History of Labral Tears",
-        year: 2020,
-        findings: "Many asymptomatic labral tears exist; symptoms not solely related to tear presence",
+        title: "Prevalence of Abnormal Hip Findings in Asymptomatic Participants (Prospective, Blinded Study)",
+        authors: "Register B, Pennock AT, Ho CP, et al.",
+        journal: "American Journal of Sports Medicine",
+        year: 2012,
+        findings: "In this prospective blinded study of pain-free adults, labral tears were identified on MRI in around 69 percent of asymptomatic hips, showing that labral tears are common in people without symptoms and that imaging findings need to be correlated with the clinical picture rather than interpreted in isolation",
         relevance: "Emphasizes importance of clinical correlation over imaging findings"
       }
     ],
@@ -5881,9 +5881,9 @@ Muscle weakness, particularly of the hip abductors, creates abnormal loading pat
 
     keyResearch: [
       {
-        title: "Trochanteric Bursitis vs Gluteal Tendinopathy",
-        year: 2018,
-        findings: "Most lateral hip pain attributed to gluteal tendinopathy rather than true bursitis",
+        title: "Gluteal Tendinopathy: A Review of Mechanisms, Assessment and Management (Grimaldi et al., Sports Medicine, 2015)",
+        year: 2015,
+        findings: "Tendinopathy of the gluteus medius and minimus tendons is now recognised as a primary local source of lateral hip pain, with what was historically labelled trochanteric bursitis most often reflecting gluteal tendinopathy rather than isolated bursal inflammation",
         relevance: "Influences diagnostic approach and treatment selection"
       }
     ],
@@ -6238,7 +6238,7 @@ Gluteal muscle weakness creates compensatory hamstring overload during functiona
       primaryStrategy: "Progressive loading from isometrics through heavy slow resistance is the most reliable approach for proximal hamstring tendinopathy, though recovery is typically slow",
       secondaryStrategy: "Load management and sitting posture modification provide symptom relief while allowing tendon adaptation through controlled exercise progression",
       preventionStrategy: "Gradual training progression and avoiding sudden increases in hill running or speed work prevents 70% of proximal hamstring tendinopathy cases in runners",
-      sources: "2015 JOSPT Goom et al. rehabilitation progression; Tendinopathy research literature"
+      sources: "Goom et al. (2016) JOSPT proximal hamstring tendinopathy clinical commentary; tendinopathy loading literature"
     },
 
     whatToExpect: {
@@ -6318,8 +6318,8 @@ Gluteal muscle weakness creates compensatory hamstring overload during functiona
 
     keyResearch: [
       {
-        title: "Gluteal Tendinopathy Rehabilitation Progression",
-        year: 2015,
+        title: "Proximal Hamstring Tendinopathy: Clinical Aspects of Assessment and Management (Goom et al., JOSPT)",
+        year: 2016,
         findings: "Goom et al. outlined staged progression from isometrics to heavy, slow resistance and energy storage exercises",
         relevance: "Principles widely adapted for proximal hamstring tendinopathy management"
       },
@@ -6572,10 +6572,10 @@ The relationship between pelvic positioning and piriformis length significantly 
 
     keyResearch: [
       {
-        title: "Piriformis Syndrome Management",
+        title: "A systematic review of conservative and surgical treatments for deep gluteal syndrome (Hopayian et al., 2022)",
         year: 2022,
-        findings: "Multimodal approach most effective",
-        relevance: "Supports comprehensive treatment"
+        findings: "This 2022 systematic review found the overall quality of evidence was low and no single conservative treatment could be recommended over another; the authors advised following general back pain and sciatica guidance, with physiotherapy as first-line care, and reserving surgery for chronic cases",
+        relevance: "Supports a conservative, physiotherapy-led first-line approach and reinforces realistic expectations given the limited evidence base"
       }
     ],
 
@@ -6734,7 +6734,7 @@ Kicking mechanics in soccer players show that peak adductor activation occurs du
     },
 
     evidenceSnapshot: {
-      primaryStrategy: "Progressive strength training with eccentric emphasis reduces reinjury rates by 65% and accelerates return to sport by 3-4 weeks compared to rest alone (Strength of Recommendation A)",
+      primaryStrategy: "Progressive strength training with eccentric emphasis and early active loading can support faster, more durable return to sport than prolonged rest, with progression guided by functional criteria",
       secondaryStrategy: "Multimodal programs combining manual therapy, compression therapy, and active exercise show 70-75% return to sport rates at 6 months with lower recurrence than single-intervention approaches",
       preventionStrategy: "Copenhagen adduction exercise protocol reduces groin injury incidence by 41% in soccer players when performed 2-3 times weekly during preseason and in-season training",
       sources: "PMC 10569248 (2023); StatPearls (2024); Systematic Review PMC 7996386 (2021); JOSPT Clinical Practice Guidelines (2018)"
@@ -6793,7 +6793,7 @@ Kicking mechanics in soccer players show that peak adductor activation occurs du
       factors: [
         "Early intervention within 48-72 hours improves outcomes",
         "Previous groin injuries increase recurrence risk 2-4 fold",
-        "Completion of full rehabilitation protocol before return reduces reinjury by 65%",
+        "Completing full rehabilitation and meeting return-to-sport criteria before returning reduces reinjury risk",
         "Maintaining adductor-to-abductor strength ratio >80% prevents recurrence",
         "Sport type affects recovery - kicking sports require longer rehabilitation"
       ],
@@ -6839,16 +6839,6 @@ Kicking mechanics in soccer players show that peak adductor activation occurs du
 
     keyResearch: [
       {
-        title: "Exercise and Load Management of Adductor Strains: Current Clinical Concepts",
-        authors: "King E, Richter C, Daniels KAJ, et al.",
-        year: 2023,
-        journal: "Sports Health",
-        sampleSize: "Clinical Practice Guidelines Review",
-        findings: "Strength of Recommendation A (highest level) for progressive loading and sport-specific exercise. Grade 1 strains: 1-3 weeks return to play. Grade 2: 2-6 weeks. Partial ruptures: 2-3 months. Progressive eccentric training reduces reinjury by 65%",
-        relevance: "Establishes evidence-based protocols for all grades of adductor injury with specific timelines and loading parameters",
-        citation: "King E, Richter C, Daniels KAJ, et al. Current Clinical Concepts: Exercise and Load Management of Adductor Strains. Sports Health. 2023;15(5):731-739."
-      },
-      {
         title: "Copenhagen Adduction Exercise Protocol for Groin Injury Prevention",
         authors: "Harøy J, Clarsen B, Wiger EG, et al.",
         year: 2019,
@@ -6864,19 +6854,19 @@ Kicking mechanics in soccer players show that peak adductor activation occurs du
         year: 2021,
         journal: "Journal of Sport Rehabilitation",
         sampleSize: "Systematic review of multiple studies",
-        findings: "Multimodal treatment (manual therapy + exercises) shows 70-75% return to sport at 6 months. Prolotherapy shows 91.7% success rate for chronic cases. Compression therapy provides moderate evidence for symptom reduction",
+        findings: "Active exercise and multimodal programs (manual therapy plus strengthening) carry the strongest evidence for longstanding adductor-related groin pain; compression therapy and prolotherapy are reported as options with only limited or moderate supporting evidence",
         relevance: "Establishes evidence hierarchy for treatment options in chronic/longstanding groin pain cases",
-        citation: "Bisciotti GN, Chamari K, Cena E, et al. The conservative treatment of longstanding adductor-related groin pain syndrome. J Sport Rehabil. 2021;30(5):794-810."
+        citation: "Bisciotti GN, Chamari K, Cena E, et al. The conservative treatment of longstanding adductor-related groin pain syndrome: a critical and systematic review. Biol Sport. 2021;38(1):45-63."
       },
       {
         title: "Return to Sport After Criteria-Based Rehabilitation of Acute Adductor Injuries",
-        authors: "Thorborg K, Reiman MP, Weir A, et al.",
+        authors: "Serner A, Weir A, Tol JL, et al.",
         year: 2020,
-        journal: "Sports Medicine",
-        sampleSize: "227 male athletes",
-        findings: "Criteria-based progression (pain-free, full strength, sport-specific testing) showed median 17 days return to sport for grade 1, 28 days for grade 2. Only 8% reinjury rate compared to 30-40% with time-based return",
+        journal: "Orthopaedic Journal of Sports Medicine",
+        sampleSize: "Prospective cohort of male athletes with acute adductor injuries",
+        findings: "A criteria-based progression (pain-free function, restored strength, and sport-specific testing) returned athletes to sport with a low reinjury rate, supporting return decisions based on meeting functional criteria rather than fixed time frames",
         relevance: "Demonstrates superiority of functional criteria over arbitrary time-based return to sport decisions",
-        citation: "Thorborg K, Reiman MP, Weir A, et al. Return to Sport After Criteria-Based Rehabilitation of Acute Adductor Injuries in Male Athletes. Sports Med. 2020;50(3):645-657."
+        citation: "Serner A, Weir A, Tol JL, Thorborg K, Lanzinger S, Otten R, Holmich P. Return to Sport After Criteria-Based Rehabilitation of Acute Adductor Injuries in Male Athletes: A Prospective Cohort Study. Orthop J Sports Med. 2020;8(1):2325967119897247."
       }
     ],
 
@@ -7055,9 +7045,9 @@ Hamstring strength asymmetries between legs create altered sprint biomechanics t
 
     keyResearch: [
       {
-        title: "Eccentric Training After Hamstring Injury",
-        year: 2022,
-        findings: "L-protocol reduces re-injury significantly",
+        title: "Acute hamstring injuries in Swedish elite football: a randomised controlled trial comparing two rehabilitation protocols (Askling et al., Br J Sports Med)",
+        year: 2013,
+        findings: "A lengthening-biased eccentric programme (the L-protocol) produced a faster return to play than conventional concentric exercises, with a mean return of 28 days versus 51 days in MRI-confirmed acute hamstring injuries.",
         relevance: "Guides exercise prescription"
       }
     ],
@@ -7738,43 +7728,43 @@ Common aggravating factors include the 'boom-bust' cycle of overdoing on good da
     keyResearch: [
       {
         title: "Scapular stabilization exercises for subacromial impingement syndrome",
-        authors: "Zhong C, Li J, Wang Y, et al.",
+        authors: "Zhong Z, Zang W, Tang Z, et al.",
         year: 2024,
         journal: "Frontiers in Neurology",
         sampleSize: "387 participants (8 RCTs)",
-        findings: "Scapular stabilization exercises showed greater improvements in VAS pain scores (WMD = −0.94, 95% CI −1.23 to −0.65) and SPADI disability scores (WMD = −10.10, 95% CI −18.87 to −1.33) compared to conventional physiotherapy.",
+        findings: "Scapular stabilization exercises were associated with greater improvements in VAS pain scores (WMD = −0.94, 95% CI −1.23 to −0.65) and SPADI disability scores (WMD = −10.10, 95% CI −18.87 to −1.33) compared to conventional physiotherapy.",
         relevance: "Demonstrates superiority of scapular-focused interventions over general shoulder exercises for impingement syndrome",
-        citation: "Zhong C, Li J, Wang Y, et al. Effect of scapular stabilization exercises on subacromial pain (impingement) syndrome: a systematic review and meta-analysis of randomized controlled trials. Front Neurol. 2024;15:1357763."
+        citation: "Zhong Z, Zang W, Tang Z, Pan Q, Yang Z, Chen B. Effect of scapular stabilization exercises on subacromial pain (impingement) syndrome: a systematic review and meta-analysis of randomized controlled trials. Front Neurol. 2024;15:1357763."
       },
       {
         title: "Conservative physical therapy interventions for subacromial shoulder pain",
-        authors: "Steuri R, Sattelmayer M, Elsig S, et al.",
+        authors: "Pieters L, Lewis J, Kuppens K, et al.",
         year: 2020,
         journal: "Journal of Orthopaedic & Sports Physical Therapy",
         sampleSize: "Update of systematic reviews",
         findings: "Strong evidence supports exercise therapy, manual therapy, and multimodal approaches. Exercise therapy shows consistent benefits for pain and function across multiple high-quality systematic reviews.",
         relevance: "Provides comprehensive evidence base for conservative management as first-line treatment for shoulder impingement",
-        citation: "Steuri R, Sattelmayer M, Elsig S, et al. An update of systematic reviews examining the effectiveness of conservative physical therapy interventions for subacromial shoulder pain. J Orthop Sports Phys Ther. 2020;50(3):131-141."
+        citation: "Pieters L, Lewis J, Kuppens K, et al. An update of systematic reviews examining the effectiveness of conservative physical therapy interventions for subacromial shoulder pain. J Orthop Sports Phys Ther. 2020;50(3):131-141."
       },
       {
         title: "Manual therapy added to exercise for subacromial shoulder pain",
-        authors: "Lombardi I Jr, Magri AG, Fleury AM, et al.",
+        authors: "Tauqeer S, Arooj A, Shakeel H",
         year: 2024,
         journal: "BMC Musculoskeletal Disorders",
         sampleSize: "32 participants",
-        findings: "Manual therapy combined with stretching and strengthening exercises improved long-term patient outcomes over exercise alone, with significant improvements in scapular range of motion and functional capacity.",
+        findings: "Adding manual therapy to a 4-week stretching and strengthening programme was associated with greater improvements in scapular range of motion, functional capacity and pain than exercise alone.",
         relevance: "Supports adding manual therapy to exercise protocols for enhanced outcomes in shoulder impingement treatment",
-        citation: "Lombardi I Jr, Magri AG, Fleury AM, et al. Effects of manual therapy in addition to stretching and strengthening exercises to improve scapular range of motion. BMC Musculoskelet Disord. 2024;25(1):294."
+        citation: "Tauqeer S, Arooj A, Shakeel H. Effects of manual therapy in addition to stretching and strengthening exercises to improve scapular range of motion, functional capacity and pain in patients with shoulder impingement syndrome: a randomized controlled trial. BMC Musculoskelet Disord. 2024;25(1):192."
       },
       {
         title: "Exercise therapy effectiveness in subacromial impingement syndrome",
         authors: "Hanratty CE, McVeigh JG, Kerr DP, et al.",
-        year: 2021,
-        journal: "Clinical Rehabilitation",
+        year: 2012,
+        journal: "Seminars in Arthritis and Rheumatism",
         sampleSize: "1,162 participants (16 studies)",
         findings: "Meta-analysis found strong evidence that exercise decreases pain and improves function at short-term follow-up. Effect sizes were clinically meaningful with low heterogeneity between studies.",
         relevance: "Provides robust evidence for exercise therapy effectiveness with large sample size demonstrating consistent clinical benefits",
-        citation: "Hanratty CE, McVeigh JG, Kerr DP, et al. The effectiveness of physiotherapy exercises in subacromial impingement syndrome: a systematic review and meta-analysis. Semin Arthritis Rheum. 2021;51(2):441-455."
+        citation: "Hanratty CE, McVeigh JG, Kerr DP, et al. The effectiveness of physiotherapy exercises in subacromial impingement syndrome: a systematic review and meta-analysis. Semin Arthritis Rheum. 2012;42(3):297-316."
       }
     ],
 
@@ -7988,7 +7978,7 @@ Scapular dyskinesis alters AC joint loading patterns by disrupting normal scapul
       },
       {
         finding: "Rockwood classification limited for treatment decisions",
-        detail: "2023 systematic review by de Groot et al found the Rockwood classification cannot differentiate between patients who will benefit from surgery versus conservative management, though consensus supports conservative treatment for low-grade injuries",
+        detail: "2023 current concepts review by de Groot et al found the Rockwood classification cannot differentiate between patients who will benefit from surgery versus conservative management, though consensus supports conservative treatment for low-grade injuries",
         clinicalRelevance: "Clinical decision-making should incorporate functional demands and patient goals rather than relying solely on radiographic grading"
       }
     ],
@@ -8223,7 +8213,7 @@ The biceps tendon's intra-articular portion experiences unique mechanical challe
       },
       {
         finding: "High association with rotator cuff pathology",
-        detail: "Research shows biceps tendinopathy develops in 40-50% of patients with rotator cuff tears within 2-3 years, indicating secondary biceps pathology results from altered glenohumeral mechanics when rotator cuff fails to properly depress and centralize humeral head",
+        detail: "Long head of biceps tendon pathology is commonly associated with rotator cuff disease, and imaging and operative series consistently show biceps involvement becomes more frequent as rotator cuff tear size increases. A systematic review of biceps tendon involvement in shoulder pathology (Redondo-Alonso et al., BMC Musculoskelet Disord 2014) supports this relationship, which is consistent with altered glenohumeral mechanics when the rotator cuff no longer properly depresses and centralizes the humeral head, secondarily loading the biceps tendon",
         clinicalRelevance: "Assessment and treatment must address potential concurrent rotator cuff dysfunction as biceps symptoms may be secondary to primary cuff pathology"
       }
     ],
@@ -8430,18 +8420,13 @@ Contact sports create the highest risk for MCL injuries through direct trauma me
 
     keyResearch: [
       {
-        finding: "Conservative management effective for isolated MCL injuries",
-        detail: "2024 systematic review titled 'Shedding light on the non-operative treatment of the forgotten side of the knee' found conservative rehabilitation of medial collateral ligament injuries achieves excellent outcomes with structured progressive protocols, supporting non-surgical approach for isolated MCL tears including Grade III injuries",
+        finding: "Non-operative rehabilitation is promising for isolated MCL injuries, but evidence certainty is low",
+        detail: "A 2024 systematic review by Svantesson and colleagues, titled 'Shedding light on the non-operative treatment of the forgotten side of the knee: rehabilitation of medial collateral ligament injuries' (BMJ Open Sport & Exercise Medicine), concluded that non-operative rehabilitation of MCL injuries appears promising, while cautioning that the supporting evidence is of very low certainty with substantial heterogeneity and no clear difference in outcomes between grade I and grade II injuries",
         clinicalRelevance: "Evidence supports conservative physiotherapy as primary treatment even for complete MCL tears when ligament remains in anatomical position and no associated injuries present"
       },
       {
-        finding: "MCL has superior healing capacity compared to LCL",
-        detail: "Medial collateral ligament demonstrates high tensile strength of 4000 Newtons before failure and excellent healing potential with conservative care, while lateral collateral ligament shows lower tensile strength at approximately 750 Newtons and often requires surgical intervention for Grade III injuries due to poorer healing capacity",
-        clinicalRelevance: "Different healing potentials guide treatment decisions - MCL injuries amenable to conservative care while LCL complete tears may require surgical consideration"
-      },
-      {
-        finding: "Athletes with weak hip abductors show 30-40% higher injury risk",
-        detail: "Motion capture studies in soccer players demonstrate that poorly controlled cutting maneuvers with weak hip abductors generate 30-40% greater dynamic knee valgus during pivoting movements, creating medial collateral ligament forces approaching injury thresholds",
+        finding: "Weak hip abductors are associated with greater dynamic knee valgus and increased injury risk",
+        detail: "Motion-analysis research on cutting and pivoting indicates that reduced hip abductor strength and control are associated with greater dynamic knee valgus, which increases medial-sided loading and is recognised as a modifiable contributor to collateral ligament injury risk",
         clinicalRelevance: "Hip strengthening forms critical component of MCL rehabilitation and injury prevention programs to address proximal control deficits contributing to knee valgus loading"
       }
     ],
@@ -8733,18 +8718,13 @@ Many athletes fear that continuing to exercise with some pain will damage the te
 
     keyResearch: [
       {
-        finding: "Heavy slow resistance training ranks superior to eccentric-only protocols",
-        detail: "October 2024 network meta-analysis found eccentric training ranked poorly for increasing VISA-P scores, while moderate resistance slow training showed better outcomes. 2024 systematic review indicates isometric exercises more effective during competitive seasons for short-term pain relief, whereas heavy slow resistance or eccentric exercises more suitable for long-term pain reduction and knee function improvement",
-        clinicalRelevance: "Treatment selection should consider timing (in-season vs off-season) with isometrics for immediate pain relief and heavy slow resistance for long-term structural adaptation and functional gains"
-      },
-      {
         finding: "Evidence quality remains limited despite multiple treatment options",
         detail: "February 2024 review of meta-analyses revealed lack of high-quality evidence on optimal patellar tendinopathy treatments, though PRP and ESWT show promise. Evidence for eccentric exercise efficacy remains unclear due to inconclusive findings across studies",
         clinicalRelevance: "Clinical decision-making requires individualization based on patient presentation and response to trial interventions rather than assuming single protocol superiority given evidence limitations"
       },
       {
         finding: "Landing forces reach 6-8 times body weight in jumpers",
-        detail: "Research using force plates and motion capture shows landing from vertical jump creates patellar tendon forces reaching 6-8 times body weight, with 2023 meta-analysis identifying counter-movement jump height as significant risk factor for developing patellar tendinopathy in athletes",
+        detail: "Research using force plates and inverse-dynamics modelling shows landing from a vertical jump generates high patellar tendon forces, with estimates in the range of roughly 4-5 times body weight, concentrated at the bone-tendon interface. A 2018 systematic review and meta-analysis (Sprague et al., British Journal of Sports Medicine) examined modifiable risk factors for patellar tendinopathy and found only limited or conflicting evidence that greater counter-movement jump height is associated with developing the condition in athletes",
         clinicalRelevance: "Understanding high mechanical loads informs both prevention through landing technique optimization and rehabilitation progression matching tendon load tolerance capacity"
       }
     ],
@@ -8985,16 +8965,16 @@ Your foot mechanics also play a role - excessive pronation can create internal r
       {
         finding: "Combined hip and knee exercise produces superior pain reduction compared to knee exercise alone",
         detail: "A 2022 systematic review and meta-analysis of 65 RCTs published in Journal of Orthopaedic & Sports Physical Therapy found hip-and-knee-targeted exercise therapy showed standardized mean difference (SMD) of 1.02 (95% CI: 0.58, 1.46) for pain and SMD of 1.03 (95% CI: 0.61, 1.45) for function at 3 months compared to knee-targeted exercise alone, while knee-targeted exercise showed SMD of 1.16 (95% CI: 0.66, 1.66) for pain versus control",
-        clinicalRelevance: "Evidence from 65 randomized trials supports combined hip and knee strengthening as superior to isolated quadriceps exercises for short-term pain and function outcomes, with moderate to large effect sizes justifying hip strengthening as essential component of patellofemoral pain rehabilitation rather than optional adjunct"
+        clinicalRelevance: "In the 2022 JOSPT review (Neal et al., 65 RCTs), hip-and-knee-targeted exercise therapy showed efficacy for pain and function compared with knee-targeted exercise alone at 3 months, with moderate to large effect sizes. This supports including hip strengthening as a core component of patellofemoral pain rehabilitation rather than treating it as an optional adjunct"
       },
       {
         finding: "Hip strengthening produces greater pain reduction effect than knee strengthening",
-        detail: "Meta-analysis comparing hip versus knee strengthening training found hip-focused protocols demonstrated greater pain reduction effect (SMD: 1.740, 95% CI: 2.212 to 1.267) compared to knee strengthening (SMD: 1.302, 95% CI: 1.75 to 0.86), with hip protocols producing earlier resolution of pain and greater overall strength gains over 6-week intervention periods",
+        detail: "A 2025 systematic review and meta-analysis by Zhang and colleagues in the European Journal of Medical Research (30:90) comparing hip versus knee strengthening training in patellofemoral pain found hip-focused protocols were associated with a larger pain reduction effect (standardized mean difference, SMD -1.740) than knee strengthening (SMD -1.302), where more negative values indicate greater pain reduction",
         clinicalRelevance: "Hip strengthening targeting external rotators and abductor muscles produces superior and faster pain relief compared to quadriceps-only approaches, supporting hip-dominant or equal hip-knee exercise prescription in early rehabilitation phases to optimize symptom resolution and functional recovery"
       },
       {
         finding: "6 interventions show positive effects at 3 months but long-term evidence lacking",
-        detail: "The 2022 JOSPT meta-analysis identified 6 interventions with positive effects at 3-month follow-up including knee-targeted exercise, hip-and-knee-targeted exercise, combined exercise and manual therapy, foot orthoses, patellar taping, and multimodal physiotherapy, though no intervention was adequately tested beyond 3 months with insufficient evidence for long-term efficacy",
+        detail: "The 2022 JOSPT meta-analysis by Neal and colleagues (65 RCTs) identified 6 interventions with positive effects at 3-month follow-up: knee-targeted exercise therapy, combined interventions, foot orthoses, lower-quadrant manual therapy, hip-and-knee-targeted exercise therapy, and knee-targeted exercise therapy combined with perineural dextrose injection, though no intervention was adequately tested beyond 3 months, leaving long-term efficacy uncertain",
         clinicalRelevance: "While multiple interventions demonstrate short-term efficacy at 3 months, lack of long-term data beyond this timepoint limits ability to guide extended rehabilitation planning, suggesting need for ongoing exercise maintenance programs beyond initial 3-month intervention period to prevent symptom recurrence"
       }
     ],
@@ -9227,7 +9207,7 @@ This increased load on the facet joints can lead to inflammation and pain. Addit
     keyResearch: [
       {
         finding: "Exercise therapy reduces pain and disability in disc herniation",
-        detail: "2025 systematic review of 8 trials with 611 patients found exercise therapy produced superior outcomes compared to control groups in pain reduction, disability scores, and range of motion. Physiotherapy interventions showed statistically significant pain reduction (mean difference -0.91, 95% CI -0.35 to -1.48, p = 0.001) and disability improvement (mean difference -5.76, 95% CI -3.18 to -8.34, p < 0.0001) across 201 and 181 patients respectively",
+        detail: "A 2021 systematic review and meta-analysis (Singh et al., Int J Health Sci) of physiotherapy for lumbar prolapsed intervertebral disc found that physiotherapy interventions were associated with statistically significant pain reduction (mean difference -0.91, 95% CI -0.35 to -1.48, p = 0.001) and disability improvement (mean difference -5.76, 95% CI -3.18 to -8.34, p < 0.0001) compared with control groups",
         clinicalRelevance: "Exercise therapy serves as an economical, effective first-line treatment for disc herniation and degenerative disc disease, with evidence supporting pain reduction and functional improvement through structured physiotherapy programs"
       },
       {
@@ -9236,8 +9216,8 @@ This increased load on the facet joints can lead to inflammation and pain. Addit
         clinicalRelevance: "Core stabilization targeting lumbar multifidus and transverse abdominis produces clinically meaningful improvements in both pain and function, even in patients with disc extrusions, supporting its role as primary conservative treatment"
       },
       {
-        finding: "McKenzie Method achieves 71% treatment success rate for directional preference",
-        detail: "2024 systematic review found McKenzie Method produced clinically important short-term pain reduction (mean difference -1.11 points on 10-point scale, 95% CI -1.83 to -0.40) and intermediate-term disability reduction (SMD -0.53, 95% CI -0.97 to -0.09). At 2-month follow-up, 71% of patients reported treatment success compared to 59% with manipulation alone (odds ratio 0.58, p = 0.018). Directional preference identified in 82.5% of derangement classifications",
+        finding: "McKenzie Method (MDT) can reduce pain and disability in patients with directional preference",
+        detail: "2024 systematic review found McKenzie Method produced clinically important short-term pain reduction (mean difference -1.11 points on 10-point scale, 95% CI -1.83 to -0.40) and intermediate-term disability reduction (SMD -0.53, 95% CI -0.97 to -0.09). At 2-month follow-up, 71% of patients reported treatment success compared to 59% with manipulation alone (odds ratio 0.58, p = 0.018). Among derangement classifications, extension was the most common direction of directional preference, identified in 82.5% (May & Rosedale 2018), compared with 12.9% lateral and 4.6% flexion",
         clinicalRelevance: "For patients exhibiting directional preference patterns, McKenzie Method delivered by credentialed therapists provides superior outcomes to other conservative interventions, with high success rates when treatment adherence follows MDT principles"
       }
     ],
@@ -9475,13 +9455,13 @@ Walking on an incline often feels easier than walking on flat ground because the
 
     keyResearch: [
       {
-        finding: "Supervised physical therapy achieves 19-25% higher patient improvement rates",
-        detail: "2019 randomized controlled trial demonstrated supervised physical therapy produced significantly higher rates of patient-reported major improvement at 3 months (23.5% difference, 95% CI: 9.9-37.1), 6 months (19.1% difference, 95% CI: 4.4-33.7), and 1 year (25.4% difference, 95% CI: 10.8-40.1) compared to unsupervised exercise. The 6-week program included manual therapy, individualized exercises, cycling, and body-weight supported treadmill walking delivered twice weekly",
-        clinicalRelevance: "Intensive supervised physical therapy in the first 6 weeks produces substantially better outcomes than unsupervised exercise and yields effects comparable to surgery, making it the preferred first-choice treatment to prevent surgical complications and minimize healthcare costs"
+        finding: "Supervised physiotherapy is associated with more patients reaching clinically meaningful improvement and a lower surgery rate at one year",
+        detail: "A randomized controlled trial (Minetama et al., Clinical Rehabilitation 2021, 1-year follow-up) found that at 1 year more patients receiving supervised physiotherapy reached a clinically meaningful improvement on the Zurich Claudication Questionnaire than those doing a home exercise program alone, for both symptom severity (60.5% vs 32.6%) and physical function (55.8% vs 32.6%). The surgery rate at 1 year was also lower in the supervised group (7.0% vs 23.3%). The 6-week program was delivered twice weekly and combined supervised physiotherapy with a home exercise program",
+        clinicalRelevance: "Supervised physiotherapy in the first 6 weeks can produce better short-term outcomes than unsupervised home exercise and is associated with a lower likelihood of surgery within a year, supporting a structured trial of supervised conservative care as a reasonable first step"
       },
       {
-        finding: "Flexion-based exercises with cycling show consistent symptom improvement",
-        detail: "2024 systematic review of 13 RCTs involving 1,440 patients (mean age 65 years) found that 8 successful exercise interventions consistently included stretches, trunk strengthening, and aerobic fitness exercises, particularly cycling. Cycling exercises demonstrated short-term improvements in symptom severity and walking capacity in 4 out of 7 interventions. All 18 supervised land-based programs incorporated lumbar flexion exercises",
+        finding: "Flexion-based and aerobic exercises, including cycling, feature commonly in exercise programs that help lumbar spinal stenosis",
+        detail: "A 2023 systematic review and intervention component analysis (Comer et al., Clinical Rehabilitation) of 13 randomised trials reporting 23 exercise interventions delivered to 1,440 participants found that most interventions included supervision and flexion-based exercises. Components that featured more often in successful interventions included stretches, strengthening or trunk muscle exercises, aerobic fitness exercises (especially cycling), and psychologically informed approaches",
         clinicalRelevance: "Exercise programs for spinal stenosis should prioritize supervised flexion-based activities combined with cycling to maximize symptom relief and functional improvement, as flexion positioning opens the spinal canal and reduces neural compression"
       },
       {
@@ -9743,15 +9723,10 @@ The deeper stabilizing muscles of your neck - the deep cervical flexors - become
         clinicalRelevance: "Progressive corrective exercise programs targeting forward head posture produce measurable postural improvements in just 4 weeks, with combined strengthening and stretching approaches yielding superior results to education alone for reversing muscular imbalances"
       },
       {
-        finding: "Therapeutic exercise reduces postural dysfunction across multiple alignments",
-        detail: "2024 meta-analysis of 22 studies involving 903 participants found therapeutic exercises produced significant improvements in forward head posture (CI 95% = -1.85 to 1.161, p = 0.001), rounded shoulders (CI 95% = -1.822 to 1.157, p = 0.001), and thoracic kyphosis (CI 95% = -1.83 to 1.09, p = 0.001). Exercise programs included strength training, stretching, and comprehensive muscle targeting over 3-12 week interventions",
+        finding: "Therapeutic exercise can improve forward head posture, rounded shoulders, and thoracic kyphosis (Porto, Guimaraes & Okazaki, J Bodyw Mov Ther, 2024)",
+        detail: "A 2024 systematic review by Porto, Guimaraes and Okazaki (Journal of Bodywork and Movement Therapies) found that exercise programs combining strengthening and stretching can produce favourable changes in postural alignment, including forward head posture, rounded shoulders, and thoracic kyphosis. Programs typically ran over several weeks and targeted the muscle groups involved in upper crossed patterns",
         clinicalRelevance: "Structured therapeutic exercise effectively improves postural alignment in upper crossed syndrome through targeted strengthening and stretching of involved musculature, with benefits evident across short-term interventions of 3-12 weeks"
       },
-      {
-        finding: "Exercise therapy improves cervical proprioception with large effect sizes",
-        detail: "2025 systematic review of 9 studies with 367 participants examining exercise therapy for cervical proprioception in forward head posture found 77.77% of measured outcomes demonstrated moderate to nearly perfect effect sizes. One study reported large effect on joint repositioning accuracy (effect size 1.19) following a 4-week program. No adverse effects were reported across any included studies",
-        clinicalRelevance: "Exercise-based rehabilitation not only corrects postural alignment but also restores neuromuscular control and proprioceptive function, addressing the underlying sensorimotor deficits that perpetuate postural dysfunction without risk of adverse effects"
-      }
     ],
 
     selfManagement: [
@@ -9985,18 +9960,13 @@ The kinetic chain from your feet to your fingertips influences shoulder stabilit
 
     keyResearch: [
       {
-        finding: "Therapeutic exercise programs show large effects in shoulder instability outcomes",
-        detail: "Meta-analysis of 5 studies with 304 participants showed large effects in Western Ontario Shoulder Instability Index scale with standardized mean difference of 3.12 (95% CI 2.12 to 4.12), with greatest strength improvements reaching 50.9% in internal rotation and 52.4% in external rotation at 90 degrees abduction from baseline in 2023 systematic review",
-        clinicalRelevance: "Supervised exercise programs focusing on scapular motor control and muscle strengthening provide substantial functional improvements and should be prioritized as evidence-based conservative treatment for glenohumeral instability"
-      },
-      {
         finding: "Non-operative management shows 54.7% recurrence rate but enables return to sport",
         detail: "2023 systematic review found 76.5% of athletes returned to play following conservative exercise rehabilitation, with 51.5% achieving pre-injury level, though pooled recurrence rate reached 54.7% with collision athletes experiencing 78.7% recurrent instability events despite 88.1% return to sport rate",
         clinicalRelevance: "Exercise-based rehabilitation enables majority of athletes to return to sport but carries substantial recurrence risk, necessitating careful patient education regarding activity modification and continued strengthening to minimize re-injury"
       },
       {
         finding: "Psychological readiness significantly impacts recurrence after treatment",
-        detail: "2024 study of 149 athletes demonstrated patients lacking psychological readiness (Shoulder Instability Return to Sport After Injury score below 55) experienced 19.5% recurrence rate compared to 3.7% in psychologically ready patients (p equals 0.002), with surgical stabilization timing showing 14.2% recurrence after single dislocation versus 42.8% after waiting until 2 dislocations",
+        detail: "2024 study of 149 athletes demonstrated patients lacking psychological readiness (Shoulder Instability Return to Sport After Injury score below 55) experienced 19.5% recurrence rate compared to 3.7% in psychologically ready patients (p equals 0.002), while a separate systematic review (Barlow et al., Journal of Clinical Orthopaedics and Trauma, 2019) reported a lower recurrence rate after stabilization for a single dislocation (14.2%) than after two dislocations (42.8%), though this difference did not reach statistical significance in the pooled analysis",
         clinicalRelevance: "Assessment of psychological readiness using validated scales should be incorporated into treatment planning, with early intervention recommended for high-risk populations to optimize outcomes and minimize recurrence rates"
       }
     ],
@@ -10500,11 +10470,6 @@ TFCC injuries affect the biomechanics of forearm rotation and ulnar-sided wrist 
 
     keyResearch: [
       {
-        finding: "Wrist sensorimotor rehabilitation produces large functional improvements",
-        detail: "2023 study of 10 patients completing wrist sensorimotor rehabilitation program for TFCC injuries showed 100% achieved minimal clinically important difference for pain (large effect size 2.81, mean reduction from 2.50 to 0.00, p less than 0.01), 70% achieved minimal clinically important difference for grip strength (large effect size 1.35, mean increase from 17.80 kg to 27.33 kg, p less than 0.001), and 70% for wrist function with PRWHE improving from 35.70 to 10.45 points (large effect size 2.47, p less than 0.001)",
-        clinicalRelevance: "Sensorimotor rehabilitation program targeting proprioception and motor control produces clinically meaningful improvements in pain, strength, and function for wrist injuries, with 70% of patients achieving minimal clinically important differences across multiple outcome measures"
-      },
-      {
         finding: "Conservative treatment for stable TFCC tears produces excellent outcomes",
         detail: "Study of 16 patients with TFCC lesions treated conservatively over mean 22.2 months follow-up achieved 53% excellent and 47% good results on Modified Mayo Wrist Score with mean score of 94.3, pain at rest of 0.1 (range 0 to 1), pain on exertion of 1.8 (range 0 to 4), and grip strength recovery to 88% of contralateral side, with DASH score of 16.8 and range of motion 99 to 100% of opposite wrist",
         clinicalRelevance: "Conservative management of stable triangular fibrocartilage complex lesions produces excellent functional outcomes comparable to surgical intervention, supporting non-operative approach as first-line treatment for stable injuries without distal radioulnar joint instability"
@@ -10769,7 +10734,7 @@ The repetitive nature of typing and mouse use creates cumulative loading on tend
     keyResearch: [
       {
         finding: "Workplace ergonomic interventions substantially reduce musculoskeletal pain",
-        detail: "2024 meta-analysis of 24 randomized controlled trials with 4,086 workers demonstrated ergonomic interventions reduced overall musculoskeletal pain with odds ratio of 0.64 (95% CI 0.56 to 0.73, p less than 0.00001), lower back pain with odds ratio of 0.53 (95% CI 0.40 to 0.70, p less than 0.00001), neck pain with odds ratio of 0.59 (95% CI 0.39 to 0.89, p equals 0.01), and wrist pain with odds ratio of 0.66 (95% CI 0.53 to 0.82), with mean pain intensity reduction of minus 0.28 on Visual Analog Scale",
+        detail: "2025 meta-analysis of 24 randomized controlled trials with 4,086 workers demonstrated ergonomic interventions reduced overall musculoskeletal pain with odds ratio of 0.64 (95% CI 0.56 to 0.73, p less than 0.00001), lower back pain with odds ratio of 0.53 (95% CI 0.40 to 0.70, p less than 0.00001), neck pain with odds ratio of 0.59 (95% CI 0.39 to 0.89, p equals 0.01), and wrist pain with odds ratio of 0.66 (95% CI 0.53 to 0.82), with mean pain intensity reduction of minus 0.28 on Visual Analog Scale",
         clinicalRelevance: "Ergonomic workplace modifications produce significant reductions in musculoskeletal pain across multiple body regions commonly affected by repetitive strain, supporting workplace assessment and modification as essential component of comprehensive RSI management"
       },
       {
@@ -10911,7 +10876,7 @@ The repetitive nature of typing and mouse use creates cumulative loading on tend
       },
       phase2: {
         title: "Phase 2: Targeted Strengthening and Endurance (Weeks 3 to 8)",
-        focus: "Build capacity in the specific tissues flagged during phase 1. For tendinopathy, this means slow-tempo resistance training, three days per week. For nerve-related symptoms, it means progressive nerve mobilisation and postural support. For diffuse myofascial pain, it means scapular and postural endurance training plus graded return to full work duration. The 2024 meta-analysis of ergonomic interventions in office workers supports pairing these measures with workplace changes rather than relying on either in isolation.",
+        focus: "Build capacity in the specific tissues flagged during phase 1. For tendinopathy, this means slow-tempo resistance training, three days per week. For nerve-related symptoms, it means progressive nerve mobilisation and postural support. For diffuse myofascial pain, it means scapular and postural endurance training plus graded return to full work duration. The 2025 meta-analysis of ergonomic interventions in office workers supports pairing these measures with workplace changes rather than relying on either in isolation.",
         examples: [
           "Scapular and rotator cuff endurance work (Y-T-W holds, prone horizontal abduction, external rotation with a band), 3 sets of 10 to 15",
           "Heavy slow resistance wrist flexion or extension targeted at whichever side is symptomatic, 3 sets of 10, 3 days per week",
@@ -11313,9 +11278,9 @@ The posterior drawer test demonstrates the primary dysfunction in PCL injuries -
 
     keyResearch: [
       {
-        finding: "IKDC scores improve from 35 to 67 at 2 years with conservative treatment",
-        detail: "A 2025 scoping review examining isolated acute PCL injuries found a 2023 study of 50 patients with physiotherapy and bracing showed IKDC subjective scores improved from 35 out of 100 at baseline to 67 out of 100 after 2 years of conservative treatment, with knee flexor muscle strength increasing 16% and structured rehabilitation including quadriceps strengthening, proprioceptive training, and functional exercises",
-        clinicalRelevance: "Conservative management with supervised physiotherapy and bracing produces clinically meaningful functional improvements for isolated PCL injuries, with IKDC scores increasing 32 points over 2 years supporting non-operative treatment as appropriate first-line intervention for grade 1 and 2 injuries in most patients"
+        finding: "IKDC scores improve from 35 to 65 at 2 years with conservative treatment",
+        detail: "A 2025 scoping review examining isolated acute PCL injuries found a 2023 study of 50 patients with physiotherapy and bracing showed IKDC subjective scores improved from 35 out of 100 at baseline to 65 out of 100 after 2 years of conservative treatment, with isometric knee flexor strength increasing 16% and structured rehabilitation including quadriceps strengthening, proprioceptive training, and functional exercises",
+        clinicalRelevance: "Conservative management with supervised physiotherapy and bracing produces clinically meaningful functional improvements for isolated PCL injuries, with IKDC subjective scores increasing about 28 points over 2 years supporting non-operative treatment as appropriate first-line intervention for grade 1 and 2 injuries in most patients"
       },
       {
         finding: "Long-term IKDC scores of 73.4 sustained after 10+ years with non-operative management",
@@ -11323,8 +11288,8 @@ The posterior drawer test demonstrates the primary dysfunction in PCL injuries -
         clinicalRelevance: "Conservative treatment produces durable functional outcomes extending beyond one decade for isolated PCL injuries, with three-quarters of patients maintaining good subjective knee function long-term, though modest osteoarthritis risk requires patient counseling about potential degenerative changes despite functional preservation"
       },
       {
-        finding: "Grade 1 and 2 isolated PCL injuries achieve nearly normal stability with rehabilitation",
-        detail: "A 2008 study of 17 patients with conservative treatment over 6 months showed side-to-side posterior tibial translation difference reduced from 6.2mm to 2.97mm, with IKDC objective results showing 35.3% of patients classified as normal and 64.7% as nearly normal, supporting non-operative management for low-grade isolated injuries with emphasis on avoiding posterior tibial translation during early healing",
+        finding: "Grade 1 and 2 isolated PCL injuries can achieve nearly normal knee stability with rehabilitation",
+        detail: "A 2008 study of 17 patients managed with active non-operative treatment including a period of cylinder cast immobilization showed side-to-side posterior tibial translation difference reduced from 6.2mm to 2.97mm, with IKDC objective results showing 35.3% of patients classified as normal and 64.7% as nearly normal, supporting non-operative management for low-grade isolated injuries with emphasis on avoiding posterior tibial translation during early healing",
         clinicalRelevance: "Rehabilitation emphasizing quadriceps activation and avoiding hamstring-dominant exercises in early stages allows nearly all patients with grade 1-2 isolated PCL injuries to achieve normal or nearly normal knee stability, with reduced posterior translation supporting functional recovery without surgical reconstruction in appropriate candidates"
       }
     ],
@@ -11561,15 +11526,10 @@ When ankle proprioception is impaired following sprains, the peroneal muscles mu
 
     keyResearch: [
       {
-        finding: "Ultrasound-guided corticosteroid injection provides meaningful pain relief in 56% of patients for at least 2 weeks",
+        finding: "Ultrasound-guided peroneal tendon sheath corticosteroid injection provided pain relief lasting more than one week in roughly 56% of patients",
         detail: "2019 study of 96 patients (109 injections) found 12.6% experienced 2-6 weeks relief, 6.9% had 7-12 weeks relief, and 36.8% achieved sustained relief beyond 12 weeks. Pre-injection symptom duration positively correlated with pain relief duration (p=0.036). Complication rate was low at 1.8%, with 25% of patients ultimately progressing to surgery",
         clinicalRelevance: "Ultrasound-guided injection represents a safe intermediate conservative option with low complication rates, particularly beneficial for patients with longer symptom duration who may achieve extended pain relief before considering surgical intervention"
       },
-      {
-        finding: "Eccentric training ranks poorly for tendinopathy outcomes while heavy slow resistance shows superior long-term results",
-        detail: "October 2024 network meta-analysis of patellar tendinopathy found eccentric training ranked worst for VISA-P score improvements, while moderate resistance slow training ranked best. 2024 systematic review indicates isometric exercises more effective during competitive seasons for short-term pain relief, whereas heavy slow resistance or eccentric exercises more suitable for long-term pain reduction and function improvement",
-        clinicalRelevance: "Exercise selection should be periodized based on patient activity demands, with isometrics for in-season athletes requiring immediate pain control and heavy slow resistance for off-season structural adaptation and sustained functional gains"
-      }
     ],
 
     selfManagement: [
@@ -11914,44 +11874,34 @@ Conservative treatment success depends heavily on early intervention and patient
 
     keyResearch: [
       {
-        title: "Progressive collapsing foot deformity: non-operative management and early surgical reconstruction",
-        authors: "Deland JT, McCormack AP, Maluf KS, et al.",
-        year: 2021,
-        journal: "Journal of American Academy of Orthopaedic Surgeons",
-        sampleSize: "Comprehensive review of treatment outcomes",
-        findings: "Conservative management with orthotic support shows 70-89% success in early stage PTTD. Custom functional foot orthoses significantly reduce pain and prevent deformity progression when combined with targeted strengthening exercises.",
-        relevance: "Establishes evidence base for conservative treatment as first-line management in early stage posterior tibial tendon dysfunction",
-        citation: "Deland JT, McCormack AP, Maluf KS, et al. Progressive collapsing foot deformity: non-operative management and early surgical reconstruction. J Am Acad Orthop Surg. 2021;29(15):e750-e760."
-      },
-      {
-        title: "Posterior tibial tendon dysfunction: biomechanical considerations for orthotic management",
+        title: "Deep posterior compartment strength and foot kinematics in subjects with stage II posterior tibial tendon dysfunction",
         authors: "Neville C, Flemister AS, Houck JR",
-        year: 2020,
-        journal: "Clinical Biomechanics",
-        sampleSize: "Biomechanical analysis with clinical correlation",
-        findings: "UCBL-style orthoses provide superior medial arch support and tibialis posterior muscle activity reduction compared to traditional arch supports. Orthotic intervention reduces peak plantar pressures by 25-40% in the medial midfoot region.",
-        relevance: "Provides biomechanical rationale for specific orthotic designs in PTTD management and supports evidence-based orthotic prescription",
-        citation: "Neville C, Flemister AS, Houck JR. Deep posterior compartment strength and foot kinematics in subjects with stage II posterior tibial tendon dysfunction. Foot Ankle Int. 2020;41(10):1224-1231."
+        year: 2010,
+        journal: "Foot & Ankle International",
+        sampleSize: "Comparative study of stage II PTTD versus controls",
+        findings: "Subjects with stage II PTTD demonstrated reduced deep posterior compartment strength, which was associated with altered foot kinematics including greater forefoot abduction and hindfoot eversion compared with controls. This supports targeting deep posterior compartment strengthening in conservative management.",
+        relevance: "Links measurable deep posterior compartment weakness to the flatfoot kinematics seen in PTTD, supporting strengthening as part of conservative care",
+        citation: "Neville C, Flemister AS, Houck JR. Deep posterior compartment strength and foot kinematics in subjects with stage II posterior tibial tendon dysfunction. Foot Ankle Int. 2010;31(4):320-328."
       },
       {
-        title: "Exercise therapy for posterior tibial tendon dysfunction: a systematic review",
+        title: "Nonsurgical management of posterior tibial tendon dysfunction with orthoses and resistive exercise: a randomized controlled trial",
         authors: "Kulig K, Reischl SF, Pomrantz AB, et al.",
-        year: 2022,
+        year: 2009,
         journal: "Physical Therapy",
-        sampleSize: "Systematic review of exercise interventions",
-        findings: "Progressive strengthening programs targeting posterior tibialis and intrinsic foot muscles show significant improvements in single heel rise capacity and pain reduction. Eccentric exercises demonstrate superior outcomes compared to concentric training alone.",
-        relevance: "Supports specific exercise prescription focusing on progressive loading and eccentric strengthening for optimal tendon adaptation",
-        citation: "Kulig K, Reischl SF, Pomrantz AB, et al. Nonsurgical management of posterior tibial tendon dysfunction with orthoses and resistive exercise: a randomized controlled trial. Phys Ther. 2022;102(4):pzab310."
+        sampleSize: "Randomized controlled trial of orthoses with resistive exercise",
+        findings: "Adding eccentric and concentric progressive resistive exercise to orthoses and stretching further reduced pain and improved function in early-stage PTTD compared with orthoses and stretching alone.",
+        relevance: "Supports adding progressive resistive tibialis posterior exercise to orthotic management rather than relying on orthoses and stretching alone",
+        citation: "Kulig K, Reischl SF, Pomrantz AB, et al. Nonsurgical management of posterior tibial tendon dysfunction with orthoses and resistive exercise: a randomized controlled trial. Phys Ther. 2009;89(1):26-37."
       },
       {
-        title: "Outcomes of conservative treatment for progressive collapsing foot deformity: a systematic review",
+        title: "Adult Acquired Flatfoot Deformity: Anatomy, Biomechanics, Staging, and Imaging Findings",
         authors: "Flores DV, Mejia Gomez C, Fernandez Hernando M, et al.",
-        year: 2023,
-        journal: "Foot and Ankle International",
-        sampleSize: "Systematic review of 18 studies, 842 patients",
-        findings: "Conservative treatment shows excellent outcomes in Stage I (90% success) and good outcomes in Stage II (70% success) PTTD. Treatment failures correlated strongly with delayed diagnosis and non-compliance with orthotic recommendations.",
-        relevance: "Provides comprehensive outcome data supporting early conservative intervention while identifying prognostic factors for treatment success",
-        citation: "Flores DV, Mejia Gomez C, Fernandez Hernando M, et al. Progressive collapsing foot deformity: review of radiological assessment. Eur J Radiol. 2023;158:110634."
+        year: 2019,
+        journal: "RadioGraphics",
+        sampleSize: "Narrative imaging and staging review",
+        findings: "This review details the anatomy, biomechanics, staging, and imaging findings of adult acquired flatfoot deformity, including the role of posterior tibial tendon and spring ligament failure in progressive deformity. It supports accurate staging to guide whether conservative care or surgical reconstruction is appropriate.",
+        relevance: "Supports careful clinical and imaging-based staging of PTTD to match management to deformity severity",
+        citation: "Flores DV, Mejia Gomez C, Fernandez Hernando M, Davis MA, Pathria MN. Adult Acquired Flatfoot Deformity: Anatomy, Biomechanics, Staging, and Imaging Findings. RadioGraphics. 2019;39(5):1437-1460."
       }
     ],
 
@@ -12230,44 +12180,44 @@ It's important to understand that once the nerve has thickened significantly, so
 
     keyResearch: [
       {
-        title: "Conservative treatment of Morton's neuroma: a systematic review and meta-analysis",
-        authors: "Thomson CE, Gibson JN, Martin D, et al.",
-        year: 2020,
-        journal: "Foot and Ankle International",
-        sampleSize: "15 studies, 674 participants",
-        findings: "Conservative treatment with metatarsal padding, wide toe box shoes, and activity modification shows 65-80% good outcomes. Custom orthotics with metatarsal support demonstrate superior results compared to over-the-counter devices.",
-        relevance: "Establishes evidence base for non-invasive management as first-line treatment, supporting conservative approach before considering injection or surgical interventions",
-        citation: "Thomson CE, Gibson JN, Martin D, et al. Interventions for the treatment of Morton's neuroma. Cochrane Database Syst Rev. 2020;11:CD003118."
+        title: "Interventions for the treatment of Morton's neuroma",
+        authors: "Thomson CE, Gibson JNA, Martin D",
+        year: 2004,
+        journal: "Cochrane Database of Systematic Reviews",
+        sampleSize: "Systematic review of conservative and surgical interventions",
+        findings: "This Cochrane review concluded there is insufficient evidence to assess the effectiveness of conservative interventions for Morton's neuroma, highlighting the need for higher-quality trials. Footwear modification, metatarsal padding, and activity modification remain reasonable first-line measures based on clinical rationale rather than strong trial evidence.",
+        relevance: "Frames non-invasive management as a reasonable first-line approach while underscoring that the evidence base for specific conservative measures is limited, supporting a trial of conservative care before injection or surgery",
+        citation: "Thomson CE, Gibson JNA, Martin D. Interventions for the treatment of Morton's neuroma. Cochrane Database Syst Rev. 2004;(3):CD003118."
       },
       {
-        title: "Ultrasound-guided injection therapy for Morton's neuroma: systematic review",
-        authors: "Mahadevan D, Attwal M, Bhatt R, et al.",
-        year: 2021,
-        journal: "Foot and Ankle Surgery",
-        sampleSize: "12 studies, 423 patients",
-        findings: "Ultrasound-guided corticosteroid injections provide 70-85% pain reduction at 6-month follow-up. Alcohol neurolysis shows longer-lasting effects but higher complication rates compared to steroid injection.",
-        relevance: "Provides evidence for injection therapy as effective second-line treatment when conservative management fails, supporting staged treatment approach",
-        citation: "Mahadevan D, Attwal M, Bhatt R, et al. Corticosteroid injection for Morton's neuroma with or without ultrasound guidance: a systematic review and meta-analysis. Foot Ankle Surg. 2021;27(4):402-407."
+        title: "Corticosteroid injection for Morton's neuroma with or without ultrasound guidance: a randomised controlled trial",
+        authors: "Mahadevan D, Attwal M, Bhatt R, Bhatia M",
+        year: 2016,
+        journal: "Bone & Joint Journal",
+        sampleSize: "Randomised controlled trial",
+        findings: "Both ultrasound-guided and unguided corticosteroid injections improved symptoms, with no statistically significant difference in outcome between guided and unguided injection. This supports corticosteroid injection as a treatment option but does not establish a clear advantage for ultrasound guidance.",
+        relevance: "Supports corticosteroid injection as a treatment option when conservative management has not settled symptoms, while showing ultrasound guidance did not significantly improve outcomes over unguided injection",
+        citation: "Mahadevan D, Attwal M, Bhatt R, Bhatia M. Corticosteroid injection for Morton's neuroma with or without ultrasound guidance: a randomised controlled trial. Bone Joint J. 2016;98-B(4):498-503."
       },
       {
-        title: "Footwear and orthotic interventions for Morton's neuroma: biomechanical analysis",
-        authors: "Kang JH, Chen MD, Chen SC, et al.",
-        year: 2022,
-        journal: "Gait and Posture",
-        sampleSize: "45 patients with Morton's neuroma",
-        findings: "Wide toe box shoes with low heels reduce forefoot pressures by 35-45% compared to narrow, high-heeled footwear. Metatarsal pads positioned 1cm proximal to metatarsal heads provide optimal pressure redistribution.",
-        relevance: "Provides biomechanical rationale for specific footwear recommendations and orthotic designs, supporting evidence-based conservative treatment approaches",
-        citation: "Kang JH, Chen MD, Chen SC, et al. Correlations between subjective treatment responses and plantar pressure parameters of metatarsal pad treatment in metatarsalgia patients: a prospective study. BMC Musculoskelet Disord. 2022;23(1):208."
+        title: "Correlations between subjective treatment responses and plantar pressure parameters of metatarsal pad treatment in metatarsalgia patients: a prospective study",
+        authors: "Kang JH, Chen MD, Chen SC, Hsi WL",
+        year: 2006,
+        journal: "BMC Musculoskeletal Disorders",
+        sampleSize: "Prospective study of metatarsalgia patients",
+        findings: "Metatarsal pads placed proximal to the metatarsal heads reduced peak plantar pressure under the forefoot and were associated with improved subjective symptoms in metatarsalgia. This provides a biomechanical rationale for positioning pads behind, rather than directly under, the painful interspace.",
+        relevance: "Provides a biomechanical rationale for metatarsal pad placement proximal to the metatarsal heads, informing orthotic and footwear strategies for forefoot offloading",
+        citation: "Kang JH, Chen MD, Chen SC, Hsi WL. Correlations between subjective treatment responses and plantar pressure parameters of metatarsal pad treatment in metatarsalgia patients: a prospective study. BMC Musculoskelet Disord. 2006;7:95."
       },
       {
-        title: "Surgical outcomes for Morton's neuroma: long-term follow-up study",
+        title: "The outcome of Morton's neurectomy in the treatment of metatarsalgia",
         authors: "Pace A, Scammell B, Dhar S",
-        year: 2023,
-        journal: "Foot and Ankle International",
-        sampleSize: "127 patients, 5-year follow-up",
-        findings: "Surgical neurectomy provides 85-90% good to excellent outcomes at long-term follow-up. Recurrent symptoms occur in 8-12% of cases, typically related to stump neuroma formation or adjacent interspace development.",
+        year: 2010,
+        journal: "International Orthopaedics",
+        sampleSize: "78 patients (82 feet), mean 4.6-year follow-up",
+        findings: "Morton's neurectomy produced excellent or good results in about 82% of feet, with 10% fair and 8% reporting no improvement at a mean follow-up of around 4.6 years. This supports surgery as a reasonable option for cases that do not settle with conservative care, while a minority of patients remain dissatisfied.",
         relevance: "Provides outcome data for surgical management when conservative treatment fails, helping patients make informed treatment decisions about surgical intervention",
-        citation: "Pace A, Scammell B, Dhar S. The outcome of Morton's neurectomy in the treatment of metatarsalgia. Int Orthop. 2023;47(4):1023-1029."
+        citation: "Pace A, Scammell B, Dhar S. The outcome of Morton's neurectomy in the treatment of metatarsalgia. Int Orthop. 2010;34(4):511-515."
       }
     ],
 
@@ -12546,44 +12496,44 @@ It's important to recognize that some anatomical factors (like metatarsal length
 
     keyResearch: [
       {
-        title: "Conservative treatment of forefoot pain: a systematic review",
+        title: "Current Concept Review: Metatarsalgia",
         authors: "Espinosa N, Maceira E, Myerson MS",
-        year: 2020,
-        journal: "Foot and Ankle Clinics",
-        sampleSize: "Systematic review of conservative treatments",
-        findings: "Metatarsal padding and orthotic devices provide significant pain reduction in 70-85% of patients with metatarsalgia. Custom orthotics show superior outcomes compared to over-the-counter devices for pressure redistribution and symptom relief.",
+        year: 2008,
+        journal: "Foot & Ankle International",
+        sampleSize: "Narrative concept review",
+        findings: "This concept review describes metatarsalgia as a symptom complex driven by abnormal forefoot load distribution and outlines conservative management, including footwear modification and orthotic offloading with metatarsal support, as the first-line approach before considering surgery.",
         relevance: "Establishes evidence base for orthotic intervention as first-line treatment for metatarsalgia, supporting conservative management approach",
-        citation: "Espinosa N, Maceira E, Myerson MS. Current concept review: metatarsalgia. Foot Ankle Int. 2020;29(8):871-879."
+        citation: "Espinosa N, Maceira E, Myerson MS. Current Concept Review: Metatarsalgia. Foot Ankle Int. 2008;29(8):871-879."
       },
       {
-        title: "Biomechanical analysis of metatarsal padding in forefoot pain management",
-        authors: "Chang TJ, Morton DJ, Karnovsky SC, et al.",
-        year: 2021,
-        journal: "Journal of Foot and Ankle Surgery",
-        sampleSize: "52 patients with metatarsalgia",
-        findings: "Properly positioned metatarsal pads reduce peak plantar pressures by 25-40% under symptomatic metatarsal heads. Pad placement 5-10mm proximal to metatarsal heads provides optimal pressure redistribution without causing proximal pressure concentrations.",
-        relevance: "Provides biomechanical evidence for specific pad placement techniques, supporting evidence-based orthotic prescription and patient education",
-        citation: "Chang TJ, Morton DJ, Karnovsky SC, et al. Biomechanical evaluation of metatarsal pad placement in the cavus foot. J Foot Ankle Surg. 2021;60(1):32-36."
+        title: "Effect of metatarsal pad placement on plantar pressure in people with diabetes mellitus and peripheral neuropathy",
+        authors: "Hastings MK, Mueller MJ, Pilgram TK, Lott DJ, Commean PK, Johnson JE",
+        year: 2007,
+        journal: "Foot & Ankle International",
+        sampleSize: "Plantar pressure measurement study",
+        findings: "Metatarsal pads positioned just proximal to the metatarsal head (about 6 to 11mm proximal) reduced peak forefoot pressure by an average of roughly one third, indicating that accurate pad placement proximal to the symptomatic head is what drives the offloading effect.",
+        relevance: "Provides biomechanical evidence that pad placement proximal to the metatarsal head reduces peak plantar pressure, supporting careful pad positioning in patient education",
+        citation: "Hastings MK, Mueller MJ, Pilgram TK, Lott DJ, Commean PK, Johnson JE. Effect of metatarsal pad placement on plantar pressure in people with diabetes mellitus and peripheral neuropathy. Foot Ankle Int. 2007;28(1):84-88."
       },
       {
-        title: "Effectiveness of foot orthoses for plantar pressure redistribution in metatarsalgia",
-        authors: "Martinez-Nova A, Cuevas-Garcia JC, Pascual-Huerta J, et al.",
-        year: 2022,
-        journal: "Applied Ergonomics",
-        sampleSize: "38 patients with central metatarsalgia",
-        findings: "Custom foot orthoses with metatarsal support elements significantly reduce pain scores and improve function in patients with metatarsalgia. Treatment effects maintained at 6-month follow-up with high patient satisfaction rates.",
-        relevance: "Demonstrates long-term effectiveness of orthotic intervention for metatarsalgia management, supporting sustained conservative treatment benefits",
-        citation: "Martinez-Nova A, Cuevas-Garcia JC, Pascual-Huerta J, et al. Effectiveness of foot orthoses customization on the impact of plantar pressure redistribution in patients with metatarsalgia. Appl Ergon. 2022;98:103584."
+        title: "Plantar pressure relief under the metatarsal heads: therapeutic insole design using three-dimensional finite element model of the foot",
+        authors: "Chen WM, Lee SJ, Lee PVS",
+        year: 2015,
+        journal: "Journal of Biomechanics",
+        sampleSize: "Finite element modelling study",
+        findings: "Computational modelling of therapeutic insoles found that a metatarsal pad combined with an arch support, rather than a flat insole, produced the greatest reduction in peak plantar pressure under the central metatarsal heads, reinforcing that offloading geometry matters more than cushioning alone.",
+        relevance: "Supports the use of contoured orthoses with metatarsal support for pressure redistribution, consistent with a conservative offloading approach to metatarsalgia",
+        citation: "Chen WM, Lee SJ, Lee PVS. Plantar pressure relief under the metatarsal heads: therapeutic insole design using three-dimensional finite element model of the foot. J Biomech. 2015;48(4):659-665."
       },
       {
-        title: "Role of intrinsic foot muscles in forefoot pain syndromes: clinical implications",
-        authors: "McKeon PO, Hertel J, Bramble D, et al.",
-        year: 2023,
-        journal: "Sports Health",
-        sampleSize: "Clinical review and biomechanical analysis",
-        findings: "Weakness of intrinsic foot muscles contributes to altered forefoot loading patterns and metatarsalgia development. Progressive strengthening programs targeting intrinsic muscles show promise for both treatment and prevention of forefoot pain syndromes.",
-        relevance: "Provides evidence for exercise-based interventions targeting intrinsic foot muscle function as adjunct to traditional orthotic management",
-        citation: "McKeon PO, Hertel J, Bramble D, et al. The foot core system: a new paradigm for understanding intrinsic foot muscle function. Sports Health. 2023;15(5):767-775."
+        title: "The foot core system: a new paradigm for understanding intrinsic foot muscle function",
+        authors: "McKeon PO, Hertel J, Bramble D, Davis I",
+        year: 2015,
+        journal: "British Journal of Sports Medicine",
+        sampleSize: "Conceptual review",
+        findings: "This review proposes the foot core paradigm, describing how the intrinsic foot muscles support the arches and dynamically stabilise the foot during loading; the authors argue that intrinsic muscle function is often overlooked and can be targeted with specific strengthening to improve foot stability and load distribution.",
+        relevance: "Provides the conceptual basis for exercise interventions targeting intrinsic foot muscle function as an adjunct to orthotic offloading in forefoot pain",
+        citation: "McKeon PO, Hertel J, Bramble D, Davis I. The foot core system: a new paradigm for understanding intrinsic foot muscle function. Br J Sports Med. 2015;49(5):290."
       }
     ],
 
@@ -12616,7 +12566,7 @@ It's important to recognize that some anatomical factors (like metatarsal length
       },
       {
         question: "Can strengthening really change ball-of-foot pain?",
-        answer: "It can, but it works slowly and only pairs well with offloading. McKeon and colleagues (Sports Health 2023) describe the intrinsic foot muscles as a core system for the forefoot, and weak intrinsics leave the transverse arch unsupported, concentrating load under the middle metatarsals. Short-foot holds, toe splay work, and calf raise variations done consistently over two to three months change how the forefoot shares load. Strengthening on its own rarely fixes a genuinely mechanically overloaded forefoot, but combined with pad placement and footwear work, it is a reliable part of the picture."
+        answer: "It can, but it works slowly and only pairs well with offloading. McKeon and colleagues (Br J Sports Med 2015) describe the intrinsic foot muscles as a core system for the forefoot, and weak intrinsics leave the transverse arch unsupported, concentrating load under the middle metatarsals. Short-foot holds, toe splay work, and calf raise variations done consistently over two to three months change how the forefoot shares load. Strengthening on its own rarely fixes a genuinely mechanically overloaded forefoot, but combined with pad placement and footwear work, it is a reliable part of the picture."
       },
       {
         question: "When should I worry about a stress fracture rather than metatarsalgia?",
@@ -12897,7 +12847,7 @@ It's important for patients to understand that conservative treatment cannot cor
         clinicalRelevance: "Targeted intrinsic foot muscle strengthening drives both structural correction and muscle adaptation, with active exercise essential as orthosis alone produces no measurable improvement, emphasizing active rehabilitation over passive correction"
       },
       {
-        finding: "Orthoses with toe separators show medium effect size for angle correction but limited overall efficacy",
+        finding: "Orthoses with toe separators are associated with a medium effect size for hallux valgus angle correction, though overall conservative efficacy is limited (Kwan et al., BMJ Open 2021)",
         detail: "2021 systematic review and meta-analysis of 9 studies found overall small effect size (SMD 0.31, 95% CI: 0.075 to 0.547) for hallux valgus angle reduction, with orthoses containing toe separator showing medium effect size (SMD 0.50, 95% CI: 0.189 to 0.803). Specific studies demonstrated angle reductions: Tang et al. 5.79°, Moulodi et al. 2.67°, Chadchavalpanichaya et al. 2.1°. 2-year prospective study found pain VAS scores decreased from median 52 at baseline to 21 at 12 months, maintained at 27 at 24 months (p<0.001)",
         clinicalRelevance: "While orthoses provide modest structural improvement and meaningful pain reduction sustained over 2 years, toe separator element is critical for optimal outcomes, and patients should maintain realistic expectations regarding degree of correction achievable with non-surgical management"
       }
@@ -13164,8 +13114,8 @@ The progressive nature of the condition means that periodic reassessment and tre
         clinicalRelevance: "For patients failing conservative management, cheilectomy offers highly predictable outcomes in mild to moderate hallux rigidus, with traditional open techniques showing superior pain reduction and ROM gains compared to minimally invasive approaches"
       },
       {
-        finding: "Hyaluronic acid injections provide modest short-term pain relief but high surgical conversion rates",
-        detail: "Pons et al. study of 40 patients showed VAS pain reduction at 3 months (sodium hyaluronate 62.2 to 26.2, triamcinolone 58.7 to 34.1), but surgery rates at 1 year remained high (sodium hyaluronate 46.6%, triamcinolone 52.9%). Meta-analysis showed significant but modest pain relief at rest (reduction 0.52, 95% CI: 0.77, 0.28) and walking (reduction 0.32, 95% CI: 0.52, 0.11)",
+        finding: "Hyaluronic acid injections may provide modest short-term pain relief but limited evidence supports lasting or disease-modifying benefit",
+        detail: "Pons et al. study of 37 patients (40 feet) showed VAS pain reduction at 3 months (sodium hyaluronate 62.2 to 26.2, triamcinolone 58.7 to 34.1), but surgery rates at 1 year remained high (sodium hyaluronate 46.6%, triamcinolone 52.9%)",
         clinicalRelevance: "Intra-articular injections may offer temporary symptomatic relief for 3 months but demonstrate limited long-term efficacy with nearly half of patients requiring surgery within one year, suggesting their role as a short-term palliative measure rather than disease-modifying treatment"
       }
     ],
@@ -13524,13 +13474,13 @@ Understanding the biomechanical demands of the athlete's specific sport is cruci
 
     keyResearch: [
       {
-        finding: "Surgical repair of turf toe achieves 94% return to previous activity level with significant functional improvement",
-        detail: "2024 study of 20 patients (17 athletes) showed Manchester-Oxford Foot Questionnaire scores improved from mean 73.0 preoperatively to 28.1 postoperatively (p=0.022), pain domain scores decreased from 72.9 to 22.9 (p=0.022). Mean return to normal activity 4.0 months, with 16 of 17 athletes (94%) returning to previous activity level. Zero complications or symptom recurrence reported",
-        clinicalRelevance: "Early surgical recognition and plantar plate repair for grade 3 turf toe injuries produces excellent functional outcomes and highly reliable return to sport, supporting surgical intervention for complete plantar plate disruptions in athletes"
+        finding: "Surgical repair of grade 3 turf toe is associated with a high rate of return to preinjury competition and significant functional improvement (Cho et al., 2025, Am J Sports Med)",
+        detail: "Cho et al. (2025, Am J Sports Med) reviewed a case series of athletes who underwent plantar plate repair for grade 3 turf toe. Of 21 completed return-to-sport surveys, 19 (90.5%) returned to preinjury levels of competition, with a mean time to return of 20.4 weeks (range 12-32). Patient-reported outcomes (PROMIS) improved significantly for physical function, pain interference, pain intensity, and global physical health, and sesamoid diastasis improved significantly after repair",
+        clinicalRelevance: "Early recognition and plantar plate repair for grade 3 turf toe can produce favourable functional outcomes and a high rate of return to sport, supporting surgical intervention for complete plantar plate disruptions in athletes (Cho et al., 2025, Am J Sports Med)"
       },
       {
-        finding: "Grade-based recovery timelines show surgical cases take 2.5 times longer to return compared to conservative management",
-        detail: "Systematic review of 65 patients found median return to play 5.85 weeks for nonoperative treatment versus 14.70 weeks for surgical cases. Grade I injuries return 3-5 days, grade II injuries lose 2-4 weeks (range 3-24 weeks), grade III injuries require 4-6+ weeks. Less than 2% of all turf toe injuries require surgery. Performance outcomes show low-grade injuries achieve near 100% return to prior performance, while 70-90% of high-grade injuries maintain performance level",
+        finding: "Surgically treated turf toe cases take roughly 2.5 times longer to return to sport than nonoperatively treated cases (Vopat et al., 2019, Orthop J Sports Med)",
+        detail: "The Vopat et al. (2019, Orthop J Sports Med) systematic review and meta-analysis of 112 athletes (121 turf toe injuries) found median return to play of 5.85 weeks for nonoperative treatment versus 14.70 weeks for surgical cases. Grade I injuries return 3-5 days, grade II injuries lose 2-4 weeks (range 3-24 weeks), grade III injuries require 4-6+ weeks. Less than 2% of all turf toe injuries require surgery. Performance outcomes show low-grade injuries achieve near 100% return to prior performance, while 70-90% of high-grade injuries maintain performance level",
         clinicalRelevance: "Conservative management remains first-line for grade I and II injuries with predictable short recovery times, while surgical intervention should be reserved for grade III injuries with understanding that extended rehabilitation (14+ weeks) is necessary but yields favorable long-term performance outcomes in appropriate candidates"
       }
     ],
@@ -13848,15 +13798,10 @@ The condition serves as an important lesson in listening to the body's signals a
         clinicalRelevance: "Custom orthoses demonstrate superior outcomes compared to off-the-shelf heel lifts, supporting first-line treatment with properly fitted foot orthoses for pediatric patients with Sever's disease, with measurable improvements in both subjective pain and objective pressure tolerance"
       },
       {
-        finding: "Physical therapy achieves return to sport in 2 months with gender differences in recovery",
-        detail: "A 2025 systematic review of 17 studies found average return to sport of 2 months with physical therapy and orthotic management, with boys averaging 2.2 months recovery time and girls 1.6 months, though bilateral cases took significantly longer (209.5 days) compared to unilateral presentations (45.9 days)",
+        finding: "Conservative management can support return to sport within about two months",
+        detail: "A 2025 review of 17 studies (Nweke, Cureus 2025) found that physical therapy facilitated return to sport within about two months when combined with activity modification and supportive measures",
         clinicalRelevance: "Conservative management with physical therapy and orthoses provides predictable recovery timelines for athletic populations, with treatment planning requiring consideration of bilateral involvement as a negative prognostic factor requiring extended rehabilitation duration"
       },
-      {
-        finding: "8 randomized controlled trials support multi-modal conservative approach",
-        detail: "A 2024 systematic review examining 8 RCTs (average PEDro methodological quality score 6.75/10) evaluated common treatments including custom orthoses, therapeutic exercise, kinesio taping, and foot orthoses, with a tiered treatment framework emerging that prioritizes custom foot orthoses and physical therapy as Tier 1 interventions based on strongest evidence",
-        clinicalRelevance: "Evidence supports structured treatment hierarchy with custom orthoses and supervised exercise as primary interventions, reserving other modalities as adjuncts, allowing clinicians to follow evidence-based treatment progressions when initial interventions prove insufficient"
-      }
     ],
 
     measuringProgress: {
@@ -14162,14 +14107,9 @@ Understanding the relationship between foot biomechanics and nerve compression h
 
         keyResearch: [
       {
-        finding: "Surgical decompression achieves 75.3% excellent or good outcomes across 32 studies",
-        detail: "A 2024 scoping review of 32 studies with 1,115 patients (weighted mean age 45.2 years) found 518 of 688 patients (75.3%) achieved excellent or good surgical outcomes, while 170 patients (24.7%) had fair or poor results, with overall complication rate of 11.2% and recurrence rate of 11.2%, though evidence quality remained low with only 1 level 3 study",
+        finding: "Surgical treatment is associated with excellent or good outcomes in 75.3% of cases across 32 studies",
+        detail: "A 2024 scoping review (Haq et al., J Clin Orthop Trauma) of 32 studies reported that excellent or good results were seen in 75.3% of cases, with the remainder having fair or poor outcomes, though the authors noted evidence quality was low and outcome reporting varied across studies",
         clinicalRelevance: "While three-quarters of patients achieve good surgical outcomes, one-quarter experience suboptimal results with meaningful complication and recurrence rates, supporting conservative management as appropriate first-line treatment with surgery reserved for refractory cases after adequate trial of 4-6 months"
-      },
-      {
-        finding: "Conservative treatment successful in 30.4% of patients before surgical intervention",
-        detail: "A 2022 systematic review examining conservative versus surgical management found conservative treatment including activity modification, NSAIDs, corticosteroid injections, physical therapy, and custom orthotics produced successful outcomes in 17 of 56 patients (30.4%), with statistically significant improvements in pain intensity, functional foot scores, symptom severity, and ankle mobility over 4-6 week periods",
-        clinicalRelevance: "Approximately one-third of patients respond to conservative management, justifying 4-6 month trial of non-operative treatment including manual therapy, strengthening, neural mobilization, and orthotic management before considering surgical decompression, particularly in lower-demand patients"
       },
       {
         finding: "17 of 32 surgical studies reported failed conservative treatment prior to surgery",

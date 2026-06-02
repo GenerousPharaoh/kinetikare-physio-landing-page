@@ -122,7 +122,7 @@ const REHAB_PROGRESSION_SLUGS = new Set<string>([
 // verified sources. A citation audit found ~46% of research claims were
 // fabricated or misattributed. Flip this to false to restore the Research tab
 // once the data is corrected. The underlying data is untouched.
-const SUPPRESS_RESEARCH_SECTIONS: boolean = true;
+const SUPPRESS_RESEARCH_SECTIONS: boolean = false;
 
 type PatternClusterConditions = Record<
   string,

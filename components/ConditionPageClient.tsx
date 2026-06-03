@@ -4,7 +4,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
-import { motion, AnimatePresence, MotionConfig } from 'framer-motion';
+import { motion, MotionConfig } from 'framer-motion';
 import Link from 'next/link';
 import {
   ChevronRightIcon,
@@ -997,22 +997,16 @@ export default function ConditionPageClient({
                       </div>
                     </div>
                   ) : (
-                  <AnimatePresence mode="wait" initial={false}>
-                    <motion.div
-                      key={activeTab}
-                      id="condition-tabpanel"
-                      role="tabpanel"
-                      aria-labelledby={`condition-tab-${activeTab}`}
-                      tabIndex={0}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.15, ease: [0.4, 0, 0.2, 1] }}
-                    >
+                  <div
+                    id="condition-tabpanel"
+                    role="tabpanel"
+                    aria-labelledby={`condition-tab-${activeTab}`}
+                    tabIndex={0}
+                  >
                       {/* Overview Tab - all sub-sections stacked; sidebar
                           sub-items scroll to the respective anchor rather
                           than swapping content. */}
-                      {activeTab === 'overview' && (
+                      <div className={activeTab === 'overview' ? '' : 'hidden'}>{(
                         <>
                         <div className="space-y-8">
                           {condition.pathophysiology && (
@@ -1109,10 +1103,10 @@ export default function ConditionPageClient({
                           </div>
                         )}
                       </>
-                      )}
+                      )}</div>
 
                       {/* Symptoms Tab */}
-                      {activeTab === 'symptoms' && (
+                      <div className={activeTab === 'symptoms' ? '' : 'hidden'}>{(
                         <>
                           {/* Urgent red-flag callout - moved here from hero so it
                               sits in context with symptom information */}
@@ -1259,10 +1253,10 @@ export default function ConditionPageClient({
                           )}
                         </div>
                         </>
-                      )}
+                      )}</div>
 
                       {/* Research Tab - all sub-sections stacked */}
-                      {activeTab === 'research' && (
+                      <div className={activeTab === 'research' ? '' : 'hidden'}>{(
                         <div className="space-y-8">
                           {condition.keyResearch && condition.keyResearch.length > 0 && (
                             <div id="key-research" data-section="key-research" className="relative bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden scroll-mt-40">
@@ -1432,10 +1426,10 @@ export default function ConditionPageClient({
                             </div>
                           )}
                         </div>
-                      )}
+                      )}</div>
 
                       {/* Management Tab */}
-                      {activeTab === 'self-care' && (
+                      <div className={activeTab === 'self-care' ? '' : 'hidden'}>{(
                         <div className="space-y-8">
                           {(condition.evidenceSnapshot || condition.selfManagement) && (
                             <div id="evidence-based-management" data-section="evidence-based" className="relative bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden scroll-mt-40">
@@ -1841,9 +1835,8 @@ export default function ConditionPageClient({
                           )}
 
                         </div>
-                      )}
-                    </motion.div>
-                  </AnimatePresence>
+                      )}</div>
+                  </div>
                   )}
                 </main>
 

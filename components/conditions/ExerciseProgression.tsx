@@ -1,5 +1,5 @@
 import React from 'react';
-import { InformationCircleIcon } from '@heroicons/react/24/outline';
+import { InformationCircleIcon, ExclamationTriangleIcon } from '@heroicons/react/24/outline';
 import GlossaryText from './GlossaryText';
 import type { ExerciseProgressionPhase } from '@/lib/conditions-data';
 
@@ -31,6 +31,13 @@ interface ExerciseProgressionProps {
   progression?: ExerciseProgressionData;
   /** Condition display name, e.g. "Patellar Tendinopathy (Jumper's Knee)". */
   conditionName: string;
+  /**
+   * Optional condition-specific scope / clearance sentence, rendered as a
+   * prominent amber note above the generic safety box. Used for higher-stakes
+   * conditions (post-surgical, fracture, acute, pediatric) where the progression
+   * only applies to a specific population or after medical clearance.
+   */
+  scopeNote?: string;
 }
 
 // Drop a leading "Phase 1:" / "Phase 2 -" style prefix so the rendered phase
@@ -48,7 +55,7 @@ function inlineConditionName(name: string): string {
     .trim();
 }
 
-export default function ExerciseProgression({ progression, conditionName }: ExerciseProgressionProps) {
+export default function ExerciseProgression({ progression, conditionName, scopeNote }: ExerciseProgressionProps) {
   if (!progression) return null;
   const phases = [progression.phase1, progression.phase2, progression.phase3].filter(Boolean);
   if (phases.length === 0) return null;
@@ -86,6 +93,23 @@ export default function ExerciseProgression({ progression, conditionName }: Exer
             the kind of progression the evidence supports and that I commonly work through in clinic.
             They are here to show you what the road can look like, not to act as a personal program.
           </p>
+
+          {/* Condition-specific scope / clearance note (higher-stakes conditions only) */}
+          {scopeNote && (
+            <aside
+              role="note"
+              aria-label="Important scope and clearance note"
+              className="rounded-xl border border-amber-300 border-l-4 border-l-amber-500 bg-amber-50 p-5 sm:p-6"
+            >
+              <div className="flex items-start gap-3">
+                <ExclamationTriangleIcon aria-hidden="true" className="h-5 w-5 flex-shrink-0 text-amber-600 mt-0.5" />
+                <div>
+                  <p className="m-0 text-sm font-semibold text-slate-900 mb-1.5">Before you use this progression</p>
+                  <p className="m-0 text-sm text-slate-800 leading-relaxed max-w-[72ch]">{scopeNote}</p>
+                </div>
+              </div>
+            </aside>
+          )}
 
           {/* Safety note */}
           <aside

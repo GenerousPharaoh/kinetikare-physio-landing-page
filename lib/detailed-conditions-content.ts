@@ -2126,7 +2126,7 @@ The "position of no return" happens during cutting movements when your foot plan
           "Heavy slow resistance leg press, split squats, and Romanian deadlifts progressing toward limb symmetry index above 80 percent",
           "Step-downs and single-leg squats emphasizing trunk control and avoidance of knee valgus collapse",
           "Double-leg jump landings progressing to small hops in place once strength criteria are met (typically around month 3 to 4)",
-          "Return to straight-line running progression once quadriceps strength reaches approximately 70 to 80 percent of the other side and single-leg hop in place is pain-free",
+          "Return to straight-line running progression once quadriceps strength is at least 80 percent of the other side, the knee is pain-free and free of swelling, and single-leg hop in place is pain-free",
           "Neuromuscular training including perturbation drills, balance board, and reactive stabilization tasks"
         ],
         progressionCriteria: "Quadriceps limb symmetry index approximately 90 percent on dynamometer, pain-free running at moderate pace, single-leg squat with good control, and no effusion response to loading."

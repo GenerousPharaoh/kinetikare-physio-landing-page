@@ -7857,7 +7857,7 @@ Common aggravating factors include the 'boom-bust' cycle of overdoing on good da
       },
       phase3: {
         title: "Phase 3: Return to Overhead and Demand-Specific Loading (Months 3 to 6+)",
-        focus: "Rebuild the capacity to tolerate overhead, ballistic, and end-range work. This phase is frequently skipped, which is a common reason people recover 80% then plateau. JOSPT 2022 guidance emphasises criterion-based rather than time-based progression for return to sport and heavy occupations. Cools et al. (Knee Surg Sports Traumatol Arthrosc 2015) frames return-to-play around external rotation strength, scapular control, and sport-specific loading.",
+        focus: "Rebuild the capacity to tolerate overhead, ballistic, and end-range work. This phase is frequently skipped, which is a common reason people recover much of the way and then plateau. JOSPT 2022 guidance emphasises criterion-based rather than time-based progression for return to sport and heavy occupations. Return to overhead sport is typically guided by external rotation strength, scapular control, and graded sport-specific loading.",
         examples: [
           "Overhead press progressions from landmine to full overhead dumbbell and barbell variations",
           "Pull-up and lat pulldown progressions, plus weighted rows loaded into strength ranges",
@@ -10977,7 +10977,7 @@ Asymmetrical movement patterns in sports create rotational forces that challenge
       },
       {
         approach: "Kinesio Taping",
-        evidence: "Combined with exercise and manipulation, kinesio taping is effective in restoring pelvic symmetry and reducing pain",
+        evidence: "Combined with exercise and mobilization, kinesio taping may help reduce pain",
         effectivenessLevel: "moderate"
       },
       {
@@ -11002,7 +11002,7 @@ Asymmetrical movement patterns in sports create rotational forces that challenge
     keyResearch: [
       {
         finding: "Manual therapy produces moderate effect on disability but not pain",
-        detail: "2024 systematic review and meta-analysis of 16 RCTs involving 421 adults (mean age 37.7 years) found SI joint manual therapy produced statistically significant moderate effect on disability reduction (SMD -0.67, 95% CI: -1.32 to -0.03, p = 0.0418) compared to non-manual physiotherapy or sham interventions. However, pain reduction was not statistically significant (SMD -0.88, 95% CI: -1.84 to 0.08, p = 0.0686), with 56% of studies rated good quality",
+        detail: "Manual therapy combined with exercise is associated with improved disability in sacroiliac joint dysfunction, though the evidence base is limited and effects on pain are less consistent",
         clinicalRelevance: "Manual therapy for SI joint dysfunction effectively reduces disability and improves function, though its direct effect on pain remains uncertain. This supports manual therapy as component of multimodal treatment targeting functional restoration rather than sole pain reduction"
       },
       {
@@ -11012,7 +11012,7 @@ Asymmetrical movement patterns in sports create rotational forces that challenge
       },
       {
         finding: "Long-term manual therapy with specific exercises increases treatment effectiveness",
-        detail: "Research demonstrates manual therapy proves effective in long-term management of sacroiliac joint dysfunction syndrome, with studies showing adding specific sacroiliac joint exercises to manipulation treatment further increases effectiveness. Conservative multimodal programs combining patient education, pelvic girdle stabilization with focused stretching, and manipulative therapy show consistent benefits",
+        detail: "Manual therapy can be effective in the long-term management of sacroiliac joint dysfunction, and adding specific sacroiliac joint exercises to manual therapy can further improve outcomes. Conservative multimodal programs combining patient education, pelvic girdle stabilization with focused stretching, and manual therapy show consistent benefits",
         clinicalRelevance: "Optimal SI joint dysfunction management requires multimodal approach combining manual therapy with targeted exercise prescription rather than passive treatment alone, with exercise-enhanced programs producing superior long-term outcomes"
       }
     ],
@@ -11344,7 +11344,7 @@ The posterior drawer test demonstrates the primary dysfunction in PCL injuries -
     faqs: [
       {
         question: "Do I need surgery for a PCL tear?",
-        answer: "Isolated Grade I and II PCL injuries respond well to non-operative management in most cases, and even many Grade III isolated tears do surprisingly well with a quadriceps-focused program. Pierce et al. (KSSTA 2013) and Wang et al. (Curr Rev Musculoskelet Med 2018) both support conservative care as the default for isolated injuries, reporting good functional outcomes and high return-to-sport rates. Surgery becomes more likely when the PCL injury is combined with ACL, posterolateral corner, or medial-sided ligament damage, or when persistent posterior instability limits daily function after a full rehabilitation trial."
+        answer: "Isolated Grade I and II PCL injuries respond well to non-operative management in most cases, and even many Grade III isolated tears do surprisingly well with a quadriceps-focused program. Pierce et al. (KSSTA 2012) and Wang et al. (Curr Rev Musculoskelet Med 2018) both support conservative care as the default for isolated injuries, reporting good functional outcomes and high return-to-sport rates. Surgery becomes more likely when the PCL injury is combined with ACL, posterolateral corner, or medial-sided ligament damage, or when persistent posterior instability limits daily function after a full rehabilitation trial."
       },
       {
         question: "Why is my knee pain less dramatic than my friend's ACL tear?",
@@ -11396,7 +11396,7 @@ The posterior drawer test demonstrates the primary dysfunction in PCL injuries -
     exerciseProgression: {
       phase1: {
         title: "Phase 1: Protect the Ligament and Wake Up the Quadriceps (Weeks 0 to 6)",
-        focus: "Minimize posterior tibial translation, maintain range of motion without forcing deep flexion, and re-establish confident quadriceps activation. The Pierce et al. (KSSTA 2013) rehabilitation protocol emphasizes prone positioning, quadriceps-dominant loading, and avoidance of isolated hamstring contraction during this window.",
+        focus: "Minimize posterior tibial translation, maintain range of motion without forcing deep flexion, and re-establish confident quadriceps activation. The Pierce et al. (KSSTA 2012) rehabilitation protocol emphasizes prone positioning, quadriceps-dominant loading, and avoidance of isolated hamstring contraction during this window.",
         examples: [
           "Quad sets and straight leg raises performed supine with a small towel roll under the ankle to support full extension",
           "Prone knee flexion active-assisted to around 90 degrees, avoiding forced hyperflexion in the first few weeks",

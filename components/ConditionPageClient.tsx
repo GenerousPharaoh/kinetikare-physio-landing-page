@@ -52,16 +52,17 @@ const PatternMatcher = dynamic(() => import('./conditions/PatternMatcher'), {
 // Conditions whose three-phase exercise progression has been individually
 // reviewed (clinical accuracy, citation validity, safety, CPO-regulatory
 // language, and appropriateness for self-directed public education) and cleared
-// to render publicly. 46 of the 58 conditions that carry progression data.
+// to render publicly. 52 of the 58 conditions that carry progression data.
 //
-// Deliberately held back and NOT listed here:
-//   - acl-injuries, shoulder-instability, stress-fractures, scaphoid-fractures,
-//     patella-fractures: need an explicit population / clearance scope line
-//     before public self-directed use (post-surgical-only scope, acute vs
-//     atraumatic, or loading gated on imaging-confirmed union).
-//   - golfers-elbow, shoulder-impingement, si-joint-dysfunction, pcl-injuries,
-//     metatarsalgia, turf-toe, growth-plate-injuries: citation, regulatory, or
-//     pediatric-scope fixes required in the underlying data first.
+// Deliberately held back and NOT listed here (all six need a clinical
+// scope/clearance line before public self-directed use, which is Kareem's to
+// write, not a data-integrity issue):
+//   - acl-injuries (post-surgical-reconstruction scope; running threshold),
+//   - shoulder-instability (acute traumatic vs atraumatic scope),
+//   - stress-fractures, scaphoid-fractures, patella-fractures (loading gated on
+//     imaging-confirmed union / surgeon clearance),
+//   - growth-plate-injuries (pediatric: apophysitis-only scope; exclude acute
+//     physeal fractures and SCFE).
 const REHAB_PROGRESSION_SLUGS = new Set<string>([
   // Spine + SI joint
   'low-back-pain',
@@ -115,6 +116,15 @@ const REHAB_PROGRESSION_SLUGS = new Set<string>([
   'repetitive-strain-injuries',
   // Systemic
   'diabetes-related-conditions',
+  // Added 2026-06-03 after the citation audit + remediation cleared their
+  // previously-fabricated/misattributed references (golfers-elbow, turf-toe,
+  // shoulder-impingement, si-joint-dysfunction, pcl-injuries, metatarsalgia).
+  'golfers-elbow',
+  'turf-toe',
+  'shoulder-impingement',
+  'si-joint-dysfunction',
+  'pcl-injuries',
+  'metatarsalgia',
 ]);
 
 // TEMPORARY (2026-06-02): the Research tab (keyResearch + researchInsights) is

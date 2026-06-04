@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { getTreatmentById, getAllTreatments } from '@/lib/treatments-data';
 import TreatmentHero from '@/components/treatments/TreatmentHero';
 import TreatmentContent from '@/components/treatments/TreatmentContent';
+import TreatmentInDepth from '@/components/treatments/TreatmentInDepth';
 import TreatmentProcess from '@/components/treatments/TreatmentProcess';
 import TreatmentFAQ from '@/components/treatments/TreatmentFAQ';
 import TreatmentCTA from '@/components/treatments/TreatmentCTA';
@@ -146,6 +147,7 @@ export default async function TreatmentPage({ params }: { params: Promise<{ slug
       />
       <TreatmentHero treatment={treatment} />
       <TreatmentContent treatment={treatment} />
+      <TreatmentInDepth treatment={treatment} />
       <TreatmentProcess treatment={treatment} />
       <TreatmentFAQ treatment={treatment} />
       <TreatmentCTA treatmentName={treatment.name} />

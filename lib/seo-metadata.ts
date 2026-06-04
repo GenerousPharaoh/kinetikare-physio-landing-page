@@ -60,6 +60,7 @@ export const CONTENT_LAST_MODIFIED = {
     'app/treatments/[slug]/page.tsx',
     'components/treatments/TreatmentHero.tsx',
     'components/treatments/TreatmentContent.tsx',
+    'components/treatments/TreatmentInDepth.tsx',
     'components/treatments/TreatmentProcess.tsx',
     'components/treatments/TreatmentFAQ.tsx',
     'lib/treatments-data.ts',

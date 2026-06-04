@@ -10,6 +10,10 @@ export interface Treatment {
     description: string;
   }[];
   expectations: string;
+  inDepth?: {
+    heading: string;
+    paragraphs: string[];
+  }[];
   faqs: {
     question: string;
     answer: string;
@@ -126,6 +130,28 @@ export const treatments: Treatment[] = [
       }
     ],
     expectations: 'Sports rehabilitation progresses through distinct phases: initial healing, restoration of movement, strength building, power development, and sport-specific training. You\'ll undergo regular testing to track progress and ensure safety at each phase. Training intensity progressively matches your sport\'s demands, preparing both body and mind for return to competition. The timeline varies by injury and sport, but the systematic approach ensures you return when truly ready.',
+    inDepth: [
+      {
+        heading: 'Return to sport is a decision, not a date',
+        paragraphs: [
+          'The most common reason rehabilitation falls short is returning to sport on a timeline rather than on readiness. A muscle strain might be ready in a few weeks and a reconstructed knee might take the better part of a year, but in both cases the question is the same: can the injured side do what the other side can do, under the speed and load your sport demands. That is something you test, not something you assume from the calendar.',
+          'Going back before those boxes are ticked is the single biggest driver of re-injury, and a re-injury usually costs far more time than the extra few weeks of preparation would have. So the work is structured to answer a clear question at each stage before moving on to the next.',
+        ],
+      },
+      {
+        heading: 'How a return to sport program is built',
+        paragraphs: [
+          'The early phase protects the injury while keeping the rest of you fit. From there the focus moves to rebuilding strength and the capacity of the injured tissue, then to power and the fast, repeated, often awkward demands of real sport, and finally to drills that look like your sport before you step back into it. Each phase has criteria to meet, and the program is shaped around your sport and your level rather than a generic template.',
+          'The same principles apply whether you are a competitive athlete or someone who plays recreational hockey or runs on the weekend. I work with athletes across Burlington and the surrounding area at every level, and the goal is the same for all of them: to return when the body is genuinely ready, not just when the pain has gone quiet.',
+        ],
+      },
+      {
+        heading: 'Testing readiness',
+        paragraphs: [
+          'Objective testing is what separates a guess from a decision. For lower limb injuries that usually means comparing the strength of the injured and uninjured sides, a battery of single-leg hop tests for distance and control, and watching landing mechanics for the patterns linked to re-injury. For the knee in particular, psychological readiness matters too, because confidence often lags behind physical recovery and can be measured. You progress when you pass the criteria, not when a set number of weeks has gone by.',
+        ],
+      },
+    ],
     faqs: [
       {
         question: 'How long until I can return to my sport?',
@@ -142,6 +168,10 @@ export const treatments: Treatment[] = [
       {
         question: 'Do you work with recreational athletes?',
         answer: 'Yes. The principles are the same whether you\'re training for the NHL or playing pickup basketball on weekends. Your program is scaled to your sport\'s demands and your personal goals. A weekend runner doesn\'t need the same volume as a competitive athlete, but both need proper progression, objective testing, and sport-specific preparation to return safely.'
+      },
+      {
+        question: 'How is sports rehabilitation different from regular physiotherapy?',
+        answer: 'General physiotherapy usually aims to get you out of pain and back to everyday activities. Sports rehabilitation carries that further, to the point where the injured area can handle the speed, power, change of direction, and repeated load that your sport demands. The early treatment can look similar, but the later stages are where they diverge: objective return-to-sport testing, sport-specific drills, and a higher physical standard before you go back. The aim is not just a pain-free knee or shoulder, but one that holds up under competition.'
       }
     ],
     relatedConditions: ['acl-injuries', 'ankle-sprains', 'hamstring-strains', 'rotator-cuff-injuries', 'tennis-elbow', 'shoulder-instability', 'meniscus-tears', 'groin-strains', 'achilles-tendinopathy', 'mcl-lcl-sprains', 'plantar-fasciitis', 'shin-splints', 'golfers-elbow'],
@@ -188,6 +218,29 @@ export const treatments: Treatment[] = [
       }
     ],
     expectations: 'During dry needling, you\'ll feel a small prick as the needle enters, then potentially a deep ache or twitch when the trigger point is contacted. This sensation is brief and indicates effective treatment. Some people experience immediate relief, while others notice improvements over 24-48 hours. Mild soreness afterward is normal.',
+    inDepth: [
+      {
+        heading: 'What dry needling actually does',
+        paragraphs: [
+          'Dry needling uses a thin filiform needle, the same kind used in acupuncture but with completely different reasoning, to reach a taut band of muscle or an active trigger point. When the needle contacts the band, the muscle often gives a brief involuntary twitch. That local twitch response is the goal. It tends to coincide with a drop in the resting tension of the band and a short-term reduction in local and referred pain.',
+          'The mechanisms are still being worked out. The most supported explanations involve a local effect on blood flow and muscle chemistry, a reduction in the electrical irritability of the trigger point, and changes in how the nervous system processes pain from that area. In practice the point is simple: needling can open a window where a muscle moves more freely and hurts less, but it does not by itself rebuild capacity.',
+        ],
+      },
+      {
+        heading: 'Where needling fits in a plan',
+        paragraphs: [
+          'I rarely use dry needling on its own. It works best as one part of a session, used to settle a stubborn area of tension so that the movement and loading work that follows is more comfortable and more productive. The lasting change comes from the exercise, not the needle. If needling is helping, you should be able to do something afterward that you could not do as well before, whether that is a fuller range, a stronger contraction, or a movement with less guarding.',
+          'Most people I see in Burlington for needling come in with a clear muscular driver behind their pain, for example a calf that keeps overloading a healing Achilles, or a forearm that will not settle with tennis elbow. No referral is needed to book, and direct billing is available for most extended health plans.',
+        ],
+      },
+      {
+        heading: 'What the evidence supports',
+        paragraphs: [
+          'Current research points to dry needling being useful for short-term relief of certain myofascial and musculoskeletal pain problems, particularly when it is combined with exercise rather than used alone. The quality of the evidence varies between conditions, and the effect on long-term outcomes is less certain. I am honest about that. Needling is a reasonable tool to try when there is a clear muscular component, and it is usually easy to tell within a session or two whether it is adding anything for you.',
+          'I completed formal certification in dry needling, and every treatment uses sterile, single-use needles with standard clean technique. The area is prepared with antiseptic, and extra care is taken around the ribcage and other sensitive regions.',
+        ],
+      },
+    ],
     faqs: [
       {
         question: 'Is dry needling the same as acupuncture?',
@@ -204,6 +257,14 @@ export const treatments: Treatment[] = [
       {
         question: 'How do you ensure the needles are clean and safe?',
         answer: 'All needles are sterile, single-use, and individually packaged. They are disposed of immediately after treatment in a sharps container. Before and after needling, the treatment area is wiped with chlorhexidine (stanhexidine) antiseptic solution. Needles are only purchased from reputable medical supply vendors that meet Health Canada standards. Each needle is used once on one patient and then safely discarded - no needle is ever reused.'
+      },
+      {
+        question: 'How many dry needling sessions will I need?',
+        answer: 'It varies, and you should not need many. Dry needling is a tool to unlock progress, not an ongoing treatment you keep coming back for. If it is going to help, you usually notice within one or two sessions, and from there it is used a handful of times alongside your exercise program as the underlying problem improves. If two or three sessions change nothing, I stop and spend the time on something that helps more.'
+      },
+      {
+        question: 'Is dry needling covered by insurance?',
+        answer: 'When I perform dry needling it is part of a physiotherapy appointment, so it is covered the same way your physiotherapy treatment is covered. There is no separate charge for the needling itself. Direct billing is available for most extended health plans, and no physician referral is required to book.'
       }
     ],
     relatedConditions: ['tennis-elbow', 'plantar-fasciitis', 'shoulder-impingement', 'neck-pain', 'golfers-elbow', 'piriformis-syndrome', 'rotator-cuff-injuries', 'low-back-pain', 'sciatica', 'greater-trochanteric-pain-syndrome', 'achilles-tendinopathy', 'de-quervains-tenosynovitis', 'carpal-tunnel-syndrome', 'biceps-tendinopathy', 'proximal-hamstring-tendinopathy'],
@@ -486,6 +547,28 @@ export const treatments: Treatment[] = [
       }
     ],
     expectations: 'During cupping, you\'ll feel a pulling sensation as the cups create suction. This is generally comfortable and often relaxing. Cups may be left stationary or moved across the skin. Temporary circular marks are common and typically fade within 3-10 days. Most people experience immediate relief of muscle tension.',
+    inDepth: [
+      {
+        heading: 'What cupping does to the tissue',
+        paragraphs: [
+          'Cupping uses a cup and a vacuum to lift the skin and the layer of tissue beneath it, the opposite of the downward pressure of most hands-on treatment. That decompression draws blood into the area, which is what produces the round marks. The marks are not bruises in the usual sense and they are not a sign of injury. They fade through the normal colours of reabsorbed blood over several days.',
+          'Whether that decompression changes anything beyond the short term is still debated. The likely effects are on local circulation, on the sensitivity of the tissue, and on how the area feels and moves immediately afterward. I treat it as a way to make tight, guarded tissue more comfortable to work with, not as a treatment that fixes a problem on its own.',
+        ],
+      },
+      {
+        heading: 'How I use cupping in practice',
+        paragraphs: [
+          'In a session I most often use cupping over areas that are tight and protective, for example the upper traps, the low back, or a calf, and I usually pair it with movement. Sliding the cups or asking you to move the area underneath tends to be more useful than leaving them static, because the goal is to change how the tissue moves and then load it while it is more willing. On its own, cupping can feel good and ease tension for a few days. Paired with the right exercise, that relief becomes something you can build on.',
+          'If you have an event coming up, it helps to know the marks can last up to ten days, so treatment can be timed around a competition or a photo. Cupping is offered as part of a regular physiotherapy appointment in Burlington, with direct billing for most plans.',
+        ],
+      },
+      {
+        heading: 'What the evidence says',
+        paragraphs: [
+          'The research on cupping is modest. Reviews suggest it may reduce pain in the short term for some musculoskeletal complaints, but the studies are generally small and of low to moderate quality, and the long-term picture is unclear. That is roughly where I place it: a reasonable adjunct that some people respond to well, used inside a plan that is still built around active rehabilitation. If it is not adding anything for you after a couple of sessions, I would rather spend the time on what is.',
+        ],
+      },
+    ],
     faqs: [
       {
         question: 'Do the marks hurt?',
@@ -498,6 +581,10 @@ export const treatments: Treatment[] = [
       {
         question: 'Is cupping safe?',
         answer: 'Yes, cupping is safe when performed properly. Contraindications include skin conditions, blood clotting disorders, and certain medications. The main side effects are temporary marks, mild soreness, and occasional lightheadedness. Burns can occur with fire cupping (not used in this practice). Excessive suction can cause blistering, which is avoided by using appropriate pressure. The marks look dramatic but represent normal tissue response to decompression.'
+      },
+      {
+        question: 'How many cupping sessions will I need?',
+        answer: 'Cupping is not something you should need indefinitely. It is used to take the edge off tight, guarded tissue so the active part of your rehabilitation goes better, and most people need it for only a handful of sessions while the underlying issue settles. If it is helping, you will feel the difference quickly. If it is not, it is not worth continuing.'
       }
     ],
     relatedConditions: ['low-back-pain', 'it-band-syndrome', 'shoulder-impingement', 'neck-pain', 'rotator-cuff-injuries', 'hamstring-strains', 'piriformis-syndrome', 'greater-trochanteric-pain-syndrome', 'whiplash', 'achilles-tendinopathy', 'groin-strains'],

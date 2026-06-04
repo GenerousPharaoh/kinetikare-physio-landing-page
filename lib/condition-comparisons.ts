@@ -1017,6 +1017,159 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
       },
     ],
   },
+
+  // ---------------------------------------------------------------------------
+  // 7. Proximal hamstring tendinopathy vs. piriformis syndrome
+  // ---------------------------------------------------------------------------
+  {
+    pair: 'proximal-hamstring-tendinopathy-vs-piriformis-syndrome',
+    title: 'Proximal Hamstring Tendinopathy vs. Piriformis Syndrome: How to Tell Them Apart',
+    h1: 'Is your deep buttock pain the hamstring tendon or the piriformis?',
+    description:
+      'Hamstring tendinopathy or piriformis syndrome? How to tell deep buttock pain apart by location, sitting, and nerve signs. Kareem Hassanein, RPT, Burlington.',
+    conditionA: {
+      slug: 'proximal-hamstring-tendinopathy',
+      name: 'Proximal Hamstring Tendinopathy',
+      shortName: 'Hamstring tendinopathy',
+    },
+    conditionB: {
+      slug: 'piriformis-syndrome',
+      name: 'Piriformis Syndrome',
+      shortName: 'Piriformis syndrome',
+    },
+    atAGlance:
+      'Both cause deep buttock pain that is worse with sitting, which is exactly why they get mixed up. Proximal hamstring tendinopathy is a load problem in the tendon where the hamstrings attach to the sitting bone, so the pain is pinpoint and local. Piriformis syndrome is a deep gluteal nerve problem, where the piriformis and nearby muscles irritate the sciatic nerve, so the pain tends to sit higher in the buttock and often travels down the leg. One is a tendon under too much load; the other is a nerve under too much pressure.',
+    distinguishing: [
+      {
+        aspect: 'Where it hurts',
+        aForA: 'Pinpoint, right on the sitting bone (the ischial tuberosity) low in the crease of the buttock. You can usually put one finger on it.',
+        aForB: 'Deeper and higher in the middle of the buttock, over the piriformis. Harder to localise with one finger, often described as a deep cramp.',
+      },
+      {
+        aspect: 'Does it travel down the leg',
+        aForA: 'Usually stays local to the sitting bone, though it can ache down the back of the thigh. It rarely behaves like a nerve.',
+        aForB: 'Often radiates down the back of the leg with a nerve quality, sometimes with tingling or numbness, because the sciatic nerve is involved.',
+      },
+      {
+        aspect: 'Sitting',
+        aForA: 'Worse the longer you sit, especially on hard surfaces, because sitting compresses the tendon directly against the sitting bone. Perching on the edge of the seat helps.',
+        aForB: 'Also worse with prolonged sitting, but driven by pressure on the deep gluteal muscles and nerve. Crossing the legs or a wallet in the back pocket can be a clear trigger.',
+      },
+      {
+        aspect: 'What makes it flare',
+        aForA: 'Running, especially uphill or at speed, lunging, deep squatting, and stretching the hamstring by reaching for the toes.',
+        aForB: 'Positions that load the piriformis: prolonged sitting, climbing stairs or hills, and getting in and out of a car. A straight hamstring stretch is less specifically provocative.',
+      },
+      {
+        aspect: 'Stretching it',
+        aForA: 'Stretching the hamstring usually makes it worse, not better, because it adds tensile load to an already irritable tendon. This is a common, frustrating mistake.',
+        aForB: 'A gentle piriformis stretch, knee drawn toward the opposite shoulder, often eases it at least briefly, whereas a straight hamstring stretch is less relevant.',
+      },
+      {
+        aspect: 'Nerve symptoms',
+        aForA: 'Numbness, pins and needles, and true nerve pain are not typical. If they appear, the sciatic nerve next to the tendon may be secondarily irritated.',
+        aForB: 'Nerve-type symptoms are part of the picture: a sciatica-like ache, tingling, or a sense of the leg being heavy or asleep.',
+      },
+      {
+        aspect: 'Typical story',
+        aForA: 'A runner who added hills or speed, or someone whose job or commute turned sitting-heavy, with pain creeping in at the sitting bone.',
+        aForB: 'Insidious deep buttock pain, often after long periods of sitting, sometimes after a fall onto the buttock, with leg symptoms that come and go.',
+      },
+    ],
+    specificTests: [
+      {
+        test: 'Pointing to the pain',
+        whatItShows:
+          'A single finger landing right on the sitting bone points to the hamstring tendon. A flatter hand over the middle of the buttock points more to the deep gluteal muscles.',
+      },
+      {
+        test: 'Bent-knee stretch and Puranen-Orava tests',
+        whatItShows:
+          'Loaded hamstring-lengthening tests that reproduce pain at the sitting bone support proximal hamstring tendinopathy.',
+      },
+      {
+        test: 'Hamstring load tests, such as a long-lever or single-leg bridge',
+        whatItShows:
+          'Pain at the sitting bone when the hamstring has to produce force points to the tendon, since tendinopathy is load-related.',
+      },
+      {
+        test: 'FAIR position and seated piriformis tests',
+        whatItShows:
+          'Taking the hip into flexion, adduction, and internal rotation tensions the piriformis and can reproduce deep buttock and leg symptoms in piriformis syndrome.',
+      },
+      {
+        test: 'Neural tests, including straight leg raise and slump',
+        whatItShows:
+          'I use these to judge how much the sciatic nerve is involved. A clearly neural response shifts the picture toward a deep gluteal or nerve-driven problem rather than a pure tendon.',
+      },
+    ],
+    whenItIsA:
+      'Your pattern more likely fits proximal hamstring tendinopathy if the pain is pinpoint on the sitting bone, sitting on a hard chair is the worst part of your day, running or lunging provokes it, stretching the hamstring makes it worse rather than better, and there are no real nerve symptoms. It often starts after a jump in running volume, hills, or speed, or a new sitting-heavy routine.',
+    whenItIsB:
+      'Your pattern more likely fits piriformis syndrome if the pain sits deeper and higher in the buttock, travels down the leg with a nerve quality, is hard to put a finger on, and comes with tingling or a heavy, asleep feeling. Prolonged sitting, crossing the legs, or driving tend to set it off, and a gentle piriformis stretch may give brief relief.',
+    whenUncertain:
+      'These genuinely overlap, and it is common to be unsure, because both hurt with sitting and both sit in the deep buttock. A short in-person assessment sorts it. I localise the tender point, load the hamstring to see if the tendon is the driver, put the hip through the positions that tension the piriformis, and run neural tests to judge how much the sciatic nerve is involved. I also clear the lower back first, since a disc or nerve root can mimic both. Aggressively stretching the wrong structure, particularly hammering hamstring stretches when it is really a tendon, is the most common way people keep this going.',
+    overlap:
+      'These can coexist, and they share a neighbourhood: the sciatic nerve runs right beside both the hamstring origin and the piriformis. A tendon problem at the sitting bone can secondarily irritate the nerve, and a sensitive nerve can make the whole area guard. The umbrella term deep gluteal syndrome is sometimes used precisely because these structures sit so close together and can be hard to separate. That is why I treat the dominant driver first rather than chasing every tender spot.',
+    relatedTreatmentIds: [
+      'exercise-therapy',
+      'soft-tissue-myofascial-release',
+      'dry-needling',
+      'sports-rehab-return-to-sport',
+    ],
+    faqs: [
+      {
+        question: 'Both hurt when I sit. How is that supposed to help me tell them apart?',
+        answer:
+          'Sitting is the overlap, so I look at what else is going on. Tendon pain is pinpoint on the sitting bone and gets worse with running and hamstring stretching. Piriformis pain sits higher and deeper, is harder to localise, and tends to send symptoms down the leg. If sitting plus a nerve quality down the leg is the story, it leans piriformis. If sitting plus pinpoint sitting-bone pain that hates running and stretching is the story, it leans tendon.',
+      },
+      {
+        question: 'I have tingling down my leg. Does that rule out the hamstring tendon?',
+        answer:
+          'Not entirely, but it shifts the odds. A true tendon problem is usually local and does not produce nerve symptoms on its own. When tingling or numbness is present, the sciatic nerve is involved, which points toward piriformis syndrome or the broader deep gluteal picture, or toward a source in the lower back. That is worth assessing properly rather than guessing.',
+      },
+      {
+        question: 'Should I stretch it?',
+        answer:
+          'This is where guessing wrong costs you time. If it is a hamstring tendinopathy, aggressive hamstring stretching usually makes it worse, because it adds load to an already irritable tendon. If it is a piriformis problem, gentle hip stretches can ease it. Because the right move is opposite depending on the cause, it is worth knowing which one you are dealing with before you build a routine around stretching.',
+      },
+      {
+        question: 'Could it be my back instead?',
+        answer:
+          'Yes, and that is the first thing I rule out. A lower lumbar disc or an irritated nerve root can refer pain into the buttock and down the leg and mimic both of these. The clues are whether bending, coughing, or sneezing change your symptoms and whether the pain follows a clear nerve path. Clearing the back first stops a lot of buttock pain being treated in the wrong place.',
+      },
+      {
+        question: 'Can I have both at once?',
+        answer:
+          'You can. The hamstring origin and the piriformis sit close together with the sciatic nerve running between them, so an irritable tendon and a guarded, sensitive deep gluteal region can travel together. When that happens, I work out which one is driving most of your symptoms and treat that first, then address the other as it settles.',
+      },
+      {
+        question: 'How long does each take to settle?',
+        answer:
+          'Both ask for patience. Proximal hamstring tendinopathy is a progressive loading problem and usually improves across a few months, not weeks, with the right dosing and sitting modification. Piriformis and deep gluteal symptoms can settle faster once the aggravating positions and nerve sensitivity are managed, but recurrence is common if the underlying load and habits do not change. Neither responds well to rest alone.',
+      },
+    ],
+    evidenceNotes: [
+      {
+        claim:
+          'Proximal hamstring tendinopathy typically presents as deep buttock pain at the hamstring common origin, is load-related, and is managed with progressive tendon loading rather than rest, with no randomised trials yet establishing a single protocol.',
+        source:
+          'Goom TS, Malliaras P, Reiman MP, Purdam CR. "Proximal Hamstring Tendinopathy: Clinical Aspects of Assessment and Management." J Orthop Sports Phys Ther 2016; 46(6): 483-493.',
+      },
+      {
+        claim:
+          'Piriformis syndrome is characterised by a cluster of features: buttock pain, pain aggravated by sitting, tenderness near the greater sciatic notch, and pain on maneuvers that increase piriformis tension. A straight leg raise does not rule it out.',
+        source:
+          'Hopayian K, Danielyan A. "Four symptoms define the piriformis syndrome: an updated systematic review of its clinical features." Eur J Orthop Surg Traumatol 2018; 28(2): 155-164.',
+      },
+      {
+        claim:
+          'Deep gluteal syndrome is an umbrella for non-discogenic posterior hip pain from sciatic nerve entrapment and explicitly includes both piriformis syndrome and a proximal hamstring source, which is one reason these are frequently confused. Excluding spinal causes and imaging the pelvis aid diagnosis.',
+        source:
+          'Park JW, Lee YK, Lee YJ, et al. "Deep gluteal syndrome as a cause of posterior hip pain and sciatica-like pain." Bone Joint J 2020; 102-B(5): 556-567.',
+      },
+    ],
+  },
 ];
 
 export function getComparisonByPair(pair: string): ConditionComparison | undefined {

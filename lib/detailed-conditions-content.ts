@@ -718,6 +718,12 @@ What I see hold people back is the instinct to rest flat and wait it out. Gentle
   },
 
   'rotator-cuff-injuries': {
+    clinicalObservations: {
+      body: `The shoulders I can usually settle without surgery show their hand early. With the gradual, wear-related cuffs I see most often, they build pain-free force on an isometric hold within a visit or two, and night pain eases over a couple of weeks. That tells me the tendon is sensitive and under-loaded, and will respond to work whatever the scan named. Painless weakness after a sudden fall, where the arm will not lift, is a different problem, one I move on quickly for an orthopaedic opinion.
+
+The pattern that costs people most is stopping once the shoulder feels mostly normal. Pain settles and reaching returns, but the heavier overhead and end-range work never gets done, so the cuff re-flares the first demanding thing asked of it. Rebuilding overhead pressing, loaded carries, and end-range control is the part that holds. Across my two Burlington locations I keep enough loading on hand to finish that phase properly, rather than light band work that stopped challenging the cuff.`,
+      lastReviewed: '2026-06-03',
+    },
     pathophysiology: `The rotator cuff consists of four muscles that stabilize and move your shoulder. These tendons can be injured through sudden trauma or gradual wear. The tendon tissue becomes disorganized and may develop tears.
 
 Poor blood supply to certain areas of these tendons makes healing slower. Shoulder blade positioning and muscle imbalances often contribute to ongoing irritation. Rotator cuff injuries frequently occur alongside shoulder impingement, as both conditions share similar biomechanical contributors. In some cases, rotator cuff dysfunction can lead to compensatory patterns that contribute to frozen shoulder or shoulder instability.`,
@@ -987,6 +993,12 @@ The most damaging factor I see is the combination of poor posture with repetitiv
   },
 
   'tennis-elbow': {
+    clinicalObservations: {
+      body: `The pattern I see most is people treating this as something that should clear up in a couple of weeks, then getting frustrated when it does not. For most people it is the dominant arm, so true rest never happens, and the elbow stays just irritated enough to never settle on its own. The reframe that matters is that flare-ups are usually about cumulative grip load across a whole day, not one bad movement. When someone in Burlington tells me it felt fine at work but flared washing dishes that night, that is the tendon adding up everything from the day, not punishing one low-stakes task. The real culprit is often hours earlier.
+
+So I have people watch the trend rather than a single reading. If the elbow is consistently no worse, or calmer, over a few mornings, the running load is about right. Morning stiffness that eases quickly with movement is usually just that, not a sign you overdid it. The honest part most people miss: they quit in the quiet middle stretch, when the pain has settled but the capacity has not caught up yet.`,
+      lastReviewed: '2026-06-03',
+    },
     patternMatcher: {
       clusterKey: 'elbow',
       markers: [
@@ -3312,6 +3324,12 @@ With chronic ankle instability, the entire lower limb adapts through compensator
   },
 
   'achilles-tendinopathy': {
+    clinicalObservations: {
+      body: `The pattern I see most is someone treating this as a tight calf and chasing it with stretching and foam rolling for months. With insertional cases especially, that aggressive stretching usually makes things worse, because pinning the heel into deep dorsiflexion is exactly the compression the tendon cannot tolerate yet. The other common wrong turn is assuming a stubborn calf strain that simply will not heal. A simple calf strain usually settles over a few weeks. A tendon that hurts most on the first steps in the morning, eases with a warm-up, then aches again that evening is telling you it is a capacity problem, not a tissue you need to loosen.
+
+What actually changes things is making the loading fit your real week so you genuinely do it, not a perfect program you abandon. With the people I see in Burlington, the work is finding the version of calf raises they will repeat three times a week for months, because consistency beats intensity here. Expect good days and flare days both. A flare the morning after is information to adjust the dose, not proof you have failed. A sudden sharp pop with the sense of being kicked in the back of the ankle, or a new inability to push off, is a different problem and worth getting checked promptly rather than loaded through.`,
+      lastReviewed: '2026-06-03',
+    },
     pathophysiology: `Achilles tendinopathy is a failed healing response characterized by degenerative changes rather than acute inflammation. The condition involves disorganized collagen, increased ground substance, and neovascularization within the tendon. This represents a chronic overuse injury where the cumulative load on the tendon exceeds its adaptive capacity.
 
 Two distinct types require different treatment approaches: Mid-portion Achilles tendinopathy (MAT) occurs 2-7 cm from the heel insertion and is primarily a tensile overload condition. Insertional Achilles tendinopathy (IAT) affects the tendon's attachment to the calcaneus and involves both tensile and compressive forces, as the tendon can be compressed against the heel bone during dorsiflexion movements.
@@ -3769,6 +3787,12 @@ Biomechanical factors significantly influence shin splint development. Overprona
   },
 
   'golfers-elbow': {
+    clinicalObservations: {
+      body: `The thing I see most often is people hunting for the single moment that caused this, one heavy lift or one bad day, when the real driver is something quiet and constant. It is the forearm held turned-in and gripping for hours: the phone clutched at the bottom edge, the steering wheel, the mouse, the dog leash wound tight, a toddler hauled on one hip. None of it feels like an injury, so nobody flags it. The inner elbow tends to be slower to settle and more easily stirred up than people expect, which is what makes the all-day low-grade load matter more than the obvious culprit.
+
+What actually shifts things is finding that hidden constant exposure and quieting the grip force you are using without noticing, then loading deliberately on top of a calmer baseline. With the people I see in Burlington, I spend real time mapping the ordinary day before any loading starts. Honest version: progress is rarely linear here, and a flare does not mean you have undone anything. Pins and needles or numbness into the ring and little fingers is a different signal, the ulnar nerve rather than the tendon, and worth getting assessed rather than worked through.`,
+      lastReviewed: '2026-06-03',
+    },
     patternMatcher: {
       clusterKey: 'elbow',
       markers: [
@@ -5993,6 +6017,12 @@ Muscle weakness, particularly of the hip abductors, creates abnormal loading pat
   },
 
   'deep-gluteal-syndrome': {
+    clinicalObservations: {
+      body: `Most people I see for this have already been worked up for their back, with an MRI showing some disc change, frustrated that nothing touched the buttock pain. What makes me look at the deep gluteal space is when the pain tracks with how long and in what position someone sat, not with bending or lifting. That is a clue, not a diagnosis, so I still clear the spine and load the deep gluteal space directly before settling on the cause.
+
+The change that helps fastest is usually the commute. People overlook it because it does not feel like activity, so they hunt for the culprit in the gym. For the long-drive commuters I see in Burlington, I map their worst sitting hours, then build hip strength around it. A flare after a bad day of sitting is normal, as long as it settles and your strength and sensation hold. New leg weakness, spreading numbness, or any bladder or bowel change means being seen promptly.`,
+      lastReviewed: '2026-06-03',
+    },
     pathophysiology: `Deep Gluteal Syndrome (DGS) is a comprehensive term that describes the entrapment or irritation of the sciatic nerve not just by the piriformis, but by a number of other structures in the deep buttock space, such as fibrous bands, the gemelli-obturator internus muscle group, or hamstring issues. The most common misconception is that all buttock and leg pain is "sciatica" coming from the lumbar spine. For decades, a condition called "Piriformis Syndrome" was used as a catch-all term for this type of pain. While the piriformis muscle can be involved, we now understand the situation is more complex.
 
 The deep gluteal space is a busy anatomical neighborhood. The sciatic nerve must navigate a narrow tunnel surrounded by several deep hip rotator muscles like the piriformis. Irritation of the nerve in this space can cause DGS. This is the central mystery of DGS: buttock and leg pain that mimics a classic "pinched nerve" from the back, but originates from a completely different location - your back may be completely innocent.
@@ -6496,6 +6526,12 @@ I am honest with people that this one is slow. The early work is unglamorous, mo
   },
 
   'piriformis-syndrome': {
+    clinicalObservations: {
+      body: `Most people I see for this arrive convinced it is their back, because the pain runs down the leg, and they have often had an MRI of the spine that came back fairly unremarkable and left them more confused than before. The detail that makes me look harder at the buttock is simple: their back itself feels fine, but they cannot sit through a meal, a drive, or a movie without shifting onto one cheek. When the trigger is the chair rather than bending and lifting, the deep buttock moves up my list, though a flexion-sensitive disc can behave the same way, so I still test for it before settling on a cause.
+
+The thing that helps soonest is often unglamorous. I look at what people sit on all day, and a thick wallet in the back pocket or a low, scooped car seat is a surprisingly common driver for the Burlington patients I see who spend a lot of their day in the car. Offloading that often gives the quickest early relief, and it makes the gentle nerve gliding and gradual hip strengthening that follow work better. Honest timeline: progress here is measured by how long you can sit before it bites, and that number climbs in weeks, not days, so patience genuinely pays off.`,
+      lastReviewed: '2026-06-03',
+    },
     pathophysiology: `Piriformis syndrome, as traditionally understood, involves irritation of the sciatic nerve by the piriformis muscle deep in the buttock. However, this represents an outdated understanding of buttock and leg pain. For decades, "Piriformis Syndrome" was used as a catch-all term for buttock pain with leg symptoms. While the piriformis muscle can be involved, we now understand the situation is more complex.
 
 The more accurate and comprehensive term is "Deep Gluteal Syndrome" (DGS). This describes the entrapment or irritation of the sciatic nerve not just by the piriformis, but by a number of other structures in the deep buttock space, such as fibrous bands, the gemelli-obturator internus muscle group, or other anatomical variations. The deep gluteal space is a busy anatomical neighborhood where the sciatic nerve must navigate a narrow tunnel surrounded by several deep hip rotator muscles.
@@ -7622,6 +7658,12 @@ Respiratory patterns significantly influence thoracic outlet mechanics. Upper ch
   },
 
   'shoulder-impingement': {
+    clinicalObservations: {
+      body: `The people I see in Burlington for this almost never point to one spot. They wave a hand over the outer arm, somewhere around where the deltoid sits, and call it vague and deep. Many have talked themselves into a bicep or triceps problem, because that is where the ache lands when they reach overhead. What I pay attention to is the pattern: reaching up and tucking the arm behind the back tend to be the sore movements, and a lot of the range people think they have lost is guarding rather than a truly stiff joint. That distinction matters, because the guarding loosens once you start loading sensibly.
+
+The piece I lean on most is timing the dose to how the shoulder feels the next morning, not how it feels mid-session. Some soreness while loading is fine if it settles within a day. Watching that stops the cycle of overdoing on good days and crashing the next. Full recovery here is usually months rather than weeks, though most people notice some change early, provided there is no sudden true weakness or a shoulder too irritable to load, which are worth getting checked first.`,
+      lastReviewed: '2026-06-03',
+    },
     patternMatcher: {
       clusterKey: 'shoulder',
       markers: [

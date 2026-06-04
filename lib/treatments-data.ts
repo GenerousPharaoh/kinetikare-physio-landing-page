@@ -174,7 +174,7 @@ export const treatments: Treatment[] = [
         answer: 'General physiotherapy usually aims to get you out of pain and back to everyday activities. Sports rehabilitation carries that further, to the point where the injured area can handle the speed, power, change of direction, and repeated load that your sport demands. The early treatment can look similar, but the later stages are where they diverge: objective return-to-sport testing, sport-specific drills, and a higher physical standard before you go back. The aim is not just a pain-free knee or shoulder, but one that holds up under competition.'
       }
     ],
-    relatedConditions: ['acl-injuries', 'ankle-sprains', 'hamstring-strains', 'rotator-cuff-injuries', 'tennis-elbow', 'shoulder-instability', 'meniscus-tears', 'groin-strains', 'achilles-tendinopathy', 'mcl-lcl-sprains', 'plantar-fasciitis', 'shin-splints', 'golfers-elbow'],
+    relatedConditions: ['acl-injuries', 'ankle-sprains', 'hamstring-strains', 'rotator-cuff-injuries', 'tennis-elbow', 'shoulder-instability', 'meniscus-tears', 'groin-strains', 'achilles-tendinopathy', 'mcl-lcl-sprains', 'plantar-fasciitis', 'shin-splints', 'golfers-elbow', 'patellar-tendinopathy', 'knee-pain-patellofemoral', 'proximal-hamstring-tendinopathy'],
     metaDescription: 'Sports injury rehabilitation in Burlington. Evidence-based return-to-sport programs for knee, ankle, shoulder, and tendon injuries with objective testing and progressive training.',
     keywords: ['sports rehabilitation', 'return to sport', 'athletic rehabilitation', 'sports injury recovery', 'return to play', 'sports physiotherapy']
   },
@@ -267,7 +267,7 @@ export const treatments: Treatment[] = [
         answer: 'When I perform dry needling it is part of a physiotherapy appointment, so it is covered the same way your physiotherapy treatment is covered. There is no separate charge for the needling itself. Direct billing is available for most extended health plans, and no physician referral is required to book.'
       }
     ],
-    relatedConditions: ['tennis-elbow', 'plantar-fasciitis', 'shoulder-impingement', 'neck-pain', 'golfers-elbow', 'piriformis-syndrome', 'rotator-cuff-injuries', 'low-back-pain', 'sciatica', 'greater-trochanteric-pain-syndrome', 'achilles-tendinopathy', 'de-quervains-tenosynovitis', 'carpal-tunnel-syndrome', 'biceps-tendinopathy', 'proximal-hamstring-tendinopathy'],
+    relatedConditions: ['tennis-elbow', 'plantar-fasciitis', 'shoulder-impingement', 'neck-pain', 'golfers-elbow', 'piriformis-syndrome', 'rotator-cuff-injuries', 'low-back-pain', 'sciatica', 'greater-trochanteric-pain-syndrome', 'achilles-tendinopathy', 'de-quervains-tenosynovitis', 'carpal-tunnel-syndrome', 'biceps-tendinopathy', 'proximal-hamstring-tendinopathy', 'deep-gluteal-syndrome', 'patellar-tendinopathy'],
     metaDescription: 'Dry needling physiotherapy in Burlington. Trigger point therapy using thin needles to address muscle tension, referred pain, and movement restrictions.',
     keywords: ['dry needling', 'trigger point therapy', 'myofascial release']
   },
@@ -448,7 +448,7 @@ export const treatments: Treatment[] = [
         answer: 'Acute restrictions (recent injuries) often respond to 2-3 sessions over 1-2 weeks. Chronic restrictions may need weekly treatment for 4-6 weeks, then spacing to biweekly as tissues improve. Treatment frequency depends on how quickly tissue changes occur and how well changes are maintained between sessions. Most people transition to monthly maintenance once primary restrictions resolve.'
       }
     ],
-    relatedConditions: ['it-band-syndrome', 'plantar-fasciitis', 'tennis-elbow', 'hamstring-strains', 'low-back-pain', 'neck-pain', 'golfers-elbow', 'rotator-cuff-injuries', 'achilles-tendinopathy', 'groin-strains', 'piriformis-syndrome', 'shoulder-impingement', 'carpal-tunnel-syndrome', 'de-quervains-tenosynovitis', 'whiplash', 'thoracic-outlet-syndrome', 'peroneal-tendinopathy', 'posterior-tibial-tendon-dysfunction'],
+    relatedConditions: ['it-band-syndrome', 'plantar-fasciitis', 'tennis-elbow', 'hamstring-strains', 'low-back-pain', 'neck-pain', 'golfers-elbow', 'rotator-cuff-injuries', 'achilles-tendinopathy', 'groin-strains', 'piriformis-syndrome', 'shoulder-impingement', 'carpal-tunnel-syndrome', 'de-quervains-tenosynovitis', 'whiplash', 'thoracic-outlet-syndrome', 'peroneal-tendinopathy', 'posterior-tibial-tendon-dysfunction', 'deep-gluteal-syndrome', 'greater-trochanteric-pain-syndrome', 'patellar-tendinopathy'],
     metaDescription: 'Myofascial release in Burlington. Manual techniques addressing fascial restrictions, muscle tension, and movement limitations.',
     keywords: ['soft tissue release', 'myofascial release', 'muscle tension', 'fascial therapy', 'tissue mobility', 'fascial restrictions', 'chronic pain treatment']
   },
@@ -587,7 +587,7 @@ export const treatments: Treatment[] = [
         answer: 'Cupping is not something you should need indefinitely. It is used to take the edge off tight, guarded tissue so the active part of your rehabilitation goes better, and most people need it for only a handful of sessions while the underlying issue settles. If it is helping, you will feel the difference quickly. If it is not, it is not worth continuing.'
       }
     ],
-    relatedConditions: ['low-back-pain', 'it-band-syndrome', 'shoulder-impingement', 'neck-pain', 'rotator-cuff-injuries', 'hamstring-strains', 'piriformis-syndrome', 'greater-trochanteric-pain-syndrome', 'whiplash', 'achilles-tendinopathy', 'groin-strains'],
+    relatedConditions: ['low-back-pain', 'it-band-syndrome', 'shoulder-impingement', 'neck-pain', 'rotator-cuff-injuries', 'hamstring-strains', 'piriformis-syndrome', 'greater-trochanteric-pain-syndrome', 'whiplash', 'achilles-tendinopathy', 'groin-strains', 'proximal-hamstring-tendinopathy'],
     metaDescription: 'Cupping therapy in Burlington. Physiotherapy treatment using controlled suction to address muscle tension, fascial restrictions, and tissue mobility.',
     keywords: ['cupping therapy', 'cupping treatment', 'myofascial cupping', 'vacuum therapy', 'traditional cupping']
   },

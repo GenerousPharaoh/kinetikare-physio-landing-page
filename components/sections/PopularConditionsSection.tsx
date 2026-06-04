@@ -12,16 +12,18 @@ import { useInView } from 'react-intersection-observer';
 import { getConditionBySlug } from '@/lib/conditions-data';
 import { CONDITION_COMPARISONS } from '@/lib/condition-comparisons';
 
+// Priority topics lead (knee, patellar, lateral hip, proximal hamstring,
+// sciatica), followed by other common reasons people seek physiotherapy.
 const featuredConditionSlugs = [
   'knee-pain-patellofemoral',
   'patellar-tendinopathy',
   'greater-trochanteric-pain-syndrome',
+  'proximal-hamstring-tendinopathy',
   'sciatica',
   'rotator-cuff-injuries',
   'ankle-sprains',
   'low-back-pain',
   'plantar-fasciitis',
-  'frozen-shoulder',
 ];
 
 const categoryLabels: Record<string, string> = {

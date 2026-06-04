@@ -505,6 +505,13 @@ Your movement patterns throughout the day matter tremendously. Tight hip flexors
       typicalPattern: "Often starts in back then travels down leg. Specific positions consistently trigger symptoms. May be constant or intermittent depending on positions and activities."
     },
 
+    clinicalObservations: {
+      body: `Sciatica frightens people more than almost anything else I treat, usually because the pain is severe, travels down the leg, and they have read the worst online. The reassuring reality is that most sciatica from an irritated disc or nerve root settles over time. Early on the goal is not to fix everything at once but to find the positions and movements that pull the symptoms back up toward the spine and out of the leg. Once that direction is clear, it becomes the lever for the whole recovery.
+
+What I see hold people back is the instinct to rest flat and wait it out. Gentle, frequent movement and getting out of prolonged sitting usually does more than bed rest, even when that feels counterintuitive. I do screen carefully for the small number of signs that need a doctor rather than physiotherapy, but for most people I see in Burlington, sciatica is a problem of nerve irritation that calms down with the right movement, a bit of patience, and gradually rebuilding tolerance for sitting and loading.`,
+      lastReviewed: '2026-06-03',
+    },
+
     evidenceSnapshot: {
       primaryStrategy: "Identifying a directional preference and using exercises that move symptoms back toward the spine is consistently linked to faster improvement in disc-related sciatica",
       secondaryStrategy: "Neural mobilization techniques reduce nerve tension and improve pain and function when nerve mobility is restricted",
@@ -5280,6 +5287,13 @@ Sleep positioning creates sustained compression that explains the characteristic
       typicalPattern: "The patient with Greater Trochanteric Pain Syndrome typically points directly to the side of their hip - the bony part you can feel, known as the greater trochanter. The story is rarely about a specific injury. Instead, it's about a pain that has crept in and become a persistent, nagging ache. The most common and frustrating complaint I hear is night pain. 'I just can't get comfortable,' they'll say. 'I lie on the painful side, and it hurts. I lie on my good side, and it still hurts.' Simple actions like getting out of a car, climbing stairs, or standing up after sitting for a while become potent triggers. It's a condition that profoundly disrupts sleep and makes everyday movements a painful chore. Common in post-menopausal women but affects all ages. Often linked to a sudden, unaccustomed spike in load - recently started new running program or 'boot camp' class with lots of single-leg work."
     },
 
+    clinicalObservations: {
+      body: `Almost everyone I see for this has been told it is bursitis, has tried rest, and often had a cortisone shot that helped for a few weeks before the pain came back. The reframe that changes things is understanding it as a tendon that has lost capacity, not a bursa to be calmed. Rest lets the tendon get weaker, which is why that relief never lasts.
+
+The fastest wins usually come from removing compression before any strengthening even starts: not sleeping with the top knee dropped across the body, not crossing the legs, not standing hung onto one hip. I spend real time on these details with people in Burlington, because they are what settle the brutal night pain, and a calmer tendon is one you can actually start to load. From there it is patient, progressive hip strengthening. Stretching the outside of the hip is usually the one thing to avoid, since it adds the very compression that drives the pain.`,
+      lastReviewed: '2026-06-03',
+    },
+
     evidenceSnapshot: {
       primaryStrategy: "Education and progressive loading exercises prove superior to corticosteroid injections, with 75% of patients showing significant improvement at 8 weeks and maintained gains at 1 year",
       secondaryStrategy: "Load management focusing on compression avoidance combined with isometric strengthening calms tendon irritation while building capacity for functional activities",
@@ -6232,6 +6246,13 @@ Gluteal muscle weakness creates compensatory hamstring overload during functiona
         "Pain with any activities that stretch or load the hamstring significantly"
       ],
       typicalPattern: "The story of proximal hamstring tendinopathy is almost always centered around one specific, exquisitely tender spot: the ischial tuberosity, or the 'sitting bone.' The pain is a deep, localized ache right in the crease of the buttock. Patients often describe it as feeling like they are sitting on a rock. The narrative is one of insidious onset, frequently linked to a change in activity. It's the long-distance runner who recently added hill repeats to their training, or the office worker who started a new spin class. The most defining feature, and the source of immense frustration, is pain with sitting. Prolonged driving, sitting at a desk, or even enjoying a meal at a restaurant becomes a painful ordeal, forcing them to shift their weight, stand up frequently, or perch on the edge of their seat."
+    },
+
+    clinicalObservations: {
+      body: `The people I see with this have almost always spent months treating it as a tight hamstring, stretching it and rolling it, which is the one thing that reliably keeps it angry. The giveaway is the location and the behaviour: a deep, pinpoint ache right on the sitting bone that is at its worst not during a run but during the drive home afterward, or at a desk, or at a long dinner. Pain that is about sitting as much as sport points to the tendon's origin, not the muscle.
+
+I am honest with people that this one is slow. The early work is unglamorous, mostly settling the tendon down by managing how you sit and loading it gently without deep stretch, and the strengthening that follows is measured in months rather than weeks. The runners I see in Burlington who recover well are usually the ones who added hills or speed too quickly in the first place and are then willing to rebuild capacity just as gradually. There are genuinely no shortcuts with it, but it does respond when the loading is right.`,
+      lastReviewed: '2026-06-03',
     },
 
     evidenceSnapshot: {
@@ -8601,6 +8622,13 @@ Body mass significantly influences absolute patellar tendon loading. Each kilogr
       typicalPattern: "Patellar tendinopathy follows a predictable progression through distinct stages. Initially, pain occurs only after intense activity and doesn't affect performance. This progresses to pain during activity that may warm up but returns worse afterward. Advanced stages involve pain during daily activities and inability to participate in sports. The hallmark feature is load-related pain that increases predictably with energy storage activities like jumping. Athletes often describe being able to pinpoint the exact moment in training when pain will begin, such as after a specific number of jumps or at a particular point in their run."
     },
 
+    clinicalObservations: {
+      body: `Most of the jumping athletes I see for this in Burlington, the volleyball and basketball players especially, have been caught out by the warm-up effect. The knee loosens up a few minutes into training and feels fine, so they keep playing, then it bites harder that night and the next morning. That pattern, good during and worse after, is one of the clearest signs that the tendon is the problem rather than the kneecap joint.
+
+The other thing I see constantly is the right exercise at the wrong dose. A patellar tendon responds to heavy, slow load, but it punishes sudden spikes, so the answer is rarely rest and rarely more stretching. It is finding the load the tendon can handle today and building from there, patiently. This one tests patience more than almost any knee problem, and the people who do best are the ones who stop chasing a quick fix and commit to the progression.`,
+      lastReviewed: '2026-06-03',
+    },
+
     patternMatcher: {
       clusterKey: 'knee',
       markers: [
@@ -8893,6 +8921,13 @@ Your foot mechanics also play a role - excessive pronation can create internal r
         "Pain with descending stairs worse than ascending"
       ],
       typicalPattern: "I typically see pain that develops gradually without a specific injury. It's often worse with activities that load the knee in flexion - my patients frequently tell me about pain climbing stairs, getting up from sitting, or after long car rides. The pain tends to be more noticeable during and after activity rather than at rest."
+    },
+
+    clinicalObservations: {
+      body: `A lot of the runners and desk workers I see in Burlington arrive worried because the pain sits right at the kneecap and nothing showed up on a scan. That is actually the typical picture. Patellofemoral pain is usually a load and control problem rather than a sign of damage, and the knee is often the victim rather than the culprit. When I assess it, the more telling findings are frequently at the hip: how well you control the thigh during a single-leg squat, and whether the knee drifts inward when you load it.
+
+That is why treatment that only pokes around the kneecap tends to stall. The cases that turn around are the ones where the plan builds hip and thigh strength and cleans up how you load the knee on stairs and in squatting, instead of chasing the painful spot itself. It is rarely dramatic, but it is reliable when the strengthening is matched to where you are actually starting from.`,
+      lastReviewed: '2026-06-03',
     },
 
     patternMatcher: {

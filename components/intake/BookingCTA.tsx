@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback } from 'react';
-import { JANE_BOOKING_URL } from '@/lib/booking';
+import { JANE_INTAKE_BOOKING_URL } from '@/lib/booking';
 import { cn } from '@/lib/utils';
 
 interface BookingCTAProps {
@@ -37,7 +37,7 @@ export default function BookingCTA({ children, className, style, size = 'lg' }: 
 
   return (
     <a
-      href={JANE_BOOKING_URL}
+      href={JANE_INTAKE_BOOKING_URL}
       onClick={handleClick}
       data-booking-cta="true"
       style={style}

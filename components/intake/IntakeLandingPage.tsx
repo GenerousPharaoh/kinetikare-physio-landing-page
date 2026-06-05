@@ -21,6 +21,7 @@ import {
 } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import BookingCTA from '@/components/intake/BookingCTA';
+import { resolveIntakeHero, DEFAULT_HERO, type IntakeHero } from '@/lib/intake-headlines';
 
 /* ─── PALETTE ─── */
 const c = {
@@ -154,6 +155,14 @@ function AnimatedTimelineLine() {
 
 export default function IntakeLandingPage() {
   const reduced = useReducedMotion();
+
+  // Ad-matched hero: starts at the default (matches SSR, no hydration shift)
+  // and resolves to the searched condition from the URL after mount. Untagged
+  // traffic keeps the original hero exactly.
+  const [hero, setHero] = useState<IntakeHero>(DEFAULT_HERO);
+  useEffect(() => {
+    setHero(resolveIntakeHero(window.location.search));
+  }, []);
   const heroRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress: heroProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
   // Reduced from 4 useSpring instances to 0 — each spring creates a RAF loop
@@ -246,7 +255,7 @@ export default function IntakeLandingPage() {
                 </motion.div>
 
                 <motion.h1 variants={up} style={{ fontFamily: serif, fontSize: 'clamp(3rem, 7vw, 5.5rem)', fontWeight: 700, lineHeight: 0.95, letterSpacing: '-0.04em', color: c.black, marginBottom: 16 }}>
-                  Physiotherapy in<br />
+                  {hero.lead}<br />
                   <span style={{ fontWeight: 300, color: c.gold, fontStyle: 'italic' }}>Burlington</span>
                 </motion.h1>
 
@@ -255,7 +264,7 @@ export default function IntakeLandingPage() {
                 </motion.p>
 
                 <motion.p variants={up} style={{ maxWidth: 460, color: c.textMid, fontSize: 17, lineHeight: 1.75, marginBottom: 36 }}>
-                  Searching for physiotherapy near me in Burlington or Waterdown? Care that gets to the source of your pain so you can move freely.
+                  Searching for {hero.sub} in Burlington or Waterdown? Care that gets to the source of your pain so you can move freely.
                 </motion.p>
 
                 {/* Mobile portrait card — visible only below lg */}

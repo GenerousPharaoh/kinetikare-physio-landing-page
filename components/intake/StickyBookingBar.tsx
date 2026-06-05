@@ -6,36 +6,60 @@ import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import { JANE_INTAKE_BOOKING_URL } from '@/lib/booking';
 
 /**
- * Sticky mobile Book/Call bar for the /intake ads landing page.
+ * Slim, self-hiding mobile Book/Call control for the /intake ads landing page.
  *
- * FloatingButtons are disabled on /intake, so after a phone visitor scrolls
- * past the hero CTAs the next call-to-action is mid-page. This keeps Book and
- * Call one tap away for the whole scroll. Mobile/tablet only; the desktop
- * header keeps a persistent Book button. The cookie banner does not render on
- * /intake, so there is no bottom-of-screen conflict.
+ * FloatingButtons are disabled on /intake, so the page has CTA "dead zones"
+ * between the hero and mid-page CTAs. This floats two compact pills (Book +
+ * Call) that appear only in those gaps: it watches the inline Book CTAs
+ * (data-booking-cta) and hides itself whenever one is on screen, so it never
+ * stacks under a visible "Book Assessment" button. Mobile/tablet only; the
+ * desktop header keeps a persistent Book button.
  *
  * Plain anchors (no data-booking-cta) so the global BookingTracker fires the
  * GA4 + Google Ads conversion and gtag's cross-domain linker decorates the
- * Jane URL for attribution. data-booking-source labels the event.
+ * Jane URL. data-booking-source labels the event.
  */
 export default function StickyBookingBar() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    let ticking = false;
-    const update = () => {
-      setVisible(window.scrollY > 600);
-      ticking = false;
+    const inlineCtas = Array.from(document.querySelectorAll('[data-booking-cta]'));
+    const onScreen = new Map<Element, boolean>();
+    inlineCtas.forEach((el) => onScreen.set(el, false));
+    let scrolledPastHero = window.scrollY > 600;
+
+    const recompute = () => {
+      const aCtaIsOnScreen = Array.from(onScreen.values()).some(Boolean);
+      // Show only in the gaps: past the hero, and no inline Book CTA visible.
+      setVisible(scrolledPastHero && !aCtaIsOnScreen);
     };
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => onScreen.set(e.target, e.isIntersecting));
+        recompute();
+      },
+      { rootMargin: '0px 0px -8% 0px', threshold: 0 }
+    );
+    inlineCtas.forEach((el) => io.observe(el));
+
+    let ticking = false;
     const onScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(update);
-        ticking = true;
-      }
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        scrolledPastHero = window.scrollY > 600;
+        recompute();
+        ticking = false;
+      });
     };
     window.addEventListener('scroll', onScroll, { passive: true });
-    update();
-    return () => window.removeEventListener('scroll', onScroll);
+    recompute();
+
+    return () => {
+      io.disconnect();
+      window.removeEventListener('scroll', onScroll);
+    };
   }, []);
 
   return (
@@ -44,20 +68,16 @@ export default function StickyBookingBar() {
       aria-hidden={!visible}
       style={{
         position: 'fixed',
-        left: 0,
-        right: 0,
-        bottom: 0,
+        left: 12,
+        right: 12,
+        bottom: 'calc(12px + env(safe-area-inset-bottom))',
         zIndex: 50,
-        transform: visible ? 'translateY(0)' : 'translateY(130%)',
-        transition: 'transform 0.32s cubic-bezier(0.22,1,0.36,1)',
-        background: 'rgba(255,255,255,0.94)',
-        backdropFilter: 'blur(12px)',
-        WebkitBackdropFilter: 'blur(12px)',
-        borderTop: '1px solid #E7E5E4',
-        boxShadow: '0 -10px 30px -14px rgba(17,17,17,0.22)',
-        padding: '10px 14px calc(10px + env(safe-area-inset-bottom))',
         gap: 10,
         alignItems: 'stretch',
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'translateY(0)' : 'translateY(18px)',
+        pointerEvents: visible ? 'auto' : 'none',
+        transition: 'opacity 0.26s ease, transform 0.3s cubic-bezier(0.22,1,0.36,1)',
       }}
     >
       <a
@@ -72,16 +92,16 @@ export default function StickyBookingBar() {
           background: '#D4AF37',
           color: '#1C1917',
           fontWeight: 700,
-          fontSize: 13,
-          letterSpacing: '0.08em',
+          fontSize: 12.5,
+          letterSpacing: '0.1em',
           textTransform: 'uppercase',
-          padding: '15px 16px',
-          borderRadius: 12,
+          padding: '12px 16px',
+          borderRadius: 999,
           textDecoration: 'none',
-          boxShadow: '0 10px 24px -10px rgba(184,150,12,0.55)',
+          boxShadow: '0 8px 26px -8px rgba(184,150,12,0.6)',
         }}
       >
-        Book Assessment <ArrowRightIcon width={15} height={15} aria-hidden="true" />
+        Book Assessment <ArrowRightIcon width={14} height={14} aria-hidden="true" />
       </a>
       <a
         href="tel:+19056346000"
@@ -91,18 +111,21 @@ export default function StickyBookingBar() {
           display: 'inline-flex',
           alignItems: 'center',
           justifyContent: 'center',
-          gap: 8,
-          background: '#FFFFFF',
-          border: '1.5px solid #D6D3D1',
+          gap: 7,
+          background: 'rgba(255,255,255,0.96)',
+          backdropFilter: 'blur(8px)',
+          WebkitBackdropFilter: 'blur(8px)',
+          border: '1px solid #D6D3D1',
           color: '#292524',
           fontWeight: 600,
-          fontSize: 14,
-          padding: '14px 20px',
-          borderRadius: 12,
+          fontSize: 13,
+          padding: '12px 18px',
+          borderRadius: 999,
           textDecoration: 'none',
+          boxShadow: '0 8px 26px -10px rgba(17,17,17,0.25)',
         }}
       >
-        <PhoneIcon width={17} height={17} style={{ color: '#B8960C' }} aria-hidden="true" />
+        <PhoneIcon width={16} height={16} style={{ color: '#B8960C' }} aria-hidden="true" />
         Call
       </a>
     </div>

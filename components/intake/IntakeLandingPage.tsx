@@ -21,6 +21,7 @@ import {
 } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import BookingCTA from '@/components/intake/BookingCTA';
+import StickyBookingBar from '@/components/intake/StickyBookingBar';
 import { resolveIntakeHero, DEFAULT_HERO, type IntakeHero } from '@/lib/intake-headlines';
 
 /* ─── PALETTE ─── */
@@ -679,6 +680,8 @@ export default function IntakeLandingPage() {
         </div>
 
       </main>
+
+      <StickyBookingBar />
     </>
   );
 }

@@ -268,8 +268,8 @@ export default function IntakeLandingPage() {
                   Searching for {hero.sub} in Burlington or Waterdown? Care that gets to the source of your pain so you can move freely.
                 </motion.p>
 
-                {/* Mobile portrait card — visible only below lg */}
-                <motion.div variants={up} className="lg:hidden intake-mobile-portrait" style={{ marginBottom: 32, padding: 14, borderRadius: 18, background: c.white, border: `1px solid ${c.stone200}`, boxShadow: '0 18px 38px -24px rgba(15,23,42,0.25)' }}>
+                {/* Mobile portrait card — same layout, image pulled flush to the bottom border */}
+                <motion.div variants={up} className="lg:hidden intake-mobile-portrait" style={{ overflow: 'hidden', marginBottom: 32, padding: '14px 14px 0 14px', borderRadius: 18, background: c.white, border: `1px solid ${c.stone200}`, boxShadow: '0 18px 38px -24px rgba(15,23,42,0.25)' }}>
                   <div style={{ display: 'grid', gridTemplateColumns: '88px 1fr', gap: 14, alignItems: 'center' }}>
                     <Image
                       src="/images/kareem-portrait-200w.webp"
@@ -277,7 +277,7 @@ export default function IntakeLandingPage() {
                       width={141}
                       height={200}
                       sizes="88px"
-                      style={{ width: 88, height: 108, borderRadius: 14, objectFit: 'cover', objectPosition: 'top center', display: 'block' }}
+                      style={{ width: 88, height: 116, borderRadius: '14px 14px 0 0', objectFit: 'cover', objectPosition: 'top center', display: 'block', alignSelf: 'end' }}
                     />
                     <div>
                       <p style={{ fontFamily: serif, fontSize: 16, fontWeight: 700, color: c.black, marginBottom: 4 }}>Kareem Hassanein</p>

@@ -246,12 +246,12 @@ export default function IntakeLandingPage() {
             <motion.div initial="hidden" animate="visible" variants={reduced ? undefined : stagger} style={{ display: 'grid', width: '100%', alignItems: 'center', gap: 'clamp(3rem, 6vw, 5rem)', gridTemplateColumns: '1fr' }} className="lg:!grid-cols-[1fr_340px]">
 
               <motion.div style={{ paddingTop: 'clamp(0rem, 4vh, 3rem)' }}>
-                <motion.div variants={up} style={{ display: 'inline-flex', alignItems: 'center', gap: 10, marginBottom: 48 }}>
-                  <span className="relative flex" style={{ width: 8, height: 8 }}>
-                    <span className="animate-ping" style={{ position: 'absolute', inset: 0, borderRadius: '50%', backgroundColor: '#6EE7B7', opacity: 0.6 }} />
-                    <span style={{ position: 'relative', display: 'block', width: 8, height: 8, borderRadius: '50%', backgroundColor: '#059669' }} />
+                <motion.div variants={up} style={{ display: 'inline-flex', alignItems: 'center', gap: 9, marginBottom: 48, padding: '7px 15px 7px 13px', borderRadius: 999, background: c.white, border: `1px solid ${c.stone200}`, boxShadow: '0 2px 14px -6px rgba(17,17,17,0.10)' }}>
+                  <span className="relative flex" style={{ width: 7, height: 7 }}>
+                    <span className="animate-ping" style={{ position: 'absolute', inset: 0, borderRadius: '50%', backgroundColor: '#34D399', opacity: 0.5 }} />
+                    <span style={{ position: 'relative', display: 'block', width: 7, height: 7, borderRadius: '50%', backgroundColor: '#059669' }} />
                   </span>
-                  <span style={{ fontSize: 13, fontWeight: 500, color: '#059669' }}>Accepting new patients</span>
+                  <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: c.text }}>Accepting New Patients</span>
                 </motion.div>
 
                 <motion.h1 variants={up} style={{ fontFamily: serif, fontSize: 'clamp(3rem, 7vw, 5.5rem)', fontWeight: 700, lineHeight: 0.95, letterSpacing: '-0.04em', color: c.black, marginBottom: 16 }}>

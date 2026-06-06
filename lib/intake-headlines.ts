@@ -72,6 +72,11 @@ const MATCHERS: HeroMatcher[] = [
     hero: { lead: 'Sports Injury Rehab in', sub: 'sports injury rehab' },
   },
   {
+    keys: ['post-surgical-rehabilitation', 'post-surgical', 'post-surgery', 'post-op'],
+    match: /post.?surg|post.?op|after surgery/,
+    hero: { lead: 'Post-Surgical Rehab in', sub: 'post-surgical rehabilitation' },
+  },
+  {
     keys: ['tennis-elbow'],
     match: /tennis elbow|lateral epicond/,
     hero: { lead: 'Tennis Elbow Treatment in', sub: 'tennis elbow treatment' },
@@ -100,6 +105,11 @@ const MATCHERS: HeroMatcher[] = [
     keys: ['dry-needling'],
     match: /dry needl|needling/,
     hero: { lead: 'Dry Needling in', sub: 'dry needling' },
+  },
+  {
+    keys: ['cupping-therapy', 'cupping'],
+    match: /cupping/,
+    hero: { lead: 'Cupping Therapy in', sub: 'cupping therapy' },
   },
   {
     keys: ['proximal-hamstring-tendinopathy', 'hamstring-strains', 'hamstring'],

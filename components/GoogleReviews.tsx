@@ -88,12 +88,20 @@ export const reviews = [
   {
     name: "Tamara M",
     text: "Kareem was very knowledgeable and warm, immediately creating a safe and welcoming environment for me as a client. As someone with a few different challenges within my body I felt as though he was incredibly thorough and by the time I left my initial appointment I already felt better. I look forward to doing the targeted exercises he prepared for me. I highly recommend Kareem if you are looking for a kind and competent physiotherapist."
+  },
+  {
+    name: "Nikolas K",
+    text: "I highly recommend Kareem to anyone looking for physiotherapy in Burlington. He helped me recover from a radial head (elbow) fracture and guided me through every step of the process. From soft tissue massage and targeted exercises to cupping, ultrasound therapy, and other treatment techniques, he used a variety of methods to get my elbow moving and feeling strong again. His knowledge, professionalism, and encouragement genuinely made a huge difference, and thanks to his care, I was able to get back to playing hockey and golf! Thanks Kareem!"
+  },
+  {
+    name: "Robert Gonzales",
+    text: "I wouldn't recommend anyone else other than Kareem when it comes to physiotherapy. Kareem helped me recover from a painful tear through my hand and forearm. He took the time to assess the injury step-by-step and introduced exercises that helped me get my strength back. Kareem also used massaging and cupping therapy to release the tension and speed up the healing. He is incredibly knowledgeable and thorough about the process moving forward after the session, giving great advice on what to avoid and providing alternate options. Thanks to Kareem, I have regained my strength and movement!"
   }
 ];
 
 export default function GoogleReviews() {
   // Total Google reviews (featured in carousel + a few not shown here)
-  const totalGoogleReviews = 25;
+  const totalGoogleReviews = 27;
   const featuredReviewsCount = reviews.length;
   const prefersReducedMotion = useReducedMotion();
   const [currentIndex, setCurrentIndex] = useState(0);

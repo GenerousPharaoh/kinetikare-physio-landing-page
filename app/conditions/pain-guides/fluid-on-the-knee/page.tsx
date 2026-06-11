@@ -438,7 +438,7 @@ export default function FluidOnTheKneeGuidePage() {
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '5.0',
-      reviewCount: '25',
+      reviewCount: '27',
     },
   };
 

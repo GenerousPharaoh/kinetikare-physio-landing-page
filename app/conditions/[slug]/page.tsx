@@ -302,7 +302,7 @@ export default async function ConditionPage({ params }: PageProps) {
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "5.0",
-          "reviewCount": "25"
+          "reviewCount": "27"
         }
       },
       ...(howToSchema ? [howToSchema] : []),

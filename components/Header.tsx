@@ -11,7 +11,7 @@ import {
   MagnifyingGlassIcon,
   ChevronRightIcon,
 } from '@heroicons/react/24/outline';
-import { conditionCategories } from '@/lib/conditions-data';
+import { conditionNav } from '@/lib/condition-nav';
 import { BOOKING_PAGE_PATH, JANE_BOOKING_URL } from '@/lib/booking';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -270,7 +270,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   {item.name === 'Conditions' && (
                     <div className="absolute left-1/2 -translate-x-1/2 top-full pt-6 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 ease-out">
                       <div className="w-[600px] bg-[#020617]/95 backdrop-blur-2xl rounded-2xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] p-6 grid grid-cols-2 gap-x-8 gap-y-4">
-                        {conditionCategories.map((category, categoryIndex) => (
+                        {conditionNav.map((category, categoryIndex) => (
                           <div key={category.slug} className="group/category">
                             <Link
                               href={`/conditions?tab=${categoryIndex}`}
@@ -298,7 +298,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                               ))}
                               {category.conditions.length > 4 && (
                                 <Link
-                                  href={`/conditions?tab=${conditionCategories.indexOf(category)}`}
+                                  href={`/conditions?tab=${conditionNav.indexOf(category)}`}
                                   prefetch={false}
                                   className="block text-[11px] text-[#F5E6B3] hover:text-white uppercase tracking-wider font-bold pt-1"
                                 >
@@ -467,7 +467,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                                 className="overflow-hidden"
                               >
                                 <div className="pl-4 space-y-1 border-l border-white/10 ml-4 my-2">
-                                  {conditionCategories.map((category, idx) => (
+                                  {conditionNav.map((category, idx) => (
                                     <Link
                                       key={category.slug}
                                       href={`/conditions?tab=${idx}`}

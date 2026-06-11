@@ -321,6 +321,7 @@ Modern lifestyle factors play a huge role: prolonged sitting, particularly with 
   },
 
   'neck-pain': {
+    lastReviewed: '2026-04-16',
     pathophysiology: `Neck pain involves complex interactions between joints, muscles, and nerves. The small joints in your neck bear significant load during daily activities, especially with modern computer use. The deep stabilizing muscles often become weak while surface muscles overwork to compensate.
 
 The upper part of your neck is responsible for half of all neck rotation and can refer pain to the head. This explains why neck problems often cause headaches.`,
@@ -1581,6 +1582,7 @@ Sudden increases in activity, changes in footwear, or prolonged standing on hard
   // Due to length constraints, I'll add a few more key conditions and you can follow the pattern
 
   'whiplash': {
+    lastReviewed: '2026-04-16',
     pathophysiology: `Whiplash involves rapid acceleration-deceleration forces affecting neck structures. Multiple tissues can be injured including muscles, ligaments, joints, and discs. The initial inflammatory response is followed by muscle guarding and altered movement patterns.
 
 Central nervous system changes can occur, leading to heightened pain sensitivity and slower recovery in some cases.`,
@@ -13959,6 +13961,7 @@ The condition serves as an important lesson in listening to the body's signals a
   },
 
   'tarsal-tunnel-syndrome': {
+    lastReviewed: '2026-04-16',
     symptoms: [
       "Burning, tingling, or electric shock-like sensations in the sole of the foot",
       "Numbness affecting the plantar surface and toes",

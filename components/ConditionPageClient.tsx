@@ -32,6 +32,7 @@ import type { PatternMatcherCluster } from '@/lib/pattern-matchers/knee-cluster'
 import ClinicalObservations from './conditions/ClinicalObservations';
 import ExerciseProgression from './conditions/ExerciseProgression';
 import AuthorByline from './conditions/AuthorByline';
+import RegionAnatomy from './conditions/RegionAnatomy';
 import SectionHeading from './conditions/SectionHeading';
 import GlossaryText from './conditions/GlossaryText';
 import RelatedConditionsList from './conditions/RelatedConditionsList';
@@ -514,7 +515,8 @@ export default function ConditionPageClient({
         {/* Minimal Hero with Breadcrumbs */}
         <section className="pt-24 pb-6 bg-gradient-to-b from-slate-50 via-white to-transparent">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="w-full max-w-5xl">
+            <div className="w-full max-w-6xl flex items-center gap-10">
+              <div className="flex-1 min-w-0">
               {/* Breadcrumb */}
               <nav aria-label="Breadcrumb" className="flex items-center space-x-2 text-sm text-slate-600 mb-4">
                 <Link href="/" className="hover:text-[#B08D57] transition-colors duration-200">
@@ -614,6 +616,11 @@ export default function ConditionPageClient({
               {/* Mobile sub-section quick-nav is rendered above the fixed
                   bottom tab bar so it stays reachable while the page
                   scrolls; nothing to render in the hero on mobile. */}
+              </div>
+              {/* Region anatomy accent — desktop-only public-domain plate, warm-tinted */}
+              <div className="hidden lg:flex flex-shrink-0 self-center justify-end pl-4">
+                <RegionAnatomy category={condition.category} />
+              </div>
             </div>
           </div>
         </section>

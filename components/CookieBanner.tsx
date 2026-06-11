@@ -61,13 +61,13 @@ const CookieBanner = () => {
         <div className="flex shrink-0 gap-1.5 sm:gap-2">
           <button
             onClick={() => handleConsent('declined')}
-            className="rounded-md border border-slate-500/60 px-2.5 py-1 text-[11px] font-medium text-slate-200 transition hover:border-slate-300 hover:text-white sm:px-3 sm:py-1.5 sm:text-[12px]"
+            className="inline-flex min-h-[44px] items-center justify-center rounded-md border border-slate-500/60 px-3 py-1 text-[11px] font-medium text-slate-200 transition hover:border-slate-300 hover:text-white sm:px-4 sm:py-1.5 sm:text-[12px]"
           >
             Decline
           </button>
           <button
             onClick={() => handleConsent('accepted')}
-            className="rounded-md bg-[#B08D57] px-2.5 py-1 text-[11px] font-medium text-white transition hover:bg-[#9a7747] sm:px-3 sm:py-1.5 sm:text-[12px]"
+            className="inline-flex min-h-[44px] items-center justify-center rounded-md bg-[#B08D57] px-3 py-1 text-[11px] font-medium text-white transition hover:bg-[#9a7747] sm:px-4 sm:py-1.5 sm:text-[12px]"
           >
             Accept
           </button>

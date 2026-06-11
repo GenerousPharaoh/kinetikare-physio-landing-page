@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, forwardRef, useCallback, useMemo } from 'react';
+import React, { useState, useEffect, useRef, forwardRef, useCallback, useMemo } from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import {
@@ -39,6 +39,8 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
   // is reserved for paid traffic landing on it via Google Ads — organic
   // visitors should not be funneled through it.
   const bookingHref = JANE_BOOKING_URL;
+  const mobileMenuButtonRef = useRef<HTMLButtonElement>(null);
+  const mobileMenuPanelRef = useRef<HTMLDivElement>(null);
 
   // Optimized scroll handler
   useEffect(() => {
@@ -59,6 +61,54 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
+  }, [mobileMenuOpen]);
+
+  // Accessibility for the mobile menu drawer: lock body scroll, trap focus,
+  // close on Escape, and restore focus to the toggle button when it closes.
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    // Capture the toggle button now so cleanup restores focus to a stable
+    // node (avoids the ref-value-in-cleanup lint warning).
+    const toggleButton = mobileMenuButtonRef.current;
+    const getFocusable = () => {
+      const panel = mobileMenuPanelRef.current;
+      if (!panel) return [] as HTMLElement[];
+      return Array.from(
+        panel.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), input, textarea, select, [tabindex]:not([tabindex="-1"])'
+        )
+      ).filter((el) => el.offsetParent !== null);
+    };
+    const timer = window.setTimeout(() => getFocusable()[0]?.focus(), 50);
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        setMobileMenuOpen(false);
+        return;
+      }
+      if (e.key === 'Tab') {
+        const items = getFocusable();
+        if (items.length === 0) return;
+        const firstEl = items[0];
+        const lastEl = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === firstEl) {
+          e.preventDefault();
+          lastEl.focus();
+        } else if (!e.shiftKey && document.activeElement === lastEl) {
+          e.preventDefault();
+          firstEl.focus();
+        }
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.clearTimeout(timer);
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+      toggleButton?.focus();
+    };
   }, [mobileMenuOpen]);
 
   // Handle animation state
@@ -326,6 +376,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               {/* Mobile Menu Toggle (hidden on the ads landing page) */}
               {!isIntakePage && (
               <button
+                ref={mobileMenuButtonRef}
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="lg:hidden relative z-50 w-10 h-10 flex items-center justify-center !text-white hover:!text-[#D4AF37] transition-colors"
                 aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
@@ -356,6 +407,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               onClick={() => setMobileMenuOpen(false)}
             />
             <motion.div
+              ref={mobileMenuPanelRef}
               id="mobile-menu-panel"
               role="dialog"
               aria-modal="true"

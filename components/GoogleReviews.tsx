@@ -248,7 +248,15 @@ export default function GoogleReviews() {
         </div>
 
         {/* Reviews Carousel */}
-        <div className="relative max-w-6xl mx-auto">
+        <div
+          className="relative max-w-6xl mx-auto"
+          role="group"
+          aria-roledescription="carousel"
+          aria-label="Patient reviews"
+        >
+          <div className="sr-only" aria-live="polite" aria-atomic="true">
+            Review {currentIndex + 1} of {featuredReviewsCount}: {reviews[currentIndex]?.name}
+          </div>
           <div className="overflow-hidden rounded-2xl" onTouchStart={onCarouselTouchStart} onTouchEnd={onCarouselTouchEnd}>
             <div className="relative h-[380px] sm:h-[480px] md:h-[550px]">
               <AnimatePresence mode="wait">
@@ -270,6 +278,7 @@ export default function GoogleReviews() {
                       scale: 0.85
                     }}
                     transition={{ duration: 0.5, ease: 'easeInOut' }}
+                    aria-hidden={review.position !== 'current'}
                     className={`absolute inset-0 ${review.position === 'current' ? 'z-20' : 'z-10 hidden md:block'
                       }`}
                   >

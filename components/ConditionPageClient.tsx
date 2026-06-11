@@ -37,13 +37,14 @@ import GlossaryText from './conditions/GlossaryText';
 import RelatedConditionsList from './conditions/RelatedConditionsList';
 import ComparisonCrossLinks from './conditions/ComparisonCrossLinks';
 import ConsentNote from './conditions/ConsentNote';
+import { handleRovingTabKeyDown } from '@/lib/roving-tabs';
 
 // Lazy-load the Pattern Matcher: only adds to the bundle when used, and only
 // after hydration. ssr:false keeps it out of the initial HTML payload.
 const PatternMatcher = dynamic(() => import('./conditions/PatternMatcher'), {
   ssr: false,
   loading: () => (
-    <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-8 min-h-[220px] flex items-center justify-center text-slate-400 text-sm">
+    <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-8 min-h-[220px] flex items-center justify-center text-slate-500 text-sm">
       Loading pattern check...
     </div>
   ),
@@ -593,6 +594,7 @@ export default function ConditionPageClient({
                             setActiveTab(tab.id);
                             scrollToContentTop();
                           }}
+                          onKeyDown={handleRovingTabKeyDown}
                           className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-1 ${
                             isActive
                               ? 'bg-[#B08D57] text-white shadow-sm'
@@ -1961,6 +1963,7 @@ export default function ConditionPageClient({
                   setActiveTab(tab.id);
                   scrollToContentTop();
                 }}
+                onKeyDown={handleRovingTabKeyDown}
                 className={`flex flex-col items-center justify-center gap-0.5 px-2 py-2 rounded-lg transition-all duration-200 min-w-[60px] min-h-[48px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-1 ${
                   isActive
                     ? 'bg-[#B08D57]/15 text-[#8c6d3d] shadow-sm'

@@ -143,8 +143,9 @@ export default function HeroSection() {
               }}
             />
 
-            {/* Floating Reviews Widget - VERTICAL MARQUEE */}
+            {/* Floating Reviews Widget - VERTICAL MARQUEE (decorative; the real, accessible reviews live in the GoogleReviews section) */}
             <motion.div
+              aria-hidden="true"
               className="absolute top-[18%] right-[6%] w-[320px] md:w-[400px] z-20"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

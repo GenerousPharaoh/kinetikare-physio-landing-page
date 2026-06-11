@@ -55,7 +55,7 @@ export default function NotFound() {
           <div className="h-px w-12 bg-slate-200" />
         </div>
 
-        <p className="mt-6 text-xs text-slate-400">
+        <p className="mt-6 text-xs text-slate-500">
           Call{' '}
           <a href="tel:+19056346000" className="text-[#8A6F0A] hover:underline">
             (905) 634-6000

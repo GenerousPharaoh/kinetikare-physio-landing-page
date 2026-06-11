@@ -17,6 +17,7 @@ import {
   ArrowRightIcon,
 } from '@heroicons/react/24/outline';
 import MedicalDisclaimer from '@/components/MedicalDisclaimer';
+import { handleRovingTabKeyDown } from '@/lib/roving-tabs';
 
 interface ConditionCategory {
   title: string;
@@ -258,6 +259,7 @@ function ConditionsPageWithParams({
                     aria-controls="conditions-filter-tabpanel"
                     tabIndex={isActive ? 0 : -1}
                     onClick={() => handleTabChange(item.tab)}
+                    onKeyDown={handleRovingTabKeyDown}
                     style={{ touchAction: 'manipulation' }}
                     className={`relative px-6 py-2.5 min-h-[44px] rounded-full font-semibold text-sm transition-all duration-300 md:transform md:hover:-translate-y-0.5 border-2 ${isActive
                         ? 'text-white shadow-xl shadow-[#B08D57]/30 border-transparent'
@@ -428,7 +430,7 @@ function ConditionsPageWithParams({
                     <h2 id="topic-hubs-heading" className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
                       Topic guides
                     </h2>
-                    <span className="text-xs text-slate-400">Pain sorted by body region</span>
+                    <span className="text-xs text-slate-500">Pain sorted by body region</span>
                   </div>
                   <div className="grid sm:grid-cols-2 gap-4">
                     {topicHubs.map((hub) => (

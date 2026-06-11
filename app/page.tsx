@@ -109,7 +109,7 @@ export default function Home() {
                   />
                 </span>
               ))}
-              <span className="inline-flex items-center whitespace-nowrap text-[11px] md:text-xs text-slate-400 italic">
+              <span className="inline-flex items-center whitespace-nowrap text-[11px] md:text-xs text-slate-500 italic">
                 and more
               </span>
             </div>

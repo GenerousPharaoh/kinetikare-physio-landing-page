@@ -98,6 +98,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [recentSearches, setRecentSearches] = useState<string[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
+  const modalRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
   // Load recent searches
@@ -125,6 +126,15 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
     document.body.style.overflow = 'hidden';
     return () => {
       document.body.style.overflow = previousOverflow;
+    };
+  }, [isOpen]);
+
+  // Restore focus to the element that opened the modal when it closes.
+  useEffect(() => {
+    if (!isOpen) return;
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+    return () => {
+      previouslyFocused?.focus?.();
     };
   }, [isOpen]);
 
@@ -465,6 +475,26 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
         case 'Escape':
           onClose();
           break;
+        case 'Tab': {
+          const modal = modalRef.current;
+          if (!modal) break;
+          const items = Array.from(
+            modal.querySelectorAll<HTMLElement>(
+              'a[href], button:not([disabled]), input, textarea, select, [tabindex]:not([tabindex="-1"])'
+            )
+          ).filter((el) => el.offsetParent !== null);
+          if (items.length === 0) break;
+          const firstEl = items[0];
+          const lastEl = items[items.length - 1];
+          if (e.shiftKey && document.activeElement === firstEl) {
+            e.preventDefault();
+            lastEl.focus();
+          } else if (!e.shiftKey && document.activeElement === lastEl) {
+            e.preventDefault();
+            firstEl.focus();
+          }
+          break;
+        }
       }
     };
 
@@ -536,6 +566,10 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
           {/* Modal - Fully Responsive */}
           <motion.div
+            ref={modalRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Search conditions and treatments"
             initial={{ opacity: 0, scale: 0.95, y: -20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -20 }}

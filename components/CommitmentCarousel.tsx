@@ -98,8 +98,18 @@ export default function CommitmentCarousel({ items }: CommitmentCarouselProps) {
 
   return (
     <div className="max-w-5xl mx-auto">
+      <div className="sr-only" aria-live="polite" aria-atomic="true">
+        {items[currentSlide].title} ({currentSlide + 1} of {items.length})
+      </div>
       {/* Main carousel */}
-      <div className="relative bg-gradient-to-br from-white to-slate-50 rounded-3xl shadow-xl border border-slate-200/50 overflow-hidden" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+      <div
+        role="group"
+        aria-roledescription="carousel"
+        aria-label="Care commitments"
+        className="relative bg-gradient-to-br from-white to-slate-50 rounded-3xl shadow-xl border border-slate-200/50 overflow-hidden"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
         <div className="relative">
           <AnimatePresence mode="wait">
             <motion.div

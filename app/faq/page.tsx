@@ -970,7 +970,7 @@ const faqCategories: FAQCategory[] = [
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: 'FAQ | Kareem Hassanein Physiotherapy | Burlington & Waterdown',
+  title: 'FAQ | Kareem Hassanein Physiotherapy | Burlington',
   description: 'Answers to common questions about physiotherapy, appointments, billing, session length and what to expect with Kareem Hassanein, Registered Physiotherapist.',
   metadataBase: new URL('https://www.kinetikarephysio.com'),
   authors: [SEO_AUTHOR],

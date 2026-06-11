@@ -29,7 +29,7 @@ import { getTreatmentById } from '@/lib/treatments-data';
 import ConsentNote from '@/components/conditions/ConsentNote';
 
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/shoulder-pain';
-const PAGE_TITLE = 'Shoulder Pain Treatment in Burlington | Kareem Hassanein Physiotherapy';
+const PAGE_TITLE = 'Shoulder Pain Treatment in Burlington | Kareem Hassanein';
 const PAGE_DESCRIPTION =
   'Shoulder pain treatment in Burlington with Kareem Hassanein, Registered Physiotherapist. Rotator cuff, frozen shoulder, AC joint, and biceps pain assessed and treated.';
 

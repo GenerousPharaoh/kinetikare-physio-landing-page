@@ -29,7 +29,7 @@ import { getTreatmentById } from '@/lib/treatments-data';
 import ConsentNote from '@/components/conditions/ConsentNote';
 
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/hip-pain';
-const PAGE_TITLE = 'Hip Pain Treatment in Burlington | Kareem Hassanein Physiotherapy';
+const PAGE_TITLE = 'Hip Pain Treatment in Burlington | Kareem Hassanein';
 const PAGE_DESCRIPTION =
   'Hip pain treatment in Burlington with Kareem Hassanein, Registered Physiotherapist. Lateral, groin, and deep hip pain assessed and treated. Direct billing.';
 

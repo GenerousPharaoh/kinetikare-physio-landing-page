@@ -29,7 +29,7 @@ import { getTreatmentById } from '@/lib/treatments-data';
 import ConsentNote from '@/components/conditions/ConsentNote';
 
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/elbow-pain';
-const PAGE_TITLE = 'Elbow Pain Treatment in Burlington | Kareem Hassanein Physiotherapy';
+const PAGE_TITLE = 'Elbow Pain Treatment in Burlington | Kareem Hassanein';
 const PAGE_DESCRIPTION =
   'Elbow pain treatment in Burlington with Kareem Hassanein, Registered Physiotherapist. Tennis elbow, golfers elbow, and forearm nerve symptoms assessed and treated.';
 

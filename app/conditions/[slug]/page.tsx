@@ -85,12 +85,32 @@ function generateDynamicMetaDescription(condition: Condition): string {
   return `${trimmed.slice(0, safeCutoff).trimEnd()}...`;
 }
 
+// Keep titles within Google's ~60-char SERP display width. Front-load the
+// condition name + "Burlington" (the high-value tokens) and append the
+// longest brand suffix that still fits; drop the brand on long condition
+// names rather than letting it (and "Burlington") get truncated.
+const TITLE_MAX_LENGTH = 60;
+
+function fitTitleWithBrand(core: string, brands: string[]): string {
+  for (const brand of brands) {
+    const candidate = `${core} | ${brand}`;
+    if (candidate.length <= TITLE_MAX_LENGTH) return candidate;
+  }
+  return core;
+}
+
 // Pick title format based on search intent. Default is local (Burlington-anchored).
 function generateConditionTitle(condition: Condition): string {
   if (condition.titleIntent === 'informational') {
-    return `${condition.name}: Symptoms, Causes & Treatment | Kareem Hassanein, RPT`;
+    return fitTitleWithBrand(
+      `${condition.name}: Symptoms, Causes & Treatment`,
+      ['Kareem Hassanein, RPT', 'Kareem Hassanein']
+    );
   }
-  return `${condition.name} Treatment in Burlington | Kareem Hassanein Physiotherapy`;
+  return fitTitleWithBrand(
+    `${condition.name} Treatment in Burlington`,
+    ['Kareem Hassanein Physiotherapy', 'Kareem Hassanein']
+  );
 }
 
 // Generate metadata for each condition page

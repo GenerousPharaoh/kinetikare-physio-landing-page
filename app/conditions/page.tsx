@@ -10,7 +10,7 @@ import {
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: 'Conditions Treated in Burlington | Kareem Hassanein Physiotherapy',
+  title: 'Conditions Treated in Burlington | Kareem Hassanein',
   description: 'Condition guides for back, neck, shoulder, hip, knee, foot, and ankle pain. Care in Burlington with Kareem Hassanein, Registered Physiotherapist.',
   openGraph: {
     title: 'Conditions Treated | Kareem Hassanein Physiotherapy',

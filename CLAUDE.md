@@ -34,7 +34,7 @@ The `/intake` page is reserved for **Google Ads traffic only**:
 - It is the destination URL set on Google Ads campaigns
 - It is excluded from `sitemap.xml` (see `next-sitemap.config.js`)
 - It has no internal links pointing to it (verified May 24, 2026)
-- The page itself is technically indexable; if you want it stripped from organic SERPs, add `robots: { index: false, follow: true }` to `app/intake/page.tsx`
+- The page is set to `robots: 'noindex, follow'` in `app/intake/page.tsx` (verified live 2026-06-10), so it stays out of organic SERPs while remaining crawlable
 
 `BookingTracker.tsx` fires the Google Ads conversion sitewide on any Jane App or `tel:` link click. Attribution is handled by Google Ads via the `_gcl_aw` GCLID cookie — clicks from users without a recent ad interaction fire the event but are not credited to any campaign and do not push spend. Scoping conversion to `/intake` only was tried (commit `5efdeaa` on 2026-05-19, reverted 2026-05-26) and dropped legitimate multi-page ad-driven journeys (ad → /intake → another page → Book Now).
 
@@ -82,6 +82,13 @@ As of March 26, 2026, the site SEO work is intentionally focused on the niches t
 - Nearby communities still matter operationally, but SEO work should not aggressively chase Oakville or other nearby towns unless dedicated, non-thin local landing pages are created
 
 ## Recent Work Already Completed
+
+### Audit-driven a11y / SEO / conversion pass completed on 2026-06-10
+
+- **Accessibility**: focus trap + Escape + body-scroll lock + return-focus on the mobile nav drawer (`Header.tsx`) and `SearchModal` (now `role="dialog"`); roving arrow-key navigation on the conditions filter + condition-page tablists via `lib/roving-tabs.ts`; hero review marquee `aria-hidden`; `aria-live` slide announcement + `aria-hidden` on non-current slides in `GoogleReviews` + `CommitmentCarousel`; `text-slate-400` -> `500` on ancillary labels; cookie-banner buttons to 44px targets.
+- **SEO titles**: `generateConditionTitle` (`app/conditions/[slug]/page.tsx`) now fits titles to ~60 chars (front-loads "{name} Treatment in Burlington", drops the brand suffix on long names); curated hub pages + conditions index + FAQ titles trimmed to match. Patellar 93 -> ~60, GTPS 96 -> ~62.
+- **Conversion**: `FloatingButtons` rewritten from a navy icon-only FAB that tucked away on scroll into a persistent gold "Book" + slate "Call" pill pair (labelled, 48px+ targets); hidden on mobile for condition detail pages (kept on desktop) to avoid colliding with the condition bottom bar. Condition pages gained a "Book an assessment" strip atop the mobile bottom bar and a contextual booking band at the end of the Management tab. New CTAs use `JANE_BOOKING_URL`.
+- **Verified, no change needed**: the `MedicalWebPage` `author`/`publisher` `@id` references resolve correctly (the root `layout.tsx` emits `#person`/`#organization` on every page) — the audit's "dangling reference" finding was a false positive.
 
 ### Accessibility and UI polish pass completed on 2026-05-30
 
@@ -175,7 +182,7 @@ As of March 26, 2026, the site SEO work is intentionally focused on the niches t
 - **Hero JPG (`/public/images/clinic-pic-may-2025.jpg`, 1.8 MB)** — the `.webp` twin already exists at 775 KB and `next/image` auto-converts, so the raw JPG in `/public/` is just the source asset, not what ships. Could be deleted but no perf impact either way.
 - **Gold text contrast** (addressed 2026-05-30): small static gold text moved from `#B08D57` (~4.2:1 on white) to the darker `#8A6F0A` (~4.8:1) already used for eyebrow labels on curated pages. Icons, hover states, large display headings, and gold-on-dark were left as `#B08D57`. 269 instances across 26 files. Residual: small badges on a `bg-[#B08D57]/10` tint sit at ~4.39:1, a hair under AA at that size (the tint is the limiter, not the text); closing it would need a slightly darker gold for tinted badges or a more neutral badge background.
 - **FAQ schema breadth** (not a real gap): the dynamic condition template (`app/conditions/[slug]/page.tsx` lines 342-380) builds a `FAQPage` schema from each condition's `faqs` and emits it whenever present, so every condition that carries FAQ data (~58 in `lib/detailed-conditions-content.ts`) ships FAQ JSON-LD. The curated pages and `/faq` emit their own `FAQPage` too. The earlier "~5 pages" figure only counted hand-built static pages and missed the dynamic coverage.
-- **Carousel swipe gestures on mobile**: `GoogleReviews` and `CommitmentCarousel` are still arrow/dot-only (no swipe/drag). `CommitmentCarousel` gained mobile dot navigation on 2026-05-30 and its auto-advance now pauses under `prefers-reduced-motion`. True swipe/drag is the remaining enhancement on both.
+- **Carousel swipe gestures (implemented)**: both `GoogleReviews` (`onCarouselTouchStart/End`) and `CommitmentCarousel` (`handleTouchStart/End`) support horizontal swipe; `CommitmentCarousel` also has mobile dot navigation and reduced-motion-aware auto-advance. On 2026-06-10 both gained an `aria-live` slide announcement and `aria-hidden` on non-current slides.
 
 ### Monitoring priorities
 

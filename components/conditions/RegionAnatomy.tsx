@@ -90,13 +90,30 @@ const PLATE_BY_CATEGORY: Record<string, keyof typeof PLATES> = {
   'foot-ankle': 'foot',
 };
 
+// Anatomical region named in the figure caption (accurate, non-claiming).
+const LABELS: Record<keyof typeof PLATES, string> = {
+  knee: 'Knee',
+  'knee-meniscus': 'Knee joint',
+  'knee-patella': 'Patella',
+  spine: 'Cervical spine',
+  'spine-lumbar': 'Lumbar spine',
+  shoulder: 'Shoulder',
+  elbow: 'Elbow',
+  hand: 'Wrist & hand',
+  hip: 'Hip',
+  hamstring: 'Posterior thigh',
+  foot: 'Foot & ankle',
+};
+
 export default function RegionAnatomy({
   slug,
   category,
+  caption = false,
   className = '',
 }: {
   slug?: string;
   category: string;
+  caption?: boolean;
   className?: string;
 }) {
   const key = (slug && PLATE_BY_SLUG[slug]) || PLATE_BY_CATEGORY[category];
@@ -107,11 +124,8 @@ export default function RegionAnatomy({
   // shorter so it reads at the same visual weight as the portrait specimens.
   const fit = key === 'foot' ? 'max-w-[88%] max-h-[64%]' : 'max-w-[76%] max-h-[82%]';
 
-  return (
-    <div
-      aria-hidden="true"
-      className={`relative isolate w-[240px] xl:w-[280px] aspect-square select-none ${className}`}
-    >
+  const medallion = (
+    <div className="relative isolate w-[230px] xl:w-[264px] aspect-square select-none">
       {/* Parchment ground + soft seated shadow */}
       <div className="absolute inset-0 rounded-full bg-[#F4EEE3] shadow-[0_16px_44px_-20px_rgba(15,23,42,0.28)]" />
       {/* Double hairline frame — the mount on an antique plate */}
@@ -124,7 +138,7 @@ export default function RegionAnatomy({
           width={plate.width}
           height={plate.height}
           alt=""
-          sizes="320px"
+          sizes="300px"
           loading="lazy"
           // Serve the pre-optimized webp as-is: next/image would re-encode to
           // alpha-less JPEG for non-webp Accept headers, flattening the
@@ -136,5 +150,22 @@ export default function RegionAnatomy({
       {/* Faint inner vignette to seat the specimen in the dish */}
       <div className="absolute inset-[7px] rounded-full pointer-events-none shadow-[inset_0_2px_16px_rgba(15,23,42,0.08)]" />
     </div>
+  );
+
+  if (!caption) {
+    return (
+      <div aria-hidden="true" className={className}>
+        {medallion}
+      </div>
+    );
+  }
+
+  return (
+    <figure className={`m-0 flex flex-col items-center gap-3 ${className}`}>
+      <div aria-hidden="true">{medallion}</div>
+      <figcaption className="text-[10px] font-medium uppercase tracking-[0.2em] text-slate-400">
+        {LABELS[key]}
+      </figcaption>
+    </figure>
   );
 }

@@ -515,7 +515,7 @@ export default function ConditionPageClient({
         {/* Minimal Hero with Breadcrumbs */}
         <section className="pt-24 pb-6 bg-gradient-to-b from-slate-50 via-white to-transparent">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="w-full max-w-6xl flex items-center gap-10">
+            <div className="w-full max-w-6xl flex items-end gap-10 lg:border-b lg:border-slate-200/80 lg:pb-8">
               <div className="flex-1 min-w-0">
               {/* Breadcrumb */}
               <nav aria-label="Breadcrumb" className="flex items-center space-x-2 text-sm text-slate-600 mb-4">
@@ -617,9 +617,11 @@ export default function ConditionPageClient({
                   bottom tab bar so it stays reachable while the page
                   scrolls; nothing to render in the hero on mobile. */}
               </div>
-              {/* Region anatomy accent — desktop-only public-domain plate matched to the structure */}
-              <div className="hidden lg:flex flex-shrink-0 self-center justify-end pl-4">
-                <RegionAnatomy slug={condition.slug} category={condition.category} />
+              {/* Region anatomy figure — desktop only. Bottom-aligned with the
+                  heading on the shared hero baseline so it sits as part of one
+                  band rather than floating off to the side. */}
+              <div className="hidden lg:block flex-shrink-0 pl-2">
+                <RegionAnatomy slug={condition.slug} category={condition.category} caption />
               </div>
             </div>
           </div>

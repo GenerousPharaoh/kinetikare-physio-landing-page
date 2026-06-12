@@ -617,9 +617,9 @@ export default function ConditionPageClient({
                   bottom tab bar so it stays reachable while the page
                   scrolls; nothing to render in the hero on mobile. */}
               </div>
-              {/* Region anatomy accent — desktop-only public-domain plate, warm-tinted */}
+              {/* Region anatomy accent — desktop-only public-domain plate matched to the structure */}
               <div className="hidden lg:flex flex-shrink-0 self-center justify-end pl-4">
-                <RegionAnatomy category={condition.category} />
+                <RegionAnatomy slug={condition.slug} category={condition.category} />
               </div>
             </div>
           </div>

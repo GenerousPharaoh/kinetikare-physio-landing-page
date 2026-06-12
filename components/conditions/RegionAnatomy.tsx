@@ -17,9 +17,6 @@ import Image from 'next/image';
  * Categories without a plate render nothing.
  */
 
-const GOLD_TINT =
-  'sepia(0.82) saturate(1.62) hue-rotate(-12deg) brightness(1.05) contrast(0.97)';
-
 const EDGE_FADE =
   'linear-gradient(to bottom, transparent 0%, #000 9%, #000 91%, transparent 100%)';
 
@@ -30,7 +27,7 @@ interface Plate {
   widthClass: string;
 }
 
-const PORTRAIT = 'w-[210px] xl:w-[250px]';
+const PORTRAIT = 'w-[150px] xl:w-[180px]';
 
 const PLATE_BY_CATEGORY: Record<string, Plate> = {
   knee: { src: '/images/anatomy/anatomy-knee.webp', width: 860, height: 1131, widthClass: PORTRAIT },
@@ -39,7 +36,7 @@ const PLATE_BY_CATEGORY: Record<string, Plate> = {
   shoulder: { src: '/images/anatomy/anatomy-shoulder.webp', width: 860, height: 1256, widthClass: PORTRAIT },
   'elbow-wrist-hand': { src: '/images/anatomy/anatomy-elbow.webp', width: 820, height: 1427, widthClass: PORTRAIT },
   // Foot is a lateral (landscape) plate -> render wider so it has presence.
-  'foot-ankle': { src: '/images/anatomy/anatomy-foot.webp', width: 1000, height: 430, widthClass: 'w-[280px] xl:w-[330px]' },
+  'foot-ankle': { src: '/images/anatomy/anatomy-foot.webp', width: 1000, height: 430, widthClass: 'w-[200px] xl:w-[235px]' },
 };
 
 export default function RegionAnatomy({
@@ -64,9 +61,8 @@ export default function RegionAnatomy({
         alt=""
         sizes="330px"
         loading="lazy"
-        className="w-full h-auto mix-blend-multiply"
+        className="w-full h-auto opacity-90"
         style={{
-          filter: GOLD_TINT,
           maskImage: EDGE_FADE,
           WebkitMaskImage: EDGE_FADE,
         }}

@@ -1844,20 +1844,15 @@ export default function ConditionPageClient({
                             </div>
                           )}
 
-                          {/* Contextual booking prompt at the end of the Management content */}
+                          {/* Quiet contextual booking link at the end of the Management content */}
                           <a
                             href={JANE_BOOKING_URL}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group flex flex-col gap-4 rounded-2xl border border-[#B08D57]/30 bg-[#B08D57]/[0.06] px-6 py-5 transition-colors hover:bg-[#B08D57]/[0.1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57] focus-visible:ring-offset-2 sm:flex-row sm:items-center sm:justify-between"
+                            className="group inline-flex items-center gap-1.5 text-sm font-medium text-[#8A6F0A] hover:text-[#B08D57] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-2 rounded"
                           >
-                            <span className="text-base font-semibold text-slate-900">
-                              Book an assessment for {condition.name.toLowerCase()}
-                            </span>
-                            <span className="inline-flex flex-none items-center gap-2 self-start rounded-full bg-[#B08D57] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors group-hover:bg-[#997A4B] sm:self-auto">
-                              Book
-                              <ArrowRightIcon className="h-4 w-4" aria-hidden="true" />
-                            </span>
+                            Book an assessment for {condition.name.toLowerCase()}
+                            <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
                           </a>
                         </div>
                       )}</div>
@@ -1947,16 +1942,6 @@ export default function ConditionPageClient({
           drawer-based "Sections" button was removed: it duplicated what the
           four tabs + these sticky chips already surface. */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 pb-safe bg-white/95 backdrop-blur-md border-t border-gray-200 shadow-2xl">
-        {/* Primary booking action for mobile condition-page visitors */}
-        <a
-          href={JANE_BOOKING_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 bg-[#B08D57] py-3 text-sm font-semibold text-white transition-colors hover:bg-[#997A4B] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white/70"
-        >
-          Book an assessment
-          <ArrowRightIcon className="h-4 w-4" aria-hidden="true" />
-        </a>
         {subSectionChips.length > 1 && (
           <nav
             aria-label={`Sub-sections within ${activeTabLabel}`}

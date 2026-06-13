@@ -65,7 +65,7 @@ export default function PopularConditionsCarousel({
           key={condition.slug}
           href={`/conditions/${condition.slug}`}
           prefetch={false}
-          className="group rounded-xl border border-slate-200 bg-white p-4 md:p-5 transition-all duration-300 hover:border-[#B08D57] hover:shadow-lg hover:-translate-y-0.5 min-w-[72vw] sm:min-w-[45vw] md:min-w-0 snap-start flex-shrink-0"
+          className="group flex flex-col rounded-xl border border-slate-200 bg-white p-4 md:p-5 transition-all duration-300 hover:border-[#B08D57] hover:shadow-lg hover:-translate-y-0.5 min-w-[72vw] sm:min-w-[45vw] md:min-w-0 snap-start flex-shrink-0"
         >
           <p className="text-xs font-medium tracking-wide uppercase text-[#8A6F0A] mb-1.5 md:mb-2">
             {condition.categoryLabel}
@@ -73,10 +73,10 @@ export default function PopularConditionsCarousel({
           <h3 className="text-base md:text-lg font-medium text-slate-900 leading-tight group-hover:text-[#B08D57] transition-colors">
             {condition.name}
           </h3>
-          <p className="mt-1.5 md:mt-2 text-sm text-slate-600 leading-relaxed line-clamp-2 md:line-clamp-none">
+          <p className="mt-1.5 md:mt-2 mb-0 text-sm text-slate-600 leading-relaxed line-clamp-2 md:line-clamp-none">
             {condition.description}
           </p>
-          <span className="mt-3 md:mt-4 inline-flex items-center text-sm font-medium text-slate-800 group-hover:text-[#B08D57] transition-colors">
+          <span className="mt-auto pt-3 md:pt-4 inline-flex items-center text-sm font-medium text-slate-800 group-hover:text-[#B08D57] transition-colors">
             Read condition guide
             <ArrowRightIcon className="ml-1.5 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
           </span>

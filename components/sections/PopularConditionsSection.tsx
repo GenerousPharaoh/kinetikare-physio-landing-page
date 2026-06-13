@@ -157,8 +157,8 @@ export default function PopularConditionsSection() {
           <div className="mt-10 md:mt-16 pt-8 md:pt-10 border-t border-slate-200 grid md:grid-cols-2 gap-8 md:gap-12">
             <div>
               <div className="flex items-center gap-2 mb-3">
-                <MagnifyingGlassIcon className="h-4 w-4 text-[#8A6F0A]" />
-                <p className="text-xs font-medium tracking-wider uppercase text-[#8A6F0A]">
+                <MagnifyingGlassIcon className="h-4 w-4 flex-shrink-0 text-[#8A6F0A]" />
+                <p className="mb-0 text-xs font-medium tracking-wider uppercase text-[#8A6F0A]">
                   Start with the symptom
                 </p>
               </div>
@@ -199,8 +199,8 @@ export default function PopularConditionsSection() {
 
             <div>
               <div className="flex items-center gap-2 mb-3">
-                <ArrowsRightLeftIcon className="h-4 w-4 text-[#8A6F0A]" />
-                <p className="text-xs font-medium tracking-wider uppercase text-[#8A6F0A]">
+                <ArrowsRightLeftIcon className="h-4 w-4 flex-shrink-0 text-[#8A6F0A]" />
+                <p className="mb-0 text-xs font-medium tracking-wider uppercase text-[#8A6F0A]">
                   Commonly confused
                 </p>
               </div>

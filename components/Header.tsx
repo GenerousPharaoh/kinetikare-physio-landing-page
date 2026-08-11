@@ -32,6 +32,12 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchModalOpen, setSearchModalOpen] = useState(false);
   const [conditionsExpanded, setConditionsExpanded] = useState(false);
+  // The desktop Conditions dropdown opens on CSS :hover. After a client-side
+  // navigation the pointer is still physically over the panel, so :hover stays
+  // true and the menu hangs over the new page until the mouse moves away.
+  // Clicking a link inside it sets this flag to force the panel closed; it
+  // resets when the pointer leaves the nav item, so hovering back in reopens.
+  const [conditionsMenuDismissed, setConditionsMenuDismissed] = useState(false);
   const pathname = usePathname();
   const [hasAnimated, setHasAnimated] = useState(false);
   const isIntakePage = pathname === BOOKING_PAGE_PATH;
@@ -252,6 +258,11 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   key={item.name}
                   className="relative group/nav"
                   variants={headerItemVariants}
+                  onMouseLeave={
+                    item.name === 'Conditions'
+                      ? () => setConditionsMenuDismissed(false)
+                      : undefined
+                  }
                 >
                   <Link
                     href={item.href}
@@ -268,7 +279,12 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
 
                   {/* Conditions Dropdown - Premium Glassmorphism */}
                   {item.name === 'Conditions' && (
-                    <div className="absolute left-1/2 -translate-x-1/2 top-full pt-6 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 ease-out">
+                    <div
+                      onClick={() => setConditionsMenuDismissed(true)}
+                      className={`absolute left-1/2 -translate-x-1/2 top-full pt-6 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 ease-out ${
+                        conditionsMenuDismissed ? 'hidden' : ''
+                      }`}
+                    >
                       <div className="w-[600px] bg-[#020617]/95 backdrop-blur-2xl rounded-2xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] p-6 grid grid-cols-2 gap-x-8 gap-y-4">
                         {conditionNav.map((category, categoryIndex) => (
                           <div key={category.slug} className="group/category">

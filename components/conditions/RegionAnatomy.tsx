@@ -1,4 +1,47 @@
+'use client';
+
 import Image from 'next/image';
+import { useState } from 'react';
+
+/**
+ * Every commissioned plate is drawn on the same warm ivory paper, so the
+ * medallion can render that paper immediately and let the engraving fade in
+ * on top of it. On a client-side move between two conditions this reads as
+ * ink appearing on a page rather than an empty hole that suddenly fills.
+ */
+const PAPER = '#F2EADC';
+
+/**
+ * Own component so its loaded state is remounted (and therefore reset) by the
+ * key on each slug change. Kept inside the parent's state and the fade only
+ * ever plays once, and every subsequent condition would snap in.
+ */
+function PlateImage({ slug }: { slug: string }) {
+  const [loaded, setLoaded] = useState(false);
+
+  return (
+    <div
+      className="absolute inset-0 rounded-full overflow-hidden shadow-[0_16px_44px_-20px_rgba(15,23,42,0.28)]"
+      style={{ backgroundColor: PAPER }}
+    >
+      <Image
+        src={`/images/conditions/${slug}.webp`}
+        width={600}
+        height={600}
+        alt=""
+        sizes="(min-width: 1280px) 264px, 230px"
+        // Eager: this sits in the first content block, it is ~46KB, and lazy
+        // loading is what left the circle empty for a beat after a
+        // client-side move from one condition to the next.
+        loading="eager"
+        onLoad={() => setLoaded(true)}
+        className={`w-full h-full object-cover transition-[opacity,transform,filter] duration-700 ease-out motion-reduce:transition-none ${
+          loaded ? 'opacity-100 scale-100 blur-0' : 'opacity-0 scale-[1.04] blur-[6px]'
+        }`}
+      />
+    </div>
+  );
+}
 
 /**
  * RegionAnatomy
@@ -68,7 +111,7 @@ const CONDITION_PLATES: Record<string, string> = {
   'frozen-shoulder': 'Glenohumeral capsule',
   // Elbow, wrist and hand
   'tennis-elbow': 'Common extensor origin',
-  'carpal-tunnel-syndrome': 'Carpal tunnel',
+  'carpal-tunnel-syndrome': 'Median nerve',
   // Foot and ankle
   'plantar-fasciitis': 'Plantar fascia',
   'achilles-tendinopathy': 'Achilles tendon',
@@ -217,17 +260,7 @@ export default function RegionAnatomy({
   if (commissioned) {
     const commissionedMedallion = (
       <div className="relative isolate w-[230px] xl:w-[264px] aspect-square select-none">
-        <div className="absolute inset-0 rounded-full overflow-hidden shadow-[0_16px_44px_-20px_rgba(15,23,42,0.28)]">
-          <Image
-            src={`/images/conditions/${commissioned}.webp`}
-            width={600}
-            height={600}
-            alt=""
-            sizes="(min-width: 1280px) 264px, 230px"
-            loading="lazy"
-            className="w-full h-full object-cover"
-          />
-        </div>
+        <PlateImage key={commissioned} slug={commissioned} />
         {/* Same double hairline mount as the legacy plates so the two sets sit together */}
         <div className="absolute inset-0 rounded-full ring-1 ring-[#B08D57]/35 pointer-events-none" />
         <div className="absolute inset-[7px] rounded-full ring-1 ring-[#B08D57]/15 pointer-events-none" />

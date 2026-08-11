@@ -29,7 +29,7 @@ function PlateImage({ slug }: { slug: string }) {
         width={600}
         height={600}
         alt=""
-        sizes="(min-width: 1280px) 264px, 230px"
+        sizes="(min-width: 1280px) 264px, (min-width: 640px) 230px, 200px"
         // Eager: this sits in the first content block, it is ~46KB, and lazy
         // loading is what left the circle empty for a beat after a
         // client-side move from one condition to the next.
@@ -259,7 +259,7 @@ export default function RegionAnatomy({
 
   if (commissioned) {
     const commissionedMedallion = (
-      <div className="relative isolate w-[230px] xl:w-[264px] aspect-square select-none">
+      <div className="relative isolate w-[200px] sm:w-[230px] xl:w-[264px] aspect-square select-none">
         <PlateImage key={commissioned} slug={commissioned} />
         {/* Same double hairline mount as the legacy plates so the two sets sit together */}
         <div className="absolute inset-0 rounded-full ring-1 ring-[#B08D57]/35 pointer-events-none" />
@@ -293,7 +293,7 @@ export default function RegionAnatomy({
   const fit = key === 'foot' ? 'max-w-[88%] max-h-[64%]' : 'max-w-[76%] max-h-[82%]';
 
   const medallion = (
-    <div className="relative isolate w-[230px] xl:w-[264px] aspect-square select-none">
+    <div className="relative isolate w-[200px] sm:w-[230px] xl:w-[264px] aspect-square select-none">
       {/* Parchment ground + soft seated shadow */}
       <div className="absolute inset-0 rounded-full bg-[#F4EEE3] shadow-[0_16px_44px_-20px_rgba(15,23,42,0.28)]" />
       {/* Double hairline frame — the mount on an antique plate */}

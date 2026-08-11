@@ -1017,8 +1017,10 @@ export default function ConditionPageClient({
                         <div className="space-y-8">
                           {condition.pathophysiology && (
                             <div id="pathophysiology-section" data-section="pathophysiology" className="flow-root bg-white rounded-xl p-6 sm:p-8 md:p-10 lg:p-12 border border-slate-200 shadow-sm scroll-mt-28">
-                              {/* Anatomical figure — desktop float so the science text wraps beside it */}
-                              <div className="hidden lg:block float-right ml-8 mb-6 mt-1">
+                              {/* Anatomical figure. Desktop floats it so the science text wraps
+                                  beside it; on mobile the column is too narrow to wrap around a
+                                  230px circle, so it becomes a centred plate above the heading. */}
+                              <div className="mb-8 flex justify-center lg:mb-6 lg:ml-8 lg:mt-1 lg:block lg:float-right">
                                 <RegionAnatomy slug={condition.slug} category={condition.category} caption />
                               </div>
                               <SectionHeading
@@ -1050,8 +1052,10 @@ export default function ConditionPageClient({
 
                           {condition.overview && !condition.pathophysiology && (
                             <div id="pathophysiology-section" data-section="pathophysiology" className="flow-root bg-white rounded-xl p-6 sm:p-8 md:p-10 lg:p-12 border border-slate-200 shadow-sm scroll-mt-28">
-                              {/* Anatomical figure — desktop float so the science text wraps beside it */}
-                              <div className="hidden lg:block float-right ml-8 mb-6 mt-1">
+                              {/* Anatomical figure. Desktop floats it so the science text wraps
+                                  beside it; on mobile the column is too narrow to wrap around a
+                                  230px circle, so it becomes a centred plate above the heading. */}
+                              <div className="mb-8 flex justify-center lg:mb-6 lg:ml-8 lg:mt-1 lg:block lg:float-right">
                                 <RegionAnatomy slug={condition.slug} category={condition.category} caption />
                               </div>
                               <SectionHeading

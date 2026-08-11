@@ -14207,6 +14207,16 @@ Understanding the relationship between foot biomechanics and nerve compression h
   },
 
   'stress-fractures': {
+    pathophysiology: `Bone is not static. It is constantly being broken down and rebuilt, and that turnover is how it adapts to the demands you place on it. Repeated loading creates microscopic damage, which under normal circumstances is repaired during recovery between sessions.
+
+A stress fracture develops when the rate of damage outpaces the rate of repair. This happens along a continuum rather than as a single event: bone stress with no structural change, then a stress reaction where the bone is irritated and swollen, and finally a true fracture line. Recognising the problem early in that continuum makes a substantial difference to how long recovery takes.
+
+The symptom pattern reflects the progression. Pain typically starts late in an activity and settles quickly with rest, then begins earlier in the session, then persists afterwards, and eventually becomes present with everyday walking. Pain that is well localised to a specific point on a bone, rather than spread across a region, is a meaningful feature.`,
+    biomechanics: `The most common trigger is a change in load rather than the absolute amount of it. A rapid increase in training volume or intensity, a return to running after time off, a switch in surface or footwear, or a new activity all raise damage rates before the bone has adapted.
+
+Factors that reduce repair capacity matter just as much. Insufficient energy intake relative to training demands, low bone density, certain medications, and disrupted menstrual function all impair the rebuilding side of the equation. Where these are present, addressing them is part of the management rather than an afterthought.
+
+Some sites carry more risk than others. Stress fractures of the femoral neck, the front of the tibia, the navicular in the midfoot and the base of the fifth metatarsal have a greater tendency toward poor healing and need earlier medical assessment and imaging. Suspected stress fracture at these locations should not be managed with rest and hope alone.`,
     differentialDiagnosis: [
       {
         condition: "Medial Tibial Stress Syndrome (Shin Splints)",
@@ -14310,6 +14320,16 @@ Understanding the relationship between foot biomechanics and nerve compression h
   },
 
   'diabetes-related-conditions': {
+    pathophysiology: `Sustained elevation of blood glucose changes the behaviour of collagen, the main structural protein in tendon, joint capsule and fascia. Sugars bind to collagen and form cross-links between fibres, a process that makes connective tissue stiffer and less able to glide and lengthen. Because this affects tissue throughout the body, it produces a recognisable cluster of musculoskeletal presentations rather than a single condition.
+
+The shoulder is the most frequently affected site, and adhesive capsulitis occurs considerably more often in people with diabetes than in those without. In the hand, the same process contributes to trigger finger, Dupuytren's contracture, and a general reduction in finger extension sometimes described as limited joint mobility. Tendon problems elsewhere are also more common.
+
+Two further factors compound the picture. Changes in the small blood vessels can slow tissue healing, so recovery timelines are often longer than expected. And where peripheral nerve involvement has developed, altered sensation changes how load is detected, which affects both injury risk and the feedback available during rehabilitation.`,
+    biomechanics: `Duration of diabetes and long-term glycaemic control are more relevant to musculoskeletal risk than the type of diabetes. The relationship is not absolute, and many people with well-controlled diabetes have no connective tissue involvement at all, but the association is consistent enough to be worth accounting for in assessment.
+
+Practically, this changes how rehabilitation is paced rather than what it consists of. Stiffness responds to sustained, tolerable loading rather than aggressive stretching, and progressions are typically slower because tissue adaptation takes longer. Setting expectations about timeframe at the outset tends to make the process considerably easier.
+
+Where reduced foot sensation is present, skin checks and footwear review become part of the picture, and load is monitored more closely because the usual pain feedback is less reliable. Medical management of diabetes itself remains with your physician; physiotherapy addresses the joint, tendon and movement consequences alongside it.`,
     differentialDiagnosis: [
       {
         condition: "Adhesive Capsulitis (Frozen Shoulder) in Diabetes",
@@ -14413,6 +14433,16 @@ Understanding the relationship between foot biomechanics and nerve compression h
   },
 
   'growth-plate-injuries': {
+    pathophysiology: `During growth, the ends of long bones contain a layer of cartilage called the growth plate, where new bone is laid down. That cartilage is mechanically weaker than the surrounding bone and, importantly, weaker than the nearby ligaments and tendons. The consequence is that a force which would sprain a ligament in an adult can instead injure the growth plate in a child or adolescent.
+
+Two patterns account for most presentations. The first is an acute injury where a single significant force fractures through or across the growth plate. The second, and more common in clinic, is traction apophysitis: a tendon repeatedly pulls on the growing bone at its attachment, irritating the area over weeks or months. Sever's disease at the heel and Osgood-Schlatter at the knee are the familiar examples.
+
+Because the growth plate contributes to the future length and shape of the bone, acute injuries in this area warrant prompt medical assessment and imaging. Traction apophysitis, by contrast, is a load management problem and is generally self-limiting once growth completes, though it can be genuinely limiting while it is active.`,
+    biomechanics: `Growth itself is the underlying driver. During a growth spurt bone lengthens before the surrounding muscle and tendon adapt, which transiently reduces flexibility and increases the pull on the attachment site. This is why symptoms so often coincide with a period of rapid growth.
+
+Training load is the modifiable factor. High volumes of running and jumping, year-round participation in a single sport, and a sudden increase at the start of a season all raise the demand at the attachment. Playing through pain tends to prolong the episode rather than build tolerance.
+
+Management in a growing athlete is therefore less about rest and more about calibration: reducing the aggravating load enough to settle symptoms, maintaining strength and flexibility around the area, and rebuilding volume at a rate the tissue can keep pace with. Complete withdrawal from sport is rarely necessary and is rarely the best answer.`,
     differentialDiagnosis: [
       {
         condition: "Salter-Harris Physeal Fracture (Types I to V)",
@@ -14516,6 +14546,16 @@ Understanding the relationship between foot biomechanics and nerve compression h
   },
 
   'scaphoid-fractures': {
+    pathophysiology: `The scaphoid sits between the two rows of carpal bones and acts as a bridge between them, so a large share of the load crossing your wrist passes through it. That position is also what makes it vulnerable: a fall onto an outstretched hand with the wrist extended drives force directly across the bone.
+
+What makes the scaphoid different from most fractures is its blood supply. Vessels enter near the far end of the bone and travel backwards through it, so a fracture through the middle or the near end can interrupt supply to the fragment closest to the forearm. That fragment then has limited ability to heal, which is why these fractures are associated with delayed healing, non-union, and in some cases loss of blood supply to the bone.
+
+Early scaphoid fractures are frequently missed. Swelling is often modest, the wrist can still move, and initial X-rays can appear normal even when a fracture is present. Persistent tenderness in the hollow at the base of the thumb after a fall warrants medical assessment and further imaging, such as repeat X-ray, CT or MRI, rather than reassurance from a single normal film.`,
+    biomechanics: `The classic mechanism is a fall onto an outstretched hand, usually with the wrist bent backwards and angled toward the thumb. Sports with a high fall risk at speed account for many of these injuries, as do falls from standing in older adults and workplace slips.
+
+Because the wrist often still moves and grip is only moderately reduced, the injury can be mistaken for a sprain and managed with rest alone. Continuing to load the wrist through a fracture that has not been identified is what allows a healing problem to develop, so the priority in the early stage is accurate diagnosis and appropriate immobilisation rather than early rehabilitation.
+
+Once the fracture has been managed and healing is confirmed, rehabilitation addresses the stiffness, grip weakness and forearm rotation loss that follow a period of immobilisation, and rebuilds tolerance for loading through the wrist.`,
     differentialDiagnosis: [
       {
         condition: "Wrist Sprain (Scapholunate Ligament Strain)",
@@ -14622,6 +14662,16 @@ Understanding the relationship between foot biomechanics and nerve compression h
   },
 
   'hammer-toe-deformities': {
+    pathophysiology: `A hammer toe develops when the small intrinsic muscles inside your foot lose the tug of war against the longer tendons that run down from the leg. The intrinsics normally bend the toe at the joint where it meets the foot while keeping the smaller joints beyond it straight. When they can no longer do that, the toe buckles: it lifts at the base and bends at the middle joint.
+
+Early on the deformity is flexible and the toe can still be straightened by hand. Over time the joint capsule, the small plantar plate beneath the joint and the surrounding soft tissue adapt to the shortened position, and the deformity becomes fixed. That distinction matters, because a flexible toe responds to load management, footwear change and targeted exercise in a way a rigid one does not.
+
+Symptoms usually come from friction and pressure rather than the deformity itself. The raised middle joint rubs against the top of the shoe and forms a corn, while the toe tip and the ball of the foot beneath the base of the toe take more pressure than they were designed for.`,
+    biomechanics: `Footwear is the most common contributor. A narrow toe box squeezes the toes together, and any heel height shifts your weight forward onto the front of the foot, which increases the demand on the toes to grip. Both encourage the buckled position.
+
+Foot structure plays a part too. A second toe that is longer than the big toe, a high arch that concentrates load on the ball of the foot, and a bunion that crowds the neighbouring toes all raise the risk. So does anything that weakens the intrinsic muscles or alters the nerve supply to the foot.
+
+Because the toes are working harder to stabilise you than most people realise, deformity often reflects a foot that has been compensating for a long time. Assessment therefore looks beyond the toe itself to how you load the forefoot, what your footwear allows, and whether the deformity is still flexible.`,
     differentialDiagnosis: [
       {
         condition: "Claw Toe Deformity",

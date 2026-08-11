@@ -7,18 +7,17 @@ import Image from 'next/image';
  * plate (Leiden University Libraries via Europeana; foot is a Desmaretz skeletal
  * plate) presented as a framed specimen medallion.
  *
- * Design: every page shows the SAME round, parchment-grounded medallion with a
- * fine double gold hairline (the mount on an antique engraving); only the plate
- * inside changes. That makes all 61 condition heroes feel like one set instead
- * of a row of differently-shaped cutouts. The graphite is composited into the
- * parchment with mix-blend-multiply so it reads as ink on paper rather than a
- * pasted PNG, which also dissolves any knockout halo and normalises plates that
- * were drawn on slightly different papers.
+ * Design: every page shows the SAME round medallion with a fine double gold
+ * hairline (the mount on an antique engraving); only the plate inside changes,
+ * so all condition heroes read as one set.
  *
- * Plates are matched to the *structure*, not just the body region (a patella
- * page shows the kneecap, an ACL page the cruciate notch, a meniscus page the
- * tibial plateau, sciatica the lumbar column). PLATE_BY_SLUG carries the
- * specific assignments; PLATE_BY_CATEGORY is the fallback.
+ * Two plate families. CONDITION_PLATES are commissioned per-condition engravings
+ * that carry their own ivory paper and fill the medallion directly. PLATES are
+ * the legacy public-domain region plates (Leiden University Libraries via
+ * Europeana; foot is a Desmaretz skeletal plate), which are transparent and get
+ * composited into a parchment disc with mix-blend-multiply so they read as ink
+ * on paper. Every condition now has a commissioned plate; the legacy family is
+ * kept as a fallback so a new condition slug never renders empty.
  *
  * Decorative -> aria-hidden + empty alt (the H1 + byline carry the meaning).
  */
@@ -75,6 +74,49 @@ const CONDITION_PLATES: Record<string, string> = {
   'achilles-tendinopathy': 'Achilles tendon',
   'ankle-sprains': 'Lateral ankle ligaments',
   'shin-splints': 'Posteromedial tibia',
+
+  // --- second wave ---
+  // Spine
+  whiplash: 'Cervical spine',
+  'degenerative-disc-disease': 'Lumbar discs',
+  'facet-joint-syndrome': 'Facet joints',
+  'postural-dysfunction': 'Spinal column',
+  // Knee
+  'mcl-lcl-sprains': 'Collateral ligaments',
+  'pcl-injuries': 'Posterior cruciate',
+  'patella-fractures': 'Patella',
+  // Hip and pelvis
+  'hip-bursitis': 'Trochanteric bursa',
+  'piriformis-syndrome': 'Piriformis',
+  'deep-gluteal-syndrome': 'Deep gluteal space',
+  'si-joint-dysfunction': 'Sacroiliac joint',
+  'groin-strains': 'Adductor origin',
+  // Shoulder
+  'shoulder-instability': 'Glenohumeral joint',
+  'biceps-tendinopathy': 'Long head of biceps',
+  'shoulder-bursitis': 'Subacromial bursa',
+  'ac-joint-injuries': 'Acromioclavicular joint',
+  'thoracic-outlet-syndrome': 'Thoracic outlet',
+  'diabetes-related-conditions': 'Hand and palmar fascia',
+  // Elbow, wrist and hand
+  'golfers-elbow': 'Common flexor origin',
+  'de-quervains-tenosynovitis': 'First dorsal compartment',
+  'wrist-sprains': 'Carpal ligaments',
+  'scaphoid-fractures': 'Scaphoid',
+  'repetitive-strain-injuries': 'Forearm and wrist',
+  // Foot and ankle
+  'peroneal-tendinopathy': 'Peroneal tendons',
+  'posterior-tibial-tendon-dysfunction': 'Posterior tibial tendon',
+  'tarsal-tunnel-syndrome': 'Tarsal tunnel',
+  metatarsalgia: 'Metatarsal heads',
+  'hallux-valgus': 'First ray',
+  'hallux-rigidus': 'First MTP joint',
+  'turf-toe': 'Plantar plate',
+  'hammer-toe-deformities': 'Lesser toe',
+  'stress-fractures': 'Tibial cortex',
+  'growth-plate-injuries': 'Growth plate',
+  'mortons-neuroma': 'Plantar digital nerve',
+  'severs-disease': 'Calcaneal apophysis',
 };
 
 const PLATES: Record<string, Plate> = {

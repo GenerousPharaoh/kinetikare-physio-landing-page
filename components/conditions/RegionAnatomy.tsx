@@ -29,6 +29,54 @@ interface Plate {
   height: number;
 }
 
+/**
+ * Commissioned condition plates (2026). Unlike the legacy public-domain plates
+ * below, these are drawn per CONDITION rather than per region, and each one
+ * carries its own warm ivory paper, so they fill the medallion directly instead
+ * of being composited onto a parchment disc with mix-blend-multiply.
+ *
+ * Style: intaglio engraving, Patent construction geometry or Guilloche rosette,
+ * tissue coloured by standard anatomical convention (muscle red, tendon pearl,
+ * bone ivory, cartilage pale blue, nerve yellow). Pathology is shown
+ * morphologically. Several are "functional" plates: the structure drawn in
+ * overlapping positions with dashed motion arcs and load shown as hatching
+ * density, so the page can explain mechanism rather than only anatomy.
+ */
+const CONDITION_PLATES: Record<string, string> = {
+  // Spine
+  'low-back-pain': 'Lumbar spine',
+  sciatica: 'Sciatic nerve',
+  'disc-herniation': 'Lumbar disc',
+  'spinal-stenosis': 'Lumbar canal',
+  'neck-pain': 'Cervical spine',
+  // Knee
+  'knee-pain-patellofemoral': 'Patellofemoral joint',
+  'knee-osteoarthritis': 'Knee joint',
+  'acl-injuries': 'Cruciate ligaments',
+  'meniscus-tears': 'Menisci',
+  'patellar-tendinopathy': 'Patellar tendon',
+  'it-band-syndrome': 'Iliotibial band',
+  // Hip and pelvis
+  'greater-trochanteric-pain-syndrome': 'Gluteal tendons',
+  'hip-osteoarthritis': 'Hip joint',
+  'femoroacetabular-impingement': 'Femoroacetabular joint',
+  'hip-labral-tears': 'Acetabular labrum',
+  'hamstring-strains': 'Hamstring muscles',
+  'proximal-hamstring-tendinopathy': 'Hamstring origin',
+  // Shoulder
+  'rotator-cuff-injuries': 'Rotator cuff',
+  'shoulder-impingement': 'Subacromial space',
+  'frozen-shoulder': 'Glenohumeral capsule',
+  // Elbow, wrist and hand
+  'tennis-elbow': 'Common extensor origin',
+  'carpal-tunnel-syndrome': 'Carpal tunnel',
+  // Foot and ankle
+  'plantar-fasciitis': 'Plantar fascia',
+  'achilles-tendinopathy': 'Achilles tendon',
+  'ankle-sprains': 'Lateral ankle ligaments',
+  'shin-splints': 'Posteromedial tibia',
+};
+
 const PLATES: Record<string, Plate> = {
   knee: { src: '/images/anatomy/anatomy-knee.webp', width: 722, height: 1096 },
   'knee-meniscus': { src: '/images/anatomy/anatomy-knee-meniscus.webp', width: 760, height: 1057 },
@@ -116,8 +164,53 @@ export default function RegionAnatomy({
   caption?: boolean;
   className?: string;
 }) {
+  // Commissioned per-condition plate wins; otherwise fall back to the legacy
+  // region plates for conditions that have not been drawn yet.
+  const commissioned = slug && CONDITION_PLATES[slug] ? slug : undefined;
+
   const key = (slug && PLATE_BY_SLUG[slug]) || PLATE_BY_CATEGORY[category];
   const plate = key ? PLATES[key] : undefined;
+  if (!commissioned && !plate) return null;
+
+  if (commissioned) {
+    const commissionedMedallion = (
+      <div className="relative isolate w-[230px] xl:w-[264px] aspect-square select-none">
+        <div className="absolute inset-0 rounded-full overflow-hidden shadow-[0_16px_44px_-20px_rgba(15,23,42,0.28)]">
+          <Image
+            src={`/images/conditions/${commissioned}.webp`}
+            width={600}
+            height={600}
+            alt=""
+            sizes="(min-width: 1280px) 264px, 230px"
+            loading="lazy"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        {/* Same double hairline mount as the legacy plates so the two sets sit together */}
+        <div className="absolute inset-0 rounded-full ring-1 ring-[#B08D57]/35 pointer-events-none" />
+        <div className="absolute inset-[7px] rounded-full ring-1 ring-[#B08D57]/15 pointer-events-none" />
+        <div className="absolute inset-0 rounded-full pointer-events-none shadow-[inset_0_2px_16px_rgba(15,23,42,0.08)]" />
+      </div>
+    );
+
+    if (!caption) {
+      return (
+        <div aria-hidden="true" className={className}>
+          {commissionedMedallion}
+        </div>
+      );
+    }
+
+    return (
+      <figure className={`m-0 flex flex-col items-center gap-3 ${className}`}>
+        <div aria-hidden="true">{commissionedMedallion}</div>
+        <figcaption className="text-[10px] font-medium uppercase tracking-[0.2em] text-slate-400">
+          {CONDITION_PLATES[commissioned]}
+        </figcaption>
+      </figure>
+    );
+  }
+
   if (!plate) return null;
 
   // The foot is the one landscape plate; let it spread a little wider and sit

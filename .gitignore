@@ -66,3 +66,11 @@ next-env.d.ts
 # macOS metadata files
 ._*
 .DS_Store
+
+# Plate generation sources and pilots.
+# Only the optimised webp files under public/images/conditions/ ship.
+# The full-size PNG sources are working files and do not belong in git.
+/pilot-pages/
+/pilot-faq/
+/pilot-faq2/
+/pilot-concept/

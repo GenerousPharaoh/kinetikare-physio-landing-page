@@ -85,6 +85,7 @@ const painGuides = [
 export default function ConditionsPage() {
   // Transform the condition categories to include formatted condition strings
   const formattedCategories = conditionCategories.map(category => ({
+    slug: category.slug,
     title: category.title,
     subtitle: category.subtitle,
     accent: category.accent,

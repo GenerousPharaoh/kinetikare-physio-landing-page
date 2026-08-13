@@ -5,6 +5,7 @@
 import React, { useState, useMemo, useEffect, useRef, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
 import {
   MagnifyingGlassIcon,
@@ -20,6 +21,7 @@ import MedicalDisclaimer from '@/components/MedicalDisclaimer';
 import { handleRovingTabKeyDown } from '@/lib/roving-tabs';
 
 interface ConditionCategory {
+  slug: string;
   title: string;
   subtitle: string;
   accent: string;
@@ -355,11 +357,29 @@ function ConditionsPageWithParams({
               >
                 {/* PREMIUM Card Design - NO OVERFLOW */}
                 <div className="bg-white rounded-2xl border border-slate-200 shadow-lg">
-                  {/* Header Section - Much smaller */}
-                  <div className="px-6 py-4 border-b border-slate-100">
-                    <h2 className="text-2xl font-bold text-slate-900">
-                      {conditionCategories[activeTab].title}
-                    </h2>
+                  {/* Header: region plate beside the title. The plate is a dark
+                      stone rendering with the structure physiotherapy restores traced
+                      in gold, so it sits on white as a jewel rather than a diagram. */}
+                  <div className="flex items-center gap-4 px-6 py-6 border-b border-slate-100 sm:gap-6">
+                    <div className="relative h-24 w-24 flex-none overflow-hidden rounded-xl bg-[#0f141b] shadow-[0_10px_28px_-14px_rgba(15,23,42,0.55)] ring-1 ring-[#B08D57]/30 sm:h-32 sm:w-32 lg:h-36 lg:w-36">
+                      <Image
+                        src={`/images/regions/${conditionCategories[activeTab].slug}.webp`}
+                        alt=""
+                        fill
+                        sizes="(min-width: 1024px) 144px, (min-width: 640px) 128px, 96px"
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="min-w-0">
+                      <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
+                        {conditionCategories[activeTab].title}
+                      </h2>
+                      {conditionCategories[activeTab].subtitle && (
+                        <p className="mt-1 text-sm text-slate-500">
+                          {conditionCategories[activeTab].subtitle}
+                        </p>
+                      )}
+                    </div>
                   </div>
 
                   {/* Conditions Grid - PREMIUM Design */}

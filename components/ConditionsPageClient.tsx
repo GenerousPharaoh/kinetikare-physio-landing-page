@@ -357,11 +357,12 @@ function ConditionsPageWithParams({
               >
                 {/* PREMIUM Card Design - NO OVERFLOW */}
                 <div className="bg-white rounded-2xl border border-slate-200 shadow-lg">
-                  {/* Header: region plate beside the title. The plate is a dark
-                      stone rendering with the structure physiotherapy restores traced
-                      in gold, so it sits on white as a jewel rather than a diagram. */}
+                  {/* Header: region plate beside the title. Coloured-pencil study on
+                      warm cream, with the structure physiotherapy restores warmed in
+                      gold. Placeholder colour matches the plate ground so there is no
+                      dark flash before the image paints. */}
                   <div className="flex items-center gap-4 px-6 py-6 border-b border-slate-100 sm:gap-6">
-                    <div className="relative h-24 w-24 flex-none overflow-hidden rounded-xl bg-[#0f141b] shadow-[0_10px_28px_-14px_rgba(15,23,42,0.55)] ring-1 ring-[#B08D57]/30 sm:h-32 sm:w-32 lg:h-36 lg:w-36">
+                    <div className="relative h-24 w-24 flex-none overflow-hidden rounded-xl bg-[#F4EFE4] shadow-[0_10px_28px_-16px_rgba(15,23,42,0.35)] ring-1 ring-[#B08D57]/25 sm:h-32 sm:w-32 lg:h-36 lg:w-36">
                       <Image
                         src={`/images/regions/${conditionCategories[activeTab].slug}.webp`}
                         alt=""

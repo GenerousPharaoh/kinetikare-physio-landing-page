@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getAllTreatments } from '@/lib/treatments-data';
 import { ArrowRightIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 
@@ -67,7 +68,19 @@ export default function TreatmentsList() {
                 viewport={{ once: true, margin: "-100px" }}
               >
                 <Link href={`/treatments/${treatment.id}`}>
-                  <div className="bg-white rounded-2xl p-7 h-full border-2 border-gray-100 hover:border-[#B08D57]/30 hover:shadow-xl transition-all duration-300 group cursor-pointer flex flex-col">
+                  <div className="bg-white rounded-2xl p-7 h-full border-2 border-gray-100 hover:border-[#B08D57]/30 hover:shadow-xl transition-all duration-300 group cursor-pointer flex flex-col overflow-hidden">
+                    {/* Mechanism plate, bled to the card edges. object-contain on the
+                    plate's own cream ground means nothing is cropped and the
+                    letterboxing is invisible. */}
+                    <div className="relative -mx-7 -mt-7 mb-6 aspect-[4/3] overflow-hidden bg-[#F4EFE4]">
+                      <Image
+                    src={`/images/treatments/${treatment.id}.webp`}
+                    alt=""
+                    fill
+                    sizes="(min-width: 1024px) 380px, (min-width: 768px) 45vw, 90vw"
+                    className="object-contain"
+                      />
+                    </div>
                     <h3 className="text-xl font-semibold text-slate-900 mb-3 group-hover:text-[#B08D57] transition-colors">
                       {treatment.name}
                     </h3>
@@ -127,7 +140,19 @@ export default function TreatmentsList() {
                             <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/0 via-[#B08D57]/0 to-[#B08D57]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                             <div className="relative flex flex-col flex-grow">
-                              <h3 className="text-xl font-semibold text-slate-900 mb-3 group-hover:text-[#B08D57] transition-colors duration-300">
+                              {/* Mechanism plate, bled to the card edges. object-contain on the
+                                plate's own cream ground means nothing is cropped and the
+                                letterboxing is invisible. */}
+                            <div className="relative -mx-8 -mt-8 mb-6 aspect-[4/3] overflow-hidden bg-[#F4EFE4]">
+                              <Image
+                                src={`/images/treatments/${treatment.id}.webp`}
+                                alt=""
+                                fill
+                                sizes="(min-width: 1024px) 380px, (min-width: 768px) 45vw, 90vw"
+                                className="object-contain"
+                              />
+                            </div>
+                            <h3 className="text-xl font-semibold text-slate-900 mb-3 group-hover:text-[#B08D57] transition-colors duration-300">
                                 {treatment.name}
                               </h3>
                               <p className="text-gray-600 text-sm mb-6 line-clamp-2 leading-relaxed flex-grow">

@@ -530,7 +530,7 @@ export default function IntakeLandingPage() {
         <div style={{ position: 'relative', background: c.white, overflow: 'hidden' }}>
           {/* Treatment photo as subtle side accent — desktop only */}
           <div className="hidden lg:block" style={{ position: 'absolute', top: 0, bottom: 0, left: 0, width: '38%' }}>
-            <Image src="/images/treatment-photos/treatment-passive-stretching-knee-manual-therapy.jpg" alt="" aria-hidden="true" fill loading="lazy" sizes="(min-width: 1024px) 38vw, 0px" style={{ objectFit: 'cover', objectPosition: 'center 30%', filter: 'contrast(1.04) saturate(1.05)' }} />
+            <Image src="/images/treatment-photos/treatment-passive-stretching-knee-manual-therapy-v2.jpg" alt="" aria-hidden="true" fill loading="lazy" sizes="(min-width: 1024px) 38vw, 0px" style={{ objectFit: 'cover', objectPosition: 'center 30%', filter: 'contrast(1.04) saturate(1.05)' }} />
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, transparent 50%, rgba(255,255,255,0.4) 80%, rgba(255,255,255,1) 100%)' }} />
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent, rgba(255,255,255,0.15))' }} />
           </div>

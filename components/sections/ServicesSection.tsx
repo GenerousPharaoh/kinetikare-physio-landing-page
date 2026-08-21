@@ -140,7 +140,7 @@ export default function ServicesSection() {
               {/* Image with contain to show full image */}
               <div className="relative h-full w-full">
                 <Image
-                  src="/images/treatment-photos/treatment-passive-stretching-knee-manual-therapy.jpg"
+                  src="/images/treatment-photos/treatment-passive-stretching-knee-manual-therapy-v2.jpg"
                   alt="Manual therapy treatment - knee mobilization and stretching technique"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"

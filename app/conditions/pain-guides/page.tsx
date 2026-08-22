@@ -151,7 +151,7 @@ export default function PainGuidesIndexPage() {
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '5.0',
-      reviewCount: '27',
+      reviewCount: '30',
     },
   };
 

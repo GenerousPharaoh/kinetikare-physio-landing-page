@@ -96,12 +96,20 @@ export const reviews = [
   {
     name: "Robert Gonzales",
     text: "I wouldn't recommend anyone else other than Kareem when it comes to physiotherapy. Kareem helped me recover from a painful tear through my hand and forearm. He took the time to assess the injury step-by-step and introduced exercises that helped me get my strength back. Kareem also used massaging and cupping therapy to release the tension and speed up the healing. He is incredibly knowledgeable and thorough about the process moving forward after the session, giving great advice on what to avoid and providing alternate options. Thanks to Kareem, I have regained my strength and movement!"
+  },
+  {
+    name: "Caryn Hansen",
+    text: "Kareem is fantastic! He's professional, attentive, and clearly very skilled. I noticed improvement quickly and always felt supported throughout the process. He takes the time to understand what's going on with a professionalism and genuine care that makes a huge difference. I've had a great experience and would highly recommend him."
+  },
+  {
+    name: "Mustafa",
+    text: "Incredible physiotherapist and very knowledgeable. He pays a lot of attention to every detail and makes sure you're back better than you were before. Always goes above and beyond. Highly recommend Kareem to everyone"
   }
 ];
 
 export default function GoogleReviews() {
   // Total Google reviews (featured in carousel + a few not shown here)
-  const totalGoogleReviews = 27;
+  const totalGoogleReviews = 30;
   const featuredReviewsCount = reviews.length;
   const prefersReducedMotion = useReducedMotion();
   const [currentIndex, setCurrentIndex] = useState(0);

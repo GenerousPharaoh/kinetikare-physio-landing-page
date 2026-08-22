@@ -42,16 +42,29 @@ When adding a new booking CTA anywhere, use `JANE_BOOKING_URL` + `target="_blank
 
 ## Schema reviewCount is multi-sourced
 
-The Google review count appears in 9 places that must stay in sync when the count changes:
+The Google review count appears in **13** places that must stay in sync when the count changes.
+
+Nine JSON-LD `aggregateRating` blocks:
 - `app/layout.tsx` (Organization schema)
 - `app/conditions/[slug]/page.tsx` (dynamic condition pages)
 - `app/conditions/{hip-pain,knee-pain,shoulder-pain,elbow-pain}/page.tsx`
 - `app/conditions/pain-guides/page.tsx`
 - `app/conditions/pain-guides/{pain-below-kneecap,fluid-on-the-knee}/page.tsx`
 
-Plus two UI surfaces:
+Plus four UI surfaces:
 - `components/GoogleReviews.tsx` (`totalGoogleReviews` constant)
-- `components/sections/HeroSectionModern.tsx` (the hero badge)
+- `components/sections/HeroSectionModern.tsx` (the mobile hero trust badge)
+- `components/intake/IntakeLandingPage.tsx` (twice: the star-rating line and the testimonial section heading)
+
+Before changing the count, run this and confirm you have every hit:
+
+```bash
+grep -rn "reviewCount\|totalGoogleReviews\|[0-9]\+ reviews\|from [0-9]\+ Google" app components
+```
+
+The `/intake` hits are easy to miss, and that page is the Google Ads landing page, so a stale count there is the one that costs money.
+
+As of 2026-08-21: **30** total, **25** featured in the carousel.
 
 The displayed count reflects the **actual Google total**. The carousel itself shows a curated subset, not all reviews — this mismatch is intentional, not a bug.
 

@@ -52,12 +52,12 @@ export async function generateMetadata({
 
   if (!comparison) {
     return {
-      title: 'Condition Comparison Not Found | Kareem Hassanein Physiotherapy',
+      title: 'Condition Comparison Not Found | Kareem Hassanein',
     };
   }
 
   const pageUrl = `${SITE_URL}/conditions/compare/${comparison.pair}`;
-  const title = `${comparison.title} | Kareem Hassanein Physiotherapy`;
+  const title = `${comparison.title} | Kareem Hassanein`;
 
   return {
     title,
@@ -109,7 +109,7 @@ export default async function ConditionComparisonPage({
   }
 
   const pageUrl = `${SITE_URL}/conditions/compare/${comparison.pair}`;
-  const pageTitle = `${comparison.title} | Kareem Hassanein Physiotherapy`;
+  const pageTitle = `${comparison.title} | Kareem Hassanein`;
 
   const conditionA = getConditionBySlug(comparison.conditionA.slug);
   const conditionB = getConditionBySlug(comparison.conditionB.slug);

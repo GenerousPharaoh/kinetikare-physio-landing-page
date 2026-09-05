@@ -19,7 +19,7 @@ import { CONDITION_COMPARISONS } from '@/lib/condition-comparisons';
 const SITE_URL = 'https://www.kinetikarephysio.com';
 const PAGE_URL = `${SITE_URL}/conditions/compare`;
 const PAGE_TITLE =
-  'Condition Comparisons: How to Tell Similar Injuries Apart | Kareem Hassanein Physiotherapy';
+  'Condition Comparisons: How to Tell Similar Injuries Apart | Kareem Hassanein';
 const PAGE_DESCRIPTION =
   'Side-by-side comparisons of commonly confused conditions. Tennis vs. golfer\'s elbow, rotator cuff vs. frozen shoulder, and more. Burlington Registered Physiotherapist.';
 

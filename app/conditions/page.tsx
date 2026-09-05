@@ -1,5 +1,6 @@
 import { serializeJsonLd } from '@/lib/structured-data';
 import React from 'react';
+import Link from 'next/link';
 import { Metadata } from 'next';
 import ConditionsPageClient from '@/components/ConditionsPageClient';
 import { conditionCategories, additionalServices } from '@/lib/conditions-data';
@@ -167,6 +168,63 @@ export default function ConditionsPage() {
         painGuides={painGuides}
         comparisons={comparisons}
       />
+      {/* Every condition page, guide and comparison as plain links, rendered
+          on the server so each one is reachable without the tabs. */}
+      <section aria-labelledby="all-conditions-heading" className="border-t border-slate-200 bg-white">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+          <h2 id="all-conditions-heading" className="text-2xl font-light tracking-tight text-slate-900 sm:text-3xl">
+            All conditions
+          </h2>
+          <div className="mt-8 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+            {formattedCategories.map((category) => (
+              <div key={category.slug}>
+                <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">{category.title}</h3>
+                <ul className="mt-3 space-y-1.5">
+                  {category.conditionsData.map((condition) => (
+                    <li key={condition.slug}>
+                      <Link
+                        href={`/conditions/${condition.slug}`}
+                        className="text-[15px] leading-snug text-slate-700 transition-colors hover:text-[#B08D57]"
+                      >
+                        {condition.description ? `${condition.name} (${condition.description})` : condition.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+            <div>
+              <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Guides</h3>
+              <ul className="mt-3 space-y-1.5">
+                {[...topicHubs, ...painGuides].map((guide) => (
+                  <li key={guide.href}>
+                    <Link href={guide.href} className="text-[15px] leading-snug text-slate-700 transition-colors hover:text-[#B08D57]">
+                      {guide.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Comparisons</h3>
+              <ul className="mt-3 space-y-1.5">
+                <li>
+                  <Link href="/conditions/compare" className="text-[15px] leading-snug text-slate-700 transition-colors hover:text-[#B08D57]">
+                    All comparisons
+                  </Link>
+                </li>
+                {comparisons.map((c) => (
+                  <li key={c.pair}>
+                    <Link href={c.href} className="text-[15px] leading-snug text-slate-700 transition-colors hover:text-[#B08D57]">
+                      {c.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

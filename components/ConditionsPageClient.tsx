@@ -77,7 +77,9 @@ function ConditionsPageWithParams({
 }: ConditionsPageClientProps) {
   const [activeTab, setActiveTab] = useState(0);
   const [searchQuery, setSearchQuery] = useState('');
-  const searchParams = useSearchParams();
+  // The ?tab= query is read by a tiny child inside its own Suspense boundary
+  // (see TabFromQuery) so the rest of this page still renders statically.
+  const [queryTab, setQueryTab] = useState<number | null>(null);
 
   // Quick navigation sections - moved up to be available in useEffect
   const quickNavItems = [
@@ -94,13 +96,10 @@ function ConditionsPageWithParams({
   // client-side navigation from the header dropdown to /conditions?tab=3
   // actually updates the active tab on an already-mounted page.
   useEffect(() => {
-    const tabParam = searchParams?.get('tab');
-
-    if (tabParam && !isNaN(Number(tabParam))) {
-      const tabNumber = Number(tabParam);
-      if (tabNumber >= 0 && tabNumber < conditionCategories.length) {
-        setActiveTab(tabNumber);
-        localStorage.setItem('conditionsActiveTab', tabNumber.toString());
+    if (queryTab !== null) {
+      if (queryTab >= 0 && queryTab < conditionCategories.length) {
+        setActiveTab(queryTab);
+        localStorage.setItem('conditionsActiveTab', queryTab.toString());
         return;
       }
     }
@@ -113,7 +112,7 @@ function ConditionsPageWithParams({
         setActiveTab(tabNumber);
       }
     }
-  }, [searchParams, conditionCategories.length]);
+  }, [queryTab, conditionCategories.length]);
 
   // Save tab selection to localStorage when changed. On mobile the tab content
   // sits below the filter pills, so also scroll the content into view so the
@@ -147,6 +146,9 @@ function ConditionsPageWithParams({
 
   return (
     <main className="bg-white min-h-screen overflow-x-hidden">
+      <Suspense fallback={null}>
+        <TabFromQuery onTab={setQueryTab} />
+      </Suspense>
       {/* COMPLETELY REDESIGNED Hero Section */}
       <section className="relative pt-32 lg:pt-40 pb-8 lg:pb-10 bg-gradient-to-br from-white via-slate-50/50 to-white overflow-hidden">
         {/* Premium background elements */}
@@ -643,13 +645,18 @@ function ConditionsPageWithParams({
   );
 }
 
+// useSearchParams forces a client-side bail-out up to the nearest Suspense
+// boundary. Keeping it in this leaf means only the leaf is deferred and the
+// page body (heading, tabs, every link) is in the static HTML.
+function TabFromQuery({ onTab }: { onTab: (tab: number | null) => void }) {
+  const searchParams = useSearchParams();
+  const tabParam = searchParams?.get('tab') ?? null;
+  useEffect(() => {
+    onTab(tabParam !== null && tabParam !== '' && !isNaN(Number(tabParam)) ? Number(tabParam) : null);
+  }, [tabParam, onTab]);
+  return null;
+}
+
 export default function ConditionsPageClient(props: ConditionsPageClientProps) {
-  // useSearchParams requires a Suspense boundary on the client side. Wrap
-  // the real component so Next.js can defer client-only URL reads without
-  // blocking the server render.
-  return (
-    <Suspense fallback={null}>
-      <ConditionsPageWithParams {...props} />
-    </Suspense>
-  );
+  return <ConditionsPageWithParams {...props} />;
 }

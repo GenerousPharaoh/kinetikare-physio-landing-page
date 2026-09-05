@@ -413,11 +413,6 @@ export default function ShoulderPainHubPage() {
       { '@type': 'City', name: 'Flamborough' },
       { '@type': 'City', name: 'Carlisle' },
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5.0',
-      reviewCount: '30',
-    },
   };
 
   return (

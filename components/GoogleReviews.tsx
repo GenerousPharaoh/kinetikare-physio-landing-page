@@ -133,37 +133,6 @@ export default function GoogleReviews() {
     if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
   }, []);
 
-  // Generate Review schema for each review
-  const reviewsSchema = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "itemListElement": reviews.map((review, index) => ({
-      "@type": "Review",
-      "position": index + 1,
-      "author": {
-        "@type": "Person",
-        "name": review.name
-      },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      },
-      "reviewBody": review.text,
-      "itemReviewed": {
-        "@type": "LocalBusiness",
-        "name": "Kareem Hassanein Physiotherapy",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "4631 Palladium Way, Unit 6",
-          "addressLocality": "Burlington",
-          "addressRegion": "ON",
-          "postalCode": "L7M 0W9",
-          "addressCountry": "CA"
-        }
-      }
-    }))
-  };
 
   useEffect(() => {
     if (prefersReducedMotion || !isAutoPlaying || !isSectionInView || isPaused) return;
@@ -234,10 +203,6 @@ export default function GoogleReviews() {
       onBlur={() => setIsPaused(false)}
     >
       {/* Review Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: serializeJsonLd(reviewsSchema) }}
-      />
       <div className="container mx-auto px-5 sm:px-6">
         {/* Header */}
         <div className="text-center mb-6 md:mb-8">

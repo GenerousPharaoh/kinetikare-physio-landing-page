@@ -41,6 +41,12 @@ const nextConfig = {
   // Sitemap served from public/sitemap.xml (comprehensive with all condition pages)
   
   // Headers for better SEO and performance
+  async redirects() {
+    return [
+      // No standalone contact page; the contact section lives on the home page.
+      { source: '/contact', destination: '/#contact', permanent: true },
+    ];
+  },
   async headers() {
     // 'unsafe-eval' is only required by the Next.js dev server (HMR); the
     // production bundle (the only mode we ship) does not need it, so it is

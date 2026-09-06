@@ -219,6 +219,14 @@ export default function IntakeLandingPage() {
         .intake-page p { font-style: normal !important; }
         .intake-page section { padding: 0 !important; }
         .intake-hero { min-height: 100vh; min-height: 100dvh; }
+        @media (max-width: 1023px) {
+          .intake-hero { min-height: 0; }
+          .intake-hero-inner { padding-top: 5.75rem !important; }
+          .intake-hero-pill { margin-bottom: 26px !important; }
+          .intake-hero-lead { margin-bottom: 18px !important; }
+          .intake-hero-sub { font-size: 16px !important; line-height: 1.65 !important; margin-bottom: 26px !important; }
+          .intake-mobile-portrait { margin-bottom: 28px !important; }
+        }
         @media (prefers-reduced-motion: reduce) { .intake-page .animate-ping { display: none !important; } }
         .intake-cta-hover { transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s ease !important; }
         .intake-cta-hover:hover { transform: translateY(-3px) !important; box-shadow: 0 20px 56px -12px rgba(184,150,12,0.5) !important; }
@@ -243,11 +251,11 @@ export default function IntakeLandingPage() {
         <section ref={heroRef} className="intake-hero" style={{ position: 'relative', background: c.bg, paddingBottom: 'clamp(4rem, 8vw, 6rem)' }}>
           <div style={{ position: 'absolute', inset: 0, opacity: 0.015, backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E")', backgroundSize: '200px', pointerEvents: 'none' }} />
 
-          <motion.div style={{ position: 'relative', maxWidth: 1200, margin: '0 auto', padding: '0 clamp(1.5rem, 5vw, 4rem)', display: 'flex', alignItems: 'center', paddingTop: 'clamp(7rem, 14vh, 10rem)', paddingBottom: 'clamp(3rem, 6vw, 5rem)', opacity: reduced ? 1 : heroOpacity }}>
+          <motion.div className="intake-hero-inner" style={{ position: 'relative', maxWidth: 1200, margin: '0 auto', padding: '0 clamp(1.5rem, 5vw, 4rem)', display: 'flex', alignItems: 'center', paddingTop: 'clamp(7rem, 14vh, 10rem)', paddingBottom: 'clamp(3rem, 6vw, 5rem)', opacity: reduced ? 1 : heroOpacity }}>
             <motion.div initial="hidden" animate="visible" variants={reduced ? undefined : stagger} style={{ display: 'grid', width: '100%', alignItems: 'center', gap: 'clamp(3rem, 6vw, 5rem)', gridTemplateColumns: '1fr' }} className="lg:!grid-cols-[1fr_340px]">
 
               <motion.div style={{ paddingTop: 'clamp(0rem, 4vh, 3rem)' }}>
-                <motion.div variants={up} style={{ display: 'inline-flex', alignItems: 'center', gap: 9, marginBottom: 48, padding: '7px 15px 7px 13px', borderRadius: 999, background: c.white, border: `1px solid ${c.stone200}`, boxShadow: '0 2px 14px -6px rgba(17,17,17,0.10)' }}>
+                <motion.div variants={up} className="intake-hero-pill" style={{ display: 'inline-flex', alignItems: 'center', gap: 9, marginBottom: 48, padding: '7px 15px 7px 13px', borderRadius: 999, background: c.white, border: `1px solid ${c.stone200}`, boxShadow: '0 2px 14px -6px rgba(17,17,17,0.10)' }}>
                   <span className="relative flex" style={{ width: 7, height: 7 }}>
                     <span className="animate-ping" style={{ position: 'absolute', inset: 0, borderRadius: '50%', backgroundColor: '#34D399', opacity: 0.5 }} />
                     <span style={{ position: 'relative', display: 'block', width: 7, height: 7, borderRadius: '50%', backgroundColor: '#059669' }} />
@@ -260,13 +268,22 @@ export default function IntakeLandingPage() {
                   <span style={{ fontWeight: 300, color: c.gold, fontStyle: 'italic' }}>Burlington</span>
                 </motion.h1>
 
-                <motion.p variants={up} style={{ maxWidth: 460, color: c.textMid, fontSize: 15, lineHeight: 1.6, marginBottom: 36 }}>
+                <motion.p variants={up} className="intake-hero-lead" style={{ maxWidth: 460, color: c.textMid, fontSize: 15, lineHeight: 1.6, marginBottom: 36 }}>
                   One-on-one care from a Registered Physiotherapist near you.
                 </motion.p>
 
-                <motion.p variants={up} style={{ maxWidth: 460, color: c.textMid, fontSize: 17, lineHeight: 1.75, marginBottom: 36 }}>
+                <motion.p variants={up} className="intake-hero-sub" style={{ maxWidth: 460, color: c.textMid, fontSize: 17, lineHeight: 1.75, marginBottom: 36 }}>
                   Searching for {hero.sub} in Burlington or Waterdown? Care that gets to the source of your pain so you can move freely.
                 </motion.p>
+
+                <motion.div variants={up} className="flex flex-col gap-3 sm:flex-row sm:gap-4" style={{ marginBottom: 40 }}>
+                  <BookingCTA size="lg" className="intake-cta-hover w-full sm:w-auto !rounded-none !px-12 !py-5 !text-xs !tracking-[0.25em]" style={{ boxShadow: '0 16px 48px -12px rgba(184,150,12,0.4)' }}>
+                    BOOK ASSESSMENT <ArrowRightIcon width={14} height={14} aria-hidden="true" />
+                  </BookingCTA>
+                  <a href="tel:+19056346000" className="intake-cta-hover inline-flex items-center justify-center gap-3" style={{ padding: '20px 28px', border: `1.5px solid ${c.stone200}`, color: c.text, fontSize: 13, fontWeight: 600, letterSpacing: '0.04em', cursor: 'pointer' }}>
+                    <PhoneIcon width={16} height={16} style={{ color: c.gold }} /> (905) 634-6000
+                  </a>
+                </motion.div>
 
                 {/* Mobile portrait card — same layout, image pulled flush to the bottom border */}
                 <motion.div variants={up} className="lg:hidden intake-mobile-portrait" style={{ overflow: 'hidden', marginBottom: 32, padding: '14px 14px 0 14px', borderRadius: 18, background: c.white, border: `1px solid ${c.stone200}`, boxShadow: '0 18px 38px -24px rgba(15,23,42,0.25)' }}>
@@ -285,15 +302,6 @@ export default function IntakeLandingPage() {
                       <p style={{ fontSize: 10, color: c.textLight, fontWeight: 500, letterSpacing: '0.04em' }}>MSc PT, BSc Kin &middot; CPO #20079</p>
                     </div>
                   </div>
-                </motion.div>
-
-                <motion.div variants={up} className="flex flex-col gap-3 sm:flex-row sm:gap-4" style={{ marginBottom: 40 }}>
-                  <BookingCTA size="lg" className="intake-cta-hover w-full sm:w-auto !rounded-none !px-12 !py-5 !text-xs !tracking-[0.25em]" style={{ boxShadow: '0 16px 48px -12px rgba(184,150,12,0.4)' }}>
-                    BOOK ASSESSMENT <ArrowRightIcon width={14} height={14} aria-hidden="true" />
-                  </BookingCTA>
-                  <a href="tel:+19056346000" className="intake-cta-hover inline-flex items-center justify-center gap-3" style={{ padding: '20px 28px', border: `1.5px solid ${c.stone200}`, color: c.text, fontSize: 13, fontWeight: 600, letterSpacing: '0.04em', cursor: 'pointer' }}>
-                    <PhoneIcon width={16} height={16} style={{ color: c.gold }} /> (905) 634-6000
-                  </a>
                 </motion.div>
 
                 {/* Trust row — more breathing room */}

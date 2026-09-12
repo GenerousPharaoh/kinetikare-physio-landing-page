@@ -5,6 +5,7 @@ import { PhoneIcon, ArrowUpIcon, CalendarDaysIcon } from '@heroicons/react/24/so
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { BOOKING_PAGE_PATH, JANE_BOOKING_URL } from '@/lib/booking';
+import { HUB_PATHS } from '@/lib/condition-hubs';
 
 export default function FloatingButtons() {
   const [isVisible, setIsVisible] = useState(false);
@@ -45,7 +46,7 @@ export default function FloatingButtons() {
     path.startsWith('/conditions/') &&
     !path.startsWith('/conditions/compare') &&
     !path.startsWith('/conditions/pain-guides') &&
-    !['/conditions/knee-pain', '/conditions/hip-pain', '/conditions/shoulder-pain', '/conditions/elbow-pain'].includes(path);
+    !HUB_PATHS.has(path);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });

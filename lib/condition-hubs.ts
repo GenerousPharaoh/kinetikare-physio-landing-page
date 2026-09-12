@@ -6,8 +6,11 @@
  * links each (the home page and the conditions index) and Google had them as
  * "Discovered - currently not indexed".
  *
- * Only four hubs exist against six categories. Conditions in `spinal-health`
- * and `foot-ankle` have no hub and keep the two-level Home > Conditions trail.
+ * Five hubs exist against six categories. Conditions in `spinal-health` have no
+ * hub and keep the two-level Home > Conditions trail. A back hub was considered
+ * and deliberately not built: Burlington back-pain queries drew roughly four
+ * impressions in a quarter, and it would have competed with the already-indexed
+ * /conditions/low-back-pain page.
  */
 
 export interface ConditionHub {
@@ -21,6 +24,7 @@ const HUB_BY_CATEGORY: Record<string, ConditionHub> = {
   'hip-pelvis': { name: 'Hip Pain', path: '/conditions/hip-pain' },
   shoulder: { name: 'Shoulder Pain', path: '/conditions/shoulder-pain' },
   'elbow-wrist-hand': { name: 'Elbow Pain', path: '/conditions/elbow-pain' },
+  'foot-ankle': { name: 'Foot & Ankle Pain', path: '/conditions/foot-ankle-pain' },
 };
 
 /**
@@ -48,3 +52,12 @@ export function getConditionHub(
   if (EXCLUDED_FROM_HUB.has(slug)) return null;
   return HUB_BY_CATEGORY[category] ?? null;
 }
+
+/**
+ * Every hub path. Hubs live under /conditions/ but are landing pages rather than
+ * condition detail pages, so callers that branch on that distinction (the
+ * floating CTA buttons, for one) test against this instead of hard-coding a list.
+ */
+export const HUB_PATHS: ReadonlySet<string> = new Set(
+  Object.values(HUB_BY_CATEGORY).map((hub) => hub.path)
+);

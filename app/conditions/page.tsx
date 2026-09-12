@@ -62,6 +62,13 @@ const topicHubs = [
       'Tennis elbow, golfers elbow, and forearm nerve symptoms mapped by location with routing to the right condition page.',
     region: 'Elbow',
   },
+  {
+    href: '/conditions/foot-ankle-pain',
+    title: 'Foot & Ankle Pain Guide',
+    blurb:
+      'Heel, Achilles, ankle, forefoot, and shin pain sorted by location so you can find the pattern that fits.',
+    region: 'Foot & Ankle',
+  },
 ];
 
 // Pain-location / symptom guides. Titles and blurbs mirror what the guides

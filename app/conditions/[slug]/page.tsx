@@ -8,6 +8,7 @@ import {
   getRelatedConditions,
   type Condition
 } from '@/lib/conditions-data';
+import { getConditionHub } from '@/lib/condition-hubs';
 import { getDetailedCondition } from '@/lib/detailed-conditions-content';
 import {
   CONTENT_LAST_MODIFIED_ISO,
@@ -304,6 +305,10 @@ export default async function ConditionPage({ params }: PageProps) {
     ]
   };
 
+  // Mirrors the visible breadcrumb in ConditionPageClient, including the
+  // optional regional hub level, so the schema matches what renders.
+  const conditionHub = getConditionHub(slug, condition.category);
+
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -320,9 +325,15 @@ export default async function ConditionPage({ params }: PageProps) {
         "name": "Conditions",
         "item": "https://www.kinetikarephysio.com/conditions"
       },
-      {
+      ...(conditionHub ? [{
         "@type": "ListItem",
         "position": 3,
+        "name": conditionHub.name,
+        "item": `https://www.kinetikarephysio.com${conditionHub.path}`
+      }] : []),
+      {
+        "@type": "ListItem",
+        "position": conditionHub ? 4 : 3,
         "name": condition.name,
         "item": `https://www.kinetikarephysio.com/conditions/${slug}`
       }

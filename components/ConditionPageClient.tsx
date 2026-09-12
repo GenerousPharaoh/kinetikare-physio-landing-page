@@ -27,6 +27,7 @@ import {
   PhoneIcon
 } from '@heroicons/react/24/outline';
 import { Condition } from '@/lib/conditions-data';
+import { getConditionHub } from '@/lib/condition-hubs';
 import { getTreatmentsByCondition } from '@/lib/treatments-data';
 import type { PatternMatcherCluster } from '@/lib/pattern-matchers/knee-cluster';
 import ClinicalObservations from './conditions/ClinicalObservations';
@@ -203,6 +204,10 @@ export default function ConditionPageClient({
   const hasPatternMatcher = Boolean(
     patternCluster && patternConditions && condition.patternMatcher?.clusterKey === patternCluster.key,
   );
+
+  // Regional hub above this condition, when one covers it. Drives the extra
+  // breadcrumb level; must stay in step with breadcrumbSchema in [slug]/page.tsx.
+  const conditionHub = getConditionHub(conditionSlug, condition.category);
 
   // Get related treatments for this condition
   const relatedTreatments = getTreatmentsByCondition(conditionSlug);
@@ -518,7 +523,10 @@ export default function ConditionPageClient({
             <div className="w-full max-w-6xl">
               <div className="flex-1 min-w-0">
               {/* Breadcrumb */}
-              <nav aria-label="Breadcrumb" className="flex items-center space-x-2 text-sm text-slate-600 mb-4">
+              {/* Wraps rather than overflowing: long condition names already ran
+                  past the viewport at phone widths, and the hub level adds to it.
+                  gap-x rather than space-x so wrapped rows keep a flush left edge. */}
+              <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-slate-600 mb-4">
                 <Link href="/" className="hover:text-[#B08D57] transition-colors duration-200">
                   Home
                 </Link>
@@ -526,6 +534,14 @@ export default function ConditionPageClient({
                 <Link href="/conditions" className="hover:text-[#B08D57] transition-colors duration-200">
                   Conditions
                 </Link>
+                {conditionHub && (
+                  <>
+                    <ChevronRightIcon className="h-3 w-3" />
+                    <Link href={conditionHub.path} className="hover:text-[#B08D57] transition-colors duration-200">
+                      {conditionHub.name}
+                    </Link>
+                  </>
+                )}
                 <ChevronRightIcon className="h-3 w-3" />
                 <span className="text-slate-900 font-medium">{condition.name}</span>
               </nav>

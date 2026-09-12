@@ -3,7 +3,7 @@
 The following images are required for the website to look its best. Replace these placeholders with professional, high-quality images that match the descriptions:
 
 ## Homepage Images
-- `kareem-profile.png` - Professional headshot or clinical action shot of Kareem Hassanein
+- `professional-photo-kareem-hassanein-...png` - Professional headshot (shirt tucked). This is the only portrait that should be referenced in schema `image` fields. The untucked `kareem-profile.webp` variants were deleted on 2026-09-11 because Google Images was surfacing them off the homepage schema.
 - `clinic-room.jpg` - Well-lit image of the treatment room at Endorphins Health and Wellness Centre
 
 ## Services Page Images

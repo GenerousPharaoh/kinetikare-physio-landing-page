@@ -104,12 +104,16 @@ export const reviews = [
   {
     name: "Mustafa",
     text: "Incredible physiotherapist and very knowledgeable. He pays a lot of attention to every detail and makes sure you're back better than you were before. Always goes above and beyond. Highly recommend Kareem to everyone"
+  },
+  {
+    name: "Mike Hauser",
+    text: "Kareem has been treating my right shoulder for the past 3 years, frozen shoulder, limited range … and pain. Using a multitude of techniques, results have been amazing. I would totally recommend Kareem."
   }
 ];
 
 export default function GoogleReviews() {
   // Total Google reviews (featured in carousel + a few not shown here)
-  const totalGoogleReviews = 30;
+  const totalGoogleReviews = 31;
   const featuredReviewsCount = reviews.length;
   const prefersReducedMotion = useReducedMotion();
   const [currentIndex, setCurrentIndex] = useState(0);

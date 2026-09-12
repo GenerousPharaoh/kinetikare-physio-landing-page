@@ -3,16 +3,17 @@
 ## Project Overview
 
 - Project: `physiotherapy-next`
-- Stack: Next.js 14 App Router, React, TypeScript, Tailwind CSS
+- Stack: **Next.js 16.2.6 App Router / React 19.2** / TypeScript / Tailwind 3.4 / Framer Motion 12.7
 - Site: `https://www.kinetikarephysio.com`
 - Main business: Kareem Hassanein Physiotherapy in Burlington, Ontario
 
 ## Working Commands
 
 - Install deps: `npm install`
-- Local dev: `npm run dev`
 - Production build: `npm run build`
-- Production server: `npm run start -- -p 5010`
+- Production server: `npm run build && PORT=4040 npm run start`
+- **NEVER `npm run dev`** — Framer Motion hydration issues. Always test on a production build.
+- Typecheck: `npx tsc --noEmit` · Lint: `npm run lint` (ESLint 9 flat config in `eslint.config.mjs`; `next lint` was removed in Next 16)
 
 Notes:
 - `npm run build` also runs `next-sitemap` and regenerates `public/sitemap.xml` **and** `public/robots.txt`. Do not hand-edit `robots.txt` — your changes will be wiped on the next build. Edit `next-sitemap.config.js` and let postbuild regenerate.
@@ -60,6 +61,27 @@ The `/intake` hits are easy to miss, and that page is the Google Ads landing pag
 As of 2026-09-11: **31** total, **26** featured in the carousel.
 
 The displayed count reflects the **actual Google total**. The carousel itself shows a curated subset, not all reviews — this mismatch is intentional, not a bug.
+
+## Condition hubs and breadcrumbs
+
+Five regional hub pages sit above the condition pages: `/conditions/{knee-pain,hip-pain,shoulder-pain,elbow-pain,foot-ankle-pain}`.
+
+`lib/condition-hubs.ts` is the single source of truth mapping a condition to its hub. It is read by **both** the visible breadcrumb in `components/ConditionPageClient.tsx` **and** the `BreadcrumbList` schema in `app/conditions/[slug]/page.tsx`, plus `HUB_PATHS` in `components/FloatingButtons.tsx`. Change it in one place.
+
+Deliberate decisions in that file, do not "fix" them:
+- **spinal-health has no hub.** Burlington back-pain queries drew ~4 impressions in a quarter, and a back hub would compete with the already-indexed `/conditions/low-back-pain`.
+- **Wrist and hand conditions are excluded from the Elbow hub** (they share the `elbow-wrist-hand` category but "Elbow Pain" would misdescribe carpal tunnel), as are thoracic-outlet-syndrome and diabetes-related-conditions from the Shoulder hub.
+
+The condition breadcrumb uses `flex-wrap` with `gap-x-2 gap-y-1`, not `space-x-2`. Long condition names overflowed the viewport at phone widths before this; `space-x` also breaks on wrapped rows.
+
+## Portraits
+
+Two studio shoots exist and they are easy to confuse.
+
+- **Use the tucked one** (`public/images/professional-photo-kareem-hassanein-...png`, belt visible). It is on `/about` and is the value of both JSON-LD `image` fields in `app/layout.tsx`.
+- The **untucked** variants (`kareem-profile.webp`, `kareem-profile-backup.webp`) were **deleted 2026-09-11**. They were never rendered anywhere, but they were the `image` value in the homepage schema, which was enough to put them in Google Images under the homepage title. Removal requests were filed in Search Console.
+
+**A JSON-LD `image` value alone is enough to rank a photo in Google Images.** When auditing what Google shows, check schema fields, not just `<img>` tags.
 
 ## Current Business / SEO Direction
 

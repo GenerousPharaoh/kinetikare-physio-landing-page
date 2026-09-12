@@ -179,10 +179,17 @@ export default async function ConditionPage({ params }: PageProps) {
   }
 
   const condition = getDetailedCondition(slug, baseCondition);
+  // 6, not 3. The curated `intelligentRelationships` map in lib/conditions-data.ts
+  // averages 5 relationships per condition, so a limit of 3 left roughly 40% of an
+  // already-written clinical graph unrendered, and with it the internal links those
+  // cards carry. A Sept 2026 crawl of all 95 live pages put the median inbound
+  // internal link count at 32 for indexed pages against 5 for unindexed ones, and
+  // the unindexed set was almost entirely conditions nothing linked to. Six renders
+  // the whole curated map and fills the 2-column grid evenly.
   const relatedConditions = getRelatedConditions(
     slug,
     baseCondition.category,
-    3
+    6
   );
 
   // Build a pattern-matcher cluster payload if this condition participates in one.

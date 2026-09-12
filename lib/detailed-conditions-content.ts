@@ -2529,7 +2529,7 @@ Previous injuries create lasting biomechanical changes that predispose you to os
         sampleSize: "Multiple studies meta-analysis",
         findings: "Manual therapy may be effective at reducing pain in patients with knee osteoarthritis and may be more effective after a 4-week treatment period. Combining manual therapy with therapeutic exercise induced increased functionality and reduced pain in the long term.",
         relevance: "Supports manual therapy as adjunct to exercise therapy, particularly when combined for enhanced long-term outcomes",
-        citation: "Zhu B, Ba H, Kong L, Fu Y, Ren J, Zhu Q, Fang M. The effects of manual therapy in pain and safety of patients with knee osteoarthritis: a systematic review and meta-analysis. Syst Rev. 2024;13(1):60."
+        citation: "Zhu B, Ba H, Kong L, Fu Y, Ren J, Zhu Q, Fang M. The effects of manual therapy in pain and safety of patients with knee osteoarthritis: a systematic review and meta-analysis. Syst Rev. 2024;13(1):91."
       }
     ],
 
@@ -3137,7 +3137,7 @@ With chronic ankle instability, the entire lower limb adapts through compensator
         sampleSize: "Systematic review and expert consensus",
         findings: "Strong evidence supports early mobilization over immobilization, with functional rehabilitation reducing chronic ankle instability development. Balance training significantly reduces reinjury risk, and neuromuscular training prevents initial ankle sprains in high-risk populations.",
         relevance: "Establishes evidence-based framework for ankle sprain rehabilitation emphasizing early functional rehabilitation and proprioceptive training as essential components",
-        citation: "Martin RL, Davenport TE, Paulseth S, et al. Ankle stability and movement coordination impairments: ankle ligament sprains clinical practice guideline linked to the international classification of functioning, disability and health from the orthopaedic section of the American Physical Therapy Association. J Orthop Sports Phys Ther. 2021;51(4):CPG1-CPG80."
+        citation: "Martin RL, Davenport TE, Paulseth S, et al. Ankle Stability and Movement Coordination Impairments: Lateral Ankle Ligament Sprains Revision 2021. J Orthop Sports Phys Ther. 2021;51(4):CPG1-CPG80."
       },
       {
         title: "Diagnosis, treatment and prevention of ankle sprains: update of an evidence-based clinical guideline",
@@ -7910,7 +7910,7 @@ Common aggravating factors include the 'boom-bust' cycle of overdoing on good da
       },
       phase2: {
         title: "Phase 2: Build Cuff and Scapular Capacity (Weeks 4 to 12)",
-        focus: "Shift from pain modulation to genuine strength work. This is where most under-treated shoulders get stuck, because they leave phase 1 feeling better and never rebuild capacity. Zhong et al. (Front Neurol 2024) showed scapular stabilisation exercises produced superior pain and disability outcomes versus conventional physiotherapy in subacromial pain, and Hanratty et al. (Clin Rehabil 2021) confirmed exercise effectiveness across 16 trials.",
+        focus: "Shift from pain modulation to genuine strength work. This is where most under-treated shoulders get stuck, because they leave phase 1 feeling better and never rebuild capacity. Zhong et al. (Front Neurol 2024) showed scapular stabilisation exercises produced superior pain and disability outcomes versus conventional physiotherapy in subacromial pain, and Hanratty et al. (Semin Arthritis Rheum 2012) confirmed exercise effectiveness across 16 trials.",
         examples: [
           "Dumbbell or band external rotation at the side, 3 sets of 8 to 12 reps with a 3-second eccentric, progressed weekly by small load increments",
           "Side-lying external rotation, prone Y/T/W exercises, and prone rows for scapular stabilisers",

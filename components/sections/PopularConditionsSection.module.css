@@ -36,7 +36,6 @@
 .topicList li { margin: 0; border-right: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; }
 .topicList li:nth-child(3n) { border-right: 0; }
 .topicList li:nth-last-child(-n+3) { border-bottom: 0; }
-.topicList li:nth-child(-n+3) { background: #faf8f3; }
 .topicLink { display: block; height: 100%; padding: 24px; text-decoration: none; }
 .topicMeta { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 10px; color: #80650a; font-size: 10px; font-weight: 600; line-height: 1.5; letter-spacing: 0.075em; text-transform: uppercase; }
 .topicMeta svg { width: 17px; height: 17px; flex-shrink: 0; transition: transform 180ms ease-out; }

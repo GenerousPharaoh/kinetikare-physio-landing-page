@@ -1,5 +1,6 @@
 "use client";
 
+import { JANE_BOOKING_URL } from '@/lib/booking';
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -96,7 +97,7 @@ export default function HeroSection() {
       {/* 1. Background Image Layer (Right Side) */}
       <div className="absolute inset-0">
         <motion.div
-          className="absolute inset-0 hidden md:block"
+          className="absolute inset-0 hidden xl:block"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.8 }}
@@ -121,10 +122,11 @@ export default function HeroSection() {
                 src="/images/clinic-pic-may-2025.webp"
                 alt="KinetiKare Physiotherapy clinic"
                 fill
-                priority
+                loading="eager"
+                fetchPriority="high"
                 quality={82}
                 className="object-cover object-[35%_center] brightness-100 contrast-105"
-                sizes="65vw"
+                sizes="(min-width: 1280px) 65vw, 100vw"
               />
             </motion.div>
 
@@ -252,15 +254,17 @@ export default function HeroSection() {
           </div>
         </motion.div>
 
-        {/* Mobile Background (decorative duplicate of the desktop image) */}
-        <div className="absolute inset-0 md:hidden" aria-hidden="true">
+        {/* Mobile and tablet background, before the split composition has room. */}
+        <div className="absolute inset-0 xl:hidden" aria-hidden="true">
           <Image
             src="/images/clinic-pic-may-2025.webp"
             alt=""
             fill
+            loading="eager"
+            fetchPriority="high"
             quality={82}
             className="object-cover"
-            sizes="100vw"
+            sizes="(min-width: 1280px) 65vw, 100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/80 to-[#0f172a]/40" />
         </div>
@@ -268,7 +272,7 @@ export default function HeroSection() {
 
       {/* 2. Diagonal Swipe Layer (Left Side) */}
       <motion.div
-        className="absolute inset-0 bg-[#0f172a] hidden md:block z-10 will-change-[clip-path]"
+        className="absolute inset-0 bg-[#0f172a] hidden xl:block z-10 will-change-[clip-path]"
         initial="hidden"
         animate="visible"
         variants={clipPathVariants}
@@ -312,7 +316,7 @@ export default function HeroSection() {
 
       {/* 3. Gold Accent Line - PERFECTLY SYNCED */}
       <motion.div
-        className="absolute inset-0 hidden md:block z-20 pointer-events-none will-change-[clip-path]"
+        className="absolute inset-0 hidden xl:block z-20 pointer-events-none will-change-[clip-path]"
         initial="hidden"
         animate="visible"
         variants={goldLineVariants}
@@ -322,8 +326,8 @@ export default function HeroSection() {
       </motion.div>
 
       {/* 4. Content Layer - Accounting for mobile browser bars with explicit safe padding */}
-      <div className="relative z-30 h-full flex items-end md:items-start pb-8 pt-12 md:pb-0 md:pt-24">
-        <div className="w-full md:max-w-[55%] lg:max-w-[50%] px-6 sm:px-8 md:px-12 lg:px-16">
+      <div className="relative z-30 h-full flex items-end md:items-start pb-12 pt-12 xl:pb-0 md:pt-24">
+        <div className="w-full max-w-3xl xl:max-w-[50%] px-6 sm:px-8 md:px-12 lg:px-16">
 
           <motion.div
             initial="hidden"
@@ -366,7 +370,7 @@ export default function HeroSection() {
             {/* Buttons - Full width on mobile */}
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 md:mb-10">
               <Link
-                href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                href={JANE_BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative w-full sm:w-auto"
@@ -403,7 +407,7 @@ export default function HeroSection() {
             </motion.div>
 
             {/* Info Badges */}
-            <motion.div variants={itemVariants} className="flex flex-wrap md:flex-nowrap gap-2 md:gap-3 mb-5 md:mb-0">
+            <motion.div variants={itemVariants} className="flex flex-wrap xl:flex-nowrap gap-2 md:gap-3 mb-5 xl:mb-0">
               {[
                 "Direct Billing",
                 "No Referral Needed",
@@ -418,9 +422,9 @@ export default function HeroSection() {
               ))}
             </motion.div>
 
-            {/* Mobile-only: Google Reviews trust signal */}
+            {/* Compact trust signal for mobile and tablet. */}
             <motion.div
-              className="md:hidden flex items-center gap-3 mt-1"
+              className="xl:hidden flex items-center gap-3 mt-1"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.5, duration: 0.6 }}

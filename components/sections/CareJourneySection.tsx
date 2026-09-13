@@ -1,59 +1,21 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from 'react';
+import { JANE_BOOKING_URL } from '@/lib/booking';
+import React from 'react';
 import Link from 'next/link';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useScrollAnimation, useStaggeredAnimation } from '@/hooks/useScrollAnimation';
-import { useInView } from 'react-intersection-observer';
 
 export default function CareJourneySection() {
   const { ref: sectionRef, animationProps } = useScrollAnimation({ yOffset: 30 });
   const { ref: stepsRef, containerVariants, itemVariants, isInView } = useStaggeredAnimation({ delay: 0.1 });
-  const prefersReducedMotion = useReducedMotion();
-
-  // Auto-scroll on mobile when section comes into view. Pauses when the
-  // section scrolls out of view (triggerOnce: false) so the interval stops
-  // running while the user is elsewhere on the page.
-  const scrollElRef = useRef<HTMLDivElement>(null!) as { current: HTMLDivElement | null };
-  const { ref: autoScrollRef, inView: sectionVisible } = useInView({ threshold: 0.3 });
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    setIsMobile(window.innerWidth < 768);
-  }, []);
-
-  useEffect(() => {
-    if (prefersReducedMotion || !sectionVisible || !isMobile || !scrollElRef.current) return;
-    const container = scrollElRef.current;
-    const cardWidth = container.firstElementChild?.clientWidth || 0;
-    const gap = 16;
-    let currentCard = 0;
-    const totalCards = container.children.length;
-    let userInterrupted = false;
-
-    // If the user starts scrolling the row themselves, stop auto-advancing
-    // so we don't fight their touch input.
-    const onUserScroll = () => { userInterrupted = true; };
-    container.addEventListener('touchstart', onUserScroll, { passive: true });
-
-    const interval = setInterval(() => {
-      if (userInterrupted) return;
-      currentCard = (currentCard + 1) % totalCards;
-      container.scrollTo({ left: currentCard * (cardWidth + gap), behavior: 'smooth' });
-    }, 3000);
-
-    return () => {
-      clearInterval(interval);
-      container.removeEventListener('touchstart', onUserScroll);
-    };
-  }, [sectionVisible, isMobile, prefersReducedMotion]);
 
   const steps = [
     {
       number: "01",
       title: "Initial Assessment",
       description: "Comprehensive evaluation of your condition, medical history, and movement patterns to understand your unique needs.",
-      link: "https://endorphinshealth.janeapp.com/#/staff_member/42",
+      link: JANE_BOOKING_URL,
       linkText: "Book an assessment",
       external: true
     },
@@ -113,7 +75,10 @@ export default function CareJourneySection() {
           </div>
           
           <motion.div
-            ref={(el: HTMLDivElement | null) => { scrollElRef.current = el; autoScrollRef(el); if (typeof stepsRef === 'function') stepsRef(el); }}
+            ref={stepsRef}
+            tabIndex={0}
+            role="region"
+            aria-label="Your care journey steps"
             variants={containerVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}

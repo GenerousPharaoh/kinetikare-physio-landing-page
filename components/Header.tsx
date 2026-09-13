@@ -16,6 +16,7 @@ import { BOOKING_PAGE_PATH, JANE_BOOKING_URL } from '@/lib/booking';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
+import { useModalDialog } from '@/hooks/useModalDialog';
 
 const loadSearchModal = () => import('./SearchModal');
 const SearchModal = dynamic(loadSearchModal, {
@@ -32,14 +33,9 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchModalOpen, setSearchModalOpen] = useState(false);
   const [conditionsExpanded, setConditionsExpanded] = useState(false);
-  // The desktop Conditions dropdown opens on CSS :hover. After a client-side
-  // navigation the pointer is still physically over the panel, so :hover stays
-  // true and the menu hangs over the new page until the mouse moves away.
-  // Clicking a link inside it sets this flag to force the panel closed; it
-  // resets when the pointer leaves the nav item, so hovering back in reopens.
-  const [conditionsMenuDismissed, setConditionsMenuDismissed] = useState(false);
+  const [conditionsMenuOpen, setConditionsMenuOpen] = useState(false);
+  const conditionsToggleRef = useRef<HTMLButtonElement>(null);
   const pathname = usePathname();
-  const [hasAnimated, setHasAnimated] = useState(false);
   const isIntakePage = pathname === BOOKING_PAGE_PATH;
   // Always route the header Book button straight to Jane. The /intake page
   // is reserved for paid traffic landing on it via Google Ads — organic
@@ -61,7 +57,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
   // Close mobile menu on resize
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1024 && mobileMenuOpen) {
+      if (window.innerWidth >= 1280 && mobileMenuOpen) {
         setMobileMenuOpen(false);
       }
     };
@@ -69,63 +65,12 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     return () => window.removeEventListener('resize', handleResize);
   }, [mobileMenuOpen]);
 
-  // Accessibility for the mobile menu drawer: lock body scroll, trap focus,
-  // close on Escape, and restore focus to the toggle button when it closes.
-  useEffect(() => {
-    if (!mobileMenuOpen) return;
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    // Capture the toggle button now so cleanup restores focus to a stable
-    // node (avoids the ref-value-in-cleanup lint warning).
-    const toggleButton = mobileMenuButtonRef.current;
-    const getFocusable = () => {
-      const panel = mobileMenuPanelRef.current;
-      if (!panel) return [] as HTMLElement[];
-      return Array.from(
-        panel.querySelectorAll<HTMLElement>(
-          'a[href], button:not([disabled]), input, textarea, select, [tabindex]:not([tabindex="-1"])'
-        )
-      ).filter((el) => el.offsetParent !== null);
-    };
-    const timer = window.setTimeout(() => getFocusable()[0]?.focus(), 50);
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        e.preventDefault();
-        setMobileMenuOpen(false);
-        return;
-      }
-      if (e.key === 'Tab') {
-        const items = getFocusable();
-        if (items.length === 0) return;
-        const firstEl = items[0];
-        const lastEl = items[items.length - 1];
-        if (e.shiftKey && document.activeElement === firstEl) {
-          e.preventDefault();
-          lastEl.focus();
-        } else if (!e.shiftKey && document.activeElement === lastEl) {
-          e.preventDefault();
-          firstEl.focus();
-        }
-      }
-    };
-    document.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.clearTimeout(timer);
-      document.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = previousOverflow;
-      toggleButton?.focus();
-    };
-  }, [mobileMenuOpen]);
+  useModalDialog(mobileMenuOpen, mobileMenuPanelRef, () => setMobileMenuOpen(false));
 
-  // Handle animation state
   useEffect(() => {
-    if (pathname === '/' && !scrolled && !hasAnimated) {
-      const timer = setTimeout(() => setHasAnimated(true), 1000);
-      return () => clearTimeout(timer);
-    } else {
-      setHasAnimated(true);
-    }
-  }, [pathname, scrolled, hasAnimated]);
+    setMobileMenuOpen(false);
+    setConditionsMenuOpen(false);
+  }, [pathname]);
 
   const mainNavItems = useMemo(
     () => [
@@ -157,42 +102,10 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
     void loadSearchModal();
   };
 
-  // Only animate on homepage, when at the top, and if we haven't animated yet
-  const shouldAnimate = pathname === '/' && !scrolled && !hasAnimated;
-
-  // Animation Variants - Dynamic based on shouldAnimate
-  const headerContainerVariants = shouldAnimate
-    ? {
-        hidden: { opacity: 0 },
-        visible: {
-          opacity: 1,
-          transition: {
-            staggerChildren: 0.1,
-            delayChildren: 0.5, // Start slightly after hero swipe begins
-          },
-        },
-      }
-    : {
-        hidden: { opacity: 1 }, // Already visible when not animating
-        visible: { opacity: 1 }, // Stay visible
-      };
-
-  const headerItemVariants = shouldAnimate
-    ? {
-        hidden: { opacity: 0, x: -20 },
-        visible: {
-          opacity: 1,
-          x: 0,
-          transition: {
-            duration: 0.8,
-            ease: [0.22, 1, 0.36, 1],
-          },
-        },
-      }
-    : {
-        hidden: { opacity: 1, x: 0 }, // Already visible when not animating
-        visible: { opacity: 1, x: 0 }, // Stay visible
-      };
+  // Navigation is available at first paint; only the hero carries an entrance.
+  const shouldAnimate = false;
+  const headerContainerVariants = { visible: { opacity: 1 } };
+  const headerItemVariants = { visible: { opacity: 1, x: 0 } };
 
   // Only transition on scroll, not on pathname changes (prevents flash during navigation)
   const shouldTransition = pathname === '/';
@@ -252,23 +165,32 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
 
             {/* Desktop Navigation (hidden on the ads landing page to reduce exits) */}
             {!isIntakePage && (
-            <nav className="hidden lg:flex items-center gap-2">
+            <nav aria-label="Main navigation" className="hidden xl:flex items-center gap-1 2xl:gap-2">
               {mainNavItems.map((item) => (
                 <motion.div
                   key={item.name}
-                  className="relative group/nav"
+                  className="relative group/nav flex items-center"
                   variants={headerItemVariants}
-                  onMouseLeave={
-                    item.name === 'Conditions'
-                      ? () => setConditionsMenuDismissed(false)
-                      : undefined
-                  }
+                  onMouseLeave={item.name === 'Conditions' ? (event) => {
+                    if (!event.currentTarget.contains(document.activeElement)) setConditionsMenuOpen(false);
+                  } : undefined}
+                  onBlur={(event) => {
+                    if (!event.currentTarget.contains(event.relatedTarget as Node)) setConditionsMenuOpen(false);
+                  }}
+                  onKeyDown={(event) => {
+                    if (item.name === 'Conditions' && event.key === 'Escape' && conditionsMenuOpen) {
+                      event.preventDefault();
+                      setConditionsMenuOpen(false);
+                      conditionsToggleRef.current?.focus();
+                    }
+                  }}
                 >
                   <Link
                     href={item.href}
                     prefetch={false}
+                    onMouseEnter={item.name === 'Conditions' ? () => setConditionsMenuOpen(true) : undefined}
                     aria-current={isCurrentPath(item.href) ? 'page' : undefined}
-                    className={`relative px-4 py-2 rounded-full text-sm font-medium tracking-wide transition-all duration-300 ${
+                    className={`relative px-3 2xl:px-4 py-3 rounded-full text-sm font-medium tracking-wide transition-all duration-300 ${
                       isCurrentPath(item.href)
                         ? '!text-[#D4AF37] bg-white/10 shadow-[0_0_10px_rgba(212,175,55,0.1)]'
                         : '!text-white/80 hover:!text-white hover:bg-white/5'
@@ -277,15 +199,27 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                     {item.name}
                   </Link>
 
-                  {/* Conditions Dropdown - Premium Glassmorphism */}
+                  {item.name === 'Conditions' && (
+                    <button
+                      ref={conditionsToggleRef}
+                      type="button"
+                      aria-label="Show condition categories"
+                      aria-expanded={conditionsMenuOpen}
+                      aria-controls="desktop-conditions-menu"
+                      onClick={() => setConditionsMenuOpen((value) => !value)}
+                      className="flex h-11 w-11 items-center justify-center rounded-md text-white/80 hover:bg-white/10 hover:text-white"
+                    >
+                      <ChevronRightIcon aria-hidden="true" className={`h-3.5 w-3.5 transition-transform ${conditionsMenuOpen ? '-rotate-90' : 'rotate-90'}`} />
+                    </button>
+                  )}
                   {item.name === 'Conditions' && (
                     <div
-                      onClick={() => setConditionsMenuDismissed(true)}
-                      className={`absolute left-1/2 -translate-x-1/2 top-full pt-6 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 ease-out ${
-                        conditionsMenuDismissed ? 'hidden' : ''
-                      }`}
+                      id="desktop-conditions-menu"
+                      hidden={!conditionsMenuOpen}
+                      onClick={() => setConditionsMenuOpen(false)}
+                      className="absolute left-1/2 -translate-x-1/2 top-full pt-3"
                     >
-                      <div className="w-[600px] bg-[#020617]/95 backdrop-blur-2xl rounded-2xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] p-6 grid grid-cols-2 gap-x-8 gap-y-4">
+                      <div className="w-[600px] max-h-[calc(100dvh-7rem)] overflow-y-auto bg-[#020617]/95 backdrop-blur-2xl rounded-2xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] p-6 grid grid-cols-2 gap-x-8 gap-y-4">
                         {conditionNav.map((category, categoryIndex) => (
                           <div key={category.slug} className="group/category">
                             <Link
@@ -333,10 +267,10 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
             )}
 
             {/* Right Actions - Vertically Aligned */}
-            <div className="flex items-center gap-4 lg:gap-6 flex-shrink-0 h-10">
+            <div className="flex items-center gap-4 lg:gap-3 2xl:gap-6 flex-shrink-0 h-11">
               {/* Search */}
               {!isIntakePage ? (
-                <motion.div variants={headerItemVariants}>
+                <motion.div className="hidden sm:block" variants={headerItemVariants}>
                   <button
                     onMouseEnter={primeSearchModal}
                     onFocus={primeSearchModal}
@@ -345,7 +279,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                       setSearchModalOpen(true);
                     }}
                     aria-label="Open search"
-                    className="hidden sm:flex items-center justify-center w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 !text-white/70 hover:!text-[#D4AF37] transition-all duration-300 border border-white/5 hover:border-[#D4AF37]/30"
+                    className="hidden sm:flex items-center justify-center w-11 h-11 rounded-full bg-white/5 hover:bg-white/10 !text-white/70 hover:!text-[#D4AF37] transition-all duration-300 border border-white/5 hover:border-[#D4AF37]/30"
                   >
                     <MagnifyingGlassIcon className="w-5 h-5" />
                   </button>
@@ -353,10 +287,10 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               ) : null}
 
               {/* Phone */}
-              <motion.div variants={headerItemVariants}>
+              <motion.div className="hidden 2xl:block" variants={headerItemVariants}>
                 <Link
                   href="tel:+19056346000"
-                  className="hidden xl:flex items-center gap-2 !text-white/70 hover:!text-white transition-colors group"
+                  className="flex items-center gap-2 !text-white/70 hover:!text-white transition-colors group"
                 >
                   <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#D4AF37] group-hover:!text-slate-900 transition-all duration-300">
                     <PhoneIcon className="w-4 h-4" />
@@ -365,8 +299,8 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 </Link>
               </motion.div>
 
-              {/* Book Now Button - Premium Redesign */}
-              <motion.div variants={headerItemVariants}>
+              {/* Book Now Button */}
+              <motion.div className={isIntakePage ? "block" : "hidden sm:block"} variants={headerItemVariants}>
                 <Link
                   href={bookingHref}
                   target="_blank"
@@ -394,7 +328,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               <button
                 ref={mobileMenuButtonRef}
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden relative z-50 w-10 h-10 flex items-center justify-center !text-white hover:!text-[#D4AF37] transition-colors"
+                className="xl:hidden relative z-50 w-11 h-11 flex items-center justify-center !text-white hover:!text-[#D4AF37] transition-colors"
                 aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
                 aria-expanded={mobileMenuOpen}
                 aria-controls="mobile-menu-panel"
@@ -419,7 +353,9 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-40 lg:hidden"
+              className="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-[75] xl:hidden"
+              data-dialog-backdrop
+              aria-hidden="true"
               onClick={() => setMobileMenuOpen(false)}
             />
             <motion.div
@@ -428,13 +364,22 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               role="dialog"
               aria-modal="true"
               aria-label="Navigation menu"
+              tabIndex={-1}
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-[300px] bg-[#020617] border-l border-white/10 z-50 lg:hidden overflow-y-auto"
+              className="fixed top-0 right-0 bottom-0 w-[min(22rem,100%)] bg-[#020617] border-l border-white/10 z-[80] xl:hidden overflow-y-auto"
             >
-              <div className="p-6 pt-24 space-y-6">
+              <button
+                type="button"
+                onClick={() => setMobileMenuOpen(false)}
+                aria-label="Close navigation menu"
+                className="absolute right-4 top-3 flex h-11 w-11 items-center justify-center rounded-lg text-white hover:bg-white/10"
+              >
+                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+              </button>
+              <div className="p-6 pt-20 space-y-6">
                 {/* Mobile Search */}
                 {!isIntakePage ? (
                   <button
@@ -451,7 +396,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 ) : null}
 
                 {/* Mobile Nav Links */}
-                <nav className="space-y-2">
+                <nav aria-label="Main navigation" className="space-y-2">
                   {mainNavItems.map((item) => (
                     <div key={item.name}>
                       {item.name === 'Conditions' ? (
@@ -460,7 +405,6 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                             onClick={() => setConditionsExpanded(!conditionsExpanded)}
                             aria-expanded={conditionsExpanded}
                             aria-controls="mobile-conditions-submenu"
-                            aria-haspopup="true"
                             className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all ${
                               isCurrentPath(item.href)
                                 ? 'bg-[#D4AF37]/10 !text-[#D4AF37]'
@@ -483,13 +427,14 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                                 className="overflow-hidden"
                               >
                                 <div className="pl-4 space-y-1 border-l border-white/10 ml-4 my-2">
+                                  <Link href="/conditions" onClick={handleNavClick} className="block px-4 py-3 text-sm text-white">All conditions</Link>
                                   {conditionNav.map((category, idx) => (
                                     <Link
                                       key={category.slug}
                                       href={`/conditions?tab=${idx}`}
                                       prefetch={false}
                                       onClick={handleNavClick}
-                                      className="block px-4 py-2 text-sm !text-white/60 hover:!text-[#D4AF37] transition-colors"
+                                      className="block px-4 py-3 text-sm !text-white/80 hover:!text-[#D4AF37] transition-colors"
                                     >
                                       {category.title}
                                     </Link>

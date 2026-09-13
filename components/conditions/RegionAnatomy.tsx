@@ -279,7 +279,7 @@ export default function RegionAnatomy({
     return (
       <figure className={`m-0 flex flex-col items-center gap-3 ${className}`}>
         <div aria-hidden="true">{commissionedMedallion}</div>
-        <figcaption className="text-[10px] font-medium uppercase tracking-[0.2em] text-slate-400">
+        <figcaption className="text-xs font-medium uppercase tracking-[0.15em] text-slate-500">
           {CONDITION_PLATES[commissioned]}
         </figcaption>
       </figure>
@@ -331,7 +331,7 @@ export default function RegionAnatomy({
   return (
     <figure className={`m-0 flex flex-col items-center gap-3 ${className}`}>
       <div aria-hidden="true">{medallion}</div>
-      <figcaption className="text-[10px] font-medium uppercase tracking-[0.2em] text-slate-400">
+      <figcaption className="text-xs font-medium uppercase tracking-[0.15em] text-slate-500">
         {LABELS[key]}
       </figcaption>
     </figure>

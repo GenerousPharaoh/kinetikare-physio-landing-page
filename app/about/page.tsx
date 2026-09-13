@@ -1,3 +1,4 @@
+import { JANE_BOOKING_URL } from '@/lib/booking';
 import { serializeJsonLd } from '@/lib/structured-data';
 import Link from 'next/link';
 import ClientImage from '@/components/ClientImage';
@@ -184,10 +185,10 @@ export default function About() {
                 <h3 className="text-lg font-normal mb-3 text-white">Take the Next Step</h3>
                 <p className="mb-4 text-sm text-white/90 leading-relaxed">Ready to work together on your recovery? Let's discuss how I can support your specific goals and challenges.</p>
                 <Link
-                  href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                  href={JANE_BOOKING_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full text-center py-3 px-4 bg-[#B08D57] hover:bg-[#A17D47] text-white hover:text-white rounded-xl font-normal transition-all duration-300 shadow-premium-1 hover:shadow-premium-2 hover:scale-[1.01] group relative overflow-hidden"
+                  className="button-gold block w-full text-center py-3 px-4 rounded-xl font-normal transition-all duration-300 shadow-premium-1 hover:shadow-premium-2 hover:scale-[1.01] group relative overflow-hidden"
                 >
                   <span className="relative z-10">Book Appointment</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37] to-[#B08D57] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -393,10 +394,10 @@ export default function About() {
                   <h3 className="text-lg font-normal mb-3 text-white">Take the Next Step</h3>
                   <p className="mb-4 text-sm text-white/90 leading-relaxed">Ready to work together on your recovery? Let's discuss how I can support your specific goals and challenges.</p>
                   <Link
-                    href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                    href={JANE_BOOKING_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block w-full text-center py-3 px-4 bg-[#B08D57] hover:bg-[#A17D47] text-white hover:text-white rounded-xl font-normal transition-all duration-300 shadow-premium-1 hover:shadow-premium-2 hover:scale-[1.01] group relative overflow-hidden"
+                    className="button-gold block w-full text-center py-3 px-4 rounded-xl font-normal transition-all duration-300 shadow-premium-1 hover:shadow-premium-2 hover:scale-[1.01] group relative overflow-hidden"
                   >
                     <span className="relative z-10">Book Appointment</span>
                     <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37] to-[#B08D57] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -680,7 +681,7 @@ export default function About() {
                               <h5 className="font-bold text-slate-800 text-lg sm:text-xl group-hover:text-[#B08D57] transition-colors duration-300">
                                 Bachelor of Science in Kinesiology
                               </h5>
-                              <span className="inline-flex items-center px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs font-semibold bg-[#B08D57]/10 text-[#8A6F0A] border border-[#B08D57]/20 whitespace-nowrap">
+                              <span className="inline-flex items-center px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs font-semibold bg-[#B08D57]/10 text-[#80650A] border border-[#B08D57]/20 whitespace-nowrap">
                                 Honours
                               </span>
                             </div>
@@ -889,10 +890,10 @@ export default function About() {
             </p>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-5">
               <Link
-                href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                href={JANE_BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="py-3.5 px-8 bg-[#B08D57] hover:bg-[#A17D47] text-white hover:text-white font-semibold rounded-lg shadow-premium-1 hover:shadow-premium-2 transition-all duration-300 hover:scale-[1.02] group relative overflow-hidden"
+                className="button-gold py-3.5 px-8 font-semibold rounded-lg shadow-premium-1 hover:shadow-premium-2 transition-all duration-300 hover:scale-[1.02] group relative overflow-hidden"
               >
                 Book an Appointment
               </Link>

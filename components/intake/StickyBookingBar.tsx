@@ -66,6 +66,7 @@ export default function StickyBookingBar() {
     <div
       className="flex lg:hidden"
       aria-hidden={!visible}
+      inert={!visible}
       style={{
         position: 'fixed',
         left: 12,

@@ -188,12 +188,12 @@
 /* ============================= */
 
 /* Remove all blue hover states */
-a:not(.btn):not([class*="btn"]):not([class*="text-white"]) {
+a:not(.btn):not(.button-gold):not([class*="btn"]):not([class*="text-white"]) {
   color: inherit;
   transition: color 150ms var(--ease-smooth);
 }
 
-a:not(.btn):not([class*="btn"]):not([class*="text-white"]):hover {
+a:not(.btn):not(.button-gold):not([class*="btn"]):not([class*="text-white"]):hover {
   color: rgb(var(--color-gold-600));
 }
 

@@ -1,5 +1,6 @@
 "use client";
 
+import { getScrollBehavior } from '@/lib/scroll';
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronRightIcon, MagnifyingGlassIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
@@ -60,16 +61,8 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
   // Handle scroll to show/hide sticky navigation and update active section
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-
-      // Hide navigation when close to footer (within 300px of bottom)
-      const distanceFromBottom = documentHeight - (scrollY + windowHeight);
-      const shouldShowNav = scrollY > 400 && distanceFromBottom > 300;
-
-      setShowStickyNav(shouldShowNav);
-
+      const distanceFromBottom = document.documentElement.scrollHeight - (window.scrollY + window.innerHeight);
+      setShowStickyNav(window.scrollY > 400 && distanceFromBottom > 300);
       // Update active category based on scroll position (scroll spy)
       if (!isSearching) {
         const sections = Object.entries(sectionRefs.current);
@@ -102,7 +95,7 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
 
       window.scrollTo({
         top: y,
-        behavior: 'smooth'
+        behavior: getScrollBehavior()
       });
     }
   };
@@ -218,7 +211,7 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
                   key={category.id}
                   onClick={() => scrollToSection(category.id)}
                   className={`group relative flex items-center w-12 h-12 justify-center rounded-xl transition-all duration-300 ${activeCategory === category.id
-                    ? 'bg-[#B08D57] text-white shadow-lg shadow-[#B08D57]/20 scale-105'
+                    ? 'bg-[#B08D57] text-slate-950 shadow-lg shadow-[#B08D57]/20 scale-105'
                     : 'text-slate-400 hover:bg-slate-50 hover:text-[#B08D57]'
                     }`}
                   aria-label={`Go to ${category.name}`}
@@ -294,6 +287,7 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
             {faqCategories.map((category) => (
               <div
                 key={category.id}
+                id={category.id}
                 ref={(el) => { sectionRefs.current[category.id] = el; }}
                 className="scroll-mt-32"
               >
@@ -316,18 +310,6 @@ export default function FAQPageClient({ faqCategories }: FAQPageClientProps) {
         )}
       </div>
 
-      {/* Mobile Sticky Nav Control */}
-      {showStickyNav && !isSearching && (
-        <div className="fixed bottom-6 right-6 lg:hidden z-40">
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="p-3 bg-white/90 backdrop-blur shadow-lg border border-slate-200 rounded-full text-[#B08D57]"
-            aria-label="Scroll to top"
-          >
-            <ChevronUpIcon className="w-6 h-6" />
-          </button>
-        </div>
-      )}
     </>
   );
 } 

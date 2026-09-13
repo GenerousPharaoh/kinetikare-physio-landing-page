@@ -1,3 +1,4 @@
+import { JANE_BOOKING_URL } from '@/lib/booking';
 import Link from 'next/link';
 import { Metadata } from 'next';
 
@@ -28,7 +29,7 @@ export default function NotFound() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <Link
             href="/"
-            className="inline-flex items-center justify-center px-6 py-2.5 bg-[#B08D57] text-white text-sm font-medium rounded-lg hover:bg-[#9A7A4A] transition-colors"
+            className="button-gold inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium rounded-lg transition-colors"
           >
             Back to Home
           </Link>
@@ -39,7 +40,7 @@ export default function NotFound() {
             View Conditions
           </Link>
           <a
-            href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+            href={JANE_BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-6 py-2.5 border border-slate-200 text-slate-700 text-sm font-medium rounded-lg hover:border-[#B08D57]/40 hover:text-[#B08D57] transition-colors"

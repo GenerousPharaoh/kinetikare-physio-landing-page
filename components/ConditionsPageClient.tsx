@@ -2,6 +2,8 @@
 
 // <!-- UI REDESIGN 2024 - PREMIUM MEDICAL AESTHETIC -->
 
+import { getScrollBehavior } from '@/lib/scroll';
+import { JANE_BOOKING_URL } from '@/lib/booking';
 import React, { useState, useMemo, useEffect, useRef, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
@@ -14,10 +16,11 @@ import {
   CheckCircleIcon,
   HeartIcon,
   MapPinIcon,
-  ArrowsRightLeftIcon,
   ArrowRightIcon,
 } from '@heroicons/react/24/outline';
 import MedicalDisclaimer from '@/components/MedicalDisclaimer';
+import ConditionBookingCTA from '@/components/conditions/ConditionBookingCTA';
+import ComparisonLinks, { type ComparisonLink } from '@/components/conditions/ComparisonLinks';
 import { handleRovingTabKeyDown } from '@/lib/roving-tabs';
 
 interface ConditionCategory {
@@ -54,13 +57,8 @@ interface PainGuide {
   region: string;
 }
 
-interface ComparisonLink {
-  pair: string;
-  href: string;
-  label: string;
-}
-
 interface ConditionsPageClientProps {
+  children?: React.ReactNode;
   conditionCategories: ConditionCategory[];
   additionalServices: AdditionalService[];
   topicHubs?: TopicHub[];
@@ -73,7 +71,8 @@ function ConditionsPageWithParams({
   additionalServices,
   topicHubs = [],
   painGuides = [],
-  comparisons = []
+  comparisons = [],
+  children,
 }: ConditionsPageClientProps) {
   const [activeTab, setActiveTab] = useState(0);
   const [searchQuery, setSearchQuery] = useState('');
@@ -120,27 +119,32 @@ function ConditionsPageWithParams({
   const contentRef = useRef<HTMLDivElement | null>(null);
   const handleTabChange = (tabIndex: number) => {
     setActiveTab(tabIndex);
-    localStorage.setItem('conditionsActiveTab', tabIndex.toString());
+    setSearchQuery('');
+    try { localStorage.setItem('conditionsActiveTab', tabIndex.toString()); } catch { /* Optional remembered filter. */ }
+    const url = new URL(window.location.href);
+    url.searchParams.set('tab', tabIndex.toString());
+    window.history.replaceState(window.history.state, '', url);
     if (typeof window !== 'undefined' && contentRef.current && window.innerWidth < 768) {
       // Delay slightly so the new content has mounted before we scroll.
       setTimeout(() => {
-        contentRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        contentRef.current?.scrollIntoView({ behavior: getScrollBehavior(), block: 'start' });
       }, 50);
     }
   };
 
   // Filter conditions based on search query
   const filteredCategories = useMemo(() => {
-    if (!searchQuery) return conditionCategories;
+    const query = searchQuery.trim().toLowerCase();
+    if (!query) return conditionCategories;
 
     return conditionCategories.map(category => ({
       ...category,
-      conditions: category.conditions.filter(condition =>
-        condition.toLowerCase().includes(searchQuery.toLowerCase())
+      conditions: category.title.toLowerCase().includes(query) ? category.conditions : category.conditions.filter(condition =>
+        condition.toLowerCase().includes(query)
       )
     })).filter(category =>
       category.conditions.length > 0 ||
-      category.title.toLowerCase().includes(searchQuery.toLowerCase())
+      category.title.toLowerCase().includes(query)
     );
   }, [searchQuery, conditionCategories]);
 
@@ -202,10 +206,10 @@ function ConditionsPageWithParams({
               <div className="text-center mb-4">
                 <p className="text-sm text-slate-500 mb-3">Not sure which condition applies to you?</p>
                 <Link
-                  href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                  href={JANE_BOOKING_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#D4AF37] text-white text-sm font-semibold rounded hover:bg-[#B08D57] transition-colors"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#D4AF37] text-slate-950 text-sm font-semibold rounded hover:bg-[#B08D57] transition-colors"
                 >
                   Book an assessment
                 </Link>
@@ -266,7 +270,7 @@ function ConditionsPageWithParams({
                     onKeyDown={handleRovingTabKeyDown}
                     style={{ touchAction: 'manipulation' }}
                     className={`relative px-6 py-2.5 min-h-[44px] rounded-full font-semibold text-sm transition-all duration-300 md:transform md:hover:-translate-y-0.5 border-2 ${isActive
-                        ? 'text-white shadow-xl shadow-[#B08D57]/30 border-transparent'
+                        ? 'text-slate-950 shadow-xl shadow-[#B08D57]/30 border-transparent'
                         : 'text-slate-700 bg-white md:hover:bg-slate-50 border-slate-200 md:hover:border-[#B08D57] shadow-md md:hover:shadow-xl md:hover:text-[#B08D57]'
                       }`}
                   >
@@ -437,7 +441,7 @@ function ConditionsPageWithParams({
               encounters alternative browse paths once that primary list is
               visible. Hidden when search is active to keep results focused. */}
           {!searchQuery && (topicHubs.length > 0 || painGuides.length > 0 || comparisons.length > 0) && (
-            <div className="max-w-6xl mx-auto px-4 mt-16 pt-12 border-t border-slate-200 space-y-10">
+            <div className="max-w-6xl mx-auto mt-16 pt-12 border-t border-slate-200 space-y-10">
               <div className="text-center">
                 <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#8A6F0A]">
                   Other ways to explore
@@ -508,28 +512,7 @@ function ConditionsPageWithParams({
               )}
 
               {comparisons.length > 0 && (
-                <section aria-labelledby="comparisons-heading">
-                  <div className="flex items-baseline justify-between mb-4">
-                    <h2 id="comparisons-heading" className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
-                      Commonly confused
-                    </h2>
-                    <Link href="/conditions/compare" className="text-xs text-[#8A6F0A] hover:underline">
-                      All comparisons
-                    </Link>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {comparisons.map((c) => (
-                      <Link
-                        key={c.pair}
-                        href={c.href}
-                        className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 hover:border-[#B08D57] hover:text-[#B08D57] transition-colors"
-                      >
-                        <ArrowsRightLeftIcon className="h-3.5 w-3.5" />
-                        {c.label}
-                      </Link>
-                    ))}
-                  </div>
-                </section>
+                <ComparisonLinks comparisons={comparisons} />
               )}
             </div>
           )}
@@ -591,56 +574,8 @@ function ConditionsPageWithParams({
         </div>
       </section>
 
-      {/* Enhanced CTA Section */}
-      <section className="relative py-24 overflow-hidden">
-        {/* Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-black"></div>
-
-        {/* Decorative Elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#B08D57]/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#D4AF37]/20 rounded-full blur-3xl"></div>
-        </div>
-
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="text-center"
-            >
-
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-6 leading-tight">
-                Ready to <span className="text-[#D4AF37]">Move Forward?</span>
-              </h2>
-              <p className="text-xl text-white/80 max-w-2xl mx-auto mb-12 leading-relaxed">
-                If this page matches what you are dealing with and you want a clear plan, book an assessment or send a question first.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <Link
-                  href="https://endorphinshealth.janeapp.com/#/staff_member/42"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex items-center justify-center px-8 py-4 bg-[#B08D57] hover:bg-[#997A4B] text-white rounded-lg font-medium transition-all duration-300"
-                >
-                  <span>Book Your Assessment</span>
-                  <ChevronRightIcon className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
-
-                <Link
-                  href="/#contact"
-                  className="group inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/30 text-white rounded-lg font-medium hover:bg-white/20 hover:border-white/40 transition-all duration-300"
-                >
-                  <span>Get in Touch First</span>
-                </Link>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      {children}
+      <ConditionBookingCTA />
     </main>
   );
 }

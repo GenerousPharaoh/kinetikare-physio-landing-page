@@ -1,3 +1,4 @@
+import { JANE_BOOKING_URL } from '@/lib/booking';
 import { serializeJsonLd } from '@/lib/structured-data';
 import React from 'react';
 import { Metadata } from 'next';
@@ -58,7 +59,7 @@ const faqCategories: FAQCategory[] = [
         answer: (
           <>
             No, you do not need a doctor referral to book an appointment with me in Ontario. You can{' '}
-            <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
+            <Link href={JANE_BOOKING_URL} className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
               schedule directly
             </Link>
             . However, some extended health insurance plans might require a referral for reimbursement. It is always a good idea to check your specific plan details. If you are unsure, please feel free to ask when booking, and I can help guide you or direct you to the right information.
@@ -71,7 +72,7 @@ const faqCategories: FAQCategory[] = [
                 <Link href="/services" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200">
                   Insurance Info
                 </Link>
-                <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                <Link href={JANE_BOOKING_URL} className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
                   Book Online
                 </Link>
               </div>
@@ -101,7 +102,7 @@ const faqCategories: FAQCategory[] = [
                 <Link href="/conditions" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200">
                   Your Condition
                 </Link>
-                <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                <Link href={JANE_BOOKING_URL} className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
                   Book Appointment
                 </Link>
               </div>
@@ -122,7 +123,7 @@ const faqCategories: FAQCategory[] = [
             <strong>Plan:</strong> Based on the findings, I will discuss my assessment of the issue (or potential causes) and collaboratively create an initial treatment plan with you.
             {'\n\n'}
             Importantly, every step is based on your informed consent. I will explain the assessment and treatment options, their benefits, and any potential risks. You are always in control, and there is absolutely no obligation to proceed with any part of the process you are uncomfortable with. I encourage you to ask questions and voice any concerns at any time. To help you digest everything, I will send a follow-up summary outlining the key assessment findings and your agreed treatment plan.{' '}
-            <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
+            <Link href={JANE_BOOKING_URL} className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
               Ready to book your first appointment?
             </Link>
             <div className="mt-4 pt-4 border-t border-gray-200">
@@ -134,7 +135,7 @@ const faqCategories: FAQCategory[] = [
                 <Link href="/about" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200">
                   My Approach
                 </Link>
-                <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                <Link href={JANE_BOOKING_URL} className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
                   Book First Visit
                 </Link>
               </div>
@@ -160,7 +161,7 @@ const faqCategories: FAQCategory[] = [
                 <Link href="/treatments/postural-assessment" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200">
                   Assessment Details
                 </Link>
-                <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                <Link href={JANE_BOOKING_URL} className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
                   Book Assessment
                 </Link>
               </div>
@@ -186,7 +187,7 @@ const faqCategories: FAQCategory[] = [
                 <Link href="/treatments/joint-mobilization" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200">
                   Joint Mobilization
                 </Link>
-                <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                <Link href={JANE_BOOKING_URL} className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
                   Book Assessment
                 </Link>
               </div>
@@ -199,7 +200,7 @@ const faqCategories: FAQCategory[] = [
         answer: (
           <>
             No, you don't need X-rays or imaging before your first physiotherapy appointment. I can perform a thorough assessment without them. If imaging is necessary for your specific situation, I'll discuss this with you during your assessment and can provide guidance on next steps or communicate with your doctor.{' '}
-            <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
+            <Link href={JANE_BOOKING_URL} className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
               Book your assessment
             </Link>
             .
@@ -212,7 +213,7 @@ const faqCategories: FAQCategory[] = [
                 <Link href="/conditions" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200">
                   Conditions Treated
                 </Link>
-                <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                <Link href={JANE_BOOKING_URL} className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
                   Book Assessment
                 </Link>
               </div>
@@ -266,7 +267,7 @@ const faqCategories: FAQCategory[] = [
               Browse conditions I treat
             </Link>
             {' '}or{' '}
-            <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
+            <Link href={JANE_BOOKING_URL} className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
               book an assessment
             </Link>
             {' '}to discuss your specific situation.
@@ -279,7 +280,7 @@ const faqCategories: FAQCategory[] = [
                 <Link href="/services" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200">
                   Treatment Services
                 </Link>
-                <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                <Link href={JANE_BOOKING_URL} className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
                   Book Assessment
                 </Link>
               </div>
@@ -448,7 +449,7 @@ const faqCategories: FAQCategory[] = [
                 <Link href="/services" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200">
                   Treatment Approach
                 </Link>
-                <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                <Link href={JANE_BOOKING_URL} className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
                   Book Session
                 </Link>
               </div>
@@ -478,7 +479,7 @@ const faqCategories: FAQCategory[] = [
                 <Link href="/treatments/exercise-therapy" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200">
                   Exercise Therapy
                 </Link>
-                <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                <Link href={JANE_BOOKING_URL} className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
                   Book Consultation
                 </Link>
               </div>
@@ -491,7 +492,7 @@ const faqCategories: FAQCategory[] = [
         answer: (
           <>
             I offer flexible appointment lengths based on your needs: follow-up sessions are $90, and initial assessments are $130. Every appointment is one-on-one directly with me, the Registered Physiotherapist. No assistants or aides.{' '}
-            <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
+            <Link href={JANE_BOOKING_URL} className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
               Book your appointment
             </Link>
             .
@@ -504,7 +505,7 @@ const faqCategories: FAQCategory[] = [
                 <Link href="/about" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200">
                   My Approach
                 </Link>
-                <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                <Link href={JANE_BOOKING_URL} className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
                   Book Now
                 </Link>
               </div>
@@ -674,7 +675,7 @@ const faqCategories: FAQCategory[] = [
                 <Link href="/services" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200">
                   What to Expect
                 </Link>
-                <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                <Link href={JANE_BOOKING_URL} className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
                   Book Consultation
                 </Link>
               </div>
@@ -700,7 +701,7 @@ const faqCategories: FAQCategory[] = [
                 <Link href="/conditions" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200">
                   Conditions Treated
                 </Link>
-                <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                <Link href={JANE_BOOKING_URL} className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
                   Book Assessment
                 </Link>
               </div>
@@ -739,7 +740,7 @@ const faqCategories: FAQCategory[] = [
         answer: (
           <>
             Very involved. Physiotherapy is a partnership. I provide the clinical expertise and guidance, but your goals, lifestyle, preferences, and feedback are essential in shaping a plan that is both effective and realistic for you. Treatment decisions are made collaboratively at every step.{' '}
-            <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
+            <Link href={JANE_BOOKING_URL} className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
               Book a consultation to get started
             </Link>
             .
@@ -752,7 +753,7 @@ const faqCategories: FAQCategory[] = [
                 <Link href="/services" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200">
                   Treatment Process
                 </Link>
-                <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                <Link href={JANE_BOOKING_URL} className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
                   Get Started
                 </Link>
               </div>
@@ -819,7 +820,7 @@ const faqCategories: FAQCategory[] = [
                 <Link href="/treatments/sports-rehab-return-to-sport" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200">
                   Sports Rehabilitation
                 </Link>
-                <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                <Link href={JANE_BOOKING_URL} className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
                   Book Session
                 </Link>
               </div>
@@ -852,7 +853,7 @@ const faqCategories: FAQCategory[] = [
                 <Link href="/about" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200">
                   About the Clinic
                 </Link>
-                <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                <Link href={JANE_BOOKING_URL} className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
                   Book Appointment
                 </Link>
               </div>
@@ -865,7 +866,7 @@ const faqCategories: FAQCategory[] = [
         answer: (
           <>
             Yes, of course. If having a partner, friend, family member, or primary caregiver present helps you feel more comfortable or supported, they are welcome to join you. This can be especially helpful for those who may need assistance with communication, understanding treatment instructions, or simply prefer having additional support during their healthcare journey. Please just let me know when you{' '}
-            <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
+            <Link href={JANE_BOOKING_URL} className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
               book your appointment
             </Link>
             .
@@ -878,7 +879,7 @@ const faqCategories: FAQCategory[] = [
                 <Link href="/#contact" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200">
                   Contact Details
                 </Link>
-                <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                <Link href={JANE_BOOKING_URL} className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
                   Book Appointment
                 </Link>
               </div>
@@ -901,7 +902,7 @@ const faqCategories: FAQCategory[] = [
                 <Link href="/#contact" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200">
                   Contact Me
                 </Link>
-                <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                <Link href={JANE_BOOKING_URL} className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
                   Manage Bookings
                 </Link>
               </div>
@@ -930,7 +931,7 @@ const faqCategories: FAQCategory[] = [
                 <Link href="/#contact" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200">
                   Contact for Questions
                 </Link>
-                <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                <Link href={JANE_BOOKING_URL} className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
                   Book Appointment
                 </Link>
               </div>
@@ -943,7 +944,7 @@ const faqCategories: FAQCategory[] = [
         answer: (
           <>
             Yes. Direct billing is offered for most major extended health insurance providers. Please bring your insurance card/information (policy and group numbers) to your first appointment, and direct billing can typically be processed for you at the clinic. If you have questions about the process, please do not hesitate to ask, but remember to check with your insurer about your specific coverage details.{' '}
-            <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
+            <Link href={JANE_BOOKING_URL} className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
               Book an appointment
             </Link>
             .
@@ -956,7 +957,7 @@ const faqCategories: FAQCategory[] = [
                 <Link href="/#contact" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200">
                   Ask Questions
                 </Link>
-                <Link href="https://endorphinshealth.janeapp.com/#/staff_member/42" className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
+                <Link href={JANE_BOOKING_URL} className="inline-flex items-center px-3 py-1.5 text-sm bg-[#B08D57]/10 hover:bg-[#B08D57]/20 text-[#8A6F0A] rounded-lg transition-all duration-200" target="_blank" rel="noopener noreferrer">
                   Book Appointment
                 </Link>
               </div>

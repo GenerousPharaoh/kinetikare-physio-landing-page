@@ -1,5 +1,6 @@
 'use client';
 
+import { JANE_BOOKING_URL } from '@/lib/booking';
 import React from 'react';
 import { motion } from 'framer-motion';
 import { CalendarIcon, ChatBubbleBottomCenterTextIcon } from '@heroicons/react/24/outline';
@@ -24,12 +25,12 @@ export default function TreatmentsCTA() {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <motion.a
-              href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+              href={JANE_BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#B08D57] text-white font-semibold rounded-full hover:bg-[#9A7A4A] transition-all duration-300 shadow-xl"
+              className="button-gold inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold rounded-full transition-all duration-300 shadow-xl"
             >
               <CalendarIcon className="w-5 h-5" />
               Book Your Assessment

@@ -417,7 +417,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://www.google-analytics.com" crossOrigin="anonymous" />
       </head>
       <body className={inter.className}>
-        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[#D4AF37] focus:text-white focus:rounded focus:text-sm focus:font-medium">
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[#D4AF37] focus:text-slate-950 focus:rounded focus:text-sm focus:font-medium">
           Skip to main content
         </a>
         {/* Google Analytics */}
@@ -449,7 +449,7 @@ export default function RootLayout({
           <Header />
           {/* Page content wrapped in ErrorBoundary */}
           <ErrorBoundary>
-            <div id="main-content">{children}</div>
+            <div id="main-content" tabIndex={-1}>{children}</div>
           </ErrorBoundary>
           {/* Global site footer */}
           <Footer />

@@ -33,7 +33,7 @@ const c = {
   textLight: '#78716C',
   textFaint: '#A8A29E',
   gold: '#B8960C',
-  goldText: '#8A6F0A',
+  goldText: '#80650A',
   goldBright: '#D4AF37',
   bg: '#FAFAF9',
   white: '#FFFFFF',

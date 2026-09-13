@@ -1,3 +1,4 @@
+import { JANE_BOOKING_URL } from '@/lib/booking';
 import { serializeJsonLd } from '@/lib/structured-data';
 import React from 'react';
 import Link from 'next/link';
@@ -760,7 +761,7 @@ export default function ServicesPage() {
                 
                 {/* CTA Button */}
                 <Link
-                  href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                  href={JANE_BOOKING_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center px-10 py-4 bg-gradient-to-r from-[#1A2036] to-slate-800 text-white rounded-xl font-medium text-lg transition-all duration-300 shadow-md hover:shadow-xl hover:from-[#B08D57] hover:to-[#D4AF37] hover:text-slate-900 transform hover:-translate-y-0.5"

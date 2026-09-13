@@ -1,13 +1,9 @@
+import Image from 'next/image';
 import Link from 'next/link';
-import {
-  ArrowRightIcon,
-  ArrowLongRightIcon,
-  ArrowsRightLeftIcon,
-  MagnifyingGlassIcon,
-} from '@heroicons/react/24/outline';
+import { ArrowRightIcon, ArrowUpRightIcon } from '@heroicons/react/24/outline';
 import { getConditionBySlug } from '@/lib/conditions-data';
 import { CONDITION_COMPARISONS } from '@/lib/condition-comparisons';
-import PopularConditionsCarousel from './PopularConditionsCarousel';
+import styles from './PopularConditionsSection.module.css';
 
 // Priority topics lead (knee, patellar, lateral hip, proximal hamstring,
 // sciatica), followed by other common reasons people seek physiotherapy.
@@ -68,161 +64,107 @@ const painGuides: { slug: string; label: string }[] = [
 
 // Pulled from CONDITION_COMPARISONS so this row stays in sync automatically
 // as new comparison pages are added.
-const comparisonChips = CONDITION_COMPARISONS.map((c) => ({
+const comparisonLinks = CONDITION_COMPARISONS.map((c) => ({
   pair: c.pair,
   label: `${c.conditionA.shortName} vs. ${c.conditionB.shortName}`,
 }));
 
+const regionImages: Record<string, string> = {
+  'hip-pain': '/images/regions/hip-pelvis.webp',
+  'knee-pain': '/images/regions/knee.webp',
+  'shoulder-pain': '/images/regions/shoulder.webp',
+  'elbow-pain': '/images/conditions/golfers-elbow.webp',
+};
+
 export default function PopularConditionsSection() {
-  // Computed on the server: only the small {slug, name, description,
-  // categoryLabel} slice for the 9 featured conditions crosses to the client,
-  // not the full conditions-data catalog.
   const popularConditions = featuredConditionSlugs
     .map((slug) => getConditionBySlug(slug))
-    .filter((condition): condition is NonNullable<typeof condition> => Boolean(condition))
-    .map((condition) => ({
-      slug: condition.slug,
-      name: condition.name,
-      description: condition.description,
-      categoryLabel: categoryLabels[condition.category] || 'Condition',
-    }));
+    .filter((condition): condition is NonNullable<typeof condition> => Boolean(condition));
 
   return (
-    <section className="py-10 md:py-20 bg-slate-50/60">
-      <div className="container mx-auto px-5 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          {/* Start by body region: topic hub cards */}
-          <div className="mb-10 md:mb-16">
-            <div className="text-center mb-5 md:mb-8">
-              <p className="text-xs font-medium tracking-wider uppercase text-[#8A6F0A] mb-2">
-                Start by body region
-              </p>
-              <h2 className="text-2xl md:text-4xl font-light text-slate-900 tracking-tight">
-                Where does it hurt?
-              </h2>
-              <p className="mt-2 md:mt-3 text-sm md:text-lg text-slate-600 max-w-2xl mx-auto">
-                Region-level overviews that sort common patterns and point you to the right
-                detailed condition page.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
-              {regionHubs.map((region) => (
-                <Link
-                  key={region.slug}
-                  href={`/conditions/${region.slug}`}
-                  prefetch={false}
-                  className="group relative rounded-xl border border-slate-200 bg-white p-4 md:p-6 transition-all duration-300 hover:border-[#B08D57] hover:shadow-lg hover:-translate-y-0.5"
-                >
-                  <h3 className="text-base md:text-lg font-medium text-slate-900 leading-tight group-hover:text-[#B08D57] transition-colors">
-                    {region.label}
-                  </h3>
-                  <p className="mt-1.5 md:mt-2 text-xs md:text-sm text-slate-600 leading-relaxed">
-                    {region.blurb}
-                  </p>
-                  <span className="mt-3 md:mt-4 inline-flex items-center text-sm font-medium text-slate-800 group-hover:text-[#B08D57] transition-colors">
-                    Explore
-                    <ArrowLongRightIcon className="ml-1.5 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
-                  </span>
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          <div className="text-center mb-6 md:mb-12">
-            <h2 className="text-2xl md:text-4xl font-light text-slate-900 tracking-tight">
-              Common Pain & Injury Topics
-            </h2>
-            <p className="mt-2 md:mt-3 text-sm md:text-lg text-slate-600 max-w-3xl mx-auto">
-              Quick access to knee, hip, back, shoulder, and sports injury pages with symptoms,
-              contributing factors, and management options.
-            </p>
-          </div>
-
-          <PopularConditionsCarousel conditions={popularConditions} />
-
-          <div className="text-center mt-5 md:mt-8">
-            <Link
-              href="/conditions"
-              prefetch={false}
-              className="inline-flex items-center px-6 py-3 rounded-lg border border-slate-300 bg-white text-slate-900 hover:border-[#B08D57] hover:text-[#B08D57] transition-colors"
-            >
-              Browse all condition pages
-              <ArrowRightIcon className="ml-2 h-4 w-4" />
-            </Link>
-          </div>
-
-          {/* Secondary discovery: symptom-first pain guides + commonly-confused comparisons.
-              Intentionally quieter visual weight than the hub cards above. */}
-          <div className="mt-10 md:mt-16 pt-8 md:pt-10 border-t border-slate-200 grid md:grid-cols-2 gap-8 md:gap-12">
+    <section id="home-condition-guides" className={styles.section} aria-label="Conditions and pain guides">
+      <div className={styles.container}>
+        <div>
+          <div className={styles.heading}>
             <div>
-              <div className="flex items-center gap-2 mb-3">
-                <MagnifyingGlassIcon className="h-4 w-4 flex-shrink-0 text-[#8A6F0A]" />
-                <p className="mb-0 text-xs font-medium tracking-wider uppercase text-[#8A6F0A]">
-                  Start with the symptom
-                </p>
-              </div>
-              <h3 className="text-lg md:text-xl font-medium text-slate-900 mb-3">
-                Symptom-first pain guides
-              </h3>
-              <p className="text-sm text-slate-600 leading-relaxed mb-4">
-                Short reads that start from what you notice and walk through the most likely
-                causes before you book an assessment.
-              </p>
-              <ul className="space-y-2">
-                {painGuides.map((guide) => (
-                  <li key={guide.slug}>
-                    <Link
-                      href={`/conditions/pain-guides/${guide.slug}`}
-                      prefetch={false}
-                      className="group inline-flex items-center text-sm font-medium text-slate-800 hover:text-[#B08D57] transition-colors"
-                    >
-                      <span className="underline decoration-slate-300 underline-offset-4 group-hover:decoration-[#B08D57]">
-                        {guide.label}
-                      </span>
-                      <ArrowLongRightIcon className="ml-1.5 h-4 w-4 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition" />
-                    </Link>
-                  </li>
-                ))}
-                <li>
-                  <Link
-                    href="/conditions/pain-guides"
-                    prefetch={false}
-                    className="inline-flex items-center text-xs font-medium text-slate-500 hover:text-[#B08D57] transition-colors mt-1"
-                  >
-                    See all pain guides
-                    <ArrowRightIcon className="ml-1 h-3.5 w-3.5" />
+              <p className={styles.eyebrow}>Start by body region</p>
+              <h2>Where does it hurt?</h2>
+            </div>
+            <p className={styles.intro}>Region-level overviews that sort common patterns and point you to the right detailed condition page.</p>
+          </div>
+          <div className={styles.regions}>
+            {regionHubs.map(region => (
+              <Link key={region.slug} href={`/conditions/${region.slug}`} prefetch={false} className={styles.regionLink}>
+                <div className={styles.regionArt}>
+                  <Image src={regionImages[region.slug]} alt="" fill sizes="(min-width: 1200px) 270px, (min-width: 1024px) 23vw, (min-width: 768px) 46vw, (min-width: 360px) 44vw, 82px" className={`${styles.regionImage} ${region.slug === 'elbow-pain' ? styles.elbowImage : ''}`} />
+                </div>
+                <div className={styles.regionCopy}>
+                  <h3>{region.label}</h3>
+                  <p>{region.blurb}</p>
+                  <span className={styles.regionAction}>Explore <ArrowRightIcon aria-hidden="true" /></span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <div className={styles.topics}>
+          <div className={styles.heading}>
+            <h2>Common Pain &amp; Injury Topics</h2>
+            <p className={styles.intro}>Quick access to knee, hip, back, shoulder, and sports injury pages with symptoms, contributing factors, and management options.</p>
+          </div>
+          <ul className={styles.topicList}>
+            {popularConditions.map(condition => (
+              <li key={condition.slug}>
+                <Link href={`/conditions/${condition.slug}`} prefetch={false} className={styles.topicLink}>
+                  <div className={styles.topicMeta}>
+                    <span>{categoryLabels[condition.category] || 'Condition'}</span>
+                    <ArrowUpRightIcon aria-hidden="true" />
+                  </div>
+                  <h3>{condition.name}</h3>
+                  <p>{condition.description}</p>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div className={styles.browseRow}>
+            <Link href="/conditions" prefetch={false} className={styles.browseLink}>Browse all condition pages <ArrowRightIcon aria-hidden="true" /></Link>
+          </div>
+        </div>
+
+        <div className={styles.secondary}>
+          <div className={styles.guidePanel}>
+            <p className={styles.eyebrow}>Start with the symptom</p>
+            <h3>Symptom-first pain guides</h3>
+            <p className={styles.guideIntro}>Short reads that start from what you notice and walk through the most likely causes before you book an assessment.</p>
+            <ul className={styles.guideList}>
+              {painGuides.map(guide => (
+                <li key={guide.slug}>
+                  <Link href={`/conditions/pain-guides/${guide.slug}`} prefetch={false}>
+                    <span>{guide.label}</span><ArrowUpRightIcon aria-hidden="true" />
                   </Link>
                 </li>
-              </ul>
+              ))}
+            </ul>
+            <Link href="/conditions/pain-guides" prefetch={false} className={styles.indexLink}>See all pain guides <ArrowRightIcon aria-hidden="true" /></Link>
+          </div>
+          <div className={styles.comparisonPanel}>
+            <div className={styles.comparisonHeader}>
+              <p className={styles.eyebrow}>Commonly confused</p>
+              <h3>Side-by-side comparisons</h3>
+              <p>Two conditions that get mistaken for each other, compared by location, pattern, and tests that help sort them apart.</p>
             </div>
-
-            <div>
-              <div className="flex items-center gap-2 mb-3">
-                <ArrowsRightLeftIcon className="h-4 w-4 flex-shrink-0 text-[#8A6F0A]" />
-                <p className="mb-0 text-xs font-medium tracking-wider uppercase text-[#8A6F0A]">
-                  Commonly confused
-                </p>
-              </div>
-              <h3 className="text-lg md:text-xl font-medium text-slate-900 mb-3">
-                Side-by-side comparisons
-              </h3>
-              <p className="text-sm text-slate-600 leading-relaxed mb-4">
-                Two conditions that get mistaken for each other, compared by location, pattern,
-                and tests that help sort them apart.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {comparisonChips.map((chip) => (
-                  <Link
-                    key={chip.pair}
-                    href={`/conditions/compare/${chip.pair}`}
-                    prefetch={false}
-                    className="inline-flex items-center px-3 py-1.5 rounded-full border border-slate-200 bg-white text-xs font-medium text-slate-700 hover:border-[#B08D57] hover:text-[#B08D57] hover:bg-[#B08D57]/[0.04] transition-colors"
-                  >
-                    {chip.label}
+            <ul className={styles.comparisonList}>
+              {comparisonLinks.map(comparison => (
+                <li key={comparison.pair}>
+                  <Link href={`/conditions/compare/${comparison.pair}`} prefetch={false}>
+                    <span>{comparison.label}</span><ArrowRightIcon aria-hidden="true" />
                   </Link>
-                ))}
-              </div>
+                </li>
+              ))}
+            </ul>
+            <div className={styles.comparisonFooter}>
+              <Link href="/conditions/compare" prefetch={false} className={styles.indexLink}>All comparisons <ArrowRightIcon aria-hidden="true" /></Link>
             </div>
           </div>
         </div>

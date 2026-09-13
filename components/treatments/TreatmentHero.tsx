@@ -1,5 +1,6 @@
 'use client';
 
+import { JANE_BOOKING_URL } from '@/lib/booking';
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -25,8 +26,8 @@ export default function TreatmentHero({ treatment }: TreatmentHeroProps) {
           className="max-w-4xl"
         >
           {/* Breadcrumbs */}
-          <nav className="flex items-center space-x-2 text-sm text-gray-600 mb-6">
-            <Link href="/" className="hover:text-[#B08D57] transition-colors duration-200 flex items-center">
+          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-gray-600 mb-6">
+            <Link href="/" aria-label="Home" className="hover:text-[#B08D57] transition-colors duration-200 flex items-center">
               <HomeIcon className="h-4 w-4" />
             </Link>
             <ChevronRightIcon className="h-3 w-3" />
@@ -77,10 +78,10 @@ export default function TreatmentHero({ treatment }: TreatmentHeroProps) {
             className="flex flex-wrap gap-4"
           >
             <a
-              href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+              href={JANE_BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[#B08D57] text-white font-medium rounded-full hover:bg-[#9A7A4A] transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="button-gold inline-flex items-center gap-2 px-8 py-4 font-medium rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               Book Your Assessment
             </a>

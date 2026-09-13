@@ -30,7 +30,7 @@ export default function BookingTracker() {
       if (!href) return;
 
       const isBooking = href.includes(JANE_DOMAIN);
-      const isPhoneCall = href.startsWith('tel:');
+      const isPhoneCall = href.startsWith('tel:') && ['9056346000', '19056346000'].includes(href.replace(/\D/g, ''));
 
       if (!isBooking && !isPhoneCall) return;
 

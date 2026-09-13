@@ -117,25 +117,14 @@ export default function GoogleReviews() {
   const featuredReviewsCount = reviews.length;
   const prefersReducedMotion = useReducedMotion();
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
-  const [progressKey, setProgressKey] = useState(0);
 
   // Pause the carousel interval whenever the section is scrolled off-screen.
   const sectionRef = useRef<HTMLElement | null>(null);
   const isSectionInView = useInView(sectionRef, { amount: 0.1 });
 
-  // Restore autoplay after the user stops interacting for 20s, instead of
-  // leaving autoplay permanently disabled after the first click.
-  const resumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const pauseForInteraction = () => {
-    setIsAutoPlaying(false);
-    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
-    resumeTimerRef.current = setTimeout(() => setIsAutoPlaying(true), 20000);
-  };
-  useEffect(() => () => {
-    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
-  }, []);
+  const pauseForInteraction = () => setIsAutoPlaying(false);
 
 
   useEffect(() => {
@@ -147,11 +136,6 @@ export default function GoogleReviews() {
 
     return () => clearInterval(interval);
   }, [isAutoPlaying, isSectionInView, isPaused, prefersReducedMotion]);
-
-  // Reset progress bar animation when slide changes
-  useEffect(() => {
-    setProgressKey((prev) => prev + 1);
-  }, [currentIndex]);
 
   const handlePrevious = () => {
     pauseForInteraction();
@@ -232,14 +216,20 @@ export default function GoogleReviews() {
 {/* Review count shown in rating badge above, no need to repeat */}
         </div>
 
+        <div className="mb-4 flex justify-center motion-reduce:hidden">
+          <button type="button" onClick={() => setIsAutoPlaying((playing) => !playing)} className="min-h-11 rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50">
+            {isAutoPlaying ? 'Pause automatic reviews' : 'Play automatic reviews'}
+          </button>
+        </div>
         {/* Reviews Carousel */}
         <div
           className="relative max-w-6xl mx-auto"
           role="group"
           aria-roledescription="carousel"
           aria-label="Patient reviews"
+          onFocusCapture={() => setIsAutoPlaying(false)}
         >
-          <div className="sr-only" aria-live="polite" aria-atomic="true">
+          <div className="sr-only" aria-live={isAutoPlaying ? "off" : "polite"} aria-atomic="true">
             Review {currentIndex + 1} of {featuredReviewsCount}: {reviews[currentIndex]?.name}
           </div>
           <div className="overflow-hidden rounded-2xl" onTouchStart={onCarouselTouchStart} onTouchEnd={onCarouselTouchEnd}>
@@ -296,7 +286,7 @@ export default function GoogleReviews() {
                         </div>
 
                         {/* Review Text - Bolder, More Prominent, Scrollable */}
-                        <div className="flex-grow overflow-y-auto mb-5 pr-3 relative z-10" style={{ scrollbarWidth: 'thin', scrollbarColor: '#d1d5db transparent' }}>
+                        <div tabIndex={review.position === 'current' ? 0 : -1} role="region" aria-label={`Review by ${review.name}`} className="flex-grow overflow-y-auto mb-5 pr-3 relative z-10" style={{ scrollbarWidth: 'thin', scrollbarColor: '#d1d5db transparent' }}>
                           <p className="text-slate-700 leading-relaxed text-base">
                             {review.text}
                           </p>
@@ -355,16 +345,9 @@ export default function GoogleReviews() {
               </svg>
             </button>
 
-            <div className="w-24 h-0.5 bg-gray-200 rounded-full overflow-hidden">
-              <motion.div
-                key={progressKey}
-                className="h-full w-full bg-[#B08D57] rounded-full"
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ duration: 7, ease: 'linear' }}
-                style={{ transformOrigin: 'left' }}
-              />
-            </div>
+            <span className="min-w-16 text-center text-sm tabular-nums text-slate-600" aria-hidden="true">
+              {currentIndex + 1} / {featuredReviewsCount}
+            </span>
 
             <button
               onClick={handleNext}

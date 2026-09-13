@@ -1,0 +1,135 @@
+.section { padding: 0; scroll-margin-top: 112px; }
+
+.panel {
+  overflow: hidden;
+  border: 1px solid #dce2e9;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 30px 32px;
+  background: #131b2d;
+}
+
+.header h2 {
+  margin: 0;
+  color: #fff;
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+}
+
+.header p {
+  margin: 9px 0 0;
+  color: #cbd5e1;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.header .allLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  gap: 14px;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid #7a6b4f;
+  border-radius: 6px;
+  /* The legacy site link rule inherits dark text even inside dark panels. */
+  color: #e7c56f !important;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 180ms ease-out, border-color 180ms ease-out;
+}
+
+.allLink svg { width: 16px; height: 16px; }
+.allLink:hover { background: #263046; border-color: #e7c56f; }
+
+.list { margin: 0; padding: 0; list-style: none; }
+.list li { margin: 0; }
+.list li + li { border-top: 1px solid #e2e8f0; }
+
+.link {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 34px;
+  align-items: center;
+  gap: 28px;
+  min-height: 80px;
+  padding: 20px 32px;
+  text-decoration: none;
+  transition: background-color 180ms ease-out, box-shadow 180ms ease-out;
+}
+
+.pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 32px minmax(0, 1fr);
+  align-items: center;
+  column-gap: 28px;
+  margin: 0;
+  color: #172136;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.pair .versus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  border: 1px solid #e5dcc7;
+  border-radius: 50%;
+  background: #faf8f3;
+  color: #74603a;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: #8a6f0a;
+  transition: color 180ms ease-out, background-color 180ms ease-out;
+}
+
+.arrow svg { width: 18px; height: 18px; transition: transform 180ms ease-out; }
+.link:hover { background: #faf8f3; box-shadow: inset 3px 0 #b08d57; }
+.link:hover .arrow { background: #172136; color: #e7c56f; }
+.link:hover .arrow svg { transform: translateX(2px); }
+.link:focus-visible { outline: 2px solid #8a6f0a; outline-offset: -4px; background: #faf8f3; }
+.allLink:focus-visible { outline: 2px solid #e7c56f; outline-offset: 4px; }
+
+@media (max-width: 767px) {
+  .header { align-items: flex-start; gap: 20px; padding: 24px; }
+  .header h2 { font-size: 25px; }
+  .link { padding: 19px 24px; gap: 14px; }
+  .pair { column-gap: 16px; font-size: 16px; }
+}
+
+@media (max-width: 599px) {
+  .header { flex-direction: column; padding: 24px 20px; gap: 18px; }
+  .header .allLink { padding: 0; min-height: 44px; border: 0; border-radius: 0; border-bottom: 1px solid #7a6b4f; }
+  .link { min-height: 96px; padding: 18px 20px; gap: 12px; }
+  .pair { grid-template-columns: 22px minmax(0, 1fr); column-gap: 4px; row-gap: 5px; }
+  .pair > span:first-child { grid-column: 1 / -1; }
+  .pair .versus { display: block; align-self: start; width: auto; height: auto; padding-top: 3px; border: 0; border-radius: 0; background: transparent; line-height: 1.5; font-size: 12px; }
+  .arrow { background: #f8f6f0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .allLink, .link, .arrow, .arrow svg { transition: none; }
+}

@@ -113,9 +113,9 @@
   --color-neutral-900: 37 37 37;
   
   /* Typography settings */
-  --font-heading: 'Playfair Display', serif;
-  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-alt: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: var(--font-playfair), Georgia, serif;
+  --font-body: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-alt: var(--font-inter), system-ui, -apple-system, sans-serif;
   
   /* Refined elevation shadows */
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
@@ -266,7 +266,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* Removed overflow-x: hidden to prevent nested scrolling issues */
-  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   line-height: 1.65;
   letter-spacing: -0.02em;
   width: 100%;
@@ -470,7 +470,7 @@ button[class*="btn"]:hover {
 
 /* Focus styling - modern */
 *:focus-visible {
-  outline: 2px solid #D4AF37;
+  outline: 2px solid #8A6F0A;
   outline-offset: 3px;
   box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15);
 }
@@ -1604,4 +1604,18 @@ body {
     text-align: center;
     font-family: Georgia, "Times New Roman", Times, serif;
   }
+}
+
+/* Shared primary action: readable text on the established warm gold. */
+@layer components {
+  .button-gold {
+    @apply bg-[#B08D57] text-slate-950 transition-colors hover:bg-[#A17D47] hover:text-slate-950;
+  }
+}
+
+@media (max-width: 1023px) {
+  html { --mobile-controls-height: 5rem; scroll-padding-bottom: calc(var(--mobile-controls-height) + 1rem); }
+  html:has([data-condition-navigation]) { --mobile-controls-height: 9rem; }
+  .site-footer { padding-bottom: calc(var(--mobile-controls-height) + 2rem + env(safe-area-inset-bottom)); }
+  .cookie-banner { bottom: calc(var(--mobile-controls-height) + 0.75rem + env(safe-area-inset-bottom)); }
 }

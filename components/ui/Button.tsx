@@ -13,11 +13,11 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary: 
-          "bg-gradient-to-br from-[#B08D57] to-[#D4AF37] text-white hover:bg-gradient-to-br hover:from-[#D4AF37] hover:to-[#E5C742] hover:text-white shadow-md hover:shadow-lg focus:ring-[#D4AF37]/30 border border-transparent",
+          "button-gold shadow-md hover:shadow-lg focus:ring-slate-700 border border-transparent",
         secondary: 
           "bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 hover:bg-slate-800 hover:text-white hover:border-transparent focus:ring-slate-500/30 hover:shadow-md",
         outline: 
-          "bg-transparent border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white hover:border-[#D4AF37] focus:ring-[#D4AF37]/20 hover:shadow-md",
+          "bg-transparent border-2 border-[#B08D57] text-[#80650A] hover:bg-[#D4AF37] hover:text-slate-950 hover:border-[#D4AF37] focus:ring-[#D4AF37]/20 hover:shadow-md",
         ghost: 
           "bg-transparent text-slate-700 hover:bg-slate-100 hover:text-slate-900 focus:ring-slate-500/20",
         subtle: 
@@ -25,14 +25,14 @@ const buttonVariants = cva(
         link: 
           "bg-transparent underline-offset-4 hover:underline text-slate-700 focus:ring-slate-500/20 shadow-none p-0 hover:text-[#D4AF37]",
         gold:
-          "bg-gradient-to-br from-[#B08D57] to-[#B08D57] text-white hover:bg-gradient-to-br hover:from-[#A17D47] hover:to-[#A17D47] hover:text-white shadow-md hover:shadow-lg focus:ring-[#B08D57]/30",
+          "button-gold shadow-md hover:shadow-lg focus:ring-slate-700",
       },
       size: {
-        sm: "text-xs h-9 px-4 py-2 rounded-lg",
-        md: "text-sm h-10 px-6 py-2.5 rounded-lg",
+        sm: "text-xs h-11 px-4 py-2 rounded-lg",
+        md: "text-sm h-11 px-6 py-2.5 rounded-lg",
         lg: "text-base h-12 px-8 py-3 rounded-lg",
         xl: "text-lg h-14 px-10 py-3.5 rounded-xl",
-        icon: "h-10 w-10 rounded-full p-0",
+        icon: "h-11 w-11 rounded-full p-0",
       },
       fullWidth: {
         true: "w-full",

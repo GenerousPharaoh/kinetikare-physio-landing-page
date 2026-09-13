@@ -1,3 +1,4 @@
+import { JANE_BOOKING_URL } from '@/lib/booking';
 import { serializeJsonLd } from '@/lib/structured-data';
 import Link from 'next/link';
 import { Metadata } from 'next';
@@ -451,7 +452,7 @@ export default function HipPainHubPage() {
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(localBusinessSchema) }}
       />
 
-      <div className="min-h-screen">
+      <main className="min-h-screen">
         {/* Hero */}
         <section className="pt-24 pb-6 bg-gradient-to-b from-slate-50 via-white to-transparent">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -510,10 +511,10 @@ export default function HipPainHubPage() {
               {/* Primary actions */}
               <div className="mt-5 flex flex-wrap items-center gap-2">
                 <Link
-                  href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                  href={JANE_BOOKING_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-4 py-3 rounded-lg bg-[#B08D57] text-white text-sm font-medium hover:bg-[#997A4B] transition-colors"
+                  className="button-gold inline-flex items-center gap-1.5 px-4 py-3 rounded-lg text-sm font-medium transition-colors"
                 >
                   <CalendarIcon className="h-4 w-4" />
                   Book Initial Assessment
@@ -757,7 +758,7 @@ export default function HipPainHubPage() {
                     className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-6 border border-slate-200"
                   >
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-[#B08D57]/10 text-[#8A6F0A] text-xs font-semibold uppercase tracking-wider">
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-[#B08D57]/10 text-[#80650A] text-xs font-semibold uppercase tracking-wider">
                         {item.year}
                       </span>
                       <span className="text-xs text-slate-500">{item.source}</span>
@@ -929,10 +930,10 @@ export default function HipPainHubPage() {
 
                   <div className="mt-6">
                     <Link
-                      href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                      href={JANE_BOOKING_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-[#B08D57] text-white text-sm font-medium hover:bg-[#997A4B] transition-colors"
+                      className="button-gold inline-flex items-center gap-2 px-5 py-3 rounded-lg text-sm font-medium transition-colors"
                     >
                       <CalendarIcon className="h-4 w-4" />
                       Book an Initial Hip Assessment
@@ -943,7 +944,7 @@ export default function HipPainHubPage() {
             </div>
           </div>
         </section>
-      </div>
+      </main>
     </>
   );
 }

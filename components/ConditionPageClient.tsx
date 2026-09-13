@@ -2,6 +2,7 @@
 
 // <!-- REDESIGNED 2025 - ALL CRITICAL ISSUES FIXED -->
 
+import { getScrollBehavior } from '@/lib/scroll';
 import React, { useState, useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import { motion, MotionConfig } from 'framer-motion';
@@ -249,7 +250,7 @@ export default function ConditionPageClient({
       const padding = 32; // Extra padding from top
       const elementTop = contentContainerRef.current.getBoundingClientRect().top + window.pageYOffset;
       const scrollToPosition = elementTop - headerHeight - padding;
-      window.scrollTo({ top: scrollToPosition, behavior: 'smooth' });
+      window.scrollTo({ top: scrollToPosition, behavior: getScrollBehavior() });
     }
   };
 
@@ -261,7 +262,7 @@ export default function ConditionPageClient({
     const el = document.getElementById(sectionId);
     if (!el) return;
     setActiveSubSection(sectionId);
-    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    el.scrollIntoView({ behavior: getScrollBehavior(), block: 'start' });
   };
 
   // Check if condition has detailed content
@@ -565,10 +566,10 @@ export default function ConditionPageClient({
                   the hero stops looking like a button rack. */}
               <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
                 <Link
-                  href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                  href={JANE_BOOKING_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-5 py-3 rounded-lg bg-[#B08D57] text-white text-sm font-medium hover:bg-[#997A4B] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/50 focus-visible:ring-offset-2"
+                  className="button-gold inline-flex items-center gap-1.5 px-5 py-3 rounded-lg text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/50 focus-visible:ring-offset-2"
                 >
                   <CalendarIcon className="h-4 w-4" />
                   Book Initial Assessment
@@ -616,7 +617,7 @@ export default function ConditionPageClient({
                           onKeyDown={handleRovingTabKeyDown}
                           className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-1 ${
                             isActive
-                              ? 'bg-[#B08D57] text-white shadow-sm'
+                              ? 'bg-[#B08D57] text-slate-950 shadow-sm'
                               : 'bg-slate-50 text-slate-700 hover:bg-slate-100 hover:text-slate-900'
                           }`}
                         >
@@ -1008,7 +1009,7 @@ export default function ConditionPageClient({
                         )}
                         
                         <Link 
-                          href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                          href={JANE_BOOKING_URL}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="bg-slate-900 hover:bg-slate-800 text-white px-8 py-3 rounded-lg text-lg font-medium transition-colors inline-flex items-center gap-2"
@@ -1927,10 +1928,10 @@ export default function ConditionPageClient({
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
-                  href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                  href={JANE_BOOKING_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-[#B08D57] hover:bg-[#997A4B] text-white hover:text-white rounded-lg font-medium transition-colors duration-200 shadow-premium-1 hover:shadow-premium-2 group"
+                  className="button-gold inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-colors duration-200 shadow-premium-1 hover:shadow-premium-2 group"
                 >
                   Book Assessment
                   <ArrowRightIcon className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
@@ -1965,7 +1966,7 @@ export default function ConditionPageClient({
           to FAQs within Management) without scrolling the whole page. The
           drawer-based "Sections" button was removed: it duplicated what the
           four tabs + these sticky chips already surface. */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 pb-safe bg-white/95 backdrop-blur-md border-t border-gray-200 shadow-2xl">
+      <div data-condition-navigation className="lg:hidden fixed bottom-0 left-0 right-0 z-40 pb-[env(safe-area-inset-bottom)] bg-white/95 backdrop-blur-md border-t border-gray-200 shadow-2xl">
         {subSectionChips.length > 1 && (
           <nav
             aria-label={`Sub-sections within ${activeTabLabel}`}
@@ -2008,7 +2009,7 @@ export default function ConditionPageClient({
                 onKeyDown={handleRovingTabKeyDown}
                 className={`flex flex-col items-center justify-center gap-0.5 px-2 py-2 rounded-lg transition-all duration-200 min-w-[60px] min-h-[48px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-1 ${
                   isActive
-                    ? 'bg-[#B08D57]/15 text-[#8c6d3d] shadow-sm'
+                    ? 'bg-[#B08D57]/15 text-[#75592F] shadow-sm'
                     : 'text-gray-600 hover:text-slate-700'
                 }`}
               >

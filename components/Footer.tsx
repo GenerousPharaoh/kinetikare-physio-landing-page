@@ -1,5 +1,6 @@
 'use client';
 
+import { getScrollBehavior } from '@/lib/scroll';
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -108,7 +109,7 @@ export default function Footer() {
 
         window.scrollTo({
           top: offsetPosition,
-          behavior: 'smooth',
+          behavior: getScrollBehavior(),
         });
       }
     }
@@ -119,7 +120,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gradient-to-b from-primary-900 to-primary-950 text-white pt-12 pb-32 md:pb-12 relative overflow-hidden">
+    <footer className="site-footer bg-gradient-to-b from-primary-900 to-primary-950 text-white pt-12 pb-32 md:pb-12 relative overflow-hidden">
       {/* Premium subtle background pattern */}
       <BackgroundTexture texture="noise" opacity={0.02} />
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent"></div>

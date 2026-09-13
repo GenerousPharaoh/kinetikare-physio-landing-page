@@ -24,6 +24,7 @@
  * of progress which reduces drop-off.
  */
 
+import { JANE_BOOKING_URL } from '@/lib/booking';
 import React, { useMemo, useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
@@ -304,6 +305,9 @@ export default function PatternMatcher({
   const totalQuestions = cluster.questions.length;
   const [step, setStep] = useState<number>(0); // 0..totalQuestions-1, then totalQuestions = result
   const [answers, setAnswers] = useState<Record<string, MatcherAnswer>>({});
+  const advanceTimer = useRef<number | null>(null);
+  const [isAdvancing, setIsAdvancing] = useState(false);
+  useEffect(() => () => { if (advanceTimer.current) clearTimeout(advanceTimer.current); }, []);
   const cardRef = useRef<HTMLDivElement | null>(null);
   const liveRegionRef = useRef<HTMLDivElement | null>(null);
 
@@ -313,17 +317,24 @@ export default function PatternMatcher({
 
   const handleAnswer = useCallback(
     (value: MatcherAnswer) => {
-      if (!currentQ) return;
+      if (!currentQ || advanceTimer.current) return;
+      setIsAdvancing(true);
       setAnswers((prev) => ({ ...prev, [currentQ.id]: value }));
       // Advance after a tiny delay so the active state is visible to the user.
-      window.setTimeout(() => {
+      advanceTimer.current = window.setTimeout(() => {
+        advanceTimer.current = null;
+        setIsAdvancing(false);
         setStep((s) => s + 1);
+        requestAnimationFrame(() => cardRef.current?.focus({ preventScroll: true }));
       }, 120);
     },
     [currentQ],
   );
 
   const goBack = useCallback(() => {
+    if (advanceTimer.current) clearTimeout(advanceTimer.current);
+    advanceTimer.current = null;
+    setIsAdvancing(false);
     setStep((s) => Math.max(0, s - 1));
   }, []);
 
@@ -337,6 +348,7 @@ export default function PatternMatcher({
     const onKey = (e: KeyboardEvent) => {
       if (onResult || !currentQ) return;
       const target = e.target as HTMLElement | null;
+      if (!target || !cardRef.current?.contains(target) || !cardRef.current.getClientRects().length) return;
       if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA')) return;
       if (e.key === 'ArrowLeft') {
         e.preventDefault();
@@ -416,6 +428,7 @@ export default function PatternMatcher({
           </div>
           <div
             role="progressbar"
+            aria-label="Questionnaire progress"
             aria-valuemin={0}
             aria-valuemax={100}
             aria-valuenow={onResult ? 100 : progressPct}
@@ -433,7 +446,7 @@ export default function PatternMatcher({
       </div>
 
       {/* Body */}
-      <div ref={cardRef} className="px-6 py-8 md:px-10 md:py-10">
+      <div ref={cardRef} tabIndex={-1} className="px-6 py-8 md:px-10 md:py-10">
         <AnimatePresence mode="wait">
           {!onResult && currentQ && (
             <motion.div
@@ -453,7 +466,7 @@ export default function PatternMatcher({
               )}
 
               <div
-                role="radiogroup"
+                role="group"
                 aria-label={currentQ.text}
                 className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3"
               >
@@ -463,8 +476,8 @@ export default function PatternMatcher({
                     <button
                       key={opt.value}
                       type="button"
-                      role="radio"
-                      aria-checked={selected}
+                      aria-pressed={selected}
+                      disabled={isAdvancing}
                       onClick={() => handleAnswer(opt.value)}
                       className={`group relative text-left px-4 py-3.5 rounded-xl border transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#B08D57] ${
                         selected
@@ -596,7 +609,7 @@ function ResultView({ verdict, cluster, currentSlug, onRestart }: ResultViewProp
           {!isCurrent && (
             <Link
               href={`/conditions/${top.slug}`}
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#B08D57] px-5 py-3 text-sm font-medium text-white shadow-sm hover:bg-[#8c6d3d] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#B08D57]"
+              className="button-gold inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-medium shadow-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#B08D57]"
             >
               Read about {top.name}
               <ArrowRightIcon className="h-4 w-4" />
@@ -701,10 +714,10 @@ function BookCta({ onRestart }: { onRestart: () => void }) {
   return (
     <div className="mt-4 flex flex-col sm:flex-row gap-3">
       <Link
-        href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+        href={JANE_BOOKING_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#B08D57] px-5 py-3 text-sm font-medium text-white shadow-sm hover:bg-[#8c6d3d] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#B08D57]"
+        className="button-gold inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-medium shadow-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#B08D57]"
       >
         Book an assessment
         <ArrowRightIcon className="h-4 w-4" />

@@ -7,16 +7,9 @@ import Script from 'next/script';
 /**
  * Google Analytics + Google Ads loader.
  *
- * gtag.js loads unconditionally and consent is granted by default for all
- * storage types. The site collects no PII and the CookieBanner is a
- * cosmetic notice only.
- *
- * The explicit `gtag('consent', 'default', {...granted})` call before the
- * config commands is required: without it, gtag can fall back to Consent
- * Mode cookieless pings in browsers with strict policies (Safari ITP,
- * EEA defaults), which prevents the `_gcl_aw` cookie from being written
- * and breaks Google Ads attribution from ad click → site visit →
- * Book Now click.
+ * The existing opt-out loading model is preserved. A recorded decline denies
+ * optional storage, both immediately and on future visits. Accepted consent
+ * allows Jane's cross-domain linker to preserve booking attribution.
  *
  * Cross-domain linker is configured for endorphinshealth.janeapp.com.
  * gtag intercepts native `<a>` clicks targeting that domain and decorates
@@ -45,6 +38,22 @@ const GoogleAnalytics = () => {
     });
   }, [pathname, GA_MEASUREMENT_ID]);
 
+  useEffect(() => {
+    const updateConsent = (event: Event) => {
+      const status = (event as CustomEvent<{ status: string }>).detail?.status;
+      if (status !== 'accepted' && status !== 'declined') return;
+      const consent = status === 'accepted' ? 'granted' : 'denied';
+      window.gtag?.('consent', 'update', {
+        analytics_storage: consent,
+        ad_storage: consent,
+        ad_user_data: consent,
+        ad_personalization: consent,
+      });
+    };
+    window.addEventListener('cookie-consent-updated', updateConsent);
+    return () => window.removeEventListener('cookie-consent-updated', updateConsent);
+  }, []);
+
   if (!GA_MEASUREMENT_ID) return null;
 
   return (
@@ -58,11 +67,15 @@ const GoogleAnalytics = () => {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           window.gtag = gtag;
+          var storedConsent = 'granted';
+          try {
+            if (localStorage.getItem('cookieConsentStatus') === 'declined') storedConsent = 'denied';
+          } catch {}
           gtag('consent', 'default', {
-            analytics_storage: 'granted',
-            ad_storage: 'granted',
-            ad_user_data: 'granted',
-            ad_personalization: 'granted'
+            analytics_storage: storedConsent,
+            ad_storage: storedConsent,
+            ad_user_data: storedConsent,
+            ad_personalization: storedConsent
           });
           gtag('js', new Date());
           gtag('config', '${GA_MEASUREMENT_ID}', {

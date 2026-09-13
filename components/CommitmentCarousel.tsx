@@ -46,7 +46,7 @@ const getIcon = (iconType: string) => {
 
 export default function CommitmentCarousel({ items }: CommitmentCarouselProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(false);
   const shouldReduceMotion = useReducedMotion();
 
   // Auto-play functionality (disabled when the user prefers reduced motion)
@@ -63,20 +63,16 @@ export default function CommitmentCarousel({ items }: CommitmentCarouselProps) {
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
     setIsAutoPlaying(false);
-    // Resume auto-play after 10 seconds
-    setTimeout(() => setIsAutoPlaying(true), 10000);
   };
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % items.length);
     setIsAutoPlaying(false);
-    setTimeout(() => setIsAutoPlaying(true), 10000);
   };
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + items.length) % items.length);
     setIsAutoPlaying(false);
-    setTimeout(() => setIsAutoPlaying(true), 10000);
   };
 
   // Touch swipe: advance only on a clearly horizontal swipe so vertical page
@@ -98,7 +94,12 @@ export default function CommitmentCarousel({ items }: CommitmentCarouselProps) {
 
   return (
     <div className="max-w-5xl mx-auto">
-      <div className="sr-only" aria-live="polite" aria-atomic="true">
+      <div className="mb-3 flex justify-center motion-reduce:hidden">
+        <button type="button" onClick={() => setIsAutoPlaying((playing) => !playing)} className="min-h-11 rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">
+          {isAutoPlaying ? 'Pause automatic commitments' : 'Play automatic commitments'}
+        </button>
+      </div>
+      <div className="sr-only" aria-live={isAutoPlaying ? "off" : "polite"} aria-atomic="true">
         {items[currentSlide].title} ({currentSlide + 1} of {items.length})
       </div>
       {/* Main carousel */}
@@ -106,6 +107,8 @@ export default function CommitmentCarousel({ items }: CommitmentCarouselProps) {
         role="group"
         aria-roledescription="carousel"
         aria-label="Care commitments"
+        onFocusCapture={() => setIsAutoPlaying(false)}
+        onMouseEnter={() => setIsAutoPlaying(false)}
         className="relative bg-gradient-to-br from-white to-slate-50 rounded-3xl shadow-xl border border-slate-200/50 overflow-hidden"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
@@ -197,4 +200,4 @@ export default function CommitmentCarousel({ items }: CommitmentCarouselProps) {
       </div>
     </div>
   );
-} 
+}

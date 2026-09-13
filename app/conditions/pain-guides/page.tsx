@@ -1,3 +1,4 @@
+import { JANE_BOOKING_URL } from '@/lib/booking';
 import { serializeJsonLd } from '@/lib/structured-data';
 import Link from 'next/link';
 import { Metadata } from 'next';
@@ -165,7 +166,7 @@ export default function PainGuidesIndexPage() {
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(localBusinessSchema) }}
       />
 
-      <div className="min-h-screen">
+      <main className="min-h-screen">
         <section className="pt-24 pb-6 bg-gradient-to-b from-slate-50 via-white to-transparent">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="w-full max-w-5xl">
@@ -199,10 +200,10 @@ export default function PainGuidesIndexPage() {
 
               <div className="mt-5 flex flex-wrap items-center gap-2">
                 <Link
-                  href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                  href={JANE_BOOKING_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-4 py-3 rounded-lg bg-[#B08D57] text-white text-sm font-medium hover:bg-[#997A4B] transition-colors"
+                  className="button-gold inline-flex items-center gap-1.5 px-4 py-3 rounded-lg text-sm font-medium transition-colors"
                 >
                   <CalendarIcon className="h-4 w-4" />
                   Book Initial Assessment
@@ -287,7 +288,7 @@ export default function PainGuidesIndexPage() {
             </div>
           </div>
         </section>
-      </div>
+      </main>
     </>
   );
 }

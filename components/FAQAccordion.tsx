@@ -1,5 +1,6 @@
 "use client";
 
+import { getScrollBehavior } from '@/lib/scroll';
 import React, { useState, useRef, useEffect, useId } from 'react';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -274,7 +275,7 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, defaultOpen = null }
 
               window.scrollTo({
                 top: Math.max(0, offsetPosition),
-                behavior: 'smooth'
+                behavior: getScrollBehavior()
               });
             }
           }, 600); // Longer delay for initial page load
@@ -298,7 +299,7 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, defaultOpen = null }
 
           window.scrollTo({
             top: Math.max(0, offsetPosition), // Ensure we don't scroll above the page
-            behavior: 'smooth'
+            behavior: getScrollBehavior()
           });
         }
       }, 300); // Slightly longer delay for better animation timing

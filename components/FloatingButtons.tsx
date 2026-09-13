@@ -1,5 +1,6 @@
 'use client';
 
+import { getScrollBehavior } from '@/lib/scroll';
 import React, { useState, useEffect } from 'react';
 import { PhoneIcon, ArrowUpIcon, CalendarDaysIcon } from '@heroicons/react/24/solid';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -49,7 +50,7 @@ export default function FloatingButtons() {
     !HUB_PATHS.has(path);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: getScrollBehavior() });
   };
 
   const containerVariants = {
@@ -82,8 +83,20 @@ export default function FloatingButtons() {
   };
 
   return (
+    <>
+      {!isConditionDetailPage && (
+        <nav aria-label="Book or call the clinic" className="mobile-booking-bar fixed inset-x-0 bottom-0 z-40 flex items-center gap-2 border-t border-slate-200 bg-white/95 px-4 pt-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] backdrop-blur-md lg:hidden">
+          <a href={JANE_BOOKING_URL} target="_blank" rel="noopener noreferrer" aria-label="Book an appointment with Kareem Hassanein" className="button-gold inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-lg px-4 py-3 text-sm font-semibold">
+            <CalendarDaysIcon className="h-5 w-5 shrink-0" aria-hidden="true" /><span>Book<span className="hidden min-[375px]:inline"> appointment</span></span>
+          </a>
+          <a href="tel:+19056346000" aria-label="Call the clinic at 905-634-6000" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm font-medium text-slate-900">
+            <PhoneIcon className="h-4 w-4" aria-hidden="true" />Call
+          </a>
+          {isVisible && <button type="button" onClick={scrollToTop} aria-label="Back to top" className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-slate-300 text-slate-700"><ArrowUpIcon className="h-4 w-4" aria-hidden="true" /></button>}
+        </nav>
+      )}
     <motion.div
-      className={`${isConditionDetailPage ? 'hidden lg:flex' : 'flex'} fixed bottom-24 right-4 md:bottom-5 md:right-5 z-40 flex-col items-end space-y-2.5 md:space-y-3`}
+      className={`hidden lg:flex fixed bottom-5 right-5 z-40 flex-col items-end space-y-2.5 md:space-y-3`}
       initial="hidden"
       animate="visible"
       variants={containerVariants}
@@ -154,5 +167,6 @@ export default function FloatingButtons() {
         )}
       </AnimatePresence>
     </motion.div>
+    </>
   );
 }

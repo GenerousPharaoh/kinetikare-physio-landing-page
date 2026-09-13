@@ -1,5 +1,6 @@
 "use client";
 
+import { JANE_BOOKING_URL } from '@/lib/booking';
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -228,10 +229,10 @@ export default function ServicesSection() {
               {/* Booking Button */}
               <div className="mt-6 text-center">
                 <a
-                  href="https://endorphinshealth.janeapp.com/#/staff_member/42"
+                  href={JANE_BOOKING_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-[#B08D57] hover:bg-[#9A7A4F] text-white hover:text-white px-6 py-2.5 rounded-full font-medium transition-[transform,background,box-shadow] duration-300 hover:shadow-premium-2 shadow-premium-1 text-sm group"
+                  className="button-gold inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-medium transition-[transform,background,box-shadow] duration-300 hover:shadow-premium-2 shadow-premium-1 text-sm group"
                 >
                   Book Your Assessment
                   <ChevronRightIcon className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-300" />

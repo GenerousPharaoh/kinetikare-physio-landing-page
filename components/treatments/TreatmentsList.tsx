@@ -8,13 +8,14 @@ import { ArrowRightIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline
 
 export default function TreatmentsList() {
   const [searchTerm, setSearchTerm] = useState('');
+  const query = searchTerm.trim().toLowerCase();
   const treatments = getAllTreatments();
   
   const filteredTreatments = treatments.filter(treatment =>
-    treatment.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    treatment.shortDescription.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    treatment.name.toLowerCase().includes(query) ||
+    treatment.shortDescription.toLowerCase().includes(query) ||
     treatment.conditions.some(condition => 
-      condition.toLowerCase().includes(searchTerm.toLowerCase())
+      condition.toLowerCase().includes(query)
     )
   );
 
@@ -56,7 +57,15 @@ export default function TreatmentsList() {
           </div>
         </motion.div>
 
-        {searchTerm ? (
+        {query && (
+          <div className="mb-6 text-center">
+            <p role="status" className="mb-2 text-sm text-slate-600">
+              {filteredTreatments.length ? `${filteredTreatments.length} treatments found` : `No treatments found for “${searchTerm.trim()}”`}
+            </p>
+            <button type="button" onClick={() => setSearchTerm('')} className="min-h-11 rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50">Show all treatments</button>
+          </div>
+        )}
+        {query ? (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredTreatments.map((treatment, index) => (
               <motion.div
@@ -108,7 +117,7 @@ export default function TreatmentsList() {
                   <h2 className="text-2xl font-light text-slate-900 tracking-wide">{category.name}</h2>
                   <div className="h-px flex-1 bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className={`grid grid-cols-1 md:grid-cols-2 ${category.treatments.length === 4 ? '' : 'lg:grid-cols-3'} gap-8`}>
                   {category.treatments.map((treatmentId, index) => {
                     const treatment = treatments.find(t => t.id === treatmentId);
                     if (!treatment) return null;

@@ -91,7 +91,7 @@ export default function About() {
         "identifier": "20079"
       }
     ],
-    "image": "https://www.kinetikarephysio.com/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png",
+    "image": "https://www.kinetikarephysio.com/images/kareem-hassanein-portrait.webp",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "4631 Palladium Way, Unit 6",
@@ -146,14 +146,15 @@ export default function About() {
           <div className="lg:hidden space-y-8 mb-12">
             {/* Mobile Profile Section */}
             <div className="text-center">
-              <div className="w-48 h-56 mx-auto rounded-2xl overflow-hidden shadow-lg border border-neutral-200 mb-6">
+              <div className="w-48 aspect-[1326/1187] mx-auto rounded-2xl overflow-hidden shadow-lg border border-neutral-200 mb-6">
                 <ClientImage
-                  src="/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png"
+                  src="/images/kareem-hassanein-portrait.webp"
                   alt="Kareem Hassanein, Physiotherapist"
-                  width={500}
-                  height={600}
+                  width={1326}
+                  height={1187}
+                  sizes="192px"
+                  quality={82}
                   className="w-full h-full object-cover object-top"
-                  style={{ objectPosition: 'center 15%' }}
                 />
               </div>
               
@@ -279,14 +280,15 @@ export default function About() {
             <div className="hidden lg:block lg:col-span-1">
               <div className="sticky top-24 space-y-6">
                 {/* Profile Image */}
-                <div className="rounded-2xl overflow-hidden shadow-lg border border-neutral-200 h-96">
+                <div className="rounded-2xl overflow-hidden shadow-lg border border-neutral-200 aspect-[1326/1187]">
                   <ClientImage
-                    src="/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png"
+                    src="/images/kareem-hassanein-portrait.webp"
                     alt="Kareem Hassanein, Physiotherapist"
-                    width={500}
-                    height={600}
+                    width={1326}
+                    height={1187}
+                    sizes="(min-width: 1024px) calc(25vw - 44px), 192px"
+                    quality={82}
                     className="w-full h-full object-cover object-top"
-                    style={{ objectPosition: 'center 5%' }}
                   />
                 </div>
                 

@@ -86,8 +86,6 @@
 
 .contact span { text-decoration: underline; text-underline-offset: 4px; text-decoration-color: #c1bba9; }
 .contact:hover span { text-decoration-color: currentColor; }
-.contact svg { width: 16px; height: 16px; transition: transform 160ms ease-out; }
-.contact:hover svg { transform: translateX(3px); }
 .booking:focus-visible, .contact:focus-visible { outline: 2px solid #172136; outline-offset: 4px; }
 
 @media (max-width: 1023px) {
@@ -108,6 +106,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .actions .booking, .contact svg { transition: none; }
+  .actions .booking { transition: none; }
   .booking:active { transform: none; }
 }

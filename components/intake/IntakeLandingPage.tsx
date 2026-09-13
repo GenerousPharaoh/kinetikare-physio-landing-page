@@ -289,11 +289,12 @@ export default function IntakeLandingPage() {
                 <motion.div variants={up} className="lg:hidden intake-mobile-portrait" style={{ overflow: 'hidden', marginBottom: 32, padding: '14px 14px 0 14px', borderRadius: 18, background: c.white, border: `1px solid ${c.stone200}`, boxShadow: '0 18px 38px -24px rgba(15,23,42,0.25)' }}>
                   <div style={{ display: 'grid', gridTemplateColumns: '88px 1fr', gap: 14, alignItems: 'center' }}>
                     <Image
-                      src="/images/kareem-portrait-200w.webp"
+                      src="/images/kareem-hassanein-portrait.webp"
                       alt="Kareem Hassanein, Registered Physiotherapist"
-                      width={141}
-                      height={200}
-                      sizes="88px"
+                      width={1326}
+                      height={1187}
+                      sizes="132px"
+                      quality={82}
                       style={{ width: 88, height: 116, borderRadius: '14px 14px 0 0', objectFit: 'cover', objectPosition: 'top center', display: 'block', alignSelf: 'end' }}
                     />
                     <div>
@@ -324,7 +325,7 @@ export default function IntakeLandingPage() {
               {/* PORTRAIT */}
               <motion.div className="hidden lg:block" initial={reduced ? false : { opacity: 0.01, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1.2, delay: 0.25, ease: [0.22, 1, 0.36, 1] }} style={{ position: 'relative', zIndex: 10 }}>
                 <motion.div style={{ position: 'relative', y: reduced ? 0 : photoY, overflow: 'hidden', aspectRatio: '3 / 4', borderRadius: 6 }}>
-                  <Image src="/images/kareem-portrait-680w.webp" alt="Kareem Hassanein, Registered Physiotherapist in Burlington" width={480} height={680} priority sizes="(min-width: 1024px) 340px, 0px" style={{ width: '100%', height: '100%', display: 'block', objectFit: 'cover', objectPosition: 'center 12%' }} />
+                  <Image src="/images/kareem-hassanein-portrait.webp" alt="Kareem Hassanein, Registered Physiotherapist in Burlington" width={1326} height={1187} priority quality={82} sizes="(min-width: 1024px) 510px, 0px" style={{ width: '100%', height: '100%', display: 'block', objectFit: 'cover', objectPosition: 'top center' }} />
 
                   {/* Dark gradient at bottom for overlay legibility */}
                   <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '45%', background: 'linear-gradient(to top, rgba(17,17,17,0.85), rgba(17,17,17,0.2) 60%, transparent)', pointerEvents: 'none' }} />

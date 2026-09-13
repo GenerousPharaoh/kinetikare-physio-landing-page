@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ChevronDownIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
+import { ChevronDownIcon } from '@heroicons/react/24/outline';
 import styles from './ConditionDirectory.module.css';
 
 interface DirectoryEntry {
@@ -68,7 +68,6 @@ export default function ConditionDirectory({ categories, guides, comparisons }: 
                         <span className={styles.name}>{entry.name}</span>
                         {entry.description && <span className={styles.description}>{entry.description}</span>}
                       </span>
-                      <ChevronRightIcon className={styles.linkArrow} aria-hidden="true" />
                     </Link>
                   </li>
                 ))}

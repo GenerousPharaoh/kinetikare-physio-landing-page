@@ -30,14 +30,14 @@ export default function AboutSection() {
               <div className="relative w-full max-w-[260px] sm:max-w-sm mx-auto lg:ml-0 lg:mr-auto">
                 {/* Photo container with subtle enhancements */}
                 <div className="relative">
-                  <div className="aspect-[3/4] relative rounded-2xl overflow-hidden shadow-luxury-deep hover:shadow-luxury-float transition-all duration-700 bg-gradient-to-br from-gray-50 to-gray-100 image-luxury-frame group">
+                  <div className="aspect-[1326/1187] relative rounded-2xl overflow-hidden shadow-luxury-deep hover:shadow-luxury-float transition-all duration-700 bg-gradient-to-br from-gray-50 to-gray-100 image-luxury-frame group">
                     <Image
-                      src="/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png"
+                      src="/images/kareem-hassanein-portrait.webp"
                       alt="Kareem Hassanein, registered physiotherapist in Burlington, expert in manual therapy, sports rehabilitation, dry needling"
                       fill
-                      className="object-contain group-hover:scale-[1.02] transition-transform duration-700"
+                      className="object-cover object-top group-hover:scale-[1.02] transition-transform duration-700"
                       quality={82}
-                      sizes="(max-width: 640px) 260px, 320px"
+                      sizes="(max-width: 639px) 260px, 384px"
                     />
                     {/* Subtle professional overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>

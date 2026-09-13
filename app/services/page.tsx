@@ -4,6 +4,8 @@ import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import ServicesHero from '@/components/services/ServicesHero';
+import { CheckIcon } from '@heroicons/react/24/outline';
+import styles from '@/components/services/Services.module.css';
 
 // Force static generation for better SEO
 export const dynamic = 'force-static';
@@ -308,7 +310,7 @@ export default function ServicesPage() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col text-primary-700 bg-white">
+    <main className={styles.page}>
       {/* Breadcrumb Schema Markup */}
       <script
         type="application/ld+json"
@@ -334,72 +336,40 @@ export default function ServicesPage() {
       {/* Hero Section */}
       <ServicesHero />
 
-      {/* Services Grid - Clean & Modern */}
-      <section id="services-grid" className="py-16 bg-gradient-to-br from-white via-slate-50/30 to-white relative overflow-hidden">
-        {/* Subtle Pattern Overlay */}
-        <div className="absolute inset-0 opacity-[0.02]" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23B08D57' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-        }}></div>
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+      <section id="services-grid" className={styles.directory} aria-label="Physiotherapy services">
+        <div className={styles.directoryInner}>
+          <nav className={styles.serviceNav} aria-label="Explore services">
+            <p className={styles.eyebrow}>Explore services</p>
+            <ul>
+              {services.map((service, index) => (
+                <li key={service.id}>
+                  <a href={`#${service.id}`}><span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><span>{service.title}</span></a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <div>
             {services.map((service, index) => (
-              <div key={service.id} className="group relative h-full">
-                {/* Card Container - Clean Design */}
-                <div className="bg-white rounded-2xl shadow-lg transition-all duration-500 relative overflow-hidden h-full min-h-[480px] border border-slate-100">
-                  {/* Premium gradient accent line at top */}
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#B08D57] via-[#C89F65] to-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  
-                  {/* Content container */}
-                  <div className="relative h-full flex flex-col">
-                    {/* Header section with title */}
-                    <div className="p-8 pb-6">
-                      {/* Title with better typography */}
-                      <h2 className="text-2xl font-light text-slate-900 mb-3 group-hover:text-[#B08D57] transition-colors duration-500">
-                        {service.title}
-                      </h2>
-                      
-                      {/* Subtle divider */}
-                      <div className="w-12 h-0.5 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] opacity-60 group-hover:w-20 transition-all duration-500"></div>
-                    </div>
-
-                    {/* Description section */}
-                    <div className="flex-1 px-8">
-                      <p className="text-slate-600 leading-relaxed text-base">
-                        {service.description}
-                      </p>
-                    </div>
-
-                    {/* Benefits section with cleaner design */}
-                    <div className="px-8 pb-8 pt-6 mt-auto">
-                      <div className="border-t border-slate-100 pt-6">
-                        <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#8A6F0A] mb-4">
-                          Benefits
-                        </h3>
-                        <ul className="space-y-2.5">
-                          {service.features.map((feature, featureIndex) => (
-                            <li key={featureIndex} className="flex items-start group/item">
-                              <div className="mt-1.5 mr-3 flex-shrink-0">
-                                <div className="w-1 h-1 rounded-full bg-[#B08D57] group-hover/item:scale-150 transition-transform duration-300"></div>
-                              </div>
-                              <span className="text-slate-600 text-sm leading-relaxed group-hover/item:text-slate-800 transition-colors duration-300">{feature}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Subtle hover glow */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#B08D57]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-2xl pointer-events-none"></div>
+              <article key={service.id} id={service.id} className={styles.service} tabIndex={-1} aria-labelledby={`${service.id}-heading`}>
+                <div className={styles.serviceHeading}>
+                  <span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                  <h2 id={`${service.id}-heading`}>{service.title}</h2>
                 </div>
-              </div>
+                <div className={styles.serviceBody}>
+                  <p>{service.description}</p>
+                  <div>
+                    <h3>Benefits</h3>
+                    <ul className={styles.features}>{service.features.map(feature => <li key={feature}>{feature}</li>)}</ul>
+                  </div>
+                </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
       {/* Process Section - Refined */}
-      <section className="py-16 bg-gradient-to-br from-slate-50 via-white to-slate-50 relative overflow-hidden">
+      <section data-treatment-process className="py-16 bg-gradient-to-br from-slate-50 via-white to-slate-50 relative overflow-hidden">
         {/* Premium Background Effects */}
         <div className="absolute inset-0 opacity-[0.03]" style={{
           backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(176, 141, 87, 0.05) 0%, transparent 50%)',
@@ -551,254 +521,55 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Insurance Coverage Section - Clean */}
-      <section className="py-16 bg-gradient-to-br from-white via-slate-50/50 to-white relative overflow-hidden">
-        {/* Premium Background Elements */}
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'radial-gradient(ellipse at top left, rgba(176, 141, 87, 0.03) 0%, transparent 40%)',
-        }}></div>
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-[#B08D57]/3 to-transparent rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-[#D4AF37]/3 to-transparent rounded-full blur-3xl"></div>
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto">
-            {/* Premium Header */}
-            <div className="text-center mb-20">
-              <div className="inline-flex items-center px-6 py-2.5 bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 backdrop-blur-sm text-[#8A6F0A] text-sm font-medium rounded-full mb-8 border border-[#B08D57]/20 shadow-sm transition-all duration-300 cursor-default">
-                <div className="w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full mr-3"></div>
-                <span className="uppercase tracking-wider">Insurance & Billing</span>
-              </div>
-              <h2 className="text-4xl md:text-5xl font-medium mb-8 text-primary-800">
-                Insurance <span className="text-[#B08D57]">Coverage</span>
-              </h2>
-              <div className="flex items-center justify-center gap-4 mb-10">
-                <div className="h-px w-20 bg-gradient-to-r from-transparent via-[#B08D57]/40 to-transparent"></div>
-                <div className="relative">
-                  <div className="w-3 h-3 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full"></div>
-                  <div className="absolute inset-0 w-3 h-3 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full animate-ping"></div>
-                </div>
-                <div className="h-px w-20 bg-gradient-to-r from-transparent via-[#D4AF37]/40 to-transparent"></div>
-              </div>
-              <p className="text-lg md:text-xl text-primary-600 max-w-2xl mx-auto leading-relaxed font-light" style={{lineHeight: '1.8'}}>
-                Physiotherapy services are covered by most extended health insurance plans
-              </p>
-            </div>
-
-            {/* Main Content */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Left Side - Insurance Card */}
-              <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-neutral-200/60 relative overflow-hidden group hover:shadow-md transition-all duration-500">
-                {/* Subtle Decorative Elements */}
-                <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#B08D57]/5 to-transparent rounded-full -translate-y-20 translate-x-20 opacity-0 group-hover:opacity-60 transition-opacity duration-500"></div>
-                
-                <div className="relative z-10">
-                  <div className="flex items-center mb-8">
-                    <div className="relative">
-                      <div className="w-14 h-14 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl flex items-center justify-center mr-4 shadow-xl group-hover:scale-110 transition-transform duration-500" style={{
-                        boxShadow: '0 10px 30px -5px rgba(176, 141, 87, 0.3)'
-                      }}>
-                        <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                      </div>
-                      <div className="absolute inset-0 w-14 h-14 bg-gradient-to-br from-[#B08D57] to-[#D4AF37] rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
-                    </div>
-                    <h3 className="text-2xl font-medium text-primary-800">
-                      Direct Billing Available
-                    </h3>
+      <section className={styles.insurance} aria-labelledby="insurance-heading">
+        <div className={styles.sectionInner}>
+          <div className={styles.sectionHeading}>
+            <div><p className={styles.eyebrow}>Insurance &amp; Billing</p><h2 id="insurance-heading">Insurance Coverage</h2></div>
+            <p>Physiotherapy services are covered by most extended health insurance plans</p>
           </div>
-          
-                  <p className="text-primary-600 mb-8 leading-relaxed">
-                    Direct billing available with major insurance providers:
-                  </p>
-                  
-                  <div className="space-y-3 mb-6">
-                    {[
-                      'Canada Life',
-                      'Sun Life',
-                      'Manulife',
-                      'Green Shield Canada',
-                      'Blue Cross',
-                      'Desjardins',
-                      'TELUS Health'
-                    ].map((provider, index) => (
-                      <div key={index} className="group/item flex items-center p-4 bg-gradient-to-r from-slate-50/50 to-white rounded-xl border border-slate-200/60 hover:shadow-lg hover:border-[#B08D57]/30 hover:translate-x-1 transition-all duration-500 cursor-default" style={{
-                        animationDelay: `${index * 0.05}s`,
-                        backdropFilter: 'blur(5px)'
-                      }}>
-                        <div className="relative mr-4 flex-shrink-0">
-                          <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] group-hover/item:scale-125 transition-transform duration-300"></div>
-                          <div className="absolute inset-0 w-3 h-3 rounded-full bg-gradient-to-r from-[#B08D57] to-[#D4AF37] opacity-30 blur-sm group-hover/item:opacity-60 transition-opacity duration-300"></div>
-                        </div>
-                        <span className="text-primary-700 font-normal text-lg group-hover/item:text-primary-800 transition-colors duration-300">{provider}</span>
-                      </div>
-                    ))}
-                  </div>
-                  
-                  <p className="text-sm text-primary-500 italic mb-6">and many more providers</p>
-
-                  <div className="mt-2 p-5 bg-slate-50 rounded-xl border border-slate-200/60">
-                    <p className="text-sm font-semibold text-slate-700 mb-3 tracking-wide uppercase">Session Fees</p>
-                    <div className="flex gap-8">
-                      <div>
-                        <p className="text-xl font-bold text-slate-900">$130</p>
-                        <p className="text-xs text-slate-500">Initial Assessment</p>
-                      </div>
-                      <div>
-                        <p className="text-xl font-bold text-slate-900">$90</p>
-                        <p className="text-xs text-slate-500">Follow-up (30 min)</p>
-                      </div>
-                      <div>
-                        <p className="text-xl font-bold text-slate-900">$145</p>
-                        <p className="text-xs text-slate-500">Follow-up (60 min)</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Side - Coverage Card */}
-              <div className="bg-gradient-to-br from-primary-800 via-slate-800 to-primary-900 rounded-2xl p-8 text-white shadow-md relative overflow-hidden group hover:shadow-lg transition-all duration-500">
-                {/* Subtle Glow Effects */}
-                <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-[#D4AF37]/10 to-transparent rounded-full -translate-y-24 translate-x-24 opacity-0 group-hover:opacity-60 transition-opacity duration-500"></div>
-                <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr from-[#B08D57]/10 to-transparent rounded-full translate-y-20 -translate-x-20 opacity-0 group-hover:opacity-60 transition-opacity duration-500"></div>
-                
-                {/* Subtle Pattern Overlay */}
-                <div className="absolute inset-0 opacity-[0.03]" style={{
-                  backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(212, 175, 55, 0.15) 1px, transparent 1px)',
-                  backgroundSize: '30px 30px'
-                }}></div>
-                
-                <div className="relative z-10">
-                  <div className="relative w-16 h-16 mb-8">
-                    <div className="relative w-full h-full bg-gradient-to-br from-[#D4AF37] to-[#B08D57] rounded-xl flex items-center justify-center group-hover:scale-105 transition-all duration-500">
-                      <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                  </div>
-                  
-                  <h3 className="text-2xl font-normal mb-4 text-white">
-                    Need Coverage Help?
-                  </h3>
-                  <p className="text-white/90 mb-6 leading-relaxed">
-                    If you're unsure whether direct billing is available for your plan, call me and I will verify your coverage details with you.
-                  </p>
-                  
-                  <div className="space-y-4 mb-10">
-                    {[
-                      'Free coverage verification',
-                      'Direct billing when possible',
-                      'Payment plan options available'
-                    ].map((item, idx) => (
-                      <div key={idx} className="flex items-center group/benefit hover:translate-x-1 transition-transform duration-300" style={{animationDelay: `${idx * 0.1}s`}}>
-                        <div className="relative mr-3">
-                          <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#B08D57] group-hover/benefit:scale-125 transition-transform duration-300"></div>
-                          <div className="absolute inset-0 w-2.5 h-2.5 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#B08D57] opacity-40 blur-sm"></div>
-                        </div>
-                        <span className="text-white/95 group-hover/benefit:text-white transition-colors duration-300">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                  
-                  <div className="flex flex-col sm:flex-row gap-4 mt-8">
-                    <a
-                      href="tel:+19056346000"
-                      className="group/btn relative inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#D4AF37] to-[#B08D57] text-white rounded-xl font-medium transition-all duration-500 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 overflow-hidden"
-                    >
-                      <span className="absolute inset-0 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500"></span>
-                      <span className="relative flex items-center">
-                        <svg className="w-5 h-5 mr-2 group-hover/btn:rotate-12 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                        </svg>
-                        Call for Support
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
+          <div className={styles.billingGrid}>
+            <div>
+              <h3>Direct Billing Available</h3>
+              <p className={styles.billingIntro}>Direct billing available with major insurance providers:</p>
+              <ul className={styles.providers}>
+                {['Canada Life', 'Sun Life', 'Manulife', 'Green Shield Canada', 'Blue Cross', 'Desjardins', 'TELUS Health'].map(provider => <li key={provider}>{provider}</li>)}
+              </ul>
+              <p className={styles.providerNote}>and many more providers</p>
+              <p className={styles.eyebrow}>Session Fees</p>
+              <dl className={styles.fees}>
+                <div><dt>Initial Assessment</dt><dd>$130</dd></div>
+                <div><dt>Follow-up (30 min)</dt><dd>$90</dd></div>
+                <div><dt>Follow-up (60 min)</dt><dd>$145</dd></div>
+              </dl>
             </div>
+            <aside className={styles.coverage} aria-labelledby="coverage-help-heading">
+              <h3 id="coverage-help-heading">Need Coverage Help?</h3>
+              <p>If you're unsure whether direct billing is available for your plan, call me and I will verify your coverage details with you.</p>
+              <ul className={styles.features}>
+                <li>Free coverage verification</li><li>Direct billing when possible</li><li>Payment plan options available</li>
+              </ul>
+              <a href="tel:+19056346000" className={styles.textLink}>Call for Support</a>
+            </aside>
           </div>
         </div>
       </section>
 
-      {/* CTA Section - Clean & Modern */}
-      <section className="py-16 bg-gradient-to-br from-slate-50 via-white to-slate-50 relative overflow-hidden">
-        {/* Premium Background Elements */}
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'radial-gradient(circle at center, rgba(176, 141, 87, 0.03) 0%, transparent 50%)',
-        }}></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-[#B08D57]/5 via-transparent to-[#D4AF37]/5 rounded-full blur-3xl opacity-60"></div>
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto">
-            {/* Premium CTA Card */}
-            <div className="relative bg-white/95 backdrop-blur-xl rounded-3xl p-12 md:p-16 shadow-2xl border border-[#B08D57]/10 overflow-hidden group hover:shadow-[0_30px_60px_-15px_rgba(176,141,87,0.25)] transition-all duration-700" style={{
-              background: 'linear-gradient(135deg, rgba(255,255,255,0.98) 0%, rgba(248,250,252,0.95) 100%)',
-              transition: 'all 0.7s cubic-bezier(0.4, 0, 0.2, 1)'
-            }}>
-              {/* Decorative Elements */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-[#B08D57]/10 via-[#D4AF37]/5 to-transparent rounded-full -translate-y-32 translate-x-32 opacity-60 group-hover:opacity-100 transition-opacity duration-700 blur-2xl"></div>
-              <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-[#D4AF37]/10 via-[#B08D57]/5 to-transparent rounded-full translate-y-24 -translate-x-24 opacity-60 group-hover:opacity-100 transition-opacity duration-700 blur-2xl"></div>
-              
-              {/* Content */}
-              <div className="relative z-10 text-center">
-                {/* Badge */}
-                <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#B08D57]/10 to-[#D4AF37]/10 backdrop-blur-sm rounded-full border border-[#B08D57]/20 mb-8">
-                  <div className="w-2 h-2 bg-gradient-to-r from-[#B08D57] to-[#D4AF37] rounded-full mr-3"></div>
-                  <span className="text-xs font-medium uppercase tracking-wider text-[#8A6F0A]">Next Steps</span>
-                </div>
-                
-                {/* Title */}
-                <h2 className="text-3xl md:text-4xl font-heading font-medium mb-6 text-primary-800">
-                  Continue Your <span className="text-[#B08D57]">Care Journey</span>
-                </h2>
-                
-                {/* Description */}
-                <p className="text-primary-600 text-lg md:text-xl mb-10 font-light leading-relaxed max-w-3xl mx-auto" style={{lineHeight: '1.8'}}>
-                  Partner with a physiotherapist dedicated to understanding your unique needs and achieving lasting results. Take the next step toward your recovery goals.
-                </p>
-                
-                {/* CTA Button */}
-                <Link
-                  href={JANE_BOOKING_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-10 py-4 bg-gradient-to-r from-[#1A2036] to-slate-800 text-white rounded-xl font-medium text-lg transition-all duration-300 shadow-md hover:shadow-xl hover:from-[#B08D57] hover:to-[#D4AF37] hover:text-slate-900 transform hover:-translate-y-0.5"
-                >
-                  Book Your Assessment
-                  <svg className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </Link>
-                
-                {/* Trust Indicators */}
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-10 pt-10 border-t border-[#B08D57]/10">
-                  <div className="flex items-center text-primary-600">
-                    <svg className="w-5 h-5 text-[#B08D57] mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-sm font-medium">Direct Insurance Billing</span>
-                  </div>
-                  <div className="flex items-center text-primary-600">
-                    <svg className="w-5 h-5 text-[#B08D57] mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-sm font-medium">Evidence-Based Treatment</span>
-                  </div>
-                  <div className="flex items-center text-primary-600">
-                    <svg className="w-5 h-5 text-[#B08D57] mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-sm font-medium">Personalized Care</span>
-                  </div>
-                </div>
-              </div>
+      <section className={styles.cta} aria-labelledby="services-booking-heading">
+        <div className={styles.ctaInner}>
+          <div className={styles.ctaContent}>
+            <div>
+              <p className={styles.eyebrow}>Next Steps</p>
+              <h2 id="services-booking-heading">Continue Your Care Journey</h2>
+              <p>Partner with a physiotherapist dedicated to understanding your unique needs and achieving lasting results. Take the next step toward your recovery goals.</p>
             </div>
+            <a href={JANE_BOOKING_URL} target="_blank" rel="noopener noreferrer" className={`${styles.primary} button-gold`}><span>Book Your Assessment</span></a>
           </div>
+          <ul className={styles.trust}>
+            {['Direct Insurance Billing', 'Evidence-Based Treatment', 'Personalized Care'].map(item => <li key={item}><CheckIcon aria-hidden="true" />{item}</li>)}
+          </ul>
         </div>
       </section>
-      
+
     </main>
   );
 } 

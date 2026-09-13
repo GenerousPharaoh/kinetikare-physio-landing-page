@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import styles from './ComparisonLinks.module.css';
 
 export interface ComparisonLink {
@@ -20,7 +19,7 @@ export default function ComparisonLinks({ comparisons }: { comparisons: Comparis
             <p>Explore the differences between conditions with similar symptoms.</p>
           </div>
           <Link href="/conditions/compare" className={styles.allLink}>
-            All comparisons <ArrowRightIcon aria-hidden="true" />
+            All comparisons
           </Link>
         </div>
         <ul className={styles.list}>
@@ -32,7 +31,6 @@ export default function ComparisonLinks({ comparisons }: { comparisons: Comparis
                   <span className={styles.versus}>vs.</span>
                   <span>{comparison.conditionB}</span>
                 </h3>
-                <span className={styles.arrow}><ArrowRightIcon aria-hidden="true" /></span>
               </Link>
             </li>
           ))}

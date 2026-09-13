@@ -50,7 +50,6 @@
   transition: background-color 180ms ease-out, border-color 180ms ease-out;
 }
 
-.allLink svg { width: 16px; height: 16px; }
 .allLink:hover { background: #263046; border-color: #e7c56f; }
 
 .list { margin: 0; padding: 0; list-style: none; }
@@ -59,7 +58,7 @@
 
 .link {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 34px;
+  grid-template-columns: minmax(0, 1fr);
   align-items: center;
   gap: 28px;
   min-height: 80px;
@@ -95,21 +94,9 @@
   line-height: 1;
 }
 
-.arrow {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  color: #8a6f0a;
-  transition: color 180ms ease-out, background-color 180ms ease-out;
-}
 
-.arrow svg { width: 18px; height: 18px; transition: transform 180ms ease-out; }
 .link:hover { background: #faf8f3; box-shadow: inset 3px 0 #b08d57; }
-.link:hover .arrow { background: #172136; color: #e7c56f; }
-.link:hover .arrow svg { transform: translateX(2px); }
+.link:hover .pair > span:not(.versus) { text-decoration: underline; text-underline-offset: 4px; }
 .link:focus-visible { outline: 2px solid #8a6f0a; outline-offset: -4px; background: #faf8f3; }
 .allLink:focus-visible { outline: 2px solid #e7c56f; outline-offset: 4px; }
 
@@ -127,9 +114,8 @@
   .pair { grid-template-columns: 22px minmax(0, 1fr); column-gap: 4px; row-gap: 5px; }
   .pair > span:first-child { grid-column: 1 / -1; }
   .pair .versus { display: block; align-self: start; width: auto; height: auto; padding-top: 3px; border: 0; border-radius: 0; background: transparent; line-height: 1.5; font-size: 12px; }
-  .arrow { background: #f8f6f0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .allLink, .link, .arrow, .arrow svg { transition: none; }
+  .allLink, .link { transition: none; }
 }

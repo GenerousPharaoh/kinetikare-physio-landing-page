@@ -1,337 +1,96 @@
 'use client';
 
-import { getScrollBehavior } from '@/lib/scroll';
-import React, { useState } from 'react';
+import { useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import {
-  MapPin,
-  Phone,
-  Envelope,
-  Clock,
-  FacebookLogo,
-  InstagramLogo,
-  LinkedinLogo,
-} from '@phosphor-icons/react';
-import Image from 'next/image';
-import BackgroundTexture from './BackgroundTexture';
+import { ChevronDownIcon, ShieldCheckIcon } from '@heroicons/react/24/outline';
 import { BOOKING_PAGE_PATH, JANE_BOOKING_URL } from '@/lib/booking';
+import styles from './Footer.module.css';
+
+const mapHref = 'https://maps.app.goo.gl/syZN4FUBgACrtqgK9';
+const businessHours = [
+  { day: 'Monday', hours: '1:30 PM - 7:30 PM' },
+  { day: 'Tuesday', hours: '3:30 PM - 7:30 PM' },
+  { day: 'Wednesday*', hours: '2:00 PM - 7:30 PM' },
+  { day: 'Thursday', hours: '1:30 PM - 7:30 PM' },
+  { day: 'Friday*', hours: '2:00 PM - 7:30 PM' },
+];
 
 function FooterMap() {
   const [showMap, setShowMap] = useState(false);
-  const mapRef = React.useRef<HTMLDivElement>(null);
-
-  React.useEffect(() => {
-    if (!mapRef.current) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setShowMap(true); observer.disconnect(); } },
-      { rootMargin: '200px' }
-    );
-    observer.observe(mapRef.current);
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <div ref={mapRef} className="rounded-lg overflow-hidden border border-slate-700/50" style={{ minHeight: 180 }}>
-      {showMap ? (
+    <details className={styles.map} onToggle={event => setShowMap(event.currentTarget.open)}>
+      <summary>View location map <ChevronDownIcon aria-hidden="true" /></summary>
+      {showMap && (
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2898.519514705003!2d-79.82862318760941!3d43.40797126813572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b61c9d9d9c40f%3A0xadd452d206e4b1b3!2sKareem%20Hassanein%20-%20Registered%20Physiotherapist!5e0!3m2!1sen!2sus!4v1780331305119!5m2!1sen!2sus"
-          width="100%"
-          height="180"
-          style={{ border: 0, display: 'block' }}
-          allowFullScreen={false}
+          width="100%" height="220" loading="lazy" allowFullScreen={false}
           referrerPolicy="no-referrer-when-downgrade"
           title="Kareem Hassanein, Registered Physiotherapist location"
         />
-      ) : (
-        <div className="w-full h-[180px] bg-slate-800/50 flex items-center justify-center">
-          <p className="text-xs text-slate-500">Loading map...</p>
-        </div>
       )}
-    </div>
+    </details>
   );
 }
 
 export default function Footer() {
-  const pathname = usePathname();
-  const isIntakePage = pathname === BOOKING_PAGE_PATH;
-  const currentYear = new Date().getFullYear();
-  const mapHref = 'https://maps.app.goo.gl/syZN4FUBgACrtqgK9';
-  const contactInfo = [
-    {
-      icon: <MapPin className="w-5 h-5 text-gold flex-shrink-0" weight="duotone" />,
-      text: '4631 Palladium Way, Unit 6, Burlington, ON L7M 0W9',
-      href: mapHref,
-      ariaLabel: 'View my location on Google Maps',
-    },
-    {
-      icon: <Phone className="w-5 h-5 text-gold flex-shrink-0" weight="duotone" />,
-      text: '(905) 634-6000',
-      href: 'tel:+19056346000',
-      ariaLabel: 'Call my office',
-    },
-    {
-      icon: <Envelope className="w-5 h-5 text-gold flex-shrink-0" weight="duotone" />,
-      text: 'kareem.hassanein@gmail.com',
-      href: 'mailto:kareem.hassanein@gmail.com',
-      ariaLabel: 'Email Kareem Hassanein Physiotherapy',
-    },
-  ];
-
-  const businessHours = [
-    { day: 'Monday', hours: '1:30 PM - 7:30 PM' },
-    { day: 'Tuesday', hours: '3:30 PM - 7:30 PM' },
-    { day: 'Wednesday*', hours: '2:00 PM - 7:30 PM' },
-    { day: 'Thursday', hours: '1:30 PM - 7:30 PM' },
-    { day: 'Friday*', hours: '2:00 PM - 7:30 PM' },
-  ];
-
-  const socialLinks = [
-    {
-      name: 'LinkedIn',
-      href: 'https://www.linkedin.com/in/kareemhassanein',
-      icon: <LinkedinLogo weight="fill" className="w-6 h-6" />,
-    },
-  ];
-
-  // Handle navigation for footer links
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    // For hash links on the home page
-    if (href.startsWith('/#') && window.location.pathname === '/') {
-      e.preventDefault();
-      const targetId = href.substring(2); // Remove /# part
-      const targetElement = document.getElementById(targetId);
-
-      if (targetElement) {
-        const headerOffset = document.querySelector('header')?.offsetHeight || 70;
-        const elementPosition = targetElement.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.scrollY - headerOffset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: getScrollBehavior(),
-        });
-      }
-    }
-    // For non-home pages with hash links, navigate to the home page first
-    else if (href.startsWith('/#') && window.location.pathname !== '/') {
-      // Let the default navigation happen - will navigate to home page with hash
-    }
-  };
-
+  const isIntakePage = usePathname() === BOOKING_PAGE_PATH;
   return (
-    <footer className="site-footer bg-gradient-to-b from-primary-900 to-primary-950 text-white pt-12 pb-32 md:pb-12 relative overflow-hidden">
-      {/* Premium subtle background pattern */}
-      <BackgroundTexture texture="noise" opacity={0.02} />
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent"></div>
+    <footer className={`site-footer ${styles.footer}`} data-compact={isIntakePage || undefined}>
+      <div className={styles.inner}>
+        <div className={styles.main}>
+          <div className={styles.identity}>
+            <Link href="/" className={`text-white ${styles.brand}`} aria-label="KinetiKare Physiotherapy home">
+              <Image src="/images/kinetikare-logo-without-text.webp" alt="" width={56} height={70} className={styles.logo} />
+              <p className={styles.wordmark}>Kineti<span>K</span>are<small>Physiotherapy</small></p>
+            </Link>
+            <p className={styles.practitioner}>Kareem Hassanein<span>Registered Physiotherapist</span></p>
+            {!isIntakePage && <>
+              <a href={JANE_BOOKING_URL} target="_blank" rel="noopener noreferrer" className={`button-gold ${styles.booking}`}><span>Book Online</span></a>
+              <a href="https://portal.collegept.org/en-US/public-register/display-member-contact/?id=757882d7-8c40-eb11-a813-000d3af427b4" target="_blank" rel="noopener noreferrer" className={`text-white ${styles.registration}`}><ShieldCheckIcon aria-hidden="true" /><span>CPO Verified Registration</span></a>
+            </>}
+          </div>
 
-      <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-7xl">
-        {/* Centered branding with proper hierarchy */}
-        <div className="text-center mb-10">
-          <Link href="/" className="inline-block">
-            <Image
-              src="/images/kinetikare-logo-without-text.webp"
-              alt="KinetiKare"
-              width={50}
-              height={50}
-              className="mx-auto mb-4 opacity-90 hover:opacity-100 transition-opacity"
-            />
-            <h3 className="font-heading text-xl text-white mb-1">
-              KinetiKare <span className="text-gold">Physiotherapy</span>
-            </h3>
-            <p className="text-sm text-white/80 mb-1">Kareem Hassanein</p>
-            <p className="text-xs text-white/60">Registered Physiotherapist</p>
-          </Link>
-        </div>
-
-        {/* Main grid layout (omitted on the ads landing page to keep it focused) */}
-        {!isIntakePage && (
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* Contact Information */}
-          <div>
-            <h3 className="text-sm font-medium mb-4 text-white uppercase tracking-wider">
-              Contact
-            </h3>
-            <div className="space-y-3 text-white/80 text-sm">
-              <div className="flex items-start gap-2">
-                <Phone className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" weight="duotone" />
-                <a href="tel:+19056346000" className="hover:text-gold transition-colors">
-                  (905) 634-6000
-                </a>
+          {!isIntakePage && <div className={styles.details}>
+            <div className={styles.contactRow}>
+              <a href="tel:+19056346000" className={`text-white ${styles.phone}`}>(905) 634-6000</a>
+              <a href="mailto:kareem.hassanein@gmail.com" className={`text-white ${styles.email}`}>kareem.hassanein@gmail.com</a>
+            </div>
+            <div className={styles.visitGrid}>
+              <div className={styles.location}>
+                <h2>Visit the clinic</h2>
+                <address>
+                  <p>Endorphins Health &amp; Wellness Centre</p>
+                  <a href={mapHref} target="_blank" rel="noopener noreferrer" className="text-white">4631 Palladium Way, Unit 6<br />Burlington, ON L7M 0W9</a>
+                </address>
+                <FooterMap />
               </div>
-              <div className="flex items-start gap-2">
-                <Envelope className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" weight="duotone" />
-                <a
-                  href="mailto:kareem.hassanein@gmail.com"
-                  className="hover:text-gold transition-colors break-all"
-                >
-                  kareem.hassanein@gmail.com
-                </a>
-              </div>
-              <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" weight="duotone" />
-                <a
-                  href={mapHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-gold transition-colors"
-                >
-                  4631 Palladium Way, Unit 6<br />
-                  Burlington, ON L7M 0W9
-                </a>
+              <div className={styles.hours}>
+                <h2>Hours</h2>
+                <dl>{businessHours.map(schedule => <div key={schedule.day}><dt>{schedule.day}</dt><dd>{schedule.hours}</dd></div>)}</dl>
+                <p className={styles.hoursNote}>* Headon Physio location<br />Direct billing only at Endorphins</p>
               </div>
             </div>
-          </div>
-
-          {/* Business Hours */}
-          <div>
-            <h3 className="text-sm font-medium mb-4 text-white uppercase tracking-wider">Hours</h3>
-            <ul className="space-y-2 text-white/80 text-sm">
-              {businessHours.map((schedule) => (
-                <li key={schedule.day} className="flex justify-between">
-                  <span>{schedule.day}:</span>
-                  <span className="text-white/60">{schedule.hours}</span>
-                </li>
-              ))}
-              <li className="pt-2 border-t border-white/10 mt-2 space-y-1">
-                <span className="text-white/60 text-xs italic block">* Headon Physio location</span>
-                <span className="text-white/60 text-xs italic block">
-                  Direct billing only at Endorphins
-                </span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-sm font-medium mb-4 text-white uppercase tracking-wider">
-              Quick Links
-            </h3>
-            <ul className="space-y-2 text-white/80 text-sm">
-              <li>
-                <Link
-                  href="/services"
-                  prefetch={false}
-                  className="hover:text-gold transition-colors"
-                >
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/conditions"
-                  prefetch={false}
-                  className="hover:text-gold transition-colors"
-                >
-                  Conditions
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" prefetch={false} className="hover:text-gold transition-colors">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="/faq" prefetch={false} className="hover:text-gold transition-colors">
-                  FAQ
-                </Link>
-              </li>
-              <li className="pt-2">
-                <a
-                  href={JANE_BOOKING_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-gold hover:text-gold/80 transition-colors font-medium"
-                >
-                  Book Online
-                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                    />
-                  </svg>
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Connect Section */}
-          <div>
-            <h3 className="text-sm font-medium mb-4 text-white uppercase tracking-wider">
-              Connect
-            </h3>
-            <div className="space-y-4">
-              {/* Social Links */}
-              <div className="flex gap-3">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.name}
-                    href={social.href}
-                    aria-label={`Visit ${social.name} profile`}
-                    className="w-10 h-10 rounded-lg bg-white/10 hover:bg-gold/30 transition-all flex items-center justify-center group"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <LinkedinLogo
-                      weight="fill"
-                      className="w-5 h-5 text-white/80 group-hover:text-white"
-                    />
-                  </a>
-                ))}
-              </div>
-
-              {/* CPO Registration */}
-              <Link
-                href="https://portal.collegept.org/en-US/public-register/display-member-contact/?id=757882d7-8c40-eb11-a813-000d3af427b4"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs text-gold hover:text-gold/80 transition-colors"
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                CPO Verified Registration
-              </Link>
-
-              {/* Map facade — loads iframe only on click */}
-              <FooterMap />
-            </div>
-          </div>
+          </div>}
         </div>
-        )}
 
-        {/* Bottom section */}
-        <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-white/60 mb-3 md:mb-0">
-            © {currentYear} KinetiKare Physiotherapy. All rights reserved.
-          </p>
-          <div className="flex gap-4 text-sm text-white/60">
-            <Link href="/privacy" prefetch={false} className="hover:text-gold transition-colors">
-              Privacy Policy
-            </Link>
-            <span className="text-white/20">•</span>
-            <Link href="/terms" prefetch={false} className="hover:text-gold transition-colors">
-              Terms of Service
-            </Link>
-            <span className="text-white/20">•</span>
-            <Link
-              href="/accessibility"
-              prefetch={false}
-              className="hover:text-gold transition-colors"
-            >
-              Accessibility
-            </Link>
-          </div>
+        {!isIntakePage && <div className={styles.navigationRow}>
+          <nav aria-label="Footer navigation">
+            <ul>{[{href:'/services',label:'Services'},{href:'/conditions',label:'Conditions'},{href:'/about',label:'About'},{href:'/faq',label:'FAQ'}].map(link => <li key={link.href}><Link href={link.href} prefetch={false} className="text-white">{link.label}</Link></li>)}</ul>
+          </nav>
+          <a href="https://www.linkedin.com/in/kareemhassanein" target="_blank" rel="noopener noreferrer" className={`text-white ${styles.social}`}>LinkedIn</a>
+        </div>}
+
+        <div className={styles.bottom}>
+          <p>© {new Date().getFullYear()} KinetiKare Physiotherapy. All rights reserved.</p>
+          <nav aria-label="Legal information" className={styles.legal}>
+            <Link href="/privacy" prefetch={false} className="text-white">Privacy Policy</Link>
+            <Link href="/terms" prefetch={false} className="text-white">Terms of Service</Link>
+            <Link href="/accessibility" prefetch={false} className="text-white">Accessibility</Link>
+          </nav>
         </div>
       </div>
-
     </footer>
   );
 }

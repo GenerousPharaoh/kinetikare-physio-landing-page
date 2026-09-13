@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRightIcon, CalendarDaysIcon } from '@heroicons/react/24/outline';
+import { CalendarDaysIcon } from '@heroicons/react/24/outline';
 import { JANE_BOOKING_URL } from '@/lib/booking';
 import styles from './ConditionBookingCTA.module.css';
 
@@ -19,7 +19,6 @@ export default function ConditionBookingCTA() {
             </a>
             <Link href="/#contact" className={styles.contact}>
               <span>Get in Touch First</span>
-              <ArrowRightIcon aria-hidden="true" />
             </Link>
           </div>
         </div>

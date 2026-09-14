@@ -41,6 +41,20 @@ The `/intake` page is reserved for **Google Ads traffic only**:
 
 When adding a new booking CTA anywhere, use `JANE_BOOKING_URL` + `target="_blank"` + `rel="noopener noreferrer"`. Never use `/intake` or `/book` as a booking destination.
 
+Also give it a `data-booking-source="..."` attribute. `BookingTracker` reads it as the GA4 `event_label`; without it the click reports `site_link` and cannot be told apart from any other CTA. Existing labels: header, header_menu, hero, floating_mobile, floating_desktop, condition_intro, condition_management, condition_faq, condition_footer, intake_sticky_bar (added 2026-09-14, commit 3795feb; earlier weeks are all `site_link`).
+
+Kareem also practises at Headon Physio and PhysioMax Wellness, each with its own Jane instance. **This site links to Endorphins' Jane only**, by his decision: he is open about all three clinics (the schema and the hours say so) but does not want a visitor booking into the wrong Jane from here. Do not add a PhysioMax or Headon booking link.
+
+The Business Profile appointment link is the deep link `https://endorphinshealth.janeapp.com/#/staff_member/42/treatment/133`, preferred (confirmed at the API 2026-09-14). It lands on the time picker for the initial assessment; `JANE_BOOKING_URL` deliberately stays the general entry for returning patients.
+
+## Hours live in one file
+
+`lib/hours.ts` is the only place clinical hours are defined. It feeds the root schema (`ENDORPHINS_OPENING_HOURS_SCHEMA`), `Footer.tsx`, `ContactSection.tsx`, the ads landing page summary (`HOURS_SUMMARY`) and `components/HoursList.tsx`, which the five regional hubs, two pain guides and the compare template render. Before 2026-09-14 the same rows were hand-typed in twelve files and had drifted.
+
+Three clinics, marked differently: Endorphins (plain; Mon/Thu 1:30-8:00 PM, Tue 3:30-8:00 PM), Headon Physio (asterisk; Wed/Fri 2:00-7:30 PM), PhysioMax Wellness (dagger; Tue 10:00 AM-2:30 PM, Sat 11:00 AM-3:00 PM). Two things are enforced by construction and must stay that way: the Palladium Way schema entity carries **Endorphins days only** (the builder filters by `site`), and `HOURS_SUMMARY` on the ads landing page omits PhysioMax because that page exists to convert Endorphins ad clicks.
+
+8:00 PM is Kareem's real last slot and matches his Business Profile. Endorphins' own site advertises 7:00 PM because reception is not always staffed later; that is the facility's number, not ours, and the gap is the normal shape of a nested practitioner listing rather than a contradiction.
+
 ## The review count is multi-sourced
 
 The Google review count now appears in **four** UI surfaces across three files:
@@ -73,6 +87,14 @@ Deliberate decisions in that file, do not "fix" them:
 - **Wrist and hand conditions are excluded from the Elbow hub** (they share the `elbow-wrist-hand` category but "Elbow Pain" would misdescribe carpal tunnel), as are thoracic-outlet-syndrome and diabetes-related-conditions from the Shoulder hub.
 
 The condition breadcrumb uses `flex-wrap` with `gap-x-2 gap-y-1`, not `space-x-2`. Long condition names overflowed the viewport at phone widths before this; `space-x` also breaks on wrapped rows.
+
+## One Person node, one business node
+
+Rebuilt 2026-09-14 (commits 3795feb, a5fe978). Before this the site declared two root Person ids (`#person`, thin and nested in `founder`, which `SEO_PERSON_ID` pointed every page's author at; and `#kareem-hassanein`, the rich node nothing referenced) and minted a fresh Person and LocalBusiness on every condition page through relative `@id`s. Google was reconciling about 64 of Kareem.
+
+Now: exactly one Person, `https://www.kinetikarephysio.com/#person`, declared in `app/layout.tsx` and shared verbatim by endorphinshealth.com and physiomaxwellness.ca. `worksFor`/`workLocation` lists all three clinics. The business node `#organization` is typed `["Physiotherapy","MedicalBusiness"]` (PhysicalTherapy is a treatment, not a business), keeps the Endorphins NAP for parity with the listing, points `location`/`containedInPlace` at `https://endorphinshealth.com/#clinic`, and carries a ReserveAction. Condition pages reference `SEO_PERSON_ID` as provider; treatment pages reference `SEO_ORGANIZATION_ID` and `SEO_PERSON_ID`; hubs and guides no longer declare their own LocalBusiness.
+
+Rules: **never a relative `@id`** in a page template (it resolves against the page URL and mints a node per page); **never a second Person id**; the pin is `43.4078162,-79.8262185`, read from Google's own Maps URL for the listing (CID `12525727525636452787`, Place ID `ChIJD8TZ2clhK4gRs7HkBtJS1K0`), and both sites had it wrong before. The reviews carousel links to the practitioner listing by CID. `treatmentOffered`, `acceptsInsurance` and `healthPlanAccepted` are not schema.org properties and were removed; do not reintroduce them. Verify the graph after any schema change by sweeping all 100 built pages for Person and business nodes (the check is in the 2026-09-14 commit message). Full audit: https://claude.ai/code/artifact/fe07393d-088e-4706-8e64-f82b9634f006
 
 ## Portraits
 
@@ -110,6 +132,13 @@ As of March 26, 2026, the site SEO work is intentionally focused on the niches t
 - Nearby communities still matter operationally, but SEO work should not aggressively chase Oakville or other nearby towns unless dedicated, non-thin local landing pages are created
 
 ## Recent Work Already Completed
+
+### Local search and entity audit completed on 2026-09-14
+
+- Entity graph unified (see "One Person node, one business node" above) on this site and on endorphinshealth.com (commit ae9c425 there: clinic `@id`, employees by reference, geo, ReserveAction, physio page schema, GA4 outbound events) and physiomaxwellness.ca (plugin 1.30.4).
+- Hours centralised in `lib/hours.ts` (see "Hours live in one file"), corrected to 8:00 PM, Headon days removed from the Palladium Way schema, PhysioMax days added.
+- Reviews link to the practitioner listing; pin corrected; `data-booking-source` on every CTA; PhysioMax logo on About; GBP appointment link moved to the deep link and set preferred.
+- Measured, not fixed: home LCP 2.07 s in the lab with 98% render delay on the H1 (Framer stagger holds it at opacity 0 until hydration plus a 300 ms delay and 800 ms fade); dry needling 1.27 s; CLS 0 on both. Held until the hero redesign lands.
 
 ### Audit-driven a11y / SEO / conversion pass completed on 2026-06-10
 
@@ -212,6 +241,16 @@ As of March 26, 2026, the site SEO work is intentionally focused on the niches t
 - **FAQ schema breadth** (not a real gap): the dynamic condition template (`app/conditions/[slug]/page.tsx` lines 342-380) builds a `FAQPage` schema from each condition's `faqs` and emits it whenever present, so every condition that carries FAQ data (~58 in `lib/detailed-conditions-content.ts`) ships FAQ JSON-LD. The curated pages and `/faq` emit their own `FAQPage` too. The earlier "~5 pages" figure only counted hand-built static pages and missed the dynamic coverage.
 - **Carousel swipe gestures (implemented)**: both `GoogleReviews` (`onCarouselTouchStart/End`) and `CommitmentCarousel` (`handleTouchStart/End`) support horizontal swipe; `CommitmentCarousel` also has mobile dot navigation and reduced-motion-aware auto-advance. On 2026-06-10 both gained an `aria-live` slide announcement and `aria-hidden` on non-current slides.
 
+### Open from the 2026-09-14 audit
+
+- Hero H1 render delay (one-line fix; ship with the hero redesign, not before).
+- One `@graph` per page instead of 8 to 16 separate JSON-LD blocks.
+- Knee hub title back to "Knee Pain Treatment in Burlington | Kareem Hassanein" (the other four hubs use that form).
+- A visible link from `/about` or the author byline to `https://endorphinshealth.com/team/kareem-hassanein/`, which the schema names as the same person.
+- Schema `name` parity with the listing title (it is the first `alternateName` now; making it the `name` is Kareem's call).
+- Off-site: 14 external links, none editorial; Headon does not link; no directory or association citations. This is what `physiotherapy burlington` at position 25 responds to.
+- Business Profile: 31 reviews with zero replies, zero posts; drafts from 2026-09-05 await sign-off.
+
 ### Monitoring priorities
 
 Monitor Search Console for:
@@ -222,6 +261,8 @@ Monitor Search Console for:
 - `hip pain treatment burlington`
 - `cupping therapy burlington`
 - `dry needling physiotherapy burlington`
+
+Also watch, from 2026-09-14: Business Profile impressions (188 per 28 days at the audit) and booking-button clicks; GA4 `booking_click` by `event_label` on both properties; `appointment_booked` in Ads remembering it over-counts about 1.75x. Three things changed on that date at once (GBP deep link, CTA labels, Endorphins measuring Jane clicks), so compare against the window before it, Canada-filtered.
 
 ## Design / UX Preference
 

@@ -66,7 +66,7 @@ const CLINICS: Clinic[] = [
     site: 'endorphins',
     name: 'Endorphins Health & Wellness Centre',
     short: 'Endorphins',
-    logo: { src: '/images/endorphins-health-and-wellness-centre-logo.png', width: 300, height: 62, className: 'h-8 w-auto' },
+    logo: { src: '/images/endorphins-health-and-wellness-centre-logo.png', width: 300, height: 62, className: 'h-10 w-auto' },
     lines: ['4631 Palladium Way, Unit 6', 'Burlington, ON L7M 0W9'],
     phone: '(905) 634-6000',
     tel: '+19056346000',
@@ -80,7 +80,7 @@ const CLINICS: Clinic[] = [
     site: 'physiomax',
     name: 'PhysioMax Wellness',
     short: 'PhysioMax',
-    logo: { src: '/images/physiomax-wellness-logo.png', width: 512, height: 147, className: 'h-9 w-auto' },
+    logo: { src: '/images/physiomax-wellness-logo.png', width: 512, height: 147, className: 'h-12 w-auto' },
     lines: ['1035 Brant Street, Unit 10A', 'Burlington, ON L7R 4X6'],
     phone: '(905) 315-9955',
     tel: '+19053159955',
@@ -93,7 +93,7 @@ const CLINICS: Clinic[] = [
     site: 'headon',
     name: 'Headon Physio',
     short: 'Headon Physio',
-    logo: { src: '/images/headon-physio-logo-affiliations.png', width: 298, height: 101, className: 'h-10 w-auto' },
+    logo: { src: '/images/headon-physio-logo-affiliations.png', width: 298, height: 101, className: 'h-12 w-auto' },
     lines: ['1387 Walkers Line, Unit B', 'Burlington, ON L7M 0Z1'],
     phone: '(905) 332-7758',
     tel: '+19053327758',
@@ -254,15 +254,16 @@ export default function ContactPage() {
                   <div className="lg:col-span-5">
                     <Image
                       src={clinic.logo.src}
-                      alt=""
+                      alt={clinic.name}
                       width={clinic.logo.width}
                       height={clinic.logo.height}
-                      className={`${clinic.logo.className} object-contain object-left mb-4 mix-blend-multiply`}
+                      className={`${clinic.logo.className} object-contain object-left mb-5 mix-blend-multiply`}
                     />
-                    <h3 id={`clinic-${clinic.site}`} className="font-playfair text-2xl text-slate-900 tracking-tight">
+                    {/* The logo carries the identity; the name stays for assistive tech and as the row label. */}
+                    <h3 id={`clinic-${clinic.site}`} className="sr-only">
                       {clinic.name}
                     </h3>
-                    <p className="mt-2 text-slate-600 leading-relaxed">
+                    <p className="text-slate-600 leading-relaxed">
                       {clinic.lines[0]}
                       <br />
                       {clinic.lines[1]}

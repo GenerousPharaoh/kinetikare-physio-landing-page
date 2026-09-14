@@ -236,10 +236,19 @@ const personSchema = {
     "https://www.linkedin.com/in/kareemhassanein",
     "https://portal.collegept.org/en-US/public-register/display-member-contact/?id=757882d7-8c40-eb11-a813-000d3af427b4",
     "https://endorphinshealth.com/team/kareem-hassanein/",
+    "https://physiomaxwellness.ca/team/kareem-hassanein/",
     "https://maps.google.com/maps?cid=12525727525636452787"
   ],
-  "worksFor": { "@id": "https://endorphinshealth.com/#clinic" },
-  "workLocation": { "@id": "https://endorphinshealth.com/#clinic" },
+  "worksFor": [
+    { "@id": "https://endorphinshealth.com/#clinic" },
+    { "@id": "https://physiomaxwellness.ca/#clinic" },
+    { "@type": "MedicalClinic", "name": "Headon Physio", "address": { "@type": "PostalAddress", "streetAddress": "1387 Walkers Line, Unit B", "addressLocality": "Burlington", "addressRegion": "ON", "addressCountry": "CA" } }
+  ],
+  "workLocation": [
+    { "@id": "https://endorphinshealth.com/#clinic" },
+    { "@id": "https://physiomaxwellness.ca/#clinic" },
+    { "@type": "MedicalClinic", "name": "Headon Physio", "address": { "@type": "PostalAddress", "streetAddress": "1387 Walkers Line, Unit B", "addressLocality": "Burlington", "addressRegion": "ON", "addressCountry": "CA" } }
+  ],
   "affiliation": { "@id": "https://www.kinetikarephysio.com/#organization" },
   "identifier": {
     "@type": "PropertyValue",

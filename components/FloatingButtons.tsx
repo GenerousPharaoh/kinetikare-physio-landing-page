@@ -6,16 +6,12 @@ import { PhoneIcon, ArrowUpIcon, CalendarDaysIcon } from '@heroicons/react/24/so
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { BOOKING_PAGE_PATH, JANE_BOOKING_URL } from '@/lib/booking';
+import { HUB_PATHS } from '@/lib/condition-hubs';
 
 export default function FloatingButtons() {
   const [isVisible, setIsVisible] = useState(false);
   const [showMobileCta, setShowMobileCta] = useState(false);
   const [showTooltip, setShowTooltip] = useState<string | null>(null);
-  // Height of the condition page's own bottom tab bar, when one is mounted, so
-  // the mobile Book pill can sit above it instead of on top of it. Measured
-  // rather than hard-coded: that bar grows a second row of sub-section chips on
-  // some tabs and not others.
-  const [bottomNavHeight, setBottomNavHeight] = useState(0);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -42,23 +38,22 @@ export default function FloatingButtons() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  useEffect(() => {
-    const bar = document.querySelector('[data-condition-navigation]');
-    if (!bar) {
-      setBottomNavHeight(0);
-      return;
-    }
-    const measure = () => setBottomNavHeight(bar.getBoundingClientRect().height);
-    measure();
-    const ro = new ResizeObserver(measure);
-    ro.observe(bar);
-    return () => ro.disconnect();
-  }, [pathname]);
-
   // The /intake ads landing page has its own sticky Book/Call bar.
   if (pathname === BOOKING_PAGE_PATH) {
     return null;
   }
+
+  // Condition detail pages own the bottom of the screen with their tab bar and
+  // sub-section chips, so the pill stays off them rather than stacking on top.
+  // Those pages carry their own booking links in content, including a Book
+  // Assessment band at the end. Hubs, compare and pain-guides have no bottom
+  // bar, so the pill stays on those.
+  const path = pathname || '';
+  const isConditionDetailPage =
+    path.startsWith('/conditions/') &&
+    !path.startsWith('/conditions/compare') &&
+    !path.startsWith('/conditions/pain-guides') &&
+    !HUB_PATHS.has(path);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: getScrollBehavior() });
@@ -100,14 +95,13 @@ export default function FloatingButtons() {
           duplicated the hero's own Book button on first paint, and its
           `button-gold` (#B08D57) sat directly under the hero's #D4AF37, so two
           different golds were on screen at once. This keeps one booking action
-          in the hero's gold, demotes Call to an icon, drops the back-to-top
-          (the desktop stack still carries it), and lifts clear of the condition
-          page's tab bar instead of hiding on those pages. */}
+          in the hero's gold, demotes Call to an icon, and drops the back-to-top
+          (the desktop stack still carries it). */}
       <AnimatePresence>
-        {showMobileCta && (
+        {showMobileCta && !isConditionDetailPage && (
           <motion.div
             className="fixed right-4 z-40 flex items-center gap-2 lg:hidden"
-            style={{ bottom: `calc(${bottomNavHeight}px + 1rem + env(safe-area-inset-bottom))` }}
+            style={{ bottom: 'calc(1rem + env(safe-area-inset-bottom))' }}
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 12 }}

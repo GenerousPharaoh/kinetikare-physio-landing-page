@@ -267,6 +267,21 @@ export default function About() {
                       className="object-contain h-auto max-h-12 mx-auto"
                     />
                   </Link>
+                  
+                  <Link 
+                    href="https://physiomaxwellness.ca/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center bg-white p-4 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300 h-24 sm:h-auto"
+                  >
+                    <ClientImage
+                      src="/images/physiomax-wellness-logo.png"
+                      alt="PhysioMax Wellness"
+                      width={140}
+                      height={40}
+                      className="object-contain h-auto max-h-12 mx-auto"
+                    />
+                  </Link>
                 </div>
               </div>
             </div>
@@ -383,6 +398,21 @@ export default function About() {
                         alt="Headon Physio"
                         width={140}
                         height={70}
+                        className="object-contain h-auto max-h-14 mx-auto"
+                      />
+                    </Link>
+                    
+                    <Link 
+                      href="https://physiomaxwellness.ca/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="block bg-white p-5 rounded-lg shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300"
+                    >
+                      <ClientImage
+                        src="/images/physiomax-wellness-logo.png"
+                        alt="PhysioMax Wellness"
+                        width={140}
+                        height={40}
                         className="object-contain h-auto max-h-14 mx-auto"
                       />
                     </Link>

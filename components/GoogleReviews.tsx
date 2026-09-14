@@ -232,7 +232,8 @@ export default function GoogleReviews() {
           <div className="sr-only" aria-live={isAutoPlaying ? "off" : "polite"} aria-atomic="true">
             Review {currentIndex + 1} of {featuredReviewsCount}: {reviews[currentIndex]?.name}
           </div>
-          <div className="overflow-hidden rounded-2xl" onTouchStart={onCarouselTouchStart} onTouchEnd={onCarouselTouchEnd}>
+          {/* Edge fade (md+ only, where the neighbours show) so a clipped card dissolves rather than ending in a hard cut. */}
+          <div className="overflow-hidden rounded-2xl md:[mask-image:linear-gradient(to_right,transparent,black_9%,black_91%,transparent)]" onTouchStart={onCarouselTouchStart} onTouchEnd={onCarouselTouchEnd}>
             <div className="relative h-[380px] sm:h-[480px] md:h-[550px]">
               <AnimatePresence mode="wait">
                 {getVisibleReviews().map((review, index) => (
@@ -272,8 +273,10 @@ export default function GoogleReviews() {
                           <span className="text-sm font-semibold text-gray-600">Google Review</span>
                         </div>
 
-                        {/* Stars - Yellow with subtle styling */}
-                        <div className="flex gap-0.5 mb-5 flex-shrink-0 relative z-10">
+                        {/* Stars - Yellow with subtle styling. Invisible (not removed, so the
+                            layout matches) on the peeking neighbours: the viewport clips them
+                            at the edge and a lone surviving star read as a one-star review. */}
+                        <div className={`flex gap-0.5 mb-5 flex-shrink-0 relative z-10 ${review.position === 'current' ? '' : 'invisible'}`}>
                           {[...Array(5)].map((_, i) => (
                             <svg
                               key={i}

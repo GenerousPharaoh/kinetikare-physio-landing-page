@@ -24,6 +24,7 @@ import BookingCTA from '@/components/intake/BookingCTA';
 import StickyBookingBar from '@/components/intake/StickyBookingBar';
 import { resolveIntakeHero, DEFAULT_HERO, type IntakeHero } from '@/lib/intake-headlines';
 
+import { HOURS_SUMMARY } from '@/lib/hours';
 /* ─── PALETTE ─── */
 const c = {
   black: '#111111',
@@ -101,7 +102,7 @@ const reviews = [
 
 const clinicDetails: Array<{ label: string; value: string; icon: IconComponent }> = [
   { label: 'Location', value: 'Endorphins Health & Wellness Centre\n4631 Palladium Way, Unit 6\nBurlington, ON', icon: MapPinIcon },
-  { label: 'Hours', value: 'Mon / Thu: 1:30 \u2013 7:30 PM\nTue: 3:30 \u2013 7:30 PM\nWed / Fri: 2:00 \u2013 7:30 PM', icon: ClockIcon },
+  { label: 'Hours', value: HOURS_SUMMARY, icon: ClockIcon },
   { label: 'Billing', value: 'Direct billing for Sun Life, Manulife, Green Shield, Blue Cross, Canada Life, TELUS Health, and more.', icon: CreditCardIcon },
 ];
 

@@ -12,6 +12,7 @@ import FloatingButtons from '@/components/FloatingButtons';
 // MobileBottomNav removed — redundant with hamburger menu
 import { PerformanceProvider } from '@/context/PerformanceContext';
 
+import { ENDORPHINS_OPENING_HOURS_SCHEMA } from '@/lib/hours';
 const inter = Inter({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
@@ -72,8 +73,8 @@ export const metadata = {
     'apple-mobile-web-app-title': 'Kareem Physio',
     'geo.region': 'CA-ON',
     'geo.placename': 'Burlington, Waterdown, Oakville, Flamborough, Carlisle',
-    'geo.position': '43.430782;-79.838055',
-    'ICBM': '43.430782, -79.838055'
+    'geo.position': '43.4078162;-79.8262185',
+    'ICBM': '43.4078162, -79.8262185'
   }
 };
 
@@ -142,14 +143,10 @@ const organizationSchema = {
   ],
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 43.430782,
-    "longitude": -79.838055
+    "latitude": 43.4078162,
+    "longitude": -79.8262185
   },
-  "openingHoursSpecification": [
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Thursday"], "opens": "13:30", "closes": "19:30" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday"], "opens": "15:30", "closes": "19:30" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Wednesday", "Friday"], "opens": "14:00", "closes": "19:30" }
-  ],
+  "openingHoursSpecification": ENDORPHINS_OPENING_HOURS_SCHEMA,
   "priceRange": "$$",
   "founder": {
     "@type": "Person",
@@ -251,8 +248,8 @@ const organizationSchema = {
     "@type": "GeoCircle",
     "geoMidpoint": {
       "@type": "GeoCoordinates",
-      "latitude": 43.430782,
-      "longitude": -79.838055
+      "latitude": 43.4078162,
+      "longitude": -79.8262185
     },
     "geoRadius": "25000"
   }

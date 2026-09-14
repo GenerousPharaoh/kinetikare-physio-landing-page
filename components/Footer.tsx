@@ -8,14 +8,9 @@ import { ChevronDownIcon, ShieldCheckIcon } from '@heroicons/react/24/outline';
 import { BOOKING_PAGE_PATH, JANE_BOOKING_URL } from '@/lib/booking';
 import styles from './Footer.module.css';
 
+import { WEEKLY_HOURS, dayLabel } from '@/lib/hours';
 const mapHref = 'https://maps.app.goo.gl/syZN4FUBgACrtqgK9';
-const businessHours = [
-  { day: 'Monday', hours: '1:30 PM - 7:30 PM' },
-  { day: 'Tuesday', hours: '3:30 PM - 7:30 PM' },
-  { day: 'Wednesday*', hours: '2:00 PM - 7:30 PM' },
-  { day: 'Thursday', hours: '1:30 PM - 7:30 PM' },
-  { day: 'Friday*', hours: '2:00 PM - 7:30 PM' },
-];
+const businessHours = WEEKLY_HOURS.map((d) => ({ day: dayLabel(d), hours: d.label }));
 
 function FooterMap() {
   const [showMap, setShowMap] = useState(false);

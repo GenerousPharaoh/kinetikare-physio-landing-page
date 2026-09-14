@@ -399,7 +399,7 @@ export default function GoogleReviews() {
         {/* Google Reviews Link */}
         <div className="text-center mt-6">
           <a
-            href="https://www.google.com/maps/place/Endorphins+Health+%26+Wellness+Centre/@43.430782,-79.838055,17z/"
+            href="https://maps.google.com/maps?cid=12525727525636452787"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors"

@@ -30,6 +30,7 @@ import {
 } from '@/lib/seo-metadata';
 import { getConditionBySlug } from '@/lib/conditions-data';
 import { getTreatmentById } from '@/lib/treatments-data';
+import HoursList from '@/components/HoursList';
 import {
   CONDITION_COMPARISONS,
   getComparisonByPair,
@@ -752,28 +753,7 @@ export default async function ConditionComparisonPage({
                     <ClockIcon className="h-4 w-4" />
                     Burlington hours
                   </div>
-                  <ul className="space-y-2 text-sm">
-                    <li className="flex items-center justify-between border-b border-slate-200 pb-2">
-                      <span className="text-slate-600">Monday</span>
-                      <span className="text-slate-900 font-medium">1:30 PM - 7:30 PM</span>
-                    </li>
-                    <li className="flex items-center justify-between border-b border-slate-200 pb-2">
-                      <span className="text-slate-600">Tuesday</span>
-                      <span className="text-slate-900 font-medium">3:30 PM - 7:30 PM</span>
-                    </li>
-                    <li className="flex items-center justify-between border-b border-slate-200 pb-2">
-                      <span className="text-slate-600">Wednesday</span>
-                      <span className="text-slate-900 font-medium">2:00 PM - 7:30 PM</span>
-                    </li>
-                    <li className="flex items-center justify-between border-b border-slate-200 pb-2">
-                      <span className="text-slate-600">Thursday</span>
-                      <span className="text-slate-900 font-medium">1:30 PM - 7:30 PM</span>
-                    </li>
-                    <li className="flex items-center justify-between">
-                      <span className="text-slate-600">Friday</span>
-                      <span className="text-slate-900 font-medium">2:00 PM - 7:30 PM</span>
-                    </li>
-                  </ul>
+                  <HoursList />
 
                   <div className="mt-6">
                     <Link

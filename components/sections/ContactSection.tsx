@@ -5,6 +5,7 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { ENDORPHINS_HOURS, HEADON_HOURS, HEADON_FOOTNOTE, dayLabel } from '@/lib/hours';
 import { 
   MapPinIcon, 
   EnvelopeIcon, 
@@ -138,33 +139,25 @@ export default function ContactSection() {
                         <div>
                           <p className="text-xs text-[#8A6F0A] font-medium mb-1">Endorphins Health & Wellness</p>
                           <div className="space-y-1 pl-2">
-                            <div className="flex justify-between text-sm sm:text-base">
-                              <span className="text-slate-700">Monday:</span>
-                              <span className="text-slate-800 font-normal">1:30 PM - 7:30 PM</span>
-                            </div>
-                            <div className="flex justify-between text-sm sm:text-base">
-                              <span className="text-slate-700">Tuesday:</span>
-                              <span className="text-slate-800 font-normal">3:30 PM - 7:30 PM</span>
-                            </div>
-                            <div className="flex justify-between text-sm sm:text-base">
-                              <span className="text-slate-700">Thursday:</span>
-                              <span className="text-slate-800 font-normal">1:30 PM - 7:30 PM</span>
-                            </div>
+                            {ENDORPHINS_HOURS.map((d) => (
+                              <div key={d.day} className="flex justify-between text-sm sm:text-base">
+                                <span className="text-slate-700">{d.day}:</span>
+                                <span className="text-slate-800 font-normal">{d.label}</span>
+                              </div>
+                            ))}
                           </div>
                         </div>
                         
                         {/* Additional availability - more subtle */}
                         <div className="pt-2 border-t border-slate-100">
                           <div className="space-y-1">
-                            <div className="flex justify-between text-xs text-slate-500">
-                              <span>Wednesday*:</span>
-                              <span>2:00 PM - 7:30 PM</span>
-                            </div>
-                            <div className="flex justify-between text-xs text-slate-500">
-                              <span>Friday*:</span>
-                              <span>2:00 PM - 7:30 PM</span>
-                            </div>
-                            <p className="text-xs text-slate-500 italic mt-1">*Headon Physio location</p>
+                            {HEADON_HOURS.map((d) => (
+                              <div key={d.day} className="flex justify-between text-xs text-slate-500">
+                                <span>{dayLabel(d)}:</span>
+                                <span>{d.label}</span>
+                              </div>
+                            ))}
+                            <p className="text-xs text-slate-500 italic mt-1">*{HEADON_FOOTNOTE}</p>
                           </div>
                         </div>
                       </div>

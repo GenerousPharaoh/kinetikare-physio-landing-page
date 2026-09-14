@@ -52,7 +52,7 @@ The Business Profile appointment link is the deep link `https://endorphinshealth
 `/contact` was rebuilt twice on 2026-09-14. The first rebuild (36e1028) had the palette without the composition and was critiqued in detail (oversized band, email as a display headline, a floating timetable widget, faint clinic columns, the same schedule printed three times). The second (59fcc13) is the current shape:
 
 - Opener: navy, compact two-column grid. Left: H1, two-sentence lede, and `components/contact/WeekSchedule.tsx` (day / clinic / hours table, seven rows, Tuesday split, today tinted after hydration). Right: one contact-and-booking panel: email, Book online (three rows, one per clinic), and the three reception numbers as tel links. On phones the panel follows the intro so the actions come before the schedule.
-- Clinics: three full-width hairline rows (logo, name, address, Directions; hours at that clinic; action). Every row has a gold Book online button to that clinic's own Jane with "Or call reception, (905) ..." beneath; Endorphins adds "Direct billing available." The panel's Book online block is a note ("Each clinic has its own Jane booking page. Choose the one you want to be seen at.") plus three rows. Added 2026-09-14 at Kareem's request (commit after 59fcc13); before that the page was Endorphins-only for booking.
+- Clinics: three full-width hairline rows (logo, name, address, Directions; hours at that clinic; action). Every row has a Book online button in that clinic's own colour, sampled from its logo (Endorphins `#7FB83F` green, PhysioMax `#F26522` orange, Headon `#003377` navy; the panel rows carry matching dots), to that clinic's own Jane with "Or call reception, (905) ..." beneath; Endorphins adds "Direct billing available." The panel's Book online block is a note ("Each clinic has its own Jane booking page. Choose the one you want to be seen at.") plus three rows. Added 2026-09-14 at Kareem's request (commit after 59fcc13); before that the page was Endorphins-only for booking.
 - No photos on this page (Kareem's call). No floating pills here (`FloatingButtons` returns null on `/contact`; `html:has([data-contact-page])` zeroes `--mobile-cta-height`). The footer is the concise variant on `/contact`.
 
 Facts the copy rests on: the phone numbers are each clinic's reception desk (Endorphins (905) 634-6000, PhysioMax (905) 315-9955, Headon (905) 332-7758, L7M 0Z1), and the one line that reaches Kareem himself is `kareem.hassanein@gmail.com`. Do not write "phone is the fastest way to reach me". The whole page sits in `data-booking-source="contact_page"`.
@@ -60,6 +60,10 @@ Facts the copy rests on: the phone numbers are each clinic's reception desk (End
 Two global CSS traps found here: `app/globals.css` repaints every `<section>` with `background-color: transparent` plus a translucent 135deg gradient `background-image`, so a section that must be a solid colour needs `!bg-[...]` **and** `!bg-none`; and an `h1` without an explicit colour rendered near-black inside a `text-white` section (use `!text-white`).
 
 Footer (all pages, same commit): hours are grouped under each clinic's name and street, replacing the asterisk/dagger footnotes that sat beside the Palladium Way address; phone padding-bottom now includes `--mobile-cta-height` so the pill clears the legal links; the desktop `padding-right` clearance for the pills runs to 1499px.
+
+## Button hover rule
+
+Kareem, 2026-09-14: a coloured button hovers to a *lighter* tint of itself with the text colour unchanged. Never darker or muddier (`#D4AF37` hovers to `#E6C66A`; `.button-gold` `#B08D57` hovers to `#C4A26A`; the contact page clinic colours lighten the same way), and text never turns gold on a gold ground. He read the old darker hovers (`#C9A227`, `#A17D47`, `#B08D57`) as "the text goes gold or dirty gold".
 
 ## Hours live in one file
 

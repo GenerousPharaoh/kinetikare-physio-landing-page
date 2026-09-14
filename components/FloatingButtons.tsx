@@ -141,7 +141,7 @@ export default function FloatingButtons() {
         data-booking-source="floating_desktop"
         target="_blank"
         rel="noopener noreferrer"
-        className="button-gold flex items-center gap-2 h-12 md:h-14 pl-4 pr-5 bg-[#D4AF37] text-slate-900 rounded-full shadow-lg shadow-[#D4AF37]/30 transition-colors duration-300 hover:bg-[#c9a227] hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:ring-offset-2 focus:ring-offset-white"
+        className="button-gold flex items-center gap-2 h-12 md:h-14 pl-4 pr-5 bg-[#D4AF37] text-slate-900 rounded-full shadow-lg shadow-[#D4AF37]/30 transition-colors duration-300 hover:bg-[#E6C66A] hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:ring-offset-2 focus:ring-offset-white"
         aria-label="Book an appointment with Kareem Hassanein"
         variants={buttonVariants}
         whileHover="hover"

@@ -1609,7 +1609,7 @@ body {
 /* Shared primary action: readable text on the established warm gold. */
 @layer components {
   .button-gold {
-    @apply bg-[#B08D57] text-slate-950 transition-colors hover:bg-[#A17D47] hover:text-slate-950;
+    @apply bg-[#B08D57] text-slate-950 transition-colors hover:bg-[#C4A26A] hover:text-slate-950;
   }
 }
 

@@ -52,6 +52,13 @@ interface Clinic {
   /** GA4 event_label for this clinic's booking link (BookingTracker reads it). */
   bookingSource: string;
   note?: string;
+  /**
+   * Each clinic's own colour, sampled from its logo, so the three booking
+   * buttons read as three different destinations rather than one action
+   * repeated. Text colour is fixed per button for contrast; hover only
+   * shifts the background.
+   */
+  brand: { button: string; dot: string };
 }
 
 const CLINICS: Clinic[] = [
@@ -67,6 +74,7 @@ const CLINICS: Clinic[] = [
     bookingUrl: JANE_BOOKING_URL,
     bookingSource: 'contact_endorphins',
     note: 'Direct billing available.',
+    brand: { button: 'bg-[#7FB83F] text-slate-950 hover:bg-[#93C95A] focus-visible:ring-[#7FB83F]/60', dot: 'bg-[#98C55C]' },
   },
   {
     site: 'physiomax',
@@ -79,6 +87,7 @@ const CLINICS: Clinic[] = [
     directions: 'https://www.google.com/maps/dir/?api=1&destination=1035+Brant+Street+Unit+10A,+Burlington,+ON+L7R+4X6',
     bookingUrl: PHYSIOMAX_BOOKING_URL,
     bookingSource: 'contact_physiomax',
+    brand: { button: 'bg-[#F26522] text-slate-950 hover:bg-[#FF7A3D] focus-visible:ring-[#F26522]/60', dot: 'bg-[#FF6622]' },
   },
   {
     site: 'headon',
@@ -91,6 +100,7 @@ const CLINICS: Clinic[] = [
     directions: 'https://www.google.com/maps/dir/?api=1&destination=1387+Walkers+Line+Unit+B,+Burlington,+ON+L7M+0Z1',
     bookingUrl: HEADON_BOOKING_URL,
     bookingSource: 'contact_headon',
+    brand: { button: 'bg-[#003377] text-white hover:bg-[#0A4A96] focus-visible:ring-[#003377]/60', dot: 'bg-[#4F8BE0]' },
   },
 ];
 
@@ -177,7 +187,10 @@ export default function ContactPage() {
                         data-booking-source={c.bookingSource}
                         className="group flex items-baseline justify-between gap-4 py-3 text-[15px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37]/60 rounded"
                       >
-                        <span className="text-white font-medium group-hover:text-[#D4AF37] transition-colors">{c.short}</span>
+                        <span className="inline-flex items-center gap-2.5 text-white font-medium group-hover:text-[#D4AF37] transition-colors">
+                          <span aria-hidden="true" className={`h-2.5 w-2.5 rounded-full ${c.brand.dot}`} />
+                          {c.short}
+                        </span>
                         <span className="inline-flex items-center gap-1.5 text-[#D4AF37] whitespace-nowrap">
                           Book online
                           <ArrowTopRightOnSquareIcon className="w-4 h-4" aria-hidden="true" />
@@ -283,7 +296,7 @@ export default function ContactPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       data-booking-source={clinic.bookingSource}
-                      className={`${primaryButton} bg-[#D4AF37] text-slate-950 hover:bg-[#C9A227] focus-visible:ring-[#B08D57]/50`}
+                      className={`${primaryButton} ${clinic.brand.button}`}
                     >
                       Book online
                       <ArrowTopRightOnSquareIcon className="w-4 h-4" aria-hidden="true" />

@@ -481,7 +481,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                     rel="noopener noreferrer"
                     prefetch={false}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#D4AF37] text-slate-900 font-bold text-sm tracking-wide hover:bg-[#C9A227] transition-all shadow-lg"
+                    className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#D4AF37] text-slate-900 font-bold text-sm tracking-wide hover:bg-[#E6C66A] transition-all shadow-lg"
                   >
                     <CalendarDaysIcon className="w-5 h-5" />
                     {isIntakePage ? 'Book Assessment' : 'Book Now'}

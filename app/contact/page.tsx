@@ -2,9 +2,9 @@ import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowTopRightOnSquareIcon, PhoneIcon } from '@heroicons/react/24/outline';
+import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
 import WeekSchedule from '@/components/contact/WeekSchedule';
-import { JANE_BOOKING_URL } from '@/lib/booking';
+import { HEADON_BOOKING_URL, JANE_BOOKING_URL, PHYSIOMAX_BOOKING_URL } from '@/lib/booking';
 import { serializeJsonLd } from '@/lib/structured-data';
 import { SEO_ORGANIZATION_ID, SEO_PERSON_ID } from '@/lib/seo-metadata';
 import { WEEKLY_HOURS, type ClinicSite } from '@/lib/hours';
@@ -35,9 +35,9 @@ export const metadata: Metadata = {
  * The three clinics Kareem practises at. Reception numbers are each clinic's
  * own desk: they book, reschedule and answer billing questions. Questions for
  * Kareem himself go to his email, the one line that reaches him directly.
- * Online booking on this site stays Endorphins-only: each clinic runs its own
- * Jane and a visitor should not book into the wrong one from here. Hours come
- * from lib/hours.ts, the single source.
+ * Each clinic runs its own Jane, so this page links all three booking pages
+ * and says so; it is the one page on the site that does (Kareem's decision,
+ * 2026-09-14). Hours come from lib/hours.ts, the single source.
  */
 interface Clinic {
   site: ClinicSite;
@@ -48,7 +48,10 @@ interface Clinic {
   phone: string;
   tel: string;
   directions: string;
-  booking: 'online' | 'phone';
+  bookingUrl: string;
+  /** GA4 event_label for this clinic's booking link (BookingTracker reads it). */
+  bookingSource: string;
+  note?: string;
 }
 
 const CLINICS: Clinic[] = [
@@ -61,7 +64,9 @@ const CLINICS: Clinic[] = [
     phone: '(905) 634-6000',
     tel: '+19056346000',
     directions: 'https://www.google.com/maps/dir/?api=1&destination=4631+Palladium+Way+Unit+6,+Burlington,+ON+L7M+0W9',
-    booking: 'online',
+    bookingUrl: JANE_BOOKING_URL,
+    bookingSource: 'contact_endorphins',
+    note: 'Direct billing available.',
   },
   {
     site: 'physiomax',
@@ -72,7 +77,8 @@ const CLINICS: Clinic[] = [
     phone: '(905) 315-9955',
     tel: '+19053159955',
     directions: 'https://www.google.com/maps/dir/?api=1&destination=1035+Brant+Street+Unit+10A,+Burlington,+ON+L7R+4X6',
-    booking: 'phone',
+    bookingUrl: PHYSIOMAX_BOOKING_URL,
+    bookingSource: 'contact_physiomax',
   },
   {
     site: 'headon',
@@ -83,7 +89,8 @@ const CLINICS: Clinic[] = [
     phone: '(905) 332-7758',
     tel: '+19053327758',
     directions: 'https://www.google.com/maps/dir/?api=1&destination=1387+Walkers+Line+Unit+B,+Burlington,+ON+L7M+0Z1',
-    booking: 'phone',
+    bookingUrl: HEADON_BOOKING_URL,
+    bookingSource: 'contact_headon',
   },
 ];
 
@@ -157,18 +164,28 @@ export default function ContactPage() {
 
               <div className="mt-7 pt-7 border-t border-white/10">
                 <h2 className="text-sm font-medium text-slate-400 mb-1">Book online</h2>
-                <p className="text-slate-300 text-[15px] mb-4">
-                  Endorphins Health &amp; Wellness Centre. Direct billing is available there.
+                <p className="text-slate-300 text-[15px] mb-2">
+                  Each clinic has its own Jane booking page. Choose the one you want to be seen at.
                 </p>
-                <Link
-                  href={JANE_BOOKING_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${primaryButton} bg-[#D4AF37] text-slate-950 hover:bg-[#E6C66A] focus-visible:ring-white/70 focus-visible:ring-offset-[#020617]`}
-                >
-                  Book an appointment
-                  <ArrowTopRightOnSquareIcon className="w-4 h-4" aria-hidden="true" />
-                </Link>
+                <ul className="divide-y divide-white/10">
+                  {CLINICS.map((c) => (
+                    <li key={c.site}>
+                      <Link
+                        href={c.bookingUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-booking-source={c.bookingSource}
+                        className="group flex items-baseline justify-between gap-4 py-3 text-[15px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37]/60 rounded"
+                      >
+                        <span className="text-white font-medium group-hover:text-[#D4AF37] transition-colors">{c.short}</span>
+                        <span className="inline-flex items-center gap-1.5 text-[#D4AF37] whitespace-nowrap">
+                          Book online
+                          <ArrowTopRightOnSquareIcon className="w-4 h-4" aria-hidden="true" />
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
               <div className="mt-7 pt-7 border-t border-white/10">
@@ -208,14 +225,13 @@ export default function ContactPage() {
               The three clinics
             </h2>
             <p className="text-slate-600 md:max-w-md md:text-right">
-              Online booking is at Endorphins. PhysioMax and Headon book by phone through their reception desks.
+              Each clinic has its own online booking page and reception desk. Book with the one you want to be seen at.
             </p>
           </div>
 
           <div className="border-t border-slate-300">
             {CLINICS.map((clinic) => {
               const days = WEEKLY_HOURS.filter((d) => d.site === clinic.site);
-              const online = clinic.booking === 'online';
               return (
                 <article
                   key={clinic.site}
@@ -262,37 +278,23 @@ export default function ContactPage() {
                   </div>
 
                   <div className="lg:col-span-4 lg:flex lg:flex-col lg:items-end lg:text-right">
-                    {online ? (
-                      <>
-                        <Link
-                          href={JANE_BOOKING_URL}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={`${primaryButton} bg-[#D4AF37] text-slate-950 hover:bg-[#C9A227] focus-visible:ring-[#B08D57]/50`}
-                        >
-                          Book online
-                          <ArrowTopRightOnSquareIcon className="w-4 h-4" aria-hidden="true" />
-                        </Link>
-                        <p className="mt-3 text-[15px] text-slate-600">
-                          Or call reception,{' '}
-                          <a href={`tel:${clinic.tel}`} className="text-slate-900 font-medium tabular-nums hover:text-[#8A6F0A] transition-colors">
-                            {clinic.phone}
-                          </a>
-                          . Direct billing available.
-                        </p>
-                      </>
-                    ) : (
-                      <>
-                        <a
-                          href={`tel:${clinic.tel}`}
-                          className={`${primaryButton} bg-slate-900 text-white hover:bg-slate-700 focus-visible:ring-slate-900/40 tabular-nums`}
-                        >
-                          <PhoneIcon className="w-4 h-4" aria-hidden="true" />
-                          Call {clinic.phone}
-                        </a>
-                        <p className="mt-3 text-[15px] text-slate-600">Booking by phone through reception.</p>
-                      </>
-                    )}
+                    <Link
+                      href={clinic.bookingUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-booking-source={clinic.bookingSource}
+                      className={`${primaryButton} bg-[#D4AF37] text-slate-950 hover:bg-[#C9A227] focus-visible:ring-[#B08D57]/50`}
+                    >
+                      Book online
+                      <ArrowTopRightOnSquareIcon className="w-4 h-4" aria-hidden="true" />
+                    </Link>
+                    <p className="mt-3 text-[15px] text-slate-600">
+                      Or call reception,{' '}
+                      <a href={`tel:${clinic.tel}`} className="text-slate-900 font-medium tabular-nums hover:text-[#8A6F0A] transition-colors">
+                        {clinic.phone}
+                      </a>
+                      .{clinic.note ? ` ${clinic.note}` : ''}
+                    </p>
                   </div>
                 </article>
               );

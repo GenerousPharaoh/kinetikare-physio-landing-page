@@ -30,6 +30,10 @@ export default function BookingTracker() {
       if (!href) return;
 
       const isBooking = href.includes(JANE_DOMAIN);
+      // /contact links to PhysioMax's and Headon's Jane too. Those count as
+      // booking clicks in GA4 (labelled by data-booking-source) but not as the
+      // Ads conversion, which measures the Endorphins funnel the campaign buys.
+      const isAdsBooking = href.includes('endorphinshealth.janeapp.com');
       const isPhoneCall = href.startsWith('tel:') && ['9056346000', '19056346000'].includes(href.replace(/\D/g, ''));
 
       if (!isBooking && !isPhoneCall) return;
@@ -43,6 +47,8 @@ export default function BookingTracker() {
         event_label: anchor.closest('[data-booking-source]')?.getAttribute('data-booking-source') || 'site_link',
         send_to: GA_ID,
       });
+
+      if (isBooking && !isAdsBooking) return;
 
       window.gtag('event', 'conversion', {
         send_to: ADS_CONVERSION_ID,

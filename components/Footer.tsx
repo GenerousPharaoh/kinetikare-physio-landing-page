@@ -72,7 +72,7 @@ export default function Footer() {
 
         {!isIntakePage && <div className={styles.navigationRow}>
           <nav aria-label="Footer navigation">
-            <ul>{[{href:'/services',label:'Services'},{href:'/conditions',label:'Conditions'},{href:'/about',label:'About'},{href:'/faq',label:'FAQ'}].map(link => <li key={link.href}><Link href={link.href} prefetch={false} className="text-white">{link.label}</Link></li>)}</ul>
+            <ul>{[{href:'/services',label:'Services'},{href:'/conditions',label:'Conditions'},{href:'/about',label:'About'},{href:'/faq',label:'FAQ'},{href:'/contact',label:'Contact'}].map(link => <li key={link.href}><Link href={link.href} prefetch={false} className="text-white">{link.label}</Link></li>)}</ul>
           </nav>
           <a href="https://www.linkedin.com/in/kareemhassanein" target="_blank" rel="noopener noreferrer" className={`text-white ${styles.social}`}>LinkedIn</a>
         </div>}

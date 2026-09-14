@@ -16,7 +16,12 @@ import {
   CheckCircleIcon
 } from '@heroicons/react/24/outline';
 
-export default function ContactSection() {
+/**
+ * hideHeading: the /contact page supplies its own H1 and lede, so the section's
+ * "Get in Touch" block would read as a second, larger title under it. Home
+ * keeps the heading (default).
+ */
+export default function ContactSection({ hideHeading = false }: { hideHeading?: boolean } = {}) {
   const { ref: sectionRef, isInView } = useScrollAnimation({
     yOffset: 0,
     delay: 0,
@@ -50,6 +55,7 @@ export default function ContactSection() {
       <div className="container mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Premium Section Header */}
+          {!hideHeading && (
           <motion.div
             initial={{ opacity: 1 }}
             animate={{ opacity: 1 }}
@@ -68,6 +74,7 @@ export default function ContactSection() {
               Ready to move forward? Experience personalized physiotherapy care designed to help you move and feel your best.
             </p>
           </motion.div>
+          )}
 
           <div className="grid lg:grid-cols-2 gap-5 sm:gap-8 lg:gap-16 xl:gap-20">
             {/* Left Column - Contact Information Only */}

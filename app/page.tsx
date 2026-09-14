@@ -130,7 +130,7 @@ export default function Home() {
 
           <SectionDivider variant="dots" />
 
-          <ContactSection />
+          <div data-booking-source="home_contact"><ContactSection /></div>
         </div>
       </main>
     </>

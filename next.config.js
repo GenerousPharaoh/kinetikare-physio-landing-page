@@ -43,8 +43,6 @@ const nextConfig = {
   // Headers for better SEO and performance
   async redirects() {
     return [
-      // No standalone contact page; the contact section lives on the home page.
-      { source: '/contact', destination: '/#contact', permanent: true },
     ];
   },
   async headers() {

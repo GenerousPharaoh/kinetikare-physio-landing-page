@@ -1,4 +1,4 @@
-import { HEADON_FOOTNOTE, WEEKLY_HOURS, dayLabel } from '@/lib/hours';
+import { SITE_FOOTNOTES, WEEKLY_HOURS, dayKey, dayLabel } from '@/lib/hours';
 
 /**
  * The five-row hours list used on the regional hubs, the pain guides and the
@@ -16,7 +16,7 @@ export default function HoursList() {
       <ul className="space-y-2 text-sm">
         {WEEKLY_HOURS.map((d, i) => (
           <li
-            key={d.day}
+            key={dayKey(d)}
             className={
               i < WEEKLY_HOURS.length - 1
                 ? 'flex items-center justify-between border-b border-slate-200 pb-2'
@@ -28,7 +28,9 @@ export default function HoursList() {
           </li>
         ))}
       </ul>
-      <p className="mt-2 text-xs text-slate-500 italic">* {HEADON_FOOTNOTE}</p>
+      <p className="mt-2 text-xs text-slate-500 italic">
+        {SITE_FOOTNOTES.map((f) => `${f.mark} ${f.text}`).join('   ')}
+      </p>
     </>
   );
 }

@@ -5,7 +5,7 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { ENDORPHINS_HOURS, HEADON_HOURS, HEADON_FOOTNOTE, dayLabel } from '@/lib/hours';
+import { ENDORPHINS_HOURS, OTHER_SITE_HOURS, SITE_FOOTNOTES, dayKey, dayLabel } from '@/lib/hours';
 import { 
   MapPinIcon, 
   EnvelopeIcon, 
@@ -151,13 +151,15 @@ export default function ContactSection() {
                         {/* Additional availability - more subtle */}
                         <div className="pt-2 border-t border-slate-100">
                           <div className="space-y-1">
-                            {HEADON_HOURS.map((d) => (
-                              <div key={d.day} className="flex justify-between text-xs text-slate-500">
+                            {OTHER_SITE_HOURS.map((d) => (
+                              <div key={dayKey(d)} className="flex justify-between text-xs text-slate-500">
                                 <span>{dayLabel(d)}:</span>
                                 <span>{d.label}</span>
                               </div>
                             ))}
-                            <p className="text-xs text-slate-500 italic mt-1">*{HEADON_FOOTNOTE}</p>
+                            {SITE_FOOTNOTES.map((f) => (
+                              <p key={f.mark} className="text-xs text-slate-500 italic mt-1">{f.mark}{f.text}</p>
+                            ))}
                           </div>
                         </div>
                       </div>

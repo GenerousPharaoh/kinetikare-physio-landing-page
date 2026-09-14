@@ -8,9 +8,9 @@ import { ChevronDownIcon, ShieldCheckIcon } from '@heroicons/react/24/outline';
 import { BOOKING_PAGE_PATH, JANE_BOOKING_URL } from '@/lib/booking';
 import styles from './Footer.module.css';
 
-import { WEEKLY_HOURS, dayLabel } from '@/lib/hours';
+import { SITE_FOOTNOTES, WEEKLY_HOURS, dayKey, dayLabel } from '@/lib/hours';
 const mapHref = 'https://maps.app.goo.gl/syZN4FUBgACrtqgK9';
-const businessHours = WEEKLY_HOURS.map((d) => ({ day: dayLabel(d), hours: d.label }));
+const businessHours = WEEKLY_HOURS.map((d) => ({ key: dayKey(d), day: dayLabel(d), hours: d.label }));
 
 function FooterMap() {
   const [showMap, setShowMap] = useState(false);
@@ -63,8 +63,8 @@ export default function Footer() {
               </div>
               <div className={styles.hours}>
                 <h2>Hours</h2>
-                <dl>{businessHours.map(schedule => <div key={schedule.day}><dt>{schedule.day}</dt><dd>{schedule.hours}</dd></div>)}</dl>
-                <p className={styles.hoursNote}>* Headon Physio location<br />Direct billing only at Endorphins</p>
+                <dl>{businessHours.map(schedule => <div key={schedule.key}><dt>{schedule.day}</dt><dd>{schedule.hours}</dd></div>)}</dl>
+                <p className={styles.hoursNote}>{SITE_FOOTNOTES.map((f) => `${f.mark} ${f.text}`).join('  ')}<br />Direct billing only at Endorphins</p>
               </div>
             </div>
           </div>}

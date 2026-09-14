@@ -144,7 +144,7 @@ export default function ContactPage() {
       <section className="!bg-[#020617] !bg-none text-white pt-28 md:pt-36 pb-14 md:pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav aria-label="Breadcrumb" className="mb-8 text-sm text-slate-400 flex flex-wrap items-center gap-x-2 gap-y-1">
-            <Link href="/" className="hover:text-[#D4AF37] transition-colors">Home</Link>
+            <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <span aria-hidden="true">/</span>
             <span className="text-white" aria-current="page">Contact</span>
           </nav>
@@ -166,7 +166,7 @@ export default function ContactPage() {
                 <h2 className="text-sm font-medium text-slate-400 mb-2">Email me directly</h2>
                 <a
                   href={`mailto:${EMAIL}`}
-                  className="font-playfair text-xl sm:text-2xl lg:text-[1.65rem] leading-tight text-white hover:text-[#D4AF37] transition-colors break-words focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37]/60 rounded"
+                  className="font-playfair text-xl sm:text-2xl lg:text-[1.65rem] leading-tight text-white break-words underline decoration-white/25 underline-offset-[6px] hover:decoration-white transition-[text-decoration-color] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 rounded"
                 >
                   {EMAIL}
                 </a>
@@ -185,13 +185,13 @@ export default function ContactPage() {
                         target="_blank"
                         rel="noopener noreferrer"
                         data-booking-source={c.bookingSource}
-                        className="group flex items-baseline justify-between gap-4 py-3 text-[15px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37]/60 rounded"
+                        className="group flex items-baseline justify-between gap-4 py-3 -mx-3 px-3 text-[15px] rounded-md hover:bg-white/[0.06] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
                       >
-                        <span className="inline-flex items-center gap-2.5 text-white font-medium group-hover:text-[#D4AF37] transition-colors">
+                        <span className="inline-flex items-center gap-2.5 text-white font-medium">
                           <span aria-hidden="true" className={`h-2.5 w-2.5 rounded-full ${c.brand.dot}`} />
                           {c.short}
                         </span>
-                        <span className="inline-flex items-center gap-1.5 text-[#D4AF37] whitespace-nowrap">
+                        <span className="inline-flex items-center gap-1.5 text-white/85 whitespace-nowrap group-hover:text-white transition-colors">
                           Book online
                           <ArrowTopRightOnSquareIcon className="w-4 h-4" aria-hidden="true" />
                         </span>
@@ -208,10 +208,10 @@ export default function ContactPage() {
                     <li key={c.site}>
                       <a
                         href={`tel:${c.tel}`}
-                        className="group flex items-baseline justify-between gap-4 py-3 text-[15px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37]/60 rounded"
+                        className="group flex items-baseline justify-between gap-4 py-3 -mx-3 px-3 text-[15px] rounded-md hover:bg-white/[0.06] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
                       >
                         <span className="text-slate-300 group-hover:text-white transition-colors">{c.short}</span>
-                        <span className="text-white font-medium tabular-nums whitespace-nowrap group-hover:text-[#D4AF37] transition-colors">
+                        <span className="text-white font-medium tabular-nums whitespace-nowrap">
                           {c.phone}
                         </span>
                       </a>
@@ -271,7 +271,7 @@ export default function ContactPage() {
                       href={clinic.directions}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-2 inline-flex items-center gap-1.5 text-[15px] font-medium text-[#8A6F0A] hover:text-[#B08D57] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-2 rounded"
+                      className="mt-2 inline-flex items-center gap-1.5 text-[15px] font-medium text-slate-900 underline decoration-slate-300 underline-offset-4 hover:decoration-slate-900 transition-[text-decoration-color] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900/30 focus-visible:ring-offset-2 rounded"
                     >
                       Directions
                       <ArrowTopRightOnSquareIcon className="w-4 h-4" aria-hidden="true" />
@@ -303,7 +303,7 @@ export default function ContactPage() {
                     </Link>
                     <p className="mt-3 text-[15px] text-slate-600">
                       Or call reception,{' '}
-                      <a href={`tel:${clinic.tel}`} className="text-slate-900 font-medium tabular-nums hover:text-[#8A6F0A] transition-colors">
+                      <a href={`tel:${clinic.tel}`} className="text-slate-900 font-medium tabular-nums underline decoration-slate-300 underline-offset-4 hover:decoration-slate-900 transition-[text-decoration-color]">
                         {clinic.phone}
                       </a>
                       .{clinic.note ? ` ${clinic.note}` : ''}

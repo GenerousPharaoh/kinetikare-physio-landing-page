@@ -345,9 +345,17 @@ export default function GoogleReviews() {
               </svg>
             </button>
 
-            <span className="min-w-16 text-center text-sm tabular-nums text-slate-600" aria-hidden="true">
-              {currentIndex + 1} / {featuredReviewsCount}
-            </span>
+            {/* Position is shown as the same sliding line the desktop uses, not "1 / 26".
+                A running count invites the reader to treat the carousel as a list to get
+                through, and the number is not information anyone needs. */}
+            <div className="relative h-px w-24 rounded-full bg-gray-200" aria-hidden="true">
+              <motion.div
+                className="absolute left-0 top-0 h-full rounded-full bg-[#B08D57]"
+                initial={false}
+                animate={{ width: `${((currentIndex + 1) / featuredReviewsCount) * 100}%` }}
+                transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
+              />
+            </div>
 
             <button
               onClick={handleNext}

@@ -47,6 +47,14 @@ Kareem also practises at Headon Physio and PhysioMax Wellness, each with its own
 
 The Business Profile appointment link is the deep link `https://endorphinshealth.janeapp.com/#/staff_member/42/treatment/133`, preferred (confirmed at the API 2026-09-14). It lands on the time picker for the initial assessment; `JANE_BOOKING_URL` deliberately stays the general entry for returning patients.
 
+## Contact page
+
+`/contact` (rebuilt 2026-09-14, commit 36e1028, after Kareem rejected the first version and three flat layout options). Shape: navy opening band in the hero's register with **no photo** (he did not want the treatment-room picture there), the email address set large in Playfair as the primary action, then `components/contact/WeekRail.tsx` (Monday to Saturday, which clinic and when, today's column ringed after hydration from the Toronto weekday), then one panel with three columns for Endorphins, PhysioMax and Headon: logo, address, **reception number**, hours at that clinic, directions. Endorphins alone carries the online booking button.
+
+Facts the copy rests on: the phone numbers are each clinic's reception desk (Endorphins (905) 634-6000, PhysioMax (905) 315-9955, Headon (905) 332-7758, L7M 0Z1), and the one line that reaches Kareem himself is `kareem.hassanein@gmail.com`. Do not write "phone is the fastest way to reach me". The whole page sits in `data-booking-source="contact_page"`.
+
+Gotcha: an `h1` with no explicit colour rendered near-black on the navy band even inside a `text-white` section (cause not traced; `!text-white` on the heading fixed it). Give headings on dark bands an explicit colour.
+
 ## Hours live in one file
 
 `lib/hours.ts` is the only place clinical hours are defined. It feeds the root schema (`ENDORPHINS_OPENING_HOURS_SCHEMA`), `Footer.tsx`, `ContactSection.tsx`, the ads landing page summary (`HOURS_SUMMARY`) and `components/HoursList.tsx`, which the five regional hubs, two pain guides and the compare template render. Before 2026-09-14 the same rows were hand-typed in twelve files and had drifted.

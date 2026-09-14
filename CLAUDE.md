@@ -63,6 +63,8 @@ Footer (all pages, same commit): hours are grouped under each clinic's name and 
 
 ## Button hover rule
 
+**The real cause of gold text on hover was `styles/color-harmony.css`**, not the button classes: `a:not(.btn):not(.button-gold):not([class*="btn"]):not([class*="text-white"]):hover { color: gold-600 }` at specificity (0,5,1) beat every component `hover:text-*` utility, so any anchor styled as a button with dark text (green/orange clinic buttons, FAQ pills, the conditions CTA) got dirty-gold text on hover. Since 2026-09-14 the pair also excludes `[class*="hover:"]`: a link that declares its own hover utility opts out. Plain text links with no hover class still get the gold hover. To check a hover state, force `:hover` with `CSS.forcePseudoState`, **wait ~350 ms for the colour transition**, then read the computed colour; reading immediately returns the pre-hover value.
+
 Kareem, 2026-09-14: a coloured button hovers to a *lighter* tint of itself with the text colour unchanged. Never darker or muddier (`#D4AF37` hovers to `#E6C66A`; `.button-gold` `#B08D57` hovers to `#C4A26A`; the contact page clinic colours lighten the same way), and text never turns gold on a gold ground. He read the old darker hovers (`#C9A227`, `#A17D47`, `#B08D57`) as "the text goes gold or dirty gold".
 
 ## Hours live in one file

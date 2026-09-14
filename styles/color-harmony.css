@@ -188,12 +188,15 @@
 /* ============================= */
 
 /* Remove all blue hover states */
-a:not(.btn):not(.button-gold):not([class*="btn"]):not([class*="text-white"]) {
+/* A link that declares its own hover utility (hover:text-*, hover:bg-*, hover:decoration-*) opts out of
+   this pair. At (0,5,1) they beat every component hover class, so anchors styled as buttons (coloured
+   ground, dark text) turned their text gold on hover. Scoped 2026-09-14. */
+a:not(.btn):not(.button-gold):not([class*="btn"]):not([class*="text-white"]):not([class*="hover:"]) {
   color: inherit;
   transition: color 150ms var(--ease-smooth);
 }
 
-a:not(.btn):not(.button-gold):not([class*="btn"]):not([class*="text-white"]):hover {
+a:not(.btn):not(.button-gold):not([class*="btn"]):not([class*="text-white"]):not([class*="hover:"]):hover {
   color: rgb(var(--color-gold-600));
 }
 

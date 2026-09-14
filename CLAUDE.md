@@ -49,11 +49,17 @@ The Business Profile appointment link is the deep link `https://endorphinshealth
 
 ## Contact page
 
-`/contact` (rebuilt 2026-09-14, commit 36e1028, after Kareem rejected the first version and three flat layout options). Shape: navy opening band in the hero's register with **no photo** (he did not want the treatment-room picture there), the email address set large in Playfair as the primary action, then `components/contact/WeekRail.tsx` (Monday to Saturday, which clinic and when, today's column ringed after hydration from the Toronto weekday), then one panel with three columns for Endorphins, PhysioMax and Headon: logo, address, **reception number**, hours at that clinic, directions. Endorphins alone carries the online booking button.
+`/contact` was rebuilt twice on 2026-09-14. The first rebuild (36e1028) had the palette without the composition and was critiqued in detail (oversized band, email as a display headline, a floating timetable widget, faint clinic columns, the same schedule printed three times). The second (59fcc13) is the current shape:
+
+- Opener: navy, compact two-column grid. Left: H1, two-sentence lede, and `components/contact/WeekSchedule.tsx` (day / clinic / hours table, seven rows, Tuesday split, today tinted after hydration). Right: one contact-and-booking panel: email, "Book an appointment" (Endorphins), and the three reception numbers as tel links. On phones the panel follows the intro so the actions come before the schedule.
+- Clinics: three full-width hairline rows (logo, name, address, Directions; hours at that clinic; action). Endorphins has a gold Book online button with reception beneath; PhysioMax and Headon have a "Call (905) ..." button. No Jane links for those two.
+- No photos on this page (Kareem's call). No floating pills here (`FloatingButtons` returns null on `/contact`; `html:has([data-contact-page])` zeroes `--mobile-cta-height`). The footer is the concise variant on `/contact`.
 
 Facts the copy rests on: the phone numbers are each clinic's reception desk (Endorphins (905) 634-6000, PhysioMax (905) 315-9955, Headon (905) 332-7758, L7M 0Z1), and the one line that reaches Kareem himself is `kareem.hassanein@gmail.com`. Do not write "phone is the fastest way to reach me". The whole page sits in `data-booking-source="contact_page"`.
 
-Gotcha: an `h1` with no explicit colour rendered near-black on the navy band even inside a `text-white` section (cause not traced; `!text-white` on the heading fixed it). Give headings on dark bands an explicit colour.
+Two global CSS traps found here: `app/globals.css` repaints every `<section>` with `background-color: transparent` plus a translucent 135deg gradient `background-image`, so a section that must be a solid colour needs `!bg-[...]` **and** `!bg-none`; and an `h1` without an explicit colour rendered near-black inside a `text-white` section (use `!text-white`).
+
+Footer (all pages, same commit): hours are grouped under each clinic's name and street, replacing the asterisk/dagger footnotes that sat beside the Palladium Way address; phone padding-bottom now includes `--mobile-cta-height` so the pill clears the legal links; the desktop `padding-right` clearance for the pills runs to 1499px.
 
 ## Hours live in one file
 

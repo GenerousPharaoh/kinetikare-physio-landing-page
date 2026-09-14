@@ -567,6 +567,7 @@ export default function ConditionPageClient({
               <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
                 <Link
                   href={JANE_BOOKING_URL}
+                  data-booking-source="condition_intro"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="button-gold inline-flex items-center gap-1.5 px-5 py-3 rounded-lg text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/50 focus-visible:ring-offset-2"
@@ -1010,6 +1011,7 @@ export default function ConditionPageClient({
                         
                         <Link 
                           href={JANE_BOOKING_URL}
+                          data-booking-source="condition_management"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="bg-slate-900 hover:bg-slate-800 text-white px-8 py-3 rounded-lg text-lg font-medium transition-colors inline-flex items-center gap-2"
@@ -1872,6 +1874,7 @@ export default function ConditionPageClient({
                           {/* Quiet contextual booking link at the end of the Management content */}
                           <a
                             href={JANE_BOOKING_URL}
+                            data-booking-source="condition_faq"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="group inline-flex items-center gap-1.5 text-sm font-medium text-[#8A6F0A] hover:text-[#B08D57] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]/40 focus-visible:ring-offset-2 rounded"
@@ -1929,6 +1932,7 @@ export default function ConditionPageClient({
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href={JANE_BOOKING_URL}
+                  data-booking-source="condition_footer"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="button-gold inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-colors duration-200 shadow-premium-1 hover:shadow-premium-2 group"

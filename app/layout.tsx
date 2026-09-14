@@ -80,11 +80,11 @@ export const metadata = {
 
 const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": ["PhysicalTherapy", "LocalBusiness", "MedicalBusiness"],
+  "@type": ["Physiotherapy", "MedicalBusiness"],
   "@id": "https://www.kinetikarephysio.com/#organization",
   "name": "Kareem Hassanein Physiotherapy",
   "legalName": "Kareem Hassanein Registered Physiotherapy Professional Corporation",
-  "alternateName": ["Kareem Hassanein Physio", "Kareem Hassanein PT", "KinetiKare Physiotherapy", "Kareem Hassanein Sports Physio", "Kareem Hassanein Burlington Physiotherapist"],
+  "alternateName": ["Kareem Hassanein - Registered Physiotherapist", "Kareem Hassanein Physio", "Kareem Hassanein PT", "KinetiKare Physiotherapy", "Kareem Hassanein Sports Physio", "Kareem Hassanein Burlington Physiotherapist"],
   "brand": {
     "@type": "Brand",
     "name": "Kareem Hassanein Physiotherapy",
@@ -96,11 +96,12 @@ const organizationSchema = {
   "sameAs": [
     "https://www.facebook.com/kinetikarephysio",
     "https://www.instagram.com/kinetikarephysio",
-    "https://www.linkedin.com/in/kareemhassanein"
+    "https://www.linkedin.com/in/kareemhassanein",
+    "https://maps.google.com/maps?cid=12525727525636452787"
   ],
   "telephone": "+19056346000",
   "email": "kareem.hassanein@gmail.com",
-  "hasMap": "https://maps.app.goo.gl/JC7uKnd9zW4AJPP49",
+  "hasMap": "https://www.google.com/maps/place/?q=place_id:ChIJD8TZ2clhK4gRs7HkBtJS1K0",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "4631 Palladium Way, Unit 6",
@@ -148,100 +149,25 @@ const organizationSchema = {
   },
   "openingHoursSpecification": ENDORPHINS_OPENING_HOURS_SCHEMA,
   "priceRange": "$$",
-  "founder": {
-    "@type": "Person",
-    "@id": "https://www.kinetikarephysio.com/#person",
-    "name": "Kareem Hassanein",
-    "jobTitle": "Registered Physiotherapist",
-    "description": "Registered Physiotherapist providing manual therapy, dry needling, and exercise rehabilitation for musculoskeletal conditions in Burlington",
-    "worksFor": {
-      "@id": "https://www.kinetikarephysio.com/#organization"
-    }
-  },
-  "medicalSpecialty": [
-    "Physical Therapy",
-    "Sports Physiotherapy",
-    "Manual Therapy", 
-    "Dry Needling",
-    "Back Pain Treatment",
-    "Neck Pain Treatment",
-    "Knee Injury Rehabilitation",
-    "Shoulder Pain Treatment",
-    "Sports Injury Rehabilitation",
-    "Post-Surgical Rehabilitation",
-    "Running Injury Treatment",
-    "Sciatica Treatment",
-    "Tennis Elbow Treatment",
-    "Plantar Fasciitis Treatment",
-    "Rotator Cuff Rehabilitation",
-    "ACL Rehabilitation",
-    "Orthopedic Rehabilitation",
-    "Whiplash Treatment",
-    "Arthritis Management",
-    "Chronic Pain Management",
-    "Herniated Disc Treatment",
-    "Pinched Nerve Treatment",
-    "Frozen Shoulder Treatment",
-    "Hip Pain Management",
-    "Achilles Tendonitis Treatment",
-    "Ankle Injury Rehabilitation",
-    "Meniscus Injury Treatment",
-    "MCL/LCL Injury Treatment",
-    "IT Band Syndrome Treatment",
-    "Patellofemoral Pain Treatment"
-  ],
-  "treatmentOffered": [
-    {
-      "@type": "MedicalTherapy",
-      "name": "Back Pain Physiotherapy",
-      "description": "Treatment for lower back pain, upper back pain, and chronic back conditions"
-    },
-    {
-      "@type": "MedicalTherapy",
-      "name": "Sports Injury Physiotherapy",
-      "description": "Rehabilitation for athletes and active individuals with sports-related injuries"
-    },
-    {
-      "@type": "MedicalTherapy",
-      "name": "Knee Pain Treatment",
-      "description": "Comprehensive knee injury rehabilitation including ACL, meniscus, and patellofemoral pain"
-    },
-    {
-      "@type": "MedicalTherapy",
-      "name": "Manual Therapy",
-      "description": "Hands-on treatment techniques for joint and soft tissue dysfunction"
-    },
-    {
-      "@type": "MedicalTherapy",
-      "name": "Dry Needling",
-      "description": "Intramuscular stimulation for trigger points and muscle tension"
-    }
+  "founder": { "@id": "https://www.kinetikarephysio.com/#person" },
+  "employee": { "@id": "https://www.kinetikarephysio.com/#person" },
+  "location": { "@id": "https://endorphinshealth.com/#clinic" },
+  "containedInPlace": { "@id": "https://endorphinshealth.com/#clinic" },
+  "isAcceptingNewPatients": true,
+  "medicalSpecialty": "https://schema.org/Physiotherapy",
+  "availableService": [
+    { "@type": "MedicalTherapy", "name": "Physiotherapy assessment and treatment", "url": "https://www.kinetikarephysio.com/services" },
+    { "@type": "MedicalTherapy", "name": "Sports rehabilitation and return to sport", "url": "https://www.kinetikarephysio.com/treatments/sports-rehab-return-to-sport" },
+    { "@type": "MedicalTherapy", "name": "Dry needling", "url": "https://www.kinetikarephysio.com/treatments/dry-needling" },
+    { "@type": "MedicalTherapy", "name": "Joint mobilization", "url": "https://www.kinetikarephysio.com/treatments/joint-mobilization" },
+    { "@type": "MedicalTherapy", "name": "Cupping therapy", "url": "https://www.kinetikarephysio.com/treatments/cupping-therapy" },
+    { "@type": "MedicalTherapy", "name": "Exercise therapy", "url": "https://www.kinetikarephysio.com/treatments/exercise-therapy" }
   ],
   "paymentAccepted": [
     "Cash",
     "Credit Card", 
     "Debit Card",
     "Insurance Direct Billing"
-  ],
-  "acceptsInsurance": true,
-  "healthPlanAccepted": [
-    {"@type": "HealthInsurancePlan", "name": "Canada Life"},
-    {"@type": "HealthInsurancePlan", "name": "Sun Life"},
-    {"@type": "HealthInsurancePlan", "name": "Manulife"},
-    {"@type": "HealthInsurancePlan", "name": "Green Shield Canada"},
-    {"@type": "HealthInsurancePlan", "name": "Blue Cross"},
-    {"@type": "HealthInsurancePlan", "name": "Desjardins Insurance"},
-    {"@type": "HealthInsurancePlan", "name": "Empire Life"},
-    {"@type": "HealthInsurancePlan", "name": "Equitable Life"},
-    {"@type": "HealthInsurancePlan", "name": "Industrial Alliance"},
-    {"@type": "HealthInsurancePlan", "name": "Cowan Insurance"},
-    {"@type": "HealthInsurancePlan", "name": "ClaimSecure"},
-    {"@type": "HealthInsurancePlan", "name": "GroupHEALTH"},
-    {"@type": "HealthInsurancePlan", "name": "Johnston Group"},
-    {"@type": "HealthInsurancePlan", "name": "Maximum Benefit"},
-    {"@type": "HealthInsurancePlan", "name": "People Corporation"},
-    {"@type": "HealthInsurancePlan", "name": "RWAM Insurance"},
-    {"@type": "HealthInsurancePlan", "name": "TELUS Health"}
   ],
   "currenciesAccepted": "CAD",
   "serviceArea": {
@@ -251,7 +177,18 @@ const organizationSchema = {
       "latitude": 43.4078162,
       "longitude": -79.8262185
     },
-    "geoRadius": "25000"
+    "geoRadius": 25000
+  },
+  "potentialAction": {
+    "@type": "ReserveAction",
+    "name": "Book an initial assessment with Kareem Hassanein",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://endorphinshealth.janeapp.com/#/staff_member/42/treatment/133",
+      "inLanguage": "en-CA",
+      "actionPlatform": ["https://schema.org/DesktopWebPlatform", "https://schema.org/MobileWebPlatform"]
+    },
+    "result": { "@type": "Reservation", "name": "Physiotherapy initial assessment" }
   }
 };
 
@@ -288,7 +225,7 @@ const websiteSchema = {
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
-  "@id": "https://www.kinetikarephysio.com/#kareem-hassanein",
+  "@id": "https://www.kinetikarephysio.com/#person",
   "name": "Kareem Hassanein",
   "alternateName": ["Kareem Hassanein PT", "Kareem Hassanein Physiotherapist", "Kareem Hassanein MSc PT"],
   "jobTitle": "Registered Physiotherapist",
@@ -298,10 +235,27 @@ const personSchema = {
   "sameAs": [
     "https://www.linkedin.com/in/kareemhassanein",
     "https://portal.collegept.org/en-US/public-register/display-member-contact/?id=757882d7-8c40-eb11-a813-000d3af427b4",
-    "https://endorphinshealth.com/team/kareem-hassanein/"
+    "https://endorphinshealth.com/team/kareem-hassanein/",
+    "https://maps.google.com/maps?cid=12525727525636452787"
   ],
-  "worksFor": {
-    "@id": "https://www.kinetikarephysio.com/#organization"
+  "worksFor": { "@id": "https://endorphinshealth.com/#clinic" },
+  "workLocation": { "@id": "https://endorphinshealth.com/#clinic" },
+  "affiliation": { "@id": "https://www.kinetikarephysio.com/#organization" },
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "College of Physiotherapists of Ontario registration",
+    "value": "20079"
+  },
+  "potentialAction": {
+    "@type": "ReserveAction",
+    "name": "Book an initial assessment with Kareem Hassanein",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://endorphinshealth.janeapp.com/#/staff_member/42/treatment/133",
+      "inLanguage": "en-CA",
+      "actionPlatform": ["https://schema.org/DesktopWebPlatform", "https://schema.org/MobileWebPlatform"]
+    },
+    "result": { "@type": "Reservation", "name": "Physiotherapy initial assessment" }
   },
   "alumniOf": [
     {
@@ -356,40 +310,11 @@ const personSchema = {
   ],
   "honorificSuffix": "Registered Physiotherapist, MSc PT, BSc Kin",
   "knowsAbout": [
-    "Back Pain Treatment",
-    "Sports Injury Rehabilitation",
-    "Manual Therapy",
-    "Dry Needling",
-    "Knee Pain Treatment",
-    "Shoulder Pain Rehabilitation",
-    "Post-Surgical Rehabilitation",
-    "Running Injuries",
-    "Tennis Elbow",
-    "Sciatica Treatment",
-    "Whiplash Treatment",
-    "Arthritis Management",
-    "Chronic Pain Management",
-    "Herniated Disc Treatment",
-    "Frozen Shoulder Treatment",
-    "Plantar Fasciitis",
-    "Hip Pain Treatment",
-    "Ankle Rehabilitation",
-    "Achilles Tendonitis",
-    "ACL Rehabilitation",
-    "Meniscus Tear Treatment",
-    "New Runner Injuries",
-    "Gym Injury Treatment",
-    "CrossFit Rehabilitation",
-    "Weekend Warrior Recovery",
-    "Golf Injury Treatment",
-    "Hockey Injury Rehabilitation",
-    "Soccer Injury Treatment",
-    "Basketball Injury Recovery",
-    "Cycling Pain Treatment",
-    "Desk Job Pain Relief",
-    "Work From Home Ergonomics",
-    "Pregnancy Related Pain",
-    "Postpartum Recovery"
+    "Knee pain", "Patellar tendinopathy", "Patellofemoral pain", "ACL rehabilitation", "Meniscus injuries", "IT band syndrome",
+    "Hip pain", "Gluteal tendinopathy", "Hip labral tears", "Proximal hamstring tendinopathy", "Hip osteoarthritis",
+    "Plantar fasciitis", "Achilles tendinopathy", "Ankle sprains", "Shin splints",
+    "Sports injury rehabilitation", "Return to sport", "Post-surgical rehabilitation",
+    "Dry needling", "Manual therapy", "Cupping therapy", "Exercise prescription"
   ],
   "address": {
     "@type": "PostalAddress",

@@ -303,6 +303,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               <motion.div className={isIntakePage ? "block" : "hidden sm:block"} variants={headerItemVariants}>
                 <Link
                   href={bookingHref}
+                  data-booking-source="header"
                   target="_blank"
                   rel="noopener noreferrer"
                   prefetch={false}
@@ -474,6 +475,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                   </Link>
                   <Link
                     href={bookingHref}
+                    data-booking-source="header_menu"
                     target="_blank"
                     rel="noopener noreferrer"
                     prefetch={false}

@@ -371,6 +371,7 @@ export default function HeroSection() {
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 md:mb-10">
               <Link
                 href={JANE_BOOKING_URL}
+                data-booking-source="hero"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative w-full sm:w-auto"

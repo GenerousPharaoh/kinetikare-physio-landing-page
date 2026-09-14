@@ -45,15 +45,13 @@ export default function About() {
   const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
-    "@id": "https://www.kinetikarephysio.com/about#kareem-hassanein",
+    "@id": "https://www.kinetikarephysio.com/#person",
+    "mainEntityOfPage": "https://www.kinetikarephysio.com/about",
     "name": "Kareem Hassanein",
     "honorificSuffix": "Registered Physiotherapist, MSc PT, BSc Kin",
     "jobTitle": "Registered Physiotherapist",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Kareem Hassanein Physiotherapy",
-      "alternateName": "KinetiKare Physio"
-    },
+    "worksFor": { "@id": "https://endorphinshealth.com/#clinic" },
+    "affiliation": { "@id": "https://www.kinetikarephysio.com/#organization" },
     "alumniOf": [
       {
         "@type": "EducationalOrganization",

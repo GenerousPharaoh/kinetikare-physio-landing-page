@@ -95,22 +95,8 @@ export default async function TreatmentPage({ params }: { params: Promise<{ slug
     howPerformed: treatment.process.map(step => step.description).join(' '),
     bodyLocation: treatment.conditions,
 
-    // Add provider information
-    provider: {
-      '@type': 'MedicalBusiness',
-      name: 'Kareem Hassanein Physiotherapy',
-      url: 'https://www.kinetikarephysio.com',
-      telephone: '+19056346000',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: '4631 Palladium Way, Unit 6',
-        addressLocality: 'Burlington',
-        addressRegion: 'ON',
-        postalCode: 'L7M 0W9',
-        addressCountry: 'CA',
-      },
-      medicalSpecialty: 'Physiotherapy',
-    },
+    provider: { '@id': SEO_ORGANIZATION_ID },
+    performer: { '@id': SEO_PERSON_ID },
   };
 
   const pageSchema = {

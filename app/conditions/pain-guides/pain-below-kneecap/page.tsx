@@ -350,29 +350,6 @@ export default function PainBelowKneecapGuidePage() {
     })),
   };
 
-  const localBusinessSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    '@id': `${PAGE_URL}#clinic`,
-    name: 'Kareem Hassanein Physiotherapy',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: '4631 Palladium Way, Unit 6',
-      addressLocality: 'Burlington',
-      addressRegion: 'ON',
-      postalCode: 'L7M 0W9',
-      addressCountry: 'CA',
-    },
-    telephone: '+1-905-634-6000',
-    areaServed: [
-      { '@type': 'City', name: 'Burlington' },
-      { '@type': 'City', name: 'Waterdown' },
-      { '@type': 'City', name: 'Oakville' },
-      { '@type': 'City', name: 'Hamilton' },
-      { '@type': 'City', name: 'Flamborough' },
-      { '@type': 'City', name: 'Carlisle' },
-    ],
-  };
 
   return (
     <>
@@ -387,10 +364,6 @@ export default function PainBelowKneecapGuidePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: serializeJsonLd(localBusinessSchema) }}
       />
 
       <main className="min-h-screen">

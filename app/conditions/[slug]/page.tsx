@@ -231,7 +231,7 @@ export default async function ConditionPage({ params }: PageProps) {
         "name": `Rehabilitation Phases for ${condition.name}`,
         "description": `Evidence-based progressive rehabilitation phases for ${condition.name}, authored and supervised by Kareem Hassanein, Registered Physiotherapist.`,
         "author": { "@id": SEO_PERSON_ID },
-        "about": { "@id": "#condition" },
+        "about": { "@id": `https://www.kinetikarephysio.com/conditions/${slug}#condition` },
         "step": [exerciseProgression.phase1, exerciseProgression.phase2, exerciseProgression.phase3].map((phase) => ({
           "@type": "HowToSection",
           "name": phase.title,
@@ -256,7 +256,7 @@ export default async function ConditionPage({ params }: PageProps) {
     "@graph": [
       {
         "@type": "MedicalCondition",
-        "@id": "#condition",
+        "@id": `https://www.kinetikarephysio.com/conditions/${slug}#condition`,
         "name": condition.name,
         "description": condition.description,
         "associatedAnatomy": {
@@ -267,18 +267,7 @@ export default async function ConditionPage({ params }: PageProps) {
           "@type": "MedicalTherapy",
           "name": "Physiotherapy Treatment",
           "description": "Evidence-based physiotherapy treatment including manual therapy, exercise prescription, and education",
-          "provider": {
-            "@type": "Person",
-            "@id": "#kareem",
-            "name": "Kareem Hassanein",
-            "jobTitle": "Registered Physiotherapist",
-            "alumniOf": ["Robert Gordon University", "McMaster University"],
-            "memberOf": {
-              "@type": "Organization",
-              "name": "College of Physiotherapists of Ontario",
-              "identifier": "20079"
-            }
-          }
+          "provider": { "@id": SEO_PERSON_ID }
         },
         "signOrSymptom": condition.symptoms?.map(symptom => ({
           "@type": "MedicalSymptom",
@@ -288,25 +277,6 @@ export default async function ConditionPage({ params }: PageProps) {
           "@type": "MedicalRiskFactor",
           "name": cause
         })) || []
-      },
-      {
-        "@type": "LocalBusiness",
-        "@id": "#clinic",
-        "name": "Kareem Hassanein Physiotherapy",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "4631 Palladium Way, Unit 6",
-          "addressLocality": "Burlington",
-          "addressRegion": "ON",
-          "addressCountry": "CA"
-        },
-        "areaServed": [
-          {"@type": "City", "name": "Burlington"},
-          {"@type": "City", "name": "Waterdown"},
-          {"@type": "City", "name": "Oakville"},
-          {"@type": "City", "name": "Flamborough"},
-          {"@type": "City", "name": "Carlisle"}
-        ]
       },
       ...(howToSchema ? [howToSchema] : []),
     ]
@@ -361,10 +331,10 @@ export default async function ConditionPage({ params }: PageProps) {
       '@id': SEO_ORGANIZATION_ID,
     },
     about: {
-      '@id': '#condition',
+      '@id': `https://www.kinetikarephysio.com/conditions/${slug}#condition`,
     },
     mainEntity: {
-      '@id': '#condition',
+      '@id': `https://www.kinetikarephysio.com/conditions/${slug}#condition`,
     },
     ...(CONTENT_LAST_MODIFIED_ISO.conditions
       ? { dateModified: CONTENT_LAST_MODIFIED_ISO.conditions }

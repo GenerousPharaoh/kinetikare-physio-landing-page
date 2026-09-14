@@ -6,11 +6,16 @@ import { PhoneIcon, ArrowUpIcon, CalendarDaysIcon } from '@heroicons/react/24/so
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { BOOKING_PAGE_PATH, JANE_BOOKING_URL } from '@/lib/booking';
-import { HUB_PATHS } from '@/lib/condition-hubs';
 
 export default function FloatingButtons() {
   const [isVisible, setIsVisible] = useState(false);
+  const [showMobileCta, setShowMobileCta] = useState(false);
   const [showTooltip, setShowTooltip] = useState<string | null>(null);
+  // Height of the condition page's own bottom tab bar, when one is mounted, so
+  // the mobile Book pill can sit above it instead of on top of it. Measured
+  // rather than hard-coded: that bar grows a second row of sub-section chips on
+  // some tabs and not others.
+  const [bottomNavHeight, setBottomNavHeight] = useState(0);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -20,6 +25,10 @@ export default function FloatingButtons() {
       // Call pills stay visible at all times so the booking path is always one
       // tap away (they no longer tuck away on scroll-down).
       setIsVisible(window.pageYOffset > 500);
+      // On mobile the pill holds back until the reader is past the first
+      // screen, because every page's own hero already carries a Book button and
+      // two of them at once is what made the old full-width bar look wrong.
+      setShowMobileCta(window.pageYOffset > 320);
       ticking = false;
     };
     const onScroll = () => {
@@ -33,21 +42,23 @@ export default function FloatingButtons() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+    const bar = document.querySelector('[data-condition-navigation]');
+    if (!bar) {
+      setBottomNavHeight(0);
+      return;
+    }
+    const measure = () => setBottomNavHeight(bar.getBoundingClientRect().height);
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(bar);
+    return () => ro.disconnect();
+  }, [pathname]);
+
   // The /intake ads landing page has its own sticky Book/Call bar.
   if (pathname === BOOKING_PAGE_PATH) {
     return null;
   }
-
-  // Condition detail pages carry a Book action in their mobile bottom bar, so
-  // the floating stack is hidden there on mobile (it would collide) but kept on
-  // desktop, where there is no bottom bar. Hubs / compare / pain-guides have no
-  // bottom bar, so the stack stays everywhere on those.
-  const path = pathname || '';
-  const isConditionDetailPage =
-    path.startsWith('/conditions/') &&
-    !path.startsWith('/conditions/compare') &&
-    !path.startsWith('/conditions/pain-guides') &&
-    !HUB_PATHS.has(path);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: getScrollBehavior() });
@@ -84,17 +95,44 @@ export default function FloatingButtons() {
 
   return (
     <>
-      {!isConditionDetailPage && (
-        <nav aria-label="Book or call the clinic" className="mobile-booking-bar fixed inset-x-0 bottom-0 z-40 flex items-center gap-2 border-t border-slate-200 bg-white/95 px-4 pt-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] backdrop-blur-md lg:hidden">
-          <a href={JANE_BOOKING_URL} target="_blank" rel="noopener noreferrer" aria-label="Book an appointment with Kareem Hassanein" className="button-gold inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-lg px-4 py-3 text-sm font-semibold">
-            <CalendarDaysIcon className="h-5 w-5 shrink-0" aria-hidden="true" /><span>Book<span className="hidden min-[375px]:inline"> appointment</span></span>
-          </a>
-          <a href="tel:+19056346000" aria-label="Call the clinic at 905-634-6000" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm font-medium text-slate-900">
-            <PhoneIcon className="h-4 w-4" aria-hidden="true" />Call
-          </a>
-          {isVisible && <button type="button" onClick={scrollToTop} aria-label="Back to top" className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-slate-300 text-slate-700"><ArrowUpIcon className="h-4 w-4" aria-hidden="true" /></button>}
-        </nav>
-      )}
+      {/* Mobile: a compact pair in the corner rather than a full-width bar.
+          The old bar was an opaque white slab pinned over every page, it
+          duplicated the hero's own Book button on first paint, and its
+          `button-gold` (#B08D57) sat directly under the hero's #D4AF37, so two
+          different golds were on screen at once. This keeps one booking action
+          in the hero's gold, demotes Call to an icon, drops the back-to-top
+          (the desktop stack still carries it), and lifts clear of the condition
+          page's tab bar instead of hiding on those pages. */}
+      <AnimatePresence>
+        {showMobileCta && (
+          <motion.div
+            className="fixed right-4 z-40 flex items-center gap-2 lg:hidden"
+            style={{ bottom: `calc(${bottomNavHeight}px + 1rem + env(safe-area-inset-bottom))` }}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 12 }}
+            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <a
+              href="tel:+19056346000"
+              aria-label="Call the clinic at 905-634-6000"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-slate-900 shadow-lg backdrop-blur-md"
+            >
+              <PhoneIcon className="h-5 w-5" aria-hidden="true" />
+            </a>
+            <a
+              href={JANE_BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Book an appointment with Kareem Hassanein"
+              className="flex h-12 items-center gap-2 rounded-full bg-[#D4AF37] pl-4 pr-5 text-sm font-bold tracking-wide text-slate-900 shadow-lg shadow-[#D4AF37]/25"
+            >
+              <CalendarDaysIcon className="h-5 w-5 shrink-0" aria-hidden="true" />
+              Book
+            </a>
+          </motion.div>
+        )}
+      </AnimatePresence>
     <motion.div
       className={`hidden lg:flex fixed bottom-5 right-5 z-40 flex-col items-end space-y-2.5 md:space-y-3`}
       initial="hidden"

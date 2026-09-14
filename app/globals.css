@@ -1614,8 +1614,19 @@ body {
 }
 
 @media (max-width: 1023px) {
-  html { --mobile-controls-height: 5rem; scroll-padding-bottom: calc(var(--mobile-controls-height) + 1rem); }
+  /* Two separate pieces of bottom chrome, so they are measured separately.
+     --mobile-controls-height is full-width chrome: nothing on most pages now
+     that the Book/Call bar is a corner pill, and the tab bar on condition
+     pages. --mobile-cta-height is the floating Book pill that sits above it
+     (3rem tall, 1rem clear of whatever is below, 1rem of breathing room).
+     Anything else pinned to the bottom has to clear both or it lands
+     underneath the pill, which is what happened to the cookie banner. */
+  html {
+    --mobile-controls-height: 0rem;
+    --mobile-cta-height: 5rem;
+    scroll-padding-bottom: calc(var(--mobile-controls-height) + var(--mobile-cta-height));
+  }
   html:has([data-condition-navigation]) { --mobile-controls-height: 9rem; }
-  .site-footer { padding-bottom: calc(var(--mobile-controls-height) + 2rem + env(safe-area-inset-bottom)); }
-  .cookie-banner { bottom: calc(var(--mobile-controls-height) + 0.75rem + env(safe-area-inset-bottom)); }
+  .site-footer { padding-bottom: calc(var(--mobile-controls-height) + var(--mobile-cta-height) + 1rem + env(safe-area-inset-bottom)); }
+  .cookie-banner { bottom: calc(var(--mobile-controls-height) + var(--mobile-cta-height) + env(safe-area-inset-bottom)); }
 }

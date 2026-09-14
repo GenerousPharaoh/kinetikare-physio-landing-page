@@ -32,7 +32,10 @@
 .map summary svg { width: 15px; height: 15px; color: #e7c56f; transition: transform 180ms ease-out; }
 .map[open] summary svg { transform: rotate(180deg); }
 .map iframe { display: block; border: 0; border-radius: 5px; margin: 8px 0 0; background: #202a3a; }
-.hours dl { margin: -5px 0 0; }
+.hoursGroup + .hoursGroup { margin-top: 14px; }
+.hours h3 { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 8px; margin: 0 0 2px; color: #fff; font-size: 12px; font-weight: 500; line-height: 1.6; }
+.hours h3 span { color: #aeb8c9; font-weight: 400; }
+.hours dl { margin: 0; }
 .hours dl > div { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 12px; padding: 5px 0; }
 .hours dt { color: #cbd5e1; font-size: 12px; }
 .hours dd { margin: 0; color: #fff; font-size: 12px; font-variant-numeric: tabular-nums; white-space: nowrap; }
@@ -49,7 +52,7 @@
 .footer[data-compact] .main { grid-template-columns: 1fr; padding: 32px 0 20px; }
 .footer[data-compact] .bottom { border-top: 1px solid #374050; }
 .footer[data-compact] .practitioner { margin-bottom: 0; }
-@media (min-width: 1024px) and (max-width: 1399px) {
+@media (min-width: 1024px) and (max-width: 1499px) {
   .footer { padding-right: 128px; }
   .main { gap: 40px; grid-template-columns: .85fr 2fr; }
   .visitGrid { gap: 28px; }
@@ -58,7 +61,10 @@
   .brand { gap: 12px; }
 }
 @media (max-width: 1023px) {
-  .footer.footer { padding-bottom: calc(var(--mobile-controls-height, 5rem) + 24px + env(safe-area-inset-bottom)); }
+  /* Clears both the condition-page bottom bar and the floating Book/Call pill;
+     the pill variable is set in globals.css and was missing here, so the pill
+     covered the legal links on phones. */
+  .footer.footer { padding-bottom: calc(var(--mobile-controls-height, 0rem) + var(--mobile-cta-height, 0rem) + 24px + env(safe-area-inset-bottom)); }
   .main { grid-template-columns: 1fr; gap: 32px; padding: 36px 0 28px; }
   .identity { display: grid; grid-template-columns: 1fr auto; column-gap: 24px; align-items: center; }
   .brand { grid-column: 1; }

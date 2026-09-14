@@ -38,8 +38,9 @@ export default function FloatingButtons() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // The /intake ads landing page has its own sticky Book/Call bar.
-  if (pathname === BOOKING_PAGE_PATH) {
+  // The /intake ads landing page has its own sticky Book/Call bar, and
+  // /contact is the contact surface itself, so neither gets the pills.
+  if (pathname === BOOKING_PAGE_PATH || pathname === '/contact') {
     return null;
   }
 

@@ -1629,6 +1629,8 @@ body {
   /* Condition pages swap one for the other: the tab bar is there, the pill is
      not, so the reserve moves across rather than adding up. */
   html:has([data-condition-navigation]) { --mobile-controls-height: 9rem; --mobile-cta-height: 0rem; }
+  /* /contact renders no floating pill (FloatingButtons returns null there). */
+  html:has([data-contact-page]) { --mobile-cta-height: 0rem; }
   .site-footer { padding-bottom: calc(var(--mobile-controls-height) + var(--mobile-cta-height) + 1rem + env(safe-area-inset-bottom)); }
   .cookie-banner { bottom: calc(var(--mobile-controls-height) + var(--mobile-cta-height) + env(safe-area-inset-bottom)); }
 }

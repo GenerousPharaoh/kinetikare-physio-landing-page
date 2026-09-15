@@ -144,7 +144,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description,
       url: `https://www.kinetikarephysio.com/conditions/${slug}`,
       type: 'article',
-      siteName: 'Kareem Hassanein Physiotherapy',
+      siteName: 'Kinetikare',
       authors: [SEO_AUTHOR.name],
       ...(CONTENT_LAST_MODIFIED_ISO.conditions
         ? { modifiedTime: CONTENT_LAST_MODIFIED_ISO.conditions }

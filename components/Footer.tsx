@@ -47,9 +47,9 @@ export default function Footer() {
       <div className={styles.inner}>
         <div className={styles.main}>
           <div className={styles.identity}>
-            <Link href="/" className={`text-white ${styles.brand}`} aria-label="KinetiKare Physiotherapy home">
+            <Link href="/" className={`text-white ${styles.brand}`} aria-label="Kinetikare Physiotherapy home">
               <Image src="/images/kinetikare-logo-without-text.webp" alt="" width={56} height={70} className={styles.logo} />
-              <p className={styles.wordmark}>Kineti<span>K</span>are<small>Physiotherapy</small></p>
+              <p className={styles.wordmark}>Kinetikare <small>Physiotherapy</small></p>
             </Link>
             <p className={styles.practitioner}>Kareem Hassanein<span>Registered Physiotherapist</span></p>
             {!concise && <>
@@ -94,7 +94,7 @@ export default function Footer() {
         </div>}
 
         <div className={styles.bottom}>
-          <p>© {new Date().getFullYear()} KinetiKare Physiotherapy. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Kinetikare Physiotherapy. All rights reserved.</p>
           <nav aria-label="Legal information" className={styles.legal}>
             <Link href="/privacy" prefetch={false} className="text-white">Privacy Policy</Link>
             <Link href="/terms" prefetch={false} className="text-white">Terms of Service</Link>

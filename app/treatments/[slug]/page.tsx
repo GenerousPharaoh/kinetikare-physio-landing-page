@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description: treatment.metaDescription || fallbackDescription,
       type: 'article',
       url: `https://www.kinetikarephysio.com/treatments/${treatment.id}`,
-      siteName: 'Kareem Hassanein Physiotherapy',
+      siteName: 'Kinetikare',
       authors: [SEO_AUTHOR.name],
       ...(CONTENT_LAST_MODIFIED_ISO.treatments
         ? { modifiedTime: CONTENT_LAST_MODIFIED_ISO.treatments }

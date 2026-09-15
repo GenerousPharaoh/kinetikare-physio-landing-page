@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import LegalPageLayout from '@/components/LegalPageLayout';
 
 export const metadata: Metadata = {
-  title: 'Accessibility Statement | KinetiKare Physiotherapy',
+  title: 'Accessibility Statement | Kinetikare Physiotherapy',
   description: 'Commitment to providing accessible physiotherapy services to all individuals, including persons with disabilities, in compliance with AODA and Ontario Human Rights Code.',
   alternates: {
     canonical: 'https://www.kinetikarephysio.com/accessibility',

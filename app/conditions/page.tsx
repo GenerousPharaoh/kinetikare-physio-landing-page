@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description: 'Browse condition guides and treatment information for common musculoskeletal conditions in Burlington.',
     url: 'https://www.kinetikarephysio.com/conditions',
     type: 'website',
-    siteName: 'Kareem Hassanein Physiotherapy',
+    siteName: 'Kinetikare',
     images: [{
       url: 'https://www.kinetikarephysio.com/images/og-image.jpg',
       width: 1200,

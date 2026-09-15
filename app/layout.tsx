@@ -43,12 +43,12 @@ export const metadata = {
   authors: [{ name: 'Kareem Hassanein', url: 'https://www.kinetikarephysio.com/about' }],
   creator: 'Kareem Hassanein',
   publisher: 'Kareem Hassanein Physiotherapy',
-  applicationName: 'Kareem Hassanein Physiotherapy',
+  applicationName: 'Kinetikare',
   openGraph: {
     title: 'Kareem Hassanein Physiotherapy | Burlington',
     description: 'Registered Physiotherapist offering manual therapy, dry needling, cupping, and exercise rehabilitation for chronic pain, post-surgical recovery, and movement restoration.',
     url: 'https://www.kinetikarephysio.com',
-    siteName: 'Kareem Hassanein Physiotherapy',
+    siteName: 'Kinetikare',
     type: 'website',
     locale: 'en_CA',
   },
@@ -70,7 +70,7 @@ export const metadata = {
     'google': 'notranslate',
     'copyright': 'Kareem Hassanein Physiotherapy',
     'msapplication-TileColor': '#B08D57',
-    'apple-mobile-web-app-title': 'Kareem Physio',
+    'apple-mobile-web-app-title': 'Kinetikare',
     'geo.region': 'CA-ON',
     'geo.placename': 'Burlington, Waterdown, Oakville, Flamborough, Carlisle',
     'geo.position': '43.4078162;-79.8262185',
@@ -84,11 +84,11 @@ const organizationSchema = {
   "@id": "https://www.kinetikarephysio.com/#organization",
   "name": "Kareem Hassanein Physiotherapy",
   "legalName": "Kareem Hassanein Registered Physiotherapy Professional Corporation",
-  "alternateName": ["Kareem Hassanein - Registered Physiotherapist", "Kareem Hassanein Physio", "Kareem Hassanein PT", "KinetiKare Physiotherapy", "Kareem Hassanein Sports Physio", "Kareem Hassanein Burlington Physiotherapist"],
+  "alternateName": ["Kareem Hassanein - Registered Physiotherapist", "Kinetikare", "Kinetikare Physiotherapy", "Kinetikare Physio", "Kareem Hassanein Physio", "Kareem Hassanein PT", "Kareem Hassanein Sports Physio", "Kareem Hassanein Burlington Physiotherapist"],
   "brand": {
     "@type": "Brand",
-    "name": "Kareem Hassanein Physiotherapy",
-    "alternateName": ["KinetiKare", "Kareem Hassanein PT", "Kareem Physio"]
+    "name": "Kinetikare",
+    "alternateName": ["Kinetikare Physiotherapy", "Kinetikare Physio", "Kareem Hassanein Physiotherapy"]
   },
   "image": "https://www.kinetikarephysio.com/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png",
   "logo": "https://www.kinetikarephysio.com/images/kinetikare-logo.webp",
@@ -197,8 +197,8 @@ const brandSchema = {
   "@context": "https://schema.org",
   "@type": "Brand",
   "@id": "https://www.kinetikarephysio.com/#brand",
-  "name": "Kareem Hassanein Physiotherapy",
-  "alternateName": ["Kareem Hassanein Physio", "KinetiKare", "Kareem Physio Burlington", "Kareem Hassanein PT"],
+  "name": "Kinetikare",
+  "alternateName": ["Kinetikare Physiotherapy", "Kinetikare Physio", "Kareem Hassanein Physiotherapy", "Kareem Hassanein Physio"],
   "logo": "https://www.kinetikarephysio.com/images/kinetikare-logo.webp",
   "url": "https://www.kinetikarephysio.com",
   "sameAs": [
@@ -213,8 +213,8 @@ const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "@id": "https://www.kinetikarephysio.com/#website", 
-  "name": "Kareem Hassanein Physiotherapy",
-  "alternateName": "KinetiKare Physiotherapy",
+  "name": "Kinetikare",
+  "alternateName": ["Kinetikare Physiotherapy", "Kinetikare Physio", "kinetikarephysio.com"],
   "url": "https://www.kinetikarephysio.com",
   "publisher": {
     "@id": "https://www.kinetikarephysio.com/#organization"

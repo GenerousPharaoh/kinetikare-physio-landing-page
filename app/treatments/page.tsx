@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description: 'Browse treatment approaches used for musculoskeletal care in Burlington.',
     type: 'website',
     url: 'https://www.kinetikarephysio.com/treatments',
-    siteName: 'Kareem Hassanein Physiotherapy',
+    siteName: 'Kinetikare',
     images: [
       {
         url: 'https://www.kinetikarephysio.com/images/og-image.jpg',

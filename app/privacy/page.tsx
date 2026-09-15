@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import LegalPageLayout from '@/components/LegalPageLayout';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | KinetiKare Physiotherapy',
+  title: 'Privacy Policy | Kinetikare Physiotherapy',
   description: 'Comprehensive privacy policy outlining how personal and health information is collected, used, and protected in compliance with PIPEDA and PHIPA.',
   alternates: {
     canonical: 'https://www.kinetikarephysio.com/privacy',

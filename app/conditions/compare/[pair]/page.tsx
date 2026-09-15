@@ -72,7 +72,7 @@ export async function generateMetadata({
       description: comparison.description,
       url: pageUrl,
       type: 'article',
-      siteName: 'Kareem Hassanein Physiotherapy',
+      siteName: 'Kinetikare',
       authors: [SEO_AUTHOR.name],
       ...(CONTENT_LAST_MODIFIED_ISO.conditions
         ? { modifiedTime: CONTENT_LAST_MODIFIED_ISO.conditions }

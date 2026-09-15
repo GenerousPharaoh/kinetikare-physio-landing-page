@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import LegalPageLayout from '@/components/LegalPageLayout';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | KinetiKare Physiotherapy',
+  title: 'Terms of Service | Kinetikare Physiotherapy',
   description: 'Terms and conditions for physiotherapy services, including appointment policies, fees, professional standards, and patient responsibilities.',
   alternates: {
     canonical: 'https://www.kinetikarephysio.com/terms',

@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     description: PAGE_DESCRIPTION,
     url: PAGE_URL,
     type: 'article',
-    siteName: 'Kareem Hassanein Physiotherapy',
+    siteName: 'Kinetikare',
     authors: [SEO_AUTHOR.name],
     ...(CONTENT_LAST_MODIFIED_ISO.conditions
       ? { modifiedTime: CONTENT_LAST_MODIFIED_ISO.conditions }

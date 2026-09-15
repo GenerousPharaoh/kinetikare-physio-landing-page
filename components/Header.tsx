@@ -137,7 +137,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 <div className="relative w-10 h-10 lg:w-11 lg:h-11 transition-transform duration-500 group-hover:scale-105 flex-shrink-0">
                   <Image
                     src="/images/kinetikare-logo-without-text.webp"
-                    alt="KinetiKare Logo"
+                    alt="Kinetikare Logo"
                     fill
                     className="object-contain drop-shadow-[0_0_15px_rgba(212,175,55,0.3)]"
                     sizes="44px"
@@ -145,17 +145,13 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                 </div>
                 {/* Text Container - Moved down slightly (mt-1) */}
                 <div className="flex flex-row items-center gap-1 mt-1.5 lg:mt-0 lg:flex-row lg:items-center lg:gap-0">
-                  <div className="flex items-center tracking-[0.1em] sm:tracking-[0.15em] leading-none">
-                    <span className="text-sm sm:text-lg lg:text-xl font-light !text-white uppercase">
-                      Kineti
-                    </span>
-                    <span className="text-sm sm:text-lg lg:text-xl font-bold text-[#D4AF37] uppercase">
-                      k
-                    </span>
-                    <span className="text-sm sm:text-lg lg:text-xl font-light !text-white uppercase">
-                      are
-                    </span>
-                  </div>
+                  {/* One literal text node for the name. It used to be Kineti + K + are in
+                      three spans, which parsers read as "KinetiKarePhysio" and re-split
+                      as "Kinetika Rephysio". */}
+                  <span className="text-sm sm:text-lg lg:text-xl font-light !text-white uppercase tracking-[0.1em] sm:tracking-[0.15em] leading-none">
+                    Kinetikare
+                  </span>
+                  {' '}
 
                   {/* Desktop Separator */}
                   <div className="hidden lg:block h-4 w-[1px] bg-[#D4AF37] mx-3" />

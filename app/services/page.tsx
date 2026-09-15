@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   description: 'Burlington physiotherapy for sports injuries, knee and hip pain, dry needling, cupping, exercise rehab, and post-surgical recovery. Direct billing.',
   metadataBase: new URL('https://www.kinetikarephysio.com'),
   openGraph: {
+    siteName: 'Kinetikare',
     title: 'Burlington Physiotherapy Services | Sports Rehab, Dry Needling & Cupping',
     description: 'Sports rehabilitation, knee and hip pain treatment, dry needling, cupping, and exercise-based physiotherapy in Burlington.',
     type: 'website',

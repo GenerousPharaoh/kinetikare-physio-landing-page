@@ -1,6 +1,6 @@
 {
-  "name": "KinetiKare - Kareem Hassanein Physiotherapy",
-  "short_name": "KinetiKare",
+  "name": "Kinetikare Physio",
+  "short_name": "Kinetikare",
   "icons": [
     {
       "src": "/favicon.png",
@@ -16,4 +16,4 @@
   "theme_color": "#B08D57",
   "background_color": "#FFFFFF",
   "display": "standalone"
-} 
+}

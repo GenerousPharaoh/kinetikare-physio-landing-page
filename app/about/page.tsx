@@ -24,6 +24,7 @@ export const metadata: Metadata = {
   description: 'Meet Kareem Hassanein, Registered Physiotherapist, MSc PT, BSc Kin in Burlington. Manual therapy, sports rehabilitation, and evidence-based treatment.',
   metadataBase: new URL('https://www.kinetikarephysio.com'),
   openGraph: {
+    siteName: 'Kinetikare',
     title: 'About Kareem Hassanein | Physiotherapist | Burlington & Waterdown',
     description: 'Learn about Kareem Hassanein, Registered Physiotherapist, MSc PT, BSc Kin. Dedicated to providing personalized physiotherapy and manual therapy in Burlington. Serving patients from Waterdown, Hamilton, Oakville and beyond.',
     url: 'https://www.kinetikarephysio.com/about',

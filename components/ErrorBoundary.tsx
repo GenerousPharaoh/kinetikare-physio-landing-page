@@ -84,7 +84,7 @@ class ErrorBoundary extends Component<Props, State> {
         return <>{this.props.fallback}</>;
       }
 
-      // Default error UI with KinetiKare branding
+      // Default error UI with Kinetikare branding
       return (
         <div className="min-h-[400px] flex items-center justify-center p-4">
           <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-6 md:p-8 text-center">

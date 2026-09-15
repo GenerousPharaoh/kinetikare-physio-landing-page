@@ -13,7 +13,7 @@ interface LegalPageLayoutProps {
 export default function LegalPageLayout({ title, effectiveDate, children }: LegalPageLayoutProps) {
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
-      {/* Modern Header with KinetiKare branding */}
+      {/* Modern Header with Kinetikare branding */}
       <section className="relative pt-24 pb-12 md:pt-28 md:pb-16" style={{ backgroundColor: '#0f172a' }}>
         {/* Subtle background pattern */}
         <div className="absolute inset-0 opacity-10">

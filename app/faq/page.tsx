@@ -978,7 +978,8 @@ export const metadata: Metadata = {
   creator: SEO_AUTHOR.name,
   publisher: SEO_PUBLISHER,
   openGraph: {
-    title: 'FAQ | Kareem Hassanein | KinetiKare Physiotherapy',
+    siteName: 'Kinetikare',
+    title: 'FAQ | Kareem Hassanein | Kinetikare Physiotherapy',
     description: 'Find answers to your physiotherapy questions. Serving Burlington, Waterdown, and surrounding areas.',
     url: 'https://www.kinetikarephysio.com/faq',
     type: 'website',

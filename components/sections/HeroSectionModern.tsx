@@ -120,7 +120,7 @@ export default function HeroSection() {
             >
               <Image
                 src="/images/clinic-pic-may-2025.webp"
-                alt="KinetiKare Physiotherapy clinic"
+                alt="Kinetikare Physiotherapy clinic"
                 fill
                 loading="eager"
                 fetchPriority="high"

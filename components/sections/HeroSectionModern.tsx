@@ -85,11 +85,11 @@ export default function HeroSection() {
           <div className="absolute top-0 right-0 w-[65%] h-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%)]">
             <motion.div
               className="relative w-full h-full will-change-transform"
-              initial={{ scale: 1.15, x: "0%" }}
+              initial={{ scale: 1, x: "0%" }}
               animate={(shouldReduceMotion || !isHeroInView) ? undefined : {
-                scale: [1.15, 1.2, 1.15, 1.2],
-                x: ["0%", "10%", "5%", "15%"], // Shifted right
-                y: ["0%", "-3%", "0%", "-2%"]
+                scale: [1, 1.035, 1, 1.035],
+                x: ["0%", "1.5%", "0.5%", "2%"],
+                y: ["0%", "-1%", "0%", "-0.7%"]
               }}
               transition={{
                 duration: 45,
@@ -127,7 +127,7 @@ export default function HeroSection() {
 
             {/* Status Badge */}
             <motion.div
-              className="absolute bottom-[10%] right-[8%] z-20"
+              className="absolute bottom-[10%] right-[15%] z-20"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 2.5, duration: 0.8 }}

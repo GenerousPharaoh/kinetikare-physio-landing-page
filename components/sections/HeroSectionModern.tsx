@@ -119,13 +119,13 @@ export default function HeroSection() {
               }}
             >
               <Image
-                src="/images/clinic-pic-may-2025.webp"
-                alt="Kinetikare Physiotherapy clinic"
+                src="/images/endorphins-treatment-room.webp"
+                alt="Treatment room at Endorphins Health & Wellness Centre, Burlington"
                 fill
                 loading="eager"
                 fetchPriority="high"
                 quality={82}
-                className="object-cover object-[35%_center] brightness-100 contrast-105"
+                className="object-cover object-[50%_60%] brightness-100 contrast-105"
                 sizes="(min-width: 1280px) 65vw, 100vw"
               />
             </motion.div>
@@ -257,7 +257,7 @@ export default function HeroSection() {
         {/* Mobile and tablet background, before the split composition has room. */}
         <div className="absolute inset-0 xl:hidden" aria-hidden="true">
           <Image
-            src="/images/clinic-pic-may-2025.webp"
+            src="/images/endorphins-treatment-room.webp"
             alt=""
             fill
             loading="eager"

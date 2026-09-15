@@ -77,12 +77,12 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
 
   const mainNavItems = useMemo(
     () => [
-      { name: 'Home', href: '/' },
       { name: 'About', href: '/about' },
       { name: 'Services', href: '/services' },
       { name: 'Treatments', href: '/treatments' },
       { name: 'Conditions', href: '/conditions' },
       { name: 'FAQ', href: '/faq' },
+      { name: 'Fees & first visit', href: '/fees-and-first-visit' },
       { name: 'Contact', href: '/contact' },
     ],
     []
@@ -190,7 +190,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                     prefetch={false}
                     onMouseEnter={item.name === 'Conditions' ? () => setConditionsMenuOpen(true) : undefined}
                     aria-current={isCurrentPath(item.href) ? 'page' : undefined}
-                    className={`relative px-3 2xl:px-4 py-3 rounded-full text-sm font-medium tracking-wide transition-all duration-300 ${
+                    className={`relative px-3 2xl:px-4 py-3 rounded-full text-sm font-medium tracking-wide whitespace-nowrap transition-all duration-300 ${
                       isCurrentPath(item.href)
                         ? '!text-[#D4AF37] bg-white/10 shadow-[0_0_10px_rgba(212,175,55,0.1)]'
                         : '!text-white/80 hover:!text-white hover:bg-white/5'
@@ -287,7 +287,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
               ) : null}
 
               {/* Phone */}
-              <motion.div className="hidden 2xl:block" variants={headerItemVariants}>
+              <motion.div className="hidden 3xl:block" variants={headerItemVariants}>
                 <Link
                   href="tel:+19056346000"
                   className="flex items-center gap-2 !text-white/70 hover:!text-white transition-colors group"

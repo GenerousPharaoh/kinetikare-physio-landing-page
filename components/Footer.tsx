@@ -42,8 +42,12 @@ export default function Footer() {
   // /contact carries every contact detail above the footer, so the footer
   // there closes the page instead of restating it.
   const concise = isIntakePage || pathname === '/contact';
+  // The home page carries a full contact section directly above the footer,
+  // so the footer there keeps the identity block and navigation but not the
+  // repeated phone, email, address and hours.
+  const hideDetails = concise || pathname === '/';
   return (
-    <footer className={`site-footer ${styles.footer}`} data-compact={concise || undefined}>
+    <footer className={`site-footer ${styles.footer}`} data-compact={hideDetails || undefined}>
       <div className={styles.inner}>
         <div className={styles.main}>
           <div className={styles.identity}>
@@ -58,7 +62,7 @@ export default function Footer() {
             </>}
           </div>
 
-          {!concise && <div className={styles.details}>
+          {!hideDetails && <div className={styles.details}>
             <div className={styles.contactRow}>
               <a href="tel:+19056346000" className={`text-white ${styles.phone}`}>(905) 634-6000</a>
               <a href="mailto:kareem.hassanein@gmail.com" className={`text-white ${styles.email}`}>kareem.hassanein@gmail.com</a>
@@ -88,7 +92,7 @@ export default function Footer() {
 
         {!isIntakePage && <div className={styles.navigationRow}>
           <nav aria-label="Footer navigation">
-            <ul>{[{href:'/services',label:'Services'},{href:'/conditions',label:'Conditions'},{href:'/about',label:'About'},{href:'/faq',label:'FAQ'},{href:'/contact',label:'Contact'}].map(link => <li key={link.href}><Link href={link.href} prefetch={false} className="text-white">{link.label}</Link></li>)}</ul>
+            <ul>{[{href:'/services',label:'Services'},{href:'/conditions',label:'Conditions'},{href:'/about',label:'About'},{href:'/faq',label:'FAQ'},{href:'/fees-and-first-visit',label:'Fees & first visit'},{href:'/contact',label:'Contact'}].map(link => <li key={link.href}><Link href={link.href} prefetch={false} className="text-white">{link.label}</Link></li>)}</ul>
           </nav>
           <a href="https://www.linkedin.com/in/kareemhassanein" target="_blank" rel="noopener noreferrer" className={`text-white ${styles.social}`}>LinkedIn</a>
         </div>}

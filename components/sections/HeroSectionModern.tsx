@@ -407,6 +407,14 @@ export default function HeroSection() {
               </Link>
             </motion.div>
 
+            {/* Fee line: the price sits next to the action, not in a billing section halfway down. */}
+            <motion.p variants={itemVariants} className="text-white/75 text-sm mb-5 xl:mb-4">
+              Initial assessment $130, direct billing at Endorphins.{' '}
+              <Link href="/fees-and-first-visit" className="text-white underline decoration-white/40 underline-offset-4 hover:decoration-white transition-[text-decoration-color]">
+                Fees and what to expect
+              </Link>
+            </motion.p>
+
             {/* Info Badges */}
             <motion.div variants={itemVariants} className="flex flex-wrap xl:flex-nowrap gap-2 md:gap-3 mb-5 xl:mb-0">
               {[

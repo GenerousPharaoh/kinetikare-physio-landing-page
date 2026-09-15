@@ -17,14 +17,8 @@ export default function FloatingButtons() {
   useEffect(() => {
     let ticking = false;
     const update = () => {
-      // Only the scroll-to-top utility is gated by scroll depth; the Book and
-      // Call pills stay visible at all times so the booking path is always one
-      // tap away (they no longer tuck away on scroll-down).
+      // Only the scroll-to-top utility is gated by scroll depth.
       setIsVisible(window.pageYOffset > 500);
-      // On mobile the pill holds back until the reader is past the first
-      // screen, because every page's own hero already carries a Book button and
-      // two of them at once is what made the old full-width bar look wrong.
-      setShowMobileCta(window.pageYOffset > 320);
       ticking = false;
     };
     const onScroll = () => {
@@ -37,6 +31,49 @@ export default function FloatingButtons() {
     update();
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  // The phone pill shows when no inline booking action is on screen, rather
+  // than after a fixed scroll distance: the page's own Book buttons are the
+  // primary action and the pill only stands in while none is visible. It also
+  // stays hidden while the menu or search has locked the body scroll.
+  useEffect(() => {
+    if (typeof window === 'undefined' || typeof IntersectionObserver === 'undefined') return;
+    const onScreen = new Set<Element>();
+    let bodyLocked = false;
+    let observer: IntersectionObserver | null = null;
+    const recompute = () => setShowMobileCta(onScreen.size === 0 && !bodyLocked && window.pageYOffset > 80);
+    const observeAll = () => {
+      observer?.disconnect();
+      onScreen.clear();
+      observer = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) onScreen.add(e.target);
+          else onScreen.delete(e.target);
+        }
+        recompute();
+      }, { threshold: 0.2 });
+      document
+        .querySelectorAll('a[href*="janeapp.com"]:not([data-booking-source^="floating"])')
+        .forEach((el) => observer!.observe(el));
+      recompute();
+    };
+    // Content mounts after navigation; observe once now and again shortly after.
+    observeAll();
+    const t = window.setTimeout(observeAll, 1200);
+    const lock = new MutationObserver(() => {
+      bodyLocked = document.body.style.overflow === 'hidden';
+      recompute();
+    });
+    lock.observe(document.body, { attributes: true, attributeFilter: ['style', 'class'] });
+    const onScroll = () => recompute();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.clearTimeout(t);
+      observer?.disconnect();
+      lock.disconnect();
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, [pathname]);
 
   // The /intake ads landing page has its own sticky Book/Call bar, and
   // /contact is the contact surface itself, so neither gets the pills.

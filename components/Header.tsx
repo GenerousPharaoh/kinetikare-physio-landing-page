@@ -119,7 +119,10 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
       <header
         ref={ref}
         className={`fixed w-full top-0 z-50 border-b ${shouldTransition ? 'transition-all duration-200 ease-in-out' : ''} ${
-          scrolled || pathname !== '/' || mobileMenuOpen
+          // The navy bar is always on. It used to go transparent at the top of
+          // the home page over the photo hero; the illustrated hero puts cream
+          // paper under the right half of the header, where white links vanish.
+          scrolled || pathname !== '/' || mobileMenuOpen || true
             ? `!bg-[#020617]/90 backdrop-blur-xl border-white/10 ${isIntakePage ? 'py-2.5 lg:py-5' : 'py-3 lg:py-6'} shadow-lg`
             : '!bg-transparent border-transparent py-3 lg:py-6'
         }`}

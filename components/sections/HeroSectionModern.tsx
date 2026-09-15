@@ -1,222 +1,89 @@
 "use client";
 
 import { JANE_BOOKING_URL } from '@/lib/booking';
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, AnimatePresence, useMotionTemplate, useMotionValue, useReducedMotion, useInView } from 'framer-motion';
-import { CheckCircleIcon, ClockIcon, DocumentCheckIcon, ArrowRightIcon, StarIcon } from '@heroicons/react/24/solid';
-import { DocumentCheckIcon as OutlineDocumentCheckIcon, CheckCircleIcon as OutlineCheckCircleIcon, ClockIcon as OutlineClockIcon } from '@heroicons/react/24/outline';
+import { motion, useReducedMotion } from 'framer-motion';
+import { ArrowRightIcon, StarIcon } from '@heroicons/react/24/solid';
+
+/**
+ * Home hero, the seam (2026-09-15, Kareem's pick from the review sheet at
+ * ~/Documents/Websites/kinetikare-hero-review/integration/).
+ *
+ * Navy text side on the left; on the right, one of his commissioned
+ * illustrations (the basketball dunk) sitting on its own cream paper, the two
+ * meeting at a single gold diagonal seam. No photograph, no frame, no review
+ * marquee: the paper of the drawing is the right half of the page. On phones
+ * and tablets the text comes first and the drawing follows below it, cut by
+ * the same seam along its top edge.
+ *
+ * The header keeps its navy bar on the home page (it used to go transparent
+ * at the top) because white nav links over cream paper were unreadable.
+ */
+
+const ART = {
+  src: '/images/illustrations/basketball-dunk.webp',
+  paper: '#f5efdf',
+};
 
 export default function HeroSection() {
   const shouldReduceMotion = useReducedMotion();
 
-  // Pause the expensive background pan + vertical review marquee whenever the
-  // hero is scrolled off-screen. Cuts idle CPU/battery drain on long pages.
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const isHeroInView = useInView(sectionRef, { amount: 0.05 });
-
-  // Mouse Spotlight Logic
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
-    const { left, top } = currentTarget.getBoundingClientRect();
-    mouseX.set(clientX - left);
-    mouseY.set(clientY - top);
-  }
-
-  // Animation Variants
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3
-      }
-    }
+    visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.3 } },
   };
-
   const itemVariants = {
     hidden: { opacity: 0, y: 15 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
-    }
-  };
-
-  // Perfectly synced clip path transition
-  const swipeTransition = { duration: 1.6, ease: [0.16, 1, 0.3, 1] };
-
-  const clipPathVariants = {
-    hidden: { clipPath: 'polygon(0 0, 0 0, 0 100%, 0 100%)' },
-    visible: {
-      clipPath: 'polygon(0 0, 65% 0, 45% 100%, 0 100%)',
-      transition: swipeTransition
-    }
-  };
-
-  const goldLineVariants = {
-    hidden: { clipPath: 'polygon(0 0, 0 0, 0 100%, 0 100%)', opacity: 0 },
-    visible: {
-      clipPath: 'polygon(65% 0, 65.2% 0, 45.2% 100%, 45% 100%)',
-      opacity: 1,
-      transition: swipeTransition
-    }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
   };
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative min-h-[100dvh] w-full overflow-hidden bg-[#020617] group"
-      onMouseMove={handleMouseMove}
-    >
-
-      {/* 1. Background Image Layer (Right Side) */}
-      <div className="absolute inset-0">
-        <motion.div
-          className="absolute inset-0 hidden xl:block"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.8 }}
-        >
-          <div className="absolute top-0 right-0 w-[65%] h-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%)]">
-            <motion.div
-              className="relative w-full h-full will-change-transform"
-              initial={{ scale: 1, x: "0%" }}
-              animate={(shouldReduceMotion || !isHeroInView) ? undefined : {
-                scale: [1, 1.035, 1, 1.035],
-                x: ["0%", "1.5%", "0.5%", "2%"],
-                y: ["0%", "-1%", "0%", "-0.7%"]
-              }}
-              transition={{
-                duration: 45,
-                repeat: Infinity,
-                repeatType: "mirror",
-                ease: "linear"
-              }}
-            >
-              <Image
-                src="/images/endorphins-treatment-room.webp"
-                alt="Treatment room at Endorphins Health & Wellness Centre, Burlington"
-                fill
-                loading="eager"
-                fetchPriority="high"
-                quality={82}
-                className="object-cover object-[50%_60%] brightness-100 contrast-105"
-                sizes="(min-width: 1280px) 65vw, 100vw"
-              />
-            </motion.div>
-
-            {/* Cinematic Overlays */}
-            <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-[#D4AF37]/20 via-transparent to-transparent mix-blend-overlay" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a] via-[#0f172a]/30 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent" />
-            <div className="absolute inset-0 bg-[#1e293b]/20 mix-blend-multiply" />
-
-            {/* Tech Grid Overlay */}
-            <div
-              className="absolute inset-0 opacity-[0.07] pointer-events-none"
-              style={{
-                backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)',
-                backgroundSize: '40px 40px'
-              }}
-            />
-
-            {/* Status Badge */}
-            <motion.div
-              className="absolute bottom-[10%] right-[15%] z-20"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 2.5, duration: 0.8 }}
-            >
-              <div className="flex items-center gap-3 px-4 py-2 bg-[#0f172a]/80 backdrop-blur-md border border-white/10 rounded-full shadow-lg">
-                <span className="relative flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
-                </span>
-                <span className="text-xs font-medium text-white/90 tracking-wide uppercase">Accepting New Patients</span>
-              </div>
-            </motion.div>
-
-          </div>
-        </motion.div>
-
-        {/* Mobile and tablet background, before the split composition has room. */}
-        <div className="absolute inset-0 xl:hidden" aria-hidden="true">
-          <Image
-            src="/images/endorphins-treatment-room.webp"
-            alt=""
-            fill
-            loading="eager"
-            fetchPriority="high"
-            quality={82}
-            className="object-cover"
-            sizes="(min-width: 1280px) 65vw, 100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/80 to-[#0f172a]/40" />
-        </div>
+    <section className="relative min-h-[100dvh] w-full overflow-hidden !bg-[#020617] !bg-none !py-0">
+      {/* Stage */}
+      <div className="absolute inset-0" aria-hidden="true">
+        <div className="absolute inset-0 bg-[radial-gradient(120%_90%_at_10%_0%,#13244a_0%,#0b1733_38%,#020617_72%)]" />
+        <div
+          className="absolute inset-0 opacity-[0.06]"
+          style={{ backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.6) 1px, transparent 1px)', backgroundSize: '26px 26px' }}
+        />
       </div>
 
-      {/* 2. Diagonal Swipe Layer (Left Side) */}
+      {/* Desktop: the drawing on its own paper, right of the seam. Starts under the header bar. */}
       <motion.div
-        className="absolute inset-0 bg-[#0f172a] hidden xl:block z-10 will-change-[clip-path]"
-        initial="hidden"
-        animate="visible"
-        variants={clipPathVariants}
-        style={{ transform: 'translateZ(0)' }}
+        aria-hidden="true"
+        className="absolute right-0 bottom-0 top-[5.5rem] hidden w-[56%] xl:block [clip-path:polygon(15%_0,100%_0,100%_100%,0_100%)]"
+        style={{ backgroundColor: ART.paper }}
+        initial={shouldReduceMotion ? false : { opacity: 0, x: 28 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1.3, ease: [0.22, 1, 0.36, 1] }}
       >
-        {/* Interactive Spotlight Effect */}
-        <motion.div
-          className="pointer-events-none absolute -inset-px opacity-0 transition duration-300 group-hover:opacity-100"
-          style={{
-            background: useMotionTemplate`
-              radial-gradient(
-                650px circle at ${mouseX}px ${mouseY}px,
-                rgba(212, 175, 55, 0.08),
-                transparent 80%
-              )
-            `,
-          }}
-        />
-
-        {/* Aurora Background Effect */}
-        <div className="absolute top-[-20%] left-[-10%] w-[80%] h-[120%] bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#1e293b] via-[#0f172a] to-[#0f172a] opacity-90" />
-        <div
-          className="absolute top-[20%] left-[10%] w-[500px] h-[500px] bg-[#D4AF37]/5 rounded-full blur-[100px]"
-          style={{ opacity: 0.4 }}
-        />
-
-        {/* Subtle Texture */}
-        <div
-          className="absolute inset-0 opacity-[0.03] bg-[url('/images/noise.png')] mix-blend-overlay"
-        />
-
-        {/* Dot Matrix Pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.07]"
-          style={{
-            backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.5) 1px, transparent 1px)',
-            backgroundSize: '24px 24px'
-          }}
+        <Image
+          src={ART.src}
+          alt=""
+          fill
+          priority
+          quality={84}
+          sizes="(min-width: 1280px) 56vw, 100vw"
+          className="object-cover object-[50%_20%]"
         />
       </motion.div>
-
-      {/* 3. Gold Accent Line - PERFECTLY SYNCED */}
-      <motion.div
-        className="absolute inset-0 hidden xl:block z-20 pointer-events-none will-change-[clip-path]"
-        initial="hidden"
-        animate="visible"
-        variants={goldLineVariants}
-        style={{ transform: 'translateZ(0)' }}
+      {/* The seam. A plain line: pathLength animation dashes under a non-uniform viewBox. */}
+      <motion.svg
+        aria-hidden="true"
+        className="pointer-events-none absolute right-0 bottom-0 top-[5.5rem] hidden w-[56%] xl:block"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+        initial={shouldReduceMotion ? false : { opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.9, delay: 0.5 }}
       >
-        <div className="w-full h-full bg-gradient-to-b from-[#D4AF37] via-[#F5E6B3] to-[#D4AF37] shadow-[0_0_30px_rgba(212,175,55,0.3)]" />
-      </motion.div>
+        <line x1="15" y1="0" x2="0" y2="100" stroke="#D4AF37" vectorEffect="non-scaling-stroke" style={{ strokeWidth: 2 }} />
+      </motion.svg>
 
-      {/* 4. Content Layer - Accounting for mobile browser bars with explicit safe padding */}
-      <div className="relative z-30 h-full flex items-end md:items-start pb-12 pt-12 xl:pb-0 md:pt-24">
+      {/* Content */}
+      <div className="relative z-30 flex pt-28 pb-0 md:pt-32 xl:min-h-[100dvh] xl:items-start xl:pt-36">
         <div className="w-full max-w-3xl xl:max-w-[50%] px-6 sm:px-8 md:px-12 lg:px-16">
 
           <motion.div
@@ -331,6 +198,27 @@ export default function HeroSection() {
 
           </motion.div>
         </div>
+      </div>
+
+      {/* Phone and tablet: the drawing below the text, cut by the seam along its top. */}
+      <div className="relative mt-10 h-[62vh] min-h-[420px] max-h-[640px] xl:hidden" aria-hidden="true">
+        <div
+          className="absolute inset-0 [clip-path:polygon(0_9%,100%_0,100%_100%,0_100%)]"
+          style={{ backgroundColor: ART.paper }}
+        >
+          <Image
+            src={ART.src}
+            alt=""
+            fill
+            priority
+            quality={80}
+            sizes="100vw"
+            className="object-cover object-[50%_18%]"
+          />
+        </div>
+        <svg className="pointer-events-none absolute inset-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <line x1="0" y1="9" x2="100" y2="0" stroke="#D4AF37" vectorEffect="non-scaling-stroke" style={{ strokeWidth: 2 }} />
+        </svg>
       </div>
     </section>
   );

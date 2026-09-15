@@ -283,11 +283,16 @@ body.reduce-animations * {
   transition-delay: 0s !important;
 }
 
+/* Drop the blur only. This rule used to force a 95% white background as
+   well, on the header, the phone menu, the hero's secondary button and the
+   badges, all of which carry white text, so anyone with reduced motion on
+   or a device classed as low-end (Chrome reports deviceMemory 4 on most
+   Android phones) got white on white. Each surface already has its own
+   solid fallback colour behind the blur. */
 body.reduce-animations .backdrop-blur-md,
 body.reduce-animations .backdrop-blur-lg,
 body.reduce-animations .backdrop-blur-xl {
   backdrop-filter: none !important;
-  background-color: rgba(255, 255, 255, 0.95) !important;
 }
 
 body.reduce-animations .shadow-lg,

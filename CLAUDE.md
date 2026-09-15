@@ -67,6 +67,17 @@ Footer (all pages, same commit): hours are grouped under each clinic's name and 
 
 Kareem, 2026-09-14: a coloured button hovers to a *lighter* tint of itself with the text colour unchanged. Never darker or muddier (`#D4AF37` hovers to `#E6C66A`; `.button-gold` `#B08D57` hovers to `#C4A26A`; the contact page clinic colours lighten the same way), and text never turns gold on a gold ground. He read the old darker hovers (`#C9A227`, `#A17D47`, `#B08D57`) as "the text goes gold or dirty gold".
 
+## Context-loss defects fixed 2026-09-14 (from an external audit)
+
+Four real defects, all the same shape: a transformation dropped the thing that gave a value its meaning.
+
+- **Conditions search linked the wrong page.** `ConditionsPageClient` filtered the display strings but not `conditionsData`, then looked slugs up by index, so searching "sciatica" showed Sciatica and linked `/conditions/low-back-pain`. Both arrays are now filtered together. Rule: never use position as identity; a route crawler cannot catch this because the wrong page still returns 200.
+- **Reduced motion painted dark surfaces white.** `styles/performance.css` set `background-color: rgba(255,255,255,.95) !important` on every `backdrop-blur-*` element under `body.reduce-animations`, which `PerformanceProvider` adds for `prefers-reduced-motion` **and** for any device `useDevicePerformance` calls low-end (`deviceMemory <= 4`, `hardwareConcurrency <= 2`, or width <= 768 with `deviceMemory <= 6`; Chrome on most Android phones reports 4). White text on a white header for a large share of Android visitors. The rule now only removes the blur. Reduced motion must never change colours.
+- **Ads landing page hours lost their clinic.** `HOURS_SUMMARY` listed Wed/Fri (Headon) under the Endorphins address with no label. It now reads "(Headon Physio, Walkers Line)".
+- **Intake header linked a different Jane screen than the page's buttons.** `Header` now uses `JANE_INTAKE_BOOKING_URL` on `/intake`.
+
+Also aligned: the patellar tendinopathy research card said 6-8x body weight in its heading and roughly 4-5x in its audited detail; heading and biomechanics text now say "several times body weight, estimates roughly 4-5 times". Still open from that audit and deliberately not touched without Kareem: the "Knee Pain" umbrella condition (`knee-pain-patellofemoral`) sharing a name with the knee hub; separate review dates on condition pages; the red-flag list on patellar (urgency tiers are a clinician's call).
+
 ## Hours live in one file
 
 `lib/hours.ts` is the only place clinical hours are defined. It feeds the root schema (`ENDORPHINS_OPENING_HOURS_SCHEMA`), `Footer.tsx`, `ContactSection.tsx`, the ads landing page summary (`HOURS_SUMMARY`) and `components/HoursList.tsx`, which the five regional hubs, two pain guides and the compare template render. Before 2026-09-14 the same rows were hand-typed in twelve files and had drifted.

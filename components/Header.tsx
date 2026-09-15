@@ -12,7 +12,7 @@ import {
   ChevronRightIcon,
 } from '@heroicons/react/24/outline';
 import { conditionNav } from '@/lib/condition-nav';
-import { BOOKING_PAGE_PATH, JANE_BOOKING_URL } from '@/lib/booking';
+import { BOOKING_PAGE_PATH, JANE_BOOKING_URL, JANE_INTAKE_BOOKING_URL } from '@/lib/booking';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
@@ -40,7 +40,10 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
   // Always route the header Book button straight to Jane. The /intake page
   // is reserved for paid traffic landing on it via Google Ads — organic
   // visitors should not be funneled through it.
-  const bookingHref = JANE_BOOKING_URL;
+  // On the ads landing page every booking control carries the same deep link
+  // (initial assessment preselected), so the header does not send a paid
+  // visitor to a different Jane screen than the page's own buttons.
+  const bookingHref = isIntakePage ? JANE_INTAKE_BOOKING_URL : JANE_BOOKING_URL;
   const mobileMenuButtonRef = useRef<HTMLButtonElement>(null);
   const mobileMenuPanelRef = useRef<HTMLDivElement>(null);
 

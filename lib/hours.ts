@@ -104,14 +104,16 @@ export const ENDORPHINS_OPENING_HOURS_SCHEMA = groupByHours(ENDORPHINS_HOURS).ma
  * Compact multi-line summary for the ads landing page:
  *   Mon / Thu: 1:30 – 8:00 PM
  *   Tue: 3:30 – 8:00 PM
- *   Wed / Fri: 2:00 – 7:30 PM
+ *   Wed / Fri: 2:00 – 7:30 PM (Headon Physio, Walkers Line)
+ * The Headon days carry their clinic because the block sits under the
+ * Endorphins address; unlabelled they read as Endorphins hours.
  * PhysioMax is deliberately not listed here. That page is the landing page
  * for ads that point at Endorphins, and a second Tuesday line for a different
  * clinic would muddy the one thing it exists to do.
  */
 export const HOURS_SUMMARY = [
-  ...groupByHours(ENDORPHINS_HOURS),
-  ...groupByHours(HEADON_HOURS),
+  ...groupByHours(ENDORPHINS_HOURS).map((g) => ({ ...g, where: '' })),
+  ...groupByHours(HEADON_HOURS).map((g) => ({ ...g, where: ' (Headon Physio, Walkers Line)' })),
 ]
-  .map((g) => `${g.days.map((d) => d.short).join(' / ')}: ${g.label.replace(' PM - ', ' – ')}`)
+  .map((g) => `${g.days.map((d) => d.short).join(' / ')}: ${g.label.replace(' PM - ', ' – ')}${g.where}`)
   .join('\n');

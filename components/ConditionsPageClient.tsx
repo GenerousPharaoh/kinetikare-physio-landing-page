@@ -137,12 +137,19 @@ function ConditionsPageWithParams({
     const query = searchQuery.trim().toLowerCase();
     if (!query) return conditionCategories;
 
-    return conditionCategories.map(category => ({
-      ...category,
-      conditions: category.title.toLowerCase().includes(query) ? category.conditions : category.conditions.filter(condition =>
-        condition.toLowerCase().includes(query)
-      )
-    })).filter(category =>
+    // Filter the display strings and the underlying records together. The
+    // renderers below look a slug up by index, so filtering only one of the
+    // two arrays showed one condition's name with another condition's link
+    // (searching "sciatica" linked to low-back-pain).
+    return conditionCategories.map(category => {
+      if (category.title.toLowerCase().includes(query)) return category;
+      const keep = category.conditions.map((condition) => condition.toLowerCase().includes(query));
+      return {
+        ...category,
+        conditions: category.conditions.filter((_, i) => keep[i]),
+        conditionsData: category.conditionsData?.filter((_, i) => keep[i]),
+      };
+    }).filter(category =>
       category.conditions.length > 0 ||
       category.title.toLowerCase().includes(query)
     );

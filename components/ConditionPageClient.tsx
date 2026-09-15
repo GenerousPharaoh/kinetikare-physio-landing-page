@@ -38,6 +38,8 @@ import RegionAnatomy from './conditions/RegionAnatomy';
 import SectionHeading from './conditions/SectionHeading';
 import GlossaryText from './conditions/GlossaryText';
 import RelatedConditionsList from './conditions/RelatedConditionsList';
+import Print from '@/components/Print';
+import { CATEGORY_PRINT, ILLUSTRATIONS } from '@/lib/illustrations';
 import ComparisonCrossLinks from './conditions/ComparisonCrossLinks';
 import ConsentNote from './conditions/ConsentNote';
 import { handleRovingTabKeyDown } from '@/lib/roving-tabs';
@@ -1914,49 +1916,39 @@ export default function ConditionPageClient({
         </div>
       </section>
 
-        {/* Bottom CTA Section */}
-        <section 
-          className="mt-8 py-12 bg-slate-900" 
-          style={{ 
-            backgroundColor: '#0f172a',
-            backgroundImage: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)'
-          }}>
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl font-bold mb-4" style={{ color: 'white' }}>
-                Get Expert Treatment
-              </h2>
-              <p className="text-xl mb-8" style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
-                Professional physiotherapy for {condition.name.toLowerCase()}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href={JANE_BOOKING_URL}
-                  data-booking-source="condition_footer"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="button-gold inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-colors duration-200 shadow-premium-1 hover:shadow-premium-2 group"
-                >
-                  Book Assessment
-                  <ArrowRightIcon className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-                </Link>
-                <Link
-                  href="/#contact"
-                  className="inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-colors"
-                  style={{ 
-                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                    border: '1px solid rgba(255, 255, 255, 0.3)',
-                    color: 'white'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-                  }}
-                >
-                  Contact
-                </Link>
+        {/* Closing band: the activity, not the diagnosis. One print per category. */}
+        <section className="mt-8 !bg-[#0f172a] !bg-none">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-16">
+            <div className="grid gap-10 md:grid-cols-[1fr_300px] md:items-center lg:grid-cols-[1fr_340px] lg:gap-16">
+              <div>
+                <h2 className="font-playfair !text-white text-3xl md:text-4xl tracking-tight mb-3">Getting back to it</h2>
+                <p className="text-lg text-white/80 leading-relaxed mb-8 max-w-[48ch]">
+                  Physiotherapy for {condition.name.toLowerCase()}, built around the activity you want back.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Link
+                    href={JANE_BOOKING_URL}
+                    data-booking-source="condition_footer"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="button-gold inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-colors duration-200 shadow-premium-1 hover:shadow-premium-1-hover group"
+                  >
+                    Book Assessment
+                    <ArrowRightIcon className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium border border-white/25 text-white hover:bg-white/5 transition-colors"
+                  >
+                    Contact
+                  </Link>
+                </div>
+              </div>
+              <div className="mx-auto w-full max-w-[280px] md:max-w-none">
+                <Print
+                  {...ILLUSTRATIONS[CATEGORY_PRINT[condition.category] ?? 'walking']}
+                  sizes="(min-width: 1024px) 340px, (min-width: 768px) 300px, 280px"
+                />
               </div>
             </div>
           </div>

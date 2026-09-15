@@ -25,6 +25,8 @@ import StickyBookingBar from '@/components/intake/StickyBookingBar';
 import { resolveIntakeHero, DEFAULT_HERO, type IntakeHero } from '@/lib/intake-headlines';
 
 import { HOURS_SUMMARY } from '@/lib/hours';
+import Print from '@/components/Print';
+import { ILLUSTRATIONS, SESSION_STRIP } from '@/lib/illustrations';
 /* ─── PALETTE ─── */
 const c = {
   black: '#111111',
@@ -605,6 +607,19 @@ export default function IntakeLandingPage() {
                   </div>
                 </div>
               </Reveal>
+            </div>
+          </div>
+        </div>
+
+        {/* ═══════════ SESSION: three prints ═══════════ */}
+        <div style={{ background: c.bg, borderTop: `1px solid ${c.stone100}` }}>
+          <div style={{ maxWidth: 1100, margin: '0 auto', padding: 'clamp(3.5rem, 7vw, 5.5rem) clamp(1.5rem, 5vw, 4rem)' }}>
+            <h2 style={{ fontFamily: serif, color: c.black, fontWeight: 700, fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', lineHeight: 1.1, letterSpacing: '-0.01em', marginBottom: 8 }}>What a session looks like</h2>
+            <p style={{ color: c.textMid, fontSize: 15, lineHeight: 1.6, marginBottom: 28 }}>One-on-one, every visit. Assessment first, then the work that fits what it found.</p>
+            <div className="grid grid-cols-3 gap-3 sm:gap-5" style={{ maxWidth: 900 }}>
+              {SESSION_STRIP.map((key) => (
+                <Print key={key} {...ILLUSTRATIONS[key]} sizes="(min-width: 640px) 290px, 30vw" />
+              ))}
             </div>
           </div>
         </div>

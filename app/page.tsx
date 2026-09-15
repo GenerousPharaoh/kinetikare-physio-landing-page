@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import HeroSection from '@/components/sections/HeroSectionModern';
 import AboutSection from '@/components/sections/AboutSection';
 import CareJourneySection from '@/components/sections/CareJourneySection';
+import GetBackSection from '@/components/sections/GetBackSection';
 import ServicesSection from '@/components/sections/ServicesSection';
 import PopularConditionsSection from '@/components/sections/PopularConditionsSection';
 import GoogleReviews from '@/components/GoogleReviews';
@@ -84,6 +85,8 @@ export default function Home() {
           <SectionDivider variant="dots" />
 
           <CareJourneySection />
+
+          <GetBackSection />
 
           <ServicesSection />
 

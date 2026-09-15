@@ -5,14 +5,15 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import Print from '@/components/Print';
+import { CARE_JOURNEY, ILLUSTRATIONS } from '@/lib/illustrations';
 
 /**
- * Four stages, read as one connected sequence. Desktop: four aligned columns
- * on a shared rule with the numbers sitting on it. Tablet: two by two. Phone:
- * four stacked stages with a numbered rail on the left, read by ordinary
- * scrolling. This replaced a horizontal carousel of glass cards, each 75% of
- * the phone's width, that showed the process one swipe at a time. Heading,
- * titles and descriptions are unchanged (2026-09-15).
+ * Four stages, each drawn: the sit-to-stand (a functional test), the step-up
+ * (a first progression), the row (treatment), the loaded carry (what you leave
+ * with). Desktop: four prints in a row with the stage number on the corner of
+ * each. Phone: the print at the left of each stage, read by scrolling. The
+ * heading, titles and descriptions are unchanged from the text version.
  */
 export default function CareJourneySection() {
   const { ref: sectionRef, animationProps } = useScrollAnimation({ yOffset: 30 });
@@ -67,20 +68,22 @@ export default function CareJourneySection() {
           </p>
         </div>
 
-        <ol className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-8 md:gap-x-8 md:gap-y-12 lg:gap-x-10">
-          {/* Phone rail: one vertical line the four numbers sit on. */}
-          <span aria-hidden="true" className="md:hidden absolute left-[1.15rem] top-3 bottom-3 w-px bg-[#B08D57]/30" />
-          {/* Desktop rule: one horizontal line across all four stages. */}
-          <span aria-hidden="true" className="hidden lg:block absolute left-0 right-0 top-[1.2rem] h-px bg-[#B08D57]/30" />
-
-          {steps.map((step) => (
-            <li key={step.number} className="relative grid grid-cols-[2.4rem_1fr] gap-x-4 md:block">
-              <span className="relative z-10 flex h-[2.4rem] w-[2.4rem] items-center justify-center rounded-full bg-white border border-[#B08D57]/40 font-playfair text-lg text-[#8A6F0A] tabular-nums md:mb-5">
-                {step.number}
-              </span>
-              <div className="pt-1 md:pt-0">
+        <ol className="grid grid-cols-1 gap-y-7 md:grid-cols-2 md:gap-x-8 md:gap-y-12 lg:grid-cols-4 lg:gap-x-8">
+          {steps.map((step, i) => (
+            <li key={step.number} className="grid grid-cols-[7.5rem_1fr] gap-x-4 items-start md:block">
+              <div className="relative md:mb-6">
+                <Print {...ILLUSTRATIONS[CARE_JOURNEY[i]]} sizes="(min-width: 1024px) 300px, (min-width: 768px) 45vw, 120px" />
+                <span
+                  aria-hidden="true"
+                  className="absolute -top-3 -left-3 hidden h-11 w-11 items-center justify-center rounded-full bg-white border border-[#B08D57]/50 font-playfair text-lg text-[#8A6F0A] tabular-nums md:flex"
+                >
+                  {step.number}
+                </span>
+              </div>
+              <div>
+                <span className="block font-playfair text-sm text-[#8A6F0A] tabular-nums mb-1 md:hidden" aria-hidden="true">{step.number}</span>
                 <h3 className="text-lg lg:text-xl text-slate-900 mb-2 md:mb-3 heading-luxury-3">
-                  {step.title}
+                  <span className="sr-only">Step {step.number}: </span>{step.title}
                 </h3>
                 <p className="text-[15px] text-slate-700 leading-relaxed md:leading-[1.7] max-w-[36ch]">
                   {step.description}

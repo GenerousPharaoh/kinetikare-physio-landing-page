@@ -1,6 +1,7 @@
 import { JANE_BOOKING_URL } from '@/lib/booking';
 import { serializeJsonLd } from '@/lib/structured-data';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Metadata } from 'next';
 import {
   ChevronRightIcon,
@@ -30,6 +31,9 @@ import { getTreatmentById } from '@/lib/treatments-data';
 import ConsentNote from '@/components/conditions/ConsentNote';
 
 import HoursList from '@/components/HoursList';
+import { HUB_ILLUSTRATION, ILLUSTRATIONS } from '@/lib/illustrations';
+
+const HUB_ART = ILLUSTRATIONS[HUB_ILLUSTRATION['elbow-pain']];
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/elbow-pain';
 const PAGE_TITLE = 'Elbow Pain Treatment in Burlington | Kareem Hassanein';
 const PAGE_DESCRIPTION =
@@ -375,8 +379,22 @@ export default function ElbowPainHubPage() {
 
       <main className="min-h-screen">
         {/* Hero */}
-        <section className="pt-24 pb-6 bg-gradient-to-b from-slate-50 via-white to-transparent">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="relative !bg-none pt-24 pb-6 lg:pb-0" style={{ backgroundColor: HUB_ART.paper }}>
+          {/* The drawing on the page: the section takes the illustration's own paper colour so there is no edge. */}
+          <div className="lg:grid lg:grid-cols-[42%_1fr] lg:items-stretch">
+            <div className="relative h-[58vw] max-h-[460px] lg:h-auto lg:max-h-none lg:min-h-[600px] overflow-hidden mb-6 lg:mb-0" aria-hidden="true">
+              <Image
+                src={HUB_ART.src}
+                alt=""
+                fill
+                priority
+                sizes="(min-width: 1024px) 42vw, 100vw"
+                className="object-cover"
+                style={{ objectPosition: '50% 30%' }}
+              />
+              <div className="absolute inset-0 hidden lg:block" style={{ background: `linear-gradient(to right, transparent 72%, ${HUB_ART.paper})` }} />
+            </div>
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 lg:pt-10 lg:pb-12 lg:self-center">
             <div className="w-full max-w-5xl">
               {/* Breadcrumb */}
               <nav aria-label="Breadcrumb" className="flex items-center space-x-2 text-sm text-slate-600 mb-4">
@@ -457,6 +475,7 @@ export default function ElbowPainHubPage() {
                 </Link>
               </div>
             </div>
+          </div>
           </div>
         </section>
 

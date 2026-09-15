@@ -92,6 +92,14 @@ Kareem accepted a three-release plan (record in memory: `kinetikare-hero-directi
 - **Home footer**: the concise variant with the identity block (Book Online + CPO registration) and navigation but no repeated phone, email, address or hours; the home page's own contact section carries those.
 - **Header**: nav links are `whitespace-nowrap`; the phone number moved from the 1440 to the 1600 breakpoint because the wider nav clipped Book Now at 1440.
 
+## Home hero (rebuilt 2026-09-15, full creative control from Kareem)
+
+`components/sections/HeroSectionModern.tsx` + `components/sections/HeroMotionField.tsx`. The subject is movement analysed: a running gait cycle drawn live on a canvas as a motion-capture constellation (14 joint markers, hairline segments, fading gold trails from the knees and ankles, a ring on the loaded knee), computed each frame from sagittal joint-angle curves. It floats over the dimmed newer treatment-room photograph (`/images/endorphins-treatment-room.webp`, opacity 0.34) on the right 54% of desktop, and in its own 4:5 frame below the text on phones. Cursor x scrubs the cycle, cursor y tilts the trunk; the room and a gold bloom parallax against each other and settle with scroll; the primary button is magnetic. No review marquee, no diagonal clip, no photo mask cut. Name, slogan, proposition, buttons and the trust row (5.0 on Google, 31 reviews linked to the listing by CID, "Accepting new patients") are painted at full opacity on the first frame; only transforms animate (`heroRise` keyframes), so LCP no longer waits on hydration. Reduced motion renders one still frame with trails. Phones get a softer glow and a 30 fps cap.
+
+What Kareem rejected on the way here, so nobody proposes it again: AI figures with the joint anatomy opened up (two were generated via the Codex bridge, `~/Documents/Websites/kinetikare-hero-review/plates/new/hero/`, "Im not a fan of these designs"), an AI-adapted treatment room, a plain photo hero, a typography-only hero, and abstract AI artwork. He wanted "something more creative"; the constellation is that answer.
+
+Review count surfaces after this rebuild: `GoogleReviews.tsx` (`totalGoogleReviews`), the hero (`REVIEW_COUNT`), and the two `/intake` hits. The grep in "The review count is multi-sourced" still finds all of them.
+
 ## Hours live in one file
 
 `lib/hours.ts` is the only place clinical hours are defined. It feeds the root schema (`ENDORPHINS_OPENING_HOURS_SCHEMA`), `Footer.tsx`, `ContactSection.tsx`, the ads landing page summary (`HOURS_SUMMARY`) and `components/HoursList.tsx`, which the five regional hubs, two pain guides and the compare template render. Before 2026-09-14 the same rows were hand-typed in twelve files and had drifted.

@@ -43,7 +43,10 @@ export const ILLUSTRATIONS = {
 export type IllustrationKey = keyof typeof ILLUSTRATIONS;
 
 /** Home, "Get back to it.": six life pictures, no captions (Kareem's instruction). */
-export const GET_BACK_ROW: IllustrationKey[] = ['tennis', 'golf', 'running', 'gardening', 'pickleballLunge', 'walking'];
+// Order matters: on phones the row wraps two per line and on desktop it reads left to right,
+// so no two similar figures may sit beside or above each other. Pickleball is a near
+// duplicate of tennis (same figure, same pose) and is left out; yoga takes its place.
+export const GET_BACK_ROW: IllustrationKey[] = ['tennis', 'golf', 'gardening', 'walking', 'yoga', 'running'];
 
 /** Care Journey, one per stage: a functional test, a first progression, treatment, what you leave with. */
 export const CARE_JOURNEY: IllustrationKey[] = ['sitToStand', 'stepUps', 'trxRows', 'farmerCarry'];

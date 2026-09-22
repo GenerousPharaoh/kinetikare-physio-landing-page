@@ -1641,12 +1641,16 @@ body {
    motion variants held them at opacity 0 until then (LCP render delay).
    Timing matches the former variants: 0.3s lead, 0.1s per item, 0.8s rise,
    1.8s image fade. */
+/* 0.01, not 0: Chrome only records an opacity-0 element as painted at the next
+   main-thread paint after it becomes visible, which on a slow phone is after
+   hydration, so the hero text was measured as a 2 s LCP while it visibly faded
+   in at 0.9 s. At 0.01 it counts from first paint. */
 @keyframes hero-rise {
-  from { opacity: 0; transform: translateY(15px); }
+  from { opacity: 0.01; transform: translateY(15px); }
   to { opacity: 1; transform: translateY(0); }
 }
 @keyframes hero-image-in {
-  from { opacity: 0; }
+  from { opacity: 0.01; }
   to { opacity: 1; }
 }
 .hero-rise {

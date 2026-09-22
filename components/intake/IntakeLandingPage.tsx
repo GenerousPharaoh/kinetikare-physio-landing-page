@@ -252,7 +252,7 @@ export default function IntakeLandingPage() {
            hydrate before it could paint, which is where the page's LCP
            went (98% render delay in the Sept 14 audit). The keyframes
            reproduce the old stagger (0.8s rise, 0.07s per step, 0.1s lead). */
-        @keyframes intake-rise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes intake-rise { from { opacity: 0.01; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes intake-portrait-in { from { opacity: 0.01; transform: translateX(40px); } to { opacity: 1; transform: translateX(0); } }
         .intake-rise { animation: intake-rise 0.8s cubic-bezier(0.22,1,0.36,1) both; animation-delay: calc(0.1s + var(--rise, 0) * 0.07s); }
         .intake-portrait-in { animation: intake-portrait-in 1.2s cubic-bezier(0.22,1,0.36,1) 0.25s both; }

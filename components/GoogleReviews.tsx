@@ -2,7 +2,7 @@
 
 import { serializeJsonLd } from '@/lib/structured-data';
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useInView, useReducedMotion } from 'framer-motion';
+import { m as motion, AnimatePresence, useInView, useReducedMotion } from 'framer-motion';
 
 export const reviews = [
   {

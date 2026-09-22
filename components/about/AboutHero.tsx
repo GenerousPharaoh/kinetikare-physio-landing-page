@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { UserCircleIcon } from '@heroicons/react/24/outline';
 
 export default function AboutHero() {

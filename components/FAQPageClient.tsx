@@ -5,7 +5,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ChevronRightIcon, MagnifyingGlassIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import FAQAccordion, { FaqItem } from '@/components/FAQAccordion';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m as motion, AnimatePresence } from 'framer-motion';
 import {
   QuestionMarkCircleIcon,
   CalendarIcon,

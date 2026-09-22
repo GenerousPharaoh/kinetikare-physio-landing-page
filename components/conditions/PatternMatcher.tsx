@@ -26,7 +26,7 @@
 
 import { JANE_BOOKING_URL } from '@/lib/booking';
 import React, { useMemo, useState, useRef, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m as motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import {
   ArrowRightIcon,

@@ -2,7 +2,7 @@
 
 import { JANE_BOOKING_URL } from '@/lib/booking';
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { CalendarIcon, ChatBubbleBottomCenterTextIcon } from '@heroicons/react/24/outline';
 
 export default function TreatmentsCTA() {

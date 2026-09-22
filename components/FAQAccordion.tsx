@@ -3,7 +3,7 @@
 import { getScrollBehavior } from '@/lib/scroll';
 import React, { useState, useRef, useEffect, useId } from 'react';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m as motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 
 export interface FaqItem {

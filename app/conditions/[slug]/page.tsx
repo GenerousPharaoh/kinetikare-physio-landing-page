@@ -102,6 +102,14 @@ function fitTitleWithBrand(core: string, brands: string[]): string {
 
 // Pick title format based on search intent. Default is local (Burlington-anchored).
 function generateConditionTitle(condition: Condition): string {
+  if (condition.seoTitle) {
+    return fitTitleWithBrand(
+      condition.seoTitle,
+      condition.titleIntent === 'informational'
+        ? ['Kareem Hassanein, RPT', 'Kareem Hassanein']
+        : ['Kareem Hassanein Physiotherapy', 'Kareem Hassanein']
+    );
+  }
   if (condition.titleIntent === 'informational') {
     return fitTitleWithBrand(
       `${condition.name}: Symptoms, Causes & Treatment`,

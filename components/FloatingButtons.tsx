@@ -3,7 +3,7 @@
 import { getScrollBehavior } from '@/lib/scroll';
 import React, { useState, useEffect } from 'react';
 import { PhoneIcon, ArrowUpIcon, CalendarDaysIcon } from '@heroicons/react/24/solid';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m as motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { BOOKING_PAGE_PATH, JANE_BOOKING_URL } from '@/lib/booking';
 import { HUB_PATHS } from '@/lib/condition-hubs';

@@ -11,10 +11,10 @@ import {
   MagnifyingGlassIcon,
   ChevronRightIcon,
 } from '@heroicons/react/24/outline';
-import { conditionNav } from '@/lib/condition-nav';
+import { NAV_MENU, NAV_MENU_FOOTER_LINKS } from '@/lib/nav-menu';
 import { BOOKING_PAGE_PATH, JANE_BOOKING_URL, JANE_INTAKE_BOOKING_URL } from '@/lib/booking';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m as motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { useModalDialog } from '@/hooks/useModalDialog';
 
@@ -223,15 +223,15 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                       className="absolute left-1/2 -translate-x-1/2 top-full pt-3"
                     >
                       <div className="w-[600px] max-h-[calc(100dvh-7rem)] overflow-y-auto bg-[#020617]/95 backdrop-blur-2xl rounded-2xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] p-6 grid grid-cols-2 gap-x-8 gap-y-4">
-                        {conditionNav.map((category, categoryIndex) => (
-                          <div key={category.slug} className="group/category">
+                        {NAV_MENU.map((column) => (
+                          <div key={column.key} className="group/category">
                             <Link
-                              href={`/conditions?tab=${categoryIndex}`}
+                              href={column.href}
                               prefetch={false}
                               className="flex items-center justify-between py-2 border-b border-white/5 group-hover/category:border-[#D4AF37]/30 transition-colors hover:!text-white"
                             >
                               <span className="text-[#D4AF37] font-medium text-sm tracking-wide group-hover/category:text-[#F5E6B3] transition-colors">
-                                {category.title}
+                                {column.title}
                               </span>
                               <ChevronRightIcon
                                 aria-hidden="true"
@@ -239,28 +239,38 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                               />
                             </Link>
                             <div className="mt-2 space-y-1">
-                              {category.conditions.slice(0, 4).map((condition) => (
+                              {column.links.map((link) => (
                                 <Link
-                                  key={condition.slug}
-                                  href={`/conditions/${condition.slug}`}
+                                  key={link.href}
+                                  href={link.href}
                                   prefetch={false}
                                   className="block text-xs text-white/75 hover:text-white hover:translate-x-1 transition-all duration-200 py-1"
                                 >
-                                  {condition.name}
+                                  {link.name}
                                 </Link>
                               ))}
-                              {category.conditions.length > 4 && (
-                                <Link
-                                  href={`/conditions?tab=${conditionNav.indexOf(category)}`}
-                                  prefetch={false}
-                                  className="block text-[11px] text-[#F5E6B3] hover:text-white uppercase tracking-wider font-bold pt-1"
-                                >
-                                  View All ({category.conditions.length})
-                                </Link>
-                              )}
+                              <Link
+                                href={column.viewAll.href}
+                                prefetch={false}
+                                className="block text-[11px] text-[#F5E6B3] hover:text-white uppercase tracking-wider font-bold pt-1"
+                              >
+                                {column.viewAll.name}
+                              </Link>
                             </div>
                           </div>
                         ))}
+                        <div className="col-span-2 mt-1 pt-4 border-t border-white/10 flex flex-wrap gap-x-5 gap-y-2">
+                          {NAV_MENU_FOOTER_LINKS.map((link) => (
+                            <Link
+                              key={link.href}
+                              href={link.href}
+                              prefetch={false}
+                              className="text-[11px] uppercase tracking-wider text-white/60 hover:text-white transition-colors"
+                            >
+                              {link.name}
+                            </Link>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   )}
@@ -432,15 +442,26 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                               >
                                 <div className="pl-4 space-y-1 border-l border-white/10 ml-4 my-2">
                                   <Link href="/conditions" onClick={handleNavClick} className="block px-4 py-3 text-sm text-white">All conditions</Link>
-                                  {conditionNav.map((category, idx) => (
+                                  {NAV_MENU.filter((column) => column.key !== 'treatments').map((column) => (
                                     <Link
-                                      key={category.slug}
-                                      href={`/conditions?tab=${idx}`}
+                                      key={column.key}
+                                      href={column.href}
                                       prefetch={false}
                                       onClick={handleNavClick}
                                       className="block px-4 py-3 text-sm !text-white/80 hover:!text-[#D4AF37] transition-colors"
                                     >
-                                      {category.title}
+                                      {column.title}
+                                    </Link>
+                                  ))}
+                                  {NAV_MENU_FOOTER_LINKS.filter((link) => link.href !== '/conditions').map((link) => (
+                                    <Link
+                                      key={link.href}
+                                      href={link.href}
+                                      prefetch={false}
+                                      onClick={handleNavClick}
+                                      className="block px-4 py-3 text-sm !text-white/60 hover:!text-[#D4AF37] transition-colors"
+                                    >
+                                      {link.name}
                                     </Link>
                                   ))}
                                 </div>

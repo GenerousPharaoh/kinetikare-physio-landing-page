@@ -3,7 +3,7 @@
 import { JANE_BOOKING_URL } from '@/lib/booking';
 import React from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { ENDORPHINS_HOURS, OTHER_SITE_HOURS, SITE_FOOTNOTES, dayKey, dayLabel } from '@/lib/hours';
 import { 

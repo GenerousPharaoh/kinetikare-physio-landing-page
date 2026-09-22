@@ -4,7 +4,7 @@ import { JANE_BOOKING_URL } from '@/lib/booking';
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, AnimatePresence, useMotionTemplate, useMotionValue, useReducedMotion, useInView } from 'framer-motion';
+import { m as motion, AnimatePresence, useMotionTemplate, useMotionValue, useReducedMotion, useInView } from 'framer-motion';
 import { CheckCircleIcon, ClockIcon, DocumentCheckIcon, ArrowRightIcon, StarIcon } from '@heroicons/react/24/solid';
 import { DocumentCheckIcon as OutlineDocumentCheckIcon, CheckCircleIcon as OutlineCheckCircleIcon, ClockIcon as OutlineClockIcon } from '@heroicons/react/24/outline';
 
@@ -26,26 +26,11 @@ export default function HeroSection() {
     mouseY.set(clientY - top);
   }
 
-  // Animation Variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 15 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
-    }
-  };
+  // The text column and the photo enter with CSS keyframes (hero-rise and
+  // hero-image-in in globals.css) rather than motion variants, so the H1 and
+  // the image can paint before the motion runtime hydrates. The old variants
+  // rendered them at opacity 0 until then, which is where LCP went.
+  const rise = (index: number): React.CSSProperties => ({ ['--rise' as string]: index } as React.CSSProperties);
 
   // Perfectly synced clip path transition
   const swipeTransition = { duration: 1.6, ease: [0.16, 1, 0.3, 1] };
@@ -76,12 +61,7 @@ export default function HeroSection() {
 
       {/* 1. Background Image Layer (Right Side) */}
       <div className="absolute inset-0">
-        <motion.div
-          className="absolute inset-0 hidden xl:block"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.8 }}
-        >
+        <div className="absolute inset-0 hidden xl:block hero-image-in">
           <div className="absolute top-0 right-0 w-[65%] h-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%)]">
             <motion.div
               className="relative w-full h-full will-change-transform"
@@ -142,7 +122,7 @@ export default function HeroSection() {
             </motion.div>
 
           </div>
-        </motion.div>
+        </div>
 
         {/* Mobile and tablet background, before the split composition has room. */}
         <div className="absolute inset-0 xl:hidden" aria-hidden="true">
@@ -219,46 +199,41 @@ export default function HeroSection() {
       <div className="relative z-30 h-full flex items-end md:items-start pb-12 pt-12 xl:pb-0 md:pt-24">
         <div className="w-full max-w-3xl xl:max-w-[50%] px-6 sm:px-8 md:px-12 lg:px-16">
 
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={containerVariants}
-            className="max-w-xl"
-          >
+          <div className="max-w-xl">
             {/* Eyebrow */}
-            <motion.div variants={itemVariants} className="flex items-center gap-3 mb-3 sm:mt-0">
+            <div className="hero-rise flex items-center gap-3 mb-3 sm:mt-0" style={rise(0)}>
               <span className="h-[1px] w-8 bg-gradient-to-r from-[#D4AF37] to-transparent" />
               <span className="text-[#D4AF37] text-[10px] tracking-[0.25em] uppercase font-medium">
                 Physiotherapy In Burlington
               </span>
-            </motion.div>
+            </div>
 
             {/* Main Heading - Playfair Display */}
-            <motion.div variants={itemVariants} className="mb-4 md:mb-6">
+            <div className="hero-rise mb-4 md:mb-6" style={rise(1)}>
               <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-playfair text-white leading-[1.1] tracking-tight drop-shadow-2xl">
                 Kareem <br />
                 <span className="text-[#D4AF37]">
                   Hassanein
                 </span>
               </h1>
-            </motion.div>
+            </div>
 
             {/* Slogan */}
-            <motion.div variants={itemVariants} className="mb-6 md:mb-8">
+            <div className="hero-rise mb-6 md:mb-8" style={rise(2)}>
               <p className="text-base md:text-lg text-white/80 font-light tracking-wide leading-relaxed">
                 The Science of Recovery. <br />
                 <span className="text-[#D4AF37] font-normal italic font-playfair text-lg md:text-xl">The Art of Care.</span>
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div variants={itemVariants} className="mb-6 md:mb-8">
+            <div className="hero-rise mb-6 md:mb-8" style={rise(3)}>
               <p className="max-w-lg text-base md:text-lg text-white/85 leading-relaxed">
                 One-on-one physiotherapy in Burlington, built around finding the root cause of your pain and getting back to feeling your best.
               </p>
-            </motion.div>
+            </div>
 
             {/* Buttons - Full width on mobile */}
-            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 md:mb-10">
+            <div className="hero-rise flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 md:mb-10" style={rise(4)}>
               <Link
                 href={JANE_BOOKING_URL}
                 data-booking-source="hero"
@@ -295,10 +270,10 @@ export default function HeroSection() {
                   </span>
                 </motion.div>
               </Link>
-            </motion.div>
+            </div>
 
             {/* Info Badges */}
-            <motion.div variants={itemVariants} className="flex flex-wrap xl:flex-nowrap gap-2 md:gap-3 mb-5 xl:mb-0">
+            <div className="hero-rise flex flex-wrap xl:flex-nowrap gap-2 md:gap-3 mb-5 xl:mb-0" style={rise(5)}>
               {[
                 "Direct Billing",
                 "No Referral Needed",
@@ -311,7 +286,7 @@ export default function HeroSection() {
                   <span className="text-white/80 text-[10px] md:text-xs font-medium tracking-wider uppercase group-hover:text-[#D4AF37] transition-colors">{text}</span>
                 </div>
               ))}
-            </motion.div>
+            </div>
 
             {/* Compact trust signal for mobile and tablet. */}
             <motion.div
@@ -329,7 +304,7 @@ export default function HeroSection() {
               <span className="text-white/70 text-xs">31 reviews</span>
             </motion.div>
 
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

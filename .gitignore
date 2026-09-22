@@ -93,3 +93,6 @@ next-env.d.ts
 /set-technical/
 /set-tx-tech/
 /pilot-real/
+
+# bundle analyzer output (npm run build:analyze)
+/analyze/

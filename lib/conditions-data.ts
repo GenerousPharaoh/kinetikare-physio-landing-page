@@ -42,6 +42,14 @@ export interface Condition {
    * - 'informational': encyclopedia-intent framing ("Symptoms, Causes & Treatment"). Used for pages ranking globally for anatomy/condition-term queries where searchers want info, not a clinic.
    */
   titleIntent?: 'local' | 'informational';
+  /**
+   * Optional hand-written <title> core for pages whose search demand is
+   * clearly for one phrasing (Search Console page-by-query data), e.g. a
+   * page that ranks for "patellar tendonitis" rather than its formal name.
+   * The brand suffix is still appended when it fits; when absent the title
+   * is generated from name + titleIntent as before.
+   */
+  seoTitle?: string;
   keywords?: string[];
   affectedArea?: string;
   symptoms?: string[];
@@ -455,7 +463,9 @@ const hipPelvisConditions: Condition[] = [
     description: 'Joint degeneration, cartilage breakdown, activity-related pain',
     featured: true,
     priority: 9,
-    metaDescription: 'Hip osteoarthritis treatment in Burlington. Expert physiotherapy for hip joint pain using evidence-based exercise therapy, manual therapy, and pain management strategies.',
+    titleIntent: 'informational',
+    seoTitle: 'Hip Osteoarthritis: Symptoms, Exercise and Non-Surgical Care',
+    metaDescription: 'Hip osteoarthritis symptoms, why the pain refers to the groin, thigh and knee, and the exercise-based care that guidelines recommend before surgery.',
   },
   {
     id: 'femoroacetabular-impingement',
@@ -465,7 +475,9 @@ const hipPelvisConditions: Condition[] = [
     description: 'Hip impingement causing groin pain with deep hip flexion',
     featured: true,
     priority: 28,
-    metaDescription: 'FAI treatment in Burlington. Personalized physiotherapy for femoroacetabular impingement using movement modification and progressive strengthening.',
+    titleIntent: 'informational',
+    seoTitle: 'Hip Impingement (FAI): Symptoms, Tests and Physiotherapy',
+    metaDescription: 'Femoroacetabular impingement (FAI) causes a deep pinch at the front of the hip with sitting and squatting. How it is tested and how physiotherapy can help.',
   },
   {
     id: 'greater-trochanteric-pain-syndrome',
@@ -475,7 +487,9 @@ const hipPelvisConditions: Condition[] = [
     description: 'GTPS, gluteal tendinopathy, and lateral hip pain formerly called trochanteric bursitis',
     featured: true,
     priority: 29,
-    metaDescription: 'Hip pain treatment in Burlington for lateral hip pain, gluteal tendinopathy, and GTPS using progressive loading and manual therapy.',
+    titleIntent: 'informational',
+    seoTitle: 'Gluteal Tendinopathy (Lateral Hip Pain): Symptoms and Treatment',
+    metaDescription: 'Pain on the outside of the hip, worse lying on it or climbing stairs, is usually gluteal tendinopathy. Symptoms, causes and the loading rehab that helps.',
   },
   {
     id: 'hip-labral-tears',
@@ -511,7 +525,9 @@ const hipPelvisConditions: Condition[] = [
     description: 'Sitting bone pain, hamstring origin tendon issues',
     featured: true,
     priority: 31,
-    metaDescription: 'Proximal hamstring tendinopathy treatment in Burlington. Expert physiotherapy for sitting bone pain using load management and progressive strengthening.',
+    titleIntent: 'informational',
+    seoTitle: 'Proximal Hamstring Tendinopathy: Sit-Bone Pain and Rehab',
+    metaDescription: 'Deep pain at the sit bone that is worse with sitting, hills and running is proximal hamstring tendinopathy. Symptoms, causes and the loading rehab that helps.',
   },
   {
     id: 'piriformis-syndrome',
@@ -539,7 +555,9 @@ const hipPelvisConditions: Condition[] = [
     description: 'Adductor strains common in hockey and soccer',
     featured: true,
     priority: 21,
-    metaDescription: 'Groin strain treatment in Burlington. Sports physiotherapy for adductor injuries with progressive strengthening and return-to-sport protocols.',
+    titleIntent: 'informational',
+    seoTitle: 'Groin (Adductor) Strain: Grades, Recovery Time and Rehab',
+    metaDescription: 'Adductor strain grades, expected recovery times, and a criteria-based rehab progression back to running, kicking and change of direction.',
   },
   {
     id: 'hamstring-strains',
@@ -549,7 +567,9 @@ const hipPelvisConditions: Condition[] = [
     description: 'Hamstring tears and chronic tightness',
     featured: true,
     priority: 22,
-    metaDescription: 'Hamstring strain treatment in Burlington. Expert physiotherapy for hamstring injuries using eccentric strengthening and running retraining.',
+    titleIntent: 'informational',
+    seoTitle: 'Hamstring Strain: Grades, Recovery Time and Return to Running',
+    metaDescription: 'Hamstring strain grades, realistic recovery times, and the staged rehab that gets you back to sprinting without the common re-injury.',
   },
 ];
 
@@ -562,7 +582,9 @@ const kneeConditions: Condition[] = [
     description: "e.g., Patellofemoral Pain Syndrome, Patellar Tendinopathy",
     featured: true,
     priority: 4,
-    metaDescription: 'Knee pain treatment in Burlington. Physiotherapy for patellofemoral pain, jumper\'s knee, and sports-related knee pain using biomechanical assessment and targeted rehabilitation.',
+    titleIntent: 'informational',
+    seoTitle: 'Patellofemoral Pain: Why Your Knee Hurts When Bending',
+    metaDescription: 'Pain around or behind the kneecap with stairs, squats and sitting is usually patellofemoral pain. What drives it and the hip and knee rehab that settles it.',
   },
   {
     id: 'acl-injuries',
@@ -572,7 +594,9 @@ const kneeConditions: Condition[] = [
     description: 'Anterior cruciate ligament tears, conservative and post-surgical rehab',
     featured: true,
     priority: 11,
-    metaDescription: 'ACL injury rehabilitation in Burlington. Expert physiotherapy for ACL tears, pre-surgical strengthening, and post-operative recovery with Kareem Hassanein.',
+    titleIntent: 'informational',
+    seoTitle: 'ACL Injury: Symptoms, Recovery Timeline and Rehab Stages',
+    metaDescription: 'How an ACL tear happens, what it feels like, how it is assessed, and a realistic recovery timeline through each stage of rehab, with or without surgery.',
   },
   {
     id: 'mcl-lcl-sprains',
@@ -580,7 +604,9 @@ const kneeConditions: Condition[] = [
     name: 'MCL/LCL Sprains',
     category: 'knee',
     description: 'Medial and lateral collateral ligament injuries',
-    metaDescription: 'MCL and LCL sprain treatment in Burlington. Personalized physiotherapy for knee ligament injuries with manual therapy and progressive strengthening.',
+    titleIntent: 'informational',
+    seoTitle: 'MCL and LCL Sprains: Grades, Healing Time and Rehab',
+    metaDescription: 'Inner (MCL) and outer (LCL) knee ligament sprains by grade, how long they take to heal, when a brace is used, and how rehab progresses back to sport.',
   },
   {
     id: 'pcl-injuries',
@@ -588,7 +614,9 @@ const kneeConditions: Condition[] = [
     name: 'PCL Injuries',
     category: 'knee',
     description: 'Posterior cruciate ligament tears, conservative and post-surgical rehab',
-    metaDescription: 'PCL injury treatment in Burlington. Expert physiotherapy for posterior cruciate ligament injuries with personalized rehabilitation protocols.',
+    titleIntent: 'informational',
+    seoTitle: 'PCL Injury: Symptoms, Healing Time and Rehab',
+    metaDescription: 'Posterior cruciate ligament injuries: how they happen, the symptoms, why many heal without surgery, and the quad-focused rehab that restores stability.',
   },
   {
     id: 'meniscus-tears',
@@ -616,7 +644,9 @@ const kneeConditions: Condition[] = [
     name: "Patellar Tendinopathy (Jumper's Knee)",
     category: 'knee',
     description: 'Patellar tendon pain common in jumping sports',
-    metaDescription: "Patellar tendinopathy and patellar tendinitis treatment in Burlington. Physiotherapy for jumper's knee using progressive loading, sports rehab, and manual therapy techniques.",
+    titleIntent: 'informational',
+    seoTitle: 'Patellar Tendonitis (Jumper\'s Knee): Symptoms and Rehab Plan',
+    metaDescription: 'Patellar tendonitis, or jumper\'s knee, is pain at the bottom of the kneecap that builds with jumping and stairs. Symptoms, causes and a staged loading plan.',
   },
   {
     id: 'knee-arthritis',
@@ -624,7 +654,9 @@ const kneeConditions: Condition[] = [
     name: 'Osteoarthritis of the Knee',
     category: 'knee',
     description: 'Degenerative joint disease management',
-    metaDescription: 'Knee arthritis treatment in Burlington. Evidence-based physiotherapy to reduce pain, improve mobility, and delay surgery for knee osteoarthritis.',
+    titleIntent: 'informational',
+    seoTitle: 'Knee Osteoarthritis: Symptoms, Exercise and Non-Surgical Care',
+    metaDescription: 'Knee osteoarthritis symptoms, what an X-ray does and does not tell you, and the strengthening and load management that guidelines put ahead of surgery.',
   },
   {
     id: 'patella-fractures',
@@ -646,7 +678,9 @@ const footAnkleConditions: Condition[] = [
     description: 'Lateral and medial ligament injuries, chronic ankle instability',
     featured: true,
     priority: 14,
-    metaDescription: 'Ankle sprain treatment in Burlington. Expert physiotherapy for acute sprains and chronic instability using balance training and manual therapy.',
+    titleIntent: 'informational',
+    seoTitle: 'Ankle Sprain: Grades, Recovery Time and Rehab Exercises',
+    metaDescription: 'Lateral ankle sprain grades 1 to 3, how long each takes to recover, when an X-ray is needed, and the balance and strength exercises that reduce re-injury.',
   },
   {
     id: 'plantar-fasciitis',
@@ -666,7 +700,9 @@ const footAnkleConditions: Condition[] = [
     description: 'Achilles tendon pain, both insertional and mid-portion',
     featured: true,
     priority: 15,
-    metaDescription: 'Achilles tendinopathy treatment in Burlington by a Registered Physiotherapist. Hands-on care and loading programs. Direct billing and evening hours.',
+    titleIntent: 'informational',
+    seoTitle: 'Achilles Tendinopathy: Insertional vs Mid-Portion, and Rehab',
+    metaDescription: 'Insertional and mid-portion Achilles tendinopathy behave differently. How to tell which you have, what to avoid early on, and the loading rehab that works.',
   },
   {
     id: 'shin-splints',

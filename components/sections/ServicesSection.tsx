@@ -4,7 +4,7 @@ import { JANE_BOOKING_URL } from '@/lib/booking';
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { useScrollAnimation, useStaggeredAnimation } from '@/hooks/useScrollAnimation';
 import {
   ChevronRightIcon,

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { MotionConfig } from 'framer-motion';
+import { LazyMotion, MotionConfig, domAnimation } from 'framer-motion';
 import { useDevicePerformance } from '@/hooks/useDevicePerformance';
 
 interface PerformanceContextType {
@@ -58,7 +58,15 @@ export function PerformanceProvider({ children }: { children: React.ReactNode })
         performanceMode,
       }}
     >
-      <MotionConfig reducedMotion="user">{children}</MotionConfig>
+      {/* Every component imports `m as motion`, so only the domAnimation
+          feature set ships (animations, variants, exit, tap/hover/focus).
+          ConditionsPageClient keeps the full `motion` import for its
+          layoutId tab indicator; that loads its own features on /conditions
+          only. Not `strict`: a stray `motion` component degrades to the
+          full bundle rather than throwing. */}
+      <LazyMotion features={domAnimation}>
+        <MotionConfig reducedMotion="user">{children}</MotionConfig>
+      </LazyMotion>
     </PerformanceContext.Provider>
   );
 }

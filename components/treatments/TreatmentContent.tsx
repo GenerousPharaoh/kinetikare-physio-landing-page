@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { Treatment } from '@/lib/treatments-data';
 import { getConditionBySlug } from '@/lib/conditions-data';
 import { CheckCircleIcon, HeartIcon, UserGroupIcon, ArrowRightIcon } from '@heroicons/react/24/outline';

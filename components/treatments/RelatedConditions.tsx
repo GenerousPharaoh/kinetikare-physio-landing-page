@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import Link from 'next/link';
 import { getConditionBySlug } from '@/lib/conditions-data';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';

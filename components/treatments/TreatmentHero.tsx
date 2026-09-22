@@ -3,7 +3,7 @@
 import { JANE_BOOKING_URL } from '@/lib/booking';
 import React from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { Treatment } from '@/lib/treatments-data';
 import { CheckCircleIcon, ArrowDownIcon, ChevronRightIcon, HomeIcon } from '@heroicons/react/24/outline';
 

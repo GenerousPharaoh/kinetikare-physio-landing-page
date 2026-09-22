@@ -32,9 +32,9 @@ import ConsentNote from '@/components/conditions/ConsentNote';
 
 import HoursList from '@/components/HoursList';
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/pain-guides/fluid-on-the-knee';
-const PAGE_TITLE = 'Fluid on the Knee: What Causes Knee Swelling | Kareem Hassanein';
+const PAGE_TITLE = 'Suprapatellar Effusion: Causes, Symptoms and What to Do Next';
 const PAGE_DESCRIPTION =
-  'A Registered Physiotherapist\'s guide to fluid on the knee in Burlington. Onset patterns, likely causes, red flags, and when to seek care.';
+  'Suprapatellar effusion means fluid in the pouch above the kneecap. What it feels like, the usual causes, when it needs imaging, and what to do next.';
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,

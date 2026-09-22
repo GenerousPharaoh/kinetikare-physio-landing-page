@@ -1634,3 +1634,31 @@ body {
   .site-footer { padding-bottom: calc(var(--mobile-controls-height) + var(--mobile-cta-height) + 1rem + env(safe-area-inset-bottom)); }
   .cookie-banner { bottom: calc(var(--mobile-controls-height) + var(--mobile-cta-height) + env(safe-area-inset-bottom)); }
 }
+
+
+/* Hero entrance (components/sections/HeroSectionModern.tsx). CSS keyframes so
+   the H1 and the photo paint before the motion runtime hydrates; the old
+   motion variants held them at opacity 0 until then (LCP render delay).
+   Timing matches the former variants: 0.3s lead, 0.1s per item, 0.8s rise,
+   1.8s image fade. */
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes hero-image-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.hero-rise {
+  animation: hero-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(0.3s + var(--rise, 0) * 0.1s);
+}
+.hero-image-in {
+  animation: hero-image-in 1.8s ease both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-rise,
+  .hero-image-in {
+    animation: none !important;
+  }
+}

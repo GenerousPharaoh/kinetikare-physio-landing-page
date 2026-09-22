@@ -35,7 +35,7 @@ import { HUB_ILLUSTRATION, ILLUSTRATIONS } from '@/lib/illustrations';
 
 const HUB_ART = ILLUSTRATIONS[HUB_ILLUSTRATION['knee-pain']];
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/knee-pain';
-const PAGE_TITLE = 'Knee Pain Guide | Kareem Hassanein';
+const PAGE_TITLE = 'Knee Pain Treatment in Burlington | Kareem Hassanein';
 const PAGE_DESCRIPTION =
   'Knee pain treatment in Burlington. Front, medial, lateral, and posterior knee pain assessed and treated by a Registered Physiotherapist.';
 

@@ -116,6 +116,42 @@ const nextConfig = {
   
   // Optimize bundle size with custom webpack configuration
   webpack: (config, { dev, isServer }) => {
+    // `npm run build:analyze` writes a static treemap + stats per bundle to
+    // .next/analyze/ (webpack-bundle-analyzer is already a devDependency).
+    if (process.env.ANALYZE === 'true' && !dev) {
+      const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+      const name = isServer ? 'server' : 'client';
+      config.plugins.push(
+        new BundleAnalyzerPlugin({
+          analyzerMode: 'static',
+          openAnalyzer: false,
+          reportFilename: `../analyze/${name}.html`,
+          generateStatsFile: true,
+          statsFilename: `../analyze/${name}-stats.json`,
+        })
+      );
+    }
+
+    // Shared Heroicons modules were being placed in the home page's entry
+    // chunk and that whole chunk (21 KB gzip: GoogleReviews, hero, sections)
+    // then rode along on /intake, /treatments/*, legal pages and the 404,
+    // because webpack reused the existing chunk that happened to contain the
+    // icons. A dedicated icons chunk stops the reuse.
+    if (!isServer && !dev && config.optimization && config.optimization.splitChunks) {
+      const splitChunks = config.optimization.splitChunks;
+      splitChunks.cacheGroups = {
+        ...(splitChunks.cacheGroups || {}),
+        heroicons: {
+          test: /[\\/]node_modules[\\/]@heroicons[\\/]/,
+          name: 'heroicons',
+          chunks: 'all',
+          enforce: true,
+          priority: 40,
+          reuseExistingChunk: false,
+        },
+      };
+    }
+
     // Fix for module resolution errors
     config.resolve.alias = {
       ...config.resolve.alias,

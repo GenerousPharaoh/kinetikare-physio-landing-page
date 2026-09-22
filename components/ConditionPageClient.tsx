@@ -5,7 +5,7 @@
 import { getScrollBehavior } from '@/lib/scroll';
 import React, { useState, useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
-import { motion, MotionConfig } from 'framer-motion';
+import { m as motion, MotionConfig } from 'framer-motion';
 import Link from 'next/link';
 import {
   ChevronRightIcon,

@@ -14,7 +14,7 @@ import {
 import { CheckCircleIcon, MagnifyingGlassIcon, HandRaisedIcon, ClipboardDocumentCheckIcon } from '@heroicons/react/24/outline';
 import {
   AnimatePresence,
-  motion,
+  m as motion,
   useReducedMotion,
   useScroll,
   useTransform,
@@ -178,8 +178,8 @@ export default function IntakeLandingPage() {
   const { scrollYProgress: reviewProgress } = useScroll({ target: reviewRef, offset: ['start end', 'end start'] });
   const reviewBgY = useTransform(reviewProgress, [0, 1], [-20, 20]);
 
-  const stagger = { hidden: { opacity: 1 }, visible: { opacity: 1, transition: { staggerChildren: 0.07, delayChildren: 0.1 } } };
-  const up = { hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } } };
+  // Stagger index for the CSS entrance (see .intake-rise in the style block).
+  const rise = (index: number): CSSProperties => ({ ['--rise' as string]: index } as CSSProperties);
 
   const [activeReview, setActiveReview] = useState(0);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -246,6 +246,17 @@ export default function IntakeLandingPage() {
         .intake-marquee-track:hover .intake-marquee-row,
         .intake-marquee-track.is-paused .intake-marquee-row { animation-play-state: paused; }
         @media (prefers-reduced-motion: reduce) { .intake-marquee-row { animation: none !important; } }
+        /* Hero entrance runs in CSS, not JavaScript. The H1 used to be
+           server-rendered at opacity 0 and wait for the motion runtime to
+           hydrate before it could paint, which is where the page's LCP
+           went (98% render delay in the Sept 14 audit). The keyframes
+           reproduce the old stagger (0.8s rise, 0.07s per step, 0.1s lead). */
+        @keyframes intake-rise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes intake-portrait-in { from { opacity: 0.01; transform: translateX(40px); } to { opacity: 1; transform: translateX(0); } }
+        .intake-rise { animation: intake-rise 0.8s cubic-bezier(0.22,1,0.36,1) both; animation-delay: calc(0.1s + var(--rise, 0) * 0.07s); }
+        .intake-portrait-in { animation: intake-portrait-in 1.2s cubic-bezier(0.22,1,0.36,1) 0.25s both; }
+        .intake-banner-in { animation: intake-rise 0.6s cubic-bezier(0.22,1,0.36,1) 0.9s both; }
+        @media (prefers-reduced-motion: reduce) { .intake-rise, .intake-portrait-in, .intake-banner-in { animation: none !important; } }
       `}</style>
 
       <main className="intake-page" style={{ fontFamily: sans, background: c.bg, color: c.text, WebkitFontSmoothing: 'antialiased', overflow: 'hidden' }}>
@@ -255,41 +266,41 @@ export default function IntakeLandingPage() {
           <div style={{ position: 'absolute', inset: 0, opacity: 0.015, backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E")', backgroundSize: '200px', pointerEvents: 'none' }} />
 
           <motion.div className="intake-hero-inner" style={{ position: 'relative', maxWidth: 1200, margin: '0 auto', padding: '0 clamp(1.5rem, 5vw, 4rem)', display: 'flex', alignItems: 'center', paddingTop: 'clamp(7rem, 14vh, 10rem)', paddingBottom: 'clamp(3rem, 6vw, 5rem)', opacity: reduced ? 1 : heroOpacity }}>
-            <motion.div initial="hidden" animate="visible" variants={reduced ? undefined : stagger} style={{ display: 'grid', width: '100%', alignItems: 'center', gap: 'clamp(3rem, 6vw, 5rem)', gridTemplateColumns: '1fr' }} className="lg:!grid-cols-[1fr_340px]">
+            <div style={{ display: 'grid', width: '100%', alignItems: 'center', gap: 'clamp(3rem, 6vw, 5rem)', gridTemplateColumns: '1fr' }} className="lg:!grid-cols-[1fr_340px]">
 
-              <motion.div style={{ paddingTop: 'clamp(0rem, 4vh, 3rem)' }}>
-                <motion.div variants={up} className="intake-hero-pill" style={{ display: 'inline-flex', alignItems: 'center', gap: 9, marginBottom: 48, padding: '7px 15px 7px 13px', borderRadius: 999, background: c.white, border: `1px solid ${c.stone200}`, boxShadow: '0 2px 14px -6px rgba(17,17,17,0.10)' }}>
+              <div style={{ paddingTop: 'clamp(0rem, 4vh, 3rem)' }}>
+                <div className="intake-hero-pill intake-rise" style={{ ...rise(0), display: 'inline-flex', alignItems: 'center', gap: 9, marginBottom: 48, padding: '7px 15px 7px 13px', borderRadius: 999, background: c.white, border: `1px solid ${c.stone200}`, boxShadow: '0 2px 14px -6px rgba(17,17,17,0.10)' }}>
                   <span className="relative flex" style={{ width: 7, height: 7 }}>
                     <span className="animate-ping" style={{ position: 'absolute', inset: 0, borderRadius: '50%', backgroundColor: '#34D399', opacity: 0.5 }} />
                     <span style={{ position: 'relative', display: 'block', width: 7, height: 7, borderRadius: '50%', backgroundColor: '#059669' }} />
                   </span>
                   <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: c.text }}>Accepting New Patients</span>
-                </motion.div>
+                </div>
 
-                <motion.h1 variants={up} style={{ fontFamily: serif, fontSize: 'clamp(3rem, 7vw, 5.5rem)', fontWeight: 700, lineHeight: 0.95, letterSpacing: '-0.04em', color: c.black, marginBottom: 16 }}>
+                <h1 className="intake-rise" style={{ ...rise(1), fontFamily: serif, fontSize: 'clamp(3rem, 7vw, 5.5rem)', fontWeight: 700, lineHeight: 0.95, letterSpacing: '-0.04em', color: c.black, marginBottom: 16 }}>
                   {hero.lead}<br />
                   <span style={{ fontWeight: 300, color: c.gold, fontStyle: 'italic' }}>Burlington</span>
-                </motion.h1>
+                </h1>
 
-                <motion.p variants={up} className="intake-hero-lead" style={{ maxWidth: 460, color: c.textMid, fontSize: 15, lineHeight: 1.6, marginBottom: 36 }}>
+                <p className="intake-hero-lead intake-rise" style={{ ...rise(2), maxWidth: 460, color: c.textMid, fontSize: 15, lineHeight: 1.6, marginBottom: 36 }}>
                   One-on-one care from a Registered Physiotherapist near you.
-                </motion.p>
+                </p>
 
-                <motion.p variants={up} className="intake-hero-sub" style={{ maxWidth: 460, color: c.textMid, fontSize: 17, lineHeight: 1.75, marginBottom: 36 }}>
+                <p className="intake-hero-sub intake-rise" style={{ ...rise(3), maxWidth: 460, color: c.textMid, fontSize: 17, lineHeight: 1.75, marginBottom: 36 }}>
                   Searching for {hero.sub} in Burlington or Waterdown? Care that gets to the source of your pain so you can move freely.
-                </motion.p>
+                </p>
 
-                <motion.div variants={up} className="flex flex-col gap-3 sm:flex-row sm:gap-4" style={{ marginBottom: 40 }}>
+                <div className="intake-rise flex flex-col gap-3 sm:flex-row sm:gap-4" style={{ ...rise(4), marginBottom: 40 }}>
                   <BookingCTA size="lg" className="intake-cta-hover w-full sm:w-auto !rounded-none !px-12 !py-5 !text-xs !tracking-[0.25em]" style={{ boxShadow: '0 16px 48px -12px rgba(184,150,12,0.4)' }}>
                     BOOK ASSESSMENT <ArrowRightIcon width={14} height={14} aria-hidden="true" />
                   </BookingCTA>
                   <a href="tel:+19056346000" className="intake-cta-hover inline-flex items-center justify-center gap-3" style={{ padding: '20px 28px', border: `1.5px solid ${c.stone200}`, color: c.text, fontSize: 13, fontWeight: 600, letterSpacing: '0.04em', cursor: 'pointer' }}>
                     <PhoneIcon width={16} height={16} style={{ color: c.gold }} /> (905) 634-6000
                   </a>
-                </motion.div>
+                </div>
 
-                {/* Mobile portrait card — same layout, image pulled flush to the bottom border */}
-                <motion.div variants={up} className="lg:hidden intake-mobile-portrait" style={{ overflow: 'hidden', marginBottom: 32, padding: '14px 14px 0 14px', borderRadius: 18, background: c.white, border: `1px solid ${c.stone200}`, boxShadow: '0 18px 38px -24px rgba(15,23,42,0.25)' }}>
+                {/* Mobile portrait card, same layout, image pulled flush to the bottom border */}
+                <div className="lg:hidden intake-mobile-portrait intake-rise" style={{ ...rise(5), overflow: 'hidden', marginBottom: 32, padding: '14px 14px 0 14px', borderRadius: 18, background: c.white, border: `1px solid ${c.stone200}`, boxShadow: '0 18px 38px -24px rgba(15,23,42,0.25)' }}>
                   <div style={{ display: 'grid', gridTemplateColumns: '88px 1fr', gap: 14, alignItems: 'center' }}>
                     <Image
                       src="/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png"
@@ -306,10 +317,10 @@ export default function IntakeLandingPage() {
                       <p style={{ fontSize: 10, color: c.textLight, fontWeight: 500, letterSpacing: '0.04em' }}>MSc PT, BSc Kin &middot; CPO #20079</p>
                     </div>
                   </div>
-                </motion.div>
+                </div>
 
-                {/* Trust row — more breathing room */}
-                <motion.div variants={up} style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 16, paddingTop: 8, paddingBottom: 16, borderTop: `1px solid ${c.stone100}` }}>
+                {/* Trust row, more breathing room */}
+                <div className="intake-rise" style={{ ...rise(6), display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 16, paddingTop: 8, paddingBottom: 16, borderTop: `1px solid ${c.stone100}` }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                     <Stars size={13} />
                     <span style={{ fontSize: 14, fontWeight: 700, color: c.text }}>5.0</span>
@@ -322,11 +333,11 @@ export default function IntakeLandingPage() {
                       {b}
                     </span>
                   ))}
-                </motion.div>
-              </motion.div>
+                </div>
+              </div>
 
               {/* PORTRAIT */}
-              <motion.div className="hidden lg:block" initial={reduced ? false : { opacity: 0.01, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1.2, delay: 0.25, ease: [0.22, 1, 0.36, 1] }} style={{ position: 'relative', zIndex: 10 }}>
+              <div className="hidden lg:block intake-portrait-in" style={{ position: 'relative', zIndex: 10 }}>
                 <motion.div style={{ position: 'relative', y: reduced ? 0 : photoY, overflow: 'hidden', aspectRatio: '826 / 940', borderRadius: 6 }}>
                   <Image src="/images/professional-photo-kareem-hassanein-registered-physiotherapist-burlington-waterdown-flamborough-oakville-carlisle.png" alt="Kareem Hassanein, Registered Physiotherapist in Burlington" width={826} height={1169} priority quality={82} sizes="(min-width: 1024px) 340px, 0px" style={{ width: '100%', height: '100%', display: 'block', objectFit: 'cover', objectPosition: 'top center' }} />
 
@@ -336,12 +347,7 @@ export default function IntakeLandingPage() {
                   {/* Frosted name/credentials banner overlaying bottom of photo */}
                   {/* Static backdrop-filter container (not animated) to avoid non-composited paint */}
                   <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)', background: 'rgba(17,17,17,0.5)', borderTop: '1px solid rgba(212,175,55,0.3)' }}>
-                  <motion.div
-                    initial={reduced ? false : { opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
-                    style={{ padding: '20px 24px' }}
-                  >
+                  <div className="intake-banner-in" style={{ padding: '20px 24px' }}>
                     <p style={{ fontFamily: serif, fontSize: 18, fontWeight: 700, color: '#FFFFFF', letterSpacing: '-0.01em', marginBottom: 4 }}>Kareem Hassanein</p>
                     <p style={{ fontSize: 11, color: 'rgba(212,175,55,0.95)', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', lineHeight: 1.4 }}>
                       Registered Physiotherapist
@@ -349,11 +355,11 @@ export default function IntakeLandingPage() {
                     <p style={{ fontSize: 10, color: 'rgba(255,255,255,0.7)', fontWeight: 500, letterSpacing: '0.06em', marginTop: 4 }}>
                       MSc PT &middot; BSc Kin &middot; CPO #20079
                     </p>
-                  </motion.div>
+                  </div>
                   </div>
                 </motion.div>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           </motion.div>
 
           {/* Premium bottom edge */}

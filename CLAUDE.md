@@ -167,6 +167,8 @@ Deliberate decisions in that file, do not "fix" them:
 - **spinal-health has no hub.** Burlington back-pain queries drew ~4 impressions in a quarter, and a back hub would compete with the already-indexed `/conditions/low-back-pain`.
 - **Wrist and hand conditions are excluded from the Elbow hub** (they share the `elbow-wrist-hand` category but "Elbow Pain" would misdescribe carpal tunnel), as are thoracic-outlet-syndrome and diabetes-related-conditions from the Shoulder hub.
 
+Related conditions on a condition page come from `intelligentRelationships` in `lib/conditions-data.ts`: each page renders the top six of its own list by `relevanceScore` (stable order), and entries typed `treatment` are filtered out, so a link only appears if it scores into the source page's top six. Since 2026-09-22 (commit e08c412) every condition has a list, the seven pages that had two or three inbound links (turf toe, patella fractures, diabetes-related conditions, growth plate injuries, scaphoid fractures, shoulder bursitis, stress fractures) are linked from the pages that clinically lead to them, and the tennis elbow links were removed from the patellar and Achilles lists on purpose (they routed knee and foot equity to a page Kareem does not want patients from). The one-line explanations render on the page, so they are copy: plain, clinical, no em dashes.
+
 The condition breadcrumb uses `flex-wrap` with `gap-x-2 gap-y-1`, not `space-x-2`. Long condition names overflowed the viewport at phone widths before this; `space-x` also breaks on wrapped rows.
 
 ## One Person node, one business node

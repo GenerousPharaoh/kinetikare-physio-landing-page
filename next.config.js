@@ -10,6 +10,7 @@ const nextConfig = {
   // Optimize barrel-file imports for these libs so unused exports
   // don't ship to the client (helps INP + JS payload on mobile).
   experimental: {
+    inlineCss: true,
     optimizePackageImports: [
       'framer-motion',
       '@phosphor-icons/react',

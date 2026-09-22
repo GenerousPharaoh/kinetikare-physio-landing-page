@@ -176,12 +176,6 @@ export const treatmentModalities = [
     description: 'Customized exercise programs'
   },
   {
-    name: 'Shockwave Therapy',
-    keywords: ['shockwave', 'chronic tendon', 'heel pain'],
-    conditions: ['plantar fasciitis', 'tendinitis', 'chronic pain'],
-    description: 'Focused treatment for chronic conditions'
-  },
-  {
     name: 'Taping & Bracing',
     keywords: ['tape', 'kinesio', 'support', 'brace'],
     conditions: ['instability', 'acute injury', 'support'],

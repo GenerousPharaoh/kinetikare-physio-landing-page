@@ -67,6 +67,10 @@ const GoogleAnalytics = () => {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           window.gtag = gtag;
+          if (!/(^|\\.)kinetikarephysio\\.com$/.test(location.hostname) || navigator.webdriver) {
+            window['ga-disable-${GA_MEASUREMENT_ID}'] = true;
+            ${GOOGLE_ADS_ID ? `window['ga-disable-${GOOGLE_ADS_ID}'] = true;` : ''}
+          }
           var storedConsent = 'granted';
           try {
             if (localStorage.getItem('cookieConsentStatus') === 'declined') storedConsent = 'denied';

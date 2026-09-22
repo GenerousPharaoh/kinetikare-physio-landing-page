@@ -363,10 +363,10 @@ export const CONDITION_COMPARISONS: ConditionComparison[] = [
   // ---------------------------------------------------------------------------
   {
     pair: 'patellar-tendinopathy-vs-patellofemoral',
-    title: 'Patellar Tendinopathy vs. Patellofemoral Pain: How to Tell',
+    title: 'Patellar Tendonitis vs. Patellofemoral Pain Syndrome: How to Tell',
     h1: 'Is it patellar tendinopathy or patellofemoral pain?',
     description:
-      "Patellar tendinopathy or patellofemoral pain? How to tell them apart by pain location and triggers. By Kareem Hassanein, Registered Physiotherapist, Burlington.",
+      "Patellar tendonitis or patellofemoral pain syndrome? How to tell them apart by pain location and what sets it off. Registered Physiotherapist, Burlington.",
     conditionA: {
       slug: 'patellar-tendinopathy',
       name: "Patellar Tendinopathy (Jumper's Knee)",

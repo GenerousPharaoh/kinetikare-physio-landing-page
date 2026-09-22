@@ -249,7 +249,9 @@ const spinalConditions: Condition[] = [
     description: 'Nerve root compressions and radiculopathy',
     featured: true,
     priority: 2,
-    metaDescription: 'Sciatica treatment in Burlington by a Registered Physiotherapist. Hands-on care for nerve and leg pain. Direct billing, no referral, evening hours.',
+    titleIntent: 'informational',
+    seoTitle: 'Sciatica: Symptoms, Causes and What Helps It Settle',
+    metaDescription: 'Sciatica is leg pain from an irritated nerve root, not a diagnosis on its own. The usual causes, what settles it, and when to get it assessed in Burlington.',
   },
   {
     id: 'disc-herniation',
@@ -499,7 +501,9 @@ const hipPelvisConditions: Condition[] = [
     description: 'Cartilage ring tears causing clicking, catching, groin pain',
     featured: true,
     priority: 30,
-    metaDescription: 'Hip labral tear treatment in Burlington. Conservative physiotherapy for labral pathology using activity modification and targeted rehabilitation.',
+    titleIntent: 'informational',
+    seoTitle: 'Hip Labral Tear: Symptoms, Tests and Physiotherapy',
+    metaDescription: 'Catching, clicking and deep groin pain from a hip labral tear. What it feels like, how it is assessed, and the physiotherapy plan that comes before surgery.',
   },
   {
     id: 'hip-bursitis',
@@ -515,7 +519,9 @@ const hipPelvisConditions: Condition[] = [
     name: 'Deep Gluteal Syndrome',
     category: 'hip-pelvis',
     description: 'Sciatic nerve entrapment in deep gluteal space',
-    metaDescription: 'Deep gluteal syndrome treatment in Burlington. Personalized care for sciatic nerve entrapment using neural mobilization and manual therapy.',
+    titleIntent: 'informational',
+    seoTitle: 'Deep Buttock Pain (Deep Gluteal Syndrome): Causes and Rehab',
+    metaDescription: 'Deep buttock pain worse with sitting can be deep gluteal syndrome, the sciatic nerve irritated behind the hip. Causes, tests and treatment in Burlington.',
   },
   {
     id: 'proximal-hamstring-tendinopathy',
@@ -690,7 +696,7 @@ const footAnkleConditions: Condition[] = [
     description: 'Heel pain and heel spurs',
     featured: true,
     priority: 5,
-    metaDescription: 'Effective plantar fasciitis treatment in Burlington. Expert physiotherapy for heel pain using manual therapy, shockwave therapy, and customized exercise programs.',
+    metaDescription: 'Plantar fasciitis and heel pain treatment in Burlington. Hands-on physiotherapy, calf and foot strengthening, and load management for morning heel pain.',
   },
   {
     id: 'achilles-tendinopathy',

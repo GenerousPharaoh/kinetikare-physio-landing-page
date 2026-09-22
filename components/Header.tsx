@@ -142,6 +142,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ onNavLinkC
                     src="/images/kinetikare-logo-without-text.webp"
                     alt="Kinetikare Logo"
                     fill
+                    priority
                     className="object-contain drop-shadow-[0_0_15px_rgba(212,175,55,0.3)]"
                     sizes="44px"
                   />

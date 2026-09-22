@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
 import WeekSchedule from '@/components/contact/WeekSchedule';
+import CallbackForm from '@/components/CallbackForm';
 import { HEADON_BOOKING_URL, JANE_BOOKING_URL, PHYSIOMAX_BOOKING_URL } from '@/lib/booking';
 import { serializeJsonLd } from '@/lib/structured-data';
 import { SEO_ORGANIZATION_ID, SEO_PERSON_ID } from '@/lib/seo-metadata';
@@ -227,6 +228,13 @@ export default function ContactPage() {
               <WeekSchedule />
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Call back: for people who would rather not open a Jane account or ring a desk. */}
+      <section className="!bg-[#FAF8F5] !bg-none pt-14 md:pt-20" aria-label="Request a call back">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <CallbackForm source="contact_callback" />
         </div>
       </section>
 

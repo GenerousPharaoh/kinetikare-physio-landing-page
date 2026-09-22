@@ -22,6 +22,7 @@ import {
 import { useInView } from 'react-intersection-observer';
 import BookingCTA from '@/components/intake/BookingCTA';
 import StickyBookingBar from '@/components/intake/StickyBookingBar';
+import CallbackForm from '@/components/CallbackForm';
 import { resolveIntakeHero, DEFAULT_HERO, type IntakeHero } from '@/lib/intake-headlines';
 
 import { HOURS_SUMMARY } from '@/lib/hours';
@@ -299,6 +300,12 @@ export default function IntakeLandingPage() {
                   </a>
                 </div>
 
+                <p className="intake-rise" style={{ ...rise(4), marginTop: -22, marginBottom: 36, fontSize: 13, color: c.textLight }}>
+                  Prefer a call back?{' '}
+                  <a href="#call-back" style={{ color: c.goldText, fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 4 }}>Leave your number</a>
+                  {' '}and Kareem will call you.
+                </p>
+
                 {/* Mobile portrait card, same layout, image pulled flush to the bottom border */}
                 <div className="lg:hidden intake-mobile-portrait intake-rise" style={{ ...rise(5), overflow: 'hidden', marginBottom: 32, padding: '14px 14px 0 14px', borderRadius: 18, background: c.white, border: `1px solid ${c.stone200}`, boxShadow: '0 18px 38px -24px rgba(15,23,42,0.25)' }}>
                   <div style={{ display: 'grid', gridTemplateColumns: '88px 1fr', gap: 14, alignItems: 'center' }}>
@@ -368,6 +375,13 @@ export default function IntakeLandingPage() {
             <div style={{ height: 40, background: 'linear-gradient(to bottom, rgba(0,0,0,0.04), transparent)', pointerEvents: 'none' }} />
           </div>
         </section>
+
+        {/* ═══════════ CALL BACK: the second path for people who will not open a Jane account ═══════════ */}
+        <div style={{ background: c.stone50, borderTop: `1px solid ${c.stone100}`, borderBottom: `1px solid ${c.stone100}` }}>
+          <div style={{ maxWidth: 1200, margin: '0 auto', padding: 'clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 5vw, 4rem)' }}>
+            <CallbackForm source="intake_callback" />
+          </div>
+        </div>
 
         {/* ═══════════ REVIEWS — cinematic parallax ═══════════ */}
         <div ref={reviewRef} style={{ position: 'relative', overflow: 'hidden' }}>

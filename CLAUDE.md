@@ -110,6 +110,22 @@ His set (19 engraved pieces in one palette: navy, dark teal, gold, cream; 1122x1
 
 Trap met here: a class with `!important` (`!bg-none`) beats an inline `style` background. A section that needs a solid colour uses `!bg-[#0f172a] !bg-none` as classes, never an inline gradient.
 
+## Main navigation is curated (2026-09-22)
+
+`lib/nav-menu.ts` defines the desktop mega menu and the phone submenu: six columns (Knee, Hip & Pelvis, Foot & Ankle, Shoulder, Back & Sciatica, Treatments) of four links each, the column heading linking to the regional hub where one exists, plus a wayfinding row (All conditions, Elbow wrist & hand, Pain guides, Compare conditions). Before this the nav carried 24 condition links on every page, six of them to pages Kareem does not want patients from (neck, whiplash, tennis elbow, golfers elbow, carpal tunnel, de Quervain's) and none to the hubs or the treatments. The nav is the site's largest internal-link surface, so it is weighted to hips, knees, feet, dry needling and sports rehab on purpose (his stated clinical preference). `lib/condition-nav.ts` still feeds the /conditions directory tabs but is no longer imported by `Header.tsx`. Add or move a nav link in `lib/nav-menu.ts` only.
+
+## Motion runtime (2026-09-22)
+
+`context/PerformanceContext.tsx` wraps the app in `LazyMotion features={domAnimation}` and components import `m as motion` from framer-motion (31 files). New components must do the same; importing `motion` pulls the full runtime back into the bundle. `ConditionsPageClient.tsx` keeps `motion` because it uses `layoutId`. Both heroes (`HeroSectionModern`, `IntakeLandingPage`) enter with CSS keyframes (`.hero-rise` in `app/globals.css`, `.intake-rise` inline) instead of Framer variants, so the H1 is never server-rendered at `opacity:0`. `@heroicons` has its own cacheGroup in `next.config.js`. `ANALYZE=true npm run build` writes a bundle report to `analyze/` (gitignored). Measured 2026-09-22 (gzip, modern browsers; the `nomodule` polyfills never download): /intake JS 240.6 -> 233.9 KB, knee hub 195.7 -> 184.4 KB, framer chunk 36.5 -> 23.4 KB. Known quirk: Next's client-reference manifest attaches the home page chunk to /intake, /treatments/* and the legal pages because they share client modules; a `nextClient` cacheGroup made it worse and was reverted.
+
+## Informational titles (2026-09-22)
+
+`Condition.seoTitle` in `lib/conditions-data.ts` overrides the "X Treatment in Burlington" pattern in `generateConditionTitle`. Fourteen knee, hip and foot pages that already rank on Google page one for informational queries (worldwide, not Burlington) carry one, e.g. "Ankle Sprain: Grades, Recovery Time and Rehab Exercises". Leave the Burlington pattern on everything else; it is the local signal. The fluid-on-the-knee guide is "Suprapatellar Effusion: Causes, Symptoms and What to Do Next". IndexNow key file `public/a7f71a8cd17375152b88dbd64406713c.txt` must stay; after a content change, POST the changed URLs to `https://api.indexnow.org/indexnow` with that key (Bing, Copilot, ChatGPT search read Bing; Google ignores IndexNow). Both this site and endorphinshealth.com are in Bing Webmaster Tools under kareem.hassanein@gmail.com since 2026-09-22, imported from Search Console.
+
+## Call-back form (2026-09-22)
+
+`components/CallbackForm.tsx` (client) posts name, phone, best time and an optional body area to `app/api/callback/route.ts` (Node runtime, zod, honeypot field `company`, five requests per ten minutes per IP), which emails Kareem through Resend. It sits on `/contact` (source `contact_callback`) and on `/intake` before the reviews (source `intake_callback`, with a "Prefer a call back?" link in the hero). On success it fires GA4 `callback_request` (label = source) and, when `NEXT_PUBLIC_ADS_CALLBACK_LABEL` is set, the Google Ads conversion "Call-back request" (`AW-18069490191/UsjkCLrv6oAdEI-UmqhD`, fixed CA$1 so conversion value keeps meaning bookings). Constraints: Resend has no verified domain, so `from` must stay `onboarding@resend.dev` and the only deliverable `to` is kareem.hassanein@gmail.com; `RESEND_API_KEY` and `NEXT_PUBLIC_ADS_CALLBACK_LABEL` are set in Vercel production only (preview unset). Enhanced conversions were turned OFF in Ads before this shipped; do not turn them on for this form without deciding what user data to send. The route is the site's only `app/api` route.
+
 ## Hours live in one file
 
 `lib/hours.ts` is the only place clinical hours are defined. It feeds the root schema (`ENDORPHINS_OPENING_HOURS_SCHEMA`), `Footer.tsx`, `ContactSection.tsx`, the ads landing page summary (`HOURS_SUMMARY`) and `components/HoursList.tsx`, which the five regional hubs, two pain guides and the compare template render. Before 2026-09-14 the same rows were hand-typed in twelve files and had drifted.
@@ -201,7 +217,7 @@ As of March 26, 2026, the site SEO work is intentionally focused on the niches t
 - Entity graph unified (see "One Person node, one business node" above) on this site and on endorphinshealth.com (commit ae9c425 there: clinic `@id`, employees by reference, geo, ReserveAction, physio page schema, GA4 outbound events) and physiomaxwellness.ca (plugin 1.30.4).
 - Hours centralised in `lib/hours.ts` (see "Hours live in one file"), corrected to 8:00 PM, Headon days removed from the Palladium Way schema, PhysioMax days added.
 - Reviews link to the practitioner listing; pin corrected; `data-booking-source` on every CTA; PhysioMax logo on About; GBP appointment link moved to the deep link and set preferred.
-- Measured, not fixed: home LCP 2.07 s in the lab with 98% render delay on the H1 (Framer stagger holds it at opacity 0 until hydration plus a 300 ms delay and 800 ms fade); dry needling 1.27 s; CLS 0 on both. Held until the hero redesign lands.
+- Measured, not fixed: home LCP 2.07 s in the lab with 98% render delay on the H1 (Framer stagger holds it at opacity 0 until hydration plus a 300 ms delay and 800 ms fade); dry needling 1.27 s; CLS 0 on both. Held until the hero redesign lands. Fixed 2026-09-22 (commit e20e195): both heroes now enter with CSS keyframes (`.hero-rise` in `app/globals.css`, `.intake-rise` inline), no inline `opacity:0` in the built HTML, so the H1 paints with the document.
 
 ### Audit-driven a11y / SEO / conversion pass completed on 2026-06-10
 
@@ -306,9 +322,9 @@ As of March 26, 2026, the site SEO work is intentionally focused on the niches t
 
 ### Open from the 2026-09-14 audit
 
-- Hero H1 render delay (one-line fix; ship with the hero redesign, not before).
+- ~~Hero H1 render delay~~ DONE 2026-09-22 (see "Motion runtime").
 - One `@graph` per page instead of 8 to 16 separate JSON-LD blocks.
-- Knee hub title back to "Knee Pain Treatment in Burlington | Kareem Hassanein" (the other four hubs use that form).
+- ~~Knee hub title back to "Knee Pain Treatment in Burlington | Kareem Hassanein"~~ DONE 2026-09-22.
 - A visible link from `/about` or the author byline to `https://endorphinshealth.com/team/kareem-hassanein/`, which the schema names as the same person.
 - Schema `name` parity with the listing title (it is the first `alternateName` now; making it the `name` is Kareem's call).
 - Off-site: 14 external links, none editorial; Headon does not link; no directory or association citations. This is what `physiotherapy burlington` at position 25 responds to.

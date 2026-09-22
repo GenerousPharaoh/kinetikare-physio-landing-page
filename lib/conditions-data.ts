@@ -937,14 +937,16 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'frozen-shoulder', relationshipType: 'symptomatic', explanation: 'Both cause shoulder pain and stiffness; can develop sequentially', relevanceScore: 7 },
     { slug: 'biceps-tendinopathy', relationshipType: 'anatomical', explanation: 'Biceps tendon closely related to rotator cuff; injuries often coexist', relevanceScore: 7 },
     { slug: 'ac-joint-injuries', relationshipType: 'biomechanical', explanation: 'AC joint dysfunction can alter shoulder mechanics and stress rotator cuff', relevanceScore: 6 },
-    { slug: 'neck-pain', relationshipType: 'biomechanical', explanation: 'Neck posture affects shoulder blade position and rotator cuff function', relevanceScore: 5 }
+    { slug: 'neck-pain', relationshipType: 'biomechanical', explanation: 'Neck posture affects shoulder blade position and rotator cuff function', relevanceScore: 5 },
+    { slug: 'shoulder-bursitis', relationshipType: 'anatomical', explanation: 'Bursitis often accompanies rotator cuff irritation and settles with the same loading approach', relevanceScore: 6 }
   ],
   'shoulder-impingement': [
     { slug: 'rotator-cuff-injuries', relationshipType: 'causal', explanation: 'Chronic impingement leads to rotator cuff tendon damage and tears', relevanceScore: 9 },
     { slug: 'frozen-shoulder', relationshipType: 'symptomatic', explanation: 'Both cause overhead movement restriction; impingement can progress to adhesive capsulitis', relevanceScore: 7 },
     { slug: 'thoracic-outlet-syndrome', relationshipType: 'biomechanical', explanation: 'Both involve poor shoulder blade mechanics and postural dysfunction', relevanceScore: 6 },
     { slug: 'neck-pain', relationshipType: 'biomechanical', explanation: 'Forward head posture contributes to scapular dysfunction and impingement', relevanceScore: 6 },
-    { slug: 'biceps-tendinopathy', relationshipType: 'anatomical', explanation: 'Biceps tendon can be affected by subacromial impingement process', relevanceScore: 6 }
+    { slug: 'biceps-tendinopathy', relationshipType: 'anatomical', explanation: 'Biceps tendon can be affected by subacromial impingement process', relevanceScore: 6 },
+    { slug: 'shoulder-bursitis', relationshipType: 'anatomical', explanation: 'The subacromial bursa sits in the same space and is usually irritated alongside the tendons', relevanceScore: 7 }
   ],
   'frozen-shoulder': [
     { slug: 'rotator-cuff-injuries', relationshipType: 'symptomatic', explanation: 'Both cause shoulder pain and movement restriction; can coexist or develop sequentially', relevanceScore: 7 },
@@ -972,14 +974,16 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'repetitive-strain-injuries', relationshipType: 'causal', explanation: 'Carpal tunnel syndrome is a type of repetitive strain injury', relevanceScore: 8 },
     { slug: 'tennis-elbow', relationshipType: 'biomechanical', explanation: 'Both can result from poor ergonomics and repetitive wrist/forearm motions', relevanceScore: 6 },
     { slug: 'thoracic-outlet-syndrome', relationshipType: 'symptomatic', explanation: 'Both cause hand/arm numbness and tingling; TOS affects more proximal nerve compression', relevanceScore: 6 },
-    { slug: 'neck-pain', relationshipType: 'symptomatic', explanation: 'Cervical radiculopathy can mimic carpal tunnel symptoms', relevanceScore: 5 }
+    { slug: 'neck-pain', relationshipType: 'symptomatic', explanation: 'Cervical radiculopathy can mimic carpal tunnel symptoms', relevanceScore: 5 },
+    { slug: 'diabetes-related-conditions', relationshipType: 'causal', explanation: 'Diabetes is a recognised risk factor for carpal tunnel syndrome', relevanceScore: 6 }
   ],
   'de-quervains-tenosynovitis': [
     { slug: 'carpal-tunnel-syndrome', relationshipType: 'anatomical', explanation: 'Both affect wrist structures; similar risk factors and can coexist', relevanceScore: 7 },
     { slug: 'repetitive-strain-injuries', relationshipType: 'causal', explanation: 'De Quervains is a repetitive strain injury affecting thumb tendons', relevanceScore: 8 },
     { slug: 'golfers-elbow', relationshipType: 'biomechanical', explanation: 'Both involve overuse of wrist/forearm muscles from gripping activities', relevanceScore: 5 },
     { slug: 'tennis-elbow', relationshipType: 'biomechanical', explanation: 'Wrist extension activities can stress both lateral elbow and thumb tendons', relevanceScore: 5 },
-    { slug: 'wrist-sprains', relationshipType: 'anatomical', explanation: 'Both affect wrist region; acute injuries can predispose to De Quervains', relevanceScore: 6 }
+    { slug: 'wrist-sprains', relationshipType: 'anatomical', explanation: 'Both affect wrist region; acute injuries can predispose to De Quervains', relevanceScore: 6 },
+    { slug: 'scaphoid-fractures', relationshipType: 'anatomical', explanation: 'Both cause pain on the thumb side of the wrist, and a missed scaphoid fracture is the key differential after a fall', relevanceScore: 6 }
   ],
   'hip-osteoarthritis': [
     { slug: 'knee-osteoarthritis', relationshipType: 'biomechanical', explanation: 'Hip stiffness alters gait and can increase knee joint stress leading to arthritis', relevanceScore: 8 },
@@ -1035,7 +1039,8 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'it-band-syndrome', relationshipType: 'biomechanical', explanation: 'Both common in runners; IT band tightness can affect patellofemoral tracking', relevanceScore: 7 },
     { slug: 'greater-trochanteric-pain-syndrome', relationshipType: 'biomechanical', explanation: 'Gluteal weakness contributes to both lateral hip pain and poor knee tracking', relevanceScore: 6 },
     { slug: 'knee-osteoarthritis', relationshipType: 'causal', explanation: 'Chronic patellofemoral dysfunction can lead to cartilage wear and arthritis', relevanceScore: 6 },
-    { slug: 'hip-osteoarthritis', relationshipType: 'biomechanical', explanation: 'Hip stiffness alters knee mechanics and patellofemoral joint stress', relevanceScore: 5 }
+    { slug: 'hip-osteoarthritis', relationshipType: 'biomechanical', explanation: 'Hip stiffness alters knee mechanics and patellofemoral joint stress', relevanceScore: 5 },
+    { slug: 'patella-fractures', relationshipType: 'anatomical', explanation: 'A healed kneecap fracture can leave patellofemoral pain and stiffness behind', relevanceScore: 5 }
   ],
   'acl-injuries': [
     { slug: 'meniscus-tears', relationshipType: 'anatomical', explanation: 'ACL and meniscus injuries often occur together; shared injury mechanisms', relevanceScore: 8 },
@@ -1061,23 +1066,27 @@ const intelligentRelationships: Record<string, Array<{
   'patellar-tendinopathy': [
     { slug: 'knee-pain-patellofemoral', relationshipType: 'anatomical', explanation: 'Both affect patellofemoral region; share many biomechanical risk factors', relevanceScore: 8 },
     { slug: 'achilles-tendinopathy', relationshipType: 'treatment', explanation: 'Both are tendinopathies with similar pathophysiology and treatment approaches', relevanceScore: 7 },
-    { slug: 'tennis-elbow', relationshipType: 'treatment', explanation: 'Both are tendinopathies responding to similar loading protocols and treatment', relevanceScore: 6 },
     { slug: 'acl-injuries', relationshipType: 'biomechanical', explanation: 'Both common in jumping sports; altered landing mechanics affect both structures', relevanceScore: 6 },
-    { slug: 'hip-osteoarthritis', relationshipType: 'biomechanical', explanation: 'Hip stiffness can alter knee mechanics and increase patellar tendon stress', relevanceScore: 5 }
+    { slug: 'hip-osteoarthritis', relationshipType: 'biomechanical', explanation: 'Hip stiffness can alter knee mechanics and increase patellar tendon stress', relevanceScore: 5 },
+    { slug: 'patella-fractures', relationshipType: 'anatomical', explanation: 'Both affect the front of the knee and are assessed together after a fall onto the kneecap', relevanceScore: 5 },
+    { slug: 'growth-plate-injuries', relationshipType: 'anatomical', explanation: 'In adolescents the same load presents as Osgood-Schlatter, a growth plate condition, rather than tendinopathy', relevanceScore: 6 }
   ],
   'knee-osteoarthritis': [
     { slug: 'hip-osteoarthritis', relationshipType: 'biomechanical', explanation: 'Hip stiffness alters gait and can accelerate knee joint degeneration', relevanceScore: 8 },
     { slug: 'meniscus-tears', relationshipType: 'causal', explanation: 'Meniscus damage can lead to accelerated cartilage loss and arthritis', relevanceScore: 8 },
     { slug: 'acl-injuries', relationshipType: 'causal', explanation: 'ACL injuries significantly increase risk of early knee osteoarthritis', relevanceScore: 7 },
     { slug: 'ankle-sprains', relationshipType: 'biomechanical', explanation: 'Chronic ankle instability alters knee mechanics and can contribute to OA', relevanceScore: 5 },
-    { slug: 'plantar-fasciitis', relationshipType: 'biomechanical', explanation: 'Foot/ankle dysfunction affects knee loading patterns', relevanceScore: 5 }
+    { slug: 'plantar-fasciitis', relationshipType: 'biomechanical', explanation: 'Foot/ankle dysfunction affects knee loading patterns', relevanceScore: 5 },
+    { slug: 'patella-fractures', relationshipType: 'causal', explanation: 'A fracture into the joint surface is one cause of osteoarthritis developing later', relevanceScore: 5 }
   ],
   'ankle-sprains': [
     { slug: 'peroneal-tendinopathy', relationshipType: 'causal', explanation: 'Chronic ankle instability from sprains can lead to peroneal tendon overuse', relevanceScore: 8 },
     { slug: 'achilles-tendinopathy', relationshipType: 'biomechanical', explanation: 'Ankle instability affects Achilles tendon mechanics and loading patterns', relevanceScore: 6 },
     { slug: 'shin-splints', relationshipType: 'biomechanical', explanation: 'Ankle instability can alter lower leg mechanics contributing to shin splints', relevanceScore: 6 },
     { slug: 'it-band-syndrome', relationshipType: 'biomechanical', explanation: 'Ankle dysfunction affects entire lower limb chain including IT band stress', relevanceScore: 5 },
-    { slug: 'knee-osteoarthritis', relationshipType: 'biomechanical', explanation: 'Chronic ankle instability alters knee loading patterns over time', relevanceScore: 5 }
+    { slug: 'knee-osteoarthritis', relationshipType: 'biomechanical', explanation: 'Chronic ankle instability alters knee loading patterns over time', relevanceScore: 5 },
+    { slug: 'turf-toe', relationshipType: 'biomechanical', explanation: 'Both are ligament sprains from sport with the same graded return to running and cutting', relevanceScore: 6 },
+    { slug: 'growth-plate-injuries', relationshipType: 'anatomical', explanation: 'In children the same twisting injury often affects the growth plate rather than the ligament', relevanceScore: 6 }
   ],
   'plantar-fasciitis': [
     { slug: 'achilles-tendinopathy', relationshipType: 'biomechanical', explanation: 'Both involve posterior chain tightness; Achilles stiffness contributes to plantar fasciitis', relevanceScore: 8 },
@@ -1086,13 +1095,14 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'it-band-syndrome', relationshipType: 'biomechanical', explanation: 'Both are running-related overuse injuries with interconnected lower limb mechanics', relevanceScore: 5 },
     { slug: 'knee-pain-patellofemoral', relationshipType: 'biomechanical', explanation: 'Foot dysfunction affects entire lower limb kinetic chain including knee mechanics', relevanceScore: 5 },
     { slug: 'posterior-tibial-tendon-dysfunction', relationshipType: 'biomechanical', explanation: 'Both involve medial arch support; PTTD can lead to plantar fascia overload', relevanceScore: 8 },
-    { slug: 'severs-disease', relationshipType: 'anatomical', explanation: 'Both involve heel pain; plantar fascia attaches near calcaneal apophysis', relevanceScore: 7 }
+    { slug: 'severs-disease', relationshipType: 'anatomical', explanation: 'Both involve heel pain; plantar fascia attaches near calcaneal apophysis', relevanceScore: 7 },
+    { slug: 'diabetes-related-conditions', relationshipType: 'causal', explanation: 'Diabetes raises the risk of plantar fasciitis and slows fascia and tendon healing', relevanceScore: 6 },
+    { slug: 'stress-fractures', relationshipType: 'symptomatic', explanation: 'A calcaneal stress fracture is the differential for heel pain that is worse with impact rather than first steps', relevanceScore: 6 }
   ],
   'achilles-tendinopathy': [
     { slug: 'plantar-fasciitis', relationshipType: 'biomechanical', explanation: 'Both involve posterior chain; Achilles stiffness is major risk factor for plantar fasciitis', relevanceScore: 8 },
     { slug: 'patellar-tendinopathy', relationshipType: 'treatment', explanation: 'Both are tendinopathies with similar pathophysiology and evidence-based treatments', relevanceScore: 7 },
     { slug: 'shin-splints', relationshipType: 'causal', explanation: 'Both are common running injuries; Achilles dysfunction can contribute to shin splints', relevanceScore: 6 },
-    { slug: 'tennis-elbow', relationshipType: 'treatment', explanation: 'Both are tendinopathies responding to similar loading and exercise protocols', relevanceScore: 6 },
     { slug: 'ankle-sprains', relationshipType: 'biomechanical', explanation: 'Ankle instability affects Achilles tendon loading and mechanics', relevanceScore: 6 },
     { slug: 'severs-disease', relationshipType: 'anatomical', explanation: 'Both involve Achilles tendon attachment issues, though in different age groups', relevanceScore: 8 },
     { slug: 'posterior-tibial-tendon-dysfunction', relationshipType: 'biomechanical', explanation: 'Achilles tightness can increase stress on posterior tibial tendon', relevanceScore: 6 }
@@ -1151,7 +1161,8 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'shoulder-impingement', relationshipType: 'anatomical', explanation: 'Biceps tendon can be affected by subacromial impingement process', relevanceScore: 6 },
     { slug: 'frozen-shoulder', relationshipType: 'symptomatic', explanation: 'Both cause anterior shoulder pain and can develop sequentially', relevanceScore: 5 },
     { slug: 'ac-joint-injuries', relationshipType: 'anatomical', explanation: 'Biceps tendon proximity to AC joint can cause overlapping symptoms', relevanceScore: 5 },
-    { slug: 'tennis-elbow', relationshipType: 'treatment', explanation: 'Both are tendinopathies with similar pathophysiology and loading protocols', relevanceScore: 5 }
+    { slug: 'tennis-elbow', relationshipType: 'treatment', explanation: 'Both are tendinopathies with similar pathophysiology and loading protocols', relevanceScore: 5 },
+    { slug: 'shoulder-bursitis', relationshipType: 'anatomical', explanation: 'Both sit at the front of the shoulder and are often irritated together', relevanceScore: 5 }
   ],
   'mcl-lcl-sprains': [
     { slug: 'acl-injuries', relationshipType: 'anatomical', explanation: 'Multi-ligament knee injuries common; often occur together in trauma', relevanceScore: 7 },
@@ -1262,27 +1273,30 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'hallux-valgus', relationshipType: 'biomechanical', explanation: 'Bunions can cause transfer metatarsalgia due to altered weight distribution', relevanceScore: 8 },
     { slug: 'hallux-rigidus', relationshipType: 'biomechanical', explanation: 'Stiff great toe causes transfer of forces to other metatarsals', relevanceScore: 7 },
     { slug: 'plantar-fasciitis', relationshipType: 'biomechanical', explanation: 'Both involve forefoot loading and can share common biomechanical factors', relevanceScore: 6 },
-    { slug: 'hammer-toe-deformities', relationshipType: 'causal', explanation: 'Toe deformities alter forefoot mechanics leading to metatarsalgia', relevanceScore: 7 }
+    { slug: 'hammer-toe-deformities', relationshipType: 'causal', explanation: 'Toe deformities alter forefoot mechanics leading to metatarsalgia', relevanceScore: 7 },
+    { slug: 'stress-fractures', relationshipType: 'symptomatic', explanation: 'Forefoot pain that does not settle with offloading needs a metatarsal stress fracture ruled out', relevanceScore: 7 }
   ],
   'hallux-valgus': [
     { slug: 'metatarsalgia', relationshipType: 'causal', explanation: 'Bunions commonly cause transfer metatarsalgia due to altered forefoot mechanics', relevanceScore: 8 },
     { slug: 'mortons-neuroma', relationshipType: 'biomechanical', explanation: 'Bunion deformity can contribute to forefoot nerve compression', relevanceScore: 7 },
     { slug: 'hallux-rigidus', relationshipType: 'anatomical', explanation: 'Both affect the great toe joint; bunions can predispose to arthritis', relevanceScore: 6 },
     { slug: 'hammer-toe-deformities', relationshipType: 'causal', explanation: 'Hallux valgus commonly leads to lesser toe deformities', relevanceScore: 7 },
-    { slug: 'plantar-fasciitis', relationshipType: 'biomechanical', explanation: 'Altered forefoot mechanics from bunions can affect arch function', relevanceScore: 5 }
+    { slug: 'plantar-fasciitis', relationshipType: 'biomechanical', explanation: 'Altered forefoot mechanics from bunions can affect arch function', relevanceScore: 5 },
+    { slug: 'turf-toe', relationshipType: 'biomechanical', explanation: 'Both affect the big toe joint and change how the forefoot takes load when pushing off', relevanceScore: 6 }
   ],
   'hallux-rigidus': [
     { slug: 'metatarsalgia', relationshipType: 'causal', explanation: 'Limited great toe motion causes increased loading of other metatarsals', relevanceScore: 7 },
     { slug: 'hallux-valgus', relationshipType: 'anatomical', explanation: 'Both affect great toe joint; arthritis can develop in bunion joints', relevanceScore: 6 },
     { slug: 'severs-disease', relationshipType: 'biomechanical', explanation: 'Both involve altered toe function affecting push-off mechanics', relevanceScore: 5 },
     { slug: 'achilles-tendinopathy', relationshipType: 'biomechanical', explanation: 'Limited toe extension can alter calf muscle function and Achilles loading', relevanceScore: 5 },
-    { slug: 'plantar-fasciitis', relationshipType: 'biomechanical', explanation: 'Altered great toe function affects plantar fascia loading during push-off', relevanceScore: 5 }
+    { slug: 'plantar-fasciitis', relationshipType: 'biomechanical', explanation: 'Altered great toe function affects plantar fascia loading during push-off', relevanceScore: 5 },
+    { slug: 'turf-toe', relationshipType: 'causal', explanation: 'A severe turf toe injury can leave the big toe joint stiff and, over time, arthritic', relevanceScore: 7 }
   ],
   'turf-toe': [
     { slug: 'hallux-rigidus', relationshipType: 'causal', explanation: 'Severe turf toe injuries can lead to post-traumatic arthritis of great toe', relevanceScore: 7 },
     { slug: 'hallux-valgus', relationshipType: 'biomechanical', explanation: 'Both affect great toe joint function and stability', relevanceScore: 5 },
     { slug: 'metatarsalgia', relationshipType: 'symptomatic', explanation: 'Turf toe can cause compensatory loading of other metatarsals', relevanceScore: 6 },
-    { slug: 'ankle-sprains', relationshipType: 'treatment', explanation: 'Both are sports injuries with similar graded rehabilitation approaches', relevanceScore: 6 },
+    { slug: 'ankle-sprains', relationshipType: 'biomechanical', explanation: 'Both are sports injuries with similar graded rehabilitation approaches', relevanceScore: 6 },
     { slug: 'plantar-fasciitis', relationshipType: 'biomechanical', explanation: 'Great toe injury can affect plantar fascia loading patterns', relevanceScore: 4 }
   ],
   'severs-disease': [
@@ -1298,7 +1312,41 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'mortons-neuroma', relationshipType: 'symptomatic', explanation: 'Both cause foot numbness but in different nerve distributions', relevanceScore: 5 },
     { slug: 'carpal-tunnel-syndrome', relationshipType: 'treatment', explanation: 'Both are peripheral nerve compressions with similar pathophysiology', relevanceScore: 7 },
     { slug: 'shin-splints', relationshipType: 'biomechanical', explanation: 'Both can be caused by excessive pronation and altered foot mechanics', relevanceScore: 4 }
-  ]
+  ],
+  'patella-fractures': [
+    { slug: 'knee-pain-patellofemoral', relationshipType: 'anatomical', explanation: 'Kneecap pain after a fracture is usually patellofemoral in origin', relevanceScore: 8 },
+    { slug: 'patellar-tendinopathy', relationshipType: 'anatomical', explanation: 'Both affect the front of the knee and the extensor mechanism', relevanceScore: 7 },
+    { slug: 'knee-osteoarthritis', relationshipType: 'causal', explanation: 'A fracture into the joint surface raises the risk of osteoarthritis later', relevanceScore: 6 },
+    { slug: 'pcl-injuries', relationshipType: 'anatomical', explanation: 'Both commonly follow a direct blow to the front of the knee, such as a dashboard injury', relevanceScore: 5 },
+    { slug: 'acl-injuries', relationshipType: 'biomechanical', explanation: 'Both need a staged return to running and cutting once the knee has healed', relevanceScore: 4 }
+  ],
+  'diabetes-related-conditions': [
+    { slug: 'frozen-shoulder', relationshipType: 'causal', explanation: 'Frozen shoulder is several times more common in people with diabetes', relevanceScore: 9 },
+    { slug: 'carpal-tunnel-syndrome', relationshipType: 'causal', explanation: 'Diabetes is a recognised risk factor for carpal tunnel syndrome', relevanceScore: 7 },
+    { slug: 'plantar-fasciitis', relationshipType: 'causal', explanation: 'Plantar fascia problems are more common and slower to settle with diabetes', relevanceScore: 6 },
+    { slug: 'achilles-tendinopathy', relationshipType: 'causal', explanation: 'Tendon structure changes with diabetes, so Achilles problems are more common and slower to settle', relevanceScore: 6 },
+    { slug: 'knee-osteoarthritis', relationshipType: 'causal', explanation: 'Metabolic factors add to joint load and inflammation in knee osteoarthritis', relevanceScore: 5 }
+  ],
+  'growth-plate-injuries': [
+    { slug: 'severs-disease', relationshipType: 'anatomical', explanation: 'Heel growth plate irritation is the most common growth plate problem in young athletes', relevanceScore: 9 },
+    { slug: 'patellar-tendinopathy', relationshipType: 'anatomical', explanation: 'Osgood-Schlatter is the growth plate version of the load that causes patellar tendinopathy in adults', relevanceScore: 6 },
+    { slug: 'ankle-sprains', relationshipType: 'anatomical', explanation: 'In children a twisted ankle often injures the growth plate rather than the ligament', relevanceScore: 6 },
+    { slug: 'stress-fractures', relationshipType: 'causal', explanation: 'Both are bone overload injuries that need load management rather than stretching', relevanceScore: 6 },
+    { slug: 'shin-splints', relationshipType: 'causal', explanation: 'Both are common overuse problems in growing athletes during training spikes', relevanceScore: 5 }
+  ],
+  'scaphoid-fractures': [
+    { slug: 'wrist-sprains', relationshipType: 'anatomical', explanation: 'A fall onto the hand causes both, and the fracture must be ruled out before treating it as a sprain', relevanceScore: 9 },
+    { slug: 'de-quervains-tenosynovitis', relationshipType: 'anatomical', explanation: 'Both cause pain on the thumb side of the wrist', relevanceScore: 6 },
+    { slug: 'carpal-tunnel-syndrome', relationshipType: 'anatomical', explanation: 'Wrist stiffness and swelling after a fracture can irritate the median nerve', relevanceScore: 5 },
+    { slug: 'repetitive-strain-injuries', relationshipType: 'biomechanical', explanation: 'Both need a graded return of wrist loading and grip strength', relevanceScore: 4 }
+  ],
+  'stress-fractures': [
+    { slug: 'shin-splints', relationshipType: 'anatomical', explanation: 'Shin splints and tibial stress fracture sit on the same overload spectrum', relevanceScore: 9 },
+    { slug: 'metatarsalgia', relationshipType: 'symptomatic', explanation: 'Forefoot pain from a metatarsal stress fracture is often first labelled metatarsalgia', relevanceScore: 7 },
+    { slug: 'plantar-fasciitis', relationshipType: 'symptomatic', explanation: 'A calcaneal stress fracture can mimic plantar heel pain', relevanceScore: 6 },
+    { slug: 'growth-plate-injuries', relationshipType: 'causal', explanation: 'Both are bone overload injuries in athletes and need training load managed', relevanceScore: 5 },
+    { slug: 'achilles-tendinopathy', relationshipType: 'biomechanical', explanation: 'Calf and Achilles load changes are common in the lead-up to a tibial stress fracture', relevanceScore: 5 }
+  ],
 };
 
 // "treatment" relationships link cross-anatomy conditions that share a

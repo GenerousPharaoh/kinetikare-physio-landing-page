@@ -32,9 +32,9 @@ import ConsentNote from '@/components/conditions/ConsentNote';
 
 import HoursList from '@/components/HoursList';
 const PAGE_URL = 'https://www.kinetikarephysio.com/conditions/pain-guides/fluid-on-the-knee';
-const PAGE_TITLE = 'Suprapatellar Effusion: Causes, Symptoms and What to Do Next';
+const PAGE_TITLE = 'Suprapatellar Effusion (Fluid on the Knee) in Burlington';
 const PAGE_DESCRIPTION =
-  'Suprapatellar effusion means fluid in the pouch above the kneecap. What it feels like, the usual causes, when it needs imaging, and what to do next.';
+  'Suprapatellar effusion is fluid in the pouch above the kneecap. Causes, symptoms, when imaging is needed, and physiotherapy in Burlington. Direct billing.';
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,

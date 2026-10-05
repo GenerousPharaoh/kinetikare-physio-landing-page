@@ -8,9 +8,9 @@ import { serializeJsonLd } from '@/lib/structured-data';
 import { SEO_ORGANIZATION_ID, SEO_PERSON_ID } from '@/lib/seo-metadata';
 
 const PAGE_URL = 'https://www.kinetikarephysio.com/fees-and-first-visit';
-const PAGE_TITLE = 'Fees and First Visit | Kareem Hassanein, Registered Physiotherapist';
+const PAGE_TITLE = 'Physiotherapy Fees and First Visit in Burlington | Kareem Hassanein';
 const PAGE_DESCRIPTION =
-  'What physiotherapy with Kareem Hassanein costs in Burlington, how direct billing works at Endorphins, what the first visit involves, what to bring, and where to come.';
+  'Initial assessment $110 (45 min). Follow-ups $90 (30 min), $100 (40 min) or $135 (60 min). Direct billing at Endorphins in Burlington, no referral needed.';
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,

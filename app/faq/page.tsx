@@ -491,7 +491,7 @@ const faqCategories: FAQCategory[] = [
         question: `How long are physiotherapy appointments?`,
         answer: (
           <>
-            I offer flexible appointment lengths based on your needs: follow-up sessions are $90 for 30 minutes, and initial assessments are $110 for 45 minutes. Every appointment is one-on-one directly with me, the Registered Physiotherapist. No assistants or aides.{' '}
+            I offer flexible appointment lengths based on your needs: initial assessments are $110 for 45 minutes, and follow-ups are $90 for 30 minutes, $100 for 40 minutes or $135 for 60 minutes. Every appointment is one-on-one directly with me, the Registered Physiotherapist. No assistants or aides.{' '}
             <Link href={JANE_BOOKING_URL} className="text-[#8A6F0A] hover:text-[#D4AF37] underline transition-colors duration-300" target="_blank" rel="noopener noreferrer">
               Book your appointment
             </Link>

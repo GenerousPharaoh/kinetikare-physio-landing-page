@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 const FEES = [
   { name: 'Initial assessment, 45 minutes', detail: 'Conversation, assessment and, in most cases, the start of treatment', price: '$110' },
   { name: 'Follow-up, 30 minutes', detail: 'Treatment and progression', price: '$90' },
-  { name: 'Follow-up, 60 minutes', detail: 'A longer session when the plan calls for it', price: '$145' },
+  { name: 'Follow-up, 60 minutes', detail: 'A longer session when the plan calls for it', price: '$135' },
 ];
 
 const schema = {

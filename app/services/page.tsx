@@ -540,7 +540,7 @@ export default function ServicesPage() {
               <dl className={styles.fees}>
                 <div><dt>Initial Assessment (45 min)</dt><dd>$110</dd></div>
                 <div><dt>Follow-up (30 min)</dt><dd>$90</dd></div>
-                <div><dt>Follow-up (60 min)</dt><dd>$145</dd></div>
+                <div><dt>Follow-up (60 min)</dt><dd>$135</dd></div>
               </dl>
             </div>
             <aside className={styles.coverage} aria-labelledby="coverage-help-heading">

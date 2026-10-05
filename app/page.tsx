@@ -120,7 +120,7 @@ export default function Home() {
 
             {/* Pricing */}
             <div className="flex items-center justify-center gap-5 text-sm text-slate-500">
-              <span><span className="text-slate-700 font-medium">$130</span> initial assessment</span>
+              <span><span className="text-slate-700 font-medium">$110</span> initial assessment</span>
               <span className="w-1 h-1 rounded-full bg-slate-300" aria-hidden="true" />
               <span><span className="text-slate-700 font-medium">$90</span> follow-up (30 min)</span>
             </div>

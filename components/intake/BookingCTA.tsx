@@ -29,7 +29,7 @@ export default function BookingCTA({ children, className, style, size = 'lg' }: 
 
     window.gtag('event', 'conversion', {
       send_to: 'AW-18069490191/eeANCJi7n5ccEI-UmqhD',
-      value: 130,
+      value: 110,
       currency: 'CAD',
       transport_type: 'beacon',
     });

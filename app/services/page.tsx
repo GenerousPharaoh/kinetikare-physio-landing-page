@@ -538,7 +538,7 @@ export default function ServicesPage() {
               <p className={styles.providerNote}>and many more providers</p>
               <p className={styles.eyebrow}>Session Fees</p>
               <dl className={styles.fees}>
-                <div><dt>Initial Assessment</dt><dd>$130</dd></div>
+                <div><dt>Initial Assessment (45 min)</dt><dd>$110</dd></div>
                 <div><dt>Follow-up (30 min)</dt><dd>$90</dd></div>
                 <div><dt>Follow-up (60 min)</dt><dd>$145</dd></div>
               </dl>

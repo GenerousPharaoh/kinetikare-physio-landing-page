@@ -35,7 +35,7 @@ export const metadata: Metadata = {
  * are the ones on Services. Direct billing is Endorphins only.
  */
 const FEES = [
-  { name: 'Initial assessment', detail: 'Conversation, assessment and, in most cases, the start of treatment', price: '$130' },
+  { name: 'Initial assessment, 45 minutes', detail: 'Conversation, assessment and, in most cases, the start of treatment', price: '$110' },
   { name: 'Follow-up, 30 minutes', detail: 'Treatment and progression', price: '$90' },
   { name: 'Follow-up, 60 minutes', detail: 'A longer session when the plan calls for it', price: '$145' },
 ];

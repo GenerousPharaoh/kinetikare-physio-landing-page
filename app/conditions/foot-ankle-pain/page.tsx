@@ -297,7 +297,7 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'Do I need a referral to see you for foot or ankle pain in Burlington?',
     answer:
-      'No referral needed in Ontario. Most extended health plans cover physiotherapy and I offer direct billing where available. Initial assessments run about an hour and include history, examination, a working diagnosis, and a clear plan. If the picture points outside physiotherapy scope, whether that is a suspected fracture, a wound in a diabetic foot, or something needing a chiropodist or a surgical opinion, I coordinate with your family physician or an appropriate consultant rather than push on regardless.',
+      'No referral needed in Ontario. Most extended health plans cover physiotherapy and I offer direct billing where available. Initial assessments run about 45 minutes and include history, examination, a working diagnosis, and a clear plan. If the picture points outside physiotherapy scope, whether that is a suspected fracture, a wound in a diabetic foot, or something needing a chiropodist or a surgical opinion, I coordinate with your family physician or an appropriate consultant rather than push on regardless.',
   },
 ];
 

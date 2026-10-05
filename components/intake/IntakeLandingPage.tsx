@@ -579,7 +579,7 @@ export default function IntakeLandingPage() {
                   {/* Pricing rows */}
                   <div style={{ display: 'grid', gap: 0 }}>
                     {[
-                      { name: 'Initial Assessment', detail: 'Evaluation + treatment', price: '130' },
+                      { name: 'Initial Assessment', detail: '45-minute evaluation + treatment', price: '110' },
                       { name: 'Follow-up Session', detail: '30-minute session', price: '90' },
                     ].map((item, i) => (
                       <div key={item.name} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 0', borderBottom: `1px solid ${c.stone100}`, borderTop: i === 0 ? `1px solid ${c.stone100}` : 'none' }}>

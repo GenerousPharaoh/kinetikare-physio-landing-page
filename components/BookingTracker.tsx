@@ -52,7 +52,7 @@ export default function BookingTracker() {
 
       window.gtag('event', 'conversion', {
         send_to: ADS_CONVERSION_ID,
-        value: isPhoneCall ? 110 : 130,
+        value: 110,
         currency: 'CAD',
         transport_type: 'beacon',
       });

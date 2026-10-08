@@ -194,7 +194,7 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'How long does pain right below the kneecap take to resolve?',
     answer:
-      'It depends on the tissue. An irritable patellar tendinopathy typically needs three to six months of progressive, well-dosed loading to rebuild capacity reliably. Patellofemoral pain and fat pad irritation often respond inside six to twelve weeks. Osgood-Schlatter in a growing athlete usually improves within a few months of sensible activity modification and strengthening, even though the bump itself can persist. Rushing tends to lengthen the timeline.',
+      'It depends on the tissue. An irritable patellar tendinopathy typically needs three to six months of progressive, well-dosed loading to rebuild capacity reliably. Patellofemoral pain often responds inside six to twelve weeks. Osgood-Schlatter in a growing athlete usually improves within a few months of sensible activity modification and strengthening, even though the bump itself can persist. Rushing tends to lengthen the timeline.',
   },
 ];
 

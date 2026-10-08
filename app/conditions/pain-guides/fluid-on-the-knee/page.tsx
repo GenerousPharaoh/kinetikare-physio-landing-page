@@ -239,6 +239,21 @@ const redFlags: Array<{ sign: string; action: string }> = [
 // FAQ
 const faqs: Array<{ question: string; answer: string }> = [
   {
+    question: 'What is a suprapatellar effusion?',
+    answer:
+      'It is extra fluid inside the knee joint, seen in the suprapatellar pouch, the pocket of the joint just above the kneecap. Scans pick up knee fluid most easily there because it is the largest pocket in the joint. The finding describes where the fluid is. The cause is something else, such as osteoarthritis, a meniscus or ligament injury, or an inflammatory condition, and the rest of the report and the history of the knee usually point to it.',
+  },
+  {
+    question: 'Is a small suprapatellar effusion normal?',
+    answer:
+      'Every knee holds a small amount of fluid, and a trace or small effusion is a common finding on scans. On its own it does not mean the knee is damaged. It matters more if the knee is painful, stiff or visibly swollen, if it followed an injury, or if the report lists other findings such as a meniscus tear or osteoarthritis. If the knee feels fine and the report mentions only a small effusion, it is often an incidental finding.',
+  },
+  {
+    question: 'How is a suprapatellar effusion treated?',
+    answer:
+      'By treating what is causing it. The fluid usually settles as the underlying problem settles. For an osteoarthritis flare, that means adjusting load for a while and then a graded exercise programme, in line with the OARSI and NICE guidance. After an injury, it means a staged rehabilitation plan once a significant injury has been ruled out or managed. Compression, elevation and gentle movement help with comfort in the short term. Draining the knee is a medical decision, usually considered when the joint is very tense or the fluid needs testing. A hot, red knee with fever needs same-day medical care.',
+  },
+  {
     question: 'Is fluid on the knee the same as a knee effusion?',
     answer:
       'Yes. Fluid on the knee is the everyday term for a knee joint effusion, which simply means extra fluid inside the knee joint. A true effusion sits in the suprapatellar pouch and makes the whole knee feel tight and full. A bump directly over the front of the kneecap is usually prepatellar bursitis, which sits outside the joint and behaves differently.',
@@ -299,6 +314,27 @@ const research: ResearchItem[] = [
     year: 2019,
     summary:
       'International guideline strongly recommending land-based exercise, structured education, and self-management as core treatments for knee osteoarthritis, which is the most common driver of recurrent low-grade effusion in adults over 50.',
+  },
+  {
+    title: 'Knee effusions, popliteal cysts, and synovial thickening: association with knee pain in osteoarthritis',
+    source: 'Hill CL et al., Journal of Rheumatology',
+    year: 2001,
+    summary:
+      'MRI study of older adults with and without knee pain. Moderate or larger effusions were far more common in painful osteoarthritic knees, but about 1 in 10 people with no knee pain and a normal X-ray also had one, so an effusion on a scan is not always the source of pain.',
+  },
+  {
+    title: 'Quantitative measurement of suprapatellar effusion by ultrasonography and knee osteoarthritis symptoms',
+    source: 'Chiba D et al., Arthritis Research & Therapy',
+    year: 2016,
+    summary:
+      'Cross-sectional ultrasound study in knee osteoarthritis. Notes that a categorical cut-off, such as a suprapatellar pouch at least 4 mm deep, is the recommended way to call an effusion, and links a larger effusion area to worse pain and symptom scores.',
+  },
+  {
+    title: 'Quadriceps arthrogenic muscle inhibition: neural mechanisms and treatment perspectives',
+    source: 'Rice DA, McNair PJ, Seminars in Arthritis and Rheumatism',
+    year: 2010,
+    summary:
+      'Review of why the quadriceps switch off after knee injury or in arthritis. Joint swelling, inflammation, laxity and damage alter the signals from the joint and reflexively inhibit the muscle, which is why restoring quadriceps activation is an early rehabilitation goal.',
   },
   {
     title: 'Ottawa Knee Rules for decision-making on knee radiography',
@@ -388,6 +424,7 @@ export default function FluidOnTheKneeGuidePage() {
     about: {
       '@type': 'MedicalCondition',
       name: 'Knee joint effusion (fluid on the knee)',
+      alternateName: ['Suprapatellar effusion', 'Fluid on the knee'],
     },
     audience: {
       '@type': 'PeopleAudience',
@@ -454,15 +491,16 @@ export default function FluidOnTheKneeGuidePage() {
               </nav>
 
               <h1 className="text-4xl md:text-5xl font-light tracking-tight leading-tight text-slate-900 mb-4">
-                Fluid on the Knee: What Causes Knee Swelling
+                Suprapatellar Effusion (Fluid on the Knee)
               </h1>
 
               <p className="text-lg md:text-xl text-slate-700 leading-relaxed max-w-3xl">
-                &ldquo;Fluid on the knee&rdquo; is the everyday way patients describe a knee
-                joint effusion. The useful question is rarely whether there is fluid, but
-                where it sits, how fast it came on, and what is driving it. This guide walks
-                through how I think about it, what is usually worth doing first, and when to
-                skip physiotherapy and go straight to medical care.
+                A suprapatellar effusion is extra fluid inside the knee joint, seen in the
+                pouch just above the kneecap. &ldquo;Fluid on the knee&rdquo;, &ldquo;knee
+                effusion&rdquo; and &ldquo;joint effusion&rdquo; all describe the same thing.
+                The term says where the fluid is, not what caused it. This guide covers what
+                the wording on a scan report means, the usual causes by how quickly the
+                swelling came on, and when to see a doctor before physiotherapy.
               </p>
 
               <p className="text-xs text-slate-500 mt-3">
@@ -517,6 +555,98 @@ export default function FluidOnTheKneeGuidePage() {
                   Broader Knee Pain Guide
                   <ArrowRightIcon className="h-4 w-4" />
                 </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Scan report wording */}
+        <section className="py-10 bg-white">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2.5 bg-slate-900 rounded-xl">
+                  <ClipboardDocumentListIcon className="h-5 w-5 text-[#B08D57]" />
+                </div>
+                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900">
+                  What &ldquo;suprapatellar effusion&rdquo; means on a scan report
+                </h2>
+              </div>
+
+              <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed">
+                <p>
+                  <strong>Where the fluid is.</strong>{' '}The suprapatellar pouch (also called the
+                  suprapatellar recess or bursa) is a pocket of the knee joint above the
+                  kneecap, under the quadriceps tendon. In most adults it is open to the rest
+                  of the joint, so when the knee holds extra fluid, the pouch fills. It is the
+                  largest pocket in the knee and the easiest place for ultrasound and MRI to
+                  see fluid, which is why reports so often use this wording.
+                  &ldquo;Suprapatellar effusion&rdquo; and &ldquo;joint effusion&rdquo; mean
+                  the same thing: more fluid than usual inside the knee joint.
+                </p>
+                <p>
+                  <strong>The size words.</strong>{' '}Reports grade the amount by eye:
+                </p>
+                <ul className="list-disc pl-5 space-y-1.5 mb-5 text-slate-700">
+                  <li>
+                    Trace or minimal: a very small amount. Every knee holds a little fluid, so
+                    this can be within what a healthy knee contains.
+                  </li>
+                  <li>
+                    Small or mild: a little more than usual. On its own it does not show that
+                    anything is damaged.
+                  </li>
+                  <li>Moderate: clearly more than usual.</li>
+                  <li>
+                    Large or marked: the pouch is distended, and the knee usually looks and
+                    feels full and tight.
+                  </li>
+                </ul>
+                <p>
+                  These are estimates, and radiologists do not all draw the lines in the same
+                  place. On ultrasound, a pouch at least about 4 mm deep is one commonly used
+                  cut-off for calling it an effusion (Chiba et al., Arthritis Research &amp;
+                  Therapy, 2016).
+                </p>
+                <p>
+                  <strong>What the size does and does not tell you.</strong>{' '}Size does not
+                  identify the cause. The same amount of fluid can come from an osteoarthritis
+                  flare, a meniscus or ligament injury, or an inflammatory problem. Effusions
+                  also turn up in knees that do not hurt: in one MRI study of adults averaging
+                  67 years old, about 1 in 10 people with no knee pain and a normal X-ray had a
+                  moderate or larger effusion (Hill et al., Journal of Rheumatology, 2001). In
+                  knees with osteoarthritis, more fluid tends to go with more pain and
+                  stiffness (Hill et al., 2001; Chiba et al., 2016). After an injury, how fast
+                  the swelling appeared tells you more than its size on a later scan: swelling
+                  within a few hours points to bleeding inside the joint and a more
+                  significant injury (Johnson, American Family Physician, 2000).
+                </p>
+                <p>
+                  <strong>Why it matters for rehab, even when it is small.</strong>{' '}Fluid in
+                  the knee can switch off part of the quadriceps through a reflex called
+                  arthrogenic muscle inhibition. It is one reason the thigh weakens quickly
+                  after a knee injury or flare (Rice and McNair, Seminars in Arthritis and
+                  Rheumatism, 2010). Settling the swelling and getting the quadriceps working
+                  again is usually an early goal.
+                </p>
+                <p>
+                  <strong>When the report deserves a closer look:</strong>
+                </p>
+                <ul className="list-disc pl-5 space-y-1.5 mb-5 text-slate-700">
+                  <li>
+                    It also lists a tear, a bone bruise, a fracture or osteoarthritis. The
+                    cause of the fluid is usually among those findings.
+                  </li>
+                  <li>The swelling came on within a few hours of an injury.</li>
+                  <li>
+                    The knee is hot or red, or you feel feverish or unwell. Seek same-day
+                    medical care.
+                  </li>
+                  <li>The knee is locked and will not fully straighten.</li>
+                  <li>
+                    The swelling keeps coming back, or does not settle as activity is adjusted.
+                  </li>
+                </ul>
               </div>
             </div>
           </div>

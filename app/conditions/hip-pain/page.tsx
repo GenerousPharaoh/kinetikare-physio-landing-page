@@ -151,12 +151,7 @@ const locationGuides: LocationGuide[] = [
       {
         slug: 'piriformis-syndrome',
         label: 'Piriformis syndrome',
-        note: 'Deep buttock pain, sometimes with radiating leg symptoms from sciatic nerve irritation.',
-      },
-      {
-        slug: 'deep-gluteal-syndrome',
-        label: 'Deep gluteal syndrome',
-        note: 'Broader sciatic nerve entrapment in the deep gluteal space, can mimic lumbar radiculopathy.',
+        note: 'Deep buttock pain from sciatic nerve irritation, also called deep gluteal syndrome.',
       },
       {
         slug: 'si-joint-dysfunction',
@@ -317,7 +312,6 @@ const relatedConditionSlugs: string[] = [
   'hip-bursitis',
   'proximal-hamstring-tendinopathy',
   'piriformis-syndrome',
-  'deep-gluteal-syndrome',
   'si-joint-dysfunction',
   'groin-strains',
   'hamstring-strains',

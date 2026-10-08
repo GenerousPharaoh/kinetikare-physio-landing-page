@@ -267,7 +267,7 @@ export const treatments: Treatment[] = [
         answer: 'When I perform dry needling it is part of a physiotherapy appointment, so it is covered the same way your physiotherapy treatment is covered. There is no separate charge for the needling itself. Direct billing is available for most extended health plans, and no physician referral is required to book.'
       }
     ],
-    relatedConditions: ['tennis-elbow', 'plantar-fasciitis', 'shoulder-impingement', 'neck-pain', 'golfers-elbow', 'piriformis-syndrome', 'rotator-cuff-injuries', 'low-back-pain', 'sciatica', 'greater-trochanteric-pain-syndrome', 'achilles-tendinopathy', 'de-quervains-tenosynovitis', 'carpal-tunnel-syndrome', 'biceps-tendinopathy', 'proximal-hamstring-tendinopathy', 'deep-gluteal-syndrome', 'patellar-tendinopathy'],
+    relatedConditions: ['tennis-elbow', 'plantar-fasciitis', 'shoulder-impingement', 'neck-pain', 'golfers-elbow', 'piriformis-syndrome', 'rotator-cuff-injuries', 'low-back-pain', 'sciatica', 'greater-trochanteric-pain-syndrome', 'achilles-tendinopathy', 'de-quervains-tenosynovitis', 'carpal-tunnel-syndrome', 'biceps-tendinopathy', 'proximal-hamstring-tendinopathy', 'patellar-tendinopathy'],
     metaDescription: 'Dry needling physiotherapy in Burlington. Trigger point therapy using thin needles to address muscle tension, referred pain, and movement restrictions.',
     keywords: ['dry needling', 'trigger point therapy', 'myofascial release']
   },
@@ -448,7 +448,7 @@ export const treatments: Treatment[] = [
         answer: 'Acute restrictions (recent injuries) often respond to 2-3 sessions over 1-2 weeks. Chronic restrictions may need weekly treatment for 4-6 weeks, then spacing to biweekly as tissues improve. Treatment frequency depends on how quickly tissue changes occur and how well changes are maintained between sessions. Most people transition to monthly maintenance once primary restrictions resolve.'
       }
     ],
-    relatedConditions: ['it-band-syndrome', 'plantar-fasciitis', 'tennis-elbow', 'hamstring-strains', 'low-back-pain', 'neck-pain', 'golfers-elbow', 'rotator-cuff-injuries', 'achilles-tendinopathy', 'groin-strains', 'piriformis-syndrome', 'shoulder-impingement', 'carpal-tunnel-syndrome', 'de-quervains-tenosynovitis', 'whiplash', 'thoracic-outlet-syndrome', 'peroneal-tendinopathy', 'posterior-tibial-tendon-dysfunction', 'deep-gluteal-syndrome', 'greater-trochanteric-pain-syndrome', 'patellar-tendinopathy'],
+    relatedConditions: ['it-band-syndrome', 'plantar-fasciitis', 'tennis-elbow', 'hamstring-strains', 'low-back-pain', 'neck-pain', 'golfers-elbow', 'rotator-cuff-injuries', 'achilles-tendinopathy', 'groin-strains', 'piriformis-syndrome', 'shoulder-impingement', 'carpal-tunnel-syndrome', 'de-quervains-tenosynovitis', 'whiplash', 'thoracic-outlet-syndrome', 'peroneal-tendinopathy', 'posterior-tibial-tendon-dysfunction', 'greater-trochanteric-pain-syndrome', 'patellar-tendinopathy'],
     metaDescription: 'Myofascial release in Burlington. Manual techniques addressing fascial restrictions, muscle tension, and movement limitations.',
     keywords: ['soft tissue release', 'myofascial release', 'muscle tension', 'fascial therapy', 'tissue mobility', 'fascial restrictions', 'chronic pain treatment']
   },
@@ -505,7 +505,7 @@ export const treatments: Treatment[] = [
         answer: 'Yes, and self-treatment significantly improves outcomes. You can use tennis balls, foam rollers, or ergonomic tools to apply sustained pressure to trigger points. The technique involves finding the tender spot, applying moderate pressure for 30-90 seconds until it releases, then stretching the muscle. This maintains improvements between professional sessions. However, some trigger points (like deep hip rotators) are difficult to reach effectively on your own.'
       }
     ],
-    relatedConditions: ['neck-pain', 'shoulder-impingement', 'piriformis-syndrome', 'tennis-elbow', 'low-back-pain', 'golfers-elbow', 'rotator-cuff-injuries', 'greater-trochanteric-pain-syndrome', 'whiplash', 'sciatica', 'frozen-shoulder', 'thoracic-outlet-syndrome', 'postural-dysfunction', 'biceps-tendinopathy', 'ac-joint-injuries', 'hip-bursitis', 'deep-gluteal-syndrome'],
+    relatedConditions: ['neck-pain', 'shoulder-impingement', 'piriformis-syndrome', 'tennis-elbow', 'low-back-pain', 'golfers-elbow', 'rotator-cuff-injuries', 'greater-trochanteric-pain-syndrome', 'whiplash', 'sciatica', 'frozen-shoulder', 'thoracic-outlet-syndrome', 'postural-dysfunction', 'biceps-tendinopathy', 'ac-joint-injuries', 'hip-bursitis'],
     metaDescription: 'Trigger point therapy in Burlington. Release painful muscle knots, address referred pain, and restore normal movement patterns.',
     keywords: ['trigger point therapy', 'trigger point release', 'myofascial trigger points', 'muscle knots', 'referred pain']
   },

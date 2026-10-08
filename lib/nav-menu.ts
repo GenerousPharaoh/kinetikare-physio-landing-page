@@ -49,7 +49,7 @@ export const NAV_MENU: NavMenuColumn[] = [
       { name: 'Hip Impingement (FAI)', href: '/conditions/femoroacetabular-impingement' },
       { name: 'Proximal Hamstring Tendinopathy', href: '/conditions/proximal-hamstring-tendinopathy' },
     ],
-    viewAll: { name: 'View all (11)', href: '/conditions?tab=3' },
+    viewAll: { name: 'View all (10)', href: '/conditions?tab=3' },
   },
   {
     key: 'foot-ankle',

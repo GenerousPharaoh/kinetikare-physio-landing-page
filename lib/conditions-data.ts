@@ -509,15 +509,6 @@ const hipPelvisConditions: Condition[] = [
     metaDescription: 'Hip bursitis treatment in Burlington. Physiotherapy for inflammatory hip conditions using activity modification and progressive loading.',
   },
   {
-    id: 'deep-gluteal-syndrome',
-    slug: 'deep-gluteal-syndrome',
-    name: 'Deep Gluteal Syndrome',
-    category: 'hip-pelvis',
-    description: 'Sciatic nerve entrapment in deep gluteal space',
-    seoTitle: 'Deep Buttock Pain (Deep Gluteal Syndrome) in Burlington',
-    metaDescription: 'Deep buttock pain that is worse with sitting can come from the sciatic nerve behind the hip. Causes and treatment in Burlington. Direct billing, no referral.',
-  },
-  {
     id: 'proximal-hamstring-tendinopathy',
     slug: 'proximal-hamstring-tendinopathy',
     name: 'Proximal Hamstring Tendinopathy',
@@ -533,10 +524,11 @@ const hipPelvisConditions: Condition[] = [
     slug: 'piriformis-syndrome',
     name: 'Piriformis Syndrome',
     category: 'hip-pelvis',
-    description: 'Deep gluteal syndrome causing sciatic-type pain',
+    description: 'Deep buttock pain from the sciatic nerve, also called deep gluteal syndrome',
     featured: true,
     priority: 20,
-    metaDescription: 'Piriformis syndrome treatment in Burlington by a Registered Physiotherapist. Hands-on care for deep hip pain. Direct billing, no referral, evening hours.',
+    seoTitle: 'Piriformis Syndrome and Deep Gluteal Syndrome in Burlington',
+    metaDescription: 'Deep buttock pain worse with sitting, from the sciatic nerve in the buttock (piriformis or deep gluteal syndrome). Treatment in Burlington. Direct billing.',
   },
   {
     id: 'si-joint',
@@ -598,9 +590,9 @@ const kneeConditions: Condition[] = [
     slug: 'mcl-lcl-sprains',
     name: 'MCL/LCL Sprains',
     category: 'knee',
-    description: 'Medial and lateral collateral ligament injuries',
-    seoTitle: 'MCL and LCL Sprains: Healing Time and Rehab in Burlington',
-    metaDescription: 'Inner (MCL) and outer (LCL) knee ligament sprains: grades, healing time, bracing and rehab back to sport. Physiotherapy in Burlington. Direct billing.',
+    description: 'Inner (MCL) and outer (LCL) knee ligament sprains and how they differ',
+    seoTitle: 'MCL vs. LCL Sprain: Healing Time and Rehab in Burlington',
+    metaDescription: 'The MCL is on the inner knee and the LCL on the outer knee. How the two sprains differ, healing time by grade, and rehab in Burlington. Direct billing.',
   },
   {
     id: 'pcl-injuries',
@@ -912,8 +904,7 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'low-back-pain', relationshipType: 'anatomical', explanation: 'Sciatica often originates from lumbar spine pathology causing back pain', relevanceScore: 9 },
     { slug: 'disc-herniation', relationshipType: 'causal', explanation: 'Disc herniation is the most common cause of sciatica symptoms', relevanceScore: 9 },
     { slug: 'piriformis-syndrome', relationshipType: 'symptomatic', explanation: 'Both cause sciatic-type pain; piriformis syndrome can mimic lumbar radiculopathy', relevanceScore: 7 },
-    { slug: 'spinal-stenosis', relationshipType: 'causal', explanation: 'Spinal stenosis can cause nerve root compression leading to sciatica', relevanceScore: 8 },
-    { slug: 'deep-gluteal-syndrome', relationshipType: 'symptomatic', explanation: 'Both cause posterior leg pain; deep gluteal syndrome involves sciatic nerve entrapment', relevanceScore: 6 }
+    { slug: 'spinal-stenosis', relationshipType: 'causal', explanation: 'Spinal stenosis can cause nerve root compression leading to sciatica', relevanceScore: 8 }
   ],
   'rotator-cuff-injuries': [
     { slug: 'shoulder-impingement', relationshipType: 'causal', explanation: 'Shoulder impingement often leads to rotator cuff damage over time', relevanceScore: 9 },
@@ -998,7 +989,7 @@ const intelligentRelationships: Record<string, Array<{
   ],
   'piriformis-syndrome': [
     { slug: 'sciatica', relationshipType: 'symptomatic', explanation: 'Both cause sciatic-type pain; piriformis syndrome can mimic lumbar radiculopathy', relevanceScore: 7 },
-    { slug: 'deep-gluteal-syndrome', relationshipType: 'anatomical', explanation: 'Piriformis syndrome is part of the broader deep gluteal syndrome spectrum', relevanceScore: 8 },
+    { slug: 'proximal-hamstring-tendinopathy', relationshipType: 'symptomatic', explanation: 'Both cause deep buttock pain that is worse with sitting; the hamstring origin sits beside the sciatic nerve', relevanceScore: 7 },
     { slug: 'si-joint-dysfunction', relationshipType: 'anatomical', explanation: 'Both affect sacral/pelvic region; piriformis dysfunction can affect SI joint mechanics', relevanceScore: 6 },
     { slug: 'greater-trochanteric-pain-syndrome', relationshipType: 'anatomical', explanation: 'Both involve deep hip/gluteal muscles and can cause overlapping symptoms', relevanceScore: 6 },
     { slug: 'hamstring-strains', relationshipType: 'biomechanical', explanation: 'Piriformis tightness can affect hamstring mechanics and predispose to strains', relevanceScore: 5 }
@@ -1223,19 +1214,11 @@ const intelligentRelationships: Record<string, Array<{
     { slug: 'femoroacetabular-impingement', relationshipType: 'biomechanical', explanation: 'Hip impingement can cause secondary bursitis from altered mechanics', relevanceScore: 5 },
     { slug: 'piriformis-syndrome', relationshipType: 'symptomatic', explanation: 'Both cause deep hip pain and can be confused diagnostically', relevanceScore: 5 }
   ],
-  'deep-gluteal-syndrome': [
-    { slug: 'piriformis-syndrome', relationshipType: 'anatomical', explanation: 'Piriformis syndrome is part of deep gluteal syndrome spectrum', relevanceScore: 8 },
-    { slug: 'sciatica', relationshipType: 'symptomatic', explanation: 'Both cause sciatic-type pain; DGS involves peripheral nerve entrapment', relevanceScore: 6 },
-    { slug: 'greater-trochanteric-pain-syndrome', relationshipType: 'anatomical', explanation: 'Both involve deep gluteal muscles and hip region', relevanceScore: 5 },
-    { slug: 'hamstring-strains', relationshipType: 'biomechanical', explanation: 'Deep gluteal dysfunction can affect hamstring mechanics', relevanceScore: 5 },
-    { slug: 'si-joint-dysfunction', relationshipType: 'anatomical', explanation: 'Both affect posterior pelvic region with potential symptom overlap', relevanceScore: 5 }
-  ],
   'proximal-hamstring-tendinopathy': [
     { slug: 'hamstring-strains', relationshipType: 'anatomical', explanation: 'Both affect hamstring muscles; acute strains can lead to chronic tendinopathy', relevanceScore: 8 },
     { slug: 'groin-strains', relationshipType: 'anatomical', explanation: 'Both affect proximal thigh muscles with overlapping symptoms', relevanceScore: 6 },
     { slug: 'piriformis-syndrome', relationshipType: 'symptomatic', explanation: 'Both can cause posterior hip/buttock pain and sitting difficulties', relevanceScore: 6 },
-    { slug: 'ischial-bursitis', relationshipType: 'anatomical', explanation: 'Both affect sitting bone region and can be confused diagnostically', relevanceScore: 7 },
-    { slug: 'deep-gluteal-syndrome', relationshipType: 'anatomical', explanation: 'Both involve posterior hip structures with potential symptom overlap', relevanceScore: 5 }
+    { slug: 'ischial-bursitis', relationshipType: 'anatomical', explanation: 'Both affect sitting bone region and can be confused diagnostically', relevanceScore: 7 }
   ],
   'posterior-tibial-tendon-dysfunction': [
     { slug: 'plantar-fasciitis', relationshipType: 'biomechanical', explanation: 'Both involve medial arch support; PTTD can lead to plantar fascia overload', relevanceScore: 8 },

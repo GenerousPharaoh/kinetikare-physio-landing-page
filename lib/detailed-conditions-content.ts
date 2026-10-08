@@ -6018,233 +6018,6 @@ Muscle weakness, particularly of the hip abductors, creates abnormal loading pat
     accessAndHours: standardAccessAndHours
   },
 
-  'deep-gluteal-syndrome': {
-    clinicalObservations: {
-      body: `Most people I see for this have already been worked up for their back, with an MRI showing some disc change, frustrated that nothing touched the buttock pain. What makes me look at the deep gluteal space is when the pain tracks with how long and in what position someone sat, not with bending or lifting. That is a clue, not a diagnosis, so I still clear the spine and load the deep gluteal space directly before settling on the cause.
-
-The change that helps fastest is usually the commute. People overlook it because it does not feel like activity, so they hunt for the culprit in the gym. For the long-drive commuters I see in Burlington, I map their worst sitting hours, then build hip strength around it. A flare after a bad day of sitting is normal, as long as it settles and your strength and sensation hold. New leg weakness, spreading numbness, or any bladder or bowel change means being seen promptly.`,
-      lastReviewed: '2026-06-03',
-    },
-    pathophysiology: `Deep Gluteal Syndrome (DGS) is a comprehensive term that describes the entrapment or irritation of the sciatic nerve not just by the piriformis, but by a number of other structures in the deep buttock space, such as fibrous bands, the gemelli-obturator internus muscle group, or hamstring issues. The most common misconception is that all buttock and leg pain is "sciatica" coming from the lumbar spine. For decades, a condition called "Piriformis Syndrome" was used as a catch-all term for this type of pain. While the piriformis muscle can be involved, we now understand the situation is more complex.
-
-The deep gluteal space is a busy anatomical neighborhood. The sciatic nerve must navigate a narrow tunnel surrounded by several deep hip rotator muscles like the piriformis. Irritation of the nerve in this space can cause DGS. This is the central mystery of DGS: buttock and leg pain that mimics a classic "pinched nerve" from the back, but originates from a completely different location - your back may be completely innocent.
-
-The way you move can contribute to DGS. A gait pattern where the knee collapses inwards (valgus) can cause over-activity and eventual tightness of the deep external rotator muscles of the hip (like the piriformis) as they work overtime to try to control the femur. This tightness can contribute to nerve compression. Similarly, weakness in the gluteus medius or maximus can lead to compensatory strategies that overload these deeper muscles.
-
-Living with nerve pain is unsettling. The tingling, burning, and unpredictable nature of the symptoms can create a high level of anxiety and fear. Patients often worry they have a serious spinal condition. Understanding that the nerve is simply "irritated" or "compressed" in the buttock, and not "damaged" in the spine, can significantly reduce fear.`,
-
-    biomechanics: `The deep gluteal space represents an anatomically constrained tunnel through which the sciatic nerve must pass. This space is bounded by the greater sciatic notch superiorly, the ischial tuberosity inferiorly, the hip joint capsule anteriorly, and the gluteus maximus muscle posteriorly. Within this relatively small space, the sciatic nerve travels alongside or through several deep hip rotator muscles including the piriformis, superior and inferior gemelli, obturator internus, and quadratus femoris. Any factor that reduces the available space or increases muscle volume within this tunnel can compress the nerve.
-
-Hip positioning dramatically influences the dimensions of the deep gluteal space. Cadaveric and imaging research demonstrates that hip flexion combined with adduction and internal rotation - a position commonly assumed during sitting - reduces the available space for the sciatic nerve. This explains why prolonged sitting, particularly on hard surfaces or while driving, frequently aggravates symptoms. Each time you sit, particularly in a slouched posture with the hip flexed beyond 90 degrees, you mechanically narrow the tunnel through which your sciatic nerve travels.
-
-The piriformis muscle, which runs from the sacrum to the greater trochanter, exhibits variable anatomy in its relationship to the sciatic nerve. In approximately 85% of individuals, the sciatic nerve exits the pelvis below the piriformis muscle. However, in about 15% of people, the nerve may pass through or above the piriformis, creating an anatomical predisposition to compression. When the piriformis contracts or increases in volume due to hypertrophy, spasm, or inflammation, it can compress the nerve against surrounding bony structures. Piriformis muscle contraction can compress the sciatic nerve against surrounding structures, and sustained compression above the threshold for neural ischemia can impair its blood supply.
-
-Activity-related muscle hypertrophy plays a significant role in deep gluteal syndrome development. Athletes who perform repetitive hip external rotation activities - such as ballet dancers, soccer players, and ice skaters - develop significant piriformis and deep rotator muscle hypertrophy. Repeated demand on the deep external rotators may alter their bulk and tone over time, which can affect the space available for the sciatic nerve. This activity-induced hypertrophy explains why deep gluteal syndrome shows higher prevalence in certain athletic populations.
-
-Sitting mechanics create sustained compression that differentiates deep gluteal syndrome from other causes of sciatic nerve pain. When you sit, your body weight compresses the soft tissues of the buttock between the ischial tuberosity (sitting bone) and the seat surface. This compression can reach pressures sufficient to impede venous return and create a mechanical load on the sciatic nerve. Sitting on hard surfaces generates higher peak pressures over the ischial tuberosity than sitting on cushioned surfaces, which is why cushioning and frequent position changes often ease symptoms.
-
-Compensatory movement patterns contribute to deep gluteal syndrome through mechanisms involving abnormal muscle recruitment. When your gluteus medius or maximus muscles are weak or inhibited, the deeper external rotator muscles must work harder to stabilize the hip during activities like walking and running. This chronic overwork leads to muscle hypertrophy, increased muscle tone, and eventual nerve compression. When the larger gluteal muscles underperform, the deep external rotators tend to work harder to stabilise the hip through stance, increasing their tone and the compressive load they place on the nerve.
-
-Prolonged nerve compression creates a cascade of pathophysiological changes beyond simple mechanical pressure. When compression exceeds 20-30 mmHg, it impedes intraneural blood flow, creating local ischemia. This triggers inflammation within the nerve itself, causing intraneural edema that further reduces the available space within the deep gluteal tunnel - creating a self-perpetuating cycle. On ultrasound, the symptomatic sciatic nerve can appear swollen in the deep gluteal space compared to the contralateral asymptomatic side, reflecting this inflammatory swelling.`,
-
-    clinicalPresentation: {
-      primarySymptoms: [
-        "Deep buttock pain, often described as aching or burning",
-        "Pain radiating down the posterior or lateral thigh",
-        "Numbness or tingling in the leg following sciatic nerve distribution",
-        "Pain worsened by sitting, especially on hard surfaces",
-        "Pain with activities requiring hip external rotation or flexion"
-      ],
-      associatedSymptoms: [
-        "Weakness in the affected leg",
-        "Pain with walking or climbing stairs",
-        "Difficulty finding comfortable sitting position",
-        "Pain may be relieved by standing or changing position",
-        "Symptoms often unilateral",
-        "May have history of hip or buttock trauma"
-      ],
-      typicalPattern: "The patient with Deep Gluteal Syndrome comes in with a story that is often a diagnostic puzzle. They describe a deep, aching, and sometimes burning or tingling pain in the buttock. Unlike simple muscle pain, this discomfort often travels, running down the back of their thigh, occasionally even into the lower leg. The symptoms can be vague and unpredictable. Sitting is a major aggravator, especially on hard surfaces or while driving, as it feels like they are putting pressure directly on a 'hot spot.' They might tell me, 'It feels like sciatica, but my back feels fine.' This is the central mystery of DGS: buttock and leg pain that mimics a classic 'pinched nerve' from the back, but originates from a completely different location."
-    },
-
-    evidenceSnapshot: {
-      primaryStrategy: "Neural mobilization combined with deep muscle release and strengthening achieves symptom resolution in 70-85% of deep gluteal syndrome cases by reducing nerve compression and improving function",
-      secondaryStrategy: "Activity modification and postural correction address contributing factors while gentle sustained stretching reduces tension in the piriformis and deep rotator muscles",
-      preventionStrategy: "Sitting breaks and regular hip mobility reduce the likelihood of deep gluteal irritation in desk workers",
-      sources: "Clinical practice guidelines for piriformis syndrome; peripheral nerve entrapment literature"
-    },
-
-    whatToExpect: {
-      firstVisit: "Working out whether the pain is coming from the spine or the deep gluteal space takes a careful history. Your subjective report provides the first set of clues. I'm listening for details that point away from the lumbar spine. For instance, if the pain is primarily and most intensely felt in the buttock itself, and is made worse by sitting, that raises my suspicion for DGS. I will ask, 'Does coughing or sneezing make the leg pain worse?' A negative answer keeps the focus on the gluteal region. My physical exam is a systematic process of elimination: First, I must clear the lumbar spine - assess range of motion, perform full neurological screen (reflexes, sensation, muscle strength), and use specific tests like Straight Leg Raise and Slump Test. If these are negative, the likelihood of the problem originating in the lumbar spine decreases significantly. Next, I'll examine the hip and pelvis, assess SI joint with provocation tests. Finally, I'll perform specific tests designed to tension or compress the sciatic nerve in the buttock - placing the hip in positions of flexion, adduction, and rotation to see if this reproduces your specific buttock and radiating pain. DGS becomes the leading diagnosis when you have buttock and radiating leg pain, a negative lumbar spine examination, and positive findings on tests that specifically load the deep gluteal space.",
-      earlyPhase: "My approach is to create space and improve mobility. The first priority is reducing compressive forces on the sciatic nerve and improving the health and flexibility of the surrounding muscles. Your first priority is to modify the activities and positions that are compressing the nerve. This means addressing your sitting posture (no wallets in the back pocket!), avoiding prolonged sitting on hard surfaces, and temporarily avoiding deep stretching that pulls the nerve taut. I implement sitting modifications and begin gentle exercises to create space and mobility. While aggressive stretching can be harmful, a gentle, sustained stretch can help to reduce tension in the piriformis and other deep rotator muscles, potentially decreasing the compressive forces on the sciatic nerve.",
-      progression: "I introduce nerve mobility exercises and begin a progressive strengthening program for the larger gluteal muscles. I use 'slider' techniques - not trying to stretch the nerve but gently moving it back and forth through its anatomical tunnel. This can help to improve its mobility, reduce its sensitivity, and promote better physiological health of the nerve itself. I focus on building robust, functional strength to ensure the problem does not return - integrating compound movements that challenge the entire kinetic chain. By improving the function of the larger, more superficial gluteus medius muscle, I can reduce the compensatory over-activity of the deeper muscles (like the piriformis) that may be contributing to the nerve compression."
-    },
-
-    evidenceBasedTreatment: [
-      {
-        approach: "Neural Mobilization",
-        evidence: "Specific neural mobility exercises can reduce nerve tension and improve symptoms",
-        effectivenessLevel: "moderate"
-      },
-      {
-        approach: "Deep Muscle Release",
-        evidence: "Manual therapy targeting piriformis and deep rotators can relieve compression",
-        effectivenessLevel: "moderate"
-      },
-      {
-        approach: "Postural Correction",
-        evidence: "Addressing contributing postural factors reduces symptom recurrence",
-        effectivenessLevel: "moderate"
-      }
-    ],
-
-    prognosis: {
-      timeline: "Conservative management typically trialed for 6-12 weeks, with many patients experiencing improvement",
-      factors: [
-        "Duration of symptoms",
-        "Presence of anatomical variants",
-        "Contributing factors (posture, activities)",
-        "Severity of nerve compression",
-        "Response to conservative treatment"
-      ],
-      naturalHistory: "Generally responds well to conservative management when properly diagnosed. Chronic cases may require more intensive intervention"
-    },
-
-    keyResearch: [
-      {
-        finding: "High diagnostic accuracy with combined clinical tests",
-        detail: "Combination of seated piriformis stretch test with piriformis active test demonstrates sensitivity of 91% and specificity of 80% for endoscopic finding of sciatic nerve entrapment in deep gluteal space, providing reliable clinical diagnosis without imaging",
-        clinicalRelevance: "Supports clinical diagnosis based on physical examination findings rather than requiring expensive imaging for initial assessment and treatment planning"
-      },
-      {
-        finding: "Physiotherapy recommended as first-line treatment",
-        detail: "Clinical guidelines recommend physiotherapy as first-line management following general guidelines on back pain and sciatica, with surgery considered only after failed conservative management in 50% of studies, though limited information details successful conservative management outcomes",
-        clinicalRelevance: "Evidence supports conservative trial for 6-12 weeks before considering surgical options, though more research needed on specific physiotherapy protocols and outcomes"
-      },
-      {
-        finding: "Condition affects 6-17% of secondary care sciatica patients",
-        detail: "Between 6% and 17% of patients with sciatica presenting to secondary care meet diagnostic criteria for deep gluteal syndrome, indicating it represents significant proportion of non-discogenic sciatica cases often overlooked in clinical practice",
-        clinicalRelevance: "Highlights importance of considering deep gluteal syndrome in differential diagnosis for patients with sciatica symptoms who don't demonstrate clear disc pathology on imaging"
-      }
-    ],
-
-    selfManagement: [
-      {
-        strategy: "Avoid Prolonged Sitting",
-        rationale: "Reduces compression on the sciatic nerve in the gluteal region",
-        precautions: ["Take frequent breaks", "Use cushioning", "Vary sitting positions"]
-      },
-      {
-        strategy: "Gentle Neural Stretching",
-        rationale: "Maintains nerve mobility and reduces adhesions",
-        precautions: ["Avoid aggressive stretching", "Stop if symptoms worsen"]
-      }
-    ],
-
-    clinicalRedFlags: [
-      {
-        sign: "Progressive neurological deficit or weakness",
-        action: "Urgent assessment for significant nerve compression"
-      },
-      {
-        sign: "Bilateral symptoms or cauda equina signs",
-        action: "Emergency spinal assessment"
-      },
-      {
-        sign: "Severe, constant pain not responsive to position changes",
-        action: "Investigation for other pathology"
-      }
-    ],
-
-    differentialDiagnosis: [
-      {
-        condition: "Lumbar Radiculopathy",
-        distinguishingFeatures: "Spinal signs, dermatomal distribution, positive straight leg raise"
-      },
-      {
-        condition: "Proximal Hamstring Tendinopathy",
-        distinguishingFeatures: "Localized ischial tuberosity tenderness, sitting pain"
-      },
-      {
-        condition: "Sacroiliac Joint Dysfunction",
-        distinguishingFeatures: "SI joint tenderness, positive SI provocation tests"
-      }
-    ],
-
-    exerciseProgression: {
-      phase1: {
-        title: "Phase 1: Desensitise the Nerve, Offload the Buttock (Weeks 1 to 4)",
-        focus: "The early goal is calming sciatic nerve irritability and the deep rotator muscle tone compressing it. Martin et al. (J Hip Preserv Surg 2015) describe the deep gluteal space as a tunnel whose dimensions are altered by hip position, which is why the earliest wins usually come from sitting and sleep set-up rather than from any one exercise.",
-        examples: [
-          "Sciatic nerve sliders in supine or long-sitting, 10 to 15 slow repetitions, stopping short of any leg symptom reproduction",
-          "Gentle supine figure-4 positional hold at the first sense of stretch, 30 to 45 seconds, only if pain-free",
-          "Clamshell and side-lying hip abduction with a light band, 2 sets of 10 to 12 per side",
-          "Diaphragmatic breathing in hook-lying plus standing and walking breaks every 20 to 30 minutes",
-          "Sitting modifications: firm wedge cushion, offload the sore side, no back-pocket wallet, no cross-legged sitting"
-        ],
-        progressionCriteria: "Leg symptoms stay at or above mid-thigh, sitting for 30 minutes is tolerable, and deep gluteal palpation tenderness has dropped by roughly half."
-      },
-      phase2: {
-        title: "Phase 2: Strengthen the Hip, Progress Nerve Mobility (Weeks 4 to 12)",
-        focus: "Deep gluteal symptoms typically sit on top of gluteus medius and maximus weakness that drives the deeper rotators to compensate. Phase two shares the load across the larger hip muscles and moves nerve work from sliders to gentle tensioners.",
-        examples: [
-          "Glute bridge progressing to single-leg bridge, 3 sets of 8 to 12",
-          "Banded lateral walks and monster walks, 2 to 3 sets of 10 to 12 steps each direction",
-          "Split squat and step-up variations with a level pelvis, 3 sets of 6 to 10 per side",
-          "Short-range sciatic nerve tensioners in supine or slump position, 8 to 10 controlled reps",
-          "Hip hinge progressions: kettlebell deadlift, then single-leg Romanian deadlift"
-        ],
-        progressionCriteria: "Single-leg bridge and step-up without reproducing buttock or leg symptoms, an hour of sitting with a flare under 3 out of 10, and a light walking or cycling programme back in the week."
-      },
-      phase3: {
-        title: "Phase 3: Rebuild Capacity and Recurrence-Proof (Months 3 to 6)",
-        focus: "The final phase restores capacity for running, sport, or demanding work and gives the patient a minimum maintenance dose. Deep gluteal syndrome comes back when hip loading drops off, so the exit plan matters as much as the acute rehab.",
-        examples: [
-          "Loaded hinges (trap-bar or conventional deadlift), 3 to 4 sets of 3 to 6 at working load",
-          "Front squat or rear-foot-elevated split squat at working loads",
-          "Graded walk-run progression on flat terrain before hills or speed",
-          "Low pogo hops progressing to lateral bounds for field-sport athletes",
-          "Twice-weekly hip and trunk maintenance the patient will sustain independently"
-        ],
-        progressionCriteria: "Full return to sport and work demands, independent flare management, and a written weekly plan the patient will actually do."
-      }
-    },
-
-    faqs: [
-      {
-        question: "Is this sciatica from my back?",
-        answer: "Not usually, and that is the point of the diagnosis. Classical sciatica from a lumbar disc reproduces with straight leg raise, slump testing, and often comes with back pain or a clear dermatomal pattern. Deep gluteal syndrome reproduces with direct palpation in the buttock and with positions that load the sciatic nerve in the deep gluteal space. Martin et al. (J Hip Preserv Surg 2015) framed it clearly: this is non-discogenic, extrapelvic sciatic nerve entrapment. Same nerve, different location."
-      },
-      {
-        question: "Why does sitting make it so much worse?",
-        answer: "Sitting compresses the soft tissues of the buttock between the sitting bone and the seat, and hip flexion combined with adduction and internal rotation narrows the deep gluteal space itself. You have to sit badly to feel it, and most people sit exactly that way all day. For flares, I recommend standing breaks every 20 to 30 minutes and a firm wedge cushion that offloads the sore side."
-      },
-      {
-        question: "Should I stretch my piriformis aggressively?",
-        answer: "No. Forcing end-range stretches on an already sensitised nerve often makes symptoms worse the next day. Gentle positional holds that do not reproduce leg symptoms, combined with nerve gliding and glute strengthening, settle this more reliably than repeatedly yanking the knee to the opposite shoulder."
-      },
-      {
-        question: "Do I need an MRI?",
-        answer: "Not for most cases. The diagnosis is clinical and relies on a negative lumbar spine exam combined with specific provocation of the deep gluteal space. MRI is reserved for red flags, failure to progress with conservative care, or when the differential remains unclear. Ultrasound with an experienced operator sometimes adds value for targeted injection planning."
-      },
-      {
-        question: "How long does it take to settle?",
-        answer: "Most cases settle meaningfully over 6 to 12 weeks, though a chronic presentation with deconditioned glutes can take longer. Duration before starting rehab is the biggest predictor of speed. Systematic reviews of surgical management (Kay et al., Arthroscopy 2017) reserve surgery for clearly identified structural entrapment after a fair conservative trial, which most people never need."
-      },
-      {
-        question: "Can I keep running?",
-        answer: "Often yes, at a modified dose, provided running does not reliably flare leg symptoms. Short, flat, easy-paced runs are usually tolerated before long runs, hills, or speed. The flare pattern I see most often is long sitting before or after a run, not the run itself."
-      },
-      {
-        question: "What actually compresses the nerve if it is not always the piriformis?",
-        answer: "The deep gluteal space has several possible culprits: the piriformis in some anatomical variants, fibrous bands, the gemelli-obturator internus group, the hamstring origin, and vascular structures. Hernando et al. (Skeletal Radiology 2015) mapped this thoroughly. Part of the assessment is working out which structure is most likely in your case so the loading plan targets the right one."
-      }
-    ],
-
-    measuringProgress: standardMeasuringProgress,
-    lastReviewed: '2026-04-16',
-    accessAndHours: standardAccessAndHours
-  },
-
   'proximal-hamstring-tendinopathy': {
     pathophysiology: `Proximal hamstring tendinopathy is centered around one specific, exquisitely tender spot: the ischial tuberosity, or the "sitting bone." The pain is a deep, localized ache right in the crease of the buttock where the hamstring muscles originate from a thick, shared tendon. The most common mistake people make is treating this like a simple hamstring muscle strain and aggressively stretching it, which often makes it worse. A tendinopathy at the hamstring's origin is sensitive to both compressive and tensile loads. Aggressive stretching places a high tensile load on the tendon, while sitting on it directly compresses it against the ischial tuberosity. Both actions can perpetuate the pain cycle. The condition is often linked to altered running mechanics, commonly an "over-striding" gait where the foot lands too far in front of the body's center of mass, putting massive braking and tensile load on the hamstring at foot strike.`,
 
@@ -6540,7 +6313,9 @@ The more accurate and comprehensive term is "Deep Gluteal Syndrome" (DGS). This 
 
 This diagnostic evolution is important because treatment approaches differ significantly. Rather than focusing solely on the piriformis muscle, effective management requires a comprehensive assessment of the entire deep gluteal space, movement patterns, and the function of all the muscles that could contribute to nerve compression. The concept of piriformis syndrome as an isolated condition is being replaced by the broader, more accurate understanding of Deep Gluteal Syndrome.`,
 
-    biomechanics: `The biomechanics of what was traditionally called "piriformis syndrome" mirror those of Deep Gluteal Syndrome, with the piriformis muscle being one of several potential compressive structures in the deep gluteal space. The piriformis runs from the sacrum to the greater trochanter and functions primarily as a hip external rotator when the hip is in neutral position. Understanding its anatomical relationship to the sciatic nerve is crucial: in approximately 85% of individuals, the sciatic nerve exits the pelvis beneath the piriformis muscle, while in about 15%, the nerve may pierce through the muscle or exit above it - anatomical variations that predispose certain individuals to nerve compression.
+    biomechanics: `The deep gluteal space represents an anatomically constrained tunnel through which the sciatic nerve must pass. This space is bounded by the greater sciatic notch superiorly, the ischial tuberosity inferiorly, the hip joint capsule anteriorly, and the gluteus maximus muscle posteriorly. Within this relatively small space, the sciatic nerve travels alongside or through several deep hip rotator muscles including the piriformis, superior and inferior gemelli, obturator internus, and quadratus femoris. Any factor that reduces the available space or increases muscle volume within this tunnel can compress the nerve.
+
+The biomechanics of what was traditionally called "piriformis syndrome" mirror those of Deep Gluteal Syndrome, with the piriformis muscle being one of several potential compressive structures in the deep gluteal space. The piriformis runs from the sacrum to the greater trochanter and functions primarily as a hip external rotator when the hip is in neutral position. Understanding its anatomical relationship to the sciatic nerve is crucial: in approximately 85% of individuals, the sciatic nerve exits the pelvis beneath the piriformis muscle, while in about 15%, the nerve may pierce through the muscle or exit above it - anatomical variations that predispose certain individuals to nerve compression.
 
 Hip positioning significantly influences the mechanical load on the piriformis and the available space for the sciatic nerve. When your hip moves into flexion combined with adduction and internal rotation - positions common during sitting, particularly in low chairs or car seats - the piriformis muscle stretches and can compress the sciatic nerve against the bony boundaries of the deep gluteal space. This combined hip position reduces the available space for the sciatic nerve, increasing compression forces on the nerve. This explains why prolonged sitting, especially in vehicles or on low furniture, frequently triggers or exacerbates symptoms.
 
@@ -6567,7 +6342,10 @@ The relationship between pelvic positioning and piriformis length significantly 
         "Difficulty sitting on affected side",
         "Pain with stairs",
         "Hip stiffness",
-        "Low back discomfort"
+        "Low back discomfort",
+        "Aching or burning quality",
+        "Often one side only",
+        "Eases with standing or changing position"
       ],
       typicalPattern: "Deep buttock pain worse with sitting. May mimic sciatica but without back pain."
     },
@@ -6576,13 +6354,13 @@ The relationship between pelvic positioning and piriformis length significantly 
       primaryStrategy: "Graded hip strengthening and gentle nerve mobility work, paired with sitting modifications, resolve symptoms for most patients with deep gluteal or piriformis-driven pain",
       secondaryStrategy: "Activity modification and postural correction reduce irritating factors while neural mobilization techniques improve sciatic nerve mobility",
       preventionStrategy: "Regular hip strengthening and avoiding prolonged sitting can reduce the likelihood of piriformis syndrome in sedentary workers and athletes",
-      sources: "Hopayian et al., Deep gluteal syndrome systematic review (2022); Martin et al., J Hip Preserv Surg (2015)"
+      sources: "Hopayian et al., Deep gluteal syndrome systematic review (2023); Martin et al., J Hip Preserv Surg (2015)"
     },
 
     whatToExpect: {
-      firstVisit: "I'll differentiate from other causes of buttock pain and begin treatment",
-      earlyPhase: "Reduce muscle tension and nerve irritation",
-      progression: "Address underlying hip weakness and movement patterns"
+      firstVisit: "Working out whether the pain is coming from the spine or the deep gluteal space takes a careful history. Your subjective report provides the first set of clues. I'm listening for details that point away from the lumbar spine. For instance, if the pain is primarily and most intensely felt in the buttock itself, and is made worse by sitting, that raises my suspicion for deep gluteal syndrome. I will ask, 'Does coughing or sneezing make the leg pain worse?' A negative answer keeps the focus on the gluteal region. My physical exam is a systematic process of elimination: First, I must clear the lumbar spine - assess range of motion, perform full neurological screen (reflexes, sensation, muscle strength), and use specific tests like Straight Leg Raise and Slump Test. If these are negative, the likelihood of the problem originating in the lumbar spine decreases significantly. Next, I'll examine the hip and pelvis, assess SI joint with provocation tests. Finally, I'll perform specific tests designed to tension or compress the sciatic nerve in the buttock - placing the hip in positions of flexion, adduction, and rotation to see if this reproduces your specific buttock and radiating pain. Deep gluteal syndrome becomes the leading diagnosis when you have buttock and radiating leg pain, a negative lumbar spine examination, and positive findings on tests that specifically load the deep gluteal space.",
+      earlyPhase: "My approach is to create space and improve mobility. The first priority is reducing compressive forces on the sciatic nerve and improving the health and flexibility of the surrounding muscles. Your first priority is to modify the activities and positions that are compressing the nerve. This means addressing your sitting posture, avoiding prolonged sitting on hard surfaces, and temporarily avoiding deep stretching that pulls the nerve taut. A wallet in the back pocket is worth moving. I implement sitting modifications and begin gentle exercises to create space and mobility. While aggressive stretching can be harmful, a gentle, sustained stretch can help to reduce tension in the piriformis and other deep rotator muscles, potentially decreasing the compressive forces on the sciatic nerve.",
+      progression: "I introduce nerve mobility exercises and begin a progressive strengthening program for the larger gluteal muscles. I use 'slider' techniques - not trying to stretch the nerve but gently moving it back and forth through its anatomical tunnel. This can help to improve its mobility, reduce its sensitivity, and promote better physiological health of the nerve itself. I focus on building robust, functional strength to ensure the problem does not return - integrating compound movements that challenge the entire kinetic chain. By improving the function of the larger, more superficial gluteus medius muscle, I can reduce the compensatory over-activity of the deeper muscles (like the piriformis) that may be contributing to the nerve compression."
     },
 
     evidenceBasedTreatment: [
@@ -6625,15 +6403,29 @@ The relationship between pelvic positioning and piriformis length significantly 
     clinicalRedFlags: [
       {
         sign: "Progressive neurological symptoms",
-        action: "Assessment for disc herniation"
+        action: "Urgent assessment for significant nerve compression"
+      },
+      {
+        sign: "Bilateral symptoms or cauda equina signs (saddle numbness, bladder or bowel change)",
+        action: "Emergency spinal assessment"
+      },
+      {
+        sign: "Severe, constant pain not responsive to position changes",
+        action: "Investigation for other pathology"
       }
     ],
 
     keyResearch: [
       {
-        title: "A systematic review of conservative and surgical treatments for deep gluteal syndrome (Hopayian et al., 2022)",
-        year: 2022,
-        findings: "This 2022 systematic review found the overall quality of evidence was low and no single conservative treatment could be recommended over another; the authors advised following general back pain and sciatica guidance, with physiotherapy as first-line care, and reserving surgery for chronic cases",
+        title: "Diagnostic accuracy of clinical tests for sciatic nerve entrapment in the gluteal region (Martin et al., 2014)",
+        year: 2014,
+        findings: "In patients assessed before endoscopic surgery, combining the active piriformis test with the seated piriformis stretch test gave a sensitivity of 0.91 and a specificity of 0.80 for sciatic nerve entrapment in the deep gluteal space (Knee Surgery, Sports Traumatology, Arthroscopy)",
+        relevance: "Supports a clinical diagnosis from the physical examination rather than requiring imaging for the initial assessment and treatment plan"
+      },
+      {
+        title: "A systematic review of conservative and surgical treatments for deep gluteal syndrome (Hopayian et al., 2023)",
+        year: 2023,
+        findings: "This 2023 systematic review found the overall quality of evidence was low and no single conservative treatment could be recommended over another; the authors advised following general back pain and sciatica guidance, with physiotherapy as first-line care, and reserving surgery for chronic cases",
         relevance: "Supports a conservative, physiotherapy-led first-line approach and reinforces realistic expectations given the limited evidence base"
       }
     ],
@@ -6683,6 +6475,14 @@ The relationship between pelvic positioning and piriformis length significantly 
       {
         question: "Do I need a cortisone injection or surgery?",
         answer: "Surgery for deep gluteal syndrome is uncommon and reserved for clearly imaged structural entrapment that has failed sustained conservative care. Image-guided piriformis injections (local anaesthetic plus or minus corticosteroid) are sometimes used when symptoms are severe or diagnosis is unclear, but most people respond well to conservative care without them."
+      },
+      {
+        question: "Do I need an MRI?",
+        answer: "Not for most cases. The diagnosis is clinical and relies on a negative lumbar spine exam combined with specific provocation of the deep gluteal space. MRI is reserved for red flags, failure to progress with conservative care, or when the differential remains unclear. Ultrasound with an experienced operator sometimes adds value for targeted injection planning."
+      },
+      {
+        question: "What actually compresses the nerve if it is not always the piriformis?",
+        answer: "The deep gluteal space has several possible culprits: the piriformis in some anatomical variants, fibrous bands, the gemelli-obturator internus group, the hamstring origin, and vascular structures. Hernando et al. (Skeletal Radiology 2015) mapped this thoroughly. Part of the assessment is working out which structure is most likely in your case so the loading plan targets the right one."
       }
     ],
 
@@ -8410,7 +8210,15 @@ The biceps tendon's intra-articular portion experiences unique mechanical challe
   },
 
   'mcl-lcl-sprains': {
-    pathophysiology: `MCL and LCL sprains involve stretching or tearing of the knee's collateral ligaments. MCL injuries are more common, often from valgus stress. These ligaments provide side-to-side stability.`,
+    pathophysiology: `The MCL (medial collateral ligament) runs down the inner side of the knee, and the LCL (lateral collateral ligament) runs down the outer side. Together they stop the knee bending sideways: the MCL resists the knee being pushed inward, and the LCL resists it being pushed outward.
+
+They are usually injured in different ways. The MCL is one of the most commonly injured parts of the knee (Phisitkul et al., Iowa Orthopaedic Journal, 2006). It is typically sprained by a blow to the outside of the knee or a twist with the foot planted that makes the knee buckle inward, which is common in hockey, soccer, football and skiing. The LCL is injured less often, usually by a force to the inner side of the knee, a hyperextension or a twist, and it is often hurt together with the structures at the back and outer corner of the knee (the posterolateral corner) or a cruciate ligament (Grawe et al., Journal of the American Academy of Orthopaedic Surgeons, 2018).
+
+They also feel different. An MCL sprain hurts along the inner knee, with tenderness over the ligament and swelling that is usually mild and local. An LCL sprain hurts on the outer knee, near the top of the fibula. With either, a higher-grade sprain can make the knee feel loose when it is pushed sideways or when you change direction.
+
+Both are graded I (stretched), II (partly torn) or III (fully torn), but they heal differently. The MCL has a good blood supply and heals well without surgery in most cases, including many complete isolated tears (Indelicato, Journal of Bone and Joint Surgery, 1983). As a guide, isolated MCL sprains take about 2 to 4 weeks to return to sport at grade I, 4 to 8 weeks at grade II and 8 to 12 weeks at grade III. The LCL heals less reliably. Grade II LCL sprains generally do well with rehabilitation, but grade III LCL injuries had poorer long-term results without surgery in follow-up research (Kannus, American Journal of Sports Medicine, 1989), so they usually need a surgical opinion early.
+
+In clinic I test both sides of the knee and the cruciate ligaments, because an outer-knee sprain that turns out to involve the posterolateral corner needs a different plan.`,
 
     biomechanics: `The medial collateral ligament (MCL) serves as the primary restraint against valgus forces that push the knee into a knock-kneed position. This ligament has substantial tensile strength. The superficial MCL provides 57% of the restraining valgus moment at 5 degrees of knee flexion and increases to 78% at 25 degrees, showing that the ligament's contribution varies with knee angle. This angle-dependence explains why MCL injuries often occur with the knee in slight flexion rather than full extension.
 
@@ -8450,7 +8258,7 @@ Contact sports create the highest risk for MCL injuries through direct trauma me
       primaryStrategy: "Most Grade I and II MCL/LCL sprains return to sport with structured conservative care built around early mobilization and progressive strengthening",
       secondaryStrategy: "Functional bracing provides stability during healing phases while allowing controlled movement and preventing joint stiffness",
       preventionStrategy: "Neuromuscular training programs focusing on landing mechanics and knee control can meaningfully reduce collateral ligament injury risk in pivoting sports",
-      sources: "Sports Medicine Knee Guidelines"
+      sources: "Logerstedt et al., JOSPT knee ligament sprain clinical practice guideline (2017)"
     },
 
     whatToExpect: {
@@ -8518,6 +8326,10 @@ Contact sports create the highest risk for MCL injuries through direct trauma me
 
     measuringProgress: standardMeasuringProgress,
     faqs: [
+      {
+        question: "What is the difference between an MCL and an LCL injury?",
+        answer: "The MCL is on the inner side of the knee and is usually sprained when the knee is pushed inward, by a blow to the outside of the knee or a planted-foot twist. The LCL is on the outer side and is usually sprained when the knee is pushed outward or hyperextended. MCL sprains are far more common and usually heal well without surgery, even when complete. LCL injuries are less common, are more often part of a wider injury to the outer corner of the knee, and a complete LCL tear usually needs a surgical opinion."
+      },
       {
         question: "Do I need surgery for a torn MCL?",
         answer: "Usually not. Isolated MCL tears, including complete Grade III injuries, heal well with structured rehabilitation in the large majority of cases. This is one of the few knee ligaments with strong biological healing capacity, and older natural-history work by Indelicato and more recent systematic reviews consistently support non-operative management as the default. Surgery is considered when the MCL is torn in combination with an ACL, PCL, or posterolateral corner injury, when the tibial-sided avulsion fails to heal, or when persistent valgus laxity remains after a full rehabilitation trial."

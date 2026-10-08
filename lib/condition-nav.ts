@@ -159,10 +159,6 @@ export const conditionNav: ConditionNavCategory[] = [
         "name": "Hip Bursitis"
       },
       {
-        "slug": "deep-gluteal-syndrome",
-        "name": "Deep Gluteal Syndrome"
-      },
-      {
         "slug": "proximal-hamstring-tendinopathy",
         "name": "Proximal Hamstring Tendinopathy"
       },

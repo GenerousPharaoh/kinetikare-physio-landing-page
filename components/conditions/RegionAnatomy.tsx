@@ -131,7 +131,6 @@ const CONDITION_PLATES: Record<string, string> = {
   // Hip and pelvis
   'hip-bursitis': 'Trochanteric bursa',
   'piriformis-syndrome': 'Piriformis',
-  'deep-gluteal-syndrome': 'Deep gluteal space',
   'si-joint-dysfunction': 'Sacroiliac joint',
   'groin-strains': 'Adductor origin',
   // Shoulder

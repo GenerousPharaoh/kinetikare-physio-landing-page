@@ -44,6 +44,8 @@ const nextConfig = {
   // Headers for better SEO and performance
   async redirects() {
     return [
+      // Merged into the piriformis page on 2026-10-08 (Google had dropped it as overlapping).
+      { source: '/conditions/deep-gluteal-syndrome', destination: '/conditions/piriformis-syndrome', permanent: true },
     ];
   },
   async headers() {

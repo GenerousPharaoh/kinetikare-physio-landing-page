@@ -85,7 +85,6 @@ const REHAB_PROGRESSION_SLUGS = new Set<string>([
   'femoroacetabular-impingement',
   'hip-labral-tears',
   'hip-bursitis',
-  'deep-gluteal-syndrome',
   'piriformis-syndrome',
   'proximal-hamstring-tendinopathy',
   'groin-strains',

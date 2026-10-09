@@ -74,7 +74,9 @@ function ConditionsPageWithParams({
   comparisons = [],
   children,
 }: ConditionsPageClientProps) {
-  const [activeTab, setActiveTab] = useState(0);
+  // Opens on Knee (tab 4): the regions Kareem promotes are knee, hip and foot,
+  // and Spine & Back led with neck pain and whiplash, which he does not want.
+  const [activeTab, setActiveTab] = useState(4);
   const [searchQuery, setSearchQuery] = useState('');
   // The ?tab= query is read by a tiny child inside its own Suspense boundary
   // (see TabFromQuery) so the rest of this page still renders statically.
@@ -232,9 +234,6 @@ function ConditionsPageWithParams({
       {/* Main Content */}
       <section className="pt-0 pb-12 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Medical Disclaimer */}
-          <MedicalDisclaimer />
-
           {/* Search Bar - matching treatments page style */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -523,6 +522,11 @@ function ConditionsPageWithParams({
               )}
             </div>
           )}
+
+          {/* Medical disclaimer, at the end rather than above the directory */}
+          <div className="mt-12">
+            <MedicalDisclaimer />
+          </div>
         </div>
       </section>
 

@@ -1381,31 +1381,6 @@ export default function ConditionPageClient({
                                       );
                                     })}
                                   </div>
-                                  
-                                  {condition.keyResearch.length < 3 && (
-                                    <div className="mt-6 p-4 bg-amber-50/70 backdrop-blur rounded-xl border border-amber-200">
-                                      <div className="flex items-start gap-3">
-                                        <ExclamationCircleIcon className="h-5 w-5 text-amber-600 mt-0.5 flex-shrink-0" />
-                                        <div>
-                                          <p className="text-sm font-medium text-amber-900 mb-1">Research Database Expanding</p>
-                                          <p className="text-sm text-amber-800">
-                                            Additional peer-reviewed studies are being reviewed and will be added to strengthen the evidence base for this condition.
-                                          </p>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  )}
-                                  
-                                  {/* Evidence Quality Disclaimer */}
-                                  <div className="mt-6 pt-6 border-t border-slate-200">
-                                    <div className="flex items-center gap-2 text-xs text-slate-600">
-                                      <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                      </svg>
-                                      <span className="font-medium">Evidence Quality:</span>
-                                      <span>Studies selected based on methodological rigor and clinical applicability</span>
-                                    </div>
-                                  </div>
                                 </div>
                               </div>
                             </div>
